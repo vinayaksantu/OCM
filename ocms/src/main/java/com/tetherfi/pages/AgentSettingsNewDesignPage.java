@@ -333,7 +333,7 @@ public class AgentSettingsNewDesignPage extends BasePage {
     @FindBy(css = "#drillGrid .k-grouping-header")
     private WebElement dragColumnDestination;
 
-    @FindBy(css="#drillGrid th a[class='k-header-column-menu")
+    @FindBy(css="#drillGrid th a[class='k-header-column-menu']")
     private List<WebElement> headersDropdown;
 
     @FindBy(css="div[style*='overflow: visible'] span[class^='k-link']")

@@ -89,7 +89,7 @@ public class TmacLoginPage extends BasePage {
         waitForLoad(driver);
         waitForJqueryLoad(driver);
         clickOnConfirmSessionTakeOver();
-        return (driver.getWindowHandles().size()==3);
+        return (driver.getWindowHandles().size()==2);
     }
     public String getErrorMessage(){
         waitForJqueryLoad(driver);

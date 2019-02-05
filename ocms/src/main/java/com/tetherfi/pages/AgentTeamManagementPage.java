@@ -5,7 +5,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.tetherfi.model.tmac.AgentTeamMgmtDetails;
 
@@ -69,7 +70,7 @@ public class AgentTeamManagementPage extends BasePage {
 	@FindBy(xpath="//i[@class='fas fa-expand']")
 	private WebElement maximize;
 
-	@FindBy(xpath="//div[@class='ibox float-e-margins fullscreen'")
+	@FindBy(xpath="//div[@class='ibox float-e-margins fullscreen']")
 	private WebElement fullscreen;
 
 	@FindBy(xpath="//i[@class='fas fa-compress']")
@@ -243,7 +244,37 @@ public class AgentTeamManagementPage extends BasePage {
 	
 	@FindBy(xpath="//p[@class='k-reset']")
     private WebElement groupby;
-
+	
+	@FindBy(css="a[aria-label='Go to the first page']")
+    private WebElement firstPageIcon;
+    
+    @FindBy(css="a[aria-label='Go to the previous page']")
+    private WebElement previousPageIcon;
+    
+    @FindBy(css=".k-pager-numbers .k-state-selected")
+    private WebElement pageNumber;
+    //@FindBy(css="a[aria-label='Go to the next page']")
+    //private List<WebElement> nextPageIcon;
+    
+    @FindBy(css="a[aria-label='Go to the last page']")
+    private WebElement lastPageIcon;
+    
+    @FindBy(css=".k-pager-sizes .k-icon")
+    private WebElement pagerDropdown;
+    
+    @FindBy(css=".k-animation-container ul li")
+    private List<WebElement> pageSizeListBox;
+    
+    @FindBy(css="th a[class='k-header-column-menu']")
+    private List<WebElement> headersDropdown;
+    
+    @FindBy(css="div[style*='overflow: visible'] span[class^='k-link']")
+    private List<WebElement> headersColumns;
+    
+    @FindBy(css="th a[class='k-link']")
+    private List<WebElement> headersText;
+    
+    
 
 	public boolean isAgentTeamManagementPageDisplayed() {
 		waitForLoad(driver);
@@ -350,9 +381,19 @@ public class AgentTeamManagementPage extends BasePage {
 
 	public void editAgentTeamManagementRecord(String oldteamname, String newteamname, String reason) {
 		searchAgentTeamManagementRecord(oldteamname);
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		selectWebElement(editButton);
 		selectWebElement(editTeamNameTextBox);
 		enterValueToTxtField(editTeamNameTextBox,newteamname);
+		try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		enterValueToTxtField(editModifyReasonTextBox,reason);
 		selectWebElement(editTeamNameSaveButton);
 	}
@@ -372,6 +413,11 @@ public class AgentTeamManagementPage extends BasePage {
 
 	public void deleteAgentTeamManagementRecord(String oldteamname, String reason) {
 		searchAgentTeamManagementRecord(oldteamname);
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e1) {
+			e1.printStackTrace();
+		}
 		selectWebElement(deleteButton);
 		try {
 			Thread.sleep(3000);
@@ -405,51 +451,6 @@ public class AgentTeamManagementPage extends BasePage {
 			
 	}
 
-	public boolean verifyLevelHierarchybutton() {
-		selectWebElement(headerColumn);
-		moveToElement(coloumnarrow);
-		Boolean Status=LevelHeirarchycheckbox.isSelected();
-		if(Status.equals(levelHierarchy.isDisplayed()))
-		{return true;}
-		else
-			return false;}
-
-	public boolean verifyNamebutton() {
-		selectWebElement(headerColumn);
-		moveToElement(coloumnarrow);
-		Boolean Status=Namecheckbox.isSelected();
-		if(Status.equals(name.isDisplayed()))
-		{return true;}
-		else
-			return false;}
-
-	public boolean verifyDisplayHierarchybutton() {
-		selectWebElement(headerColumn);
-		moveToElement(coloumnarrow);
-		Boolean Status=DisplayHeirarchycheckbox.isSelected();
-		if(Status.equals(displayHierarchy.isDisplayed()))
-			return true;
-		else
-			return false;}
-
-	public boolean verifylastchangedbybutton() {
-		selectWebElement(headerColumn);
-		moveToElement(coloumnarrow);
-		Boolean Status=LastChangedBycheckbox.isSelected();
-		if(Status.equals(lastchangedby.isDisplayed()))
-			return true;
-		else
-			return false;}
-
-	public boolean verifylastchangedonbutton() {
-		selectWebElement(headerColumn);
-		moveToElement(coloumnarrow);
-		Boolean Status=LastChangedOncheckbox.isSelected();
-		if(Status.equals(lastchangedon.isDisplayed()))
-			return true;
-		else
-			return false;
-	}
 
 	public boolean maximizewindow() {
 		selectWebElement(maximize);
@@ -533,8 +534,6 @@ public class AgentTeamManagementPage extends BasePage {
 
 	public void duplicateRecord(String Level,String Country,String Division,String Department,String Teamname) {
 		addNewAgentTeamManagementRecord(Level,Country,Division,Department,Teamname);
-		selectWebElement(addcancel);
-
 	}
 
 	public boolean clearAll(AgentTeamMgmtDetails details) throws Exception {
@@ -588,51 +587,12 @@ public class AgentTeamManagementPage extends BasePage {
 		else
 			return false;
 	}
-	public boolean verifyTeamIdenable() {
-		selectWebElement(headerColumn);
-		moveToElement(coloumnarrow);
-		if(!TeamIdcheckbox.isSelected())
-			selectCheckbox(TeamIdcheckbox);
-		if(teamId.isDisplayed())
-			return true;
-		else
-			return false;
-	}
-	public boolean verifyTeamIddisable() {
-		selectWebElement(headerColumn);
-		moveToElement(coloumnarrow);
-		if(TeamIdcheckbox.isSelected())
-			selectCheckbox(TeamIdcheckbox);
-		if(teamId.isDisplayed())
-			return false;
-		else
-			return true;
-	}
-	public boolean verifyParentIdenable() {
-		selectWebElement(headerColumn);
-		moveToElement(coloumnarrow);
-		if(!ParentIdcheckbox.isSelected())
-			selectCheckbox(ParentIdcheckbox);
-		if(parentId.isDisplayed())
-			return true;
-		else
-			return false;
-	}
-	public boolean verifyParentIddisable() {
-		selectWebElement(headerColumn);
-		moveToElement(coloumnarrow);
-		if(ParentIdcheckbox.isSelected())
-			selectCheckbox(ParentIdcheckbox);
-		if(parentId.isDisplayed())
-			return false;
-		else
-			return true;
-	}
+	
 
 	public boolean verifyDatabase(String query) {
 		List<Map<String,String>> database=database(query);
 		System.out.println(database);	
-		selectWebElement(levelHierarchy);
+		selectWebElement(lastchangedon);
 		List<Map<String,String>> UI=gettable(); 
 		System.out.println(UI);
 		if(UI.equals(database))
@@ -705,6 +665,12 @@ public class AgentTeamManagementPage extends BasePage {
 	public boolean verifyExportToExcel(String filepath) {
 		selectWebElement(exporttoexcel);
 		waitForJqueryLoad(driver);
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		Boolean Status=verifyExportPageFileDownload(filepath, "Agent Team Management");
 		return Status;
 	}
@@ -728,6 +694,280 @@ public class AgentTeamManagementPage extends BasePage {
 		else
 			return false;		
 	}
+	public boolean verifyArrowMoveForPreviousAndNextPage(){
+        boolean status=false;
+        if(!nextPageIcon.getAttribute("class").contains("k-state-disabled")){
+        int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber));
+        selectWebElement(nextPageIcon);
+        int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
+        selectWebElement(previousPageIcon);
+        int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
+        if(nextnumber==(pagenumber+1) && pagenumber==previousnumber){status=true;}
+        }else{
+            System.out.println("previous and next page icon disabled");status=true;
+        }
+        return status;
+	}
+	public boolean verifyArrowMoveForFirstAndLastPage(){
+        boolean status=false;
+        if(!lastPageIcon.getAttribute("class").contains("k-state-disabled")){
+            int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber));
+            selectWebElement(lastPageIcon);
+            int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
+            selectWebElement(firstPageIcon);
+            int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
+            if(nextnumber>pagenumber && pagenumber==previousnumber){status=true;}
+        }else{
+            System.out.println("previous and next page icon disabled");status=true;
+        }
+        return status;
+    }
+	public boolean verifyNumberOfItemsPerPage() {
+        boolean status = false;
+        try {
+          //  if (norecords.size() <= 0) {
+                int item = Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
+                selectWebElement(pagerDropdown);
+                Thread.sleep(1500);
+                for (int i = 0; i < pageSizeListBox.size(); i++) {
+                    if(Integer.valueOf(pageSizeListBox.get(i).getText())>item){continue;}
+                    selectDropdownFromVisibleText(pageSizeListBox, pageSizeListBox.get(i).getText());
+                    waitForJqueryLoad(driver);
+                    int totalItems = Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
+                    int pagersize = Integer.valueOf(pagerSize.getText());
+                    int pages = (totalItems % pagersize == 0) ? item / pagersize : item / pagersize+1;
+                    int totalRows=(gridContent.findElements(By.tagName("tr")).size());
+                    selectWebElement(lastPageIcon);
+                    waitForJqueryLoad(driver);
+                    int lastPageNumber = Integer.valueOf(pageNumber.getText());
+                    if (item == totalItems && pages == lastPageNumber&&totalRows==pagersize) {
+                        status = true;
+                    } else {System.out.println(items+":"+totalItems+"\t"+pages+":"+lastPageNumber+"\t"+totalRows+":"+pagersize);
+                        status = false;
+                        break;
+                    }selectWebElement(pagerDropdown);Thread.sleep(1500);
+                }
+           // }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } return status;
+    }
+    public boolean verifyTotalNumberOfItemsPerPageDetails(){
+        String item = items.getText();
+        return item.matches("(\\d.*) - (\\d.*) of (\\d.*) items");
+    }
+    
+    public boolean verifyDropDownOfAllHeaders() {
+        boolean status = false;
+        try {for (WebElement ele : headersDropdown) {
+            scrollToElement(ele);
+            status = false;
+            if (!ele.isDisplayed()) {
+                continue;
+            } else {
+                selectWebElement(ele);
+                    Thread.sleep(1000);
+                if (headersColumns.get(0).getText().equals("Sort Ascending")) {
+                    if (headersColumns.get(1).getText().equals("Sort Descending")) {
+                        if (headersColumns.get(2).getText().equals("Columns")) {
+                            status = true;selectWebElement(ele);
+                        }
+                    }
+                }
+                if (status) {
+                } else {
+                    break;
+                }
+            }
+        }} catch (Exception e) {
+            e.printStackTrace();
+        }
+        return status;
+    }
+    public boolean verifycolumnsHeaderDisabled() {
+        boolean status = false;
+        WebElement ele = headersDropdown.get(1);
+            if (ele.isDisplayed()) {
+                try {
+                    selectWebElement(ele);
+                    Thread.sleep(1000);
+                    selectWebElement(headersColumns.get(2));
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                for (int i =3; i < headersColumns.size(); i++) {
+                    System.out.println(headersColumns.get(i).getText());
+                    WebElement checkbox = headersColumns.get(i).findElement(By.tagName("input"));
+                    if (checkbox.isSelected()) {
+                        checkbox.click();
+                    } else {
+                    }
+                    for (WebElement ele1 : headersText) {
+                        if (ele1.getText().equals(headersColumns.get(i).getText())) {
+                            status = true;
+                            break;
+                        }
+                    }
+                    if (!status) {
+                        checkbox.click();
+                    } else {
+                        break;
+                    }
+                }
 
-
+            }
+        return status;
+    }
+    public boolean verifycolumnsHeaderEnabled(){
+        boolean status=false;
+        WebElement ele= headersDropdown.get(1);
+            if(ele.isDisplayed()){
+                try {
+                    selectWebElement(ele);
+                    Thread.sleep(1000);
+                    selectWebElement(headersColumns.get(2));
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                for (int i = 3; i <headersColumns.size(); i++) {
+                    WebElement checkbox = headersColumns.get(i).findElement(By.tagName("input"));
+                    checkbox.click();
+                    if (checkbox.isSelected()) {
+                    } else {
+                        checkbox.click();
+                    }
+                    for (WebElement ele1 : headersText) {
+                        if (ele1.getText().equals(headersColumns.get(i).getText())) {
+                            status = true;
+                            break;
+                        }
+                    }
+                    if (status) {
+                    } else {
+                        break;
+                    }
+                }
+            }
+        return status;
+    }
+	public boolean VerifyAccesss() {
+		Boolean Status=false;
+		try {
+			waitforElementIsClickable(addNewAgentTeamMgmtRcrdBtn);
+		}
+		catch(Exception e) {
+			try{
+				waitforElementIsClickable(editButton);
+			}
+			catch(Exception e3){
+				try {
+					waitforElementIsClickable(deleteButton);
+				e3.printStackTrace();
+				}
+				catch(Exception e2){
+					try {
+						waitforElementIsClickable(exporttoexcel);
+					e2.printStackTrace();
+					}
+					catch(Exception e1){
+					Status=true;
+					e1.printStackTrace();
+					}
+				}
+			}
+        }
+		return Status;
+	}	
+	private void waitforElementIsClickable(WebElement ele){
+		WebDriverWait wait = new WebDriverWait(driver, 5);
+		wait.until(ExpectedConditions.elementToBeClickable(ele));	
+	}
+	public boolean verifyAddAccesss() {
+		Boolean Status=false;
+		try {
+			waitforElementIsClickable(addNewAgentTeamMgmtRcrdBtn);
+			waitforElementIsClickable(editButton);
+		}
+		catch(Exception e){
+			try {
+			waitforElementIsClickable(deleteButton);
+			}
+			catch(Exception e1){
+				try {
+					waitforElementIsClickable(exporttoexcel);
+				}
+				catch(Exception e2){
+					Status=true;
+					e2.printStackTrace();
+				}
+			}
+		}
+		return Status;
+	}
+	public boolean verifyEditAccesss() {
+		Boolean Status=false;
+		try {
+			waitforElementIsClickable(editButton);
+			waitforElementIsClickable(deleteButton);
+		}
+		catch(Exception e) {
+			try {
+				waitforElementIsClickable(exporttoexcel);
+			}
+			catch(Exception e1) {
+				try {
+					waitforElementIsClickable(addNewAgentTeamMgmtRcrdBtn);
+				}
+				catch(Exception e2) {
+					Status=true;
+				}
+			}
+		}
+		return Status;
+	}
+	
+	public boolean verifyDeleteAccesss() {
+		Boolean Status=false;
+		try {
+			waitforElementIsClickable(deleteButton);	
+			waitforElementIsClickable(editButton);
+		}
+		catch(Exception e) {
+			try {
+				waitforElementIsClickable(exporttoexcel);
+			}
+			catch(Exception e1) {
+				try {
+					waitforElementIsClickable(addNewAgentTeamMgmtRcrdBtn);
+				}
+				catch(Exception e2) {
+					Status=true;
+				}
+			}
+		}
+		return Status;
+	}
+	public boolean verifyExportAccesss() {
+		Boolean Status=false;
+		try {
+			waitforElementIsClickable(exporttoexcel);	
+			waitforElementIsClickable(editButton);
+		}
+		catch(Exception e) {
+			try {
+				waitforElementIsClickable(deleteButton);
+			}
+			catch(Exception e1) {
+				try {
+					waitforElementIsClickable(addNewAgentTeamMgmtRcrdBtn);
+				}
+				catch(Exception e2) {
+					Status=true;
+				}
+			}
+		}
+		return Status;
+	}
 }

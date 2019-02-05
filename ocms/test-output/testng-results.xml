@@ -1,123 +1,105 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2019-01-25T12:21:27Z" name="Default suite" finished-at="2019-01-25T12:23:33Z" duration-ms="126818">
+  <suite started-at="2019-02-05T06:28:33Z" name="Default suite" finished-at="2019-02-05T06:29:17Z" duration-ms="43325">
     <groups>
     </groups>
-    <test started-at="2019-01-25T12:21:27Z" name="Default test" finished-at="2019-01-25T12:23:33Z" duration-ms="126818">
-      <class name="com.tetherfi.test.tmac.TmacBroadCastMsgE2E">
-        <test-method is-config="true" signature="openApplication()[pri:0, instance:com.tetherfi.test.tmac.TmacBroadCastMsgE2E@38cedb7d]" started-at="2019-01-25T17:51:27Z" name="openApplication" finished-at="2019-01-25T17:51:36Z" duration-ms="9545" status="PASS">
+    <test started-at="2019-02-05T06:28:33Z" name="Default test" finished-at="2019-02-05T06:29:17Z" duration-ms="43325">
+      <class name="com.tetherfi.test.UserManagementTest">
+        <test-method is-config="true" signature="openApplication()[pri:0, instance:com.tetherfi.test.UserManagementTest@34c70b5e]" started-at="2019-02-05T11:58:33Z" name="openApplication" finished-at="2019-02-05T11:58:45Z" duration-ms="11850" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- openApplication -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.TmacBroadCastMsgE2E@38cedb7d]" started-at="2019-01-25T17:51:36Z" name="startTestCase" finished-at="2019-01-25T17:51:36Z" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserManagementTest@34c70b5e]" started-at="2019-02-05T11:58:45Z" name="startTestCase" finished-at="2019-02-05T11:58:45Z" duration-ms="2" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.tmac.TmacBroadCastMsgE2E.addTmacBroadcastMessage() throws java.io.IOException]]>
+                <![CDATA[public void com.tetherfi.test.UserManagementTest.EditUserManagementRecord() throws java.io.IOException]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigateToTmacBroadcastMsgPage()[pri:0, instance:com.tetherfi.test.tmac.TmacBroadCastMsgE2E@38cedb7d]" started-at="2019-01-25T17:51:36Z" name="NavigateToTmacBroadcastMsgPage" finished-at="2019-01-25T17:51:41Z" duration-ms="4800" status="PASS">
+        <test-method is-config="true" signature="NavigateToUserManagementPage()[pri:0, instance:com.tetherfi.test.UserManagementTest@34c70b5e]" started-at="2019-02-05T11:58:45Z" name="NavigateToUserManagementPage" finished-at="2019-02-05T11:58:50Z" duration-ms="4361" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- NavigateToTmacBroadcastMsgPage -->
-        <test-method signature="addTmacBroadcastMessage()[pri:1, instance:com.tetherfi.test.tmac.TmacBroadCastMsgE2E@38cedb7d]" started-at="2019-01-25T17:51:41Z" name="addTmacBroadcastMessage" finished-at="2019-01-25T17:52:04Z" duration-ms="23044" status="PASS">
+        </test-method> <!-- NavigateToUserManagementPage -->
+        <test-method signature="EditUserManagementRecord()[pri:4, instance:com.tetherfi.test.UserManagementTest@34c70b5e]" started-at="2019-02-05T11:58:50Z" name="EditUserManagementRecord" finished-at="2019-02-05T11:59:14Z" duration-ms="24251" status="FAIL">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Edit record assertion failed expected [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Edit record assertion failed expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:93)
+	at org.testng.Assert.failNotEquals(Assert.java:512)
+	at org.testng.Assert.assertTrue(Assert.java:41)
+	at com.tetherfi.test.UserManagementTest.EditUserManagementRecord(UserManagementTest.java:89)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- addTmacBroadcastMessage -->
-        <test-method is-config="true" signature="aftereachmethod()[pri:0, instance:com.tetherfi.test.tmac.TmacBroadCastMsgE2E@38cedb7d]" started-at="2019-01-25T17:52:04Z" name="aftereachmethod" finished-at="2019-01-25T17:52:11Z" duration-ms="7510" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- aftereachmethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.TmacBroadCastMsgE2E@38cedb7d]" started-at="2019-01-25T17:52:11Z" name="endTestCase" finished-at="2019-01-25T17:52:11Z" duration-ms="1" status="PASS">
+        </test-method> <!-- EditUserManagementRecord -->
+        <test-method is-config="true" signature="afterEachMethod(org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserManagementTest@34c70b5e]" started-at="2019-02-05T11:59:14Z" name="afterEachMethod" finished-at="2019-02-05T11:59:15Z" duration-ms="1385" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.tmac.TmacBroadCastMsgE2E.addTmacBroadcastMessage() throws java.io.IOException]]>
+                <![CDATA[[TestResult name=EditUserManagementRecord status=FAILURE method=UserManagementTest.EditUserManagementRecord()[pri:4, instance:com.tetherfi.test.UserManagementTest@34c70b5e] output={null}]]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[public void com.tetherfi.test.UserManagementTest.EditUserManagementRecord() throws java.io.IOException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserManagementTest@34c70b5e]" started-at="2019-02-05T11:59:15Z" name="endTestCase" finished-at="2019-02-05T11:59:15Z" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.UserManagementTest.EditUserManagementRecord() throws java.io.IOException]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.TmacBroadCastMsgE2E@38cedb7d]" started-at="2019-01-25T17:52:11Z" name="startTestCase" finished-at="2019-01-25T17:52:11Z" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.tmac.TmacBroadCastMsgE2E.editTmacBroadcastMessage() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigateToTmacBroadcastMsgPage()[pri:0, instance:com.tetherfi.test.tmac.TmacBroadCastMsgE2E@38cedb7d]" started-at="2019-01-25T17:52:11Z" name="NavigateToTmacBroadcastMsgPage" finished-at="2019-01-25T17:52:16Z" duration-ms="4515" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToTmacBroadcastMsgPage -->
-        <test-method signature="editTmacBroadcastMessage()[pri:2, instance:com.tetherfi.test.tmac.TmacBroadCastMsgE2E@38cedb7d]" started-at="2019-01-25T17:52:16Z" name="editTmacBroadcastMessage" finished-at="2019-01-25T17:52:41Z" duration-ms="24527" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- editTmacBroadcastMessage -->
-        <test-method is-config="true" signature="aftereachmethod()[pri:0, instance:com.tetherfi.test.tmac.TmacBroadCastMsgE2E@38cedb7d]" started-at="2019-01-25T17:52:41Z" name="aftereachmethod" finished-at="2019-01-25T17:52:50Z" duration-ms="9474" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- aftereachmethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.TmacBroadCastMsgE2E@38cedb7d]" started-at="2019-01-25T17:52:50Z" name="endTestCase" finished-at="2019-01-25T17:52:50Z" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.tmac.TmacBroadCastMsgE2E.editTmacBroadcastMessage() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.TmacBroadCastMsgE2E@38cedb7d]" started-at="2019-01-25T17:52:50Z" name="startTestCase" finished-at="2019-01-25T17:52:50Z" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.tmac.TmacBroadCastMsgE2E.disabledStatus() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigateToTmacBroadcastMsgPage()[pri:0, instance:com.tetherfi.test.tmac.TmacBroadCastMsgE2E@38cedb7d]" started-at="2019-01-25T17:52:50Z" name="NavigateToTmacBroadcastMsgPage" finished-at="2019-01-25T17:52:55Z" duration-ms="4521" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToTmacBroadcastMsgPage -->
-        <test-method signature="disabledStatus()[pri:3, instance:com.tetherfi.test.tmac.TmacBroadCastMsgE2E@38cedb7d]" started-at="2019-01-25T17:52:55Z" name="disabledStatus" finished-at="2019-01-25T17:53:20Z" duration-ms="25879" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- disabledStatus -->
-        <test-method is-config="true" signature="aftereachmethod()[pri:0, instance:com.tetherfi.test.tmac.TmacBroadCastMsgE2E@38cedb7d]" started-at="2019-01-25T17:53:20Z" name="aftereachmethod" finished-at="2019-01-25T17:53:30Z" duration-ms="9227" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- aftereachmethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.TmacBroadCastMsgE2E@38cedb7d]" started-at="2019-01-25T17:53:30Z" name="endTestCase" finished-at="2019-01-25T17:53:30Z" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.tmac.TmacBroadCastMsgE2E.disabledStatus() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.tetherfi.test.tmac.TmacBroadCastMsgE2E@38cedb7d]" started-at="2019-01-25T17:53:30Z" name="tearDown" finished-at="2019-01-25T17:53:33Z" duration-ms="3704" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.tetherfi.test.UserManagementTest@34c70b5e]" started-at="2019-02-05T11:59:15Z" name="tearDown" finished-at="2019-02-05T11:59:17Z" duration-ms="1418" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.tetherfi.test.tmac.TmacBroadCastMsgE2E -->
+      </class> <!-- com.tetherfi.test.UserManagementTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

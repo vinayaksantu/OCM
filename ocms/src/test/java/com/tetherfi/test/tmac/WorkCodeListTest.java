@@ -1,6 +1,7 @@
 package com.tetherfi.test.tmac;
 
 import java.io.IOException;
+import java.lang.reflect.Method;
 import java.util.List;
 import java.util.Map;
 
@@ -12,12 +13,13 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import com.tetherfi.model.tmac.AgentTeamMgmtDetails;
+
 import com.tetherfi.model.tmac.WorkCodeListDetails;
+import com.tetherfi.pages.AgentSettingsNewDesignPage;
 import com.tetherfi.pages.AgentTeamManagementPage;
 import com.tetherfi.pages.HomePage;
 import com.tetherfi.pages.OCMHomePage;
-import com.tetherfi.pages.TmacBroadCastMsgPage;
+
 import com.tetherfi.pages.TmacPage;
 import com.tetherfi.pages.WorkCodeListPage;
 import com.tetherfi.test.BaseTest;
@@ -62,28 +64,19 @@ public class WorkCodeListTest extends BaseTest{
         Assert.assertTrue(workCodeListPage.isWorkCodeListPageDisplayed(), "WorkCodeList page assertion failed");
         screenshot.captureScreen(driver, "WorkCodeList Page","WorkCodeListTest");
     }
-    //@Test(priority=1)
+    @Test(priority=1)
     public void WorkCodeListPage()
     {
         WorkCodeListPage workCodeListPage  = PageFactory.createPageInstance(driver, WorkCodeListPage.class);
     	Assert.assertTrue(workCodeListPage.verifylogo(),"Tmac Broadcast Message logo assertion failed");
-        Assert.assertTrue(workCodeListPage.verifyWorkLevelLabel(), "WorkLevel Label assertion failed");
-        Assert.assertTrue(workCodeListPage.verifyNameLabel(), "Name Label assertion failed");
-        Assert.assertTrue(workCodeListPage.verifyParentLabel(), "ParentLabel assertion failed");
-        Assert.assertTrue(workCodeListPage.verifyLastChangedByLabel(),"lastchangedby assertion failed");
-        Assert.assertTrue(workCodeListPage.verifyLastChangedOnLabel(),"LastChangedOn assertion failed");
         Assert.assertTrue(workCodeListPage.verifygridcontent(),"grid container assertion failed");
-        Assert.assertTrue(workCodeListPage.verifyTeamIDLabelenable(), "TeamId enable assertion failed");
-        Assert.assertTrue(workCodeListPage.verifyTeamIDLabeldisable(),"TeamId disable assertion failed");
-        Assert.assertTrue(workCodeListPage.verifyWorkCodeLabelenable(), "WorkCodeLabel enable assertion failed");
-        Assert.assertTrue(workCodeListPage.verifyWorkCodeLabeldisable(),"WorkCodeLabel disable assertion failed");
     	Assert.assertTrue(workCodeListPage.maximizewindow(),"Fullscreen Assertion Failed"); 
     	screenshot.captureScreen(driver, "maximize window","WorkCodeListTest");
     	Assert.assertTrue(workCodeListPage.minimizewindow(), "Restored Assertion Failed");
     	screenshot.captureScreen(driver, "minimize window","WorkCodeListTest");
     }
     
-    //@Test(priority=2)
+    @Test(priority=2)
     public void addNewWorkcodeListRecord() throws Exception
     {
         WorkCodeListPage workCodeListPage  = PageFactory.createPageInstance(driver, WorkCodeListPage.class);
@@ -109,7 +102,7 @@ public class WorkCodeListTest extends BaseTest{
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\WorkCodeListData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(1);
         WorkCodeListDetails workcodeListDetails=new WorkCodeListDetails (map);	
-       /* workCodeListPage.addRecordWithoutWorklevel(workcodeListDetails);
+        workCodeListPage.addRecordWithoutWorklevel(workcodeListDetails);
         Assert.assertFalse(workCodeListPage.verifymessage(),"AddRecordWithoutWorklevel Assertion failed");
         screenshot.captureScreen(driver, "addRecordWithoutWorklevel","WorkCodeListTest");
         workCodeListPage.addRecordWithoutWorkGroup(workcodeListDetails);
@@ -117,7 +110,7 @@ public class WorkCodeListTest extends BaseTest{
         screenshot.captureScreen(driver, "AddRecordWithoutWorkGroup","WorkCodeListTest");
         workCodeListPage.addRecordWithoutName(workcodeListDetails);
         Assert.assertFalse(workCodeListPage.verifymessage(),"AddRecordWithoutName Assertion failed");
-        screenshot.captureScreen(driver, "AddRecordWithoutName","WorkCodeListTest");*/
+        screenshot.captureScreen(driver, "AddRecordWithoutName","WorkCodeListTest");
         workCodeListPage.duplicateRecord(workcodeListDetails);
         Assert.assertFalse(workCodeListPage.verifymessage(),"DuplicateRecord Assertion failed");
         screenshot.captureScreen(driver, "Duplicate Record","WorkCodeListTest");	
@@ -200,7 +193,7 @@ public class WorkCodeListTest extends BaseTest{
     	
     }
     
-    //@Test(priority=11)
+    @Test(priority=11)
     public void database() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\WorkCodeListData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(0);
@@ -213,15 +206,58 @@ public class WorkCodeListTest extends BaseTest{
     {
     	WorkCodeListPage workCodeListPage  = PageFactory.createPageInstance(driver, WorkCodeListPage.class);
     	Assert.assertTrue(workCodeListPage.groupby());
-    	
+    	screenshot.captureScreen(driver, "GroupBy", "WorkCodeListTest");
+    	Assert.assertTrue(workCodeListPage.groupby());
+    	screenshot.captureScreen(driver, "AlreadyGroupBy", "WorkCodeListTest");	
+    }
+    @Test(priority=13)
+    public void VerifyArrowMoveForPreviousAndNextPage() {
+    	WorkCodeListPage workCodeListPage  = PageFactory.createPageInstance(driver, WorkCodeListPage.class);
+    	Assert.assertTrue(workCodeListPage.verifyArrowMoveForPreviousAndNextPage(),"arrow move for previous and next page assertion failed");
+    	screenshot.captureScreen(driver, "VerifyArrowMoveForPreviousAndNextPage", "WorkCodeListTest");	
+    }
+    @Test(priority=14)
+    public void VerifyArrowMoveForFirstAndLastPage() {
+    	WorkCodeListPage workCodeListPage  = PageFactory.createPageInstance(driver, WorkCodeListPage.class);
+        Assert.assertTrue(workCodeListPage.verifyArrowMoveForFirstAndLastPage(),"arrow move for first and last page assertion failed");
+    	screenshot.captureScreen(driver, "VerifyArrowMoveForFirstAndLastPage", "WorkCodeListTest");	
+
+    }
+    @Test(priority=15)
+    public void VerifyTotalNumberOfItemsPerPageDetails() {
+    	WorkCodeListPage workCodeListPage  = PageFactory.createPageInstance(driver, WorkCodeListPage.class);
+        Assert.assertTrue(workCodeListPage.verifyTotalNumberOfItemsPerPageDetails(),"item per page assertion failed");
+    	screenshot.captureScreen(driver, "VerifyTotalNumberOfItemsPerPageDetails", "WorkCodeListTest");	
     }
     
-    
-    @AfterMethod
-    public void afterEachMethod(ITestResult result){
+    @Test(priority=16)
+    public void VerifyNumberOfItemsPerPageSelection() {
+    	WorkCodeListPage workCodeListPage  = PageFactory.createPageInstance(driver, WorkCodeListPage.class);
+        Assert.assertTrue(workCodeListPage.verifyNumberOfItemsPerPage(),"item per page assertion failed");
+        screenshot.captureScreen(driver, "VerifyNumberOfItemsPerPageSelection","WorkCodeListTest");
+
+    }
+    @Test(priority=17)
+    public void VerifyDropdownForAllTheColumns() {
+    	WorkCodeListPage workCodeListPage  = PageFactory.createPageInstance(driver, WorkCodeListPage.class);
+        Assert.assertTrue(workCodeListPage.verifyDropDownOfAllHeaders(), "Columns dropdown assertion failed");
+    }
+    @Test(priority=18)
+    public void VerifyColumnsHeaderEnable() {
+    	WorkCodeListPage workCodeListPage  = PageFactory.createPageInstance(driver, WorkCodeListPage.class);
+        Assert.assertTrue(workCodeListPage.verifycolumnsHeaderEnabled(),"columns enabled assertion failed");
+    }
+    @Test(priority=19)
+    public void VerifyColumnsHeaderDisable() {
+    	WorkCodeListPage workCodeListPage  = PageFactory.createPageInstance(driver, WorkCodeListPage.class);
+        Assert.assertFalse(workCodeListPage.verifycolumnsHeaderDisabled(),"columns disabled assertion failed");
+    }
+   
+        @AfterMethod
+    public void afterEachMethod(ITestResult result,Method method){
    	 if(ITestResult.FAILURE==result.getStatus()){
    		 try{
-   			 screenshot.captureScreen(driver, "failed","TmacBroadCastMsgTest");
+   			 screenshot.captureScreen(driver, method.getName(),"TmacBroadCastMsgTest");
    		 }
    		catch (Exception e){
    		 System.out.println("Exception while taking screenshot "+e.getMessage());
