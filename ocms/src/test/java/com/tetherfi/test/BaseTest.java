@@ -11,6 +11,7 @@ import org.testng.annotations.*;
 
 import java.lang.reflect.Method;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
     protected WebDriver driver;
@@ -36,6 +37,7 @@ public class BaseTest {
             driver.close();
             e.printStackTrace();
         }
+        //driver.manage().timeouts().implicitlyWait(40,TimeUnit.SECONDS);
     }
     @BeforeMethod
         public void startTestCase(Method method){

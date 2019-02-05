@@ -14,6 +14,7 @@ public class WorkCodeListDetails {
     private String updatedName;
     private String modifyReason;
     private String deleteReason;
+    private String query;
 
 	public WorkCodeListDetails(Map<String, String> map) {
 		teamName=readTeamName(map);
@@ -27,7 +28,13 @@ public class WorkCodeListDetails {
         modifyReason=readModifyReason(map);
         deleteReason=readDeleteReason(map);
         name=readName(map);
+        query=readquery(map);
        
+	}
+
+	private String readquery(Map<String, String> map) {
+		String value=map.get("Query");
+		return value;
 	}
 
 	private String readupdatedName(Map<String, String> map) {
@@ -129,9 +136,8 @@ public class WorkCodeListDetails {
 		return deleteReason;
 	}
 
-	public Object getQuery() {
-		// TODO Auto-generated method stub
-		return null;
+	public String getQuery() {
+		return query;
 	}
 
 }

@@ -13,6 +13,7 @@ public class WaitTimeColorConfigDetails {
     private String modifyReason;
     private  String deleteReason;
     private String query;
+    private String updatedStartTime;
 
     public WaitTimeColorConfigDetails(Map<String,String> map){
         startTime=readStarttime(map);
@@ -21,10 +22,16 @@ public class WaitTimeColorConfigDetails {
         modifyReason=readModifyReason(map);
         deleteReason=readDeleteReason(map);
         updatedColorCode=readUpdatedColorCode(map);
+        updatedStartTime=readUpdatedStartTime(map);
         query=readQuery(map);
     }
 
-    private String readQuery(Map<String, String> map) {
+    private String readUpdatedStartTime(Map<String, String> map) {
+    	String value=map.get("Updated Start Time");
+		return value;
+	}
+
+	private String readQuery(Map<String, String> map) {
 		String value=map.get("Query");
 		return value;
 	}
@@ -101,5 +108,9 @@ public class WaitTimeColorConfigDetails {
 
 	public String getQuery() {
 		return query;
+	}
+
+	public String getUpdatedStartTime() {
+		return updatedStartTime;
 	}
 }

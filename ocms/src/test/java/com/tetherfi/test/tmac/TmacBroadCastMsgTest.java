@@ -16,7 +16,7 @@ import java.util.Map;
 
 public class TmacBroadCastMsgTest extends BaseTest {
 	Screenshot screenshot=new Screenshot();
-    @BeforeClass
+    //@BeforeClass
     public void AddNewAgentTeamManagementRecord() throws IOException {
         HomePage homePage= PageFactory.createPageInstance(driver,HomePage.class);
         homePage.navigateToOCMPage();
@@ -29,7 +29,7 @@ public class TmacBroadCastMsgTest extends BaseTest {
         AgentTeamManagementPage agentTeamManagementPage=PageFactory.createPageInstance(driver,AgentTeamManagementPage.class);
         Assert.assertTrue(agentTeamManagementPage.isAgentTeamManagementPageDisplayed(),"Agent Team  management assertion failed");
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacBroadcastMsgData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
+        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);
         TmacBroadCastMsgDetails tmacBroadCastMsgDetails=new TmacBroadCastMsgDetails(map);
         agentTeamManagementPage.addNewAgentTeamManagementRecord(tmacBroadCastMsgDetails.getLevel(),tmacBroadCastMsgDetails.getCountry(),tmacBroadCastMsgDetails.getDivision(),tmacBroadCastMsgDetails.getDepartment(),tmacBroadCastMsgDetails.getTeamName());
         Assert.assertTrue(agentTeamManagementPage.verifyMessage(),"Add New record assertion failed");
@@ -51,19 +51,12 @@ public class TmacBroadCastMsgTest extends BaseTest {
         Assert.assertTrue(tmacBroadCastMsgPage.isTmacBroadcastMsgPageDisplayed(), "Operating hours page assertion failed");
         screenshot.captureScreen(driver, "TMACBroadcastMsg Page","TmacBroadCastMsgTest");
     }
-    @Test(priority=1)
+   @Test(priority=1)
     public void TmacBroadCastMsgPage()
     {
         TmacBroadCastMsgPage tmacBroadCastMsgPage  = PageFactory.createPageInstance(driver, TmacBroadCastMsgPage.class);
     	Assert.assertTrue(tmacBroadCastMsgPage.verifylogo(),"Tmac Broadcast Message logo assertion failed");
-        Assert.assertTrue(tmacBroadCastMsgPage.verifyMessagelabel(), "Message button assertion failed");
-        Assert.assertTrue(tmacBroadCastMsgPage.verifyTeamNamelabel(), "Team Name button assertion failed");
-        Assert.assertTrue(tmacBroadCastMsgPage.verifyStatuslabel(), "Status button assertion failed");
         Assert.assertTrue(tmacBroadCastMsgPage.verifygridcontent(),"grid container assertion failed");
-        Assert.assertTrue(tmacBroadCastMsgPage.verifyLastchangedByenable(),"lastchangedby assertion failed");
-        Assert.assertTrue(tmacBroadCastMsgPage.verifyLastchangedBydisable(),"lastchangedby assertion failed");
-        Assert.assertTrue(tmacBroadCastMsgPage.verifyLastchangedonenable(), "lastchangedon assertion failed");
-        Assert.assertTrue(tmacBroadCastMsgPage.verifyLastchangedondisable(),"lastchangedby assertion failed");
     	Assert.assertTrue(tmacBroadCastMsgPage.maximizewindow(),"Fullscreen Assertion Failed"); 
     	screenshot.captureScreen(driver, "maximize window","TmacBroadCastMsgTest");
     	Assert.assertTrue(tmacBroadCastMsgPage.minimizewindow(), "Restored Assertion Failed");
@@ -72,7 +65,7 @@ public class TmacBroadCastMsgTest extends BaseTest {
     @Test(priority=2)
     public void AddNewTmacBroadCastMsg() throws IOException {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacBroadcastMsgData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
+        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);
         TmacBroadCastMsgDetails tmacBroadCastMsgDetails=new TmacBroadCastMsgDetails(map);
         TmacBroadCastMsgPage tmacBroadCastMsgPage  = PageFactory.createPageInstance(driver, TmacBroadCastMsgPage.class);
         Assert.assertTrue(tmacBroadCastMsgPage.addNewCancel(tmacBroadCastMsgDetails), "record cancelled assertion failed");
@@ -84,7 +77,7 @@ public class TmacBroadCastMsgTest extends BaseTest {
     @Test(priority=3)
     public void AddInvalidRecord() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacBroadcastMsgData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
+        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);
         TmacBroadCastMsgDetails tmacBroadCastMsgDetails=new TmacBroadCastMsgDetails(map);
         TmacBroadCastMsgPage tmacBroadCastMsgPage  = PageFactory.createPageInstance(driver, TmacBroadCastMsgPage.class);
         tmacBroadCastMsgPage.duplicateRecord(tmacBroadCastMsgDetails);
@@ -103,7 +96,7 @@ public class TmacBroadCastMsgTest extends BaseTest {
     @Test(priority=4)
     public void EditTmacBroadCastMsg() throws IOException {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacBroadcastMsgData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
+        Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(2);
         TmacBroadCastMsgDetails tmacBroadCastMsgDetails=new TmacBroadCastMsgDetails(map);
         TmacBroadCastMsgPage tmacBroadCastMsgPage  = PageFactory.createPageInstance(driver, TmacBroadCastMsgPage.class);
         Assert.assertTrue(tmacBroadCastMsgPage.editcancel(tmacBroadCastMsgDetails),"Cancel assertion failed");
@@ -116,7 +109,7 @@ public class TmacBroadCastMsgTest extends BaseTest {
     @Test(priority=5)
     public void searchPage() throws Exception{
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacBroadcastMsgData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
+        Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(2);
         TmacBroadCastMsgDetails tmacBroadCastMsgDetails=new TmacBroadCastMsgDetails(map);
         TmacBroadCastMsgPage tmacBroadCastMsgPage  = PageFactory.createPageInstance(driver, TmacBroadCastMsgPage.class);
         Assert.assertFalse(tmacBroadCastMsgPage.clearAll(tmacBroadCastMsgDetails),"ClearAll Assertion Failed");
@@ -128,7 +121,7 @@ public class TmacBroadCastMsgTest extends BaseTest {
     public void SearchClearSearch() throws Exception
     {
     String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacBroadcastMsgData.xlsx";
-    Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
+    Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(2);
     TmacBroadCastMsgDetails tmacBroadCastMsgDetails=new TmacBroadCastMsgDetails(map);
     TmacBroadCastMsgPage tmacBroadCastMsgPage  = PageFactory.createPageInstance(driver, TmacBroadCastMsgPage.class);
     Assert.assertTrue(tmacBroadCastMsgPage.verifyinvalidsearch(tmacBroadCastMsgDetails), "InvalidSearchAssertionFailed");
@@ -165,9 +158,48 @@ public class TmacBroadCastMsgTest extends BaseTest {
     {
         TmacBroadCastMsgPage tmacBroadCastMsgPage  = PageFactory.createPageInstance(driver, TmacBroadCastMsgPage.class);
     	Assert.assertTrue(tmacBroadCastMsgPage.groupby());
-    	
+        screenshot.captureScreen(driver, "GroupBy","TmacBroadCastMsgTest");
+    	Assert.assertTrue(tmacBroadCastMsgPage.groupby());
+        screenshot.captureScreen(driver, "AlreadyGroupBy","TmacBroadCastMsgTest");
     }
     
+    @Test(priority=13)
+    public void VerifyArrowMoveForPreviousAndNextPage() {
+        TmacBroadCastMsgPage tmacBroadCastMsgPage  = PageFactory.createPageInstance(driver, TmacBroadCastMsgPage.class);
+    	Assert.assertTrue(tmacBroadCastMsgPage.verifyArrowMoveForPreviousAndNextPage(),"arrow move for previous and next page assertion failed");
+    }
+    
+    @Test(priority=14)
+    public void VerifyArrowMoveForFirstAndLastPage() {
+        TmacBroadCastMsgPage tmacBroadCastMsgPage  = PageFactory.createPageInstance(driver, TmacBroadCastMsgPage.class);
+        Assert.assertTrue(tmacBroadCastMsgPage.verifyArrowMoveForFirstAndLastPage(),"arrow move for first and last page assertion failed");
+    }
+    @Test(priority=15)
+    public void VerifyTotalNumberOfItemsPerPageDetails() {
+        TmacBroadCastMsgPage tmacBroadCastMsgPage  = PageFactory.createPageInstance(driver, TmacBroadCastMsgPage.class);
+        Assert.assertTrue(tmacBroadCastMsgPage.verifyTotalNumberOfItemsPerPageDetails(),"item per page assertion failed");
+    }
+    
+    @Test(priority=16)
+    public void VerifyNumberOfItemsPerPageSelection() {
+        TmacBroadCastMsgPage tmacBroadCastMsgPage  = PageFactory.createPageInstance(driver, TmacBroadCastMsgPage.class);
+        Assert.assertTrue(tmacBroadCastMsgPage.verifyNumberOfItemsPerPage(),"item per page assertion failed");
+    }
+    @Test(priority=17)
+    public void VerifyDropdownForAllTheColumns() {
+        TmacBroadCastMsgPage tmacBroadCastMsgPage  = PageFactory.createPageInstance(driver, TmacBroadCastMsgPage.class);
+        Assert.assertTrue(tmacBroadCastMsgPage.verifyDropDownOfAllHeaders(), "Columns dropdown assertion failed");
+    }
+    @Test(priority=18)
+    public void VerifyColumnsHeaderEnable() {
+        TmacBroadCastMsgPage tmacBroadCastMsgPage  = PageFactory.createPageInstance(driver, TmacBroadCastMsgPage.class);
+        Assert.assertTrue(tmacBroadCastMsgPage.verifycolumnsHeaderEnabled(),"columns enabled assertion failed");
+    }
+    @Test(priority=19)
+    public void VerifyColumnsHeaderDisable() {
+        TmacBroadCastMsgPage tmacBroadCastMsgPage  = PageFactory.createPageInstance(driver, TmacBroadCastMsgPage.class);
+        Assert.assertFalse(tmacBroadCastMsgPage.verifycolumnsHeaderDisabled(),"columns disabled assertion failed");
+    }
     
     @AfterMethod
     public void afterEachMethod(ITestResult result){

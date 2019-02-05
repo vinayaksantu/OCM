@@ -10,6 +10,8 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.tetherfi.model.tmac.WorkCodeListDetails;
 
@@ -203,7 +205,36 @@ public class WorkCodeListPage extends BasePage{
     @FindBy(xpath="//p[@class='k-reset']")
     private WebElement groupby;
     
-	
+    @FindBy(css="a[aria-label='Go to the first page']")
+    private WebElement firstPageIcon;
+    
+    @FindBy(css="a[aria-label='Go to the previous page']")
+    private WebElement previousPageIcon;
+    
+    @FindBy(css=".k-pager-numbers .k-state-selected")
+    private WebElement pageNumber;
+    //@FindBy(css="a[aria-label='Go to the next page']")
+    //private List<WebElement> nextPageIcon;
+    
+    @FindBy(css="a[aria-label='Go to the last page']")
+    private WebElement lastPageIcon;
+    
+    @FindBy(css=".k-pager-sizes .k-icon")
+    private WebElement pagerDropdown;
+    
+    @FindBy(css=".k-animation-container ul li")
+    private List<WebElement> pageSizeListBox;
+    
+    @FindBy(css="th a[class='k-header-column-menu']")
+    private List<WebElement> headersDropdown;
+    
+    @FindBy(css="div[style*='overflow: visible'] span[class^='k-link']")
+    private List<WebElement> headersColumns;
+    
+    @FindBy(css="th a[class='k-link']")
+    private List<WebElement> headersText;
+
+
 	
 	public boolean isWorkCodeListPageDisplayed() {
 		if(workcodelist.getText().equals("Workcode List"))
@@ -219,56 +250,36 @@ public class WorkCodeListPage extends BasePage{
 			return false;
 	}
 
-	public boolean verifyWorkLevelLabel() {
-		selectWebElement(headerColumn);
-		moveToElement(coloumnarrow);
-		Boolean Status=worklevelcheckbox.isSelected();
-		if(Status.equals(worklevel.isDisplayed()))
-			return true;
-		else
-			return false;
-		
+	
+	public boolean verifyArrowMoveForPreviousAndNextPage(){
+        boolean status=false;
+        if(!nextPageIcon.getAttribute("class").contains("k-state-disabled")){
+        int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber));
+        selectWebElement(nextPageIcon);
+        int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
+        selectWebElement(previousPageIcon);
+        int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
+        if(nextnumber==(pagenumber+1) && pagenumber==previousnumber){status=true;}
+        }else{
+            System.out.println("previous and next page icon disabled");status=true;
+        }
+        return status;
 	}
+	public boolean verifyArrowMoveForFirstAndLastPage(){
+        boolean status=false;
+        if(!lastPageIcon.getAttribute("class").contains("k-state-disabled")){
+            int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber));
+            selectWebElement(lastPageIcon);
+            int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
+            selectWebElement(firstPageIcon);
+            int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
+            if(nextnumber>pagenumber && pagenumber==previousnumber){status=true;}
+        }else{
+            System.out.println("previous and next page icon disabled");status=true;
+        }
+        return status;
+    }
 
-	public boolean verifyNameLabel() {
-		selectWebElement(headerColumn);
-		moveToElement(coloumnarrow);
-		Boolean Status=namecheckbox.isSelected();
-		if(Status.equals(name.isDisplayed()))
-			return true;
-		else
-		return false;
-	}
-
-	public boolean verifyParentLabel() {
-		selectWebElement(headerColumn);
-		moveToElement(coloumnarrow);
-		Boolean Status=parentcheckbox.isSelected();
-		if(Status.equals(parent.isDisplayed()))
-			return true;
-		else
-		return false;
-	}
-
-	public boolean verifyLastChangedByLabel() {
-		selectWebElement(headerColumn);
-		moveToElement(coloumnarrow);
-		Boolean Status=lastchangedbycheckbox.isSelected();
-		if(Status.equals(lastchangedby.isDisplayed()))
-			return true;
-		else
-		return false;
-	}
-
-	public boolean verifyLastChangedOnLabel() {
-		selectWebElement(headerColumn);
-		moveToElement(coloumnarrow);
-		Boolean Status=lastchangedoncheckbox.isSelected();
-		if(Status.equals(lastchangedon.isDisplayed()))
-			return true;
-		else
-		return false;
-	}
 
 	public boolean verifygridcontent() {
 		int size=tablerecord.size();
@@ -299,50 +310,6 @@ public class WorkCodeListPage extends BasePage{
 		}
 		else 
 			return false; 
-	}
-
-	public boolean verifyTeamIDLabelenable() {
-		selectWebElement(headerColumn);
-		moveToElement(coloumnarrow);
-		if(!teamidcheckbox.isSelected())
-		selectCheckbox(teamidcheckbox);
-		if(teamid.isDisplayed())
-			return true;
-		else
-			return false;
-	}
-
-	public boolean verifyTeamIDLabeldisable() {
-		selectWebElement(headerColumn);
-		moveToElement(coloumnarrow);
-		if(teamidcheckbox.isSelected())
-		selectCheckbox(teamidcheckbox);
-		if(teamid.isDisplayed())
-			return false;
-		else
-			return true;
-	}
-
-	public boolean verifyWorkCodeLabelenable() {
-		selectWebElement(headerColumn);
-		moveToElement(coloumnarrow);
-		if(!workcodecheckbox.isSelected())
-		selectCheckbox(workcodecheckbox);
-		if(workcode.isDisplayed())
-			return true;
-		else
-			return false;
-	}
-
-	public boolean verifyWorkCodeLabeldisable() {
-		selectWebElement(headerColumn);
-		moveToElement(coloumnarrow);
-		if(workcodecheckbox.isSelected())
-		selectCheckbox(workcodecheckbox);
-		if(workcode.isDisplayed())
-			return false;
-		else
-			return true;
 	}
 
 	public void addNewWorkGroup(WorkCodeListDetails details) {
@@ -481,13 +448,6 @@ public class WorkCodeListPage extends BasePage{
         chooseWorkgroup(details);
 		enterValueToTxtField(addnametextbox,details.getName());
 		selectWebElement(savebtn);
-		try {
-			if(cancelbtn.isDisplayed())
-				selectWebElement(cancelbtn);
-		} catch (NoSuchElementException exception) {
-		   System.out.println("cancel button is not present");
-		}
-		
 	}
 	
 	public void searchWorkcodeList(String Name) {
@@ -688,10 +648,49 @@ public class WorkCodeListPage extends BasePage{
 			return arr;
 	}
 
-	public boolean verifyDatabase(Object query) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean verifyDatabase(String  query) {
+		List<Map<String,String>> database=database(query);
+		System.out.println(database);
+		List<Map<String,String>> UI=gettable(); 
+		System.out.println(UI);
+		if(UI.equals(database))
+			return true;
+		else
+			return false;
 	}
+
+	private List<Map<String, String>> gettable() {
+		int item=Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
+        int pagersize=Integer.valueOf(pagerSize.getText());
+        int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
+		List<Map<String,String>> arr=new ArrayList<Map<String,String>>();
+		for(int k=0;k<=pages;k++){
+
+		waitUntilWebElementIsVisible(auditGridContent);
+		List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
+		List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
+		for(int i=1;i<rows.size();i++) {
+			Map<String,String> map = new HashMap<String,String>();
+			List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
+			String col=null;
+			for(int j=1;j<headers.size();j++){
+				if(headers.get(j).getText().equals("Last Changed On")){
+					col=cols.get(j).getText().substring(10);
+					}
+				else
+					col=cols.get(j).getText();
+				map.put(headers.get(j).getText(),col);
+			}
+			map.remove("");
+			arr.add(map);
+		}
+		if(k!=pages)
+		{
+			nextPageIcon.click();
+			waitForJqueryLoad(driver);}
+		}
+			return arr;
+	}	
 
 	public boolean groupby() {
 		DragandDrop(worklevel,droptarget);
@@ -705,10 +704,253 @@ public class WorkCodeListPage extends BasePage{
 		else
 			return false;	
 	}
+	 public boolean verifyNumberOfItemsPerPage() {
+	        boolean status = false;
+	        try {
+	          //  if (norecords.size() <= 0) {
+	                int item = Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
+	                selectWebElement(pagerDropdown);
+	                Thread.sleep(1500);
+	                for (int i = 0; i < pageSizeListBox.size(); i++) {
+	                    if(Integer.valueOf(pageSizeListBox.get(i).getText())>item){continue;}
+	                    selectDropdownFromVisibleText(pageSizeListBox, pageSizeListBox.get(i).getText());
+	                    waitForJqueryLoad(driver);
+	                    int totalItems = Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
+	                    int pagersize = Integer.valueOf(pagerSize.getText());
+	                    int pages = (totalItems % pagersize == 0) ? item / pagersize : item / pagersize+1;
+	                    int totalRows=(gridContent.findElements(By.tagName("tr")).size());
+	                    selectWebElement(lastPageIcon);
+	                    waitForJqueryLoad(driver);
+	                    int lastPageNumber = Integer.valueOf(pageNumber.getText());
+	                    if (item == totalItems && pages == lastPageNumber&&totalRows==pagersize) {
+	                        status = true;
+	                    } else {System.out.println(items+":"+totalItems+"\t"+pages+":"+lastPageNumber+"\t"+totalRows+":"+pagersize);
+	                        status = false;
+	                        break;
+	                    }selectWebElement(pagerDropdown);Thread.sleep(1500);
+	                }
+	           // }
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	        } return status;
+	    }
+	    public boolean verifyTotalNumberOfItemsPerPageDetails(){
+	        String item = items.getText();
+	        return item.matches("(\\d.*) - (\\d.*) of (\\d.*) items");
+	    }
 	
-	
+	    public boolean verifyDropDownOfAllHeaders() {
+	        boolean status = false;
+	        try {for (WebElement ele : headersDropdown) {
+	            scrollToElement(ele);
+	            status = false;
+	            if (!ele.isDisplayed()) {
+	                continue;
+	            } else {
+	                selectWebElement(ele);
+	                    Thread.sleep(1000);
+	                if (headersColumns.get(0).getText().equals("Sort Ascending")) {
+	                    if (headersColumns.get(1).getText().equals("Sort Descending")) {
+	                        if (headersColumns.get(2).getText().equals("Columns")) {
+	                            status = true;selectWebElement(ele);
+	                        }
+	                    }
+	                }
+	                if (status) {
+	                } else {
+	                    break;
+	                }
+	            }
+	        }} catch (Exception e) {
+	            e.printStackTrace();
+	        }
+	        return status;
+	    }
+	    public boolean verifycolumnsHeaderDisabled() {
+	        boolean status = false;
+	        WebElement ele = headersDropdown.get(1);
+	            if (ele.isDisplayed()) {
+	                try {
+	                    selectWebElement(ele);
+	                    Thread.sleep(1000);
+	                    selectWebElement(headersColumns.get(2));
+	                    Thread.sleep(1000);
+	                } catch (InterruptedException e) {
+	                    e.printStackTrace();
+	                }
+	                for (int i =3; i < headersColumns.size(); i++) {
+	                    System.out.println(headersColumns.get(i).getText());
+	                    WebElement checkbox = headersColumns.get(i).findElement(By.tagName("input"));
+	                    if (checkbox.isSelected()) {
+	                        checkbox.click();
+	                    } else {
+	                    }
+	                    for (WebElement ele1 : headersText) {
+	                        if (ele1.getText().equals(headersColumns.get(i).getText())) {
+	                            status = true;
+	                            break;
+	                        }
+	                    }
+	                    if (!status) {
+	                        checkbox.click();
+	                    } else {
+	                        break;
+	                    }
+	                }
 
-	
-
+	            }
+	        return status;
+	    }
+	    public boolean verifycolumnsHeaderEnabled(){
+	        boolean status=false;
+	        WebElement ele= headersDropdown.get(1);
+	            if(ele.isDisplayed()){
+	                try {
+	                    selectWebElement(ele);
+	                    Thread.sleep(1000);
+	                    selectWebElement(headersColumns.get(2));
+	                    Thread.sleep(1000);
+	                } catch (InterruptedException e) {
+	                    e.printStackTrace();
+	                }
+	                for (int i = 3; i <headersColumns.size(); i++) {
+	                    WebElement checkbox = headersColumns.get(i).findElement(By.tagName("input"));
+	                    checkbox.click();
+	                    if (checkbox.isSelected()) {
+	                    } else {
+	                        checkbox.click();
+	                    }
+	                    for (WebElement ele1 : headersText) {
+	                        if (ele1.getText().equals(headersColumns.get(i).getText())) {
+	                            status = true;
+	                            break;
+	                        }
+	                    }
+	                    if (status) {
+	                    } else {
+	                        break;
+	                    }
+	                }
+	            }
+	        return status;
+	    }	
+	    public boolean VerifyAccesss() {
+			Boolean Status=false;
+			try {
+				waitforElementIsClickable(addnewrecordbtn);
+			}
+			catch(Exception e) {
+				try{
+					waitforElementIsClickable(editbtn);
+				}
+				catch(Exception e3){
+					try {
+						waitforElementIsClickable(deletebtn);
+					e3.printStackTrace();
+					}
+					catch(Exception e2){
+						try {
+							waitforElementIsClickable(exporttoexcel);
+						e2.printStackTrace();
+						}
+						catch(Exception e1){
+						Status=true;
+						e1.printStackTrace();
+						}
+					}
+				}
+	        }
+			return Status;
+		}	
+		private void waitforElementIsClickable(WebElement ele){
+			WebDriverWait wait = new WebDriverWait(driver, 5);
+			wait.until(ExpectedConditions.elementToBeClickable(ele));	
+		}
+		public boolean verifyAddAccesss() {
+			Boolean Status=false;
+			try {
+				waitforElementIsClickable(addnewrecordbtn);
+				waitforElementIsClickable(editbtn);
+			}
+			catch(Exception e){
+				try {
+				waitforElementIsClickable(deletebtn);
+				}
+				catch(Exception e1){
+					try {
+						waitforElementIsClickable(exporttoexcel);
+					}
+					catch(Exception e2){
+						Status=true;
+						e2.printStackTrace();
+					}
+				}
+			}
+			return Status;
+		}
+		public boolean verifyEditAccesss() {
+			Boolean Status=false;
+			try {
+				waitforElementIsClickable(editbtn);
+				waitforElementIsClickable(deletebtn);
+			}
+			catch(Exception e) {
+				try {
+					waitforElementIsClickable(exporttoexcel);
+				}
+				catch(Exception e1) {
+					try {
+						waitforElementIsClickable(addnewrecordbtn);
+					}
+					catch(Exception e2) {
+						Status=true;
+					}
+				}
+			}
+			return Status;
+		}
+		
+		public boolean verifyDeleteAccesss() {
+			Boolean Status=false;
+			try {
+				waitforElementIsClickable(deletebtn);	
+				waitforElementIsClickable(editbtn);
+			}
+			catch(Exception e) {
+				try {
+					waitforElementIsClickable(exporttoexcel);
+				}
+				catch(Exception e1) {
+					try {
+						waitforElementIsClickable(addnewrecordbtn);
+					}
+					catch(Exception e2) {
+						Status=true;
+					}
+				}
+			}
+			return Status;
+		}
+		public boolean verifyExportAccesss() {
+			Boolean Status=false;
+			try {
+				waitforElementIsClickable(exporttoexcel);	
+				waitforElementIsClickable(editbtn);
+			}
+			catch(Exception e) {
+				try {
+					waitforElementIsClickable(deletebtn);
+				}
+				catch(Exception e1) {
+					try {
+						waitforElementIsClickable(addnewrecordbtn);
+					}
+					catch(Exception e2) {
+						Status=true;
+					}
+				}
+			}
+			return Status;
+		}
 }
 

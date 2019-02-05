@@ -42,15 +42,7 @@ public class WaitTimeColorConfigTest extends BaseTest {
     {
     	WaitTimeColorConfigPage waitTimeColorConfigPage=PageFactory.createPageInstance(driver,WaitTimeColorConfigPage.class);
     	Assert.assertTrue(waitTimeColorConfigPage.verifylogo(),"Wait Time ColorConfig logo assertion failed");
-        Assert.assertTrue(waitTimeColorConfigPage.verifyStartDurationLabel(), "Start Duration label assertion failed");
-        Assert.assertTrue(waitTimeColorConfigPage.verifyEndDurationLabel(), "End Duration Label assertion failed");
-        Assert.assertTrue(waitTimeColorConfigPage.verifyColorLabel(), "Color Label assertion failed");
-        Assert.assertTrue(waitTimeColorConfigPage.verifyColorCodeLabel(), "Color Code label assertion failed");
-        Assert.assertTrue(waitTimeColorConfigPage.verifyLastChangedByLabel(), "Last ChangedBy assertion failed");
-        Assert.assertTrue(waitTimeColorConfigPage.verifyLastChangedOnLabel(), "Last ChangedOn assertion failed");
         Assert.assertTrue(waitTimeColorConfigPage.verifygridcontent(),"Grid Container assertion failed");
-        //Assert.assertTrue(waitTimeColorConfigPage.verifyColordisable(), "Color disable assertion failed");
-    	//screenshot.captureScreen(driver, "Disable","WaitTimeColorConfigTest");
     	Assert.assertTrue(waitTimeColorConfigPage.maximizewindow(),"Fullscreen Assertion Failed"); 
     	screenshot.captureScreen(driver, "Maximize Window","WaitTimeColorConfigTest");
     	Assert.assertTrue(waitTimeColorConfigPage.minimizewindow(), "Restored Assertion Failed");
@@ -69,6 +61,22 @@ public class WaitTimeColorConfigTest extends BaseTest {
         screenshot.captureScreen(driver, "Record Created Successfully","WaitTimeColorConfigTest");
     }
    @Test(priority=3)
+   public void AddInvalidRecord() throws Exception {
+	   String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\WaitTimeColorConfigData.xlsx";
+       Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
+       WaitTimeColorConfigDetails waitTimeColorConfigDetails = new WaitTimeColorConfigDetails(map);
+       WaitTimeColorConfigPage waitTimeColorConfigPage=PageFactory.createPageInstance(driver,WaitTimeColorConfigPage.class);
+       waitTimeColorConfigPage.addRecordWithoutStartTime(waitTimeColorConfigDetails);
+       Assert.assertFalse(waitTimeColorConfigPage.verifymessage(),"AddRecordWithoutStartTime Assertion failed");
+       screenshot.captureScreen(driver, "addRecordWithoutStartTime","WaitTimeColorConfigTest");
+       waitTimeColorConfigPage.addRecordWithoutEndTime(waitTimeColorConfigDetails);
+       Assert.assertFalse(waitTimeColorConfigPage.verifymessage(),"AddRecordWithoutEndTime Assertion failed");
+       screenshot.captureScreen(driver, "addRecordWithoutEndTime","WaitTimeColorConfigTest");
+       waitTimeColorConfigPage.addNewWaitTimeColorConfigRecord(waitTimeColorConfigDetails);
+       Assert.assertFalse(waitTimeColorConfigPage.verifymessage(),"Duplicate Assertion failed");
+       screenshot.captureScreen(driver, "Duplicate Value","WaitTimeColorConfigTest");
+   }
+   @Test(priority=4)
     public void EditWaitTimeColorConfigRecord() throws IOException {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\WaitTimeColorConfigData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
@@ -80,7 +88,7 @@ public class WaitTimeColorConfigTest extends BaseTest {
         Assert.assertEquals(waitTimeColorConfigPage.getMessage(),"Record updated successfully","Edit record assertion failed");
         screenshot.captureScreen(driver, "Record Updated successfully","WaitTimeColorConfigTest");
     }
-   //@Test(priority=4)
+   @Test(priority=5)
    public void searchPage() throws Exception{
 	   String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\WaitTimeColorConfigData.xlsx";
        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -92,7 +100,7 @@ public class WaitTimeColorConfigTest extends BaseTest {
        screenshot.captureScreen(driver, "SearchClose","WaitTimeColorConfigTest");
        }
    
-   @Test(priority=5)
+   @Test(priority=6)
    public void SearchClearSearch() throws Exception
    {
 	   String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\WaitTimeColorConfigData.xlsx";
@@ -104,48 +112,97 @@ public class WaitTimeColorConfigTest extends BaseTest {
        Assert.assertTrue(waitTimeColorConfigPage.verifyclearsearch(), "Clear All Assertion Failed");
        screenshot.captureScreen(driver, "Clear Search", "WaitTimeColorConfigTest");
    }
-   @Test(priority=6)
+   @Test(priority=7)
    public void ExportToExcel() throws Exception
    {
    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles";
     WaitTimeColorConfigPage waitTimeColorConfigPage=PageFactory.createPageInstance(driver,WaitTimeColorConfigPage.class);
        Assert.assertTrue(waitTimeColorConfigPage.verifyExportToExcel(filePath));
+       screenshot.captureScreen(driver, "ExportToExcel","WaitTimeColorConfigTest");
    }
    
-   @Test(priority=7)
+   @Test(priority=8)
    public void ExportToExcelData() throws Exception
    {String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Wait Time Color Config.xlsx";
    List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
    WaitTimeColorConfigPage waitTimeColorConfigPage=PageFactory.createPageInstance(driver,WaitTimeColorConfigPage.class);
    Assert.assertTrue(waitTimeColorConfigPage.verifyexportToExcelSheet(maplist));
-   	
+   screenshot.captureScreen(driver, "ExportToExcelData","WaitTimeColorConfigTest");
    }
    
-   @Test(priority=8)
+   @Test(priority=9)
     public void DeleteRecord() throws IOException {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\WaitTimeColorConfigData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
         WaitTimeColorConfigDetails waitTimeColorConfigDetails = new WaitTimeColorConfigDetails(map);
         WaitTimeColorConfigPage waitTimeColorConfigPage=PageFactory.createPageInstance(driver,WaitTimeColorConfigPage.class);
+        Assert.assertTrue(waitTimeColorConfigPage.deleteNo(waitTimeColorConfigDetails.getStartTime(),waitTimeColorConfigDetails.getDeleteReason()));
+        screenshot.captureScreen(driver, "Delete No","WaitTimeColorConfigTest");
         waitTimeColorConfigPage.deleteWaitTimeColorConfigRecord(waitTimeColorConfigDetails.getStartTime(),waitTimeColorConfigDetails.getDeleteReason());
-        Assert.assertEquals(waitTimeColorConfigPage.getMessage(),"Record Deleted Successfully","Delete record assertion failed");
-    }
+        Assert.assertEquals(waitTimeColorConfigPage.getMessage(),"Record deleted successfully","Delete record assertion failed");
+        screenshot.captureScreen(driver, "Deleted Successfully","WaitTimeColorConfigTest");
+   }
    
-   @Test(priority=9)
+   @Test(priority=10)
    public void database() throws Exception {
    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\WaitTimeColorConfigData.xlsx";
        Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(0);
        WaitTimeColorConfigDetails waitTimeColorConfigDetails = new WaitTimeColorConfigDetails(map);
        WaitTimeColorConfigPage waitTimeColorConfigPage=PageFactory.createPageInstance(driver,WaitTimeColorConfigPage.class);
    	Assert.assertTrue(waitTimeColorConfigPage.verifyDatabase(waitTimeColorConfigDetails.getQuery()));
+    screenshot.captureScreen(driver, "Database","WaitTimeColorConfigTest");
+
    }
    
-   @Test(priority=1)
+   @Test(priority=11)
    public void GroupBy()
    {
        WaitTimeColorConfigPage waitTimeColorConfigPage=PageFactory.createPageInstance(driver,WaitTimeColorConfigPage.class);
    		Assert.assertTrue(waitTimeColorConfigPage.groupby());
-   	
+        screenshot.captureScreen(driver, "groupby","WaitTimeColorConfigTest");
+   }
+   
+   @Test(priority=12)
+   public void VerifyArrowMoveForPreviousAndNextPage() {
+	   WaitTimeColorConfigPage waitTimeColorConfigPage=PageFactory.createPageInstance(driver,WaitTimeColorConfigPage.class);
+   		Assert.assertTrue(waitTimeColorConfigPage.verifyArrowMoveForPreviousAndNextPage(),"arrow move for previous and next page assertion failed");
+        screenshot.captureScreen(driver,"VerifyArrowMoveForPreviousAndNextPage","WaitTimeColorConfigTest");
+
+   }
+   @Test(priority=13)
+   public void VerifyArrowMoveForFirstAndLastPage() {
+       WaitTimeColorConfigPage waitTimeColorConfigPage=PageFactory.createPageInstance(driver,WaitTimeColorConfigPage.class);
+       Assert.assertTrue(waitTimeColorConfigPage.verifyArrowMoveForFirstAndLastPage(),"arrow move for first and last page assertion failed");
+       screenshot.captureScreen(driver,"VerifyArrowMoveForFirstAndLastPage","WaitTimeColorConfigTest");
+
+   }
+   @Test(priority=14)
+   public void VerifyTotalNumberOfItemsPerPageDetails() {
+       WaitTimeColorConfigPage waitTimeColorConfigPage=PageFactory.createPageInstance(driver,WaitTimeColorConfigPage.class);
+       Assert.assertTrue(waitTimeColorConfigPage.verifyTotalNumberOfItemsPerPageDetails(),"item per page assertion failed");
+       screenshot.captureScreen(driver,"VerifyTotalNumberOfItemsPerPageDetails","WaitTimeColorConfigTest");
+   }
+   
+   @Test(priority=15)
+   public void VerifyNumberOfItemsPerPageSelection() {
+       WaitTimeColorConfigPage waitTimeColorConfigPage=PageFactory.createPageInstance(driver,WaitTimeColorConfigPage.class);
+       Assert.assertTrue(waitTimeColorConfigPage.verifyNumberOfItemsPerPage(),"item per page assertion failed");
+       screenshot.captureScreen(driver,"VerifyNumberOfItemsPerPageSelection","WaitTimeColorConfigTest");
+   }
+   @Test(priority=16)
+   public void VerifyDropdownForAllTheColumns() {
+       WaitTimeColorConfigPage waitTimeColorConfigPage=PageFactory.createPageInstance(driver,WaitTimeColorConfigPage.class);
+       Assert.assertTrue(waitTimeColorConfigPage.verifyDropDownOfAllHeaders(), "Columns dropdown assertion failed");
+   }
+   @Test(priority=17)
+   public void VerifyColumnsHeaderEnable() {
+       WaitTimeColorConfigPage waitTimeColorConfigPage=PageFactory.createPageInstance(driver,WaitTimeColorConfigPage.class);
+       Assert.assertTrue(waitTimeColorConfigPage.verifycolumnsHeaderEnabled(),"columns enabled assertion failed");
+   }
+   @Test(priority=18)
+   public void VerifyColumnsHeaderDisable() {
+       WaitTimeColorConfigPage waitTimeColorConfigPage=PageFactory.createPageInstance(driver,WaitTimeColorConfigPage.class);
+       Assert.assertFalse(waitTimeColorConfigPage.verifycolumnsHeaderDisabled(),"columns disabled assertion failed");
    }
 
     @AfterMethod
