@@ -3,8 +3,14 @@ package com.tetherfi.pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
+
+import com.tetherfi.utility.BrowserFactory;
+import com.tetherfi.utility.ExcelReader;
+import com.tetherfi.utility.PageFactory;
 
 import java.util.List;
+import java.util.Map;
 
 public class HomePage extends BasePage{
 
@@ -22,7 +28,10 @@ public class HomePage extends BasePage{
     @FindBy(css=".middle-box H2")
     private WebElement welcomeMsg;
 
-    @FindBy(id="OCMli")
+    /*@FindBy(id="OCMli")
+    private WebElement ocmTab;*/
+    
+    @FindBy(xpath="//a[@class='OCM-sidebar-toggle white-color']")
     private WebElement ocmTab;
 
     @FindBy(id="OCMReportsli")
@@ -59,4 +68,24 @@ public class HomePage extends BasePage{
     public void navigateToOcmIconImg(){selectWebElement(ocmIconImg);}
 
     public void navigateToDashBoard(){selectWebElement(continueToDashboardBtn);}
+    
+    public void openOCM()  {
+        try {
+            PageFactory.reset();
+            BrowserFactory browserFactory = new BrowserFactory();
+            driver = browserFactory.createBrowserInstance(BrowserFactory.BrowserType.CHROME, System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles");
+            String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\LoginData.xlsx";
+            Map<String, String> map = new ExcelReader(filePath,"Login").getTestData().get(3);
+            driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
+            if(map.get("LoginType").equals("Custom")){
+                LoginPage loginPage=PageFactory.createPageInstance(driver,LoginPage.class);
+                loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+                Thread.sleep(5000);
+            }
+      
+        }catch (Exception e){
+            PageFactory.reset();
+            driver.close();
+            e.printStackTrace();
+        }}
 }
