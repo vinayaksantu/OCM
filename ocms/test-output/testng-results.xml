@@ -1,46 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
+<testng-results skipped="0" failed="1" ignored="0" total="1" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2019-02-05T06:28:33Z" name="Default suite" finished-at="2019-02-05T06:29:17Z" duration-ms="43325">
+  <suite name="Default suite" duration-ms="104756" started-at="2019-02-09T06:26:09Z" finished-at="2019-02-09T06:27:54Z">
     <groups>
     </groups>
-    <test started-at="2019-02-05T06:28:33Z" name="Default test" finished-at="2019-02-05T06:29:17Z" duration-ms="43325">
-      <class name="com.tetherfi.test.UserManagementTest">
-        <test-method is-config="true" signature="openApplication()[pri:0, instance:com.tetherfi.test.UserManagementTest@34c70b5e]" started-at="2019-02-05T11:58:33Z" name="openApplication" finished-at="2019-02-05T11:58:45Z" duration-ms="11850" status="PASS">
+    <test name="Default test" duration-ms="104756" started-at="2019-02-09T06:26:09Z" finished-at="2019-02-09T06:27:54Z">
+      <class name="com.tetherfi.test.UserManagementReportsE2ETest">
+        <test-method status="PASS" signature="openApplication()[pri:0, instance:com.tetherfi.test.UserManagementReportsE2ETest@1ce92674]" name="openApplication" is-config="true" duration-ms="31733" started-at="2019-02-09T11:56:09Z" finished-at="2019-02-09T11:56:41Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- openApplication -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserManagementTest@34c70b5e]" started-at="2019-02-05T11:58:45Z" name="startTestCase" finished-at="2019-02-05T11:58:45Z" duration-ms="2" status="PASS">
+        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserManagementReportsE2ETest@1ce92674]" name="startTestCase" is-config="true" duration-ms="1" started-at="2019-02-09T11:56:41Z" finished-at="2019-02-09T11:56:41Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.UserManagementTest.EditUserManagementRecord() throws java.io.IOException]]>
+                <![CDATA[public void com.tetherfi.test.UserManagementReportsE2ETest.VerifyAccessOfAgentTeamMgmt() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigateToUserManagementPage()[pri:0, instance:com.tetherfi.test.UserManagementTest@34c70b5e]" started-at="2019-02-05T11:58:45Z" name="NavigateToUserManagementPage" finished-at="2019-02-05T11:58:50Z" duration-ms="4361" status="PASS">
+        <test-method status="PASS" signature="OCMPage()[pri:0, instance:com.tetherfi.test.UserManagementReportsE2ETest@1ce92674]" name="OCMPage" is-config="true" duration-ms="42310" started-at="2019-02-09T11:56:41Z" finished-at="2019-02-09T11:57:23Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- NavigateToUserManagementPage -->
-        <test-method signature="EditUserManagementRecord()[pri:4, instance:com.tetherfi.test.UserManagementTest@34c70b5e]" started-at="2019-02-05T11:58:50Z" name="EditUserManagementRecord" finished-at="2019-02-05T11:59:14Z" duration-ms="24251" status="FAIL">
-          <exception class="java.lang.AssertionError">
+        </test-method> <!-- OCMPage -->
+        <test-method status="FAIL" signature="VerifyAccessOfAgentTeamMgmt()[pri:0, instance:com.tetherfi.test.UserManagementReportsE2ETest@1ce92674]" name="VerifyAccessOfAgentTeamMgmt" duration-ms="30647" started-at="2019-02-09T11:57:23Z" finished-at="2019-02-09T11:57:54Z">
+          <exception class="org.openqa.selenium.NoSuchWindowException">
             <message>
-              <![CDATA[Edit record assertion failed expected [true] but found [false]]]>
+              <![CDATA[no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=71.0.3578.98)
+  (Driver info: chromedriver=2.45.615291 (ec3682e3c9061c10f26ea9e5cdcf3c53f3f74387),platform=Windows NT 6.3.9600 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+Build info: version: '3.5.3', revision: 'a88d25fe6b', time: '2017-08-29T12:42:44.417Z'
+System info: host: 'ADMIN', ip: '192.168.43.137', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_191'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{mobileEmulationEnabled=false, timeouts={implicit=0, pageLoad=300000, script=30000}, hasTouchScreen=false, platform=WIN8_1, acceptSslCerts=false, goog:chromeOptions={debuggerAddress=localhost:65376}, acceptInsecureCerts=false, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, platformName=WIN8_1, setWindowRect=true, unexpectedAlertBehaviour=ignore, applicationCacheEnabled=false, rotatable=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.45.615291 (ec3682e3c9061c10f26ea9e5cdcf3c53f3f74387), userDataDir=C:\Users\admin-pc\AppData\Local\Temp\scoped_dir1252_10137}, takesHeapSnapshot=true, unhandledPromptBehavior=ignore, pageLoadStrategy=normal, strictFileInteractability=false, databaseEnabled=false, handlesAlerts=true, version=71.0.3578.98, browserConnectionEnabled=false, proxy=Proxy(), nativeEvents=true, locationContextEnabled=true, cssSelectorsEnabled=true}]
+Session ID: 0704b308309f20a2cef5df8af7e21e9c]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: Edit record assertion failed expected [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:93)
-	at org.testng.Assert.failNotEquals(Assert.java:512)
-	at org.testng.Assert.assertTrue(Assert.java:41)
-	at com.tetherfi.test.UserManagementTest.EditUserManagementRecord(UserManagementTest.java:89)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+              <![CDATA[org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=71.0.3578.98)
+  (Driver info: chromedriver=2.45.615291 (ec3682e3c9061c10f26ea9e5cdcf3c53f3f74387),platform=Windows NT 6.3.9600 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+Build info: version: '3.5.3', revision: 'a88d25fe6b', time: '2017-08-29T12:42:44.417Z'
+System info: host: 'ADMIN', ip: '192.168.43.137', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_191'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{mobileEmulationEnabled=false, timeouts={implicit=0, pageLoad=300000, script=30000}, hasTouchScreen=false, platform=WIN8_1, acceptSslCerts=false, goog:chromeOptions={debuggerAddress=localhost:65376}, acceptInsecureCerts=false, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, platformName=WIN8_1, setWindowRect=true, unexpectedAlertBehaviour=ignore, applicationCacheEnabled=false, rotatable=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.45.615291 (ec3682e3c9061c10f26ea9e5cdcf3c53f3f74387), userDataDir=C:\Users\admin-pc\AppData\Local\Temp\scoped_dir1252_10137}, takesHeapSnapshot=true, unhandledPromptBehavior=ignore, pageLoadStrategy=normal, strictFileInteractability=false, databaseEnabled=false, handlesAlerts=true, version=71.0.3578.98, browserConnectionEnabled=false, proxy=Proxy(), nativeEvents=true, locationContextEnabled=true, cssSelectorsEnabled=true}]
+Session ID: 0704b308309f20a2cef5df8af7e21e9c
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:215)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:167)
+	at org.openqa.selenium.remote.http.JsonHttpResponseCodec.reconstructValue(JsonHttpResponseCodec.java:40)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:82)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:45)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:82)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:646)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:703)
+	at org.openqa.selenium.remote.RemoteWebDriver.close(RemoteWebDriver.java:532)
+	at com.tetherfi.test.UserManagementReportsE2ETest.VerifyAccessOfAgentTeamMgmt(UserManagementReportsE2ETest.java:70)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
 	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
 	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
 	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
@@ -64,42 +93,99 @@
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 ]]>
             </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
+          </exception> <!-- org.openqa.selenium.NoSuchWindowException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- EditUserManagementRecord -->
-        <test-method is-config="true" signature="afterEachMethod(org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserManagementTest@34c70b5e]" started-at="2019-02-05T11:59:14Z" name="afterEachMethod" finished-at="2019-02-05T11:59:15Z" duration-ms="1385" status="PASS">
+        </test-method> <!-- VerifyAccessOfAgentTeamMgmt -->
+        <test-method status="FAIL" signature="afterEachMethod(org.testng.ITestResult)[pri:0, instance:com.tetherfi.test.UserManagementReportsE2ETest@1ce92674]" name="afterEachMethod" is-config="true" duration-ms="20" started-at="2019-02-09T11:57:54Z" finished-at="2019-02-09T11:57:54Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=EditUserManagementRecord status=FAILURE method=UserManagementTest.EditUserManagementRecord()[pri:4, instance:com.tetherfi.test.UserManagementTest@34c70b5e] output={null}]]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[public void com.tetherfi.test.UserManagementTest.EditUserManagementRecord() throws java.io.IOException]]>
+                <![CDATA[[TestResult name=VerifyAccessOfAgentTeamMgmt status=FAILURE method=UserManagementReportsE2ETest.VerifyAccessOfAgentTeamMgmt()[pri:0, instance:com.tetherfi.test.UserManagementReportsE2ETest@1ce92674] output={null}]]]>
               </value>
             </param>
           </params>
+          <exception class="org.openqa.selenium.NoSuchWindowException">
+            <message>
+              <![CDATA[no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=71.0.3578.98)
+  (Driver info: chromedriver=2.45.615291 (ec3682e3c9061c10f26ea9e5cdcf3c53f3f74387),platform=Windows NT 6.3.9600 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+Build info: version: '3.5.3', revision: 'a88d25fe6b', time: '2017-08-29T12:42:44.417Z'
+System info: host: 'ADMIN', ip: '192.168.43.137', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_191'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{mobileEmulationEnabled=false, timeouts={implicit=0, pageLoad=300000, script=30000}, hasTouchScreen=false, platform=WIN8_1, acceptSslCerts=false, goog:chromeOptions={debuggerAddress=localhost:65376}, acceptInsecureCerts=false, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, platformName=WIN8_1, setWindowRect=true, unexpectedAlertBehaviour=ignore, applicationCacheEnabled=false, rotatable=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.45.615291 (ec3682e3c9061c10f26ea9e5cdcf3c53f3f74387), userDataDir=C:\Users\admin-pc\AppData\Local\Temp\scoped_dir1252_10137}, takesHeapSnapshot=true, unhandledPromptBehavior=ignore, pageLoadStrategy=normal, strictFileInteractability=false, databaseEnabled=false, handlesAlerts=true, version=71.0.3578.98, browserConnectionEnabled=false, proxy=Proxy(), nativeEvents=true, locationContextEnabled=true, cssSelectorsEnabled=true}]
+Session ID: 0704b308309f20a2cef5df8af7e21e9c]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=71.0.3578.98)
+  (Driver info: chromedriver=2.45.615291 (ec3682e3c9061c10f26ea9e5cdcf3c53f3f74387),platform=Windows NT 6.3.9600 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+Build info: version: '3.5.3', revision: 'a88d25fe6b', time: '2017-08-29T12:42:44.417Z'
+System info: host: 'ADMIN', ip: '192.168.43.137', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '1.8.0_191'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{mobileEmulationEnabled=false, timeouts={implicit=0, pageLoad=300000, script=30000}, hasTouchScreen=false, platform=WIN8_1, acceptSslCerts=false, goog:chromeOptions={debuggerAddress=localhost:65376}, acceptInsecureCerts=false, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, platformName=WIN8_1, setWindowRect=true, unexpectedAlertBehaviour=ignore, applicationCacheEnabled=false, rotatable=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.45.615291 (ec3682e3c9061c10f26ea9e5cdcf3c53f3f74387), userDataDir=C:\Users\admin-pc\AppData\Local\Temp\scoped_dir1252_10137}, takesHeapSnapshot=true, unhandledPromptBehavior=ignore, pageLoadStrategy=normal, strictFileInteractability=false, databaseEnabled=false, handlesAlerts=true, version=71.0.3578.98, browserConnectionEnabled=false, proxy=Proxy(), nativeEvents=true, locationContextEnabled=true, cssSelectorsEnabled=true}]
+Session ID: 0704b308309f20a2cef5df8af7e21e9c
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:215)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:167)
+	at org.openqa.selenium.remote.http.JsonHttpResponseCodec.reconstructValue(JsonHttpResponseCodec.java:40)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:82)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:45)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:82)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:646)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:703)
+	at org.openqa.selenium.remote.RemoteWebDriver$RemoteNavigation.refresh(RemoteWebDriver.java:962)
+	at com.tetherfi.test.UserManagementReportsE2ETest.afterEachMethod(UserManagementReportsE2ETest.java:921)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:523)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:224)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:723)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchWindowException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserManagementTest@34c70b5e]" started-at="2019-02-05T11:59:15Z" name="endTestCase" finished-at="2019-02-05T11:59:15Z" duration-ms="1" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.UserManagementTest.EditUserManagementRecord() throws java.io.IOException]]>
-              </value>
-            </param>
-          </params>
+        <test-method status="SKIP" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserManagementReportsE2ETest@1ce92674]" name="endTestCase" is-config="true" duration-ms="0" started-at="2019-02-09T11:57:54Z" finished-at="2019-02-09T11:57:54Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.tetherfi.test.UserManagementTest@34c70b5e]" started-at="2019-02-05T11:59:15Z" name="tearDown" finished-at="2019-02-05T11:59:17Z" duration-ms="1418" status="PASS">
+        <test-method status="SKIP" signature="tearDown()[pri:0, instance:com.tetherfi.test.UserManagementReportsE2ETest@1ce92674]" name="tearDown" is-config="true" duration-ms="0" started-at="2019-02-09T11:57:54Z" finished-at="2019-02-09T11:57:54Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.tetherfi.test.UserManagementTest -->
+      </class> <!-- com.tetherfi.test.UserManagementReportsE2ETest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
