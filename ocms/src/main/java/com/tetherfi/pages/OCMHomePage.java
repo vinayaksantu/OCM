@@ -64,6 +64,9 @@ public class OCMHomePage extends BasePage {
     @FindBy(css="a[href$='/ApplicationAccessControl/Index'] div")
     private WebElement applicationAccessControl;
     
+    @FindBy(css="#adminInvalidAccess h2")
+    private WebElement noAccess;
+    
     // @FindBy(xpath="//a[@onclick='setLastTabClickedName(Ivr)']")
     // private WebElement IVR;
 
@@ -107,6 +110,13 @@ public class OCMHomePage extends BasePage {
 	public void navigateToOpaqueDataPage() 
 	{
 		selectWebElement(opaqueData);
+	}
+
+	public boolean VerifyNoModulesAvailable() {
+		if(noAccess.getText().equals("You do not have access to any of the resources"))
+			return true;
+		else
+			return false;
 	}
 
 

@@ -834,123 +834,40 @@ public class WorkCodeListPage extends BasePage{
 	            }
 	        return status;
 	    }	
-	    public boolean VerifyAccesss() {
-			Boolean Status=false;
-			try {
-				waitforElementIsClickable(addnewrecordbtn);
-			}
-			catch(Exception e) {
-				try{
-					waitforElementIsClickable(editbtn);
-				}
-				catch(Exception e3){
-					try {
-						waitforElementIsClickable(deletebtn);
-					e3.printStackTrace();
-					}
-					catch(Exception e2){
-						try {
-							waitforElementIsClickable(exporttoexcel);
-						e2.printStackTrace();
-						}
-						catch(Exception e1){
-						Status=true;
-						e1.printStackTrace();
-						}
-					}
-				}
-	        }
-			return Status;
-		}	
+	    
 		private void waitforElementIsClickable(WebElement ele){
 			WebDriverWait wait = new WebDriverWait(driver, 5);
 			wait.until(ExpectedConditions.elementToBeClickable(ele));	
 		}
-		public boolean verifyAddAccesss() {
-			Boolean Status=false;
-			try {
-				waitforElementIsClickable(addnewrecordbtn);
-				waitforElementIsClickable(editbtn);
-			}
-			catch(Exception e){
-				try {
-				waitforElementIsClickable(deletebtn);
-				}
-				catch(Exception e1){
-					try {
-						waitforElementIsClickable(exporttoexcel);
-					}
-					catch(Exception e2){
-						Status=true;
-						e2.printStackTrace();
-					}
-				}
-			}
-			return Status;
-		}
-		public boolean verifyEditAccesss() {
-			Boolean Status=false;
-			try {
-				waitforElementIsClickable(editbtn);
-				waitforElementIsClickable(deletebtn);
-			}
-			catch(Exception e) {
-				try {
-					waitforElementIsClickable(exporttoexcel);
-				}
-				catch(Exception e1) {
-					try {
-						waitforElementIsClickable(addnewrecordbtn);
-					}
-					catch(Exception e2) {
-						Status=true;
-					}
-				}
-			}
-			return Status;
-		}
-		
-		public boolean verifyDeleteAccesss() {
-			Boolean Status=false;
-			try {
-				waitforElementIsClickable(deletebtn);	
-				waitforElementIsClickable(editbtn);
-			}
-			catch(Exception e) {
-				try {
-					waitforElementIsClickable(exporttoexcel);
-				}
-				catch(Exception e1) {
-					try {
-						waitforElementIsClickable(addnewrecordbtn);
-					}
-					catch(Exception e2) {
-						Status=true;
-					}
-				}
-			}
-			return Status;
-		}
-		public boolean verifyExportAccesss() {
-			Boolean Status=false;
-			try {
-				waitforElementIsClickable(exporttoexcel);	
-				waitforElementIsClickable(editbtn);
-			}
-			catch(Exception e) {
-				try {
-					waitforElementIsClickable(deletebtn);
-				}
-				catch(Exception e1) {
-					try {
-						waitforElementIsClickable(addnewrecordbtn);
-					}
-					catch(Exception e2) {
-						Status=true;
-					}
-				}
-			}
-			return Status;
-		}
+
+		public boolean isAddBtnDisplayed() {
+    	return addnewrecordbtn.isDisplayed() && addnewrecordbtn.isEnabled();
+    }
+    
+    public boolean isEditBtnDisplayed() {
+    	Boolean status = false;
+    	try {
+    		if(editbtn.isDisplayed() && editbtn.isEnabled())
+    			status = true;
+    	}catch(Exception e) {
+    		status = false;
+    	}
+		return status;
+    }
+    
+    public boolean isDeleteBtnDisplayed() {
+    	Boolean status = false;
+    	try {
+    		if(deletebtn.isDisplayed() && deletebtn.isEnabled())
+    			status = true;
+    	}catch(Exception e) {
+    		status = false;
+    	}
+		return status;
+    }
+    
+    public boolean isExportBtnDisplayed() {
+    	return exporttoexcel.isDisplayed() && exporttoexcel.isEnabled();
+    }
 }
 

@@ -38,7 +38,7 @@ public class HomePage extends BasePage{
     private WebElement ocmreportsTab;
 
     @FindBy(css="button[onclick='continueDashboard()']")
-    private WebElement continueToDashboardBtn;
+    private List <WebElement> continueToDashboardBtn;
 
     public void userLogout(){
         waitUntilWebElementIsClickable(profileDropDown);
@@ -67,7 +67,7 @@ public class HomePage extends BasePage{
 
     public void navigateToOcmIconImg(){selectWebElement(ocmIconImg);}
 
-    public void navigateToDashBoard(){selectWebElement(continueToDashboardBtn);}
+    public void navigateToDashBoard(){selectWebElement(continueToDashboardBtn.get(0));}
     
     public void openOCM()  {
         try {
@@ -88,4 +88,11 @@ public class HomePage extends BasePage{
             driver.close();
             e.printStackTrace();
         }}
+
+	public boolean noDashboardAccess() {
+		if(continueToDashboardBtn.size()>0)
+			return false;
+		else
+			return true;
+	}
 }

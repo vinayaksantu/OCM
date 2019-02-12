@@ -12,8 +12,11 @@ import com.tetherfi.model.tmac.TmacBroadCastMsgDetails;
 import com.tetherfi.model.tmac.WaitTimeColorConfigDetails;
 import com.tetherfi.model.tmac.WorkCodeListDetails;
 import com.tetherfi.model.user.UserDetails;
+import com.tetherfi.pages.AdhocOptionEnhancementPage;
+import com.tetherfi.pages.AdminCallbackPage;
 import com.tetherfi.pages.AgentTeamManagementPage;
 import com.tetherfi.pages.HomePage;
+import com.tetherfi.pages.IvrPage;
 import com.tetherfi.pages.LoginPage;
 import com.tetherfi.pages.OCMHomePage;
 import com.tetherfi.pages.TmacBroadCastMsgPage;
@@ -39,18 +42,55 @@ public class UserManagementE2ETest extends BaseTest {
         UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
         Assert.assertTrue(userManagementPage.isUserManagementPageDisplayed(),"User management assertion failed");
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\UserManagementData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);
+        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(3);
         UserDetails userDetails=new UserDetails(map);
         userManagementPage.searchUserManagementRecord(userDetails.getUserId());
         Assert.assertTrue(userManagementPage.isPageBasedUserAccessPageDisplayed());
         screenshot.captureScreen(driver, "PageBasedUSerAccessDisplayed", "UserManagementE2ETest");
         userManagementPage.clearAccess();
 	}
-	/*@Test
-	public void VerifyAccessOfAgentTeamMgmt() throws Exception
+	
+	//@Test
+	public void VerifyNoModulesAvailable() throws Exception
+	{
+		driver.close();
+		try {
+            PageFactory.reset();
+           BrowserFactory browserFactory = new BrowserFactory();
+          driver = browserFactory.createBrowserInstance(BrowserFactory.BrowserType.CHROME, System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles");
+    		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\LoginData.xlsx";
+        	Map<String, String> map = new ExcelReader(filePath,"Login").getTestData().get(3);
+            driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
+            if(map.get("LoginType").equals("Custom")){
+                LoginPage loginPage=new LoginPage(driver);
+                loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+                Thread.sleep(5000);
+            }
+        }catch (Exception e){
+            PageFactory.reset();
+            driver.close();
+            e.printStackTrace();
+        }
+        try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+        HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
+        Assert.assertTrue(homePage.checkPageLoadStatus(), "user login successful status");
+        homePage.navigateToOCMPage();
+       OCMHomePage ocmHomePage = PageFactory.createPageInstance(driver,OCMHomePage.class);
+       Assert.assertTrue(ocmHomePage.VerifyNoModulesAvailable(), "No Modules available assertion failed");
+       screenshot.captureScreen(driver, "VerifyAccess", "UserManagementE2ETest");  
+       homePage.userLogout();
+       driver.close();
+	}
+	
+	//@Test
+	public void VerifyViewAccessOfAgentTeamManagement() throws Exception
 	{            
         UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
-        userManagementPage.ProvideAccess("Agent Team Management");
+        userManagementPage.ProvideAccess("Agent Team Management","View");
 		Thread.sleep(2000);
         driver.close();
         try {
@@ -84,16 +124,20 @@ public class UserManagementE2ETest extends BaseTest {
        tmacPage.navigateToAgentTeamManagementPage();
         AgentTeamManagementPage agentTeamManagementPage=PageFactory.createPageInstance(driver,AgentTeamManagementPage.class);
         Assert.assertTrue(agentTeamManagementPage.isAgentTeamManagementPageDisplayed(),"Agent Team Management Page assertion failed");
-        Assert.assertTrue(agentTeamManagementPage.VerifyAccesss());
+        Assert.assertFalse(agentTeamManagementPage.isAddBtnDisplayed(), "Add button assertion failed");
+        Assert.assertFalse(agentTeamManagementPage.isEditBtnDisplayed(), "Edit button assertion failed");
+        Assert.assertFalse(agentTeamManagementPage.isDeleteBtnDisplayed(), "Delete button assertion failed");
+        Assert.assertFalse(agentTeamManagementPage.isExportBtnDisplayed(), "Export button assertion failed");
         screenshot.captureScreen(driver, "VerifyAccess", "UserManagementE2ETest");  
         homePage.userLogout();
         driver.close();
 	}
-	@Test(dependsOnMethods = {"VerifyAccessOfAgentTeamMgmt"})
+	
+	//@Test
 	public void VerifyAddAccessOfAgentTeamMgmt()throws Exception
 	{
 		UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
-		userManagementPage.ProvideAddAccess("Agent Team Management");
+		userManagementPage.ProvideAccess("Agent Team Management", "Add");
 		try {
 			Thread.sleep(2000);
 		} catch (InterruptedException e1) {
@@ -131,22 +175,20 @@ public class UserManagementE2ETest extends BaseTest {
 		tmacPage.navigateToAgentTeamManagementPage();
 		AgentTeamManagementPage agentTeamManagementPage=PageFactory.createPageInstance(driver,AgentTeamManagementPage.class);
 		Assert.assertTrue(agentTeamManagementPage.isAgentTeamManagementPageDisplayed(),"Agent Team Management Page assertion failed");
-		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentTeamManagementData.xlsx";
-        Map<String, String> map1 = new ExcelReader(filePath, "Create").getTestData().get(4);
-        AgentTeamMgmtDetails agentTeamMgmtDetails1=new AgentTeamMgmtDetails(map1);
-        agentTeamManagementPage.addnewCountry(agentTeamMgmtDetails1);
-        Assert.assertTrue(agentTeamManagementPage.verifyMessage(), "Country Assertion Failed");
-		Assert.assertTrue(agentTeamManagementPage.verifyAddAccesss());
+		Assert.assertTrue(agentTeamManagementPage.isAddBtnDisplayed(), "Add button assertion failed");
+        Assert.assertFalse(agentTeamManagementPage.isEditBtnDisplayed(), "Edit button assertion failed");
+        Assert.assertFalse(agentTeamManagementPage.isDeleteBtnDisplayed(), "Delete button assertion failed");
+        Assert.assertFalse(agentTeamManagementPage.isExportBtnDisplayed(), "Export button assertion failed");
 		screenshot.captureScreen(driver, "VerifyAddAccess", "UserManagementE2ETest");  
 		homePage.userLogout();
 		driver.close();
 	}
 	
-	@Test(dependsOnMethods = {"VerifyAddAccessOfAgentTeamMgmt"})
-	public void VerifyEditAccessOfAgentTeamMgmt() throws Exception
+	//@Test
+	public void VerifyEditAccessOfAgentTeamManagement() throws Exception
 	{
 		UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
-		userManagementPage.ProvideEditAccess("Agent Team Management");
+		userManagementPage.ProvideAccess("Agent Team Management", "Edit");
 		try {
 			Thread.sleep(2000);
 		} catch (InterruptedException e1) {
@@ -184,22 +226,20 @@ public class UserManagementE2ETest extends BaseTest {
 		tmacPage.navigateToAgentTeamManagementPage();
 		AgentTeamManagementPage agentTeamManagementPage=PageFactory.createPageInstance(driver,AgentTeamManagementPage.class);
 		Assert.assertTrue(agentTeamManagementPage.isAgentTeamManagementPageDisplayed(),"Agent Team Management Page assertion failed");
-		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentTeamManagementData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(1);
-        AgentTeamMgmtDetails agentTeamMgmtDetails=new AgentTeamMgmtDetails(map);
-        agentTeamManagementPage.editAgentTeamManagementRecord(agentTeamMgmtDetails.getTeamName(),agentTeamMgmtDetails.getUpdateTeamName(),agentTeamMgmtDetails.getModifyReason());
-        Assert.assertTrue(agentTeamManagementPage.verifyMessage(),"Edit record assertion failed");
-		Assert.assertTrue(agentTeamManagementPage.verifyEditAccesss());
+		Assert.assertFalse(agentTeamManagementPage.isAddBtnDisplayed(), "Add button assertion failed");
+        Assert.assertTrue(agentTeamManagementPage.isEditBtnDisplayed(), "Edit button assertion failed");
+        Assert.assertFalse(agentTeamManagementPage.isDeleteBtnDisplayed(), "Delete button assertion failed");
+        Assert.assertFalse(agentTeamManagementPage.isExportBtnDisplayed(), "Export button assertion failed");
 		screenshot.captureScreen(driver, "VerifyEditAccess", "UserManagementE2ETest");  
 		homePage.userLogout();
 		driver.close();
 	}
 	
-	@Test(dependsOnMethods = {"VerifyEditAccessOfAgentTeamMgmt"})
-	public void VerifyDeleteAccessOfAgentTeamMgmt() throws Exception
+	//@Test
+	public void VerifyDeleteAccessOfAgentTeamManagement() throws Exception
 	{
 		UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
-		userManagementPage.ProvideDeleteAccess("Agent Team Management");
+		userManagementPage.ProvideAccess("Agent Team Management", "Delete");
 		try {
 			Thread.sleep(2000);
 		} catch (InterruptedException e1) {
@@ -237,21 +277,19 @@ public class UserManagementE2ETest extends BaseTest {
 		tmacPage.navigateToAgentTeamManagementPage();
 		AgentTeamManagementPage agentTeamManagementPage=PageFactory.createPageInstance(driver,AgentTeamManagementPage.class);
 		Assert.assertTrue(agentTeamManagementPage.isAgentTeamManagementPageDisplayed(),"Agent Team Management Page assertion failed");
-		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentTeamManagementData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(1);
-        AgentTeamMgmtDetails agentTeamMgmtDetails=new AgentTeamMgmtDetails(map);
-        agentTeamManagementPage.deleteAgentTeamManagementRecord(agentTeamMgmtDetails.getUpdateTeamName(),agentTeamMgmtDetails.getDeleteReason());
-        Assert.assertTrue(agentTeamManagementPage.verifyMessage(),"delete record assertion failed");
-		Assert.assertTrue(agentTeamManagementPage.verifyDeleteAccesss());
+		Assert.assertFalse(agentTeamManagementPage.isAddBtnDisplayed(), "Add button assertion failed");
+        Assert.assertFalse(agentTeamManagementPage.isEditBtnDisplayed(), "Edit button assertion failed");
+        Assert.assertTrue(agentTeamManagementPage.isDeleteBtnDisplayed(), "Delete button assertion failed");
+        Assert.assertFalse(agentTeamManagementPage.isExportBtnDisplayed(), "Export button assertion failed");
 		screenshot.captureScreen(driver, "VerifyDeleteAccess", "UserManagementE2ETest");  
 		homePage.userLogout();
 		driver.close();
 	}
 	
-	@Test(dependsOnMethods = {"VerifyDeleteAccessOfAgentTeamMgmt"})
-	public void VerifyExportAccess() throws Exception {
+	//@Test
+	public void VerifyExportAccessOfagentTeamManagement() throws Exception {
 		UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
-		userManagementPage.ProvideExportAccess("Agent Team Management");
+		userManagementPage.ProvideAccess("Agent Team Management", "Export");
 		try {
 			Thread.sleep(2000);
 		} catch (InterruptedException e1) {
@@ -289,18 +327,20 @@ public class UserManagementE2ETest extends BaseTest {
 		tmacPage.navigateToAgentTeamManagementPage();
 		AgentTeamManagementPage agentTeamManagementPage=PageFactory.createPageInstance(driver,AgentTeamManagementPage.class);
 		Assert.assertTrue(agentTeamManagementPage.isAgentTeamManagementPageDisplayed(),"Agent Team Management Page assertion failed");
-		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\UserManagemnetExcelFiles";
-        Assert.assertTrue(agentTeamManagementPage.verifyExportToExcel(filePath));
-        Assert.assertTrue(agentTeamManagementPage.verifyExportAccesss());
+		Assert.assertFalse(agentTeamManagementPage.isAddBtnDisplayed(), "Add button assertion failed");
+        Assert.assertFalse(agentTeamManagementPage.isEditBtnDisplayed(), "Edit button assertion failed");
+        Assert.assertFalse(agentTeamManagementPage.isDeleteBtnDisplayed(), "Delete button assertion failed");
+        Assert.assertTrue(agentTeamManagementPage.isExportBtnDisplayed(), "Export button assertion failed");
 		screenshot.captureScreen(driver, "VerifyExportAccess", "UserManagementE2ETest");  
 		homePage.userLogout();
 		driver.close();
 	}
-	@Test
+	
+	//@Test
 	public void VerifyAccessOfTMACBroadcastMsg() throws Exception
 	{            
         UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
-        userManagementPage.ProvideAccess("TMAC Broadcast Message");
+        userManagementPage.ProvideAccess("TMAC Broadcast Message", "View");
 		Thread.sleep(2000);
         driver.close();
         try {
@@ -334,16 +374,19 @@ public class UserManagementE2ETest extends BaseTest {
         tmacPage.navigateToTmacBroadcastMsgPage();
         TmacBroadCastMsgPage tmacBroadCastMsgPage  = PageFactory.createPageInstance(driver, TmacBroadCastMsgPage.class);
        	Assert.assertTrue(tmacBroadCastMsgPage.isTmacBroadcastMsgPageDisplayed(), "TMACBroadcastMsg page assertion failed");
-        Assert.assertTrue(tmacBroadCastMsgPage.VerifyAccesss());
+       	Assert.assertFalse(tmacBroadCastMsgPage.isAddBtnDisplayed(), "Add button assertion failed");
+        Assert.assertFalse(tmacBroadCastMsgPage.isEditBtnDisplayed(), "Edit button assertion failed");
+        Assert.assertFalse(tmacBroadCastMsgPage.isExportBtnDisplayed(), "Export button assertion failed");
         screenshot.captureScreen(driver, "VerifyAccessOfTMACBroadcastMsg", "UserManagementE2ETest");  
         homePage.userLogout();
         driver.close();
 	}
-	@Test(dependsOnMethods = {"VerifyAccessOfTMACBroadcastMsg"})
+	
+	//@Test
 	public void VerifyAddAccessOfTMACBroadcastMsg()throws Exception
 	{
 		UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
-		userManagementPage.ProvideAddAccess("TMAC Broadcast Message");
+		userManagementPage.ProvideAccess("TMAC Broadcast Message", "Add");
 		Thread.sleep(2000);
 		driver.close();
 		try {
@@ -373,22 +416,19 @@ public class UserManagementE2ETest extends BaseTest {
 		tmacPage.navigateToTmacBroadcastMsgPage();
         TmacBroadCastMsgPage tmacBroadCastMsgPage  = PageFactory.createPageInstance(driver, TmacBroadCastMsgPage.class);
        	Assert.assertTrue(tmacBroadCastMsgPage.isTmacBroadcastMsgPageDisplayed(), "TMACBroadcastMsg page assertion failed");
-        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacBroadcastMsgData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(2);
-        TmacBroadCastMsgDetails tmacBroadCastMsgDetails=new TmacBroadCastMsgDetails(map);
-        tmacBroadCastMsgPage.addTmacBroadcastMsg(tmacBroadCastMsgDetails);
-        Assert.assertTrue(tmacBroadCastMsgPage.verifyNewRecordCreated(),"add record assertion failed");
-		Assert.assertTrue(tmacBroadCastMsgPage.verifyAddAccesss());
+       	Assert.assertTrue(tmacBroadCastMsgPage.isAddBtnDisplayed(), "Add button assertion failed");
+        Assert.assertFalse(tmacBroadCastMsgPage.isEditBtnDisplayed(), "Edit button assertion failed");
+        Assert.assertFalse(tmacBroadCastMsgPage.isExportBtnDisplayed(), "Export button assertion failed");
 		screenshot.captureScreen(driver, "VerifyAddAccessOfTMACBroadcastMsg", "UserManagementE2ETest");  
 		homePage.userLogout();
 		driver.close();
 	}
 	
-	@Test(dependsOnMethods = {"VerifyAddAccessOfTMACBroadcastMsg"})
+	//@Test
 	public void VerifyEditAccessOfTMACBroadcastMsg() throws Exception
 	{
 		UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
-		userManagementPage.ProvideEditAccess("TMAC Broadcast Message");
+		userManagementPage.ProvideAccess("TMAC Broadcast Message", "Edit");
 		Thread.sleep(2000);
 		driver.close();
 		try {
@@ -418,20 +458,18 @@ public class UserManagementE2ETest extends BaseTest {
 		tmacPage.navigateToTmacBroadcastMsgPage();
         TmacBroadCastMsgPage tmacBroadCastMsgPage  = PageFactory.createPageInstance(driver, TmacBroadCastMsgPage.class);
        	Assert.assertTrue(tmacBroadCastMsgPage.isTmacBroadcastMsgPageDisplayed(), "TMACBroadcastMsg page assertion failed");
-        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacBroadcastMsgData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(3);
-        TmacBroadCastMsgDetails tmacBroadCastMsgDetails=new TmacBroadCastMsgDetails(map);
-        tmacBroadCastMsgPage.editTmacBroadcastMsg(tmacBroadCastMsgDetails);
-        Assert.assertTrue(tmacBroadCastMsgPage.verifyRecordUpdated(),"Record Updated assertion failed");
-		Assert.assertTrue(tmacBroadCastMsgPage.verifyEditAccesss());
+       	Assert.assertFalse(tmacBroadCastMsgPage.isAddBtnDisplayed(), "Add button assertion failed");
+        Assert.assertTrue(tmacBroadCastMsgPage.isEditBtnDisplayed(), "Edit button assertion failed");
+        Assert.assertFalse(tmacBroadCastMsgPage.isExportBtnDisplayed(), "Export button assertion failed");
 		screenshot.captureScreen(driver, "VerifyEditAccessOfTMACBroadcastMsg", "UserManagementE2ETest");  
 		homePage.userLogout();
 		driver.close();
 	}
-	@Test(dependsOnMethods= {"VerifyEditAccessOfTMACBroadcastMsg"})
+	
+	//@Test
 		public void VerifyExportAccessOfTMACBroadcastMsg() throws Exception {
 		UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
-		userManagementPage.ProvideExportAccess("TMAC Broadcast Message");
+		userManagementPage.ProvideAccess("TMAC Broadcast Message", "Export");
 		Thread.sleep(2000);
 		driver.close();
 		try {
@@ -461,18 +499,19 @@ public class UserManagementE2ETest extends BaseTest {
 		tmacPage.navigateToTmacBroadcastMsgPage();
         TmacBroadCastMsgPage tmacBroadCastMsgPage  = PageFactory.createPageInstance(driver, TmacBroadCastMsgPage.class);
        	Assert.assertTrue(tmacBroadCastMsgPage.isTmacBroadcastMsgPageDisplayed(), "TMACBroadcastMsg page assertion failed");
-		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\UserManagemnetExcelFiles";
-        Assert.assertTrue(tmacBroadCastMsgPage.verifyExportToExcel(filePath));
-        Assert.assertTrue(tmacBroadCastMsgPage.verifyExportAccesss());
+       	Assert.assertFalse(tmacBroadCastMsgPage.isAddBtnDisplayed(), "Add button assertion failed");
+        Assert.assertFalse(tmacBroadCastMsgPage.isEditBtnDisplayed(), "Edit button assertion failed");
+        Assert.assertTrue(tmacBroadCastMsgPage.isExportBtnDisplayed(), "Export button assertion failed");
 		screenshot.captureScreen(driver, "VerifyExportAccessOfTMACBroadcastMsg", "UserManagementE2ETest");  
 		homePage.userLogout();
 		driver.close();
 	}
-	@Test
+	
+	//@Test
 	public void VerifyAccessOfWaitTimeColorConfig() throws Exception
 	{            
         UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
-        userManagementPage.ProvideAccess("Wait Time Color Config");
+        userManagementPage.ProvideAccess("Wait Time Color Config", "View");
 		Thread.sleep(2000);
         driver.close();
         try {
@@ -502,16 +541,19 @@ public class UserManagementE2ETest extends BaseTest {
         tmacPage.navigateToWaitTimeColorConfigPage();
         WaitTimeColorConfigPage waitTimeColorConfigPage=PageFactory.createPageInstance(driver,WaitTimeColorConfigPage.class);
         Assert.assertTrue(waitTimeColorConfigPage.isWaitTimeColorConfigPageDisplayed(),"Wait time color config page assertion failed");
-        Assert.assertTrue(waitTimeColorConfigPage.VerifyAccesss());
+        Assert.assertFalse(waitTimeColorConfigPage.isAddBtnDisplayed(), "Add button assertion failed");
+        Assert.assertFalse(waitTimeColorConfigPage.isEditBtnDisplayed(), "Edit button assertion failed");
+        Assert.assertFalse(waitTimeColorConfigPage.isDeleteBtnDisplayed(), "Delete button assertion failed");
+        Assert.assertFalse(waitTimeColorConfigPage.isExportBtnDisplayed(), "Export button assertion failed");
         screenshot.captureScreen(driver, "VerifyAccessOfWaitTimeColorConfig", "UserManagementE2ETest");  
         homePage.userLogout();
         driver.close();
 	}
-	@Test(dependsOnMethods = {"VerifyAccessOfWaitTimeColorConfig"})
+	//@Test(dependsOnMethods = {"VerifyAccessOfWaitTimeColorConfig"})
 	public void VerifyAddAccessOfWaitTimeColorConfig()throws Exception
 	{
 		UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
-		userManagementPage.ProvideAddAccess("Wait Time Color Config");
+		userManagementPage.ProvideAccess("Wait Time Color Config", "Add");
 		try {
 			Thread.sleep(2000);
 		} catch (InterruptedException e1) {
@@ -549,21 +591,20 @@ public class UserManagementE2ETest extends BaseTest {
 		tmacPage.navigateToWaitTimeColorConfigPage();
         WaitTimeColorConfigPage waitTimeColorConfigPage=PageFactory.createPageInstance(driver,WaitTimeColorConfigPage.class);
         Assert.assertTrue(waitTimeColorConfigPage.isWaitTimeColorConfigPageDisplayed(),"Wait time color config page assertion failed");
-        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\WaitTimeColorConfigData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);
-        WaitTimeColorConfigDetails waitTimeColorConfigDetails = new WaitTimeColorConfigDetails(map);
-        waitTimeColorConfigPage.addNewWaitTimeColorConfigRecord(waitTimeColorConfigDetails);
-        Assert.assertEquals(waitTimeColorConfigPage.getMessage(),"Record Created Successfully","Add New record assertion failed");
+        Assert.assertTrue(waitTimeColorConfigPage.isAddBtnDisplayed(), "Add button assertion failed");
+        Assert.assertFalse(waitTimeColorConfigPage.isEditBtnDisplayed(), "Edit button assertion failed");
+        Assert.assertFalse(waitTimeColorConfigPage.isDeleteBtnDisplayed(), "Delete button assertion failed");
+        Assert.assertFalse(waitTimeColorConfigPage.isExportBtnDisplayed(), "Export button assertion failed");
 		screenshot.captureScreen(driver, "VerifyAddAccessOfWaitTimeColorConfig()", "UserManagementE2ETest");  
 		homePage.userLogout();
 		driver.close();
 	}
 	
-	@Test(dependsOnMethods = {"VerifyAddAccessOfWaitTimeColorConfig"})
+	//@Test(dependsOnMethods = {"VerifyAddAccessOfWaitTimeColorConfig"})
 	public void VerifyEditAccessOfWaitTimeColorConfig() throws Exception
 	{
 		UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
-		userManagementPage.ProvideEditAccess("Wait Time Color Config");
+		userManagementPage.ProvideAccess("Wait Time Color Config", "Edit");
 		Thread.sleep(2000);
 		driver.close();
 		try {
@@ -597,22 +638,20 @@ public class UserManagementE2ETest extends BaseTest {
 		tmacPage.navigateToWaitTimeColorConfigPage();
         WaitTimeColorConfigPage waitTimeColorConfigPage=PageFactory.createPageInstance(driver,WaitTimeColorConfigPage.class);
         Assert.assertTrue(waitTimeColorConfigPage.isWaitTimeColorConfigPageDisplayed(),"Wait time color config page assertion failed");
-        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\WaitTimeColorConfigData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(1);
-        WaitTimeColorConfigDetails waitTimeColorConfigDetails = new WaitTimeColorConfigDetails(map);
-        waitTimeColorConfigPage.editWaitTimeColorConfigRecord(waitTimeColorConfigDetails);
-        Assert.assertEquals(waitTimeColorConfigPage.getMessage(),"Record updated successfully","Edit record assertion failed");
-		Assert.assertTrue(waitTimeColorConfigPage.verifyEditAccesss());
+        Assert.assertFalse(waitTimeColorConfigPage.isAddBtnDisplayed(), "Add button assertion failed");
+        Assert.assertTrue(waitTimeColorConfigPage.isEditBtnDisplayed(), "Edit button assertion failed");
+        Assert.assertFalse(waitTimeColorConfigPage.isDeleteBtnDisplayed(), "Delete button assertion failed");
+        Assert.assertFalse(waitTimeColorConfigPage.isExportBtnDisplayed(), "Export button assertion failed");
 		screenshot.captureScreen(driver, "VerifyEditAccessOfWaitTimeColorConfig", "UserManagementE2ETest");  
 		homePage.userLogout();
 		driver.close();
 	}
 	
-	@Test(dependsOnMethods = {"VerifyEditAccessOfWaitTimeColorConfig"})
+	//@Test(dependsOnMethods = {"VerifyEditAccessOfWaitTimeColorConfig"})
 	public void VerifyDeleteAccessOfWaitTimeColorConfig() throws Exception
 	{
 		UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
-		userManagementPage.ProvideDeleteAccess("Wait Time Color Config");
+		userManagementPage.ProvideAccess("Wait Time Color Config", "Delete");
 		Thread.sleep(2000);
 		driver.close();
 		try {
@@ -643,21 +682,19 @@ public class UserManagementE2ETest extends BaseTest {
         WaitTimeColorConfigPage waitTimeColorConfigPage=PageFactory.createPageInstance(driver,WaitTimeColorConfigPage.class);
         Assert.assertTrue(waitTimeColorConfigPage.isWaitTimeColorConfigPageDisplayed(),"Wait time color config page assertion failed");
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\WaitTimeColorConfigData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(1);
-        WaitTimeColorConfigDetails waitTimeColorConfigDetails = new WaitTimeColorConfigDetails(map);
-        waitTimeColorConfigPage.deleteWaitTimeColorConfigRecord(waitTimeColorConfigDetails.getStartTime(),waitTimeColorConfigDetails.getDeleteReason());
-        Assert.assertEquals(waitTimeColorConfigPage.getMessage(),"Record deleted successfully","Delete record assertion failed");
-        screenshot.captureScreen(driver, "Deleted Successfully","WaitTimeColorConfigTest");
-        Assert.assertTrue(waitTimeColorConfigPage.verifyDeleteAccesss());
+        Assert.assertFalse(waitTimeColorConfigPage.isAddBtnDisplayed(), "Add button assertion failed");
+        Assert.assertFalse(waitTimeColorConfigPage.isEditBtnDisplayed(), "Edit button assertion failed");
+        Assert.assertTrue(waitTimeColorConfigPage.isDeleteBtnDisplayed(), "Delete button assertion failed");
+        Assert.assertFalse(waitTimeColorConfigPage.isExportBtnDisplayed(), "Export button assertion failed");
 		screenshot.captureScreen(driver, "VerifyDeleteAccessOfWaitTimeColorConfig", "UserManagementE2ETest");  
 		homePage.userLogout();
 		driver.close();
 	}
 	
-	@Test(dependsOnMethods = {"VerifyDeleteAccessOfWaitTimeColorConfig"})
+	//@Test(dependsOnMethods = {"VerifyDeleteAccessOfWaitTimeColorConfig"})
 	public void VerifyExportAccessOfWaitTimeColorConfig() throws Exception {
 		UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
-		userManagementPage.ProvideExportAccess("Wait Time Color Config");
+		userManagementPage.ProvideAccess("Wait Time Color Config", "Export");
 		Thread.sleep(2000);
 		driver.close();
 		try {
@@ -686,19 +723,20 @@ public class UserManagementE2ETest extends BaseTest {
 		TmacPage tmacPage=PageFactory.createPageInstance(driver,TmacPage.class);
 		tmacPage.navigateToWaitTimeColorConfigPage();
         WaitTimeColorConfigPage waitTimeColorConfigPage=PageFactory.createPageInstance(driver,WaitTimeColorConfigPage.class);
-		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\UserManagemnetExcelFiles";
-        Assert.assertTrue(waitTimeColorConfigPage.verifyExportToExcel(filePath));
-        Assert.assertTrue(waitTimeColorConfigPage.verifyExportAccesss());
+        Assert.assertFalse(waitTimeColorConfigPage.isAddBtnDisplayed(), "Add button assertion failed");
+        Assert.assertFalse(waitTimeColorConfigPage.isEditBtnDisplayed(), "Edit button assertion failed");
+        Assert.assertFalse(waitTimeColorConfigPage.isDeleteBtnDisplayed(), "Delete button assertion failed");
+        Assert.assertTrue(waitTimeColorConfigPage.isExportBtnDisplayed(), "Export button assertion failed");
 		screenshot.captureScreen(driver, "VerifyExportAccessOfWaitTimeColorConfig", "UserManagementE2ETest");  
 		homePage.userLogout();
 		driver.close();
 	}
 	
-	@Test
+	//@Test
 	public void VerifyAccessOfWorkcodeList() throws Exception
 	{            
         UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
-        userManagementPage.ProvideAccess("Workcode List");
+        userManagementPage.ProvideAccess("Workcode List", "View");
 		Thread.sleep(2000);
         driver.close();
         try {
@@ -728,16 +766,19 @@ public class UserManagementE2ETest extends BaseTest {
         tmacPage.navigateToWorkCodeListPage();
         WorkCodeListPage workCodeListPage  = PageFactory.createPageInstance(driver, WorkCodeListPage.class);
         Assert.assertTrue(workCodeListPage.isWorkCodeListPageDisplayed(), "WorkCodeList page assertion failed");
-        Assert.assertTrue(workCodeListPage.VerifyAccesss());
+        Assert.assertFalse(workCodeListPage.isAddBtnDisplayed(), "Add button assertion failed");
+        Assert.assertFalse(workCodeListPage.isEditBtnDisplayed(), "Edit button assertion failed");
+        Assert.assertFalse(workCodeListPage.isDeleteBtnDisplayed(), "Delete button assertion failed");
+        Assert.assertFalse(workCodeListPage.isExportBtnDisplayed(), "Export button assertion failed");
         screenshot.captureScreen(driver, "VerifyAccessOfWorkcodeList", "UserManagementE2ETest");  
         homePage.userLogout();
         driver.close();
 	}
-	@Test(dependsOnMethods = {"VerifyAccessOfWorkcodeList"})
+	//@Test(dependsOnMethods = {"VerifyAccessOfWorkcodeList"})
 	public void VerifyAddAccessOfWorkcodeList()throws Exception
 	{
 		UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
-		userManagementPage.ProvideAddAccess("Workcode List");
+		userManagementPage.ProvideAccess("Workcode List", "Add");
 		Thread.sleep(2000);
 		driver.close();
 		try {
@@ -767,22 +808,20 @@ public class UserManagementE2ETest extends BaseTest {
 		tmacPage.navigateToWorkCodeListPage();
         WorkCodeListPage workCodeListPage  = PageFactory.createPageInstance(driver, WorkCodeListPage.class);
         Assert.assertTrue(workCodeListPage.isWorkCodeListPageDisplayed(), "WorkCodeList page assertion failed");
-    	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\WorkCodeListData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(2);
-        WorkCodeListDetails workcodeListDetails=new WorkCodeListDetails (map);
-        workCodeListPage.addNewWorkGroup(workcodeListDetails);
-        Assert.assertTrue(workCodeListPage.verifymessage(), "Workgroup Record creation assertion failed" );
-        Assert.assertTrue(workCodeListPage.verifyAddAccesss());
+        Assert.assertTrue(workCodeListPage.isAddBtnDisplayed(), "Add button assertion failed");
+        Assert.assertFalse(workCodeListPage.isEditBtnDisplayed(), "Edit button assertion failed");
+        Assert.assertFalse(workCodeListPage.isDeleteBtnDisplayed(), "Delete button assertion failed");
+        Assert.assertFalse(workCodeListPage.isExportBtnDisplayed(), "Export button assertion failed");
 		screenshot.captureScreen(driver, "VerifyAddAccessOfWorkcodeList", "UserManagementE2ETest");  
 		homePage.userLogout();
 		driver.close();
 	}
 	
-	@Test(dependsOnMethods = {"VerifyAddAccessOfWorkcodeList"})
+	//@Test(dependsOnMethods = {"VerifyAddAccessOfWorkcodeList"})
 	public void VerifyEditAccessOfWorkcodeList() throws Exception
 	{
 		UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
-		userManagementPage.ProvideEditAccess("Workcode List");
+		userManagementPage.ProvideAccess("Workcode List", "Edit");
 		Thread.sleep(2000);
 		driver.close();
 		try {
@@ -812,22 +851,20 @@ public class UserManagementE2ETest extends BaseTest {
 		tmacPage.navigateToWorkCodeListPage();
         WorkCodeListPage workCodeListPage  = PageFactory.createPageInstance(driver, WorkCodeListPage.class);
         Assert.assertTrue(workCodeListPage.isWorkCodeListPageDisplayed(), "WorkCodeList page assertion failed");
-    	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\WorkCodeListData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(1);	
-        WorkCodeListDetails workcodeListDetails=new WorkCodeListDetails (map);	
-        workCodeListPage.editworkcodeListRecord(workcodeListDetails);
-        Assert.assertTrue(workCodeListPage.verifymessage(),"Record updation assertion failed");
-		Assert.assertTrue(workCodeListPage.verifyEditAccesss());
+        Assert.assertFalse(workCodeListPage.isAddBtnDisplayed(), "Add button assertion failed");
+        Assert.assertTrue(workCodeListPage.isEditBtnDisplayed(), "Edit button assertion failed");
+        Assert.assertFalse(workCodeListPage.isDeleteBtnDisplayed(), "Delete button assertion failed");
+        Assert.assertFalse(workCodeListPage.isExportBtnDisplayed(), "Export button assertion failed");
 		screenshot.captureScreen(driver, "VerifyEditAccessOfWorkcodeList", "UserManagementE2ETest");  
 		homePage.userLogout();
 		driver.close();
 	}
 	
-	@Test(dependsOnMethods = {"VerifyEditAccessOfWorkcodeList"})
+	//@Test(dependsOnMethods = {"VerifyEditAccessOfWorkcodeList"})
 	public void VerifyDeleteAccessOfWorkcodeList() throws Exception
 	{
 		UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
-		userManagementPage.ProvideDeleteAccess("Workcode List");
+		userManagementPage.ProvideAccess("Workcode List", "Delete");
 		Thread.sleep(2000);
 		driver.close();
 		try {
@@ -857,21 +894,19 @@ public class UserManagementE2ETest extends BaseTest {
 		tmacPage.navigateToWorkCodeListPage();
         WorkCodeListPage workCodeListPage  = PageFactory.createPageInstance(driver, WorkCodeListPage.class);
         Assert.assertTrue(workCodeListPage.isWorkCodeListPageDisplayed(), "WorkCodeList page assertion failed");
-    	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\WorkCodeListData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(1);
-        WorkCodeListDetails workcodeListDetails=new WorkCodeListDetails (map);
-        workCodeListPage.deleteWorkCodeListRecord(workcodeListDetails);
-        Assert.assertTrue(workCodeListPage.verifymessage(),"delete record assertion failed");
-        Assert.assertTrue(workCodeListPage.verifyDeleteAccesss());
+        Assert.assertFalse(workCodeListPage.isAddBtnDisplayed(), "Add button assertion failed");
+        Assert.assertFalse(workCodeListPage.isEditBtnDisplayed(), "Edit button assertion failed");
+        Assert.assertTrue(workCodeListPage.isDeleteBtnDisplayed(), "Delete button assertion failed");
+        Assert.assertFalse(workCodeListPage.isExportBtnDisplayed(), "Export button assertion failed");
 		screenshot.captureScreen(driver, "VerifyDeleteAccessOfWorkcodeList", "UserManagementE2ETest");  
 		homePage.userLogout();
 		driver.close();
 	}
 	
-	@Test(dependsOnMethods = {"VerifyDeleteAccessOfWorkcodeList"})
+	//@Test
 	public void VerifyExportAccessOfWorkcodeList() throws Exception {
 		UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
-		userManagementPage.ProvideExportAccess("Workcode List");
+		userManagementPage.ProvideAccess("Workcode List", "Export");
 		Thread.sleep(2000);
 		driver.close();
 		try {
@@ -901,14 +936,336 @@ public class UserManagementE2ETest extends BaseTest {
 		tmacPage.navigateToWorkCodeListPage();
 		WorkCodeListPage workCodeListPage  = PageFactory.createPageInstance(driver, WorkCodeListPage.class);
 	    Assert.assertTrue(workCodeListPage.isWorkCodeListPageDisplayed(), "WorkCodeList page assertion failed");
-		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\UserManagemnetExcelFiles";
-        Assert.assertTrue(workCodeListPage.verifyExportToExcel(filePath));
-        Assert.assertTrue(workCodeListPage.verifyExportAccesss());
+	    Assert.assertFalse(workCodeListPage.isAddBtnDisplayed(), "Add button assertion failed");
+        Assert.assertFalse(workCodeListPage.isEditBtnDisplayed(), "Edit button assertion failed");
+        Assert.assertFalse(workCodeListPage.isDeleteBtnDisplayed(), "Delete button assertion failed");
+        Assert.assertTrue(workCodeListPage.isExportBtnDisplayed(), "Export button assertion failed");
 		screenshot.captureScreen(driver, "VerifyExportAccessOfWorkcodeList()", "UserManagementE2ETest");  
 		homePage.userLogout();
 		driver.close();
-	}*/
+	}
 	
+	//@Test
+	public void VerifyAccessOfAdHocOptionEnhancement() throws Exception
+	{
+        UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
+        userManagementPage.ProvideAccess("Adhoc Option Enhancement", "View");
+		Thread.sleep(2000);
+        driver.close();
+        try {
+            PageFactory.reset();
+           BrowserFactory browserFactory = new BrowserFactory();
+          driver = browserFactory.createBrowserInstance(BrowserFactory.BrowserType.CHROME, System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles");
+    		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\LoginData.xlsx";
+        	Map<String, String> map = new ExcelReader(filePath,"Login").getTestData().get(3);
+            driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
+            if(map.get("LoginType").equals("Custom")){
+                LoginPage loginPage=new LoginPage(driver);
+                loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+                Thread.sleep(5000);
+            }
+        }catch (Exception e){
+            PageFactory.reset();
+            driver.close();
+            e.printStackTrace();
+        }
+        try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+        HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
+        Assert.assertTrue(homePage.checkPageLoadStatus(), "user login successful status");
+        homePage.navigateToOCMPage();
+       OCMHomePage ocmHomePage = PageFactory.createPageInstance(driver,OCMHomePage.class);
+       ocmHomePage.navigateToTab("IVR");
+       IvrPage ivrPage=PageFactory.createPageInstance(driver,IvrPage.class);
+       ivrPage.navigateToAdhocOptionEnhancementPage();
+        AdhocOptionEnhancementPage adhocOptEnhPage=PageFactory.createPageInstance(driver,AdhocOptionEnhancementPage.class);
+        Assert.assertTrue(adhocOptEnhPage.isAdhocOptionEnhancementPageDisplayed(),"Adhoc Option Enhancement Page assertion failed");
+        Assert.assertFalse(adhocOptEnhPage.isAddBtnDisplayed(), "Add button assertion failed");
+        Assert.assertFalse(adhocOptEnhPage.isEditBtnDisplayed(), "Edit button assertion failed");
+        Assert.assertFalse(adhocOptEnhPage.isDeleteBtnDisplayed(), "Delete button assertion failed");
+        Assert.assertFalse(adhocOptEnhPage.isExportBtnDisplayed(), "Export button assertion failed");
+        screenshot.captureScreen(driver, "VerifyAccess", "UserManagementE2ETest");  
+        homePage.userLogout();
+        driver.close();
+	}
+	
+	//@Test
+	public void VerifyAddAccessOfAdHocOptionEnhancement() throws Exception
+	{            
+        UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
+        userManagementPage.ProvideAccess("Adhoc Option Enhancement", "Add");
+		Thread.sleep(2000);
+        driver.close();
+        try {
+            PageFactory.reset();
+           BrowserFactory browserFactory = new BrowserFactory();
+          driver = browserFactory.createBrowserInstance(BrowserFactory.BrowserType.CHROME, System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles");
+    		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\LoginData.xlsx";
+        	Map<String, String> map = new ExcelReader(filePath,"Login").getTestData().get(3);
+            driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
+            if(map.get("LoginType").equals("Custom")){
+                LoginPage loginPage=new LoginPage(driver);
+                loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+                Thread.sleep(5000);
+            }
+        }catch (Exception e){
+            PageFactory.reset();
+            driver.close();
+            e.printStackTrace();
+        }
+        try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+        HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
+        Assert.assertTrue(homePage.checkPageLoadStatus(), "user login successful status");
+        homePage.navigateToOCMPage();
+       OCMHomePage ocmHomePage = PageFactory.createPageInstance(driver,OCMHomePage.class);
+       ocmHomePage.navigateToTab("IVR");
+       IvrPage ivrPage=PageFactory.createPageInstance(driver,IvrPage.class);
+       ivrPage.navigateToAdhocOptionEnhancementPage();
+        AdhocOptionEnhancementPage adhocOptEnhPage=PageFactory.createPageInstance(driver,AdhocOptionEnhancementPage.class);
+        Assert.assertTrue(adhocOptEnhPage.isAdhocOptionEnhancementPageDisplayed(),"Adhoc Option Enhancement Page assertion failed");
+        Assert.assertTrue(adhocOptEnhPage.isAddBtnDisplayed(), "Add button assertion failed");
+        Assert.assertFalse(adhocOptEnhPage.isEditBtnDisplayed(), "Edit button assertion failed");
+        Assert.assertFalse(adhocOptEnhPage.isDeleteBtnDisplayed(), "Delete button assertion failed");
+        Assert.assertFalse(adhocOptEnhPage.isExportBtnDisplayed(), "Export button assertion failed");
+        screenshot.captureScreen(driver, "VerifyAccess", "UserManagementE2ETest");  
+        homePage.userLogout();
+        driver.close();
+	}
+	
+	//@Test
+	public void VerifyEditAccessOfAdHocOptionEnhancement() throws Exception
+	{            
+        UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
+        userManagementPage.ProvideAccess("Adhoc Option Enhancement", "Edit");
+		Thread.sleep(2000);
+        driver.close();
+        try {
+            PageFactory.reset();
+           BrowserFactory browserFactory = new BrowserFactory();
+          driver = browserFactory.createBrowserInstance(BrowserFactory.BrowserType.CHROME, System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles");
+    		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\LoginData.xlsx";
+        	Map<String, String> map = new ExcelReader(filePath,"Login").getTestData().get(3);
+            driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
+            if(map.get("LoginType").equals("Custom")){
+                LoginPage loginPage=new LoginPage(driver);
+                loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+                Thread.sleep(5000);
+            }
+        }catch (Exception e){
+            PageFactory.reset();
+            driver.close();
+            e.printStackTrace();
+        }
+        try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+        HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
+        Assert.assertTrue(homePage.checkPageLoadStatus(), "user login successful status");
+        homePage.navigateToOCMPage();
+       OCMHomePage ocmHomePage = PageFactory.createPageInstance(driver,OCMHomePage.class);
+       ocmHomePage.navigateToTab("IVR");
+       IvrPage ivrPage=PageFactory.createPageInstance(driver,IvrPage.class);
+       ivrPage.navigateToAdhocOptionEnhancementPage();
+        AdhocOptionEnhancementPage adhocOptEnhPage=PageFactory.createPageInstance(driver,AdhocOptionEnhancementPage.class);
+        Assert.assertTrue(adhocOptEnhPage.isAdhocOptionEnhancementPageDisplayed(),"Adhoc Option Enhancement Page assertion failed");
+        Assert.assertFalse(adhocOptEnhPage.isAddBtnDisplayed(), "Add button assertion failed");
+        Assert.assertTrue(adhocOptEnhPage.isEditBtnDisplayed(), "Edit button assertion failed");
+        Assert.assertFalse(adhocOptEnhPage.isDeleteBtnDisplayed(), "Delete button assertion failed");
+        Assert.assertFalse(adhocOptEnhPage.isExportBtnDisplayed(), "Export button assertion failed");
+        screenshot.captureScreen(driver, "VerifyAccess", "UserManagementE2ETest");  
+        homePage.userLogout();
+        driver.close();
+	}
+	
+	//@Test
+		public void VerifyDeleteAccessOfAdHocOptionEnhancement() throws Exception
+		{            
+	        UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
+	        userManagementPage.ProvideAccess("Adhoc Option Enhancement", "Delete");
+			Thread.sleep(2000);
+	        driver.close();
+	        try {
+	            PageFactory.reset();
+	           BrowserFactory browserFactory = new BrowserFactory();
+	          driver = browserFactory.createBrowserInstance(BrowserFactory.BrowserType.CHROME, System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles");
+	    		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\LoginData.xlsx";
+	        	Map<String, String> map = new ExcelReader(filePath,"Login").getTestData().get(3);
+	            driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
+	            if(map.get("LoginType").equals("Custom")){
+	                LoginPage loginPage=new LoginPage(driver);
+	                loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                Thread.sleep(5000);
+	            }
+	        }catch (Exception e){
+	            PageFactory.reset();
+	            driver.close();
+	            e.printStackTrace();
+	        }
+	        try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+	        HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
+	        Assert.assertTrue(homePage.checkPageLoadStatus(), "user login successful status");
+	        homePage.navigateToOCMPage();
+	       OCMHomePage ocmHomePage = PageFactory.createPageInstance(driver,OCMHomePage.class);
+	       ocmHomePage.navigateToTab("IVR");
+	       IvrPage ivrPage=PageFactory.createPageInstance(driver,IvrPage.class);
+	       ivrPage.navigateToAdhocOptionEnhancementPage();
+	        AdhocOptionEnhancementPage adhocOptEnhPage=PageFactory.createPageInstance(driver,AdhocOptionEnhancementPage.class);
+	        Assert.assertTrue(adhocOptEnhPage.isAdhocOptionEnhancementPageDisplayed(),"Adhoc Option Enhancement Page assertion failed");
+	        Assert.assertFalse(adhocOptEnhPage.isAddBtnDisplayed(), "Add button assertion failed");
+	        Assert.assertFalse(adhocOptEnhPage.isEditBtnDisplayed(), "Edit button assertion failed");
+	        Assert.assertTrue(adhocOptEnhPage.isDeleteBtnDisplayed(), "Delete button assertion failed");
+	        Assert.assertFalse(adhocOptEnhPage.isExportBtnDisplayed(), "Export button assertion failed");
+	        screenshot.captureScreen(driver, "VerifyAccess", "UserManagementE2ETest");  
+	        homePage.userLogout();
+	        driver.close();
+		}
+		
+		//@Test
+				public void VerifyExportAccessOfAdHocOptionEnhancement() throws Exception
+				{            
+			        UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
+			        userManagementPage.ProvideAccess("Adhoc Option Enhancement", "Export");
+					Thread.sleep(2000);
+			        driver.close();
+			        try {
+			            PageFactory.reset();
+			           BrowserFactory browserFactory = new BrowserFactory();
+			          driver = browserFactory.createBrowserInstance(BrowserFactory.BrowserType.CHROME, System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles");
+			    		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\LoginData.xlsx";
+			        	Map<String, String> map = new ExcelReader(filePath,"Login").getTestData().get(3);
+			            driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
+			            if(map.get("LoginType").equals("Custom")){
+			                LoginPage loginPage=new LoginPage(driver);
+			                loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+			                Thread.sleep(5000);
+			            }
+			        }catch (Exception e){
+			            PageFactory.reset();
+			            driver.close();
+			            e.printStackTrace();
+			        }
+			        try {
+						Thread.sleep(2000);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+			        HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
+			        Assert.assertTrue(homePage.checkPageLoadStatus(), "user login successful status");
+			        homePage.navigateToOCMPage();
+			       OCMHomePage ocmHomePage = PageFactory.createPageInstance(driver,OCMHomePage.class);
+			       ocmHomePage.navigateToTab("IVR");
+			       IvrPage ivrPage=PageFactory.createPageInstance(driver,IvrPage.class);
+			       ivrPage.navigateToAdhocOptionEnhancementPage();
+			       AdhocOptionEnhancementPage adhocOptEnhPage=PageFactory.createPageInstance(driver,AdhocOptionEnhancementPage.class);
+			        Assert.assertTrue(adhocOptEnhPage.isAdhocOptionEnhancementPageDisplayed(),"Adhoc Option Enhancement Page assertion failed");
+			        Assert.assertFalse(adhocOptEnhPage.isAddBtnDisplayed(), "Add button assertion failed");
+			        Assert.assertFalse(adhocOptEnhPage.isEditBtnDisplayed(), "Edit button assertion failed");
+			        Assert.assertFalse(adhocOptEnhPage.isDeleteBtnDisplayed(), "Delete button assertion failed");
+			        Assert.assertTrue(adhocOptEnhPage.isExportBtnDisplayed(), "Export button assertion failed");
+			        screenshot.captureScreen(driver, "VerifyAccess", "UserManagementE2ETest");  
+			        homePage.userLogout();
+			        driver.close();
+				}
+			
+				//@Test
+				public void VerifyViewAccessOfAdminCallback() throws Exception
+				{
+				     UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
+				     userManagementPage.ProvideAccess("Admin Callback", "View");
+				     Thread.sleep(2000);
+				     driver.close();
+				     try {
+				             PageFactory.reset();
+				             BrowserFactory browserFactory = new BrowserFactory();
+				             driver = browserFactory.createBrowserInstance(BrowserFactory.BrowserType.CHROME, System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles");
+				             String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\LoginData.xlsx";
+				             Map<String, String> map = new ExcelReader(filePath,"Login").getTestData().get(3);
+				             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
+				             if(map.get("LoginType").equals("Custom")){
+				                 LoginPage loginPage=new LoginPage(driver);
+				                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+				                 Thread.sleep(5000);
+				              }
+				      }catch (Exception e){
+				         PageFactory.reset();
+				         driver.close();
+				         e.printStackTrace();
+				      }
+				      try {
+				             Thread.sleep(2000);
+				          }catch(InterruptedException e) {
+				             e.printStackTrace();
+				          }
+				      HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
+				      Assert.assertTrue(homePage.checkPageLoadStatus(), "user login successful status");
+				      homePage.navigateToOCMPage();
+				      OCMHomePage ocmHomePage = PageFactory.createPageInstance(driver,OCMHomePage.class);
+				      ocmHomePage.navigateToTab("IVR");
+				      IvrPage ivrPage=PageFactory.createPageInstance(driver,IvrPage.class);
+				      ivrPage.navigateToAdminCallbackPage();
+				      AdminCallbackPage modPageInst=PageFactory.createPageInstance(driver,AdminCallbackPage.class);
+				      Assert.assertTrue(modPageInst.isAdminCallbackPageDisplayed(), "Admin Callback Page assertion failed");
+				      Assert.assertFalse(modPageInst.isExportBtnDisplayed(), "Export button assertion failed");
+				      homePage.userLogout();
+				      driver.close();
+				}
+
+				//@Test
+				public void VerifyExportAccessOfAdminCallback() throws Exception
+				{
+				     UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
+				     userManagementPage.ProvideAccess("Admin Callback", "Export");
+				     Thread.sleep(2000);
+				     driver.close();
+				     try {
+				             PageFactory.reset();
+				             BrowserFactory browserFactory = new BrowserFactory();
+				             driver = browserFactory.createBrowserInstance(BrowserFactory.BrowserType.CHROME, System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles");
+				             String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\LoginData.xlsx";
+				             Map<String, String> map = new ExcelReader(filePath,"Login").getTestData().get(3);
+				             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
+				             if(map.get("LoginType").equals("Custom")){
+				                 LoginPage loginPage=new LoginPage(driver);
+				                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+				                 Thread.sleep(5000);
+				              }
+				      }catch (Exception e){
+				         PageFactory.reset();
+				         driver.close();
+				         e.printStackTrace();
+				      }
+				      try {
+				             Thread.sleep(2000);
+				          }catch(InterruptedException e) {
+				             e.printStackTrace();
+				          }
+				      HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
+				      Assert.assertTrue(homePage.checkPageLoadStatus(), "user login successful status");
+				      homePage.navigateToOCMPage();
+				      OCMHomePage ocmHomePage = PageFactory.createPageInstance(driver,OCMHomePage.class);
+				      ocmHomePage.navigateToTab("IVR");
+				      IvrPage ivrPage=PageFactory.createPageInstance(driver,IvrPage.class);
+				      ivrPage.navigateToAdminCallbackPage();
+				      AdminCallbackPage modPageInst=PageFactory.createPageInstance(driver,AdminCallbackPage.class);
+				      Assert.assertTrue(modPageInst.isAdminCallbackPageDisplayed(), "Admin Callback Page assertion failed");
+				      Assert.assertTrue(modPageInst.isExportBtnDisplayed(), "Export button assertion failed");
+				      homePage.userLogout();
+				      driver.close();
+				}
+			     
 	@AfterMethod
 	 public void afterEachMethod(ITestResult result){
 	   	 if(ITestResult.FAILURE==result.getStatus()){
@@ -918,10 +1275,11 @@ public class UserManagementE2ETest extends BaseTest {
 			catch (Exception e){
 			 System.out.println("Exception while taking screenshot "+e.getMessage());
 			 } 
-			 driver.navigate().refresh();
+			 HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
+			 homePage.userLogout();
+		     driver.close();
 			 }
-	   	 else
-	   	 {
+	   	 
 	        try {
 	            PageFactory.reset();
 	            BrowserFactory browserFactory = new BrowserFactory();
@@ -941,7 +1299,7 @@ public class UserManagementE2ETest extends BaseTest {
 	            driver.close();
 	            e.printStackTrace();
 	        }
-	   	 }
+	   	 
 		
 	    }
 

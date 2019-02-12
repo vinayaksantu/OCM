@@ -852,122 +852,40 @@ public class AgentTeamManagementPage extends BasePage {
             }
         return status;
     }
-	public boolean VerifyAccesss() {
-		Boolean Status=false;
-		try {
-			waitforElementIsClickable(addNewAgentTeamMgmtRcrdBtn);
-		}
-		catch(Exception e) {
-			try{
-				waitforElementIsClickable(editButton);
-			}
-			catch(Exception e3){
-				try {
-					waitforElementIsClickable(deleteButton);
-				e3.printStackTrace();
-				}
-				catch(Exception e2){
-					try {
-						waitforElementIsClickable(exporttoexcel);
-					e2.printStackTrace();
-					}
-					catch(Exception e1){
-					Status=true;
-					e1.printStackTrace();
-					}
-				}
-			}
-        }
-		return Status;
-	}	
+    
+    public boolean isAddBtnDisplayed() {
+    	return addNewAgentTeamMgmtRcrdBtn.isDisplayed() && addNewAgentTeamMgmtRcrdBtn.isEnabled();
+    }
+    
+    public boolean isEditBtnDisplayed() {
+    	Boolean status = false;
+    	try {
+    		if(editButton.isDisplayed() && editButton.isEnabled())
+    			status = true;
+    	}catch(Exception e) {
+    		status = false;
+    	}
+		return status;
+    }
+    
+    public boolean isDeleteBtnDisplayed() {
+    	Boolean status = false;
+    	try {
+    		if(deleteButton.isDisplayed() && deleteButton.isEnabled())
+    			status = true;
+    	}catch(Exception e) {
+    		status = false;
+    	}
+		return status;
+    }
+    
+    public boolean isExportBtnDisplayed() {
+    	return exporttoexcel.isDisplayed() && exporttoexcel.isEnabled();
+    }
+    
 	private void waitforElementIsClickable(WebElement ele){
 		WebDriverWait wait = new WebDriverWait(driver, 5);
 		wait.until(ExpectedConditions.elementToBeClickable(ele));	
 	}
-	public boolean verifyAddAccesss() {
-		Boolean Status=false;
-		try {
-			waitforElementIsClickable(addNewAgentTeamMgmtRcrdBtn);
-			waitforElementIsClickable(editButton);
-		}
-		catch(Exception e){
-			try {
-			waitforElementIsClickable(deleteButton);
-			}
-			catch(Exception e1){
-				try {
-					waitforElementIsClickable(exporttoexcel);
-				}
-				catch(Exception e2){
-					Status=true;
-					e2.printStackTrace();
-				}
-			}
-		}
-		return Status;
-	}
-	public boolean verifyEditAccesss() {
-		Boolean Status=false;
-		try {
-			waitforElementIsClickable(editButton);
-			waitforElementIsClickable(deleteButton);
-		}
-		catch(Exception e) {
-			try {
-				waitforElementIsClickable(exporttoexcel);
-			}
-			catch(Exception e1) {
-				try {
-					waitforElementIsClickable(addNewAgentTeamMgmtRcrdBtn);
-				}
-				catch(Exception e2) {
-					Status=true;
-				}
-			}
-		}
-		return Status;
-	}
 	
-	public boolean verifyDeleteAccesss() {
-		Boolean Status=false;
-		try {
-			waitforElementIsClickable(deleteButton);	
-			waitforElementIsClickable(editButton);
-		}
-		catch(Exception e) {
-			try {
-				waitforElementIsClickable(exporttoexcel);
-			}
-			catch(Exception e1) {
-				try {
-					waitforElementIsClickable(addNewAgentTeamMgmtRcrdBtn);
-				}
-				catch(Exception e2) {
-					Status=true;
-				}
-			}
-		}
-		return Status;
-	}
-	public boolean verifyExportAccesss() {
-		Boolean Status=false;
-		try {
-			waitforElementIsClickable(exporttoexcel);	
-			waitforElementIsClickable(editButton);
-		}
-		catch(Exception e) {
-			try {
-				waitforElementIsClickable(deleteButton);
-			}
-			catch(Exception e1) {
-				try {
-					waitforElementIsClickable(addNewAgentTeamMgmtRcrdBtn);
-				}
-				catch(Exception e2) {
-					Status=true;
-				}
-			}
-		}
-		return Status;
-	}
 }

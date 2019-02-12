@@ -784,123 +784,40 @@ public class WaitTimeColorConfigPage extends BasePage {
             }
         return status;
     }
-		public boolean VerifyAccesss() {
-		Boolean Status=false;
-		try {
-			waitforElementIsClickable(addNewWaitTimeColorConfigRecordBtn);
-		}
-		catch(Exception e) {
-			try{
-				waitforElementIsClickable(editBtn);
-			}
-			catch(Exception e3){
-				try {
-					waitforElementIsClickable(deleteBtn);
-				e3.printStackTrace();
-				}
-				catch(Exception e2){
-					try {
-						waitforElementIsClickable(exporttoexcel);
-					e2.printStackTrace();
-					}
-					catch(Exception e1){
-					Status=true;
-					e1.printStackTrace();
-					}
-				}
-			}
-        }
-		return Status;
-	}	
+		
 	private void waitforElementIsClickable(WebElement ele){
 		WebDriverWait wait = new WebDriverWait(driver, 5);
 		wait.until(ExpectedConditions.elementToBeClickable(ele));	
 	}
-	public boolean verifyAddAccesss() {
-		Boolean Status=false;
-		try {
-			waitforElementIsClickable(addNewWaitTimeColorConfigRecordBtn);
-			waitforElementIsClickable(editBtn);
-		}
-		catch(Exception e){
-			try {
-			waitforElementIsClickable(deleteBtn);
-			}
-			catch(Exception e1){
-				try {
-					waitforElementIsClickable(exporttoexcel);
-				}
-				catch(Exception e2){
-					Status=true;
-					e2.printStackTrace();
-				}
-			}
-		}
-		return Status;
-	}
-	public boolean verifyEditAccesss() {
-		Boolean Status=false;
-		try {
-			waitforElementIsClickable(editBtn);
-			waitforElementIsClickable(deleteBtn);
-		}
-		catch(Exception e) {
-			try {
-				waitforElementIsClickable(exporttoexcel);
-			}
-			catch(Exception e1) {
-				try {
-					waitforElementIsClickable(addNewWaitTimeColorConfigRecordBtn);
-				}
-				catch(Exception e2) {
-					Status=true;
-				}
-			}
-		}
-		return Status;
-	}
-	
-	public boolean verifyDeleteAccesss() {
-		Boolean Status=false;
-		try {
-			waitforElementIsClickable(deleteBtn);	
-			waitforElementIsClickable(editBtn);
-		}
-		catch(Exception e) {
-			try {
-				waitforElementIsClickable(exporttoexcel);
-			}
-			catch(Exception e1) {
-				try {
-					waitforElementIsClickable(addNewWaitTimeColorConfigRecordBtn);
-				}
-				catch(Exception e2) {
-					Status=true;
-				}
-			}
-		}
-		return Status;
-	}
-	public boolean verifyExportAccesss() {
-		Boolean Status=false;
-		try {
-			waitforElementIsClickable(exporttoexcel);	
-			waitforElementIsClickable(editBtn);
-		}
-		catch(Exception e) {
-			try {
-				waitforElementIsClickable(deleteBtn);
-			}
-			catch(Exception e1) {
-				try {
-					waitforElementIsClickable(addNewWaitTimeColorConfigRecordBtn);
-				}
-				catch(Exception e2) {
-					Status=true;
-				}
-			}
-		}
-		return Status;
-	}	
+
+	public boolean isAddBtnDisplayed() {
+    	return addNewWaitTimeColorConfigRecordBtn.isDisplayed() && addNewWaitTimeColorConfigRecordBtn.isEnabled();
+    }
+    
+    public boolean isEditBtnDisplayed() {
+    	Boolean status = false;
+    	try {
+    		if(editBtn.isDisplayed() && editBtn.isEnabled())
+    			status = true;
+    	}catch(Exception e) {
+    		status = false;
+    	}
+		return status;
+    }
+    
+    public boolean isDeleteBtnDisplayed() {
+    	Boolean status = false;
+    	try {
+    		if(deleteBtn.isDisplayed() && deleteBtn.isEnabled())
+    			status = true;
+    	}catch(Exception e) {
+    		status = false;
+    	}
+		return status;
+    }
+    
+    public boolean isExportBtnDisplayed() {
+    	return exporttoexcel.isDisplayed() && exporttoexcel.isEnabled();
+    }
 
 }

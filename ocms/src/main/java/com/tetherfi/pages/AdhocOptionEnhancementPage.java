@@ -3,6 +3,7 @@ package com.tetherfi.pages;
 import com.tetherfi.model.ivr.AdhocOptionEnhancementDetails;
 import com.tetherfi.utility.FileUploader;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -102,20 +103,30 @@ public class AdhocOptionEnhancementPage extends BasePage {
 
     @FindBy(css = ".modal-footer .button-theme")
     private WebElement searchSearchBtn;
+    
     @FindBy(css = ".k-grid-edit")
     private WebElement editButton;
+    
     @FindBy(id = "ModifyReason")
     private WebElement ModifyReasonTextBox;
+    
     @FindBy(css=".k-grid-cancel")
     private WebElement cancelBtn;
+    
     @FindBy(css=".k-edit-form-container")
     private WebElement editFormContainer;
+    
     @FindBy(css="div[style='display: block; z-index: 10002; opacity: 0.5;']")
     private WebElement deleteContainer;
+    
     @FindBy(css = ".fa-expand")
     private WebElement fullScrnBtn;
+    
     @FindBy(css = ".fa-compress")
     private WebElement minimiseScrnBtn;
+    
+    @FindBy(xpath = "//button[text()='Export to Excel']")
+    private WebElement exportBtn;
 
     public boolean isAdhocOptionEnhancementPageDisplayed() {
         waitForLoad(driver);
@@ -243,5 +254,35 @@ public class AdhocOptionEnhancementPage extends BasePage {
     }
     public void clickMinimiseScrnBtn() {
         if(isElementExist(minimiseScrnBtn)){selectWebElement(minimiseScrnBtn);}
+    }
+	
+	public boolean isAddBtnDisplayed() {
+    	return addNewAdhocOptionEnhancementRcrdBtn.isDisplayed() && addNewAdhocOptionEnhancementRcrdBtn.isEnabled();
+    }
+    
+    public boolean isEditBtnDisplayed() {
+    	Boolean status = false;
+    	try {
+    		if(editButton.isDisplayed() && editButton.isEnabled())
+    			status = true;
+    	}catch(Exception e) {
+    		status = false;
+    	}
+		return status;
+    }
+    
+    public boolean isDeleteBtnDisplayed() {
+    	Boolean status = false;
+    	try {
+    		if(deleteButton.isDisplayed() && deleteButton.isEnabled())
+    			status = true;
+    	}catch(Exception e) {
+    		status = false;
+    	}
+		return status;
+    }
+    
+    public boolean isExportBtnDisplayed() {
+    	return exportBtn.isDisplayed() && exportBtn.isEnabled();
     }
 }

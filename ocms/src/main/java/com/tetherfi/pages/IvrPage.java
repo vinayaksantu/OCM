@@ -25,6 +25,9 @@ public class IvrPage extends BasePage {
 
     @FindBy(css="a[href$='/AdhocOptionEnhancement/Index'] div")
     private WebElement adhocOptionEnhancement;
+    
+    @FindBy(css="a[href$='/AdminCallback/Index'] div")
+    private WebElement adminCallBack;
 
     @FindBy(css="#navTabs li")
     private List<WebElement> navTabs;
@@ -48,5 +51,11 @@ public class IvrPage extends BasePage {
         selectWebElement(ivrConfig);
     }
 
-    public void navigateToAdhocOptionEnhancementPage(){selectWebElement(adhocOptionEnhancement);}
+    public void navigateToAdhocOptionEnhancementPage(){
+    	selectWebElement(adhocOptionEnhancement);
+    }
+	public void navigateToAdminCallbackPage() {
+		selectWebElement(adminCallBack);
+		
+	}
 }

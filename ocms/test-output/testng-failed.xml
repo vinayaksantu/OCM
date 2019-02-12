@@ -3,17 +3,17 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.tetherfi.test.UserManagementReportsE2ETest">
+      <class name="com.tetherfi.test.UserManagementE2ETest">
         <methods>
+          <include name="VerifyExportAccessOfagentTeamManagement"/>
+          <include name="afterEachMethod"/>
           <include name="startTestCase"/>
           <include name="openApplication"/>
-          <include name="afterEachMethod"/>
-          <include name="OCMPage"/>
-          <include name="VerifyAccessOfAgentTeamMgmt"/>
           <include name="endTestCase"/>
           <include name="tearDown"/>
+          <include name="OCMPage"/>
         </methods>
-      </class> <!-- com.tetherfi.test.UserManagementReportsE2ETest -->
+      </class> <!-- com.tetherfi.test.UserManagementE2ETest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
