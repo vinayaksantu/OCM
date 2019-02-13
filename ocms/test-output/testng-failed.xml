@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
+<suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test name="Default test(failed)">
     <classes>
       <class name="com.tetherfi.test.UserManagementE2ETest">
         <methods>
-          <include name="VerifyExportAccessOfagentTeamManagement"/>
           <include name="afterEachMethod"/>
           <include name="startTestCase"/>
           <include name="openApplication"/>
+          <include name="VerifyExportAccessOfChatTemplates"/>
           <include name="endTestCase"/>
           <include name="tearDown"/>
           <include name="OCMPage"/>
