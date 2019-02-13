@@ -16,6 +16,8 @@ import com.tetherfi.pages.AdhocOptionEnhancementPage;
 import com.tetherfi.pages.AdminCallbackPage;
 import com.tetherfi.pages.AgentSkillAssignmentPage;
 import com.tetherfi.pages.AgentTeamManagementPage;
+import com.tetherfi.pages.ChatPage;
+import com.tetherfi.pages.ChatTemplatesPage;
 import com.tetherfi.pages.FaxLineConfigPage;
 import com.tetherfi.pages.FaxPage;
 import com.tetherfi.pages.HomePage;
@@ -1137,9 +1139,9 @@ public class UserManagementE2ETest extends BaseTest {
 		}
 		
 		//@Test
-				public void VerifyExportAccessOfAdHocOptionEnhancement() throws Exception
-				{            
-			        UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
+		public void VerifyExportAccessOfAdHocOptionEnhancement() throws Exception
+		{            
+		UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
 			        userManagementPage.ProvideAccess("Adhoc Option Enhancement", "Export");
 					Thread.sleep(2000);
 			        driver.close();
@@ -1496,7 +1498,7 @@ public class UserManagementE2ETest extends BaseTest {
 				      driver.close();
 				}
 				
-				@Test
+				//@Test
 				public void VerifyAddAccessOfFaxLineConfig() throws Exception
 				{
 				     UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
@@ -1542,7 +1544,7 @@ public class UserManagementE2ETest extends BaseTest {
 				      driver.close();
 				}
 
-				@Test
+				//@Test
 				public void VerifyEditAccessOfFaxLineConfig() throws Exception
 				{
 				     UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
@@ -1588,7 +1590,7 @@ public class UserManagementE2ETest extends BaseTest {
 				      driver.close();
 				}
 
-				@Test
+				//@Test
 				public void VerifyDeleteAccessOfFaxLineConfig() throws Exception
 				{
 				     UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
@@ -1634,7 +1636,7 @@ public class UserManagementE2ETest extends BaseTest {
 				      driver.close();
 				}
 
-				@Test
+				//@Test
 				public void VerifyExportAccessOfFaxLineConfig() throws Exception
 				{
 				     UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
@@ -1679,6 +1681,225 @@ public class UserManagementE2ETest extends BaseTest {
 				      homePage.userLogout();
 				      driver.close();
 				}
+
+	//@Test
+	public void VerifyViewAccessOfChatTemplates() throws Exception
+	{
+		UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
+		userManagementPage.ProvideAccess("Chat Templates", "View");
+		Thread.sleep(2000);
+		driver.close();
+		try {
+				PageFactory.reset();
+				BrowserFactory browserFactory = new BrowserFactory();
+				driver = browserFactory.createBrowserInstance(BrowserFactory.BrowserType.CHROME, System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles");
+				String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\LoginData.xlsx";
+				Map<String, String> map = new ExcelReader(filePath,"Login").getTestData().get(3);
+				driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
+				if(map.get("LoginType").equals("Custom")){
+					LoginPage loginPage=new LoginPage(driver);
+					loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+					Thread.sleep(5000);
+					}
+		}catch (Exception e){
+			PageFactory.reset();
+			driver.close();
+			e.printStackTrace();
+		}
+		Thread.sleep(2000);
+		HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
+		Assert.assertTrue(homePage.checkPageLoadStatus(), "user login successful status");
+		homePage.navigateToOCMPage();
+		OCMHomePage ocmHomePage = PageFactory.createPageInstance(driver,OCMHomePage.class);
+		ocmHomePage.navigateToTab("CHAT");
+		ChatPage chatPage=PageFactory.createPageInstance(driver,ChatPage.class);
+		chatPage.navigateToChatTemplatesPage();
+		ChatTemplatesPage modPageInst=PageFactory.createPageInstance(driver,ChatTemplatesPage.class);
+		Assert.assertTrue(modPageInst.isChatTemplatePageDisplayed(), "Chat Templates Page assertion failed");
+		Assert.assertFalse(modPageInst.isAddBtnDisplayed(), "Add button assertion failed");
+		Assert.assertFalse(modPageInst.isEditBtnDisplayed(), "Edit button assertion failed");
+		Assert.assertFalse(modPageInst.isDeleteBtnDisplayed(), "Delete button assertion failed");
+		Assert.assertFalse(modPageInst.isExportBtnDisplayed(), "Export button assertion failed");
+		homePage.userLogout();
+		driver.close();
+	}
+		
+	//@Test
+	public void VerifyAddAccessOfChatTemplates() throws Exception {
+		UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
+		userManagementPage.ProvideAccess("Chat Templates", "Add");
+		Thread.sleep(2000);
+		driver.close();
+		try {
+			PageFactory.reset();
+			BrowserFactory browserFactory = new BrowserFactory();
+			driver = browserFactory.createBrowserInstance(BrowserFactory.BrowserType.CHROME, System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles");
+			String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\LoginData.xlsx";
+			Map<String, String> map = new ExcelReader(filePath,"Login").getTestData().get(3);
+			driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
+			if(map.get("LoginType").equals("Custom")){
+			LoginPage loginPage=new LoginPage(driver);
+			loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+			Thread.sleep(5000);
+			}
+		}catch (Exception e){
+			PageFactory.reset();
+			driver.close();
+			e.printStackTrace();
+		}
+		try {
+			Thread.sleep(2000);
+		}catch(InterruptedException e) {
+			e.printStackTrace();
+		}
+		HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
+		Assert.assertTrue(homePage.checkPageLoadStatus(), "user login successful status");
+		homePage.navigateToOCMPage();
+		OCMHomePage ocmHomePage = PageFactory.createPageInstance(driver,OCMHomePage.class);
+		ocmHomePage.navigateToTab("CHAT");
+		ChatPage chatPage=PageFactory.createPageInstance(driver,ChatPage.class);
+		chatPage.navigateToChatTemplatesPage();
+		ChatTemplatesPage modPageInst=PageFactory.createPageInstance(driver,ChatTemplatesPage.class);
+		Assert.assertTrue(modPageInst.isChatTemplatePageDisplayed(), "Chat Templates Page assertion failed");
+		Assert.assertTrue(modPageInst.isAddBtnDisplayed(), "Add button assertion failed");
+		Assert.assertFalse(modPageInst.isEditBtnDisplayed(), "Edit button assertion failed");
+		Assert.assertFalse(modPageInst.isDeleteBtnDisplayed(), "Delete button assertion failed");
+		Assert.assertFalse(modPageInst.isExportBtnDisplayed(), "Export button assertion failed");
+		homePage.userLogout();
+		driver.close();
+	}
+
+	//@Test
+	public void VerifyEditAccessOfChatTemplates() throws Exception
+	{
+		UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
+		userManagementPage.ProvideAccess("Chat Templates", "Edit");
+		Thread.sleep(2000);
+		driver.close();
+		try {
+		PageFactory.reset();
+		BrowserFactory browserFactory = new BrowserFactory();
+		driver = browserFactory.createBrowserInstance(BrowserFactory.BrowserType.CHROME, System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles");
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\LoginData.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"Login").getTestData().get(3);
+		driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
+		if(map.get("LoginType").equals("Custom")){
+			LoginPage loginPage=new LoginPage(driver);
+			loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+			Thread.sleep(5000);
+		}
+		}catch (Exception e){
+			PageFactory.reset();
+			driver.close();
+			e.printStackTrace();
+		}
+		try {
+			Thread.sleep(2000);
+		}catch(InterruptedException e) {
+			e.printStackTrace();
+		}
+		HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
+		Assert.assertTrue(homePage.checkPageLoadStatus(), "user login successful status");
+		homePage.navigateToOCMPage();
+		OCMHomePage ocmHomePage = PageFactory.createPageInstance(driver,OCMHomePage.class);
+		ocmHomePage.navigateToTab("CHAT");
+		ChatPage chatPage=PageFactory.createPageInstance(driver,ChatPage.class);
+		chatPage.navigateToChatTemplatesPage();
+		ChatTemplatesPage modPageInst=PageFactory.createPageInstance(driver,ChatTemplatesPage.class);
+		Assert.assertTrue(modPageInst.isChatTemplatePageDisplayed(), "Chat Templates Page assertion failed");
+		Assert.assertFalse(modPageInst.isAddBtnDisplayed(), "Add button assertion failed");
+		Assert.assertTrue(modPageInst.isEditBtnDisplayed(), "Edit button assertion failed");
+		Assert.assertFalse(modPageInst.isDeleteBtnDisplayed(), "Delete button assertion failed");
+		Assert.assertFalse(modPageInst.isExportBtnDisplayed(), "Export button assertion failed");
+		homePage.userLogout();
+		driver.close();
+	}
+	
+	//@Test
+	public void VerifyDeleteAccessOfChatTemplates() throws Exception
+	{
+		UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
+		userManagementPage.ProvideAccess("Chat Templates", "Delete");
+		Thread.sleep(2000);
+		driver.close();
+		try {
+			PageFactory.reset();
+			BrowserFactory browserFactory = new BrowserFactory();
+			driver = browserFactory.createBrowserInstance(BrowserFactory.BrowserType.CHROME, System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles");
+			String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\LoginData.xlsx";
+			Map<String, String> map = new ExcelReader(filePath,"Login").getTestData().get(3);
+			driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
+			if(map.get("LoginType").equals("Custom")){
+				LoginPage loginPage=new LoginPage(driver);
+				loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+				Thread.sleep(5000);
+				}
+			}catch (Exception e){
+				PageFactory.reset();
+				driver.close();
+				e.printStackTrace();
+			}
+			Thread.sleep(2000);
+			HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
+			Assert.assertTrue(homePage.checkPageLoadStatus(), "user login successful status");
+			homePage.navigateToOCMPage();
+			OCMHomePage ocmHomePage = PageFactory.createPageInstance(driver,OCMHomePage.class);
+			ocmHomePage.navigateToTab("CHAT");
+			ChatPage chatPage=PageFactory.createPageInstance(driver,ChatPage.class);
+			chatPage.navigateToChatTemplatesPage();
+			ChatTemplatesPage modPageInst=PageFactory.createPageInstance(driver,ChatTemplatesPage.class);
+			Assert.assertTrue(modPageInst.isChatTemplatePageDisplayed(), "Chat Templates Page assertion failed");
+			Assert.assertFalse(modPageInst.isAddBtnDisplayed(), "Add button assertion failed");
+			Assert.assertFalse(modPageInst.isEditBtnDisplayed(), "Edit button assertion failed");
+			Assert.assertTrue(modPageInst.isDeleteBtnDisplayed(), "Delete button assertion failed");
+			Assert.assertFalse(modPageInst.isExportBtnDisplayed(), "Export button assertion failed");
+			homePage.userLogout();
+			driver.close();
+	}
+
+	@Test
+	public void VerifyExportAccessOfChatTemplates() throws Exception
+	{
+		UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
+		userManagementPage.ProvideAccess("Chat Templates", "Export");
+		Thread.sleep(2000);
+		driver.close();
+		try {
+			PageFactory.reset();
+			BrowserFactory browserFactory = new BrowserFactory();
+			driver = browserFactory.createBrowserInstance(BrowserFactory.BrowserType.CHROME, System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles");
+			String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\LoginData.xlsx";
+			Map<String, String> map = new ExcelReader(filePath,"Login").getTestData().get(3);
+			driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
+			if(map.get("LoginType").equals("Custom")){
+				LoginPage loginPage=new LoginPage(driver);
+				loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+				Thread.sleep(5000);
+				}
+			}catch (Exception e){
+				PageFactory.reset();
+				driver.close();
+				e.printStackTrace();
+			}
+			Thread.sleep(2000);
+			HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
+			Assert.assertTrue(homePage.checkPageLoadStatus(), "user login successful status");
+			homePage.navigateToOCMPage();
+			OCMHomePage ocmHomePage = PageFactory.createPageInstance(driver,OCMHomePage.class);
+			ocmHomePage.navigateToTab("CHAT");
+			ChatPage chatPage=PageFactory.createPageInstance(driver,ChatPage.class);
+			chatPage.navigateToChatTemplatesPage();
+			ChatTemplatesPage modPageInst=PageFactory.createPageInstance(driver,ChatTemplatesPage.class);
+			Assert.assertTrue(modPageInst.isChatTemplatePageDisplayed(), "Chat Templates Page assertion failed");
+			Assert.assertFalse(modPageInst.isAddBtnDisplayed(), "Add button assertion failed");
+			Assert.assertFalse(modPageInst.isEditBtnDisplayed(), "Edit button assertion failed");
+			Assert.assertFalse(modPageInst.isDeleteBtnDisplayed(), "Delete button assertion failed");
+			Assert.assertTrue(modPageInst.isExportBtnDisplayed(), "Export button assertion failed");
+			homePage.userLogout();
+			driver.close();
+		}
+
+
 				
 	@AfterMethod
 	 public void afterEachMethod(ITestResult result){

@@ -335,11 +335,7 @@ public class UserManagementPage extends BasePage {
 	}
 	
 	public void ProvideAccess(String value, String accessLvl) throws Exception {
-		try {
-			Thread.sleep(1000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+		Thread.sleep(1000);
 		selectWebElement(tablerow);
 		waitForJqueryLoad(driver);
 		for(int i=0;i<adminPagesTableRows.size();i++) {
