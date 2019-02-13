@@ -24,6 +24,7 @@ import com.tetherfi.pages.HomePage;
 import com.tetherfi.pages.IvrPage;
 import com.tetherfi.pages.LoginPage;
 import com.tetherfi.pages.OCMHomePage;
+import com.tetherfi.pages.OperatingHoursPage;
 import com.tetherfi.pages.TmacBroadCastMsgPage;
 import com.tetherfi.pages.TmacPage;
 import com.tetherfi.pages.UserManagementPage;
@@ -1857,7 +1858,7 @@ public class UserManagementE2ETest extends BaseTest {
 			driver.close();
 	}
 
-	@Test
+	//@Test
 	public void VerifyExportAccessOfChatTemplates() throws Exception
 	{
 		UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
@@ -1899,7 +1900,235 @@ public class UserManagementE2ETest extends BaseTest {
 			driver.close();
 		}
 
+	//@Test
+	public void VerifyViewAccessOfOperatingHours() throws Exception
+	{
+	     UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
+	     userManagementPage.ProvideAccess("Operating Hours", "View");
+	     Thread.sleep(2000);
+	     driver.close();
+	     try {
+	             PageFactory.reset();
+	             BrowserFactory browserFactory = new BrowserFactory();
+	             driver = browserFactory.createBrowserInstance(BrowserFactory.BrowserType.CHROME, System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles");
+	             String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\LoginData.xlsx";
+	             Map<String, String> map = new ExcelReader(filePath,"Login").getTestData().get(3);
+	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
+	             if(map.get("LoginType").equals("Custom")){
+	                 LoginPage loginPage=new LoginPage(driver);
+	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 Thread.sleep(5000);
+	              }
+	      }catch (Exception e){
+	         PageFactory.reset();
+	         driver.close();
+	         e.printStackTrace();
+	      }
+	      try {
+	             Thread.sleep(2000);
+	          }catch(InterruptedException e) {
+	             e.printStackTrace();
+	          }
+	      HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
+	      Assert.assertTrue(homePage.checkPageLoadStatus(), "user login successful status");
+	      homePage.navigateToOCMPage();
+	      OCMHomePage ocmHomePage = PageFactory.createPageInstance(driver,OCMHomePage.class);
+	      ocmHomePage.navigateToTab("IVR");
+	      IvrPage ivrPage=PageFactory.createPageInstance(driver,IvrPage.class);
+	      ivrPage.navigateToOperatingHoursPage();
+	      OperatingHoursPage modPageInst=PageFactory.createPageInstance(driver,OperatingHoursPage.class);
+	      Assert.assertTrue(modPageInst.isOperatingHoursPageDisplayed(), "Operating Hours Page assertion failed");
+	      Assert.assertFalse(modPageInst.isAddBtnDisplayed(), "Add button assertion failed");
+	      Assert.assertFalse(modPageInst.isEditBtnDisplayed(), "Edit button assertion failed");
+	      Assert.assertFalse(modPageInst.isDeleteBtnDisplayed(), "Delete button assertion failed");
+	      Assert.assertFalse(modPageInst.isExportBtnDisplayed(), "Export button assertion failed");
+	      homePage.userLogout();
+	      driver.close();
+	}
 
+	//@Test
+	public void VerifyAddAccessOfOperatingHours() throws Exception
+	{
+	     UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
+	     userManagementPage.ProvideAccess("Operating Hours", "Add");
+	     Thread.sleep(2000);
+	     driver.close();
+	     try {
+	             PageFactory.reset();
+	             BrowserFactory browserFactory = new BrowserFactory();
+	             driver = browserFactory.createBrowserInstance(BrowserFactory.BrowserType.CHROME, System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles");
+	             String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\LoginData.xlsx";
+	             Map<String, String> map = new ExcelReader(filePath,"Login").getTestData().get(3);
+	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
+	             if(map.get("LoginType").equals("Custom")){
+	                 LoginPage loginPage=new LoginPage(driver);
+	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 Thread.sleep(5000);
+	              }
+	      }catch (Exception e){
+	         PageFactory.reset();
+	         driver.close();
+	         e.printStackTrace();
+	      }
+	      try {
+	             Thread.sleep(2000);
+	          }catch(InterruptedException e) {
+	             e.printStackTrace();
+	          }
+	      HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
+	      Assert.assertTrue(homePage.checkPageLoadStatus(), "user login successful status");
+	      homePage.navigateToOCMPage();
+	      OCMHomePage ocmHomePage = PageFactory.createPageInstance(driver,OCMHomePage.class);
+	      ocmHomePage.navigateToTab("IVR");
+	      IvrPage ivrPage=PageFactory.createPageInstance(driver,IvrPage.class);
+	      ivrPage.navigateToOperatingHoursPage();
+	      OperatingHoursPage modPageInst=PageFactory.createPageInstance(driver,OperatingHoursPage.class);
+	      Assert.assertTrue(modPageInst.isOperatingHoursPageDisplayed(), "Operating Hours Page assertion failed");
+	      Assert.assertTrue(modPageInst.isAddBtnDisplayed(), "Add button assertion failed");
+	      Assert.assertFalse(modPageInst.isEditBtnDisplayed(), "Edit button assertion failed");
+	      Assert.assertFalse(modPageInst.isDeleteBtnDisplayed(), "Delete button assertion failed");
+	      Assert.assertFalse(modPageInst.isExportBtnDisplayed(), "Export button assertion failed");
+	      homePage.userLogout();
+	      driver.close();
+	}
+
+	//@Test
+	public void VerifyEditAccessOfOperatingHours() throws Exception
+	{
+	     UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
+	     userManagementPage.ProvideAccess("Operating Hours", "Edit");
+	     Thread.sleep(2000);
+	     driver.close();
+	     try {
+	             PageFactory.reset();
+	             BrowserFactory browserFactory = new BrowserFactory();
+	             driver = browserFactory.createBrowserInstance(BrowserFactory.BrowserType.CHROME, System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles");
+	             String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\LoginData.xlsx";
+	             Map<String, String> map = new ExcelReader(filePath,"Login").getTestData().get(3);
+	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
+	             if(map.get("LoginType").equals("Custom")){
+	                 LoginPage loginPage=new LoginPage(driver);
+	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 Thread.sleep(5000);
+	              }
+	      }catch (Exception e){
+	         PageFactory.reset();
+	         driver.close();
+	         e.printStackTrace();
+	      }
+	      try {
+	             Thread.sleep(2000);
+	          }catch(InterruptedException e) {
+	             e.printStackTrace();
+	          }
+	      HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
+	      Assert.assertTrue(homePage.checkPageLoadStatus(), "user login successful status");
+	      homePage.navigateToOCMPage();
+	      OCMHomePage ocmHomePage = PageFactory.createPageInstance(driver,OCMHomePage.class);
+	      ocmHomePage.navigateToTab("IVR");
+	      IvrPage ivrPage=PageFactory.createPageInstance(driver,IvrPage.class);
+	      ivrPage.navigateToOperatingHoursPage();
+	      OperatingHoursPage modPageInst=PageFactory.createPageInstance(driver,OperatingHoursPage.class);
+	      Assert.assertTrue(modPageInst.isOperatingHoursPageDisplayed(), "Operating Hours Page assertion failed");
+	      Assert.assertFalse(modPageInst.isAddBtnDisplayed(), "Add button assertion failed");
+	      Assert.assertTrue(modPageInst.isEditBtnDisplayed(), "Edit button assertion failed");
+	      Assert.assertFalse(modPageInst.isDeleteBtnDisplayed(), "Delete button assertion failed");
+	      Assert.assertFalse(modPageInst.isExportBtnDisplayed(), "Export button assertion failed");
+	      homePage.userLogout();
+	      driver.close();
+	}
+
+	//@Test
+	public void VerifyDeleteAccessOfOperatingHours() throws Exception
+	{
+	     UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
+	     userManagementPage.ProvideAccess("Operating Hours", "Delete");
+	     Thread.sleep(2000);
+	     driver.close();
+	     try {
+	             PageFactory.reset();
+	             BrowserFactory browserFactory = new BrowserFactory();
+	             driver = browserFactory.createBrowserInstance(BrowserFactory.BrowserType.CHROME, System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles");
+	             String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\LoginData.xlsx";
+	             Map<String, String> map = new ExcelReader(filePath,"Login").getTestData().get(3);
+	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
+	             if(map.get("LoginType").equals("Custom")){
+	                 LoginPage loginPage=new LoginPage(driver);
+	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 Thread.sleep(5000);
+	              }
+	      }catch (Exception e){
+	         PageFactory.reset();
+	         driver.close();
+	         e.printStackTrace();
+	      }
+	      try {
+	             Thread.sleep(2000);
+	          }catch(InterruptedException e) {
+	             e.printStackTrace();
+	          }
+	      HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
+	      Assert.assertTrue(homePage.checkPageLoadStatus(), "user login successful status");
+	      homePage.navigateToOCMPage();
+	      OCMHomePage ocmHomePage = PageFactory.createPageInstance(driver,OCMHomePage.class);
+	      ocmHomePage.navigateToTab("IVR");
+	      IvrPage ivrPage=PageFactory.createPageInstance(driver,IvrPage.class);
+	      ivrPage.navigateToOperatingHoursPage();
+	      OperatingHoursPage modPageInst=PageFactory.createPageInstance(driver,OperatingHoursPage.class);
+	      Assert.assertTrue(modPageInst.isOperatingHoursPageDisplayed(), "Operating Hours Page assertion failed");
+	      Assert.assertFalse(modPageInst.isAddBtnDisplayed(), "Add button assertion failed");
+	      Assert.assertFalse(modPageInst.isEditBtnDisplayed(), "Edit button assertion failed");
+	      Assert.assertTrue(modPageInst.isDeleteBtnDisplayed(), "Delete button assertion failed");
+	      Assert.assertFalse(modPageInst.isExportBtnDisplayed(), "Export button assertion failed");
+	      homePage.userLogout();
+	      driver.close();
+	}
+
+	//@Test
+	public void VerifyExportAccessOfOperatingHours() throws Exception
+	{
+	     UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
+	     userManagementPage.ProvideAccess("Operating Hours", "Export");
+	     Thread.sleep(2000);
+	     driver.close();
+	     try {
+	             PageFactory.reset();
+	             BrowserFactory browserFactory = new BrowserFactory();
+	             driver = browserFactory.createBrowserInstance(BrowserFactory.BrowserType.CHROME, System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles");
+	             String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\LoginData.xlsx";
+	             Map<String, String> map = new ExcelReader(filePath,"Login").getTestData().get(3);
+	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
+	             if(map.get("LoginType").equals("Custom")){
+	                 LoginPage loginPage=new LoginPage(driver);
+	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 Thread.sleep(5000);
+	              }
+	      }catch (Exception e){
+	         PageFactory.reset();
+	         driver.close();
+	         e.printStackTrace();
+	      }
+	      try {
+	             Thread.sleep(2000);
+	          }catch(InterruptedException e) {
+	             e.printStackTrace();
+	          }
+	      HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
+	      Assert.assertTrue(homePage.checkPageLoadStatus(), "user login successful status");
+	      homePage.navigateToOCMPage();
+	      OCMHomePage ocmHomePage = PageFactory.createPageInstance(driver,OCMHomePage.class);
+	      ocmHomePage.navigateToTab("IVR");
+	      IvrPage ivrPage=PageFactory.createPageInstance(driver,IvrPage.class);
+	      ivrPage.navigateToOperatingHoursPage();
+	      OperatingHoursPage modPageInst=PageFactory.createPageInstance(driver,OperatingHoursPage.class);
+	      Assert.assertTrue(modPageInst.isOperatingHoursPageDisplayed(), "Operating Hours Page assertion failed");
+	      Assert.assertFalse(modPageInst.isAddBtnDisplayed(), "Add button assertion failed");
+	      Assert.assertFalse(modPageInst.isEditBtnDisplayed(), "Edit button assertion failed");
+	      Assert.assertFalse(modPageInst.isDeleteBtnDisplayed(), "Delete button assertion failed");
+	      Assert.assertTrue(modPageInst.isExportBtnDisplayed(), "Export button assertion failed");
+	      homePage.userLogout();
+	      driver.close();
+	}
 				
 	@AfterMethod
 	 public void afterEachMethod(ITestResult result){
