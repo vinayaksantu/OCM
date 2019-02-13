@@ -106,6 +106,12 @@ public class AgentSkillAssignmentPage extends BasePage {
 
     @FindBy(css="#progress div[data-role='draggable']")
     private List<WebElement> agentSelected;
+    
+    @FindBy(xpath="//button[text()='Export to Excel']")
+    private WebElement exporttoexcel;
+    
+    @FindBy(xpath="//button[text()='Edit Agent List']")
+    private WebElement editagentList;
 
     public boolean isAgentSkillAssignmentPageDisplayed() {
         waitForLoad(driver);
@@ -208,5 +214,24 @@ public class AgentSkillAssignmentPage extends BasePage {
         waitUntilWebElementIsVisible(successmsg);
         if(successmsg.getText().contains("Skills Assigned Successfully"))
         {return true;}else{return false;}
+    }
+    
+    public boolean isAddBtnDisplayed() {
+    	return editagentList.isDisplayed() && editagentList.isEnabled();
+    }
+    
+    public boolean isEditBtnDisplayed() {
+    	Boolean status = false;
+    	try {
+    		if(editButton.isDisplayed() && editButton.isEnabled())
+    			status = true;
+    	}catch(Exception e) {
+    		status = false;
+    	}
+		return status;
+    }
+    
+    public boolean isExportBtnDisplayed() {
+    	return exporttoexcel.isDisplayed() && exporttoexcel.isEnabled();
     }
 }

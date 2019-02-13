@@ -108,7 +108,9 @@ public class FaxLineConfigPage extends BasePage{
 
     @FindBy(id = "yesButton")
     private WebElement deleteYesBtn;
-
+    
+    @FindBy(xpath="//button[text()='Export to Excel']")
+    private WebElement exporttoexcel;
 
     public boolean isFaxLineConfigPageDisplayed() {
         waitForLoad(driver);
@@ -189,6 +191,36 @@ public class FaxLineConfigPage extends BasePage{
         waitUntilWebElementIsVisible(successmsg);
         return successmsg.getText();
     }
+    
+    public boolean isAddBtnDisplayed() {
+    	return addNewFaxLineConfigRcrdBtn.isDisplayed() && addNewFaxLineConfigRcrdBtn.isEnabled();
     }
+    
+    public boolean isEditBtnDisplayed() {
+    	Boolean status = false;
+    	try {
+    		if(editButton.isDisplayed() && editButton.isEnabled())
+    			status = true;
+    	}catch(Exception e) {
+    		status = false;
+    	}
+		return status;
+    }
+    
+    public boolean isDeleteBtnDisplayed() {
+    	Boolean status = false;
+    	try {
+    		if(deleteButton.isDisplayed() && deleteButton.isEnabled())
+    			status = true;
+    	}catch(Exception e) {
+    		status = false;
+    	}
+		return status;
+    }
+    
+    public boolean isExportBtnDisplayed() {
+    	return exporttoexcel.isDisplayed() && exporttoexcel.isEnabled();
+    }
+}
 
 
