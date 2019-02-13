@@ -2,180 +2,180 @@
 <testng-results skipped="0" failed="0" ignored="0" total="4" passed="4">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="848259" started-at="2019-02-12T14:50:56Z" finished-at="2019-02-12T15:05:04Z">
+  <suite name="Default suite" duration-ms="300459" started-at="2019-02-13T06:29:16Z" finished-at="2019-02-13T06:34:16Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="848259" started-at="2019-02-12T14:50:56Z" finished-at="2019-02-12T15:05:04Z">
+    <test name="Default test" duration-ms="300459" started-at="2019-02-13T06:29:16Z" finished-at="2019-02-13T06:34:16Z">
       <class name="com.tetherfi.test.UserManagementE2ETest">
-        <test-method status="PASS" signature="openApplication()[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@6fd02e5]" name="openApplication" is-config="true" duration-ms="51847" started-at="2019-02-12T20:20:56Z" finished-at="2019-02-12T20:21:47Z">
+        <test-method status="PASS" signature="openApplication()[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@5700d6b1]" name="openApplication" is-config="true" duration-ms="8221" started-at="2019-02-13T11:59:16Z" finished-at="2019-02-13T11:59:24Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- openApplication -->
-        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@6fd02e5]" name="startTestCase" is-config="true" duration-ms="0" started-at="2019-02-12T20:21:47Z" finished-at="2019-02-12T20:21:47Z">
+        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@5700d6b1]" name="startTestCase" is-config="true" duration-ms="1" started-at="2019-02-13T11:59:24Z" finished-at="2019-02-13T11:59:24Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.UserManagementE2ETest.VerifyAccessOfTMACBroadcastMsg() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.UserManagementE2ETest.VerifyAddAccessOfFaxLineConfig() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startTestCase -->
-        <test-method status="PASS" signature="OCMPage()[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@6fd02e5]" name="OCMPage" is-config="true" duration-ms="22058" started-at="2019-02-12T20:21:47Z" finished-at="2019-02-12T20:22:09Z">
+        <test-method status="PASS" signature="OCMPage()[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@5700d6b1]" name="OCMPage" is-config="true" duration-ms="18208" started-at="2019-02-13T11:59:24Z" finished-at="2019-02-13T11:59:42Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- OCMPage -->
-        <test-method status="PASS" signature="VerifyAccessOfTMACBroadcastMsg()[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@6fd02e5]" name="VerifyAccessOfTMACBroadcastMsg" duration-ms="102173" started-at="2019-02-12T20:22:09Z" finished-at="2019-02-12T20:23:52Z">
+        <test-method status="PASS" signature="VerifyAddAccessOfFaxLineConfig()[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@5700d6b1]" name="VerifyAddAccessOfFaxLineConfig" duration-ms="48649" started-at="2019-02-13T11:59:42Z" finished-at="2019-02-13T12:00:31Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- VerifyAccessOfTMACBroadcastMsg -->
-        <test-method status="PASS" signature="afterEachMethod(org.testng.ITestResult)[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@6fd02e5]" name="afterEachMethod" is-config="true" duration-ms="52626" started-at="2019-02-12T20:23:52Z" finished-at="2019-02-12T20:24:44Z">
+        </test-method> <!-- VerifyAddAccessOfFaxLineConfig -->
+        <test-method status="PASS" signature="afterEachMethod(org.testng.ITestResult)[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@5700d6b1]" name="afterEachMethod" is-config="true" duration-ms="6892" started-at="2019-02-13T12:00:31Z" finished-at="2019-02-13T12:00:38Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=VerifyAccessOfTMACBroadcastMsg status=SUCCESS method=UserManagementE2ETest.VerifyAccessOfTMACBroadcastMsg()[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@6fd02e5] output={null}]]]>
+                <![CDATA[[TestResult name=VerifyAddAccessOfFaxLineConfig status=SUCCESS method=UserManagementE2ETest.VerifyAddAccessOfFaxLineConfig()[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@5700d6b1] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterEachMethod -->
-        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@6fd02e5]" name="endTestCase" is-config="true" duration-ms="1" started-at="2019-02-12T20:24:44Z" finished-at="2019-02-12T20:24:44Z">
+        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@5700d6b1]" name="endTestCase" is-config="true" duration-ms="0" started-at="2019-02-13T12:00:38Z" finished-at="2019-02-13T12:00:38Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.UserManagementE2ETest.VerifyAccessOfTMACBroadcastMsg() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.UserManagementE2ETest.VerifyAddAccessOfFaxLineConfig() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- endTestCase -->
-        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@6fd02e5]" name="startTestCase" is-config="true" duration-ms="1" started-at="2019-02-12T20:24:44Z" finished-at="2019-02-12T20:24:44Z">
+        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@5700d6b1]" name="startTestCase" is-config="true" duration-ms="0" started-at="2019-02-13T12:00:38Z" finished-at="2019-02-13T12:00:38Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.UserManagementE2ETest.VerifyAddAccessOfTMACBroadcastMsg() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.UserManagementE2ETest.VerifyDeleteAccessOfFaxLineConfig() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startTestCase -->
-        <test-method status="PASS" signature="OCMPage()[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@6fd02e5]" name="OCMPage" is-config="true" duration-ms="21565" started-at="2019-02-12T20:24:44Z" finished-at="2019-02-12T20:25:06Z">
+        <test-method status="PASS" signature="OCMPage()[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@5700d6b1]" name="OCMPage" is-config="true" duration-ms="18084" started-at="2019-02-13T12:00:38Z" finished-at="2019-02-13T12:00:56Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- OCMPage -->
-        <test-method status="PASS" signature="VerifyAddAccessOfTMACBroadcastMsg()[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@6fd02e5]" name="VerifyAddAccessOfTMACBroadcastMsg" duration-ms="113284" started-at="2019-02-12T20:25:06Z" finished-at="2019-02-12T20:26:59Z">
+        <test-method status="PASS" signature="VerifyDeleteAccessOfFaxLineConfig()[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@5700d6b1]" name="VerifyDeleteAccessOfFaxLineConfig" duration-ms="48541" started-at="2019-02-13T12:00:56Z" finished-at="2019-02-13T12:01:44Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- VerifyAddAccessOfTMACBroadcastMsg -->
-        <test-method status="PASS" signature="afterEachMethod(org.testng.ITestResult)[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@6fd02e5]" name="afterEachMethod" is-config="true" duration-ms="68492" started-at="2019-02-12T20:26:59Z" finished-at="2019-02-12T20:28:08Z">
+        </test-method> <!-- VerifyDeleteAccessOfFaxLineConfig -->
+        <test-method status="PASS" signature="afterEachMethod(org.testng.ITestResult)[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@5700d6b1]" name="afterEachMethod" is-config="true" duration-ms="7101" started-at="2019-02-13T12:01:44Z" finished-at="2019-02-13T12:01:51Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=VerifyAddAccessOfTMACBroadcastMsg status=SUCCESS method=UserManagementE2ETest.VerifyAddAccessOfTMACBroadcastMsg()[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@6fd02e5] output={null}]]]>
+                <![CDATA[[TestResult name=VerifyDeleteAccessOfFaxLineConfig status=SUCCESS method=UserManagementE2ETest.VerifyDeleteAccessOfFaxLineConfig()[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@5700d6b1] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterEachMethod -->
-        <test-method status="PASS" signature="OCMPage()[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@6fd02e5]" name="OCMPage" is-config="true" duration-ms="23635" started-at="2019-02-12T20:28:08Z" finished-at="2019-02-12T20:28:31Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- OCMPage -->
-        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@6fd02e5]" name="endTestCase" is-config="true" duration-ms="0" started-at="2019-02-12T20:28:08Z" finished-at="2019-02-12T20:28:08Z">
+        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@5700d6b1]" name="endTestCase" is-config="true" duration-ms="0" started-at="2019-02-13T12:01:51Z" finished-at="2019-02-13T12:01:51Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.UserManagementE2ETest.VerifyAddAccessOfTMACBroadcastMsg() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.UserManagementE2ETest.VerifyDeleteAccessOfFaxLineConfig() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- endTestCase -->
-        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@6fd02e5]" name="startTestCase" is-config="true" duration-ms="0" started-at="2019-02-12T20:28:08Z" finished-at="2019-02-12T20:28:08Z">
+        <test-method status="PASS" signature="OCMPage()[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@5700d6b1]" name="OCMPage" is-config="true" duration-ms="17442" started-at="2019-02-13T12:01:51Z" finished-at="2019-02-13T12:02:09Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- OCMPage -->
+        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@5700d6b1]" name="startTestCase" is-config="true" duration-ms="0" started-at="2019-02-13T12:01:51Z" finished-at="2019-02-13T12:01:51Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.UserManagementE2ETest.VerifyEditAccessOfTMACBroadcastMsg() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.UserManagementE2ETest.VerifyEditAccessOfFaxLineConfig() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startTestCase -->
-        <test-method status="PASS" signature="VerifyEditAccessOfTMACBroadcastMsg()[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@6fd02e5]" name="VerifyEditAccessOfTMACBroadcastMsg" duration-ms="114276" started-at="2019-02-12T20:28:31Z" finished-at="2019-02-12T20:30:26Z">
+        <test-method status="PASS" signature="VerifyEditAccessOfFaxLineConfig()[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@5700d6b1]" name="VerifyEditAccessOfFaxLineConfig" duration-ms="48819" started-at="2019-02-13T12:02:09Z" finished-at="2019-02-13T12:02:58Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- VerifyEditAccessOfTMACBroadcastMsg -->
-        <test-method status="PASS" signature="afterEachMethod(org.testng.ITestResult)[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@6fd02e5]" name="afterEachMethod" is-config="true" duration-ms="66581" started-at="2019-02-12T20:30:26Z" finished-at="2019-02-12T20:31:32Z">
+        </test-method> <!-- VerifyEditAccessOfFaxLineConfig -->
+        <test-method status="PASS" signature="afterEachMethod(org.testng.ITestResult)[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@5700d6b1]" name="afterEachMethod" is-config="true" duration-ms="6533" started-at="2019-02-13T12:02:58Z" finished-at="2019-02-13T12:03:04Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=VerifyEditAccessOfTMACBroadcastMsg status=SUCCESS method=UserManagementE2ETest.VerifyEditAccessOfTMACBroadcastMsg()[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@6fd02e5] output={null}]]]>
+                <![CDATA[[TestResult name=VerifyEditAccessOfFaxLineConfig status=SUCCESS method=UserManagementE2ETest.VerifyEditAccessOfFaxLineConfig()[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@5700d6b1] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterEachMethod -->
-        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@6fd02e5]" name="endTestCase" is-config="true" duration-ms="0" started-at="2019-02-12T20:31:32Z" finished-at="2019-02-12T20:31:32Z">
+        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@5700d6b1]" name="endTestCase" is-config="true" duration-ms="0" started-at="2019-02-13T12:03:04Z" finished-at="2019-02-13T12:03:04Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.UserManagementE2ETest.VerifyEditAccessOfTMACBroadcastMsg() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.UserManagementE2ETest.VerifyEditAccessOfFaxLineConfig() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- endTestCase -->
-        <test-method status="PASS" signature="OCMPage()[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@6fd02e5]" name="OCMPage" is-config="true" duration-ms="27493" started-at="2019-02-12T20:31:32Z" finished-at="2019-02-12T20:32:00Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- OCMPage -->
-        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@6fd02e5]" name="startTestCase" is-config="true" duration-ms="0" started-at="2019-02-12T20:31:32Z" finished-at="2019-02-12T20:31:32Z">
+        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@5700d6b1]" name="startTestCase" is-config="true" duration-ms="1" started-at="2019-02-13T12:03:04Z" finished-at="2019-02-13T12:03:04Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.UserManagementE2ETest.VerifyExportAccessOfTMACBroadcastMsg() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.UserManagementE2ETest.VerifyExportAccessOfFaxLineConfig() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startTestCase -->
-        <test-method status="PASS" signature="VerifyExportAccessOfTMACBroadcastMsg()[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@6fd02e5]" name="VerifyExportAccessOfTMACBroadcastMsg" duration-ms="116500" started-at="2019-02-12T20:32:00Z" finished-at="2019-02-12T20:33:56Z">
+        <test-method status="PASS" signature="OCMPage()[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@5700d6b1]" name="OCMPage" is-config="true" duration-ms="17554" started-at="2019-02-13T12:03:04Z" finished-at="2019-02-13T12:03:22Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- VerifyExportAccessOfTMACBroadcastMsg -->
-        <test-method status="PASS" signature="afterEachMethod(org.testng.ITestResult)[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@6fd02e5]" name="afterEachMethod" is-config="true" duration-ms="65484" started-at="2019-02-12T20:33:56Z" finished-at="2019-02-12T20:35:02Z">
+        </test-method> <!-- OCMPage -->
+        <test-method status="PASS" signature="VerifyExportAccessOfFaxLineConfig()[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@5700d6b1]" name="VerifyExportAccessOfFaxLineConfig" duration-ms="46010" started-at="2019-02-13T12:03:22Z" finished-at="2019-02-13T12:04:08Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyExportAccessOfFaxLineConfig -->
+        <test-method status="PASS" signature="afterEachMethod(org.testng.ITestResult)[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@5700d6b1]" name="afterEachMethod" is-config="true" duration-ms="6755" started-at="2019-02-13T12:04:08Z" finished-at="2019-02-13T12:04:14Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=VerifyExportAccessOfTMACBroadcastMsg status=SUCCESS method=UserManagementE2ETest.VerifyExportAccessOfTMACBroadcastMsg()[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@6fd02e5] output={null}]]]>
+                <![CDATA[[TestResult name=VerifyExportAccessOfFaxLineConfig status=SUCCESS method=UserManagementE2ETest.VerifyExportAccessOfFaxLineConfig()[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@5700d6b1] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterEachMethod -->
-        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@6fd02e5]" name="endTestCase" is-config="true" duration-ms="1" started-at="2019-02-12T20:35:02Z" finished-at="2019-02-12T20:35:02Z">
+        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@5700d6b1]" name="endTestCase" is-config="true" duration-ms="0" started-at="2019-02-13T12:04:14Z" finished-at="2019-02-13T12:04:14Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.UserManagementE2ETest.VerifyExportAccessOfTMACBroadcastMsg() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.UserManagementE2ETest.VerifyExportAccessOfFaxLineConfig() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- endTestCase -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@6fd02e5]" name="tearDown" is-config="true" duration-ms="2202" started-at="2019-02-12T20:35:02Z" finished-at="2019-02-12T20:35:04Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@5700d6b1]" name="tearDown" is-config="true" duration-ms="1617" started-at="2019-02-13T12:04:14Z" finished-at="2019-02-13T12:04:16Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
