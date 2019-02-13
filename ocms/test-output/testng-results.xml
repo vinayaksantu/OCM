@@ -1,61 +1,225 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results skipped="0" failed="0" ignored="0" total="5" passed="5">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2019-02-13T10:32:20Z" name="Default suite" finished-at="2019-02-13T10:34:50Z" duration-ms="150385">
+  <suite name="Default suite" duration-ms="384534" started-at="2019-02-13T10:43:54Z" finished-at="2019-02-13T10:50:19Z">
     <groups>
     </groups>
-    <test started-at="2019-02-13T10:32:20Z" name="Default test" finished-at="2019-02-13T10:34:50Z" duration-ms="150385">
+    <test name="Default test" duration-ms="384534" started-at="2019-02-13T10:43:54Z" finished-at="2019-02-13T10:50:19Z">
       <class name="com.tetherfi.test.UserManagementE2ETest">
-        <test-method is-config="true" signature="openApplication()[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@23ad71bf]" started-at="2019-02-13T16:02:20Z" name="openApplication" finished-at="2019-02-13T16:02:51Z" duration-ms="30649" status="PASS">
+        <test-method status="PASS" signature="openApplication()[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@5700d6b1]" name="openApplication" is-config="true" duration-ms="8996" started-at="2019-02-13T16:13:54Z" finished-at="2019-02-13T16:14:03Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- openApplication -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@23ad71bf]" started-at="2019-02-13T16:02:51Z" name="startTestCase" finished-at="2019-02-13T16:02:51Z" duration-ms="9" status="PASS">
+        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@5700d6b1]" name="startTestCase" is-config="true" duration-ms="4" started-at="2019-02-13T16:14:03Z" finished-at="2019-02-13T16:14:03Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.UserManagementE2ETest.VerifyExportAccessOfChatTemplates() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.UserManagementE2ETest.VerifyAddAccessOfOperatingHours() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="OCMPage()[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@23ad71bf]" started-at="2019-02-13T16:02:51Z" name="OCMPage" finished-at="2019-02-13T16:03:13Z" duration-ms="22596" status="PASS">
+        <test-method status="PASS" signature="OCMPage()[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@5700d6b1]" name="OCMPage" is-config="true" duration-ms="18336" started-at="2019-02-13T16:14:03Z" finished-at="2019-02-13T16:14:21Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- OCMPage -->
-        <test-method signature="VerifyExportAccessOfChatTemplates()[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@23ad71bf]" started-at="2019-02-13T16:03:13Z" name="VerifyExportAccessOfChatTemplates" finished-at="2019-02-13T16:04:21Z" duration-ms="67597" status="PASS">
+        <test-method status="PASS" signature="VerifyAddAccessOfOperatingHours()[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@5700d6b1]" name="VerifyAddAccessOfOperatingHours" duration-ms="47883" started-at="2019-02-13T16:14:21Z" finished-at="2019-02-13T16:15:09Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- VerifyExportAccessOfChatTemplates -->
-        <test-method is-config="true" signature="afterEachMethod(org.testng.ITestResult)[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@23ad71bf]" started-at="2019-02-13T16:04:21Z" name="afterEachMethod" finished-at="2019-02-13T16:04:49Z" duration-ms="27713" status="PASS">
+        </test-method> <!-- VerifyAddAccessOfOperatingHours -->
+        <test-method status="PASS" signature="afterEachMethod(org.testng.ITestResult)[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@5700d6b1]" name="afterEachMethod" is-config="true" duration-ms="7236" started-at="2019-02-13T16:15:09Z" finished-at="2019-02-13T16:15:17Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=VerifyExportAccessOfChatTemplates status=SUCCESS method=UserManagementE2ETest.VerifyExportAccessOfChatTemplates()[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@23ad71bf] output={null}]]]>
+                <![CDATA[[TestResult name=VerifyAddAccessOfOperatingHours status=SUCCESS method=UserManagementE2ETest.VerifyAddAccessOfOperatingHours()[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@5700d6b1] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@23ad71bf]" started-at="2019-02-13T16:04:49Z" name="tearDown" finished-at="2019-02-13T16:04:50Z" duration-ms="1765" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@23ad71bf]" started-at="2019-02-13T16:04:49Z" name="endTestCase" finished-at="2019-02-13T16:04:49Z" duration-ms="0" status="PASS">
+        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@5700d6b1]" name="endTestCase" is-config="true" duration-ms="2" started-at="2019-02-13T16:15:17Z" finished-at="2019-02-13T16:15:17Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.UserManagementE2ETest.VerifyExportAccessOfChatTemplates() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.UserManagementE2ETest.VerifyAddAccessOfOperatingHours() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- endTestCase -->
+        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@5700d6b1]" name="startTestCase" is-config="true" duration-ms="1" started-at="2019-02-13T16:15:17Z" finished-at="2019-02-13T16:15:17Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.UserManagementE2ETest.VerifyDeleteAccessOfOperatingHours() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method status="PASS" signature="OCMPage()[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@5700d6b1]" name="OCMPage" is-config="true" duration-ms="17968" started-at="2019-02-13T16:15:17Z" finished-at="2019-02-13T16:15:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- OCMPage -->
+        <test-method status="PASS" signature="VerifyDeleteAccessOfOperatingHours()[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@5700d6b1]" name="VerifyDeleteAccessOfOperatingHours" duration-ms="50157" started-at="2019-02-13T16:15:34Z" finished-at="2019-02-13T16:16:25Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyDeleteAccessOfOperatingHours -->
+        <test-method status="PASS" signature="afterEachMethod(org.testng.ITestResult)[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@5700d6b1]" name="afterEachMethod" is-config="true" duration-ms="7082" started-at="2019-02-13T16:16:25Z" finished-at="2019-02-13T16:16:32Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=VerifyDeleteAccessOfOperatingHours status=SUCCESS method=UserManagementE2ETest.VerifyDeleteAccessOfOperatingHours()[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@5700d6b1] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@5700d6b1]" name="endTestCase" is-config="true" duration-ms="0" started-at="2019-02-13T16:16:32Z" finished-at="2019-02-13T16:16:32Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.UserManagementE2ETest.VerifyDeleteAccessOfOperatingHours() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method status="PASS" signature="OCMPage()[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@5700d6b1]" name="OCMPage" is-config="true" duration-ms="17921" started-at="2019-02-13T16:16:32Z" finished-at="2019-02-13T16:16:50Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- OCMPage -->
+        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@5700d6b1]" name="startTestCase" is-config="true" duration-ms="0" started-at="2019-02-13T16:16:32Z" finished-at="2019-02-13T16:16:32Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.UserManagementE2ETest.VerifyEditAccessOfOperatingHours() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method status="PASS" signature="VerifyEditAccessOfOperatingHours()[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@5700d6b1]" name="VerifyEditAccessOfOperatingHours" duration-ms="48443" started-at="2019-02-13T16:16:50Z" finished-at="2019-02-13T16:17:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyEditAccessOfOperatingHours -->
+        <test-method status="PASS" signature="afterEachMethod(org.testng.ITestResult)[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@5700d6b1]" name="afterEachMethod" is-config="true" duration-ms="6611" started-at="2019-02-13T16:17:38Z" finished-at="2019-02-13T16:17:45Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=VerifyEditAccessOfOperatingHours status=SUCCESS method=UserManagementE2ETest.VerifyEditAccessOfOperatingHours()[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@5700d6b1] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@5700d6b1]" name="endTestCase" is-config="true" duration-ms="1" started-at="2019-02-13T16:17:45Z" finished-at="2019-02-13T16:17:45Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.UserManagementE2ETest.VerifyEditAccessOfOperatingHours() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@5700d6b1]" name="startTestCase" is-config="true" duration-ms="0" started-at="2019-02-13T16:17:45Z" finished-at="2019-02-13T16:17:45Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.UserManagementE2ETest.VerifyExportAccessOfOperatingHours() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method status="PASS" signature="OCMPage()[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@5700d6b1]" name="OCMPage" is-config="true" duration-ms="18427" started-at="2019-02-13T16:17:45Z" finished-at="2019-02-13T16:18:03Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- OCMPage -->
+        <test-method status="PASS" signature="VerifyExportAccessOfOperatingHours()[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@5700d6b1]" name="VerifyExportAccessOfOperatingHours" duration-ms="52374" started-at="2019-02-13T16:18:03Z" finished-at="2019-02-13T16:18:56Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyExportAccessOfOperatingHours -->
+        <test-method status="PASS" signature="afterEachMethod(org.testng.ITestResult)[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@5700d6b1]" name="afterEachMethod" is-config="true" duration-ms="7681" started-at="2019-02-13T16:18:56Z" finished-at="2019-02-13T16:19:03Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=VerifyExportAccessOfOperatingHours status=SUCCESS method=UserManagementE2ETest.VerifyExportAccessOfOperatingHours()[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@5700d6b1] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@5700d6b1]" name="endTestCase" is-config="true" duration-ms="1" started-at="2019-02-13T16:19:03Z" finished-at="2019-02-13T16:19:03Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.UserManagementE2ETest.VerifyExportAccessOfOperatingHours() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method status="PASS" signature="OCMPage()[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@5700d6b1]" name="OCMPage" is-config="true" duration-ms="17953" started-at="2019-02-13T16:19:03Z" finished-at="2019-02-13T16:19:21Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- OCMPage -->
+        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@5700d6b1]" name="startTestCase" is-config="true" duration-ms="0" started-at="2019-02-13T16:19:03Z" finished-at="2019-02-13T16:19:03Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.UserManagementE2ETest.VerifyViewAccessOfOperatingHours() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method status="PASS" signature="VerifyViewAccessOfOperatingHours()[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@5700d6b1]" name="VerifyViewAccessOfOperatingHours" duration-ms="48984" started-at="2019-02-13T16:19:21Z" finished-at="2019-02-13T16:20:10Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyViewAccessOfOperatingHours -->
+        <test-method status="PASS" signature="afterEachMethod(org.testng.ITestResult)[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@5700d6b1]" name="afterEachMethod" is-config="true" duration-ms="6811" started-at="2019-02-13T16:20:10Z" finished-at="2019-02-13T16:20:17Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=VerifyViewAccessOfOperatingHours status=SUCCESS method=UserManagementE2ETest.VerifyViewAccessOfOperatingHours()[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@5700d6b1] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@5700d6b1]" name="endTestCase" is-config="true" duration-ms="5" started-at="2019-02-13T16:20:17Z" finished-at="2019-02-13T16:20:17Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.UserManagementE2ETest.VerifyViewAccessOfOperatingHours() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.tetherfi.test.UserManagementE2ETest@5700d6b1]" name="tearDown" is-config="true" duration-ms="1623" started-at="2019-02-13T16:20:17Z" finished-at="2019-02-13T16:20:19Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
       </class> <!-- com.tetherfi.test.UserManagementE2ETest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
