@@ -5,17 +5,13 @@
     <classes>
       <class name="com.tetherfi.test.UserManagementE2ETest">
         <methods>
-          <include name="VerifyEditAccessOfCallBackAnnouncement"/>
           <include name="afterEachMethod"/>
-          <include name="VerifyDeleteAccessOfCallBackAnnouncement"/>
-          <include name="VerifyExportAccessOfCallBackAnnouncement"/>
           <include name="startTestCase"/>
           <include name="openApplication"/>
           <include name="endTestCase"/>
           <include name="tearDown"/>
           <include name="OCMPage"/>
-          <include name="VerifyAddAccessOfCallBackAnnouncement"/>
-          <include name="VerifyViewAccessOfCallBackAnnouncement"/>
+          <include name="VerifyExportAccessOfHolidayList"/>
         </methods>
       </class> <!-- com.tetherfi.test.UserManagementE2ETest -->
     </classes>
