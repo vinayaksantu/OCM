@@ -28,7 +28,19 @@ public class IvrPage extends BasePage {
     
     @FindBy(css="a[href$='/AdminCallback/Index'] div")
     private WebElement adminCallBack;
-
+    
+    @FindBy(css="a[href$='/AgentTransfer/Index'] div")
+    private WebElement agentTransfer;
+    
+    @FindBy(css="a[href$='/BillingOrg/Index'] div")
+    private WebElement billingOrg;
+    
+    @FindBy(css="a[href$='/IvrBranchDetails/Index'] div")
+    private WebElement branchDetails;
+    
+    @FindBy(css="a[href$='/IvrCallBackAnnouncement/Index'] div")
+    private WebElement callBackAnnouncement;
+    
     @FindBy(css="#navTabs li")
     private List<WebElement> navTabs;
 
@@ -56,6 +68,25 @@ public class IvrPage extends BasePage {
     }
 	public void navigateToAdminCallbackPage() {
 		selectWebElement(adminCallBack);
+		
+	}
+	public void navigateToAgentTransferPage() {
+        waitUntilWebElementIsClickable(agentTransfer);
+		selectWebElement(agentTransfer);
+	}
+	public void navigateToBillingOrgPage() {
+		waitUntilWebElementIsClickable(billingOrg);
+		selectWebElement(billingOrg);
+		
+	}
+	public void navigateToBranchDetailsPage() {
+		waitUntilWebElementIsClickable(branchDetails);
+		selectWebElement(branchDetails);
+		
+	}
+	public void navigateToCallbackAnnouncementPage() {
+		waitUntilWebElementIsClickable(callBackAnnouncement);
+		selectWebElement(callBackAnnouncement);
 		
 	}
 }

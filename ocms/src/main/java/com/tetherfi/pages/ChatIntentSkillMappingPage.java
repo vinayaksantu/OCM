@@ -1,15 +1,15 @@
 package com.tetherfi.pages;
 
-import com.tetherfi.model.chat.IntentSkillMappingDetails;
+import com.tetherfi.model.chat.ChatIntentSkillMappingDetails;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
-public class IntentSkillMappingPage extends BasePage {
+public class ChatIntentSkillMappingPage extends BasePage {
 
-    public IntentSkillMappingPage(WebDriver driver){super(driver);}
+    public ChatIntentSkillMappingPage(WebDriver driver){super(driver);}
 
     @FindBy(css=".ibox-title h5")
     private WebElement intentSkillMapping;
@@ -118,14 +118,17 @@ public class IntentSkillMappingPage extends BasePage {
 
     @FindBy(id="SLA")
     private WebElement sla;
+    
+    @FindBy(xpath="//button[@class='k-button k-button-icontext k-grid-excel']")
+    private WebElement exporttoexcel;
 
-    public boolean isIntentSkillMappingPageDisplayed() {
+    public boolean isChatIntentSkillMappingPageDisplayed() {
         waitForLoad(driver);
         waitForJqueryLoad(driver);
         return intentSkillMapping.isEnabled();
     }
 
-    public void addNewIntentSkillMappingRecord(IntentSkillMappingDetails details){
+    public void addNewIntentSkillMappingRecord(ChatIntentSkillMappingDetails details){
         selectWebElement(addNewIntentSkillMappingRecordBtn);
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(popupContent);
@@ -160,7 +163,7 @@ public class IntentSkillMappingPage extends BasePage {
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(gridContent);
     }
-    public void editIntentSkillMappingRecord(IntentSkillMappingDetails details) {
+    public void editIntentSkillMappingRecord(ChatIntentSkillMappingDetails details) {
         searchIntentSkillMappingRecord(details.getSegment());
         selectWebElement(editBtn);
         waitForJqueryLoad(driver);
@@ -197,5 +200,34 @@ public class IntentSkillMappingPage extends BasePage {
         waitForJqueryLoad(driver);
         if(errorMsg.size()>0){return errorMsg.get(0).getText();}
         else {return successmsg.getText();}
+    }
+    public boolean isAddBtnDisplayed() {
+    	return addNewIntentSkillMappingRecordBtn.isDisplayed() && addNewIntentSkillMappingRecordBtn.isEnabled();
+    }
+    
+    public boolean isEditBtnDisplayed() {
+    	Boolean status = false;
+    	try {
+    		if(editBtn.isDisplayed() && editBtn.isEnabled())
+    			status = true;
+    	}catch(Exception e) {
+    		status = false;
+    	}
+		return status;
+    }
+    
+    public boolean isDeleteBtnDisplayed() {
+    	Boolean status = false;
+    	try {
+    		if(deleteBtn.isDisplayed() && deleteBtn.isEnabled())
+    			status = true;
+    	}catch(Exception e) {
+    		status = false;
+    	}
+		return status;
+    }
+    
+    public boolean isExportBtnDisplayed() {
+    	return exporttoexcel.isDisplayed() && exporttoexcel.isEnabled();
     }
 }

@@ -104,6 +104,9 @@ public class IvrConfigPage extends BasePage {
 
     @FindBy(css="div[style='display: block; z-index: 10002; opacity: 0.5;']")
     private WebElement deleteContainer;
+    
+    @FindBy(xpath="//button[@class='k-button k-button-icontext k-grid-excel']")
+    private WebElement exporttoexcel;
 
     public boolean isIvrConfigPageDisplayed() {
         waitForLoad(driver);
@@ -204,5 +207,34 @@ public class IvrConfigPage extends BasePage {
     }
     public void clickOnDeleteCancelBtn(){
         selectWebElement(deleteNoBtn);
+    }
+    public boolean isAddBtnDisplayed() {
+    	return addNewIVRConfigRcrdBtn.isDisplayed() && addNewIVRConfigRcrdBtn.isEnabled();
+    }
+    
+    public boolean isEditBtnDisplayed() {
+    	Boolean status = false;
+    	try {
+    		if(editButton.isDisplayed() && editButton.isEnabled())
+    			status = true;
+    	}catch(Exception e) {
+    		status = false;
+    	}
+		return status;
+    }
+    
+    public boolean isDeleteBtnDisplayed() {
+    	Boolean status = false;
+    	try {
+    		if(deleteButton.isDisplayed() && deleteButton.isEnabled())
+    			status = true;
+    	}catch(Exception e) {
+    		status = false;
+    	}
+		return status;
+    }
+    
+    public boolean isExportBtnDisplayed() {
+    	return exporttoexcel.isDisplayed() && exporttoexcel.isEnabled();
     }
 }

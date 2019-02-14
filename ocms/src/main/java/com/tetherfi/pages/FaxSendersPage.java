@@ -98,6 +98,9 @@ public class FaxSendersPage extends BasePage{
 
     @FindBy(id = "yesButton")
     private WebElement deleteYesBtn;
+    
+    @FindBy(xpath="//button[@class='k-button k-button-icontext k-grid-excel']")
+    private WebElement exporttoexcel;
 
 
     public boolean isFaxSendersPageDisplayed() {
@@ -162,6 +165,35 @@ public class FaxSendersPage extends BasePage{
         if(errorMsg.size()>0){return errorMsg.get(0).getText();}
         waitUntilWebElementIsVisible(successmsg);
         return successmsg.getText();
+    }
+    public boolean isAddBtnDisplayed() {
+    	return addNewFaxSendersRcrdBtn.isDisplayed() && addNewFaxSendersRcrdBtn.isEnabled();
+    }
+    
+    public boolean isEditBtnDisplayed() {
+    	Boolean status = false;
+    	try {
+    		if(editButton.isDisplayed() && editButton.isEnabled())
+    			status = true;
+    	}catch(Exception e) {
+    		status = false;
+    	}
+		return status;
+    }
+    
+    public boolean isDeleteBtnDisplayed() {
+    	Boolean status = false;
+    	try {
+    		if(deleteButton.isDisplayed() && deleteButton.isEnabled())
+    			status = true;
+    	}catch(Exception e) {
+    		status = false;
+    	}
+		return status;
+    }
+    
+    public boolean isExportBtnDisplayed() {
+    	return exporttoexcel.isDisplayed() && exporttoexcel.isEnabled();
     }
 }
 

@@ -1,6 +1,6 @@
 package com.tetherfi.test.chat;
 
-import com.tetherfi.model.chat.IntentSkillMappingDetails;
+import com.tetherfi.model.chat.ChatIntentSkillMappingDetails;
 import com.tetherfi.pages.*;
 import com.tetherfi.test.BaseTest;
 import com.tetherfi.utility.ExcelReader;
@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.lang.reflect.Method;
 import java.util.Map;
 
-public class IntentSkillMappingTest extends BaseTest {
+public class ChatIntentSkillMappingTest extends BaseTest {
 	Screenshot screenshot=new Screenshot();
     @BeforeMethod
     public void NavigateToIntentSkillMappingPage() throws InterruptedException {
@@ -26,17 +26,17 @@ public class IntentSkillMappingTest extends BaseTest {
         ocmHomePage.navigateToTab("Chat");
         ChatPage chatPage = PageFactory.createPageInstance(driver,ChatPage.class);
         Assert.assertTrue(chatPage.isChatPageDisplayed(),"chat page assertion failed");
-        chatPage.navigateToIntentSkillMappingPage();
-        IntentSkillMappingPage intentSkillMappingPage = PageFactory.createPageInstance(driver,IntentSkillMappingPage.class);
-        Assert.assertTrue(intentSkillMappingPage.isIntentSkillMappingPageDisplayed(),"Intent skill mapping page assertion failed");
+        chatPage.navigateToChatIntentSkillMappingPage();
+        ChatIntentSkillMappingPage intentSkillMappingPage = PageFactory.createPageInstance(driver,ChatIntentSkillMappingPage.class);
+        Assert.assertTrue(intentSkillMappingPage.isChatIntentSkillMappingPageDisplayed(),"Intent skill mapping page assertion failed");
     }
     @Test
     public void AddNewIntentSkillMappingRecord() throws IOException {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IntentSkillMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
-        IntentSkillMappingDetails intentSkillMappingDetails=new IntentSkillMappingDetails(map);
+        ChatIntentSkillMappingDetails intentSkillMappingDetails=new ChatIntentSkillMappingDetails(map);
 
-        IntentSkillMappingPage intentSkillMappingPage = PageFactory.createPageInstance(driver,IntentSkillMappingPage.class);
+        ChatIntentSkillMappingPage intentSkillMappingPage = PageFactory.createPageInstance(driver,ChatIntentSkillMappingPage.class);
         intentSkillMappingPage.addNewIntentSkillMappingRecord(intentSkillMappingDetails);
         Assert.assertEquals(intentSkillMappingPage.getMessage(),"Record Created Successfully","Add New record assertion failed");
     }
@@ -44,9 +44,9 @@ public class IntentSkillMappingTest extends BaseTest {
     public void EditIntentSkillMappingRecord() throws IOException {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SoiIntentMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
-        IntentSkillMappingDetails intentSkillMappingDetails=new IntentSkillMappingDetails(map);
+        ChatIntentSkillMappingDetails intentSkillMappingDetails=new ChatIntentSkillMappingDetails(map);
 
-        IntentSkillMappingPage intentSkillMappingPage = PageFactory.createPageInstance(driver,IntentSkillMappingPage.class);
+        ChatIntentSkillMappingPage intentSkillMappingPage = PageFactory.createPageInstance(driver,ChatIntentSkillMappingPage.class);
         intentSkillMappingPage.editIntentSkillMappingRecord(intentSkillMappingDetails);
         Assert.assertEquals(intentSkillMappingPage.getMessage(),"Record Updated Successfully","Edit record assertion failed");
     }
@@ -54,9 +54,9 @@ public class IntentSkillMappingTest extends BaseTest {
     public void DeleteIntentSkillMappingRecord() throws IOException {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SoiIntentMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
-        IntentSkillMappingDetails intentSkillMappingDetails=new IntentSkillMappingDetails(map);
+        ChatIntentSkillMappingDetails intentSkillMappingDetails=new ChatIntentSkillMappingDetails(map);
 
-        IntentSkillMappingPage intentSkillMappingPage = PageFactory.createPageInstance(driver,IntentSkillMappingPage.class);
+        ChatIntentSkillMappingPage intentSkillMappingPage = PageFactory.createPageInstance(driver,ChatIntentSkillMappingPage.class);
         intentSkillMappingPage.deleteIntentSkillMappingRecord(intentSkillMappingDetails.getSegment(),intentSkillMappingDetails.getDeleteReason());
         Assert.assertEquals(intentSkillMappingPage.getMessage(),"Record Deleted Successfully","Delete record assertion failed");
     }

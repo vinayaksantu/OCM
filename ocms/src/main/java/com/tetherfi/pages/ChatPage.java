@@ -21,8 +21,11 @@ public class ChatPage extends BasePage {
     @FindBy(css="a[href$='/SoiIntentMapping/Index']")
     private WebElement soiIntentMapping;
 
-    @FindBy(css="a[href$='/SoiIntentMapping/Index']")
+    @FindBy(css="a[href$='/ChatIntentSkillMapping/Index']")
     private WebElement intentSkillMapping;
+    
+    @FindBy(css="a[href$='/ChatMenuDescription/Index']")
+    private WebElement chatmenudescription;
 
     public boolean isChatPageDisplayed() {
         boolean status=false;
@@ -49,8 +52,12 @@ public class ChatPage extends BasePage {
         selectWebElement(soiIntentMapping);
     }
 
-    public void navigateToIntentSkillMappingPage(){
+    public void navigateToChatIntentSkillMappingPage(){
         waitUntilWebElementIsClickable(intentSkillMapping);
         selectWebElement(intentSkillMapping);
     }
+	public void navigateToChatMenuDescriptionPage() {
+		waitUntilWebElementIsClickable(chatmenudescription);
+        selectWebElement(chatmenudescription);
+	}
 }

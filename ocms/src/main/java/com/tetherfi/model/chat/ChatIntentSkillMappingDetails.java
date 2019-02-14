@@ -4,7 +4,7 @@ import org.apache.commons.lang3.RandomStringUtils;
 
 import java.util.Map;
 
-public class IntentSkillMappingDetails {
+public class ChatIntentSkillMappingDetails {
     private String skill;
     private String intent;
     private String language;
@@ -17,7 +17,7 @@ public class IntentSkillMappingDetails {
     private String modifyReason;
     private  String deleteReason;
 
-    public IntentSkillMappingDetails(Map<String,String> map){
+    public ChatIntentSkillMappingDetails(Map<String,String> map){
         skill=readSkill(map);
         intent=readIntent(map);
         language=readLanguage(map);
