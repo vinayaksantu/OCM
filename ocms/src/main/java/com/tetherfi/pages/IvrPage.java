@@ -41,6 +41,15 @@ public class IvrPage extends BasePage {
     @FindBy(css="a[href$='/IvrCallBackAnnouncement/Index'] div")
     private WebElement callBackAnnouncement;
     
+    @FindBy(css="a[href$='/IvrFaxFormName/Index'] div")
+    private WebElement faxForms;
+    
+    @FindBy(css="a[href$='/IvrFaxGroup/Index'] div")
+    private WebElement faxGroup;
+    
+    @FindBy(css="a[href$='/IvrHolidayList/Index'] div")
+    private WebElement holidayList;
+    
     @FindBy(css="#navTabs li")
     private List<WebElement> navTabs;
 
@@ -88,5 +97,19 @@ public class IvrPage extends BasePage {
 		waitUntilWebElementIsClickable(callBackAnnouncement);
 		selectWebElement(callBackAnnouncement);
 		
+	}
+	public void navigateToFaxFormsPage() {
+		waitUntilWebElementIsClickable(faxForms);
+		selectWebElement(faxForms);
+		
+	}
+	public void navigateToFaxGroupPage() {
+		waitUntilWebElementIsClickable(faxGroup);
+		selectWebElement(faxGroup);
+		
+	}
+	public void navigateToHolidayListPage() {
+		waitUntilWebElementIsClickable(holidayList);
+		selectWebElement(holidayList);		
 	}
 }
