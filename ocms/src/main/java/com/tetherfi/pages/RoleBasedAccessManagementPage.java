@@ -79,6 +79,9 @@ public class RoleBasedAccessManagementPage extends BasePage{
 
     @FindBy(id="noButton")
     private WebElement noBtn;
+    
+    @FindBy(xpath="//button[@class='k-button k-button-icontext k-grid-excel']")
+    private WebElement exporttoexcel;
 
     public boolean isRoleBasedAccessManagementPageDisplayed() throws InterruptedException {
         waitForLoad(driver);
@@ -138,5 +141,35 @@ public class RoleBasedAccessManagementPage extends BasePage{
         if(errorMsg.size()>0){return false;}
         if(waitUntilTextToBePresentInWebElement(successmsg,"Record Updated Successfully"))
         {return true;}else{return false;}
+    }
+    
+    public boolean isAddBtnDisplayed() {
+    	return addNewRoleBasedAccessManagementRecordBtn.isDisplayed() && addNewRoleBasedAccessManagementRecordBtn.isEnabled();
+    }
+    
+    public boolean isEditBtnDisplayed() {
+    	Boolean status = false;
+    	try {
+    		if(editBtn.isDisplayed() && editBtn.isEnabled())
+    			status = true;
+    	}catch(Exception e) {
+    		status = false;
+    	}
+		return status;
+    }
+    
+    public boolean isDeleteBtnDisplayed() {
+    	Boolean status = false;
+    	try {
+    		if(deleteBtn.isDisplayed() && deleteBtn.isEnabled())
+    			status = true;
+    	}catch(Exception e) {
+    		status = false;
+    	}
+		return status;
+    }
+    
+    public boolean isExportBtnDisplayed() {
+    	return exporttoexcel.isDisplayed() && exporttoexcel.isEnabled();
     }
 }

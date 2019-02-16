@@ -64,6 +64,12 @@ public class OCMHomePage extends BasePage {
     @FindBy(css="a[href$='/ApplicationAccessControl/Index'] div")
     private WebElement applicationAccessControl;
     
+    @FindBy(css="a[href$='/CepCodeMapping/Index'] div")
+    private WebElement cepEventMapping;
+    
+    @FindBy(css="a[href$='/ExportScheduler/Index'] div")
+    private WebElement exportScheduler;
+    
     @FindBy(css="#adminInvalidAccess h2")
     private WebElement noAccess;
     
@@ -117,6 +123,14 @@ public class OCMHomePage extends BasePage {
 			return true;
 		else
 			return false;
+	}
+
+	public void navigateToCepEventMappingPage() {
+		selectWebElement(cepEventMapping);
+	}
+
+	public void navigateToExportSchedulerPage() {
+		selectWebElement(exportScheduler);
 	}
 
 

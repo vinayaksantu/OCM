@@ -8,10 +8,11 @@
           <include name="afterEachMethod"/>
           <include name="startTestCase"/>
           <include name="openApplication"/>
+          <include name="VerifyViewAccessOfUserManagement"/>
           <include name="endTestCase"/>
           <include name="tearDown"/>
+          <include name="VerifyExportAccessOfUserManagement"/>
           <include name="OCMPage"/>
-          <include name="VerifyExportAccessOfHolidayList"/>
         </methods>
       </class> <!-- com.tetherfi.test.UserManagementE2ETest -->
     </classes>

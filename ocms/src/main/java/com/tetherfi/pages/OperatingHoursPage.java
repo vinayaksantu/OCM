@@ -78,9 +78,10 @@ public class OperatingHoursPage extends BasePage {
     @FindBy(css = "#toast-container .toast-error")
     private List<WebElement> errorMsg;
 
-    @FindBy(xpath="//button[@class='k-button k-button-icontext k-grid-excel']")
-    private WebElement exporttoexcel;
 
+    @FindBy(xpath="//button[text()='Export to Excel']")
+    private WebElement exporttoexcel;
+    
     @FindBy(css = ".modal-footer .button-theme")
     private WebElement searchSearchBtn;
     
@@ -164,6 +165,7 @@ public class OperatingHoursPage extends BasePage {
         if(waitUntilTextToBePresentInWebElement(successmsg,"Record Deleted Successfully"))
         {return true;}else{return false;}
     }
+
     public boolean isAddBtnDisplayed() {
     	return addNewOperatingHoursRcrdBtn.isDisplayed() && addNewOperatingHoursRcrdBtn.isEnabled();
     }

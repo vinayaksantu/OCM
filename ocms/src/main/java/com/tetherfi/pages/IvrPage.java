@@ -50,6 +50,18 @@ public class IvrPage extends BasePage {
     @FindBy(css="a[href$='/IvrHolidayList/Index'] div")
     private WebElement holidayList;
     
+    @FindBy(css="a[href$='/VIPListManagement/Index'] div")
+    private WebElement vipListManagement;
+    
+    @FindBy(css="a[href$='/VbEnrollmentFlag/Index'] div")
+    private WebElement vbEnrollmentFlag;
+    
+    @FindBy(css="a[href$='/IvrProductPromotions/Index'] div")
+    private WebElement productPromotions;
+    
+    @FindBy(css="a[href$='/IvrIntentMapping/Index'] div")
+    private WebElement intentMapping;
+    
     @FindBy(css="#navTabs li")
     private List<WebElement> navTabs;
 
@@ -111,5 +123,21 @@ public class IvrPage extends BasePage {
 	public void navigateToHolidayListPage() {
 		waitUntilWebElementIsClickable(holidayList);
 		selectWebElement(holidayList);		
+	}
+	public void navigateToVipListManagementPage() {
+		waitUntilWebElementIsClickable(vipListManagement);
+		selectWebElement(vipListManagement);		
+	}
+	public void navigateToVbEnrollmentFlagPage() {
+		waitUntilWebElementIsClickable(vbEnrollmentFlag);
+		selectWebElement(vbEnrollmentFlag);			
+	}
+	public void navigateToProductPromotionsPage() {
+		waitUntilWebElementIsClickable(productPromotions);
+		selectWebElement(productPromotions);			
+	}
+	public void navigateToIntentMappingPage() {
+		waitUntilWebElementIsClickable(intentMapping);
+		selectWebElement(intentMapping);		
 	}
 }
