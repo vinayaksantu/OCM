@@ -14,8 +14,6 @@ import java.util.Map;
 
 public class UserManagementPage extends BasePage {
 
-    private static final String value = null;
-
 	public UserManagementPage(WebDriver driver){super(driver);}
 
     @FindBy(css=".ibox-title h5")
@@ -91,16 +89,25 @@ public class UserManagementPage extends BasePage {
     private WebElement PageBasedAccess;
     
     @FindBy(id="checkAll")
-    private WebElement checkallAccess;
+    private List<WebElement> checkallAccess;
+    
+    @FindBy(id="checkAllAddAccess")
+    private List<WebElement> checkalladdaccess;
+    
+    @FindBy(id="checkAllEditAccess")
+    private List<WebElement> checkalleditaccess;
+    
+    @FindBy(id="checkAllDeleteAccess")
+    private List<WebElement> checkalldeleteaccess;
+    
+    @FindBy(id="checkAllExportAccess")
+    private List<WebElement> checkallexportaccess;
     
     @FindBy(id="checkAll")
     private List <WebElement> accessAll;
     
-    @FindBy(tagName="td")
-    private List<WebElement> coloums;
-    
     @FindBy(id="createone")
-    private List <WebElement> saveaccess;
+    private List<WebElement> saveaccess;
     
     @FindBy(xpath="//div[@onclick='saveChangeYes()']")
     private WebElement useryesBtn;
@@ -212,6 +219,24 @@ public class UserManagementPage extends BasePage {
 	
 	@FindBy(xpath="//div[@id='gridDashboardAccessDetails']/div[3]/table/tbody/tr[@role='row']")
 	private List <WebElement> dashboardTableRows;
+	
+	@FindBy(xpath="//div[@id='DrillReportNameLbl']/h2")
+	private WebElement pagebaseduseraccess;
+	
+	@FindBy(xpath="//a[@class='k-button k-button-icontext k-grid-cancel-changes']")
+	private List<WebElement> pbuacancel;
+	
+	@FindBy(id="myWindowUser_wnd_title")
+	private WebElement modifypopup;
+	
+	@FindBy(css=".toast-info .toast-message")
+	private WebElement changesMsg;
+	
+	@FindBy(xpath="//span[text()='Reports']")
+	private WebElement navigatetoreports;
+	
+	@FindBy(xpath="//span[text()='Dashboard']")
+	private WebElement navigatetodashboard;
 	
     public boolean isUserManagementPageDisplayed() throws InterruptedException {
         waitForLoad(driver);
@@ -402,9 +427,9 @@ public class UserManagementPage extends BasePage {
 	
 	public void clearAccess() throws Exception {
 		Thread.sleep(500);
-		selectWebElement(checkallAccess);
-		if(checkallAccess.isSelected()) {
-		selectWebElement(checkallAccess);}
+		selectWebElement(checkallAccess.get(0));
+		if(checkallAccess.get(0).isSelected()) {
+		selectWebElement(checkallAccess.get(0));}
 		selectWebElement(saveaccess.get(0));
 		try {
 			selectWebElement(userModifyReasontxtbox);
@@ -860,6 +885,259 @@ public class UserManagementPage extends BasePage {
 		}
 	}
 
+	public boolean ExporttoExcelWithoutData(UserDetails userDetails) {
+		searchUserManagementRecord(userDetails.getUserId());
+		waitForJqueryLoad(driver);
+		selectWebElement(exporttoexcel);
+		if(errorMsg.get(0).getText().equals("There is no record to export"))
+			return true;
+		else
+		return false;
+	}
+	
+	public boolean verifypagebaseduseraccess(UserDetails userDetails) {
+		searchUserManagementRecord(userDetails.getUserId());
+		selectWebElement(rowdata);
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		if(pagebaseduseraccess.isDisplayed())
+			return true;
+		else
+		return false;
+	}
+	
+	public boolean verifyclosebutton()
+	{
+		moveToElement(pbuaclose);
+		selectWebElement(pbuaclose);
+		if(rowdata.isDisplayed())
+			return true;
+		else
+		return false;
+	}
+
+	public boolean verifyaccesscheckbox(UserDetails userDetails) {
+		searchUserManagementRecord(userDetails.getUserId());
+		selectWebElement(rowdata);
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		Boolean Status=false;
+		//if(!checkallAccess.isEnabled())
+		selectWebElement(checkallAccess.get(0));
+		if(checkallAccess.get(0).isEnabled()) {
+			selectWebElement(checkalladdaccess.get(0));
+				if(checkalladdaccess.get(0).isEnabled()) {
+					selectWebElement(checkalleditaccess.get(0));
+					if(checkalleditaccess.get(0).isEnabled())
+					{
+						selectWebElement(checkalldeleteaccess.get(0));
+						if(checkalldeleteaccess.get(0).isEnabled())
+						{
+							selectWebElement(checkallexportaccess.get(0));
+							if(checkallexportaccess.get(0).isEnabled())
+							{
+							Status=true;
+							}
+						}
+				
+					}
+				}
+		}
+		return Status;
+	}
+
+	public boolean verifycancelchanges(UserDetails userDetails) throws Exception {
+		searchUserManagementRecord(userDetails.getUserId());
+		selectWebElement(rowdata);
+		Thread.sleep(1000);
+		selectWebElement(checkallAccess.get(0));
+		Thread.sleep(500);
+		selectWebElement(pbuacancel.get(0));
+		Thread.sleep(1000);
+		if(checkallAccess.get(0).isSelected())
+			return false;
+		else
+		return true;
+	}		
+	public boolean verifysavechanges() throws Exception {
+		waitForJqueryLoad(driver);
+		Boolean Status=false;
+		selectWebElement(checkallAccess.get(0));
+		selectWebElement(saveaccess.get(0));
+		if(modifypopup.isDisplayed())
+		{	Status=true;
+			selectWebElement(userModifyReasontxtbox);
+			Thread.sleep(1000);
+			enterValueToTxtField(userModifyReasontxtbox,"Modified");
+			Thread.sleep(1000);
+			clickOn(useryesBtn);
+		}
+		return Status;
+	}	
+	public boolean verifyunsuccessfullcancelchanges(UserDetails userDetails) throws Exception {
+		searchUserManagementRecord(userDetails.getUserId());									 
+		selectWebElement(rowdata);
+		Thread.sleep(1000);	
+		selectWebElement(pbuacancel.get(0));
+		if(changesMsg.getText().equals("No rows has been changed"))
+			return true;
+		else
+		return false;
+	}
+	
+	public boolean verifyunsuccessfullsavechanges() throws Exception{
+		selectWebElement(saveaccess.get(0));
+		if(changesMsg.getText().equals("No rows has been changed"))
+			return true;
+		else
+		return false;
+	}
+	
+	public boolean verifyreportsaccesscheckbox(UserDetails userDetails) throws Exception {
+		searchUserManagementRecord(userDetails.getUserId());
+		selectWebElement(rowdata);
+		Thread.sleep(1000);
+		selectWebElement(navigatetoreports);
+		Boolean Status=false;
+		selectWebElement(checkallAccess.get(1));
+		if(checkallAccess.get(1).isSelected())
+		{
+			selectWebElement(checkallexportaccess.get(1));
+			if(checkallexportaccess.get(1).isSelected())
+			{
+				Status=true;
+			}
+		}
+		return Status;
+	}
+
+	public boolean verifyReportscancelchanges(UserDetails userDetails) throws Exception {
+		searchUserManagementRecord(userDetails.getUserId());
+		selectWebElement(rowdata);
+		Thread.sleep(1000);
+		selectWebElement(navigatetoreports);
+		Thread.sleep(1000);
+		selectWebElement(checkallAccess.get(1));
+		selectWebElement(pbuacancel.get(1));
+		Thread.sleep(1000);
+		if(checkallAccess.get(1).isSelected())
+			return false;
+		else
+		return true;
+	}
+
+	public boolean verifyReportssavechanges() throws Exception {
+		waitForJqueryLoad(driver);
+		Boolean Status=false;
+		selectWebElement(checkallAccess.get(1));
+		selectWebElement(saveaccess.get(1));
+		if(modifypopup.isDisplayed())
+		{	Status=true;
+			selectWebElement(userModifyReasontxtbox);
+			Thread.sleep(1000);
+			enterValueToTxtField(userModifyReasontxtbox,"Modified");
+			Thread.sleep(1000);
+			clickOn(useryesBtn);
+		}
+		return Status;
+	}
+
+	public boolean verifyreportsunsuccessfullcancelchanges(UserDetails userDetails) throws Exception {
+		searchUserManagementRecord(userDetails.getUserId());
+		selectWebElement(rowdata);
+		Thread.sleep(1000);	
+		selectWebElement(navigatetoreports);
+		selectWebElement(pbuacancel.get(1));
+		if(changesMsg.getText().equals("No rows has been changed"))
+			return true;
+		else
+		return false;
+	}
+
+	public boolean verifyreportsunsuccessfullsavechanges() {
+		selectWebElement(saveaccess.get(1));
+		if(changesMsg.getText().equals("No rows has been changed"))
+			return true;
+		else
+		return false;
+	}
+
+	public boolean verifydashboardaccesscheckbox(UserDetails userDetails) throws Exception {
+		searchUserManagementRecord(userDetails.getUserId());
+		selectWebElement(rowdata);
+		Thread.sleep(1000);
+		selectWebElement(navigatetodashboard);
+		Boolean Status=false;
+		selectWebElement(checkallAccess.get(2));
+		if(checkallAccess.get(2).isSelected())
+		{
+			selectWebElement(checkallexportaccess.get(2));
+			if(checkallexportaccess.get(2).isSelected())
+			{
+				Status=true;
+			}
+		}
+		return Status;
+	}
+
+
+	public boolean verifyDashboardcancelchanges(UserDetails userDetails) throws Exception {
+		searchUserManagementRecord(userDetails.getUserId());
+		selectWebElement(rowdata);
+		Thread.sleep(1000);
+		selectWebElement(navigatetodashboard);
+		Thread.sleep(1000);
+		selectWebElement(checkallAccess.get(2));
+		selectWebElement(pbuacancel.get(2));
+		Thread.sleep(1000);
+		if(checkallAccess.get(2).isSelected())
+			return false;
+		else
+		return true;
+	}
+
+	public boolean verifyDashboardsavechanges() throws Exception {
+		waitForJqueryLoad(driver);
+		Boolean Status=false;
+		selectWebElement(checkallAccess.get(2));
+		selectWebElement(saveaccess.get(2));
+		if(modifypopup.isDisplayed())
+		{	Status=true;
+			selectWebElement(userModifyReasontxtbox);
+			Thread.sleep(1000);
+			enterValueToTxtField(userModifyReasontxtbox,"Modified");
+			Thread.sleep(1000);
+			clickOn(useryesBtn);
+		}
+		return Status;
+	}
+
+	public boolean verifydashboardunsuccessfullcancelchanges(UserDetails userDetails) throws Exception {
+		searchUserManagementRecord(userDetails.getUserId());
+		selectWebElement(rowdata);
+		Thread.sleep(1000);	
+		selectWebElement(navigatetodashboard);
+		selectWebElement(pbuacancel.get(2));
+		if(changesMsg.getText().equals("No rows has been changed"))
+			return true;
+		else
+		return false;
+	}
+
+	public boolean verifydashboardunsuccessfullsavechanges() {
+		selectWebElement(saveaccess.get(2));
+		if(changesMsg.getText().equals("No rows has been changed"))
+			return true;
+		else
+		return false;
+	}
+	
 	public void navigateToReportsTab() {
 		selectWebElement(reportsTab);
 	}
