@@ -211,6 +211,9 @@ public class UserManagementPage extends BasePage {
 	@FindBy(xpath="//span[text()='Dashboards']")
 	private WebElement dashboardTab;
 	
+	@FindBy(xpath="//span[text()='Other Applications']")
+	private WebElement otherAppsTab;
+	
 	@FindBy(xpath="//div[@id='gridUserAccessDetails']/div[3]/table/tbody/tr[@role='row']")
 	private List <WebElement> adminPagesTableRows;
 	
@@ -219,6 +222,9 @@ public class UserManagementPage extends BasePage {
 	
 	@FindBy(xpath="//div[@id='gridDashboardAccessDetails']/div[3]/table/tbody/tr[@role='row']")
 	private List <WebElement> dashboardTableRows;
+	
+	@FindBy(xpath="//div[@id='gridOtherApplicationsAccessDetails']/div[3]/table/tbody/tr[@role='row']")
+	private List <WebElement> otherAppsTableRows;
 	
 	@FindBy(xpath="//div[@id='DrillReportNameLbl']/h2")
 	private WebElement pagebaseduseraccess;
@@ -366,9 +372,12 @@ public class UserManagementPage extends BasePage {
 		for(int i=0;i<adminPagesTableRows.size();i++) {
 			System.out.println(adminPagesTableRows.get(i).getText());
 			if (adminPagesTableRows.get(i).getText().equals(value))
-			{
-				WebElement checkAccess=adminPagesTableRows.get(i).findElement(By.id("checkAccess"));
-				selectWebElement(checkAccess);
+			{	
+				WebElement checkAccessStatus=adminPagesTableRows.get(i).findElement(By.id("checkAccess"));
+				if(checkAccessStatus.isSelected() == false) {
+					WebElement checkAccess=adminPagesTableRows.get(i).findElement(By.id("checkAccess"));
+					selectWebElement(checkAccess);
+				}
 				if(accessLvl.equals("Add")) {
 					WebElement AddAccess=adminPagesTableRows.get(i).findElement(By.id("checkAddAccess"));
 					selectWebElement(AddAccess);
@@ -1179,9 +1188,33 @@ public class UserManagementPage extends BasePage {
 				selectWebElement(pbuaclose);	
 			}
 	}
+	
+	public void clearOtherAppsAccess() {
+		selectWebElement(accessAll.get(3));
+		if(accessAll.get(3).isSelected()) {
+			selectWebElement(accessAll.get(3));}
+			selectWebElement(saveaccess.get(3));
+			try {
+				selectWebElement(userModifyReasontxtbox);
+				Thread.sleep(1000);
+				enterValueToTxtField(userModifyReasontxtbox,"Modified");
+				Thread.sleep(1000);
+				clickOn(useryesBtn);
+			}
+			catch(Exception e)
+			{
+				moveToElement(pbuaclose);
+				selectWebElement(pbuaclose);	
+			}
+	}
 
 	public void navigateToDashboardTab() {
 		selectWebElement(dashboardTab);
+		
+	}
+	
+	public void navigateToOtherAppsTab() {
+		selectWebElement(otherAppsTab);
 		
 	}
 
@@ -1239,5 +1272,32 @@ public class UserManagementPage extends BasePage {
     public boolean isExportBtnDisplayed() {
     	return exporttoexcel.isDisplayed() && exporttoexcel.isEnabled();
     }
+
+	public void ProvideOtherAppsAccess(String value) throws InterruptedException {
+		Thread.sleep(2000);
+		selectWebElement(tablerow);
+		waitForJqueryLoad(driver);
+		Thread.sleep(1000);
+		navigateToOtherAppsTab();
+		waitForJqueryLoad(driver);
+		Thread.sleep(2000);
+		for(int i=0;i<otherAppsTableRows.size();i++) {
+			System.out.println(otherAppsTableRows.get(i).getText());
+			if (otherAppsTableRows.get(i).getText().equals(value))
+			{
+				WebElement checkAccess=otherAppsTableRows.get(i).findElement(By.id("checkAccess"));
+				selectWebElement(checkAccess);
+				break;
+			}
+			}
+		selectWebElement(saveaccess.get(3));
+		waitForJqueryLoad(driver);
+		selectWebElement(userModifyReasontxtbox);
+		Thread.sleep(1000);
+		enterValueToTxtField(userModifyReasontxtbox,"Modified");
+		Thread.sleep(1000);
+		selectWebElement(useryesBtn);
+		
+	}
 	
 }

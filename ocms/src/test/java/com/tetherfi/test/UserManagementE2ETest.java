@@ -19,7 +19,7 @@ import com.tetherfi.pages.AgentTeamManagementPage;
 import com.tetherfi.pages.AgentTransferPage;
 import com.tetherfi.pages.BillingOrgPage;
 import com.tetherfi.pages.BranchDetailsPage;
-
+import com.tetherfi.pages.BranchManagementPage;
 import com.tetherfi.pages.CallBackManagementPage;
 import com.tetherfi.pages.CallbackAnnouncementPage;
 import com.tetherfi.pages.CepEventMappingPage;
@@ -6475,7 +6475,7 @@ public class UserManagementE2ETest extends BaseTest {
 	      driver.close();
 	}
 
-	@Test
+	//@Test
 	public void VerifyViewAccessOfUserManagement() throws Exception
 	{
 	     UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
@@ -6520,7 +6520,7 @@ public class UserManagementE2ETest extends BaseTest {
 	      driver.close();
 	}
 
-	@Test
+	//@Test
 	public void VerifyAddAccessOfUserManagement() throws Exception
 	{
 	     UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
@@ -6565,7 +6565,7 @@ public class UserManagementE2ETest extends BaseTest {
 	      driver.close();
 	}
 
-	@Test
+	//@Test
 	public void VerifyEditAccessOfUserManagement() throws Exception
 	{
 	     UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
@@ -6610,7 +6610,7 @@ public class UserManagementE2ETest extends BaseTest {
 	      driver.close();
 	}
 
-	@Test
+	//@Test
 	public void VerifyDeleteAccessOfUserManagement() throws Exception
 	{
 	     UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
@@ -6655,7 +6655,7 @@ public class UserManagementE2ETest extends BaseTest {
 	      driver.close();
 	}
 
-	@Test
+	//@Test
 	public void VerifyExportAccessOfUserManagement() throws Exception
 	{
 	     UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
@@ -6700,9 +6700,243 @@ public class UserManagementE2ETest extends BaseTest {
 	      driver.close();
 	}
 
+	//@Test
+	public void VerifyViewAccessOfBranchManagement() throws Exception
+	{
+	     UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
+	     userManagementPage.ProvideAccess("Branch Management", "View");
+	     Thread.sleep(2000);
+	     driver.close();
+	     try {
+	             PageFactory.reset();
+	             BrowserFactory browserFactory = new BrowserFactory();
+	             driver = browserFactory.createBrowserInstance(BrowserFactory.BrowserType.CHROME, System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles");
+	             String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\LoginData.xlsx";
+	             Map<String, String> map = new ExcelReader(filePath,"Login").getTestData().get(3);
+	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
+	             if(map.get("LoginType").equals("Custom")){
+	                 LoginPage loginPage=new LoginPage(driver);
+	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 Thread.sleep(5000);
+	              }
+	      }catch (Exception e){
+	         PageFactory.reset();
+	         driver.close();
+	         e.printStackTrace();
+	      }
+	      try {
+	             Thread.sleep(2000);
+	          }catch(InterruptedException e) {
+	             e.printStackTrace();
+	          }
+	      HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
+	      Assert.assertTrue(homePage.checkPageLoadStatus(), "user login successful status");
+	      homePage.navigateToOCMPage();
+	      OCMHomePage ocmHomePage = PageFactory.createPageInstance(driver,OCMHomePage.class);
+	      ocmHomePage.navigateToTab("IVR");
+	      IvrPage ivrPage=PageFactory.createPageInstance(driver,IvrPage.class);
+	      ivrPage.navigateToBranchManagementPage();
+	      BranchManagementPage modPageInst=PageFactory.createPageInstance(driver,BranchManagementPage.class);
+	      Assert.assertTrue(modPageInst.isBranchManagementPageDisplayed(), "Branch Management Page assertion failed");
+	      modPageInst.navigateToTab("Branch Management Audit Trail");;
+	      Assert.assertFalse(modPageInst.isMakeBranchChangesButtonDisplayed(), "View Assertion Failed");
+	      homePage.userLogout();
+	      driver.close();
+	}
 
+	//@Test
+	public void VerifyAddAccessOfBranchManagement() throws Exception
+	{
+	     UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
+	     userManagementPage.ProvideAccess("Branch Management", "Add");
+	     Thread.sleep(2000);
+	     driver.close();
+	     try {
+	             PageFactory.reset();
+	             BrowserFactory browserFactory = new BrowserFactory();
+	             driver = browserFactory.createBrowserInstance(BrowserFactory.BrowserType.CHROME, System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles");
+	             String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\LoginData.xlsx";
+	             Map<String, String> map = new ExcelReader(filePath,"Login").getTestData().get(3);
+	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
+	             if(map.get("LoginType").equals("Custom")){
+	                 LoginPage loginPage=new LoginPage(driver);
+	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 Thread.sleep(5000);
+	              }
+	      }catch (Exception e){
+	         PageFactory.reset();
+	         driver.close();
+	         e.printStackTrace();
+	      }
+	      try {
+	             Thread.sleep(2000);
+	          }catch(InterruptedException e) {
+	             e.printStackTrace();
+	          }
+	      HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
+	      Assert.assertTrue(homePage.checkPageLoadStatus(), "user login successful status");
+	      homePage.navigateToOCMPage();
+	      OCMHomePage ocmHomePage = PageFactory.createPageInstance(driver,OCMHomePage.class);
+	      ocmHomePage.navigateToTab("IVR");
+	      IvrPage ivrPage=PageFactory.createPageInstance(driver,IvrPage.class);
+	      ivrPage.navigateToBranchManagementPage();
+	      BranchManagementPage modPageInst=PageFactory.createPageInstance(driver,BranchManagementPage.class);
+	      Assert.assertTrue(modPageInst.isBranchManagementPageDisplayed(), "Branch Management Page assertion failed");
+	      modPageInst.navigateToTab("Branch Management Audit Trail");
+	      modPageInst.clickOnMakeBranchManageChanges();
+	      Assert.assertTrue(modPageInst.isAddBtnDisplayed(), "Add button assertion failed");
+	      Assert.assertFalse(modPageInst.isEditBtnDisplayed(), "Edit button assertion failed");
+	      Assert.assertFalse(modPageInst.isDeleteBtnDisplayed(), "Delete button assertion failed");
+	      Assert.assertFalse(modPageInst.isExportBtnDisplayed(), "Export button assertion failed");
+	      homePage.userLogout();
+	      driver.close();
+	}
 
-		
+	//@Test
+	public void VerifyEditAccessOfBranchManagement() throws Exception
+	{
+	     UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
+	     userManagementPage.ProvideAccess("Branch Management", "Edit");
+	     Thread.sleep(2000);
+	     driver.close();
+	     try {
+	             PageFactory.reset();
+	             BrowserFactory browserFactory = new BrowserFactory();
+	             driver = browserFactory.createBrowserInstance(BrowserFactory.BrowserType.CHROME, System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles");
+	             String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\LoginData.xlsx";
+	             Map<String, String> map = new ExcelReader(filePath,"Login").getTestData().get(3);
+	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
+	             if(map.get("LoginType").equals("Custom")){
+	                 LoginPage loginPage=new LoginPage(driver);
+	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 Thread.sleep(5000);
+	              }
+	      }catch (Exception e){
+	         PageFactory.reset();
+	         driver.close();
+	         e.printStackTrace();
+	      }
+	      try {
+	             Thread.sleep(2000);
+	          }catch(InterruptedException e) {
+	             e.printStackTrace();
+	          }
+	      HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
+	      Assert.assertTrue(homePage.checkPageLoadStatus(), "user login successful status");
+	      homePage.navigateToOCMPage();
+	      OCMHomePage ocmHomePage = PageFactory.createPageInstance(driver,OCMHomePage.class);
+	      ocmHomePage.navigateToTab("IVR");
+	      IvrPage ivrPage=PageFactory.createPageInstance(driver,IvrPage.class);
+	      ivrPage.navigateToBranchManagementPage();
+	      BranchManagementPage modPageInst=PageFactory.createPageInstance(driver,BranchManagementPage.class);
+	      Assert.assertTrue(modPageInst.isBranchManagementPageDisplayed(), "Branch Management Page assertion failed");
+	      modPageInst.navigateToTab("Branch Management Audit Trail");
+	      modPageInst.clickOnMakeBranchManageChanges();
+	      Assert.assertFalse(modPageInst.isAddBtnDisplayed(), "Add button assertion failed");
+	      Assert.assertTrue(modPageInst.isEditBtnDisplayed(), "Edit button assertion failed");
+	      Assert.assertFalse(modPageInst.isDeleteBtnDisplayed(), "Delete button assertion failed");
+	      Assert.assertFalse(modPageInst.isExportBtnDisplayed(), "Export button assertion failed");
+	      homePage.userLogout();
+	      driver.close();
+	}
+
+	//@Test
+	public void VerifyDeleteAccessOfBranchManagement() throws Exception
+	{
+	     UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
+	     userManagementPage.ProvideAccess("Branch Management", "Delete");
+	     Thread.sleep(2000);
+	     driver.close();
+	     try {
+	             PageFactory.reset();
+	             BrowserFactory browserFactory = new BrowserFactory();
+	             driver = browserFactory.createBrowserInstance(BrowserFactory.BrowserType.CHROME, System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles");
+	             String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\LoginData.xlsx";
+	             Map<String, String> map = new ExcelReader(filePath,"Login").getTestData().get(3);
+	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
+	             if(map.get("LoginType").equals("Custom")){
+	                 LoginPage loginPage=new LoginPage(driver);
+	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 Thread.sleep(5000);
+	              }
+	      }catch (Exception e){
+	         PageFactory.reset();
+	         driver.close();
+	         e.printStackTrace();
+	      }
+	      try {
+	             Thread.sleep(2000);
+	          }catch(InterruptedException e) {
+	             e.printStackTrace();
+	          }
+	      HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
+	      Assert.assertTrue(homePage.checkPageLoadStatus(), "user login successful status");
+	      homePage.navigateToOCMPage();
+	      OCMHomePage ocmHomePage = PageFactory.createPageInstance(driver,OCMHomePage.class);
+	      ocmHomePage.navigateToTab("IVR");
+	      IvrPage ivrPage=PageFactory.createPageInstance(driver,IvrPage.class);
+	      ivrPage.navigateToBranchManagementPage();
+	      BranchManagementPage modPageInst=PageFactory.createPageInstance(driver,BranchManagementPage.class);
+	      Assert.assertTrue(modPageInst.isBranchManagementPageDisplayed(), "Branch Management Page assertion failed");
+	      modPageInst.navigateToTab("Branch Management Audit Trail");;
+	      modPageInst.clickOnMakeBranchManageChanges();
+	      Assert.assertFalse(modPageInst.isAddBtnDisplayed(), "Add button assertion failed");
+	      Assert.assertFalse(modPageInst.isEditBtnDisplayed(), "Edit button assertion failed");
+	      Assert.assertTrue(modPageInst.isDeleteBtnDisplayed(), "Delete button assertion failed");
+	      Assert.assertFalse(modPageInst.isExportBtnDisplayed(), "Export button assertion failed");
+	      homePage.userLogout();
+	      driver.close();
+	}
+
+	//@Test
+	public void VerifyExportAccessOfBranchManagement() throws Exception
+	{
+	     UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
+	     userManagementPage.ProvideAccess("Branch Management", "Add");
+	     userManagementPage.ProvideAccess("Branch Management", "Export");
+	     Thread.sleep(2000);
+	     driver.close();
+	     try {
+	             PageFactory.reset();
+	             BrowserFactory browserFactory = new BrowserFactory();
+	             driver = browserFactory.createBrowserInstance(BrowserFactory.BrowserType.CHROME, System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles");
+	             String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\LoginData.xlsx";
+	             Map<String, String> map = new ExcelReader(filePath,"Login").getTestData().get(3);
+	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
+	             if(map.get("LoginType").equals("Custom")){
+	                 LoginPage loginPage=new LoginPage(driver);
+	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 Thread.sleep(5000);
+	              }
+	      }catch (Exception e){
+	         PageFactory.reset();
+	         driver.close();
+	         e.printStackTrace();
+	      }
+	      try {
+	             Thread.sleep(2000);
+	          }catch(InterruptedException e) {
+	             e.printStackTrace();
+	          }
+	      HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
+	      Assert.assertTrue(homePage.checkPageLoadStatus(), "user login successful status");
+	      homePage.navigateToOCMPage();
+	      OCMHomePage ocmHomePage = PageFactory.createPageInstance(driver,OCMHomePage.class);
+	      ocmHomePage.navigateToTab("IVR");
+	      IvrPage ivrPage=PageFactory.createPageInstance(driver,IvrPage.class);
+	      ivrPage.navigateToBranchManagementPage();
+	      BranchManagementPage modPageInst=PageFactory.createPageInstance(driver,BranchManagementPage.class);
+	      Assert.assertTrue(modPageInst.isBranchManagementPageDisplayed(), "Branch Management Page assertion failed");
+	      modPageInst.navigateToTab("Branch Management Audit Trail");;
+	      modPageInst.clickOnMakeBranchManageChanges();
+	      Assert.assertTrue(modPageInst.isAddBtnDisplayed(), "Add button assertion failed");
+	      Assert.assertFalse(modPageInst.isEditBtnDisplayed(), "Edit button assertion failed");
+	      Assert.assertFalse(modPageInst.isDeleteBtnDisplayed(), "Delete button assertion failed");
+	      Assert.assertTrue(modPageInst.isExportBtnDisplayed(), "Export button assertion failed");
+	      homePage.userLogout();
+	      driver.close();
+	}
+
 	@AfterMethod
 	 public void afterEachMethod(ITestResult result){
 	   	 if(ITestResult.FAILURE==result.getStatus()){

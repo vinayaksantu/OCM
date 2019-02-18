@@ -38,6 +38,9 @@ public class IvrPage extends BasePage {
     @FindBy(css="a[href$='/IvrBranchDetails/Index'] div")
     private WebElement branchDetails;
     
+    @FindBy(css="a[href$='/IvrBranchManagement/Index'] div")
+    private WebElement branchManagement;
+    
     @FindBy(css="a[href$='/IvrCallBackAnnouncement/Index'] div")
     private WebElement callBackAnnouncement;
     
@@ -139,5 +142,9 @@ public class IvrPage extends BasePage {
 	public void navigateToIntentMappingPage() {
 		waitUntilWebElementIsClickable(intentMapping);
 		selectWebElement(intentMapping);		
+	}
+	public void navigateToBranchManagementPage() {
+		waitUntilWebElementIsClickable(branchManagement);
+		selectWebElement(branchManagement);		
 	}
 }
