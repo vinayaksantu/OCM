@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.tetherfi.test.UserManagementE2ETest">
+      <class name="com.tetherfi.test.UserManagementOtherAppsE2ETest">
         <methods>
-          <include name="afterEachMethod"/>
+          <include name="VerifyIWChatPreviewerAccess"/>
           <include name="startTestCase"/>
           <include name="openApplication"/>
-          <include name="VerifyViewAccessOfUserManagement"/>
+          <include name="afterEachMethod"/>
           <include name="endTestCase"/>
           <include name="tearDown"/>
-          <include name="VerifyExportAccessOfUserManagement"/>
           <include name="OCMPage"/>
         </methods>
-      </class> <!-- com.tetherfi.test.UserManagementE2ETest -->
+      </class> <!-- com.tetherfi.test.UserManagementOtherAppsE2ETest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
