@@ -36,7 +36,7 @@ public class UserManagementOtherAppsE2ETest extends BaseTest {
         UserDetails userDetails=new UserDetails(map);
         userManagementPage.searchUserManagementRecord(userDetails.getUserId());
         Assert.assertTrue(userManagementPage.isPageBasedUserAccessPageDisplayed());
-        screenshot.captureScreen(driver, "PageBasedUSerAccessDisplayed", "UserManagementDashboardE2ETest");
+        screenshot.captureScreen(driver, "PageBasedUSerAccessDisplayed", "UserManagementOtherAppsE2ETest");
         userManagementPage.navigateToOtherAppsTab();
         userManagementPage.clearOtherAppsAccess();
 	}

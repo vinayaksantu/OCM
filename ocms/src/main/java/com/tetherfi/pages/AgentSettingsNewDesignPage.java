@@ -1102,4 +1102,44 @@ return status;
         String items = pagerInfo.get(z).getText();
         return items.matches("(\\d.*) - (\\d.*) of (\\d.*) items");
     }
+    
+    public boolean isAddBtnDisplayed() {
+    	return addNewAgentSettingsRecordBtn.isDisplayed() && addNewAgentSettingsRecordBtn.isEnabled();
+    }
+    
+    public boolean isEditBtnDisplayed() {
+    	Boolean status = false;
+    	try {
+    		if(editBtn.isDisplayed() && editBtn.isEnabled())
+    			status = true;
+    	}catch(Exception e) {
+    		status = false;
+    	}
+		return status;
+    }
+    
+    public boolean isDeleteBtnDisplayed() {
+    	Boolean status = false;
+    	try {
+    		if(deleteBtn.isDisplayed() && deleteBtn.isEnabled())
+    			status = true;
+    	}catch(Exception e) {
+    		status = false;
+    	}
+		return status;
+    }
+    
+    public boolean isExportBtnDisplayed() {
+    	return exportToExcelBtn.isDisplayed() && exportToExcelBtn.isEnabled();
+    }
+	public boolean isMakeAgentSettingsChangesButtonDisplayed() {
+		Boolean status = false;
+    	try {
+    		if(makeAgentSettingsChanges.isDisplayed() && makeAgentSettingsChanges.isEnabled())
+    			status = true;
+    	}catch(Exception e) {
+    		status = false;
+    	}
+		return status;
+	}
 }

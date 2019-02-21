@@ -6,9 +6,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import  java.util.List;
 
-public class CmDataSyncPage extends BasePage {
+public class CMDataSyncPage extends BasePage {
 
-    public CmDataSyncPage(WebDriver driver) {
+    public CMDataSyncPage(WebDriver driver) {
         super(driver);
     }
     @FindBy(css=".ibox-title h5")
@@ -35,7 +35,7 @@ public class CmDataSyncPage extends BasePage {
     @FindBy(css=".toast-message")
     private WebElement successMsg;
 
-    public boolean isCmDataSyncPageDisplayed() throws InterruptedException {
+    public boolean isCMDataSyncPageDisplayed() throws InterruptedException {
         waitForLoad(driver);
         waitForJqueryLoad(driver);
         return cmDataSync.isEnabled();

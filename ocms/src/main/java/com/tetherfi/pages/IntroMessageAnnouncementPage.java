@@ -140,12 +140,33 @@ public class IntroMessageAnnouncementPage extends BasePage {
 
     @FindBy(id="rejectButton")
     private WebElement noBtn;
-
+    
+    @FindBy(xpath="//button[@class='k-button k-button-icontext k-grid-excel']")
+    private WebElement exporttoexcel;
+    
+    @FindBy(xpath = "//div[@id='tabstripAgentMakerChecker']/ul/li")
+    private List<WebElement> navTabs;
+    
     public boolean isIntroMessageAnnouncementPageDisplayed() {
         waitForLoad(driver);
         waitForJqueryLoad(driver);
         return introMessageAnnouncement.isEnabled();
     }
+    
+    public void navigateToTab(String tabname){
+        waitUntilWebElementListIsVisible(navTabs);
+        waitUntilWebElementListIsClickable(navTabs);
+        for(WebElement ele: navTabs){
+            if(ele.getText().equalsIgnoreCase(tabname)){selectWebElement(ele);break;}
+        }
+    }
+    
+    public void clickOnIntroMsgannouncementRecordBtn() {
+    	waitForLoad(driver);waitForJqueryLoad(driver);
+    	selectWebElement(makeIntroMessageAnnouncementChanges);
+    	waitForLoad(driver);waitForJqueryLoad(driver);
+    }
+    
     public void addNewIntroMessageAnnouncementRecord(IntroMessageAnnouncementDetails details) {
         selectWebElement(makeIntroMessageAnnouncementChanges);
         waitForLoad(driver);waitForJqueryLoad(driver);
@@ -318,5 +339,46 @@ public class IntroMessageAnnouncementPage extends BasePage {
     public boolean verifyStatus(String status){
         Map<String,String> firstRowData=getFirstRowDatafromTable();
         return firstRowData.get("Status").equals(status);
+    }
+    
+    public boolean isMakeIntroMessageAnnouncementChangesButtonDisplayed() {
+		Boolean status = false;
+		try {
+    		if(makeIntroMessageAnnouncementChanges.isDisplayed() && makeIntroMessageAnnouncementChanges.isEnabled())
+    			status = true;
+    	}catch(Exception e) {
+    		status = false;
+    	}
+		return status;
+	}
+	
+	public boolean isAddBtnDisplayed() {
+    	return addNewIntroMessageAnnouncementRcrdBtn.isDisplayed() && addNewIntroMessageAnnouncementRcrdBtn.isEnabled();
+    }
+    
+    public boolean isEditBtnDisplayed() {
+    	Boolean status = false;
+    	try {
+    		if(editButton.isDisplayed() && editButton.isEnabled())
+    			status = true;
+    	}catch(Exception e) {
+    		status = false;
+    	}
+		return status;
+    }
+    
+    public boolean isDeleteBtnDisplayed() {
+    	Boolean status = false;
+    	try {
+    		if(deleteButton.isDisplayed() && deleteButton.isEnabled())
+    			status = true;
+    	}catch(Exception e) {
+    		status = false;
+    	}
+		return status;
+    }
+    
+    public boolean isExportBtnDisplayed() {
+    	return exporttoexcel.isDisplayed() && exporttoexcel.isEnabled();
     }
 }

@@ -11,8 +11,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class CallBackManagementPage extends BasePage {
-    public CallBackManagementPage(WebDriver driver) {
+public class FeeWaiverPage extends BasePage {
+    public FeeWaiverPage(WebDriver driver) {
         super(driver);
     }
 
@@ -53,7 +53,7 @@ public class CallBackManagementPage extends BasePage {
     private WebElement gridContent;
 
     @FindBy(css = ".ibox-title h5")
-    private WebElement callBackManagement;
+    private WebElement feeWaiver;
 
     @FindBy(css = ".k-button-icontext")//0-open 1-close 2-search
     private List<WebElement> changeStatusSearchList;
@@ -107,10 +107,10 @@ public class CallBackManagementPage extends BasePage {
     @FindBy(xpath="//button[@class='k-button k-button-icontext k-grid-excel']")
 	private WebElement exporttoexcel;
 
-    public boolean isCallBackManagementPageDisplayed() throws InterruptedException {
+    public boolean isFeeWaiverPageDisplayed() throws InterruptedException {
         waitForLoad(driver);
         waitForJqueryLoad(driver);
-        return callBackManagement.isEnabled();
+        return feeWaiver.isEnabled();
     }
 
     public void changeStatusOpen(CallBackManagementDetails callBackManagementDetails) throws ParseException {
@@ -196,4 +196,5 @@ public class CallBackManagementPage extends BasePage {
     public boolean isExportBtnDisplayed() {
     	return exporttoexcel.isDisplayed() && exporttoexcel.isEnabled();
     }
+    
 }

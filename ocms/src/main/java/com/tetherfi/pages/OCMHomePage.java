@@ -48,7 +48,10 @@ public class OCMHomePage extends BasePage {
 
     @FindBy(css="a[href$='/CMDataLink/Index'] div")
     private WebElement cmDataSync;
-
+    
+    @FindBy(css="a[href$='/DynamicReportDesigner/Index'] div")
+    private WebElement dynamicReportDesigner;
+    
     @FindBy(css="a[href$='/AgentSkillAssignment/Index'] div")
     private WebElement agentSkillAssignment;
 	
@@ -67,11 +70,17 @@ public class OCMHomePage extends BasePage {
     @FindBy(css="a[href$='/CepCodeMapping/Index'] div")
     private WebElement cepEventMapping;
     
+    @FindBy(css="a[href$='/IwRoleBasedAccessMatrix/Index'] div")
+    private WebElement iwRoleBasedAccessMatrix;
+    
     @FindBy(css="a[href$='/ExportScheduler/Index'] div")
     private WebElement exportScheduler;
     
     @FindBy(css="#adminInvalidAccess h2")
     private WebElement noAccess;
+    
+    @FindBy(css="a[href$='/BulkUploadModule/Index'] div")
+    private WebElement bulkUploadModule;
     
     // @FindBy(xpath="//a[@onclick='setLastTabClickedName(Ivr)']")
     // private WebElement IVR;
@@ -99,7 +108,7 @@ public class OCMHomePage extends BasePage {
     }
     public void navigateToWebConfigurationPage(){selectWebElement(webConfiguration);}
     public void navigateToLogfileDownloader(){selectWebElement(logfileDownloader);}
-    public void navigateToCmDataSyncPage(){ selectWebElement(cmDataSync); }
+    public void navigateToCMDataSyncPage(){ selectWebElement(cmDataSync); }
     public void navigateToAgentSkillAssignmentPage(){selectWebElement(agentSkillAssignment);}
 	public void navigateToSkillConfigurationPage(){selectWebElement(skillConfiguration);}
     public void navigateToQueryBrowserPage(){selectWebElement(queryBrowser);}
@@ -131,6 +140,20 @@ public class OCMHomePage extends BasePage {
 
 	public void navigateToExportSchedulerPage() {
 		selectWebElement(exportScheduler);
+	}
+
+	public void navigateToBulkUploadModulePage() {
+		selectWebElement(bulkUploadModule);
+		
+	}
+
+	public void navigateToDynamicReportDesignerPage() {
+		selectWebElement(dynamicReportDesigner);
+		
+	}
+
+	public void navigateToIWRoleBasedAccessMatrixPage() {
+		selectWebElement(iwRoleBasedAccessMatrix);
 	}
 
 

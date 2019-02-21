@@ -3,19 +3,17 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.tetherfi.test.UserManagementOtherAppsE2ETest">
+      <class name="com.tetherfi.test.UserManagementE2ETest">
         <methods>
-          <include name="VerifyIWIVRCheckerAccess"/>
+          <include name="afterEachMethod"/>
+          <include name="VerifyEditAccessOfIWRoleBasedAccessMatrix"/>
           <include name="startTestCase"/>
           <include name="openApplication"/>
-          <include name="VerifyIVRMakerAccess"/>
-          <include name="VerifyIWIVRMakerCheckerAccess"/>
-          <include name="afterEachMethod"/>
           <include name="endTestCase"/>
           <include name="tearDown"/>
           <include name="OCMPage"/>
         </methods>
-      </class> <!-- com.tetherfi.test.UserManagementOtherAppsE2ETest -->
+      </class> <!-- com.tetherfi.test.UserManagementE2ETest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
