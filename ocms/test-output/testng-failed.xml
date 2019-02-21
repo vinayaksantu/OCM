@@ -5,9 +5,11 @@
     <classes>
       <class name="com.tetherfi.test.UserManagementOtherAppsE2ETest">
         <methods>
-          <include name="VerifyIWChatPreviewerAccess"/>
+          <include name="VerifyIWIVRCheckerAccess"/>
           <include name="startTestCase"/>
           <include name="openApplication"/>
+          <include name="VerifyIVRMakerAccess"/>
+          <include name="VerifyIWIVRMakerCheckerAccess"/>
           <include name="afterEachMethod"/>
           <include name="endTestCase"/>
           <include name="tearDown"/>

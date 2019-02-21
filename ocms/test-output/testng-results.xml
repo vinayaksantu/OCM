@@ -1,140 +1,181 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="3" passed="3">
+<testng-results skipped="0" failed="0" ignored="0" total="4" passed="4">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="200048" started-at="2019-02-18T11:43:27Z" finished-at="2019-02-18T11:46:47Z">
+  <suite name="Default suite" duration-ms="505651" started-at="2019-02-18T14:43:40Z" finished-at="2019-02-18T14:52:05Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="200048" started-at="2019-02-18T11:43:27Z" finished-at="2019-02-18T11:46:47Z">
+    <test name="Default test" duration-ms="505651" started-at="2019-02-18T14:43:40Z" finished-at="2019-02-18T14:52:05Z">
       <class name="com.tetherfi.test.UserManagementOtherAppsE2ETest">
-        <test-method status="PASS" signature="openApplication()[pri:0, instance:com.tetherfi.test.UserManagementOtherAppsE2ETest@5700d6b1]" name="openApplication" is-config="true" duration-ms="9077" started-at="2019-02-18T17:13:27Z" finished-at="2019-02-18T17:13:36Z">
+        <test-method status="PASS" signature="openApplication()[pri:0, instance:com.tetherfi.test.UserManagementOtherAppsE2ETest@5700d6b1]" name="openApplication" is-config="true" duration-ms="30586" started-at="2019-02-18T20:13:40Z" finished-at="2019-02-18T20:14:10Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- openApplication -->
-        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserManagementOtherAppsE2ETest@5700d6b1]" name="startTestCase" is-config="true" duration-ms="1" started-at="2019-02-18T17:13:36Z" finished-at="2019-02-18T17:13:36Z">
+        <test-method status="PASS" signature="OCMPage()[pri:0, instance:com.tetherfi.test.UserManagementOtherAppsE2ETest@5700d6b1]" name="OCMPage" is-config="true" duration-ms="25458" started-at="2019-02-18T20:14:10Z" finished-at="2019-02-18T20:14:36Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- OCMPage -->
+        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserManagementOtherAppsE2ETest@5700d6b1]" name="startTestCase" is-config="true" duration-ms="0" started-at="2019-02-18T20:14:10Z" finished-at="2019-02-18T20:14:10Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.UserManagementOtherAppsE2ETest.VerifyIWChatCheckerAccess() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.UserManagementOtherAppsE2ETest.VerifyIVRMakerAccess() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startTestCase -->
-        <test-method status="PASS" signature="OCMPage()[pri:0, instance:com.tetherfi.test.UserManagementOtherAppsE2ETest@5700d6b1]" name="OCMPage" is-config="true" duration-ms="34041" started-at="2019-02-18T17:13:36Z" finished-at="2019-02-18T17:14:10Z">
+        <test-method status="PASS" signature="VerifyIVRMakerAccess()[pri:0, instance:com.tetherfi.test.UserManagementOtherAppsE2ETest@5700d6b1]" name="VerifyIVRMakerAccess" duration-ms="54601" started-at="2019-02-18T20:14:36Z" finished-at="2019-02-18T20:15:30Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- OCMPage -->
-        <test-method status="PASS" signature="VerifyIWChatCheckerAccess()[pri:0, instance:com.tetherfi.test.UserManagementOtherAppsE2ETest@5700d6b1]" name="VerifyIWChatCheckerAccess" duration-ms="30489" started-at="2019-02-18T17:14:10Z" finished-at="2019-02-18T17:14:40Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- VerifyIWChatCheckerAccess -->
-        <test-method status="PASS" signature="afterEachMethod(org.testng.ITestResult)[pri:0, instance:com.tetherfi.test.UserManagementOtherAppsE2ETest@5700d6b1]" name="afterEachMethod" is-config="true" duration-ms="7512" started-at="2019-02-18T17:14:40Z" finished-at="2019-02-18T17:14:48Z">
+        </test-method> <!-- VerifyIVRMakerAccess -->
+        <test-method status="PASS" signature="afterEachMethod(org.testng.ITestResult)[pri:0, instance:com.tetherfi.test.UserManagementOtherAppsE2ETest@5700d6b1]" name="afterEachMethod" is-config="true" duration-ms="29731" started-at="2019-02-18T20:15:30Z" finished-at="2019-02-18T20:16:00Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=VerifyIWChatCheckerAccess status=SUCCESS method=UserManagementOtherAppsE2ETest.VerifyIWChatCheckerAccess()[pri:0, instance:com.tetherfi.test.UserManagementOtherAppsE2ETest@5700d6b1] output={null}]]]>
+                <![CDATA[[TestResult name=VerifyIVRMakerAccess status=SUCCESS method=UserManagementOtherAppsE2ETest.VerifyIVRMakerAccess()[pri:0, instance:com.tetherfi.test.UserManagementOtherAppsE2ETest@5700d6b1] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterEachMethod -->
-        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserManagementOtherAppsE2ETest@5700d6b1]" name="endTestCase" is-config="true" duration-ms="1" started-at="2019-02-18T17:14:48Z" finished-at="2019-02-18T17:14:48Z">
+        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserManagementOtherAppsE2ETest@5700d6b1]" name="endTestCase" is-config="true" duration-ms="1" started-at="2019-02-18T20:16:00Z" finished-at="2019-02-18T20:16:00Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.UserManagementOtherAppsE2ETest.VerifyIWChatCheckerAccess() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.UserManagementOtherAppsE2ETest.VerifyIVRMakerAccess() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- endTestCase -->
-        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserManagementOtherAppsE2ETest@5700d6b1]" name="startTestCase" is-config="true" duration-ms="0" started-at="2019-02-18T17:14:48Z" finished-at="2019-02-18T17:14:48Z">
+        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserManagementOtherAppsE2ETest@5700d6b1]" name="startTestCase" is-config="true" duration-ms="1" started-at="2019-02-18T20:16:00Z" finished-at="2019-02-18T20:16:00Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.UserManagementOtherAppsE2ETest.VerifyIWChatMakerAccess() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.UserManagementOtherAppsE2ETest.VerifyIWIVRCheckerAccess() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startTestCase -->
-        <test-method status="PASS" signature="OCMPage()[pri:0, instance:com.tetherfi.test.UserManagementOtherAppsE2ETest@5700d6b1]" name="OCMPage" is-config="true" duration-ms="16881" started-at="2019-02-18T17:14:48Z" finished-at="2019-02-18T17:15:05Z">
+        <test-method status="PASS" signature="OCMPage()[pri:0, instance:com.tetherfi.test.UserManagementOtherAppsE2ETest@5700d6b1]" name="OCMPage" is-config="true" duration-ms="23839" started-at="2019-02-18T20:16:00Z" finished-at="2019-02-18T20:16:24Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- OCMPage -->
-        <test-method status="PASS" signature="VerifyIWChatMakerAccess()[pri:0, instance:com.tetherfi.test.UserManagementOtherAppsE2ETest@5700d6b1]" name="VerifyIWChatMakerAccess" duration-ms="28275" started-at="2019-02-18T17:15:05Z" finished-at="2019-02-18T17:15:33Z">
+        <test-method status="PASS" signature="VerifyIWIVRCheckerAccess()[pri:0, instance:com.tetherfi.test.UserManagementOtherAppsE2ETest@5700d6b1]" name="VerifyIWIVRCheckerAccess" duration-ms="65430" started-at="2019-02-18T20:16:24Z" finished-at="2019-02-18T20:17:29Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- VerifyIWChatMakerAccess -->
-        <test-method status="PASS" signature="afterEachMethod(org.testng.ITestResult)[pri:0, instance:com.tetherfi.test.UserManagementOtherAppsE2ETest@5700d6b1]" name="afterEachMethod" is-config="true" duration-ms="6990" started-at="2019-02-18T17:15:33Z" finished-at="2019-02-18T17:15:40Z">
+        </test-method> <!-- VerifyIWIVRCheckerAccess -->
+        <test-method status="PASS" signature="afterEachMethod(org.testng.ITestResult)[pri:0, instance:com.tetherfi.test.UserManagementOtherAppsE2ETest@5700d6b1]" name="afterEachMethod" is-config="true" duration-ms="32842" started-at="2019-02-18T20:17:29Z" finished-at="2019-02-18T20:18:02Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=VerifyIWChatMakerAccess status=SUCCESS method=UserManagementOtherAppsE2ETest.VerifyIWChatMakerAccess()[pri:0, instance:com.tetherfi.test.UserManagementOtherAppsE2ETest@5700d6b1] output={null}]]]>
+                <![CDATA[[TestResult name=VerifyIWIVRCheckerAccess status=SUCCESS method=UserManagementOtherAppsE2ETest.VerifyIWIVRCheckerAccess()[pri:0, instance:com.tetherfi.test.UserManagementOtherAppsE2ETest@5700d6b1] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterEachMethod -->
-        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserManagementOtherAppsE2ETest@5700d6b1]" name="endTestCase" is-config="true" duration-ms="1" started-at="2019-02-18T17:15:40Z" finished-at="2019-02-18T17:15:40Z">
+        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserManagementOtherAppsE2ETest@5700d6b1]" name="endTestCase" is-config="true" duration-ms="1" started-at="2019-02-18T20:18:02Z" finished-at="2019-02-18T20:18:02Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.UserManagementOtherAppsE2ETest.VerifyIWChatMakerAccess() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.UserManagementOtherAppsE2ETest.VerifyIWIVRCheckerAccess() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- endTestCase -->
-        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserManagementOtherAppsE2ETest@5700d6b1]" name="startTestCase" is-config="true" duration-ms="0" started-at="2019-02-18T17:15:40Z" finished-at="2019-02-18T17:15:40Z">
+        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserManagementOtherAppsE2ETest@5700d6b1]" name="startTestCase" is-config="true" duration-ms="1" started-at="2019-02-18T20:18:02Z" finished-at="2019-02-18T20:18:02Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.UserManagementOtherAppsE2ETest.VerifyIWChatMakerCheckerAccess() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.UserManagementOtherAppsE2ETest.VerifyIWIVRMakerCheckerAccess() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startTestCase -->
-        <test-method status="PASS" signature="OCMPage()[pri:0, instance:com.tetherfi.test.UserManagementOtherAppsE2ETest@5700d6b1]" name="OCMPage" is-config="true" duration-ms="17570" started-at="2019-02-18T17:15:40Z" finished-at="2019-02-18T17:15:58Z">
+        <test-method status="PASS" signature="OCMPage()[pri:0, instance:com.tetherfi.test.UserManagementOtherAppsE2ETest@5700d6b1]" name="OCMPage" is-config="true" duration-ms="24475" started-at="2019-02-18T20:18:02Z" finished-at="2019-02-18T20:18:27Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- OCMPage -->
-        <test-method status="PASS" signature="VerifyIWChatMakerCheckerAccess()[pri:0, instance:com.tetherfi.test.UserManagementOtherAppsE2ETest@5700d6b1]" name="VerifyIWChatMakerCheckerAccess" duration-ms="39450" started-at="2019-02-18T17:15:58Z" finished-at="2019-02-18T17:16:37Z">
+        <test-method status="PASS" signature="VerifyIWIVRMakerCheckerAccess()[pri:0, instance:com.tetherfi.test.UserManagementOtherAppsE2ETest@5700d6b1]" name="VerifyIWIVRMakerCheckerAccess" duration-ms="76328" started-at="2019-02-18T20:18:27Z" finished-at="2019-02-18T20:19:43Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- VerifyIWChatMakerCheckerAccess -->
-        <test-method status="PASS" signature="afterEachMethod(org.testng.ITestResult)[pri:0, instance:com.tetherfi.test.UserManagementOtherAppsE2ETest@5700d6b1]" name="afterEachMethod" is-config="true" duration-ms="8075" started-at="2019-02-18T17:16:37Z" finished-at="2019-02-18T17:16:45Z">
+        </test-method> <!-- VerifyIWIVRMakerCheckerAccess -->
+        <test-method status="PASS" signature="afterEachMethod(org.testng.ITestResult)[pri:0, instance:com.tetherfi.test.UserManagementOtherAppsE2ETest@5700d6b1]" name="afterEachMethod" is-config="true" duration-ms="27100" started-at="2019-02-18T20:19:43Z" finished-at="2019-02-18T20:20:10Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=VerifyIWChatMakerCheckerAccess status=SUCCESS method=UserManagementOtherAppsE2ETest.VerifyIWChatMakerCheckerAccess()[pri:0, instance:com.tetherfi.test.UserManagementOtherAppsE2ETest@5700d6b1] output={null}]]]>
+                <![CDATA[[TestResult name=VerifyIWIVRMakerCheckerAccess status=SUCCESS method=UserManagementOtherAppsE2ETest.VerifyIWIVRMakerCheckerAccess()[pri:0, instance:com.tetherfi.test.UserManagementOtherAppsE2ETest@5700d6b1] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterEachMethod -->
-        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserManagementOtherAppsE2ETest@5700d6b1]" name="endTestCase" is-config="true" duration-ms="1" started-at="2019-02-18T17:16:45Z" finished-at="2019-02-18T17:16:45Z">
+        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserManagementOtherAppsE2ETest@5700d6b1]" name="endTestCase" is-config="true" duration-ms="1" started-at="2019-02-18T20:20:10Z" finished-at="2019-02-18T20:20:10Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.UserManagementOtherAppsE2ETest.VerifyIWChatMakerCheckerAccess() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.UserManagementOtherAppsE2ETest.VerifyIWIVRMakerCheckerAccess() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- endTestCase -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.tetherfi.test.UserManagementOtherAppsE2ETest@5700d6b1]" name="tearDown" is-config="true" duration-ms="1644" started-at="2019-02-18T17:16:45Z" finished-at="2019-02-18T17:16:47Z">
+        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserManagementOtherAppsE2ETest@5700d6b1]" name="startTestCase" is-config="true" duration-ms="1" started-at="2019-02-18T20:20:10Z" finished-at="2019-02-18T20:20:10Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.UserManagementOtherAppsE2ETest.VerifyIWIVRPreviewerAccess() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method status="PASS" signature="OCMPage()[pri:0, instance:com.tetherfi.test.UserManagementOtherAppsE2ETest@5700d6b1]" name="OCMPage" is-config="true" duration-ms="25652" started-at="2019-02-18T20:20:10Z" finished-at="2019-02-18T20:20:36Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- OCMPage -->
+        <test-method status="PASS" signature="VerifyIWIVRPreviewerAccess()[pri:0, instance:com.tetherfi.test.UserManagementOtherAppsE2ETest@5700d6b1]" name="VerifyIWIVRPreviewerAccess" duration-ms="59188" started-at="2019-02-18T20:20:36Z" finished-at="2019-02-18T20:21:35Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyIWIVRPreviewerAccess -->
+        <test-method status="PASS" signature="afterEachMethod(org.testng.ITestResult)[pri:0, instance:com.tetherfi.test.UserManagementOtherAppsE2ETest@5700d6b1]" name="afterEachMethod" is-config="true" duration-ms="28081" started-at="2019-02-18T20:21:35Z" finished-at="2019-02-18T20:22:03Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=VerifyIWIVRPreviewerAccess status=SUCCESS method=UserManagementOtherAppsE2ETest.VerifyIWIVRPreviewerAccess()[pri:0, instance:com.tetherfi.test.UserManagementOtherAppsE2ETest@5700d6b1] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.UserManagementOtherAppsE2ETest@5700d6b1]" name="endTestCase" is-config="true" duration-ms="1" started-at="2019-02-18T20:22:03Z" finished-at="2019-02-18T20:22:03Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.UserManagementOtherAppsE2ETest.VerifyIWIVRPreviewerAccess() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.tetherfi.test.UserManagementOtherAppsE2ETest@5700d6b1]" name="tearDown" is-config="true" duration-ms="2284" started-at="2019-02-18T20:22:03Z" finished-at="2019-02-18T20:22:05Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->

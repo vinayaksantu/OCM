@@ -11,6 +11,7 @@ import com.tetherfi.model.user.UserDetails;
 import com.tetherfi.pages.AgentScriptingPage;
 import com.tetherfi.pages.HomePage;
 import com.tetherfi.pages.IWChatPage;
+import com.tetherfi.pages.IWIVRPage;
 import com.tetherfi.pages.LoginPage;
 import com.tetherfi.pages.OCMDashboardPage;
 import com.tetherfi.pages.OCMHomePage;
@@ -323,6 +324,147 @@ public class UserManagementOtherAppsE2ETest extends BaseTest {
 	        driver.close();
 		}
 		
+		//@Test
+				public void VerifyIWIVRPreviewerAccess() throws Exception
+				{            
+			        UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
+			        userManagementPage.ProvideOtherAppsAccess("InteractionWorkFlowPreviewer");
+					Thread.sleep(2000);
+			        driver.close();
+			        try {
+			            PageFactory.reset();
+			           BrowserFactory browserFactory = new BrowserFactory();
+			          driver = browserFactory.createBrowserInstance(BrowserFactory.BrowserType.CHROME, System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles");
+			    		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\LoginData.xlsx";
+			        	Map<String, String> map = new ExcelReader(filePath,"Login").getTestData().get(6);
+			            driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
+			            if(map.get("LoginType").equals("Custom")){
+			                LoginPage loginPage=new LoginPage(driver);
+			                loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+			                Thread.sleep(5000);
+			            }
+			        }catch (Exception e){
+			            PageFactory.reset();
+			            driver.close();
+			            e.printStackTrace();
+			        }
+			        try {
+						Thread.sleep(2000);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+			        IWIVRPage iwIvrPage = PageFactory.createPageInstance(driver,IWIVRPage.class);
+			        iwIvrPage.closeDashboard();
+			        Assert.assertTrue(iwIvrPage.checkRole("Previewer"), "IW Chat Role Assertion Failed");
+			        driver.close();
+				}
+				
+				//@Test
+				public void VerifyIVRMakerAccess() throws Exception
+				{            
+			        UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
+			        userManagementPage.ProvideOtherAppsAccess("Interaction WorkFlow Maker");
+					Thread.sleep(2000);
+			        driver.close();
+			        try {
+			            PageFactory.reset();
+			           BrowserFactory browserFactory = new BrowserFactory();
+			          driver = browserFactory.createBrowserInstance(BrowserFactory.BrowserType.CHROME, System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles");
+			    		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\LoginData.xlsx";
+			        	Map<String, String> map = new ExcelReader(filePath,"Login").getTestData().get(6);
+			            driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
+			            if(map.get("LoginType").equals("Custom")){
+			                LoginPage loginPage=new LoginPage(driver);
+			                loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+			                Thread.sleep(5000);
+			            }
+			        }catch (Exception e){
+			            PageFactory.reset();
+			            driver.close();
+			            e.printStackTrace();
+			        }
+			        try {
+						Thread.sleep(2000);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+			        IWIVRPage iwIvrPage = PageFactory.createPageInstance(driver,IWIVRPage.class);
+			        iwIvrPage.closeDashboard();
+			        Assert.assertTrue(iwIvrPage.checkRole("Maker"), "IW IVR Role Assertion Failed");
+			        driver.close();
+				}
+				
+				//@Test
+				public void VerifyIWIVRCheckerAccess() throws Exception
+				{            
+			        UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
+			        userManagementPage.ProvideOtherAppsAccess("InteractionWorkFlowChecker");
+					Thread.sleep(2000);
+			        driver.close();
+			        try {
+			            PageFactory.reset();
+			           BrowserFactory browserFactory = new BrowserFactory();
+			          driver = browserFactory.createBrowserInstance(BrowserFactory.BrowserType.CHROME, System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles");
+			    		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\LoginData.xlsx";
+			        	Map<String, String> map = new ExcelReader(filePath,"Login").getTestData().get(6);
+			            driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
+			            if(map.get("LoginType").equals("Custom")){
+			                LoginPage loginPage=new LoginPage(driver);
+			                loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+			                Thread.sleep(5000);
+			            }
+			        }catch (Exception e){
+			            PageFactory.reset();
+			            driver.close();
+			            e.printStackTrace();
+			        }
+			        try {
+						Thread.sleep(2000);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+			        IWIVRPage iwIvrPage = PageFactory.createPageInstance(driver,IWIVRPage.class);
+			        iwIvrPage.closeDashboard();
+			        Assert.assertTrue(iwIvrPage.checkRole("Checker"), "IW IVR Role Assertion Failed");
+			        driver.close();
+				}
+				
+				//@Test
+				public void VerifyIWIVRMakerCheckerAccess() throws Exception
+				{            
+			        UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
+			        userManagementPage.ProvideOtherAppsAccess("Interaction WorkFlow Maker");
+			        userManagementPage.ProvideOtherAppsAccess("InteractionWorkFlowChecker");
+					Thread.sleep(2000);
+			        driver.close();
+			        try {
+			            PageFactory.reset();
+			           BrowserFactory browserFactory = new BrowserFactory();
+			          driver = browserFactory.createBrowserInstance(BrowserFactory.BrowserType.CHROME, System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles");
+			    		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\LoginData.xlsx";
+			        	Map<String, String> map = new ExcelReader(filePath,"Login").getTestData().get(6);
+			            driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
+			            if(map.get("LoginType").equals("Custom")){
+			                LoginPage loginPage=new LoginPage(driver);
+			                loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+			                Thread.sleep(5000);
+			            }
+			        }catch (Exception e){
+			            PageFactory.reset();
+			            driver.close();
+			            e.printStackTrace();
+			        }
+			        try {
+						Thread.sleep(2000);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+			        IWIVRPage iwIvrPage = PageFactory.createPageInstance(driver,IWIVRPage.class);
+			        iwIvrPage.closeDashboard();
+			        Assert.assertTrue(iwIvrPage.checkRole("Maker,Checker"), "IW IVR Role Assertion Failed");
+			        driver.close();
+				}
+				
 	@AfterMethod
 	 public void afterEachMethod(ITestResult result){ 
 		if(ITestResult.FAILURE==result.getStatus()){
@@ -347,7 +489,6 @@ public class UserManagementOtherAppsE2ETest extends BaseTest {
 	                loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
 	                Thread.sleep(5000);
 	            }
-	            HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
 	            
 	        }catch (Exception e){
 	            PageFactory.reset();
