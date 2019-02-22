@@ -5,13 +5,15 @@
     <classes>
       <class name="com.tetherfi.test.UserManagementE2ETest">
         <methods>
+          <include name="VerifyExportAccessOfSMSResponseTemplate"/>
           <include name="afterEachMethod"/>
-          <include name="VerifyEditAccessOfIWRoleBasedAccessMatrix"/>
           <include name="startTestCase"/>
           <include name="openApplication"/>
+          <include name="VerifyEditAccessOfSMSResponseTemplate"/>
           <include name="endTestCase"/>
           <include name="tearDown"/>
           <include name="OCMPage"/>
+          <include name="VerifyViewAccessOfSMSResponseTemplate"/>
         </methods>
       </class> <!-- com.tetherfi.test.UserManagementE2ETest -->
     </classes>
