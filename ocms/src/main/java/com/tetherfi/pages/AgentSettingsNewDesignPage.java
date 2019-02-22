@@ -1142,4 +1142,84 @@ return status;
     	}
 		return status;
 	}
+	
+	public boolean isApproveButtonDisplayed() {
+		Boolean status = false;
+    	try {
+    		if(approveBtn.isDisplayed() && approveBtn.isEnabled())
+    			status = true;
+    	}catch(Exception e) {
+    		status = false;
+    	}
+		return status;
+	}
+	
+	public boolean isRejectButtonDisplayed() {
+		Boolean status = false;
+    	try {
+    		if(rejectBtn.isDisplayed() && rejectBtn.isEnabled())
+    			status = true;
+    	}catch(Exception e) {
+    		status = false;
+    	}
+		return status;
+	}
+	
+	public void rejectChanges() {
+		selectWebElement(rejectBtn);
+		selectWebElement(checkerReason);
+		enterValueToTxtField(checkerReason, "Rejected");
+		selectWebElement(approveYesBtn);
+	}
+	
+	public void addRecdOnlyInfo(AgentSettingsDetails details) {
+		selectWebElement(agentSettingsTabs.get(1));
+        selectWebElement(makeAgentSettingsChanges);
+        //waitForJqueryLoad(driver);
+        try {Thread.sleep(5000);
+        selectWebElement(addNewAgentSettingsRecordBtn);
+        waitUntilWebElementIsVisible(popupContent);
+
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        navigateToTab("Info");
+        selectWebElement(usernameTextBox);
+        enterValueToTxtFieldWithoutClear(usernameTextBox,details.getUsername());
+        selectWebElement(numericTextbox.get(0));
+        enterValueToTxtFieldWithoutClear(avayaLoginIdTextBox,details.getAvayaLoginID());
+        selectWebElement(firstnameTextBox);
+        enterValueToTxtFieldWithoutClear(firstnameTextBox,details.getFirstname());
+        selectWebElement(lastnameTextBox);
+        enterValueToTxtFieldWithoutClear(lastnameTextBox,details.getLastname());
+        selectWebElement(teamnameDropdown);
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        //selectDropdownFromVisibleText(teamNameListBox,details.getTeamName());
+        ChooseTeamHeirarchy(details.getTeamName());
+        selectProfile(details.getProfile(),details.getSupervisor());
+        selectWebElement(accessroleDropdown);
+        selectDropdownFromVisibleText(accessroleListBox,details.getAccessRole());
+        selectWebElement(crmnameDropdown);
+        selectDropdownFromVisibleText(crmnameListBox,details.getCrmName());
+        selectWebElement(saveBtn);
+	}
+		
+	public void selectTaskComplete() {
+		waitForLoad(driver);
+        selectWebElement(taskCompleteBtn);
+	}
+	
+	public void enterTaskCompleteText(String comment) {
+		enterValueToTxtField(makerComments,comment);
+	}
+	
+	public void saveTaskCompletePopUp() {
+		selectWebElement(taskCompleteBtnAtMakerCommentsPopUp);
+	}
+	
 }

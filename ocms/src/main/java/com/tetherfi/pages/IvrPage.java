@@ -83,6 +83,9 @@ public class IvrPage extends BasePage {
     @FindBy(css="a[href$='/IvrIntentMapping/Index'] div")
     private WebElement intentMapping;
     
+    @FindBy(css="a[href$='/IvrIntentMapping/Index'] div")
+    private WebElement speechModule;
+    
     @FindBy(css="#navTabs li")
     private List<WebElement> navTabs;
 
@@ -189,5 +192,9 @@ public class IvrPage extends BasePage {
 	public void navigateToHostValueMappingPage() {
 		waitUntilWebElementIsClickable(hostValueMapping);
 		selectWebElement(hostValueMapping);
+	}
+	public void navigateToSpeechModulePage() {
+		waitUntilWebElementIsClickable(hostValueMapping);
+		selectWebElement(speechModule);
 	}
 }

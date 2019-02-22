@@ -67,14 +67,26 @@ public class OCMHomePage extends BasePage {
     @FindBy(css="a[href$='/ApplicationAccessControl/Index'] div")
     private WebElement applicationAccessControl;
     
+    @FindBy(css="a[href$='/ReportDesigner/Index'] div")
+    private WebElement reportDesigner;
+    
     @FindBy(css="a[href$='/CepCodeMapping/Index'] div")
     private WebElement cepEventMapping;
     
     @FindBy(css="a[href$='/IwRoleBasedAccessMatrix/Index'] div")
     private WebElement iwRoleBasedAccessMatrix;
     
+    @FindBy(css="a[href$='/ModuleExitNodeMapping/Index'] div")
+    private WebElement moduleExitNodeMapping;
+    
     @FindBy(css="a[href$='/ExportScheduler/Index'] div")
     private WebElement exportScheduler;
+    
+    @FindBy(css="a[href$='/ReportScheduler/Index'] div")
+    private WebElement reportScheduler;
+    
+    @FindBy(css="a[href$='/ReportScheduler/Index'] div")
+    private WebElement tpRedemption;
     
     @FindBy(css="#adminInvalidAccess h2")
     private WebElement noAccess;
@@ -154,6 +166,26 @@ public class OCMHomePage extends BasePage {
 
 	public void navigateToIWRoleBasedAccessMatrixPage() {
 		selectWebElement(iwRoleBasedAccessMatrix);
+	}
+
+	public void navigateToModuleExitNodeMappingPage() {
+		selectWebElement(moduleExitNodeMapping);
+	}
+
+	public void navigateToReportDesignerPage() {
+		selectWebElement(reportDesigner);
+	}
+
+	public void navigateToReportDownloadsPage() {
+		selectWebElement(reportDownloads);
+	}
+
+	public void navigateToReportSchedulerPage() {
+		selectWebElement(reportScheduler);
+	}
+
+	public void navigateToTPRedemptionPage() {
+		selectWebElement(tpRedemption);
 	}
 
 
