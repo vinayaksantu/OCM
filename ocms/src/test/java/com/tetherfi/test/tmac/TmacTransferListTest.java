@@ -165,7 +165,7 @@ public class TmacTransferListTest extends BaseTest {
     //@Test (priority=11)
     public void AddNewTmacConsultTransferRecord2() throws IOException {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\TmacTransferListData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath, "ConsulCreate").getTestData().get(6);
+        Map<String, String> map = new ExcelReader(filePath, "BlindCreate").getTestData().get(6);
         TmacTransferListDetails tmacTransferListDetails=new TmacTransferListDetails(map);
         TmacTransferListPage tmacTransferListPage=PageFactory.createPageInstance(driver,TmacTransferListPage.class);
         tmacTransferListPage.navigateToTab("TMAC Consult Transfer");
