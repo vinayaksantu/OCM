@@ -21,7 +21,7 @@ import java.text.ParseException;
 import java.util.Map;
 
 public class CallBackManagementTest extends BaseTest {
-	Screenshot screenshot=new Screenshot();
+	Screenshot screenshot=new Screenshot(driver);
     @BeforeMethod
     public void NavigateToCallBackManagementPage() throws InterruptedException  {
         HomePage homePage= PageFactory.createPageInstance(driver,HomePage.class);

@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.lang.reflect.Method;
 
 public class ChatCallbackDashboardTest extends BaseTest {
-	Screenshot screenshot=new Screenshot();
+	Screenshot screenshot=new Screenshot(driver);
     @BeforeMethod
     public void NavigateToChatDashboardPage() throws InterruptedException {
         HomePage homePage= PageFactory.createPageInstance(driver,HomePage.class);

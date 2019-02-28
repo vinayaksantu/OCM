@@ -21,7 +21,7 @@ import java.util.Map;
 
 public class IntroMessageAnnouncementTest{
     protected WebDriver driver;
-    Screenshot screenshot=new Screenshot();
+    Screenshot screenshot=new Screenshot(driver);
     @BeforeMethod
     public void NavigateToIntroMessageAnnouncementPage(Method method) throws IOException {
         try {

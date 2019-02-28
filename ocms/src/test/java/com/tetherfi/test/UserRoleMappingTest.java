@@ -76,7 +76,7 @@ public class UserRoleMappingTest extends BaseTest {
     }
     @AfterMethod
     public void afterEachMethod(Method method) throws InterruptedException {
-        Screenshot screenshot=new Screenshot();
+        Screenshot screenshot=new Screenshot(driver);
         screenshot.captureScreen(driver,method.getName(),"UserRoleMappingTest");
         driver.navigate().refresh();
     }

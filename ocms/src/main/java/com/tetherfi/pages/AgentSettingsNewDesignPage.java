@@ -692,6 +692,7 @@ public class AgentSettingsNewDesignPage extends BasePage {
         selectWebElement(saveBtn);}catch (Exception e){e.printStackTrace();}
     }
     public void deleteAgentSettingsRecord(String username,String reason) {
+    	try
         {selectWebElement(agentSettingsTabs.get(1));
         selectWebElement(makeAgentSettingsChanges);
         searchAgentSettingsRecord(username);
@@ -741,7 +742,7 @@ public class AgentSettingsNewDesignPage extends BasePage {
                 try{map.put(headers.get(j).getText(), cols.get(j).getText());break;}catch (Exception e){e.printStackTrace();}
             }
         }
-        }
+        
         return map;
     }
     public boolean verifyAuditTrail(AgentSettingsDetails details, String transaction, String status){
@@ -1321,7 +1322,7 @@ return status;
     public boolean isEditBtnDisplayed() {
     	Boolean status = false;
     	try {
-    		if(editBtn.isDisplayed() && editBtn.isEnabled())
+    		if(editBtn.get(0).isDisplayed() && editBtn.get(0).isEnabled())
     			status = true;
     	}catch(Exception e) {
     		status = false;

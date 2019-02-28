@@ -19,7 +19,7 @@ import java.lang.reflect.Method;
 import java.util.Map;
 
 public class IvrConfigTest extends BaseTest {
-	Screenshot screenshot=new Screenshot();
+	Screenshot screenshot=new Screenshot(driver);
     @BeforeMethod
     public void NavigateToIvrConfigPage() {
         HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);

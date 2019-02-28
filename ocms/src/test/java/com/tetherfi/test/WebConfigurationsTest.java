@@ -60,7 +60,7 @@ public class WebConfigurationsTest extends BaseTest{
     }
     @AfterMethod
     public void afterEachMethod(Method method) {
-        Screenshot screenshot=new Screenshot();
+        Screenshot screenshot=new Screenshot(driver);
         screenshot.captureScreen(driver,method.getName(),"WebConfigurationsTest");
     }
 

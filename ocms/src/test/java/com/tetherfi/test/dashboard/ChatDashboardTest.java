@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.lang.reflect.Method;
 
 public class ChatDashboardTest extends BaseTest {
-	Screenshot screenshot=new Screenshot();
+	Screenshot screenshot=new Screenshot(driver);
     @BeforeMethod
     public void NavigateToChatDashboardPage() {
         HomePage homePage= PageFactory.createPageInstance(driver,HomePage.class);
