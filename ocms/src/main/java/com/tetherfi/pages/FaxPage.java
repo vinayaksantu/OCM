@@ -35,6 +35,9 @@ public class FaxPage extends BasePage {
     @FindBy(css="a[href$='/FaxScheduler/Index'] div")
     private WebElement sendFax;
     
+    @FindBy(css="a[href$='/SplitFax/Index'] div")
+    private WebElement splitFax;
+    
     public boolean isFaxPageDisplayed() {
         boolean status = false;
         waitForLoad(driver);
@@ -77,5 +80,10 @@ public class FaxPage extends BasePage {
 	public void navigateToSendFaxPage() {
 		waitUntilWebElementIsClickable(sendFax);
 		selectWebElement(sendFax);
+	}
+
+	public void navigateToSplitFaxPage() {
+		waitUntilWebElementIsClickable(splitFax);
+		selectWebElement(splitFax);
 	}
 }

@@ -94,6 +94,9 @@ public class OCMHomePage extends BasePage {
     @FindBy(css="a[href$='/BulkUploadModule/Index'] div")
     private WebElement bulkUploadModule;
     
+    @FindBy(css="a[href$='/WorkFlowDesigner/Index'] div")
+    private WebElement workflowDesigner;
+    
     // @FindBy(xpath="//a[@onclick='setLastTabClickedName(Ivr)']")
     // private WebElement IVR;
 
@@ -186,6 +189,10 @@ public class OCMHomePage extends BasePage {
 
 	public void navigateToTPRedemptionPage() {
 		selectWebElement(tpRedemption);
+	}
+
+	public void navigateToWorkFlowDesignerPage() {
+		selectWebElement(workflowDesigner);
 	}
 
 

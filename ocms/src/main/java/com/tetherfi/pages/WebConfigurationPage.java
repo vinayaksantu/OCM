@@ -85,6 +85,9 @@ public class WebConfigurationPage extends BasePage {
 
     @FindBy(id="noButton")
     private WebElement noBtn;
+    
+    @FindBy(xpath="//button[@class='k-button k-button-icontext k-grid-excel']")
+	private WebElement exporttoexcel;
 
     public boolean isWebConfigurationPageDisplayed() {
         waitForLoad(driver);
@@ -151,5 +154,35 @@ public class WebConfigurationPage extends BasePage {
         if(errorMsg.size()>0){return false;}
         if(waitUntilTextToBePresentInWebElement(successmsg,"Record Updated successfully"))
         {return true;}else{return false;}
+    }
+    
+    public boolean isAddBtnDisplayed() {
+    	return addNewWebConfigurationRecordBtn.isDisplayed() && addNewWebConfigurationRecordBtn.isEnabled();
+    }
+    
+    public boolean isEditBtnDisplayed() {
+    	Boolean status = false;
+    	try {
+    		if(editBtn.isDisplayed() && editBtn.isEnabled())
+    			status = true;
+    	}catch(Exception e) {
+    		status = false;
+    	}
+		return status;
+    }
+    
+    public boolean isDeleteBtnDisplayed() {
+    	Boolean status = false;
+    	try {
+    		if(deleteBtn.isDisplayed() && deleteBtn.isEnabled())
+    			status = true;
+    	}catch(Exception e) {
+    		status = false;
+    	}
+		return status;
+    }
+    
+    public boolean isExportBtnDisplayed() {
+    	return exporttoexcel.isDisplayed() && exporttoexcel.isEnabled();
     }
 }

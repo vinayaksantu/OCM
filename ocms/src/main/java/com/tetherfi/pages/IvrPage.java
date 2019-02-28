@@ -86,6 +86,18 @@ public class IvrPage extends BasePage {
     @FindBy(css="a[href$='/IvrIntentMapping/Index'] div")
     private WebElement speechModule;
     
+    @FindBy(css="a[href$='/CsoSurvey/Index'] div")
+    private WebElement csoSurveyQA;
+    
+    @FindBy(css="a[href$='/OrderTakeConfiguration/Index'] div")
+    private WebElement orderTakeConfiguration;
+    
+    @FindBy(css="a[href$='/IVRSurvey/Index'] div")
+    private WebElement ivrSurveyQA;
+    
+    @FindBy(css="a[href$='/IvrMenuDescription/Index'] div")
+    private WebElement menuDescMapping;
+    
     @FindBy(css="#navTabs li")
     private List<WebElement> navTabs;
 
@@ -196,5 +208,21 @@ public class IvrPage extends BasePage {
 	public void navigateToSpeechModulePage() {
 		waitUntilWebElementIsClickable(hostValueMapping);
 		selectWebElement(speechModule);
+	}
+	public void navigateToCSOSurveyQAPage() {
+		waitUntilWebElementIsClickable(csoSurveyQA);
+		selectWebElement(csoSurveyQA);
+	}
+	public void navigateToOrderTakeConfigurationPage() {
+		waitUntilWebElementIsClickable(orderTakeConfiguration);
+		selectWebElement(orderTakeConfiguration);
+	}
+	public void navigateToIVRSurveyQAPage() {
+		waitUntilWebElementIsClickable(ivrSurveyQA);
+		selectWebElement(ivrSurveyQA);
+	}
+	public void navigateToMenuDescriptionMappingPage() {
+		waitUntilWebElementIsClickable(menuDescMapping);
+		selectWebElement(menuDescMapping);
 	}
 }

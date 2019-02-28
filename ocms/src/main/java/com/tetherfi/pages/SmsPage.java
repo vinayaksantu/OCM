@@ -21,7 +21,10 @@ public class SmsPage extends BasePage {
     
     @FindBy(css="a[href$='/TextSynonyms/Index'] div")
     private WebElement textSynonyms;
-
+    
+    @FindBy(css="a[href$='/SmsAlert/Index'] div")
+    private WebElement smsAlert;
+    
     public boolean isSMSPageDisplayed() {
         boolean status = false;
         waitForLoad(driver);
@@ -42,5 +45,9 @@ public class SmsPage extends BasePage {
 
 	public void navigateToTextSynonymsPage() {
 		selectWebElement(textSynonyms);
+	}
+
+	public void navigateToSMSAlertPage() {
+		selectWebElement(smsAlert);
 	}
 }

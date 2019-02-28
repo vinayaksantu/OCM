@@ -26,7 +26,10 @@ public class ChatPage extends BasePage {
     
     @FindBy(css="a[href$='/ChatMenuDescription/Index']")
     private WebElement chatmenudescription;
-
+    
+    @FindBy(css="a[href$='/ChatMenuDescription/Index']")
+    private WebElement chatConfigurations;
+    
     public boolean isChatPageDisplayed() {
         boolean status=false;
         waitForLoad(driver);
@@ -59,5 +62,9 @@ public class ChatPage extends BasePage {
 	public void navigateToChatMenuDescriptionPage() {
 		waitUntilWebElementIsClickable(chatmenudescription);
         selectWebElement(chatmenudescription);
+	}
+	public void navigateToChatConfigurationsPage() {
+		waitUntilWebElementIsClickable(chatConfigurations);
+        selectWebElement(chatConfigurations);
 	}
 }
