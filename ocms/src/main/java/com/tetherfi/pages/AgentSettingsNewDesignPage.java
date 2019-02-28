@@ -1,7 +1,8 @@
 package com.tetherfi.pages;
 
+import com.tetherfi.constants.Constants;
 import com.tetherfi.model.tmac.AgentSettingsDetails;
-import com.tetherfi.model.user.UserRoleMappingDetails;
+import com.tetherfi.utility.DatabaseConnector;
 import com.tetherfi.utility.ExcelReader;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -11,6 +12,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
 import java.io.IOException;
+import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -20,6 +22,9 @@ public class AgentSettingsNewDesignPage extends BasePage {
 
     @FindBy(css=".ibox-title h5")
     private WebElement agentSettings;
+	
+	@FindBy(id="tabstripAgentMakerChecker")
+    private List<WebElement> makerCheckerTab;
 
     @FindBy(css="#checkerGrid th[data-role='columnsorter']")
     private List<WebElement> approvedDataTableHeaders;
@@ -41,6 +46,9 @@ public class AgentSettingsNewDesignPage extends BasePage {
 
     @FindBy(css=".k-edit-form-container")
     private WebElement popupContent;
+	
+	@FindBy(css=".k-edit-form-container #tgrid label")
+    private List<WebElement> labels;
 
     @FindBy(id="AvayaLoginID")
     private WebElement avayaLoginIdTextBox;
@@ -122,6 +130,12 @@ public class AgentSettingsNewDesignPage extends BasePage {
 
     @FindBy(css="input[title='Total SMS Tabs Allowed']")
     private List<WebElement> totalSMSTabsAllowedTextBox;
+	
+	@FindBy(css="input[title='Total Faxout Tabs Allowed']")
+    private List<WebElement> totalFaxoutTabsAllowedTextBox;
+
+    @FindBy(css="input[title='Total FaxInernational Tabs Allowed']")
+    private List<WebElement> totalFaxInternationalTabsAllowedTextBox;
 
     @FindBy(id="voice0")
     private WebElement voiceCheckbox;
@@ -143,6 +157,12 @@ public class AgentSettingsNewDesignPage extends BasePage {
 
     @FindBy(id="sms6")
     private WebElement smsCheckbox;
+	
+	@FindBy(id="faxout7")
+    private WebElement faxoutCheckbox;
+
+    @FindBy(id="faxinternational8")
+    private WebElement faxInternationalCheckbox;
 
     @FindBy(id="IsVoiceAcdAutoAcwEnabled")
     private WebElement goToAcwAfterEachAcdCallsCheckbox;
@@ -218,12 +238,15 @@ public class AgentSettingsNewDesignPage extends BasePage {
 
     @FindBy(css=".k-grid-CustomDelete")
     private WebElement deleteBtn;
+	
+	@FindBy(css=".k-grid-CustomDelete")
+    private List<WebElement> deleteBtnList;
 
     @FindBy(css=".form-group #ModifyReason1")
     private  WebElement deleteReasonTextBox;
 
     @FindBy(css=".k-grid-edit")
-    private WebElement editBtn;
+    private List<WebElement> editBtn;
 
     @FindBy(css=".k-edit-form-container #ModifyReason")
     private  WebElement modifyReasonTextBox;
@@ -233,7 +256,13 @@ public class AgentSettingsNewDesignPage extends BasePage {
 
     @FindBy(id="noButton")
     private WebElement noBtn;
+	
+	@FindBy(css="#retagnewsupervisorwindow")
+    private WebElement retagSupervisorPopup;
 
+    @FindBy(css="#retagnewsupervisorwindow #noButton")
+    private WebElement retagSupervisorPopupNoButton;
+	
     @FindBy(css="#tabstripAgtAgent .k-tabstrip-items li")
     private List<WebElement> tabList;
 
@@ -367,6 +396,39 @@ public class AgentSettingsNewDesignPage extends BasePage {
         }
         return header;
     }
+	public void clickOnSave(){
+        selectWebElement(saveBtn);
+    }
+    public void clickOnCancel(){
+        selectWebElement(cancelBtn);
+    }
+    public void clickOnCancelAtDelete(){
+        selectWebElement(retagSupervisorPopupNoButton);
+    }
+    public void clickOnTopmostDeleteButton(){
+        selectWebElement(deleteBtnList.get(0));
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+    public boolean verifyCancelButton(){
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        if(driver.findElements(By.cssSelector(".k-edit-form-container")).size()>0){return false;}else{return true;}
+    }
+    public boolean verifyCancelButtonAtDelete(){
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        if(retagSupervisorPopupNoButton.isDisplayed()){return false;}else{return true;}
+    }						  
     public boolean verifyApprovedDataTableHeaders() {
         ArrayList<String> Expected=new ArrayList<String>(Arrays.asList("Lan ID","Avaya Login ID","First Name","Last Name","Profile","Supervisor Name","Team Name","Access Role","CRM Name","Text Chat Greeting Template Name","Last Changed On","Last Changed By"));
         ArrayList Actual = getHeadersfromTable(approvedDataTableHeaders);
@@ -421,11 +483,19 @@ public class AgentSettingsNewDesignPage extends BasePage {
     }
     public void selectAgentSettingsAuditTrailTab(){
         selectWebElement(agentSettingsTabs.get(1));
-        //waitForJqueryLoad(driver);
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
     public void selectMakeAgentSettingsChanges(){
         selectWebElement(makeAgentSettingsChanges);
-        //waitForJqueryLoad(driver);
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
     public void addNewAgentSettingsRecord(AgentSettingsDetails details) {
         selectWebElement(agentSettingsTabs.get(1));
@@ -466,19 +536,23 @@ public class AgentSettingsNewDesignPage extends BasePage {
         navigateToTab("Settings");
         selectFeaturesToBeSelected(details.getFeaturestobeSeleted());
         selectWebElement(numericTextbox.get(1));
-        enterValueToTxtField(totalVoiceTabsAllowedTextBox.get(1),String.valueOf(details.getTotalVoiceTabs()));
+        enterValueToTxtFieldWithoutClear(totalVoiceTabsAllowedTextBox.get(1),String.valueOf(details.getTotalVoiceTabs()));
         selectWebElement(numericTextbox.get(2));
-        enterValueToTxtField(totalChatTabsAllowedTextBox.get(1),String.valueOf(details.getTotalChatTabs()));
+        enterValueToTxtFieldWithoutClear(totalChatTabsAllowedTextBox.get(1),String.valueOf(details.getTotalChatTabs()));
         selectWebElement(numericTextbox.get(3));
-        enterValueToTxtField(totalAudioChatTabsAllowedTextBox.get(1),String.valueOf(details.getTotalAudioChatTabs()));
+        enterValueToTxtFieldWithoutClear(totalAudioChatTabsAllowedTextBox.get(1),String.valueOf(details.getTotalAudioChatTabs()));
         selectWebElement(numericTextbox.get(4));
-        enterValueToTxtField(totalVideoChatTabsAllowedTextBox.get(1),String.valueOf(details.getTotalVideoChatTabs()));
+        enterValueToTxtFieldWithoutClear(totalVideoChatTabsAllowedTextBox.get(1),String.valueOf(details.getTotalVideoChatTabs()));
         selectWebElement(numericTextbox.get(5));
-        enterValueToTxtField(totalFaxTabsAllowedTextBox.get(1),String.valueOf(details.getTotalFaxTabs()));
+        enterValueToTxtFieldWithoutClear(totalFaxTabsAllowedTextBox.get(1),String.valueOf(details.getTotalFaxTabs()));
         selectWebElement(numericTextbox.get(6));
-        enterValueToTxtField(totalEmailTabsAllowedTextBox.get(1),String.valueOf(details.getTotalEmailTabs()));
+        enterValueToTxtFieldWithoutClear(totalEmailTabsAllowedTextBox.get(1),String.valueOf(details.getTotalEmailTabs()));
         selectWebElement(numericTextbox.get(7));
-        enterValueToTxtField(totalSMSTabsAllowedTextBox.get(1),String.valueOf(details.getTotalSMSTabs()));
+        enterValueToTxtFieldWithoutClear(totalSMSTabsAllowedTextBox.get(1),String.valueOf(details.getTotalSMSTabs()));
+		selectWebElement(numericTextbox.get(8));
+        enterValueToTxtFieldWithoutClear(totalFaxoutTabsAllowedTextBox.get(1),String.valueOf(details.getTotalFaxoutTabs()));
+        selectWebElement(numericTextbox.get(9));
+        enterValueToTxtFieldWithoutClear(totalFaxInternationalTabsAllowedTextBox.get(1),String.valueOf(details.getTotalFaxInternationalTabs()));																								
         selectWebElement(featuresDropdown);
         selectDropdownFromVisibleText(featuresListBox,details.getFeatures());
         selectCheckBox(goToAcwAfterEachAcdCallsCheckbox,details.isGotoACWaftereachACDcalls());
@@ -515,6 +589,8 @@ public class AgentSettingsNewDesignPage extends BasePage {
             else if(feature.equalsIgnoreCase("VideoChat")&&!videoChatCheckbox.isSelected()){selectCheckbox(videoChatCheckbox);}
             else if(feature.equalsIgnoreCase("AudioChat")&&!audiochatCheckbox.isSelected()){selectCheckbox(audiochatCheckbox);}
             else if(feature.equalsIgnoreCase("Fax")&&!faxCheckbox.isSelected()){selectCheckbox(faxCheckbox);}
+			else if(feature.equalsIgnoreCase("Faxout")&&!faxoutCheckbox.isSelected()){selectCheckbox(faxoutCheckbox);}
+            else if(feature.equalsIgnoreCase("FaxInternational")&&!faxInternationalCheckbox.isSelected()){selectCheckbox(faxInternationalCheckbox);}																										  
         }
     }
     public void selectProfile(String profile, String supervisor){
@@ -535,7 +611,12 @@ public class AgentSettingsNewDesignPage extends BasePage {
         }
     }
     public void selectCheckBox(WebElement ele, boolean value){
-        if(value&&!ele.isSelected()){selectCheckbox(ele);}
+		if(value){
+            if(ele.isSelected()){}else{selectCheckbox(ele);}
+        }
+        else{
+            if(ele.isSelected()){selectCheckbox(ele);}
+        }
     }
     public void searchAgentSettingsRecord(String name)  {
         selectWebElement(searchLink);
@@ -548,6 +629,9 @@ public class AgentSettingsNewDesignPage extends BasePage {
         waitUntilLoadingImageDisapper(driver);
         waitUntilWebElementIsVisible(gridContent);
     }
+	public void clickonTopmostEditButton(){
+        selectWebElement(editBtn.get(0));
+    }
     public void editAgentSettingsRecord(AgentSettingsDetails details) {
         try{selectWebElement(agentSettingsTabs.get(1));
         Thread.sleep(3000);
@@ -555,7 +639,7 @@ public class AgentSettingsNewDesignPage extends BasePage {
         Thread.sleep(3000);
         searchAgentSettingsRecord(details.getUsername());
         Thread.sleep(3000);
-        selectWebElement(editBtn);
+        selectWebElement(editBtn.get(0));
         selectWebElement(firstnameTextBox);
         enterValueToTxtField(firstnameTextBox,details.getFirstname());
         selectWebElement(lastnameTextBox);
@@ -577,19 +661,23 @@ public class AgentSettingsNewDesignPage extends BasePage {
         navigateToTab("Settings");
         selectFeaturesToBeSelected(details.getFeaturestobeSeleted());
         selectWebElement(numericTextbox.get(1));
-        enterValueToTxtField(totalVoiceTabsAllowedTextBox.get(1),String.valueOf(details.getTotalVoiceTabs()));
+        enterValueToTxtBox(totalVoiceTabsAllowedTextBox,String.valueOf(details.getTotalVoiceTabs()));
         selectWebElement(numericTextbox.get(2));
-        enterValueToTxtField(totalChatTabsAllowedTextBox.get(1),String.valueOf(details.getTotalChatTabs()));
+        enterValueToTxtBox(totalChatTabsAllowedTextBox,String.valueOf(details.getTotalChatTabs()));
         selectWebElement(numericTextbox.get(3));
-        enterValueToTxtField(totalAudioChatTabsAllowedTextBox.get(1),String.valueOf(details.getTotalAudioChatTabs()));
+        enterValueToTxtBox(totalAudioChatTabsAllowedTextBox,String.valueOf(details.getTotalAudioChatTabs()));
         selectWebElement(numericTextbox.get(4));
-        enterValueToTxtField(totalVideoChatTabsAllowedTextBox.get(1),String.valueOf(details.getTotalVideoChatTabs()));
+        enterValueToTxtBox(totalVideoChatTabsAllowedTextBox,String.valueOf(details.getTotalVideoChatTabs()));
         selectWebElement(numericTextbox.get(5));
-        enterValueToTxtField(totalFaxTabsAllowedTextBox.get(1),String.valueOf(details.getTotalFaxTabs()));
+        enterValueToTxtBox(totalFaxTabsAllowedTextBox,String.valueOf(details.getTotalFaxTabs()));
         selectWebElement(numericTextbox.get(6));
-        enterValueToTxtField(totalEmailTabsAllowedTextBox.get(1),String.valueOf(details.getTotalEmailTabs()));
+        enterValueToTxtBox(totalEmailTabsAllowedTextBox,String.valueOf(details.getTotalEmailTabs()));
         selectWebElement(numericTextbox.get(7));
-        enterValueToTxtField(totalSMSTabsAllowedTextBox.get(1),String.valueOf(details.getTotalSMSTabs()));
+        enterValueToTxtBox(totalSMSTabsAllowedTextBox,String.valueOf(details.getTotalSMSTabs()));
+        selectWebElement(numericTextbox.get(8));
+        enterValueToTxtBox(totalFaxoutTabsAllowedTextBox,String.valueOf(details.getTotalFaxoutTabs()));
+        selectWebElement(numericTextbox.get(9));
+        enterValueToTxtBox(totalFaxInternationalTabsAllowedTextBox,String.valueOf(details.getTotalFaxInternationalTabs()));																			   
         selectWebElement(featuresDropdown);
         selectDropdownFromVisibleText(featuresListBox,details.getFeatures());
         selectCheckBox(goToAcwAfterEachAcdCallsCheckbox,details.isGotoACWaftereachACDcalls());
@@ -604,13 +692,23 @@ public class AgentSettingsNewDesignPage extends BasePage {
         selectWebElement(saveBtn);}catch (Exception e){e.printStackTrace();}
     }
     public void deleteAgentSettingsRecord(String username,String reason) {
-        selectWebElement(agentSettingsTabs.get(1));
+        {selectWebElement(agentSettingsTabs.get(1));
         selectWebElement(makeAgentSettingsChanges);
         searchAgentSettingsRecord(username);
+        Thread.sleep(4000);
         btnClick(deleteBtn);
         selectWebElement(deleteReasonTextBox);
         enterValueToTxtField(deleteReasonTextBox,reason);
         selectWebElement(yesBtn);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public void deleteSupervisorRecordWhenAssignedToAgent(String username) {
+        selectWebElement(agentSettingsTabs.get(1));
+        selectWebElement(makeAgentSettingsChanges);
+        searchAgentSettingsRecord(username);
+        btnClick(deleteBtn);
     }
     public boolean verifyRecordDeleted(){
         //waitForJqueryLoad(driver);
@@ -638,9 +736,11 @@ public class AgentSettingsNewDesignPage extends BasePage {
         List<WebElement> cols=rows.get(1).findElements(By.tagName("td"));
         for(int j=0;j<headers.size();j++){
             scrollToElement(headers.get(j));
-            waitForWebElementIgnoringStaleException(cols.get(j));
-            waitForWebElementIgnoringStaleException(headers.get(j));
-            map.put(headers.get(j).getText(),cols.get(j).getText());
+            for(int i=0;i<3;i++) {
+																	
+                try{map.put(headers.get(j).getText(), cols.get(j).getText());break;}catch (Exception e){e.printStackTrace();}
+            }
+        }
         }
         return map;
     }
@@ -718,7 +818,7 @@ public class AgentSettingsNewDesignPage extends BasePage {
         }else{System.out.println("data mismatch"+newvalues.get("IsVoice")+"\t"+details.getFeaturestobeSeleted()[0]);}
 return status;
     }
-    public boolean verifyTabsAllowed(AgentSettingsDetails details, Map<String,String> newvalues){
+    /*public boolean verifyTabsAllowed(AgentSettingsDetails details, Map<String,String> newvalues){
         boolean status=false;
         if(newvalues.get("TotalTabsAllowed").equals(details.getTotalTabsAllowed())){
             if(newvalues.get("TotalChatTabsAllowed").equals(details.getTotalChatTabs())){
@@ -730,7 +830,7 @@ return status;
             }else{System.out.println("data mismatch"+newvalues.get("TotalChatTabsAllowed")+"\t"+details.getTotalChatTabs());}
         }else{System.out.println("data mismatch"+newvalues.get("TotalTabsAllowed")+"\t"+details.getTotalTabsAllowed());}
         return status;
-    }
+    }*/
     public boolean verifyAgentSettingsOtherdetails(AgentSettingsDetails details, Map<String,String> newvalues){
         boolean status=false;
         if(newvalues.get("IsCrmEnabled").equals("True")&&details.iscRMEnabled()){
@@ -789,6 +889,18 @@ return status;
         enterValueToTxtField(checkerReason,comment);
         clickOn(approveYesBtn);
     }
+	public void clickonReject(String comment){
+        selectWebElement(agentSettingsTabs.get(1));
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        clickOn(rejectBtn);
+        selectWebElement(checkerReason);
+        enterValueToTxtField(checkerReason,comment);
+        clickOn(approveYesBtn);
+    }
     public boolean verifyReviewAuditTrail(String status,String comment){
         try {
             Thread.sleep(3000);
@@ -824,7 +936,9 @@ return status;
                 List<WebElement> cols=rows.get(j).findElements(By.tagName("td"));
                 Map<String,String> map=new HashMap<>();
                 for(int k=0; k<cols.size();k++){
-                    map.put(headers.get(k).getText(),cols.get(k).getText());
+				for(int z=0;z<3;z++){
+                        try{map.put(headers.get(k).getText(),cols.get(k).getText());break;}catch (Exception e){e.printStackTrace();}
+                    }
                 }
                 maplist.add(map);
             }
@@ -1102,7 +1216,104 @@ return status;
         String items = pagerInfo.get(z).getText();
         return items.matches("(\\d.*) - (\\d.*) of (\\d.*) items");
     }
-    
+    public boolean verifyJsonDataForMakerAndChecker(boolean mkrchk){
+        boolean status=false;
+        if(mkrchk){
+            if(makerCheckerTab.size()==1){status=true;}
+        }else {if(makerCheckerTab.size()!=1){status=true;}}
+    return status;
+    }
+    public boolean verifyJsonDataForgridColumnHidden(Map<String,String> jsonmap){
+        boolean status=false;
+        for(WebElement e: headersText){
+            scrollToElement(e);
+            if(jsonmap.get(e.getText()).equalsIgnoreCase("false")){status=true;}else{
+                System.out.println("Header "+e.getText()+"is hidden in JSON configuration file");status=false;break;}
+        }
+        return status;
+    }
+    public void enableAllColumnsHeaders() {
+        WebElement ele = headersDropdown.get(0);
+        if (ele.isDisplayed()) {
+            try {
+                selectWebElement(ele);
+                Thread.sleep(1000);
+                selectWebElement(headersColumns.get(2));
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            for (int i = 3; i < headersColumns.size(); i++) {
+                WebElement checkbox = headersColumns.get(i).findElement(By.tagName("input"));
+                checkbox.click();
+                if (checkbox.isSelected()) {
+                } else {
+                    checkbox.click();
+                }
+            }
+        }
+    }
+    public boolean verifyJsonDataForColumnIncludeGrid(Map<String,String> jsonmap){
+        Map<String,String> map =getDefaultEnabledColumnsHeaders();
+        return map.equals(jsonmap);
+    }
+    public Map<String,String> getDefaultEnabledColumnsHeaders() {
+        Map<String,String> map=new HashMap<>();
+        WebElement ele = headersDropdown.get(0);
+        if (ele.isDisplayed()) {
+            try {
+                selectWebElement(ele);
+                Thread.sleep(1000);
+                selectWebElement(headersColumns.get(2));
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            for (int i = 3; i < headersColumns.size(); i++) {
+                WebElement checkbox = headersColumns.get(i).findElement(By.tagName("input"));
+                if (checkbox.isSelected()) {map.put(headersColumns.get(i).getText(),"false");}else{{map.put(headersColumns.get(i).getText(),"true");}}
+            }
+        }
+        return map;
+    }
+    public boolean verifyJsonDataForMandatoryField(Map<String,String> jsonmap){
+        boolean status=false;
+        jsonmap.remove("Features");
+        ArrayList<String> mand=new ArrayList<>();
+        for(String key:jsonmap.keySet()){
+            if(jsonmap.get(key).equalsIgnoreCase("true")){
+                status=false;
+                for(WebElement e:labels){
+                    if(e.getText().equals(key+"*")){mand.add(key);status=true;break;}
+                }if(!status){System.out.println(key+" label is not having mandatory * symbol");break;}
+            }
+        }
+        return status;
+    }
+    public boolean verifyDatabaseDetails(AgentSettingsDetails details){
+        boolean status=false;
+        DatabaseConnector db = new DatabaseConnector();
+        db.connectToDataBase(Constants.db_name);
+        ResultSet rs =db.executeQuery("select AGT_Agent.AvayaLoginID,AGT_Agent.UserName,AGT_Agent.FirstName,AGT_Agent.LastName,AGT_Agent.Profile, AGT_Teams.DisplayName from AGT_Agent Inner Join AGT_Teams on AGT_Agent.TeamID=AGT_Teams.TeamID where AGT_Agent.AvayaLoginID='"+details.getAvayaLoginID()+"'");
+        List<Map<String, String>> maplist=db.getResultSetInMap(rs);
+        if(maplist.get(0).get("AvayaLoginID").equals(details.getAvayaLoginID())){
+            if(maplist.get(0).get("UserName").equals(details.getUsername())){
+                if(maplist.get(0).get("FirstName").equals(details.getFirstname())){
+                    if(maplist.get(0).get("LastName").equals(details.getLastname())){
+                        if(maplist.get(0).get("Profile").equals(details.getProfile().substring(0,1))){
+                            if(maplist.get(0).get("DisplayName").equals(details.getTeamName())){
+                                status=true;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return status;
+    }
+    public boolean verifyRetagSupervisorPopupDisplayed(){
+        return retagSupervisorPopup.isDisplayed();
+    }
     public boolean isAddBtnDisplayed() {
     	return addNewAgentSettingsRecordBtn.isDisplayed() && addNewAgentSettingsRecordBtn.isEnabled();
     }
