@@ -23,9 +23,9 @@ public class CmDataSyncTest extends BaseTest {
         homePage.navigateToOCMPage();
         OCMHomePage ocmHomePage = PageFactory.createPageInstance(driver,OCMHomePage.class);
         Assert.assertTrue(ocmHomePage.isOCMHomePageIsDisplayed(),"OCM HOME Page assertion failed");
-        ocmHomePage.navigateToCmDataSyncPage();
+        ocmHomePage.navigateToCMDataSyncPage();
         CMDataSyncPage cmDataSyncPage=PageFactory.createPageInstance(driver,CMDataSyncPage.class);
-        Assert.assertTrue(cmDataSyncPage.isCmDataSyncPageDisplayed(),"CMDataSync assertion failed");
+        Assert.assertTrue(cmDataSyncPage.isCMDataSyncPageDisplayed(),"CMDataSync assertion failed");
     }
     @Test
     public void AgentSynchronization() throws IOException{
