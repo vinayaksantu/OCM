@@ -23,7 +23,7 @@ import com.tetherfi.utility.PageFactory;
 import com.tetherfi.utility.Screenshot;
 
 public class TmacBroadCastMsgE2E extends BaseTest {
-	Screenshot screenshot=new Screenshot();
+	Screenshot screenshot=new Screenshot(driver);
 	
 	 @BeforeMethod
 	 public void NavigateToTmacBroadcastMsgPage()  {

@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Map;
 
 public class TmacBroadCastMsgTest extends BaseTest {
-	Screenshot screenshot=new Screenshot();
+	Screenshot screenshot=new Screenshot(driver);
     //@BeforeClass
     public void AddNewAgentTeamManagementRecord() throws IOException {
         HomePage homePage= PageFactory.createPageInstance(driver,HomePage.class);

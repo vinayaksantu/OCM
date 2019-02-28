@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.Map;
 
 public class WaitTimeColorConfigTest extends BaseTest {
-	Screenshot screenshot=new Screenshot();
+	Screenshot screenshot=new Screenshot(driver);
 
     @BeforeMethod
     public void NavigateToWaitTimeColorConfigPage() {

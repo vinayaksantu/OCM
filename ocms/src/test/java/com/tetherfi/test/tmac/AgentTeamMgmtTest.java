@@ -22,7 +22,7 @@ import java.util.List;
 import java.util.Map;
 
 public class AgentTeamMgmtTest extends BaseTest {
-	Screenshot screenshot=new Screenshot();
+	Screenshot screenshot=new Screenshot(driver);
 
     @BeforeMethod
     public void NavigateToAgentTeamManagementPage()  {

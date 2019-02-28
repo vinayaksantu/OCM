@@ -28,7 +28,7 @@ import com.tetherfi.utility.PageFactory;
 import com.tetherfi.utility.Screenshot;
 
 public class WorkCodeListTest extends BaseTest{
-	Screenshot screenshot=new Screenshot();
+	Screenshot screenshot=new Screenshot(driver);
    //@BeforeClass
     public void AddNewAgentTeamManagementRecord() throws IOException {
         HomePage homePage= PageFactory.createPageInstance(driver,HomePage.class);

@@ -21,7 +21,7 @@ import java.util.Map;
 
 public class TmacTransferListTest extends BaseTest {
 	
-	Screenshot screenshot=new Screenshot();
+	Screenshot screenshot=new Screenshot(driver);
     @BeforeMethod
     public void NavigatetoTmacTransferListPage() throws InterruptedException {
         HomePage homePage= PageFactory.createPageInstance(driver,HomePage.class);
