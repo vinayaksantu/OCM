@@ -3,19 +3,17 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.tetherfi.test.UserManagementE2ETest">
+      <class name="com.tetherfi.test.tmac.TmacTransferListE2E">
         <methods>
-          <include name="VerifyExportAccessOfSMSResponseTemplate"/>
-          <include name="afterEachMethod"/>
           <include name="startTestCase"/>
           <include name="openApplication"/>
-          <include name="VerifyEditAccessOfSMSResponseTemplate"/>
+          <include name="verifyBlindSkillListOnTmac"/>
           <include name="endTestCase"/>
           <include name="tearDown"/>
-          <include name="OCMPage"/>
-          <include name="VerifyViewAccessOfSMSResponseTemplate"/>
+          <include name="aftereachmethod"/>
+          <include name="NavigateToTmacTransferListPage"/>
         </methods>
-      </class> <!-- com.tetherfi.test.UserManagementE2ETest -->
+      </class> <!-- com.tetherfi.test.tmac.TmacTransferListE2E -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
