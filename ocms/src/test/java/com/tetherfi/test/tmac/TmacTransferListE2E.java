@@ -70,7 +70,7 @@ public class TmacTransferListE2E extends BaseTest {
             PageFactory.reset();
             BrowserFactory browserFactory = new BrowserFactory();
             driver = browserFactory.createBrowserInstance(BrowserFactory.BrowserType.CHROME);
-            Map<String, String> map1 = new ExcelReader(filePath1,"Login").getTestData().get(1);
+            Map<String, String> map1 = new ExcelReader(filePath1,"Login").getTestData().get(3);
             driver.get("http://"+map1.get("Username")+":"+map1.get("Password")+"@"+map1.get("Application URL").split("//")[1]);
         }catch (Exception e){
             PageFactory.reset();
@@ -78,7 +78,7 @@ public class TmacTransferListE2E extends BaseTest {
             e.printStackTrace();
 	}
 		TmacLoginPage loginPage = PageFactory.createPageInstance(driver,TmacLoginPage.class);
-		Map<String, String> map2 = new ExcelReader(filePath1,"TMAC").getTestData().get(1);
+		Map<String, String> map2 = new ExcelReader(filePath1,"TMAC").getTestData().get(3);
 		TmacUserDetails tmacUserDetails=new TmacUserDetails(map2);
         loginPage.logintotmac(tmacUserDetails.getLanID(),tmacUserDetails.getStation());
         Assert.assertTrue(loginPage.verifyUserLogged(),"Tmac login failed");

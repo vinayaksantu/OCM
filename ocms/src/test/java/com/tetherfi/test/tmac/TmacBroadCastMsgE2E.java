@@ -58,7 +58,7 @@ public class TmacBroadCastMsgE2E extends BaseTest {
             PageFactory.reset();
             BrowserFactory browserFactory = new BrowserFactory();
             driver = browserFactory.createBrowserInstance(BrowserFactory.BrowserType.CHROME);
-            Map<String, String> map1 = new ExcelReader(filePath1,"Login").getTestData().get(1);
+            Map<String, String> map1 = new ExcelReader(filePath1,"Login").getTestData().get(3);
             driver.get("http://"+map1.get("Username")+":"+map1.get("Password")+"@"+map1.get("Application URL").split("//")[1]);
         }catch (Exception e){
             PageFactory.reset();
@@ -94,7 +94,7 @@ public class TmacBroadCastMsgE2E extends BaseTest {
         PageFactory.reset();
         BrowserFactory browserFactory = new BrowserFactory();
         driver = browserFactory.createBrowserInstance(BrowserFactory.BrowserType.CHROME);
-        Map<String, String> map1 = new ExcelReader(filePath1,"Login").getTestData().get(1);
+        Map<String, String> map1 = new ExcelReader(filePath1,"Login").getTestData().get(3);
         driver.get("http://"+map1.get("Username")+":"+map1.get("Password")+"@"+map1.get("Application URL").split("//")[1]);
     }catch (Exception e){
         PageFactory.reset();
@@ -132,7 +132,7 @@ public class TmacBroadCastMsgE2E extends BaseTest {
 	        	PageFactory.reset();
 	        	BrowserFactory browserFactory = new BrowserFactory();
 	        	driver = browserFactory.createBrowserInstance(BrowserFactory.BrowserType.CHROME);
-	        	Map<String, String> map1 = new ExcelReader(filePath1,"Login").getTestData().get(1);
+	        	Map<String, String> map1 = new ExcelReader(filePath1,"Login").getTestData().get(3);
 	        	driver.get("http://"+map1.get("Username")+":"+map1.get("Password")+"@"+map1.get("Application URL").split("//")[1]);
 	        }catch (Exception e){
 	        	PageFactory.reset();
