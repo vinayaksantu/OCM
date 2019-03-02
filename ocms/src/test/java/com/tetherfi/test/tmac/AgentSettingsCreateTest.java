@@ -157,7 +157,19 @@ public class AgentSettingsCreateTest {
         AgentSettingsDetails agentSettingsDetails = new AgentSettingsDetails(map);
 
         AgentSettingsNewDesignPage agentSettingsPage = PageFactory.createPageInstance(driver, AgentSettingsNewDesignPage.class);
-        Assert.assertTrue(agentSettingsPage.verifyDatabaseDetails(agentSettingsDetails));
+        Assert.assertTrue(agentSettingsPage.verifyDatabaseDetails(agentSettingsDetails),"database insertion failed");
+    }
+    @Test(groups = { "Maker" },dependsOnMethods = {"ApproveforAddNewSupervisorRecord"})
+    public void VerifySupervisorDisplayedForAgent() throws IOException {
+        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentSettingsData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(1);
+        AgentSettingsDetails agentSettingsDetails = new AgentSettingsDetails(map);
+
+        AgentSettingsNewDesignPage agentSettingsPage = PageFactory.createPageInstance(driver, AgentSettingsNewDesignPage.class);
+        agentSettingsPage.selectAgentSettingsAuditTrailTab();
+        agentSettingsPage.selectMakeAgentSettingsChanges();
+        agentSettingsPage.selectAddNewAgentSettings();
+        Assert.assertTrue(agentSettingsPage.verifySupervisorDisplayed(agentSettingsDetails.getTeamName(),agentSettingsDetails.getSupervisor()),"supervisor displayed assertion failed");
     }
     @Test(groups = { "Maker" },dependsOnMethods = {"ApproveforAddNewSupervisorRecord"})
     public void AddNewAgentSettingsRecord() throws IOException {

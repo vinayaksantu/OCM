@@ -118,6 +118,32 @@ public class AgentSettingsEditTest {
         Assert.assertTrue(agentSettingsPage.verifyRecordUpdated(), "edit record assertion failed");
     }
     @Test(groups = { "Maker" },dependsOnMethods = "EditAgentSettingsRecord")
+    public void VerifyProfileSelectionAgentAtTeamLevel() throws IOException {
+        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentSettingsData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(1);
+        AgentSettingsDetails agentSettingsDetails = new AgentSettingsDetails(map);
+
+        AgentSettingsNewDesignPage agentSettingsPage = PageFactory.createPageInstance(driver, AgentSettingsNewDesignPage.class);
+        agentSettingsPage.selectAgentSettingsAuditTrailTab();
+        agentSettingsPage.selectMakeAgentSettingsChanges();
+        agentSettingsPage.searchAgentSettingsRecord(agentSettingsDetails.getUsername());
+        agentSettingsPage.clickonTopmostEditButton();
+        Assert.assertTrue(agentSettingsPage.verifyProfileSelection(), "profile selection assertion failed");
+    }
+    @Test(groups = { "Maker" },dependsOnMethods = "EditAgentSettingsRecord")
+    public void VerifyProfileSelectionAgentAtCountryDivisionDepartmentLevel() throws IOException {
+        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentSettingsData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(1);
+        AgentSettingsDetails agentSettingsDetails = new AgentSettingsDetails(map);
+
+        AgentSettingsNewDesignPage agentSettingsPage = PageFactory.createPageInstance(driver, AgentSettingsNewDesignPage.class);
+        agentSettingsPage.selectAgentSettingsAuditTrailTab();
+        agentSettingsPage.selectMakeAgentSettingsChanges();
+        agentSettingsPage.searchAgentSettingsRecord(agentSettingsDetails.getUsername());
+        agentSettingsPage.clickonTopmostEditButton();
+        Assert.assertFalse(agentSettingsPage.verifyProfileSelectionAtCountryDivisionDepartmentLevel(agentSettingsDetails.getTeamName()), "agent profile selection at country, division, department assertion failed");
+    }
+    @Test(groups = { "Maker" },dependsOnMethods = "EditAgentSettingsRecord")
     public void VerifyAuditTrailDataForEditAgentSettingsRecord() throws IOException {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentSettingsData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(1);

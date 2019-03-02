@@ -208,6 +208,14 @@ public class AgentSettingsUITest extends BaseTest {
         agentSettingsPage.clickOnCancelAtDelete();
         Assert.assertTrue(agentSettingsPage.verifyCancelButtonAtDelete(),"Cancel button assertion at delete failed");
     }
+    @Test()
+    public void VerifyCRMName() {
+        AgentSettingsNewDesignPage agentSettingsPage = PageFactory.createPageInstance(driver, AgentSettingsNewDesignPage.class);
+        agentSettingsPage.selectAgentSettingsAuditTrailTab();
+        agentSettingsPage.selectMakeAgentSettingsChanges();
+        agentSettingsPage.selectAddNewAgentSettings();
+        Assert.assertTrue(agentSettingsPage.verifyCRMNameDisplayed(),"CRM Name displayed assertion failed");
+    }
     @AfterMethod
     public void afterEachMethod(Method method){
         Screenshot screenshot=new Screenshot(driver);

@@ -86,6 +86,8 @@ public class TmacPopupPage extends BasePage {
     @FindBy(css="input[id^='textPageTag1']")
     private WebElement custLastPageVisited;
 
+	@FindBy(css="a[id^='btnTextChat_Answer1']")
+    private WebElement recieveChatBtn;
     @FindBy(css="a[id^='btnTextChat_Disconnect1']")
     private List<WebElement> endChat;
 
@@ -336,6 +338,7 @@ public class TmacPopupPage extends BasePage {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+		switchToWindow(1);				  
         if(tabs.size()==t){return true;}else{return false;}
     }
     public boolean verifyCallAutoAnswered(){
@@ -360,5 +363,12 @@ public class TmacPopupPage extends BasePage {
         }
     }
     public void closeTab(int i){ selectWebElement(closeTabs.get(i));
+    }
+	public boolean verifyChatReceived(){
+        switchToWindow(1);
+        if(tabs.get(0).isDisplayed()&&endChat.get(0).isEnabled()){return true;}else{return false;}
+    }
+    public boolean verifyChatAutoAnswered(){
+        return (endChat.get(0).isDisplayed()&&endChat.get(0).isEnabled());
     }
 }

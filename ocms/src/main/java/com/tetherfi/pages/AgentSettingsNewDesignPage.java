@@ -4,6 +4,8 @@ import com.tetherfi.constants.Constants;
 import com.tetherfi.model.tmac.AgentSettingsDetails;
 import com.tetherfi.utility.DatabaseConnector;
 import com.tetherfi.utility.ExcelReader;
+import com.tetherfi.utility.FTPServer;
+import com.tetherfi.utility.WebConfigReader;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -630,7 +632,12 @@ public class AgentSettingsNewDesignPage extends BasePage {
         waitUntilWebElementIsVisible(gridContent);
     }
 	public void clickonTopmostEditButton(){
-        selectWebElement(editBtn.get(0));
+        try {
+            Thread.sleep(5000);
+            selectWebElement(editBtn.get(0));
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
     public void editAgentSettingsRecord(AgentSettingsDetails details) {
         try{selectWebElement(agentSettingsTabs.get(1));
@@ -1314,6 +1321,62 @@ return status;
     }
     public boolean verifyRetagSupervisorPopupDisplayed(){
         return retagSupervisorPopup.isDisplayed();
+    }
+	public boolean verifyProfileSelection(){
+        boolean status=false;
+        selectWebElement(profileDropdown);
+        for(WebElement e:profileListBox){
+            if(e.getText().equals("Agent")){status= true;break;}
+        }
+        return status;
+    }
+    public boolean verifyProfileSelectionAtCountryDivisionDepartmentLevel(String team){
+        boolean status=false;
+        String[] hrcy=team.split(">");
+        for(int i=0;i<hrcy.length-1;i++) {
+        try{selectWebElement(teamnameDropdown);
+        Thread.sleep(3000);
+        for(WebElement e: teamList){
+        if(e.getText().equals(hrcy[i])){selectWebElement(e.findElement(By.className("k-in")));break;}
+        if(e.findElements(By.className("k-i-expand")).size()>0)
+        {selectWebElement(e.findElement(By.className("k-icon")));} }
+         selectWebElement(profileDropdown);}catch (Exception e){e.printStackTrace();}
+         for (WebElement e : profileListBox) {
+         if (e.getText().equals("Agent")) {status = true;break;}
+         }
+         if(status){break;}
+        }
+        return status;
+    }
+    public boolean verifySupervisorDisplayed(String team, String supervisor){
+        boolean status=false;
+        try{
+        selectWebElement(teamnameDropdown);
+        Thread.sleep(3000);
+        ChooseTeamHeirarchy(team);
+        selectWebElement(profileDropdown);
+        selectDropdownFromVisibleText(profileListBox,"Supervisor");
+        Thread.sleep(3000);
+        selectWebElement(supervisorDropdown);}catch (Exception e){e.printStackTrace();}
+        for(WebElement e :supervisorListBox){
+            if(e.getText().equals(supervisor)){status=true;break;}
+        }
+        return status;
+    }
+    public boolean verifyCRMNameDisplayed(){
+        String filepath="\\\\172.16.2.16\\d$\\Products\\OCM\\UI\\web.config";
+        String destpath="D:/TetherfiWork/ProductOCM/scripts/ocms/src/test/resources/DownloadedFiles/Config/web.config";
+        FTPServer ftp=new FTPServer();
+        ftp.transferFileFromRemote(filepath,destpath);
+        WebConfigReader webconf=new WebConfigReader(destpath);
+        String val=webconf.getKeyValue("CrmName");
+        String [] values=val.split(",");
+        selectWebElement(crmnameDropdown);
+        String [] uivalues=new String[crmnameListBox.size()];int i=0;
+       for(WebElement e: crmnameListBox){
+           uivalues[i]=e.getText();i++;
+       }
+       return Arrays.equals(values,uivalues);
     }
     public boolean isAddBtnDisplayed() {
     	return addNewAgentSettingsRecordBtn.isDisplayed() && addNewAgentSettingsRecordBtn.isEnabled();

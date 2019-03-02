@@ -31,19 +31,56 @@ public class AgentSettingsTmac1Test {
         try{driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);}catch (TimeoutException e){e.printStackTrace();driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);}
         TmacLoginPage tmacloginPage = PageFactory.createPageInstance(driver,TmacLoginPage.class);
         Assert.assertTrue(tmacloginPage.checkPageLoadStatus(), "login page successful status");
-        String filePath1 = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentSettingsData.xlsx";
-        Map<String, String> map1 = new ExcelReader(filePath1, "Create").getTestData().get(0);
-        AgentSettingsDetails agentSettingsDetails = new AgentSettingsDetails(map1);
-        Map<String, String> map2 = new ExcelReader(filePath, "TMAC").getTestData().get(1);
-        tmacloginPage.loginIntoTmac(agentSettingsDetails.getUsername(),map2.get("Station"));
-        Assert.assertTrue(tmacloginPage.verifyUserLogged(),"Tmac login failed");
     }
     @BeforeMethod
     public void open(Method method){
         System.out.println("Started Executing : "+method.getName());
     }
     @Test(dependsOnMethods = "com.tetherfi.test.tmac.AgentSettingsEditTest.EditSupervisorRecord")
-    public void VerifyAutoInDropdownSelected() {
+    public void VerifyInvalidAgentLogin() throws IOException {
+        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\LoginData.xlsx";
+        Map<String, String> map2 = new ExcelReader(filePath, "TMAC").getTestData().get(1);
+
+        TmacLoginPage tmacloginPage = PageFactory.createPageInstance(driver, TmacLoginPage.class);
+        tmacloginPage.loginIntoTmac("invaliduser", map2.get("Station"));
+        Assert.assertEquals(tmacloginPage.getErrorMessage(),"Invalid LAN ID detected. Please contact administrator for TMAC access.\nX", "Tmac invalid login assertion failed");
+    }
+    @Test(dependsOnMethods = "VerifyInvalidAgentLogin")
+    public void VerifyAutoInDropdownSelected() throws IOException {
+        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\LoginData.xlsx";
+        String filePath1 = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentSettingsData.xlsx";
+        Map<String, String> map1 = new ExcelReader(filePath1, "Create").getTestData().get(0);
+        AgentSettingsDetails agentSettingsDetails = new AgentSettingsDetails(map1);
+        Map<String, String> map2 = new ExcelReader(filePath, "TMAC").getTestData().get(1);
+
+        TmacLoginPage tmacloginPage = PageFactory.createPageInstance(driver,TmacLoginPage.class);
+        tmacloginPage.loginIntoTmac(agentSettingsDetails.getUsername(),map2.get("Station"));
+        Assert.assertTrue(tmacloginPage.verifyUserLogged(),"Tmac login failed");
+        TmacPopupPage tmacPopupPage= PageFactory.createPageInstance(driver,TmacPopupPage.class);
+        tmacPopupPage.switchToWindow(1);
+        Assert.assertTrue(tmacPopupPage.isTmacPopUpDisplayed(),"TMAC popup not displayed");
+        tmacPopupPage.changeStatus("Available");
+        VoiceLibrary cl=new VoiceLibrary();
+        cl.open();
+        cl.loginAES("AVAYA#CMSIM#CSTA#AESSIM","Tetherfi","Tetherfi_01");
+        cl.loginCallingStation("50004","40004");
+        cl.initiateCall("49014");
+        Assert.assertTrue(tmacPopupPage.verifyCallReceived(),"TMAC call received");
+        tmacPopupPage.receiveCall(0);
+        tmacPopupPage.dropCall();
+        Assert.assertEquals(tmacPopupPage.getCurrentStatus(),"Available");
+    }
+   // @Test(dependsOnMethods = "VerifyInvalidAgentLogin")
+    public void VerifyRoutingCallByDisablingVoice() throws IOException {
+        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\LoginData.xlsx";
+        String filePath1 = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentSettingsData.xlsx";
+        Map<String, String> map1 = new ExcelReader(filePath1, "Create").getTestData().get(0);
+        AgentSettingsDetails agentSettingsDetails = new AgentSettingsDetails(map1);
+        Map<String, String> map2 = new ExcelReader(filePath, "TMAC").getTestData().get(1);
+
+        TmacLoginPage tmacloginPage = PageFactory.createPageInstance(driver,TmacLoginPage.class);
+        tmacloginPage.loginIntoTmac(agentSettingsDetails.getUsername(),map2.get("Station"));
+        Assert.assertTrue(tmacloginPage.verifyUserLogged(),"Tmac login failed");
         TmacPopupPage tmacPopupPage= PageFactory.createPageInstance(driver,TmacPopupPage.class);
         tmacPopupPage.switchToWindow(1);
         Assert.assertTrue(tmacPopupPage.isTmacPopUpDisplayed(),"TMAC popup not displayed");
