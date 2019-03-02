@@ -23,8 +23,21 @@ public class FaxPage extends BasePage {
     @FindBy(css="a[href$='/FaxSenders/Index'] div")
     private WebElement faxSenders;
 
-
-
+    @FindBy(css="a[href$='/FaxAutoAckTemplates/Index'] div")
+    private WebElement faxAutoACKConfig;
+    
+    @FindBy(css="a[href$='/FaxRouteMap/Index'] div")
+    private WebElement faxRoutingConfig;
+    
+    @FindBy(css="a[href$='/FaxTemplate/Index'] div")
+    private WebElement faxTemplate;
+    
+    @FindBy(css="a[href$='/FaxScheduler/Index'] div")
+    private WebElement sendFax;
+    
+    @FindBy(css="a[href$='/SplitFax/Index'] div")
+    private WebElement splitFax;
+    
     public boolean isFaxPageDisplayed() {
         boolean status = false;
         waitForLoad(driver);
@@ -48,4 +61,29 @@ public class FaxPage extends BasePage {
         waitUntilWebElementIsClickable(faxSenders);
         selectWebElement(faxSenders);
     }
+
+	public void navigateToFaxAutoACKConfigurationPage() {
+		waitUntilWebElementIsClickable(faxAutoACKConfig);
+        selectWebElement(faxAutoACKConfig);
+	}
+
+	public void navigateToFaxRoutingConfigurationPage() {
+		waitUntilWebElementIsClickable(faxRoutingConfig);
+        selectWebElement(faxRoutingConfig);
+	}
+
+	public void navigateToFaxTemplatePage() {
+		waitUntilWebElementIsClickable(faxTemplate);
+        selectWebElement(faxTemplate);
+	}
+
+	public void navigateToSendFaxPage() {
+		waitUntilWebElementIsClickable(sendFax);
+		selectWebElement(sendFax);
+	}
+
+	public void navigateToSplitFaxPage() {
+		waitUntilWebElementIsClickable(splitFax);
+		selectWebElement(splitFax);
+	}
 }

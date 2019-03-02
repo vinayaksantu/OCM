@@ -214,8 +214,8 @@ public class AgentSettingsPage extends BasePage {
         selectDropdownFromVisibleText(crmnameListBox,details.getCrmName());
        // selectWebElement(texttemplatenameDropdown);
        // selectDropdownFromVisibleText(texttemplatenameListBox,details.getTextTemplateName());
-        selectWebElement(numericTextbox.get(1));
-        enterValueToTxtFieldWithoutClear(totalTabsAllowedTextBox,String.valueOf(details.getTotalTabsAllowed()));
+        //selectWebElement(numericTextbox.get(1));
+        //enterValueToTxtFieldWithoutClear(totalTabsAllowedTextBox,String.valueOf(details.getTotalTabsAllowed()));
         selectWebElement(numericTextbox.get(2));
         enterValueToTxtFieldWithoutClear(totalVoiceTabsAllowedTextBox,String.valueOf(details.getTotalVoiceTabs()));
         selectWebElement(numericTextbox.get(3));
@@ -297,8 +297,8 @@ public class AgentSettingsPage extends BasePage {
         selectDropdownFromVisibleText(crmnameListBox,details.getCrmName());
         // selectWebElement(texttemplatenameDropdown);
         // selectDropdownFromVisibleText(texttemplatenameListBox,details.getTextTemplateName());
-        selectWebElement(numericTextbox.get(1));
-        enterValueToTxtField(totalTabsAllowedTextBox,String.valueOf(details.getTotalTabsAllowed()));
+        //selectWebElement(numericTextbox.get(1));
+        //enterValueToTxtField(totalTabsAllowedTextBox,String.valueOf(details.getTotalTabsAllowed()));
         selectWebElement(numericTextbox.get(2));
         enterValueToTxtField(totalVoiceTabsAllowedTextBox,String.valueOf(details.getTotalVoiceTabs()));
         selectWebElement(numericTextbox.get(3));

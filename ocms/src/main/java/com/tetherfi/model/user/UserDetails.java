@@ -1,6 +1,6 @@
 package com.tetherfi.model.user;
 
-import org.apache.commons.lang3.RandomStringUtils;
+
 
 import java.util.Map;
 
@@ -11,8 +11,8 @@ public class UserDetails {
     private String modifyReason;
     private String deleteReason;
     private String updatedUserId;
+    private String query;
 
-    
     public UserDetails(Map<String,String> map){
         userId=readUserId(map);
         roleName=readRoleName(map);
@@ -20,8 +20,13 @@ public class UserDetails {
         modifyReason=readModifyReason(map);
         deleteReason=readDeleteReason(map);
         updatedUserId=readUpdatedUserId(map);
+        query=readquery(map);
     }
-    private String readUpdatedUserId(Map<String, String> map) {
+    private String readquery(Map<String, String> map) {
+		String value=map.get("Query");
+		return value;
+	}
+	private String readUpdatedUserId(Map<String, String> map) {
     	String value=map.get("Updated User ID");
         return value;
 	}
@@ -50,6 +55,7 @@ public class UserDetails {
     public String getUpdateRoleName(){return updateRoleName;}
     public String getModifyReason(){return modifyReason;}
     public String getDeleteReason(){return deleteReason;}
-	public String getUpdatedUserId(){return updatedUserId;
+	public String getUpdatedUserId(){return updatedUserId;}
+	public String getQuery() { return query;
 	}
 }

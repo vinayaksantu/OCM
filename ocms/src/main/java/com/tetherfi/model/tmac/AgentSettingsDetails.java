@@ -17,7 +17,6 @@ public class AgentSettingsDetails {
     private String features;
     private String crmName;
     private String textTemplateName;
-    private String totalTabsAllowed;
     private String totalVoiceTabs;
     private String totalChatTabs;
     private String totalEmailTabs;
@@ -25,6 +24,8 @@ public class AgentSettingsDetails {
     private String totalVideoChatTabs;
     private String totalFaxTabs;
     private String totalSMSTabs;
+    private String totalFaxoutTabs;
+    private String totalFaxInternationalTabs;
     private String[] featurestobeSeleted;
     private boolean gotoACWaftereachACDcalls;
     private boolean autoanswerallACDcalls;
@@ -48,7 +49,8 @@ public class AgentSettingsDetails {
         features=readFeatures(map);
         crmName=readCRMname(map);
         textTemplateName=readTextTemplateName(map);
-        totalTabsAllowed=readTotalTabsAllowed(map);
+        totalFaxoutTabs=readTotalFaxoutTabs(map);
+        totalFaxInternationalTabs=readTotalFaxInternationalTabs(map);
         totalAudioChatTabs=readTotalAudioChatTabs(map);
         totalVideoChatTabs=readTotalVideoChatTabs(map);
         totalSMSTabs=readTotalSMSTabs(map);
@@ -185,8 +187,14 @@ public class AgentSettingsDetails {
         return value;
     }
 
-    private String readTotalTabsAllowed(Map<String, String> map) {
-        String value=map.get("Total Tabs Allowed");
+    private String readTotalFaxoutTabs(Map<String, String> map) {
+        String value=map.get("Total Faxout Tabs Allowed");
+        if(value==null||value.equalsIgnoreCase("random.str")){
+            value="0";}
+        return value;
+    }
+    private String readTotalFaxInternationalTabs(Map<String, String> map) {
+        String value=map.get("Total FaxInternational Tabs Allowed");
         if(value==null||value.equalsIgnoreCase("random.str")){
             value="0";}
         return value;
@@ -315,10 +323,6 @@ public class AgentSettingsDetails {
         return textTemplateName;
     }
 
-    public String getTotalTabsAllowed() {
-        return totalTabsAllowed;
-    }
-
     public String  getTotalVoiceTabs() {
         return totalVoiceTabs;
     }
@@ -382,4 +386,8 @@ public class AgentSettingsDetails {
     public String getTotalSMSTabs() {
         return totalSMSTabs;
     }
+
+    public String getTotalFaxoutTabs() { return totalFaxoutTabs; }
+
+    public String getTotalFaxInternationalTabs() { return totalFaxInternationalTabs; }
 }

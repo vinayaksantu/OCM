@@ -17,12 +17,18 @@ public class UserRoleMappingPage extends BasePage {
 
     @FindBy(css=".k-grid-content .k-selectable")
     private WebElement gridContent;
+    
+    @FindBy(xpath = "//div[@id='tabstripMappingMakerChecker']/ul/li")
+    private List<WebElement> navTabs;
 
     @FindBy(css=".k-loading-img")
     private WebElement loadingImg;
 
     @FindBy(css="modal-backdrop")
     private WebElement backdropImg;
+    
+    @FindBy(css="#makeChanges")
+    private WebElement makeChangesBtn;
 
     @FindBy(css=".k-grid-top .k-button-icontext .k-i-add")
     private WebElement addNewUserRoleMappingRecordBtn;
@@ -133,12 +139,28 @@ public class UserRoleMappingPage extends BasePage {
     //@FindBy(css="#popupSearchUsers button[class='close']")
     @FindBy(css="div[style*='display: block'] a[aria-label='Close']")
     private WebElement closeBtn;
+    
+    @FindBy(xpath="//button[@class='k-button k-button-icontext k-grid-excel']")
+	private WebElement exporttoexcel;
 
     public boolean isUserRoleMappingPageDisplayed() throws InterruptedException {
         waitForLoad(driver);
         waitForJqueryLoad(driver);
         return userRoleMapping.isEnabled();
     }
+    
+    public void navigateToTab(String tabname){
+        waitUntilWebElementListIsVisible(navTabs);
+        waitUntilWebElementListIsClickable(navTabs);
+        for(WebElement ele: navTabs){
+            if(ele.getText().equalsIgnoreCase(tabname)){selectWebElement(ele);break;}
+        }
+    }
+    
+    public void clickOnMakeChangesBtn() {
+    	selectWebElement(makeChangesBtn);
+    }
+    
     public void addNewUserRoleMappingRecord(UserRoleMappingDetails details) {
         selectWebElement(addNewUserRoleMappingRecordBtn);
         enterValueToTxtField(userToSearchTextBox,details.getBankUserName());
@@ -259,4 +281,45 @@ public class UserRoleMappingPage extends BasePage {
         if(waitUntilTextToBePresentInWebElement(successmsg,"Record Updated Successfully"))
         {return true;}else{return false;}
     }
+    
+    public boolean isAddBtnDisplayed() {
+    	return addNewUserRoleMappingRecordBtn.isDisplayed() && addNewUserRoleMappingRecordBtn.isEnabled();
+    }
+    
+    public boolean isEditBtnDisplayed() {
+    	Boolean status = false;
+    	try {
+    		if(editBtn.isDisplayed() && editBtn.isEnabled())
+    			status = true;
+    	}catch(Exception e) {
+    		status = false;
+    	}
+		return status;
+    }
+    
+    public boolean isDeleteBtnDisplayed() {
+    	Boolean status = false;
+    	try {
+    		if(deleteBtn.isDisplayed() && deleteBtn.isEnabled())
+    			status = true;
+    	}catch(Exception e) {
+    		status = false;
+    	}
+		return status;
+    }
+    
+    public boolean isExportBtnDisplayed() {
+    	return exporttoexcel.isDisplayed() && exporttoexcel.isEnabled();
+    }
+
+	public boolean isMakeChangesBtnDisplayed() {
+		Boolean status = false;
+    	try {
+    		if(makeChangesBtn.isDisplayed() && makeChangesBtn.isEnabled())
+    			status = true;
+    	}catch(Exception e) {
+    		status = false;
+    	}
+		return status;
+	}
 }

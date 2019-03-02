@@ -17,7 +17,7 @@ import java.lang.reflect.Method;
 import java.util.Map;
 
 public class AgentLoginLogoutReportTest extends BaseTest {
-	Screenshot screenshot=new Screenshot();
+	Screenshot screenshot=new Screenshot(driver);
     @BeforeMethod
     public void NavigateToOcmReportsPage() {
         HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);

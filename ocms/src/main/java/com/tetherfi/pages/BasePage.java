@@ -97,7 +97,7 @@ public class BasePage {
 
     public void waitForWebElementIgnoringStaleException(WebElement element) 
     {
-        WebDriverWait webDriverWait = new WebDriverWait(driver, 20);
+        WebDriverWait webDriverWait = new WebDriverWait(driver, 30);
         webDriverWait.ignoring(StaleElementReferenceException.class).until(ExpectedConditions.visibilityOf(element));
     }
 
@@ -117,7 +117,7 @@ public class BasePage {
     }
     public void waitUntilWebElementIsVisible(WebElement webElement) { 
         {
-            WebDriverWait webDriverWait = new WebDriverWait(driver, 20);
+            WebDriverWait webDriverWait = new WebDriverWait(driver, 30);
             webDriverWait.ignoring(StaleElementReferenceException.class).until(ExpectedConditions.visibilityOf(webElement));
         }
 		
@@ -148,6 +148,11 @@ public class BasePage {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
+    }
+    public void enterValueToTxtBox(List<WebElement> webElement, String value) {
+        webElement.get(1).clear();
+        webElement.get(0).click();
+        webElement.get(1).sendKeys(value);
     }
     public void enterValueToTxtFieldWithoutClear(WebElement webElement, String value) {
         waitUntilWebElementIsVisible(webElement);
@@ -299,7 +304,7 @@ public class BasePage {
         waitUntilWebElementListIsVisible(webElementList);
         waitUntilWebElementListIsClickable(webElementList);
         for(WebElement ele: webElementList){
-        	System.out.println(ele);
+        	//System.out.println(ele);
             if(ele.getText().equalsIgnoreCase(text)){ clickOn(ele);break;}
         }
     }

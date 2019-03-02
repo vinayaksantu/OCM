@@ -103,7 +103,9 @@ public class CallBackManagementPage extends BasePage {
 
     @FindBy(css = "#toast-container .toast-error")
     private List<WebElement> errorMsg;
-
+    
+    @FindBy(xpath="//button[@class='k-button k-button-icontext k-grid-excel']")
+	private WebElement exporttoexcel;
 
     public boolean isCallBackManagementPageDisplayed() throws InterruptedException {
         waitForLoad(driver);
@@ -189,5 +191,9 @@ public class CallBackManagementPage extends BasePage {
 
         }
 
+    }
+    
+    public boolean isExportBtnDisplayed() {
+    	return exporttoexcel.isDisplayed() && exporttoexcel.isEnabled();
     }
 }

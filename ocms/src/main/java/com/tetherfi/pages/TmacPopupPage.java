@@ -57,6 +57,9 @@ public class TmacPopupPage extends BasePage {
     @FindBy(css="ul li[id^='li_1']")
     private List<WebElement> tabs;
 
+    @FindBy(css = "button[id='btnCloseTab1']")
+    private List<WebElement> closeTabs;
+
     @FindBy(css="input[id^='textCallStatus']")
     private WebElement authStatus;
     @FindBy(css="input[id^='textChatAuthType']")
@@ -83,6 +86,8 @@ public class TmacPopupPage extends BasePage {
     @FindBy(css="input[id^='textPageTag1']")
     private WebElement custLastPageVisited;
 
+	@FindBy(css="a[id^='btnTextChat_Answer1']")
+    private WebElement recieveChatBtn;
     @FindBy(css="a[id^='btnTextChat_Disconnect1']")
     private List<WebElement> endChat;
 
@@ -92,8 +97,14 @@ public class TmacPopupPage extends BasePage {
     @FindBy(css="a[id^='btnAnswer1']")
     private WebElement receiveCallBtn;
 
+    @FindBy(css="a[id^='btnAnswer1']")
+    private List<WebElement> receiveCallListBtn;
+
     @FindBy(css="a[id^='btnDrop1']")
     private WebElement dropCallBtn;
+
+    @FindBy(css="a[id^='btnDrop1']")
+    private List<WebElement> dropCallListBtn;
 
     @FindBy(id="sendText")
     private WebElement sendDataTextbox;
@@ -259,8 +270,9 @@ public class TmacPopupPage extends BasePage {
     }
     public void receiveCall(){
         try {
-        Thread.sleep(15000);
+        Thread.sleep(5000);
         selectWebElement(receiveCallBtn);
+        Thread.sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -294,14 +306,14 @@ public class TmacPopupPage extends BasePage {
         }
     }
     public void dropCall(){
-        try {selectWebElement(changeStatus);
-            selectWebElement(changeStatus);
+        try {//selectWebElement(changeStatus);
+            //selectWebElement(changeStatus);
         selectWebElement(dropCallBtn);
             Thread.sleep(3000);
-            ArrayList<String> Tabs = new ArrayList<String>(driver.getWindowHandles());
+            /*ArrayList<String> Tabs = new ArrayList<String>(driver.getWindowHandles());
             driver.switchTo().window(Tabs.get(2));
             driver.close();
-            driver.switchTo().window(Tabs.get(1));
+            driver.switchTo().window(Tabs.get(1));*/
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -311,5 +323,52 @@ public class TmacPopupPage extends BasePage {
         driver.switchTo().window(Tabs.get(2));
         driver.close();
         driver.switchTo().window(Tabs.get(1));
+    }
+    public boolean verifyCallReceived(){
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        if(receiveCallBtn.isDisplayed()&&receiveCallBtn.isEnabled()){return true;}else{return false;}
+    }
+    public boolean verifyNumberOfTabsOpen(int t){
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+		switchToWindow(1);				  
+        if(tabs.size()==t){return true;}else{return false;}
+    }
+    public boolean verifyCallAutoAnswered(){
+        return (dropCallBtn.isDisplayed()&&dropCallBtn.isEnabled());
+    }
+    public void receiveCall(int i){
+        try {
+            Thread.sleep(5000);
+            selectWebElement(receiveCallListBtn.get(i));
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+    public void dropCall(int i){
+        try {
+            Thread.sleep(2000);
+            selectWebElement(dropCallListBtn.get(i));
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+    public void closeTab(int i){ selectWebElement(closeTabs.get(i));
+    }
+	public boolean verifyChatReceived(){
+        switchToWindow(1);
+        if(tabs.get(0).isDisplayed()&&endChat.get(0).isEnabled()){return true;}else{return false;}
+    }
+    public boolean verifyChatAutoAnswered(){
+        return (endChat.get(0).isDisplayed()&&endChat.get(0).isEnabled());
     }
 }

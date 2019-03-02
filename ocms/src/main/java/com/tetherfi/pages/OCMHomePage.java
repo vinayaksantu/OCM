@@ -48,7 +48,10 @@ public class OCMHomePage extends BasePage {
 
     @FindBy(css="a[href$='/CMDataLink/Index'] div")
     private WebElement cmDataSync;
-
+    
+    @FindBy(css="a[href$='/DynamicReportDesigner/Index'] div")
+    private WebElement dynamicReportDesigner;
+    
     @FindBy(css="a[href$='/AgentSkillAssignment/Index'] div")
     private WebElement agentSkillAssignment;
 	
@@ -63,6 +66,36 @@ public class OCMHomePage extends BasePage {
 
     @FindBy(css="a[href$='/ApplicationAccessControl/Index'] div")
     private WebElement applicationAccessControl;
+    
+    @FindBy(css="a[href$='/ReportDesigner/Index'] div")
+    private WebElement reportDesigner;
+    
+    @FindBy(css="a[href$='/CepCodeMapping/Index'] div")
+    private WebElement cepEventMapping;
+    
+    @FindBy(css="a[href$='/IwRoleBasedAccessMatrix/Index'] div")
+    private WebElement iwRoleBasedAccessMatrix;
+    
+    @FindBy(css="a[href$='/ModuleExitNodeMapping/Index'] div")
+    private WebElement moduleExitNodeMapping;
+    
+    @FindBy(css="a[href$='/ExportScheduler/Index'] div")
+    private WebElement exportScheduler;
+    
+    @FindBy(css="a[href$='/ReportScheduler/Index'] div")
+    private WebElement reportScheduler;
+    
+    @FindBy(css="a[href$='/ReportScheduler/Index'] div")
+    private WebElement tpRedemption;
+    
+    @FindBy(css="#adminInvalidAccess h2")
+    private WebElement noAccess;
+    
+    @FindBy(css="a[href$='/BulkUploadModule/Index'] div")
+    private WebElement bulkUploadModule;
+    
+    @FindBy(css="a[href$='/WorkFlowDesigner/Index'] div")
+    private WebElement workflowDesigner;
     
     // @FindBy(xpath="//a[@onclick='setLastTabClickedName(Ivr)']")
     // private WebElement IVR;
@@ -90,7 +123,7 @@ public class OCMHomePage extends BasePage {
     }
     public void navigateToWebConfigurationPage(){selectWebElement(webConfiguration);}
     public void navigateToLogfileDownloader(){selectWebElement(logfileDownloader);}
-    public void navigateToCmDataSyncPage(){ selectWebElement(cmDataSync); }
+    public void navigateToCMDataSyncPage(){ selectWebElement(cmDataSync); }
     public void navigateToAgentSkillAssignmentPage(){selectWebElement(agentSkillAssignment);}
 	public void navigateToSkillConfigurationPage(){selectWebElement(skillConfiguration);}
     public void navigateToQueryBrowserPage(){selectWebElement(queryBrowser);}
@@ -107,6 +140,59 @@ public class OCMHomePage extends BasePage {
 	public void navigateToOpaqueDataPage() 
 	{
 		selectWebElement(opaqueData);
+	}
+
+	public boolean VerifyNoModulesAvailable() {
+		if(noAccess.getText().equals("You do not have access to any of the resources"))
+			return true;
+		else
+			return false;
+	}
+
+	public void navigateToCepEventMappingPage() {
+		selectWebElement(cepEventMapping);
+	}
+
+	public void navigateToExportSchedulerPage() {
+		selectWebElement(exportScheduler);
+	}
+
+	public void navigateToBulkUploadModulePage() {
+		selectWebElement(bulkUploadModule);
+		
+	}
+
+	public void navigateToDynamicReportDesignerPage() {
+		selectWebElement(dynamicReportDesigner);
+		
+	}
+
+	public void navigateToIWRoleBasedAccessMatrixPage() {
+		selectWebElement(iwRoleBasedAccessMatrix);
+	}
+
+	public void navigateToModuleExitNodeMappingPage() {
+		selectWebElement(moduleExitNodeMapping);
+	}
+
+	public void navigateToReportDesignerPage() {
+		selectWebElement(reportDesigner);
+	}
+
+	public void navigateToReportDownloadsPage() {
+		selectWebElement(reportDownloads);
+	}
+
+	public void navigateToReportSchedulerPage() {
+		selectWebElement(reportScheduler);
+	}
+
+	public void navigateToTPRedemptionPage() {
+		selectWebElement(tpRedemption);
+	}
+
+	public void navigateToWorkFlowDesignerPage() {
+		selectWebElement(workflowDesigner);
 	}
 
 

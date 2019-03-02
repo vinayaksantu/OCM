@@ -221,7 +221,22 @@ public class OCMReportsPage extends BasePage {
 
     @FindBy(css=".k-grid-pdf")
     private WebElement exportToPDF;
-
+    
+    public boolean isShowButtonsDisplayed() {
+    	return showReportBtn.get(0).isDisplayed() && showReportBtn.get(1).isDisplayed() && showReportBtn.get(0).isEnabled() && showReportBtn.get(1).isEnabled();    	
+    }
+    
+    public boolean isExportBtnDisplayed() {
+    	return exportReportBtn.isDisplayed() && exportReportBtn.isEnabled();
+    }
+    
+    public boolean isExportBtnNotDisplayed() {
+    	if(exportReportBtn.isDisplayed() && exportReportBtn.isEnabled())
+    		return false;
+    	else
+    		return true;
+    }
+    
     public boolean isOCMReportPageIsDisplayed() {
         waitForLoad(driver);
        // waitForJqueryLoad(driver);
@@ -359,6 +374,19 @@ public class OCMReportsPage extends BasePage {
         waitForJqueryLoad(driver);
         return (ocmReportsManager.getText().equals("Report Scheduler"));
     }
+    
+    public void chooseReportChannel(String rptChannel) {
+    	waitForJqueryLoad(driver);
+    	selectWebElement(reportChannelDropdown);
+        selectDropdownFromVisibleText(reportChannelListBox, rptChannel);
+    }
+    
+    public void chooseReportName(String rptName) {
+    	waitForJqueryLoad(driver);
+    	selectWebElement(reportNameDropdown);
+        selectDropdownFromVisibleText(reportNameListbox, rptName);
+    }
+    
     public void chooseReport(ReportDetails details)
     {
         waitUntilWebElementIsVisible(formContents);
@@ -929,4 +957,13 @@ return status;
         }
         return status;
     }
+
+	public boolean isReportListDisplayed() {
+		selectWebElement(reportNameDropdown);
+		waitForJqueryLoad(driver);
+		if(reportNameListbox.size()>0)
+			return false;
+		else
+			return true;
+	}
 }

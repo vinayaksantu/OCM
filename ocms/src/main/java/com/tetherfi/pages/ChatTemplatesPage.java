@@ -26,7 +26,7 @@ public class ChatTemplatesPage extends BasePage {
     @FindBy(css="#tdrillgrid2 .k-grid-content")
     private WebElement groupsGridContent;
 
-    @FindBy(css="#tgrid #create")
+    @FindBy(id="createtwo")
     private WebElement addNewChatTemplatesRecordBtn;
 
     @FindBy(css="#tdrillgrid #create")
@@ -112,6 +112,9 @@ public class ChatTemplatesPage extends BasePage {
 
     @FindBy(id="noButton")
     private WebElement noBtn;
+    
+    @FindBy(xpath="//button[@class='k-button k-button-icontext k-grid-excel']")
+	private List<WebElement> exporttoexcel;
 
     public boolean isChatTemplatePageDisplayed() {
         waitForLoad(driver);
@@ -313,5 +316,35 @@ public class ChatTemplatesPage extends BasePage {
         selectWebElement(deleteReasonTextBox);
         enterValueToTxtField(deleteReasonTextBox,reason);
         selectWebElement(yesBtn);
+    }
+    public boolean isAddBtnDisplayed() {
+    	return addNewChatTemplatesRecordBtn.isDisplayed() && addNewChatTemplatesRecordBtn.isEnabled();
+    }
+    
+    public boolean isEditBtnDisplayed() {
+    	Boolean status = false;
+    	try {
+    		if(editBtn.isDisplayed() && editBtn.isEnabled())
+    			status = true;
+    	}catch(Exception e) {
+    		status = false;
+    	}
+		return status;
+    }
+    
+    public boolean isDeleteBtnDisplayed() {
+    	Boolean status = false;
+    	try {
+    		if(deleteBtn.isDisplayed() && deleteBtn.isEnabled())
+    			status = true;
+    	}catch(Exception e) {
+    		status = false;
+    	}
+		return status;
+    }
+    
+    public boolean isExportBtnDisplayed() {
+    	waitForJqueryLoad(driver);
+    	return exporttoexcel.get(2).isDisplayed() && exporttoexcel.get(2).isEnabled();
     }
 }

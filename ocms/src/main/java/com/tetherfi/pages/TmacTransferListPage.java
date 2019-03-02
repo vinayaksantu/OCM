@@ -8,6 +8,8 @@ import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -811,4 +813,35 @@ public class TmacTransferListPage extends BasePage {
 		//selectWebElement(skillIdVdnList.get(1));
 		enterValueToTxtField(skillIdVdnList.get(1),tmacTransferListDetails.getVdn());
 	}
+	
+	public boolean isAddBtnDisplayed() {
+    	return addNewTmacTransferListBtn.get(0).isDisplayed() && addNewTmacTransferListBtn.get(0).isEnabled();
+    }
+    
+    public boolean isEditBtnDisplayed() {
+    	Boolean status = false;
+    	try {
+    		if(editButton.isDisplayed() && editButton.isEnabled())
+    			status = true;
+    	}catch(Exception e) {
+    		status = false;
+    	}
+		return status;
+    }
+    
+    public boolean isDeleteBtnDisplayed() {
+    	Boolean status = false;
+    	try {
+    		if(deleteButton.isDisplayed() && deleteButton.isEnabled())
+    			status = true;
+    	}catch(Exception e) {
+    		status = false;
+    	}
+		return status;
+    }
+    
+    public boolean isExportBtnDisplayed() {
+    	return exporttoexcel.isDisplayed() && exporttoexcel.isEnabled();
+    }
+    
 }

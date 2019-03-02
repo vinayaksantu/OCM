@@ -109,7 +109,7 @@ public class WorkCodeListPage extends BasePage{
     @FindBy(xpath="//a[@class='k-button k-button-icontext k-grid-cancel']")
     private WebElement cancelbtn;
     
-    @FindBy(css="#toast-container .toast-error")
+    @FindBy(css="#toast-container .toast-error .toast-message")
     private List<WebElement> errorMsg;
     
     @FindBy(className="toast-message")
@@ -353,7 +353,13 @@ public class WorkCodeListPage extends BasePage{
 			else
 			{return false;}
 	}
-
+	public boolean errormessage() {
+		waitUntilWebElementListIsVisible(errorMsg);
+		if(errorMsg.size()>0)
+			return false;
+		else 
+			return true;
+	}
 	public void addNewWorkCode(WorkCodeListDetails details) {
 		selectWebElement(addnewrecordbtn);
 		chooseWorkLevel(details);
@@ -448,8 +454,13 @@ public class WorkCodeListPage extends BasePage{
         chooseWorkgroup(details);
 		enterValueToTxtField(addnametextbox,details.getName());
 		selectWebElement(savebtn);
+		try {
+			selectWebElement(cancelbtn);
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
 	}
-	
 	public void searchWorkcodeList(String Name) {
 		selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
@@ -610,6 +621,8 @@ public class WorkCodeListPage extends BasePage{
 
 	public boolean verifyexportToExcelSheet(List<Map<String, String>> maplist) {
 		List<Map<String,String>> UI=getdata(); 
+		System.out.println(maplist);
+		System.out.println(UI);
 		if(UI.equals(maplist))
 		return true;
 		else
@@ -675,7 +688,7 @@ public class WorkCodeListPage extends BasePage{
 			String col=null;
 			for(int j=1;j<headers.size();j++){
 				if(headers.get(j).getText().equals("Last Changed On")){
-					col=cols.get(j).getText().substring(10);
+					col=cols.get(j).getText().substring(11);
 					}
 				else
 					col=cols.get(j).getText();
@@ -834,123 +847,98 @@ public class WorkCodeListPage extends BasePage{
 	            }
 	        return status;
 	    }	
-	    public boolean VerifyAccesss() {
-			Boolean Status=false;
-			try {
-				waitforElementIsClickable(addnewrecordbtn);
-			}
-			catch(Exception e) {
-				try{
-					waitforElementIsClickable(editbtn);
-				}
-				catch(Exception e3){
-					try {
-						waitforElementIsClickable(deletebtn);
-					e3.printStackTrace();
-					}
-					catch(Exception e2){
-						try {
-							waitforElementIsClickable(exporttoexcel);
-						e2.printStackTrace();
-						}
-						catch(Exception e1){
-						Status=true;
-						e1.printStackTrace();
-						}
-					}
-				}
-	        }
-			return Status;
-		}	
 		private void waitforElementIsClickable(WebElement ele){
 			WebDriverWait wait = new WebDriverWait(driver, 5);
 			wait.until(ExpectedConditions.elementToBeClickable(ele));	
 		}
-		public boolean verifyAddAccesss() {
-			Boolean Status=false;
+		public void SortByAscending() {
+			selectWebElement(name);
+			selectWebElement(exporttoexcel);
 			try {
-				waitforElementIsClickable(addnewrecordbtn);
-				waitforElementIsClickable(editbtn);
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
 			}
-			catch(Exception e){
-				try {
-				waitforElementIsClickable(deletebtn);
-				}
-				catch(Exception e1){
-					try {
-						waitforElementIsClickable(exporttoexcel);
-					}
-					catch(Exception e2){
-						Status=true;
-						e2.printStackTrace();
-					}
-				}
-			}
-			return Status;
 		}
-		public boolean verifyEditAccesss() {
-			Boolean Status=false;
+
+		public void SortByDescending() {
+			selectWebElement(name);
+			selectWebElement(name);
+			selectWebElement(exporttoexcel);
 			try {
-				waitforElementIsClickable(editbtn);
-				waitforElementIsClickable(deletebtn);
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
 			}
-			catch(Exception e) {
-				try {
-					waitforElementIsClickable(exporttoexcel);
-				}
-				catch(Exception e1) {
-					try {
-						waitforElementIsClickable(addnewrecordbtn);
-					}
-					catch(Exception e2) {
-						Status=true;
-					}
-				}
-			}
-			return Status;
 		}
-		
-		public boolean verifyDeleteAccesss() {
-			Boolean Status=false;
-			try {
-				waitforElementIsClickable(deletebtn);	
-				waitforElementIsClickable(editbtn);
-			}
-			catch(Exception e) {
-				try {
-					waitforElementIsClickable(exporttoexcel);
-				}
-				catch(Exception e1) {
-					try {
-						waitforElementIsClickable(addnewrecordbtn);
-					}
-					catch(Exception e2) {
-						Status=true;
-					}
-				}
-			}
-			return Status;
+
+		public boolean ExporttoExcelWithoutData(WorkCodeListDetails workcodeListDetails) {
+			searchWorkcodeList(workcodeListDetails.getName());
+			waitForJqueryLoad(driver);
+			selectWebElement(exporttoexcel);
+			if(errorMsg.get(0).getText().equals("There is no record to export"))
+				return true;
+			else
+			return false;
 		}
-		public boolean verifyExportAccesss() {
-			Boolean Status=false;
-			try {
-				waitforElementIsClickable(exporttoexcel);	
-				waitforElementIsClickable(editbtn);
-			}
-			catch(Exception e) {
-				try {
-					waitforElementIsClickable(deletebtn);
+
+		public List<Map<String, String>> capturelist() {
+			int item=Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
+	        int pagersize=Integer.valueOf(pagerSize.getText());
+	        int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
+			List<Map<String,String>> arr=new ArrayList<Map<String,String>>();
+			for(int k=0;k<=pages;k++){
+			waitUntilWebElementIsVisible(auditGridContent);
+			List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
+			List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
+			String col=null;
+			for(int i=1;i<rows.size();i++) {
+				Map<String,String> map = new HashMap<String,String>();
+				List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
+				for(int j=1;j<headers.size();j++) {
+					if(headers.get(j).getText().equals("Name")){
+						col=cols.get(j).getText();
+					map.put(headers.get(j).getText(),col);}
 				}
-				catch(Exception e1) {
-					try {
-						waitforElementIsClickable(addnewrecordbtn);
-					}
-					catch(Exception e2) {
-						Status=true;
-					}
-				}
+				map.remove("");
+				arr.add(map);
 			}
-			return Status;
+			if(k!=pages)
+			{
+				nextPageIcon.click();
+				waitForJqueryLoad(driver);}
+			}
+			System.out.println(arr);
+				return arr;
 		}
+		public boolean isAddBtnDisplayed() {
+    	return addnewrecordbtn.isDisplayed() && addnewrecordbtn.isEnabled();
+    }
+    
+    public boolean isEditBtnDisplayed() {
+    	Boolean status = false;
+    	try {
+    		if(editbtn.isDisplayed() && editbtn.isEnabled())
+    			status = true;
+    	}catch(Exception e) {
+    		status = false;
+    	}
+		return status;
+    }
+    
+    public boolean isDeleteBtnDisplayed() {
+    	Boolean status = false;
+    	try {
+    		if(deletebtn.isDisplayed() && deletebtn.isEnabled())
+    			status = true;
+    	}catch(Exception e) {
+    		status = false;
+    	}
+		return status;
+    }
+    
+    public boolean isExportBtnDisplayed() {
+    	return exporttoexcel.isDisplayed() && exporttoexcel.isEnabled();
+    }
 }
 
