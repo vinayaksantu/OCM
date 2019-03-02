@@ -7229,7 +7229,7 @@ public class UserManagementE2ETest extends BaseTest {
 	    Assert.assertTrue(tmacPage.isTMACPageDisplayed(),"TMAC page assertion failed");
         tmacPage.navigateToAgentSettingsPage();
 	    String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentSettingsData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(2);
+        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(4);
         AgentSettingsDetails agentSettingsDetails = new AgentSettingsDetails(map);
         AgentSettingsNewDesignPage agentSettingsPage = PageFactory.createPageInstance(driver, AgentSettingsNewDesignPage.class);
         agentSettingsPage.addRecdOnlyInfo(agentSettingsDetails);
