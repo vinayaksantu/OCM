@@ -143,6 +143,11 @@ public class BasePage {
         waitUntilWebElementIsClickable(webElement);
         webElement.clear();
         webElement.sendKeys(value);
+        try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
     }
     public void enterValueToTxtBox(List<WebElement> webElement, String value) {
         webElement.get(1).clear();

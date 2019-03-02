@@ -3,6 +3,7 @@ package com.tetherfi.test;
 import com.tetherfi.model.user.UserDetails;
 import com.tetherfi.pages.HomePage;
 import com.tetherfi.pages.OCMHomePage;
+import com.tetherfi.pages.RoleBasedAccessManagementPage;														
 import com.tetherfi.pages.UserManagementPage;
 import com.tetherfi.utility.ExcelReader;
 import com.tetherfi.utility.PageFactory;
@@ -327,7 +328,7 @@ public class UserManagementTest extends BaseTest{
         Assert.assertTrue(userManagementPage.verifyReportssavechanges());
         screenshot.captureScreen(driver,"verifysavechanges", "UserManagementTest");
     }
-    @Test
+    @Test(priority=29)
     public void VerifyReportsunsuccefullchanges() throws Exception
     {
     	UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
@@ -339,7 +340,7 @@ public class UserManagementTest extends BaseTest{
         screenshot.captureScreen(driver,"Verifyunsuccefullchanges", "UserManagementTest");
         Assert.assertTrue(userManagementPage.verifyclosebutton());
     }
-    @Test
+    @Test(priority=30)
     public void VerifyDashboardAccessCheckbox() throws Exception {
     	UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\UserManagementData.xlsx";
@@ -348,7 +349,7 @@ public class UserManagementTest extends BaseTest{
         Assert.assertTrue(userManagementPage.verifydashboardaccesscheckbox(userDetails));
         screenshot.captureScreen(driver,"VerifyAccessCheckBox", "UserManagementTest");
     }
-    @Test
+    @Test(priority=31)
     public void VerifyDashboardPageButton() throws Exception {
     	UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\UserManagementData.xlsx";
@@ -359,7 +360,7 @@ public class UserManagementTest extends BaseTest{
         Assert.assertTrue(userManagementPage.verifyDashboardsavechanges());
         screenshot.captureScreen(driver,"verifysavechanges", "UserManagementTest");
     }
-    @Test
+    @Test(priority=32)
     public void VerifyDashboardunsuccefullchanges() throws Exception
     {
     	UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
@@ -372,6 +373,41 @@ public class UserManagementTest extends BaseTest{
         Assert.assertTrue(userManagementPage.verifyclosebutton());
     }
     
+    @Test(priority=33)
+    public void VerifyOtherApplicationAccessCheckbox() throws Exception {
+    	UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
+        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\UserManagementData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(3);
+        UserDetails userDetails=new UserDetails(map);
+        Assert.assertTrue(userManagementPage.verifyotherapplicationaccesscheckbox(userDetails));
+        screenshot.captureScreen(driver,"VerifyAccessCheckBox", "UserManagementTest");
+        Assert.assertTrue(userManagementPage.verifyclosebutton());
+        Thread.sleep(1000);
+
+    }
+   @Test(priority=34)
+    public void VerifyOtherApplicationPageButton() throws Exception {
+   		UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
+        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\UserManagementData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(3);
+        UserDetails userDetails=new UserDetails(map);
+        Assert.assertTrue(userManagementPage.verifyotherapplicationcancelchanges(userDetails));
+        screenshot.captureScreen(driver,"verifycancelchanges", "UserManagementTest");
+        Assert.assertTrue(userManagementPage.verifyotherapplicationsavechanges());
+        screenshot.captureScreen(driver,"verifysavechanges", "UserManagementTest");
+    }
+    @Test(priority=35)
+    public void VerifyOtherApplicationunsuccefullchanges() throws Exception
+    {
+    	UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
+        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\UserManagementData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(3);
+        UserDetails userDetails=new UserDetails(map);
+        Assert.assertTrue(userManagementPage.verifyotherapplicationunsuccessfullcancelchanges(userDetails));
+        Assert.assertTrue(userManagementPage.verifyotherapplicationunsuccessfullsavechanges());
+        screenshot.captureScreen(driver,"Verifyunsuccefullchanges", "UserManagementTest");
+        Assert.assertTrue(userManagementPage.verifyclosebutton());
+    }
     @AfterMethod
     public void afterEachMethod(ITestResult result,Method method){
       	 if(ITestResult.FAILURE==result.getStatus()){

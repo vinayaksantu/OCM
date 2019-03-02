@@ -243,6 +243,11 @@ public class UserManagementPage extends BasePage {
 	
 	@FindBy(xpath="//span[text()='Dashboard']")
 	private WebElement navigatetodashboard;
+	@FindBy(id="checkAllOtherApplications")
+    private WebElement checkallotherapplication;
+	
+	@FindBy(xpath="//span[text()='Other Applications']")
+	private WebElement navigatetootherapplication;
 	
     public boolean isUserManagementPageDisplayed() throws InterruptedException {
         waitForLoad(driver);
@@ -1141,6 +1146,72 @@ public class UserManagementPage extends BasePage {
 
 	public boolean verifydashboardunsuccessfullsavechanges() {
 		selectWebElement(saveaccess.get(2));
+		if(changesMsg.getText().equals("No rows has been changed"))
+			return true;
+		else
+		return false;
+	}
+	
+	public boolean verifyotherapplicationaccesscheckbox(UserDetails userDetails) throws Exception {
+		searchUserManagementRecord(userDetails.getUserId());
+		selectWebElement(rowdata);
+		Thread.sleep(1000);
+		selectWebElement(navigatetootherapplication);
+		Boolean Status=false;
+		selectWebElement(checkallotherapplication);
+		if(checkallotherapplication.isSelected())
+			{
+				Status=true;
+			}
+		return Status;
+	}
+
+
+	public boolean verifyotherapplicationcancelchanges(UserDetails userDetails) throws Exception {
+		searchUserManagementRecord(userDetails.getUserId());
+		selectWebElement(rowdata);
+		Thread.sleep(1000);
+		selectWebElement(navigatetootherapplication);
+		Thread.sleep(1000);
+		selectWebElement(checkallotherapplication);
+		selectWebElement(pbuacancel.get(3));
+		Thread.sleep(1000);
+		if(checkallotherapplication.isSelected())
+			return false;
+		else
+		return true;
+	}
+
+	public boolean verifyotherapplicationsavechanges() throws Exception {
+		waitForJqueryLoad(driver);
+		Boolean Status=false;
+		selectWebElement(checkallotherapplication);
+		selectWebElement(saveaccess.get(3));
+		if(modifypopup.isDisplayed())
+		{	Status=true;
+			selectWebElement(userModifyReasontxtbox);
+			Thread.sleep(1000);
+			enterValueToTxtField(userModifyReasontxtbox,"Modified");
+			Thread.sleep(1000);
+			clickOn(useryesBtn);
+		}
+		return Status;
+	}
+
+	public boolean verifyotherapplicationunsuccessfullcancelchanges(UserDetails userDetails) throws Exception {
+		searchUserManagementRecord(userDetails.getUserId());
+		selectWebElement(rowdata);
+		Thread.sleep(1000);	
+		selectWebElement(navigatetootherapplication);
+		selectWebElement(pbuacancel.get(3));
+		if(changesMsg.getText().equals("No rows has been changed"))
+			return true;
+		else
+		return false;
+	}
+
+	public boolean verifyotherapplicationunsuccessfullsavechanges() {
+		selectWebElement(saveaccess.get(3));
 		if(changesMsg.getText().equals("No rows has been changed"))
 			return true;
 		else

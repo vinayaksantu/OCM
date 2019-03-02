@@ -1,6 +1,9 @@
 package com.tetherfi.pages;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,6 +17,9 @@ public class TmacLoginPage extends BasePage {
 	@FindBy(css=".login_heading")
     private WebElement loginHeading;
 
+	@FindBy(id="agentname")
+	private WebElement agentname;
+	
     @FindBy(css="span[aria-owns='domainList_listbox']")
     private WebElement domainListDropdown;
 
@@ -70,6 +76,24 @@ public class TmacLoginPage extends BasePage {
 	    
 	@FindBy(id="main_logout_btn")
 	private WebElement logoutBtn;
+	
+	@FindBy(id="btnTextChat_Answer1000")
+	private WebElement answerchat;
+	
+	@FindBy(id="btnTextChat_Disconnect1000")
+	private WebElement disconnectchat;
+	
+	@FindBy(css=".k-widget .k-multiselect")
+	private WebElement selectcompletioncode;
+	
+	@FindBy(css="ul[id='workcodes1000_listbox']li")
+	private List<WebElement> workcodelist;
+	
+	@FindBy(id="divTabHeader1000")
+	private WebElement navigatetotab;
+	
+	@FindBy(id="btnCloseTab1000")
+	private WebElement closetab;
 
 	@FindBy(css=".js-modal-confirm")
 	private WebElement confirmLogoutbtn;
@@ -177,14 +201,60 @@ public class TmacLoginPage extends BasePage {
 	        if(!getCurrentStatus().equals(status)){
 	        selectWebElement(changeStatus);
 	        waitForJqueryLoad(driver);
-	        try {
-	            Thread.sleep(2000);
-	        } catch (InterruptedException e) {
-	            e.printStackTrace();
-	        }
-	        selectDropdownFromVisibleText(statusList,status);
+	    	try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e1) {
+				e1.printStackTrace();
+			}
+	        selectDropdownFromVisibleTextContains(statusList,status);
 	        waitForJqueryLoad(driver);
 	    }}
+	    
+	    public boolean workcodelist(String name) throws Exception
+	    {
+	    	Thread.sleep(2000);
+	    	waitUntilWebElementIsClickable(answerchat);
+	    	selectWebElement(navigatetotab);
+	    	clickOn(answerchat);
+	    	Thread.sleep(1000);
+	    	clickOn(disconnectchat);
+	    	Thread.sleep(2000);
+	    	selectWebElement(selectcompletioncode);
+	    	selectDropdownFromVisibleText(workcodelist,name);
+	    	try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+	    	selectWebElement(closetab);
+	    	if(agentname.isDisplayed())
+	    	return true;
+	    	else 
+	    		return false;
+	    	
+	    }
+		public boolean verifyworkcodelist(List<Map<String, String>> arr) {
+			Map<String,String> map = new HashMap<String,String>();
+			List<Map<String,String>> arr1=new ArrayList<Map<String,String>>();
 
+			waitUntilWebElementIsClickable(answerchat);
+	    	selectWebElement(answerchat);
+	    	try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+	    	selectWebElement(disconnectchat);
+	    	selectWebElement(selectcompletioncode);		
+	    	for(WebElement ele:workcodelist)
+	    	{
+				map.put("Name",ele.getText());}
+	    	map.remove("");
+	    	arr1.add(map);
+	    	if(arr1.equals(arr))
+	    		return true;
+	    	else
+	    	return false;
+		}
 
 }
