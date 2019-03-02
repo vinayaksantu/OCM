@@ -58,7 +58,7 @@ public class WorkCodeListE2ETest extends BaseTest{
             PageFactory.reset();
             BrowserFactory browserFactory = new BrowserFactory();
             driver = browserFactory.createBrowserInstance(BrowserFactory.BrowserType.CHROME);
-            Map<String, String> map1 = new ExcelReader(filePath1,"Login").getTestData().get(4);
+            Map<String, String> map1 = new ExcelReader(filePath1,"Login").getTestData().get(7);
             driver.get(map1.get("Application URL"));
         }catch (Exception e){
             PageFactory.reset();
@@ -109,7 +109,7 @@ public class WorkCodeListE2ETest extends BaseTest{
             PageFactory.reset();
             BrowserFactory browserFactory = new BrowserFactory();
             driver = browserFactory.createBrowserInstance(BrowserFactory.BrowserType.CHROME);
-            Map<String, String> map1 = new ExcelReader(filePath1,"Login").getTestData().get(4);
+            Map<String, String> map1 = new ExcelReader(filePath1,"Login").getTestData().get(7);
             driver.get(map1.get("Application URL"));
         }catch (Exception e){
             PageFactory.reset();
@@ -159,7 +159,7 @@ public class WorkCodeListE2ETest extends BaseTest{
             PageFactory.reset();
             BrowserFactory browserFactory = new BrowserFactory();
             driver = browserFactory.createBrowserInstance(BrowserFactory.BrowserType.CHROME);
-            Map<String, String> map1 = new ExcelReader(filePath1,"Login").getTestData().get(4);
+            Map<String, String> map1 = new ExcelReader(filePath1,"Login").getTestData().get(7);
             driver.get(map1.get("Application URL"));
         }catch (Exception e){
             PageFactory.reset();
