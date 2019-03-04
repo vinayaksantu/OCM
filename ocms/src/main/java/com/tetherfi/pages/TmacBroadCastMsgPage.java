@@ -378,6 +378,7 @@ public class TmacBroadCastMsgPage extends BasePage {
 		return true;
 		else return false;
 	}
+	
 	public boolean maximizewindow()
 	 {
 		selectWebElement(maximize);
