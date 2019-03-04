@@ -118,7 +118,7 @@ public class WaitTimeColorConfigPage extends BasePage {
     @FindBy(css=".toast-message")
     private WebElement successmsg;
 
-    @FindBy(css="#toast-container .toast-error")
+    @FindBy(css="#toast-container .toast-error .toast-message")
     private List<WebElement> errorMsg;
 
     @FindBy(css=".search-link")
@@ -671,6 +671,7 @@ public class WaitTimeColorConfigPage extends BasePage {
         selectWebElement(cancelBtn);
 	}
 	public boolean verifymessage() {
+		waitUntilWebElementListIsVisible(errorMsg);									 
 		if(errorMsg.size()>0)
 		return false;
 		else 
@@ -819,5 +820,44 @@ public class WaitTimeColorConfigPage extends BasePage {
     public boolean isExportBtnDisplayed() {
     	return exporttoexcel.isDisplayed() && exporttoexcel.isEnabled();
     }
-
+	
+	public void DuplicateRecord(WaitTimeColorConfigDetails waitTimeColorConfigDetails) {
+		addNewWaitTimeColorConfigRecord(waitTimeColorConfigDetails);
+		try {
+			selectWebElement(cancelBtn);
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		
+	}
+	public void SortByAscending() {
+		selectWebElement(startDuration);
+		selectWebElement(exporttoexcel);
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+	public void SortByDescending() {
+		selectWebElement(endDuration);
+		selectWebElement(endDuration);
+		selectWebElement(exporttoexcel);
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}		
+	}
+	public boolean ExporttoExcelWithoutData(WaitTimeColorConfigDetails waitTimeColorConfigDetails) {
+		searchWaitTimeColorConfigRecord(waitTimeColorConfigDetails.getStartTime());	
+		waitForJqueryLoad(driver);
+		selectWebElement(exporttoexcel);
+		if(errorMsg.get(0).getText().equals("There is no record to export"))
+			return true;
+		else
+		return false;
+	}	
 }

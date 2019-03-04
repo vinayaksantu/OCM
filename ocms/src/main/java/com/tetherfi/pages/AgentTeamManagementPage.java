@@ -534,6 +534,12 @@ public class AgentTeamManagementPage extends BasePage {
 
 	public void duplicateRecord(String Level,String Country,String Division,String Department,String Teamname) {
 		addNewAgentTeamManagementRecord(Level,Country,Division,Department,Teamname);
+		try {
+			selectWebElement(addcancel);
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	public boolean clearAll(AgentTeamMgmtDetails details) throws Exception {
@@ -616,7 +622,7 @@ public class AgentTeamManagementPage extends BasePage {
 			String col=null;
 			for(int j=1;j<headers.size();j++){
 				if(headers.get(j).getText().equals("Last Changed On")){
-					col=cols.get(j).getText().substring(10);
+					col=cols.get(j).getText().substring(11);
 					}
 				else
 					col=cols.get(j).getText();
@@ -888,4 +894,33 @@ public class AgentTeamManagementPage extends BasePage {
 		wait.until(ExpectedConditions.elementToBeClickable(ele));	
 	}
 	
+	public void SortByAscending() {
+		selectWebElement(name);		
+		selectWebElement(exporttoexcel);
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void SortByDescending() {
+		selectWebElement(name);
+		selectWebElement(name);
+		selectWebElement(exporttoexcel);
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+	public boolean ExporttoExcelWithoutData(AgentTeamMgmtDetails agentTeamMgmtDetails) {
+		searchAgentTeamManagementRecord(agentTeamMgmtDetails.getTeamName());
+		waitForJqueryLoad(driver);
+		selectWebElement(exporttoexcel);
+		if(errorMsg.get(0).getText().equals("There is no record to export"))
+			return true;
+		else
+		return false;
+	}
 }

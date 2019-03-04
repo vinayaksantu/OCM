@@ -103,16 +103,16 @@ public class WorkCodeListTest extends BaseTest{
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(1);
         WorkCodeListDetails workcodeListDetails=new WorkCodeListDetails (map);	
         workCodeListPage.addRecordWithoutWorklevel(workcodeListDetails);
-        Assert.assertFalse(workCodeListPage.verifymessage(),"AddRecordWithoutWorklevel Assertion failed");
+        Assert.assertFalse(workCodeListPage.errormessage(),"AddRecordWithoutWorklevel Assertion failed");
         screenshot.captureScreen(driver, "addRecordWithoutWorklevel","WorkCodeListTest");
         workCodeListPage.addRecordWithoutWorkGroup(workcodeListDetails);
-        Assert.assertFalse(workCodeListPage.verifymessage(),"AddRecordWithoutWorkGroup Assertion failed");
+        Assert.assertFalse(workCodeListPage.errormessage(),"AddRecordWithoutWorkGroup Assertion failed");
         screenshot.captureScreen(driver, "AddRecordWithoutWorkGroup","WorkCodeListTest");
         workCodeListPage.addRecordWithoutName(workcodeListDetails);
-        Assert.assertFalse(workCodeListPage.verifymessage(),"AddRecordWithoutName Assertion failed");
+        Assert.assertFalse(workCodeListPage.errormessage(),"AddRecordWithoutName Assertion failed");
         screenshot.captureScreen(driver, "AddRecordWithoutName","WorkCodeListTest");
         workCodeListPage.duplicateRecord(workcodeListDetails);
-        Assert.assertFalse(workCodeListPage.verifymessage(),"DuplicateRecord Assertion failed");
+        Assert.assertFalse(workCodeListPage.errormessage(),"DuplicateRecord Assertion failed");
         screenshot.captureScreen(driver, "Duplicate Record","WorkCodeListTest");	
     }
    @Test(priority=4)
@@ -252,7 +252,31 @@ public class WorkCodeListTest extends BaseTest{
     	WorkCodeListPage workCodeListPage  = PageFactory.createPageInstance(driver, WorkCodeListPage.class);
         Assert.assertFalse(workCodeListPage.verifycolumnsHeaderDisabled(),"columns disabled assertion failed");
     }
-   
+	@Test(priority=20)
+    public void SortingByAscending() throws IOException {
+    	WorkCodeListPage workCodeListPage  = PageFactory.createPageInstance(driver, WorkCodeListPage.class);
+    	workCodeListPage.SortByAscending();
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\WorkCode List (1).xlsx";
+        List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
+        Assert.assertTrue(workCodeListPage.verifyexportToExcelSheet(maplist));
+    }
+    @Test(priority=21)
+    public void SortingByDescending() throws IOException {
+    	WorkCodeListPage workCodeListPage  = PageFactory.createPageInstance(driver, WorkCodeListPage.class);
+    	workCodeListPage.SortByDescending();
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\WorkCode List (2).xlsx";
+        List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
+        Assert.assertTrue(workCodeListPage.verifyexportToExcelSheet(maplist));
+    }
+    @Test(priority=22)
+    public void ExporttoExcelWithoutData() throws Exception
+    {
+    	WorkCodeListPage workCodeListPage  = PageFactory.createPageInstance(driver, WorkCodeListPage.class);
+    	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\WorkCodeListData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(1);
+        WorkCodeListDetails workcodeListDetails=new WorkCodeListDetails (map);	
+        Assert.assertTrue(workCodeListPage.ExporttoExcelWithoutData(workcodeListDetails));
+    }
         @AfterMethod
     public void afterEachMethod(ITestResult result,Method method){
    	 if(ITestResult.FAILURE==result.getStatus()){

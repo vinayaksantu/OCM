@@ -16,7 +16,7 @@ import java.util.Map;
 
 public class TmacBroadCastMsgTest extends BaseTest {
 	Screenshot screenshot=new Screenshot(driver);
-    //@BeforeClass
+    @BeforeClass
     public void AddNewAgentTeamManagementRecord() throws IOException {
         HomePage homePage= PageFactory.createPageInstance(driver,HomePage.class);
         homePage.navigateToOCMPage();
@@ -48,7 +48,7 @@ public class TmacBroadCastMsgTest extends BaseTest {
         screenshot.captureScreen(driver, "TMAC Page","TmacBroadCastMsgTest");
         tmacPage.navigateToTmacBroadcastMsgPage();
         TmacBroadCastMsgPage tmacBroadCastMsgPage  = PageFactory.createPageInstance(driver, TmacBroadCastMsgPage.class);
-        Assert.assertTrue(tmacBroadCastMsgPage.isTmacBroadcastMsgPageDisplayed(), "Operating hours page assertion failed");
+        Assert.assertTrue(tmacBroadCastMsgPage.isTmacBroadcastMsgPageDisplayed(), "TMAC Broadcast page assertion failed");
         screenshot.captureScreen(driver, "TMACBroadcastMsg Page","TmacBroadCastMsgTest");
     }
    @Test(priority=1)
@@ -200,7 +200,31 @@ public class TmacBroadCastMsgTest extends BaseTest {
         TmacBroadCastMsgPage tmacBroadCastMsgPage  = PageFactory.createPageInstance(driver, TmacBroadCastMsgPage.class);
         Assert.assertFalse(tmacBroadCastMsgPage.verifycolumnsHeaderDisabled(),"columns disabled assertion failed");
     }
-    
+    @Test(priority=20)
+    public void SortingByAscending() throws Exception {
+        TmacBroadCastMsgPage tmacBroadCastMsgPage  = PageFactory.createPageInstance(driver, TmacBroadCastMsgPage.class);
+        tmacBroadCastMsgPage.SortByAscending();
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\TMAC Broadcast Message (1).xlsx";
+        List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
+        Assert.assertTrue(tmacBroadCastMsgPage.verifyexportToExcelSheet(maplist));	
+        }
+    @Test(priority=21)
+    public void SortingByDescending() throws Exception {
+        TmacBroadCastMsgPage tmacBroadCastMsgPage  = PageFactory.createPageInstance(driver, TmacBroadCastMsgPage.class);
+        tmacBroadCastMsgPage.SortByDescending();
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\TMAC Broadcast Message (2).xlsx";
+        List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
+        Assert.assertTrue(tmacBroadCastMsgPage.verifyexportToExcelSheet(maplist));	
+        }
+    @Test(priority=22)
+    public void ExporttoExcelWithoutData() throws Exception
+    {
+        TmacBroadCastMsgPage tmacBroadCastMsgPage  = PageFactory.createPageInstance(driver, TmacBroadCastMsgPage.class);
+        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacBroadcastMsgData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);
+        TmacBroadCastMsgDetails tmacBroadCastMsgDetails=new TmacBroadCastMsgDetails(map);
+        Assert.assertTrue(tmacBroadCastMsgPage .ExporttoExcelWithoutData(tmacBroadCastMsgDetails));
+    }
     @AfterMethod
     public void afterEachMethod(ITestResult result){
    	 if(ITestResult.FAILURE==result.getStatus()){

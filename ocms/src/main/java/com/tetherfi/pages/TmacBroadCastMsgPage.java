@@ -2,6 +2,7 @@ package com.tetherfi.pages;
 
 
 import com.tetherfi.model.tmac.TmacBroadCastMsgDetails;
+import com.tetherfi.model.tmac.WorkCodeListDetails;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -53,7 +54,7 @@ public class TmacBroadCastMsgPage extends BasePage {
     @FindBy(xpath="//a[text()='Message']")
     private WebElement message;
    
-    @FindBy(xpath="//a[text()='Team Name']")
+    @FindBy(xpath="//a[text()='TeamName']")
     private WebElement teamName;
    
     @FindBy(xpath="//a[text()='Status']")
@@ -134,7 +135,7 @@ public class TmacBroadCastMsgPage extends BasePage {
     @FindBy(css=".toast-message")
     private WebElement successmsg;
 
-    @FindBy(css = "#toast-container .toast-error")
+    @FindBy(css = "#toast-container .toast-error .toast-message")
     private List<WebElement> errorMsg;
 
     @FindBy(xpath = "//a[@class='k-button k-button-icontext k-grid-edit']")
@@ -316,6 +317,7 @@ public class TmacBroadCastMsgPage extends BasePage {
 	}
     
     public boolean verifyErrorMessage() {
+		waitUntilWebElementListIsVisible(errorMsg);										
     	if(errorMsg.size()>0) {
     		return true;}
     		else return false;
@@ -471,7 +473,13 @@ public class TmacBroadCastMsgPage extends BasePage {
 
 	public void duplicateRecord(TmacBroadCastMsgDetails tmacBroadCastMsgDetails) {
 		addTmacBroadcastMsg(tmacBroadCastMsgDetails);
+	   try {
 		selectWebElement(addcancel);
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
 	}
 
 	public void addInvalidRecord(TmacBroadCastMsgDetails tmacBroadCastMsgDetails) {
@@ -866,4 +874,36 @@ public class TmacBroadCastMsgPage extends BasePage {
     public boolean isExportBtnDisplayed() {
     	return exporttoexcel.isDisplayed() && exporttoexcel.isEnabled();
     }
+	
+	public void SortByAscending() {
+		selectWebElement(teamName);
+		selectWebElement(exporttoexcel);
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void SortByDescending() {
+		selectWebElement(message);
+		selectWebElement(message);
+		selectWebElement(exporttoexcel);
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	public boolean ExporttoExcelWithoutData(TmacBroadCastMsgDetails tmacBroadCastMsgDetails) {
+			searchTmacBroadcastMsg(tmacBroadCastMsgDetails.getMessage());
+			waitForJqueryLoad(driver);
+			selectWebElement(exporttoexcel);
+			if(errorMsg.get(0).getText().equals("There is no record to export"))
+				return true;
+			else
+			return false;
+	}
 }

@@ -16,6 +16,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
+import java.lang.reflect.Method;								
 import java.util.List;
 import java.util.Map;
 
@@ -72,7 +73,7 @@ public class WaitTimeColorConfigTest extends BaseTest {
        waitTimeColorConfigPage.addRecordWithoutEndTime(waitTimeColorConfigDetails);
        Assert.assertFalse(waitTimeColorConfigPage.verifymessage(),"AddRecordWithoutEndTime Assertion failed");
        screenshot.captureScreen(driver, "addRecordWithoutEndTime","WaitTimeColorConfigTest");
-       waitTimeColorConfigPage.addNewWaitTimeColorConfigRecord(waitTimeColorConfigDetails);
+       waitTimeColorConfigPage.DuplicateRecord(waitTimeColorConfigDetails);
        Assert.assertFalse(waitTimeColorConfigPage.verifymessage(),"Duplicate Assertion failed");
        screenshot.captureScreen(driver, "Duplicate Value","WaitTimeColorConfigTest");
    }
@@ -204,12 +205,39 @@ public class WaitTimeColorConfigTest extends BaseTest {
        WaitTimeColorConfigPage waitTimeColorConfigPage=PageFactory.createPageInstance(driver,WaitTimeColorConfigPage.class);
        Assert.assertFalse(waitTimeColorConfigPage.verifycolumnsHeaderDisabled(),"columns disabled assertion failed");
    }
+   @Test(priority=19)
+   public void SortingByAscending() throws IOException {
+	   WaitTimeColorConfigPage waitTimeColorConfigPage=PageFactory.createPageInstance(driver,WaitTimeColorConfigPage.class);
+	   waitTimeColorConfigPage.SortByAscending();
+	   String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Wait Time Color Config (1).xlsx";
+	   List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
+	   Assert.assertTrue(waitTimeColorConfigPage.verifyexportToExcelSheet(maplist));
+	   screenshot.captureScreen(driver, "SortingByAscending","WaitTimeColorConfigTest");
+   }
+   @Test(priority=20)
+   public void SortingByDescending() throws IOException {
+	   WaitTimeColorConfigPage waitTimeColorConfigPage=PageFactory.createPageInstance(driver,WaitTimeColorConfigPage.class);
+	   waitTimeColorConfigPage.SortByDescending();
+	   String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Wait Time Color Config (2).xlsx";
+	   List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
+	   Assert.assertTrue(waitTimeColorConfigPage.verifyexportToExcelSheet(maplist));
+	   screenshot.captureScreen(driver, "SortingByAscending","WaitTimeColorConfigTest");
+   }
+   @Test(priority=21)
+   public void ExporttoExcelWithoutData() throws Exception
+   {
+	   WaitTimeColorConfigPage waitTimeColorConfigPage=PageFactory.createPageInstance(driver,WaitTimeColorConfigPage.class);
+   		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\WaitTimeColorConfigData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
+        WaitTimeColorConfigDetails waitTimeColorConfigDetails = new WaitTimeColorConfigDetails(map);
+       Assert.assertTrue(waitTimeColorConfigPage.ExporttoExcelWithoutData(waitTimeColorConfigDetails));
+   }
 
     @AfterMethod
-    public void afterEachMethod(ITestResult result) {
+    public void afterEachMethod(ITestResult result,Method method) {
     	if(ITestResult.FAILURE==result.getStatus()){
    		 try{
-   			 screenshot.captureScreen(driver, result.getName(),"AgentTeamMgmtTest");
+   			 screenshot.captureScreen(driver, method.getName(),"AgentTeamMgmtTest");
    		 }
    		catch (Exception e){
    		 System.out.println("Exception while taking screenshot "+e.getMessage());

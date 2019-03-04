@@ -2,12 +2,10 @@ package com.tetherfi.test.tmac;
 
 import org.testng.annotations.Test;
 import com.tetherfi.model.tmac.AgentTeamMgmtDetails;
-import com.tetherfi.pages.AgentSettingsNewDesignPage;
 import com.tetherfi.pages.AgentTeamManagementPage;
 import com.tetherfi.pages.HomePage;
 import com.tetherfi.pages.OCMHomePage;
 import com.tetherfi.pages.TmacPage;
-import com.tetherfi.pages.WorkCodeListPage;
 import com.tetherfi.test.BaseTest;
 import com.tetherfi.utility.ExcelReader;
 import com.tetherfi.utility.PageFactory;
@@ -95,7 +93,7 @@ public class AgentTeamMgmtTest extends BaseTest {
        Assert.assertTrue(agentTeamManagementPage.errorMessage());
        screenshot.captureScreen(driver, "Invalid Agent when department is null","AgentTeamMgmtTest");
        agentTeamManagementPage.duplicateRecord(agentTeamMgmtDetails.getLevel(),agentTeamMgmtDetails.getCountry(),agentTeamMgmtDetails.getDivision(),agentTeamMgmtDetails.getDepartment(),agentTeamMgmtDetails.getTeamName());
-       Assert.assertEquals(agentTeamManagementPage.duplicateMessage(),"Duplicate Name");
+       Assert.assertTrue(agentTeamManagementPage.errorMessage());
        screenshot.captureScreen(driver, "Duplicate Agent","AgentTeamMgmtTest");
        }   
    
@@ -204,20 +202,45 @@ public class AgentTeamMgmtTest extends BaseTest {
         Assert.assertTrue(agentTeamManagementPage.verifyNumberOfItemsPerPage(),"item per page assertion failed");
     }
    
-    @Test(priority=1)
+    @Test(priority=16)
     public void VerifyDropdownForAllTheColumns() {
     	AgentTeamManagementPage agentTeamManagementPage=PageFactory.createPageInstance(driver,AgentTeamManagementPage.class);
         Assert.assertTrue(agentTeamManagementPage.verifyDropDownOfAllHeaders(), "Columns dropdown assertion failed");
     }
-    @Test(priority=2)
+    @Test(priority=17)
     public void VerifyColumnsHeaderEnable() {
     	AgentTeamManagementPage agentTeamManagementPage=PageFactory.createPageInstance(driver,AgentTeamManagementPage.class);
         Assert.assertTrue(agentTeamManagementPage.verifycolumnsHeaderEnabled(),"columns enabled assertion failed");
     }
-    @Test(priority=3)
+    @Test(priority=18)
     public void VerifyColumnsHeaderDisable() {
     	AgentTeamManagementPage agentTeamManagementPage=PageFactory.createPageInstance(driver,AgentTeamManagementPage.class);
         Assert.assertFalse(agentTeamManagementPage.verifycolumnsHeaderDisabled(),"columns disabled assertion failed");
+    }
+    @Test(priority=19)
+    public void SortingByAscending() throws IOException {
+    	AgentTeamManagementPage agentTeamManagementPage=PageFactory.createPageInstance(driver,AgentTeamManagementPage.class);
+    	agentTeamManagementPage.SortByAscending();
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Agent Team Management (1).xlsx";
+        List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
+        Assert.assertTrue(agentTeamManagementPage.verifyexportToExcelSheet(maplist));
+    }
+    @Test(priority=20)
+    public void SortingByDescending() throws IOException {
+    	AgentTeamManagementPage agentTeamManagementPage=PageFactory.createPageInstance(driver,AgentTeamManagementPage.class);
+    	agentTeamManagementPage.SortByDescending();
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Agent Team Management (2).xlsx";
+        List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
+        Assert.assertTrue(agentTeamManagementPage.verifyexportToExcelSheet(maplist));
+    }
+    @Test(priority=21)
+    public void ExporttoExcelWithoutData() throws Exception
+    {
+    	AgentTeamManagementPage agentTeamManagementPage=PageFactory.createPageInstance(driver,AgentTeamManagementPage.class);
+        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentTeamManagementData.xlsx";
+    	Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
+        AgentTeamMgmtDetails agentTeamMgmtDetails=new AgentTeamMgmtDetails(map);
+        Assert.assertTrue(agentTeamManagementPage.ExporttoExcelWithoutData(agentTeamMgmtDetails));
     }
     
     @AfterMethod
