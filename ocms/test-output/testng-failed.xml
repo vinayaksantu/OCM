@@ -5,23 +5,13 @@
     <classes>
       <class name="com.tetherfi.test.ivr.HolidayListTest">
         <methods>
-          <include name="VerifyArrowMoveForFirstAndLastPage"/>
+          <include name="startTestCase"/>
           <include name="afterEachMethod"/>
-          <include name="VerifyColumnsHeaderDisable"/>
-          <include name="HolidayListPage"/>
-          <include name="VerifyTotalNumberOfItemsPerPageDetails"/>
+          <include name="openApplication"/>
+          <include name="ExporttoExcelWithoutData"/>
           <include name="endTestCase"/>
           <include name="tearDown"/>
-          <include name="ExportToExcel"/>
-          <include name="GroupBy"/>
-          <include name="startTestCase"/>
-          <include name="openApplication"/>
-          <include name="VerifyColumnsHeaderEnable"/>
-          <include name="VerifyArrowMoveForPreviousAndNextPage"/>
           <include name="NavigateToHolidayListPage"/>
-          <include name="VerifyDropdownForAllTheColumns"/>
-          <include name="ExportToExcelData"/>
-          <include name="VerifyNumberOfItemsPerPageSelection"/>
         </methods>
       </class> <!-- com.tetherfi.test.ivr.HolidayListTest -->
     </classes>

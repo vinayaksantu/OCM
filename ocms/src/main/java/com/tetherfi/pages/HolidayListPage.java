@@ -10,6 +10,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import com.tetherfi.model.ivr.HolidayListDetails;
+import com.tetherfi.model.tmac.WorkCodeListDetails;
+
 public class HolidayListPage extends BasePage{
 
 	public HolidayListPage(WebDriver driver) {
@@ -24,7 +27,12 @@ public class HolidayListPage extends BasePage{
 	
 	@FindBy(css="#create")
 	private WebElement addNewHolidayListRecordBtn;
-	
+    
+    @FindBy(xpath="//a[@class='k-button k-button-icontext k-primary k-grid-update']")
+    private WebElement savebtn;
+    
+    @FindBy(xpath="//a[@class='k-button k-button-icontext k-grid-cancel']")
+    private WebElement cancelbtn;
 	@FindBy(css = ".k-grid-CustomDelete")
     private WebElement deleteButton;
 	
@@ -46,7 +54,7 @@ public class HolidayListPage extends BasePage{
 	@FindBy(xpath="//span[@class='k-input']")
     private WebElement pagerSize;
     
-    @FindBy(xpath="//*[@id='grid']/div[5]/a[3]/span")
+    @FindBy(css="a[aria-label='Go to the next page']")
     private WebElement nextPageIcon;
     
     @FindBy(xpath="//p[@class='k-reset']")
@@ -97,6 +105,10 @@ public class HolidayListPage extends BasePage{
     @FindBy(xpath="//a[text()='Announced Holiday']")
     private WebElement AnnouncedHoliday;
     
+    @FindBy(xpath="//a[text()='Start Date']")
+    private WebElement StartDate;
+    
+    
     @FindBy(xpath="//div[@data-role='droptarget']")
     private WebElement droptarget;
     
@@ -108,6 +120,51 @@ public class HolidayListPage extends BasePage{
     
     @FindBy(id="tGrid")
     private WebElement auditGridContent;
+    
+    @FindBy(id="AnnouncedHoliday")
+    private WebElement announcedHolidayTextbox;
+    
+    @FindBy(id="StartDate")
+    private WebElement startDateTextbox;
+    
+    @FindBy(id="StartTime")
+    private WebElement startTimeTextbox;
+    
+    @FindBy(id="EndDate")
+    private WebElement endDateTextbox;
+    
+    @FindBy(id="EndTime")
+    private WebElement endTimeTextbox; 
+    
+    @FindBy(id="VDN")
+    private WebElement vdnTextbox;
+    
+    @FindBy(css="#toast-container .toast-error .toast-message")
+    private List<WebElement> errorMsg;
+    
+    @FindBy(className="toast-message")
+    private WebElement successmsg;
+    
+    @FindBy(css = ".fa-search")
+    private WebElement searchBtn;
+
+    @FindBy(css = ".modal-body .form-inline .form-group .k-select")
+    private List<WebElement> selectSearchCol;
+
+    @FindBy(css="ul[id='1001sColumnName_listbox'] li")
+    private List<WebElement> columnNameList;
+
+    @FindBy(css="ul[id='1001sCriteria_listbox'] li")
+    private List<WebElement> searchCriteriaDropDwn;
+
+    @FindBy(id = "1001sTextToSearch")
+    private WebElement searchTextBox;
+
+    @FindBy(css = "#1001sAddButton .k-i-add")
+    private WebElement searchAddCriteriaBtn;
+
+    @FindBy(css = ".modal-footer .button-theme")
+    private WebElement searchSearchBtn;
 	
 	public boolean isHolidayListPageDisplayed() {
 		waitForLoad(driver);
@@ -148,16 +205,6 @@ public class HolidayListPage extends BasePage{
 			return true;
 		else
 		return false;
-	}
-	public boolean verifygridcontent() {
-		int size=tablerecord.size();
-		System.out.println(+size);
-		String item[]=(items.getText()).split("\\s+");
-		int itemno=Integer.parseInt(item[2]);
-		System.out.println(itemno);
-		if(itemno==size)
-		return true;
-		else return false;
 	}
 	
 	public boolean maximizewindow() {
@@ -351,7 +398,7 @@ public class HolidayListPage extends BasePage{
 		selectWebElement(exporttoexcel);
 		waitForJqueryLoad(driver);
 		try {
-			Thread.sleep(500);
+			Thread.sleep(2000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -398,5 +445,84 @@ public class HolidayListPage extends BasePage{
 			waitForJqueryLoad(driver);}
 		}
 			return arr;
+	}
+	
+	public void SortByAscending() {
+		selectWebElement(AnnouncedHoliday);
+		selectWebElement(exporttoexcel);
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void SortByDescending() {
+		selectWebElement(StartDate);
+		selectWebElement(StartDate);
+		selectWebElement(exporttoexcel);
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+	public boolean addnewHolidayListCancel(HolidayListDetails details) {
+		String actualitems=items.getText();
+		selectWebElement(addNewHolidayListRecordBtn);
+		enterValueToTxtField(announcedHolidayTextbox,details.getAnnouncedHoliday());
+		enterValueToTxtField(startDateTextbox,details.getStartDate());
+		enterValueToTxtField(startTimeTextbox,details.getStartTime());
+		enterValueToTxtField(endDateTextbox,details.getEndDate());
+		enterValueToTxtField(endTimeTextbox,details.getEndTime());
+		enterValueToTxtField(vdnTextbox,details.getVdn());
+		selectWebElement(cancelbtn);
+		if(actualitems.equals(items.getText()))
+			return true;
+		else
+			return false;
+	}
+	public void addNewHolidayList(HolidayListDetails details) {
+		selectWebElement(addNewHolidayListRecordBtn);
+		enterValueToTxtField(announcedHolidayTextbox,details.getAnnouncedHoliday());
+		enterValueToTxtField(startDateTextbox,details.getStartDate());
+		enterValueToTxtField(startTimeTextbox,details.getStartTime());
+		enterValueToTxtField(endDateTextbox,details.getEndDate());
+		enterValueToTxtField(endTimeTextbox,details.getEndTime());
+		enterValueToTxtField(vdnTextbox,details.getVdn());
+		selectWebElement(savebtn);
+		
+	}
+	public boolean verifymessage() {
+		if (errorMsg.size()>0)
+			return false;
+			waitUntilWebElementIsVisible(successmsg);
+	    	if(successmsg.getText().contains("Successfully"))
+			return true;
+			else
+			{return false;}
+	}
+
+	public boolean ExporttoExcelWithoutData(HolidayListDetails details) {
+		searchHolidayList(details.getStartDate());
+		waitForJqueryLoad(driver);
+		selectWebElement(exporttoexcel);
+		if(errorMsg.get(0).getText().equals("There is no record to export"))
+			return true;
+		else
+		return false;
+	}
+	
+	private void searchHolidayList(String startDate) {
+		selectWebElement(searchBtn);
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Start Date");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is equal to");
+        enterValueToTxtField(searchTextBox,startDate);
+        selectWebElement(searchSearchBtn);
+        waitForJqueryLoad(driver);
+        waitUntilWebElementIsVisible(gridContent);
+		
 	}
 }

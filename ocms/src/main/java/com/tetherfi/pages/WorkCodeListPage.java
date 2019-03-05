@@ -199,9 +199,6 @@ public class WorkCodeListPage extends BasePage{
     @FindBy(xpath="//span[@class='k-input']")
     private WebElement pagerSize;
     
-    @FindBy(xpath="//*[@id='grid']/div[5]/a[3]/span")
-    private WebElement nextPageIcon;
-    
     @FindBy(xpath="//p[@class='k-reset']")
     private WebElement groupby;
     
@@ -213,8 +210,9 @@ public class WorkCodeListPage extends BasePage{
     
     @FindBy(css=".k-pager-numbers .k-state-selected")
     private WebElement pageNumber;
-    //@FindBy(css="a[aria-label='Go to the next page']")
-    //private List<WebElement> nextPageIcon;
+    
+    @FindBy(css="a[aria-label='Go to the next page']")
+    private WebElement nextPageIcon;
     
     @FindBy(css="a[aria-label='Go to the last page']")
     private WebElement lastPageIcon;
