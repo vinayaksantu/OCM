@@ -11,12 +11,10 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.tetherfi.model.ivr.HolidayListDetails;
-import com.tetherfi.model.tmac.WorkCodeListDetails;
 import com.tetherfi.pages.HolidayListPage;
 import com.tetherfi.pages.HomePage;
 import com.tetherfi.pages.IvrPage;
 import com.tetherfi.pages.OCMHomePage;
-import com.tetherfi.pages.WorkCodeListPage;
 import com.tetherfi.test.BaseTest;
 import com.tetherfi.utility.ExcelReader;
 import com.tetherfi.utility.PageFactory;
@@ -51,7 +49,7 @@ public class HolidayListTest extends BaseTest {
     	screenshot.captureScreen(driver, "minimize window","HolidayListTest");
 	}
 	
-	//@Test(priority=2)
+	@Test(priority=2)
 	public void addNewHolidayListRecord() throws Exception {
 		HolidayListPage holidaylistPage = PageFactory.createPageInstance(driver, HolidayListPage.class);
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\HolidayListData.xlsx";
