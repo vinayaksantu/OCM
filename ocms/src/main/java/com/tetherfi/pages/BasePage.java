@@ -444,5 +444,14 @@ public class BasePage {
         wait.ignoring(NoSuchWindowException.class).until(ExpectedConditions.numberOfWindowsToBe(windowsize));
     }
     
+    public String converttostring(String str[])
+	{
+		StringBuilder sb = new StringBuilder();
+		for (String str1 : str)
+			sb.append(str1);
+		return sb.toString();
+		
+	}
+    
     
 }

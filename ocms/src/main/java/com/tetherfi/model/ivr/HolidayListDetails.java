@@ -11,6 +11,8 @@ public class HolidayListDetails {
     private String endTime;
     private String modifyReason;
     private String deleteReason;
+    private String query;
+    private String updatedAnnouncedHoliday;
     
     public HolidayListDetails(Map<String,String> map){
         vdn=readVdn(map);
@@ -21,7 +23,19 @@ public class HolidayListDetails {
         endTime=readEndTime(map);
         modifyReason=readModifyReason(map);
         deleteReason=readDeleteReason(map);
+        query=readQuery(map);
+        updatedAnnouncedHoliday=readUpdatedAnnouncedHoliday(map);
     }
+
+	private String readUpdatedAnnouncedHoliday(Map<String, String> map) {
+		 String value=map.get("Updated Announced Holiday");
+			return value;
+	}
+
+	private String readQuery(Map<String, String> map) {
+		 String value=map.get("Query");
+		return value;
+	}
 
 	private String readEndDate(Map<String, String> map) {
 		 String value=map.get("End Date");
@@ -73,6 +87,14 @@ public class HolidayListDetails {
     public String getEndDate(){return endDate;}
     public String getModifyReason(){return modifyReason;}
     public String getDeleteReason(){return deleteReason;}
+
+	public String getQuery() {
+		return query;
+	}
+
+	public String getUpdatedAnnouncedHoliday() {
+		return updatedAnnouncedHoliday;
+	}
 	
 
 }

@@ -5,13 +5,14 @@
     <classes>
       <class name="com.tetherfi.test.ivr.HolidayListTest">
         <methods>
+          <include name="Add"/>
           <include name="startTestCase"/>
           <include name="afterEachMethod"/>
           <include name="openApplication"/>
-          <include name="ExporttoExcelWithoutData"/>
           <include name="endTestCase"/>
           <include name="tearDown"/>
           <include name="NavigateToHolidayListPage"/>
+          <include name="addNewHolidayListRecord"/>
         </methods>
       </class> <!-- com.tetherfi.test.ivr.HolidayListTest -->
     </classes>

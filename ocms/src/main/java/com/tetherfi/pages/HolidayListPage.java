@@ -11,7 +11,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import com.tetherfi.model.ivr.HolidayListDetails;
-import com.tetherfi.model.tmac.WorkCodeListDetails;
 
 public class HolidayListPage extends BasePage{
 
@@ -108,6 +107,8 @@ public class HolidayListPage extends BasePage{
     @FindBy(xpath="//a[text()='Start Date']")
     private WebElement StartDate;
     
+    @FindBy(id="ModifyReason")
+    private WebElement ModifyReasonTxtbox;
     
     @FindBy(xpath="//div[@data-role='droptarget']")
     private WebElement droptarget;
@@ -136,7 +137,7 @@ public class HolidayListPage extends BasePage{
     @FindBy(id="EndTime")
     private WebElement endTimeTextbox; 
     
-    @FindBy(id="VDN")
+    @FindBy(xpath="//input[@placeholder='Enter Value']")
     private WebElement vdnTextbox;
     
     @FindBy(css="#toast-container .toast-error .toast-message")
@@ -165,7 +166,19 @@ public class HolidayListPage extends BasePage{
 
     @FindBy(css = ".modal-footer .button-theme")
     private WebElement searchSearchBtn;
+    
+    @FindBy(xpath="//tbody/tr/td[4]")
+    private WebElement rowdata;
 	
+    @FindBy(id="ModifyReason1")
+    private WebElement deletereasontextbox;
+    
+    @FindBy(id="yesButton")
+    private WebElement yesbtn;
+    
+    @FindBy(id="noButton")
+    private WebElement nobtn;
+    
 	public boolean isHolidayListPageDisplayed() {
 		waitForLoad(driver);
         waitForJqueryLoad(driver);
@@ -400,7 +413,6 @@ public class HolidayListPage extends BasePage{
 		try {
 			Thread.sleep(2000);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		Boolean Status=verifyExportPageFileDownload(filepath, "Holiday List");
@@ -524,5 +536,186 @@ public class HolidayListPage extends BasePage{
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(gridContent);
 		
+	}
+	public boolean editHolidaylistCancelbtn(HolidayListDetails details) {
+		searchHolidayList(details.getStartDate());
+		selectWebElement(editButton);
+		enterValueToTxtField(ModifyReasonTxtbox,details.getModifyReason());
+		selectWebElement(cancelbtn);
+		if(rowdata.getText().equals(details.getStartDate()))
+			return true;
+		else
+		return false;
+		
+	}
+	public void editHolidayListRecord(HolidayListDetails details) {
+		searchHolidayList(details.getStartDate());
+		selectWebElement(editButton);		
+		enterValueToTxtField(announcedHolidayTextbox,details.getUpdatedAnnouncedHoliday());
+		enterValueToTxtField(ModifyReasonTxtbox,details.getModifyReason());
+		selectWebElement(savebtn);
+	}
+	
+	public boolean verifyDatabase(String  query) {
+		List<Map<String,String>> database=database(query);
+		System.out.println(database);
+		List<Map<String,String>> UI=gettable(); 
+		System.out.println(UI);
+		if(UI.equals(database))
+			return true;
+		else
+			return false;
+	}
+
+	public List<Map<String, String>> gettable() {
+		int item=Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
+        int pagersize=Integer.valueOf(pagerSize.getText());
+        int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
+		List<Map<String,String>> arr=new ArrayList<Map<String,String>>();
+		for(int k=0;k<=pages;k++){
+
+		waitUntilWebElementIsVisible(auditGridContent);
+		List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
+		List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
+		for(int i=1;i<rows.size();i++) {
+			Map<String,String> map = new HashMap<String,String>();
+			List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
+			String col=null;
+			for(int j=1;j<headers.size();j++){
+				if(headers.get(j).getText().equals("Last Changed On")){
+					col=cols.get(j).getText().substring(11);
+					}
+				else if(headers.get(j).getText().equals("Start Date")||headers.get(j).getText().equals("End Date")){
+					String x[]=cols.get(j).getText().split("/");
+					String a=converttostring(x);
+					String b=a.substring(0,2);
+					String c=a.substring(2,4);
+					String d=a.substring(4);
+					col=d+c+b;
+				}
+				else
+					col=cols.get(j).getText();
+				map.put(headers.get(j).getText(),col);
+			}
+			map.remove("");
+			arr.add(map);
+		}
+		if(k!=pages)
+		{
+			nextPageIcon.click();
+			waitForJqueryLoad(driver);}
+		}
+			return arr;
+	}	
+	
+	
+	public boolean verifydeleteNo(HolidayListDetails details) {
+		searchHolidayList(details.getStartDate());
+		selectWebElement(deleteButton);
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		enterValueToTxtField(deletereasontextbox,details.getDeleteReason());
+		selectWebElement(nobtn);
+		if(rowdata.getText().equals(details.getUpdatedAnnouncedHoliday()))
+				return true;
+		else
+		return false;
+	}
+	public void deleteHolidayListRecord(HolidayListDetails details) {
+		searchHolidayList(details.getStartDate());
+		selectWebElement(deleteButton);
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		enterValueToTxtField(deletereasontextbox,details.getDeleteReason());
+		selectWebElement(yesbtn);		
+	}
+	public void LeavingAllFieldsBlank(HolidayListDetails details) {
+		selectWebElement(addNewHolidayListRecordBtn);
+		selectWebElement(savebtn);
+		selectWebElement(cancelbtn);
+		
+	}
+	public void LeavingAnnouncedHolidayBlank(HolidayListDetails details) throws Exception {
+		Thread.sleep(2000);
+		selectWebElement(addNewHolidayListRecordBtn);
+		enterValueToTxtField(startDateTextbox,details.getStartDate());
+		enterValueToTxtField(startTimeTextbox,details.getStartTime());
+		enterValueToTxtField(endDateTextbox,details.getEndDate());
+		enterValueToTxtField(endTimeTextbox,details.getEndTime());
+		enterValueToTxtField(vdnTextbox,details.getVdn());
+		selectWebElement(savebtn);
+		selectWebElement(cancelbtn);		
+	}
+	public void LeavingStartDateBlank(HolidayListDetails details) throws Exception {
+		Thread.sleep(2000);
+		selectWebElement(addNewHolidayListRecordBtn);
+		enterValueToTxtField(announcedHolidayTextbox,details.getAnnouncedHoliday());
+		enterValueToTxtField(startTimeTextbox,details.getStartTime());
+		enterValueToTxtField(endDateTextbox,details.getEndDate());
+		enterValueToTxtField(endTimeTextbox,details.getEndTime());
+		enterValueToTxtField(vdnTextbox,details.getVdn());
+		selectWebElement(savebtn);
+		selectWebElement(cancelbtn);			
+	}
+	public void LeavingStartTimeBlank(HolidayListDetails details) throws Exception {
+		Thread.sleep(2000);
+		selectWebElement(addNewHolidayListRecordBtn);
+		enterValueToTxtField(announcedHolidayTextbox,details.getAnnouncedHoliday());
+		enterValueToTxtField(startDateTextbox,details.getStartDate());
+		enterValueToTxtField(endDateTextbox,details.getEndDate());
+		enterValueToTxtField(endTimeTextbox,details.getEndTime());
+		enterValueToTxtField(vdnTextbox,details.getVdn());
+		selectWebElement(savebtn);
+		selectWebElement(cancelbtn);			
+	}
+	public void LeavingEndDateBlank(HolidayListDetails details) throws Exception {
+		Thread.sleep(2000);
+		selectWebElement(addNewHolidayListRecordBtn);
+		enterValueToTxtField(announcedHolidayTextbox,details.getAnnouncedHoliday());
+		enterValueToTxtField(startDateTextbox,details.getStartDate());
+		enterValueToTxtField(startTimeTextbox,details.getStartTime());
+		enterValueToTxtField(endTimeTextbox,details.getEndTime());
+		enterValueToTxtField(vdnTextbox,details.getVdn());
+		selectWebElement(savebtn);
+		selectWebElement(cancelbtn);			
+	}
+	public void LeavingEndTimeBlank(HolidayListDetails details) throws Exception {
+		Thread.sleep(2000);
+		selectWebElement(addNewHolidayListRecordBtn);
+		enterValueToTxtField(announcedHolidayTextbox,details.getAnnouncedHoliday());
+		enterValueToTxtField(startDateTextbox,details.getStartDate());
+		enterValueToTxtField(startTimeTextbox,details.getStartTime());
+		enterValueToTxtField(endDateTextbox,details.getEndDate());
+		enterValueToTxtField(vdnTextbox,details.getVdn());
+		selectWebElement(savebtn);
+		selectWebElement(cancelbtn);			
+	}
+	public void LeavingVDNBlank(HolidayListDetails details) throws Exception {
+		Thread.sleep(2000);
+		selectWebElement(addNewHolidayListRecordBtn);
+		enterValueToTxtField(announcedHolidayTextbox,details.getAnnouncedHoliday());
+		enterValueToTxtField(startDateTextbox,details.getStartDate());
+		enterValueToTxtField(startTimeTextbox,details.getStartTime());
+		enterValueToTxtField(endDateTextbox,details.getEndDate());
+		enterValueToTxtField(endTimeTextbox,details.getEndTime());
+		selectWebElement(savebtn);
+		selectWebElement(cancelbtn);			
+	}
+	public void EditLeavingModifyReasonBlank(HolidayListDetails details) {
+		searchHolidayList(details.getStartDate());
+		selectWebElement(editButton);		
+		selectWebElement(savebtn);
+		selectWebElement(cancelbtn);
+		
+	}
+	public void addDuplicateRecord(HolidayListDetails details) {
+		addNewHolidayList(details);
+		selectWebElement(cancelbtn);	
 	}
 }

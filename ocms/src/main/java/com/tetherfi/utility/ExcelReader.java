@@ -104,7 +104,12 @@ public class ExcelReader {
         for (int k = 1; k <= rowCount; k++) {
             map = new HashMap<String, String>();
             for (int j = 0; j < lastCellNum; j++) {
-                map.put(readCellData(i, j), readCellData(k, j));
+            	String str=readCellData(k, j);
+            	if(str!=null)
+            	{
+            		str=str.trim();
+            	}
+                map.put(readCellData(i, j), str);
             }
             mapList.add(map);
         }

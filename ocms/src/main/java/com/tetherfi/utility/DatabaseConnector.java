@@ -43,7 +43,8 @@ public class DatabaseConnector {
             while (rs.next()) {
                 map = new HashMap<String, String>();
                 for (int i = 1; i <= rs.getMetaData().getColumnCount(); i++) {
-                    map.put(rs.getMetaData().getColumnName(i), rs.getString(i));
+                	String str=rs.getString(i).trim();
+                    map.put(rs.getMetaData().getColumnName(i),str);
                 }
                 maplist.add(map);
             }
