@@ -1,8 +1,10 @@
 package com.tetherfi.test.tmac;
 
+import com.tetherfi.model.report.ReportDetails;
 import com.tetherfi.model.tmac.TmacBroadCastMsgDetails;
 import com.tetherfi.pages.*;
 import com.tetherfi.test.BaseTest;
+import com.tetherfi.test.reports.AuditTrailReportTest;
 import com.tetherfi.utility.ExcelReader;
 import com.tetherfi.utility.PageFactory;
 import com.tetherfi.utility.Screenshot;
@@ -16,7 +18,7 @@ import java.util.Map;
 
 public class TmacBroadCastMsgTest extends BaseTest {
 	Screenshot screenshot=new Screenshot(driver);
-    @BeforeClass
+    //@BeforeClass
     public void AddNewAgentTeamManagementRecord() throws IOException {
         HomePage homePage= PageFactory.createPageInstance(driver,HomePage.class);
         homePage.navigateToOCMPage();
@@ -51,7 +53,7 @@ public class TmacBroadCastMsgTest extends BaseTest {
         Assert.assertTrue(tmacBroadCastMsgPage.isTmacBroadcastMsgPageDisplayed(), "TMAC Broadcast page assertion failed");
         screenshot.captureScreen(driver, "TMACBroadcastMsg Page","TmacBroadCastMsgTest");
     }
-   @Test(priority=1)
+   //@Test(priority=1)
     public void TmacBroadCastMsgPage()
     {
         TmacBroadCastMsgPage tmacBroadCastMsgPage  = PageFactory.createPageInstance(driver, TmacBroadCastMsgPage.class);
@@ -62,7 +64,7 @@ public class TmacBroadCastMsgTest extends BaseTest {
     	Assert.assertTrue(tmacBroadCastMsgPage.minimizewindow(), "Restored Assertion Failed");
     	screenshot.captureScreen(driver, "minimize window","TmacBroadCastMsgTest");
     }
-    @Test(priority=2)
+   // @Test(priority=2)
     public void AddNewTmacBroadCastMsg() throws IOException {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacBroadcastMsgData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);
@@ -74,7 +76,24 @@ public class TmacBroadCastMsgTest extends BaseTest {
         Assert.assertTrue(tmacBroadCastMsgPage.verifyNewRecordCreated(),"add record assertion failed");
         screenshot.captureScreen(driver, "Record Created Successfully","TmacBroadCastMsgTest");
     }
-    @Test(priority=3)
+    
+    //@Test(/*dependsOnMethods = {"AddNewTmacBroadCastMsg()"}*/)
+    public void VerifyAuditTrialReportForCreate() throws Exception {
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacBroadcastMsgData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);
+        TmacBroadCastMsgDetails tmacBroadCastMsgDetails=new TmacBroadCastMsgDetails(map);
+        HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
+        homePage.navigateToOCMReportsPage();
+        OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver, OCMReportsPage.class);
+        String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AuditTrailReportData.xlsx";
+        Map<String, String> map1 = new ExcelReader(filePath1,"Show").getTestData().get(0);
+        ReportDetails reportDetails= new ReportDetails(map1);
+        ocmReportsPage.showReport(reportDetails);
+        Assert.assertTrue(ocmReportsPage.verifyTmacBroadcastMsgCreate(tmacBroadCastMsgDetails,"Create"));
+        screenshot.captureScreen("TmacBroadCastMsgTest", "VerifyAuditTrialReportForCreate");
+        
+    }
+   //@Test(priority=3)
     public void AddInvalidRecord() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacBroadcastMsgData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);
@@ -93,7 +112,7 @@ public class TmacBroadCastMsgTest extends BaseTest {
         Assert.assertTrue(tmacBroadCastMsgPage.verifyErrorMessage(),"Invalid Record Assertion failed");
         screenshot.captureScreen(driver, "Invalid Record when Teamname is null","TmacBroadCastMsgTest");
     }
-    @Test(priority=4)
+    //@Test(priority=4)
     public void EditTmacBroadCastMsg() throws IOException {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacBroadcastMsgData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(2);
@@ -104,6 +123,21 @@ public class TmacBroadCastMsgTest extends BaseTest {
         tmacBroadCastMsgPage.editTmacBroadcastMsg(tmacBroadCastMsgDetails);
         Assert.assertTrue(tmacBroadCastMsgPage.verifyRecordUpdated(),"Record Updated assertion failed");
         screenshot.captureScreen(driver, "Updated Record","TmacBroadCastMsgTest");
+    }
+    
+    @Test()//dependsOnMethods = {"EditTmacBroadCastMsg()"})
+    	public void VerifyAuditTrailReportForUpdate() throws Exception {
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacBroadcastMsgData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
+        TmacBroadCastMsgDetails tmacBroadCastMsgDetails=new TmacBroadCastMsgDetails(map);
+        HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
+        homePage.navigateToOCMReportsPage();
+        OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver, OCMReportsPage.class);
+        String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AuditTrailReportData.xlsx";
+        Map<String, String> map1 = new ExcelReader(filePath1,"Show").getTestData().get(0);
+        ReportDetails reportDetails= new ReportDetails(map1);
+        ocmReportsPage.showReport(reportDetails);
+        Assert.assertTrue(ocmReportsPage.verifyTmacBroadcastMsgUpdate(tmacBroadCastMsgDetails,"Update"));
     }
     
     @Test(priority=5)
@@ -225,6 +259,7 @@ public class TmacBroadCastMsgTest extends BaseTest {
         TmacBroadCastMsgDetails tmacBroadCastMsgDetails=new TmacBroadCastMsgDetails(map);
         Assert.assertTrue(tmacBroadCastMsgPage .ExporttoExcelWithoutData(tmacBroadCastMsgDetails));
     }
+    
     @AfterMethod
     public void afterEachMethod(ITestResult result){
    	 if(ITestResult.FAILURE==result.getStatus()){

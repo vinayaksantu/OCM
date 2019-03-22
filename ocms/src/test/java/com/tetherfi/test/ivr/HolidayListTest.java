@@ -12,10 +12,12 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.tetherfi.model.ivr.HolidayListDetails;
+import com.tetherfi.model.ivr.OperatingHoursDetails;
 import com.tetherfi.pages.HolidayListPage;
 import com.tetherfi.pages.HomePage;
 import com.tetherfi.pages.IvrPage;
 import com.tetherfi.pages.OCMHomePage;
+import com.tetherfi.pages.OperatingHoursPage;
 import com.tetherfi.test.BaseTest;
 import com.tetherfi.utility.ExcelReader;
 import com.tetherfi.utility.PageFactory;
@@ -40,7 +42,7 @@ public class HolidayListTest extends BaseTest {
         screenshot.captureScreen("Holiday List Page","HolidayListTest");
     }
 	
-	//@Test(priority=1)
+	@Test(priority=1)
 	public void HolidayListPage() {
         HolidayListPage holidaylistPage = PageFactory.createPageInstance(driver, HolidayListPage.class);
     	Assert.assertTrue(holidaylistPage.verifylogo(),"Holiday List logo assertion failed");
@@ -50,7 +52,7 @@ public class HolidayListTest extends BaseTest {
     	screenshot.captureScreen("minimize window","HolidayListTest");
 	}
 	
-	@Test(priority=2)
+	//@Test(priority=2)
 	public void addNewHolidayListRecord() throws Exception {
 		HolidayListPage holidaylistPage = PageFactory.createPageInstance(driver, HolidayListPage.class);
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\HolidayListData.xlsx";
@@ -62,7 +64,8 @@ public class HolidayListTest extends BaseTest {
         Assert.assertTrue(holidaylistPage.verifymessage(), "HolidayList Record creation assertion failed" );
     	screenshot.captureScreen("Record Created Successfully","HolidayListTest");
 	}
-	@Test(priority=3,dependsOnMethods = ("addNewHolidayListRecord"))
+	
+	//@Test(priority=3,dependsOnMethods = ("addNewHolidayListRecord"))
 	public void Add() throws Exception{
 		HolidayListPage holidaylistPage = PageFactory.createPageInstance(driver, HolidayListPage.class);
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\HolidayListData.xlsx";
@@ -138,7 +141,7 @@ public class HolidayListTest extends BaseTest {
     	screenshot.captureScreen("LeavingVDNBlank","HolidayListTest");
 	}
 	
-	//@Test(priority=7)
+	//@Test(priority=6)
     public void ExportToExcel() throws Exception
     {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles";
@@ -146,7 +149,7 @@ public class HolidayListTest extends BaseTest {
         Assert.assertTrue(holidaylistPage.verifyExportToExcel(filePath));
     }
     
-    //@Test(priority=8)
+    //@Test(priority=7)
     public void ExportToExcelData() throws Exception
     {String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Holiday List.xlsx";
     List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
@@ -179,7 +182,7 @@ public class HolidayListTest extends BaseTest {
     	screenshot.captureScreen("EditLeavingModifyReasonBlank","HolidayListTest");
   	}
   	
-  	//@Test(priority=9,dependsOnMethods = ("editHolidayListRecord"))
+  	//@Test(priority=10,dependsOnMethods = ("editHolidayListRecord"))
     public void DeleteHolidayListRecord() throws IOException {
         HolidayListPage holidaylistPage = PageFactory.createPageInstance(driver, HolidayListPage.class);
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Holiday List.xlsx";
@@ -192,7 +195,7 @@ public class HolidayListTest extends BaseTest {
         screenshot.captureScreen(driver, "Verify Record Deleted", "HolidayListTest");
         }
     
-	//@Test(priority=10)
+	//@Test(priority=11)
     public void GroupBy()
     {
         HolidayListPage holidaylistPage = PageFactory.createPageInstance(driver, HolidayListPage.class);
@@ -202,44 +205,44 @@ public class HolidayListTest extends BaseTest {
         screenshot.captureScreen(driver, "AlreadyGroupBy","HolidayListTest");
     }
     
-    //@Test(priority=13)
+    //@Test(priority=12)
     public void VerifyArrowMoveForPreviousAndNextPage() {
         HolidayListPage holidaylistPage = PageFactory.createPageInstance(driver, HolidayListPage.class);
     	Assert.assertTrue(holidaylistPage.verifyArrowMoveForPreviousAndNextPage(),"arrow move for previous and next page assertion failed");
     }
     
-    //@Test(priority=14)
+    //@Test(priority=13)
     public void VerifyArrowMoveForFirstAndLastPage() {
         HolidayListPage holidaylistPage = PageFactory.createPageInstance(driver, HolidayListPage.class);
         Assert.assertTrue(holidaylistPage.verifyArrowMoveForFirstAndLastPage(),"arrow move for first and last page assertion failed");
     }
-    ////@Test(priority=15)
+    ////@Test(priority=14)
     public void VerifyTotalNumberOfItemsPerPageDetails() {
         HolidayListPage holidaylistPage = PageFactory.createPageInstance(driver, HolidayListPage.class);
         Assert.assertTrue(holidaylistPage.verifyTotalNumberOfItemsPerPageDetails(),"item per page assertion failed");
     }
     
-    //@Test(priority=16)
+    //@Test(priority=15)
     public void VerifyNumberOfItemsPerPageSelection() {
         HolidayListPage holidaylistPage = PageFactory.createPageInstance(driver, HolidayListPage.class);
         Assert.assertTrue(holidaylistPage.verifyNumberOfItemsPerPage(),"item per page assertion failed");
     }
-    //@Test(priority=17)
+    //@Test(priority=15)
     public void VerifyDropdownForAllTheColumns() {
         HolidayListPage holidaylistPage = PageFactory.createPageInstance(driver, HolidayListPage.class);
         Assert.assertTrue(holidaylistPage.verifyDropDownOfAllHeaders(), "Columns dropdown assertion failed");
     }
-    //@Test(priority=18)
+    //@Test(priority=16)
     public void VerifyColumnsHeaderEnable() {
         HolidayListPage holidaylistPage = PageFactory.createPageInstance(driver, HolidayListPage.class);
         Assert.assertTrue(holidaylistPage.verifycolumnsHeaderEnabled(),"columns enabled assertion failed");
     }
-    //@Test(priority=19)
+    //@Test(priority=17)
     public void VerifyColumnsHeaderDisable() {
         HolidayListPage holidaylistPage = PageFactory.createPageInstance(driver, HolidayListPage.class);
         Assert.assertFalse(holidaylistPage.verifycolumnsHeaderDisabled(),"columns disabled assertion failed");
     }
-    //@Test(priority=20)
+    //@Test(priority=18)
     public void SortingByAscending() throws IOException {
         HolidayListPage holidaylistPage = PageFactory.createPageInstance(driver, HolidayListPage.class);
         holidaylistPage.SortByAscending();
@@ -247,7 +250,7 @@ public class HolidayListTest extends BaseTest {
         List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
         Assert.assertTrue(holidaylistPage.verifyexportToExcelSheet(maplist));
     }
-    //@Test(priority=21)
+    //@Test(priority=19)
     public void SortingByDescending() throws IOException {
         HolidayListPage holidaylistPage = PageFactory.createPageInstance(driver, HolidayListPage.class);
         holidaylistPage.SortByDescending();
@@ -255,7 +258,7 @@ public class HolidayListTest extends BaseTest {
         List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
         Assert.assertTrue(holidaylistPage.verifyexportToExcelSheet(maplist));
     }
-    //@Test(priority=22)
+    //@Test(priority=20)
     public void ExporttoExcelWithoutData() throws Exception
     {
         HolidayListPage holidaylistPage = PageFactory.createPageInstance(driver, HolidayListPage.class);
@@ -265,7 +268,7 @@ public class HolidayListTest extends BaseTest {
         Assert.assertTrue(holidaylistPage.ExporttoExcelWithoutData(holidayListDetails));
     }
     
-    //@Test(priority=23)
+    //@Test(priority=21)
     public void database() throws Exception
     {
         HolidayListPage holidaylistPage = PageFactory.createPageInstance(driver, HolidayListPage.class);
@@ -276,6 +279,30 @@ public class HolidayListTest extends BaseTest {
    
     }
 	
+  //@Test(priority=22)
+    public void searchPage() throws IOException {
+    	HolidayListPage holidaylistPage = PageFactory.createPageInstance(driver, HolidayListPage.class);
+        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Holiday List.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
+        HolidayListDetails holidayListDetails=new HolidayListDetails (map);
+        Assert.assertFalse(holidaylistPage.clearAll(holidayListDetails),"ClearAll Assertion Failed");
+        screenshot.captureScreen(driver, "clearall","HolidayListTest");
+        Assert.assertTrue(holidaylistPage.verifyclose());
+        screenshot.captureScreen(driver, "SearchClose","HolidayListTest");
+    }
+    
+    @Test(priority=23)
+    public void SearchClearSearch() throws Exception
+    {
+    	HolidayListPage holidaylistPage = PageFactory.createPageInstance(driver, HolidayListPage.class);
+        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Holiday List.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
+        HolidayListDetails holidayListDetails=new HolidayListDetails (map);
+        Assert.assertTrue(holidaylistPage.verifyinvalidsearchwithwrongdata(holidayListDetails),"invalidsearchwithwrongdata");
+        screenshot.captureScreen("Invalid Search with wrong data", "HolidayListTest");
+        Assert.assertTrue(holidaylistPage.verifyclearsearch(), "Clear All Assertion Failed");
+        screenshot.captureScreen( "Clear Search", "HolidayListTest");
+    }
 	
 	@AfterMethod
     public void afterEachMethod(ITestResult result,Method method){

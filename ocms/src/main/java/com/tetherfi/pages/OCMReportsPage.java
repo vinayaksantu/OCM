@@ -1,7 +1,14 @@
 package com.tetherfi.pages;
 
+import com.tetherfi.model.ivr.AdhocOptionEnhancementDetails;
 import com.tetherfi.model.report.ReportDetails;
+import com.tetherfi.model.tmac.AgentTeamMgmtDetails;
+import com.tetherfi.model.tmac.TmacBroadCastMsgDetails;
+import com.tetherfi.model.tmac.WaitTimeColorConfigDetails;
+import com.tetherfi.model.tmac.WorkCodeListDetails;
+
 import org.apache.commons.lang3.StringUtils;
+import org.apache.poi.util.SystemOutLogger;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
@@ -26,6 +33,9 @@ public class OCMReportsPage extends BasePage {
     @FindBy(id = "form")
     private WebElement formContents;
 
+    @FindBy(id="grid")
+    private WebElement auditGridContent;
+    
     @FindBy(css = "span[aria-owns='reportchannel_listbox']")
     private WebElement reportChannelDropdown;
 
@@ -56,13 +66,13 @@ public class OCMReportsPage extends BasePage {
     @FindBy(id="searchRadioGroup")
     private WebElement advancedSearchBtn;
 
-    @FindBy(css="#advanced .k-select")
+    @FindBy(css=".modal-body .form-inline .form-group .k-select")
     private List<WebElement> selectSearchColumn;
 
-    @FindBy(css="ul[id='1001ColumnName_listbox'] li")
+    @FindBy(css="ul[id='1001sColumnName_listbox'] li")
     private List<WebElement> columnNameList;
 
-    @FindBy(css="ul[id='1001Criteria_listbox'] li")
+    @FindBy(css="ul[id='1001sCriteria_listbox'] li")
     private List<WebElement> searchTypeList;
 
     @FindBy(css="#advanced .k-textbox")
@@ -221,6 +231,21 @@ public class OCMReportsPage extends BasePage {
 
     @FindBy(css=".k-grid-pdf")
     private WebElement exportToPDF;
+    
+    @FindBy(id="1001sAddButton")
+    private WebElement plusbutton;
+    
+    @FindBy(xpath="//label[@for='1001sRadioAND']")
+    private WebElement andradiobtn;
+    
+    @FindBy(css="ul[id='1002sColumnName_listbox'] li")
+    private List<WebElement> columnNameListtwo;
+    
+    @FindBy(css="ul[id='1002sCriteria_listbox'] li")
+    private List<WebElement> searchTypeListtwo;
+    
+    @FindBy(id="1002sTextToSearch")
+    private WebElement searchTextBoxtwo;
     
     public boolean isShowButtonsDisplayed() {
     	return showReportBtn.get(0).isDisplayed() && showReportBtn.get(1).isDisplayed() && showReportBtn.get(0).isEnabled() && showReportBtn.get(1).isEnabled();    	
@@ -965,5 +990,678 @@ return status;
 			return false;
 		else
 			return true;
+	}
+	
+	public void booleansearchnew(String Name, String Transaction) throws Exception
+	{
+		selectWebElement(searchBtn);
+		waitForJqueryLoad(driver);
+        selectWebElement(selectSearchColumn.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Transaction");
+        selectWebElement(selectSearchColumn.get(1));
+        selectDropdownFromVisibleText(searchTypeList,"Is equal to");
+        enterValueToTxtField(searchTextBox,Transaction);
+        selectWebElement(plusbutton);
+        moveToElement(andradiobtn);
+        selectWebElement(andradiobtn);
+        Thread.sleep(2000);
+        selectWebElement(selectSearchColumn.get(2));
+        selectDropdownFromVisibleTextContains(columnNameListtwo,"New Value");
+        selectWebElement(selectSearchColumn.get(3));
+        selectDropdownFromVisibleText(searchTypeListtwo,"Contains");
+        enterValueToTxtField(searchTextBoxtwo,Name);
+        selectWebElement(searchSearchBtn);
+        waitForJqueryLoad(driver);
+        waitUntilWebElementIsVisible(gridContent);
+	}
+	
+	public void booleansearchold(String Name, String Transaction) throws Exception
+	{
+		selectWebElement(searchBtn);
+		waitForJqueryLoad(driver);
+        selectWebElement(selectSearchColumn.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Transaction");
+        selectWebElement(selectSearchColumn.get(1));
+        selectDropdownFromVisibleText(searchTypeList,"Is equal to");
+        enterValueToTxtField(searchTextBox,Transaction);
+        selectWebElement(plusbutton);
+        moveToElement(andradiobtn);
+        selectWebElement(andradiobtn);
+        Thread.sleep(2000);
+        selectWebElement(selectSearchColumn.get(2));
+        selectDropdownFromVisibleTextContains(columnNameListtwo,"Old Value");
+        selectWebElement(selectSearchColumn.get(3));
+        selectDropdownFromVisibleText(searchTypeListtwo,"Contains");
+        enterValueToTxtField(searchTextBoxtwo,Name);
+        selectWebElement(searchSearchBtn);
+        waitForJqueryLoad(driver);
+        waitUntilWebElementIsVisible(gridContent);
+	}
+
+	public Boolean verifyTmacBroadcastMsgCreate(TmacBroadCastMsgDetails details, String Transaction) throws Exception {
+		booleansearchnew(details.getMessage(),Transaction);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+		Map<String,String> newvalues=new HashMap<>();
+		String[]d=firstRowData.get("New Values").split("\n");
+		for(String e:d) {
+			System.out.println(e);
+			String f[]=e.split(":",2);
+			if(f.length>1)
+			newvalues.put(f[0], f[1]);
+		}
+			if(newvalues.get("TeamName").equals(details.getTeamName()))
+			{
+				if(newvalues.get("Message").equals(details.getMessage()))
+				{
+					if(newvalues.get("Status").equals(details.getStatus()))
+						Status= true;
+					else {System.out.println("Status data mismatch");}
+				}
+				else {System.out.println("Message data mismatch");}
+			}
+			else {System.out.println("TeamName data mismatch");	}
+			return Status;
+		}
+
+	public Boolean verifyTmacBroadcastMsgUpdate(TmacBroadCastMsgDetails details, String Transaction) throws Exception {
+		booleansearchnew(details.getUpdatedMessage(),Transaction);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+        if(firstRowData.containsKey("Old Values")) {
+        	Map<String,String> oldvalues=new HashMap<>();
+    		String[]d=firstRowData.get("Old Values").split("\n");
+    		for(String e:d) {
+    			System.out.println(e);
+    			String f[]=e.split(":",2);
+    			if(f.length>1)
+    				oldvalues.put(f[0], f[1]);
+    		}
+    		if(oldvalues.get("TeamName").equals(details.getTeamName())){
+    			if(oldvalues.get("Message").equals(details.getMessage())){
+    				if(oldvalues.get("Status").equals(details.getStatus()))
+    					if(firstRowData.containsKey("New Values")) {
+    		    			Map<String,String> newvalues=new HashMap<>();
+    		        		String[]d1=firstRowData.get("New Values").split("\n");
+    		        		for(String e:d1) {
+    		        			System.out.println(e);
+    		        			String f[]=e.split(":",2);
+    		        			if(f.length>1)
+    		        				newvalues.put(f[0], f[1]);
+    		        		}
+    		        		if(newvalues.get("TeamName").equals(details.getTeamName())){
+    		        			if(newvalues.get("Message").equals(details.getUpdatedMessage())){
+    		        				if(newvalues.get("Status").equals(details.getStatus())) {
+    		        					if(newvalues.get("Modify Reason").equals(details.getModifyReason())) {
+    		        						if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getModifyReason()))
+    		        		        			Status=true;
+    		        		        		else System.out.println("Change reason data mismatch");
+    		        					}
+    		        					else System.out.println("Modify reason data mismatch");
+    		        				}
+    		        				else {System.out.println("Status data mismatch");}
+    		        			}
+    		        			else {System.out.println("Message data mismatch");}
+    		        			}
+    		        		else {System.out.println("TeamName data mismatch");	}
+    		        		
+    		    		}
+    		    		else {System.out.println("New values data mismatch");}
+    				else {System.out.println("Status data mismatch");}
+    			}
+    			else {System.out.println("Message data mismatch");}
+    			}
+    		else {System.out.println("TeamName data mismatch");	}
+    		
+    	}
+        else {System.out.println("Old values data mismatch");}
+        return Status;
+	}
+	
+	private Map<String,String> getFirstRowDatafromTable1(){
+        Map<String,String> map = new HashMap<>();
+        waitUntilWebElementIsVisible(auditGridContent);
+        List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
+        List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
+        List<WebElement> cols=rows.get(1).findElements(By.tagName("td"));
+        for(int j=0;j<headers.size();j++){
+            scrollToElement(headers.get(j));
+            map.put(headers.get(j).getText(),cols.get(j).getText());
+        }
+        return map;
+	}
+
+	public boolean verifywaitTimeColorConfigCreate(WaitTimeColorConfigDetails details,String Transaction) throws Exception {
+		booleansearchnew(details.getColorcode(),Transaction);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+		Map<String,String> newvalues=new HashMap<>();
+		String[]d=firstRowData.get("New Values").split("\n");
+		for(String e:d) {
+			String f[]=e.split(":",2);
+			if(f.length>1)
+			newvalues.put(f[0], f[1]);
+		}
+			if(newvalues.get("ColorCode").equals(details.getColorcode()))
+			{
+				if(newvalues.get("Color").equals(details.getColorcode()))
+				{
+					if(newvalues.get("StartTime").equals(details.getStartTime()))
+					{
+						if(newvalues.get("EndTime").equals(details.getEndTime()))
+							Status= true;
+						else {System.out.println("End Time  data mismatch");}
+					}
+					else {System.out.println("Start Time data mismatch");}
+				}
+				else {System.out.println("Color data mismatch");}
+			}
+			else {System.out.println("Color Code data mismatch");}
+			return Status;
+	}
+
+	public boolean verifywaitTimeColorConfigUpdate(WaitTimeColorConfigDetails details,String Transaction) throws Exception {
+		booleansearchnew(details.getUpdatedColorCode(),Transaction);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+        if(firstRowData.containsKey("Old Values")) {
+        	Map<String,String> oldvalues=new HashMap<>();
+    		String[]d=firstRowData.get("Old Values").split("\n");
+    		for(String e:d) {
+    			System.out.println(e);
+    			String f[]=e.split(":",2);
+    			if(f.length>1)
+    				oldvalues.put(f[0], f[1]);
+    		}
+    		if(oldvalues.get("Color").equals(details.getColorcode())){
+    			if(oldvalues.get("ColorCode").equals(details.getColorcode())){
+    				if(oldvalues.get("StartTime").equals(details.getStartTime())) {
+    					if(oldvalues.get("EndTime").equals(details.getEndTime())){
+    						if(firstRowData.containsKey("New Values")) {
+    							Map<String,String> newvalues=new HashMap<>();
+    							String[]d1=firstRowData.get("New Values").split("\n");
+    							for(String e:d1) {
+    								String f[]=e.split(":",2);
+    								if(f.length>1)
+    		        				newvalues.put(f[0], f[1]);
+    							}
+    							if(newvalues.get("Color").equals(details.getUpdatedColorCode())){
+    								if(newvalues.get("ColorCode").equals(details.getUpdatedColorCode())){
+    									if(newvalues.get("StartTime").equals(details.getUpdatedStartTime())) {
+    										if(newvalues.get("EndTime").equals(details.getEndTime())){
+    											if(newvalues.get("Modify Reason").equals(details.getModifyReason())) {
+    												if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getModifyReason()))
+    													Status=true;
+    												else System.out.println("Change reason data mismatch");
+    											}
+    											else System.out.println("Modify reason data mismatch");
+    										}
+    										else System.out.println("End Time data mismatch");
+    		        				}
+    		        				else {System.out.println("Start Time data mismatch");}
+    		        			}
+    		        			else {System.out.println("Colorcode data mismatch");}
+    		        			}
+    		        		else {System.out.println("Color data mismatch");	}	
+    		    		}
+    		    		else {System.out.println("New values data mismatch");}
+    					}
+    				else {System.out.println("End Time data mismatch");}
+    			}
+    			else {System.out.println("Start Time data mismatch");}
+    			}
+    		else {System.out.println("Color Code data mismatch");	}	
+    	}
+    	else System.out.println("Color data mismatch");
+        }
+    else {System.out.println("Old values data mismatch");}
+    return Status;
+	}
+
+	public boolean verifywaitTimeColorConfigdelete(WaitTimeColorConfigDetails details,String Transaction) throws Exception {
+		booleansearchold(details.getUpdatedColorCode(),Transaction);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+		Map<String,String> oldvalues=new HashMap<>();
+		String[]d=firstRowData.get("Old Values").split("\n");
+		for(String e:d) {
+			String f[]=e.split(":",2);
+			if(f.length>1)
+			oldvalues.put(f[0], f[1]);
+		}
+			if(oldvalues.get("ColorCode").equals(details.getUpdatedColorCode()))
+			{
+				if(oldvalues.get("Color").equals(details.getUpdatedColorCode()))
+				{
+					if(oldvalues.get("StartTime").equals(details.getStartTime()))
+					{
+						if(oldvalues.get("EndTime").equals(details.getEndTime()))
+						{
+							if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getDeleteReason()))
+    		        			Status=true;
+    		        		else System.out.println("Change reason data mismatch");
+						}
+						else {System.out.println("End Time  data mismatch");}
+					}
+					else {System.out.println("Start Time data mismatch");}
+				}
+				else {System.out.println("Color data mismatch");}
+			}
+			else {System.out.println("Color Code data mismatch");}
+			return Status;
+	}
+
+	public boolean verifyWorkcodeListCreate(WorkCodeListDetails details, String Transaction, WorkCodeListDetails details1) throws Exception {
+		booleansearchnew(details.getName(),Transaction);
+		String workcode=database(details1.getQuery()).get(0).remove("WorkCode");
+		System.out.println(workcode);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+		Map<String,String> newvalues=new HashMap<>();
+		String[]d=firstRowData.get("New Values").split("\n");
+		for(String e:d) {
+			String f[]=e.split(":",2);
+			if(f.length>1)
+			newvalues.put(f[0], f[1]);
+		}
+			if(newvalues.get("WorkLevel").equals(details.getWorkLevel()))
+			{
+				if(newvalues.get("Name").equals(details.getName()))
+				{
+					if(newvalues.get("WorkCode").equals(workcode))
+						Status= true;
+					else {System.out.println("Workcode data mismatch");}
+				}
+				else {System.out.println("Name data mismatch");}
+			}
+			else {System.out.println("WorkLevel data mismatch");	}
+			return Status;
+	}
+	public String workcode;
+	public boolean verifyWorkcodeListUpdate(WorkCodeListDetails details,String Transaction,WorkCodeListDetails details1) throws Exception {
+		booleansearchnew(details.getUpdatedName(),Transaction);
+		workcode=database(details1.getQuery()).get(0).remove("WorkCode");
+		System.out.println(workcode);
+		String teamid=database(details1.getQuery()).get(0).remove("TeamID");
+		System.out.println(teamid);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+        if(firstRowData.containsKey("Old Values")) {
+        	Map<String,String> oldvalues=new HashMap<>();
+    		String[]d=firstRowData.get("Old Values").split("\n");
+    		for(String e:d) {
+    			System.out.println(e);
+    			String f[]=e.split(":",2);
+    			if(f.length>1)
+    				oldvalues.put(f[0], f[1]);
+    		}
+    		if(oldvalues.get("WorkLevel").equals(details.getWorkLevel())){
+    			if(oldvalues.get("Name").equals(details.getName())){
+    				if(oldvalues.get("WorkCode").equals(workcode)) {
+    					if(oldvalues.get("TeamID").equals(teamid)){
+    						if(firstRowData.containsKey("New Values")) {
+    							Map<String,String> newvalues=new HashMap<>();
+    							String[]d1=firstRowData.get("New Values").split("\n");
+    							for(String e:d1) {
+    								String f[]=e.split(":",2);
+    								if(f.length>1)
+    		        				newvalues.put(f[0], f[1]);
+    							}
+    							if(newvalues.get("WorkLevel").equals(details.getWorkLevel())){
+    								if(newvalues.get("Name").equals(details.getUpdatedName())){
+    									if(newvalues.get("WorkCode").equals(workcode)) {
+    										if(newvalues.get("TeamID").equals(teamid)){
+    											if(newvalues.get("Modify Reason").equals(details.getModifyReason())) {
+    												if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getModifyReason()))
+    													Status=true;
+    												else System.out.println("Change reason data mismatch");
+    											}
+    											else System.out.println("Modify reason data mismatch");
+    										}
+    										else System.out.println("TeamID data mismatch");
+    		        				}
+    		        				else {System.out.println("Workcode data mismatch");}
+    		        			}
+    		        			else {System.out.println("Name data mismatch");}
+    		        			}
+    		        		else {System.out.println("WorkLevel data mismatch");	}	
+    		    		}
+    		    		else {System.out.println("New values data mismatch");}
+    					}
+    				else {System.out.println("Team Id data mismatch");}
+    			}
+    			else {System.out.println("WorkCode data mismatch");}
+    			}
+    		else {System.out.println("Name data mismatch");	}	
+    	}
+    	else System.out.println("WorkLevel data mismatch");
+        }
+    else {System.out.println("Old values data mismatch");}
+    return Status;
+	}
+
+	public boolean verifycodeListdelete(WorkCodeListDetails details, String Transaction,String workcode) throws Exception {
+		booleansearchold(details.getUpdatedName(),Transaction);
+		System.out.println(workcode);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+		Map<String,String> oldvalues=new HashMap<>();
+		String[]d=firstRowData.get("Old Values").split("\n");
+		for(String e:d) {
+			String f[]=e.split(":",2);
+			if(f.length>1)
+			oldvalues.put(f[0], f[1]);
+		}
+			if(oldvalues.get("WorkLevel").equals(details.getWorkLevel()))
+			{
+				if(oldvalues.get("Name").equals(details.getUpdatedName()))
+				{
+					if(oldvalues.get("WorkCode").equals(workcode))
+					{
+						if(oldvalues.get("ModifyReason").equals(details.getDeleteReason()))
+						{
+							if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getDeleteReason()))
+    		        			Status=true;
+    		        		else System.out.println("Change reason data mismatch");
+						}
+						else {System.out.println("Modify Reason  data mismatch");}
+					}
+					else {System.out.println("Workcode data mismatch");}
+				}
+				else {System.out.println("Name data mismatch");}
+			}
+			else {System.out.println("WOrkLevel data mismatch");}
+			return Status;
+	}
+
+	public String RunQuery(String query, String Key) {
+		return database(query).get(0).remove(Key);
+	}
+
+	public boolean verifyAgentTeamMgmtCreate(AgentTeamMgmtDetails details, String Transaction) throws Exception {
+		booleansearchnew(details.getTeamName(),Transaction);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+		Map<String,String> newvalues=new HashMap<>();
+		String[]d=firstRowData.get("New Values").split("\n");
+		for(String e:d) {
+			String f[]=e.split(":",2);
+			if(f.length>1)
+			newvalues.put(f[0], f[1]);
+		}
+			if(newvalues.get("LevelHierarchy").equals(details.getLevel()))
+			{
+				if(newvalues.get("Name").equals(details.getTeamName()))
+				{
+					Status= true;
+				}
+				else {System.out.println("Name data mismatch");}
+			}
+			else {System.out.println("Level Hierarchy data mismatch");}
+			return Status;
+	}
+
+	public boolean verifyAgentTeamMgmtUpdate(AgentTeamMgmtDetails details, String Transaction, String displayname,AgentTeamMgmtDetails details2) throws Exception {
+		booleansearchnew(details.getUpdateTeamName(),Transaction);
+		String displayname2=RunQuery(details2.getQuery(),"DisplayName");
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+        if(firstRowData.containsKey("Old Values")) {
+        	Map<String,String> oldvalues=new HashMap<>();
+    		String[]d=firstRowData.get("Old Values").split("\n");
+    		for(String e:d) {
+    			System.out.println(e);
+    			String f[]=e.split(":",2);
+    			if(f.length>1)
+    				oldvalues.put(f[0], f[1]);
+    		}
+    		if(oldvalues.get("LevelHierarchy").equals(details.getLevel())){
+    			if(oldvalues.get("Name").equals(details.getTeamName())){
+    				if(oldvalues.get("DisplayHierarchy").equals(displayname)) {
+    					if(firstRowData.containsKey("New Values")) {
+    						Map<String,String> newvalues=new HashMap<>();
+    						String[]d1=firstRowData.get("New Values").split("\n");
+    						for(String e:d1) {
+    							String f[]=e.split(":",2);
+    							if(f.length>1)
+    		        			newvalues.put(f[0], f[1]);
+    						}
+    						if(newvalues.get("LevelHierarchy").equals(details.getLevel())){
+    							if(newvalues.get("Name").equals(details.getUpdateTeamName())){
+    								if(newvalues.get("DisplayHierarchy").equals(displayname2)) {
+    									if(newvalues.get("Modify Reason").equals(details.getModifyReason())) {
+    										if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getModifyReason()))
+    											Status=true;
+    										else System.out.println("Change reason data mismatch");
+    									}
+    									else System.out.println("Modify reason data mismatch");
+    								}
+    								else System.out.println("Display Hierarchy data mismatch");
+    		        				}
+    		        			else {System.out.println("Name data mismatch");}
+    		        			}
+    		        		else {System.out.println("LevelHeirarchy data mismatch");	}	
+    		    		}
+    		    		else {System.out.println("New values data mismatch");}
+    					}
+    				else {System.out.println("Display Hierarchy data mismatch");}
+    			}
+    			else {System.out.println("Name data mismatch");}
+    			}
+    		else {System.out.println("Level Hierarchy data mismatch");	}	
+        }
+        else {System.out.println("Old values data mismatch");}
+    return Status;
+	}
+
+	public boolean verifyAgentTeamMgmtdelete(AgentTeamMgmtDetails details, String Transaction,String displayname) throws Exception {
+		booleansearchold(details.getUpdateTeamName(),Transaction);
+		System.out.println(displayname);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+		Map<String,String> oldvalues=new HashMap<>();
+		String[]d=firstRowData.get("Old Values").split("\n");
+		for(String e:d) {
+			String f[]=e.split(":",2);
+			if(f.length>1)
+			oldvalues.put(f[0], f[1]);
+		}
+			if(oldvalues.get("LevelHierarchy").equals(details.getLevel()))
+			{
+				if(oldvalues.get("Name").equals(details.getUpdateTeamName()))
+				{
+					if(oldvalues.get("DisplayHierarchy").equals(displayname))
+					{
+						if(oldvalues.get("ModifyReason").equals(details.getDeleteReason()))
+						{
+							if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getDeleteReason()))
+    		        			Status=true;
+    		        		else System.out.println("Change reason data mismatch");
+						}
+						else {System.out.println("Modify Reason  data mismatch");}
+					}
+					else {System.out.println("DisplayHierarchy data mismatch");}
+				}
+				else {System.out.println("Name data mismatch");}
+			}
+			else {System.out.println("LevelHierarchy data mismatch");}
+			return Status;
+	}
+
+	public boolean verifyAdhocOptionEnhancementCreate(AdhocOptionEnhancementDetails details, String Transaction) throws Exception {
+		booleansearchnew(details.getPromotionalDescription(),Transaction);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+		Map<String,String> newvalues=new HashMap<>();
+		String[]d=firstRowData.get("New Values").split("\n");
+		for(String e:d) {
+			String f[]=e.split(":",2);
+			if(f.length>1)
+			newvalues.put(f[0], f[1]);
+		}
+			if(newvalues.get("PromotionNumber").equals(details.getPromotionalNumber()))
+			{
+				if(newvalues.get("PromotionDescription").equals(details.getPromotionalDescription()))
+				{
+					if(newvalues.get("Language").equals(details.getLanguage()))
+					{
+						if(newvalues.get("PromotionNameWavFile").equals(details.getPromotionNameWavFile()))
+						{
+							if(newvalues.get("PromotionDetailsWavFile").equals(details.getPromotionDetailsWavFile()))
+							{
+								if(newvalues.get("DirectTransferEnabled").equals(details.getDirectTransferEnabled()))
+								{
+									if(newvalues.get("Intent").equals(details.getIntent()))
+									{
+										if(newvalues.get("Status").equals(details.getStatus()))
+										{
+											Status= true;
+										}
+										else {System.out.println("Status data mismatch");}
+									}
+									else {System.out.println("Intent data mismatch");}
+								}
+								else {System.out.println("Direct TransferEnabled data mismatch");}
+							}
+							else {System.out.println("PromotionDetailsWavFile data mismatch");}
+						}	
+						else {System.out.println("romotionNameWavFile data mismatch");}
+					}
+					else {System.out.println("Language data mismatch");}
+				}
+				else {System.out.println("PromotionDescription data mismatch");}
+			}
+			else {System.out.println("PromotionNumber data mismatch");}
+			return Status;
+	}
+
+	public boolean verifyAdhocOptionEnhancementUpdate(AdhocOptionEnhancementDetails details,String Transaction) throws Exception {
+		booleansearchnew(details.getUpdatedPromotiondescription(),Transaction);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+        if(firstRowData.containsKey("Old Values")) {
+        	Map<String,String> oldvalues=new HashMap<>();
+    		String[]d=firstRowData.get("Old Values").split("\n");
+    		for(String e:d) {
+    			System.out.println(e);
+    			String f[]=e.split(":",2);
+    			if(f.length>1)
+    				oldvalues.put(f[0], f[1]);
+    		}
+    		if(oldvalues.get("PromotionNumber").equals(details.getPromotionalNumber())){
+    			if(oldvalues.get("PromotionDescription").equals(details.getPromotionalDescription())){
+    				if(oldvalues.get("Language").equals(details.getLanguage())) {
+    					if(oldvalues.get("DirectTransferEnabled").equals(details.getDirectTransferEnabled())){
+    						if(oldvalues.get("PromotionNameWavFile").equals(details.getPromotionNameWavFile())){
+    							if(oldvalues.get("PromotionDetailsWavFile").equals(details.getPromotionDetailsWavFile())){
+    								if(oldvalues.get("Intent").equals(details.getIntent())){
+    									if(oldvalues.get("Status").equals(details.getStatus())){
+    										if(firstRowData.containsKey("New Values")) {
+    											Map<String,String> newvalues=new HashMap<>();
+    											String[]d1=firstRowData.get("New Values").split("\n");
+    											for(String e:d1) {
+    												String f[]=e.split(":",2);
+    												if(f.length>1)
+    													newvalues.put(f[0], f[1]);
+    											}
+    											if(newvalues.get("PromotionNumber").equals(details.getPromotionalNumber())){
+    												if(newvalues.get("PromotionDescription").equals(details.getUpdatedPromotiondescription())){
+    													if(newvalues.get("Language").equals(details.getLanguage())) {
+    														if(newvalues.get("DirectTransferEnabled").equals(details.getDirectTransferEnabled())){
+    																if(newvalues.get("PromotionNameWavFile").equals(details.getPromotionNameWavFile())){
+    																	if(newvalues.get("PromotionDetailsWavFile").equals(details.getPromotionDetailsWavFile())){
+    																		if(newvalues.get("Intent").equals(details.getIntent())){
+    																			if(newvalues.get("Status").equals(details.getStatus())) {
+    																				if(newvalues.get("ModifyReason").equals(details.getModifyReason())) {
+    																					if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getModifyReason()))
+    																					Status=true;
+    																					else System.out.println("Change reason data mismatch");
+    																				}
+    																				else System.out.println("ModifyReason data mismatch");
+    																			}
+    																			else System.out.println("Status data mismtach");
+    																		}
+    																		else System.out.println("Intent data mismatch");
+    																	}
+    																	else System.out.println("Promotiondetailswavfile data mismatch");
+    																}
+    																else System.out.println("PromotionNamewavfile data mismatch");
+    															}
+    															else System.out.println("DirectTransferEnabled Data mismatch");
+    														}
+    														else System.out.println("Language data mismatch");
+    													}
+    													else System.out.println("Promotion description data mismatch");
+    												}
+    												else System.out.println("Promotion Number data mismatch");	
+    											}
+    											else System.out.println("Newvalues data mismatch");
+    										}
+    										else System.out.println("Status data mismatch");
+    									}
+    									else {System.out.println("Intent data mismatch");}
+    								}
+    								else {System.out.println("Promotiondetailswavfile data mismatch");}
+    		        			}
+    							else {System.out.println("PromotionNamewavfile data mismatch");	}	
+    						}
+    						else {System.out.println("DirectTransferEnabled data mismatch");}
+    					}
+    					else {System.out.println("Langvage data mismatch");}
+    				}
+    				else {System.out.println("Promotiondescription data mismatch");}
+    			}
+    			else {System.out.println("Promotion Number data mismatch");	}	
+    		}
+    		else {System.out.println("Old values data mismatch");}
+    		return Status;
+	}
+	
+	public boolean verifyAdhocOptionEnhancementdelete(AdhocOptionEnhancementDetails details,String Transaction) throws Exception {
+		booleansearchold(details.getPromotionalDescription(),Transaction);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+		Map<String,String> oldvalues=new HashMap<>();
+		String[]d=firstRowData.get("Old Values").split("\n");
+		for(String e:d) {
+			String f[]=e.split(":",2);
+			if(f.length>1)
+			oldvalues.put(f[0], f[1]);
+		}
+			if(oldvalues.get("PromotionNumber").equals(details.getPromotionalNumber()))
+			{
+				if(oldvalues.get("PromotionDescription").equals(details.getPromotionalDescription()))
+				{
+					if(oldvalues.get("Language").equals(details.getLanguage()))
+					{
+						if(oldvalues.get("DirectTransferEnabled").equals(details.getDirectTransferEnabled()))
+						{
+							if(oldvalues.get("PromotionNameWavFile").equals(details.getPromotionNameWavFile())) {
+								if(oldvalues.get("PromotionDetailsWavFile").equals(details.getPromotionDetailsWavFile())) {
+									if(oldvalues.get("Intent").equals(details.getIntent())) {
+										if(oldvalues.get("Status").equals(details.getStatus())){
+											if(oldvalues.get("ModifyReason").equals(details.getDeleteReason())) {
+												if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getDeleteReason()))
+					    		        			Status=true;
+					    		        		else System.out.println("Change reason data mismatch");
+											}
+											else System.out.println("Modify Reason data mismatch");
+										}
+										else System.out.println("Status data mismatch");
+									}
+									else System.out.println("Intent data mismtach");
+								}
+								else System.out.println("PomotionDetails data mismatch");
+							}
+							else System.out.println("PromotionNameWavFile Data mismatch");
+						}
+						else {System.out.println("DirectTansferEnabled data mismatch");}
+					}
+					else {System.out.println("Language data mismatch");}
+				}
+				else {System.out.println("Promotion Description data mismatch");}
+			}
+			else {System.out.println("Promotion Number data mismatch");}
+			return Status;
 	}
 }

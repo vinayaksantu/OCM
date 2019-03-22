@@ -1,10 +1,13 @@
 package com.tetherfi.test.tmac;
 
 import org.testng.annotations.Test;
+
+import com.tetherfi.model.report.ReportDetails;
 import com.tetherfi.model.tmac.AgentTeamMgmtDetails;
 import com.tetherfi.pages.AgentTeamManagementPage;
 import com.tetherfi.pages.HomePage;
 import com.tetherfi.pages.OCMHomePage;
+import com.tetherfi.pages.OCMReportsPage;
 import com.tetherfi.pages.TmacPage;
 import com.tetherfi.test.BaseTest;
 import com.tetherfi.utility.ExcelReader;
@@ -38,7 +41,7 @@ public class AgentTeamMgmtTest extends BaseTest {
     	screenshot.captureScreen(driver, "Agent Team Management Page","AgentTeamMgmtTest");
     }
     
-  @Test (priority=1)
+  // (priority=1)
     public void AgentTeamManagementPage()
     {
     	AgentTeamManagementPage agentTeamManagementPage=PageFactory.createPageInstance(driver,AgentTeamManagementPage.class);
@@ -74,7 +77,24 @@ public class AgentTeamMgmtTest extends BaseTest {
         Assert.assertTrue(agentTeamManagementPage.verifyMessage(), "Record Created Successfully");
         screenshot.captureScreen(driver, "Add new Agent","AgentTeamMgmtTest");
     }
-    @Test(priority=3)
+    
+    //@Test()
+    public void VerifyAuditTrialReportForCreate() throws Exception {
+        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentTeamManagementData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(1);
+        AgentTeamMgmtDetails agentTeamMgmtDetails=new AgentTeamMgmtDetails(map);
+        HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
+        homePage.navigateToOCMReportsPage();
+        OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver, OCMReportsPage.class);
+        String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AuditTrailReportData.xlsx";
+        Map<String, String> map1 = new ExcelReader(filePath1,"Show").getTestData().get(0);
+        ReportDetails reportDetails= new ReportDetails(map1);
+        ocmReportsPage.showReport(reportDetails);
+        Assert.assertTrue(ocmReportsPage.verifyAgentTeamMgmtCreate(agentTeamMgmtDetails,"Create"));
+        screenshot.captureScreen("AgentTeamMgmtTest", "VerifyAuditTrialReportForCreate");
+    }
+    
+    //@Test(priority=3)
     public void AddInvalidRecord() throws IOException {
    	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentTeamManagementData.xlsx";
        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -96,21 +116,35 @@ public class AgentTeamMgmtTest extends BaseTest {
        Assert.assertTrue(agentTeamManagementPage.errorMessage());
        screenshot.captureScreen(driver, "Duplicate Agent","AgentTeamMgmtTest");
        }   
-   
-    @Test(priority=4)
-    public void EditAgentTeamManagementRecord() throws IOException {
+  
+    //@Test(priority=4)
+    public void EditAgentTeamManagementRecord() throws Exception {
+        OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver, OCMReportsPage.class);
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentTeamManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
         AgentTeamMgmtDetails agentTeamMgmtDetails=new AgentTeamMgmtDetails(map);
+        Map<String, String> map2 = new ExcelReader(filePath,"Queries").getTestData().get(1);
+        AgentTeamMgmtDetails agentTeamMgmtDetails2=new AgentTeamMgmtDetails(map2);
+        String displayname=ocmReportsPage.RunQuery(agentTeamMgmtDetails2.getQuery(),"DisplayName");
         AgentTeamManagementPage agentTeamManagementPage=PageFactory.createPageInstance(driver,AgentTeamManagementPage.class);
         Assert.assertTrue(agentTeamManagementPage.editCancelRecord(agentTeamMgmtDetails.getTeamName(),agentTeamMgmtDetails.getUpdateTeamName(),agentTeamMgmtDetails.getModifyReason()),"Edit Cancel Assertion failed");
         screenshot.captureScreen(driver, "Edit Cancel","AgentTeamMgmtTest");
         agentTeamManagementPage.editAgentTeamManagementRecord(agentTeamMgmtDetails.getTeamName(),agentTeamMgmtDetails.getUpdateTeamName(),agentTeamMgmtDetails.getModifyReason());
         Assert.assertTrue(agentTeamManagementPage.verifyMessage(),"Edit record assertion failed");
         screenshot.captureScreen(driver, "Edit record", "AgentTeamMgmtTest");
+        HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
+        homePage.navigateToOCMReportsPage();
+        String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AuditTrailReportData.xlsx";
+        Map<String, String> map1 = new ExcelReader(filePath1,"Show").getTestData().get(0);
+        ReportDetails reportDetails= new ReportDetails(map1);
+        ocmReportsPage.showReport(reportDetails);
+        Map<String, String> map3 = new ExcelReader(filePath,"Queries").getTestData().get(2);
+        AgentTeamMgmtDetails agentTeamMgmtDetails3=new AgentTeamMgmtDetails(map3);
+        Assert.assertTrue(ocmReportsPage.verifyAgentTeamMgmtUpdate(agentTeamMgmtDetails,"Update",displayname,agentTeamMgmtDetails3));
+        screenshot.captureScreen("AgentTeamMgmtTest", "VerifyAuditTrialReportForUpdate");
     }
     
-   @Test(priority=5)
+   /*@Test(priority=5)
     public void searchPage() throws Exception{
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentTeamManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -133,22 +167,34 @@ public class AgentTeamMgmtTest extends BaseTest {
     screenshot.captureScreen(driver, "Invalid Search", "AgentTeamMgmtTest");
     Assert.assertTrue(agentTeamManagementPage.verifyclearsearch(), "Clear All Assertion Failed");
     screenshot.captureScreen(driver, "Clear Search", "AgentTeamMgmtTest");
-    }
+    }*/
     
     @Test(priority=7)
-    public void DeleteAgentTeamManagementRecord() throws IOException {
-        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentTeamManagementData.xlsx";
+    public void DeleteAgentTeamManagementRecord() throws Exception {
+        OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver, OCMReportsPage.class);
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentTeamManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
         AgentTeamMgmtDetails agentTeamMgmtDetails=new AgentTeamMgmtDetails(map);
+        Map<String, String> map1 = new ExcelReader(filePath,"Queries").getTestData().get(2);
+        AgentTeamMgmtDetails agentTeamMgmtDetails1=new AgentTeamMgmtDetails(map1);
+        String displayname=ocmReportsPage.RunQuery(agentTeamMgmtDetails1.getQuery(),"DisplayName");
         AgentTeamManagementPage agentTeamManagementPage=PageFactory.createPageInstance(driver,AgentTeamManagementPage.class);
         Assert.assertTrue(agentTeamManagementPage.verifydeleteNo(agentTeamMgmtDetails.getUpdateTeamName(), agentTeamMgmtDetails.getDeleteReason()));
         screenshot.captureScreen(driver, "delete No","AgentTeamMgmtTest");
         agentTeamManagementPage.deleteAgentTeamManagementRecord(agentTeamMgmtDetails.getUpdateTeamName(),agentTeamMgmtDetails.getDeleteReason());
         Assert.assertTrue(agentTeamManagementPage.verifyMessage(),"delete record assertion failed");
         screenshot.captureScreen(driver, "Verify Record Deleted", "AgentTeamMgmtTest");
+        HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
+        homePage.navigateToOCMReportsPage();
+        String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AuditTrailReportData.xlsx";
+        Map<String, String> map2 = new ExcelReader(filePath1,"Show").getTestData().get(0);
+        ReportDetails reportDetails= new ReportDetails(map2);
+        ocmReportsPage.showReport(reportDetails);
+        Assert.assertTrue(ocmReportsPage.verifyAgentTeamMgmtdelete(agentTeamMgmtDetails,"Delete",displayname));
+        screenshot.captureScreen("AgentTeamMgmtTest", "VerifyAuditTrialReportForUpdate");
         }
    
-    @Test(priority=8)
+    /*@Test(priority=8)
     public void ExportToExcel() throws Exception
     {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles";
@@ -241,7 +287,7 @@ public class AgentTeamMgmtTest extends BaseTest {
     	Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         AgentTeamMgmtDetails agentTeamMgmtDetails=new AgentTeamMgmtDetails(map);
         Assert.assertTrue(agentTeamManagementPage.ExporttoExcelWithoutData(agentTeamMgmtDetails));
-    }
+    }*/
     
     @AfterMethod
     public void afterEachMethod(ITestResult result){

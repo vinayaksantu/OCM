@@ -1,5 +1,6 @@
 package com.tetherfi.pages;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -11,6 +12,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import com.tetherfi.model.ivr.HolidayListDetails;
+import com.tetherfi.model.ivr.OperatingHoursDetails;
 
 public class HolidayListPage extends BasePage{
 
@@ -98,9 +100,6 @@ public class HolidayListPage extends BasePage{
     @FindBy(xpath="//span[@class='k-icon k-i-arrow-60-right k-menu-expand-arrow']")
     private WebElement coloumnarrow;
     
-    @FindBy(xpath="//button[text()='Clear All']")
-    private WebElement clearall;
-    
     @FindBy(xpath="//a[text()='Announced Holiday']")
     private WebElement AnnouncedHoliday;
     
@@ -178,6 +177,21 @@ public class HolidayListPage extends BasePage{
     
     @FindBy(id="noButton")
     private WebElement nobtn;
+    
+    @FindBy(xpath="//label[@for='1001sRadioAND']")
+    private WebElement andradiobtn;
+    
+    @FindBy(xpath="//button[text()='Clear All']")
+    private WebElement clearall;
+    
+    @FindBy(xpath="//button[text()='Close']")
+    private WebElement searchClose;
+    
+    @FindBy(xpath="//div[text()='No records to display']")
+    private WebElement norecords;
+    
+    @FindBy(xpath="//i[@class='fas fa-sync']")
+    private WebElement clearsearch;
     
 	public boolean isHolidayListPageDisplayed() {
 		waitForLoad(driver);
@@ -408,6 +422,12 @@ public class HolidayListPage extends BasePage{
     }
     
     public boolean verifyExportToExcel(String filepath) {
+    	final File folder = new File(filepath);
+		for (final File f : folder.listFiles()) {
+		    if (f.getName().startsWith("Holiday List")) {
+		        f.delete();
+		    }
+		}
 		selectWebElement(exporttoexcel);
 		waitForJqueryLoad(driver);
 		try {
@@ -461,6 +481,7 @@ public class HolidayListPage extends BasePage{
 	
 	public void SortByAscending() {
 		selectWebElement(AnnouncedHoliday);
+		
 		selectWebElement(exporttoexcel);
 		try {
 			Thread.sleep(2000);
@@ -717,5 +738,41 @@ public class HolidayListPage extends BasePage{
 	public void addDuplicateRecord(HolidayListDetails details) {
 		addNewHolidayList(details);
 		selectWebElement(cancelbtn);	
+	}
+	
+	public boolean clearAll(HolidayListDetails details) {
+		selectWebElement(searchBtn);
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Start Date");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is equal to");
+        enterValueToTxtField(searchTextBox,details.getStartDate());
+        selectWebElement(clearall);
+        if(searchTextBox.isEnabled())
+        	return true;
+        else
+		return false;
+	}
+
+	public boolean verifyclose() {
+		selectWebElement(searchClose);
+		if(gridContent.isDisplayed())
+			return true;
+		else
+		return false;
+	}
+	public boolean verifyinvalidsearchwithwrongdata(HolidayListDetails details) {
+		searchHolidayList(details.getStartDate());
+		if(norecords.isDisplayed())
+			return true; 
+			else
+				return false;
+	}
+	public boolean verifyclearsearch() {
+		selectWebElement(clearsearch);
+		if(gridContent.isDisplayed())
+			return true;
+		else
+		return false;
 	}
 }

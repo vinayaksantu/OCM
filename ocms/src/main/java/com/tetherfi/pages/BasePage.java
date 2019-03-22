@@ -266,6 +266,10 @@ public class BasePage {
     public void scrollToElement(WebElement element) {
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
     }
+    
+    public void scrollhorizontally() {
+    ((JavascriptExecutor)driver).executeScript("window.scrollBy(250,0)");
+    }
 
     public boolean checkPageLoadStatus() {
         boolean result = false;
@@ -308,6 +312,21 @@ public class BasePage {
             if(ele.getText().equalsIgnoreCase(text)){ clickOn(ele);break;}
         }
     }
+    
+    public void selectMultipleDropdownFromVisibleText(List<WebElement> webElementList, String text) {
+        waitUntilWebElementListIsVisible(webElementList);
+        waitUntilWebElementListIsClickable(webElementList);
+        String multival[]=text.split(",");
+        for(String valuetobeselected:multival)
+        {
+        	for(WebElement ele: webElementList){
+            	//System.out.println(ele);
+                if(ele.getText().equalsIgnoreCase(valuetobeselected)){ clickOn(ele);}
+            }
+        }
+     
+    }
+    
     public void emptyDownloadsDirectory(String filepath)
     {
         File downloadsDir = new File(filepath);

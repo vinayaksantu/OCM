@@ -3,18 +3,17 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.tetherfi.test.ivr.HolidayListTest">
+      <class name="com.tetherfi.test.ivr.AdhocOptionEnhancementTest">
         <methods>
-          <include name="Add"/>
           <include name="startTestCase"/>
-          <include name="afterEachMethod"/>
           <include name="openApplication"/>
+          <include name="InvalidBooleanSearch"/>
           <include name="endTestCase"/>
           <include name="tearDown"/>
-          <include name="NavigateToHolidayListPage"/>
-          <include name="addNewHolidayListRecord"/>
+          <include name="afterEachMethod"/>
+          <include name="NavigateToAdhocOptionEnhancementPage"/>
         </methods>
-      </class> <!-- com.tetherfi.test.ivr.HolidayListTest -->
+      </class> <!-- com.tetherfi.test.ivr.AdhocOptionEnhancementTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
