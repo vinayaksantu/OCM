@@ -3,17 +3,18 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.tetherfi.test.ivr.AdhocOptionEnhancementTest">
+      <class name="com.tetherfi.test.fax.FaxRoutingConfigurationTest">
         <methods>
           <include name="startTestCase"/>
           <include name="openApplication"/>
-          <include name="InvalidBooleanSearch"/>
+          <include name="afterEachMethod"/>
           <include name="endTestCase"/>
           <include name="tearDown"/>
-          <include name="afterEachMethod"/>
-          <include name="NavigateToAdhocOptionEnhancementPage"/>
+          <include name="SortingByAscending"/>
+          <include name="SortingByDescending"/>
+          <include name="NavigateToFaxLineConfigPage"/>
         </methods>
-      </class> <!-- com.tetherfi.test.ivr.AdhocOptionEnhancementTest -->
+      </class> <!-- com.tetherfi.test.fax.FaxRoutingConfigurationTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
