@@ -1,278 +1,170 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="12" passed="9" failed="3" skipped="0">
+<testng-results ignored="0" total="15" passed="12" failed="3" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2019-03-29T11:26:23Z" name="Default suite" finished-at="2019-03-29T11:28:01Z" duration-ms="97918">
+  <suite started-at="2019-03-29T15:44:12Z" name="Default suite" finished-at="2019-03-29T15:48:17Z" duration-ms="245062">
     <groups>
     </groups>
-    <test started-at="2019-03-29T11:26:23Z" name="Default test" finished-at="2019-03-29T11:28:01Z" duration-ms="97918">
-      <class name="com.tetherfi.test.fax.SendFaxTest">
-        <test-method is-config="true" signature="openApplication()[pri:0, instance:com.tetherfi.test.fax.SendFaxTest@7affc159]" started-at="2019-03-29T16:56:23Z" name="openApplication" finished-at="2019-03-29T16:56:34Z" duration-ms="10227" status="PASS">
+    <test started-at="2019-03-29T15:44:12Z" name="Default test" finished-at="2019-03-29T15:48:17Z" duration-ms="245062">
+      <class name="com.tetherfi.test.tmac.WaitTimeColorConfigTest">
+        <test-method is-config="true" signature="openApplication()[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:14:12Z" name="openApplication" finished-at="2019-03-29T21:14:29Z" duration-ms="16911" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- openApplication -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.SendFaxTest@7affc159]" started-at="2019-03-29T16:56:34Z" name="startTestCase" finished-at="2019-03-29T16:56:34Z" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:14:29Z" name="startTestCase" finished-at="2019-03-29T21:14:29Z" duration-ms="0" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.fax.SendFaxTest.SendFaxPage()]]>
+                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.AddInvalidRecord() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigateToFaxRoutingConfigPage()[pri:0, instance:com.tetherfi.test.fax.SendFaxTest@7affc159]" started-at="2019-03-29T16:56:34Z" name="NavigateToFaxRoutingConfigPage" finished-at="2019-03-29T16:56:38Z" duration-ms="4425" status="PASS">
+        <test-method is-config="true" signature="NavigateToWaitTimeColorConfigPage()[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:14:29Z" name="NavigateToWaitTimeColorConfigPage" finished-at="2019-03-29T21:14:35Z" duration-ms="6239" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- NavigateToFaxRoutingConfigPage -->
-        <test-method signature="SendFaxPage()[pri:1, instance:com.tetherfi.test.fax.SendFaxTest@7affc159]" started-at="2019-03-29T16:56:38Z" name="SendFaxPage" finished-at="2019-03-29T16:56:39Z" duration-ms="1259" status="PASS">
+        </test-method> <!-- NavigateToWaitTimeColorConfigPage -->
+        <test-method signature="AddInvalidRecord()[pri:4, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:14:35Z" name="AddInvalidRecord" finished-at="2019-03-29T21:15:01Z" duration-ms="26630" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- SendFaxPage -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.SendFaxTest@7affc159]" started-at="2019-03-29T16:56:39Z" name="afterEachMethod" finished-at="2019-03-29T16:56:40Z" duration-ms="381" status="PASS">
+        </test-method> <!-- AddInvalidRecord -->
+        <test-method is-config="true" signature="afterEachMethod(org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:15:01Z" name="afterEachMethod" finished-at="2019-03-29T21:15:01Z" duration-ms="0" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.fax.SendFaxTest.SendFaxPage()]]>
+                <![CDATA[[TestResult name=AddInvalidRecord status=SUCCESS method=WaitTimeColorConfigTest.AddInvalidRecord()[pri:4, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8] output={null}]]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.AddInvalidRecord() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.SendFaxTest@7affc159]" started-at="2019-03-29T16:56:40Z" name="endTestCase" finished-at="2019-03-29T16:56:40Z" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:15:01Z" name="endTestCase" finished-at="2019-03-29T21:15:01Z" duration-ms="0" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.fax.SendFaxTest.SendFaxPage()]]>
+                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.AddInvalidRecord() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.SendFaxTest@7affc159]" started-at="2019-03-29T16:56:40Z" name="startTestCase" finished-at="2019-03-29T16:56:40Z" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="NavigateToWaitTimeColorConfigPage()[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:15:01Z" name="NavigateToWaitTimeColorConfigPage" finished-at="2019-03-29T21:15:06Z" duration-ms="4884" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToWaitTimeColorConfigPage -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:15:01Z" name="startTestCase" finished-at="2019-03-29T21:15:01Z" duration-ms="0" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.fax.SendFaxTest.VerifyDropdownForAllTheColumns()]]>
+                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.DeleteRecord() throws java.io.IOException]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigateToFaxRoutingConfigPage()[pri:0, instance:com.tetherfi.test.fax.SendFaxTest@7affc159]" started-at="2019-03-29T16:56:40Z" name="NavigateToFaxRoutingConfigPage" finished-at="2019-03-29T16:56:43Z" duration-ms="3109" status="PASS">
+        <test-method signature="DeleteRecord()[pri:11, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:15:06Z" name="DeleteRecord" finished-at="2019-03-29T21:15:30Z" duration-ms="23594" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- NavigateToFaxRoutingConfigPage -->
-        <test-method signature="VerifyDropdownForAllTheColumns()[pri:2, instance:com.tetherfi.test.fax.SendFaxTest@7affc159]" started-at="2019-03-29T16:56:43Z" name="VerifyDropdownForAllTheColumns" finished-at="2019-03-29T16:56:53Z" duration-ms="10120" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- VerifyDropdownForAllTheColumns -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.SendFaxTest@7affc159]" started-at="2019-03-29T16:56:53Z" name="afterEachMethod" finished-at="2019-03-29T16:56:53Z" duration-ms="393" status="PASS">
+        </test-method> <!-- DeleteRecord -->
+        <test-method is-config="true" signature="afterEachMethod(org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:15:30Z" name="afterEachMethod" finished-at="2019-03-29T21:15:30Z" duration-ms="0" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.fax.SendFaxTest.VerifyDropdownForAllTheColumns()]]>
+                <![CDATA[[TestResult name=DeleteRecord status=SUCCESS method=WaitTimeColorConfigTest.DeleteRecord()[pri:11, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8] output={null}]]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.DeleteRecord() throws java.io.IOException]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.SendFaxTest@7affc159]" started-at="2019-03-29T16:56:53Z" name="endTestCase" finished-at="2019-03-29T16:56:53Z" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:15:30Z" name="endTestCase" finished-at="2019-03-29T21:15:30Z" duration-ms="0" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.fax.SendFaxTest.VerifyDropdownForAllTheColumns()]]>
+                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.DeleteRecord() throws java.io.IOException]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.SendFaxTest@7affc159]" started-at="2019-03-29T16:56:53Z" name="startTestCase" finished-at="2019-03-29T16:56:53Z" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="NavigateToWaitTimeColorConfigPage()[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:15:30Z" name="NavigateToWaitTimeColorConfigPage" finished-at="2019-03-29T21:15:35Z" duration-ms="5168" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToWaitTimeColorConfigPage -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:15:30Z" name="startTestCase" finished-at="2019-03-29T21:15:30Z" duration-ms="0" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.fax.SendFaxTest.VerifyColumnsHeaderDisable()]]>
+                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.VerifyAuditTrialReportForDelete() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigateToFaxRoutingConfigPage()[pri:0, instance:com.tetherfi.test.fax.SendFaxTest@7affc159]" started-at="2019-03-29T16:56:53Z" name="NavigateToFaxRoutingConfigPage" finished-at="2019-03-29T16:56:57Z" duration-ms="3142" status="PASS">
+        <test-method signature="VerifyAuditTrialReportForDelete()[pri:12, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:15:35Z" name="VerifyAuditTrialReportForDelete" finished-at="2019-03-29T21:16:06Z" duration-ms="31179" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- NavigateToFaxRoutingConfigPage -->
-        <test-method signature="VerifyColumnsHeaderDisable()[pri:4, instance:com.tetherfi.test.fax.SendFaxTest@7affc159]" started-at="2019-03-29T16:56:57Z" name="VerifyColumnsHeaderDisable" finished-at="2019-03-29T16:56:57Z" duration-ms="29" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- VerifyColumnsHeaderDisable -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.SendFaxTest@7affc159]" started-at="2019-03-29T16:56:57Z" name="afterEachMethod" finished-at="2019-03-29T16:56:57Z" duration-ms="390" status="PASS">
+        </test-method> <!-- VerifyAuditTrialReportForDelete -->
+        <test-method is-config="true" signature="afterEachMethod(org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:16:06Z" name="afterEachMethod" finished-at="2019-03-29T21:16:06Z" duration-ms="0" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.fax.SendFaxTest.VerifyColumnsHeaderDisable()]]>
+                <![CDATA[[TestResult name=VerifyAuditTrialReportForDelete status=SUCCESS method=WaitTimeColorConfigTest.VerifyAuditTrialReportForDelete()[pri:12, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8] output={null}]]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.VerifyAuditTrialReportForDelete() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.SendFaxTest@7affc159]" started-at="2019-03-29T16:56:57Z" name="endTestCase" finished-at="2019-03-29T16:56:57Z" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:16:06Z" name="endTestCase" finished-at="2019-03-29T21:16:06Z" duration-ms="0" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.fax.SendFaxTest.VerifyColumnsHeaderDisable()]]>
+                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.VerifyAuditTrialReportForDelete() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.SendFaxTest@7affc159]" started-at="2019-03-29T16:56:57Z" name="startTestCase" finished-at="2019-03-29T16:56:57Z" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:16:06Z" name="startTestCase" finished-at="2019-03-29T21:16:06Z" duration-ms="0" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.fax.SendFaxTest.searchPage() throws java.io.IOException]]>
+                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.database() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigateToFaxRoutingConfigPage()[pri:0, instance:com.tetherfi.test.fax.SendFaxTest@7affc159]" started-at="2019-03-29T16:56:57Z" name="NavigateToFaxRoutingConfigPage" finished-at="2019-03-29T16:57:00Z" duration-ms="3130" status="PASS">
+        <test-method is-config="true" signature="NavigateToWaitTimeColorConfigPage()[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:16:06Z" name="NavigateToWaitTimeColorConfigPage" finished-at="2019-03-29T21:16:12Z" duration-ms="5213" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- NavigateToFaxRoutingConfigPage -->
-        <test-method signature="searchPage()[pri:9, instance:com.tetherfi.test.fax.SendFaxTest@7affc159]" started-at="2019-03-29T16:57:00Z" name="searchPage" finished-at="2019-03-29T16:57:07Z" duration-ms="6462" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- searchPage -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.SendFaxTest@7affc159]" started-at="2019-03-29T16:57:07Z" name="afterEachMethod" finished-at="2019-03-29T16:57:07Z" duration-ms="388" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.fax.SendFaxTest.searchPage() throws java.io.IOException]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.SendFaxTest@7affc159]" started-at="2019-03-29T16:57:07Z" name="endTestCase" finished-at="2019-03-29T16:57:07Z" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.fax.SendFaxTest.searchPage() throws java.io.IOException]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.SendFaxTest@7affc159]" started-at="2019-03-29T16:57:07Z" name="startTestCase" finished-at="2019-03-29T16:57:07Z" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.fax.SendFaxTest.searchwithoutSearchTextbox() throws java.io.IOException]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigateToFaxRoutingConfigPage()[pri:0, instance:com.tetherfi.test.fax.SendFaxTest@7affc159]" started-at="2019-03-29T16:57:07Z" name="NavigateToFaxRoutingConfigPage" finished-at="2019-03-29T16:57:10Z" duration-ms="3069" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToFaxRoutingConfigPage -->
-        <test-method signature="searchwithoutSearchTextbox()[pri:10, instance:com.tetherfi.test.fax.SendFaxTest@7affc159]" started-at="2019-03-29T16:57:10Z" name="searchwithoutSearchTextbox" finished-at="2019-03-29T16:57:14Z" duration-ms="3651" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- searchwithoutSearchTextbox -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.SendFaxTest@7affc159]" started-at="2019-03-29T16:57:14Z" name="afterEachMethod" finished-at="2019-03-29T16:57:14Z" duration-ms="388" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.fax.SendFaxTest.searchwithoutSearchTextbox() throws java.io.IOException]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.SendFaxTest@7affc159]" started-at="2019-03-29T16:57:14Z" name="endTestCase" finished-at="2019-03-29T16:57:14Z" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.fax.SendFaxTest.searchwithoutSearchTextbox() throws java.io.IOException]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="NavigateToFaxRoutingConfigPage()[pri:0, instance:com.tetherfi.test.fax.SendFaxTest@7affc159]" started-at="2019-03-29T16:57:14Z" name="NavigateToFaxRoutingConfigPage" finished-at="2019-03-29T16:57:17Z" duration-ms="3143" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToFaxRoutingConfigPage -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.SendFaxTest@7affc159]" started-at="2019-03-29T16:57:14Z" name="startTestCase" finished-at="2019-03-29T16:57:14Z" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.fax.SendFaxTest.SearchClearSearch() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method signature="SearchClearSearch()[pri:12, instance:com.tetherfi.test.fax.SendFaxTest@7affc159]" started-at="2019-03-29T16:57:17Z" name="SearchClearSearch" finished-at="2019-03-29T16:57:24Z" duration-ms="6993" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- SearchClearSearch -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.SendFaxTest@7affc159]" started-at="2019-03-29T16:57:24Z" name="afterEachMethod" finished-at="2019-03-29T16:57:25Z" duration-ms="359" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.fax.SendFaxTest.SearchClearSearch() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.SendFaxTest@7affc159]" started-at="2019-03-29T16:57:25Z" name="endTestCase" finished-at="2019-03-29T16:57:25Z" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.fax.SendFaxTest.SearchClearSearch() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.SendFaxTest@7affc159]" started-at="2019-03-29T16:57:25Z" name="startTestCase" finished-at="2019-03-29T16:57:25Z" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.fax.SendFaxTest.GroupBy()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigateToFaxRoutingConfigPage()[pri:0, instance:com.tetherfi.test.fax.SendFaxTest@7affc159]" started-at="2019-03-29T16:57:25Z" name="NavigateToFaxRoutingConfigPage" finished-at="2019-03-29T16:57:28Z" duration-ms="2999" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToFaxRoutingConfigPage -->
-        <test-method signature="GroupBy()[pri:18, instance:com.tetherfi.test.fax.SendFaxTest@7affc159]" started-at="2019-03-29T16:57:28Z" name="GroupBy" finished-at="2019-03-29T16:57:29Z" duration-ms="1514" status="FAIL">
+        </test-method> <!-- NavigateToWaitTimeColorConfigPage -->
+        <test-method signature="database()[pri:13, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:16:12Z" name="database" finished-at="2019-03-29T21:16:18Z" duration-ms="6648" status="FAIL">
           <exception class="java.lang.AssertionError">
             <message>
               <![CDATA[expected [true] but found [false]]]>
@@ -283,7 +175,7 @@
 	at org.testng.Assert.failNotEquals(Assert.java:512)
 	at org.testng.Assert.assertTrue(Assert.java:41)
 	at org.testng.Assert.assertTrue(Assert.java:51)
-	at com.tetherfi.test.fax.SendFaxTest.GroupBy(SendFaxTest.java:245)
+	at com.tetherfi.test.tmac.WaitTimeColorConfigTest.database(WaitTimeColorConfigTest.java:206)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -312,259 +204,431 @@
 ]]>
             </full-stacktrace>
           </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- database -->
+        <test-method is-config="true" signature="afterEachMethod(org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:16:18Z" name="afterEachMethod" finished-at="2019-03-29T21:16:19Z" duration-ms="1247" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=database status=FAILURE method=WaitTimeColorConfigTest.database()[pri:13, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8] output={null}]]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.database() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:16:19Z" name="endTestCase" finished-at="2019-03-29T21:16:19Z" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.database() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:16:19Z" name="startTestCase" finished-at="2019-03-29T21:16:19Z" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.GroupBy()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method is-config="true" signature="NavigateToWaitTimeColorConfigPage()[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:16:19Z" name="NavigateToWaitTimeColorConfigPage" finished-at="2019-03-29T21:16:24Z" duration-ms="4478" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToWaitTimeColorConfigPage -->
+        <test-method signature="GroupBy()[pri:14, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:16:24Z" name="GroupBy" finished-at="2019-03-29T21:16:26Z" duration-ms="2195" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- GroupBy -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.SendFaxTest@7affc159]" started-at="2019-03-29T16:57:29Z" name="afterEachMethod" finished-at="2019-03-29T16:57:29Z" duration-ms="373" status="PASS">
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:16:26Z" name="endTestCase" finished-at="2019-03-29T21:16:26Z" duration-ms="0" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.fax.SendFaxTest.GroupBy()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.SendFaxTest@7affc159]" started-at="2019-03-29T16:57:29Z" name="endTestCase" finished-at="2019-03-29T16:57:29Z" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.fax.SendFaxTest.GroupBy()]]>
+                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.GroupBy()]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="NavigateToFaxRoutingConfigPage()[pri:0, instance:com.tetherfi.test.fax.SendFaxTest@7affc159]" started-at="2019-03-29T16:57:29Z" name="NavigateToFaxRoutingConfigPage" finished-at="2019-03-29T16:57:32Z" duration-ms="3019" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToFaxRoutingConfigPage -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.SendFaxTest@7affc159]" started-at="2019-03-29T16:57:29Z" name="startTestCase" finished-at="2019-03-29T16:57:29Z" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="afterEachMethod(org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:16:26Z" name="afterEachMethod" finished-at="2019-03-29T21:16:26Z" duration-ms="0" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.fax.SendFaxTest.VerifyArrowMoveForPreviousAndNextPage()]]>
+                <![CDATA[[TestResult name=GroupBy status=SUCCESS method=WaitTimeColorConfigTest.GroupBy()[pri:14, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8] output={null}]]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.GroupBy()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:16:26Z" name="startTestCase" finished-at="2019-03-29T21:16:26Z" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.VerifyArrowMoveForPreviousAndNextPage()]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startTestCase -->
-        <test-method signature="VerifyArrowMoveForPreviousAndNextPage()[pri:19, instance:com.tetherfi.test.fax.SendFaxTest@7affc159]" started-at="2019-03-29T16:57:32Z" name="VerifyArrowMoveForPreviousAndNextPage" finished-at="2019-03-29T16:57:34Z" duration-ms="1305" status="PASS">
+        <test-method is-config="true" signature="NavigateToWaitTimeColorConfigPage()[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:16:26Z" name="NavigateToWaitTimeColorConfigPage" finished-at="2019-03-29T21:16:31Z" duration-ms="5235" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToWaitTimeColorConfigPage -->
+        <test-method signature="VerifyArrowMoveForPreviousAndNextPage()[pri:15, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:16:31Z" name="VerifyArrowMoveForPreviousAndNextPage" finished-at="2019-03-29T21:16:32Z" duration-ms="463" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- VerifyArrowMoveForPreviousAndNextPage -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.SendFaxTest@7affc159]" started-at="2019-03-29T16:57:34Z" name="afterEachMethod" finished-at="2019-03-29T16:57:34Z" duration-ms="398" status="PASS">
+        <test-method is-config="true" signature="afterEachMethod(org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:16:32Z" name="afterEachMethod" finished-at="2019-03-29T21:16:32Z" duration-ms="0" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.fax.SendFaxTest.VerifyArrowMoveForPreviousAndNextPage()]]>
+                <![CDATA[[TestResult name=VerifyArrowMoveForPreviousAndNextPage status=SUCCESS method=WaitTimeColorConfigTest.VerifyArrowMoveForPreviousAndNextPage()[pri:15, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8] output={null}]]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.VerifyArrowMoveForPreviousAndNextPage()]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.SendFaxTest@7affc159]" started-at="2019-03-29T16:57:34Z" name="endTestCase" finished-at="2019-03-29T16:57:34Z" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:16:32Z" name="endTestCase" finished-at="2019-03-29T21:16:32Z" duration-ms="0" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.fax.SendFaxTest.VerifyArrowMoveForPreviousAndNextPage()]]>
+                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.VerifyArrowMoveForPreviousAndNextPage()]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="NavigateToFaxRoutingConfigPage()[pri:0, instance:com.tetherfi.test.fax.SendFaxTest@7affc159]" started-at="2019-03-29T16:57:34Z" name="NavigateToFaxRoutingConfigPage" finished-at="2019-03-29T16:57:37Z" duration-ms="2930" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToFaxRoutingConfigPage -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.SendFaxTest@7affc159]" started-at="2019-03-29T16:57:34Z" name="startTestCase" finished-at="2019-03-29T16:57:34Z" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:16:32Z" name="startTestCase" finished-at="2019-03-29T21:16:32Z" duration-ms="4" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.fax.SendFaxTest.VerifyArrowMoveForFirstAndLastPage()]]>
+                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.VerifyArrowMoveForFirstAndLastPage()]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startTestCase -->
-        <test-method signature="VerifyArrowMoveForFirstAndLastPage()[pri:20, instance:com.tetherfi.test.fax.SendFaxTest@7affc159]" started-at="2019-03-29T16:57:37Z" name="VerifyArrowMoveForFirstAndLastPage" finished-at="2019-03-29T16:57:38Z" duration-ms="1241" status="FAIL">
-          <exception class="java.lang.AssertionError">
-            <message>
-              <![CDATA[arrow move for first and last page assertion failed expected [true] but found [false]]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: arrow move for first and last page assertion failed expected [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:93)
-	at org.testng.Assert.failNotEquals(Assert.java:512)
-	at org.testng.Assert.assertTrue(Assert.java:41)
-	at com.tetherfi.test.fax.SendFaxTest.VerifyArrowMoveForFirstAndLastPage(SendFaxTest.java:260)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-	at org.testng.TestRunner.privateRun(TestRunner.java:744)
-	at org.testng.TestRunner.run(TestRunner.java:602)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
-	at org.testng.TestNG.runSuites(TestNG.java:1144)
-	at org.testng.TestNG.run(TestNG.java:1115)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
+        <test-method is-config="true" signature="NavigateToWaitTimeColorConfigPage()[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:16:32Z" name="NavigateToWaitTimeColorConfigPage" finished-at="2019-03-29T21:16:37Z" duration-ms="4874" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToWaitTimeColorConfigPage -->
+        <test-method signature="VerifyArrowMoveForFirstAndLastPage()[pri:16, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:16:37Z" name="VerifyArrowMoveForFirstAndLastPage" finished-at="2019-03-29T21:16:37Z" duration-ms="552" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- VerifyArrowMoveForFirstAndLastPage -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.SendFaxTest@7affc159]" started-at="2019-03-29T16:57:38Z" name="afterEachMethod" finished-at="2019-03-29T16:57:39Z" duration-ms="369" status="PASS">
+        <test-method is-config="true" signature="afterEachMethod(org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:16:37Z" name="afterEachMethod" finished-at="2019-03-29T21:16:37Z" duration-ms="0" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.fax.SendFaxTest.VerifyArrowMoveForFirstAndLastPage()]]>
+                <![CDATA[[TestResult name=VerifyArrowMoveForFirstAndLastPage status=SUCCESS method=WaitTimeColorConfigTest.VerifyArrowMoveForFirstAndLastPage()[pri:16, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8] output={null}]]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.VerifyArrowMoveForFirstAndLastPage()]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.SendFaxTest@7affc159]" started-at="2019-03-29T16:57:39Z" name="endTestCase" finished-at="2019-03-29T16:57:39Z" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:16:37Z" name="endTestCase" finished-at="2019-03-29T21:16:37Z" duration-ms="4" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.fax.SendFaxTest.VerifyArrowMoveForFirstAndLastPage()]]>
+                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.VerifyArrowMoveForFirstAndLastPage()]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.SendFaxTest@7affc159]" started-at="2019-03-29T16:57:39Z" name="startTestCase" finished-at="2019-03-29T16:57:39Z" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:16:37Z" name="startTestCase" finished-at="2019-03-29T21:16:37Z" duration-ms="4" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.fax.SendFaxTest.VerifyTotalNumberOfItemsPerPageDetails()]]>
+                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.VerifyTotalNumberOfItemsPerPageDetails()]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigateToFaxRoutingConfigPage()[pri:0, instance:com.tetherfi.test.fax.SendFaxTest@7affc159]" started-at="2019-03-29T16:57:39Z" name="NavigateToFaxRoutingConfigPage" finished-at="2019-03-29T16:57:42Z" duration-ms="2958" status="PASS">
+        <test-method is-config="true" signature="NavigateToWaitTimeColorConfigPage()[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:16:37Z" name="NavigateToWaitTimeColorConfigPage" finished-at="2019-03-29T21:16:43Z" duration-ms="5681" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- NavigateToFaxRoutingConfigPage -->
-        <test-method signature="VerifyTotalNumberOfItemsPerPageDetails()[pri:21, instance:com.tetherfi.test.fax.SendFaxTest@7affc159]" started-at="2019-03-29T16:57:42Z" name="VerifyTotalNumberOfItemsPerPageDetails" finished-at="2019-03-29T16:57:42Z" duration-ms="53" status="PASS">
+        </test-method> <!-- NavigateToWaitTimeColorConfigPage -->
+        <test-method signature="VerifyTotalNumberOfItemsPerPageDetails()[pri:17, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:16:43Z" name="VerifyTotalNumberOfItemsPerPageDetails" finished-at="2019-03-29T21:16:43Z" duration-ms="509" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- VerifyTotalNumberOfItemsPerPageDetails -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.SendFaxTest@7affc159]" started-at="2019-03-29T16:57:42Z" name="afterEachMethod" finished-at="2019-03-29T16:57:42Z" duration-ms="347" status="PASS">
+        <test-method is-config="true" signature="afterEachMethod(org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:16:43Z" name="afterEachMethod" finished-at="2019-03-29T21:16:43Z" duration-ms="0" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.fax.SendFaxTest.VerifyTotalNumberOfItemsPerPageDetails()]]>
+                <![CDATA[[TestResult name=VerifyTotalNumberOfItemsPerPageDetails status=SUCCESS method=WaitTimeColorConfigTest.VerifyTotalNumberOfItemsPerPageDetails()[pri:17, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8] output={null}]]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.VerifyTotalNumberOfItemsPerPageDetails()]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.SendFaxTest@7affc159]" started-at="2019-03-29T16:57:42Z" name="startTestCase" finished-at="2019-03-29T16:57:42Z" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:16:43Z" name="endTestCase" finished-at="2019-03-29T21:16:43Z" duration-ms="0" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.fax.SendFaxTest.VerifyNumberOfItemsPerPageSelection()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.SendFaxTest@7affc159]" started-at="2019-03-29T16:57:42Z" name="endTestCase" finished-at="2019-03-29T16:57:42Z" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.fax.SendFaxTest.VerifyTotalNumberOfItemsPerPageDetails()]]>
+                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.VerifyTotalNumberOfItemsPerPageDetails()]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="NavigateToFaxRoutingConfigPage()[pri:0, instance:com.tetherfi.test.fax.SendFaxTest@7affc159]" started-at="2019-03-29T16:57:42Z" name="NavigateToFaxRoutingConfigPage" finished-at="2019-03-29T16:57:45Z" duration-ms="3126" status="PASS">
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:16:43Z" name="startTestCase" finished-at="2019-03-29T21:16:43Z" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.VerifyNumberOfItemsPerPageSelection()]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- NavigateToFaxRoutingConfigPage -->
-        <test-method signature="VerifyNumberOfItemsPerPageSelection()[pri:22, instance:com.tetherfi.test.fax.SendFaxTest@7affc159]" started-at="2019-03-29T16:57:45Z" name="VerifyNumberOfItemsPerPageSelection" finished-at="2019-03-29T16:57:56Z" duration-ms="11184" status="PASS">
+        </test-method> <!-- startTestCase -->
+        <test-method is-config="true" signature="NavigateToWaitTimeColorConfigPage()[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:16:43Z" name="NavigateToWaitTimeColorConfigPage" finished-at="2019-03-29T21:16:48Z" duration-ms="4648" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToWaitTimeColorConfigPage -->
+        <test-method signature="VerifyNumberOfItemsPerPageSelection()[pri:18, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:16:48Z" name="VerifyNumberOfItemsPerPageSelection" finished-at="2019-03-29T21:16:55Z" duration-ms="6933" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- VerifyNumberOfItemsPerPageSelection -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.SendFaxTest@7affc159]" started-at="2019-03-29T16:57:56Z" name="afterEachMethod" finished-at="2019-03-29T16:57:57Z" duration-ms="397" status="PASS">
+        <test-method is-config="true" signature="afterEachMethod(org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:16:55Z" name="afterEachMethod" finished-at="2019-03-29T21:16:55Z" duration-ms="0" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.fax.SendFaxTest.VerifyNumberOfItemsPerPageSelection()]]>
+                <![CDATA[[TestResult name=VerifyNumberOfItemsPerPageSelection status=SUCCESS method=WaitTimeColorConfigTest.VerifyNumberOfItemsPerPageSelection()[pri:18, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8] output={null}]]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.VerifyNumberOfItemsPerPageSelection()]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.SendFaxTest@7affc159]" started-at="2019-03-29T16:57:57Z" name="endTestCase" finished-at="2019-03-29T16:57:57Z" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:16:55Z" name="startTestCase" finished-at="2019-03-29T21:16:55Z" duration-ms="3" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.fax.SendFaxTest.VerifyNumberOfItemsPerPageSelection()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="NavigateToFaxRoutingConfigPage()[pri:0, instance:com.tetherfi.test.fax.SendFaxTest@7affc159]" started-at="2019-03-29T16:57:57Z" name="NavigateToFaxRoutingConfigPage" finished-at="2019-03-29T16:58:00Z" duration-ms="3035" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToFaxRoutingConfigPage -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.SendFaxTest@7affc159]" started-at="2019-03-29T16:57:57Z" name="startTestCase" finished-at="2019-03-29T16:57:57Z" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.fax.SendFaxTest.VerifyColumnsHeaderEnable()]]>
+                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.VerifyDropdownForAllTheColumns()]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startTestCase -->
-        <test-method signature="VerifyColumnsHeaderEnable()[pri:35, instance:com.tetherfi.test.fax.SendFaxTest@7affc159]" started-at="2019-03-29T16:58:00Z" name="VerifyColumnsHeaderEnable" finished-at="2019-03-29T16:58:00Z" duration-ms="33" status="FAIL">
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:16:55Z" name="endTestCase" finished-at="2019-03-29T21:16:55Z" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.VerifyNumberOfItemsPerPageSelection()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method is-config="true" signature="NavigateToWaitTimeColorConfigPage()[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:16:55Z" name="NavigateToWaitTimeColorConfigPage" finished-at="2019-03-29T21:17:01Z" duration-ms="5789" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToWaitTimeColorConfigPage -->
+        <test-method signature="VerifyDropdownForAllTheColumns()[pri:19, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:17:01Z" name="VerifyDropdownForAllTheColumns" finished-at="2019-03-29T21:17:11Z" duration-ms="10663" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyDropdownForAllTheColumns -->
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:17:11Z" name="endTestCase" finished-at="2019-03-29T21:17:11Z" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.VerifyDropdownForAllTheColumns()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method is-config="true" signature="afterEachMethod(org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:17:11Z" name="afterEachMethod" finished-at="2019-03-29T21:17:11Z" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=VerifyDropdownForAllTheColumns status=SUCCESS method=WaitTimeColorConfigTest.VerifyDropdownForAllTheColumns()[pri:19, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8] output={null}]]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.VerifyDropdownForAllTheColumns()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:17:11Z" name="startTestCase" finished-at="2019-03-29T21:17:11Z" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.VerifyColumnsHeaderEnable()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method is-config="true" signature="NavigateToWaitTimeColorConfigPage()[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:17:11Z" name="NavigateToWaitTimeColorConfigPage" finished-at="2019-03-29T21:17:17Z" duration-ms="5083" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToWaitTimeColorConfigPage -->
+        <test-method signature="VerifyColumnsHeaderEnable()[pri:20, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:17:17Z" name="VerifyColumnsHeaderEnable" finished-at="2019-03-29T21:17:22Z" duration-ms="4971" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyColumnsHeaderEnable -->
+        <test-method is-config="true" signature="afterEachMethod(org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:17:22Z" name="afterEachMethod" finished-at="2019-03-29T21:17:22Z" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=VerifyColumnsHeaderEnable status=SUCCESS method=WaitTimeColorConfigTest.VerifyColumnsHeaderEnable()[pri:20, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8] output={null}]]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.VerifyColumnsHeaderEnable()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:17:22Z" name="endTestCase" finished-at="2019-03-29T21:17:22Z" duration-ms="4" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.VerifyColumnsHeaderEnable()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:17:22Z" name="startTestCase" finished-at="2019-03-29T21:17:22Z" duration-ms="4" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.VerifyColumnsHeaderDisable()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method is-config="true" signature="NavigateToWaitTimeColorConfigPage()[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:17:22Z" name="NavigateToWaitTimeColorConfigPage" finished-at="2019-03-29T21:17:27Z" duration-ms="5752" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToWaitTimeColorConfigPage -->
+        <test-method signature="VerifyColumnsHeaderDisable()[pri:21, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:17:27Z" name="VerifyColumnsHeaderDisable" finished-at="2019-03-29T21:17:35Z" duration-ms="8209" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyColumnsHeaderDisable -->
+        <test-method is-config="true" signature="afterEachMethod(org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:17:35Z" name="afterEachMethod" finished-at="2019-03-29T21:17:35Z" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=VerifyColumnsHeaderDisable status=SUCCESS method=WaitTimeColorConfigTest.VerifyColumnsHeaderDisable()[pri:21, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8] output={null}]]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.VerifyColumnsHeaderDisable()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:17:35Z" name="endTestCase" finished-at="2019-03-29T21:17:35Z" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.VerifyColumnsHeaderDisable()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:17:36Z" name="startTestCase" finished-at="2019-03-29T21:17:36Z" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.SortingByAscending() throws java.io.IOException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method is-config="true" signature="NavigateToWaitTimeColorConfigPage()[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:17:36Z" name="NavigateToWaitTimeColorConfigPage" finished-at="2019-03-29T21:17:40Z" duration-ms="4699" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToWaitTimeColorConfigPage -->
+        <test-method signature="SortingByAscending()[pri:22, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:17:40Z" name="SortingByAscending" finished-at="2019-03-29T21:17:47Z" duration-ms="6943" status="FAIL">
           <exception class="java.lang.AssertionError">
             <message>
-              <![CDATA[columns enabled assertion failed expected [true] but found [false]]]>
+              <![CDATA[expected [true] but found [false]]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: columns enabled assertion failed expected [true] but found [false]
+              <![CDATA[java.lang.AssertionError: expected [true] but found [false]
 	at org.testng.Assert.fail(Assert.java:93)
 	at org.testng.Assert.failNotEquals(Assert.java:512)
 	at org.testng.Assert.assertTrue(Assert.java:41)
-	at com.tetherfi.test.fax.SendFaxTest.VerifyColumnsHeaderEnable(SendFaxTest.java:85)
+	at org.testng.Assert.assertTrue(Assert.java:51)
+	at com.tetherfi.test.tmac.WaitTimeColorConfigTest.SortingByAscending(WaitTimeColorConfigTest.java:270)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -595,34 +659,170 @@
           </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- VerifyColumnsHeaderEnable -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.SendFaxTest@7affc159]" started-at="2019-03-29T16:58:00Z" name="afterEachMethod" finished-at="2019-03-29T16:58:00Z" duration-ms="380" status="PASS">
+        </test-method> <!-- SortingByAscending -->
+        <test-method is-config="true" signature="afterEachMethod(org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:17:47Z" name="afterEachMethod" finished-at="2019-03-29T21:17:48Z" duration-ms="1180" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.fax.SendFaxTest.VerifyColumnsHeaderEnable()]]>
+                <![CDATA[[TestResult name=SortingByAscending status=FAILURE method=WaitTimeColorConfigTest.SortingByAscending()[pri:22, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8] output={null}]]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.SortingByAscending() throws java.io.IOException]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.SendFaxTest@7affc159]" started-at="2019-03-29T16:58:00Z" name="endTestCase" finished-at="2019-03-29T16:58:00Z" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:17:48Z" name="endTestCase" finished-at="2019-03-29T21:17:48Z" duration-ms="4" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.fax.SendFaxTest.VerifyColumnsHeaderEnable()]]>
+                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.SortingByAscending() throws java.io.IOException]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.tetherfi.test.fax.SendFaxTest@7affc159]" started-at="2019-03-29T16:58:00Z" name="tearDown" finished-at="2019-03-29T16:58:01Z" duration-ms="1109" status="PASS">
+        <test-method is-config="true" signature="NavigateToWaitTimeColorConfigPage()[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:17:48Z" name="NavigateToWaitTimeColorConfigPage" finished-at="2019-03-29T21:17:54Z" duration-ms="5444" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToWaitTimeColorConfigPage -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:17:48Z" name="startTestCase" finished-at="2019-03-29T21:17:48Z" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.SortingByDescending() throws java.io.IOException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method signature="SortingByDescending()[pri:23, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:17:54Z" name="SortingByDescending" finished-at="2019-03-29T21:18:01Z" duration-ms="6806" status="FAIL">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[expected [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:93)
+	at org.testng.Assert.failNotEquals(Assert.java:512)
+	at org.testng.Assert.assertTrue(Assert.java:41)
+	at org.testng.Assert.assertTrue(Assert.java:51)
+	at com.tetherfi.test.tmac.WaitTimeColorConfigTest.SortingByDescending(WaitTimeColorConfigTest.java:279)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SortingByDescending -->
+        <test-method is-config="true" signature="afterEachMethod(org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:18:01Z" name="afterEachMethod" finished-at="2019-03-29T21:18:02Z" duration-ms="1272" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=SortingByDescending status=FAILURE method=WaitTimeColorConfigTest.SortingByDescending()[pri:23, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8] output={null}]]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.SortingByDescending() throws java.io.IOException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:18:02Z" name="endTestCase" finished-at="2019-03-29T21:18:02Z" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.SortingByDescending() throws java.io.IOException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:18:02Z" name="startTestCase" finished-at="2019-03-29T21:18:02Z" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.ExporttoExcelWithoutData() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method is-config="true" signature="NavigateToWaitTimeColorConfigPage()[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:18:02Z" name="NavigateToWaitTimeColorConfigPage" finished-at="2019-03-29T21:18:07Z" duration-ms="5439" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToWaitTimeColorConfigPage -->
+        <test-method signature="ExporttoExcelWithoutData()[pri:24, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:18:07Z" name="ExporttoExcelWithoutData" finished-at="2019-03-29T21:18:15Z" duration-ms="7667" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ExporttoExcelWithoutData -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:18:15Z" name="tearDown" finished-at="2019-03-29T21:18:17Z" duration-ms="1741" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.tetherfi.test.fax.SendFaxTest -->
+        <test-method is-config="true" signature="afterEachMethod(org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:18:15Z" name="afterEachMethod" finished-at="2019-03-29T21:18:15Z" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=ExporttoExcelWithoutData status=SUCCESS method=WaitTimeColorConfigTest.ExporttoExcelWithoutData()[pri:24, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8] output={null}]]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.ExporttoExcelWithoutData() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:18:15Z" name="endTestCase" finished-at="2019-03-29T21:18:15Z" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.ExporttoExcelWithoutData() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+      </class> <!-- com.tetherfi.test.tmac.WaitTimeColorConfigTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

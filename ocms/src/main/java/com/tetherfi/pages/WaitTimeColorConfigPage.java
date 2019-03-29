@@ -9,6 +9,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -178,6 +179,9 @@ public class WaitTimeColorConfigPage extends BasePage {
     @FindBy(id="tGrid")
     private WebElement auditGridContent;
     
+    @FindBy(xpath="//tbody/tr/td[2]")
+    private WebElement rowdata;
+    
     @FindBy(xpath="//p[@class='k-reset']")
     private WebElement groupby;
     
@@ -292,14 +296,14 @@ public class WaitTimeColorConfigPage extends BasePage {
 		}
         selectWebElement(yesBtn);
     }
+    
     public boolean deleteNo(String Starttime, String reason) {
-		String actualitems=items.getText();
 		searchWaitTimeColorConfigRecord(Starttime);
         btnClick(deleteBtn);
         selectWebElement(deleteReasonTextBox);
         enterValueToTxtField(deleteReasonTextBox,reason);
         selectWebElement(noBtn);
-        if(actualitems.equals(items.getText()))
+        if(rowdata.getText().equals(Starttime))
         {return true;}
         else
         	return false;
@@ -479,6 +483,12 @@ public class WaitTimeColorConfigPage extends BasePage {
 	}
 	
 	public boolean verifyExportToExcel(String filePath) {
+		final File folder = new File(filePath);
+		for (final File f : folder.listFiles()) {
+		    if (f.getName().startsWith("Wait Time")) {
+		        f.delete();
+		    }
+		}
 		selectWebElement(exporttoexcel);
 		try {
 			Thread.sleep(2000);
@@ -536,7 +546,7 @@ public class WaitTimeColorConfigPage extends BasePage {
 			String col="";
 			for(int j=1;j<headers.size();j++){
 				if(headers.get(j).getText().equals("Last Changed On")){
-					col=cols.get(j).getText().substring(10);
+					col=cols.get(j).getText().substring(11);
 					}
 				else if(headers.get(j).getText().equals("Start Duration")) {
 					String str[]=cols.get(j).getText().split(":");
@@ -821,17 +831,6 @@ public class WaitTimeColorConfigPage extends BasePage {
     	return exporttoexcel.isDisplayed() && exporttoexcel.isEnabled();
     }
 	
-	public void DuplicateRecord(WaitTimeColorConfigDetails waitTimeColorConfigDetails) {
-		addNewWaitTimeColorConfigRecord(waitTimeColorConfigDetails);
-		try {
-			selectWebElement(cancelBtn);
-		}
-		catch(Exception e)
-		{
-			e.printStackTrace();
-		}
-		
-	}
 	public void SortByAscending() {
 		selectWebElement(startDuration);
 		selectWebElement(exporttoexcel);

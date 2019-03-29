@@ -1193,7 +1193,7 @@ return status;
     								if(newvalues.get("ColorCode").equals(details.getUpdatedColorCode())){
     									if(newvalues.get("StartTime").equals(details.getUpdatedStartTime())) {
     										if(newvalues.get("EndTime").equals(details.getEndTime())){
-    											if(newvalues.get("Modify Reason").equals(details.getModifyReason())) {
+    											if(newvalues.get("ModifyReason").equals(details.getModifyReason())) {
     												if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getModifyReason()))
     													Status=true;
     												else System.out.println("Change reason data mismatch");
@@ -1241,9 +1241,12 @@ return status;
 					{
 						if(oldvalues.get("EndTime").equals(details.getEndTime()))
 						{
-							if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getDeleteReason()))
+							if(oldvalues.get("ModifyReason").equals(details.getDeleteReason())) {
+								if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getDeleteReason()))
     		        			Status=true;
-    		        		else System.out.println("Change reason data mismatch");
+								else System.out.println("Change reason data mismatch");
+							}
+							else System.out.println("Modify reason data mismatch");
 						}
 						else {System.out.println("End Time  data mismatch");}
 					}
