@@ -24,7 +24,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 3 failed tests</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -38,7 +38,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" panel-name="suite-Default_suite" class="navigator-link">
-              <span class="suite-name border-passed">Default suite</span>
+              <span class="suite-name border-failed">Default suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -49,7 +49,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\admin pc\AppData\Local\Temp\testng-eclipse-1594345538\testng-customsuite.xml</span>
+                    <span>C:\Users\admin pc\AppData\Local\Temp\testng-eclipse-712158595\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -91,7 +91,31 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">4 methods,   4 passed</span>
+                    <span class="method-stats">12 methods, 3 failed,   9 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Default_suite" class="hide-methods failed suite-Default_suite"> (hide)</a> <!-- hide-methods failed suite-Default_suite -->
+                      <a href="#" panel-name="suite-Default_suite" class="show-methods failed suite-Default_suite"> (show)</a> <!-- show-methods failed suite-Default_suite -->
+                    </span>
+                    <div class="method-list-content failed suite-Default_suite">
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="com.tetherfi.test.fax.SendFaxTest" class="method navigator-link" hash-for-method="GroupBy">GroupBy</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="com.tetherfi.test.fax.SendFaxTest" class="method navigator-link" hash-for-method="VerifyArrowMoveForFirstAndLastPage">VerifyArrowMoveForFirstAndLastPage</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="com.tetherfi.test.fax.SendFaxTest" class="method navigator-link" hash-for-method="VerifyColumnsHeaderEnable">VerifyColumnsHeaderEnable</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-Default_suite -->
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -102,22 +126,47 @@
                     <div class="method-list-content passed suite-Default_suite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.tetherfi.test.fax.FaxRoutingConfigurationTest" class="method navigator-link" hash-for-method="ExportToExcel">ExportToExcel</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.tetherfi.test.fax.SendFaxTest" class="method navigator-link" hash-for-method="SearchClearSearch">SearchClearSearch</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.tetherfi.test.fax.FaxRoutingConfigurationTest" class="method navigator-link" hash-for-method="ExportToExcelData">ExportToExcelData</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.tetherfi.test.fax.SendFaxTest" class="method navigator-link" hash-for-method="SendFaxPage">SendFaxPage</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.tetherfi.test.fax.FaxRoutingConfigurationTest" class="method navigator-link" hash-for-method="SortingByAscending">SortingByAscending</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.tetherfi.test.fax.SendFaxTest" class="method navigator-link" hash-for-method="VerifyArrowMoveForPreviousAndNextPage">VerifyArrowMoveForPreviousAndNextPage</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.tetherfi.test.fax.FaxRoutingConfigurationTest" class="method navigator-link" hash-for-method="SortingByDescending">SortingByDescending</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.tetherfi.test.fax.SendFaxTest" class="method navigator-link" hash-for-method="VerifyColumnsHeaderDisable">VerifyColumnsHeaderDisable</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="com.tetherfi.test.fax.SendFaxTest" class="method navigator-link" hash-for-method="VerifyDropdownForAllTheColumns">VerifyDropdownForAllTheColumns</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="com.tetherfi.test.fax.SendFaxTest" class="method navigator-link" hash-for-method="VerifyNumberOfItemsPerPageSelection">VerifyNumberOfItemsPerPageSelection</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="com.tetherfi.test.fax.SendFaxTest" class="method navigator-link" hash-for-method="VerifyTotalNumberOfItemsPerPageDetails">VerifyTotalNumberOfItemsPerPageDetails</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="com.tetherfi.test.fax.SendFaxTest" class="method navigator-link" hash-for-method="searchPage">searchPage</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="com.tetherfi.test.fax.SendFaxTest" class="method navigator-link" hash-for-method="searchwithoutSearchTextbox">searchwithoutSearchTextbox</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Default_suite -->
@@ -132,38 +181,199 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Default_suite" class="panel Default_suite">
-          <div class="suite-Default_suite-class-passed">
+          <div class="suite-Default_suite-class-failed">
             <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
-              <span class="class-name">com.tetherfi.test.fax.FaxRoutingConfigurationTest</span>
+              <img src="failed.png"/>
+              <span class="class-name">com.tetherfi.test.fax.SendFaxTest</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="ExportToExcel">
-                  </a> <!-- ExportToExcel -->
-                  <span class="method-name">ExportToExcel</span>
+                  <a name="GroupBy">
+                  </a> <!-- GroupBy -->
+                  <span class="method-name">GroupBy</span>
+                  <div class="stack-trace">java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:93)
+	at org.testng.Assert.failNotEquals(Assert.java:512)
+	at org.testng.Assert.assertTrue(Assert.java:41)
+	at org.testng.Assert.assertTrue(Assert.java:51)
+	at com.tetherfi.test.fax.SendFaxTest.GroupBy(SendFaxTest.java:245)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+
+</div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="ExportToExcelData">
-                  </a> <!-- ExportToExcelData -->
-                  <span class="method-name">ExportToExcelData</span>
+                  <a name="VerifyArrowMoveForFirstAndLastPage">
+                  </a> <!-- VerifyArrowMoveForFirstAndLastPage -->
+                  <span class="method-name">VerifyArrowMoveForFirstAndLastPage</span>
+                  <div class="stack-trace">java.lang.AssertionError: arrow move for first and last page assertion failed expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:93)
+	at org.testng.Assert.failNotEquals(Assert.java:512)
+	at org.testng.Assert.assertTrue(Assert.java:41)
+	at com.tetherfi.test.fax.SendFaxTest.VerifyArrowMoveForFirstAndLastPage(SendFaxTest.java:260)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+
+</div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="SortingByAscending">
-                  </a> <!-- SortingByAscending -->
-                  <span class="method-name">SortingByAscending</span>
+                  <a name="VerifyColumnsHeaderEnable">
+                  </a> <!-- VerifyColumnsHeaderEnable -->
+                  <span class="method-name">VerifyColumnsHeaderEnable</span>
+                  <div class="stack-trace">java.lang.AssertionError: columns enabled assertion failed expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:93)
+	at org.testng.Assert.failNotEquals(Assert.java:512)
+	at org.testng.Assert.assertTrue(Assert.java:41)
+	at com.tetherfi.test.fax.SendFaxTest.VerifyColumnsHeaderEnable(SendFaxTest.java:85)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Default_suite-class-failed -->
+          <div class="suite-Default_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.tetherfi.test.fax.SendFaxTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="SearchClearSearch">
+                  </a> <!-- SearchClearSearch -->
+                  <span class="method-name">SearchClearSearch</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="SortingByDescending">
-                  </a> <!-- SortingByDescending -->
-                  <span class="method-name">SortingByDescending</span>
+                  <a name="SendFaxPage">
+                  </a> <!-- SendFaxPage -->
+                  <span class="method-name">SendFaxPage</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="VerifyArrowMoveForPreviousAndNextPage">
+                  </a> <!-- VerifyArrowMoveForPreviousAndNextPage -->
+                  <span class="method-name">VerifyArrowMoveForPreviousAndNextPage</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="VerifyColumnsHeaderDisable">
+                  </a> <!-- VerifyColumnsHeaderDisable -->
+                  <span class="method-name">VerifyColumnsHeaderDisable</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="VerifyDropdownForAllTheColumns">
+                  </a> <!-- VerifyDropdownForAllTheColumns -->
+                  <span class="method-name">VerifyDropdownForAllTheColumns</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="VerifyNumberOfItemsPerPageSelection">
+                  </a> <!-- VerifyNumberOfItemsPerPageSelection -->
+                  <span class="method-name">VerifyNumberOfItemsPerPageSelection</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="VerifyTotalNumberOfItemsPerPageDetails">
+                  </a> <!-- VerifyTotalNumberOfItemsPerPageDetails -->
+                  <span class="method-name">VerifyTotalNumberOfItemsPerPageDetails</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="searchPage">
+                  </a> <!-- searchPage -->
+                  <span class="method-name">searchPage</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="searchwithoutSearchTextbox">
+                  </a> <!-- searchwithoutSearchTextbox -->
+                  <span class="method-name">searchwithoutSearchTextbox</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -171,7 +381,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\admin pc\AppData\Local\Temp\testng-eclipse-1594345538\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\admin pc\AppData\Local\Temp\testng-eclipse-712158595\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -180,7 +390,7 @@
 &lt;suite name=&quot;Default suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
   &lt;test name=&quot;Default test&quot; verbose=&quot;2&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;com.tetherfi.test.fax.FaxRoutingConfigurationTest&quot;/&gt;
+      &lt;class name=&quot;com.tetherfi.test.fax.SendFaxTest&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Default test --&gt;
 &lt;/suite&gt; &lt;!-- Default suite --&gt;
@@ -220,28 +430,60 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(4);
+data.addRows(12);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'SortingByDescending')
-data.setCell(0, 2, 'com.tetherfi.test.fax.FaxRoutingConfigurationTest')
-data.setCell(0, 3, 3376);
+data.setCell(0, 1, 'VerifyNumberOfItemsPerPageSelection')
+data.setCell(0, 2, 'com.tetherfi.test.fax.SendFaxTest')
+data.setCell(0, 3, 11184);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'SortingByAscending')
-data.setCell(1, 2, 'com.tetherfi.test.fax.FaxRoutingConfigurationTest')
-data.setCell(1, 3, 3135);
+data.setCell(1, 1, 'VerifyDropdownForAllTheColumns')
+data.setCell(1, 2, 'com.tetherfi.test.fax.SendFaxTest')
+data.setCell(1, 3, 10120);
 data.setCell(2, 0, 2)
-data.setCell(2, 1, 'ExportToExcel')
-data.setCell(2, 2, 'com.tetherfi.test.fax.FaxRoutingConfigurationTest')
-data.setCell(2, 3, 2806);
+data.setCell(2, 1, 'SearchClearSearch')
+data.setCell(2, 2, 'com.tetherfi.test.fax.SendFaxTest')
+data.setCell(2, 3, 6993);
 data.setCell(3, 0, 3)
-data.setCell(3, 1, 'ExportToExcelData')
-data.setCell(3, 2, 'com.tetherfi.test.fax.FaxRoutingConfigurationTest')
-data.setCell(3, 3, 1143);
+data.setCell(3, 1, 'searchPage')
+data.setCell(3, 2, 'com.tetherfi.test.fax.SendFaxTest')
+data.setCell(3, 3, 6462);
+data.setCell(4, 0, 4)
+data.setCell(4, 1, 'searchwithoutSearchTextbox')
+data.setCell(4, 2, 'com.tetherfi.test.fax.SendFaxTest')
+data.setCell(4, 3, 3651);
+data.setCell(5, 0, 5)
+data.setCell(5, 1, 'GroupBy')
+data.setCell(5, 2, 'com.tetherfi.test.fax.SendFaxTest')
+data.setCell(5, 3, 1514);
+data.setCell(6, 0, 6)
+data.setCell(6, 1, 'VerifyArrowMoveForPreviousAndNextPage')
+data.setCell(6, 2, 'com.tetherfi.test.fax.SendFaxTest')
+data.setCell(6, 3, 1305);
+data.setCell(7, 0, 7)
+data.setCell(7, 1, 'SendFaxPage')
+data.setCell(7, 2, 'com.tetherfi.test.fax.SendFaxTest')
+data.setCell(7, 3, 1259);
+data.setCell(8, 0, 8)
+data.setCell(8, 1, 'VerifyArrowMoveForFirstAndLastPage')
+data.setCell(8, 2, 'com.tetherfi.test.fax.SendFaxTest')
+data.setCell(8, 3, 1241);
+data.setCell(9, 0, 9)
+data.setCell(9, 1, 'VerifyTotalNumberOfItemsPerPageDetails')
+data.setCell(9, 2, 'com.tetherfi.test.fax.SendFaxTest')
+data.setCell(9, 3, 53);
+data.setCell(10, 0, 10)
+data.setCell(10, 1, 'VerifyColumnsHeaderEnable')
+data.setCell(10, 2, 'com.tetherfi.test.fax.SendFaxTest')
+data.setCell(10, 3, 33);
+data.setCell(11, 0, 11)
+data.setCell(11, 1, 'VerifyColumnsHeaderDisable')
+data.setCell(11, 2, 'com.tetherfi.test.fax.SendFaxTest')
+data.setCell(11, 3, 29);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 10 seconds</span>
+              <span class="suite-total-time">Total running time: 43 seconds</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -267,94 +509,260 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">com.tetherfi.test.fax.FaxRoutingConfigurationTest</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">com.tetherfi.test.fax.SendFaxTest</div> <!-- chronological-class-name -->
               <div class="configuration-class before">
                 <span class="method-name">openApplication</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-class before -->
               <div class="configuration-method before">
-                <span class="method-name">startTestCase(public void com.tetherfi.test.fax.FaxRoutingConfigurationTest.ExportToExcel() throws java.lang.Excep...)</span>
-                <span class="method-start">9706 ms</span>
+                <span class="method-name">startTestCase(public void com.tetherfi.test.fax.SendFaxTest.SendFaxPage())</span>
+                <span class="method-start">10248 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
-                <span class="method-name">NavigateToFaxLineConfigPage</span>
-                <span class="method-start">9707 ms</span>
+                <span class="method-name">NavigateToFaxRoutingConfigPage</span>
+                <span class="method-start">10250 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">ExportToExcel</span>
-                <span class="method-start">13651 ms</span>
+                <span class="method-name">SendFaxPage</span>
+                <span class="method-start">14675 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">afterEachMethod(public void com.tetherfi.test.fax.FaxRoutingConfigurationTest.ExportToExcel() throws java.lang.Excep...)</span>
-                <span class="method-start">16460 ms</span>
+                <span class="method-name">afterEachMethod(public void com.tetherfi.test.fax.SendFaxTest.SendFaxPage())</span>
+                <span class="method-start">15937 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method after">
-                <span class="method-name">endTestCase(public void com.tetherfi.test.fax.FaxRoutingConfigurationTest.ExportToExcel() throws java.lang.Excep...)</span>
-                <span class="method-start">16819 ms</span>
+                <span class="method-name">endTestCase(public void com.tetherfi.test.fax.SendFaxTest.SendFaxPage())</span>
+                <span class="method-start">16318 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
-                <span class="method-name">startTestCase(public void com.tetherfi.test.fax.FaxRoutingConfigurationTest.ExportToExcelData() throws java.lang.E...)</span>
-                <span class="method-start">16822 ms</span>
+                <span class="method-name">NavigateToFaxRoutingConfigPage</span>
+                <span class="method-start">16320 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
-                <span class="method-name">NavigateToFaxLineConfigPage</span>
-                <span class="method-start">16823 ms</span>
+                <span class="method-name">startTestCase(public void com.tetherfi.test.fax.SendFaxTest.VerifyDropdownForAllTheColumns())</span>
+                <span class="method-start">16320 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">ExportToExcelData</span>
-                <span class="method-start">20033 ms</span>
+                <span class="method-name">VerifyDropdownForAllTheColumns</span>
+                <span class="method-start">19429 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">afterEachMethod(public void com.tetherfi.test.fax.FaxRoutingConfigurationTest.ExportToExcelData() throws java.lang.E...)</span>
-                <span class="method-start">21180 ms</span>
+                <span class="method-name">afterEachMethod(public void com.tetherfi.test.fax.SendFaxTest.VerifyDropdownForAllTheColumns())</span>
+                <span class="method-start">29553 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method after">
-                <span class="method-name">endTestCase(public void com.tetherfi.test.fax.FaxRoutingConfigurationTest.ExportToExcelData() throws java.lang.E...)</span>
-                <span class="method-start">21546 ms</span>
+                <span class="method-name">endTestCase(public void com.tetherfi.test.fax.SendFaxTest.VerifyDropdownForAllTheColumns())</span>
+                <span class="method-start">29946 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
-                <span class="method-name">NavigateToFaxLineConfigPage</span>
-                <span class="method-start">21547 ms</span>
+                <span class="method-name">NavigateToFaxRoutingConfigPage</span>
+                <span class="method-start">29947 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
-                <span class="method-name">startTestCase(public void com.tetherfi.test.fax.FaxRoutingConfigurationTest.SortingByAscending() throws java.io.IO...)</span>
-                <span class="method-start">21547 ms</span>
+                <span class="method-name">startTestCase(public void com.tetherfi.test.fax.SendFaxTest.VerifyColumnsHeaderDisable())</span>
+                <span class="method-start">29947 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">SortingByAscending</span>
-                <span class="method-start">24781 ms</span>
+                <span class="method-name">VerifyColumnsHeaderDisable</span>
+                <span class="method-start">33089 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">afterEachMethod(public void com.tetherfi.test.fax.FaxRoutingConfigurationTest.SortingByAscending() throws java.io.IO...)</span>
-                <span class="method-start">27917 ms</span>
+                <span class="method-name">afterEachMethod(public void com.tetherfi.test.fax.SendFaxTest.VerifyColumnsHeaderDisable())</span>
+                <span class="method-start">33120 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method after">
-                <span class="method-name">endTestCase(public void com.tetherfi.test.fax.FaxRoutingConfigurationTest.SortingByAscending() throws java.io.IO...)</span>
-                <span class="method-start">28277 ms</span>
+                <span class="method-name">endTestCase(public void com.tetherfi.test.fax.SendFaxTest.VerifyColumnsHeaderDisable())</span>
+                <span class="method-start">33510 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
-                <span class="method-name">startTestCase(public void com.tetherfi.test.fax.FaxRoutingConfigurationTest.SortingByDescending() throws java.io.I...)</span>
-                <span class="method-start">28277 ms</span>
+                <span class="method-name">NavigateToFaxRoutingConfigPage</span>
+                <span class="method-start">33511 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
-                <span class="method-name">NavigateToFaxLineConfigPage</span>
-                <span class="method-start">28278 ms</span>
+                <span class="method-name">startTestCase(public void com.tetherfi.test.fax.SendFaxTest.searchPage() throws java.io.IOException)</span>
+                <span class="method-start">33511 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">SortingByDescending</span>
-                <span class="method-start">31438 ms</span>
+                <span class="method-name">searchPage</span>
+                <span class="method-start">36642 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">afterEachMethod(public void com.tetherfi.test.fax.FaxRoutingConfigurationTest.SortingByDescending() throws java.io.I...)</span>
-                <span class="method-start">34815 ms</span>
+                <span class="method-name">afterEachMethod(public void com.tetherfi.test.fax.SendFaxTest.searchPage() throws java.io.IOException)</span>
+                <span class="method-start">43105 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method after">
-                <span class="method-name">endTestCase(public void com.tetherfi.test.fax.FaxRoutingConfigurationTest.SortingByDescending() throws java.io.I...)</span>
-                <span class="method-start">35166 ms</span>
+                <span class="method-name">endTestCase(public void com.tetherfi.test.fax.SendFaxTest.searchPage() throws java.io.IOException)</span>
+                <span class="method-start">43493 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">NavigateToFaxRoutingConfigPage</span>
+                <span class="method-start">43494 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="configuration-method before">
+                <span class="method-name">startTestCase(public void com.tetherfi.test.fax.SendFaxTest.searchwithoutSearchTextbox() throws java.io.IOExceptio...)</span>
+                <span class="method-start">43494 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">searchwithoutSearchTextbox</span>
+                <span class="method-start">46563 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">afterEachMethod(public void com.tetherfi.test.fax.SendFaxTest.searchwithoutSearchTextbox() throws java.io.IOExceptio...)</span>
+                <span class="method-start">50215 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method after">
+                <span class="method-name">endTestCase(public void com.tetherfi.test.fax.SendFaxTest.searchwithoutSearchTextbox() throws java.io.IOExceptio...)</span>
+                <span class="method-start">50603 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">NavigateToFaxRoutingConfigPage</span>
+                <span class="method-start">50604 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="configuration-method before">
+                <span class="method-name">startTestCase(public void com.tetherfi.test.fax.SendFaxTest.SearchClearSearch() throws java.lang.Exception)</span>
+                <span class="method-start">50604 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">SearchClearSearch</span>
+                <span class="method-start">53747 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">afterEachMethod(public void com.tetherfi.test.fax.SendFaxTest.SearchClearSearch() throws java.lang.Exception)</span>
+                <span class="method-start">60741 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method after">
+                <span class="method-name">endTestCase(public void com.tetherfi.test.fax.SendFaxTest.SearchClearSearch() throws java.lang.Exception)</span>
+                <span class="method-start">61100 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">NavigateToFaxRoutingConfigPage</span>
+                <span class="method-start">61101 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="configuration-method before">
+                <span class="method-name">startTestCase(public void com.tetherfi.test.fax.SendFaxTest.GroupBy())</span>
+                <span class="method-start">61101 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">GroupBy</span>
+                <span class="method-start">64100 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">afterEachMethod(public void com.tetherfi.test.fax.SendFaxTest.GroupBy())</span>
+                <span class="method-start">65617 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method after">
+                <span class="method-name">endTestCase(public void com.tetherfi.test.fax.SendFaxTest.GroupBy())</span>
+                <span class="method-start">65990 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">NavigateToFaxRoutingConfigPage</span>
+                <span class="method-start">65991 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="configuration-method before">
+                <span class="method-name">startTestCase(public void com.tetherfi.test.fax.SendFaxTest.VerifyArrowMoveForPreviousAndNextPage())</span>
+                <span class="method-start">65991 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">VerifyArrowMoveForPreviousAndNextPage</span>
+                <span class="method-start">69010 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">afterEachMethod(public void com.tetherfi.test.fax.SendFaxTest.VerifyArrowMoveForPreviousAndNextPage())</span>
+                <span class="method-start">70317 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method after">
+                <span class="method-name">endTestCase(public void com.tetherfi.test.fax.SendFaxTest.VerifyArrowMoveForPreviousAndNextPage())</span>
+                <span class="method-start">70715 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">NavigateToFaxRoutingConfigPage</span>
+                <span class="method-start">70716 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="configuration-method before">
+                <span class="method-name">startTestCase(public void com.tetherfi.test.fax.SendFaxTest.VerifyArrowMoveForFirstAndLastPage())</span>
+                <span class="method-start">70716 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">VerifyArrowMoveForFirstAndLastPage</span>
+                <span class="method-start">73646 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">afterEachMethod(public void com.tetherfi.test.fax.SendFaxTest.VerifyArrowMoveForFirstAndLastPage())</span>
+                <span class="method-start">74889 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method after">
+                <span class="method-name">endTestCase(public void com.tetherfi.test.fax.SendFaxTest.VerifyArrowMoveForFirstAndLastPage())</span>
+                <span class="method-start">75258 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">startTestCase(public void com.tetherfi.test.fax.SendFaxTest.VerifyTotalNumberOfItemsPerPageDetails())</span>
+                <span class="method-start">75258 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="configuration-method before">
+                <span class="method-name">NavigateToFaxRoutingConfigPage</span>
+                <span class="method-start">75259 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">VerifyTotalNumberOfItemsPerPageDetails</span>
+                <span class="method-start">78217 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">afterEachMethod(public void com.tetherfi.test.fax.SendFaxTest.VerifyTotalNumberOfItemsPerPageDetails())</span>
+                <span class="method-start">78272 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">NavigateToFaxRoutingConfigPage</span>
+                <span class="method-start">78619 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="configuration-method after">
+                <span class="method-name">endTestCase(public void com.tetherfi.test.fax.SendFaxTest.VerifyTotalNumberOfItemsPerPageDetails())</span>
+                <span class="method-start">78619 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">startTestCase(public void com.tetherfi.test.fax.SendFaxTest.VerifyNumberOfItemsPerPageSelection())</span>
+                <span class="method-start">78619 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">VerifyNumberOfItemsPerPageSelection</span>
+                <span class="method-start">81745 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">afterEachMethod(public void com.tetherfi.test.fax.SendFaxTest.VerifyNumberOfItemsPerPageSelection())</span>
+                <span class="method-start">92931 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method after">
+                <span class="method-name">endTestCase(public void com.tetherfi.test.fax.SendFaxTest.VerifyNumberOfItemsPerPageSelection())</span>
+                <span class="method-start">93328 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">NavigateToFaxRoutingConfigPage</span>
+                <span class="method-start">93329 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="configuration-method before">
+                <span class="method-name">startTestCase(public void com.tetherfi.test.fax.SendFaxTest.VerifyColumnsHeaderEnable())</span>
+                <span class="method-start">93329 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">VerifyColumnsHeaderEnable</span>
+                <span class="method-start">96364 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">afterEachMethod(public void com.tetherfi.test.fax.SendFaxTest.VerifyColumnsHeaderEnable())</span>
+                <span class="method-start">96398 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method after">
+                <span class="method-name">endTestCase(public void com.tetherfi.test.fax.SendFaxTest.VerifyColumnsHeaderEnable())</span>
+                <span class="method-start">96778 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-class after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">35167 ms</span>
+                <span class="method-start">96779 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

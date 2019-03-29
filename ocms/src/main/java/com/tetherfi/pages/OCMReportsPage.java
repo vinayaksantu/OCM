@@ -1,5 +1,9 @@
 package com.tetherfi.pages;
 
+import com.tetherfi.model.fax.FaxLineConfigDetails;
+import com.tetherfi.model.fax.FaxRoutingConfigurationDetails;
+import com.tetherfi.model.fax.FaxSendersDetails;
+import com.tetherfi.model.fax.SendFaxDetails;
 import com.tetherfi.model.ivr.AdhocOptionEnhancementDetails;
 import com.tetherfi.model.report.ReportDetails;
 import com.tetherfi.model.tmac.AgentTeamMgmtDetails;
@@ -1663,5 +1667,421 @@ return status;
 			}
 			else {System.out.println("Promotion Number data mismatch");}
 			return Status;
+	}
+
+	public boolean verifyFaxLineConfigCreate(FaxLineConfigDetails details, String Transaction) throws Exception {
+		booleansearchnew(details.getFaxLineName(),Transaction);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+		Map<String,String> newvalues=new HashMap<>();
+		String[]d=firstRowData.get("New Values").split("\n");
+		for(String e:d) {
+			String f[]=e.split(":",2);
+			if(f.length>1)
+			newvalues.put(f[0], f[1]);
+		}
+			if(newvalues.get("DNIS").equals(details.getFaxLine()))
+			{
+				if(newvalues.get("FaxLineName").equals(details.getFaxLineName()))
+				{
+					if(newvalues.get("Description").equals(details.getDescription()))
+					{
+						if(newvalues.get("Enabled").equals(details.getStatus()))
+						{
+							if(newvalues.get("SendEnabled").equals(details.getSendStatus()))
+							{
+								if(newvalues.get("RecieveEnabled").equals(details.getReceiveStatus()))
+								{
+									Status= true;
+								}
+								else {System.out.println("Recieve Enabled data mismatch");}
+							}
+							else {System.out.println("Send Enabled data mismatch");}
+						}
+						else {System.out.println("Enabled data mismatch");}
+					}
+					else {System.out.println("Description data mismatch");}
+				}
+				else {System.out.println("FaxLineName data mismatch");}
+			}
+			else {System.out.println("DNIS data mismatch");	}
+			return Status;
+	}
+
+	public boolean verifyFaxLineConfigUpdate(FaxLineConfigDetails details, String Transaction) throws Exception {
+		booleansearchnew(details.getUpdatedDescription(),Transaction);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+        if(firstRowData.containsKey("Old Values")) {
+        	Map<String,String> oldvalues=new HashMap<>();
+    		String[]d=firstRowData.get("Old Values").split("\n");
+    		for(String e:d) {
+    			System.out.println(e);
+    			String f[]=e.split(":",2);
+    			if(f.length>1)
+    				oldvalues.put(f[0], f[1]);
+    		}
+    		if(oldvalues.get("DNIS").equals(details.getFaxLine())){
+    			if(oldvalues.get("Description").equals(details.getDescription())){
+    				if(oldvalues.get("FaxLineName").equals(details.getFaxLineName())) {
+    					if(oldvalues.get("Enabled").equals(details.getStatus())){
+        					if(oldvalues.get("SendEnabled").equals(details.getSendStatus())){
+            					if(oldvalues.get("ReceiveEnabled").equals(details.getReceiveStatus())){
+            						if(firstRowData.containsKey("New Values")) {
+            							Map<String,String> newvalues=new HashMap<>();
+            							String[]d1=firstRowData.get("New Values").split("\n");
+            							for(String e:d1) {
+            								String f[]=e.split(":",2);
+            								if(f.length>1)
+            									newvalues.put(f[0], f[1]);
+            							}
+            							if(newvalues.get("DNIS").equals(details.getFaxLine())){
+            								if(newvalues.get("FaxLineName").equals(details.getFaxLineName())){
+            									if(newvalues.get("Description").equals(details.getUpdatedDescription())) {
+            										if(newvalues.get("Enabled").equals(details.getUpdatedStatus())){
+                										if(newvalues.get("SendEnabled").equals(details.getUpdatedSendStatus())){
+                    										if(newvalues.get("ReceiveEnabled").equals(details.getUpdatedReceiveStatus())){
+                    											if(newvalues.get("Modify Reason").equals(details.getModifyReason())) {
+                    												if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getModifyReason()))
+                    													Status=true;
+                    												else System.out.println("Change reason data mismatch");
+                    											}
+                    											else System.out.println("Modify reason data mismatch");
+                    										}
+                    										else System.out.println("ReceiveEnabled data mismatch");
+                										}
+                										else {System.out.println("SendEnabled data mismatch");}
+            										}
+            										else System.out.println("Enabled data mismatch");
+            									}
+        										else System.out.println("Description data mismatch");
+            								}
+            								else {System.out.println("FaxLineName data mismatch");}
+            							}
+            							else {System.out.println("DNIS data mismatch");	}	
+            						}
+            						else {System.out.println("New values data mismatch");}
+            					}
+            					else {System.out.println("RecieveEnabled data mismatch");}
+        					}
+        					else {System.out.println("SendEnabled data mismatch");}
+    					}
+    					else {System.out.println("Enabled data mismatch");	}	
+    				}
+    				else System.out.println("FaxLineNamedata mismatch");
+    			}
+    			else System.out.println("Description data mismatch");
+    		}
+    		else System.out.println("DNIS Data Mismatch");
+        }
+        else {System.out.println("Old values data mismatch");}
+    return Status;
+	}
+
+	public boolean verifyFaxLineConfigdelete(FaxLineConfigDetails details, String Transaction) throws Exception {
+		booleansearchold(details.getFaxLine(),Transaction);
+		System.out.println(workcode);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+		Map<String,String> oldvalues=new HashMap<>();
+		String[]d=firstRowData.get("Old Values").split("\n");
+		for(String e:d) {
+			String f[]=e.split(":",2);
+			if(f.length>1)
+			oldvalues.put(f[0], f[1]);
+		}
+			if(oldvalues.get("DNIS").equals(details.getFaxLine()))
+			{
+				if(oldvalues.get("FaxLineName").equals(details.getFaxLineName()))
+				{
+					if(oldvalues.get("Description").equals(details.getUpdatedDescription()))
+					{
+						if(oldvalues.get("Enabled").equals(details.getStatus())){
+							if(oldvalues.get("Send Enabled").equals(details.getSendStatus())) {
+								if(oldvalues.get("Receive Enabled").equals(details.getReceiveStatus())) {
+									if(oldvalues.get("ModifyReason").equals(details.getDeleteReason()))
+									{
+										if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getDeleteReason()))
+											Status=true;
+										else System.out.println("Change reason data mismatch");
+									}
+									else {System.out.println("Modify Reason  data mismatch");}
+								}
+								else {System.out.println("Receive Enabled data mismatch");}
+							}
+							else {System.out.println("Send Enabled data mismatch");}
+						}
+						else {System.out.println("Enabled data mismatch");}
+					}
+					else {System.out.println("Description data mismatch");}
+				}
+				else {System.out.println("FaxLine Name data mismatch");}
+			}
+			else {System.out.println("DNIS data mismatch");}
+			return Status;
+	}
+
+	public boolean verifyFaxSendersCreate(FaxSendersDetails details, String Transaction) throws Exception {
+		booleansearchnew(details.getFaxNumber(),Transaction);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+		Map<String,String> newvalues=new HashMap<>();
+		String[]d=firstRowData.get("New Values").split("\n");
+		for(String e:d) {
+			String f[]=e.split(":",2);
+			if(f.length>1)
+			newvalues.put(f[0], f[1]);
+		}
+			if(newvalues.get("DNIS").equals(details.getFaxLine()))
+			{
+				if(newvalues.get("Name").equals(details.getName()))
+				{
+					if(newvalues.get("FaxNumber").equals(details.getFaxNumber()))
+					{
+						if(newvalues.get("Type").equals(details.getSenderType()))
+						{
+							Status= true;
+						}
+						else {System.out.println("Type data mismatch");}
+					}
+					else {System.out.println("FaxNumber data mismatch");}
+				}
+				else {System.out.println("Name data mismatch");}
+			}
+			else {System.out.println("DNIS data mismatch");	}
+			return Status;
+	}
+
+	public boolean verifySendersUpdate(FaxSendersDetails details, String Transaction) throws Exception {
+		booleansearchnew(details.getUpdatedSenderType(),Transaction);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+        if(firstRowData.containsKey("Old Values")) {
+        	Map<String,String> oldvalues=new HashMap<>();
+    		String[]d=firstRowData.get("Old Values").split("\n");
+    		for(String e:d) {
+    			System.out.println(e);
+    			String f[]=e.split(":",2);
+    			if(f.length>1)
+    				oldvalues.put(f[0], f[1]);
+    		}
+    		if(oldvalues.get("DNIS").equals(details.getFaxLine())){
+    			if(oldvalues.get("Name").equals(details.getName())) {
+        			if(oldvalues.get("FaxNumber").equals(details.getFaxNumber())){
+            			if(oldvalues.get("Type").equals(details.getSenderType())){
+            				if(firstRowData.containsKey("New Values")) {
+            					Map<String,String> newvalues=new HashMap<>();
+            					String[]d1=firstRowData.get("New Values").split("\n");
+            					for(String e:d1) {
+            						String f[]=e.split(":",2);
+            						if(f.length>1)
+            						newvalues.put(f[0], f[1]);
+            					}
+            					if(newvalues.get("DNIS").equals(details.getFaxLine())){
+            						if(newvalues.get("Name").equals(details.getUpdatedName())){
+            							if(newvalues.get("FaxNumber").equals(details.getFaxNumber())){
+                							if(newvalues.get("Type").equals(details.getUpdatedSenderType())){
+                								if(newvalues.get("Modify Reason").equals(details.getModifyReason())) {
+                    								if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getModifyReason()))
+                    									Status=true;
+                    								else System.out.println("Change reason data mismatch");
+                    							}
+                    							else System.out.println("Modify reason data mismatch");
+                    						}
+                    						else System.out.println("Type data mismatch");
+                						}
+            							else {System.out.println("FaxNumber data mismatch");}
+            						}
+            						else System.out.println("Name data mismatch");
+            					}
+            					else {System.out.println("DNIS data mismatch");	}	
+            				}
+            				else {System.out.println("New values data mismatch");}
+            			}
+            			else {System.out.println("Type data mismatch");}
+        			}
+        			else {System.out.println("FaxNumber data mismatch");}
+    			}
+    			else System.out.println("Name data mismatch");
+    		}
+    		else System.out.println("DNIS Data Mismatch");
+        }
+        else {System.out.println("Old values data mismatch");}
+    return Status;
+	}
+
+	public boolean verifyFaxSendersdelete(FaxSendersDetails details, String Transaction) throws Exception {
+		booleansearchold(details.getFaxNumber(),Transaction);	
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+		Map<String,String> oldvalues=new HashMap<>();
+		String[]d=firstRowData.get("Old Values").split("\n");
+		for(String e:d) {
+			String f[]=e.split(":",2);
+			if(f.length>1)
+			oldvalues.put(f[0], f[1]);
+		}
+			if(oldvalues.get("DNIS").equals(details.getFaxLine()))
+			{
+				if(oldvalues.get("Name").equals(details.getName()))
+				{
+					if(oldvalues.get("FaxNumber").equals(details.getFaxNumber()))
+					{
+						if(oldvalues.get("Type").equals(details.getSenderType())) {
+							if(oldvalues.get("ModifyReason").equals(details.getDeleteReason())) {
+								if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getDeleteReason()))
+									Status=true;
+								else System.out.println("Change reason data mismatch");
+							}
+							else {System.out.println("Modify Reason  data mismatch");}
+						}
+						else {System.out.println("Type data mismatch");}
+					}
+					else {System.out.println("FaxNumber data mismatch");}
+				}
+				else {System.out.println("Name data mismatch");}
+			}
+			else {System.out.println("DNIS data mismatch");}
+			return Status;
+	}
+
+	public boolean verifyFaxRoutingConfigCreate(FaxRoutingConfigurationDetails details, String Transaction) throws Exception {
+		booleansearchnew(details.getIntent(),Transaction);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+		Map<String,String> newvalues=new HashMap<>();
+		String[]d=firstRowData.get("New Values").split("\n");
+		for(String e:d) {
+			String f[]=e.split(":",2);
+			if(f.length>1)
+			newvalues.put(f[0], f[1]);
+		}
+			if(newvalues.get("DNIS").equals(details.getFaxLine()))
+			{
+				if(newvalues.get("Intent").equals(details.getIntent()))
+				{
+					if(newvalues.get("RouteType").equals(details.getRouteType()))
+					{
+						if(newvalues.get("Type").equals(details.getSenderType()))
+						{
+							if(newvalues.get("RouteData").equals(details.getRouteData()))
+							Status= true;
+							else {System.out.println("RouteData data mismatch");}
+						}
+						else {System.out.println("Type data mismatch");}
+					}
+					else {System.out.println("RouteType data mismatch");}
+				}
+				else {System.out.println("Intent data mismatch");	}
+			}
+			else {System.out.println("DNIS data mismatch");	}
+			return Status;
+	}
+
+	public boolean verifyFaxRoutingConfigUpdate(FaxRoutingConfigurationDetails details, String Transaction) throws Exception {
+		booleansearchnew(details.getUpdatedRouteData(),Transaction);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+        if(firstRowData.containsKey("Old Values")) {
+        	Map<String,String> oldvalues=new HashMap<>();
+    		String[]d=firstRowData.get("Old Values").split("\n");
+    		for(String e:d) {
+    			System.out.println(e);
+    			String f[]=e.split(":",2);
+    			if(f.length>1)
+    				oldvalues.put(f[0], f[1]);
+    		}
+    		if(oldvalues.get("DNIS").equals(details.getFaxLine())){
+    			if(oldvalues.get("Type").equals(details.getSenderType())){
+    				if(oldvalues.get("Intent").equals(details.getIntent())) {
+    					if(oldvalues.get("RouteType").equals(details.getRouteType())){
+        					if(oldvalues.get("RouteData").equals(details.getRouteData())){
+            					if(firstRowData.containsKey("New Values")) {
+            						Map<String,String> newvalues=new HashMap<>();
+            						String[]d1=firstRowData.get("New Values").split("\n");
+            						for(String e:d1) {
+            							String f[]=e.split(":",2);
+            							if(f.length>1)
+            								newvalues.put(f[0], f[1]);
+            						}
+            						if(newvalues.get("DNIS").equals(details.getFaxLine())){
+            							if(newvalues.get("Type").equals(details.getSenderType())){
+            								if(newvalues.get("Intent").equals(details.getIntent())) {
+            									if(newvalues.get("RouteType").equals(details.getRouteType())){
+                									if(newvalues.get("RouteData").equals(details.getRouteData())){
+                    									if(newvalues.get("Modify Reason").equals(details.getModifyReason())) {
+                    										if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getModifyReason()))
+                    											Status=true;
+                    										else System.out.println("Change reason data mismatch");
+                    									}
+                    									else System.out.println("Modify reason data mismatch");
+                    								}
+                									else System.out.println("Routedata data mismatch");
+                								}
+                								else {System.out.println("Routetype data mismatch");}
+            								}
+            								else System.out.println("Intent data mismatch");
+            							}
+        								else System.out.println("Type data mismatch");
+            						}
+            						else {System.out.println("DNIS data mismatch");}
+            					}
+            					else {System.out.println("New values data mismatch");}
+        					}
+        					else {System.out.println("RouteData data mismatch");}
+    					}
+    					else {System.out.println("RouteType data mismatch");	}	
+    				}
+    				else System.out.println("Intent mismatch");
+    			}
+    			else System.out.println("Type data mismatch");
+    		}
+    		else System.out.println("DNIS Data Mismatch");
+        }
+        else {System.out.println("Old values data mismatch");}
+    return Status;
+	}
+
+	public boolean verifyFaxRoutingConfigdelete(FaxRoutingConfigurationDetails details, String Transaction) throws Exception {
+		booleansearchold(details.getRouteData(),Transaction);	
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+		Map<String,String> oldvalues=new HashMap<>();
+		String[]d=firstRowData.get("Old Values").split("\n");
+		for(String e:d) {
+			String f[]=e.split(":",2);
+			if(f.length>1)
+			oldvalues.put(f[0], f[1]);
+		}
+			if(oldvalues.get("DNIS").equals(details.getFaxLine()))
+			{
+				if(oldvalues.get("Type").equals(details.getSenderType()))
+				{
+					if(oldvalues.get("Intent").equals(details.getIntent()))
+					{
+						if(oldvalues.get("RouteType").equals(details.getRouteType())) {
+							if(oldvalues.get("ModifyReason").equals(details.getRouteData())) {
+								if(oldvalues.get("ModifyReason").equals(details.getDeleteReason())) {
+									if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getDeleteReason()))
+										Status=true;
+									else System.out.println("Change reason data mismatch");
+								}
+								else {System.out.println("Modify Reason  data mismatch");}
+							}
+							else {System.out.println("RouteData data mismatch");}
+						}
+						else {System.out.println("RouteType data mismatch");}
+					}
+					else {System.out.println("Intent data mismatch");}
+				}
+				else {System.out.println("Type data mismatch");}
+			}
+			else {System.out.println("DNIS data mismatch");}
+			return Status;
+	}
+
+	public boolean verifySendFaxCreate(SendFaxDetails sendFaxDetails, String string) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 }

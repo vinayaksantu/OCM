@@ -2,6 +2,7 @@ package com.tetherfi.test.fax;
 
 import com.tetherfi.model.fax.FaxLineConfigDetails;
 import com.tetherfi.model.fax.FaxSendersDetails;
+import com.tetherfi.model.report.ReportDetails;
 import com.tetherfi.pages.*;
 import com.tetherfi.test.BaseTest;
 import com.tetherfi.utility.ExcelReader;
@@ -10,10 +11,13 @@ import com.tetherfi.utility.Screenshot;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
+import static org.testng.Assert.assertFalse;
+
 import java.io.IOException;
 import java.lang.reflect.Method;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 public class FaxSendersTest extends BaseTest {
 	Screenshot screenshot=new Screenshot(driver);
@@ -34,6 +38,7 @@ public class FaxSendersTest extends BaseTest {
         FaxLineConfigDetails faxLineConfigDetails = new FaxLineConfigDetails(map);
         faxLineConfigPage.addNewFaxLineConfigRecord(faxLineConfigDetails);
         Assert.assertEquals(faxLineConfigPage.getSuccessMessage(), "Record Created Successfully");
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
     }
     @BeforeMethod
     public void NavigateToFaxSendersPage() {
@@ -49,7 +54,7 @@ public class FaxSendersTest extends BaseTest {
         Assert.assertTrue(faxSendersPage.isFaxSendersPageDisplayed(), "FAX page assertion failed");
     }
 
-    @Test(priority=1)
+    //@Test(priority=1)
     public void FaxSendersPage() {
         FaxSendersPage faxSendersPage = PageFactory.createPageInstance(driver, FaxSendersPage.class);
     	Assert.assertTrue(faxSendersPage.verifylogo(),"FaxSenderslogo assertion failed");
@@ -59,39 +64,217 @@ public class FaxSendersTest extends BaseTest {
     	screenshot.captureScreen(driver,"minimize window","FaxSendersTest");
     }
     
-    //@Test
+    //@Test(priority=2)
     public void AddFaxSendersRecord() throws IOException {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxSendersData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         FaxSendersDetails faxSendersDetails = new FaxSendersDetails(map);
-
         FaxSendersPage faxSendersPage = PageFactory.createPageInstance(driver, FaxSendersPage.class);
+        Assert.assertTrue(faxSendersPage.AddCancelRecord(faxSendersDetails));
         faxSendersPage.addNewFaxSendersRecord(faxSendersDetails);
         Assert.assertEquals(faxSendersPage.getSuccessMessage(), "Record Created Successfully");
     }
-    //@Test(dependsOnMethods = {"AddFaxSendersRecord"})
+    
+    //@Test(dependsOnMethods = {"AddFaxSendersRecord"},priority=3)
+    public void VerifyAuditTrialReportForCreate() throws Exception {
+        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxSendersData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
+        FaxSendersDetails faxSendersDetails = new FaxSendersDetails(map);
+        HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
+        homePage.navigateToOCMReportsPage();
+        OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver, OCMReportsPage.class);
+        String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AuditTrailReportData.xlsx";
+        Map<String, String> map1 = new ExcelReader(filePath1,"Show").getTestData().get(0);
+        ReportDetails reportDetails= new ReportDetails(map1);
+        ocmReportsPage.showReport(reportDetails);
+        Assert.assertTrue(ocmReportsPage.verifyFaxSendersCreate(faxSendersDetails,"Create"));
+    	screenshot.captureScreen(driver,"VerifyAuditTrialReportForCreate","FaxSendersTest");
+    	}
+    
+   //@Test(dependsOnMethods = {"AddFaxSendersRecord"},priority=3)
+   public void AddDuplicateFaxSendersRecord() throws IOException {
+       String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxSendersData.xlsx";
+       Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
+       FaxSendersDetails faxSendersDetails = new FaxSendersDetails(map);
+       FaxSendersPage faxSendersPage = PageFactory.createPageInstance(driver, FaxSendersPage.class);
+       faxSendersPage.addNewFaxSendersRecord(faxSendersDetails);
+       Assert.assertFalse(faxSendersPage.getErrorMessage());
+   }
+   
+   //@Test
+   public void AddFaxSendersRecordwithsameFaxLine() throws IOException {
+       String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxSendersData.xlsx";
+       Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(1);
+       FaxSendersDetails faxSendersDetails = new FaxSendersDetails(map);
+       FaxSendersPage faxSendersPage = PageFactory.createPageInstance(driver, FaxSendersPage.class);
+       faxSendersPage.addNewFaxSendersRecord(faxSendersDetails);
+       Assert.assertEquals(faxSendersPage.getSuccessMessage(), "Record Created Successfully");
+   }
+   
+   //@Test
+   public void AddFaxSendersRecordwithsameFaxNumber() throws IOException {
+       String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxSendersData.xlsx";
+       Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(2);
+       FaxSendersDetails faxSendersDetails = new FaxSendersDetails(map);
+       FaxSendersPage faxSendersPage = PageFactory.createPageInstance(driver, FaxSendersPage.class);
+       faxSendersPage.addNewFaxSendersRecord(faxSendersDetails);
+       Assert.assertEquals(faxSendersPage.getSuccessMessage(), "Record Created Successfully");
+   }
+   
+   
+   //@Test(dependsOnMethods = {"AddFaxSendersRecord"},priority=3)
+   public void AddInvalidRecord() throws Exception {
+       String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxSendersData.xlsx";
+       Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
+       FaxSendersDetails faxSendersDetails = new FaxSendersDetails(map);
+       FaxSendersPage faxSendersPage = PageFactory.createPageInstance(driver, FaxSendersPage.class);
+       faxSendersPage.addNewFaxSendersRecordwithoutinput(faxSendersDetails);
+       Assert.assertFalse(faxSendersPage.getErrorMessage());
+       faxSendersPage.addNewFaxSendersRecordwithoutfaxline(faxSendersDetails);
+       Assert.assertFalse(faxSendersPage.getErrorMessage());
+       faxSendersPage.addNewFaxSendersRecordwithoutName(faxSendersDetails);
+       Assert.assertFalse(faxSendersPage.getErrorMessage());
+       faxSendersPage.addNewFaxSendersRecordwithoutFaxNumber(faxSendersDetails);
+       Assert.assertFalse(faxSendersPage.getErrorMessage());
+       faxSendersPage.addNewFaxSendersRecordwithoutType(faxSendersDetails);
+       Assert.assertFalse(faxSendersPage.getErrorMessage());
+   }
+   
+   //@Test//(dependsOnMethods = {"AddFaxSendersRecord"})
+   public void EditFaxSendersRecordCancel() throws IOException {
+       String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxSendersData.xlsx";
+       Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
+       FaxSendersDetails faxSendersDetails = new FaxSendersDetails(map);
+       FaxSendersPage faxSendersPage = PageFactory.createPageInstance(driver, FaxSendersPage.class);
+       Assert.assertTrue(faxSendersPage.EditCancelRecord(faxSendersDetails));
+   }
+   
+   //@Test
+   public void EditFaxSendersInvalidRecord() throws IOException {
+       String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxSendersData.xlsx";
+       Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
+       FaxSendersDetails faxSendersDetails = new FaxSendersDetails(map);
+       FaxSendersPage faxSendersPage = PageFactory.createPageInstance(driver, FaxSendersPage.class);
+       faxSendersPage.editFaxSendersInvalidRecord(faxSendersDetails);
+       Assert.assertFalse(faxSendersPage.getErrorMessage());
+   }
+   
+    //@Test(dependsOnMethods = {"EditFaxSendersRecordCancel"})
     public void EditFaxSendersRecord() throws IOException {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxSendersData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
         FaxSendersDetails faxSendersDetails = new FaxSendersDetails(map);
-
         FaxSendersPage faxSendersPage = PageFactory.createPageInstance(driver, FaxSendersPage.class);
         faxSendersPage.editFaxSendersRecord(faxSendersDetails);
         Assert.assertEquals(faxSendersPage.getSuccessMessage(),"Record Updated Successfully");
     }
-
-    //@Test(dependsOnMethods = {"EditFaxSendersRecord"})
+    
+    //@Test(dependsOnMethods="EditFaxSendersRecord",priority=6)
+    public void VerifyAuditTrialReportForUpdate() throws Exception {
+        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxSendersData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(0);	
+        FaxSendersDetails faxSendersDetails = new FaxSendersDetails(map);
+        HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
+        homePage.navigateToOCMReportsPage();
+        OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver, OCMReportsPage.class);
+        String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AuditTrailReportData.xlsx";
+        Map<String, String> map1 = new ExcelReader(filePath1,"Show").getTestData().get(0);
+        ReportDetails reportDetails= new ReportDetails(map1);
+        ocmReportsPage.showReport(reportDetails);
+        Assert.assertTrue(ocmReportsPage.verifySendersUpdate(faxSendersDetails,"Update"));
+        screenshot.captureScreen(driver, "VerifyAuditTrialReportForUpdate","FaxSendersTest");
+    }
+    //@Test(priority=19)
+    public void searchPage() throws IOException {
+        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxSendersData.xlsx";
+    	Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
+        FaxSendersDetails faxSendersDetails = new FaxSendersDetails(map);
+        FaxSendersPage faxSendersPage = PageFactory.createPageInstance(driver, FaxSendersPage.class);
+        Assert.assertFalse(faxSendersPage.clearAll(faxSendersDetails),"ClearAll Assertion Failed");
+        screenshot.captureScreen(driver, "clearall","FaxSendersTest");
+        Assert.assertTrue(faxSendersPage.verifyclose());
+        screenshot.captureScreen(driver, "SearchClose","FaxSendersTest");
+    }
+    
+    //@Test(priority=20)
+    public void searchwithoutSearchTextbox() throws IOException {
+        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxSendersData.xlsx";
+    	Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
+        FaxSendersDetails faxSendersDetails = new FaxSendersDetails(map);
+        FaxSendersPage faxSendersPage = PageFactory.createPageInstance(driver, FaxSendersPage.class);
+        faxSendersPage.searchwithoutextsearch(faxSendersDetails);
+    	Assert.assertFalse(faxSendersPage.getErrorMessage());
+    	screenshot.captureScreen(driver, "searchwithoutSearchTextbox()","FaxSendersTest");
+    }
+    
+    @Test(priority=11)
+    public void database() throws Exception {
+        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxSendersData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(0);
+        FaxSendersPage faxSendersPage = PageFactory.createPageInstance(driver, FaxSendersPage.class);
+        FaxSendersDetails faxSendersDetails = new FaxSendersDetails(map);
+    	Assert.assertTrue(faxSendersPage.verifyDatabase(faxSendersDetails.getQuery()));
+    }
+    
+    //@Test(priority=25)
+    public void SearchClearSearch() throws Exception
+    {
+        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxSendersData.xlsx";
+    	Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(3);
+        FaxSendersDetails faxSendersDetails = new FaxSendersDetails(map);
+        FaxSendersPage faxSendersPage = PageFactory.createPageInstance(driver, FaxSendersPage.class);
+        Assert.assertTrue(faxSendersPage.verifyinvalidsearchwithwrongdata(faxSendersDetails),"invalidsearchwithwrongdata");
+        screenshot.captureScreen(driver,"Invalid Search with wrong data", "FaxLineConfigTest");
+        Assert.assertTrue(faxSendersPage.verifyclearsearch(), "Clear All Assertion Failed");
+        screenshot.captureScreen( driver,"Clear Search", "FaxSendersTest");
+    }
+    
+    
+    //@Test//(dependsOnMethods = {"EditFaxSendersRecord"})
+    public void DeleteFaxSendersCancelRecord() throws IOException {
+        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxSendersData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
+        FaxSendersDetails faxSendersDetails = new FaxSendersDetails(map);
+        FaxSendersPage faxSendersPage = PageFactory.createPageInstance(driver, FaxSendersPage.class);
+        Assert.assertTrue(faxSendersPage.deleteFaxSendersCancelRecord(faxSendersDetails));
+    }
+    
+    //@Test(dependsOnMethods = {"DeleteFaxSendersCancelRecord"})
+    public void DeleteFaxSendersInvalidRecord() throws IOException {
+        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxSendersData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
+        FaxSendersDetails faxSendersDetails = new FaxSendersDetails(map);
+        FaxSendersPage faxSendersPage = PageFactory.createPageInstance(driver, FaxSendersPage.class);
+        faxSendersPage.deleteFaxSendersInvalidRecord(faxSendersDetails);
+        Assert.assertFalse(faxSendersPage.getErrorMessage());
+    }
+    
+    //@Test(dependsOnMethods = {"DeleteFaxSendersCancelRecord"})
     public void DeleteFaxSendersRecord() throws IOException {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxSendersData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         FaxSendersDetails faxSendersDetails = new FaxSendersDetails(map);
-
         FaxSendersPage faxSendersPage = PageFactory.createPageInstance(driver, FaxSendersPage.class);
         faxSendersPage.deleteFaxSendersRecord(faxSendersDetails);
         Assert.assertEquals(faxSendersPage.getSuccessMessage(), "Record Deleted Successfully");
-
     }
-    @Test(priority=17)
+    //@Test(dependsOnMethods = {"DeleteFaxSendersRecord"})
+    public void VerifyAuditTrialReportForDelete() throws Exception {
+        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxSendersData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
+        FaxSendersDetails faxSendersDetails = new FaxSendersDetails(map);
+        HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
+        homePage.navigateToOCMReportsPage();
+        OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver, OCMReportsPage.class);
+        String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AuditTrailReportData.xlsx";
+        Map<String, String> map1 = new ExcelReader(filePath1,"Show").getTestData().get(0);
+        ReportDetails reportDetails= new ReportDetails(map1);
+        ocmReportsPage.showReport(reportDetails);
+        Assert.assertTrue(ocmReportsPage.verifyFaxSendersdelete(faxSendersDetails,"Delete"));
+        screenshot.captureScreen(driver,"VerifyAuditTrialReportForUpdate","");
+    }
+    
+    /*@Test(priority=17)
     public void ExportToExcel() throws Exception
     {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles";
@@ -181,18 +364,40 @@ public class FaxSendersTest extends BaseTest {
     public void VerifyColumnsHeaderEnable() {
         FaxSendersPage faxSendersPage = PageFactory.createPageInstance(driver, FaxSendersPage.class);
         Assert.assertTrue(faxSendersPage.verifycolumnsHeaderEnabled(),"columns enabled assertion failed");
-    }
+    }*/
     
-    @Test(priority=36)
+    //@Test(priority=0)
     public void VerifyColumnsHeaderDisable() {
         FaxSendersPage faxSendersPage = PageFactory.createPageInstance(driver, FaxSendersPage.class);
         Assert.assertFalse(faxSendersPage.verifycolumnsHeaderDisabled(),"columns disabled assertion failed");
     }
+    
+    //@Test
+    public void BulkUploadData() throws Exception {
+        FaxSendersPage faxSendersPage = PageFactory.createPageInstance(driver, FaxSendersPage.class);
+        faxSendersPage.VerifyBulkUpload("TEST.CSV");
+        Assert.assertEquals(faxSendersPage.getSuccessMessage(), "CSV data being uploaded. Please check after a while"); 
+        Thread.sleep(1000);
+        faxSendersPage.VerifyBulkUpload("InvalidType.csv");
+        Assert.assertFalse(faxSendersPage.getErrorMessage());
+        Thread.sleep(1000);
+        faxSendersPage.VerifyBulkUpload("InvalidNumber.csv");
+        Assert.assertFalse(faxSendersPage.getErrorMessage());
+        Thread.sleep(1000);
+        faxSendersPage.VerifyBulkUpload("InvalidFaxline.csv");
+        Assert.assertFalse(faxSendersPage.getErrorMessage());
+        Thread.sleep(1000);
+        faxSendersPage.VerifyBulkUpload("HolidayList.xlsx");
+        Assert.assertTrue(faxSendersPage.verifycolor());
+        faxSendersPage.VerifyBulkUpload("TEST.CSV");
+        Assert.assertFalse(faxSendersPage.getErrorMessage());
+    }
+    
     @AfterMethod
     public void afterEachMethod(Method method) {
     	screenshot.captureScreen(driver, "", method.getName());
     }
-    @AfterClass
+    //@AfterClass
     public void DeleteFaxLineConfigRecord() throws IOException {
         HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
         homePage.navigateToOCMPage();

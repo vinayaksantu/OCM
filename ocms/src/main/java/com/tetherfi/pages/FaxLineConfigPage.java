@@ -56,6 +56,9 @@ public class FaxLineConfigPage extends BasePage{
 
     @FindBy(css=".k-grid-update")
     private WebElement faxLineSaveButton;
+    
+    @FindBy(css=".k-grid-cancel")
+    private WebElement cancelBtn;
 
     @FindBy(css=".toast-message")
     private WebElement successmsg;
@@ -63,6 +66,9 @@ public class FaxLineConfigPage extends BasePage{
     @FindBy(css = "#toast-container .toast-error .toast-message")
     private List<WebElement> errorMsg;
 
+    @FindBy(xpath="//tbody/tr/td[2]")
+    private WebElement rowdata;
+    
     @FindBy(css = ".fa-search")
     private WebElement searchBtn;
 
@@ -113,6 +119,9 @@ public class FaxLineConfigPage extends BasePage{
 
     @FindBy(id = "yesButton")
     private WebElement deleteYesBtn;
+    
+    @FindBy(id = "noButton")
+    private WebElement deleteNoBtn;
     
     @FindBy(xpath="//button[text()='Export to Excel']")
     private WebElement exporttoexcel;
@@ -195,6 +204,30 @@ public class FaxLineConfigPage extends BasePage{
     @FindBy(xpath="//tbody/tr/td/p[@class='k-reset']/../../following-sibling::tr/td[3]")
     private WebElement groupbyFaxLine;
     
+    @FindBy(xpath="//button[text()='Clear All']")
+    private WebElement clearall;
+    
+    @FindBy(xpath="//button[text()='Close']")
+    private WebElement searchClose;
+    
+    @FindBy(xpath="//div[text()='No records to display']")
+    private WebElement norecords;
+    
+    @FindBy(xpath="//i[@class='fas fa-sync']")
+    private WebElement clearsearch;
+    
+    @FindBy(xpath="//td/a[@class='k-button k-button-icontext k-grid-CustomPreview']")
+    private WebElement sendersBtn;
+    
+    @FindBy(xpath="//td/a[@class='k-button k-button-icontext k-grid-CustomPreview1']")
+    private WebElement autoAckBtn;
+    
+    @FindBy(xpath="//td/a[@class='k-button k-button-icontext k-grid-CustomPreview2']")
+    private WebElement routesBtn;
+    
+    @FindBy(xpath="//tbody[@role='rowgroup']")
+    private WebElement rowgroup;
+    
 
     public boolean isFaxLineConfigPageDisplayed() {
         waitForLoad(driver);
@@ -223,9 +256,51 @@ public class FaxLineConfigPage extends BasePage{
         selectDropdownFromVisibleText(receiveStatusListBox,faxLineConfigDetails.getReceiveStatus());
         selectWebElement(faxLineSaveButton);
         }
+    
+    public boolean AddCancelRecord(FaxLineConfigDetails faxLineConfigDetails) {
+		String actualitems=items.getText();
+		selectWebElement(addNewFaxLineConfigRcrdBtn);
+        waitForJqueryLoad(driver);
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        enterValueToTxtFieldWithoutClear(faxLineTextBox,faxLineConfigDetails.getFaxLine());
+        selectWebElement(faxLineNameTextBox);
+        enterValueToTxtField(faxLineNameTextBox,faxLineConfigDetails.getFaxLineName());
+        selectWebElement(descriptionTextBox);
+        enterValueToTxtField(descriptionTextBox,faxLineConfigDetails.getDescription());
+        selectWebElement(statusDropdown);
+        selectDropdownFromVisibleText(statusListBox,faxLineConfigDetails.getStatus());
+        selectWebElement(sendStatusDropdown);
+        selectDropdownFromVisibleText(sendStatusListBox,faxLineConfigDetails.getSendStatus());
+        selectWebElement(receiveStatusDropdown);
+        selectDropdownFromVisibleText(receiveStatusListBox,faxLineConfigDetails.getReceiveStatus());
+        selectWebElement(cancelBtn);
+        if(items.getText().equals(actualitems))
+        	return true;
+        else
+		return false;
+	}
 
     public void editFaxLineConfig(FaxLineConfigDetails faxLineConfigDetails) {
         searchFaxLineConfigRecord(faxLineConfigDetails.getFaxLine());
+        selectWebElement(editButton);
+        selectWebElement(descriptionTextBox);
+        enterValueToTxtField(descriptionTextBox,faxLineConfigDetails.getUpdatedDescription());
+        selectWebElement(statusDropdown);
+        selectDropdownFromVisibleText(statusListBox,faxLineConfigDetails.getUpdatedStatus());
+        selectWebElement(sendStatusDropdown);
+        selectDropdownFromVisibleText(sendStatusListBox,faxLineConfigDetails.getUpdatedSendStatus());
+        selectWebElement(receiveStatusDropdown);
+        selectDropdownFromVisibleText(receiveStatusListBox,faxLineConfigDetails.getUpdatedReceiveStatus());
+        selectWebElement(modifyReasonTextBox);
+       enterValueToTxtField(modifyReasonTextBox,faxLineConfigDetails.getModifyReason());
+       selectWebElement(faxLineSaveButton);
+    }
+    public boolean editcancel(FaxLineConfigDetails faxLineConfigDetails) {
+    	searchFaxLineConfigRecord(faxLineConfigDetails.getFaxLine());
         selectWebElement(editButton);
         selectWebElement(descriptionTextBox);
         enterValueToTxtField(descriptionTextBox,faxLineConfigDetails.getDescription());
@@ -236,10 +311,13 @@ public class FaxLineConfigPage extends BasePage{
         selectWebElement(receiveStatusDropdown);
         selectDropdownFromVisibleText(receiveStatusListBox,faxLineConfigDetails.getReceiveStatus());
         selectWebElement(modifyReasonTextBox);
-       enterValueToTxtField(modifyReasonTextBox,faxLineConfigDetails.getModifyReason());
-       selectWebElement(faxLineSaveButton);
-    }
-
+        enterValueToTxtField(modifyReasonTextBox,faxLineConfigDetails.getModifyReason());
+        selectWebElement(cancelBtn);
+        if(rowdata.getText().equals(faxLineConfigDetails.getFaxLine()))
+        	return true;
+        else
+       return false;
+	}
     public void searchFaxLineConfigRecord(String faxLine) {
         selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
@@ -263,6 +341,22 @@ public class FaxLineConfigPage extends BasePage{
             enterValueToTxtField(deleteReasonTextBox,faxLineConfigDetails.getDeleteReason());
             selectWebElement(deleteYesBtn);
         }
+    
+    public boolean deletecancelRecord(FaxLineConfigDetails faxLineConfigDetails) {
+    	searchFaxLineConfigRecord(faxLineConfigDetails.getFaxLine());
+        selectWebElement(deleteButton);
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        enterValueToTxtField(deleteReasonTextBox,faxLineConfigDetails.getDeleteReason());
+        selectWebElement(deleteNoBtn);
+        if(rowdata.getText().equals(faxLineConfigDetails.getFaxLine()))
+        	return true;
+        else
+		return false;
+	}
 
     public String getSuccessMessage(){
         waitForJqueryLoad(driver);
@@ -270,6 +364,14 @@ public class FaxLineConfigPage extends BasePage{
         waitUntilWebElementIsVisible(successmsg);
         return successmsg.getText();
     }
+    
+    public boolean getErrorMessage() {
+		waitUntilWebElementListIsVisible(errorMsg);
+		if(errorMsg.size()>0)
+		return false;
+		else
+			return true;
+	}
     
     public boolean isAddBtnDisplayed() {
     	return addNewFaxLineConfigRcrdBtn.isDisplayed() && addNewFaxLineConfigRcrdBtn.isEnabled();
@@ -422,6 +524,9 @@ public class FaxLineConfigPage extends BasePage{
 				map.put(headers.get(j).getText(),col);
 			}
 			map.remove("");
+			map.remove("Senders");
+			map.remove("AutoAck");
+			map.remove("Routes");
 			arr.add(map);
 		}
 		if(k!=pages)
@@ -633,6 +738,283 @@ public class FaxLineConfigPage extends BasePage{
 		else
 			return false;		
 	}
+
+	public void addNewFaxLineConfigRecordwithoutInput(FaxLineConfigDetails faxLineConfigDetails) {
+		 selectWebElement(addNewFaxLineConfigRcrdBtn);
+	        waitForJqueryLoad(driver);
+	        try {
+	            Thread.sleep(3000);
+	        } catch (InterruptedException e) {
+	            e.printStackTrace();
+	        }
+	        selectWebElement(faxLineSaveButton);
+	        selectWebElement(cancelBtn);
+	        }
+
+	public void addNewFaxLineConfigRecordwithoutFaxline(FaxLineConfigDetails faxLineConfigDetails) throws Exception {
+		Thread.sleep(1000);
+		selectWebElement(addNewFaxLineConfigRcrdBtn);
+	        waitForJqueryLoad(driver);
+	        try {
+	            Thread.sleep(3000);
+	        } catch (InterruptedException e) {
+	            e.printStackTrace();
+	        }
+	        selectWebElement(faxLineNameTextBox);
+	        enterValueToTxtField(faxLineNameTextBox,faxLineConfigDetails.getFaxLineName());
+	        selectWebElement(descriptionTextBox);
+	        enterValueToTxtField(descriptionTextBox,faxLineConfigDetails.getDescription());
+	        selectWebElement(statusDropdown);
+	        selectDropdownFromVisibleText(statusListBox,faxLineConfigDetails.getStatus());
+	        selectWebElement(sendStatusDropdown);
+	        selectDropdownFromVisibleText(sendStatusListBox,faxLineConfigDetails.getSendStatus());
+	        selectWebElement(receiveStatusDropdown);
+	        selectDropdownFromVisibleText(receiveStatusListBox,faxLineConfigDetails.getReceiveStatus());
+	        selectWebElement(faxLineSaveButton);
+	        selectWebElement(cancelBtn);
+	        }
+
+	public void addNewFaxLineConfigRecordwithoutFaxLineName(FaxLineConfigDetails faxLineConfigDetails) throws Exception {
+		Thread.sleep(1000);
+		selectWebElement(addNewFaxLineConfigRcrdBtn);
+	        waitForJqueryLoad(driver);
+	        try {
+	            Thread.sleep(3000);
+	        } catch (InterruptedException e) {
+	            e.printStackTrace();
+	        }
+	        enterValueToTxtFieldWithoutClear(faxLineTextBox,faxLineConfigDetails.getFaxLine());
+	        selectWebElement(descriptionTextBox);
+	        enterValueToTxtField(descriptionTextBox,faxLineConfigDetails.getDescription());
+	        selectWebElement(statusDropdown);
+	        selectDropdownFromVisibleText(statusListBox,faxLineConfigDetails.getStatus());
+	        selectWebElement(sendStatusDropdown);
+	        selectDropdownFromVisibleText(sendStatusListBox,faxLineConfigDetails.getSendStatus());
+	        selectWebElement(receiveStatusDropdown);
+	        selectDropdownFromVisibleText(receiveStatusListBox,faxLineConfigDetails.getReceiveStatus());
+	        selectWebElement(faxLineSaveButton);
+	        selectWebElement(cancelBtn);
+	        }
+
+	public void addNewFaxLineConfigRecordwithoutDescription(FaxLineConfigDetails faxLineConfigDetails) throws Exception {
+		Thread.sleep(1000);
+		selectWebElement(addNewFaxLineConfigRcrdBtn);
+	        waitForJqueryLoad(driver);
+	        try {
+	            Thread.sleep(3000);
+	        } catch (InterruptedException e) {
+	            e.printStackTrace();
+	        }
+	        enterValueToTxtFieldWithoutClear(faxLineTextBox,faxLineConfigDetails.getFaxLine());
+	        selectWebElement(faxLineNameTextBox);
+	        enterValueToTxtField(faxLineNameTextBox,faxLineConfigDetails.getFaxLineName());
+	        selectWebElement(statusDropdown);
+	        selectDropdownFromVisibleText(statusListBox,faxLineConfigDetails.getStatus());
+	        selectWebElement(sendStatusDropdown);
+	        selectDropdownFromVisibleText(sendStatusListBox,faxLineConfigDetails.getSendStatus());
+	        selectWebElement(receiveStatusDropdown);
+	        selectDropdownFromVisibleText(receiveStatusListBox,faxLineConfigDetails.getReceiveStatus());
+	        selectWebElement(faxLineSaveButton);
+	        selectWebElement(cancelBtn);
+	        }
+	
+	public void addNewFaxLineConfigRecordwithoutStatus(FaxLineConfigDetails faxLineConfigDetails) throws Exception {
+		Thread.sleep(1000);
+		 selectWebElement(addNewFaxLineConfigRcrdBtn);
+	        waitForJqueryLoad(driver);
+	        try {
+	            Thread.sleep(3000);
+	        } catch (InterruptedException e) {
+	            e.printStackTrace();
+	        }
+	        enterValueToTxtFieldWithoutClear(faxLineTextBox,faxLineConfigDetails.getFaxLine());
+	        selectWebElement(faxLineNameTextBox);
+	        enterValueToTxtField(faxLineNameTextBox,faxLineConfigDetails.getFaxLineName());
+	        selectWebElement(descriptionTextBox);
+	        enterValueToTxtField(descriptionTextBox,faxLineConfigDetails.getDescription());
+	        selectWebElement(sendStatusDropdown);
+	        selectDropdownFromVisibleText(sendStatusListBox,faxLineConfigDetails.getSendStatus());
+	        selectWebElement(receiveStatusDropdown);
+	        selectDropdownFromVisibleText(receiveStatusListBox,faxLineConfigDetails.getReceiveStatus());
+	        selectWebElement(faxLineSaveButton);
+	        selectWebElement(cancelBtn);
+	        }
+
+	public void addNewFaxLineConfigRecordwithoutSendStatus(FaxLineConfigDetails faxLineConfigDetails) throws Exception {
+		Thread.sleep(1000);
+		selectWebElement(addNewFaxLineConfigRcrdBtn);
+	        try {
+	            Thread.sleep(3000);
+	        } catch (InterruptedException e) {
+	            e.printStackTrace();
+	        }
+	        enterValueToTxtFieldWithoutClear(faxLineTextBox,faxLineConfigDetails.getFaxLine());
+	        selectWebElement(faxLineNameTextBox);
+	        enterValueToTxtField(faxLineNameTextBox,faxLineConfigDetails.getFaxLineName());
+	        selectWebElement(descriptionTextBox);
+	        enterValueToTxtField(descriptionTextBox,faxLineConfigDetails.getDescription());
+	        selectWebElement(statusDropdown);
+	        selectDropdownFromVisibleText(statusListBox,faxLineConfigDetails.getStatus());
+	        selectWebElement(receiveStatusDropdown);
+	        selectDropdownFromVisibleText(receiveStatusListBox,faxLineConfigDetails.getReceiveStatus());
+	        selectWebElement(faxLineSaveButton);
+	        selectWebElement(cancelBtn);
+	        }
+	
+	public void addNewFaxLineConfigRecordwithoutReceiveStatus(FaxLineConfigDetails faxLineConfigDetails) throws Exception {
+		Thread.sleep(1000);
+		selectWebElement(addNewFaxLineConfigRcrdBtn);
+	        waitForJqueryLoad(driver);
+	        try {
+	            Thread.sleep(3000);
+	        } catch (InterruptedException e) {
+	            e.printStackTrace();
+	        }
+	        enterValueToTxtFieldWithoutClear(faxLineTextBox,faxLineConfigDetails.getFaxLine());
+	        selectWebElement(faxLineNameTextBox);
+	        enterValueToTxtField(faxLineNameTextBox,faxLineConfigDetails.getFaxLineName());
+	        selectWebElement(descriptionTextBox);
+	        enterValueToTxtField(descriptionTextBox,faxLineConfigDetails.getDescription());
+	        selectWebElement(statusDropdown);
+	        selectDropdownFromVisibleText(statusListBox,faxLineConfigDetails.getStatus());
+	        selectWebElement(sendStatusDropdown);
+	        selectDropdownFromVisibleText(sendStatusListBox,faxLineConfigDetails.getSendStatus());
+	        selectWebElement(faxLineSaveButton);
+	        selectWebElement(cancelBtn);
+	        }
+
+	public boolean clearAll(FaxLineConfigDetails details) {
+		selectWebElement(searchBtn);
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Fax Line");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is equal to");
+        enterValueToTxtField(searchTextBox,details.getFaxLine());
+	        selectWebElement(clearall);
+			if(searchTextBox.isEnabled())
+	        	return true;
+	        else
+			return false;
+		}
+		public boolean verifyclose() {
+			selectWebElement(searchClose);
+			if(gridContent.isDisplayed())
+				return true;
+			else
+			return false;
+		}
+
+	public void searchwithoutextsearch(FaxLineConfigDetails faxLineConfigDetails) {
+		selectWebElement(searchBtn);
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Fax Line");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is equal to");
+        selectWebElement(searchSearchBtn);	
+        selectWebElement(searchCloseBtn);
+	}
+
+	public boolean verifyinvalidsearchwithwrongdata(FaxLineConfigDetails faxLineConfigDetails) {
+		searchFaxLineConfigRecord(faxLineConfigDetails.getFaxLine());
+		if(norecords.isDisplayed())
+			return true; 
+			else
+				return false;
+	}
+
+	public boolean verifyclearsearch() {
+		selectWebElement(clearsearch);
+		if(gridContent.isDisplayed())
+			return true;
+		else
+		return false;
+	}
+
+	public void deleteFaxLineConfigwithoutReason(FaxLineConfigDetails faxLineConfigDetails) {
+		searchFaxLineConfigRecord(faxLineConfigDetails.getFaxLine());
+        selectWebElement(deleteButton);
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        selectWebElement(deleteYesBtn);
+        selectWebElement(deleteNoBtn);
+    }
+
+	public void editInvalidFaxLineConfig(FaxLineConfigDetails faxLineConfigDetails) {
+		 searchFaxLineConfigRecord(faxLineConfigDetails.getFaxLine());
+	        selectWebElement(editButton);
+	        selectWebElement(descriptionTextBox);
+	        descriptionTextBox.clear();
+	        selectWebElement(statusDropdown);
+	        selectDropdownFromVisibleText(statusListBox,faxLineConfigDetails.getUpdatedStatus());
+	        selectWebElement(sendStatusDropdown);
+	        selectDropdownFromVisibleText(sendStatusListBox,faxLineConfigDetails.getUpdatedSendStatus());
+	        selectWebElement(receiveStatusDropdown);
+	        selectDropdownFromVisibleText(receiveStatusListBox,faxLineConfigDetails.getUpdatedReceiveStatus());
+	       selectWebElement(faxLineSaveButton);
+	       selectWebElement(cancelBtn);
+		
+	}
+
+	public boolean verifySendersLink(FaxLineConfigDetails faxLineConfigDetails) {
+		Boolean Status=false;
+		searchFaxLineConfigRecord(faxLineConfigDetails.getFaxLine());
+		selectWebElement(sendersBtn);
+		if(faxLineConfig.getText().equals("Fax Senders")) {
+			List<WebElement> rows=rowgroup.findElements(By.tagName("tr"));
+			if(rows.size()>0){
+				for(WebElement e:rows){
+					List<WebElement> cols=e.findElements(By.tagName("td"));
+					cols.get(1).getText().equals(faxLineConfigDetails.getFaxLine());
+				}	
+				Status=true;
+			}
+			else
+			Status=true;
+		}
+		return Status;
+		}
+
+	public boolean verifyAutoAckLink(FaxLineConfigDetails faxLineConfigDetails) {
+		Boolean Status=false;
+		searchFaxLineConfigRecord(faxLineConfigDetails.getFaxLine());
+		selectWebElement(autoAckBtn);
+		if(faxLineConfig.getText().equals("Fax Auto ACK Configuration")) {
+			List<WebElement> rows=rowgroup.findElements(By.tagName("tr"));
+			if(rows.size()>0){
+				for(WebElement e:rows){
+					List<WebElement> cols=e.findElements(By.tagName("td"));
+					cols.get(1).getText().equals(faxLineConfigDetails.getFaxLine());
+				}	
+				Status=true;
+			}
+			else
+			Status=true;
+		}
+		return Status;
+		}
+	
+	public boolean verifyRoutesLink(FaxLineConfigDetails faxLineConfigDetails) {
+		Boolean Status=false;
+		searchFaxLineConfigRecord(faxLineConfigDetails.getFaxLine());
+		selectWebElement(routesBtn);
+		if(faxLineConfig.getText().equals("Fax Routing Configuration")) {
+			List<WebElement> rows=rowgroup.findElements(By.tagName("tr"));
+			if(rows.size()>0){
+				for(WebElement e:rows){
+					List<WebElement> cols=e.findElements(By.tagName("td"));
+					cols.get(1).getText().equals(faxLineConfigDetails.getFaxLine());
+				}	
+				Status=true;
+			}
+			else
+			Status=true;
+		}
+		return Status;
+		}
+	
 }
 
 

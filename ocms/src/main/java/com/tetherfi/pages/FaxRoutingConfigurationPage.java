@@ -37,6 +37,18 @@ public class FaxRoutingConfigurationPage extends BasePage {
     
     @FindBy(xpath="//button[@class='k-button k-button-icontext k-grid-excel']")
 	private WebElement exporttoexcel;
+
+    @FindBy(id = "ModifyReason")
+    private WebElement modifyReasonTextBox;
+
+    @FindBy(id = "ModifyReason1")
+    private WebElement deleteReasonTextBox;
+
+    @FindBy(id = "yesButton")
+    private WebElement deleteYesBtn;
+    
+    @FindBy(id = "noButton")
+    private WebElement deleteNoBtn;
     
     @FindBy(css=".k-grid-content")
     private WebElement gridContent;
@@ -65,11 +77,20 @@ public class FaxRoutingConfigurationPage extends BasePage {
     @FindBy(id = "1001sTextToSearch")
     private WebElement searchTextBox;
 
-    @FindBy(css = "#1001sAddButton .k-i-add")
+    @FindBy(id="1001sAddButton")
     private WebElement searchAddCriteriaBtn;
 
     @FindBy(css = "#1001sCloseButton .k-i-close")
     private WebElement searchRemoveFilterBtn;
+    
+    @FindBy(xpath="//label[@for='1001sRadioAND']")
+    private WebElement andradiobtn;
+    
+    @FindBy(xpath="//label[@for='1001sRadioOR']")
+    private WebElement ORradiobtn;
+    
+    @FindBy(xpath="//tbody/tr/td[2]")
+    private WebElement rowdata;
 
     @FindBy(css = ".modal-footer .k-button")
     private WebElement searchCloseBtn;
@@ -79,6 +100,15 @@ public class FaxRoutingConfigurationPage extends BasePage {
 
     @FindBy(css = ".modal-footer .button-theme")
     private WebElement searchSearchBtn;
+    
+    @FindBy(css="ul[id='1002sColumnName_listbox'] li")
+    private List<WebElement> columnNameListtwo;
+    
+    @FindBy(css="ul[id='1002sCriteria_listbox'] li")
+    private List<WebElement> searchCriteriaDropDwntwo;
+    
+    @FindBy(id="1002sTextToSearch")
+    private WebElement searchTextBoxtwo;
     
     @FindBy(xpath="//i[@class='fas fa-cog']")
     private WebElement FRCImg;
@@ -157,6 +187,44 @@ public class FaxRoutingConfigurationPage extends BasePage {
     
     @FindBy(xpath="//tbody/tr/td/p[@class='k-reset']/../../following-sibling::tr/td[3]")
     private WebElement groupbyFaxLine;
+    
+    @FindBy(css="span[aria-owns='DNIS_listbox']")
+    private WebElement faxLineDropdown;
+
+    @FindBy(css="ul[id='DNIS_listbox'] li")
+    private List<WebElement> faxLineListBox;
+    
+    @FindBy(css="span[aria-owns='Type_listbox']")
+    private WebElement senderTypeDropdown;
+    
+    @FindBy(css="ul[id='Type_listbox'] li")
+    private List<WebElement> senderTypeListBox;
+    
+    @FindBy(id="Intent")
+    private WebElement Intent;
+    
+    @FindBy(css="span[aria-owns='RouteType_listbox']")
+    private WebElement RouteTypeDropdown;
+    
+    @FindBy(css="ul[id='RouteType_listbox'] li")
+    private List<WebElement> routeTypeListBox;
+    
+    @FindBy(id="RouteData")
+    private WebElement routeData;
+    
+    @FindBy(css=".k-grid-update")
+    private WebElement SaveButton;
+    
+    @FindBy(css=".k-grid-cancel")
+    private WebElement cancelBtn;
+    
+    @FindBy(xpath="//div[text()='No records to display']")
+    private WebElement norecords;
+    
+    @FindBy(xpath="//i[@class='fas fa-sync']")
+    private WebElement clearsearch;
+    
+    
 
     public boolean isFaxRoutingConfigurationPageDisplayed() throws InterruptedException {
         waitForLoad(driver);
@@ -333,8 +401,16 @@ public class FaxRoutingConfigurationPage extends BasePage {
 		return false;
 	}
 
-	private void searchFaxRoutingConfigurationRecord(String faxLine2) {
-		// TODO Auto-generated method stub
+	private void searchFaxRoutingConfigurationRecord(String faxLine) {
+		selectWebElement(searchBtn);
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Fax Line");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is equal to");
+        enterValueToTxtField(searchTextBox,faxLine);
+        selectWebElement(searchSearchBtn);
+        waitForJqueryLoad(driver);
+        waitUntilWebElementIsVisible(gridContent);
 		
 	}
 
@@ -529,4 +605,289 @@ public class FaxRoutingConfigurationPage extends BasePage {
 			return false;		
 	}
 
+	public String getSuccessMessage() {
+		waitForJqueryLoad(driver);
+        if(errorMsg.size()>0){return errorMsg.get(0).getText();}
+        waitUntilWebElementIsVisible(successmsg);
+        return successmsg.getText();
+	}
+
+	public boolean AddCancelRecord(FaxRoutingConfigurationDetails faxRoutingConfigDetails) {
+		String actualitems=items.getText();
+		selectWebElement(addFaxRoutingConfigBtn);
+        waitForJqueryLoad(driver);
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        selectWebElement(faxLineDropdown);
+        selectDropdownFromVisibleText(faxLineListBox,faxRoutingConfigDetails.getFaxLine());
+        selectWebElement(senderTypeDropdown);
+        selectDropdownFromVisibleText(senderTypeListBox,faxRoutingConfigDetails.getSenderType());
+        enterValueToTxtField(Intent,faxRoutingConfigDetails.getIntent());
+        selectWebElement(RouteTypeDropdown);
+        selectDropdownFromVisibleText(routeTypeListBox,faxRoutingConfigDetails.getRouteType());
+        enterValueToTxtField(routeData,faxRoutingConfigDetails.getRouteData());
+        selectWebElement(cancelBtn);
+        if(actualitems.equals(items.getText()))
+        	return true;
+        else
+		return false;
+	}
+
+	public void addNewFaxRoutingConfigRecord(FaxRoutingConfigurationDetails faxRoutingConfigDetails) {
+		selectWebElement(addFaxRoutingConfigBtn);
+        waitForJqueryLoad(driver);
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        selectWebElement(faxLineDropdown);
+        selectDropdownFromVisibleText(faxLineListBox,faxRoutingConfigDetails.getFaxLine());
+        selectWebElement(senderTypeDropdown);
+        selectDropdownFromVisibleText(senderTypeListBox,faxRoutingConfigDetails.getSenderType());
+        enterValueToTxtField(Intent,faxRoutingConfigDetails.getIntent());
+        selectWebElement(RouteTypeDropdown);
+        selectDropdownFromVisibleText(routeTypeListBox,faxRoutingConfigDetails.getRouteType());
+        enterValueToTxtField(routeData,faxRoutingConfigDetails.getRouteData());
+        selectWebElement(SaveButton);
+	}
+
+	public boolean getErrorMsg() {
+		waitUntilWebElementListIsVisible(errorMsg);
+		if(errorMsg.size()>0)
+		return false;
+		else
+			return true;
+	}
+
+	public void addNewInvalidRecordWithoutFaxLine(FaxRoutingConfigurationDetails faxRoutingConfigDetails) {
+		selectWebElement(addFaxRoutingConfigBtn);
+        waitForJqueryLoad(driver);
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        selectWebElement(senderTypeDropdown);
+        selectDropdownFromVisibleText(senderTypeListBox,faxRoutingConfigDetails.getSenderType());
+        enterValueToTxtField(Intent,faxRoutingConfigDetails.getIntent());
+        selectWebElement(RouteTypeDropdown);
+        selectDropdownFromVisibleText(routeTypeListBox,faxRoutingConfigDetails.getRouteType());
+        enterValueToTxtField(routeData,faxRoutingConfigDetails.getRouteData());
+        selectWebElement(SaveButton);
+		selectWebElement(cancelBtn);
+	}
+
+	public void addNewInvalidRecordWithoutSenderType(FaxRoutingConfigurationDetails faxRoutingConfigDetails) {
+		selectWebElement(addFaxRoutingConfigBtn);
+	    waitForJqueryLoad(driver);
+	    try {
+	        Thread.sleep(3000);
+	    } catch (InterruptedException e) {
+	        e.printStackTrace();
+	    }
+	    selectWebElement(faxLineDropdown);
+	    selectDropdownFromVisibleText(faxLineListBox,faxRoutingConfigDetails.getFaxLine());
+	    enterValueToTxtField(Intent,faxRoutingConfigDetails.getIntent());
+	    selectWebElement(RouteTypeDropdown);
+	    selectDropdownFromVisibleText(routeTypeListBox,faxRoutingConfigDetails.getRouteType());
+	    enterValueToTxtField(routeData,faxRoutingConfigDetails.getRouteData());
+	    selectWebElement(SaveButton);
+	    selectWebElement(cancelBtn);
+		
+	}
+
+	public void addNewInvalidRecordWithoutRouteType(FaxRoutingConfigurationDetails faxRoutingConfigDetails) {
+		selectWebElement(addFaxRoutingConfigBtn);
+	    waitForJqueryLoad(driver);
+	    try {
+	        Thread.sleep(3000);
+	    } catch (InterruptedException e) {
+	        e.printStackTrace();
+	    }
+	    selectWebElement(faxLineDropdown);
+	    selectDropdownFromVisibleText(faxLineListBox,faxRoutingConfigDetails.getFaxLine());
+	    selectWebElement(senderTypeDropdown);
+	    selectDropdownFromVisibleText(senderTypeListBox,faxRoutingConfigDetails.getSenderType());
+	    enterValueToTxtField(routeData,faxRoutingConfigDetails.getRouteData());
+	    selectWebElement(SaveButton);
+	    selectWebElement(cancelBtn);
+	}
+
+	public void addNewInvalidRecordWithoutRouteData(FaxRoutingConfigurationDetails faxRoutingConfigDetails) {
+		selectWebElement(addFaxRoutingConfigBtn);
+	    waitForJqueryLoad(driver);
+	    try {
+	        Thread.sleep(3000);
+	    } catch (InterruptedException e) {
+	        e.printStackTrace();
+	    }
+	    selectWebElement(faxLineDropdown);
+	    selectDropdownFromVisibleText(faxLineListBox,faxRoutingConfigDetails.getFaxLine());
+	    selectWebElement(senderTypeDropdown);
+	    selectDropdownFromVisibleText(senderTypeListBox,faxRoutingConfigDetails.getSenderType());
+	    enterValueToTxtField(Intent,faxRoutingConfigDetails.getIntent());
+	    selectWebElement(RouteTypeDropdown);
+	    selectDropdownFromVisibleText(routeTypeListBox,faxRoutingConfigDetails.getRouteType());
+	    selectWebElement(SaveButton);
+	    selectWebElement(cancelBtn);
+	}
+
+	public boolean editcancel(FaxRoutingConfigurationDetails faxRoutingConfigDetails) throws Exception {
+		searchBooleanFaxRoutingConfigRecord(faxRoutingConfigDetails.getFaxLine(),faxRoutingConfigDetails.getRouteData());
+        selectWebElement(editBtn);
+        Thread.sleep(1000);
+        selectWebElement(RouteTypeDropdown);
+	    selectDropdownFromVisibleText(routeTypeListBox,faxRoutingConfigDetails.getUpdatedRouteType());
+	    enterValueToTxtField(routeData,faxRoutingConfigDetails.getUpdatedRouteData());
+        selectWebElement(modifyReasonTextBox);
+        enterValueToTxtField(modifyReasonTextBox,faxRoutingConfigDetails.getModifyReason());
+        selectWebElement(cancelBtn);
+        if(rowdata.getText().equals(faxRoutingConfigDetails.getFaxLine()))
+        	return true;
+        else
+       return false;
+	}
+
+	private void searchBooleanFaxRoutingConfigRecord(String faxLine, String routeData) {
+		selectWebElement(searchBtn);
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Fax Line");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is equal to");
+        enterValueToTxtField(searchTextBox,faxLine);
+        selectWebElement(searchAddCriteriaBtn);
+        moveToElement(andradiobtn);
+        selectWebElement(andradiobtn);
+        try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+        selectWebElement(selectSearchCol.get(2));
+        selectDropdownFromVisibleTextContains(columnNameListtwo,"Route Data");
+        selectWebElement(selectSearchCol.get(3));
+        selectDropdownFromVisibleText(searchCriteriaDropDwntwo,"Is equal to");
+        enterValueToTxtField(searchTextBoxtwo,routeData);
+        selectWebElement(searchSearchBtn);
+        waitForJqueryLoad(driver);
+        waitUntilWebElementIsVisible(gridContent);	
+	}
+
+	public void editInvalidFaxRoutingConfig(FaxRoutingConfigurationDetails faxRoutingConfigDetails) throws Exception {
+		searchBooleanFaxRoutingConfigRecord(faxRoutingConfigDetails.getFaxLine(),faxRoutingConfigDetails.getRouteData());
+        selectWebElement(editBtn);
+        Thread.sleep(1000);
+        selectWebElement(RouteTypeDropdown);
+	    selectDropdownFromVisibleText(routeTypeListBox,faxRoutingConfigDetails.getUpdatedRouteType());
+	    routeData.clear();
+        selectWebElement(SaveButton);
+        selectWebElement(cancelBtn);
+		
+	}
+
+	public void editFaxRoutingConfig(FaxRoutingConfigurationDetails faxRoutingConfigDetails) throws Exception {
+		searchBooleanFaxRoutingConfigRecord(faxRoutingConfigDetails.getFaxLine(),faxRoutingConfigDetails.getRouteData());
+        selectWebElement(editBtn);
+        Thread.sleep(1000);
+        selectWebElement(RouteTypeDropdown);
+	    selectDropdownFromVisibleText(routeTypeListBox,faxRoutingConfigDetails.getUpdatedRouteType());
+	    enterValueToTxtField(routeData,faxRoutingConfigDetails.getUpdatedRouteData());
+        selectWebElement(modifyReasonTextBox);
+        enterValueToTxtField(modifyReasonTextBox,faxRoutingConfigDetails.getModifyReason());
+        selectWebElement(SaveButton);
+		
+	}
+
+	public boolean clearAll(FaxRoutingConfigurationDetails faxRoutingConfigDetails) {
+		selectWebElement(searchBtn);
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Fax Line");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is equal to");
+        enterValueToTxtField(searchTextBox,faxRoutingConfigDetails.getFaxLine());
+	        selectWebElement(searchClearAllBtn);
+			if(searchTextBox.isEnabled())
+	        	return true;
+	        else
+			return false;
+	}
+
+	public boolean verifyclose() {
+		selectWebElement(searchCloseBtn);
+		if(gridContent.isDisplayed())
+			return true;
+		else
+		return false;
+	}
+
+	public void searchwithoutextsearch(FaxRoutingConfigurationDetails faxRoutingConfigDetails) {
+		selectWebElement(searchBtn);
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Fax Line");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is equal to");
+        selectWebElement(searchSearchBtn);	
+        selectWebElement(searchCloseBtn);
+		
+	}
+
+	public boolean deletecancelRecord(FaxRoutingConfigurationDetails faxRoutingConfigDetails) {
+		searchFaxRoutingConfigurationRecord(faxRoutingConfigDetails.getFaxLine());
+        selectWebElement(deleteBtn);
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        enterValueToTxtField(deleteReasonTextBox,faxRoutingConfigDetails.getDeleteReason());
+        selectWebElement(deleteNoBtn);
+        if(rowdata.getText().equals(faxRoutingConfigDetails.getFaxLine()))
+        	return true;
+        else
+		return false;
+	}
+
+	public void deleteRoutingConfigwithoutReason(FaxRoutingConfigurationDetails faxRoutingConfigDetails) {
+		searchFaxRoutingConfigurationRecord(faxRoutingConfigDetails.getFaxLine());
+        selectWebElement(deleteBtn);
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        selectWebElement(deleteYesBtn);
+        selectWebElement(deleteNoBtn);	
+	}
+
+	public void deleteFaxRoutingConfigRecord(FaxRoutingConfigurationDetails faxRoutingConfigDetails) {
+		searchBooleanFaxRoutingConfigRecord(faxRoutingConfigDetails.getFaxLine(),faxRoutingConfigDetails.getRouteData());
+        selectWebElement(deleteBtn);
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        enterValueToTxtField(deleteReasonTextBox,faxRoutingConfigDetails.getDeleteReason());
+        selectWebElement(deleteYesBtn);
+	}
+
+	public boolean verifyinvalidsearchwithwrongdata(FaxRoutingConfigurationDetails faxRoutingConfigDetails) {
+		searchBooleanFaxRoutingConfigRecord(faxRoutingConfigDetails.getFaxLine(),faxRoutingConfigDetails.getRouteData());
+		if(norecords.isDisplayed())
+			return true; 
+			else
+				return false;
+	}
+
+	public boolean verifyclearsearch() {
+		selectWebElement(clearsearch);
+		if(gridContent.isDisplayed())
+			return true;
+		else
+		return false;
+	}
 }

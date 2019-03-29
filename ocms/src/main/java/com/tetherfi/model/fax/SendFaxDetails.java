@@ -16,6 +16,7 @@ public class SendFaxDetails {
     private String fileupload;
     private String modifyReason;
     private String deleteReason;
+    private String query;
 
     public SendFaxDetails(Map<String,String> map) {
         faxLine=readFaxline(map);
@@ -26,9 +27,15 @@ public class SendFaxDetails {
         fileupload=readFileUpload(map);
         deleteReason=readDeleteReason(map);
         modifyReason=readModifyReason(map);
+        query=readQuery(map);
     }
 
-    private String readSendNow(Map<String, String> map) {
+    private String readQuery(Map<String, String> map) {
+        String value=map.get("Query");
+		return value;
+	}
+
+	private String readSendNow(Map<String, String> map) {
         String value=map.get("Send Immediately");
         if(value==null||value.equalsIgnoreCase("random.str")){
             value= RandomStringUtils.randomAlphabetic(7);
@@ -130,4 +137,8 @@ public String readFileUpload(Map<String,String> map){
     public String getSendnow() {
         return sendnow;
     }
+
+	public String getQuery() {
+			return query;
+	}
 }
