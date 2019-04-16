@@ -8,6 +8,9 @@ import java.util.Map;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+
+import com.tetherfi.model.fax.FaxLineConfigDetails;
+
 import org.openqa.selenium.By;
 
 public class TmacLoginPage extends BasePage {
@@ -97,6 +100,15 @@ public class TmacLoginPage extends BasePage {
 
 	@FindBy(css=".js-modal-confirm")
 	private WebElement confirmLogoutbtn;
+	
+	@FindBy(id="compose_fax_li")
+	private WebElement fax;
+	
+	@FindBy(css="span[aria-owns='DNISList_listbox']")
+	private WebElement FaxLineDropDown;
+	
+	@FindBy(css="ul[id='DNISList_listbox'] li")
+	private List<WebElement> faxLineListBox;
 	 
 	public void loginIntoTmac(String landid, String stn){
         //selectWebElement(domainListDropdown);
@@ -148,6 +160,15 @@ public class TmacLoginPage extends BasePage {
 		 	waitForJqueryLoad(driver);
 	    	enterValueToTxtField(lanId,LanId);
 	    	enterValueToTxtField(station,Station);
+	    	clickOn(tmacLogin);
+	    	
+	    }
+	 
+	 public void logintotmac_WQ(String LanId,String Station)
+	    {
+		 	waitForJqueryLoad(driver);
+	    	enterValueToTxtField(lanId,LanId);
+	    	enterValueToTxtField(password,Station);
 	    	clickOn(tmacLogin);
 	    	
 	    }
@@ -255,6 +276,31 @@ public class TmacLoginPage extends BasePage {
 	    		return true;
 	    	else
 	    	return false;
+		}
+		
+		public Boolean VerifyDropdownForCreate(FaxLineConfigDetails faxLineConfigDetails) {
+			Boolean Status=false;
+			selectWebElement(fax);
+			selectWebElement(FaxLineDropDown);
+			for(int i=0;i<faxLineListBox.size();i++) {
+				String value=faxLineListBox.get(i).getText();
+				if(value.equals(faxLineConfigDetails.getFaxLine())) {
+					Status= true;
+				break;}
+			}
+			return Status;
+		}
+		public boolean VerifyDropdownForEdit(FaxLineConfigDetails faxLineConfigDetails) {
+			Boolean Status=true;
+			selectWebElement(fax);
+			selectWebElement(FaxLineDropDown);
+			for(int i=0;i<faxLineListBox.size();i++) {
+				String value=faxLineListBox.get(i).getText();
+				if(value.equals(faxLineConfigDetails.getFaxLine())) {
+					Status= false;
+				break;}
+			}
+			return Status;
 		}
 
 }

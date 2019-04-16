@@ -1014,6 +1014,11 @@ public class FaxLineConfigPage extends BasePage{
 		}
 		return Status;
 		}
+
+	public void addFaxLineConfig(FaxLineConfigDetails faxLineConfigDetails) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }
 

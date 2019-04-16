@@ -54,6 +54,8 @@ public class DatabaseConnector {
         }
         return maplist;
     }
+    
+   
 
     public void closeDbConnection() {
         try {

@@ -1,18 +1,23 @@
 package com.tetherfi.pages;
 
+import com.tetherfi.model.fax.FaxAutoACKConfigurationDetails;
 import com.tetherfi.model.fax.FaxLineConfigDetails;
 import com.tetherfi.model.fax.FaxRoutingConfigurationDetails;
 import com.tetherfi.model.fax.FaxSendersDetails;
+import com.tetherfi.model.fax.FaxTemplateDetails;
 import com.tetherfi.model.fax.SendFaxDetails;
 import com.tetherfi.model.ivr.AdhocOptionEnhancementDetails;
+import com.tetherfi.model.ivr.AgentTransferDetails;
 import com.tetherfi.model.report.ReportDetails;
 import com.tetherfi.model.tmac.AgentTeamMgmtDetails;
 import com.tetherfi.model.tmac.TmacBroadCastMsgDetails;
 import com.tetherfi.model.tmac.WaitTimeColorConfigDetails;
 import com.tetherfi.model.tmac.WorkCodeListDetails;
+import com.tetherfi.model.user.SkillConfigurationDetails;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.poi.util.SystemOutLogger;
+import org.apache.xalan.xsltc.compiler.sym;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
@@ -1095,7 +1100,7 @@ return status;
     		        		}
     		        		if(newvalues.get("TeamName").equals(details.getTeamName())){
     		        			if(newvalues.get("Message").equals(details.getUpdatedMessage())){
-    		        				if(newvalues.get("Status").equals(details.getStatus())) {
+    		        				if(newvalues.get("Status").equals(details.getUpdatedStatus())) {
     		        					if(newvalues.get("Modify Reason").equals(details.getModifyReason())) {
     		        						if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getModifyReason()))
     		        		        			Status=true;
@@ -1949,7 +1954,7 @@ return status;
 	}
 
 	public boolean verifyFaxRoutingConfigCreate(FaxRoutingConfigurationDetails details, String Transaction) throws Exception {
-		booleansearchnew(details.getIntent(),Transaction);
+		booleansearchnew("RouteType:Folder",Transaction);
 		Boolean Status=false;
         Map<String,String> firstRowData=getFirstRowDatafromTable1();
 		Map<String,String> newvalues=new HashMap<>();
@@ -2083,8 +2088,603 @@ return status;
 			return Status;
 	}
 
-	public boolean verifySendFaxCreate(SendFaxDetails sendFaxDetails, String string) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean verifySendFaxCreate(SendFaxDetails details, String Transaction) throws Exception {
+		booleansearchnew(details.getFaxLine(),Transaction);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+		Map<String,String> newvalues=new HashMap<>();
+		String[]d=firstRowData.get("New Values").split("\n");
+		for(String e:d) {
+			String f[]=e.split(":",2);
+			if(f.length>1)
+			newvalues.put(f[0], f[1]);
+		}
+			if(newvalues.get("Number").equals(details.getRecipientNumber()))
+			{
+				if(newvalues.get("FaxLine").equals(details.getFaxLine())) {
+					if(newvalues.get("GlobalTemplate").equals(details.getTemplate())) {
+						if(newvalues.get("EnableTemp").equals(details.getEnableTemp())) {
+							if(newvalues.get("Scheduled").equals(details.getScheduled())) 
+								Status= true;
+							else {System.out.println("Scheduled data mismatch");}
+						}
+						else {System.out.println("EnableTemp data mismatch");}
+					}
+					else {System.out.println("GlobalTemplate data mismatch");}
+				}
+				else {System.out.println("FaxLine data mismatch");}
+			}
+			else {System.out.println("Number data mismatch");	}
+			return Status;
 	}
+	
+	public boolean verifyFaxTemplateCreate(FaxTemplateDetails details, String Transaction) throws Exception {
+		booleansearchnew(details.getTemplateName(),Transaction);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+		Map<String,String> newvalues=new HashMap<>();
+		String[]d=firstRowData.get("New Values").split("\n");
+		for(String e:d) {
+			System.out.println(e);
+			String f[]=e.split(":",2);
+			if(f.length>1)
+			newvalues.put(f[0], f[1]);
+		}
+			if(newvalues.get("TemplateName").equals(details.getTemplateName()))
+			{
+				if(newvalues.get("TemplateHtml").equals(details.getBody()))
+				{
+					if(newvalues.get("Custom").equals(details.getCustom()))
+					{
+						if(newvalues.get("HtmlDoc").equals(details.getHtml()))
+						{
+							if(newvalues.get("Logo").equals(details.getLogo()))
+							{
+								if(newvalues.get("UploadDoc").equals(details.getUploadDoc()))
+								{
+									if(newvalues.get("fileName").equals(details.getFilename()))
+										Status= true;
+									else {System.out.println("fileName data mismatch");}
+								}
+								else {System.out.println("UploadDoc data mismatch");}
+							}
+							else {System.out.println("Logo data mismatch");}
+						}
+						else {System.out.println("HtmlDoc data mismatch");}
+					}
+					else {System.out.println("Custom data mismatch");}
+				}
+				else {System.out.println("TemplateHtml data mismatch");	}
+			}
+			else {System.out.println("TemplateName data mismatch");	}
+			return Status;
+	}
+
+	public boolean verifyFaxTemplateUpdate(FaxTemplateDetails details, String Transaction) throws Exception {
+		booleansearchnew(details.getUpdatedFilename(),Transaction);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+        if(firstRowData.containsKey("Old Values")) {
+        	Map<String,String> oldvalues=new HashMap<>();
+    		String[]d=firstRowData.get("Old Values").split("\n");
+    		for(String e:d) {
+    			System.out.println(e);
+    			String f[]=e.split(":",2);
+    			if(f.length>1)
+    				oldvalues.put(f[0], f[1]);
+    		}
+    		if(oldvalues.get("TemplateName").equals(details.getTemplateName())){
+    			if(oldvalues.get("TemplateHtml").equals(details.getBody())){
+    				if(oldvalues.get("Custom").equals(details.getCustom())) {
+    					if(oldvalues.get("HtmlDoc").equals(details.getHtml())){
+        					if(oldvalues.get("Logo").equals(details.getLogo())){
+            					if(oldvalues.get("fileName").equals(details.getFilename())){
+                					if(oldvalues.get("UploadDoc").equals(details.getUploadDoc())){
+                						if(firstRowData.containsKey("New Values")) {
+                							Map<String,String> newvalues=new HashMap<>();
+                							String[]d1=firstRowData.get("New Values").split("\n");
+                							for(String e:d1) {
+                								String f[]=e.split(":",2);
+                								if(f.length>1)
+                									newvalues.put(f[0], f[1]);
+                							}
+                							if(newvalues.get("TemplateName").equals(details.getTemplateName())){
+                								if(newvalues.get("TemplateHtml").equals(details.getUpdatedBody())){
+                									if(newvalues.get("Custom").equals(details.getUpdatedCustom())) {
+                										if(newvalues.get("HtmlDoc").equals(details.getUpdatedHtml())){
+                											if(newvalues.get("Logo").equals(details.getUpdatedLogo())){
+                												if(newvalues.get("fileName").equals(details.getUpdatedFilename())){
+                    												if(newvalues.get("UploadDoc").equals(details.getUpdatedUploadDoc())) {
+                														if(newvalues.get("Modify Reason").equals(details.getModifyReason())) {
+                															if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getModifyReason()))
+                																Status=true;
+                															else System.out.println("Change reason data mismatch");
+                														}
+                            											else System.out.println("Modify reason data mismatch");
+                    												}
+                        											else System.out.println("Upload Doc reason data mismatch");
+                    											}
+                    											else System.out.println("fileName data mismatch");
+                    										}
+                    										else System.out.println("Logo data mismatch");
+                										}
+                										else {System.out.println("HtmlDoc data mismatch");}
+            										}
+            										else System.out.println("Custom data mismatch");
+            									}
+        										else System.out.println("TemplateHtml data mismatch");
+            								}
+            								else {System.out.println("TemplateName data mismatch");}
+            							}
+            							else {System.out.println("New value data mismatch");	}	
+            						}
+            						else {System.out.println("Uplaod Doc data mismatch");}
+            					}
+            					else {System.out.println("fileName data mismatch");}
+        					}
+        					else {System.out.println("Logo data mismatch");}
+    					}
+    					else {System.out.println("HtmlDoc data mismatch");	}	
+    				}
+    				else System.out.println("Custom data mismatch");
+    			}
+    			else System.out.println("TemplateHtml data mismatch");
+    		}
+    		else System.out.println("TemplateName Data Mismatch");
+        }
+        else {System.out.println("Old values data mismatch");}
+    return Status;
+	}
+
+	public boolean verifyFaxTemplateDelete(FaxTemplateDetails details, String Transaction) throws Exception {
+		booleansearchold(details.getDeleteReason(),Transaction);	
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+		Map<String,String> oldvalues=new HashMap<>();
+		String[]d=firstRowData.get("Old Values").split("\n");
+		for(String e:d) {
+			String f[]=e.split(":",2);
+			if(f.length>1)
+			oldvalues.put(f[0], f[1]);
+		}
+			if(oldvalues.get("TemplateName").equals(details.getTemplateName()))
+			{
+				if(oldvalues.get("TemplateHtml").equals(details.getBody()))
+				{
+					if(oldvalues.get("Custom").equals(details.getCustom()))
+					{
+						if(oldvalues.get("HtmlDoc").equals(details.getHtml())) {
+							if(oldvalues.get("Logo").equals(details.getLogo())) {
+								if(oldvalues.get("fileName").equals(details.getFilename())) {
+									if(oldvalues.get("UploadDoc").equals(details.getLogo())) {
+										if(oldvalues.get("ModifyReason").equals(details.getDeleteReason())) {
+											if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getDeleteReason()))
+												Status=true;
+											else System.out.println("Change reason data mismatch");
+										}
+										else {System.out.println("Modify Reason  data mismatch");}
+									}
+									else {System.out.println("UploadDoc data mismatch");}
+								}
+								else {System.out.println("fileName  data mismatch");}
+							}
+							else {System.out.println("Logo data mismatch");}
+						}
+						else {System.out.println("Htmldoc data mismatch");}
+					}
+					else {System.out.println("Custom data mismatch");}
+				}
+				else {System.out.println("TemplateHtml data mismatch");}
+			}
+			else {System.out.println("TemplateName data mismatch");}
+			return Status;
+	}
+
+	public boolean verifyFaxAutoACKConfigCreate(FaxAutoACKConfigurationDetails details,String Transaction) throws Exception {
+		booleansearchnew(details.getName(),Transaction);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+		Map<String,String> newvalues=new HashMap<>();
+		String[]d=firstRowData.get("New Values").split("\n");
+		for(String e:d) {
+			String f[]=e.split(":",2);
+			if(f.length>1)
+			newvalues.put(f[0], f[1]);
+		}
+			if(newvalues.get("DNIS").equals(details.getFaxLine()))
+			{
+				if(newvalues.get("Name").equals(details.getName()))
+				{
+					if(newvalues.get("TemplateContent").equals(details.getTemplate()))
+					{
+						if(newvalues.get("Type").equals(details.getSenderType()))
+						{
+							if(newvalues.get("Enabled").equals(details.getStatus()))
+							{
+								Status= true;
+							}
+							else {System.out.println("Enabled data mismatch");}
+						}
+						else {System.out.println("Type data mismatch");}
+					}
+					else {System.out.println("FaxNumber data mismatch");}
+				}
+				else {System.out.println("Name data mismatch");}
+			}
+			else {System.out.println("DNIS data mismatch");	}
+			return Status;
+	}
+
+	public boolean verifyFaxAutoACKConfigUpdate(FaxAutoACKConfigurationDetails details,String Transaction) throws Exception {
+		booleansearchnew(details.getName(),Transaction);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+        if(firstRowData.containsKey("Old Values")) {
+        	Map<String,String> oldvalues=new HashMap<>();
+    		String[]d=firstRowData.get("Old Values").split("\n");
+    		for(String e:d) {
+    			System.out.println(e);
+    			String f[]=e.split(":",2);
+    			if(f.length>1)
+    				oldvalues.put(f[0], f[1]);
+    		}
+    		if(oldvalues.get("DNIS").equals(details.getFaxLine())){
+    			if(oldvalues.get("Name").equals(details.getName())) {
+    				if(oldvalues.get("Enabled").equals(details.getStatus())){
+        				if(oldvalues.get("Type").equals(details.getSenderType())){
+            				if(oldvalues.get("TemplateContent").equals(details.getTemplate())){
+            					if(firstRowData.containsKey("New Values")) {
+            						Map<String,String> newvalues=new HashMap<>();
+            						String[]d1=firstRowData.get("New Values").split("\n");
+            						for(String e:d1) {
+            							String f[]=e.split(":",2);
+            							if(f.length>1)
+            								newvalues.put(f[0], f[1]);
+            						}
+            						if(newvalues.get("DNIS").equals(details.getFaxLine())){
+            							if(newvalues.get("Name").equals(details.getName())){
+            								if(newvalues.get("Enabled").equals(details.getUpdatedStatus())){
+                								if(newvalues.get("Type").equals(details.getSenderType())){
+                    									if(newvalues.get("TemplateContent").equals(details.getTemplate())){
+                    										if(newvalues.get("ModifyReason").equals(details.getModifyReason())) {
+                    											if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getModifyReason()))
+                    												Status=true;
+                    											else System.out.println("Change reason data mismatch");
+                    										}
+                    										else System.out.println("Modify reason data mismatch");
+                										}
+                										else {System.out.println("Template data mismatch");}
+            										}
+            										else System.out.println("Type data mismatch");
+            									}
+        										else System.out.println("Enabled data mismatch");
+            								}
+            								else {System.out.println("Name data mismatch");}
+            							}
+            							else {System.out.println("DNIS data mismatch");	}	
+            						}
+            						else {System.out.println("New values data mismatch");}
+                 				}
+        						else {System.out.println("Template data mismatch");}
+    						}
+    						else {System.out.println("Type data mismatch");	}	
+    					}
+    					else System.out.println("Enabled data mismatch");
+    				}
+    				else System.out.println("Name data mismatch");
+    			}
+    			else System.out.println("DNIS Data Mismatch");
+        	}
+        	else {System.out.println("Old values data mismatch");}
+        return Status;
+	}
+
+	public boolean verifyFaxAutoACKConfigDelete(FaxAutoACKConfigurationDetails details,String Transaction) throws Exception {
+		booleansearchold(details.getName(),Transaction);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+		Map<String,String> oldvalues=new HashMap<>();
+		String[]d=firstRowData.get("Old Values").split("\n");
+		for(String e:d) {
+			String f[]=e.split(":",2);
+			if(f.length>1)
+			oldvalues.put(f[0], f[1]);
+		}
+			if(oldvalues.get("DNIS").equals(details.getFaxLine()))
+			{
+				if(oldvalues.get("TemplateContent").equals(details.getTemplate()))
+				{
+					if(oldvalues.get("Enabled").equals(details.getStatus()))
+					{
+						if(oldvalues.get("Type").equals(details.getSenderType()))
+						{
+							if(oldvalues.get("Name").equals(details.getName())) {
+								if(firstRowData.get("ModifyReason").equalsIgnoreCase(details.getDeleteReason())) {
+									if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getDeleteReason()))
+		    		        			Status=true;
+									else System.out.println("Change reason data mismatch");
+								}
+								else System.out.println("Modify reason data mismatch");
+							}
+							else System.out.println("Name data mismatch");
+						}
+						else {System.out.println("Type  data mismatch");}
+					}
+					else {System.out.println("Enabled data mismatch");}
+				}
+				else {System.out.println("Template data mismatch");}
+			}
+			else {System.out.println("DNIS data mismatch");}
+			return Status;
+	}
+
+	public boolean verifyAgentTransferCreate(AgentTransferDetails details, String Transaction) throws Exception {
+		booleansearchnew(details.getVdnDescription(),Transaction);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+		Map<String,String> newvalues=new HashMap<>();
+		String[]d=firstRowData.get("New Values").split("\n");
+		for(String e:d) {
+			System.out.println(e);
+			String f[]=e.split(":",2);
+			if(f.length>1)
+			newvalues.put(f[0], f[1]);
+		}
+			if(newvalues.get("IMD_MENU_ID").equals(details.getMenuId()))
+			{
+				if(newvalues.get("VDN_NUM").equals(details.getVdn()))
+				{
+					if(newvalues.get("VIP_VDN_NUM").equals(details.getVipVdn()))
+					{
+						if(newvalues.get("OPTION").equals(details.getOption()))
+						{
+							if(newvalues.get("DNIS").equals(details.getDNIS()))
+							{
+								if(newvalues.get("VDN_DESC").equals(details.getVdnDescription()))
+								{
+									Status= true;
+								}
+								else {System.out.println("VDN_DESC data mismatch");}
+							}
+							else {System.out.println("DNIS data mismatch");}
+						}
+						else {System.out.println("OPTION data mismatch");}
+					}
+					else {System.out.println("VIP_VDN_NUM data mismatch");}
+				}
+				else {System.out.println("VDN_NUM data mismatch");	}
+			}
+			else {System.out.println("IMD_MENU_ID data mismatch");	}
+			return Status;
+	}
+
+	public boolean verifyAgentTransferUpdate(AgentTransferDetails details, String Transaction) throws Exception {
+		booleansearchnew(details.getUpdateVdnDescription(),Transaction);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+        if(firstRowData.containsKey("Old Values")) {
+        	Map<String,String> oldvalues=new HashMap<>();
+    		String[]d=firstRowData.get("Old Values").split("\n");
+    		for(String e:d) {
+    			System.out.println(e);
+    			String f[]=e.split(":",2);
+    			if(f.length>1)
+    				oldvalues.put(f[0], f[1]);
+    		}
+    		if(oldvalues.get("IMD_MENU_ID").equals(details.getMenuId())){
+    			if(oldvalues.get("VDN_NUM").equals(details.getVdn())){
+    				if(oldvalues.get("VIP_VDN_NUM").equals(details.getVipVdn())) {
+    					if(oldvalues.get("OPTION").equals(details.getOption())){
+        					if(oldvalues.get("DNIS").equals(details.getDNIS())){
+            					if(oldvalues.get("VDN_DESC").equals(details.getVdnDescription())){
+            						if(firstRowData.containsKey("New Values")) {
+            							Map<String,String> newvalues=new HashMap<>();
+            							String[]d1=firstRowData.get("New Values").split("\n");
+            							for(String e:d1) {
+            								String f[]=e.split(":",2);
+            								if(f.length>1)
+            									newvalues.put(f[0], f[1]);
+            							}
+            							if(newvalues.get("IMD_MENU_ID").equals(details.getMenuId())){
+            				    			if(newvalues.get("VDN_NUM").equals(details.getVdn())){
+            				    				if(newvalues.get("VIP_VDN_NUM").equals(details.getVipVdn())) {
+            				    					if(newvalues.get("OPTION").equals(details.getOption())){
+            				        					if(newvalues.get("DNIS").equals(details.getDNIS())){
+            				            					if(newvalues.get("VDN_DESC").equals(details.getUpdateVdnDescription())) {
+                				            					if(newvalues.get("ModifyReason").equals(details.getModifyReason())) {
+                            										if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getModifyReason()))
+                            											Status=true;
+                            										else System.out.println("Change reason data mismatch");
+                				            					}
+                    											else System.out.println("Modify reason data mismatch");	
+            				            					}
+            				            					else System.out.println("VDN_DESC data mismatch");
+            				        					}
+            				        					else System.out.println("DNIS data mismatch");
+            				    					}
+        				        					else System.out.println("OPTION data mismatch");
+            				    				}
+        										else System.out.println("VIP_VDN_NUM data mismatch");
+    										}
+    										else System.out.println("VDN_NUM data mismatch");
+            							}
+            		        			else {System.out.println("IMD_MENU_ID data mismatch");}
+    		        				}
+                					else {System.out.println("New values data mismatch");}
+    		        			}
+            					else System.out.println("VDN_DESC data mismatch");
+    		        		}
+        					else System.out.println("DNIS data mismatch");
+    					}
+    					else System.out.println("OPTION data mismatch");
+    				}
+    				else System.out.println("VIP_VDN_NUM data mismatch");
+    			}
+    			else System.out.println("VDN_NUM data mismatch");
+    		}
+    		else {System.out.println("IMD_MENU_ID data mismatch");}
+    	}
+        else {System.out.println("Old values data mismatch");}
+ return Status;
+	}
+
+	public boolean verifySkillConfigurationCreate(SkillConfigurationDetails details, String Transaction) throws Exception {
+		booleansearchnew(details.getSkillName(),Transaction);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+		Map<String,String> newvalues=new HashMap<>();
+		String[]d=firstRowData.get("New Values").split("\n");
+		for(String e:d) {
+			System.out.println(e);
+			String f[]=e.split(":",2);
+			if(f.length>1)
+			newvalues.put(f[0], f[1]);
+		}
+			if(newvalues.get("SkillID").equals(details.getSkillID()))
+			{
+				if(newvalues.get("SkillName").equals(details.getSkillName()))
+				{
+					if(newvalues.get("SkillExtension").equals(details.getSkillExtension()))
+					{
+						if(newvalues.get("Priority").equals(details.getSkillPriority()))
+						{
+							if(newvalues.get("SkillTimeOutTime").equals(details.getTimeout()))
+							{
+								if(newvalues.get("SLATime").equals(details.getAcceptedSL()))
+								{
+									if(newvalues.get("IsEnabled").equals(details.getEnabled()))
+										Status= true;
+									else {System.out.println("Enabled data mismatch");}
+								}
+								else {System.out.println("SLA Time data mismatch");}
+							}
+							else {System.out.println("SkillTimeOutTime data mismatch");}
+						}
+						else {System.out.println("Priority data mismatch");}
+					}
+					else {System.out.println("Skil Extension data mismatch");}
+				}
+				else {System.out.println("SkillName data mismatch");	}
+			}
+			else {System.out.println("SkillID data mismatch");	}
+			return Status;
+	}
+
+	public boolean verifySkillConfigurationUpdate(SkillConfigurationDetails details, String Transaction) throws Exception {
+		booleansearchnew(details.getUpdatedSkillName(),Transaction);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+        if(firstRowData.containsKey("Old Values")) {
+        	Map<String,String> oldvalues=new HashMap<>();
+    		String[]d=firstRowData.get("Old Values").split("\n");
+    		for(String e:d) {
+    			System.out.println(e);
+    			String f[]=e.split(":",2);
+    			if(f.length>1)
+    				oldvalues.put(f[0], f[1]);
+    		}
+    		if(oldvalues.get("SkillID").equals(details.getSkillID())){
+    			if(oldvalues.get("SkillName").equals(details.getSkillName())){
+    				if(oldvalues.get("SkillExtension").equals(details.getSkillExtension())) {
+    					if(oldvalues.get("Priority").equals(details.getSkillPriority())){
+        					if(oldvalues.get("SkillTimeOutTime").equals(details.getTimeout())){
+            					if(oldvalues.get("SLATime").equals(details.getAcceptedSL())){
+                					if(oldvalues.get("IsEnabled").equals(details.getEnabled())){
+                						if(firstRowData.containsKey("New Values")) {
+                							Map<String,String> newvalues=new HashMap<>();
+                							String[]d1=firstRowData.get("New Values").split("\n");
+                							for(String e:d1) {
+                								String f[]=e.split(":",2);
+                								if(f.length>1)
+                									newvalues.put(f[0], f[1]);
+                							}
+                							if(newvalues.get("SkillID").equals(details.getSkillID())){
+                				    			if(newvalues.get("SkillName").equals(details.getUpdatedSkillName())){
+                				    				if(newvalues.get("SkillExtension").equals(details.getSkillExtension())) {
+                				    					if(newvalues.get("Priority").equals(details.getSkillPriority())){
+                				        					if(newvalues.get("SkillTimeOutTime").equals(details.getTimeout())){
+                				            					if(newvalues.get("SLATime").equals(details.getAcceptedSL())){
+                				                					if(newvalues.get("IsEnabled").equals(details.getUpdatedEnabled())){
+                				                						if(newvalues.get("ModifyReason").equals(details.getModifyReason())) {
+                				                							if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getModifyReason()))
+                				                								Status=true;
+                				                							else System.out.println("Change reason data mismatch");
+                				                						}
+                				                						else System.out.println("Modify reason data mismatch");	
+                				                					}
+            				                						else System.out.println("Is Enabled data mismatch");	
+                				            					}
+                				            					else System.out.println("SLA Time data mismatch");
+            				            					}
+            				            					else System.out.println("SkillTimeOutTime data mismatch");
+            				        					}
+            				        					else System.out.println("Priority data mismatch");
+            				    					}
+        				        					else System.out.println("Skill Extension data mismatch");
+            				    				}
+        										else System.out.println("Skill Name data mismatch");
+    										}
+    										else System.out.println("Skill Id data mismatch");
+            							}
+            		        			else {System.out.println("New values data mismatch");}
+    		        				}
+                					else {System.out.println("IS Enabled data mismatch");}
+    		        			}
+            					else System.out.println("SLA Time data mismatch");
+    		        		}
+        					else System.out.println("SkillTimeOut data mismatch");
+    					}
+    					else System.out.println("Priority data mismatch");
+    				}
+    				else System.out.println("Skill Extension data mismatch");
+    			}
+    			else System.out.println("Skill Name data mismatch");
+    		}
+    		else {System.out.println("Skill Id data mismatch");}
+    	}
+        else {System.out.println("Old values data mismatch");}
+ return Status;
+	}
+
+	public boolean verifySkillConfigurationdelete(SkillConfigurationDetails details, String Transaction) throws Exception {
+		booleansearchold(details.getSkillName(),Transaction);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+		Map<String,String> oldvalues=new HashMap<>();
+		String[]d=firstRowData.get("Old Values").split("\n");
+		for(String e:d) {
+			String f[]=e.split(":",2);
+			if(f.length>1)
+			oldvalues.put(f[0], f[1]);
+		}
+		if(oldvalues.get("SkillID").equals(details.getSkillID())){
+			if(oldvalues.get("SkillName").equals(details.getSkillName())){
+				if(oldvalues.get("SkillExtension").equals(details.getSkillExtension())) {
+					if(oldvalues.get("Priority").equals(details.getSkillPriority())){
+    					if(oldvalues.get("SkillTimeOutTime").equals(details.getTimeout())){
+        					if(oldvalues.get("SLATime").equals(details.getAcceptedSL())){
+            					if(oldvalues.get("IsEnabled").equals(details.getEnabled())){
+            						if(oldvalues.get("ModifyReason").equals(details.getDeleteReason())) {
+            							if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getDeleteReason()))
+            								Status=true;
+            							else System.out.println("Change reason data mismatch");
+            						}
+            						else System.out.println("Modify reason data mismatch");
+            					}
+        						else System.out.println("Is Enabled data mismatch");	
+        					}
+        					else {System.out.println("SLATime data mismatch");}
+    					}
+    					else {System.out.println("SkillTimeOutTime data mismatch");}
+					}
+					else {System.out.println("Priority data mismatch");}
+				}
+				else {System.out.println("SkillExtension data mismatch");}
+			}
+			else {System.out.println("SkillName data mismatch");}
+		}
+		else {System.out.println("SkillID data mismatch");}
+		return Status;
+	}
+
 }

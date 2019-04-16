@@ -12,6 +12,7 @@ import java.util.Map;
 import com.tetherfi.model.chat.CallBackManagementDetails;
 import com.tetherfi.model.fax.FaxAutoACKConfigurationDetails;
 import com.tetherfi.model.fax.FaxLineConfigDetails;
+import com.tetherfi.model.fax.SendFaxDetails;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -173,6 +174,53 @@ public class FaxAutoACKConfigurationPage extends BasePage {
     @FindBy(xpath="//i[@class='fas fa-sync']")
     private WebElement clearsearch;
     
+    @FindBy(css="span[aria-owns='DNIS_listbox']")
+    private WebElement faxLineDropdown;
+
+    @FindBy(css="ul[id='DNIS_listbox'] li")
+    private List<WebElement> faxLineListBox;
+    
+    @FindBy(css="span[aria-owns='Type_listbox']")
+    private WebElement sendersTypeDropdown;
+    
+    @FindBy(css="ul[id='Type_listbox'] li")
+    private List<WebElement> sendersTypeListBox;
+    
+    @FindBy(css="span[aria-owns='Enabled_listbox']")
+    private WebElement statusDropdown;
+    
+    @FindBy(css="ul[id='Enabled_listbox'] li")
+    private List<WebElement> statusListBox;
+    
+    @FindBy(css="span[aria-owns='TemplateContent_listbox']")
+    private WebElement templateDropdown;
+    
+    @FindBy(css="ul[id='TemplateContent_listbox'] li")
+    private List<WebElement> templateListBox;
+    
+    @FindBy(id="Name")
+    private WebElement nameTextBox;
+    
+    @FindBy(css=".k-grid-update")
+    private WebElement SaveBtn;
+    
+    @FindBy(xpath="//tbody/tr/td[5]")
+    private WebElement rowdata;
+    
+    @FindBy(id = "ModifyReason")
+    private WebElement modifyReasonTextBox;
+
+    @FindBy(id = "ModifyReason1")
+    private WebElement deleteReasonTextBox;
+
+    @FindBy(id = "yesButton")
+    private WebElement deleteYesBtn;
+    
+    @FindBy(id = "noButton")
+    private WebElement deleteNoBtn;
+    
+    
+    
 
     public boolean isFaxAutoACKConfigurationPageDisplayed() throws InterruptedException {
         waitForLoad(driver);
@@ -323,6 +371,12 @@ public class FaxAutoACKConfigurationPage extends BasePage {
 				if(headers.get(j).getText().equals("Last Changed On")){
 					col=cols.get(j).getText().substring(11);
 					}
+				else if (headers.get(j).getText().equals("Status")) {
+					if(cols.get(j).getText().equals("Disabled"))
+						col="0";
+					else
+						col="1";
+				}
 				else
 					col=cols.get(j).getText();
 				map.put(headers.get(j).getText(),col);
@@ -338,7 +392,7 @@ public class FaxAutoACKConfigurationPage extends BasePage {
 			return arr;
 	}
 	public boolean ExporttoExcelWithoutData(FaxAutoACKConfigurationDetails details) throws Exception {
-		searchFaxAutoACKConfigurationRecord(details.getFaxLine());
+		searchFaxAutoACKConfigurationRecord(details.getName());
 		waitForJqueryLoad(driver);
 		Thread.sleep(1000);
 		selectWebElement(exporttoexcel);
@@ -349,13 +403,13 @@ public class FaxAutoACKConfigurationPage extends BasePage {
 		return false;
 	}
 
-	public void searchFaxAutoACKConfigurationRecord(String faxLine) {
+	public void searchFaxAutoACKConfigurationRecord(String name) {
 		selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
-        selectDropdownFromVisibleText(columnNameList,"Fax Line");
+        selectDropdownFromVisibleText(columnNameList,"Name");
         selectWebElement(selectSearchCol.get(1));
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is equal to");
-        enterValueToTxtField(searchTextBox,faxLine);
+        enterValueToTxtField(searchTextBox,name);
         selectWebElement(searchSearchBtn);
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(gridContent);
@@ -553,6 +607,233 @@ public class FaxAutoACKConfigurationPage extends BasePage {
 			return false;		
 	}
 
+	public void addNewFaxAutoAckConfigRecord(FaxAutoACKConfigurationDetails details) throws Exception {
+		selectWebElement(addFaxAutoAckConfigBtn);
+		waitForJqueryLoad(driver);
+		Thread.sleep(500);
+		selectWebElement(faxLineDropdown);
+		selectDropdownFromVisibleText(faxLineListBox,details.getFaxLine());
+		selectWebElement(sendersTypeDropdown);
+		selectDropdownFromVisibleText(sendersTypeListBox,details.getSenderType());
+        enterValueToTxtFieldWithoutClear(nameTextBox,details.getName());
+        selectWebElement(statusDropdown);
+		selectDropdownFromVisibleText(statusListBox,details.getStatus());
+		selectWebElement(templateDropdown);
+		selectDropdownFromVisibleText(templateListBox,details.getTemplate());
+		selectWebElement(SaveBtn);
+	}
+
+	public String getSuccessMessage() {
+		waitForJqueryLoad(driver);
+        if(errorMsg.size()>0){return errorMsg.get(0).getText();}
+        waitUntilWebElementIsVisible(successmsg);
+        return successmsg.getText();
+	}
+
+	public boolean addcancel() throws Exception {
+		String actualitems=items.getText();
+		selectWebElement(addFaxAutoAckConfigBtn);
+		Thread.sleep(1000);
+		selectWebElement(cancelBtn);
+		if(actualitems.equals(items.getText()))
+			return true;
+		else
+		return false;
+	}
+
+	public boolean getErrorMsg() {
+		waitUntilWebElementListIsVisible(errorMsg);
+		if(errorMsg.size()>0)
+		return false;
+		else
+			return true;
+	}
+
+	public void addRecordWithoutFaxLine(FaxAutoACKConfigurationDetails details) throws Exception {
+		selectWebElement(addFaxAutoAckConfigBtn);
+		waitForJqueryLoad(driver);
+		Thread.sleep(500);
+		selectWebElement(sendersTypeDropdown);
+		selectDropdownFromVisibleText(sendersTypeListBox,details.getSenderType());
+        enterValueToTxtFieldWithoutClear(nameTextBox,details.getName());
+        selectWebElement(statusDropdown);
+		selectDropdownFromVisibleText(statusListBox,details.getStatus());
+		selectWebElement(templateDropdown);
+		selectDropdownFromVisibleText(templateListBox,details.getTemplate());
+		selectWebElement(SaveBtn);
+		selectWebElement(cancelBtn);
+	}
+
+	public void addRecordWithoutSenderType(FaxAutoACKConfigurationDetails details) throws Exception {
+		selectWebElement(addFaxAutoAckConfigBtn);
+		waitForJqueryLoad(driver);
+		Thread.sleep(500);
+		selectWebElement(faxLineDropdown);
+		selectDropdownFromVisibleText(faxLineListBox,details.getFaxLine());
+        enterValueToTxtFieldWithoutClear(nameTextBox,details.getName());
+        selectWebElement(statusDropdown);
+		selectDropdownFromVisibleText(statusListBox,details.getStatus());
+		selectWebElement(templateDropdown);
+		selectDropdownFromVisibleText(templateListBox,details.getTemplate());
+		selectWebElement(SaveBtn);
+		selectWebElement(cancelBtn);
+	}
+
+	public void addRecordWithoutName(FaxAutoACKConfigurationDetails details) throws Exception {
+		selectWebElement(addFaxAutoAckConfigBtn);
+		waitForJqueryLoad(driver);
+		Thread.sleep(500);
+		selectWebElement(faxLineDropdown);
+		selectDropdownFromVisibleText(faxLineListBox,details.getFaxLine());
+		selectWebElement(sendersTypeDropdown);
+		selectDropdownFromVisibleText(sendersTypeListBox,details.getSenderType());
+        selectWebElement(statusDropdown);
+		selectDropdownFromVisibleText(statusListBox,details.getStatus());
+		selectWebElement(templateDropdown);
+		selectDropdownFromVisibleText(templateListBox,details.getTemplate());
+		selectWebElement(SaveBtn);		
+		selectWebElement(cancelBtn);
+	}
+
+	public void addRecordWithoutStatus(FaxAutoACKConfigurationDetails details) throws Exception {
+		selectWebElement(addFaxAutoAckConfigBtn);
+		waitForJqueryLoad(driver);
+		Thread.sleep(500);
+		selectWebElement(faxLineDropdown);
+		selectDropdownFromVisibleText(faxLineListBox,details.getFaxLine());
+		selectWebElement(sendersTypeDropdown);
+		selectDropdownFromVisibleText(sendersTypeListBox,details.getSenderType());
+        enterValueToTxtFieldWithoutClear(nameTextBox,details.getName());
+		selectWebElement(templateDropdown);
+		selectDropdownFromVisibleText(templateListBox,details.getTemplate());
+		selectWebElement(SaveBtn);
+		selectWebElement(cancelBtn);
+	}
+
+	public void addRecordWithoutTemplate(FaxAutoACKConfigurationDetails details) throws Exception {
+		selectWebElement(addFaxAutoAckConfigBtn);
+		waitForJqueryLoad(driver);
+		Thread.sleep(500);
+		selectWebElement(faxLineDropdown);
+		selectDropdownFromVisibleText(faxLineListBox,details.getFaxLine());
+		selectWebElement(sendersTypeDropdown);
+		selectDropdownFromVisibleText(sendersTypeListBox,details.getSenderType());
+        enterValueToTxtFieldWithoutClear(nameTextBox,details.getName());
+        selectWebElement(statusDropdown);
+		selectDropdownFromVisibleText(statusListBox,details.getStatus());
+		selectWebElement(SaveBtn);
+		selectWebElement(cancelBtn);
+
+	}
+
+	public boolean Editcancel(FaxAutoACKConfigurationDetails details) {
+		searchFaxAutoACKConfigurationRecord(details.getName());
+		selectWebElement(editBtn);
+		waitForJqueryLoad(driver);
+		selectWebElement(cancelBtn);
+		if(rowdata.getText().equals(details.getName()))
+			return true;
+		else
+		return false;
+	}
+
+	public void editFaxAutoAckConfigRecord(FaxAutoACKConfigurationDetails details) {
+		searchFaxAutoACKConfigurationRecord(details.getName());
+		selectWebElement(editBtn);
+		waitForJqueryLoad(driver);
+		selectWebElement(statusDropdown);
+		selectDropdownFromVisibleText(statusListBox,details.getUpdatedStatus());
+        enterValueToTxtFieldWithoutClear(modifyReasonTextBox,details.getModifyReason());
+        selectWebElement(SaveBtn);
+	}
+
+	public void EditInvalidRecord(FaxAutoACKConfigurationDetails details) {
+		searchFaxAutoACKConfigurationRecord(details.getName());
+		selectWebElement(editBtn);
+		waitForJqueryLoad(driver);
+		selectWebElement(statusDropdown);
+		selectDropdownFromVisibleText(statusListBox,details.getUpdatedStatus());
+        selectWebElement(SaveBtn);
+        selectWebElement(cancelBtn);
+	}
+
+	public boolean clearAll(FaxAutoACKConfigurationDetails faxAutoAckConfigurationDetails) {
+		selectWebElement(searchBtn);
+	    selectWebElement(selectSearchCol.get(0));
+	    selectDropdownFromVisibleText(columnNameList,"Name");
+	    selectWebElement(selectSearchCol.get(1));
+	    selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is equal to");
+	    enterValueToTxtField(searchTextBox,faxAutoAckConfigurationDetails.getName());
+		selectWebElement(searchClearAllBtn);
+		if(searchTextBox.isEnabled())
+		  return true;
+		else
+			return false;
+		}
+
+	public boolean verifyclose() {
+		selectWebElement(searchCloseBtn);
+		if(gridContent.isDisplayed())
+			return true;
+		else
+			return false;
+		}
+
+	public void searchwithoutextsearch() {
+		selectWebElement(searchBtn);
+	    selectWebElement(selectSearchCol.get(0));
+	    selectDropdownFromVisibleText(columnNameList,"Fax Line");
+	    selectWebElement(selectSearchCol.get(1));
+	    selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is equal to");
+	    selectWebElement(searchSearchBtn);	
+	    selectWebElement(searchCloseBtn);
+	}
+
+	public boolean Deletecancel(FaxAutoACKConfigurationDetails details) {
+		searchFaxAutoACKConfigurationRecord(details.getName());
+		selectWebElement(deleteBtn);
+		waitForJqueryLoad(driver);
+		selectWebElement(deleteNoBtn);
+		if(rowdata.getText().equals(details.getName()))
+			return true;
+		else
+		return false;
+	}
+
+	public void deleteFaxAutoAckConfigRecord(FaxAutoACKConfigurationDetails details) throws Exception {
+		searchFaxAutoACKConfigurationRecord(details.getName());
+		selectWebElement(deleteBtn);
+		waitForJqueryLoad(driver);
+        enterValueToTxtFieldWithoutClear(deleteReasonTextBox,details.getDeleteReason());
+        Thread.sleep(500);
+        selectWebElement(deleteYesBtn);	
+	}
+
+	public void DeleteInvalidRecord(FaxAutoACKConfigurationDetails details) throws Exception {
+		searchFaxAutoACKConfigurationRecord(details.getName());
+		selectWebElement(deleteBtn);
+		waitForJqueryLoad(driver);
+        Thread.sleep(500);
+        selectWebElement(deleteYesBtn);	
+		selectWebElement(deleteNoBtn);
+		
+	}
+
+	public boolean verifyinvalidsearchwithwrongdata(FaxAutoACKConfigurationDetails details) {
+		searchFaxAutoACKConfigurationRecord(details.getName());
+		if(norecords.isDisplayed())
+			return true; 
+			else
+				return false;
+	}
+
+	public boolean verifyclearsearch() {
+		selectWebElement(clearsearch);
+		if(gridContent.isDisplayed())
+			return true;
+		else
+		return false;
+	}
 	
 
 }

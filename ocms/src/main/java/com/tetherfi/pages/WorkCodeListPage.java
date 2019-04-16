@@ -669,6 +669,19 @@ public class WorkCodeListPage extends BasePage{
 		else
 			return false;
 	}
+	
+	public List<String> captureDatabase(String query) {
+		List<Map<String,String>> database=database(query);
+		List<String> values=new ArrayList<String>();
+		for (int i=0;i<database.size();i++)
+		{
+			String lst=database.get(i).remove("WorkCodeName");
+			values.add(lst);
+		}
+		return values;
+	}
+	
+	
 
 	private List<Map<String, String>> gettable() {
 		int item=Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);

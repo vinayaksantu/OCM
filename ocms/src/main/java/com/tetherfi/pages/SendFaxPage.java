@@ -1,5 +1,6 @@
 package com.tetherfi.pages;
 
+import com.tetherfi.model.fax.FaxLineConfigDetails;
 import com.tetherfi.model.fax.FaxRoutingConfigurationDetails;
 import com.tetherfi.model.fax.SendFaxDetails;
 import com.tetherfi.utility.FileUploader;
@@ -11,6 +12,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -48,6 +50,9 @@ public class SendFaxPage extends BasePage {
 
     @FindBy(css = "#toast-container .toast-error .toast-message")
     private List<WebElement> errorMsg;
+    
+    @FindBy(css =".toast-info .toast-message")
+    private WebElement infoMsg;
 
     @FindBy(css = ".fa-search")
     private WebElement searchBtn;
@@ -81,6 +86,9 @@ public class SendFaxPage extends BasePage {
     
     @FindBy(xpath="//tbody/tr/td[2]")
     private WebElement rowdata;
+    
+    @FindBy(xpath="//tbody/tr/td[5]")
+    private WebElement faxlinedata;
 
     @FindBy(css = ".modal-footer .k-button")
     private WebElement searchCloseBtn;
@@ -214,6 +222,33 @@ public class SendFaxPage extends BasePage {
     @FindBy(xpath="//i[@class='fas fa-sync']")
     private WebElement clearsearch;
     
+    @FindBy(css="span[aria-owns='FaxLine_listbox']")
+    private WebElement faxlineDropdown;
+    
+    @FindBy(xpath="//input[@class='select2-search__field']")
+    private WebElement recipientnumber;
+    
+    @FindBy(css="ul[id='FaxLine_listbox'] li")
+    private List<WebElement> faxlinelistbox;
+    
+    @FindBy(xpath="//label[@class='k-checkbox-label' and @for='sendNow']")
+    private WebElement sendimmediatelycheckbox;
+    
+    @FindBy(xpath="//label[@class='k-checkbox-label' and @for='enableTemplate']")
+    private WebElement enableTemplate;
+    
+    @FindBy(css="span[aria-owns='Template_listbox']")
+    private WebElement templateDropdown;
+    
+    @FindBy(css="ul[id='Template_listbox'] li")
+    private List<WebElement> templatelistbox;
+    
+    @FindBy(xpath="//div[@class='k-button k-upload-button']")
+    private WebElement uploadFile;
+    
+    @FindBy(xpath="//input[@alt='Preview']")
+    private WebElement preview;
+    
     public boolean isSendFaxPageDisplayed() {
         waitForLoad(driver);
         waitForJqueryLoad(driver);
@@ -282,7 +317,7 @@ public class SendFaxPage extends BasePage {
 	 
 		public boolean verifycolumnsHeaderDisabled() {
         boolean status = false;
-        WebElement ele = headersDropdown.get(0);
+        WebElement ele = headersDropdown.get(1);
             if (ele.isDisplayed()) {
                 try {
                     selectWebElement(ele);
@@ -396,10 +431,17 @@ public class SendFaxPage extends BasePage {
 			return true;
 	}
 	
+	public String getInfoMsg() {
+		waitForJqueryLoad(driver);
+        if(errorMsg.size()>0){return errorMsg.get(0).getText();}
+        waitUntilWebElementIsVisible(infoMsg);
+        return infoMsg.getText();
+	}
+	
 	public boolean verifyExportToExcel(String filePath) {
 		final File folder = new File(filePath);
 		for (final File f : folder.listFiles()) {
-		    if (f.getName().startsWith("Fax Routing Config")) {
+		    if (f.getName().startsWith("Send Fax")) {
 		        f.delete();
 		    }
 		}
@@ -410,7 +452,7 @@ public class SendFaxPage extends BasePage {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		Boolean Status=verifyExportPageFileDownload(filePath, "Fax Routing Configuration");
+		Boolean Status=verifyExportPageFileDownload(filePath, "Send Fax");
 		return Status;
 	}
 	public boolean verifyexportToExcelSheet(List<Map<String, String>> maplist) {
@@ -436,7 +478,7 @@ public class SendFaxPage extends BasePage {
 		for(int i=1;i<rows.size();i++) {
 			Map<String,String> map = new HashMap<String,String>();
 			List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
-			for(int j=1;j<headers.size();j++) {
+			for(int j=0;j<headers.size();j++) {
 				if(headers.get(j).getText().equals("Last Changed On")){
 				col=cols.get(j).getText().substring(0,10);
 				}
@@ -445,6 +487,8 @@ public class SendFaxPage extends BasePage {
 				map.put(headers.get(j).getText(),col);
 			}
 			map.remove("");
+			map.remove("Preview");
+			
 			arr.add(map);
 		}
 		if(k!=pages)
@@ -471,7 +515,6 @@ public class SendFaxPage extends BasePage {
         int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
 		List<Map<String,String>> arr=new ArrayList<Map<String,String>>();
 		for(int k=0;k<=pages;k++){
-
 		waitUntilWebElementIsVisible(auditGridContent);
 		List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
 		List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
@@ -510,7 +553,7 @@ public class SendFaxPage extends BasePage {
 		return false;
 	}
 
-	private void searchSendFaxRecord(String faxLine) {
+	public void searchSendFaxRecord(String faxLine) {
 		selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Fax Line");
@@ -521,6 +564,14 @@ public class SendFaxPage extends BasePage {
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(gridContent);
 	}
+	public boolean verifyvalidsearchdata(SendFaxDetails details) {
+		searchSendFaxRecord(details.getFaxLine());
+		if(faxlinedata.getText().equals(details.getFaxLine()))
+			return true; 
+			else
+				return false;
+	}
+	
 	
 	public boolean verifyinvalidsearchwithwrongdata(SendFaxDetails details) {
 		searchSendFaxRecord(details.getFaxLine());
@@ -632,6 +683,192 @@ public class SendFaxPage extends BasePage {
 		{return true;}
 		else
 			return false;		
+	}
+
+	public boolean AddCancelRecord(SendFaxDetails sendFaxDetails) throws Exception {
+		String actualitems=items.getText();
+		selectWebElement(addNewRecdBtn);
+		waitForJqueryLoad(driver);
+	    Thread.sleep(3000);
+        enterValueToTxtFieldWithoutClear(recipientnumber,sendFaxDetails.getRecipientNumber());
+        recipientnumber.sendKeys(Keys.ENTER);
+	    selectWebElement(faxlineDropdown);
+	    selectDropdownFromVisibleText(faxlinelistbox,sendFaxDetails.getFaxLine());
+	    selectWebElement(sendimmediatelycheckbox);
+	    selectWebElement(enableTemplate);
+	    selectWebElement(templateDropdown);
+	    selectDropdownFromVisibleText(templatelistbox,sendFaxDetails.getTemplate());
+	    selectWebElement(cancelBtn);
+	    if(actualitems.equals(items.getText()))
+	    	return true;
+	    else
+		return false;
+	}
+
+	public void addNewSendFaxRecord(SendFaxDetails sendFaxDetails) throws Exception {
+		selectWebElement(addNewRecdBtn);
+		waitForJqueryLoad(driver);
+	    Thread.sleep(2000);
+        enterValueToTxtFieldWithoutClear(recipientnumber,sendFaxDetails.getRecipientNumber());
+        recipientnumber.sendKeys(Keys.ENTER);
+	    selectWebElement(faxlineDropdown);
+	    selectDropdownFromVisibleText(faxlinelistbox,sendFaxDetails.getFaxLine());
+	    selectWebElement(sendimmediatelycheckbox);
+	    selectWebElement(enableTemplate);
+	    selectWebElement(templateDropdown);
+	    selectDropdownFromVisibleText(templatelistbox,sendFaxDetails.getTemplate());
+	    selectWebElement(SaveButton);
+		
+	}
+
+	public void addRecordWithoutRecipientNumber(SendFaxDetails sendFaxDetails) throws Exception {
+		selectWebElement(addNewRecdBtn);
+		waitForJqueryLoad(driver);
+	    Thread.sleep(2000);
+	    selectWebElement(faxlineDropdown);
+	    selectDropdownFromVisibleText(faxlinelistbox,sendFaxDetails.getFaxLine());
+	    selectWebElement(sendimmediatelycheckbox);
+	    selectWebElement(enableTemplate);
+	    selectWebElement(templateDropdown);
+	    selectDropdownFromVisibleText(templatelistbox,sendFaxDetails.getTemplate());
+	    selectWebElement(SaveButton);
+	    selectWebElement(cancelBtn);
+		
+	}
+
+	public void addRecordWithoutFaxLine(SendFaxDetails sendFaxDetails) throws Exception {
+		selectWebElement(addNewRecdBtn);
+		waitForJqueryLoad(driver);
+	    Thread.sleep(2000);
+        enterValueToTxtFieldWithoutClear(recipientnumber,sendFaxDetails.getRecipientNumber());
+        recipientnumber.sendKeys(Keys.ENTER);
+	    selectWebElement(sendimmediatelycheckbox);
+	    selectWebElement(enableTemplate);
+	    selectWebElement(templateDropdown);
+	    selectDropdownFromVisibleText(templatelistbox,sendFaxDetails.getTemplate());
+	    selectWebElement(SaveButton);
+	    selectWebElement(cancelBtn);
+		
+	}
+
+	public void addNewInvalidRecordWithoutDateTime(SendFaxDetails sendFaxDetails) throws Exception {
+		selectWebElement(addNewRecdBtn);
+		waitForJqueryLoad(driver);
+	    Thread.sleep(2000);
+        enterValueToTxtFieldWithoutClear(recipientnumber,sendFaxDetails.getRecipientNumber());
+        recipientnumber.sendKeys(Keys.ENTER);
+	    selectWebElement(faxlineDropdown);
+	    selectDropdownFromVisibleText(faxlinelistbox,sendFaxDetails.getFaxLine());
+	    selectWebElement(enableTemplate);
+	    selectWebElement(templateDropdown);
+	    selectDropdownFromVisibleText(templatelistbox,sendFaxDetails.getTemplate());
+	    selectWebElement(SaveButton);
+	    selectWebElement(cancelBtn);
+	}
+
+	public void addRecordWithoutTemplate(SendFaxDetails sendFaxDetails) throws Exception {
+		selectWebElement(addNewRecdBtn);
+		waitForJqueryLoad(driver);
+	    Thread.sleep(2000);
+        enterValueToTxtFieldWithoutClear(recipientnumber,sendFaxDetails.getRecipientNumber());
+        recipientnumber.sendKeys(Keys.ENTER);
+	    selectWebElement(faxlineDropdown);
+	    selectDropdownFromVisibleText(faxlinelistbox,sendFaxDetails.getFaxLine());
+	    selectWebElement(sendimmediatelycheckbox);
+	    selectWebElement(SaveButton);
+	    selectWebElement(cancelBtn);
+		}
+
+	public void addNewSendFaxRecordFileUpload(SendFaxDetails sendFaxDetails) throws Exception {
+		selectWebElement(addNewRecdBtn);
+		waitForJqueryLoad(driver);
+	    Thread.sleep(2000);
+        enterValueToTxtFieldWithoutClear(recipientnumber,sendFaxDetails.getRecipientNumber());
+        recipientnumber.sendKeys(Keys.ENTER);
+	    selectWebElement(faxlineDropdown);
+	    selectDropdownFromVisibleText(faxlinelistbox,sendFaxDetails.getFaxLine());
+	    selectWebElement(sendimmediatelycheckbox);
+	    selectWebElement(uploadFile);
+        FileUploader upload = new FileUploader();
+        upload.uploadFile(System.getProperty("user.dir") + "\\src\\test\\resources\\FileUpload\\" + sendFaxDetails.getFileupload());
+	    selectWebElement(SaveButton);
+		
+	}
+
+	public void addNewInvalidRecordWithoutTemplate(SendFaxDetails sendFaxDetails) throws Exception {
+		selectWebElement(addNewRecdBtn);
+		waitForJqueryLoad(driver);
+	    Thread.sleep(2000);
+        enterValueToTxtFieldWithoutClear(recipientnumber,sendFaxDetails.getRecipientNumber());
+        recipientnumber.sendKeys(Keys.ENTER);
+	    selectWebElement(faxlineDropdown);
+	    selectDropdownFromVisibleText(faxlinelistbox,sendFaxDetails.getFaxLine());
+	    selectWebElement(sendimmediatelycheckbox);
+	    selectWebElement(enableTemplate);
+	    selectWebElement(SaveButton);
+	    selectWebElement(cancelBtn);
+		
+	}
+
+	public void addNewInvalidRecordUploadingWrongFile(SendFaxDetails sendFaxDetails) throws InterruptedException {
+		selectWebElement(addNewRecdBtn);
+		waitForJqueryLoad(driver);
+	    Thread.sleep(2000);
+        enterValueToTxtFieldWithoutClear(recipientnumber,sendFaxDetails.getRecipientNumber());
+        recipientnumber.sendKeys(Keys.ENTER);
+	    selectWebElement(faxlineDropdown);
+	    selectDropdownFromVisibleText(faxlinelistbox,sendFaxDetails.getFaxLine());
+	    selectWebElement(sendimmediatelycheckbox);
+	    selectWebElement(uploadFile);
+        FileUploader upload = new FileUploader();
+        upload.uploadFile(System.getProperty("user.dir") + "\\src\\test\\resources\\FileUpload\\" + sendFaxDetails.getFileupload());
+	    selectWebElement(SaveButton);
+	    selectWebElement(cancelBtn);
+
+		
+	}
+
+	public void addButtonPreviewwithoutuploadingfile(SendFaxDetails sendFaxDetails) throws Exception {
+		selectWebElement(addNewRecdBtn);
+		waitForJqueryLoad(driver);
+	    Thread.sleep(2000);
+        enterValueToTxtFieldWithoutClear(recipientnumber,sendFaxDetails.getRecipientNumber());
+        recipientnumber.sendKeys(Keys.ENTER);
+	    selectWebElement(faxlineDropdown);
+	    selectDropdownFromVisibleText(faxlinelistbox,sendFaxDetails.getFaxLine());
+	    selectWebElement(sendimmediatelycheckbox);
+	    selectWebElement(preview);
+	    selectWebElement(cancelBtn);		
+	}
+
+	public void addButtonPreviewuploadWrongfile(SendFaxDetails sendFaxDetails) throws Exception {
+		selectWebElement(addNewRecdBtn);
+		waitForJqueryLoad(driver);
+	    Thread.sleep(2000);
+        enterValueToTxtFieldWithoutClear(recipientnumber,sendFaxDetails.getRecipientNumber());
+        recipientnumber.sendKeys(Keys.ENTER);
+	    selectWebElement(faxlineDropdown);
+	    selectDropdownFromVisibleText(faxlinelistbox,sendFaxDetails.getFaxLine());
+	    selectWebElement(sendimmediatelycheckbox);
+	    selectWebElement(uploadFile);
+        FileUploader upload = new FileUploader();
+        upload.uploadFile(System.getProperty("user.dir") + "\\src\\test\\resources\\FileUpload\\" + sendFaxDetails.getFileupload());
+	    selectWebElement(preview);
+	    selectWebElement(cancelBtn);
+		
+	}
+
+	public boolean VerifyDropDown(FaxLineConfigDetails faxLineConfigDetails) {
+		Boolean Status=true;
+		selectWebElement(addNewRecdBtn);
+		selectWebElement(faxlineDropdown);
+		for(int i=0;i<faxLineListBox.size();i++) {
+			String value=faxLineListBox.get(i).getText();
+			if(value.equals(faxLineConfigDetails.getFaxLine())) {
+				Status= false;
+			break;}
+		}
+		return Status;
 	}
 
      

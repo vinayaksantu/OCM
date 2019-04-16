@@ -1,170 +1,622 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="15" passed="12" failed="3" skipped="0">
+<testng-results ignored="0" total="22" passed="18" failed="4" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2019-03-29T15:44:12Z" name="Default suite" finished-at="2019-03-29T15:48:17Z" duration-ms="245062">
+  <suite started-at="2019-04-16T10:31:57Z" name="Default suite" finished-at="2019-04-16T10:38:16Z" duration-ms="379775">
     <groups>
     </groups>
-    <test started-at="2019-03-29T15:44:12Z" name="Default test" finished-at="2019-03-29T15:48:17Z" duration-ms="245062">
-      <class name="com.tetherfi.test.tmac.WaitTimeColorConfigTest">
-        <test-method is-config="true" signature="openApplication()[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:14:12Z" name="openApplication" finished-at="2019-03-29T21:14:29Z" duration-ms="16911" status="PASS">
+    <test started-at="2019-04-16T10:31:57Z" name="Default test" finished-at="2019-04-16T10:38:16Z" duration-ms="379775">
+      <class name="com.tetherfi.test.ivr.BranchManagementTest">
+        <test-method is-config="true" signature="openApplication()[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:01:57Z" name="openApplication" finished-at="2019-04-16T16:02:08Z" duration-ms="11545" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- openApplication -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:14:29Z" name="startTestCase" finished-at="2019-03-29T21:14:29Z" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:02:08Z" name="startTestCase" finished-at="2019-04-16T16:02:08Z" duration-ms="1" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.AddInvalidRecord() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.ivr.BranchManagementTest.BranchManagementPage()]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigateToWaitTimeColorConfigPage()[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:14:29Z" name="NavigateToWaitTimeColorConfigPage" finished-at="2019-03-29T21:14:35Z" duration-ms="6239" status="PASS">
+        <test-method is-config="true" signature="NavigateToBranchManagementPage()[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:02:08Z" name="NavigateToBranchManagementPage" finished-at="2019-04-16T16:02:13Z" duration-ms="4927" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- NavigateToWaitTimeColorConfigPage -->
-        <test-method signature="AddInvalidRecord()[pri:4, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:14:35Z" name="AddInvalidRecord" finished-at="2019-03-29T21:15:01Z" duration-ms="26630" status="PASS">
+        </test-method> <!-- NavigateToBranchManagementPage -->
+        <test-method signature="BranchManagementPage()[pri:1, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:02:13Z" name="BranchManagementPage" finished-at="2019-04-16T16:02:14Z" duration-ms="1287" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- AddInvalidRecord -->
-        <test-method is-config="true" signature="afterEachMethod(org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:15:01Z" name="afterEachMethod" finished-at="2019-03-29T21:15:01Z" duration-ms="0" status="PASS">
+        </test-method> <!-- BranchManagementPage -->
+        <test-method is-config="true" signature="afterEachMethod(org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:02:14Z" name="afterEachMethod" finished-at="2019-04-16T16:02:14Z" duration-ms="1" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=AddInvalidRecord status=SUCCESS method=WaitTimeColorConfigTest.AddInvalidRecord()[pri:4, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8] output={null}]]]>
+                <![CDATA[[TestResult name=BranchManagementPage status=SUCCESS method=BranchManagementTest.BranchManagementPage()[pri:1, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b] output={null}]]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.AddInvalidRecord() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.ivr.BranchManagementTest.BranchManagementPage()]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:15:01Z" name="endTestCase" finished-at="2019-03-29T21:15:01Z" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:02:14Z" name="endTestCase" finished-at="2019-04-16T16:02:14Z" duration-ms="1" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.AddInvalidRecord() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.ivr.BranchManagementTest.BranchManagementPage()]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="NavigateToWaitTimeColorConfigPage()[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:15:01Z" name="NavigateToWaitTimeColorConfigPage" finished-at="2019-03-29T21:15:06Z" duration-ms="4884" status="PASS">
+        <test-method is-config="true" signature="NavigateToBranchManagementPage()[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:02:14Z" name="NavigateToBranchManagementPage" finished-at="2019-04-16T16:02:18Z" duration-ms="3344" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- NavigateToWaitTimeColorConfigPage -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:15:01Z" name="startTestCase" finished-at="2019-03-29T21:15:01Z" duration-ms="0" status="PASS">
+        </test-method> <!-- NavigateToBranchManagementPage -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:02:14Z" name="startTestCase" finished-at="2019-04-16T16:02:14Z" duration-ms="0" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.DeleteRecord() throws java.io.IOException]]>
+                <![CDATA[public void com.tetherfi.test.ivr.BranchManagementTest.VerifyBranchManagementApprovedDataPage()]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startTestCase -->
-        <test-method signature="DeleteRecord()[pri:11, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:15:06Z" name="DeleteRecord" finished-at="2019-03-29T21:15:30Z" duration-ms="23594" status="PASS">
+        <test-method signature="VerifyBranchManagementApprovedDataPage()[pri:2, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:02:18Z" name="VerifyBranchManagementApprovedDataPage" finished-at="2019-04-16T16:02:19Z" duration-ms="1214" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- DeleteRecord -->
-        <test-method is-config="true" signature="afterEachMethod(org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:15:30Z" name="afterEachMethod" finished-at="2019-03-29T21:15:30Z" duration-ms="0" status="PASS">
+        </test-method> <!-- VerifyBranchManagementApprovedDataPage -->
+        <test-method is-config="true" signature="afterEachMethod(org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:02:19Z" name="afterEachMethod" finished-at="2019-04-16T16:02:19Z" duration-ms="1" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=DeleteRecord status=SUCCESS method=WaitTimeColorConfigTest.DeleteRecord()[pri:11, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8] output={null}]]]>
+                <![CDATA[[TestResult name=VerifyBranchManagementApprovedDataPage status=SUCCESS method=BranchManagementTest.VerifyBranchManagementApprovedDataPage()[pri:2, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b] output={null}]]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.DeleteRecord() throws java.io.IOException]]>
+                <![CDATA[public void com.tetherfi.test.ivr.BranchManagementTest.VerifyBranchManagementApprovedDataPage()]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:15:30Z" name="endTestCase" finished-at="2019-03-29T21:15:30Z" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:02:19Z" name="endTestCase" finished-at="2019-04-16T16:02:19Z" duration-ms="0" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.DeleteRecord() throws java.io.IOException]]>
+                <![CDATA[public void com.tetherfi.test.ivr.BranchManagementTest.VerifyBranchManagementApprovedDataPage()]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="NavigateToWaitTimeColorConfigPage()[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:15:30Z" name="NavigateToWaitTimeColorConfigPage" finished-at="2019-03-29T21:15:35Z" duration-ms="5168" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToWaitTimeColorConfigPage -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:15:30Z" name="startTestCase" finished-at="2019-03-29T21:15:30Z" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:02:19Z" name="startTestCase" finished-at="2019-04-16T16:02:19Z" duration-ms="1" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.VerifyAuditTrialReportForDelete() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.ivr.BranchManagementTest.VerifyBranchManagementAuditTrailDataPage()]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startTestCase -->
-        <test-method signature="VerifyAuditTrialReportForDelete()[pri:12, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:15:35Z" name="VerifyAuditTrialReportForDelete" finished-at="2019-03-29T21:16:06Z" duration-ms="31179" status="PASS">
+        <test-method is-config="true" signature="NavigateToBranchManagementPage()[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:02:19Z" name="NavigateToBranchManagementPage" finished-at="2019-04-16T16:02:22Z" duration-ms="3194" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- VerifyAuditTrialReportForDelete -->
-        <test-method is-config="true" signature="afterEachMethod(org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:16:06Z" name="afterEachMethod" finished-at="2019-03-29T21:16:06Z" duration-ms="0" status="PASS">
+        </test-method> <!-- NavigateToBranchManagementPage -->
+        <test-method signature="VerifyBranchManagementAuditTrailDataPage()[pri:3, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:02:22Z" name="VerifyBranchManagementAuditTrailDataPage" finished-at="2019-04-16T16:02:29Z" duration-ms="7137" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyBranchManagementAuditTrailDataPage -->
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:02:29Z" name="endTestCase" finished-at="2019-04-16T16:02:29Z" duration-ms="0" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=VerifyAuditTrialReportForDelete status=SUCCESS method=WaitTimeColorConfigTest.VerifyAuditTrialReportForDelete()[pri:12, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8] output={null}]]]>
+                <![CDATA[public void com.tetherfi.test.ivr.BranchManagementTest.VerifyBranchManagementAuditTrailDataPage()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method is-config="true" signature="afterEachMethod(org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:02:29Z" name="afterEachMethod" finished-at="2019-04-16T16:02:29Z" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=VerifyBranchManagementAuditTrailDataPage status=SUCCESS method=BranchManagementTest.VerifyBranchManagementAuditTrailDataPage()[pri:3, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b] output={null}]]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.VerifyAuditTrialReportForDelete() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.ivr.BranchManagementTest.VerifyBranchManagementAuditTrailDataPage()]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:16:06Z" name="endTestCase" finished-at="2019-03-29T21:16:06Z" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:02:29Z" name="startTestCase" finished-at="2019-04-16T16:02:29Z" duration-ms="0" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.VerifyAuditTrialReportForDelete() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:16:06Z" name="startTestCase" finished-at="2019-03-29T21:16:06Z" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.database() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.ivr.BranchManagementTest.VerifyMakeBranchManagementChangeButton()]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigateToWaitTimeColorConfigPage()[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:16:06Z" name="NavigateToWaitTimeColorConfigPage" finished-at="2019-03-29T21:16:12Z" duration-ms="5213" status="PASS">
+        <test-method is-config="true" signature="NavigateToBranchManagementPage()[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:02:29Z" name="NavigateToBranchManagementPage" finished-at="2019-04-16T16:02:33Z" duration-ms="3308" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- NavigateToWaitTimeColorConfigPage -->
-        <test-method signature="database()[pri:13, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:16:12Z" name="database" finished-at="2019-03-29T21:16:18Z" duration-ms="6648" status="FAIL">
+        </test-method> <!-- NavigateToBranchManagementPage -->
+        <test-method signature="VerifyMakeBranchManagementChangeButton()[pri:4, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:02:33Z" name="VerifyMakeBranchManagementChangeButton" finished-at="2019-04-16T16:02:44Z" duration-ms="11689" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyMakeBranchManagementChangeButton -->
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:02:44Z" name="endTestCase" finished-at="2019-04-16T16:02:44Z" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.BranchManagementTest.VerifyMakeBranchManagementChangeButton()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method is-config="true" signature="afterEachMethod(org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:02:44Z" name="afterEachMethod" finished-at="2019-04-16T16:02:44Z" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=VerifyMakeBranchManagementChangeButton status=SUCCESS method=BranchManagementTest.VerifyMakeBranchManagementChangeButton()[pri:4, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b] output={null}]]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.BranchManagementTest.VerifyMakeBranchManagementChangeButton()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="NavigateToBranchManagementPage()[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:02:44Z" name="NavigateToBranchManagementPage" finished-at="2019-04-16T16:02:48Z" duration-ms="3891" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToBranchManagementPage -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:02:44Z" name="startTestCase" finished-at="2019-04-16T16:02:44Z" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.BranchManagementTest.VerifyDropdownForAllTheColumns()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method signature="VerifyDropdownForAllTheColumns()[pri:5, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:02:48Z" name="VerifyDropdownForAllTheColumns" finished-at="2019-04-16T16:03:17Z" duration-ms="29000" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyDropdownForAllTheColumns -->
+        <test-method is-config="true" signature="afterEachMethod(org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:03:17Z" name="afterEachMethod" finished-at="2019-04-16T16:03:17Z" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=VerifyDropdownForAllTheColumns status=SUCCESS method=BranchManagementTest.VerifyDropdownForAllTheColumns()[pri:5, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b] output={null}]]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.BranchManagementTest.VerifyDropdownForAllTheColumns()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:03:17Z" name="endTestCase" finished-at="2019-04-16T16:03:17Z" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.BranchManagementTest.VerifyDropdownForAllTheColumns()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:03:17Z" name="startTestCase" finished-at="2019-04-16T16:03:17Z" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.BranchManagementTest.VerifyColumnsHeaderEnable()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method is-config="true" signature="NavigateToBranchManagementPage()[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:03:17Z" name="NavigateToBranchManagementPage" finished-at="2019-04-16T16:03:21Z" duration-ms="3342" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToBranchManagementPage -->
+        <test-method signature="VerifyColumnsHeaderEnable()[pri:6, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:03:21Z" name="VerifyColumnsHeaderEnable" finished-at="2019-04-16T16:03:40Z" duration-ms="19120" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyColumnsHeaderEnable -->
+        <test-method is-config="true" signature="afterEachMethod(org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:03:40Z" name="afterEachMethod" finished-at="2019-04-16T16:03:40Z" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=VerifyColumnsHeaderEnable status=SUCCESS method=BranchManagementTest.VerifyColumnsHeaderEnable()[pri:6, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b] output={null}]]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.BranchManagementTest.VerifyColumnsHeaderEnable()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:03:40Z" name="startTestCase" finished-at="2019-04-16T16:03:40Z" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.BranchManagementTest.VerifyColumnsHeaderDisable()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:03:40Z" name="endTestCase" finished-at="2019-04-16T16:03:40Z" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.BranchManagementTest.VerifyColumnsHeaderEnable()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method is-config="true" signature="NavigateToBranchManagementPage()[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:03:40Z" name="NavigateToBranchManagementPage" finished-at="2019-04-16T16:03:43Z" duration-ms="3408" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToBranchManagementPage -->
+        <test-method signature="VerifyColumnsHeaderDisable()[pri:7, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:03:43Z" name="VerifyColumnsHeaderDisable" finished-at="2019-04-16T16:04:04Z" duration-ms="21195" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyColumnsHeaderDisable -->
+        <test-method is-config="true" signature="afterEachMethod(org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:04:04Z" name="afterEachMethod" finished-at="2019-04-16T16:04:04Z" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=VerifyColumnsHeaderDisable status=SUCCESS method=BranchManagementTest.VerifyColumnsHeaderDisable()[pri:7, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b] output={null}]]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.BranchManagementTest.VerifyColumnsHeaderDisable()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:04:04Z" name="endTestCase" finished-at="2019-04-16T16:04:04Z" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.BranchManagementTest.VerifyColumnsHeaderDisable()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method is-config="true" signature="NavigateToBranchManagementPage()[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:04:04Z" name="NavigateToBranchManagementPage" finished-at="2019-04-16T16:04:08Z" duration-ms="3326" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToBranchManagementPage -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:04:04Z" name="startTestCase" finished-at="2019-04-16T16:04:04Z" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.BranchManagementTest.VerifyArrowMoveForPreviousAndNextPage()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method signature="VerifyArrowMoveForPreviousAndNextPage()[pri:8, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:04:08Z" name="VerifyArrowMoveForPreviousAndNextPage" finished-at="2019-04-16T16:04:18Z" duration-ms="10568" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyArrowMoveForPreviousAndNextPage -->
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:04:18Z" name="endTestCase" finished-at="2019-04-16T16:04:18Z" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.BranchManagementTest.VerifyArrowMoveForPreviousAndNextPage()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method is-config="true" signature="afterEachMethod(org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:04:18Z" name="afterEachMethod" finished-at="2019-04-16T16:04:18Z" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=VerifyArrowMoveForPreviousAndNextPage status=SUCCESS method=BranchManagementTest.VerifyArrowMoveForPreviousAndNextPage()[pri:8, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b] output={null}]]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.BranchManagementTest.VerifyArrowMoveForPreviousAndNextPage()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:04:18Z" name="startTestCase" finished-at="2019-04-16T16:04:18Z" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.BranchManagementTest.VerifyArrowMoveForFirstAndLastPage()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method is-config="true" signature="NavigateToBranchManagementPage()[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:04:18Z" name="NavigateToBranchManagementPage" finished-at="2019-04-16T16:04:21Z" duration-ms="3210" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToBranchManagementPage -->
+        <test-method signature="VerifyArrowMoveForFirstAndLastPage()[pri:9, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:04:21Z" name="VerifyArrowMoveForFirstAndLastPage" finished-at="2019-04-16T16:04:32Z" duration-ms="10523" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyArrowMoveForFirstAndLastPage -->
+        <test-method is-config="true" signature="afterEachMethod(org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:04:32Z" name="afterEachMethod" finished-at="2019-04-16T16:04:32Z" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=VerifyArrowMoveForFirstAndLastPage status=SUCCESS method=BranchManagementTest.VerifyArrowMoveForFirstAndLastPage()[pri:9, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b] output={null}]]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.BranchManagementTest.VerifyArrowMoveForFirstAndLastPage()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:04:32Z" name="endTestCase" finished-at="2019-04-16T16:04:32Z" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.BranchManagementTest.VerifyArrowMoveForFirstAndLastPage()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:04:32Z" name="startTestCase" finished-at="2019-04-16T16:04:32Z" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.BranchManagementTest.VerifyTotalNumberOfItemsPerPageDetails()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method is-config="true" signature="NavigateToBranchManagementPage()[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:04:32Z" name="NavigateToBranchManagementPage" finished-at="2019-04-16T16:04:35Z" duration-ms="3202" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToBranchManagementPage -->
+        <test-method signature="VerifyTotalNumberOfItemsPerPageDetails()[pri:10, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:04:35Z" name="VerifyTotalNumberOfItemsPerPageDetails" finished-at="2019-04-16T16:04:46Z" duration-ms="10494" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyTotalNumberOfItemsPerPageDetails -->
+        <test-method is-config="true" signature="afterEachMethod(org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:04:46Z" name="afterEachMethod" finished-at="2019-04-16T16:04:46Z" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=VerifyTotalNumberOfItemsPerPageDetails status=SUCCESS method=BranchManagementTest.VerifyTotalNumberOfItemsPerPageDetails()[pri:10, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b] output={null}]]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.BranchManagementTest.VerifyTotalNumberOfItemsPerPageDetails()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:04:46Z" name="endTestCase" finished-at="2019-04-16T16:04:46Z" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.BranchManagementTest.VerifyTotalNumberOfItemsPerPageDetails()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:04:46Z" name="startTestCase" finished-at="2019-04-16T16:04:46Z" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.BranchManagementTest.VerifyNumberOfItemsPerPageSelection()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method is-config="true" signature="NavigateToBranchManagementPage()[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:04:46Z" name="NavigateToBranchManagementPage" finished-at="2019-04-16T16:04:49Z" duration-ms="3292" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToBranchManagementPage -->
+        <test-method signature="VerifyNumberOfItemsPerPageSelection()[pri:11, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:04:49Z" name="VerifyNumberOfItemsPerPageSelection" finished-at="2019-04-16T16:05:01Z" duration-ms="12550" status="FAIL">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[item per page assertion failed expected [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: item per page assertion failed expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:93)
+	at org.testng.Assert.failNotEquals(Assert.java:512)
+	at org.testng.Assert.assertTrue(Assert.java:41)
+	at com.tetherfi.test.ivr.BranchManagementTest.VerifyNumberOfItemsPerPageSelection(BranchManagementTest.java:128)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyNumberOfItemsPerPageSelection -->
+        <test-method is-config="true" signature="afterEachMethod(org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:05:01Z" name="afterEachMethod" finished-at="2019-04-16T16:05:02Z" duration-ms="938" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=VerifyNumberOfItemsPerPageSelection status=FAILURE method=BranchManagementTest.VerifyNumberOfItemsPerPageSelection()[pri:11, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b] output={null}]]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.BranchManagementTest.VerifyNumberOfItemsPerPageSelection()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:05:02Z" name="endTestCase" finished-at="2019-04-16T16:05:02Z" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.BranchManagementTest.VerifyNumberOfItemsPerPageSelection()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method is-config="true" signature="NavigateToBranchManagementPage()[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:05:02Z" name="NavigateToBranchManagementPage" finished-at="2019-04-16T16:05:06Z" duration-ms="3351" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToBranchManagementPage -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:05:02Z" name="startTestCase" finished-at="2019-04-16T16:05:02Z" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.BranchManagementTest.ExportToExcel() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method signature="ExportToExcel()[pri:12, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:05:06Z" name="ExportToExcel" finished-at="2019-04-16T16:05:19Z" duration-ms="12776" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ExportToExcel -->
+        <test-method is-config="true" signature="afterEachMethod(org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:05:19Z" name="afterEachMethod" finished-at="2019-04-16T16:05:19Z" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=ExportToExcel status=SUCCESS method=BranchManagementTest.ExportToExcel()[pri:12, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b] output={null}]]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.BranchManagementTest.ExportToExcel() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:05:19Z" name="endTestCase" finished-at="2019-04-16T16:05:19Z" duration-ms="3" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.BranchManagementTest.ExportToExcel() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:05:19Z" name="startTestCase" finished-at="2019-04-16T16:05:19Z" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.BranchManagementTest.ExportToExcelData() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method is-config="true" signature="NavigateToBranchManagementPage()[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:05:19Z" name="NavigateToBranchManagementPage" finished-at="2019-04-16T16:05:22Z" duration-ms="3379" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToBranchManagementPage -->
+        <test-method signature="ExportToExcelData()[pri:13, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:05:22Z" name="ExportToExcelData" finished-at="2019-04-16T16:05:34Z" duration-ms="12464" status="FAIL">
           <exception class="java.lang.AssertionError">
             <message>
               <![CDATA[expected [true] but found [false]]]>
@@ -175,7 +627,360 @@
 	at org.testng.Assert.failNotEquals(Assert.java:512)
 	at org.testng.Assert.assertTrue(Assert.java:41)
 	at org.testng.Assert.assertTrue(Assert.java:51)
-	at com.tetherfi.test.tmac.WaitTimeColorConfigTest.database(WaitTimeColorConfigTest.java:206)
+	at com.tetherfi.test.ivr.BranchManagementTest.ExportToExcelData(BranchManagementTest.java:148)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ExportToExcelData -->
+        <test-method is-config="true" signature="afterEachMethod(org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:05:34Z" name="afterEachMethod" finished-at="2019-04-16T16:05:35Z" duration-ms="945" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=ExportToExcelData status=FAILURE method=BranchManagementTest.ExportToExcelData()[pri:13, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b] output={null}]]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.BranchManagementTest.ExportToExcelData() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:05:35Z" name="endTestCase" finished-at="2019-04-16T16:05:35Z" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.BranchManagementTest.ExportToExcelData() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method is-config="true" signature="NavigateToBranchManagementPage()[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:05:35Z" name="NavigateToBranchManagementPage" finished-at="2019-04-16T16:05:39Z" duration-ms="3225" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToBranchManagementPage -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:05:35Z" name="startTestCase" finished-at="2019-04-16T16:05:35Z" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.BranchManagementTest.VerifyExportToExcelWithoutData() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method signature="VerifyExportToExcelWithoutData()[pri:14, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:05:39Z" name="VerifyExportToExcelWithoutData" finished-at="2019-04-16T16:05:57Z" duration-ms="17926" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyExportToExcelWithoutData -->
+        <test-method is-config="true" signature="afterEachMethod(org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:05:57Z" name="afterEachMethod" finished-at="2019-04-16T16:05:57Z" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=VerifyExportToExcelWithoutData status=SUCCESS method=BranchManagementTest.VerifyExportToExcelWithoutData()[pri:14, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b] output={null}]]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.BranchManagementTest.VerifyExportToExcelWithoutData() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:05:57Z" name="endTestCase" finished-at="2019-04-16T16:05:57Z" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.BranchManagementTest.VerifyExportToExcelWithoutData() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:05:57Z" name="startTestCase" finished-at="2019-04-16T16:05:57Z" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.BranchManagementTest.SortingByAscending() throws java.io.IOException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method is-config="true" signature="NavigateToBranchManagementPage()[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:05:57Z" name="NavigateToBranchManagementPage" finished-at="2019-04-16T16:06:00Z" duration-ms="3807" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToBranchManagementPage -->
+        <test-method signature="SortingByAscending()[pri:15, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:06:00Z" name="SortingByAscending" finished-at="2019-04-16T16:06:16Z" duration-ms="16086" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SortingByAscending -->
+        <test-method is-config="true" signature="afterEachMethod(org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:06:16Z" name="afterEachMethod" finished-at="2019-04-16T16:06:16Z" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=SortingByAscending status=SUCCESS method=BranchManagementTest.SortingByAscending()[pri:15, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b] output={null}]]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.BranchManagementTest.SortingByAscending() throws java.io.IOException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:06:16Z" name="endTestCase" finished-at="2019-04-16T16:06:16Z" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.BranchManagementTest.SortingByAscending() throws java.io.IOException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:06:16Z" name="startTestCase" finished-at="2019-04-16T16:06:16Z" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.BranchManagementTest.SortingByDescending() throws java.io.IOException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method is-config="true" signature="NavigateToBranchManagementPage()[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:06:16Z" name="NavigateToBranchManagementPage" finished-at="2019-04-16T16:06:23Z" duration-ms="6310" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToBranchManagementPage -->
+        <test-method signature="SortingByDescending()[pri:16, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:06:23Z" name="SortingByDescending" finished-at="2019-04-16T16:06:39Z" duration-ms="16193" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SortingByDescending -->
+        <test-method is-config="true" signature="afterEachMethod(org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:06:39Z" name="afterEachMethod" finished-at="2019-04-16T16:06:39Z" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=SortingByDescending status=SUCCESS method=BranchManagementTest.SortingByDescending()[pri:16, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b] output={null}]]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.BranchManagementTest.SortingByDescending() throws java.io.IOException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:06:39Z" name="endTestCase" finished-at="2019-04-16T16:06:39Z" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.BranchManagementTest.SortingByDescending() throws java.io.IOException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:06:39Z" name="startTestCase" finished-at="2019-04-16T16:06:39Z" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.BranchManagementTest.VerifyDragAndDrop()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method is-config="true" signature="NavigateToBranchManagementPage()[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:06:39Z" name="NavigateToBranchManagementPage" finished-at="2019-04-16T16:06:45Z" duration-ms="6113" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToBranchManagementPage -->
+        <test-method signature="VerifyDragAndDrop()[pri:17, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:06:45Z" name="VerifyDragAndDrop" finished-at="2019-04-16T16:06:57Z" duration-ms="11593" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyDragAndDrop -->
+        <test-method is-config="true" signature="afterEachMethod(org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:06:57Z" name="afterEachMethod" finished-at="2019-04-16T16:06:57Z" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=VerifyDragAndDrop status=SUCCESS method=BranchManagementTest.VerifyDragAndDrop()[pri:17, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b] output={null}]]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.BranchManagementTest.VerifyDragAndDrop()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:06:57Z" name="startTestCase" finished-at="2019-04-16T16:06:57Z" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.BranchManagementTest.VerifyDragAndDropofAlreadyGroupedHeader()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:06:57Z" name="endTestCase" finished-at="2019-04-16T16:06:57Z" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.BranchManagementTest.VerifyDragAndDrop()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method is-config="true" signature="NavigateToBranchManagementPage()[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:06:57Z" name="NavigateToBranchManagementPage" finished-at="2019-04-16T16:07:03Z" duration-ms="6335" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToBranchManagementPage -->
+        <test-method signature="VerifyDragAndDropofAlreadyGroupedHeader()[pri:18, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:07:03Z" name="VerifyDragAndDropofAlreadyGroupedHeader" finished-at="2019-04-16T16:07:15Z" duration-ms="11761" status="FAIL">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[drag and drop assertion failed expected [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: drag and drop assertion failed expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:93)
+	at org.testng.Assert.failNotEquals(Assert.java:512)
+	at org.testng.Assert.assertTrue(Assert.java:41)
+	at com.tetherfi.test.ivr.BranchManagementTest.VerifyDragAndDropofAlreadyGroupedHeader(BranchManagementTest.java:201)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyDragAndDropofAlreadyGroupedHeader -->
+        <test-method is-config="true" signature="afterEachMethod(org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:07:15Z" name="afterEachMethod" finished-at="2019-04-16T16:07:16Z" duration-ms="1709" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=VerifyDragAndDropofAlreadyGroupedHeader status=FAILURE method=BranchManagementTest.VerifyDragAndDropofAlreadyGroupedHeader()[pri:18, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b] output={null}]]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.BranchManagementTest.VerifyDragAndDropofAlreadyGroupedHeader()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:07:16Z" name="endTestCase" finished-at="2019-04-16T16:07:16Z" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.BranchManagementTest.VerifyDragAndDropofAlreadyGroupedHeader()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method is-config="true" signature="NavigateToBranchManagementPage()[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:07:16Z" name="NavigateToBranchManagementPage" finished-at="2019-04-16T16:07:23Z" duration-ms="6595" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToBranchManagementPage -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:07:16Z" name="startTestCase" finished-at="2019-04-16T16:07:16Z" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.BranchManagementTest.database() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method signature="database()[pri:19, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:07:23Z" name="database" finished-at="2019-04-16T16:07:23Z" duration-ms="428" status="FAIL">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[expected [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:93)
+	at org.testng.Assert.failNotEquals(Assert.java:512)
+	at org.testng.Assert.assertTrue(Assert.java:41)
+	at org.testng.Assert.assertTrue(Assert.java:51)
+	at com.tetherfi.test.ivr.BranchManagementTest.database(BranchManagementTest.java:210)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -207,622 +1012,176 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- database -->
-        <test-method is-config="true" signature="afterEachMethod(org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:16:18Z" name="afterEachMethod" finished-at="2019-03-29T21:16:19Z" duration-ms="1247" status="PASS">
+        <test-method is-config="true" signature="afterEachMethod(org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:07:23Z" name="afterEachMethod" finished-at="2019-04-16T16:07:24Z" duration-ms="1013" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=database status=FAILURE method=WaitTimeColorConfigTest.database()[pri:13, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8] output={null}]]]>
+                <![CDATA[[TestResult name=database status=FAILURE method=BranchManagementTest.database()[pri:19, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b] output={null}]]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.database() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.ivr.BranchManagementTest.database() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:16:19Z" name="endTestCase" finished-at="2019-03-29T21:16:19Z" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:07:24Z" name="endTestCase" finished-at="2019-04-16T16:07:24Z" duration-ms="0" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.database() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.ivr.BranchManagementTest.database() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:16:19Z" name="startTestCase" finished-at="2019-03-29T21:16:19Z" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="NavigateToBranchManagementPage()[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:07:24Z" name="NavigateToBranchManagementPage" finished-at="2019-04-16T16:07:28Z" duration-ms="3810" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToBranchManagementPage -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:07:24Z" name="startTestCase" finished-at="2019-04-16T16:07:24Z" duration-ms="0" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.GroupBy()]]>
+                <![CDATA[public void com.tetherfi.test.ivr.BranchManagementTest.searchPage() throws java.io.IOException]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigateToWaitTimeColorConfigPage()[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:16:19Z" name="NavigateToWaitTimeColorConfigPage" finished-at="2019-03-29T21:16:24Z" duration-ms="4478" status="PASS">
+        <test-method signature="searchPage()[pri:20, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:07:28Z" name="searchPage" finished-at="2019-04-16T16:07:37Z" duration-ms="8411" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- NavigateToWaitTimeColorConfigPage -->
-        <test-method signature="GroupBy()[pri:14, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:16:24Z" name="GroupBy" finished-at="2019-03-29T21:16:26Z" duration-ms="2195" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- GroupBy -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:16:26Z" name="endTestCase" finished-at="2019-03-29T21:16:26Z" duration-ms="0" status="PASS">
+        </test-method> <!-- searchPage -->
+        <test-method is-config="true" signature="afterEachMethod(org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:07:37Z" name="afterEachMethod" finished-at="2019-04-16T16:07:37Z" duration-ms="1" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.GroupBy()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="afterEachMethod(org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:16:26Z" name="afterEachMethod" finished-at="2019-03-29T21:16:26Z" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=GroupBy status=SUCCESS method=WaitTimeColorConfigTest.GroupBy()[pri:14, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8] output={null}]]]>
+                <![CDATA[[TestResult name=searchPage status=SUCCESS method=BranchManagementTest.searchPage()[pri:20, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b] output={null}]]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.GroupBy()]]>
+                <![CDATA[public void com.tetherfi.test.ivr.BranchManagementTest.searchPage() throws java.io.IOException]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:16:26Z" name="startTestCase" finished-at="2019-03-29T21:16:26Z" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:07:37Z" name="endTestCase" finished-at="2019-04-16T16:07:37Z" duration-ms="2" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.VerifyArrowMoveForPreviousAndNextPage()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigateToWaitTimeColorConfigPage()[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:16:26Z" name="NavigateToWaitTimeColorConfigPage" finished-at="2019-03-29T21:16:31Z" duration-ms="5235" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToWaitTimeColorConfigPage -->
-        <test-method signature="VerifyArrowMoveForPreviousAndNextPage()[pri:15, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:16:31Z" name="VerifyArrowMoveForPreviousAndNextPage" finished-at="2019-03-29T21:16:32Z" duration-ms="463" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- VerifyArrowMoveForPreviousAndNextPage -->
-        <test-method is-config="true" signature="afterEachMethod(org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:16:32Z" name="afterEachMethod" finished-at="2019-03-29T21:16:32Z" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=VerifyArrowMoveForPreviousAndNextPage status=SUCCESS method=WaitTimeColorConfigTest.VerifyArrowMoveForPreviousAndNextPage()[pri:15, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8] output={null}]]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.VerifyArrowMoveForPreviousAndNextPage()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:16:32Z" name="endTestCase" finished-at="2019-03-29T21:16:32Z" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.VerifyArrowMoveForPreviousAndNextPage()]]>
+                <![CDATA[public void com.tetherfi.test.ivr.BranchManagementTest.searchPage() throws java.io.IOException]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:16:32Z" name="startTestCase" finished-at="2019-03-29T21:16:32Z" duration-ms="4" status="PASS">
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:07:37Z" name="startTestCase" finished-at="2019-04-16T16:07:37Z" duration-ms="1" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.VerifyArrowMoveForFirstAndLastPage()]]>
+                <![CDATA[public void com.tetherfi.test.ivr.BranchManagementTest.searchwithoutSearchTextbox() throws java.io.IOException]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigateToWaitTimeColorConfigPage()[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:16:32Z" name="NavigateToWaitTimeColorConfigPage" finished-at="2019-03-29T21:16:37Z" duration-ms="4874" status="PASS">
+        <test-method is-config="true" signature="NavigateToBranchManagementPage()[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:07:37Z" name="NavigateToBranchManagementPage" finished-at="2019-04-16T16:07:43Z" duration-ms="6029" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- NavigateToWaitTimeColorConfigPage -->
-        <test-method signature="VerifyArrowMoveForFirstAndLastPage()[pri:16, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:16:37Z" name="VerifyArrowMoveForFirstAndLastPage" finished-at="2019-03-29T21:16:37Z" duration-ms="552" status="PASS">
+        </test-method> <!-- NavigateToBranchManagementPage -->
+        <test-method signature="searchwithoutSearchTextbox()[pri:21, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:07:43Z" name="searchwithoutSearchTextbox" finished-at="2019-04-16T16:07:49Z" duration-ms="5958" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- VerifyArrowMoveForFirstAndLastPage -->
-        <test-method is-config="true" signature="afterEachMethod(org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:16:37Z" name="afterEachMethod" finished-at="2019-03-29T21:16:37Z" duration-ms="0" status="PASS">
+        </test-method> <!-- searchwithoutSearchTextbox -->
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:07:49Z" name="endTestCase" finished-at="2019-04-16T16:07:49Z" duration-ms="1" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=VerifyArrowMoveForFirstAndLastPage status=SUCCESS method=WaitTimeColorConfigTest.VerifyArrowMoveForFirstAndLastPage()[pri:16, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8] output={null}]]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.VerifyArrowMoveForFirstAndLastPage()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:16:37Z" name="endTestCase" finished-at="2019-03-29T21:16:37Z" duration-ms="4" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.VerifyArrowMoveForFirstAndLastPage()]]>
+                <![CDATA[public void com.tetherfi.test.ivr.BranchManagementTest.searchwithoutSearchTextbox() throws java.io.IOException]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:16:37Z" name="startTestCase" finished-at="2019-03-29T21:16:37Z" duration-ms="4" status="PASS">
+        <test-method is-config="true" signature="afterEachMethod(org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:07:49Z" name="afterEachMethod" finished-at="2019-04-16T16:07:49Z" duration-ms="0" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.VerifyTotalNumberOfItemsPerPageDetails()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigateToWaitTimeColorConfigPage()[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:16:37Z" name="NavigateToWaitTimeColorConfigPage" finished-at="2019-03-29T21:16:43Z" duration-ms="5681" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToWaitTimeColorConfigPage -->
-        <test-method signature="VerifyTotalNumberOfItemsPerPageDetails()[pri:17, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:16:43Z" name="VerifyTotalNumberOfItemsPerPageDetails" finished-at="2019-03-29T21:16:43Z" duration-ms="509" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- VerifyTotalNumberOfItemsPerPageDetails -->
-        <test-method is-config="true" signature="afterEachMethod(org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:16:43Z" name="afterEachMethod" finished-at="2019-03-29T21:16:43Z" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=VerifyTotalNumberOfItemsPerPageDetails status=SUCCESS method=WaitTimeColorConfigTest.VerifyTotalNumberOfItemsPerPageDetails()[pri:17, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8] output={null}]]]>
+                <![CDATA[[TestResult name=searchwithoutSearchTextbox status=SUCCESS method=BranchManagementTest.searchwithoutSearchTextbox()[pri:21, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b] output={null}]]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.VerifyTotalNumberOfItemsPerPageDetails()]]>
+                <![CDATA[public void com.tetherfi.test.ivr.BranchManagementTest.searchwithoutSearchTextbox() throws java.io.IOException]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:16:43Z" name="endTestCase" finished-at="2019-03-29T21:16:43Z" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.VerifyTotalNumberOfItemsPerPageDetails()]]>
-              </value>
-            </param>
-          </params>
+        <test-method is-config="true" signature="NavigateToBranchManagementPage()[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:07:49Z" name="NavigateToBranchManagementPage" finished-at="2019-04-16T16:07:55Z" duration-ms="6158" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:16:43Z" name="startTestCase" finished-at="2019-03-29T21:16:43Z" duration-ms="0" status="PASS">
+        </test-method> <!-- NavigateToBranchManagementPage -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:07:49Z" name="startTestCase" finished-at="2019-04-16T16:07:49Z" duration-ms="0" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.VerifyNumberOfItemsPerPageSelection()]]>
+                <![CDATA[public void com.tetherfi.test.ivr.BranchManagementTest.SearchClearSearch() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigateToWaitTimeColorConfigPage()[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:16:43Z" name="NavigateToWaitTimeColorConfigPage" finished-at="2019-03-29T21:16:48Z" duration-ms="4648" status="PASS">
+        <test-method signature="SearchClearSearch()[pri:22, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:07:55Z" name="SearchClearSearch" finished-at="2019-04-16T16:08:05Z" duration-ms="9905" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- NavigateToWaitTimeColorConfigPage -->
-        <test-method signature="VerifyNumberOfItemsPerPageSelection()[pri:18, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:16:48Z" name="VerifyNumberOfItemsPerPageSelection" finished-at="2019-03-29T21:16:55Z" duration-ms="6933" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- VerifyNumberOfItemsPerPageSelection -->
-        <test-method is-config="true" signature="afterEachMethod(org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:16:55Z" name="afterEachMethod" finished-at="2019-03-29T21:16:55Z" duration-ms="0" status="PASS">
+        </test-method> <!-- SearchClearSearch -->
+        <test-method is-config="true" signature="afterEachMethod(org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:08:05Z" name="afterEachMethod" finished-at="2019-04-16T16:08:05Z" duration-ms="0" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=VerifyNumberOfItemsPerPageSelection status=SUCCESS method=WaitTimeColorConfigTest.VerifyNumberOfItemsPerPageSelection()[pri:18, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8] output={null}]]]>
+                <![CDATA[[TestResult name=SearchClearSearch status=SUCCESS method=BranchManagementTest.SearchClearSearch()[pri:22, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b] output={null}]]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.VerifyNumberOfItemsPerPageSelection()]]>
+                <![CDATA[public void com.tetherfi.test.ivr.BranchManagementTest.SearchClearSearch() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:16:55Z" name="startTestCase" finished-at="2019-03-29T21:16:55Z" duration-ms="3" status="PASS">
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:08:05Z" name="endTestCase" finished-at="2019-04-16T16:08:05Z" duration-ms="0" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.VerifyDropdownForAllTheColumns()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:16:55Z" name="endTestCase" finished-at="2019-03-29T21:16:55Z" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.VerifyNumberOfItemsPerPageSelection()]]>
+                <![CDATA[public void com.tetherfi.test.ivr.BranchManagementTest.SearchClearSearch() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="NavigateToWaitTimeColorConfigPage()[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:16:55Z" name="NavigateToWaitTimeColorConfigPage" finished-at="2019-03-29T21:17:01Z" duration-ms="5789" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToWaitTimeColorConfigPage -->
-        <test-method signature="VerifyDropdownForAllTheColumns()[pri:19, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:17:01Z" name="VerifyDropdownForAllTheColumns" finished-at="2019-03-29T21:17:11Z" duration-ms="10663" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- VerifyDropdownForAllTheColumns -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:17:11Z" name="endTestCase" finished-at="2019-03-29T21:17:11Z" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.VerifyDropdownForAllTheColumns()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="afterEachMethod(org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:17:11Z" name="afterEachMethod" finished-at="2019-03-29T21:17:11Z" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=VerifyDropdownForAllTheColumns status=SUCCESS method=WaitTimeColorConfigTest.VerifyDropdownForAllTheColumns()[pri:19, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8] output={null}]]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.VerifyDropdownForAllTheColumns()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:17:11Z" name="startTestCase" finished-at="2019-03-29T21:17:11Z" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.VerifyColumnsHeaderEnable()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigateToWaitTimeColorConfigPage()[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:17:11Z" name="NavigateToWaitTimeColorConfigPage" finished-at="2019-03-29T21:17:17Z" duration-ms="5083" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToWaitTimeColorConfigPage -->
-        <test-method signature="VerifyColumnsHeaderEnable()[pri:20, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:17:17Z" name="VerifyColumnsHeaderEnable" finished-at="2019-03-29T21:17:22Z" duration-ms="4971" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- VerifyColumnsHeaderEnable -->
-        <test-method is-config="true" signature="afterEachMethod(org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:17:22Z" name="afterEachMethod" finished-at="2019-03-29T21:17:22Z" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=VerifyColumnsHeaderEnable status=SUCCESS method=WaitTimeColorConfigTest.VerifyColumnsHeaderEnable()[pri:20, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8] output={null}]]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.VerifyColumnsHeaderEnable()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:17:22Z" name="endTestCase" finished-at="2019-03-29T21:17:22Z" duration-ms="4" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.VerifyColumnsHeaderEnable()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:17:22Z" name="startTestCase" finished-at="2019-03-29T21:17:22Z" duration-ms="4" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.VerifyColumnsHeaderDisable()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigateToWaitTimeColorConfigPage()[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:17:22Z" name="NavigateToWaitTimeColorConfigPage" finished-at="2019-03-29T21:17:27Z" duration-ms="5752" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToWaitTimeColorConfigPage -->
-        <test-method signature="VerifyColumnsHeaderDisable()[pri:21, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:17:27Z" name="VerifyColumnsHeaderDisable" finished-at="2019-03-29T21:17:35Z" duration-ms="8209" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- VerifyColumnsHeaderDisable -->
-        <test-method is-config="true" signature="afterEachMethod(org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:17:35Z" name="afterEachMethod" finished-at="2019-03-29T21:17:35Z" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=VerifyColumnsHeaderDisable status=SUCCESS method=WaitTimeColorConfigTest.VerifyColumnsHeaderDisable()[pri:21, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8] output={null}]]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.VerifyColumnsHeaderDisable()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:17:35Z" name="endTestCase" finished-at="2019-03-29T21:17:35Z" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.VerifyColumnsHeaderDisable()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:17:36Z" name="startTestCase" finished-at="2019-03-29T21:17:36Z" duration-ms="1" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.SortingByAscending() throws java.io.IOException]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigateToWaitTimeColorConfigPage()[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:17:36Z" name="NavigateToWaitTimeColorConfigPage" finished-at="2019-03-29T21:17:40Z" duration-ms="4699" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToWaitTimeColorConfigPage -->
-        <test-method signature="SortingByAscending()[pri:22, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:17:40Z" name="SortingByAscending" finished-at="2019-03-29T21:17:47Z" duration-ms="6943" status="FAIL">
-          <exception class="java.lang.AssertionError">
-            <message>
-              <![CDATA[expected [true] but found [false]]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: expected [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:93)
-	at org.testng.Assert.failNotEquals(Assert.java:512)
-	at org.testng.Assert.assertTrue(Assert.java:41)
-	at org.testng.Assert.assertTrue(Assert.java:51)
-	at com.tetherfi.test.tmac.WaitTimeColorConfigTest.SortingByAscending(WaitTimeColorConfigTest.java:270)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-	at org.testng.TestRunner.privateRun(TestRunner.java:744)
-	at org.testng.TestRunner.run(TestRunner.java:602)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
-	at org.testng.TestNG.runSuites(TestNG.java:1144)
-	at org.testng.TestNG.run(TestNG.java:1115)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- SortingByAscending -->
-        <test-method is-config="true" signature="afterEachMethod(org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:17:47Z" name="afterEachMethod" finished-at="2019-03-29T21:17:48Z" duration-ms="1180" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=SortingByAscending status=FAILURE method=WaitTimeColorConfigTest.SortingByAscending()[pri:22, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8] output={null}]]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.SortingByAscending() throws java.io.IOException]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:17:48Z" name="endTestCase" finished-at="2019-03-29T21:17:48Z" duration-ms="4" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.SortingByAscending() throws java.io.IOException]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="NavigateToWaitTimeColorConfigPage()[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:17:48Z" name="NavigateToWaitTimeColorConfigPage" finished-at="2019-03-29T21:17:54Z" duration-ms="5444" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToWaitTimeColorConfigPage -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:17:48Z" name="startTestCase" finished-at="2019-03-29T21:17:48Z" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.SortingByDescending() throws java.io.IOException]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method signature="SortingByDescending()[pri:23, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:17:54Z" name="SortingByDescending" finished-at="2019-03-29T21:18:01Z" duration-ms="6806" status="FAIL">
-          <exception class="java.lang.AssertionError">
-            <message>
-              <![CDATA[expected [true] but found [false]]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: expected [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:93)
-	at org.testng.Assert.failNotEquals(Assert.java:512)
-	at org.testng.Assert.assertTrue(Assert.java:41)
-	at org.testng.Assert.assertTrue(Assert.java:51)
-	at com.tetherfi.test.tmac.WaitTimeColorConfigTest.SortingByDescending(WaitTimeColorConfigTest.java:279)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-	at org.testng.TestRunner.privateRun(TestRunner.java:744)
-	at org.testng.TestRunner.run(TestRunner.java:602)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
-	at org.testng.TestNG.runSuites(TestNG.java:1144)
-	at org.testng.TestNG.run(TestNG.java:1115)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- SortingByDescending -->
-        <test-method is-config="true" signature="afterEachMethod(org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:18:01Z" name="afterEachMethod" finished-at="2019-03-29T21:18:02Z" duration-ms="1272" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=SortingByDescending status=FAILURE method=WaitTimeColorConfigTest.SortingByDescending()[pri:23, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8] output={null}]]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.SortingByDescending() throws java.io.IOException]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:18:02Z" name="endTestCase" finished-at="2019-03-29T21:18:02Z" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.SortingByDescending() throws java.io.IOException]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:18:02Z" name="startTestCase" finished-at="2019-03-29T21:18:02Z" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.ExporttoExcelWithoutData() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigateToWaitTimeColorConfigPage()[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:18:02Z" name="NavigateToWaitTimeColorConfigPage" finished-at="2019-03-29T21:18:07Z" duration-ms="5439" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToWaitTimeColorConfigPage -->
-        <test-method signature="ExporttoExcelWithoutData()[pri:24, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:18:07Z" name="ExporttoExcelWithoutData" finished-at="2019-03-29T21:18:15Z" duration-ms="7667" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- ExporttoExcelWithoutData -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:18:15Z" name="tearDown" finished-at="2019-03-29T21:18:17Z" duration-ms="1741" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.tetherfi.test.ivr.BranchManagementTest@d2e6b0b]" started-at="2019-04-16T16:08:05Z" name="tearDown" finished-at="2019-04-16T16:08:16Z" duration-ms="11629" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="afterEachMethod(org.testng.ITestResult, java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:18:15Z" name="afterEachMethod" finished-at="2019-03-29T21:18:15Z" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=ExporttoExcelWithoutData status=SUCCESS method=WaitTimeColorConfigTest.ExporttoExcelWithoutData()[pri:24, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8] output={null}]]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.ExporttoExcelWithoutData() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.WaitTimeColorConfigTest@2acdcce8]" started-at="2019-03-29T21:18:15Z" name="endTestCase" finished-at="2019-03-29T21:18:15Z" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.ExporttoExcelWithoutData() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-      </class> <!-- com.tetherfi.test.tmac.WaitTimeColorConfigTest -->
+      </class> <!-- com.tetherfi.test.ivr.BranchManagementTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

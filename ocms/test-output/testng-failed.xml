@@ -3,19 +3,20 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.tetherfi.test.tmac.WaitTimeColorConfigTest">
+      <class name="com.tetherfi.test.ivr.BranchManagementTest">
         <methods>
           <include name="startTestCase"/>
-          <include name="afterEachMethod"/>
           <include name="openApplication"/>
-          <include name="database"/>
-          <include name="SortingByAscending"/>
-          <include name="NavigateToWaitTimeColorConfigPage"/>
+          <include name="ExportToExcelData"/>
+          <include name="VerifyDragAndDropofAlreadyGroupedHeader"/>
+          <include name="afterEachMethod"/>
           <include name="endTestCase"/>
+          <include name="VerifyNumberOfItemsPerPageSelection"/>
           <include name="tearDown"/>
-          <include name="SortingByDescending"/>
+          <include name="NavigateToBranchManagementPage"/>
+          <include name="database"/>
         </methods>
-      </class> <!-- com.tetherfi.test.tmac.WaitTimeColorConfigTest -->
+      </class> <!-- com.tetherfi.test.ivr.BranchManagementTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

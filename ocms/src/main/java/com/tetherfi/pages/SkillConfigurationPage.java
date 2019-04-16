@@ -141,7 +141,7 @@ public class SkillConfigurationPage extends BasePage {
     @FindBy(xpath="//tbody/tr/td/p[@class='k-reset']/../../following-sibling::tr/td[4]")
     private WebElement groupbySkillName;
     
-    @FindBy(xpath="//tbody/tr/td[2]")
+    @FindBy(xpath="//tbody/tr/td[3]")
     private WebElement rowdata;
     
     @FindBy(xpath="//button[text()='Clear All']")
@@ -162,8 +162,53 @@ public class SkillConfigurationPage extends BasePage {
     @FindBy(id = "ModifyReason1")
     private WebElement deleteReasonTextBox;
     
+    @FindBy(id="yesButton")
+    private WebElement yesBtn;
+    
     @FindBy(id="noButton")
     private WebElement nobtn;
+    
+    @FindBy(css="input[placeholder='Enter Skill ID']")
+    private WebElement skillIdTextbox;
+    
+    @FindBy(id="SkillName")
+    private WebElement skillNameTextbox;
+    
+    @FindBy(css="input[placeholder='Enter Skill Extension']")
+    private WebElement skillExtensionTextbox;
+    
+    @FindBy(css="span[aria-owns='Prioritylevel_listbox']")
+    private WebElement skillPriorityDropDown;
+    
+    @FindBy(css="ul[id='Prioritylevel_listbox'] li")
+    private List<WebElement> skillPriorityList;
+    
+    @FindBy(id="SkillTimeOutTime")
+    private WebElement skillTimeout;
+    
+    @FindBy(id="SLATime")
+    private WebElement acceptedSla;
+    
+    @FindBy(css="span[aria-owns='IsEnabled_listbox']")
+    private WebElement enabledDropDown;
+    
+    @FindBy(css="ul[id='IsEnabled_listbox'] li")
+    private List<WebElement> enabledList;
+    
+    @FindBy(css=".k-edit-form-container .k-grid-update")
+    private WebElement saveBtn;
+
+    @FindBy(css=".k-grid-cancel")
+    private WebElement cancelBtn;
+    
+    @FindBy(css=".toast-message")
+    private WebElement successmsg;
+    
+    @FindBy(css=".k-edit-form-container #ModifyReason")
+    private  WebElement modifyReasonTextBox;
+    
+    @FindBy(xpath="//a[text()='Skill ID']")
+    private WebElement SkillID;
     
     public boolean isSkillConfigurationPageDisplayed() {
         waitForLoad(driver);
@@ -273,6 +318,7 @@ public class SkillConfigurationPage extends BasePage {
 				map.put(headers.get(j).getText(),col);
 			}
 			map.remove("");
+			
 			arr.add(map);
 		}
 		if(k!=pages)
@@ -283,6 +329,7 @@ public class SkillConfigurationPage extends BasePage {
 			return arr;
 	}
 	public boolean verifyDatabase(String query) {
+		selectWebElement(SkillID);
 		List<Map<String,String>> database=database(query);
 		System.out.println(database);
 		List<Map<String,String>> UI=gettable(); 
@@ -308,14 +355,29 @@ public class SkillConfigurationPage extends BasePage {
 			List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
 			String col=null;
 			for(int j=1;j<headers.size();j++){
-				if(headers.get(j).getText().equals("Last Changed On")){
-					col=cols.get(j).getText().substring(11);
+				if(headers.get(j).getText().equals("Enabled")){
+					if(cols.get(j).getText().equals("Yes"))
+					col="1";
+					else 
+						col="0";
 					}
+				else if(headers.get(j).getText().equals("Skill Priority")) {
+					if(cols.get(j).getText().equals("Top"))
+						col="1";
+					else if(cols.get(j).getText().equals("High"))
+						col="2";
+					else if(cols.get(j).getText().equals("Medium"))
+						col="3";
+					else 
+						col="4";
+				}
 				else
 					col=cols.get(j).getText();
 				map.put(headers.get(j).getText(),col);
 			}
 			map.remove("");
+			map.remove("Accepted SL");
+			map.remove("Time Out");
 			arr.add(map);
 		}
 		if(k!=pages)
@@ -540,7 +602,7 @@ public class SkillConfigurationPage extends BasePage {
 	}
     
     public boolean verifydeleteNo(SkillConfigurationDetails details) {
-    	searchSkillConfigurationRecord(details.getSkillName());		
+    	searchSkillConfigurationRecord(details.getSkillID());		
     	selectWebElement(deleteButton);
 		try {
 			Thread.sleep(3000);
@@ -566,13 +628,13 @@ public class SkillConfigurationPage extends BasePage {
 		else
 		return false;
 	}
-	public boolean clearAll(OperatingHoursDetails details) {
+	public boolean clearAll(SkillConfigurationDetails details) {
 		selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
-        selectDropdownFromVisibleText(columnNameList,"VDN");
+        selectDropdownFromVisibleText(columnNameList,"Skill Name");
         selectWebElement(selectSearchCol.get(1));
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is equal to");
-        enterValueToTxtField(searchTextBox,details.getVdnName());
+        enterValueToTxtField(searchTextBox,details.getSkillName());
         selectWebElement(clearall);
         if(searchTextBox.isEnabled())
         	return true;
@@ -587,7 +649,7 @@ public class SkillConfigurationPage extends BasePage {
 		else
 		return false;
 	}
-	public boolean verifyinvalidsearchwithwrongdata(SkillConfigurationDetails details) {
+	public boolean verifyinvalidsearch(SkillConfigurationDetails details) {
 		searchSkillConfigurationRecord(details.getSkillName());		
 		if(norecords.isDisplayed())
 			return true; 
@@ -601,4 +663,188 @@ public class SkillConfigurationPage extends BasePage {
 		else
 		return false;
 	}
+
+	public boolean addNewCancel(SkillConfigurationDetails details) {
+		String actualitems=items.getText();
+		selectWebElement(addNewRecordBtn);
+        waitForJqueryLoad(driver);
+        enterValueToTxtField(skillIdTextbox, details.getSkillID());
+        enterValueToTxtField(skillNameTextbox, details.getSkillName());
+        enterValueToTxtField(skillExtensionTextbox, details.getSkillExtension());
+        selectWebElement(skillPriorityDropDown);
+        selectDropdownFromVisibleText(skillPriorityList,details.getSkillPriority());
+        enterValueToTxtField(skillTimeout, details.getTimeout());
+        enterValueToTxtField(acceptedSla, details.getAcceptedSL());
+        selectWebElement(enabledDropDown);
+        selectDropdownFromVisibleText(enabledList,details.getEnabled());
+        selectWebElement(cancelBtn);
+        if(actualitems.equals(items.getText()))
+        	return true;
+        else
+		return false;
+	}
+
+	public void addNewSkillConfigurationRecord(SkillConfigurationDetails details) {
+		selectWebElement(addNewRecordBtn);
+        waitForJqueryLoad(driver);
+        enterValueToTxtField(skillIdTextbox, details.getSkillID());
+        enterValueToTxtField(skillNameTextbox, details.getSkillName());
+        enterValueToTxtField(skillExtensionTextbox, details.getSkillExtension());
+        selectWebElement(skillPriorityDropDown);
+        selectDropdownFromVisibleText(skillPriorityList,details.getSkillPriority());
+        enterValueToTxtField(skillTimeout, details.getTimeout());
+        enterValueToTxtField(acceptedSla, details.getAcceptedSL());
+        selectWebElement(enabledDropDown);
+        selectDropdownFromVisibleText(enabledList,details.getEnabled());
+        selectWebElement(saveBtn);
+        try {
+        	selectWebElement(cancelBtn);
+        }
+        catch(Exception e)
+        {
+        	e.printStackTrace();
+        }
+	}
+
+	public String getMessage() {
+		if(errorMsg.size()>0){return errorMsg.get(0).getText();}
+        else {
+        waitUntilWebElementIsVisible(successmsg);
+         return successmsg.getText();}
+	}
+	
+	public boolean verifyMessage() {
+		waitUntilWebElementListIsVisible(errorMsg);									 
+		if(errorMsg.size()>0)
+		return false;
+		else 
+			return true;
+	}
+
+	public void addNewRecordWithoutSkillID(SkillConfigurationDetails details) {
+		selectWebElement(addNewRecordBtn);
+        waitForJqueryLoad(driver);
+        enterValueToTxtField(skillNameTextbox, details.getSkillName());
+        enterValueToTxtField(skillExtensionTextbox, details.getSkillExtension());
+        selectWebElement(skillPriorityDropDown);
+        selectDropdownFromVisibleText(skillPriorityList,details.getSkillPriority());
+        enterValueToTxtField(skillTimeout, details.getTimeout());
+        enterValueToTxtField(acceptedSla, details.getAcceptedSL());
+        selectWebElement(enabledDropDown);
+        selectDropdownFromVisibleText(enabledList,details.getEnabled());
+        selectWebElement(saveBtn);	
+        selectWebElement(cancelBtn);
+	}
+
+	public void addNewRecordWithoutSkillName(SkillConfigurationDetails details) {
+		selectWebElement(addNewRecordBtn);
+        waitForJqueryLoad(driver);
+        enterValueToTxtField(skillIdTextbox, details.getSkillID());
+        enterValueToTxtField(skillExtensionTextbox, details.getSkillExtension());
+        selectWebElement(skillPriorityDropDown);
+        selectDropdownFromVisibleText(skillPriorityList,details.getSkillPriority());
+        enterValueToTxtField(skillTimeout, details.getTimeout());
+        enterValueToTxtField(acceptedSla, details.getAcceptedSL());
+        selectWebElement(enabledDropDown);
+        selectDropdownFromVisibleText(enabledList,details.getEnabled());
+        selectWebElement(saveBtn);
+        selectWebElement(cancelBtn);
+	}
+
+	public void addNewRecordWithoutSkillExtension(SkillConfigurationDetails details) {
+		selectWebElement(addNewRecordBtn);
+        waitForJqueryLoad(driver);
+        enterValueToTxtField(skillIdTextbox, details.getSkillID());
+        enterValueToTxtField(skillNameTextbox, details.getSkillName());
+        selectWebElement(skillPriorityDropDown);
+        selectDropdownFromVisibleText(skillPriorityList,details.getSkillPriority());
+        enterValueToTxtField(skillTimeout, details.getTimeout());
+        enterValueToTxtField(acceptedSla, details.getAcceptedSL());
+        selectWebElement(enabledDropDown);
+        selectDropdownFromVisibleText(enabledList,details.getEnabled());
+        selectWebElement(saveBtn);
+        selectWebElement(cancelBtn);		
+	}
+
+	public void addNewRecordWithoutSkillPriority(SkillConfigurationDetails details) {
+		selectWebElement(addNewRecordBtn);
+        waitForJqueryLoad(driver);
+        enterValueToTxtField(skillIdTextbox, details.getSkillID());
+        enterValueToTxtField(skillNameTextbox, details.getSkillName());
+        enterValueToTxtField(skillExtensionTextbox, details.getSkillExtension());
+        enterValueToTxtField(skillTimeout, details.getTimeout());
+        enterValueToTxtField(acceptedSla, details.getAcceptedSL());
+        selectWebElement(enabledDropDown);
+        selectDropdownFromVisibleText(enabledList,details.getEnabled());
+        selectWebElement(saveBtn);
+        selectWebElement(cancelBtn);		
+	}
+
+	public void addNewRecordWithoutEnabled(SkillConfigurationDetails details) {
+		selectWebElement(addNewRecordBtn);
+        waitForJqueryLoad(driver);
+        enterValueToTxtField(skillIdTextbox, details.getSkillID());
+        enterValueToTxtField(skillNameTextbox, details.getSkillName());
+        enterValueToTxtField(skillExtensionTextbox, details.getSkillExtension());
+        selectWebElement(skillPriorityDropDown);
+        selectDropdownFromVisibleText(skillPriorityList,details.getSkillPriority());
+        enterValueToTxtField(skillTimeout, details.getTimeout());
+        enterValueToTxtField(acceptedSla, details.getAcceptedSL());
+        selectWebElement(saveBtn);
+        selectWebElement(cancelBtn);		
+	}
+
+	public boolean editcancel(SkillConfigurationDetails details) {
+		searchSkillConfigurationRecord(details.getSkillID());
+        try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+        selectWebElement(editButton);
+        waitForJqueryLoad(driver);
+        enterValueToTxtField(skillNameTextbox, details.getUpdatedSkillName());
+        selectWebElement(enabledDropDown);
+        selectDropdownFromVisibleText(enabledList,details.getUpdatedEnabled());
+        selectWebElement(cancelBtn);
+        if(rowdata.getText().equals(details.getSkillName()))
+        	return true;
+        else
+        return false;
+	}
+
+	public void editSkillConfigurationRecord(SkillConfigurationDetails details) {
+		searchSkillConfigurationRecord(details.getSkillID());
+        try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+        selectWebElement(editButton);
+        waitForJqueryLoad(driver);
+        try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+        enterValueToTxtField(skillNameTextbox, details.getUpdatedSkillName());
+        selectWebElement(enabledDropDown);
+        selectDropdownFromVisibleText(enabledList,details.getUpdatedEnabled());	
+        enterValueToTxtField(modifyReasonTextBox, details.getModifyReason());
+        selectWebElement(saveBtn);
+	}
+
+	public void deleteWaitTimeColorConfigRecord(SkillConfigurationDetails details) {
+		searchSkillConfigurationRecord(details.getSkillID());		
+    	selectWebElement(deleteButton);
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		enterValueToTxtField(deleteReasonTextBox,details.getDeleteReason());
+		selectWebElement(yesBtn);		
+	}
+
+	
 }

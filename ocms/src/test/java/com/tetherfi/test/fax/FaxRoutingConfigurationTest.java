@@ -14,20 +14,29 @@ import org.testng.annotations.Test;
 
 import com.tetherfi.model.fax.FaxLineConfigDetails;
 import com.tetherfi.model.fax.FaxRoutingConfigurationDetails;
+import com.tetherfi.model.fax.FaxSendersDetails;
+import com.tetherfi.model.fax.SendFaxDetails;
 import com.tetherfi.model.report.ReportDetails;
 import com.tetherfi.pages.FaxLineConfigPage;
 import com.tetherfi.pages.FaxPage;
 import com.tetherfi.pages.FaxRoutingConfigurationPage;
+import com.tetherfi.pages.FaxSendersPage;
 import com.tetherfi.pages.HomePage;
 import com.tetherfi.pages.OCMHomePage;
 import com.tetherfi.pages.OCMReportsPage;
+import com.tetherfi.pages.SendFaxPage;
 import com.tetherfi.test.BaseTest;
 import com.tetherfi.utility.ExcelReader;
+import com.tetherfi.utility.FTPServer;
 import com.tetherfi.utility.PageFactory;
 import com.tetherfi.utility.Screenshot;
 
 public class FaxRoutingConfigurationTest extends BaseTest{
 	Screenshot screenshot=new Screenshot(driver);
+	FTPServer ftp=new FTPServer();
+	String filepath="\\\\172.16.2.16\\d$\\Products\\WindowsServices\\TFax\\RouteData";
+	String filepath1="\\\\\\\\172.16.2.16\\\\d$\\\\Products\\\\WindowsServices\\\\TFax\\\\RouteData\\20000\\Test";
+	
 	//@BeforeClass
     public void AddFaxLineConfigRecord() throws IOException {
         HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
@@ -101,7 +110,8 @@ public class FaxRoutingConfigurationTest extends BaseTest{
     }
     
     //@Test(priority=3)
-    public void AddFaxRoutingConfigFolderRecord() throws IOException {
+    public void AddFaxRoutingConfigFolderRecord() throws Exception {
+    	ftp.DeleteFilesFromFolder(filepath);
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxRoutingConfigData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(1);
         FaxRoutingConfigurationDetails faxRoutingConfigDetails = new FaxRoutingConfigurationDetails(map);
@@ -126,6 +136,44 @@ public class FaxRoutingConfigurationTest extends BaseTest{
     	screenshot.captureScreen(driver,"VerifyAuditTrialReportForCreate","FaxRoutingConfigTest");
     	}
     
+    //@Test(dependsOnMethods = {"AddFaxRoutingConfigFolderRecord"},priority=5)
+    public void VerifyRouteFolder() throws Exception {
+    	 String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxRoutingConfigData.xlsx";
+         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(1);
+         FaxRoutingConfigurationDetails faxRoutingConfigDetails = new FaxRoutingConfigurationDetails(map);
+         Assert.assertTrue((ftp.FolderExist(filepath+"\\"+faxRoutingConfigDetails.getFaxLine()+"\\"+faxRoutingConfigDetails.getRouteData())));
+    }
+    
+    @Test//(dependsOnMethods= {"VerifyRouteFolder"},priority=6)
+    public void VerifyFaxInRouteFolder() throws Exception {
+    	 HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
+         homePage.navigateToOCMPage();
+         OCMHomePage ocmHomePage = PageFactory.createPageInstance(driver, OCMHomePage.class);
+         Assert.assertTrue(ocmHomePage.isOCMHomePageIsDisplayed(), "OCM HOME Page assertion failed");
+         ocmHomePage.navigateToTab("FAX");
+         FaxPage faxPage = PageFactory.createPageInstance(driver, FaxPage.class);
+         Assert.assertTrue(faxPage.isFaxPageDisplayed(), "fax page assertion failed");
+         faxPage.navigateToFaxSendersPage();
+         FaxSendersPage faxSendersPage = PageFactory.createPageInstance(driver, FaxSendersPage.class);         
+         Assert.assertTrue(faxSendersPage.isFaxSendersPageDisplayed(), "FAX page assertion failed");  
+         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxSendersData.xlsx";
+         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(4);
+         FaxSendersDetails faxSendersDetails = new FaxSendersDetails(map);
+         faxSendersPage.addNewFaxSendersRecord(faxSendersDetails);
+         Assert.assertEquals(faxSendersPage.getSuccessMessage(), "Record Created Successfully");
+         homePage.navigateToOCMPage();
+         ocmHomePage.navigateToTab("FAX");
+         faxPage.navigateToSendFaxPage();
+         Thread.sleep(2000);
+         SendFaxPage sendFaxPage = PageFactory.createPageInstance(driver, SendFaxPage.class);
+         String filePath1 = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\SendFaxData.xlsx";
+         Map<String, String> map1 = new ExcelReader(filePath1, "Create").getTestData().get(3);
+         SendFaxDetails sendFaxDetails = new SendFaxDetails(map1);
+         sendFaxPage.addNewSendFaxRecord(sendFaxDetails);
+         Thread.sleep(60000);
+         Assert.assertTrue(ftp.FileExist(filepath1));
+
+	}
     //@Test
     public void AddDuplicateRecord() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxRoutingConfigData.xlsx";

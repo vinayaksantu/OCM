@@ -1,12 +1,15 @@
 package com.tetherfi.test.fax;
 
+import com.tetherfi.model.fax.FaxAutoACKConfigurationDetails;
 import com.tetherfi.model.fax.FaxLineConfigDetails;
 import com.tetherfi.model.fax.FaxRoutingConfigurationDetails;
+import com.tetherfi.model.fax.FaxSendersDetails;
 import com.tetherfi.model.report.ReportDetails;
-
+import com.tetherfi.pages.FaxAutoACKConfigurationPage;
 import com.tetherfi.pages.FaxLineConfigPage;
 import com.tetherfi.pages.FaxPage;
 import com.tetherfi.pages.FaxRoutingConfigurationPage;
+import com.tetherfi.pages.FaxSendersPage;
 import com.tetherfi.pages.HomePage;
 import com.tetherfi.pages.OCMHomePage;
 import com.tetherfi.pages.OCMReportsPage;
@@ -48,7 +51,7 @@ public class FaxLineConfigTest extends BaseTest {
     	Assert.assertTrue(faxLineConfigPage .minimizewindow(), "Restored Assertion Failed");
     	screenshot.captureScreen(driver,"minimize window","FaxLineConfigTest");
     }
-    //@Test(priority=2)
+   //@Test(priority=2)
     public void AddFaxLineConfigRecord() throws IOException {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxLineConfigData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -74,31 +77,51 @@ public class FaxLineConfigTest extends BaseTest {
     	screenshot.captureScreen(driver,"VerifyAuditTrialReportForCreate","FaxLineConfigTest");
     	}
     
-    //@Test(priority=2)
+    @Test(priority=2)
     public void SendersLink() throws IOException {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxLineConfigData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(1);
         FaxLineConfigDetails faxLineConfigDetails = new FaxLineConfigDetails(map);
         FaxLineConfigPage faxLineConfigPage = PageFactory.createPageInstance(driver, FaxLineConfigPage.class);
         Assert.assertTrue(faxLineConfigPage.verifySendersLink(faxLineConfigDetails));
+        String filePath1 = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxSendersData.xlsx";
+        Map<String, String> map1 = new ExcelReader(filePath1, "Create").getTestData().get(0);
+        FaxSendersDetails faxSendersDetails = new FaxSendersDetails(map1);
+        FaxSendersPage faxSendersPage = PageFactory.createPageInstance(driver, FaxSendersPage.class);
+        faxSendersPage.addNewFaxSendersRecord(faxSendersDetails);
+        Assert.assertEquals(faxSendersPage.getSuccessMessage(), "Record Created Successfully");
     }
     
-    //@Test
-    public void AutoAckLink() throws IOException {
+    @Test
+    public void AutoAckLink() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxLineConfigData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(1);
         FaxLineConfigDetails faxLineConfigDetails = new FaxLineConfigDetails(map);
         FaxLineConfigPage faxLineConfigPage = PageFactory.createPageInstance(driver, FaxLineConfigPage.class);
         Assert.assertTrue(faxLineConfigPage.verifyAutoAckLink(faxLineConfigDetails));
+        String filePath1 = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxAutoACKConfigurationData.xlsx";
+        Map<String, String> map1 = new ExcelReader(filePath1, "Create").getTestData().get(0);
+        FaxAutoACKConfigurationDetails faxAutoAckConfigurationDetails= new FaxAutoACKConfigurationDetails(map1);
+        FaxAutoACKConfigurationPage faxAutoAckConfigurationPage = PageFactory.createPageInstance(driver, FaxAutoACKConfigurationPage.class);
+        faxAutoAckConfigurationPage.addNewFaxAutoAckConfigRecord(faxAutoAckConfigurationDetails);
+        Assert.assertEquals(faxAutoAckConfigurationPage.getSuccessMessage(), "Record Created Successfully");
     }
     
-    //@Test
+    @Test
     public void RoutesLink() throws IOException {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxLineConfigData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(1);
         FaxLineConfigDetails faxLineConfigDetails = new FaxLineConfigDetails(map);
         FaxLineConfigPage faxLineConfigPage = PageFactory.createPageInstance(driver, FaxLineConfigPage.class);
         Assert.assertTrue(faxLineConfigPage.verifyRoutesLink(faxLineConfigDetails));
+        String filePath1 = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxRoutingConfigData.xlsx";
+        Map<String, String> map1 = new ExcelReader(filePath1, "Create").getTestData().get(0);
+        FaxRoutingConfigurationDetails faxRoutingConfigDetails = new FaxRoutingConfigurationDetails(map1);
+        FaxRoutingConfigurationPage faxRoutingConfigurationPage = PageFactory.createPageInstance(driver, FaxRoutingConfigurationPage.class);
+        Assert.assertTrue(faxRoutingConfigurationPage.AddCancelRecord(faxRoutingConfigDetails));
+        faxRoutingConfigurationPage.addNewFaxRoutingConfigRecord(faxRoutingConfigDetails);
+        Assert.assertEquals(faxRoutingConfigurationPage.getSuccessMessage(), "Record Created Successfully");
+    
     }
     
     
@@ -201,7 +224,7 @@ public class FaxLineConfigTest extends BaseTest {
     	Assert.assertFalse(faxLineConfigPage.getErrorMessage());
     	screenshot.captureScreen(driver, "searchwithoutSearchTextbox()","FaxLineConfigTest");
     }
-    @Test(priority=11)
+    //@Test(priority=11)
     public void database() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxLineConfigData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(0);

@@ -34,6 +34,7 @@ public class HolidayListPage extends BasePage{
     
     @FindBy(xpath="//a[@class='k-button k-button-icontext k-grid-cancel']")
     private WebElement cancelbtn;
+    
 	@FindBy(css = ".k-grid-CustomDelete")
     private WebElement deleteButton;
 	

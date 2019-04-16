@@ -15,6 +15,9 @@ public class SkillConfigurationDetails {
     private String enabled;
     private String modifyReason;
     private String deleteReason;
+    private String updatedSkillName;
+    private String updatedEnabled;
+    private String Query;
 
     public SkillConfigurationDetails(Map<String,String> map){
         skillID=readSkillID(map);
@@ -26,9 +29,27 @@ public class SkillConfigurationDetails {
         enabled=readEnabled(map);
         modifyReason=readModifyReason(map);
         deleteReason=readDeleteReason(map);
+        updatedSkillName=readUpdatedSkillName(map);
+        updatedEnabled=readUpdatedEnabled(map);
+        Query=readQuery(map);
     }
 
-    private String readSkillPriority(Map<String, String> map) {
+    private String readQuery(Map<String, String> map) {
+    	String value=map.get("Query");
+		return value;
+	}
+
+	private String readUpdatedEnabled(Map<String, String> map) {
+        String value=map.get("Updated Enabled");
+		return value;
+	}
+
+	private String readUpdatedSkillName(Map<String, String> map) {
+        String value=map.get("Updated Skill Name");
+		return value;
+	}
+
+	private String readSkillPriority(Map<String, String> map) {
         String value=map.get("Skill Priority");
         if(value==null||value.equalsIgnoreCase("random.str")){
             value= "Low";
@@ -125,4 +146,16 @@ public class SkillConfigurationDetails {
     public String getSkillPriority() {
         return skillPriority;
     }
+
+	public String getUpdatedSkillName() {
+		return updatedSkillName;
+	}
+
+	public String getUpdatedEnabled() {
+		return updatedEnabled;
+	}
+
+	public String getQuery() {
+		return Query;
+	}
 }

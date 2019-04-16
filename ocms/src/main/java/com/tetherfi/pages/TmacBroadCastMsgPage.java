@@ -284,7 +284,7 @@ public class TmacBroadCastMsgPage extends BasePage {
         selectWebElement(messageTextbox);
         enterValueToTxtField(messageTextbox,tmacBroadCastMsgDetails.getUpdatedMessage());
         selectWebElement(statusDropdown);
-        selectDropdownFromVisibleText(statusListBox,tmacBroadCastMsgDetails.getStatus());
+        selectDropdownFromVisibleText(statusListBox,tmacBroadCastMsgDetails.getUpdatedStatus());
         selectWebElement(ModifyReasonTextBox);
         enterValueToTxtField(ModifyReasonTextBox,tmacBroadCastMsgDetails.getModifyReason());
         selectWebElement(SaveButton);
@@ -532,7 +532,7 @@ public class TmacBroadCastMsgPage extends BasePage {
         selectWebElement(messageTextbox);
         enterValueToTxtField(messageTextbox,tmacBroadCastMsgDetails.getUpdatedMessage());
         selectWebElement(statusDropdown);
-        selectDropdownFromVisibleText(statusListBox,tmacBroadCastMsgDetails.getStatus());
+        selectDropdownFromVisibleText(statusListBox,tmacBroadCastMsgDetails.getUpdatedStatus());
         selectWebElement(ModifyReasonTextBox);
         enterValueToTxtField(ModifyReasonTextBox,tmacBroadCastMsgDetails.getModifyReason());
         selectWebElement(addcancel);

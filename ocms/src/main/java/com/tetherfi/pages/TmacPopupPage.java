@@ -108,6 +108,24 @@ public class TmacPopupPage extends BasePage {
 
     @FindBy(id="sendText")
     private WebElement sendDataTextbox;
+    
+    @FindBy(id="btnTextChat_Answer1000")
+	private WebElement answerchat;
+	
+	@FindBy(id="btnTextChat_Disconnect1000")
+	private WebElement disconnectchat;
+	
+	@FindBy(css="ul[id='workcodes1000_listbox'] li")
+	private List<WebElement> workcodelist;
+	
+	@FindBy(id="divTabHeader1000")
+	private WebElement navigatetotab;
+	
+	@FindBy(id="btnCloseTab1000")
+	private WebElement closetab;
+	
+	@FindBy(css="input[aria-owns='workcodes1000_taglist workcodes1000_listbox']")
+	private WebElement selectcompletioncode;
 
     public boolean isTmacPopUpDisplayed(){
     waitForLoad(driver);
@@ -370,5 +388,47 @@ public class TmacPopupPage extends BasePage {
     }
     public boolean verifyChatAutoAnswered(){
         return (endChat.get(0).isDisplayed()&&endChat.get(0).isEnabled());
+    }
+    
+    public void receivechat() throws Exception {
+        switchToWindow(1);
+    	Thread.sleep(2000);
+    	waitUntilWebElementIsClickable(answerchat);
+    	selectWebElement(navigatetotab);
+    	clickOn(answerchat);
+    	
+    }
+    
+    public void WorkCodeList(String workCode) throws Exception {
+    	scrollToElement(selectcompletioncode);
+    	selectWebElement(selectcompletioncode);
+    	Thread.sleep(2000);
+    	selectDropdownFromVisibleText(workcodelist,workCode);
+    	Thread.sleep(2000);
+    }
+    
+    public void disconnectchat() {
+    	waitUntilWebElementIsClickable(disconnectchat);
+    	clickOn(disconnectchat);
+    }
+    
+    public Boolean verifyDropdown(List<String> List) throws InterruptedException {
+    	scrollToElement(selectcompletioncode);
+    	selectWebElement(selectcompletioncode);
+    	List <String> lst=new ArrayList<String>();
+    	lst.add(workcodelist.get(0).getText());
+    	for(int i=0;i<workcodelist.size();i++)
+    	{
+    		String value=workcodelist.get(i).getText();
+    		lst.add(value);
+    		
+    	}
+    	while(lst.remove(null))
+    	System.out.println(lst);
+    	System.out.println(List);
+    	if(List.equals(lst))
+    		return true;
+    	else 
+    		return false;
     }
 }
