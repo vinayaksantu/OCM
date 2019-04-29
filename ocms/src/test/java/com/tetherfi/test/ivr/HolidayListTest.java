@@ -39,7 +39,7 @@ public class HolidayListTest extends BaseTest {
         ivrPage.navigateToHolidayListPage();
         HolidayListPage holidaylistPage = PageFactory.createPageInstance(driver, HolidayListPage.class);
         Assert.assertTrue(holidaylistPage.isHolidayListPageDisplayed(), "Holiday List page assertion failed");
-        screenshot.captureScreen("Holiday List Page","HolidayListTest");
+        screenshot.captureScreen(driver,"Holiday List Page","HolidayListTest");
     }
 	
 	@Test(priority=1)
@@ -47,9 +47,9 @@ public class HolidayListTest extends BaseTest {
         HolidayListPage holidaylistPage = PageFactory.createPageInstance(driver, HolidayListPage.class);
     	Assert.assertTrue(holidaylistPage.verifylogo(),"Holiday List logo assertion failed");
     	Assert.assertTrue(holidaylistPage.maximizewindow(),"Fullscreen Assertion Failed"); 
-    	screenshot.captureScreen("maximize window","HolidayListTest");
+    	screenshot.captureScreen(driver,"maximize window","HolidayListTest");
     	Assert.assertTrue(holidaylistPage.minimizewindow(), "Restored Assertion Failed");
-    	screenshot.captureScreen("minimize window","HolidayListTest");
+    	screenshot.captureScreen(driver,"minimize window","HolidayListTest");
 	}
 	
 	//@Test(priority=2)
@@ -59,10 +59,10 @@ public class HolidayListTest extends BaseTest {
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         HolidayListDetails holidayListDetails=new HolidayListDetails (map);
         Assert.assertTrue(holidaylistPage.addnewHolidayListCancel(holidayListDetails), "HolidayList cancel assertion failed");
-    	screenshot.captureScreen("Add Cancel","HolidayListTest");
+    	screenshot.captureScreen(driver,"Add Cancel","HolidayListTest");
     	holidaylistPage.addNewHolidayList(holidayListDetails);
         Assert.assertTrue(holidaylistPage.verifymessage(), "HolidayList Record creation assertion failed" );
-    	screenshot.captureScreen("Record Created Successfully","HolidayListTest");
+    	screenshot.captureScreen(driver,"Record Created Successfully","HolidayListTest");
 	}
 	
 	//@Test(priority=3,dependsOnMethods = ("addNewHolidayListRecord"))
@@ -73,32 +73,32 @@ public class HolidayListTest extends BaseTest {
         HolidayListDetails holidayListDetails=new HolidayListDetails (map);
         holidaylistPage.addNewHolidayList(holidayListDetails);
         Assert.assertTrue(holidaylistPage.verifymessage(), "HolidayList Record creation assertion failed" );
-    	screenshot.captureScreen("Record Created Successfully for Different VDN","HolidayListTest");
+    	screenshot.captureScreen(driver,"Record Created Successfully for Different VDN","HolidayListTest");
     	Map<String, String> map1 = new ExcelReader(filePath, "Create").getTestData().get(2);
         HolidayListDetails holidayListDetails1=new HolidayListDetails (map1);
         holidaylistPage.addNewHolidayList(holidayListDetails1);
         Assert.assertTrue(holidaylistPage.verifymessage(), "HolidayList Record creation assertion failed" );
-    	screenshot.captureScreen("Record Created Successfully for Different Announced Holiday","HolidayListTest");
+    	screenshot.captureScreen(driver,"Record Created Successfully for Different Announced Holiday","HolidayListTest");
     	Map<String, String> map2 = new ExcelReader(filePath, "Create").getTestData().get(3);
         HolidayListDetails holidayListDetails2=new HolidayListDetails (map2);
         holidaylistPage.addNewHolidayList(holidayListDetails2);
         Assert.assertTrue(holidaylistPage.verifymessage(), "HolidayList Record creation assertion failed" );
-    	screenshot.captureScreen("Record Created Successfully for Same Announced Holiday,Same VDN but different Date ","HolidayListTest");
+    	screenshot.captureScreen(driver,"Record Created Successfully for Same Announced Holiday,Same VDN but different Date ","HolidayListTest");
     	Map<String, String> map3 = new ExcelReader(filePath, "Create").getTestData().get(4);
         HolidayListDetails holidayListDetails3=new HolidayListDetails (map3);
         holidaylistPage.addNewHolidayList(holidayListDetails3);
         Assert.assertFalse(holidaylistPage.verifymessage(), "HolidayList Record creation assertion failed" );
-    	screenshot.captureScreen("Record Created Successfully for Different Announced Holiday but same date,same VDN","HolidayListTest");
+    	screenshot.captureScreen(driver,"Record Created Successfully for Different Announced Holiday but same date,same VDN","HolidayListTest");
     	Map<String, String> map4 = new ExcelReader(filePath, "Create").getTestData().get(5);
         HolidayListDetails holidayListDetails4=new HolidayListDetails (map4);
         holidaylistPage.addNewHolidayList(holidayListDetails4);
         Assert.assertFalse(holidaylistPage.verifymessage(), "HolidayList Record creation assertion failed" );
-    	screenshot.captureScreen("Record Created Successfully for Different different start and end date,same time,same VDN","HolidayListTest");
+    	screenshot.captureScreen(driver,"Record Created Successfully for Different different start and end date,same time,same VDN","HolidayListTest");
     	Map<String, String> map5 = new ExcelReader(filePath, "Create").getTestData().get(6);
         HolidayListDetails holidayListDetails5=new HolidayListDetails (map5);
         holidaylistPage.addNewHolidayList(holidayListDetails5);
         Assert.assertTrue(holidaylistPage.verifymessage(), "HolidayList Record creation assertion failed" );
-    	screenshot.captureScreen("Record Created Successfully for Different different start and end date,same time","HolidayListTest");
+    	screenshot.captureScreen(driver,"Record Created Successfully for Different different start and end date,same time","HolidayListTest");
 	}
 	
 	//@Test(priority=4,dependsOnMethods = ("addNewHolidayListRecord"))
@@ -109,7 +109,7 @@ public class HolidayListTest extends BaseTest {
         HolidayListDetails holidayListDetails=new HolidayListDetails (map);	
         holidaylistPage.addDuplicateRecord(holidayListDetails);
         Assert.assertFalse(holidaylistPage.verifymessage(), "HolidayList Duplicate Record assertion failed" );
-    	screenshot.captureScreen("Duplicate Record","HolidayListTest");
+    	screenshot.captureScreen(driver,"Duplicate Record","HolidayListTest");
   	}
 	
 	//@Test(priority=5)
@@ -120,25 +120,25 @@ public class HolidayListTest extends BaseTest {
         HolidayListDetails holidayListDetails=new HolidayListDetails (map);	
         holidaylistPage.LeavingAllFieldsBlank(holidayListDetails);
         Assert.assertFalse(holidaylistPage.verifymessage());
-    	screenshot.captureScreen("LeavingAllFieldsBlank","HolidayListTest");
+    	screenshot.captureScreen(driver,"LeavingAllFieldsBlank","HolidayListTest");
     	holidaylistPage.LeavingAnnouncedHolidayBlank(holidayListDetails);
         Assert.assertFalse(holidaylistPage.verifymessage());
-    	screenshot.captureScreen("LeavingAnnouncedHolidayBlank","HolidayListTest");
+    	screenshot.captureScreen(driver,"LeavingAnnouncedHolidayBlank","HolidayListTest");
     	holidaylistPage.LeavingStartDateBlank(holidayListDetails);
         Assert.assertFalse(holidaylistPage.verifymessage());
-    	screenshot.captureScreen("LeavingStartDateBlank","HolidayListTest");
+    	screenshot.captureScreen(driver,"LeavingStartDateBlank","HolidayListTest");
     	holidaylistPage.LeavingStartTimeBlank(holidayListDetails);
         Assert.assertFalse(holidaylistPage.verifymessage());
-    	screenshot.captureScreen("LeavingStartTimeBlank","HolidayListTest");
+    	screenshot.captureScreen(driver,"LeavingStartTimeBlank","HolidayListTest");
     	holidaylistPage.LeavingEndDateBlank(holidayListDetails);
         Assert.assertFalse(holidaylistPage.verifymessage());
-    	screenshot.captureScreen("LeavingEndDateBlank","HolidayListTest");
+    	screenshot.captureScreen(driver,"LeavingEndDateBlank","HolidayListTest");
     	holidaylistPage.LeavingEndTimeBlank(holidayListDetails);
         Assert.assertFalse(holidaylistPage.verifymessage());
-    	screenshot.captureScreen("LeavingEndTimeBlank","HolidayListTest");
+    	screenshot.captureScreen(driver,"LeavingEndTimeBlank","HolidayListTest");
     	holidaylistPage.LeavingVDNBlank(holidayListDetails);
         Assert.assertFalse(holidaylistPage.verifymessage());
-    	screenshot.captureScreen("LeavingVDNBlank","HolidayListTest");
+    	screenshot.captureScreen(driver,"LeavingVDNBlank","HolidayListTest");
 	}
 	
 	//@Test(priority=6)
@@ -179,7 +179,7 @@ public class HolidayListTest extends BaseTest {
         HolidayListDetails holidayListDetails=new HolidayListDetails (map);
     	holidaylistPage.EditLeavingModifyReasonBlank(holidayListDetails);
         Assert.assertFalse(holidaylistPage.verifymessage());
-    	screenshot.captureScreen("EditLeavingModifyReasonBlank","HolidayListTest");
+    	screenshot.captureScreen(driver,"EditLeavingModifyReasonBlank","HolidayListTest");
   	}
   	
   	//@Test(priority=10,dependsOnMethods = ("editHolidayListRecord"))
@@ -299,9 +299,9 @@ public class HolidayListTest extends BaseTest {
         Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
         HolidayListDetails holidayListDetails=new HolidayListDetails (map);
         Assert.assertTrue(holidaylistPage.verifyinvalidsearchwithwrongdata(holidayListDetails),"invalidsearchwithwrongdata");
-        screenshot.captureScreen("Invalid Search with wrong data", "HolidayListTest");
+        screenshot.captureScreen(driver,"Invalid Search with wrong data", "HolidayListTest");
         Assert.assertTrue(holidaylistPage.verifyclearsearch(), "Clear All Assertion Failed");
-        screenshot.captureScreen( "Clear Search", "HolidayListTest");
+        screenshot.captureScreen(driver,"Clear Search", "HolidayListTest");
     }
 	
 	@AfterMethod

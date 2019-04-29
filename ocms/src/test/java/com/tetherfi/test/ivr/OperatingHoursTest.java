@@ -41,9 +41,9 @@ public class OperatingHoursTest extends BaseTest {
         OperatingHoursPage operatingHoursPage = PageFactory.createPageInstance(driver, OperatingHoursPage.class);
     	Assert.assertTrue( operatingHoursPage.verifylogo(),"Operating Hours logo assertion failed");
     	Assert.assertTrue(operatingHoursPage .maximizewindow(),"Fullscreen Assertion Failed"); 
-    	screenshot.captureScreen("maximize window","OperatingHoursTest");
+    	screenshot.captureScreen(driver,"maximize window","OperatingHoursTest");
     	Assert.assertTrue(operatingHoursPage .minimizewindow(), "Restored Assertion Failed");
-    	screenshot.captureScreen("minimize window","OperatingHoursTest");
+    	screenshot.captureScreen(driver,"minimize window","OperatingHoursTest");
     }
 
     //@Test
@@ -53,10 +53,10 @@ public class OperatingHoursTest extends BaseTest {
         OperatingHoursDetails operatingHoursDetails = new OperatingHoursDetails(map);
         OperatingHoursPage operatingHoursPage = PageFactory.createPageInstance(driver, OperatingHoursPage.class);
         Assert.assertTrue(operatingHoursPage.addnewOperatingHoursCancel(operatingHoursDetails), "cancel assertion failed");
-    	screenshot.captureScreen("Add Cancel","OperatingHoursTest");
+    	screenshot.captureScreen(driver,"Add Cancel","OperatingHoursTest");
         operatingHoursPage.addNewOperatingHoursRecord(operatingHoursDetails);
         Assert.assertTrue(operatingHoursPage.verifyNewRecordCreated(), "Add New record assertion failed");
-    	screenshot.captureScreen("Single record Created","OperatingHoursTest");
+    	screenshot.captureScreen(driver,"Single record Created","OperatingHoursTest");
     }
     
     //@Test
@@ -67,7 +67,7 @@ public class OperatingHoursTest extends BaseTest {
         OperatingHoursPage operatingHoursPage = PageFactory.createPageInstance(driver, OperatingHoursPage.class);
         operatingHoursPage.addNewAllDaysOperatingHoursRecord(operatingHoursDetails);
         Assert.assertTrue(operatingHoursPage.verifyNewRecordCreated(), "Add New record assertion failed");
-        screenshot.captureScreen("Multiple record Created","OperatingHoursTest");
+        screenshot.captureScreen(driver,"Multiple record Created","OperatingHoursTest");
     }
     
     //@Test(priority=5)
@@ -78,22 +78,22 @@ public class OperatingHoursTest extends BaseTest {
         OperatingHoursPage operatingHoursPage = PageFactory.createPageInstance(driver, OperatingHoursPage.class);
         operatingHoursPage.LeavingAllFieldsBlank(operatingHoursDetails);
         Assert.assertFalse(operatingHoursPage.verifyNewRecordCreated());
-    	screenshot.captureScreen("LeavingAllFieldsBlank","OperatingHoursTest");
+    	screenshot.captureScreen(driver,"LeavingAllFieldsBlank","OperatingHoursTest");
     	operatingHoursPage.LeavingVDNBlank(operatingHoursDetails);
         Assert.assertFalse(operatingHoursPage.verifyNewRecordCreated());
-    	screenshot.captureScreen("LeavingVDNBlank","OperatingHoursTest");
+    	screenshot.captureScreen(driver,"LeavingVDNBlank","OperatingHoursTest");
     	operatingHoursPage.LeavingWeekDayBlank(operatingHoursDetails);
         Assert.assertFalse(operatingHoursPage.verifyNewRecordCreated());
-    	screenshot.captureScreen("LeavingWeekdayBlank","OperatingHoursTest");
+    	screenshot.captureScreen(driver,"LeavingWeekdayBlank","OperatingHoursTest");
     	operatingHoursPage.LeavingStartTimeBlank(operatingHoursDetails);
         Assert.assertFalse(operatingHoursPage.verifyNewRecordCreated());
-    	screenshot.captureScreen("LeavingStartTimeBlank","OperatingHoursTest");
+    	screenshot.captureScreen(driver,"LeavingStartTimeBlank","OperatingHoursTest");
     	operatingHoursPage.LeavingEndTimeBlank(operatingHoursDetails);
         Assert.assertFalse(operatingHoursPage.verifyNewRecordCreated());
-    	screenshot.captureScreen("LeavingEndTimeBlank","OperatingHoursTest");
+    	screenshot.captureScreen(driver,"LeavingEndTimeBlank","OperatingHoursTest");
     	operatingHoursPage.LeavingBypassPublicHolidayBlank(operatingHoursDetails);
         Assert.assertFalse(operatingHoursPage.verifyNewRecordCreated());
-    	screenshot.captureScreen("LeavingBypassPublicHolidayBlank","OperatingHoursTest");
+    	screenshot.captureScreen(driver,"LeavingBypassPublicHolidayBlank","OperatingHoursTest");
 	}
 	
 	//@Test(priority=5)
@@ -104,7 +104,7 @@ public class OperatingHoursTest extends BaseTest {
         OperatingHoursPage operatingHoursPage = PageFactory.createPageInstance(driver, OperatingHoursPage.class);
         operatingHoursPage.addNewAllDaysOperatingHoursRecord(operatingHoursDetails);
         Assert.assertFalse(operatingHoursPage.verifyNewRecordCreated(), "Add New record assertion failed");
-        screenshot.captureScreen("Duplicate","OperatingHoursTest");
+        screenshot.captureScreen(driver,"Duplicate","OperatingHoursTest");
 	}
 	
 	//@Test(priority=7)
@@ -115,15 +115,15 @@ public class OperatingHoursTest extends BaseTest {
         OperatingHoursPage operatingHoursPage = PageFactory.createPageInstance(driver, OperatingHoursPage.class);
         operatingHoursPage.addVDNvaluelessthanfour(operatingHoursDetails);
         Assert.assertFalse(operatingHoursPage.verifyNewRecordCreated(), "Add New record assertion failed");
-        screenshot.captureScreen("addVDNvaluelessthanfour","OperatingHoursTest");
+        screenshot.captureScreen(driver,"addVDNvaluelessthanfour","OperatingHoursTest");
         operatingHoursPage.addStarttimegreaterthanEndtime(operatingHoursDetails);
         Assert.assertFalse(operatingHoursPage.verifyNewRecordCreated(), "Add New record assertion failed");
-        screenshot.captureScreen("addStarttimegreaterthanEndtime","OperatingHoursTest");
+        screenshot.captureScreen(driver,"addStarttimegreaterthanEndtime","OperatingHoursTest");
         Map<String, String> map1 = new ExcelReader(filePath, "Create").getTestData().get(3);
         OperatingHoursDetails operatingHoursDetails1 = new OperatingHoursDetails(map1);
         operatingHoursPage.addStarttimesameasEndtime(operatingHoursDetails1);
         Assert.assertFalse(operatingHoursPage.verifyNewRecordCreated(), "Add New record assertion failed");
-        screenshot.captureScreen("addStarttimesameasEndtime","OperatingHoursTest");
+        screenshot.captureScreen(driver,"addStarttimesameasEndtime","OperatingHoursTest");
 	}
 	
     //@Test(priority=2)
@@ -133,7 +133,7 @@ public class OperatingHoursTest extends BaseTest {
         OperatingHoursDetails operatingHoursDetails=new OperatingHoursDetails(map);
         OperatingHoursPage operatingHoursPage=PageFactory.createPageInstance(driver,OperatingHoursPage.class);
         Assert.assertTrue(operatingHoursPage.editOperatingHoursCancelbtn(operatingHoursDetails));
-        screenshot.captureScreen("Edit Cancel", "OperatingHoursTest");
+        screenshot.captureScreen(driver,"Edit Cancel", "OperatingHoursTest");
         Thread.sleep(1000);
     }
     //@Test(priority=3)
@@ -144,7 +144,7 @@ public class OperatingHoursTest extends BaseTest {
         OperatingHoursPage operatingHoursPage=PageFactory.createPageInstance(driver,OperatingHoursPage.class);
         operatingHoursPage.editOperatingHoursRecord(operatingHoursDetails);
         Assert.assertTrue(operatingHoursPage.verifyRecordUpdated(),"Edit record assertion failed");
-        screenshot.captureScreen("Record Updated", "OperatingHoursTest");
+        screenshot.captureScreen(driver,"Record Updated", "OperatingHoursTest");
     }
     
     //@Test(priority=4)
@@ -161,7 +161,7 @@ public class OperatingHoursTest extends BaseTest {
     	OperatingHoursDetails operatingHoursDetails1=new OperatingHoursDetails(map1);
         operatingHoursPage.editInvalidRecord(operatingHoursDetails1);
         Assert.assertFalse(operatingHoursPage.verifyRecordUpdated(),"Edit record assertion failed");
-        screenshot.captureScreen("Start Time is greater than End Time", "OperatingHoursTest");	
+        screenshot.captureScreen(driver,"Start Time is greater than End Time", "OperatingHoursTest");	
     }
     
     //@Test(priority=5)
@@ -172,7 +172,7 @@ public class OperatingHoursTest extends BaseTest {
     	OperatingHoursPage operatingHoursPage=PageFactory.createPageInstance(driver,OperatingHoursPage.class);
     	operatingHoursPage.editRecordWithoutReason(operatingHoursDetails);
         Assert.assertFalse(operatingHoursPage.verifyRecordUpdated(),"Edit record assertion failed");
-        screenshot.captureScreen("Edit Record without Reason", "OperatingHoursTest");
+        screenshot.captureScreen(driver,"Edit Record without Reason", "OperatingHoursTest");
     }
     
     //@Test(priority=5)
@@ -195,9 +195,9 @@ public class OperatingHoursTest extends BaseTest {
     	OperatingHoursDetails operatingHoursDetails=new OperatingHoursDetails(map);
     	OperatingHoursPage operatingHoursPage=PageFactory.createPageInstance(driver,OperatingHoursPage.class);
         Assert.assertTrue(operatingHoursPage.verifyinvalidsearchwithwrongdata(operatingHoursDetails),"invalidsearchwithwrongdata");
-        screenshot.captureScreen("Invalid Search with wrong data", "OperatingHoursTest");
+        screenshot.captureScreen(driver,"Invalid Search with wrong data", "OperatingHoursTest");
         Assert.assertTrue(operatingHoursPage.verifyclearsearch(), "Clear All Assertion Failed");
-        screenshot.captureScreen( "Clear Search", "OperatingHoursTest");
+        screenshot.captureScreen(driver,"Clear Search", "OperatingHoursTest");
     }
     
     //@Test(priority=6)
@@ -206,7 +206,7 @@ public class OperatingHoursTest extends BaseTest {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles";
         OperatingHoursPage operatingHoursPage=PageFactory.createPageInstance(driver,OperatingHoursPage.class);
         Assert.assertTrue(operatingHoursPage.verifyExportToExcel(filePath));
-        screenshot.captureScreen("Export Excel", "OperatingHoursTest");
+        screenshot.captureScreen(driver,"Export Excel", "OperatingHoursTest");
     }
     
     //@Test(priority=7)
@@ -215,7 +215,7 @@ public class OperatingHoursTest extends BaseTest {
     List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
     OperatingHoursPage operatingHoursPage=PageFactory.createPageInstance(driver,OperatingHoursPage.class);
     Assert.assertTrue(operatingHoursPage.verifyexportToExcelSheet(maplist));	
-    screenshot.captureScreen("Export Excel Sheet", "OperatingHoursTest");
+    screenshot.captureScreen(driver,"Export Excel Sheet", "OperatingHoursTest");
     }
     
     //@Test(priority=8)
@@ -303,7 +303,7 @@ public class OperatingHoursTest extends BaseTest {
     	OperatingHoursDetails operatingHoursDetails=new OperatingHoursDetails(map);
     	OperatingHoursPage operatingHoursPage=PageFactory.createPageInstance(driver,OperatingHoursPage.class);
         Assert.assertTrue(operatingHoursPage.verifydeleteNo(operatingHoursDetails));
-        screenshot.captureScreen("Delete No", "OperatingHoursTest");
+        screenshot.captureScreen(driver,"Delete No", "OperatingHoursTest");
     }
     
     //@Test(priority=20)
@@ -314,7 +314,7 @@ public class OperatingHoursTest extends BaseTest {
     	OperatingHoursPage operatingHoursPage=PageFactory.createPageInstance(driver,OperatingHoursPage.class);
         operatingHoursPage.deleteOperatingHoursRecord(operatingHoursDetails);
         Assert.assertTrue(operatingHoursPage.verifyRecordDeleted(),"delete record assertion failed");
-        screenshot.captureScreen("Record Deleted", "OperatingHoursTest");
+        screenshot.captureScreen(driver,"Record Deleted", "OperatingHoursTest");
     }
     
     @Test(priority=21)

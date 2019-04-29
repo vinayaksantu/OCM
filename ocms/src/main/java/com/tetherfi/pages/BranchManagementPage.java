@@ -17,6 +17,7 @@ import org.openqa.selenium.support.FindBy;
 
 import com.tetherfi.model.fax.FaxTemplateDetails;
 import com.tetherfi.model.ivr.BranchManagementDetails;
+import com.tetherfi.utility.FileUploader;
 
 public class BranchManagementPage extends BasePage {
 
@@ -182,7 +183,91 @@ public class BranchManagementPage extends BasePage {
     
     @FindBy(xpath="//div[text()='No records to display']")
     private WebElement norecords;
-	
+    
+    @FindBy(css="span[aria-owns='MainLines_listbox']")
+    private WebElement mainLinesDropDown;
+    
+    @FindBy(css="ul[id='MainLines_listbox'] li")
+    private List<WebElement> mainLinesListbox;
+    
+    @FindBy(css="span[aria-owns='SubLines_listbox']")
+    private WebElement subLinesDropDown;
+    
+    @FindBy(css="ul[id='SubLines_listbox'] li")
+    private List<WebElement> subLinesListbox;
+    
+    @FindBy(id="Location")
+    private WebElement LocationTextbox;
+    
+    @FindBy(css="span[aria-owns='BranchType_listbox']")
+    private WebElement branchTypeDropDown;
+    
+    @FindBy(css="ul[id='BranchType_listbox'] li")
+    private List<WebElement> branchTypeListbox;
+    
+    @FindBy(xpath="//div[@class='k-button k-upload-button' and @aria-label='Select files...']")
+    private List<WebElement> selectFiles;
+    
+    @FindBy(xpath="//input[@placeholder='Line/Estate Order']")
+    private WebElement lineEstateOrder;
+    
+    @FindBy(css="span[aria-owns='Status_listbox']")
+    private WebElement statusDropDown;
+    
+    @FindBy(css="ul[id='Status_listbox'] li")
+    private List<WebElement> statusListbox;
+    
+    @FindBy(css="span[aria-owns='Language_listbox']")
+    private WebElement languageDropDown;
+    
+    @FindBy(css="ul[id='Language_listbox'] li")
+    private List<WebElement> languageListbox;
+    
+    @FindBy(css=".k-grid-update")
+    private WebElement saveBtn;
+    
+    @FindBy(id="taskComplete")
+    private WebElement taskCompleteBtn;
+
+    @FindBy(id="MakerComments")
+    private WebElement makerComments;
+    
+    @FindBy(id="submitMakerComment")
+    private WebElement taskCompleteBtnAtMakerCommentsPopUp;
+    
+    @FindBy(id="Approve")
+    private WebElement approveBtn;
+
+    @FindBy(id="Reject")
+    private WebElement rejectBtn;
+
+    @FindBy(id="CheckerReason")
+    private WebElement checkerReason;
+
+    @FindBy(id="approveButton")
+    private WebElement approveYesBtn;
+    
+    @FindBy(xpath="//tbody/tr/td[7]")
+    private WebElement rowdata;
+    
+    @FindBy(id="checkerGrid")
+    private WebElement checkerGrid;
+    
+    @FindBy(css="#drillGrid tbody tr td")
+    private List<WebElement> editrowdata;
+
+    @FindBy(id="ModifyReason")
+    private WebElement modifyReasonTextbox;
+    
+    @FindBy(css=".form-group #ModifyReason1")
+    private  WebElement deleteReasonTextBox;
+    
+    @FindBy(id="yesButton")
+    private WebElement yesBtn;
+
+    @FindBy(id="noButton")
+    private WebElement noBtn;
+    
 	public boolean isBranchManagementPageDisplayed() {
 		waitForLoad(driver);
         waitForJqueryLoad(driver);
@@ -577,13 +662,13 @@ public class BranchManagementPage extends BasePage {
         waitUntilWebElementIsVisible(gridContent);	
 	}
 	
-	private void searchBranchManagementRecordApprovedData(String templateName) {
+	private void searchBranchManagementRecordApprovedData(String branchName) {
 		selectWebElement(gridsearchLink);
         selectWebElement(selectSearchColumn.get(0));
         selectDropdownFromVisibleText(columnNameList,"Branch Name");
         selectWebElement(selectSearchColumn.get(1));
         selectDropdownFromVisibleText(searchTypeList,"Is equal to");
-        enterValueToTxtField(searchText.get(0),templateName);
+        enterValueToTxtField(searchText.get(0),branchName);
         selectWebElement(searchBtn);
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(approvedgridcontent);	
@@ -629,10 +714,50 @@ public class BranchManagementPage extends BasePage {
     }
 
 	public boolean verifyDatabase(String query) {
-		// TODO Auto-generated method stub
-		return false;
+		List<Map<String,String>> database=database(query);
+		System.out.println(database);
+		List<Map<String,String>> UI=gettable(); 
+		System.out.println(UI);
+		if(UI.equals(database))
+			return true;
+		else
+			return false;
 	}
+	
+	public List<Map<String, String>> gettable() {
+		int item=Integer.valueOf(items.get(0).getText().split("of ")[1].split(" items")[0]);
+        int pagersize=Integer.valueOf(pagerSize.get(0).getText());
+        int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
+		List<Map<String,String>> arr=new ArrayList<Map<String,String>>();
+		for(int k=0;k<=pages;k++){
 
+		waitUntilWebElementIsVisible(checkerGrid);
+		List<WebElement> rows=checkerGrid.findElements(By.tagName("tr"));
+		List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
+		for(int i=1;i<rows.size();i++) {
+			Map<String,String> map = new HashMap<String,String>();
+			List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
+			String col=null;
+			for(int j=0;j<headers.size();j++){
+				scrollToElement(headers.get(j));
+				if(headers.get(j).getText().equals("Last Changed On")){
+					col=cols.get(j).getText().substring(11);
+					}
+				else
+					col=cols.get(j).getText();
+				map.put(headers.get(j).getText(),col);
+			}
+			map.remove("");
+			map.remove("Preview");
+			arr.add(map);
+		}
+		if(k!=pages)
+		{
+			nextPageIcon.get(0).click();
+			waitForJqueryLoad(driver);}
+		}
+			return arr;
+	}
 	public boolean clearAll(BranchManagementDetails branchManagementDetails) {
 		selectWebElement(gridsearchLink);
         selectWebElement(selectSearchColumn.get(0));
@@ -694,5 +819,652 @@ public class BranchManagementPage extends BasePage {
 			return true; 
 			else
 				return false;
+	}
+
+	public boolean addCancelButton(BranchManagementDetails branchManagementDetails) throws Exception {
+		selectWebElement(BranchManagementTabs.get(1));
+		selectWebElement(makeBranchManagementChanges);
+		String actualitems=items.get(2).getText();
+		selectWebElement(addNewBranchManageRecordBtn);
+		waitForJqueryLoad(driver);
+		selectWebElement(mainLinesDropDown);
+        selectDropdownFromVisibleText(mainLinesListbox, branchManagementDetails.getMainLines());
+        selectWebElement(subLinesDropDown);
+        selectDropdownFromVisibleText(subLinesListbox, branchManagementDetails.getSubLines());
+        enterValueToTxtField(LocationTextbox,branchManagementDetails.getLocation());
+        selectWebElement(branchTypeDropDown);
+        selectDropdownFromVisibleText(branchTypeListbox, branchManagementDetails.getBranchType());
+        selectWebElement(selectFiles.get(0));
+        FileUploader fileUploader=new FileUploader();
+        fileUploader.uploadFile(System.getProperty("user.dir") + "\\src\\test\\resources\\FileUpload\\" + branchManagementDetails.getBranchWave());
+        Thread.sleep(1000);
+        selectWebElement(selectFiles.get(0));
+        fileUploader.uploadFile(System.getProperty("user.dir") + "\\src\\test\\resources\\FileUpload\\" + branchManagementDetails.getAddressWave());
+        enterValueToTxtField(lineEstateOrder,branchManagementDetails.getLineEstateOrder());
+        selectWebElement(statusDropDown);
+        selectDropdownFromVisibleText(statusListbox, branchManagementDetails.getStatus());
+        selectWebElement(languageDropDown);
+        selectDropdownFromVisibleText(languageListbox, branchManagementDetails.getLanguage());
+        selectWebElement(cancelBtn);
+        System.out.println(items.get(2).getText());
+        if(actualitems.equals(items.get(2).getText()))
+        	return true;
+        else
+		return false;
+	}
+
+	public void addNewBranchManagementRecord(BranchManagementDetails branchManagementDetails) throws Exception {
+		selectWebElement(BranchManagementTabs.get(1));
+		selectWebElement(makeBranchManagementChanges);
+		selectWebElement(addNewBranchManageRecordBtn);
+		waitForJqueryLoad(driver);
+		Thread.sleep(1000);
+		selectWebElement(mainLinesDropDown);
+        selectDropdownFromVisibleText(mainLinesListbox, branchManagementDetails.getMainLines());
+        selectWebElement(subLinesDropDown);
+        selectDropdownFromVisibleText(subLinesListbox, branchManagementDetails.getSubLines());
+        enterValueToTxtField(LocationTextbox,branchManagementDetails.getLocation());
+        selectWebElement(branchTypeDropDown);
+        selectDropdownFromVisibleText(branchTypeListbox, branchManagementDetails.getBranchType());
+        selectWebElement(selectFiles.get(0));
+        FileUploader fileUploader=new FileUploader();
+        fileUploader.uploadFile(System.getProperty("user.dir") + "\\src\\test\\resources\\FileUpload\\" + branchManagementDetails.getBranchWave());
+        Thread.sleep(1000);
+        selectWebElement(selectFiles.get(0));
+        fileUploader.uploadFile(System.getProperty("user.dir") + "\\src\\test\\resources\\FileUpload\\" + branchManagementDetails.getAddressWave());
+        enterValueToTxtField(lineEstateOrder,branchManagementDetails.getLineEstateOrder());
+        selectWebElement(statusDropDown);
+        selectDropdownFromVisibleText(statusListbox, branchManagementDetails.getStatus());
+        selectWebElement(languageDropDown);
+        selectDropdownFromVisibleText(languageListbox, branchManagementDetails.getLanguage());
+        selectWebElement(saveBtn);
+        try {
+        	selectWebElement(cancelBtn);
+        }
+        catch(Exception e)
+        {
+        	e.printStackTrace();
+        }
+	}
+
+	public boolean verifyAuditTrail(BranchManagementDetails branchManagementDetails, String Transaction, String Status) {
+		boolean stat=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable();
+        if(firstRowData.get("Transaction").equalsIgnoreCase(Transaction)){
+            if(firstRowData.get("Status").equalsIgnoreCase(Status)){
+                if(firstRowData.get("Function").equalsIgnoreCase("IvrBranchManagement")){
+                       if(Transaction.equals("MakerCreate")){
+                           Map<String,String> newvalues=new HashMap<>();
+                            String[] d=firstRowData.get("New Values").split("\n");
+                            for(String e:d){
+                                String[]f=e.split(":",2);
+                                if(f.length>1){newvalues.put(f[0],f[1]);}
+                            }
+                            if(verifyNewValues(branchManagementDetails,newvalues)){
+                                stat=true;}
+                            else 
+                            stat=false;
+                       }
+                       else{System.out.println("Data mismatch");}
+                }else{System.out.println("Data mismatch:"+firstRowData.get("Function")+"\t"+"RoleManagement");}
+            }else{System.out.println("Data mismatch:"+firstRowData.get("Status")+"\t"+Status);}
+        }else{System.out.println("Data mismatch:"+firstRowData.get("Transaction")+"\t"+Transaction);}
+        return stat;
+        }
+	
+	private boolean verifyNewValues(BranchManagementDetails details, Map<String, String> newvalues) {
+		Boolean Status=false;
+		if(newvalues.get("MainLines").equals(details.getMainLines()))
+		{
+			if(newvalues.get("SubLines").equals(details.getSubLines()))
+			{
+				if(newvalues.get("Location").equals(details.getLocation()))
+				{
+					if(newvalues.get("BranchType").equals(details.getBranchType()))
+					{
+						if(newvalues.get("BranchWavefile").equals(details.getBranchWave()))
+						{
+							if(newvalues.get("AddressWavefile").equals(details.getAddressWave()))
+							{
+								if(newvalues.get("BranchName").equals(details.getBranchName()))
+								{
+									if(newvalues.get("AddressText").equals(details.getAddress()))
+									{
+										if(newvalues.get("LineOrder").equals(details.getLineEstateOrder()))
+										{
+											if(newvalues.get("Status").equals(details.getStatus()))
+											{
+												if(newvalues.get("Language").equals(details.getLanguage()))
+													Status= true;
+												else {System.out.println("Language data mismatch");}
+											}
+											else {System.out.println("Status data mismatch");}
+										}									
+										else {System.out.println("Line/EstateOrder data mismatch");}
+									}
+									else {System.out.println("AddressText data mismatch");}
+								}
+								else {System.out.println("BranchName data mismatch");}
+							}
+							else {System.out.println("AddressWavfile data mismatch");}
+						}
+						else {System.out.println("BranchWavfile data mismatch");}
+					}
+					else {System.out.println("BranchType data mismatch");}
+				}
+				else {System.out.println("Location data mismatch");}
+			}
+			else {System.out.println("SubLines data mismatch");	}
+		}
+		else {System.out.println("MainLines data mismatch");	}
+		return Status;
+	}
+
+	private Map<String, String> getFirstRowDatafromTable() {
+		Map<String,String> map = new HashMap<>();
+        waitUntilWebElementIsVisible(auditGridContent);
+        List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
+        List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
+        List<WebElement> cols=rows.get(1).findElements(By.tagName("td"));
+        for(int j=0;j<headers.size();j++){
+            scrollToElement(headers.get(j));
+            for(int i=0;i<3;i++) {													
+                try{map.put(headers.get(j).getText(), cols.get(j).getText());break;}catch (Exception e){e.printStackTrace();}
+            }
+        }
+        return map;
+	}
+
+	public boolean verifyTaskCompleteEnabled() {
+        return taskCompleteBtn.isEnabled();
+
+	}
+
+	public void taskCompleteAction(String comment) {
+		selectWebElement(makeBranchManagementChanges);
+        waitForLoad(driver);
+        selectWebElement(taskCompleteBtn);
+        enterValueToTxtField(makerComments,comment);
+        try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        selectWebElement(taskCompleteBtnAtMakerCommentsPopUp);		
+	}
+
+	public boolean verifyTaskCompleteSuccessMessage() {
+        return(getSuccessMessage().contains("Record submission for approval success. Your Request ID is :"));
+
+	}
+
+	public boolean verifyStatus(String status) {
+		try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        Map<String,String> firstRowData=getFirstRowDatafromTable();
+        return firstRowData.get("Status").equals(status);
+	}
+
+	public void clickonApprove(String comment) {
+		 selectWebElement(BranchManagementTabs.get(1));
+	        try {
+	            Thread.sleep(3000);
+	        } catch (InterruptedException e) {
+	            e.printStackTrace();
+	        }
+	        clickOn(approveBtn);
+	        selectWebElement(checkerReason);
+	        enterValueToTxtField(checkerReason,comment);
+	        try {
+	            Thread.sleep(3000);
+	        } catch (InterruptedException e) {
+	            e.printStackTrace();
+	        }
+	        clickOn(approveYesBtn);		
+	}
+
+	public boolean verifyReviewAuditTrail(String status, String comment) {
+		 try {
+	            Thread.sleep(3000);
+	        } catch (InterruptedException e) {
+	            e.printStackTrace();
+	        }
+	        boolean stat=false;
+	        Map<String,String> firstRowData=getFirstRowDatafromTable();
+	        if(firstRowData.get("Status").equals(status)){
+	            if(firstRowData.get("Checker Comments").equals(comment)){
+	            	stat=true;
+	            	}
+	            else{System.out.println("Data mismatch:"+firstRowData.get("Review Comments")+"\t"+comment);}
+	        }else{System.out.println("Data mismatch:"+firstRowData.get("Status")+"\t"+status);}
+	        return stat;
+	}
+
+	public boolean verifyApprovedSectionDataafterapproval(BranchManagementDetails branchManagementDetails) {
+		searchBranchManagementRecordApprovedData(branchManagementDetails.getBranchName());
+		if(rowdata.getText().equals(branchManagementDetails.getBranchName()))
+			return true;
+		else
+		return false;
+	}
+
+	public void addwithoutMainLines(BranchManagementDetails branchManagementDetails) throws Exception {
+		selectWebElement(BranchManagementTabs.get(1));
+		selectWebElement(makeBranchManagementChanges);
+		selectWebElement(addNewBranchManageRecordBtn);
+		waitForJqueryLoad(driver);
+		Thread.sleep(1000);
+		enterValueToTxtField(LocationTextbox,branchManagementDetails.getLocation());
+        selectWebElement(branchTypeDropDown);
+        selectDropdownFromVisibleText(branchTypeListbox, branchManagementDetails.getBranchType());
+        selectWebElement(selectFiles.get(0));
+        FileUploader fileUploader=new FileUploader();
+        fileUploader.uploadFile(System.getProperty("user.dir") + "\\src\\test\\resources\\FileUpload\\" + branchManagementDetails.getBranchWave());
+        Thread.sleep(1000);
+        selectWebElement(selectFiles.get(0));
+        fileUploader.uploadFile(System.getProperty("user.dir") + "\\src\\test\\resources\\FileUpload\\" + branchManagementDetails.getAddressWave());
+        enterValueToTxtField(lineEstateOrder,branchManagementDetails.getLineEstateOrder());
+        selectWebElement(statusDropDown);
+        selectDropdownFromVisibleText(statusListbox, branchManagementDetails.getStatus());
+        selectWebElement(languageDropDown);
+        selectDropdownFromVisibleText(languageListbox, branchManagementDetails.getLanguage());
+        selectWebElement(saveBtn);	
+        selectWebElement(cancelBtn);		
+	}
+
+	public void addwithoutSubLines(BranchManagementDetails branchManagementDetails) throws Exception {
+		selectWebElement(BranchManagementTabs.get(1));
+		selectWebElement(makeBranchManagementChanges);
+		selectWebElement(addNewBranchManageRecordBtn);
+		waitForJqueryLoad(driver);
+		Thread.sleep(1000);
+		selectWebElement(mainLinesDropDown);
+        selectDropdownFromVisibleText(mainLinesListbox, branchManagementDetails.getMainLines());
+        enterValueToTxtField(LocationTextbox,branchManagementDetails.getLocation());
+        selectWebElement(branchTypeDropDown);
+        selectDropdownFromVisibleText(branchTypeListbox, branchManagementDetails.getBranchType());
+        selectWebElement(selectFiles.get(0));
+        FileUploader fileUploader=new FileUploader();
+        fileUploader.uploadFile(System.getProperty("user.dir") + "\\src\\test\\resources\\FileUpload\\" + branchManagementDetails.getBranchWave());
+        Thread.sleep(1000);
+        selectWebElement(selectFiles.get(0));
+        fileUploader.uploadFile(System.getProperty("user.dir") + "\\src\\test\\resources\\FileUpload\\" + branchManagementDetails.getAddressWave());
+        enterValueToTxtField(lineEstateOrder,branchManagementDetails.getLineEstateOrder());
+        selectWebElement(statusDropDown);
+        selectDropdownFromVisibleText(statusListbox, branchManagementDetails.getStatus());
+        selectWebElement(languageDropDown);
+        selectDropdownFromVisibleText(languageListbox, branchManagementDetails.getLanguage());
+        selectWebElement(saveBtn);	
+        selectWebElement(cancelBtn);		
+	}
+
+	public void addwithoutLocation(BranchManagementDetails branchManagementDetails) throws Exception {
+		selectWebElement(BranchManagementTabs.get(1));
+		selectWebElement(makeBranchManagementChanges);
+		selectWebElement(addNewBranchManageRecordBtn);
+		waitForJqueryLoad(driver);
+		Thread.sleep(1000);
+		selectWebElement(mainLinesDropDown);
+        selectDropdownFromVisibleText(mainLinesListbox, branchManagementDetails.getMainLines());
+        selectWebElement(subLinesDropDown);
+        selectDropdownFromVisibleText(subLinesListbox, branchManagementDetails.getSubLines());
+        selectWebElement(branchTypeDropDown);
+        selectDropdownFromVisibleText(branchTypeListbox, branchManagementDetails.getBranchType());
+        selectWebElement(selectFiles.get(0));
+        FileUploader fileUploader=new FileUploader();
+        fileUploader.uploadFile(System.getProperty("user.dir") + "\\src\\test\\resources\\FileUpload\\" + branchManagementDetails.getBranchType());
+        Thread.sleep(1000);
+        selectWebElement(selectFiles.get(0));
+        fileUploader.uploadFile(System.getProperty("user.dir") + "\\src\\test\\resources\\FileUpload\\" + branchManagementDetails.getAddressWave());
+        enterValueToTxtField(lineEstateOrder,branchManagementDetails.getLineEstateOrder());
+        selectWebElement(statusDropDown);
+        selectDropdownFromVisibleText(statusListbox, branchManagementDetails.getStatus());
+        selectWebElement(languageDropDown);
+        selectDropdownFromVisibleText(languageListbox, branchManagementDetails.getLanguage());
+        selectWebElement(saveBtn);	
+        selectWebElement(cancelBtn);		
+	}
+
+	public void addwithoutBranchType(BranchManagementDetails branchManagementDetails) throws Exception {
+		selectWebElement(BranchManagementTabs.get(1));
+		selectWebElement(makeBranchManagementChanges);
+		selectWebElement(addNewBranchManageRecordBtn);
+		waitForJqueryLoad(driver);
+		Thread.sleep(1000);
+		selectWebElement(mainLinesDropDown);
+        selectDropdownFromVisibleText(mainLinesListbox, branchManagementDetails.getMainLines());
+        selectWebElement(subLinesDropDown);
+        selectDropdownFromVisibleText(subLinesListbox, branchManagementDetails.getSubLines());
+        enterValueToTxtField(LocationTextbox,branchManagementDetails.getLocation());
+        selectWebElement(selectFiles.get(0));
+        FileUploader fileUploader=new FileUploader();
+        fileUploader.uploadFile(System.getProperty("user.dir") + "\\src\\test\\resources\\FileUpload\\" + branchManagementDetails.getBranchWave());
+        Thread.sleep(1000);
+        selectWebElement(selectFiles.get(0));
+        fileUploader.uploadFile(System.getProperty("user.dir") + "\\src\\test\\resources\\FileUpload\\" + branchManagementDetails.getAddressWave());
+        enterValueToTxtField(lineEstateOrder,branchManagementDetails.getLineEstateOrder());
+        selectWebElement(statusDropDown);
+        selectDropdownFromVisibleText(statusListbox, branchManagementDetails.getStatus());
+        selectWebElement(languageDropDown);
+        selectDropdownFromVisibleText(languageListbox, branchManagementDetails.getLanguage());
+        selectWebElement(saveBtn);	
+        selectWebElement(cancelBtn);		
+	}
+
+	public void addwithoutBranchName(BranchManagementDetails branchManagementDetails) throws Exception {
+		selectWebElement(BranchManagementTabs.get(1));
+		selectWebElement(makeBranchManagementChanges);
+		selectWebElement(addNewBranchManageRecordBtn);
+		waitForJqueryLoad(driver);
+		Thread.sleep(1000);
+		selectWebElement(mainLinesDropDown);
+        selectDropdownFromVisibleText(mainLinesListbox, branchManagementDetails.getMainLines());
+        selectWebElement(subLinesDropDown);
+        selectDropdownFromVisibleText(subLinesListbox, branchManagementDetails.getSubLines());
+        enterValueToTxtField(LocationTextbox,branchManagementDetails.getLocation());
+        selectWebElement(branchTypeDropDown);
+        selectDropdownFromVisibleText(branchTypeListbox, branchManagementDetails.getBranchType());
+        FileUploader fileUploader=new FileUploader();
+        selectWebElement(selectFiles.get(1));
+        fileUploader.uploadFile(System.getProperty("user.dir") + "\\src\\test\\resources\\FileUpload\\" + branchManagementDetails.getAddressWave());
+        enterValueToTxtField(lineEstateOrder,branchManagementDetails.getLineEstateOrder());
+        selectWebElement(statusDropDown);
+        selectDropdownFromVisibleText(statusListbox, branchManagementDetails.getStatus());
+        selectWebElement(languageDropDown);
+        selectDropdownFromVisibleText(languageListbox, branchManagementDetails.getLanguage());
+        selectWebElement(saveBtn);	
+        selectWebElement(cancelBtn);		
+	}
+
+	public void addwithoutAddress(BranchManagementDetails branchManagementDetails) throws Exception {
+		selectWebElement(BranchManagementTabs.get(1));
+		selectWebElement(makeBranchManagementChanges);
+		selectWebElement(addNewBranchManageRecordBtn);
+		waitForJqueryLoad(driver);
+		Thread.sleep(1000);
+		selectWebElement(mainLinesDropDown);
+        selectDropdownFromVisibleText(mainLinesListbox, branchManagementDetails.getMainLines());
+        selectWebElement(subLinesDropDown);
+        selectDropdownFromVisibleText(subLinesListbox, branchManagementDetails.getSubLines());
+        enterValueToTxtField(LocationTextbox,branchManagementDetails.getLocation());
+        selectWebElement(branchTypeDropDown);
+        selectDropdownFromVisibleText(branchTypeListbox, branchManagementDetails.getBranchType());
+        selectWebElement(selectFiles.get(0));
+        FileUploader fileUploader=new FileUploader();
+        fileUploader.uploadFile(System.getProperty("user.dir") + "\\src\\test\\resources\\FileUpload\\" + branchManagementDetails.getBranchWave());
+        Thread.sleep(1000);
+        enterValueToTxtField(lineEstateOrder,branchManagementDetails.getLineEstateOrder());
+        selectWebElement(statusDropDown);
+        selectDropdownFromVisibleText(statusListbox, branchManagementDetails.getStatus());
+        selectWebElement(languageDropDown);
+        selectDropdownFromVisibleText(languageListbox, branchManagementDetails.getLanguage());
+        selectWebElement(saveBtn);	
+        selectWebElement(cancelBtn);		
+	}
+
+	public void addwithoutLineOrder(BranchManagementDetails branchManagementDetails) throws Exception {
+		selectWebElement(BranchManagementTabs.get(1));
+		selectWebElement(makeBranchManagementChanges);
+		selectWebElement(addNewBranchManageRecordBtn);
+		waitForJqueryLoad(driver);
+		Thread.sleep(1000);
+		selectWebElement(mainLinesDropDown);
+        selectDropdownFromVisibleText(mainLinesListbox, branchManagementDetails.getMainLines());
+        selectWebElement(subLinesDropDown);
+        selectDropdownFromVisibleText(subLinesListbox, branchManagementDetails.getSubLines());
+        enterValueToTxtField(LocationTextbox,branchManagementDetails.getLocation());
+        selectWebElement(branchTypeDropDown);
+        selectDropdownFromVisibleText(branchTypeListbox, branchManagementDetails.getBranchType());
+        selectWebElement(selectFiles.get(0));
+        FileUploader fileUploader=new FileUploader();
+        fileUploader.uploadFile(System.getProperty("user.dir") + "\\src\\test\\resources\\FileUpload\\" + branchManagementDetails.getBranchWave());
+        Thread.sleep(1000);
+        selectWebElement(selectFiles.get(0));
+        fileUploader.uploadFile(System.getProperty("user.dir") + "\\src\\test\\resources\\FileUpload\\" + branchManagementDetails.getAddressWave());
+        selectWebElement(statusDropDown);
+        selectDropdownFromVisibleText(statusListbox, branchManagementDetails.getStatus());
+        selectWebElement(languageDropDown);
+        selectDropdownFromVisibleText(languageListbox, branchManagementDetails.getLanguage());
+        selectWebElement(saveBtn);	
+        selectWebElement(cancelBtn);
+		
+	}
+
+	public void addwithoutStatus(BranchManagementDetails branchManagementDetails) throws Exception {
+		selectWebElement(BranchManagementTabs.get(1));
+		selectWebElement(makeBranchManagementChanges);
+		selectWebElement(addNewBranchManageRecordBtn);
+		waitForJqueryLoad(driver);
+		Thread.sleep(1000);
+		selectWebElement(mainLinesDropDown);
+        selectDropdownFromVisibleText(mainLinesListbox, branchManagementDetails.getMainLines());
+
+
+        enterValueToTxtField(LocationTextbox,branchManagementDetails.getLocation());
+        selectWebElement(branchTypeDropDown);
+        selectDropdownFromVisibleText(branchTypeListbox, branchManagementDetails.getBranchType());
+        selectWebElement(selectFiles.get(0));
+        FileUploader fileUploader=new FileUploader();
+        fileUploader.uploadFile(System.getProperty("user.dir") + "\\src\\test\\resources\\FileUpload\\" + branchManagementDetails.getBranchWave());
+        Thread.sleep(1000);
+        selectWebElement(selectFiles.get(0));
+        fileUploader.uploadFile(System.getProperty("user.dir") + "\\src\\test\\resources\\FileUpload\\" + branchManagementDetails.getAddressWave());
+        enterValueToTxtField(lineEstateOrder,branchManagementDetails.getLineEstateOrder());
+        selectWebElement(languageDropDown);
+        selectDropdownFromVisibleText(languageListbox, branchManagementDetails.getLanguage());
+        selectWebElement(saveBtn);	
+        selectWebElement(cancelBtn);		
+	}
+
+	public void addwithoutLanguage(BranchManagementDetails branchManagementDetails) throws Exception {
+		selectWebElement(BranchManagementTabs.get(1));
+		selectWebElement(makeBranchManagementChanges);
+		selectWebElement(addNewBranchManageRecordBtn);
+		waitForJqueryLoad(driver);
+		Thread.sleep(1000);
+		selectWebElement(mainLinesDropDown);
+        selectDropdownFromVisibleText(mainLinesListbox, branchManagementDetails.getMainLines());
+        selectWebElement(subLinesDropDown);
+        selectDropdownFromVisibleText(subLinesListbox, branchManagementDetails.getSubLines());
+        enterValueToTxtField(LocationTextbox,branchManagementDetails.getLocation());
+        selectWebElement(branchTypeDropDown);
+        selectDropdownFromVisibleText(branchTypeListbox, branchManagementDetails.getBranchType());
+        selectWebElement(selectFiles.get(0));
+        FileUploader fileUploader=new FileUploader();
+        fileUploader.uploadFile(System.getProperty("user.dir") + "\\src\\test\\resources\\FileUpload\\" + branchManagementDetails.getBranchWave());
+        Thread.sleep(1000);
+        selectWebElement(selectFiles.get(0));
+        fileUploader.uploadFile(System.getProperty("user.dir") + "\\src\\test\\resources\\FileUpload\\" + branchManagementDetails.getAddressWave());
+        enterValueToTxtField(lineEstateOrder,branchManagementDetails.getLineEstateOrder());
+        selectWebElement(statusDropDown);
+        selectDropdownFromVisibleText(statusListbox, branchManagementDetails.getStatus());
+        selectWebElement(saveBtn);	
+        selectWebElement(cancelBtn);
+	}
+
+	public void clickonReject(String comment) {
+		 selectWebElement(BranchManagementTabs.get(1));
+	        try {
+	            Thread.sleep(3000);
+	        } catch (InterruptedException e) {
+	            e.printStackTrace();
+	        }
+	        clickOn(rejectBtn);
+	        selectWebElement(checkerReason);
+	        enterValueToTxtField(checkerReason,comment);
+	        try {
+	            Thread.sleep(2000);
+	        } catch (InterruptedException e) {
+	            e.printStackTrace();
+	        }
+	        clickOn(approveYesBtn);		
+	}
+
+	public boolean VerifyMakeBranchManagementChangeButton() {
+		return makeBranchManagementChanges.isDisplayed();
+
+	}
+
+	public boolean EditCancel(BranchManagementDetails branchManagementDetails) throws Exception {
+		selectWebElement(BranchManagementTabs.get(1));
+		Thread.sleep(1000);
+		selectWebElement(makeBranchManagementChanges);
+		Thread.sleep(1000);
+		searchBranchManagementRecord(branchManagementDetails.getBranchName());
+		selectWebElement(editButton);
+		waitForJqueryLoad(driver);
+		selectWebElement(cancelBtn);
+		if(editrowdata.get(2).getText().equals(branchManagementDetails.getSubLines()))
+			return true;
+		else
+		return false;
+	}
+
+	public void EditBranchManagementRecord(BranchManagementDetails branchManagementDetails) throws Exception {
+		selectWebElement(BranchManagementTabs.get(1));
+		Thread.sleep(1000);
+		selectWebElement(makeBranchManagementChanges);
+		Thread.sleep(1000);
+		searchBranchManagementRecord(branchManagementDetails.getBranchName());
+		selectWebElement(editButton);
+		waitForJqueryLoad(driver);
+		selectWebElement(subLinesDropDown);
+	    selectDropdownFromVisibleText(subLinesListbox, branchManagementDetails.getUpdatedSubLines());
+	    selectWebElement(statusDropDown);
+        selectDropdownFromVisibleText(statusListbox, branchManagementDetails.getUpdatedStatus());
+        selectWebElement(modifyReasonTextbox);
+        enterValueToTxtField(modifyReasonTextbox,branchManagementDetails.getModifyReason());
+        selectWebElement(saveBtn);	
+	}
+
+	public boolean verifyAuditTrailUpdate(BranchManagementDetails details, String Transaction,String Status) {
+		boolean stat=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable();
+        if(firstRowData.get("Transaction").equalsIgnoreCase(Transaction)){
+            if(firstRowData.get("Status").equalsIgnoreCase(Status)){
+                if(firstRowData.get("Function").equalsIgnoreCase("IvrBranchManagement")){
+                       if(Transaction.equals("MakerUpdate")){
+                           Map<String,String> newvalues=new HashMap<>();
+                            String[] d=firstRowData.get("New Values").split("\n");
+                            for(String e:d){
+                                String[]f=e.split(":",2);
+                                if(f.length>1){newvalues.put(f[0],f[1]);}
+                            }
+                            if(verifyUpdatedNewValues(details,newvalues)){
+                                stat=true;}
+                            else 
+                            stat=false;
+                       }
+                       else{System.out.println("Data mismatch");}
+                }else{System.out.println("Data mismatch:"+firstRowData.get("Function")+"\t"+"RoleManagement");}
+            }else{System.out.println("Data mismatch:"+firstRowData.get("Status")+"\t"+Status);}
+        }else{System.out.println("Data mismatch:"+firstRowData.get("Transaction")+"\t"+Transaction);}
+        return stat;
+	}
+
+	private boolean verifyUpdatedNewValues(BranchManagementDetails details, Map<String, String> newvalues) {
+		Boolean Status=false;
+		if(newvalues.get("MainLines").equals(details.getMainLines()))
+		{
+			if(newvalues.get("SubLines").equals(details.getUpdatedSubLines()))
+			{
+				if(newvalues.get("Location").equals(details.getLocation()))
+				{
+					if(newvalues.get("BranchType").equals(details.getBranchType()))
+					{
+						if(newvalues.get("BranchWavefile").equals(details.getBranchWave()))
+						{
+							if(newvalues.get("AddressWavefile").equals(details.getAddressWave()))
+							{
+								if(newvalues.get("BranchName").equals(details.getBranchName()))
+								{
+									if(newvalues.get("AddressText").equals(details.getAddress()))
+									{
+										if(newvalues.get("LineOrder").equals(details.getLineEstateOrder()))
+										{
+											if(newvalues.get("Status").equals(details.getUpdatedStatus()))
+											{
+												if(newvalues.get("Language").equals(details.getLanguage()))
+												{	
+													Status=true;
+												}
+												else System.out.println("Language data mismatch");	
+											}
+											else System.out.println("Status data mismatch");
+										}
+										else System.out.println("LineOrder data mismatch");
+									}
+									else System.out.println("AddressText data mismatch");
+								}
+								else System.out.println("BranchName data mismatch");
+							}
+							else System.out.println("AddressWavefile data mismatch");
+						}
+						else System.out.println("BranchWavefile data mismatch");
+					}
+					else System.out.println("BranchType data mismatch");
+				}
+				else System.out.println("Location data mismatch");
+			}
+			else System.out.println("SubLines data mismatch");
+		}
+		else System.out.println("MainLines data mismatch");	
+	return Status;
+	}
+
+	public void EditBranchManagementRecordReject(BranchManagementDetails branchManagementDetails) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public boolean DeleteCancel(BranchManagementDetails branchManagementDetails) throws Exception {
+		selectWebElement(BranchManagementTabs.get(1));
+		Thread.sleep(1000);
+		selectWebElement(makeBranchManagementChanges);
+		Thread.sleep(1000);
+		searchBranchManagementRecord(branchManagementDetails.getBranchName());
+		selectWebElement(deleteButton);
+		waitForJqueryLoad(driver);
+		selectWebElement(noBtn);
+		if(editrowdata.get(2).getText().equals(branchManagementDetails.getSubLines()))
+			return true;
+		else
+		return false;
+	}
+
+	public void DeleteBranchManagementRecord(BranchManagementDetails branchManagementDetails) throws Exception {
+		selectWebElement(BranchManagementTabs.get(1));
+		Thread.sleep(1000);
+		selectWebElement(makeBranchManagementChanges);
+		Thread.sleep(1000);
+		searchBranchManagementRecord(branchManagementDetails.getBranchName());
+		Thread.sleep(1000);
+		selectWebElement(deleteButton);
+		Thread.sleep(1000);
+        selectWebElement(deleteReasonTextBox);
+        enterValueToTxtField(deleteReasonTextBox,branchManagementDetails.getDeleteReason());
+        selectWebElement(yesBtn);		
+	}
+
+	public void DeleteInvalidRecord(BranchManagementDetails branchManagementDetails) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public boolean verifyAuditTrailDelete(BranchManagementDetails details, String Transaction,String Status) {
+		boolean stat=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable();
+        if(firstRowData.get("Transaction").equalsIgnoreCase(Transaction)){
+            if(firstRowData.get("Status").equalsIgnoreCase(Status)){
+                if(firstRowData.get("Function").equalsIgnoreCase("IvrBranchManagement")){
+                       stat=true;
+                }else{System.out.println("Data mismatch:"+firstRowData.get("Function")+"\t"+"RoleManagement");}
+            }else{System.out.println("Data mismatch:"+firstRowData.get("Status")+"\t"+Status);}
+        }else{System.out.println("Data mismatch:"+firstRowData.get("Transaction")+"\t"+Transaction);}
+        return stat;
 	}
 }

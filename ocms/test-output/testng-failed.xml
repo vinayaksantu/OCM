@@ -3,20 +3,47 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.tetherfi.test.ivr.BranchManagementTest">
+      <class name="com.tetherfi.test.ivr.CallBackAnnouncementTest">
         <methods>
+          <include name="ExportToExcel"/>
+          <include name="SearchClearSearch"/>
+          <include name="VerifyCancelButtonAtEditCallbackAnnouncementRecord"/>
+          <include name="VerifyColumnsHeaderEnable"/>
+          <include name="SortingByDescending"/>
+          <include name="AddDuplicateCallBackAnnouncementRecord"/>
           <include name="startTestCase"/>
           <include name="openApplication"/>
-          <include name="ExportToExcelData"/>
-          <include name="VerifyDragAndDropofAlreadyGroupedHeader"/>
-          <include name="afterEachMethod"/>
-          <include name="endTestCase"/>
-          <include name="VerifyNumberOfItemsPerPageSelection"/>
-          <include name="tearDown"/>
-          <include name="NavigateToBranchManagementPage"/>
+          <include name="EditWithoutModifyReasonCallbackannouncementRecord"/>
+          <include name="SortingByAscending"/>
+          <include name="DeleteCallbackAnnouncementRecord"/>
           <include name="database"/>
+          <include name="AddNewCallbackAnnouncementRecord"/>
+          <include name="VerifyArrowMoveForFirstAndLastPage"/>
+          <include name="EditCallBackAnnouncementRecord"/>
+          <include name="ExportToExcelData"/>
+          <include name="DeleteWithoutDeleteReasonRecord"/>
+          <include name="VerifyAuditTrialReportForUpdate"/>
+          <include name="VerifyNumberOfItemsPerPageSelection"/>
+          <include name="NavigateToCallBackAnnouncementPage"/>
+          <include name="VerifyAuditTrialReportForDelete"/>
+          <include name="endTestCase"/>
+          <include name="tearDown"/>
+          <include name="ExporttoExcelWithoutData"/>
+          <include name="VerifyArrowMoveForPreviousAndNextPage"/>
+          <include name="GroupBy"/>
+          <include name="searchwithoutSearchTextbox"/>
+          <include name="AddNewCallbackAnnouncementWithoutWavFile"/>
+          <include name="VerifyCancelButtonDeleteRecord"/>
+          <include name="AddNewCallbackAnnouncementWithoutStartTime"/>
+          <include name="VerifyTotalNumberOfItemsPerPageDetails"/>
+          <include name="VerifyAuditTrialReportForCreate"/>
+          <include name="VerifyColumnsHeaderDisable"/>
+          <include name="AddNewCallbackAnnouncementWithoutEndTime"/>
+          <include name="searchPage"/>
+          <include name="afterEachMethod"/>
+          <include name="AddNewCallbackAnnouncementWithoutLanguage"/>
         </methods>
-      </class> <!-- com.tetherfi.test.ivr.BranchManagementTest -->
+      </class> <!-- com.tetherfi.test.ivr.CallBackAnnouncementTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

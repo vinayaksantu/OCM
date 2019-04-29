@@ -15,6 +15,7 @@ import com.tetherfi.model.ivr.HolidayListDetails;
 import com.tetherfi.model.report.ReportDetails;
 import com.tetherfi.model.tmac.WaitTimeColorConfigDetails;
 import com.tetherfi.model.user.SkillConfigurationDetails;
+import com.tetherfi.pages.AgentSkillAssignmentPage;
 import com.tetherfi.pages.HolidayListPage;
 import com.tetherfi.pages.HomePage;
 import com.tetherfi.pages.OCMHomePage;
@@ -60,13 +61,13 @@ public class SkillConfigurationTest extends BaseTest{
         Assert.assertTrue(skillConfigurationPage.verifycolumnsHeaderEnabled(),"columns enabled assertion failed");
     }
     
-    //@Test(priority=4)
+    @Test(priority=4)
     public void VerifyColumnsHeaderDisable() {
     	SkillConfigurationPage skillConfigurationPage=PageFactory.createPageInstance(driver,SkillConfigurationPage.class);
         Assert.assertFalse(skillConfigurationPage.verifycolumnsHeaderDisabled(),"columns disabled assertion failed");
     }
     
-    //@Test(priority=5)
+    @Test(priority=5)
     public void AddSkillConfigurationRecord() throws IOException {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillConfigurationData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -79,7 +80,7 @@ public class SkillConfigurationTest extends BaseTest{
         screenshot.captureScreen(driver, "Record Created Successfully","SkillConfigurationTest");
     }
     
-    //@Test(priority=6)
+    @Test(priority=6)
     public void VerifyAuditTrialReportForCreate() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillConfigurationData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -96,6 +97,21 @@ public class SkillConfigurationTest extends BaseTest{
     }
     
     @Test(priority=7)
+    public void VerifySkillInAgentSkillAssignment() throws Exception {
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillConfigurationData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
+        SkillConfigurationDetails skillConfigurationDetails = new SkillConfigurationDetails(map);
+        HomePage homePage= PageFactory.createPageInstance(driver,HomePage.class);
+        homePage.navigateToOCMPage();
+    	OCMHomePage ocmHomePage = PageFactory.createPageInstance(driver,OCMHomePage.class);
+        Assert.assertTrue(ocmHomePage.isOCMHomePageIsDisplayed(),"OCM HOME Page assertion failed");
+        ocmHomePage.navigateToAgentSkillAssignmentPage();
+        AgentSkillAssignmentPage agentSkillAssignmentPage=PageFactory.createPageInstance(driver,AgentSkillAssignmentPage.class);
+        agentSkillAssignmentPage.navigateToMultiSkillTab();
+        Assert.assertTrue(agentSkillAssignmentPage.VerifySkill(skillConfigurationDetails.getSkillName()));  
+    }
+    
+    @Test(priority=8)
     public void DuplicateRecord() throws Exception {
     	 String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillConfigurationData.xlsx";
          Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -106,7 +122,7 @@ public class SkillConfigurationTest extends BaseTest{
          screenshot.captureScreen(driver, "Duplicate Record","SkillConfigurationTest");	
     }
     
-    @Test(priority=8)
+    @Test(priority=9)
     public void AddRecordWithoutSkillID() throws Exception {
    	 	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillConfigurationData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -117,7 +133,7 @@ public class SkillConfigurationTest extends BaseTest{
         screenshot.captureScreen(driver, "AddRecordWithoutSkillID","SkillConfigurationTest");	
     }
     
-    @Test(priority=9)
+    @Test(priority=10)
     public void AddRecordWithoutSkillName() throws Exception {
    	 	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillConfigurationData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -128,7 +144,7 @@ public class SkillConfigurationTest extends BaseTest{
         screenshot.captureScreen(driver, "AddRecordWithoutSkillName","SkillConfigurationTest");	
     }
     
-    @Test(priority=10)
+    @Test(priority=11)
     public void AddRecordWithoutSkillExtension() throws Exception {
    	 	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillConfigurationData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -139,7 +155,7 @@ public class SkillConfigurationTest extends BaseTest{
         screenshot.captureScreen(driver, "AddRecordWithoutSkillExtension","SkillConfigurationTest");	
     }
     
-    @Test(priority=11)
+    @Test(priority=12)
     public void AddRecordWithoutSkillPriority() throws Exception {
    	 	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillConfigurationData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -150,7 +166,7 @@ public class SkillConfigurationTest extends BaseTest{
         screenshot.captureScreen(driver, "AddRecordWithoutSkillPriority","SkillConfigurationTest");	
     }
     
-    @Test(priority=12)
+    @Test(priority=13)
     public void AddRecordWithoutEnabled() throws Exception {
    	 	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillConfigurationData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -161,7 +177,7 @@ public class SkillConfigurationTest extends BaseTest{
         screenshot.captureScreen(driver, "AddRecordWithoutEnabled","SkillConfigurationTest");	
     }
     
-    //@Test(priority=13)
+    @Test(priority=14)
     public void EditCancelSkillConfigurationRecord() throws IOException {
    	 	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillConfigurationData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
@@ -171,7 +187,7 @@ public class SkillConfigurationTest extends BaseTest{
         screenshot.captureScreen(driver, "edit cancel","SkillConfigurationTest");
     }
     
-    //@Test(priority=14)
+    @Test(priority=15)
     public void EditSkillConfigurationRecord() throws IOException {
    	 	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillConfigurationData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
@@ -182,7 +198,7 @@ public class SkillConfigurationTest extends BaseTest{
         screenshot.captureScreen(driver, "Record Updated Successfully","SkillConfigurationTest"); 
     }
     
-   	//@Test(priority=15)
+   	@Test(priority=16)
     public void VerifyAuditTrialReportForUpdate() throws Exception {
    	 	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillConfigurationData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
@@ -197,8 +213,23 @@ public class SkillConfigurationTest extends BaseTest{
         Assert.assertTrue(ocmReportsPage.verifySkillConfigurationUpdate(skillConfigurationDetails,"Update"));
         screenshot.captureScreen(driver,"VerifyAuditTrialReportForUpdate","SkillConfigurationTest");
     }
+    @Test(priority=17)
+    public void VerifyUpdatedSkillInSkillAssignment() throws Exception {
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillConfigurationData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
+        SkillConfigurationDetails skillConfigurationDetails = new SkillConfigurationDetails(map);
+        HomePage homePage= PageFactory.createPageInstance(driver,HomePage.class);
+        homePage.navigateToOCMPage();
+    	OCMHomePage ocmHomePage = PageFactory.createPageInstance(driver,OCMHomePage.class);
+        Assert.assertTrue(ocmHomePage.isOCMHomePageIsDisplayed(),"OCM HOME Page assertion failed");
+        ocmHomePage.navigateToAgentSkillAssignmentPage();
+        AgentSkillAssignmentPage agentSkillAssignmentPage=PageFactory.createPageInstance(driver,AgentSkillAssignmentPage.class);
+        agentSkillAssignmentPage.navigateToMultiSkillTab();
+        Assert.assertFalse(agentSkillAssignmentPage.VerifySkill(skillConfigurationDetails.getSkillName()));  
     
-   //@Test(priority=16)
+    }
+  
+   @Test(priority=18)
    public void searchPage() throws Exception{
   	 	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillConfigurationData.xlsx";
        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -210,7 +241,7 @@ public class SkillConfigurationTest extends BaseTest{
        screenshot.captureScreen(driver, "SearchClose","SkillConfigurationTest");
        }
    
-   //@Test(priority=17)
+   	@Test(priority=19)
     public void ExportToExcel() throws Exception
     {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles";
@@ -218,7 +249,8 @@ public class SkillConfigurationTest extends BaseTest{
         Assert.assertTrue(skillConfigurationPage.verifyExportToExcel(filePath));
         screenshot.captureScreen("Export Excel", "SkillConfigurationTest");
     }
-    //@Test(priority=18)
+    
+    @Test(priority=20)
     public void ExportToExcelData() throws Exception
     {	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\SkillConfiguration.xlsx";
     	List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
@@ -227,7 +259,7 @@ public class SkillConfigurationTest extends BaseTest{
     	screenshot.captureScreen("Export Excel Sheet", "SkillConfigurationTest");
     }
     
-    @Test(priority=19)
+    @Test(priority=21)
     public void DeleteCancelRecord() throws Exception {
   	 	 String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillConfigurationData.xlsx";
          Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
@@ -236,8 +268,9 @@ public class SkillConfigurationTest extends BaseTest{
          Assert.assertTrue(skillConfigurationPage.verifydeleteNo(skillConfigurationDetails));
          screenshot.captureScreen(driver, "Delete No","SkillConfigurationTest");
     }
+    */
     
-    @Test(priority=20)
+    @Test(priority=21)
     public void DeleteRecord() throws Exception {
   	 	 String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillConfigurationData.xlsx";
          Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
@@ -248,7 +281,7 @@ public class SkillConfigurationTest extends BaseTest{
          screenshot.captureScreen(driver, "Deleted Successfully","SkillConfigurationTest");  
     }
     
-    @Test(priority=21)
+    @Test(priority=22)
     public void VerifyAuditTrialReportForDelete() throws Exception {
  	 	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillConfigurationData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
@@ -264,7 +297,23 @@ public class SkillConfigurationTest extends BaseTest{
         screenshot.captureScreen(driver, "VerifyAuditTrialReportForUpdate","SkillConfigurationTest");
     }
     
-    @Test(priority=22)
+    @Test(priority=23)
+    public void VerifyDeletedSkillInSkillAssignment() throws Exception {
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillConfigurationData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
+        SkillConfigurationDetails skillConfigurationDetails = new SkillConfigurationDetails(map);
+        HomePage homePage= PageFactory.createPageInstance(driver,HomePage.class);
+        homePage.navigateToOCMPage();
+    	OCMHomePage ocmHomePage = PageFactory.createPageInstance(driver,OCMHomePage.class);
+        Assert.assertTrue(ocmHomePage.isOCMHomePageIsDisplayed(),"OCM HOME Page assertion failed");
+        ocmHomePage.navigateToAgentSkillAssignmentPage();
+        AgentSkillAssignmentPage agentSkillAssignmentPage=PageFactory.createPageInstance(driver,AgentSkillAssignmentPage.class);
+        agentSkillAssignmentPage.navigateToMultiSkillTab();
+        Assert.assertFalse(agentSkillAssignmentPage.VerifySkill(skillConfigurationDetails.getSkillName()));  
+    
+    }
+    
+    /*@Test(priority=24)
     public void SearchClearSearch() throws Exception
     {
   	 	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillConfigurationData.xlsx";
@@ -313,7 +362,7 @@ public class SkillConfigurationTest extends BaseTest{
     	Assert.assertTrue(skillConfigurationPage.groupby());
         screenshot.captureScreen(driver, "AlreadyGroupBy","SkillConfigurationTest");
     }
-    */
+    
     //@Test(priority=27)
     public void VerifyArrowMoveForPreviousAndNextPage() {
     	SkillConfigurationPage skillConfigurationPage=PageFactory.createPageInstance(driver,SkillConfigurationPage.class);
@@ -346,7 +395,7 @@ public class SkillConfigurationTest extends BaseTest{
         SkillConfigurationDetails skillConfigurationDetails = new SkillConfigurationDetails(map);
         Assert.assertTrue(skillConfigurationPage.verifyDatabase(skillConfigurationDetails.getQuery()));
    
-    }
+    }*/
     
     @AfterMethod
     public void afterEachMethod(ITestResult result, Method method) throws InterruptedException {

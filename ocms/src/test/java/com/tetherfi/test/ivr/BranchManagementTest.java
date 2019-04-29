@@ -198,7 +198,7 @@ public class BranchManagementTest extends BaseTest{
     	branchManagementPage.selectMakeBranchManagementChanges();
     	branchManagementPage.dragColumntoGroup("BranchType");
     	branchManagementPage.dragColumntoGroup("BranchType");
-        Assert.assertTrue(branchManagementPage.verifyDragColumntoGroup("Template Name"),"drag and drop assertion failed");
+        Assert.assertTrue(branchManagementPage.verifyDragColumntoGroup("BranchType"),"drag and drop assertion failed");
     }
     
     @Test(priority=19)

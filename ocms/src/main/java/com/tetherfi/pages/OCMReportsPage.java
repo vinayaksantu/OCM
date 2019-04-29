@@ -8,6 +8,10 @@ import com.tetherfi.model.fax.FaxTemplateDetails;
 import com.tetherfi.model.fax.SendFaxDetails;
 import com.tetherfi.model.ivr.AdhocOptionEnhancementDetails;
 import com.tetherfi.model.ivr.AgentTransferDetails;
+import com.tetherfi.model.ivr.BranchManagementDetails;
+import com.tetherfi.model.ivr.CallbackAnnouncementDetails;
+import com.tetherfi.model.ivr.FaxApplicationFormDetails;
+import com.tetherfi.model.ivr.IvrConfigDetails;
 import com.tetherfi.model.report.ReportDetails;
 import com.tetherfi.model.tmac.AgentTeamMgmtDetails;
 import com.tetherfi.model.tmac.TmacBroadCastMsgDetails;
@@ -2685,6 +2689,584 @@ return status;
 		}
 		else {System.out.println("SkillID data mismatch");}
 		return Status;
+	}
+
+	public boolean verifyBranchManagementCreate(BranchManagementDetails details, String Transaction) throws Exception {
+		booleansearchnew(details.getBranchName(),Transaction);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+		Map<String,String> newvalues=new HashMap<>();
+		String[]d=firstRowData.get("New Values").split("\n");
+		for(String e:d) {
+			System.out.println(e);
+			String f[]=e.split(":",2);
+			if(f.length>1)
+			newvalues.put(f[0], f[1]);
+		}
+			if(newvalues.get("MainLines").equals(details.getMainLines()))
+			{
+				if(newvalues.get("SubLines").equals(details.getSubLines()))
+				{
+					if(newvalues.get("Location").equals(details.getLocation()))
+					{
+						if(newvalues.get("BranchType").equals(details.getBranchType()))
+						{
+							if(newvalues.get("BranchWavefile").equals(details.getBranchWave()))
+							{
+								if(newvalues.get("AddressWavefile").equals(details.getAddressWave()))
+								{
+									if(newvalues.get("BranchName").equals(details.getBranchName()))
+									{
+										if(newvalues.get("AddressText").equals(details.getAddress()))
+										{
+											if(newvalues.get("LineOrder").equals(details.getLineEstateOrder()))
+											{
+												if(newvalues.get("Status").equals(details.getStatus()))
+												{
+													if(newvalues.get("Language").equals(details.getLanguage()))
+														Status= true;
+													else {System.out.println("Language data mismatch");}
+												}
+												else {System.out.println("Status data mismatch");}
+											}									
+											else {System.out.println("Line/EstateOrder data mismatch");}
+										}
+										else {System.out.println("AddressText data mismatch");}
+									}
+									else {System.out.println("BranchName data mismatch");}
+								}
+								else {System.out.println("AddressWavfile data mismatch");}
+							}
+							else {System.out.println("BranchWavfile data mismatch");}
+						}
+						else {System.out.println("BranchType data mismatch");}
+					}
+					else {System.out.println("Location data mismatch");}
+				}
+				else {System.out.println("SubLines data mismatch");	}
+			}
+			else {System.out.println("MainLines data mismatch");	}
+			return Status;
+	}
+
+	public boolean verifyBranchManagementUpdate(BranchManagementDetails details, String Transaction) throws Exception {
+		booleansearchnew(details.getUpdatedSubLines(),Transaction);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+        if(firstRowData.containsKey("Old Values")) {
+        	Map<String,String> oldvalues=new HashMap<>();
+    		String[]d=firstRowData.get("Old Values").split("\n");
+    		for(String e:d) {
+    			System.out.println(e);
+    			String f[]=e.split(":",2);
+    			if(f.length>1)
+    				oldvalues.put(f[0], f[1]);
+    		}
+    		if(oldvalues.get("MainLines").equals(details.getMainLines())){
+    			if(oldvalues.get("SubLines").equals(details.getSubLines())){
+    				if(oldvalues.get("Location").equals(details.getLocation())) {
+    					if(oldvalues.get("BranchType").equals(details.getBranchType())){
+        					if(oldvalues.get("BranchWavefile").equals(details.getBranchWave())){
+            					if(oldvalues.get("AddressWavefile").equals(details.getAddressWave())){
+                					if(oldvalues.get("BranchName").equals(details.getBranchName())){
+                    					if(oldvalues.get("AddressText").equals(details.getAddress())){
+                        					if(oldvalues.get("LineOrder").equals(details.getLineEstateOrder())){
+                            					if(oldvalues.get("Status").equals(details.getStatus())){
+                                					if(oldvalues.get("Language").equals(details.getLanguage())){
+                                						if(firstRowData.containsKey("New Values")) {
+                                							Map<String,String> newvalues=new HashMap<>();
+                                							String[]d1=firstRowData.get("New Values").split("\n");
+                                							for(String e:d1) {
+                                								String f[]=e.split(":",2);
+                                								if(f.length>1)
+                                									newvalues.put(f[0], f[1]);
+                                							}
+                                							if(newvalues.get("MainLines").equals(details.getMainLines()))
+                                							{
+                                								if(newvalues.get("SubLines").equals(details.getUpdatedSubLines()))
+                                								{
+                                									if(newvalues.get("Location").equals(details.getLocation()))
+                                									{
+                                										if(newvalues.get("BranchType").equals(details.getBranchType()))
+                                										{
+                                											if(newvalues.get("BranchWavefile").equals(details.getBranchWave()))
+                                											{
+                                												if(newvalues.get("AddressWavefile").equals(details.getAddressWave()))
+                                												{
+                                													if(newvalues.get("BranchName").equals(details.getBranchName()))
+                                													{
+                                														if(newvalues.get("AddressText").equals(details.getAddress()))
+                                														{
+                                															if(newvalues.get("LineOrder").equals(details.getLineEstateOrder()))
+                                															{
+                                																if(newvalues.get("Status").equals(details.getUpdatedStatus()))
+                                																{
+                                																	if(newvalues.get("Language").equals(details.getLanguage()))
+                                																	{	
+                                																		if(newvalues.get("ModifyReason").equals(details.getModifyReason())) 
+                                																		{
+                                																			if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getModifyReason()))
+                                																				Status=true;
+                                																			else System.out.println("Change reason data mismatch");
+                                																		}
+                                																		else System.out.println("Modify reason data mismatch");	
+                                																	}
+                                																	else System.out.println("Language data mismatch");	
+                                																}
+                                																else System.out.println("Status data mismatch");
+                                															}
+                                															else System.out.println("LineOrder data mismatch");
+                                														}
+                                														else System.out.println("AddressText data mismatch");
+                                													}
+                                													else System.out.println("BranchName data mismatch");
+                                												}
+                                												else System.out.println("AddressWavefile data mismatch");
+                                											}
+                                											else System.out.println("BranchWavefile data mismatch");
+                                										}
+                            											else System.out.println("BranchType data mismatch");
+                                									}
+                        											else System.out.println("Location data mismatch");
+                                								}
+                    											else System.out.println("SubLines data mismatch");
+                                							}
+                											else System.out.println("MainLines data mismatch");
+                                						}
+                            		        			else {System.out.println("New values data mismatch");}
+                                					}
+                        		        			else {System.out.println("Language data mismatch");}
+                            					}
+                    		        			else {System.out.println("Status data mismatch");}
+                        					}
+                		        			else {System.out.println("LineOrder data mismatch");}
+            							}
+            		        			else {System.out.println("AddressText data mismatch");}
+    		        				}
+                					else {System.out.println("BranchName data mismatch");}
+    		        			}
+            					else System.out.println("AddressWavefile data mismatch");
+    		        		}
+        					else System.out.println("BranchWavefile data mismatch");
+    					}
+    					else System.out.println("BranchType data mismatch");
+    				}
+    				else System.out.println("Location data mismatch");
+    			}
+    			else System.out.println("SubLines data mismatch");
+    		}
+    		else {System.out.println("MainLines data mismatch");}
+    	}
+        else {System.out.println("Old values data mismatch");}
+ return Status;
+	}
+
+	public boolean verifyBranchManagementDelete(BranchManagementDetails details, String Transaction) throws Exception {
+		booleansearchold(details.getBranchName(),Transaction);	
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+		Map<String,String> oldvalues=new HashMap<>();
+		String[]d=firstRowData.get("Old Values").split("\n");
+		for(String e:d) {
+			String f[]=e.split(":",2);
+			if(f.length>1)
+			oldvalues.put(f[0], f[1]);
+		}
+		if(oldvalues.get("MainLines").equals(details.getMainLines())){
+			if(oldvalues.get("SubLines").equals(details.getSubLines())){
+				if(oldvalues.get("Location").equals(details.getLocation())) {
+					if(oldvalues.get("BranchType").equals(details.getBranchType())){
+    					if(oldvalues.get("BranchWavefile").equals(details.getBranchWave())){
+        					if(oldvalues.get("AddressWavefile").equals(details.getAddressWave())){
+            					if(oldvalues.get("BranchName").equals(details.getBranchName())){
+                					if(oldvalues.get("AddressText").equals(details.getAddress())){
+                    					if(oldvalues.get("LineOrder").equals(details.getLineEstateOrder())){
+                        					if(oldvalues.get("Status").equals(details.getStatus())){
+                            					if(oldvalues.get("Language").equals(details.getLanguage())){
+                            						if(oldvalues.get("ModifyReason").equals(details.getDeleteReason())) {
+                            							if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getDeleteReason()))
+                            								Status=true;
+                            							else System.out.println("Change reason data mismatch");
+                            						}
+                            						else {System.out.println("Modify Reason  data mismatch");}
+                            					}
+            									else {System.out.println("Language data mismatch");}
+                        					}
+        									else {System.out.println("Status data mismatch");}
+                    					}
+    									else {System.out.println("LineOrder data mismatch");}
+									}
+									else {System.out.println("AddressText data mismatch");}
+								}
+								else {System.out.println("BranchName  data mismatch");}
+							}
+							else {System.out.println("AddressWaveFile data mismatch");}
+						}
+						else {System.out.println("BranchWavefile data mismatch");}
+					}
+					else {System.out.println("BranchType data mismatch");}
+				}
+				else {System.out.println("Location data mismatch");}
+			}
+			else {System.out.println("Sublines data mismatch");}
+		}
+		else {System.out.println("MainLines data mismatch");}
+	return Status;
+	}
+
+	public boolean verifyCallbackAnnouncementCreate(CallbackAnnouncementDetails details,String Transaction) throws Exception {
+		booleansearchnew(details.getWavFile(),Transaction);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+		Map<String,String> newvalues=new HashMap<>();
+		String[]d=firstRowData.get("New Values").split("\n");
+		for(String e:d) {
+			String f[]=e.split(":",2);
+			if(f.length>1)
+			newvalues.put(f[0], f[1]);
+		}
+			if(newvalues.get("WaveFile").equals(details.getWavFile()))
+			{
+				if(newvalues.get("StartTime").equals(details.getStartTime()))
+				{
+					if(newvalues.get("EndTime").equals(details.getEndTime()))
+					{
+						if(newvalues.get("Language").equals(details.getLanguage()))
+						Status= true;
+						else {System.out.println("Language data mismatch");}
+					}
+					else {System.out.println("EndTime data mismatch");}
+				}
+				else {System.out.println("StartTime data mismatch");}
+			}
+			else {System.out.println("WavFile data mismatch");	}
+			return Status;
+	}
+
+	public boolean verifyCallBackAnnouncementUpdate(CallbackAnnouncementDetails details,String Transaction) throws Exception {
+		booleansearchnew(details.getWavFile(),Transaction);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+        if(firstRowData.containsKey("Old Values")) {
+        	Map<String,String> oldvalues=new HashMap<>();
+    		String[]d=firstRowData.get("Old Values").split("\n");
+    		for(String e:d) {
+    			System.out.println(e);
+    			String f[]=e.split(":",2);
+    			if(f.length>1)
+    				oldvalues.put(f[0], f[1]);
+    		}
+    		if(oldvalues.get("WaveFile").equals(details.getWavFile())){
+    			if(oldvalues.get("StartTime").equals(details.getStartTime())) {
+    				if(oldvalues.get("EndTime").equals(details.getEndTime())){
+        				if(oldvalues.get("Language").equals(details.getLanguage())){
+    						if(firstRowData.containsKey("New Values")) {
+    							Map<String,String> newvalues=new HashMap<>();
+    							String[]d1=firstRowData.get("New Values").split("\n");
+    							for(String e:d1) {
+    								String f[]=e.split(":",2);
+    								if(f.length>1)
+    		        				newvalues.put(f[0], f[1]);
+    							}
+    							if(newvalues.get("WaveFile").equals(details.getWavFile())){
+    								if(newvalues.get("StartTime").equals(details.getUpdatedStartTime())) {
+    									if(newvalues.get("EndTime").equals(details.getUpdatedEndTime())){
+    	    								if(newvalues.get("Language").equals(details.getLanguage())){
+    											if(newvalues.get("ModifyReason").equals(details.getModifyReason())) {
+    												if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getModifyReason()))
+    													Status=true;
+    												else System.out.println("Change reason data mismatch");
+    											}
+    											else System.out.println("Modify reason data mismatch");
+    										}
+    										else System.out.println("Language data mismatch");
+    		        				}
+    		        				else {System.out.println("End Time data mismatch");}
+    		        			}
+    		        			else {System.out.println("Starttime data mismatch");}
+    		        			}
+    		        		else {System.out.println("WaveFile data mismatch");	}	
+    		    		}
+    		    		else {System.out.println("New values data mismatch");}
+    					}
+    				else {System.out.println("Language data mismatch");}
+    			}
+    			else {System.out.println("End Time data mismatch");}
+    			}
+    		else {System.out.println("StartTime data mismatch");	}	
+    	}
+    	else System.out.println("WaveFile data mismatch");
+        }
+    else {System.out.println("Old values data mismatch");}
+    return Status;
+	}
+
+	public boolean verifyCallbackAnnouncemnetdelete(CallbackAnnouncementDetails details,
+			String Transaction) throws Exception {
+		booleansearchold(details.getWavFile(),Transaction);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+		Map<String,String> oldvalues=new HashMap<>();
+		String[]d=firstRowData.get("Old Values").split("\n");
+		for(String e:d) {
+			String f[]=e.split(":",2);
+			if(f.length>1)
+			oldvalues.put(f[0], f[1]);
+		}
+			if(oldvalues.get("WaveFile").equals(details.getWavFile()))
+			{
+				if(oldvalues.get("StartTime").equals(details.getStartTime()))
+				{
+					if(oldvalues.get("EndTime").equals(details.getEndTime()))
+					{
+						if(oldvalues.get("Language").equals(details.getLanguage()))
+						{
+							if(oldvalues.get("ModifyReason").equals(details.getDeleteReason())) {
+								if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getDeleteReason()))
+    		        			Status=true;
+								else System.out.println("Change reason data mismatch");
+							}
+							else System.out.println("Modify reason data mismatch");
+						}
+						else {System.out.println("Language  data mismatch");}
+					}
+					else {System.out.println("End Time data mismatch");}
+				}
+				else {System.out.println("Start time mismatch");}
+			}
+			else {System.out.println("WaveFile data mismatch");}
+			return Status;
+	}
+
+	public boolean verifyFaxApplicationFormCreate(FaxApplicationFormDetails details, String Transaction) throws Exception {
+		booleansearchnew(details.getFunctionality(),Transaction);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+		Map<String,String> newvalues=new HashMap<>();
+		String[]d=firstRowData.get("New Values").split("\n");
+		for(String e:d) {
+			String f[]=e.split(":",2);
+			if(f.length>1)
+			newvalues.put(f[0], f[1]);
+		}
+			if(newvalues.get("FUNCTIONALITY").equals(details.getFunctionality()))
+			{
+				if(newvalues.get("LANGUAGE").equals(details.getLanguage()))
+				{
+					if(newvalues.get("WAV_FILE").equals(details.getWavFile()))
+					{
+						if(newvalues.get("FORM_NAME").equals(details.getPDFFile()))
+						{
+							if(newvalues.get("STATUS").equals(details.getStatus()))
+								Status= true;
+							else {System.out.println("Status data mismatch");}
+						}
+						else {System.out.println("Form Name data mismatch");}
+					}
+					else {System.out.println("Wavfile data mismatch");}
+				}
+				else {System.out.println("Language data mismatch");}
+			}
+			else {System.out.println("Functionality data mismatch");	}
+			return Status;
+	}
+
+	public boolean verifyFaxApplicationFormUpdate(FaxApplicationFormDetails details, String Transaction) throws Exception {
+		booleansearchnew(details.getFunctionality(),Transaction);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+        if(firstRowData.containsKey("Old Values")) {
+        	Map<String,String> oldvalues=new HashMap<>();
+    		String[]d=firstRowData.get("Old Values").split("\n");
+    		for(String e:d) {
+    			System.out.println(e);
+    			String f[]=e.split(":",2);
+    			if(f.length>1)
+    				oldvalues.put(f[0], f[1]);
+    		}
+    		if(oldvalues.get("FUNCTIONALITY").equals(details.getFunctionality())){
+    			if(oldvalues.get("LANGUAGE").equals(details.getLanguage())) {
+    				if(oldvalues.get("WAV_FILE").equals(details.getWavFile())){
+        				if(oldvalues.get("FORM_NAME").equals(details.getPDFFile())){
+            				if(oldvalues.get("STATUS").equals(details.getStatus())){
+            					if(firstRowData.containsKey("New Values")) {
+            						Map<String,String> newvalues=new HashMap<>();
+            						String[]d1=firstRowData.get("New Values").split("\n");
+            						for(String e:d1) {
+            							String f[]=e.split(":",2);
+            							if(f.length>1)
+            								newvalues.put(f[0], f[1]);
+            						}
+            						if(newvalues.get("FUNCTIONALITY").equals(details.getFunctionality()))
+            						{
+            							if(newvalues.get("LANGUAGE").equals(details.getLanguage()))
+            							{
+            								if(newvalues.get("WAV_FILE").equals(details.getWavFile()))
+            								{
+            									if(newvalues.get("FORM_NAME").equals(details.getPDFFile()))
+            									{
+            										if(newvalues.get("STATUS").equals(details.getUpdatedStatus())) {
+            											if(newvalues.get("ModifyReason").equals(details.getModifyReason())) {
+            												if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getModifyReason()))
+            													Status=true;
+            												else System.out.println("Change reason data mismatch");
+            											}
+            											else System.out.println("Modify reason data mismatch");
+    												}
+    												else System.out.println("Status data mismatch");
+            									}
+    											else System.out.println("Form Name data mismatch");
+    										}
+    										else System.out.println("Wave File data mismatch");
+    		        					}
+    		        					else {System.out.println("Language data mismatch");}
+    		        				}
+    		        				else {System.out.println("Functionality data mismatch");}
+    		        			}
+    		        			else {System.out.println("New values data mismatch");	}	
+    		    			}
+    		    			else {System.out.println("Status data mismatch");}
+    					}
+    					else {System.out.println("Form Name data mismatch");}
+    				}
+    				else {System.out.println("WaveFile data mismatch");}
+    			}
+    			else {System.out.println("Language data mismatch");	}	
+    		}
+    		else System.out.println("Functionality data mismatch");
+        }
+    	else {System.out.println("Old values data mismatch");}
+    return Status;
+	}
+
+	public boolean verifyFaxApplicationFormdelete(FaxApplicationFormDetails details, String Transaction) throws Exception {
+		booleansearchold(details.getWavFile(),Transaction);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+		Map<String,String> oldvalues=new HashMap<>();
+		String[]d=firstRowData.get("Old Values").split("\n");
+		for(String e:d) {
+			String f[]=e.split(":",2);
+			if(f.length>1)
+			oldvalues.put(f[0], f[1]);
+		}
+		if(oldvalues.get("FUNCTIONALITY").equals(details.getFunctionality())){
+			if(oldvalues.get("LANGUAGE").equals(details.getLanguage())) {
+				if(oldvalues.get("WAV_FILE").equals(details.getWavFile())){
+    				if(oldvalues.get("FORM_NAME").equals(details.getPDFFile())){
+        				if(oldvalues.get("STATUS").equals(details.getStatus())){
+							if(oldvalues.get("ModifyReason").equals(details.getDeleteReason())) {
+								if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getDeleteReason()))
+    		        			Status=true;
+								else System.out.println("Change reason data mismatch");
+							}
+							else System.out.println("Modify reason data mismatch");
+						}
+						else {System.out.println("Status data mismatch");}
+					}
+					else {System.out.println("Form Name data mismatch");}
+				}
+				else {System.out.println("WaveFile mismatch");}
+			}
+			else {System.out.println("Language data mismatch");}
+		}
+		else {System.out.println("Functionality data mismatch");}
+			return Status;
+	}
+
+	public boolean verifyIvrConfigCreate(IvrConfigDetails details, String Transaction) throws Exception {
+		booleansearchnew(details.getParameter(),Transaction);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+		Map<String,String> newvalues=new HashMap<>();
+		String[]d=firstRowData.get("New Values").split("\n");
+		for(String e:d) {
+			String f[]=e.split(":",2);
+			if(f.length>1)
+			newvalues.put(f[0], f[1]);
+		}
+			if(newvalues.get("Parameter").equals(details.getParameter()))
+			{
+				if(newvalues.get("Value").equals(details.getValue()))
+					Status= true;
+				else {System.out.println("Value data mismatch");}
+			}
+			else {System.out.println("Parameter data mismatch");	}
+			return Status;
+	}
+
+	public boolean verifyIvrConfigUpdate(IvrConfigDetails details, String Transaction) throws Exception {
+		booleansearchnew(details.getParameter(),Transaction);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+        if(firstRowData.containsKey("Old Values")) {
+        	Map<String,String> oldvalues=new HashMap<>();
+    		String[]d=firstRowData.get("Old Values").split("\n");
+    		for(String e:d) {
+    			System.out.println(e);
+    			String f[]=e.split(":",2);
+    			if(f.length>1)
+    				oldvalues.put(f[0], f[1]);
+    		}
+    		if(oldvalues.get("Parameter").equals(details.getParameter())){
+    			if(oldvalues.get("Value").equals(details.getValue())) {
+    				if(firstRowData.containsKey("New Values")) {
+    					Map<String,String> newvalues=new HashMap<>();
+            			String[]d1=firstRowData.get("New Values").split("\n");
+            			for(String e:d1) {
+            				String f[]=e.split(":",2);
+            				if(f.length>1)
+            					newvalues.put(f[0], f[1]);
+            			}
+            			if(newvalues.get("Parameter").equals(details.getParameter())) {
+            				if(newvalues.get("Value").equals(details.getUpdatedValue())) {
+            					if(newvalues.get("ModifyReason").equals(details.getModifyReason())) {
+            						if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getModifyReason()))
+            							Status=true;
+            						else System.out.println("Change reason data mismatch");
+            					}
+            					else System.out.println("Modify reason data mismatch");
+    						}
+            				else {System.out.println("Value data mismatch");}
+						}    					
+    					else {System.out.println("Parameter data mismatch");}
+    				}
+    				else {System.out.println("New Values data mismatch");}
+    			}
+    			else {System.out.println("Value data mismatch");	}	
+    		}
+    		else System.out.println("Parameter data mismatch");
+        }
+    	else {System.out.println("Old values data mismatch");}
+    return Status;
+	}
+
+	public boolean verifyIvrConfigdelete(IvrConfigDetails details, String Transaction) throws Exception {
+		booleansearchold(details.getParameter(),Transaction);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+		Map<String,String> oldvalues=new HashMap<>();
+		String[]d=firstRowData.get("Old Values").split("\n");
+		for(String e:d) {
+			String f[]=e.split(":",2);
+			if(f.length>1)
+			oldvalues.put(f[0], f[1]);
+		}
+			if(oldvalues.get("Parameter").equals(details.getParameter()))
+			{
+				if(oldvalues.get("Value").equals(details.getValue()))
+				{
+					if(oldvalues.get("ModifyReason").equals(details.getDeleteReason())) {
+						if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getDeleteReason()))
+							Status=true;
+						else System.out.println("Change reason data mismatch");
+					}
+					else System.out.println("Modify reason data mismatch");
+				}
+				else {System.out.println("Value mismatch");}
+			}
+			else {System.out.println("Parameter data mismatch");}
+			return Status;
 	}
 
 }
