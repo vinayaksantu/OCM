@@ -9,9 +9,7 @@
       <classes>
 
            <class name="com.tetherfi.test.fax.FaxLineConfigTest"/> 
-           <class name="com.tetherfi.test.fax.FaxLineConfigE2ETest"/> 
            
-          <class name="com.tetherfi.test.fax.FaxSendersTest"/>
       </classes>
     </test>
 

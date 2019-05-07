@@ -87,7 +87,7 @@ public class CallBackAnnouncementTest extends BaseTest {
 
     }
     
-    @Test(priority=6,dependsOnMethods ="AddNewCallbackAnnouncementRecord")
+    @Test(priority=6,dependsOnMethods ="AddNewCallbackAnnouncementRecord",invocationCount=3)
     public void VerifyAuditTrialReportForCreate() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\CallbackAnnouncementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);

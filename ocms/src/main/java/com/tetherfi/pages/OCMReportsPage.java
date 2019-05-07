@@ -11,7 +11,10 @@ import com.tetherfi.model.ivr.AgentTransferDetails;
 import com.tetherfi.model.ivr.BranchManagementDetails;
 import com.tetherfi.model.ivr.CallbackAnnouncementDetails;
 import com.tetherfi.model.ivr.FaxApplicationFormDetails;
+import com.tetherfi.model.ivr.HostValueMappingDetails;
 import com.tetherfi.model.ivr.IvrConfigDetails;
+import com.tetherfi.model.ivr.MenuDescriptionMappingDetails;
+import com.tetherfi.model.ivr.VipListManagementDetails;
 import com.tetherfi.model.report.ReportDetails;
 import com.tetherfi.model.tmac.AgentTeamMgmtDetails;
 import com.tetherfi.model.tmac.TmacBroadCastMsgDetails;
@@ -3267,6 +3270,478 @@ return status;
 			}
 			else {System.out.println("Parameter data mismatch");}
 			return Status;
+	}
+
+	public boolean verifyVIPListManagementUpdate(VipListManagementDetails details, String Transaction) throws Exception {
+		booleansearchnew(details.getCallerID(),Transaction);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+        if(firstRowData.containsKey("Old Values")) {
+        	Map<String,String> oldvalues=new HashMap<>();
+    		String[]d=firstRowData.get("Old Values").split("\n");
+    		for(String e:d) {
+    			System.out.println(e);
+    			String f[]=e.split(":",2);
+    			if(f.length>1)
+    				oldvalues.put(f[0], f[1]);
+    		}
+    		if(oldvalues.get("CallerID").equals(details.getCallerID())){
+    			if(oldvalues.get("Email").equals(details.getEmailID())){
+    				if(oldvalues.get("FBHandle").equals(details.getFBHandle())) {
+    					if(oldvalues.get("MessengerID").equals(details.getMessengerID())){
+        					if(oldvalues.get("CustomerIDType").equals(details.getCustomerIDType())){
+            					if(oldvalues.get("CustomerIDNo").equals(details.getCustomerIDNo())){
+                					if(oldvalues.get("Country").equals(details.getCountry())){
+                    					if(oldvalues.get("ContactType").equals(details.getContactType())){                					
+                    						if(oldvalues.get("InclusionFlag").equals(details.getInclusionFlag())){
+                            					if(oldvalues.get("ExclusionFlag").equals(details.getExclusionFlag())){
+                                					if(oldvalues.get("OtherData").equals(details.getOtherData())){
+                                						if(firstRowData.containsKey("New Values")) {
+                                							Map<String,String> newvalues=new HashMap<>();
+                                							String[]d1=firstRowData.get("New Values").split("\n");
+                                							for(String e:d1) {
+                                								String f[]=e.split(":",2);
+                                								if(f.length>1)
+                                									newvalues.put(f[0], f[1]);
+                                							}
+                                							if(newvalues.get("CallerID").equals(details.getCallerID())){
+                                								if(newvalues.get("Email").equals(details.getEmailID())){
+                                									if(newvalues.get("FBHandle").equals(details.getUpdatedFBHandle())) {
+                                										if(newvalues.get("MessegerID").equals(details.getMessengerID())){
+                                											if(newvalues.get("CustomerIDType").equals(details.getCustomerIDType())){
+                                												if(newvalues.get("CustomerIDNo").equals(details.getCustomerIDNo())){
+                                													if(newvalues.get("Country").equals(details.getCountry())){
+                                    													if(newvalues.get("ContactType").equals(details.getContactType())){
+                                        													if(newvalues.get("InclusionFlag").equals(details.getInclusionFlag())){
+                                            													if(newvalues.get("ExclusionFlag").equals(details.getExclusionFlag())){
+                                            	                                					if(newvalues.get("OtherData").equals(details.getOtherData())){
+                                            	                                						if(newvalues.get("ModifyReason").equals(details.getModifyReason())) {
+                                            	                                							if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getModifyReason()))
+                                            	                                								Status=true;
+                                            	                                							else System.out.println("Change reason data mismatch");
+                                            	                                						}
+                                            	                                						else System.out.println("Modify reason data mismatch");	
+                                            	                                					}
+                                            	                                					else System.out.println("OtherData data mismatch");	
+                                            													}
+                                        	                                					else System.out.println("ExclusionFlag data mismatch");	
+                                        													}
+                                    	                                					else System.out.println("InclusionFlag data mismatch");	
+                                    													}
+                                	                                					else System.out.println("ContactType data mismatch");	
+                                													}
+                            	                                					else System.out.println("Country data mismatch");	
+                                												}
+                        	                                					else System.out.println("CustomerIDNo data mismatch");	
+                                											}
+                    	                                					else System.out.println("CustomerIDType data mismatch");	
+                                										}
+                	                                					else System.out.println("MessengerID data mismatch");	
+                                									}
+            	                                					else System.out.println("FBHandle data mismatch");	
+                                								}
+                				            					else System.out.println("Email data mismatch");
+            				            					}
+            				            					else System.out.println("CallerID data mismatch");
+            				        					}
+            				        					else System.out.println("NewValues data mismatch");
+            				    					}
+        				        					else System.out.println("OtherData data mismatch");
+            				    				}
+        										else System.out.println("ExclusionFlag data mismatch");
+    										}
+    										else System.out.println("InclusionFlag data mismatch");
+            							}
+            		        			else {System.out.println("ContactType data mismatch");}
+    		        				}
+                					else {System.out.println("Country data mismatch");}
+    		        			}
+            					else System.out.println("CustomerIDType data mismatch");
+    		        		}
+        					else System.out.println("CustomerIDNo data mismatch");
+    					}
+    					else System.out.println("MessengerID data mismatch");
+    				}
+    				else System.out.println("FBHandle data mismatch");
+    			}
+    			else System.out.println("Email data mismatch");
+    		}
+    		else {System.out.println("Caller IDdata mismatch");}
+    	}
+        else {System.out.println("Old values data mismatch");}
+ return Status;
+	}
+
+	public boolean verifyVIPListManagementCreate(VipListManagementDetails details, String Transaction) throws Exception {
+		booleansearchnew(details.getEmailID(),Transaction);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+		Map<String,String> newvalues=new HashMap<>();
+		String[]d=firstRowData.get("New Values").split("\n");
+		for(String e:d) {
+			String f[]=e.split(":",2);
+			if(f.length>1)
+			newvalues.put(f[0], f[1]);
+		}
+			if(newvalues.get("CallerID").equals(details.getCallerID()))
+			{
+				if(newvalues.get("Email").equals(details.getEmailID()))
+				{
+					if(newvalues.get("FBHandle").equals(details.getFBHandle()))
+					{
+						if(newvalues.get("MessengerID").equals(details.getMessengerID()))
+						{
+							if(newvalues.get("CustomerIDType").equals(details.getCustomerIDType()))
+							{
+								if(newvalues.get("Country").equals(details.getCountry()))
+								{
+									if(newvalues.get("ContactType").equals(details.getContactType()))
+									{
+										if(newvalues.get("InclusionFlag").equals(details.getInclusionFlag()))
+										{
+											if(newvalues.get("ExclusionFlag").equals(details.getExclusionFlag()))
+											{
+												if(newvalues.get("OtherData").equals(details.getOtherData()))
+													Status= true;
+												else {System.out.println("OtherData data mismatch");}
+											}
+											else {System.out.println("Exclusion Flag data mismatch");}
+										}
+										else {System.out.println("Inclusion Flag data mismatch");}
+									}
+									else {System.out.println("ContactType data mismatch");}
+								}
+								else {System.out.println("Country data mismatch");}
+							}
+							else {System.out.println("CustomerIDType data mismatch");}
+						}	
+						else {System.out.println("MessengerID data mismatch");}
+					}
+					else {System.out.println("FBHandle data mismatch");}
+				}
+				else {System.out.println("Email data mismatch");}
+			}
+			else {System.out.println("Caller ID data mismatch");}
+			return Status;
+	}
+
+	public boolean verifyVIPListManagementdelete(VipListManagementDetails details, String Transaction) throws Exception {
+		booleansearchold(details.getEmailID(),Transaction);	
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+		Map<String,String> oldvalues=new HashMap<>();
+		String[]d=firstRowData.get("Old Values").split("\n");
+		for(String e:d) {
+			String f[]=e.split(":",2);
+			if(f.length>1)
+			oldvalues.put(f[0], f[1]);
+		}
+		if(oldvalues.get("CallerID").equals(details.getCallerID())){
+			if(oldvalues.get("Email").equals(details.getEmailID())){
+				if(oldvalues.get("FBHandle").equals(details.getFBHandle())) {
+					if(oldvalues.get("MessengerID").equals(details.getMessengerID())){
+    					if(oldvalues.get("CustomerIDType").equals(details.getCustomerIDType())){
+        					if(oldvalues.get("CustomerIDNo").equals(details.getCustomerIDNo())){
+            					if(oldvalues.get("Country").equals(details.getCountry())){
+                					if(oldvalues.get("ContactType").equals(details.getContactType())){
+                    					if(oldvalues.get("InclusionFlag").equals(details.getInclusionFlag())){
+                        					if(oldvalues.get("ExclusionFlag").equals(details.getExclusionFlag())){
+                            					if(oldvalues.get("OtherData").equals(details.getOtherData())){
+                            						if(oldvalues.get("ModifyReason").equals(details.getDeleteReason())) {
+                            							if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getDeleteReason()))
+                            								Status=true;
+                            							else System.out.println("Change reason data mismatch");
+                            						}
+                            						else {System.out.println("Modify Reason  data mismatch");}
+                            					}
+            									else {System.out.println("OtherData data mismatch");}
+                        					}
+        									else {System.out.println("Exclsuion Flag data mismatch");}
+                    					}
+    									else {System.out.println("Inclusion Flag data mismatch");}
+									}
+									else {System.out.println("ContactType data mismatch");}
+								}
+								else {System.out.println("Country  data mismatch");}
+							}
+							else {System.out.println("CustomerIDNo data mismatch");}
+						}
+						else {System.out.println("CustomerIDType data mismatch");}
+					}
+					else {System.out.println("MessengerID data mismatch");}
+				}
+				else {System.out.println("FBHandle data mismatch");}
+			}
+			else {System.out.println("Email data mismatch");}
+		}
+		else {System.out.println("CallerID data mismatch");}
+	return Status;
+	}
+
+	public boolean verifyHostValueMappingCreate(HostValueMappingDetails details, String Transaction) throws Exception {
+		booleansearchnew(details.getDescription(),Transaction);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+		Map<String,String> newvalues=new HashMap<>();
+		String[]d=firstRowData.get("New Values").split("\n");
+		for(String e:d) {
+			String f[]=e.split(":",2);
+			if(f.length>1)
+			newvalues.put(f[0], f[1]);
+		}
+			if(newvalues.get("Functionality").equals(details.getFunctionality()))
+			{
+				if(newvalues.get("Language").equals(details.getLanguage()))
+				{
+					if(newvalues.get("HostData").equals(details.getHostData()))
+					{
+						if(newvalues.get("Status").equals(details.getStatus()))
+						{
+							if(newvalues.get("Description").equals(details.getDescription()))
+							{
+								if(newvalues.get("WaveFile").equals(details.getWaveFile()))
+								{
+									Status=true;
+								}
+								else {System.out.println("WaveFile data mismatch");}
+							}
+							else {System.out.println("Description data mismatch");}
+						}	
+						else {System.out.println("Status data mismatch");}
+					}
+					else {System.out.println("HostData data mismatch");}
+				}
+				else {System.out.println("Language data mismatch");}
+			}
+			else {System.out.println("Functionality data mismatch");}
+			return Status;
+	}
+
+	public boolean verifyHostValueMappingUpdate(HostValueMappingDetails details, String Transaction) throws Exception {
+		booleansearchnew(details.getUpdatedDescription(),Transaction);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+        if(firstRowData.containsKey("Old Values")) {
+        	Map<String,String> oldvalues=new HashMap<>();
+    		String[]d=firstRowData.get("Old Values").split("\n");
+    		for(String e:d) {
+    			System.out.println(e);
+    			String f[]=e.split(":",2);
+    			if(f.length>1)
+    				oldvalues.put(f[0], f[1]);
+    		}
+    		if(oldvalues.get("Functionality").equals(details.getFunctionality())){
+    			if(oldvalues.get("HostData").equals(details.getHostData())){
+    				if(oldvalues.get("Language").equals(details.getLanguage())) {
+    					if(oldvalues.get("Status").equals(details.getStatus())){
+        					if(oldvalues.get("Description").equals(details.getDescription())){
+            					if(oldvalues.get("WaveFile").equals(details.getWaveFile())){
+            						if(firstRowData.containsKey("New Values")) {
+                                		Map<String,String> newvalues=new HashMap<>();
+                                		String[]d1=firstRowData.get("New Values").split("\n");
+                                		for(String e:d1) {
+                                			String f[]=e.split(":",2);
+                                			if(f.length>1)
+                                				newvalues.put(f[0], f[1]);
+                                		}
+                                		if(newvalues.get("Functionality").equals(details.getFunctionality())) {
+                                			if(newvalues.get("Language").equals(details.getLanguage())){
+                                				if(newvalues.get("HostData").equals(details.getHostData())){
+                                					if(newvalues.get("Status").equals(details.getStatus())){
+                                						if(newvalues.get("Description").equals(details.getUpdatedDescription())){
+                                							if(newvalues.get("WaveFile").equals(details.getWaveFile())) {	
+                                								if(newvalues.get("ModifyReason").equals(details.getModifyReason())){ 
+                                									if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getModifyReason()))
+                                            	                       	Status=true;
+                                            	                    else System.out.println("Change reason data mismatch");
+                                            	                 }
+                                            	                 else System.out.println("Modify reason data mismatch");	
+            				            					}
+            				            					else System.out.println("WaveFile data mismatch");
+            				        					}
+            				        					else System.out.println("Description data mismatch");
+            				    					}
+        				        					else System.out.println("Status data mismatch");
+            				    				}
+        										else System.out.println("HostData data mismatch");
+    										}
+    										else System.out.println("Language data mismatch");
+            							}
+            		        			else {System.out.println("Functionality data mismatch");}
+    		        				}
+                					else {System.out.println("New Values data mismatch");}
+    		        			}
+            					else System.out.println("WaveFile data mismatch");
+    		        		}
+        					else System.out.println("Description data mismatch");
+    					}
+    					else System.out.println("Status data mismatch");
+    				}
+    				else System.out.println("HostData data mismatch");
+    			}
+    			else System.out.println("Language data mismatch");
+    		}
+    		else {System.out.println("Functionality data mismatch");}
+    	}
+        else {System.out.println("Old values data mismatch");}
+ return Status;
+	}
+
+	public boolean verifyHostValueMappingDelete(HostValueMappingDetails details, String Transaction) throws Exception {
+		booleansearchold(details.getDescription(),Transaction);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+		Map<String,String> oldvalues=new HashMap<>();
+		String[]d=firstRowData.get("Old Values").split("\n");
+		for(String e:d) {
+			String f[]=e.split(":",2);
+			if(f.length>1)
+			oldvalues.put(f[0], f[1]);
+		}
+			if(oldvalues.get("Functionality").equals(details.getFunctionality()))
+			{
+				if(oldvalues.get("HostData").equals(details.getHostData()))
+				{
+					if(oldvalues.get("Language").equals(details.getLanguage()))
+					{
+						if(oldvalues.get("Description").equals(details.getDescription()))
+						{
+							if(oldvalues.get("WaveFile").equals(details.getWaveFile()))
+							{
+								if(oldvalues.get("Status").equals(details.getStatus()))
+								{
+									if(oldvalues.get("ModifyReason").equals(details.getDeleteReason())) {
+										if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getDeleteReason()))
+											Status=true;
+										else System.out.println("Change reason data mismatch");
+									}
+									else System.out.println("Modify reason data mismatch");
+								}
+								else System.out.println("Status data mismatch");
+							}
+							else System.out.println("WaveFile data mismatch");
+						}
+						else {System.out.println("Description data mismatch");}
+					}
+					else {System.out.println("Language data mismatch");}
+				}
+				else {System.out.println("HostData mismatch");}
+			}
+			else {System.out.println("Functionality data mismatch");}
+			return Status;
+	}
+
+	public boolean verifyMenuDescriptionMappingCreate(MenuDescriptionMappingDetails details,String Transaction) throws Exception {
+		booleansearchnew(details.getMenuName(),Transaction);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+		Map<String,String> newvalues=new HashMap<>();
+		String[]d=firstRowData.get("New Values").split("\n");
+		for(String e:d) {
+			String f[]=e.split(":",2);
+			if(f.length>1)
+			newvalues.put(f[0], f[1]);
+		}
+			if(newvalues.get("MenuId").equals(details.getMenuID()))
+			{
+				if(newvalues.get("MenuName").equals(details.getMenuName()))
+				{
+					if(newvalues.get("Intent").equals(details.getIntent()))
+					{
+						Status= true;
+					}
+					else {System.out.println("Intent data mismatch");}
+				}
+				else {System.out.println("MenuName data mismatch");}
+			}
+			else {System.out.println("MenuId data mismatch");	}
+			return Status;
+	}
+
+	public boolean verifyMenuDescriptionMappingUpdate(MenuDescriptionMappingDetails details,
+			String Transaction) throws Exception {
+		booleansearchnew(details.getUpdatedMenuName(),Transaction);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+        if(firstRowData.containsKey("Old Values")) {
+        	Map<String,String> oldvalues=new HashMap<>();
+    		String[]d=firstRowData.get("Old Values").split("\n");
+    		for(String e:d) {
+    			System.out.println(e);
+    			String f[]=e.split(":",2);
+    			if(f.length>1)
+    				oldvalues.put(f[0], f[1]);
+    		}
+    		if(oldvalues.get("MenuId").equals(details.getMenuID())){
+    			if(oldvalues.get("MenuName").equals(details.getMenuName())) {
+        			if(oldvalues.get("Intent").equals(details.getIntent())) {
+        				if(firstRowData.containsKey("New Values")) {
+        					Map<String,String> newvalues=new HashMap<>();
+        					String[]d1=firstRowData.get("New Values").split("\n");
+        					for(String e:d1) {
+        						String f[]=e.split(":",2);
+        						if(f.length>1)
+        							newvalues.put(f[0], f[1]);
+        					}
+        					if(newvalues.get("MenuId").equals(details.getMenuID())) {
+        						if(newvalues.get("MenuName").equals(details.getUpdatedMenuName())) {
+            						if(newvalues.get("Intent").equals(details.getIntent())) {
+        								if(newvalues.get("ModifyReason").equals(details.getModifyReason())) {
+        									if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getModifyReason()))
+        										Status=true;
+        									else System.out.println("Change reason data mismatch");
+        								}
+        								else System.out.println("Modify reason data mismatch");
+            						}
+    								else System.out.println("Intent data mismatch");
+        						}
+								else System.out.println("MenuName data mismatch");
+    						}
+            				else {System.out.println("Menu ID data mismatch");}
+						}    					
+    					else {System.out.println("New Values data mismatch");}
+    				}
+    				else {System.out.println("Intent data mismatch");}
+    			}
+    			else {System.out.println("MenuName data mismatch");	}	
+    		}
+    		else System.out.println("MenuID data mismatch");
+        }
+    	else {System.out.println("Old values data mismatch");}
+    return Status;
+	}
+
+	public boolean verifyMenuDescriptionMappingdelete(MenuDescriptionMappingDetails details,
+			String Transaction) throws Exception {
+		booleansearchold(details.getMenuName(),Transaction);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+		Map<String,String> oldvalues=new HashMap<>();
+		String[]d=firstRowData.get("Old Values").split("\n");
+		for(String e:d) {
+			String f[]=e.split(":",2);
+			if(f.length>1)
+			oldvalues.put(f[0], f[1]);
+		}
+			if(oldvalues.get("MenuId").equals(details.getMenuID()))
+			{
+				if(oldvalues.get("MenuName").equals(details.getMenuName()))
+				{
+					if(oldvalues.get("Intent").equals(details.getIntent()))
+					{
+						if(oldvalues.get("ModifyReason").equals(details.getDeleteReason())) {
+							if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getDeleteReason()))
+								Status=true;
+							else System.out.println("Change reason data mismatch");
+							}
+						else System.out.println("Modify reason data mismatch");
+					}
+					else {System.out.println("Intent data mismatch");}
+				}
+				else {System.out.println("Menu Name mismatch");}
+			}
+			else {System.out.println("Intent data mismatch");}
+		return Status;
 	}
 
 }

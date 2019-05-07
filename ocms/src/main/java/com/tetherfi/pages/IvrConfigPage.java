@@ -2,6 +2,7 @@ package com.tetherfi.pages;
 
 import com.tetherfi.model.ivr.FaxApplicationFormDetails;
 import com.tetherfi.model.ivr.IvrConfigDetails;
+import com.tetherfi.model.ivr.VipListManagementDetails;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -722,4 +723,5 @@ public class IvrConfigPage extends BasePage {
 		else
 		return false;
 	}
+	
 }

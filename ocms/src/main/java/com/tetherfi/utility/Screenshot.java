@@ -12,16 +12,16 @@ import java.io.File;
 public class Screenshot {
 	WebDriver driver;
 
-	public void captureScreen(WebDriver driver ,String filename,String testname){
+	public void captureScreen(WebDriver driver,String foldername,String filename){
         try {
-        	File file = new File(System.getProperty("user.dir") + "\\target\\Screenshot\\" +testname);
+        	File file = new File(System.getProperty("user.dir") + "\\target\\surefire-reports\\Screenshot\\" +foldername);
 			if (!file.exists()) {
 				System.out.println("File created " + file);
 				file.mkdir();
 			}
             TakesScreenshot scrShot = ((TakesScreenshot) driver);
             File SrcFile = scrShot.getScreenshotAs(OutputType.FILE);
-            File DestFile = new File(System.getProperty("user.dir") + "\\target\\Screenshot\\" +testname+"\\"+ filename+".jpg");
+            File DestFile = new File(System.getProperty("user.dir") + "\\target\\surefire-reports\\\\Screenshot\\" +foldername+"\\"+ filename+".jpg");
             FileHandler.copy(SrcFile, DestFile);
         }catch(Exception e){
             e.printStackTrace();
