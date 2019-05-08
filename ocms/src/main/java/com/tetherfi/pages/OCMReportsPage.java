@@ -14,6 +14,7 @@ import com.tetherfi.model.ivr.FaxApplicationFormDetails;
 import com.tetherfi.model.ivr.HostValueMappingDetails;
 import com.tetherfi.model.ivr.IvrConfigDetails;
 import com.tetherfi.model.ivr.MenuDescriptionMappingDetails;
+import com.tetherfi.model.ivr.VBEnrollmentFlagDetails;
 import com.tetherfi.model.ivr.VipListManagementDetails;
 import com.tetherfi.model.report.ReportDetails;
 import com.tetherfi.model.tmac.AgentTeamMgmtDetails;
@@ -3728,6 +3729,117 @@ return status;
 				if(oldvalues.get("MenuName").equals(details.getMenuName()))
 				{
 					if(oldvalues.get("Intent").equals(details.getIntent()))
+					{
+						if(oldvalues.get("ModifyReason").equals(details.getDeleteReason())) {
+							if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getDeleteReason()))
+								Status=true;
+							else System.out.println("Change reason data mismatch");
+							}
+						else System.out.println("Modify reason data mismatch");
+					}
+					else {System.out.println("Intent data mismatch");}
+				}
+				else {System.out.println("Menu Name mismatch");}
+			}
+			else {System.out.println("Intent data mismatch");}
+		return Status;
+	}
+
+	public boolean verifyVBEnrollmentFlagCreate(VBEnrollmentFlagDetails details, String Transaction) throws Exception {
+		booleansearchnew(details.getDNIS(),Transaction);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+		Map<String,String> newvalues=new HashMap<>();
+		String[]d=firstRowData.get("New Values").split("\n");
+		for(String e:d) {
+			String f[]=e.split(":",2);
+			if(f.length>1)
+			newvalues.put(f[0], f[1]);
+		}
+			if(newvalues.get("DNIS").equals(details.getDNIS()))
+			{
+				if(newvalues.get("HotlineName").equals(details.getHotLineName()))
+				{
+					if(newvalues.get("EnrollmentFlag").equals(details.getEnrollmentFlag()))
+					{
+						Status= true;
+					}
+					else {System.out.println("EnrollmentFlag data mismatch");}
+				}
+				else {System.out.println("Hot Line Name data mismatch");}
+			}
+			else {System.out.println("DNIS data mismatch");	}
+			return Status;
+	}
+
+	public boolean verifyVBEnrollmentFlagUpdate(VBEnrollmentFlagDetails details, String Transaction) throws Exception {
+		booleansearchnew(details.getUpdatedHotLineName(),Transaction);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+        if(firstRowData.containsKey("Old Values")) {
+        	Map<String,String> oldvalues=new HashMap<>();
+    		String[]d=firstRowData.get("Old Values").split("\n");
+    		for(String e:d) {
+    			System.out.println(e);
+    			String f[]=e.split(":",2);
+    			if(f.length>1)
+    				oldvalues.put(f[0], f[1]);
+    		}
+    		if(oldvalues.get("DNIS").equals(details.getDNIS())){
+    			if(oldvalues.get("HotLineName").equals(details.getHotLineName())) {
+        			if(oldvalues.get("EnrollmentFlag").equals(details.getEnrollmentFlag())) {
+        				if(firstRowData.containsKey("New Values")) {
+        					Map<String,String> newvalues=new HashMap<>();
+        					String[]d1=firstRowData.get("New Values").split("\n");
+        					for(String e:d1) {
+        						String f[]=e.split(":",2);
+        						if(f.length>1)
+        							newvalues.put(f[0], f[1]);
+        					}
+        					if(newvalues.get("DNIS").equals(details.getDNIS())) {
+        						if(newvalues.get("HotlineName").equals(details.getUpdatedHotLineName())) {
+            						if(newvalues.get("EnrollmentFlag").equals(details.getEnrollmentFlag())) {
+        								if(newvalues.get("ModifyReason").equals(details.getModifyReason())) {
+        									if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getModifyReason()))
+        										Status=true;
+        									else System.out.println("Change reason data mismatch");
+        								}
+        								else System.out.println("Modify reason data mismatch");
+            						}
+    								else System.out.println("EnrollmentFlag data mismatch");
+        						}
+								else System.out.println("HotLineName data mismatch");
+    						}
+            				else {System.out.println("DNIS data mismatch");}
+						}    					
+    					else {System.out.println("New Values data mismatch");}
+    				}
+    				else {System.out.println("EnrollmentFlag data mismatch");}
+    			}
+    			else {System.out.println("HotLIneName data mismatch");	}	
+    		}
+    		else System.out.println("DNIS data mismatch");
+        }
+    	else {System.out.println("Old values data mismatch");}
+    return Status;
+	}
+
+	public boolean verifyVBEnrollmentFlagdelete(VBEnrollmentFlagDetails details, String Transaction) throws Exception {
+		booleansearchold(details.getHotLineName(),Transaction);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+		Map<String,String> oldvalues=new HashMap<>();
+		String[]d=firstRowData.get("Old Values").split("\n");
+		for(String e:d) {
+			String f[]=e.split(":",2);
+			if(f.length>1)
+			oldvalues.put(f[0], f[1]);
+		}
+			if(oldvalues.get("DNIS").equals(details.getDNIS()))
+			{
+				if(oldvalues.get("HotlinNamr").equals(details.getHotLineName()))
+				{
+					if(oldvalues.get("EnrollmentFlag").equals(details.getEnrollmentFlag()))
 					{
 						if(oldvalues.get("ModifyReason").equals(details.getDeleteReason())) {
 							if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getDeleteReason()))
