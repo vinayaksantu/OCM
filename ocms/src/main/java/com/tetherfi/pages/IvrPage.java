@@ -166,6 +166,7 @@ public class IvrPage extends BasePage {
 		selectWebElement(vipListManagement);		
 	}
 	public void navigateToVbEnrollmentFlagPage() {
+		scrollToElement(vbEnrollmentFlag);
 		waitUntilWebElementIsClickable(vbEnrollmentFlag);
 		selectWebElement(vbEnrollmentFlag);			
 	}

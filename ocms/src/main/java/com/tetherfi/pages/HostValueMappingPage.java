@@ -208,6 +208,9 @@ public class HostValueMappingPage extends BasePage {
     @FindBy(css=".k-grid-update")
     private WebElement saveBtn;
     
+    @FindBy(css=".k-edit-form-container #tgrid label")
+    private List<WebElement> labels;
+    
     @FindBy(xpath="//a[text()='Functionality']")
     private List<WebElement> Functionality;
     
@@ -1292,4 +1295,86 @@ public class HostValueMappingPage extends BasePage {
         selectWebElement(yesBtn);		
         selectWebElement(noBtn);
 	}
+	
+	 public boolean verifyJsonDataForMakerAndChecker(boolean mkrchk){
+	        boolean status=false;
+	        if(mkrchk){
+	            if(makerCheckerTab.size()==1){status=true;}
+	        }else {if(makerCheckerTab.size()!=1){status=true;}}
+	    return status;
+	    }
+	    public boolean verifyJsonDataForgridColumnHidden(Map<String,String> jsonmap){
+	        boolean status=false;
+	        for(WebElement e: headersText){
+	            scrollToElement(e);
+	            if(jsonmap.get(e.getText()).equalsIgnoreCase("false")){status=true;}else{
+	                System.out.println("Header "+e.getText()+"is hidden in JSON configuration file");status=false;break;}
+	        }
+	        return status;
+	    }
+	    
+	    public void enableAllColumnsHeaders() {
+	        WebElement ele = headersDropdown.get(0);
+	        if (ele.isDisplayed()) {
+	            try {
+	                selectWebElement(ele);
+	                Thread.sleep(1000);
+	                selectWebElement(headersColumns.get(2));
+	                Thread.sleep(1000);
+	            } catch (InterruptedException e) {
+	                e.printStackTrace();
+	            }
+	            for (int i = 3; i < headersColumns.size(); i++) {
+	                WebElement checkbox = headersColumns.get(i).findElement(By.tagName("input"));
+	                checkbox.click();
+	                if (checkbox.isSelected()) {
+	                } else {
+	                    checkbox.click();
+	                }
+	            }
+	        }
+	    }
+	    public boolean verifyJsonDataForColumnIncludeGrid(Map<String,String> jsonmap){
+	        Map<String,String> map =getDefaultEnabledColumnsHeaders();
+	        return map.equals(jsonmap);
+	    }
+	    public Map<String,String> getDefaultEnabledColumnsHeaders() {
+	        Map<String,String> map=new HashMap<>();
+	        WebElement ele = headersDropdown.get(0);
+	        if (ele.isDisplayed()) {
+	            try {
+	                selectWebElement(ele);
+	                Thread.sleep(1000);
+	                selectWebElement(headersColumns.get(2));
+	                Thread.sleep(1000);
+	            } catch (InterruptedException e) {
+	                e.printStackTrace();
+	            }
+	            for (int i = 3; i < headersColumns.size(); i++) {
+	                WebElement checkbox = headersColumns.get(i).findElement(By.tagName("input"));
+	                if (checkbox.isSelected()) {map.put(headersColumns.get(i).getText(),"false");}else{{map.put(headersColumns.get(i).getText(),"true");}}
+	            }
+	        }
+	        return map;
+	    }
+	    public boolean verifyJsonDataForMandatoryField(Map<String,String> jsonmap){
+	        boolean status=false;
+	        jsonmap.remove("Features");
+	        ArrayList<String> mand=new ArrayList<>();
+	        for(String key:jsonmap.keySet()){
+	            if(jsonmap.get(key).equalsIgnoreCase("true")){
+	                status=false;
+	                for(WebElement e:labels){
+	                    if(e.getText().equals(key+"*")){mand.add(key);status=true;break;}
+	                }if(!status){System.out.println(key+" label is not having mandatory * symbol");break;}
+	            }
+	        }
+	        return status;
+	    }
+
+		public void selectAddNewHostValueMapping() {
+			selectWebElement(addNewHostValueMappingRecordBtn);
+		}
+
+	
 }

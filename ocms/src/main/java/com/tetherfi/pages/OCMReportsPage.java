@@ -3786,7 +3786,7 @@ return status;
     				oldvalues.put(f[0], f[1]);
     		}
     		if(oldvalues.get("DNIS").equals(details.getDNIS())){
-    			if(oldvalues.get("HotLineName").equals(details.getHotLineName())) {
+    			if(oldvalues.get("HotlineName").equals(details.getHotLineName())) {
         			if(oldvalues.get("EnrollmentFlag").equals(details.getEnrollmentFlag())) {
         				if(firstRowData.containsKey("New Values")) {
         					Map<String,String> newvalues=new HashMap<>();
@@ -3837,7 +3837,7 @@ return status;
 		}
 			if(oldvalues.get("DNIS").equals(details.getDNIS()))
 			{
-				if(oldvalues.get("HotlinNamr").equals(details.getHotLineName()))
+				if(oldvalues.get("HotlineName").equals(details.getHotLineName()))
 				{
 					if(oldvalues.get("EnrollmentFlag").equals(details.getEnrollmentFlag()))
 					{

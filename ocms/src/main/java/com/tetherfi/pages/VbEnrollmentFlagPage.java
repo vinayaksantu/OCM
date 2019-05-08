@@ -116,7 +116,7 @@ public class VbEnrollmentFlagPage extends BasePage {
 	@FindBy(xpath="//button[text()='Close']")
 	private WebElement searchClose;
 		    
-	@FindBy(xpath="//div[text()='No Records to Display']")
+	@FindBy(xpath="//div[text()='No records to display']")
 	private WebElement norecords;
 		    
 	@FindBy(xpath="//i[@class='fas fa-sync']")
@@ -130,6 +130,9 @@ public class VbEnrollmentFlagPage extends BasePage {
 			    
 	@FindBy(css=".k-pager-sizes .k-icon")
 	private WebElement pagerDropdown;
+	
+	@FindBy(css=".k-grid-update")
+	private WebElement saveButton;
 			    
 	@FindBy(css=".k-animation-container ul li")
 	private List<WebElement> pageSizeListBox;
@@ -175,7 +178,18 @@ public class VbEnrollmentFlagPage extends BasePage {
 
 	@FindBy(css = "#toast-container .toast-error .toast-message")
 	private List<WebElement> errorMsg;
+	
+	@FindBy(id="DNIS")
+	private WebElement DNISTextbox;
+	
+	@FindBy(id="HotlineName")
+	private WebElement HotLineNameTextBox;
 	    
+	@FindBy(css="span[aria-owns='EnrollmentFlag_listbox']")
+	private WebElement EnrollmentFlagDropdown;
+	
+	@FindBy(css="ul[id='EnrollmentFlag_listbox'] li")
+	private List<WebElement> EnrollmentFlagListbox;
 	
 	public boolean isVbEnrollmentFlagPageDisplayed() {
 		waitForLoad(driver);
@@ -242,7 +256,7 @@ public class VbEnrollmentFlagPage extends BasePage {
 	public boolean verifyExportToExcel(String filePath) {
 		final File folder = new File(filePath);
 		for (final File f : folder.listFiles()) {
-		    if (f.getName().startsWith("Menu Description Mapping")) {
+		    if (f.getName().startsWith("VB Enrollment Flag")) {
 		        f.delete();
 		    }
 		}
@@ -253,7 +267,7 @@ public class VbEnrollmentFlagPage extends BasePage {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		Boolean Status=verifyExportPageFileDownload(filePath, "Menu Description Mapping");
+		Boolean Status=verifyExportPageFileDownload(filePath, "VB Enrollment Flag");
 		return Status;
 	}
 	public boolean verifyexportToExcelSheet(List<Map<String, String>> maplist) {
@@ -563,7 +577,13 @@ public class VbEnrollmentFlagPage extends BasePage {
 				return false;
 	}
 	public void searchVbEnrollmentFlagRecord(String dnis) {
-		// TODO Auto-generated method stub
+		selectWebElement(searchBtn);
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"DNIS");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is equal to");
+        enterValueToTxtField(searchTextBox,dnis);		
+        selectWebElement(searchSearchBtn);
 		
 	}
 	public boolean verifyclearsearch() {
@@ -610,25 +630,47 @@ public class VbEnrollmentFlagPage extends BasePage {
 		 if(errorMsg.size()>0){return errorMsg.get(0).getText();}
 	       else{waitUntilWebElementIsVisible(successmsg);return successmsg.getText();}
 	}
-	public void addNewVBEnrollmentFlagRecord(VBEnrollmentFlagDetails vBEnrollmentFlagDetails) {
+	public void addNewVBEnrollmentFlagRecord(VBEnrollmentFlagDetails details) {
 		selectWebElement(addNewVbEnrollmentFlagRecordBtn);
-		
+		selectWebElement(DNISTextbox);
+		enterValueToTxtField(DNISTextbox,details.getDNIS());
+		selectWebElement(HotLineNameTextBox);
+		enterValueToTxtField(HotLineNameTextBox,details.getHotLineName());
+		selectWebElement(EnrollmentFlagDropdown);
+        selectDropdownFromVisibleText(EnrollmentFlagListbox,details.getEnrollmentFlag());
+		selectWebElement(saveButton);
 	}
 	public void addNewEmptyRecord(VBEnrollmentFlagDetails vBEnrollmentFlagDetails) {
-		// TODO Auto-generated method stub
-		
+		selectWebElement(addNewVbEnrollmentFlagRecordBtn);
+		selectWebElement(saveButton);
+		selectWebElement(cancelBtn);			
 	}
-	public void addRecordWithoutDNIS(VBEnrollmentFlagDetails vBEnrollmentFlagDetails) {
-		// TODO Auto-generated method stub
-		
+	public void addRecordWithoutDNIS(VBEnrollmentFlagDetails details) {
+		selectWebElement(addNewVbEnrollmentFlagRecordBtn);
+		selectWebElement(HotLineNameTextBox);
+		enterValueToTxtField(HotLineNameTextBox,details.getHotLineName());
+		selectWebElement(EnrollmentFlagDropdown);
+        selectDropdownFromVisibleText(EnrollmentFlagListbox,details.getEnrollmentFlag());
+		selectWebElement(saveButton);
+		selectWebElement(cancelBtn);			
 	}
-	public void addRecordWithoutEnrollmentFlag(VBEnrollmentFlagDetails vBEnrollmentFlagDetails) {
-		// TODO Auto-generated method stub
-		
+	public void addRecordWithoutEnrollmentFlag(VBEnrollmentFlagDetails details) {
+		selectWebElement(addNewVbEnrollmentFlagRecordBtn);
+		selectWebElement(DNISTextbox);
+		enterValueToTxtField(DNISTextbox,details.getDNIS());
+		selectWebElement(HotLineNameTextBox);
+		enterValueToTxtField(HotLineNameTextBox,details.getHotLineName());
+		selectWebElement(saveButton);
+		selectWebElement(cancelBtn);			
 	}
-	public void addRecordWithoutHotLineName(VBEnrollmentFlagDetails vBEnrollmentFlagDetails) {
-		// TODO Auto-generated method stub
-		
+	public void addRecordWithoutHotLineName(VBEnrollmentFlagDetails details) {
+		selectWebElement(addNewVbEnrollmentFlagRecordBtn);
+		selectWebElement(DNISTextbox);
+		enterValueToTxtField(DNISTextbox,details.getDNIS());
+		selectWebElement(EnrollmentFlagDropdown);
+        selectDropdownFromVisibleText(EnrollmentFlagListbox,details.getEnrollmentFlag());
+		selectWebElement(saveButton);
+		selectWebElement(cancelBtn);			
 	}
 	public void clickOnAddRecord() {
 		selectWebElement(addNewVbEnrollmentFlagRecordBtn);
@@ -637,40 +679,74 @@ public class VbEnrollmentFlagPage extends BasePage {
 		selectWebElement(cancelBtn);
 	}
 	public boolean verifyEditFormContainer() {
-		// TODO Auto-generated method stub
-		return false;
+		  try {
+	            Thread.sleep(3000);
+	        } catch (InterruptedException e) {
+	            e.printStackTrace();
+	        }
+	        return isElementExist(editFormContainer);
+	    
 	}
-	public void editVBEnrollmentFlagRecord(VBEnrollmentFlagDetails vBEnrollmentFlagDetails) {
-		// TODO Auto-generated method stub
+	public void editVBEnrollmentFlagRecord(VBEnrollmentFlagDetails details) throws Exception {
+		searchVbEnrollmentFlagRecord(details.getDNIS());
+		Thread.sleep(1000);
+		selectWebElement(editButton);
+		waitForLoad(driver);
+		selectWebElement(HotLineNameTextBox);
+		enterValueToTxtField(HotLineNameTextBox,details.getUpdatedHotLineName());
+		selectWebElement(ModifyReasonTextBox);
+		enterValueToTxtField(ModifyReasonTextBox,details.getModifyReason());
+		selectWebElement(saveButton);
 		
 	}
-	public void editVBEnrollmentFlagRecordWithoutModifyReason(VBEnrollmentFlagDetails vBEnrollmentFlagDetails) {
-		// TODO Auto-generated method stub
+	public void editVBEnrollmentFlagRecordWithoutModifyReason(VBEnrollmentFlagDetails details) throws Exception {
+		searchVbEnrollmentFlagRecord(details.getDNIS());
+		Thread.sleep(1000);
+		selectWebElement(editButton);
+		waitForLoad(driver);
+		selectWebElement(HotLineNameTextBox);
+		enterValueToTxtField(HotLineNameTextBox,details.getUpdatedHotLineName());
+		selectWebElement(saveButton);	
+		selectWebElement(cancelBtn);
+	}
+	public void clickOnEditButton() throws InterruptedException {
+		selectWebElement(editButton);
+		Thread.sleep(1000);
 		
 	}
-	public void clickOnEditButton() {
-		// TODO Auto-generated method stub
-		
-	}
-	public void deleteVBEnrollmentFlagWithoutDeleteReasonRecord(VBEnrollmentFlagDetails vBEnrollmentFlagDetails) {
-		// TODO Auto-generated method stub
-		
+	public void deleteVBEnrollmentFlagWithoutDeleteReasonRecord(VBEnrollmentFlagDetails details) throws Exception {
+		searchVbEnrollmentFlagRecord(details.getDNIS());
+		Thread.sleep(1000);
+        selectWebElement(deleteButton);
+        selectWebElement(deleteYesBtn);	
+        selectWebElement(deleteNoBtn);			
+
 	}
 	public void clickOnDeleteButton() {
-		// TODO Auto-generated method stub
+        selectWebElement(deleteButton);
 		
 	}
 	public void clickOnDeleteCancelBtn() {
-		// TODO Auto-generated method stub
+        selectWebElement(deleteNoBtn);			
 		
 	}
+	
 	public boolean verifyDeleteContainer() {
-		// TODO Auto-generated method stub
-		return false;
+		 try {
+	            Thread.sleep(3000);
+	        } catch (InterruptedException e) {
+	            e.printStackTrace();
+	        }
+	        return isElementExist(deleteContainer);
 	}
-	public void deleteVBEnrollmentFlagRecord(VBEnrollmentFlagDetails vBEnrollmentFlagDetails) {
-		// TODO Auto-generated method stub
-		
+	
+	public void deleteVBEnrollmentFlagRecord(VBEnrollmentFlagDetails details) throws Exception {
+		searchVbEnrollmentFlagRecord(details.getDNIS());
+		Thread.sleep(1000);
+        selectWebElement(deleteButton);
+        waitForJqueryLoad(driver);
+        enterValueToTxtField(deleteReasonTextBox,details.getDeleteReason());
+        selectWebElement(deleteYesBtn);	
 	}
 
 	

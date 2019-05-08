@@ -39,14 +39,13 @@ public class VBEnrollmentFlagTest extends BaseTest {
         ocmHomePage.navigateToTab("IVR");
         IvrPage ivrPage = PageFactory.createPageInstance(driver, IvrPage.class);
         Assert.assertTrue(ivrPage.isIVRPageDisplayed(), "ivr page assertion failed");
-        ivrPage.scrollingToBottomofAPage();
         ivrPage.navigateToVbEnrollmentFlagPage();
         VbEnrollmentFlagPage VbEnrollmentFlagPage = PageFactory.createPageInstance(driver, VbEnrollmentFlagPage.class);
         Assert.assertTrue(VbEnrollmentFlagPage.isVbEnrollmentFlagPageDisplayed(), "VBEnrollmentFlag page assertion failed");
-    	screenshot.captureScreen(driver,"VBEnrollmentFlagTest","VbEnrollmentFlagPage");
+    	screenshot.captureScreen("VBEnrollmentFlagTest","VbEnrollmentFlagPage");
     }
 	
-	@Test(priority=1)
+	/*@Test(priority=1)
 	public void VbEnrollmentFlagPage() {
         VbEnrollmentFlagPage VbEnrollmentFlagPage = PageFactory.createPageInstance(driver, VbEnrollmentFlagPage.class);
         Assert.assertTrue(VbEnrollmentFlagPage.VerifyLogo(),"Logo assertion failed");
@@ -116,7 +115,7 @@ public class VBEnrollmentFlagTest extends BaseTest {
         VBEnrollmentFlagDetails VBEnrollmentFlagDetails = new VBEnrollmentFlagDetails(map);
         VbEnrollmentFlagPage VbEnrollmentFlagPage = PageFactory.createPageInstance(driver, VbEnrollmentFlagPage.class);
         VbEnrollmentFlagPage.addNewEmptyRecord(VBEnrollmentFlagDetails);
-        Assert.assertEquals(VbEnrollmentFlagPage.verifySuccessMessage(),"Please Provide MenuId, MenuName, Intent", "Add invalid record assertion failed");
+        Assert.assertEquals(VbEnrollmentFlagPage.verifySuccessMessage(),"Please Provide DNIS, Hotline Name, Enrollment Flag", "Add invalid record assertion failed");
     }
     
     @Test(priority=9)
@@ -126,7 +125,7 @@ public class VBEnrollmentFlagTest extends BaseTest {
         VBEnrollmentFlagDetails VBEnrollmentFlagDetails = new VBEnrollmentFlagDetails(map);
         VbEnrollmentFlagPage VbEnrollmentFlagPage = PageFactory.createPageInstance(driver, VbEnrollmentFlagPage.class);
         VbEnrollmentFlagPage.addRecordWithoutDNIS(VBEnrollmentFlagDetails);
-        Assert.assertEquals(VbEnrollmentFlagPage.verifySuccessMessage(),"Please Provide MenuId", "Add invalid record assertion failed");
+        Assert.assertEquals(VbEnrollmentFlagPage.verifySuccessMessage(),"Please Provide DNIS", "Add invalid record assertion failed");
     }
     
     @Test(priority=10)
@@ -136,7 +135,7 @@ public class VBEnrollmentFlagTest extends BaseTest {
         VBEnrollmentFlagDetails VBEnrollmentFlagDetails = new VBEnrollmentFlagDetails(map);
         VbEnrollmentFlagPage VbEnrollmentFlagPage = PageFactory.createPageInstance(driver, VbEnrollmentFlagPage.class);
         VbEnrollmentFlagPage.addRecordWithoutHotLineName(VBEnrollmentFlagDetails);
-        Assert.assertEquals(VbEnrollmentFlagPage.verifySuccessMessage(),"Please Provide MenuName", "Add invalid record assertion failed");
+        Assert.assertEquals(VbEnrollmentFlagPage.verifySuccessMessage(),"Please Provide Hotline Name", "Add invalid record assertion failed");
     }
     
     @Test(priority=11)
@@ -146,7 +145,7 @@ public class VBEnrollmentFlagTest extends BaseTest {
         VBEnrollmentFlagDetails VBEnrollmentFlagDetails = new VBEnrollmentFlagDetails(map);
         VbEnrollmentFlagPage VbEnrollmentFlagPage = PageFactory.createPageInstance(driver, VbEnrollmentFlagPage.class);
         VbEnrollmentFlagPage.addRecordWithoutEnrollmentFlag(VBEnrollmentFlagDetails);
-        Assert.assertEquals(VbEnrollmentFlagPage.verifySuccessMessage(),"Please Provide Intent", "Add invalid record assertion failed");
+        Assert.assertEquals(VbEnrollmentFlagPage.verifySuccessMessage(),"Please Provide Enrollment Flag", "Add invalid record assertion failed");
     }
     
     @Test(priority=12)
@@ -180,9 +179,9 @@ public class VBEnrollmentFlagTest extends BaseTest {
         ReportDetails reportDetails= new ReportDetails(map1);
         ocmReportsPage.showReport(reportDetails);
         Assert.assertTrue(ocmReportsPage.verifyVBEnrollmentFlagUpdate(VBEnrollmentFlagDetails,"Update"));
-    }
+    }*/
     
-    @Test(priority=15,dependsOnMethods = "EditVBEnrollmentFlagRecord")
+    @Test(priority=15)//,dependsOnMethods = "EditVBEnrollmentFlagRecord")
     public void EditWithoutModifyReasonRecord() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\VBEnrollmentFlagData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(0);
@@ -193,9 +192,10 @@ public class VBEnrollmentFlagTest extends BaseTest {
     }
     
     @Test(priority=16,dependsOnMethods = "EditWithoutModifyReasonRecord")
-    public void VerifyCancelBtnAtEditRecord(){
+    public void VerifyCancelBtnAtEditRecord() throws InterruptedException{
         VbEnrollmentFlagPage VbEnrollmentFlagPage = PageFactory.createPageInstance(driver, VbEnrollmentFlagPage.class);
-        VbEnrollmentFlagPage.searchVbEnrollmentFlagRecord("3000");
+        VbEnrollmentFlagPage.searchVbEnrollmentFlagRecord("40000");
+        Thread.sleep(1000);
         VbEnrollmentFlagPage.clickOnEditButton();
         VbEnrollmentFlagPage.clickOnCancelBtn();
         Assert.assertFalse(VbEnrollmentFlagPage.verifyEditFormContainer(), "Cancel Btn at Edit record assertion failed");
@@ -229,7 +229,7 @@ public class VBEnrollmentFlagTest extends BaseTest {
     
     @Test(priority=20)
     public void ExportToExcelData() throws Exception
-    {	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Menu Description Mapping.xlsx";
+    {	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\VB Enrollment Flag.xlsx";
     	List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
         VbEnrollmentFlagPage VbEnrollmentFlagPage = PageFactory.createPageInstance(driver, VbEnrollmentFlagPage.class);
     	Assert.assertTrue(VbEnrollmentFlagPage.verifyexportToExcelSheet(maplist));	
@@ -245,9 +245,10 @@ public class VBEnrollmentFlagTest extends BaseTest {
         Assert.assertEquals(VbEnrollmentFlagPage.verifySuccessMessage(),"Please enter the delete reason","empty delete reason record assertion failed");
     }
     @Test(priority=22)
-    public void VerifyCancelBtnAtDeleteVBEnrollmentFlagRecord(){
+    public void VerifyCancelBtnAtDeleteVBEnrollmentFlagRecord() throws Exception{
         VbEnrollmentFlagPage VbEnrollmentFlagPage = PageFactory.createPageInstance(driver, VbEnrollmentFlagPage.class);
-        VbEnrollmentFlagPage.searchVbEnrollmentFlagRecord("4");
+        VbEnrollmentFlagPage.searchVbEnrollmentFlagRecord("40000");
+        Thread.sleep(1000);
         VbEnrollmentFlagPage.clickOnDeleteButton();
         VbEnrollmentFlagPage.clickOnDeleteCancelBtn();
         Assert.assertFalse(VbEnrollmentFlagPage.verifyDeleteContainer(), "Cancel Btn at Delete record assertion failed");

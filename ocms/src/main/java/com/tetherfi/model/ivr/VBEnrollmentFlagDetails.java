@@ -38,7 +38,7 @@ public class VBEnrollmentFlagDetails {
 	}
 
 	private String readHotLineName(Map<String, String> map) {
-		String value=map.get("Hot Line Name");
+		String value=map.get("HotLine Name");
 		return value;
 	}
 
