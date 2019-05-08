@@ -3,50 +3,19 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.tetherfi.test.ivr.VBEnrollmentFlagTest">
+      <class name="com.tetherfi.test.ivr.HostValueMappingJsonTest">
         <methods>
-          <include name="VerifyTotalNumberOfItemsPerPageDetails"/>
-          <include name="AddEmptyRecord"/>
-          <include name="searchwithoutSearchTextbox"/>
-          <include name="AddNewVBEnrollmentFlagRecord"/>
-          <include name="searchPage"/>
           <include name="afterEachMethod"/>
-          <include name="DeleteVBEnrollmentFlagRecord"/>
-          <include name="VerifyAuditTrialReportForCreate"/>
-          <include name="VerifyColumnsHeaderDisable"/>
-          <include name="VerifyCancelBtnAtAddRecord"/>
-          <include name="ExportToExcelData"/>
           <include name="startTestCase"/>
           <include name="openApplication"/>
-          <include name="ExportToExcel"/>
-          <include name="VerifyNumberOfItemsPerPageSelection"/>
-          <include name="AddRecordWithoutEnrollmentFlag"/>
-          <include name="DeleteWithoutDeleteReasonRecord"/>
-          <include name="VerifyAuditTrialReportForUpdate"/>
-          <include name="VerifyDropdownForAllTheColumns"/>
-          <include name="GroupBy"/>
-          <include name="VerifyAuditTrialReportForDelete"/>
-          <include name="ExporttoExcelWithoutData"/>
-          <include name="VbEnrollmentFlagPage"/>
-          <include name="VerifyArrowMoveForPreviousAndNextPage"/>
-          <include name="SortingByAscending"/>
-          <include name="SortingByDescending"/>
-          <include name="database"/>
+          <include name="VerifyJsonDataForGridColumnHidden"/>
           <include name="endTestCase"/>
-          <include name="EditWithoutModifyReasonRecord"/>
+          <include name="VerifyJsonDataForMandatoryField"/>
           <include name="tearDown"/>
-          <include name="VerifyArrowMoveForFirstAndLastPage"/>
-          <include name="EditVBEnrollmentFlagRecord"/>
-          <include name="AddDuplicateVBEnrollmentFlagRecord"/>
-          <include name="NavigateToVbEnrollmentFlagPage"/>
-          <include name="VerifyCancelBtnAtEditRecord"/>
-          <include name="AddRecordWithoutHotLineName"/>
-          <include name="VerifyColumnsHeaderEnable"/>
-          <include name="VerifyCancelBtnAtDeleteVBEnrollmentFlagRecord"/>
-          <include name="AddRecordWithoutDNIS"/>
-          <include name="SearchClearSearch"/>
+          <include name="VerifyJsonDataForColumnIncludeGrid"/>
+          <include name="NavigateToHostValueMappingPage"/>
         </methods>
-      </class> <!-- com.tetherfi.test.ivr.VBEnrollmentFlagTest -->
+      </class> <!-- com.tetherfi.test.ivr.HostValueMappingJsonTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
