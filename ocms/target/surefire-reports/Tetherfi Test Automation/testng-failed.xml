@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite parallel="tests" name="Failed suite [Tetherfi Test Automation]" guice-stage="DEVELOPMENT" verbose="0">
+  <listeners>
+    <listener class-name="com.tetherfi.listeners.ReportListener"/>
+  </listeners>
+  <test name="OCMS Portal(failed)">
+    <classes>
+      <class name="com.tetherfi.test.fax.FaxLineConfigTest">
+        <methods>
+          <include name="EditFaxLineConfigRecord"/>
+          <include name="EditFaxLineConfigCancelRecord"/>
+          <include name="AddDuplicateFaxLineConfigRecord"/>
+          <include name="ExporttoExcelWithoutData"/>
+          <include name="RoutesLink"/>
+          <include name="endTestCase"/>
+          <include name="SendersLink"/>
+          <include name="tearDown"/>
+          <include name="AddInvalidFaxLineConfigRecord"/>
+          <include name="ExportToExcelData"/>
+          <include name="NavigateToFaxLineConfigPage"/>
+          <include name="ExportToExcel"/>
+          <include name="startTestCase"/>
+          <include name="openApplication"/>
+          <include name="afterEachMethod"/>
+          <include name="FaxLineConfigPage"/>
+          <include name="VerifyAuditTrialReportForCreate"/>
+          <include name="AddFaxLineConfigRecord"/>
+        </methods>
+      </class> <!-- com.tetherfi.test.fax.FaxLineConfigTest -->
+    </classes>
+  </test> <!-- OCMS Portal(failed) -->
+</suite> <!-- Failed suite [Tetherfi Test Automation] -->

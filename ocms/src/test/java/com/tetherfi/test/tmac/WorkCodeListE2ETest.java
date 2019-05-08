@@ -16,7 +16,6 @@ import org.testng.annotations.Test;
 
 import com.tetherfi.model.tmac.TmacUserDetails;
 import com.tetherfi.model.tmac.WorkCodeListDetails;
-import com.tetherfi.pages.ChatApiPage;
 
 import com.tetherfi.pages.HomePage;
 import com.tetherfi.pages.LoginPage;
