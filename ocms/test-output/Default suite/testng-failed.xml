@@ -6,23 +6,45 @@
       <class name="com.tetherfi.test.ivr.MenuDescriptionMappingTest">
         <methods>
           <include name="SearchClearSearch"/>
-          <include name="ExporttoExcelWithoutData"/>
+          <include name="VerifyColumnsHeaderEnable"/>
           <include name="SortingByDescending"/>
+          <include name="AddNewMenuDescriptionMappingRecord"/>
+          <include name="VerifyCancelBtnAtEditRecord"/>
+          <include name="startTestCase"/>
+          <include name="openApplication"/>
+          <include name="VerifyArrowMoveForFirstAndLastPage"/>
+          <include name="AddRecordWithoutMenuID"/>
+          <include name="EditWithoutModifyReasonRecord"/>
+          <include name="AddDuplicateMenuDescriptionMappingRecord"/>
+          <include name="AddRecordWithoutIntent"/>
+          <include name="DeleteMenuDescriptionMappingRecord"/>
+          <include name="VerifyCancelBtnAtDeleteMenuDescriptionMappingRecord"/>
+          <include name="database"/>
+          <include name="SortingByAscending"/>
+          <include name="ExporttoExcelWithoutData"/>
+          <include name="VerifyArrowMoveForPreviousAndNextPage"/>
           <include name="VerifyAuditTrialReportForDelete"/>
+          <include name="GroupBy"/>
+          <include name="ExportToExcelData"/>
           <include name="endTestCase"/>
           <include name="tearDown"/>
           <include name="VerifyAuditTrialReportForUpdate"/>
+          <include name="VerifyDropdownForAllTheColumns"/>
+          <include name="DeleteWithoutDeleteReasonRecord"/>
           <include name="EditMenuDescriptionMappingRecord"/>
+          <include name="AddRecordWithoutMenuName"/>
           <include name="VerifyNumberOfItemsPerPageSelection"/>
-          <include name="startTestCase"/>
-          <include name="openApplication"/>
-          <include name="EditWithoutModifyReasonRecord"/>
+          <include name="VerifyAuditTrialReportForCreate"/>
+          <include name="searchPage"/>
+          <include name="VerifyTotalNumberOfItemsPerPageDetails"/>
+          <include name="VerifyCancelBtnAtAddRecord"/>
+          <include name="VerifyColumnsHeaderDisable"/>
           <include name="afterEachMethod"/>
+          <include name="ExportToExcel"/>
           <include name="NavigateToMenuDescriptionMappingPage"/>
-          <include name="DeleteMenuDescriptionMappingRecord"/>
-          <include name="VerifyCancelBtnAtDeleteMenuDescriptionMappingRecord"/>
-          <include name="VerifyCancelBtnAtEditConfigRecord"/>
-          <include name="SortingByAscending"/>
+          <include name="AddEmptyRecord"/>
+          <include name="searchwithoutSearchTextbox"/>
+          <include name="MenuDescriptionMappingPage"/>
         </methods>
       </class> <!-- com.tetherfi.test.ivr.MenuDescriptionMappingTest -->
     </classes>
