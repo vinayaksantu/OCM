@@ -66,7 +66,7 @@ public class BranchManagementCreateTest {
         Assert.assertTrue(branchManagementPage.isBranchManagementPageDisplayed(), "Branch Management page assertion failed");
     }
 	
-	/*@Test(groups= {"Maker"})
+	@Test(groups= {"Maker"})
     public void VerifyAddCancelButton() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\BranchManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -264,7 +264,7 @@ public class BranchManagementCreateTest {
        }
 	
 	@Test(groups = { "Maker" },dependsOnMethods="AddRecord")
-    public void VerifyTaskCompleteActionForAddNewBranchManagementRecord() {
+    public void VerifyTaskCompleteActionForAddRecord() {
        	BranchManagementPage branchManagementPage = PageFactory.createPageInstance(driver, BranchManagementPage.class);
        	branchManagementPage.selectBranchManagementAuditTrailTab();
        	branchManagementPage.taskCompleteAction("Task Complete for Create");
@@ -279,9 +279,9 @@ public class BranchManagementCreateTest {
 	    BranchManagementDetails branchManagementDetails = new BranchManagementDetails(map);
         BranchManagementPage branchManagementPage = PageFactory.createPageInstance(driver, BranchManagementPage.class);
         Assert.assertTrue(branchManagementPage.verifyApprovedSectionData(branchManagementDetails));
-	}*/
+	}
     
-    @Test(groups = { "Checker" })//,dependsOnMethods="VerifyApprovedDataSectionWithoutApproval")
+    @Test(groups = { "Checker" },dependsOnMethods="VerifyApprovedDataSectionWithoutApproval")
     public void RejectforAddNewBranchManagementRecord(){
         BranchManagementPage branchManagementPage = PageFactory.createPageInstance(driver, BranchManagementPage.class);
         branchManagementPage.clickonReject("Reject Created");

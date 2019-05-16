@@ -33,7 +33,7 @@ public class HostValueMappingJsonTest extends BaseTest {
         Assert.assertTrue(IvrPage.isIVRPageDisplayed(),"Ivr page assertion failed");
         IvrPage.navigateToHostValueMappingPage();
         HostValueMappingPage HostValueMappingPage=PageFactory.createPageInstance(driver,HostValueMappingPage.class);
-        Assert.assertTrue(HostValueMappingPage.isHostValueMappingPageDisplayed(),"Agent Settings page assertion failed");
+        Assert.assertTrue(HostValueMappingPage.isHostValueMappingPageDisplayed(),"Host Value Mapping page assertion failed");
 
         FTPServer ftp=new FTPServer();
         ftp.transferFileFromRemote(remoteFilePath,destinationFilePath);
@@ -49,7 +49,6 @@ public class HostValueMappingJsonTest extends BaseTest {
         HostValueMappingPage HostValueMappingPage = PageFactory.createPageInstance(driver, HostValueMappingPage.class);
         HostValueMappingPage.selectHostValueMappingAuditTrailTab();
         HostValueMappingPage.selectMakeHostValueMappingChanges();
-        HostValueMappingPage.enableAllColumnsHeaders();
         JSONReader json= new JSONReader(destinationFilePath);
         Assert.assertTrue(HostValueMappingPage.verifyJsonDataForgridColumnHidden(json.getJsonGridColumnTitleKeyData("Hidden")),"JSON data grid column hidden assertion failed");
     }

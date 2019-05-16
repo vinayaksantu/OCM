@@ -3,19 +3,17 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.tetherfi.test.ivr.HostValueMappingJsonTest">
+      <class name="com.tetherfi.test.chat.ChatIntentSkillMappingTest">
         <methods>
-          <include name="afterEachMethod"/>
           <include name="startTestCase"/>
           <include name="openApplication"/>
-          <include name="VerifyJsonDataForGridColumnHidden"/>
+          <include name="afterEachMethod"/>
           <include name="endTestCase"/>
-          <include name="VerifyJsonDataForMandatoryField"/>
+          <include name="database"/>
           <include name="tearDown"/>
-          <include name="VerifyJsonDataForColumnIncludeGrid"/>
-          <include name="NavigateToHostValueMappingPage"/>
+          <include name="NavigateToChatIntentSkillMappingPage"/>
         </methods>
-      </class> <!-- com.tetherfi.test.ivr.HostValueMappingJsonTest -->
+      </class> <!-- com.tetherfi.test.chat.ChatIntentSkillMappingTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

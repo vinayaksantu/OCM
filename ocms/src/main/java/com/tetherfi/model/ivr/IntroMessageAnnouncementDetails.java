@@ -16,6 +16,9 @@ public class IntroMessageAnnouncementDetails {
     private String endDateTime;
     private String modifyReason;
     private String deleteReason;
+    private String Query;
+    private String HotLine;
+    private String Wavefile;
 
     public IntroMessageAnnouncementDetails(Map<String,String> map){
         functionality=readFunctionality(map);
@@ -26,9 +29,37 @@ public class IntroMessageAnnouncementDetails {
         endDateTime=readEndDateTime(map);
         modifyReason=readModifyReason(map);
         deleteReason=readDeleteReason(map);
+        Query=readQuery(map);
+        HotLine=readHotLine(map);
+        Wavefile=readWaveFile(map);
+        		
     }
 
-    private String readEndDateTime(Map<String, String> map) {
+    private String readWaveFile(Map<String, String> map) {
+    	String value=map.get("Wave File");
+        if(value==null||value.equalsIgnoreCase("random.str")){
+            value= RandomStringUtils.randomAlphabetic(10);
+        }
+        return value;
+	}
+
+	private String readHotLine(Map<String, String> map) {
+    	String value=map.get("HotLine");
+        if(value==null||value.equalsIgnoreCase("random.str")){
+            value= RandomStringUtils.randomAlphabetic(10);
+        }
+        return value;
+	}
+
+	private String readQuery(Map<String, String> map) {
+    	String value=map.get("Query");
+        if(value==null||value.equalsIgnoreCase("random.str")){
+            value= RandomStringUtils.randomAlphabetic(10);
+        }
+        return value;
+	}
+
+	private String readEndDateTime(Map<String, String> map) {
         String value=map.get("End Date Time");
         if(value==null||value.equalsIgnoreCase("random.str")){
             Date dNow = new Date( );
@@ -128,4 +159,16 @@ public class IntroMessageAnnouncementDetails {
     public String getDeleteReason() {
         return deleteReason;
     }
+
+	public String getQuery() {
+		return Query;
+	}
+
+	public String getHotLine() {
+		return HotLine;
+	}
+
+	public String getWavFile() {
+		return Wavefile;
+	}
 }

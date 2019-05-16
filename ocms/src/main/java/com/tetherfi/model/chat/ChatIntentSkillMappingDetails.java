@@ -16,6 +16,9 @@ public class ChatIntentSkillMappingDetails {
     private String sla;
     private String modifyReason;
     private  String deleteReason;
+    private String query;
+    private String UpdatedSubSegment;
+    private String UpdatedSegment;
 
     public ChatIntentSkillMappingDetails(Map<String,String> map){
         skill=readSkill(map);
@@ -29,9 +32,36 @@ public class ChatIntentSkillMappingDetails {
         sla=readSLA(map);
         modifyReason=readModifyReason(map);
         deleteReason=readDeleteReason(map);
+        query=readQuery(map);
+        UpdatedSubSegment=readUpdatedSubSegment(map);
+        UpdatedSegment=readUpdatedSegment(map);
     }
 
-    private String readCustEntType(Map<String, String> map) {
+    private String readUpdatedSegment(Map<String, String> map) {
+    	 String value=map.get("Updated Segment");
+         if(value==null||value.equalsIgnoreCase("random.str")){
+             value= RandomStringUtils.randomNumeric(6);
+         }
+         return value;
+	}
+
+	private String readUpdatedSubSegment(Map<String, String> map) {
+		 String value=map.get("Updated SubSegment");
+         if(value==null||value.equalsIgnoreCase("random.str")){
+             value= RandomStringUtils.randomNumeric(6);
+         }
+         return value;
+	}
+
+	private String readQuery(Map<String, String> map) {
+    	 String value=map.get("Query");
+         if(value==null||value.equalsIgnoreCase("random.str")){
+             value= RandomStringUtils.randomNumeric(6);
+         }
+         return value;
+	}
+
+	private String readCustEntType(Map<String, String> map) {
         String value=map.get("CustEntType");
         if(value==null||value.equalsIgnoreCase("random.str")){
             value= RandomStringUtils.randomNumeric(6);
@@ -162,4 +192,17 @@ public class ChatIntentSkillMappingDetails {
     public String getSla() {
         return sla;
     }
+
+	
+	public String getQuery() {
+		return query;
+	}
+
+	public String getUpdatedSubSegment() {
+		return UpdatedSubSegment;
+	}
+
+	public String getUpdatedSegment() {
+		return UpdatedSegment;
+	}
 }

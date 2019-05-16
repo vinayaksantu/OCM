@@ -45,7 +45,7 @@ public class VBEnrollmentFlagTest extends BaseTest {
     	screenshot.captureScreen("VBEnrollmentFlagTest","VbEnrollmentFlagPage");
     }
 	
-	/*@Test(priority=1)
+	@Test(priority=1)
 	public void VbEnrollmentFlagPage() {
         VbEnrollmentFlagPage VbEnrollmentFlagPage = PageFactory.createPageInstance(driver, VbEnrollmentFlagPage.class);
         Assert.assertTrue(VbEnrollmentFlagPage.VerifyLogo(),"Logo assertion failed");
@@ -179,9 +179,9 @@ public class VBEnrollmentFlagTest extends BaseTest {
         ReportDetails reportDetails= new ReportDetails(map1);
         ocmReportsPage.showReport(reportDetails);
         Assert.assertTrue(ocmReportsPage.verifyVBEnrollmentFlagUpdate(VBEnrollmentFlagDetails,"Update"));
-    }*/
+    }
     
-    @Test(priority=15)//,dependsOnMethods = "EditVBEnrollmentFlagRecord")
+    @Test(priority=15,dependsOnMethods = "EditVBEnrollmentFlagRecord")
     public void EditWithoutModifyReasonRecord() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\VBEnrollmentFlagData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(0);

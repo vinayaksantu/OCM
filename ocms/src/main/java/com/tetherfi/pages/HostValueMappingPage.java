@@ -1303,7 +1303,8 @@ public class HostValueMappingPage extends BasePage {
 	        }else {if(makerCheckerTab.size()!=1){status=true;}}
 	    return status;
 	    }
-	    public boolean verifyJsonDataForgridColumnHidden(Map<String,String> jsonmap){
+	    
+	 public boolean verifyJsonDataForgridColumnHidden(Map<String,String> jsonmap){
 	        boolean status=false;
 	        for(WebElement e: headersText){
 	            scrollToElement(e);
@@ -1312,8 +1313,8 @@ public class HostValueMappingPage extends BasePage {
 	        }
 	        return status;
 	    }
-	    
-	    public void enableAllColumnsHeaders() {
+	    	    
+	 public void enableAllColumnsHeaders() {
 	        WebElement ele = headersDropdown.get(0);
 	        if (ele.isDisplayed()) {
 	            try {
@@ -1352,7 +1353,10 @@ public class HostValueMappingPage extends BasePage {
 	            }
 	            for (int i = 3; i < headersColumns.size(); i++) {
 	                WebElement checkbox = headersColumns.get(i).findElement(By.tagName("input"));
-	                if (checkbox.isSelected()) {map.put(headersColumns.get(i).getText(),"false");}else{{map.put(headersColumns.get(i).getText(),"true");}}
+	                if (checkbox.isSelected()) 
+	                {map.put(headersColumns.get(i).getText(),"false");}
+	                else{
+	                	map.put(headersColumns.get(i).getText(),"true");}
 	            }
 	        }
 	        return map;

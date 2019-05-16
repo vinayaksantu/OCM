@@ -268,6 +268,12 @@ public class BranchManagementPage extends BasePage {
     @FindBy(id="noButton")
     private WebElement noBtn;
     
+    @FindBy(css=".k-edit-form-container #tgrid label")
+    private List<WebElement> labels;
+    
+    @FindBy(id="tabstripfaxtemplateMakerChecker")
+    private List<WebElement> makerCheckerTab;
+    
 	public boolean isBranchManagementPageDisplayed() {
 		waitForLoad(driver);
         waitForJqueryLoad(driver);
@@ -1323,6 +1329,22 @@ public class BranchManagementPage extends BasePage {
 		else
 		return false;
 	}
+	
+	public void EditRecordWithoutModifyReason(BranchManagementDetails branchManagementDetails) throws InterruptedException {
+		selectWebElement(BranchManagementTabs.get(1));
+		Thread.sleep(1000);
+		selectWebElement(makeBranchManagementChanges);
+		Thread.sleep(1000);
+		searchBranchManagementRecord(branchManagementDetails.getBranchName());
+		selectWebElement(editButton);
+		waitForJqueryLoad(driver);
+		selectWebElement(subLinesDropDown);
+	    selectDropdownFromVisibleText(subLinesListbox, branchManagementDetails.getUpdatedSubLines());
+	    selectWebElement(statusDropDown);
+        selectDropdownFromVisibleText(statusListbox, branchManagementDetails.getUpdatedStatus());
+        selectWebElement(saveBtn);	
+        selectWebElement(cancelBtn);
+	}
 
 	public void EditBranchManagementRecord(BranchManagementDetails branchManagementDetails) throws Exception {
 		selectWebElement(BranchManagementTabs.get(1));
@@ -1416,11 +1438,6 @@ public class BranchManagementPage extends BasePage {
 	return Status;
 	}
 
-	public void EditBranchManagementRecordReject(BranchManagementDetails branchManagementDetails) {
-		// TODO Auto-generated method stub
-		
-	}
-
 	public boolean DeleteCancel(BranchManagementDetails branchManagementDetails) throws Exception {
 		selectWebElement(BranchManagementTabs.get(1));
 		Thread.sleep(1000);
@@ -1434,6 +1451,19 @@ public class BranchManagementPage extends BasePage {
 			return true;
 		else
 		return false;
+	}
+	
+	public void DeleteRecordWithoutDeleteReason(BranchManagementDetails branchManagementDetails) throws Exception {
+		selectWebElement(BranchManagementTabs.get(1));
+		Thread.sleep(1000);
+		selectWebElement(makeBranchManagementChanges);
+		Thread.sleep(1000);
+		searchBranchManagementRecord(branchManagementDetails.getBranchName());
+		Thread.sleep(1000);
+		selectWebElement(deleteButton);
+		Thread.sleep(1000);
+        selectWebElement(yesBtn);	
+        selectWebElement(noBtn);
 	}
 
 	public void DeleteBranchManagementRecord(BranchManagementDetails branchManagementDetails) throws Exception {
@@ -1450,11 +1480,6 @@ public class BranchManagementPage extends BasePage {
         selectWebElement(yesBtn);		
 	}
 
-	public void DeleteInvalidRecord(BranchManagementDetails branchManagementDetails) {
-		// TODO Auto-generated method stub
-		
-	}
-
 	public boolean verifyAuditTrailDelete(BranchManagementDetails details, String Transaction,String Status) {
 		boolean stat=false;
         Map<String,String> firstRowData=getFirstRowDatafromTable();
@@ -1467,4 +1492,95 @@ public class BranchManagementPage extends BasePage {
         }else{System.out.println("Data mismatch:"+firstRowData.get("Transaction")+"\t"+Transaction);}
         return stat;
 	}
+
+	public void selectAddNewBranchManagement() {
+		selectWebElement(addNewBranchManageRecordBtn);
+	}
+	
+	 public boolean verifyJsonDataForMakerAndChecker(boolean mkrchk){
+	        boolean status=false;
+	        if(mkrchk){
+	            if(makerCheckerTab.size()==1){status=true;}
+	        }else {if(makerCheckerTab.size()!=1){status=true;}}
+	    return status;
+	    }
+	    
+	 public boolean verifyJsonDataForgridColumnHidden(Map<String,String> jsonmap){
+	        boolean status=false;
+	        for(WebElement e: headersText){
+	            scrollToElement(e);
+	            if(jsonmap.get(e.getText()).equalsIgnoreCase("false")){status=true;}else{
+	                System.out.println("Header "+e.getText()+"is hidden in JSON configuration file");status=false;break;}
+	        }
+	        return status;
+	    }
+	    	    
+	 public void enableAllColumnsHeaders() {
+	        WebElement ele = headersDropdown.get(0);
+	        if (ele.isDisplayed()) {
+	            try {
+	                selectWebElement(ele);
+	                Thread.sleep(1000);
+	                selectWebElement(headersColumns.get(2));
+	                Thread.sleep(1000);
+	            } catch (InterruptedException e) {
+	                e.printStackTrace();
+	            }
+	            for (int i = 3; i < headersColumns.size(); i++) {
+	                WebElement checkbox = headersColumns.get(i).findElement(By.tagName("input"));
+	                checkbox.click();
+	                if (checkbox.isSelected()) {
+	                } else {
+	                    checkbox.click();
+	                }
+	            }
+	        }
+	    }
+	    public boolean verifyJsonDataForColumnIncludeGrid(Map<String,String> jsonmap){
+	        Map<String,String> map =getDefaultEnabledColumnsHeaders();
+	        return map.equals(jsonmap);
+	    }
+	    public Map<String,String> getDefaultEnabledColumnsHeaders() {
+	        Map<String,String> map=new HashMap<>();
+	        WebElement ele = headersDropdown.get(0);
+	        if (ele.isDisplayed()) {
+	            try {
+	                selectWebElement(ele);
+	                Thread.sleep(1000);
+	                selectWebElement(headersColumns.get(2));
+	                Thread.sleep(1000);
+	            } catch (InterruptedException e) {
+	                e.printStackTrace();
+	            }
+	            for (int i = 3; i < headersColumns.size(); i++) {
+	                WebElement checkbox = headersColumns.get(i).findElement(By.tagName("input"));
+	                if (checkbox.isSelected()) 
+	                {map.put(headersColumns.get(i).getText(),"false");}
+	                else{
+	                	map.put(headersColumns.get(i).getText(),"true");}
+	            }
+	        }
+	        return map;
+	    }
+	    public boolean verifyJsonDataForMandatoryField(Map<String,String> jsonmap){
+	        boolean status=false;
+	        jsonmap.remove("Features");
+	        ArrayList<String> mand=new ArrayList<>();
+	        for(String key:jsonmap.keySet()){
+	            if(jsonmap.get(key).equalsIgnoreCase("true")){
+	                status=false;
+	                for(WebElement e:labels){
+	                    if(e.getText().equals(key+"*")){mand.add(key);status=true;break;}
+	                }if(!status){System.out.println(key+" label is not having mandatory * symbol");break;}
+	            }
+	        }
+	        return status;
+	    }
+
+		
+
+		
+
+		
+
 }

@@ -1,5 +1,6 @@
 package com.tetherfi.pages;
 
+import com.tetherfi.model.chat.ChatIntentSkillMappingDetails;
 import com.tetherfi.model.fax.FaxAutoACKConfigurationDetails;
 import com.tetherfi.model.fax.FaxLineConfigDetails;
 import com.tetherfi.model.fax.FaxRoutingConfigurationDetails;
@@ -12,6 +13,8 @@ import com.tetherfi.model.ivr.BranchManagementDetails;
 import com.tetherfi.model.ivr.CallbackAnnouncementDetails;
 import com.tetherfi.model.ivr.FaxApplicationFormDetails;
 import com.tetherfi.model.ivr.HostValueMappingDetails;
+import com.tetherfi.model.ivr.IntentMappingDetails;
+import com.tetherfi.model.ivr.IntroMessageAnnouncementDetails;
 import com.tetherfi.model.ivr.IvrConfigDetails;
 import com.tetherfi.model.ivr.MenuDescriptionMappingDetails;
 import com.tetherfi.model.ivr.VBEnrollmentFlagDetails;
@@ -3856,4 +3859,250 @@ return status;
 		return Status;
 	}
 
+	public boolean verifyIntentMappingCreate(IntentMappingDetails intentMappingDetails, String string) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean verifyIntentMappingUpdate(IntentMappingDetails intentMappingDetails, String string) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean verifyIntentMappingdelete(IntentMappingDetails details, String Transaction) throws Exception {
+		booleansearchold(details.getVDN(),Transaction);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+		Map<String,String> oldvalues=new HashMap<>();
+		String[]d=firstRowData.get("Old Values").split("\n");
+		for(String e:d) {
+			String f[]=e.split(":",2);
+			if(f.length>1)
+			oldvalues.put(f[0], f[1]);
+		}
+			if(oldvalues.get("VDN").equals(details.getVDN()))
+			{
+				if(oldvalues.get("Product").equals(details.getProduct()))
+				{
+					if(oldvalues.get("Segment").equals(details.getSegment()))
+					{
+						if(oldvalues.get("ModifyReason").equals(details.getDeleteReason())) {
+							if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getDeleteReason()))
+								Status=true;
+							else System.out.println("Change reason data mismatch");
+							}
+						else System.out.println("Modify reason data mismatch");
+					}
+					else {System.out.println("Intent data mismatch");}
+				}
+				else {System.out.println("Menu Name mismatch");}
+			}
+			else {System.out.println("Intent data mismatch");}
+		return Status;
+	}
+
+	public boolean verifyIntroMessageAnnouncementCreate(IntroMessageAnnouncementDetails details,String Transaction) throws Exception {
+		booleansearchnew(details.getHotLine(),Transaction);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+		Map<String,String> newvalues=new HashMap<>();
+		String[]d=firstRowData.get("New Values").split("\n");
+		for(String e:d) {
+			String f[]=e.split(":",2);
+			if(f.length>1)
+			newvalues.put(f[0], f[1]);
+		}
+			if(newvalues.get("Functionality").equals(details.getFunctionality()))
+			{
+				if(newvalues.get("Language").equals(details.getLanguage()))
+				{
+					if(newvalues.get("Hotline").equals(details.getHotLine()))
+					{
+						if(newvalues.get("Interrupt").equals(details.getInterrupt()))
+						{
+							if(newvalues.get("Status").equals(details.getStatus()))
+							{
+								if(newvalues.get("WaveFile").equals(details.getWavFile()))
+									Status= true;
+								else {System.out.println("WaveFile data mismatch");}
+							}
+							else {System.out.println("Status data mismatch");}
+						}
+						else {System.out.println("Interrupt data mismatch");}
+					}
+					else {System.out.println("Hotline data mismatch");}
+				}
+				else {System.out.println("Language data mismatch");}
+			}
+			else {System.out.println("Functionality data mismatch");	}
+		return Status;
+	}
+
+	public boolean verifyChatIntentSkillMappingCreate(ChatIntentSkillMappingDetails details,
+			String Transaction) throws Exception {
+		booleansearchnew(details.getSegment(),Transaction);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+		Map<String,String> newvalues=new HashMap<>();
+		String[]d=firstRowData.get("New Values").split("\n");
+		for(String e:d) {
+			String f[]=e.split(":",2);
+			if(f.length>1)
+			newvalues.put(f[0], f[1]);
+		}
+			if(newvalues.get("Segment").equals(details.getSegment()))
+			{
+				if(newvalues.get("SubSegment").equals(details.getSubSegment()))
+				{
+					if(newvalues.get("Intent").equals(details.getIntent()))
+					{
+						if(newvalues.get("Language").equals(details.getLanguage()))
+						{
+							if(newvalues.get("RequestType").equals(details.getChannel()))
+							{
+								if(newvalues.get("CustEntType").equals(details.getCustEntType()))
+									if(newvalues.get("ChatVdn").equals(details.getSkill()))
+										Status= true;
+									else {System.out.println("Skill data mismatch");}
+
+								else {System.out.println("CustEntType data mismatch");}
+							}
+							else {System.out.println("Request type data mismatch");}
+						}
+						else {System.out.println("Language data mismatch");}
+					}
+					else {System.out.println("Intent data mismatch");}
+				}
+				else {System.out.println("SubSegment data mismatch");}
+			}
+			else {System.out.println("Segment data mismatch");	}
+		return Status;
+	}
+
+	public boolean verifyChatIntentSkillMappingUpdate(ChatIntentSkillMappingDetails details,
+			String Transaction) throws Exception {
+		booleansearchnew(details.getUpdatedSegment(),Transaction);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+        if(firstRowData.containsKey("Old Values")) {
+        	Map<String,String> oldvalues=new HashMap<>();
+    		String[]d=firstRowData.get("Old Values").split("\n");
+    		for(String e:d) {
+    			System.out.println(e);
+    			String f[]=e.split(":",2);
+    			if(f.length>1)
+    				oldvalues.put(f[0], f[1]);
+    		}
+    		if(oldvalues.get("Segment").equals(details.getSegment())){
+    			if(oldvalues.get("Subsegment").equals(details.getSubSegment())){
+    				if(oldvalues.get("Language").equals(details.getLanguage())) {
+    					if(oldvalues.get("Intent").equals(details.getIntent())){
+        					if(oldvalues.get("RequestType").equals(details.getChannel())){
+            					if(oldvalues.get("CustEntType").equals(details.getCustEntType())){
+                					if(oldvalues.get("ChatVdn").equals(details.getSkill())){
+                						if(firstRowData.containsKey("New Values")) {
+                							Map<String,String> newvalues=new HashMap<>();
+                							String[]d1=firstRowData.get("New Values").split("\n");
+                							for(String e:d1) {
+                								String f[]=e.split(":",2);
+                								if(f.length>1)
+                									newvalues.put(f[0], f[1]);
+                							}
+                							if(newvalues.get("Segment").equals(details.getUpdatedSegment())) {
+                								if(newvalues.get("Language").equals(details.getLanguage())){
+                									if(newvalues.get("SubSegment").equals(details.getUpdatedSubSegment())){
+                										if(newvalues.get("Intent").equals(details.getIntent())){
+                											if(newvalues.get("RequestType").equals(details.getChannel())){
+                												if(newvalues.get("CustEntType").equals(details.getCustEntType())) {	
+                    												if(newvalues.get("ChatVdn").equals(details.getSkill())) {	
+                    													if(newvalues.get("ModifyReason").equals(details.getModifyReason())){ 
+                															if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getModifyReason()))
+                																Status=true;
+                															else System.out.println("Change reason data mismatch");
+                    													}
+                    													else System.out.println("Modify reason data mismatch");
+                    												}
+                													else System.out.println("Skills data mismatch");
+                            				            		}
+                												else System.out.println("CustEntType data mismatch");
+                											}
+                											else System.out.println("RequestType data mismatch");
+                										}
+                										else System.out.println("Intent data mismatch");
+                									}
+                									else System.out.println("SubSegment data mismatch");
+                								}
+                								else System.out.println("Language data mismatch");
+                							}
+                							else {System.out.println("Segment data mismatch");}
+                						}
+                						else {System.out.println("New Values data mismatch");}
+                					}
+                					else System.out.println("ChatVdn data mismatch");
+            					}
+            					else System.out.println("CustEntType data mismatch");
+        					}
+        					else System.out.println("RequestType data mismatch");
+    					}
+    					else System.out.println("Intent data mismatch");
+    				}
+    				else System.out.println("Language data mismatch");
+    			}
+    			else {System.out.println("SubSegment data mismatch");}
+    		}
+			else {System.out.println("Segment data mismatch");}
+    	}
+        else {System.out.println("Old values data mismatch");}
+ return Status;
+	}
+
+	public boolean verifyChatIntentSkillMappingdelete(ChatIntentSkillMappingDetails details,
+			String Transaction) throws Exception {
+		booleansearchold(details.getSegment(),Transaction);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+		Map<String,String> oldvalues=new HashMap<>();
+		String[]d=firstRowData.get("Old Values").split("\n");
+		for(String e:d) {
+			String f[]=e.split(":",2);
+			if(f.length>1)
+			oldvalues.put(f[0], f[1]);
+		}
+			if(oldvalues.get("Segment").equals(details.getSegment()))
+			{
+				if(oldvalues.get("SubSegment").equals(details.getSubSegment()))
+				{
+					if(oldvalues.get("Segment").equals(details.getSegment()))
+					{
+						if(oldvalues.get("Intent").equals(details.getIntent()))
+						{
+							if(oldvalues.get("Language").equals(details.getLanguage()))
+							{
+								if(oldvalues.get("RequestType").equals(details.getChannel()))
+								{
+									if(oldvalues.get("CustEntType").equals(details.getCustEntType())) {
+										if(oldvalues.get("ChatVdn").equals(details.getSkill())) {
+											if(oldvalues.get("ModifyReason").equals(details.getDeleteReason())) {
+												if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getDeleteReason()))
+													Status=true;
+												else System.out.println("Change reason data mismatch");
+											}
+											else System.out.println("Modify reason data mismatch");
+										}
+										else {System.out.println("ChatVdn data mismatch");}
+									}
+									else {System.out.println("CustEntType data mismatch");}
+								}
+								else {System.out.println("RequestType data mismatch");}
+							}
+							else {System.out.println("Language data mismatch");}
+					}
+					else {System.out.println("Intent data mismatch");}
+				}
+				else {System.out.println("SubSegment data mismatch");}
+			}
+			else {System.out.println("Segment data mismatch");}
+			}
+		return Status;	
+			}
 }

@@ -64,7 +64,7 @@ public class BranchManagementDeleteTest {
         Assert.assertTrue(branchManagementPage.isBranchManagementPageDisplayed(), "Branch Management page assertion failed");
     }
 	
-	/*@Test(groups= {"Maker"})
+	@Test(groups= {"Maker"})
 	public void DeleteCancelBranchManagementRecord() throws Exception {
 		 String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\BranchManagementData.xlsx";
 	     Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(0);
@@ -72,6 +72,16 @@ public class BranchManagementDeleteTest {
 	     BranchManagementPage branchManagementPage = PageFactory.createPageInstance(driver, BranchManagementPage.class);
 	     Assert.assertTrue(branchManagementPage.DeleteCancel(branchManagementDetails), "Delete Cancel assertion Failed");
 	}
+	
+	@Test(groups = { "Maker" })
+    public void DeleteRecordWithoutDeleteReason() throws Exception {
+		 String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\BranchManagementData.xlsx";
+		 Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(1);
+	     BranchManagementDetails branchManagementDetails = new BranchManagementDetails(map);
+	     BranchManagementPage branchManagementPage = PageFactory.createPageInstance(driver, BranchManagementPage.class);
+	     branchManagementPage.DeleteRecordWithoutDeleteReason(branchManagementDetails);
+	     Assert.assertFalse(branchManagementPage.getErrorMsg(),"Invalid Record Assertion failed");
+    }
 	
 	@Test(groups= {"Maker"})
 	public void DeleteBranchManagementRecord() throws Exception {
@@ -118,7 +128,7 @@ public class BranchManagementDeleteTest {
 	     Assert.assertTrue(branchManagementPage.verifyStatus("Approval Pending"),"approal status details failed");
     }
 	
-	@Test(groups = { "Checker" }),dependsOnMethods="VerifyTaskCompleteActionForDeleteBranchManagementRecord")
+	@Test(groups = { "Checker" },dependsOnMethods="VerifyTaskCompleteActionForDeleteBranchManagementRecord")
     public void ApproveforDeleteBranchManagementRecord(){
 	     BranchManagementPage branchManagementPage = PageFactory.createPageInstance(driver, BranchManagementPage.class);
 	     branchManagementPage.clickonApprove("Approve Deleted");
@@ -140,7 +150,7 @@ public class BranchManagementDeleteTest {
 	     ocmReportsPage.showReport(reportDetails);
 	     Assert.assertTrue(ocmReportsPage.verifyBranchManagementDelete(branchManagementDetails, "CheckerApprove"),"Audit Trail report assertion failed");
     }
-	*/
+	
 	@Test(groups = { "Maker" })
     public void DeleteRecord() throws Exception {
 		 String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\BranchManagementData.xlsx";
@@ -183,15 +193,7 @@ public class BranchManagementDeleteTest {
         Assert.assertTrue(ocmReportsPage.verifyBranchManagementDelete(branchManagementDetails, "CheckerReject"),"Audit Trail report assertion failed");
     }
     
-    //@Test(groups = { "Maker" })
-    public void DeleteInvalidRecord() throws Exception {
-		 String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\BranchManagementData.xlsx";
-		 Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(1);
-	     BranchManagementDetails branchManagementDetails = new BranchManagementDetails(map);
-	     BranchManagementPage branchManagementPage = PageFactory.createPageInstance(driver, BranchManagementPage.class);
-	     branchManagementPage.DeleteInvalidRecord(branchManagementDetails);
-	     Assert.assertFalse(branchManagementPage.getErrorMsg(),"Invalid Record Assertion failed");
-    }
+   
     
 	@AfterMethod
     public void afterEachMethod(Method method){
