@@ -1,144 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2019-05-15T11:13:31Z" name="Default suite" finished-at="2019-05-15T11:14:32Z" duration-ms="61086">
+  <suite started-at="2019-05-21T11:45:41Z" name="Default suite" finished-at="2019-05-21T11:46:44Z" duration-ms="62548">
     <groups>
+      <group name="TMAC">
+        <method signature="ChatTemplatesTest.VerifyChatTemplateInTMAC()[pri:68, instance:com.tetherfi.test.chat.ChatTemplatesTest@33a55bd8]" name="VerifyChatTemplateInTMAC" class="com.tetherfi.test.chat.ChatTemplatesTest"/>
+      </group> <!-- TMAC -->
     </groups>
-    <test started-at="2019-05-15T11:13:31Z" name="Default test" finished-at="2019-05-15T11:14:32Z" duration-ms="61086">
-      <class name="com.tetherfi.test.chat.ChatIntentSkillMappingTest">
-        <test-method is-config="true" signature="openApplication()[pri:0, instance:com.tetherfi.test.chat.ChatIntentSkillMappingTest@67774e29]" started-at="2019-05-15T16:43:31Z" name="openApplication" finished-at="2019-05-15T16:43:40Z" duration-ms="9279" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- openApplication -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.chat.ChatIntentSkillMappingTest@67774e29]" started-at="2019-05-15T16:43:41Z" name="startTestCase" finished-at="2019-05-15T16:43:41Z" duration-ms="2" status="PASS">
+    <test started-at="2019-05-21T11:45:41Z" name="Default test" finished-at="2019-05-21T11:46:44Z" duration-ms="62548">
+      <class name="com.tetherfi.test.chat.ChatTemplatesTest">
+        <test-method is-config="true" signature="NavigateToChatTemplatesPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.chat.ChatTemplatesTest@33a55bd8]" started-at="2019-05-21T17:15:41Z" name="NavigateToChatTemplatesPage" finished-at="2019-05-21T17:16:00Z" duration-ms="18937" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.chat.ChatIntentSkillMappingTest.AddRecordWithoutSegment() throws java.io.IOException]]>
+                <![CDATA[public void com.tetherfi.test.chat.ChatTemplatesTest.VerifyChatTemplateInTMAC() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigateToChatIntentSkillMappingPage()[pri:0, instance:com.tetherfi.test.chat.ChatIntentSkillMappingTest@67774e29]" started-at="2019-05-15T16:43:41Z" name="NavigateToChatIntentSkillMappingPage" finished-at="2019-05-15T16:43:44Z" duration-ms="3872" status="PASS">
+        </test-method> <!-- NavigateToChatTemplatesPage -->
+        <test-method signature="VerifyChatTemplateInTMAC()[pri:68, instance:com.tetherfi.test.chat.ChatTemplatesTest@33a55bd8]" started-at="2019-05-21T17:16:00Z" name="VerifyChatTemplateInTMAC" finished-at="2019-05-21T17:16:39Z" duration-ms="38969" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- NavigateToChatIntentSkillMappingPage -->
-        <test-method signature="AddRecordWithoutSegment()[pri:36, instance:com.tetherfi.test.chat.ChatIntentSkillMappingTest@67774e29]" started-at="2019-05-15T16:43:44Z" name="AddRecordWithoutSegment" finished-at="2019-05-15T16:43:58Z" duration-ms="13418" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- AddRecordWithoutSegment -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.chat.ChatIntentSkillMappingTest@67774e29]" started-at="2019-05-15T16:43:58Z" name="afterEachMethod" finished-at="2019-05-15T16:43:59Z" duration-ms="1297" status="PASS">
+        </test-method> <!-- VerifyChatTemplateInTMAC -->
+        <test-method is-config="true" signature="close(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.chat.ChatTemplatesTest@33a55bd8]" started-at="2019-05-21T17:16:39Z" name="close" finished-at="2019-05-21T17:16:44Z" duration-ms="4588" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.chat.ChatIntentSkillMappingTest.AddRecordWithoutSegment() throws java.io.IOException]]>
+                <![CDATA[public void com.tetherfi.test.chat.ChatTemplatesTest.VerifyChatTemplateInTMAC() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.chat.ChatIntentSkillMappingTest@67774e29]" started-at="2019-05-15T16:43:59Z" name="endTestCase" finished-at="2019-05-15T16:43:59Z" duration-ms="1" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.chat.ChatIntentSkillMappingTest.AddRecordWithoutSegment() throws java.io.IOException]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="NavigateToChatIntentSkillMappingPage()[pri:0, instance:com.tetherfi.test.chat.ChatIntentSkillMappingTest@67774e29]" started-at="2019-05-15T16:43:59Z" name="NavigateToChatIntentSkillMappingPage" finished-at="2019-05-15T16:44:03Z" duration-ms="3407" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToChatIntentSkillMappingPage -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.chat.ChatIntentSkillMappingTest@67774e29]" started-at="2019-05-15T16:43:59Z" name="startTestCase" finished-at="2019-05-15T16:43:59Z" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.chat.ChatIntentSkillMappingTest.AddRecordWithoutSubSegment() throws java.io.IOException]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method signature="AddRecordWithoutSubSegment()[pri:37, instance:com.tetherfi.test.chat.ChatIntentSkillMappingTest@67774e29]" started-at="2019-05-15T16:44:03Z" name="AddRecordWithoutSubSegment" finished-at="2019-05-15T16:44:14Z" duration-ms="11626" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- AddRecordWithoutSubSegment -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.chat.ChatIntentSkillMappingTest@67774e29]" started-at="2019-05-15T16:44:14Z" name="afterEachMethod" finished-at="2019-05-15T16:44:15Z" duration-ms="1117" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.chat.ChatIntentSkillMappingTest.AddRecordWithoutSubSegment() throws java.io.IOException]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.chat.ChatIntentSkillMappingTest@67774e29]" started-at="2019-05-15T16:44:15Z" name="endTestCase" finished-at="2019-05-15T16:44:15Z" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.chat.ChatIntentSkillMappingTest.AddRecordWithoutSubSegment() throws java.io.IOException]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.chat.ChatIntentSkillMappingTest@67774e29]" started-at="2019-05-15T16:44:15Z" name="startTestCase" finished-at="2019-05-15T16:44:15Z" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.chat.ChatIntentSkillMappingTest.AddRecordWithoutCustEntType() throws java.io.IOException]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigateToChatIntentSkillMappingPage()[pri:0, instance:com.tetherfi.test.chat.ChatIntentSkillMappingTest@67774e29]" started-at="2019-05-15T16:44:15Z" name="NavigateToChatIntentSkillMappingPage" finished-at="2019-05-15T16:44:18Z" duration-ms="3060" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToChatIntentSkillMappingPage -->
-        <test-method signature="AddRecordWithoutCustEntType()[pri:38, instance:com.tetherfi.test.chat.ChatIntentSkillMappingTest@67774e29]" started-at="2019-05-15T16:44:18Z" name="AddRecordWithoutCustEntType" finished-at="2019-05-15T16:44:30Z" duration-ms="11680" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- AddRecordWithoutCustEntType -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.chat.ChatIntentSkillMappingTest@67774e29]" started-at="2019-05-15T16:44:30Z" name="afterEachMethod" finished-at="2019-05-15T16:44:31Z" duration-ms="1138" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.chat.ChatIntentSkillMappingTest.AddRecordWithoutCustEntType() throws java.io.IOException]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.chat.ChatIntentSkillMappingTest@67774e29]" started-at="2019-05-15T16:44:31Z" name="endTestCase" finished-at="2019-05-15T16:44:31Z" duration-ms="1" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.chat.ChatIntentSkillMappingTest.AddRecordWithoutCustEntType() throws java.io.IOException]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.tetherfi.test.chat.ChatIntentSkillMappingTest@67774e29]" started-at="2019-05-15T16:44:31Z" name="tearDown" finished-at="2019-05-15T16:44:32Z" duration-ms="1130" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- com.tetherfi.test.chat.ChatIntentSkillMappingTest -->
+        </test-method> <!-- close -->
+      </class> <!-- com.tetherfi.test.chat.ChatTemplatesTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

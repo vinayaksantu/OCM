@@ -3,17 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.tetherfi.test.chat.ChatIntentSkillMappingTest">
+      <class name="com.tetherfi.test.chat.ChatTemplatesTest">
         <methods>
-          <include name="startTestCase"/>
-          <include name="openApplication"/>
+          <include name="NavigateToChatTemplatesPage"/>
+          <include name="VerifyChatTemplateInTMAC"/>
           <include name="afterEachMethod"/>
-          <include name="endTestCase"/>
-          <include name="database"/>
-          <include name="tearDown"/>
-          <include name="NavigateToChatIntentSkillMappingPage"/>
         </methods>
-      </class> <!-- com.tetherfi.test.chat.ChatIntentSkillMappingTest -->
+      </class> <!-- com.tetherfi.test.chat.ChatTemplatesTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

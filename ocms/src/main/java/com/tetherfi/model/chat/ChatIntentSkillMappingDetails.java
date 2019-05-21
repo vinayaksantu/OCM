@@ -184,15 +184,6 @@ public class ChatIntentSkillMappingDetails {
     public String getChannel() {
         return channel;
     }
-
-    public String getSkillTimeOut() {
-        return skillTimeOut;
-    }
-
-    public String getSla() {
-        return sla;
-    }
-
 	
 	public String getQuery() {
 		return query;

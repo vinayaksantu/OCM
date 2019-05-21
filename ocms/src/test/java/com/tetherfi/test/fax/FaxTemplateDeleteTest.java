@@ -64,7 +64,7 @@ public class FaxTemplateDeleteTest {
         Assert.assertTrue(faxTemplatePage.isFaxTemplatePageDisplayed(), "FAX page assertion failed");
     }
 	
-	/*@Test(groups= {"Maker"})
+	@Test(groups= {"Maker"})
 	public void DeleteCancelFaxTemplateRecord() throws Exception {
 	    String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxTemplateData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
@@ -141,7 +141,7 @@ public class FaxTemplateDeleteTest {
         Assert.assertTrue(ocmReportsPage.verifyFaxTemplateDelete(faxTemplateDetails, "CheckerApprove"),"Audit Trail report assertion failed");
     }
 	
-	//@Test(groups = { "Maker" })
+	@Test(groups = { "Maker" })
     public void DeleteRecord() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxTemplateData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(1);
@@ -152,7 +152,7 @@ public class FaxTemplateDeleteTest {
      }
         
     @Test(groups = { "Maker" },dependsOnMethods="DeleteRecord()")
-    public void VerifyTaskCompleteActionForDeleteRecord() {
+    public void VerifyTaskCompleteAction() {
         FaxTemplatePage faxTemplatePage = PageFactory.createPageInstance(driver, FaxTemplatePage.class);
         faxTemplatePage.selectFaxTemplateAuditTrailTab();
         faxTemplatePage.taskCompleteAction("Task Complete for Delete");
@@ -183,7 +183,7 @@ public class FaxTemplateDeleteTest {
         Assert.assertTrue(ocmReportsPage.verifyFaxTemplateDelete(faxTemplateDetails, "CheckerReject"),"Audit Trail report assertion failed");
     }
     
-    //@Test(groups = { "Maker" })
+    @Test(groups = { "Maker" })
     public void DeleteInvalidRecord() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxTemplateData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(1);
@@ -191,7 +191,7 @@ public class FaxTemplateDeleteTest {
         FaxTemplatePage faxTemplatePage = PageFactory.createPageInstance(driver, FaxTemplatePage.class);
         faxTemplatePage.DeleteInvalidRecord(faxTemplateDetails);
         Assert.assertFalse(faxTemplatePage.getErrorMsg(),"Invalid Record Assertion failed");
-    }*/
+    }
     
     @Test(groups= {"Maker"})
     public void DeleteAllRecord() throws Exception {

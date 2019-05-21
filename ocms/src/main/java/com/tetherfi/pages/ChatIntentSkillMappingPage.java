@@ -119,12 +119,6 @@ public class ChatIntentSkillMappingPage extends BasePage {
 
     @FindBy(id="noButton")
     private WebElement noBtn;
-
-    @FindBy(id="SkillTimeOut")
-    private WebElement skillTimeOut;
-
-    @FindBy(id="SLA")
-    private WebElement sla;
     
     @FindBy(xpath="//button[@class='k-button k-button-icontext k-grid-excel']")
     private WebElement exporttoexcel;

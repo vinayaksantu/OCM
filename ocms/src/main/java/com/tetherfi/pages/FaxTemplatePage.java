@@ -582,7 +582,7 @@ public class FaxTemplatePage extends BasePage {
     public boolean verifyExportToExcel(String filePath) {
 		final File folder = new File(filePath);
 		for (final File f : folder.listFiles()) {
-		    if (f.getName().equals("Fax Template")) {
+		    if (f.getName().contains("Fax Template")) {
 		        f.delete();
 		    }
 		}
@@ -607,8 +607,8 @@ public class FaxTemplatePage extends BasePage {
 	}
 	
 	private List<Map<String,String>> getdata(){
-		int item=Integer.valueOf(items.get(1).getText().split("of ")[1].split(" items")[0]);
-        int pagersize=Integer.valueOf(pagerSize.get(1).getText());
+		int item=Integer.valueOf(items.get(2).getText().split("of ")[1].split(" items")[0]);
+        int pagersize=Integer.valueOf(pagerSize.get(2).getText());
         int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
 		List<Map<String,String>> arr=new ArrayList<Map<String,String>>();
 		for(int k=0;k<=pages;k++){

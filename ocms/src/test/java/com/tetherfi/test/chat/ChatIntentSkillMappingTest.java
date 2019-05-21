@@ -62,7 +62,7 @@ public class ChatIntentSkillMappingTest extends BaseTest {
         Assert.assertFalse(ChatIntentSkillMappingPage.verifycolumnsHeaderDisabled(),"columns disabled assertion failed");
     }
     
-    @Test(priority=5)
+    /*@Test(priority=5)
     public void AddNewChatIntentSkillMappingRecord() throws IOException {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IntentSkillMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -391,7 +391,7 @@ public class ChatIntentSkillMappingTest extends BaseTest {
         ChatIntentSkillMappingPage.addRecordWithoutCustomEntType(ChatIntentSkillMappingDetails);
         Assert.assertEquals(ChatIntentSkillMappingPage.getMessage(),"Record Created Successfully", "Add invalid record assertion failed");
     }
-    
+    */
 	 @AfterMethod
 	    public void afterEachMethod(Method method) throws InterruptedException {
 		        Screenshot screenshot=new Screenshot(driver);

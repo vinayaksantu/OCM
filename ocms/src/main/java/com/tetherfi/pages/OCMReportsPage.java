@@ -1,6 +1,7 @@
 package com.tetherfi.pages;
 
 import com.tetherfi.model.chat.ChatIntentSkillMappingDetails;
+import com.tetherfi.model.chat.ChatTemplateDetails;
 import com.tetherfi.model.fax.FaxAutoACKConfigurationDetails;
 import com.tetherfi.model.fax.FaxLineConfigDetails;
 import com.tetherfi.model.fax.FaxRoutingConfigurationDetails;
@@ -4105,4 +4106,95 @@ return status;
 			}
 		return Status;	
 			}
+
+	public boolean verifyChatTemplatesDepartmentCreate(ChatTemplateDetails details, String Transaction) throws Exception {
+		booleansearchnew(details.getDepartmentName(),Transaction);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+		Map<String,String> newvalues=new HashMap<>();
+		String[]d=firstRowData.get("New Values").split("\n");
+		for(String e:d) {
+			String f[]=e.split(":",2);
+			if(f.length>1)
+			newvalues.put(f[0], f[1]);
+		}
+			if(newvalues.get("Name").equals(details.getDepartmentName()))
+			{
+				if(newvalues.get("Enabled").equals(details.getDeptEnabled()))
+				{
+					Status= true;
+				}
+				else {System.out.println("Enabled data mismatch");}
+			}
+			else {System.out.println("Name data mismatch");	}
+			return Status;		
+	}
+
+	public boolean verifyChatTemplatesGroupCreate(ChatTemplateDetails details, String Transaction) throws Exception {
+		booleansearchnew(details.getDepartmentName(),Transaction);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+		Map<String,String> newvalues=new HashMap<>();
+		String[]d=firstRowData.get("New Values").split("\n");
+		for(String e:d) {
+			String f[]=e.split(":",2);
+			if(f.length>1)
+			newvalues.put(f[0], f[1]);
+		}
+		if(newvalues.get("DepartmentName").equals(details.getDepartmentName()))
+		{
+			if(newvalues.get("Name").equals(details.getGroupName()))
+			{
+				if(newvalues.get("Enabled").equals(details.getDeptEnabled()))
+				{
+					Status= true;
+				}
+				else {System.out.println("Enabled data mismatch");}
+			}
+			else {System.out.println("Name data mismatch");	}
+		}	
+		else {System.out.println("Department Name data mismatch");	}
+		return Status;		
+	}
+
+	public boolean verifyChatTemplatesCreate(ChatTemplateDetails details, String Transaction) throws Exception {
+		booleansearchnew(details.getName(),Transaction);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+		Map<String,String> newvalues=new HashMap<>();
+		String[]d=firstRowData.get("New Values").split("\n");
+		for(String e:d) {
+			String f[]=e.split(":",2);
+			if(f.length>1)
+			newvalues.put(f[0], f[1]);
+		}
+			if(newvalues.get("DepartmentName").equals(details.getDepartmentName()))
+			{
+				if(newvalues.get("GroupName").equals(details.getGroupName()))
+				{
+					if(newvalues.get("Name").equals(details.getName()))
+					{
+						if(newvalues.get("Text").equals(details.getText()))
+						{
+							if(newvalues.get("Enabled").equals(details.getEnabled()))
+							{
+								if(newvalues.get("StartTime").equals(details.getStartTime()))
+								{
+									if(newvalues.get("EndTime").equals(details.getEndTime()))
+										Status= true;
+									else {System.out.println("EndTime data mismatch");}
+								}
+								else {System.out.println("StartTime data mismatch");}
+							}
+							else {System.out.println("Enabled data mismatch");}
+						}
+						else {System.out.println("Text data mismatch");}
+					}
+					else {System.out.println("Name data mismatch");}
+				}
+				else {System.out.println("GroupName data mismatch");}
+			}
+			else {System.out.println("Department data mismatch");	}
+		return Status;
+	}
 }

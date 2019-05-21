@@ -41,7 +41,6 @@ public class AdhocOptionEnhancementTest extends BaseTest {
         ivrPage.navigateToAdhocOptionEnhancementPage();
         AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);
         Assert.assertTrue(adhocOptionEnhancementPage.isAdhocOptionEnhancementPageDisplayed(), "adhoc option enhancement page assertion failed");
-    	screenshot.captureScreen(driver,"Adhoc Enhancement Page","AdhocOptionEnhancementTest");
     }
     
     @Test(priority=1)
@@ -49,9 +48,9 @@ public class AdhocOptionEnhancementTest extends BaseTest {
         AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);
     	Assert.assertTrue(adhocOptionEnhancementPage.verifylogo(),"AdhocOptionEnhancement logo assertion failed");
     	Assert.assertTrue(adhocOptionEnhancementPage .maximizewindow(),"Fullscreen Assertion Failed"); 
-    	screenshot.captureScreen(driver,"maximize window","AdhocOptionEnhancementTest");
+    	screenshot.captureScreen("AdhocOptionEnhancementTest","maximize window");
     	Assert.assertTrue(adhocOptionEnhancementPage .minimizewindow(), "Restored Assertion Failed");
-    	screenshot.captureScreen(driver,"minimize window","AdhocOptionEnhancementTest");
+    	screenshot.captureScreen("AdhocOptionEnhancementTest","minimize window");
     }
     @Test(priority=2)
     public void AddNewAdhocOptionEnhancementRecord() throws IOException {
@@ -59,11 +58,8 @@ public class AdhocOptionEnhancementTest extends BaseTest {
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         AdhocOptionEnhancementDetails adhocOptionEnhancementDetails = new AdhocOptionEnhancementDetails(map);
         AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);
-        Assert.assertTrue(adhocOptionEnhancementPage.addnewAdhocOptionEnhancementCancel(adhocOptionEnhancementDetails), "Add new record cancel assertion failed");
-        screenshot.captureScreen(driver, "Cancel Record","AdhocOptionEnhancementTest");
         adhocOptionEnhancementPage.addNewAdhocOptionEnhancementRecord(adhocOptionEnhancementDetails);
         Assert.assertEquals(adhocOptionEnhancementPage.verifySuccessMessage(),"Record Created Successfully", "Add New record assertion failed");
-        screenshot.captureScreen(driver,"Record Creation","AdhocOptionEnhancementTest");
 
     }
     @Test(dependsOnMethods ="AddNewAdhocOptionEnhancementRecord", priority=3)
@@ -79,7 +75,6 @@ public class AdhocOptionEnhancementTest extends BaseTest {
         ReportDetails reportDetails= new ReportDetails(map2);
         ocmReportsPage.showReport(reportDetails);
         Assert.assertTrue(ocmReportsPage.verifyAdhocOptionEnhancementCreate(adhocOptionEnhancementDetails,"Create"));
-        screenshot.captureScreen(driver,"VerifyAuditTrialReportForCreate","AdhocOptionEnhancementTest");    
     }
    
     @Test(dependsOnMethods = "AddNewAdhocOptionEnhancementRecord",priority=4)
@@ -90,7 +85,6 @@ public class AdhocOptionEnhancementTest extends BaseTest {
         AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);
         adhocOptionEnhancementPage.addNewAdhocOptionEnhancementRecord(adhocOptionEnhancementDetails);
         Assert.assertEquals(adhocOptionEnhancementPage.verifySuccessMessage(),"Record Creation Failed, Already Exist", "Duplicate record assertion failed");
-    	screenshot.captureScreen(driver,"Duplicate Record","AdhocOptionEnhancementTest");
     }
     
     @Test(dependsOnMethods = "AddDuplicateAdhocOptionEnhancementRecord",priority=5)
@@ -101,7 +95,6 @@ public class AdhocOptionEnhancementTest extends BaseTest {
         AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);
         adhocOptionEnhancementPage.addNewAdhocOptionEnhancementRecord(adhocOptionEnhancementDetails);
         Assert.assertEquals(adhocOptionEnhancementPage.verifySuccessMessage(),"Record Created Successfully", "Add New record assertion failed");
-        screenshot.captureScreen(driver,"Record Creation with different language","AdhocOptionEnhancementTest");
     }
     
     @Test(priority=6)
@@ -145,7 +138,6 @@ public class AdhocOptionEnhancementTest extends BaseTest {
         adhocOptionEnhancementPage.clickonAddNewRecord();
         adhocOptionEnhancementPage.clickOnCancelBtn();
         Assert.assertFalse(adhocOptionEnhancementPage.verifyEditFormContainer(),"Cancel Btn at Add record assertion failed");
-    	screenshot.captureScreen(driver,"addcancelbtn","AdhocOptionEnhancementTest");
 }
     
     @Test(dependsOnMethods = "AddDuplicateAdhocOptionEnhancementRecord",priority=8)
@@ -156,7 +148,6 @@ public class AdhocOptionEnhancementTest extends BaseTest {
         AdhocOptionEnhancementPage adhocOptionEnhancementPage= PageFactory.createPageInstance(driver,AdhocOptionEnhancementPage.class);
         adhocOptionEnhancementPage.editAdhocOptionEnhancementRecord(adhocOptionEnhancementDetails);
         Assert.assertEquals(adhocOptionEnhancementPage.verifySuccessMessage(),"Record Updated Successfully","Edit record assertion failed");
-    	screenshot.captureScreen(driver,"Record Updated","AdhocOptionEnhancementTest");
     }
     
     @Test(dependsOnMethods="EditAdhocOptionEnhancementRecord",priority=9)
@@ -172,7 +163,6 @@ public class AdhocOptionEnhancementTest extends BaseTest {
         ReportDetails reportDetails= new ReportDetails(map1);
         ocmReportsPage.showReport(reportDetails);
         Assert.assertTrue(ocmReportsPage.verifyAdhocOptionEnhancementUpdate(adhocOptionEnhancementDetails,"Update"));
-        screenshot.captureScreen(driver, "VerifyAuditTrialReportForUpdate","AdhocOptionEnhancementTest");
     }
     @Test(dependsOnMethods = "EditAdhocOptionEnhancementRecord",priority=10)
     public void EditEmptyAdhocOptionEnhancementRecord() throws IOException {
@@ -182,7 +172,6 @@ public class AdhocOptionEnhancementTest extends BaseTest {
         AdhocOptionEnhancementPage adhocOptionEnhancementPage= PageFactory.createPageInstance(driver,AdhocOptionEnhancementPage.class);
         adhocOptionEnhancementPage.editAdhocOptionEnhancementRecord(adhocOptionEnhancementDetails);
         Assert.assertEquals(adhocOptionEnhancementPage.verifySuccessMessage(),"Please Provide Promotion Description, Intent","Edit empty record assertion failed");
-        screenshot.captureScreen(driver,"EditEmptyAdhocOptionEnhancementRecord","AdhocOptionEnhancementTest");
     }
     
     @Test(dependsOnMethods = "EditEmptyAdhocOptionEnhancementRecord",priority=11)
@@ -193,7 +182,6 @@ public class AdhocOptionEnhancementTest extends BaseTest {
         AdhocOptionEnhancementPage adhocOptionEnhancementPage= PageFactory.createPageInstance(driver,AdhocOptionEnhancementPage.class);
         adhocOptionEnhancementPage.editAdhocOptionEnhancementRecord(adhocOptionEnhancementDetails);
         Assert.assertEquals(adhocOptionEnhancementPage.verifySuccessMessage(),"Please enter the modify reason","Edit without modify reason record assertion failed");
-        screenshot.captureScreen(driver,"EditWithoutModifyReasonAdhocOptionEnhancementRecord","AdhocOptionEnhancementTest");
     }
     
     @Test(dependsOnMethods = "EditWithoutModifyReasonAdhocOptionEnhancementRecord",priority=12)
@@ -203,7 +191,6 @@ public class AdhocOptionEnhancementTest extends BaseTest {
         adhocOptionEnhancementPage.clickOnEditButton();
         adhocOptionEnhancementPage.clickOnCancelBtn();
         Assert.assertFalse(adhocOptionEnhancementPage.verifyEditFormContainer(), "Cancel Btn at Edit record assertion failed");
-        screenshot.captureScreen(driver,"VerifyCancelButtonAtEditAdhocOptionEnhancementRecord","AdhocOptionEnhancementTest");
     }
     
     @Test(dependsOnMethods = {"VerifyCancelButtonAtEditAdhocOptionEnhancementRecord"},priority=13)
@@ -214,7 +201,6 @@ public class AdhocOptionEnhancementTest extends BaseTest {
         AdhocOptionEnhancementPage adhocOptionEnhancementPage= PageFactory.createPageInstance(driver,AdhocOptionEnhancementPage.class);
         adhocOptionEnhancementPage.deleteAdhocOptionEnhancementRecord(adhocOptionEnhancementDetails);
         Assert.assertEquals(adhocOptionEnhancementPage.verifySuccessMessage(),"Please enter the delete reason","delete record assertion failed");
-        screenshot.captureScreen(driver,"DeleteWithoutDeleteReasonInAdhocOptionEnhancementRecord","AdhocOptionEnhancementTest");
     }
     
     @Test(dependsOnMethods = {"DeleteWithoutDeleteReasonInAdhocOptionEnhancementRecord"},priority=14)
@@ -224,7 +210,6 @@ public class AdhocOptionEnhancementTest extends BaseTest {
         adhocOptionEnhancementPage.clickOnDeleteButton();
         adhocOptionEnhancementPage.clickOnDeleteCancelBtn();
         Assert.assertFalse(adhocOptionEnhancementPage.verifyDeleteContainer(), "Cancel Btn at Delete record assertion failed");
-        screenshot.captureScreen(driver,"VerifyCancelButtonInDeleteAdhocOptionEnhancementRecord","AdhocOptionEnhancementTest");
     }
     
     @Test(dependsOnMethods = {"VerifyCancelButtonInDeleteAdhocOptionEnhancementRecord"},priority=15)
@@ -235,7 +220,6 @@ public class AdhocOptionEnhancementTest extends BaseTest {
         AdhocOptionEnhancementPage adhocOptionEnhancementPage= PageFactory.createPageInstance(driver,AdhocOptionEnhancementPage.class);
         adhocOptionEnhancementPage.deleteAdhocOptionEnhancementRecord(adhocOptionEnhancementDetails);
         Assert.assertEquals(adhocOptionEnhancementPage.verifySuccessMessage(),"Record Deleted Successfully","delete record assertion failed");
-        screenshot.captureScreen(driver,"DeleteAdhocOptionEnhancementRecord()","AdhocOptionEnhancementTest");
     }
     
     @Test(dependsOnMethods= {"DeleteAdhocOptionEnhancementRecord"},priority=16)
@@ -251,7 +235,6 @@ public class AdhocOptionEnhancementTest extends BaseTest {
         ReportDetails reportDetails= new ReportDetails(map1);
         ocmReportsPage.showReport(reportDetails);
         Assert.assertTrue(ocmReportsPage.verifyAdhocOptionEnhancementdelete(adhocOptionEnhancementDetails,"Delete"));
-        screenshot.captureScreen(driver,"VerifyAuditTrialReportForUpdate","AdhocOptionEnhancementTest");
     }
     
     @Test(priority=17)
@@ -260,7 +243,6 @@ public class AdhocOptionEnhancementTest extends BaseTest {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles";
         AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);
         Assert.assertTrue(adhocOptionEnhancementPage.verifyExportToExcel(filePath));
-        screenshot.captureScreen(driver,"Export Excel","AdhocOptionEnhancementTest");
     }
     
     @Test(priority=18)
@@ -269,7 +251,6 @@ public class AdhocOptionEnhancementTest extends BaseTest {
     	List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
     	AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);
     	Assert.assertTrue(adhocOptionEnhancementPage.verifyexportToExcelSheet(maplist));	
-    	screenshot.captureScreen(driver,"Export Excel Sheet","AdhocOptionEnhancementTest");
     }
     
     @Test(priority=19)
@@ -279,9 +260,8 @@ public class AdhocOptionEnhancementTest extends BaseTest {
         AdhocOptionEnhancementDetails adhocOptionEnhancementDetails=new AdhocOptionEnhancementDetails(map);
     	AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);
         Assert.assertFalse(adhocOptionEnhancementPage.clearAll(adhocOptionEnhancementDetails),"ClearAll Assertion Failed");
-        screenshot.captureScreen(driver, "clearall","AdhocOptionEnhancementTest");
+        screenshot.captureScreen("AdhocOptionEnhancementTest","clearall");
         Assert.assertTrue(adhocOptionEnhancementPage.verifyclose());
-        screenshot.captureScreen(driver, "SearchClose","AdhocOptionEnhancementTest");
     }
     @Test(priority=20)
     public void searchwithoutSearchTextbox() throws IOException {
@@ -291,7 +271,6 @@ public class AdhocOptionEnhancementTest extends BaseTest {
     	AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);
     	adhocOptionEnhancementPage.searchwithoutextsearch(adhocOptionEnhancementDetails);
     	Assert.assertTrue(adhocOptionEnhancementPage.verifyErrorMessage());
-    	screenshot.captureScreen(driver, "searchwithoutSearchTextbox()","AdhocOptionEnhancementTest");
     }
     
     @Test(priority=21)
@@ -301,7 +280,6 @@ public class AdhocOptionEnhancementTest extends BaseTest {
         AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);
         AdhocOptionEnhancementDetails adhocOptionEnhancementDetails=new AdhocOptionEnhancementDetails(map);
         Assert.assertTrue(adhocOptionEnhancementPage.validAndBooleanSearch(adhocOptionEnhancementDetails));
-    	screenshot.captureScreen(driver, "ValidANDBooleanSearch","AdhocOptionEnhancementTest");
     }
     
     @Test(priority=22)
@@ -311,7 +289,6 @@ public class AdhocOptionEnhancementTest extends BaseTest {
         AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);
         AdhocOptionEnhancementDetails adhocOptionEnhancementDetails=new AdhocOptionEnhancementDetails(map);
         Assert.assertTrue(adhocOptionEnhancementPage.validORBooleanSearch(adhocOptionEnhancementDetails));
-    	screenshot.captureScreen(driver, "ValiORBooleanSearch()","AdhocOptionEnhancementTest");
     }
     
     @Test(priority=23)
@@ -322,7 +299,6 @@ public class AdhocOptionEnhancementTest extends BaseTest {
         AdhocOptionEnhancementDetails adhocOptionEnhancementDetails=new AdhocOptionEnhancementDetails(map);
         adhocOptionEnhancementPage.InvalidBooleanSearchwithoutSearchTextbox(adhocOptionEnhancementDetails);
         Assert.assertTrue(adhocOptionEnhancementPage.verifyErrorMessage());
-    	screenshot.captureScreen(driver, "InvalidBooleanSearchwithoutSearchTextbox()","AdhocOptionEnhancementTest");
     }
     
     @Test(priority=24)
@@ -333,7 +309,6 @@ public class AdhocOptionEnhancementTest extends BaseTest {
         AdhocOptionEnhancementDetails adhocOptionEnhancementDetails=new AdhocOptionEnhancementDetails(map);
         adhocOptionEnhancementPage.InvalidBooleanSearchwithoutSearchTextbox1(adhocOptionEnhancementDetails);
         Assert.assertTrue(adhocOptionEnhancementPage.verifyErrorMessage()); 
-    	screenshot.captureScreen(driver, "InvalidBooleanSearchwithoutSearchTextbox1","AdhocOptionEnhancementTest");
     }
     
     @Test(priority=25)
@@ -345,9 +320,8 @@ public class AdhocOptionEnhancementTest extends BaseTest {
     	AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);
     	adhocOptionEnhancementPage.deleteAdhocOptionEnhancementRecord(adhocOptionEnhancementDetails);
     	Assert.assertTrue(adhocOptionEnhancementPage.verifyinvalidsearchwithwrongdata(adhocOptionEnhancementDetails),"invalidsearchwithwrongdata");
-        screenshot.captureScreen(driver,"Invalid Search with wrong data", "AdhocOptionEnhancementTest");
+        screenshot.captureScreen("AdhocOptionEnhancementTest","Invalid Search");
         Assert.assertTrue(adhocOptionEnhancementPage.verifyclearsearch(), "Clear All Assertion Failed");
-        screenshot.captureScreen( driver,"Clear Search", "AdhocOptionEnhancementTest");
     }
     
     @Test(priority=26)
@@ -358,7 +332,6 @@ public class AdhocOptionEnhancementTest extends BaseTest {
         Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(0);
         AdhocOptionEnhancementDetails adhocOptionEnhancementDetails=new AdhocOptionEnhancementDetails(map);
         Assert.assertTrue(adhocOptionEnhancementPage.ExporttoExcelWithoutData(adhocOptionEnhancementDetails));
-        screenshot.captureScreen( driver,"ExporttoExcelWithoutData", "AdhocOptionEnhancementTest");
     }
   
     @Test(priority=27)
@@ -384,9 +357,9 @@ public class AdhocOptionEnhancementTest extends BaseTest {
     {
         AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);
     	Assert.assertTrue(adhocOptionEnhancementPage.groupby());
-        screenshot.captureScreen(driver, "GroupBy","AdhocOptionEnhancementTest");
+        screenshot.captureScreen("AdhocOptionEnhancementTest", "GroupBy");
     	Assert.assertTrue(adhocOptionEnhancementPage.groupby());
-        screenshot.captureScreen(driver, "AlreadyGroupBy","AdhocOptionEnhancementTest");
+        screenshot.captureScreen("AdhocOptionEnhancementTest","AlreadyGroupBy");
     }
     
     @Test(priority=30)
@@ -441,14 +414,9 @@ public class AdhocOptionEnhancementTest extends BaseTest {
     }
     
     @AfterMethod
-    public void afterEachMethod(ITestResult result, Method method) throws InterruptedException {
-   	 if(ITestResult.FAILURE==result.getStatus()){
-      		 try{
-      			 screenshot.captureScreen(driver,method.getName(),"AdhocOptionEnhancementTest");
-      		 }
-      		catch (Exception e){
-      		 System.out.println("Exception while taking screenshot "+e.getMessage());
-      		 } 
-      		 driver.navigate().refresh();
-      		 }    }
+    public void afterEachMethod(Method method) throws InterruptedException {
+    	Screenshot screenshot=new Screenshot(driver);
+	        screenshot.captureScreen("AdhocOptionEnhancementTest",method.getName());
+	        driver.navigate().refresh();
+	}
 }

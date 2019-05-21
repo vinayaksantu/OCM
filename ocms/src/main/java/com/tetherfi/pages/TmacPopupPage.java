@@ -6,6 +6,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import com.tetherfi.model.chat.ChatTemplateDetails;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -88,6 +90,7 @@ public class TmacPopupPage extends BasePage {
 
 	@FindBy(css="a[id^='btnTextChat_Answer1']")
     private WebElement recieveChatBtn;
+	
     @FindBy(css="a[id^='btnTextChat_Disconnect1']")
     private List<WebElement> endChat;
 
@@ -111,6 +114,9 @@ public class TmacPopupPage extends BasePage {
     
     @FindBy(id="btnTextChat_Answer1000")
 	private WebElement answerchat;
+    
+    @FindBy(id="btnTextChat_ChatTemplate1000")
+    private WebElement chatTemplate;
 	
 	@FindBy(id="btnTextChat_Disconnect1000")
 	private WebElement disconnectchat;
@@ -126,6 +132,22 @@ public class TmacPopupPage extends BasePage {
 	
 	@FindBy(css="input[aria-owns='workcodes1000_taglist workcodes1000_listbox']")
 	private WebElement selectcompletioncode;
+	
+	@FindBy(css="span[aria-controls='chat_dept_combobox_listbox']")
+	private WebElement deptDropdown;
+	
+	@FindBy(css="ul[id='chat_dept_combobox_listbox'] li")
+	private List<WebElement> deptListBox;
+	
+	@FindBy(css="span[aria-controls='chat_grp_combobox_listbox']")
+	private WebElement groupDropdown;
+	
+	@FindBy(css="ul[id='chat_grp_combobox_listbox'] li")
+	private List<WebElement> groupListBox;
+	
+	@FindBy(css="#chat_template_grid tr")
+	private List<WebElement> templates;
+	
 
     public boolean isTmacPopUpDisplayed(){
     waitForLoad(driver);
@@ -399,6 +421,11 @@ public class TmacPopupPage extends BasePage {
     	
     }
     
+    public void clickOnChatTemplate() {
+    	waitUntilWebElementIsClickable(chatTemplate);
+    	clickOn(chatTemplate);	
+    }
+    
     public void WorkCodeList(String workCode) throws Exception {
     	scrollToElement(selectcompletioncode);
     	selectWebElement(selectcompletioncode);
@@ -430,5 +457,32 @@ public class TmacPopupPage extends BasePage {
     		return true;
     	else 
     		return false;
+    }
+	
+    public Boolean ChatTemplate(ChatTemplateDetails details) {
+		Boolean status=false;
+		selectWebElement(deptDropdown);
+    	selectDropdownFromVisibleText(deptListBox,details.getDepartmentName());
+    	selectWebElement(groupDropdown);
+    	selectDropdownFromVisibleText(groupListBox,details.getGroupName());
+    	try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	List<WebElement> template=templates.get(1).findElements(By.tagName("td"));
+    	{
+    		for(WebElement ele:template)
+    		{
+    			if(ele.getText().equals(details.getText())) {
+    				selectWebElement(ele);
+    				status=true;
+    				break;
+    			}
+    		}
+    		
+    	}
+    	return status;
     }
 }

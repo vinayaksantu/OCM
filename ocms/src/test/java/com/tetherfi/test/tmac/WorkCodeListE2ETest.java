@@ -8,6 +8,7 @@ import java.util.Map;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.TimeoutException;
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
@@ -31,7 +32,8 @@ import com.tetherfi.utility.ExcelReader;
 import com.tetherfi.utility.PageFactory;
 import com.tetherfi.utility.Screenshot;
 
-public class WorkCodeListE2ETest extends BaseTest{
+public class WorkCodeListE2ETest {
+	protected WebDriver driver;
 	Screenshot screenshot=new Screenshot(driver);
 	@BeforeMethod
     public void NavigateToWorkCodeListPage(Method method) throws IOException {

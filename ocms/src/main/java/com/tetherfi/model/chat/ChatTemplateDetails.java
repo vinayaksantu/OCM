@@ -23,6 +23,7 @@ public class ChatTemplateDetails {
     private String endTime;
     private String modifyReason;
     private  String deleteReason;
+    private String UpdatedDeptEnabled;
 
     public ChatTemplateDetails(Map<String,String> map){
         departmentName=readDepartmentName(map);
@@ -36,15 +37,21 @@ public class ChatTemplateDetails {
         intent=readIntent(map);
         modifyReason=readModifyReason(map);
         deleteReason=readDeleteReason(map);
-		try {
-            startTime=readStartTime(map);
-            endTime=readEndTime(map);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
+        startTime=readStartTime(map);
+        endTime=readEndTime(map);
+        UpdatedDeptEnabled=readUpdatedDeptEnabled(map);
+        
     }
 
-    private String readStartTime(Map<String, String> map) throws ParseException {
+    private String readUpdatedDeptEnabled(Map<String, String> map) {
+    	 String value=map.get("Updated Department Enabled");
+         if(value==null||value.equalsIgnoreCase("random.str")){
+             value=RandomStringUtils.randomAlphabetic(7);
+         }
+         return value;
+	}
+
+	private String readStartTime(Map<String, String> map)  {
         String value=map.get("Start Time");
         if(value==null||value.equalsIgnoreCase("random.str")){
             DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
@@ -53,7 +60,7 @@ public class ChatTemplateDetails {
         }
         return value;
     }
-    private String readEndTime(Map<String, String> map) throws ParseException {
+    private String readEndTime(Map<String, String> map) {
         String value=map.get("End Time");
         if(value==null||value.equalsIgnoreCase("random.str")){
             Date dNow = new Date( );
@@ -203,6 +210,10 @@ public class ChatTemplateDetails {
     public String getEndTime() {
         return endTime;
     }
+
+	public String getUpdatedDeptEnabled() {
+		return UpdatedDeptEnabled;
+	}
 }
 
 

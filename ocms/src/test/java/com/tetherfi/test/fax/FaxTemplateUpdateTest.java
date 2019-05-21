@@ -64,7 +64,7 @@ public class FaxTemplateUpdateTest {
         Assert.assertTrue(faxTemplatePage.isFaxTemplatePageDisplayed(), "FAX page assertion failed");
     }
 	
-	//@Test(groups= {"Maker"})
+	@Test(groups= {"Maker"},priority=1)
 	public void EditCancelFaxTemplateRecord() throws Exception {
 	    String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxTemplateData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(0);
@@ -73,7 +73,7 @@ public class FaxTemplateUpdateTest {
         Assert.assertTrue(faxTemplatePage.EditCancel(faxTemplateDetails), "Edit Cancel assertion Failed");
 	}
 	
-	//@Test(groups= {"Maker"})
+	@Test(groups= {"Maker"},priority=2)
 	public void EditFaxTemplateRecord() throws Exception {
 	    String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxTemplateData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(0);
@@ -83,7 +83,7 @@ public class FaxTemplateUpdateTest {
         Assert.assertEquals(faxTemplatePage.getSuccessMessage(), "Record Updated Successfully. Refresh/F5 page for preview");
 	}
 	
-	//@Test(groups= {"Maker"},dependsOnMethods="EditFaxTemplateRecord")
+	@Test(priority=3,groups= {"Maker"},dependsOnMethods="EditFaxTemplateRecord")
     public void VerifyAuditTrialReportForUpdate() throws Exception {
 	    String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxTemplateData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(0);	
@@ -98,7 +98,7 @@ public class FaxTemplateUpdateTest {
         Assert.assertTrue(ocmReportsPage.verifyFaxTemplateUpdate(faxTemplateDetails,"MakerUpdate"));
     }
 	
-	//@Test(groups = { "Maker" },dependsOnMethods="EditFaxTemplateRecord")
+	@Test(priority=4,groups = { "Maker" },dependsOnMethods="EditFaxTemplateRecord")
     public void VerifyAuditTrailDataForEditFaxTemplateRecord() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxTemplateData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(0);
@@ -110,7 +110,7 @@ public class FaxTemplateUpdateTest {
         Assert.assertTrue(faxTemplatePage.verifyTaskCompleteEnabled(), "Task complete button not enabled");
     }
 	
-	//@Test(groups = { "Maker" },dependsOnMethods="VerifyAuditTrailDataForEditFaxTemplateRecord")
+	@Test(priority=5,groups = { "Maker" },dependsOnMethods="VerifyAuditTrailDataForEditFaxTemplateRecord")
     public void VerifyTaskCompleteActionForEditFaxTemplateRecord() {
         FaxTemplatePage faxTemplatePage = PageFactory.createPageInstance(driver, FaxTemplatePage.class);
         faxTemplatePage.selectFaxTemplateAuditTrailTab();
@@ -119,7 +119,7 @@ public class FaxTemplateUpdateTest {
         Assert.assertTrue(faxTemplatePage.verifyStatus("Approval Pending"),"approal status details failed");
     }
 	
-	//@Test(groups = { "Checker" },dependsOnMethods="VerifyTaskCompleteActionForEditFaxTemplateRecord")
+	@Test(priority=6,groups = { "Checker" },dependsOnMethods="VerifyTaskCompleteActionForEditFaxTemplateRecord")
     public void ApproveforEditFaxTemplateRecord(){
         FaxTemplatePage faxTemplatePage = PageFactory.createPageInstance(driver, FaxTemplatePage.class);
         faxTemplatePage.clickonApprove("Approve Edited");
@@ -127,7 +127,7 @@ public class FaxTemplateUpdateTest {
         Assert.assertTrue(faxTemplatePage.verifyReviewAuditTrail("Approved","Approve Edited"));
     }
 	
-	//@Test(groups = { "Checker" },dependsOnMethods = "ApproveforEditFaxTemplateRecord")
+	@Test(priority=7,groups = { "Checker" },dependsOnMethods = "ApproveforEditFaxTemplateRecord")
     public void VerifyAuditTrailReportForApprove() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxTemplateData.xlsx";
 	    Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
@@ -142,7 +142,7 @@ public class FaxTemplateUpdateTest {
         Assert.assertTrue(ocmReportsPage.verifyFaxTemplateUpdate(faxTemplateDetails, "CheckerApprove"),"Audit Trail report assertion failed");
     }
     
-    //@Test(groups = { "Maker" })
+    @Test(priority=8,groups = { "Maker" })
     public void EditRecord() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxTemplateData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(1);
@@ -152,7 +152,7 @@ public class FaxTemplateUpdateTest {
         Assert.assertEquals(faxTemplatePage.getSuccessMessage(), "Record Updated Successfully. Refresh/F5 page for preview");
     }
     
-    //@Test(groups = { "Maker" },dependsOnMethods="EditRecord")
+    @Test(priority=9,groups = { "Maker" },dependsOnMethods="EditRecord")
     public void VerifyMakeFaxTemplateButtonafterTaskComplete() throws Exception {
         FaxTemplatePage faxTemplatePage = PageFactory.createPageInstance(driver, FaxTemplatePage.class);
         faxTemplatePage.selectFaxTemplateAuditTrailTab();
@@ -160,7 +160,7 @@ public class FaxTemplateUpdateTest {
         Assert.assertFalse(faxTemplatePage.VerifyMakefFaxTemplateChangeButton());
     }
     
-    //@Test(groups = { "Checker" },dependsOnMethods="VerifyMakeFaxTemplateButtonafterTaskComplete")
+    @Test(priority=10,groups = { "Checker" },dependsOnMethods="VerifyMakeFaxTemplateButtonafterTaskComplete")
     public void RejectforEditFaxTemplateRecord(){
         FaxTemplatePage faxTemplatePage = PageFactory.createPageInstance(driver, FaxTemplatePage.class);
         faxTemplatePage.clickonReject("Reject Updated");
@@ -168,7 +168,7 @@ public class FaxTemplateUpdateTest {
         Assert.assertTrue(faxTemplatePage.verifyReviewAuditTrail("Rejected","Reject Updated"));
     }
     
-    //@Test(groups = { "Checker" },dependsOnMethods = "RejectforEditFaxTemplateRecord")
+    @Test(priority=11,groups = { "Checker" },dependsOnMethods = "RejectforEditFaxTemplateRecord")
     public void VerifyAuditTrailReportForReject() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxTemplateData.xlsx";
 	    Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(1);
@@ -196,7 +196,7 @@ public class FaxTemplateUpdateTest {
     @AfterMethod
 	    public void afterEachMethod(Method method){
 	        Screenshot screenshot=new Screenshot(driver);
-	        screenshot.captureScreen("FaxTemplateTest",method.getName());
+	        screenshot.captureScreen("FaxTemplateUpdateTest",method.getName());
 	        driver.navigate().refresh();
 	        HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
 	        homePage.userLogout();

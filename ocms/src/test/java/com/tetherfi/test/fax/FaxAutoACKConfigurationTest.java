@@ -75,25 +75,25 @@ public class FaxAutoACKConfigurationTest extends BaseTest{
     	screenshot.captureScreen(driver,"minimize window","FaxAutoACKConfigurationTest");
     }
     
-    //@Test(priority=2)
+    @Test(priority=2)
     public void VerifyDropdownForAllTheColumns() {
         FaxAutoACKConfigurationPage faxAutoAckConfigurationPage = PageFactory.createPageInstance(driver, FaxAutoACKConfigurationPage.class);
         Assert.assertTrue(faxAutoAckConfigurationPage.verifyDropDownOfAllHeaders(), "Columns dropdown assertion failed");
     }
     
-    //@Test(priority=3)
+    @Test(priority=3)
     public void VerifyColumnsHeaderEnable() {
         FaxAutoACKConfigurationPage faxAutoAckConfigurationPage = PageFactory.createPageInstance(driver, FaxAutoACKConfigurationPage.class);
         Assert.assertTrue(faxAutoAckConfigurationPage.verifycolumnsHeaderEnabled(),"columns enabled assertion failed");
     }
     
-    //@Test(priority=4)
+    @Test(priority=4)
     public void VerifyColumnsHeaderDisable() {
         FaxAutoACKConfigurationPage faxAutoAckConfigurationPage = PageFactory.createPageInstance(driver, FaxAutoACKConfigurationPage.class);
         Assert.assertFalse(faxAutoAckConfigurationPage.verifycolumnsHeaderDisabled(),"columns disabled assertion failed");
     }
     
-    //@Test(priority=5)
+    @Test(priority=5)
     public void AddCancelAutoAckConfigRecord() throws Exception {
     	FaxAutoACKConfigurationPage faxAutoAckConfigurationPage = PageFactory.createPageInstance(driver, FaxAutoACKConfigurationPage.class);
         Assert.assertTrue(faxAutoAckConfigurationPage.addcancel(), "Cancel assertion failed");
