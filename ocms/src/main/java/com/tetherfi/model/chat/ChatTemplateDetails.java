@@ -15,7 +15,7 @@ public class ChatTemplateDetails {
     private String groupName;
     private String groupEnabled;
     private String name;
-    private String updatedname;
+    private String UpdatedEnabled;
     private String enabled;
     private String text;
     private String intent;
@@ -24,6 +24,8 @@ public class ChatTemplateDetails {
     private String modifyReason;
     private  String deleteReason;
     private String UpdatedDeptEnabled;
+    private String UpdatedGroupEnabled;
+    private String Query;
 
     public ChatTemplateDetails(Map<String,String> map){
         departmentName=readDepartmentName(map);
@@ -31,7 +33,7 @@ public class ChatTemplateDetails {
         groupName=readGroupName(map);
         groupEnabled=readGroupEnabled(map);
         name=readName(map);
-        updatedname=readUpdatedname(map);
+        UpdatedEnabled=readUpdatedEnabled(map);
         enabled=readEnabled(map);
         text=readText(map);
         intent=readIntent(map);
@@ -40,10 +42,37 @@ public class ChatTemplateDetails {
         startTime=readStartTime(map);
         endTime=readEndTime(map);
         UpdatedDeptEnabled=readUpdatedDeptEnabled(map);
+        UpdatedGroupEnabled=readUpdatedGroupEnabled(map);
+        Query=readQuery(map);
+        
         
     }
 
-    private String readUpdatedDeptEnabled(Map<String, String> map) {
+    private String readQuery(Map<String, String> map) {
+    	String value=map.get("Query");
+        if(value==null||value.equalsIgnoreCase("random.str")){
+            value=RandomStringUtils.randomAlphabetic(7);
+        }
+        return value;
+	}
+
+	private String readUpdatedGroupEnabled(Map<String, String> map) {
+    	String value=map.get("Updated Group Enabled");
+        if(value==null||value.equalsIgnoreCase("random.str")){
+            value=RandomStringUtils.randomAlphabetic(7);
+        }
+        return value;
+	}
+
+	private String readUpdatedEnabled(Map<String, String> map) {
+    	String value=map.get("Updated Enabled");
+        if(value==null||value.equalsIgnoreCase("random.str")){
+            value=RandomStringUtils.randomAlphabetic(7);
+        }
+        return value;
+	}
+
+	private String readUpdatedDeptEnabled(Map<String, String> map) {
     	 String value=map.get("Updated Department Enabled");
          if(value==null||value.equalsIgnoreCase("random.str")){
              value=RandomStringUtils.randomAlphabetic(7);
@@ -198,10 +227,6 @@ public class ChatTemplateDetails {
     public String getDeleteReason() {
         return deleteReason;
     }
-
-    public String getUpdatedname() {
-        return updatedname;
-    }
 	
 	public String getStartTime() {
         return startTime;
@@ -214,6 +239,20 @@ public class ChatTemplateDetails {
 	public String getUpdatedDeptEnabled() {
 		return UpdatedDeptEnabled;
 	}
+
+	public String getUpdatedEnabled() {
+		return UpdatedEnabled;
+	}
+
+	public String getUpdatedGroupEnabled() {
+		return UpdatedGroupEnabled;
+	}
+
+	public String getQuery() {
+		return Query;
+	}
+	
+	
 }
 
 

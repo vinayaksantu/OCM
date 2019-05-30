@@ -25,6 +25,7 @@ import com.tetherfi.model.tmac.AgentTeamMgmtDetails;
 import com.tetherfi.model.tmac.TmacBroadCastMsgDetails;
 import com.tetherfi.model.tmac.WaitTimeColorConfigDetails;
 import com.tetherfi.model.tmac.WorkCodeListDetails;
+import com.tetherfi.model.user.CepEventMappingDetails;
 import com.tetherfi.model.user.SkillConfigurationDetails;
 
 import org.apache.commons.lang3.StringUtils;
@@ -4196,5 +4197,436 @@ return status;
 			}
 			else {System.out.println("Department data mismatch");	}
 		return Status;
+	}
+
+	public boolean verifyChatTemplateDepartmentUpdate(ChatTemplateDetails details, String Transaction) throws Exception {
+		booleansearchnew(details.getDepartmentName(),Transaction);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+        if(firstRowData.containsKey("Old Values")) {
+        	Map<String,String> oldvalues=new HashMap<>();
+    		String[]d=firstRowData.get("Old Values").split("\n");
+    		for(String e:d) {
+    			System.out.println(e);
+    			String f[]=e.split(":",2);
+    			if(f.length>1)
+    				oldvalues.put(f[0], f[1]);
+    		}
+    		if(oldvalues.get("Name").equals(details.getDepartmentName())){
+    			if(oldvalues.get("Enabled").equals(details.getDeptEnabled())){
+    				if(firstRowData.containsKey("New Values")) {
+    					Map<String,String> newvalues=new HashMap<>();
+    					String[]d1=firstRowData.get("New Values").split("\n");
+                		for(String e:d1) {
+                			String f[]=e.split(":",2);
+                			if(f.length>1)
+                				newvalues.put(f[0], f[1]);
+                		}
+                		if(newvalues.get("Name").equals(details.getDepartmentName())) {
+                			if(newvalues.get("Enabled").equals(details.getUpdatedDeptEnabled())){
+                				if(newvalues.get("ModifyReason").equals(details.getModifyReason())){ 
+                					if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getModifyReason()))
+                						Status=true;
+                					else System.out.println("Change reason data mismatch");
+                    			}
+                				else System.out.println("Modify reason data mismatch");
+                			}
+                			else System.out.println("Enabled data mismatch");
+    					}
+    					else System.out.println("Name data mismatch");
+    				}
+    				else System.out.println("New Values data mismatch");
+    			}
+    			else {System.out.println("Enabled data mismatch");}
+    		}
+			else {System.out.println("Name data mismatch");}
+    	}
+        else {System.out.println("Old values data mismatch");}
+ return Status;
+	}
+
+	public boolean verifyChatTemplateUpdate(ChatTemplateDetails details, String Transaction) throws Exception {
+		booleansearchnew(details.getName(),Transaction);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+        if(firstRowData.containsKey("Old Values")) {
+        	Map<String,String> oldvalues=new HashMap<>();
+    		String[]d=firstRowData.get("Old Values").split("\n");
+    		for(String e:d) {
+    			System.out.println(e);
+    			String f[]=e.split(":",2);
+    			if(f.length>1)
+    				oldvalues.put(f[0], f[1]);
+    		}
+    		if(oldvalues.get("Name").equals(details.getName())){
+    			if(oldvalues.get("Text").equals(details.getText())){
+    				if(oldvalues.get("Enabled").equals(details.getEnabled())) {
+    					if(oldvalues.get("GroupName").equals(details.getGroupName())){
+        					if(oldvalues.get("DepartmentName").equals(details.getDepartmentName())){
+            					if(oldvalues.get("StartTime").equals(details.getStartTime())){
+                					if(oldvalues.get("EndTime").equals(details.getEndTime())){
+                						if(firstRowData.containsKey("New Values")) {
+                							Map<String,String> newvalues=new HashMap<>();
+                							String[]d1=firstRowData.get("New Values").split("\n");
+                							for(String e:d1) {
+                								String f[]=e.split(":",2);
+                								if(f.length>1)
+                									newvalues.put(f[0], f[1]);
+                							}
+                							if(newvalues.get("Name").equals(details.getName())) {
+                								if(newvalues.get("Text").equals(details.getText())){
+                									if(newvalues.get("Enabled").equals(details.getUpdatedEnabled())){
+                										if(newvalues.get("GroupName").equals(details.getGroupName())){
+                											if(newvalues.get("DepartmentName").equals(details.getDepartmentName())){
+                												if(newvalues.get("StartTime").equals(details.getStartTime())) {	
+                    												if(newvalues.get("EndTime").equals(details.getEndTime())) {	
+                    													if(newvalues.get("ModifyReason").equals(details.getModifyReason())){ 
+                															if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getModifyReason()))
+                																Status=true;
+                															else System.out.println("Change reason data mismatch");
+                    													}
+                    													else System.out.println("Modify reason data mismatch");
+                    												}
+                													else System.out.println("EndTime data mismatch");
+                            				            		}
+                												else System.out.println("StartTime data mismatch");
+                											}
+                											else System.out.println("DepartmentName data mismatch");
+                										}
+                										else System.out.println("GroupName data mismatch");
+                									}
+                									else System.out.println("Enabled data mismatch");
+                								}
+                								else System.out.println("Text data mismatch");
+                							}
+                							else {System.out.println("Name data mismatch");}
+                						}
+                						else {System.out.println("New Values data mismatch");}
+                					}
+                					else System.out.println("EndTime data mismatch");
+            					}
+            					else System.out.println("StartTime data mismatch");
+        					}
+        					else System.out.println("DepartmentName data mismatch");
+    					}
+    					else System.out.println("GroupName data mismatch");
+    				}
+    				else System.out.println("Enabled data mismatch");
+    			}
+    			else {System.out.println("Text data mismatch");}
+    		}
+			else {System.out.println("Name data mismatch");}
+    	}
+        else {System.out.println("Old values data mismatch");}
+ return Status;
+	}
+
+	public boolean verifyChatTemplateGroupUpdate(ChatTemplateDetails details, String Transaction) throws Exception {
+		booleansearchnew(details.getGroupName(),Transaction);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+        if(firstRowData.containsKey("Old Values")) {
+        	Map<String,String> oldvalues=new HashMap<>();
+    		String[]d=firstRowData.get("Old Values").split("\n");
+    		for(String e:d) {
+    			System.out.println(e);
+    			String f[]=e.split(":",2);
+    			if(f.length>1)
+    				oldvalues.put(f[0], f[1]);
+    		}
+    		if(oldvalues.get("Name").equals(details.getGroupName())){
+    			if(oldvalues.get("Enabled").equals(details.getEnabled())) {
+    				if(oldvalues.get("DepartmentName").equals(details.getDepartmentName())){
+    					if(firstRowData.containsKey("New Values")) {
+                			Map<String,String> newvalues=new HashMap<>();
+                			String[]d1=firstRowData.get("New Values").split("\n");
+                			for(String e:d1) {
+                				String f[]=e.split(":",2);
+                				if(f.length>1)
+                					newvalues.put(f[0], f[1]);
+                			}
+                			if(newvalues.get("Name").equals(details.getGroupName())) {
+                				if(newvalues.get("Enabled").equals(details.getUpdatedEnabled())){
+                					if(newvalues.get("DepartmentName").equals(details.getDepartmentName())){
+                						if(newvalues.get("ModifyReason").equals(details.getModifyReason())){ 
+                							if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getModifyReason()))
+                								Status=true;
+                							else System.out.println("Change reason data mismatch");
+                    						}
+                    					else System.out.println("Modify reason data mismatch");
+                					}
+                					else System.out.println("DepartmentName data mismatch");
+                				}
+                				else System.out.println("Enabled data mismatch");
+                			}
+                			else {System.out.println("Name data mismatch");}
+                		}
+    					else {System.out.println("New Values data mismatch");}
+    				}
+        			else System.out.println("DepartmentName data mismatch");
+    			}
+    			else System.out.println("Enabled data mismatch");
+    		}
+			else {System.out.println("Name data mismatch");}
+    	}
+        else {System.out.println("Old values data mismatch");}
+ return Status;
+	}
+
+	public boolean verifyChatTemplatedelete(ChatTemplateDetails details, String Transaction) throws Exception {
+		booleansearchold(details.getName(),Transaction);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+		Map<String,String> oldvalues=new HashMap<>();
+		String[]d=firstRowData.get("Old Values").split("\n");
+		for(String e:d) {
+			String f[]=e.split(":",2);
+			if(f.length>1)
+			oldvalues.put(f[0], f[1]);
+		}
+			if(oldvalues.get("Name").equals(details.getName()))
+			{
+				if(oldvalues.get("Enabled").equals(details.getEnabled()))
+				{
+					if(oldvalues.get("DepartmentName").equals(details.getDepartmentName()))
+					{
+						if(oldvalues.get("GroupName").equals(details.getGroupName()))
+						{
+							if(oldvalues.get("Text").equals(details.getText()))
+							{
+								if(oldvalues.get("StartTime").equals(details.getStartTime()))
+								{
+									if(oldvalues.get("EndTime").equals(details.getEndTime())) {
+										if(oldvalues.get("ModifyReason").equals(details.getDeleteReason())) {
+											if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getDeleteReason()))
+													Status=true;
+											else System.out.println("Change reason data mismatch");
+										}
+										else System.out.println("Modify reason data mismatch");
+									}
+									else {System.out.println("EndTime data mismatch");}
+								}
+								else {System.out.println("StartTime data mismatch");}
+							}
+							else {System.out.println("Text data mismatch");}
+					}
+					else {System.out.println("GroupName data mismatch");}
+				}
+				else {System.out.println("DepartmentName data mismatch");}
+			}
+			else {System.out.println("Enabled data mismatch");}
+		}
+		else {System.out.println("NAmedata mismatch");}
+		return Status;	
+	}
+
+	public boolean verifyDepartmentdelete(ChatTemplateDetails details, String Transaction) throws Exception {
+		booleansearchold(details.getDepartmentName(),Transaction);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+		Map<String,String> oldvalues=new HashMap<>();
+		String[]d=firstRowData.get("Old Values").split("\n");
+		for(String e:d) {
+			String f[]=e.split(":",2);
+			if(f.length>1)
+			oldvalues.put(f[0], f[1]);
+		}
+			if(oldvalues.get("Name").equals(details.getDepartmentName()))
+			{
+				if(oldvalues.get("Enabled").equals(details.getEnabled()))
+				{
+					if(oldvalues.get("ModifyReason").equals(details.getDeleteReason())) {
+						if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getDeleteReason()))
+							Status=true;
+						else System.out.println("Change reason data mismatch");
+					}
+					else System.out.println("Modify reason data mismatch");
+				}
+				else {System.out.println("Enabled mismatch");}
+			}
+			else {System.out.println("Name data mismatch");}
+			return Status;
+	}
+
+	public boolean verifyGroupdelete(ChatTemplateDetails details, String Transaction) throws Exception {
+		booleansearchold(details.getGroupName(),Transaction);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+		Map<String,String> oldvalues=new HashMap<>();
+		String[]d=firstRowData.get("Old Values").split("\n");
+		for(String e:d) {
+			String f[]=e.split(":",2);
+			if(f.length>1)
+			oldvalues.put(f[0], f[1]);
+		}
+			if(oldvalues.get("Name").equals(details.getGroupName()))
+			{
+				if(oldvalues.get("DepartmentName").equals(details.getDepartmentName()))
+				{
+					if(oldvalues.get("Enabled").equals(details.getDeleteReason())) {
+						if(oldvalues.get("ModifyReason").equals(details.getDeleteReason())) {
+							if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getDeleteReason()))
+								Status=true;
+							else System.out.println("Change reason data mismatch");
+						}
+						else System.out.println("Modify reason data mismatch");
+					}
+					else System.out.println("Enabled data mismatch");
+				}
+				else {System.out.println("Department data mismatch");}
+			}
+			else {System.out.println("Name data mismatch");}
+			return Status;
+	}
+
+	public boolean verifyCepEventMappingCreate(CepEventMappingDetails details, String Transaction) throws Exception {
+		booleansearchnew(details.getDescription(),Transaction);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+		Map<String,String> newvalues=new HashMap<>();
+		String[]d=firstRowData.get("New Values").split("\n");
+		for(String e:d) {
+			String f[]=e.split(":",2);
+			if(f.length>1)
+			newvalues.put(f[0], f[1]);
+		}
+			if(newvalues.get("EventType").equals(details.getCepEvent()))
+			{
+				if(newvalues.get("ProductType").equals(details.getProductType()))
+				{
+					if(newvalues.get("Bin").equals(details.getBins()))
+					{
+						if(newvalues.get("Intent").equals(details.getIntent()))
+						{
+							if(newvalues.get("TransferStatus").equals(details.getTransferFlag()))
+							{
+								if(newvalues.get("Description").equals(details.getDescription()))
+									Status= true;
+								else {System.out.println("Description data mismatch");}
+							}
+							else {System.out.println("TransferStatus data mismatch");}
+						}
+						else {System.out.println("Intent data mismatch");}
+					}
+					else {System.out.println("Bin data mismatch");}
+				}
+				else {System.out.println("ProductType data mismatch");}
+			}
+			else {System.out.println("EventType data mismatch");	}
+		return Status;
+	}
+
+	public boolean verifyCepEventMappingUpdate(CepEventMappingDetails details, String Transaction) throws Exception {
+			booleansearchnew(details.getUpdatedDescription(),Transaction);
+			Boolean Status=false;
+	        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+	        if(firstRowData.containsKey("Old Values")) {
+	        	Map<String,String> oldvalues=new HashMap<>();
+	    		String[]d=firstRowData.get("Old Values").split("\n");
+	    		for(String e:d) {
+	    			System.out.println(e);
+	    			String f[]=e.split(":",2);
+	    			if(f.length>1)
+	    				oldvalues.put(f[0], f[1]);
+	    		}
+	    		if(oldvalues.get("EventType").equals(details.getCepEvent())){
+	    			if(oldvalues.get("ProductType").equals(details.getProductType())){
+	    				if(oldvalues.get("Bin").equals(details.getBins())) {
+	    					if(oldvalues.get("Intent").equals(details.getIntent())){
+	        					if(oldvalues.get("TransferStatus").equals(details.getTransferFlag())){
+	            					if(oldvalues.get("Description").equals(details.getDescription())){
+	                					if(firstRowData.containsKey("New Values")) {
+	                						Map<String,String> newvalues=new HashMap<>();
+	                						String[]d1=firstRowData.get("New Values").split("\n");
+	                						for(String e:d1) {
+	                							String f[]=e.split(":",2);
+	                							if(f.length>1)
+	                								newvalues.put(f[0], f[1]);
+	                						}
+	                						if(newvalues.get("EventType").equals(details.getCepEvent())) {
+	                							if(newvalues.get("ProductType").equals(details.getProductType())){
+	                								if(newvalues.get("Bin").equals(details.getBins())){
+	                									if(newvalues.get("Intent").equals(details.getIntent())){
+	                										if(newvalues.get("TransferStatus").equals(details.getTransferFlag())){
+	                    										if(newvalues.get("Description").equals(details.getUpdatedDescription())) {	
+	                    											if(newvalues.get("ModifyReason").equals(details.getModifyReason())){ 
+	                													if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getModifyReason()))
+	                														Status=true;
+	                													else System.out.println("Change reason data mismatch");
+	                    											}
+	                    											else System.out.println("Modify reason data mismatch");
+	                    										}
+	    	                									else System.out.println("Description data mismatch");
+	                										}
+	                										else System.out.println("Transfer Status data mismatch");
+	                									}
+	                									else System.out.println("Intent data mismatch");
+	                								}
+	                								else System.out.println("Bins data mismatch");
+	                							}
+	                							else {System.out.println("Product Type data mismatch");}
+	                						}
+	                						else {System.out.println("Event Type data mismatch");}
+	                					}
+	                					else System.out.println("New Values data mismatch");
+	            					}
+	            					else System.out.println("Description data mismatch");
+	        					}
+	        					else System.out.println("Transfer Status data mismatch");
+	    					}
+	    					else System.out.println("Intent data mismatch");
+	    				}
+	    				else System.out.println("Bins data mismatch");
+	    			}
+	    			else {System.out.println("Product Type data mismatch");}
+	    		}
+				else {System.out.println("Event Type data mismatch");}
+	    	}
+	        else {System.out.println("Old values data mismatch");}
+	 return Status;
+	}
+
+	public boolean verifyCepEventMappingdelete(CepEventMappingDetails details, String Transaction) throws Exception {
+		booleansearchold(details.getDescription(),Transaction);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+		Map<String,String> oldvalues=new HashMap<>();
+		String[]d=firstRowData.get("Old Values").split("\n");
+		for(String e:d) {
+			String f[]=e.split(":",2);
+			if(f.length>1)
+			oldvalues.put(f[0], f[1]);
+		}
+			if(oldvalues.get("EventType").equals(details.getCepEvent()))
+			{
+				if(oldvalues.get("ProductType").equals(details.getProductType()))
+				{
+					if(oldvalues.get("Bin").equals(details.getBins()))
+					{
+						if(oldvalues.get("Intent").equals(details.getIntent()))
+						{
+							if(oldvalues.get("TransferStatus").equals(details.getTransferFlag()))
+							{
+								if(oldvalues.get("Description").equals(details.getDescription()))
+								{
+									if(oldvalues.get("ModifyReason").equals(details.getDeleteReason())) {
+										if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getDeleteReason()))
+											Status=true;
+										else System.out.println("Change reason data mismatch");
+									}
+									else System.out.println("Modify reason data mismatch");
+								}
+								else {System.out.println("Description data mismatch");}
+							}
+							else {System.out.println("Transfer Status data mismatch");}
+					}
+					else {System.out.println("Intent data mismatch");}
+				}
+				else {System.out.println("Bin data mismatch");}
+			}
+			else {System.out.println("Product Type data mismatch");}
+		}
+		else {System.out.println("Event Type data mismatch");}
+		return Status;	
 	}
 }

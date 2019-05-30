@@ -39,7 +39,7 @@ public class SkillConfigurationTest extends BaseTest{
          SkillConfigurationPage skillConfigurationPage=PageFactory.createPageInstance(driver,SkillConfigurationPage.class);
          Assert.assertTrue(skillConfigurationPage.isSkillConfigurationPageDisplayed(),"Skill Configuration assertion failed");
     }
-    /*@Test(priority=1)
+    @Test(priority=1)
     public void SkillConfigurationPage() {
         SkillConfigurationPage skillConfigurationPage=PageFactory.createPageInstance(driver,SkillConfigurationPage.class);
     	Assert.assertTrue(skillConfigurationPage.verifylogo(),"Skill Configuration logo assertion failed");
@@ -268,7 +268,7 @@ public class SkillConfigurationTest extends BaseTest{
          Assert.assertTrue(skillConfigurationPage.verifydeleteNo(skillConfigurationDetails));
          screenshot.captureScreen(driver, "Delete No","SkillConfigurationTest");
     }
-    */
+    
     
     @Test(priority=21)
     public void DeleteRecord() throws Exception {

@@ -29,6 +29,12 @@ public class ChatTemplatesPage extends BasePage {
     @FindBy(css="#tgrid .k-grid-content")
     private WebElement gridContent;
     
+    @FindBy(css="#tdrillgrid .k-grid-content")
+    private WebElement gridContent1;
+    
+    @FindBy(css="#tdrillgrid2 .k-grid-content")
+    private WebElement gridContent2;
+    
     @FindBy(id="tdrillgrid")
     private WebElement grid;
     
@@ -115,6 +121,18 @@ public class ChatTemplatesPage extends BasePage {
 
     @FindBy(css=".modal-footer .k-primary")
     private WebElement searchBtn;
+    
+    @FindBy(xpath="//button[text()='Clear All']")
+	private WebElement clearall;
+		    
+	@FindBy(xpath="//button[text()='Close']")
+	private WebElement searchClose;
+		    
+	@FindBy(xpath="//div[text()='No records to display']")
+	private WebElement norecords;
+		    
+	@FindBy(xpath="//i[@class='fas fa-sync']")
+	private WebElement clearsearch;
 
     @FindBy(css=".k-grid-edit")
     private WebElement editBtn;
@@ -434,26 +452,17 @@ public class ChatTemplatesPage extends BasePage {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        selectWebElement(groupNameDropdown);
-        selectDropdownFromVisibleText(groupNameListbox,details.getGroupName());
-        selectWebElement(nameTextbox);
-        enterValueToTxtField(nameTextbox,details.getUpdatedname());
         selectWebElement(enableDropdown);
-        selectDropdownFromVisibleText(enableListbox,details.getEnabled());
-        selectWebElement(textTextbox);
-        enterValueToTxtField(textTextbox,details.getText());
-        selectWebElement(startTimeTextbox);
-        enterValueToTxtField(startTimeTextbox,details.getStartTime());
-        selectWebElement(endTimeTextbox);
-        enterValueToTxtField(endTimeTextbox,details.getEndTime());
+        selectDropdownFromVisibleText(enableListbox,details.getUpdatedEnabled());
         enterValueToTxtField(modifyReasonTextBox,details.getModifyReason());
         selectWebElement(saveBtn);
     }
-    public void deleteChatTemplatesRecord(String name,String reason) {
+    public void deleteChatTemplatesRecord(String name,String reason) throws Exception {
         searchChatTemplatesRecord(name);
         btnClick(deleteBtn);
         selectWebElement(deleteReasonTextBox);
         enterValueToTxtField(deleteReasonTextBox,reason);
+        Thread.sleep(2000);
         selectWebElement(yesBtn);
     }
     public boolean verifyNewRecordCreated(){
@@ -522,11 +531,12 @@ public class ChatTemplatesPage extends BasePage {
         enterValueToTxtField(modifyReasonTextBox,details.getModifyReason());
         selectWebElement(saveBtn);
     }
-    public void deleteDepartmentRecord(String name,String reason) {
+    public void deleteDepartmentRecord(String name,String reason) throws Exception {
         searchDepartmentRecord(name);
         btnClick(deleteBtn);
         selectWebElement(deleteReasonTextBox);
         enterValueToTxtField(deleteReasonTextBox,reason);
+        Thread.sleep(2000);
         selectWebElement(yesBtn);
     }
     public void addNewGroupRecord(ChatTemplateDetails details) {
@@ -575,11 +585,11 @@ public class ChatTemplatesPage extends BasePage {
             e.printStackTrace();
         }
         selectWebElement(enableDropdown);
-        selectDropdownFromVisibleText(enableListbox,details.getGroupEnabled());
+        selectDropdownFromVisibleText(enableListbox,details.getUpdatedGroupEnabled());
         enterValueToTxtField(modifyReasonTextBox,details.getModifyReason());
         selectWebElement(saveBtn);
     }
-    public void deleteGroupRecord(String name,String reason) {
+    public void deleteGroupRecord(String name,String reason) throws Exception {
         searchGroupRecord(name);
         try {
             Thread.sleep(5000);
@@ -589,6 +599,7 @@ public class ChatTemplatesPage extends BasePage {
         btnClick(deleteBtn);
         selectWebElement(deleteReasonTextBox);
         enterValueToTxtField(deleteReasonTextBox,reason);
+        Thread.sleep(2000);
         selectWebElement(yesBtn);
     }
     public boolean isAddBtnDisplayed() {
@@ -910,10 +921,18 @@ public class ChatTemplatesPage extends BasePage {
 		selectWebElement(addNewDepartmentRecordBtn);
 		
 	}
-	public boolean VerifyDepartmentDropdown() {
-		Select sel=new Select(departmentNameDropdown);
-		return false;
+	public boolean VerifyDepartmentDropdown(ChatTemplateDetails chatTemplateDetails) {
+		Boolean Status=false;
+		selectWebElement(departmentNameDropdown);
+		for(WebElement ele : departmentNameListbox) {
+			if(ele.getText().equals(chatTemplateDetails.getDepartmentName())) {
+				Status=true;
+				break;
+			}
+		}
+		return Status;
 	}
+	
 	public void addRecordWithoutChatEnabled(ChatTemplateDetails details) {
 		selectWebElement(addNewChatTemplatesRecordBtn);
         waitUntilWebElementIsVisible(popupContent);
@@ -1299,5 +1318,378 @@ public class ChatTemplatesPage extends BasePage {
 		        String item = items.get(z).getText();
 		        return item.matches("(\\d.*) - (\\d.*) of (\\d.*) items");
 		    }
+			public void editChatDepartmentWithoutModifyReason(ChatTemplateDetails details) {
+				searchDepartmentRecord(details.getDepartmentName());
+		        selectWebElement(editBtn);
+		        waitForJqueryLoad(driver);
+		        try {
+		            Thread.sleep(5000);
+		        } catch (InterruptedException e) {
+		            e.printStackTrace();
+		        }
+		        selectWebElement(enableDropdown);
+		        selectDropdownFromVisibleText(enableListbox,details.getUpdatedDeptEnabled());
+		        selectWebElement(saveBtn);				
+			}
+			
+			public void clickOnEditButton() {
+		        selectWebElement(editBtn);				
+			}
+			public void editChatTemplateWithoutModifyReason(ChatTemplateDetails details) {
+				searchChatTemplatesRecord(details.getName());
+		        selectWebElement(editBtn);
+		        waitForJqueryLoad(driver);
+		        try {
+		            Thread.sleep(5000);
+		        } catch (InterruptedException e) {
+		            e.printStackTrace();
+		        }
+		        selectWebElement(enableDropdown);
+		        selectDropdownFromVisibleText(enableListbox,details.getUpdatedEnabled());
+		        selectWebElement(saveBtn);				
+			}
+			public void editChatTemplateGroupWithoutModifyReason(ChatTemplateDetails details) {
+				searchGroupRecord(details.getGroupName());
+		        selectWebElement(editBtn);
+		        waitForJqueryLoad(driver);
+		        try {
+		            Thread.sleep(5000);
+		        } catch (InterruptedException e) {
+		            e.printStackTrace();
+		        }
+		        selectWebElement(enableDropdown);
+		        selectDropdownFromVisibleText(enableListbox,details.getUpdatedEnabled());
+		        selectWebElement(saveBtn);					
+			}
+			public boolean VerifyGroupDropdown(ChatTemplateDetails details) throws Exception {
+				Boolean Status=false;
+				waitForJqueryLoad(driver);
+		        waitUntilWebElementIsVisible(popupContent);
+		        try {
+		            Thread.sleep(5000);
+		        } catch (InterruptedException e) {
+		            e.printStackTrace();
+		        }
+		        selectWebElement(departmentNameDropdown);
+		        selectDropdownFromVisibleText(departmentNameListbox,details.getDepartmentName());
+		        selectWebElement(groupNameDropdown);
+				for(WebElement ele : groupNameListbox) {
+					if(ele.getText().equals(details.getGroupName())) {
+						Status=true;
+						break;
+					}
+				}
+				return Status;
+			}
+			public boolean clearAll(ChatTemplateDetails chatTemplateDetails) {
+				selectWebElement(searchLink);
+		        selectWebElement(selectSearchColumn.get(0));
+		        selectDropdownFromVisibleText(columnNameList,"Name");
+		        selectWebElement(selectSearchColumn.get(1));
+		        selectDropdownFromVisibleText(searchTypeList,"Is equal to");
+		        enterValueToTxtField(searchText.get(0),chatTemplateDetails.getName());
+		        selectWebElement(clearall);
+				if(searchText.get(0).isEnabled())
+		        	return true;
+		        else
+				return false;
+			}
+			public boolean GroupclearAll(ChatTemplateDetails chatTemplateDetails) {
+				selectWebElement(searchLink);
+		        selectWebElement(selectSearchColumn.get(0));
+		        selectDropdownFromVisibleText(columnNameList,"Name");
+		        selectWebElement(selectSearchColumn.get(1));
+		        selectDropdownFromVisibleText(searchTypeList,"Is equal to");
+		        enterValueToTxtField(searchText.get(0),chatTemplateDetails.getGroupName());
+		        selectWebElement(clearall);
+				if(searchText.get(0).isEnabled())
+		        	return true;
+		        else
+				return false;
+			}
+			public boolean departmentclearAll(ChatTemplateDetails chatTemplateDetails) {
+				selectWebElement(searchLink);
+		        selectWebElement(selectSearchColumn.get(0));
+		        selectDropdownFromVisibleText(columnNameList,"Name");
+		        selectWebElement(selectSearchColumn.get(1));
+		        selectDropdownFromVisibleText(searchTypeList,"Is equal to");
+		        enterValueToTxtField(searchText.get(0),chatTemplateDetails.getDepartmentName());
+		        selectWebElement(clearall);
+				if(searchText.get(0).isEnabled())
+		        	return true;
+		        else
+				return false;
+			}
+			public boolean verifyclose() {
+				selectWebElement(searchClose);
+				if(gridContent.isDisplayed())
+					return true;
+				else
+				return false;
+			}
+			public void searchwithoutextsearch() {
+				selectWebElement(searchLink);
+		        selectWebElement(selectSearchColumn.get(0));
+		        selectDropdownFromVisibleText(columnNameList,"Name");
+		        selectWebElement(selectSearchColumn.get(1));
+		        selectDropdownFromVisibleText(searchTypeList,"Is equal to");
+		        selectWebElement(searchBtn);
+				selectWebElement(searchClose);
+			}
+			public boolean verifyGroupclose() {
+				selectWebElement(searchClose);
+				if(gridContent2.isDisplayed())
+					return true;
+				else
+				return false;
+			}
+			public boolean verifyDepartmentclose() {
+				selectWebElement(searchClose);
+				if(gridContent1.isDisplayed())
+					return true;
+				else
+				return false;
+			}
+			public void clickOnDeleteButton() {
+				selectWebElement(deleteBtn);
+			}
+			public void clickOnDeleteCancelBtn() {
+				selectWebElement(noBtn);
+			}
+			public boolean verifyDeleteContainer() {
+				try {
+		            Thread.sleep(3000);
+		        } catch (InterruptedException e) {
+		            e.printStackTrace();
+		        }
+		        return isElementExist(deleteContainer);
+			}
+			public void deleteChatTempalateWithoutDeleteReasonRecord(ChatTemplateDetails details) {
+				searchChatTemplatesRecord(details.getName());
+		        btnClick(deleteBtn);
+		        selectWebElement(deleteReasonTextBox);
+		        selectWebElement(yesBtn);
+			}
+			public void deleteGroupsWithoutDeleteReasonRecord(ChatTemplateDetails details) {
+				searchGroupRecord(details.getGroupName());
+		        btnClick(deleteBtn);
+		        selectWebElement(deleteReasonTextBox);
+		        selectWebElement(yesBtn);
+				
+			}
+			public void deleteDepartmentWithoutDeleteReasonRecord(ChatTemplateDetails details) {
+				searchDepartmentRecord(details.getDepartmentName());
+		        btnClick(deleteBtn);
+		        selectWebElement(deleteReasonTextBox);
+		        selectWebElement(yesBtn);				
+			}
+			public boolean verifyinvalidDepartmentsearchwithwrongdata(ChatTemplateDetails chatTemplateDetails) {
+				searchDepartmentRecord(chatTemplateDetails.getDepartmentName());
+				try {
+					Thread.sleep(1000);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				if(norecords.isDisplayed())
+					return true; 
+					else
+						return false;
+			}
+			public boolean verifyclearsearch() {
+				selectWebElement(clearsearch);
+				if(gridContent.isDisplayed())
+					return true;
+				else
+				return false;
+			}
+			public boolean verifyDepartmentclearsearch() {
+				selectWebElement(clearsearch);
+				if(gridContent1.isDisplayed())
+					return true;
+				else
+				return false;
+			}
+			public boolean verifyGroupclearsearch() {
+				selectWebElement(clearsearch);
+				if(gridContent2.isDisplayed())
+					return true;
+				else
+				return false;
+			}
+			public boolean verifyinvalidGroupsearchwithwrongdata(ChatTemplateDetails chatTemplateDetails) {
+				searchGroupRecord(chatTemplateDetails.getGroupName());
+				try {
+					Thread.sleep(1000);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				if(norecords.isDisplayed())
+					return true; 
+					else
+						return false;
+			}
+			public boolean verifyinvalidsearchwithwrongdata(ChatTemplateDetails chatTemplateDetails) {
+				searchChatTemplatesRecord(chatTemplateDetails.getName());
+				try {
+					Thread.sleep(1000);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				if(norecords.isDisplayed())
+					return true; 
+					else
+						return false;
+			}
+			public boolean verifyDepartmentDatabase(String query) {
+				List<Map<String,String>> database=database(query);
+				System.out.println(database);
+				List<Map<String,String>> UI=getDepartmenttable(); 
+				System.out.println(UI);
+				if(UI.equals(database))
+					return true;
+				else
+					return false;
+			}
+			private List<Map<String, String>> getDepartmenttable() {
+				int item=Integer.valueOf(items.get(1).getText().split("of ")[1].split(" items")[0]);
+		        int pagersize=Integer.valueOf(pagerSize.get(1).getText());
+		        int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
+				List<Map<String,String>> arr=new ArrayList<Map<String,String>>();
+				for(int k=0;k<=pages;k++){
+
+				waitUntilWebElementIsVisible(grid);
+				List<WebElement> rows=grid.findElements(By.tagName("tr"));
+				List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
+				for(int i=1;i<rows.size();i++) {
+					Map<String,String> map = new HashMap<String,String>();
+					List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
+					String col=null;
+					for(int j=1;j<headers.size();j++){
+						scrollToElement(headers.get(j));
+						if(headers.get(j).getText().equals("Last Changed On")){
+							col=cols.get(j).getText().substring(11);
+							}
+						else if(headers.get(j).getText().equals("Enabled")) {
+							if(cols.get(j).getText().equals("Yes"))
+								col="1";
+							else
+								col="0";
+						}
+						else
+							col=cols.get(j).getText();
+						map.put(headers.get(j).getText(),col);
+					}
+					map.remove("");
+					arr.add(map);
+				}
+				if(k!=pages)
+				{
+					nextPageIcon.get(1).click();
+					waitForJqueryLoad(driver);}
+				}
+					return arr;
+			}
+			public boolean verifyGroupDatabase(String query) {
+				List<Map<String,String>> database=database(query);
+				System.out.println(database);
+				List<Map<String,String>> UI=getGrouptable(); 
+				System.out.println(UI);
+				if(UI.equals(database))
+					return true;
+				else
+					return false;
+			}
+			private List<Map<String, String>> getGrouptable() {
+				int item=Integer.valueOf(items.get(2).getText().split("of ")[1].split(" items")[0]);
+		        int pagersize=Integer.valueOf(pagerSize.get(3).getText());
+		        int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
+				List<Map<String,String>> arr=new ArrayList<Map<String,String>>();
+				for(int k=0;k<=pages;k++){
+
+				waitUntilWebElementIsVisible(grid1);
+				List<WebElement> rows=grid1.findElements(By.tagName("tr"));
+				List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
+				for(int i=1;i<rows.size();i++) {
+					Map<String,String> map = new HashMap<String,String>();
+					List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
+					String col=null;
+					for(int j=1;j<headers.size();j++){
+						scrollToElement(headers.get(j));
+						if(headers.get(j).getText().equals("Last Changed On")){
+							col=cols.get(j).getText().substring(11);
+							}
+						else if(headers.get(j).getText().equals("Enabled")) {
+							if(cols.get(j).getText().equals("Yes"))
+								col="1";
+							else
+								col="0";
+						}
+						else
+							col=cols.get(j).getText();
+						map.put(headers.get(j).getText(),col);
+					}
+					map.remove("");
+					arr.add(map);
+				}
+				if(k!=pages)
+				{
+					nextPageIcon.get(2).click();
+					waitForJqueryLoad(driver);}
+				}
+					return arr;
+			}
+			public boolean verifyDatabase(String query) {
+				List<Map<String,String>> database=database(query);
+				System.out.println(database);
+				List<Map<String,String>> UI=gettable(); 
+				System.out.println(UI);
+				if(UI.equals(database))
+					return true;
+				else
+					return false;
+			}
+			
+			public List<Map<String, String>> gettable() {
+				int item=Integer.valueOf(items.get(3).getText().split("of ")[1].split(" items")[0]);
+		        int pagersize=Integer.valueOf(pagerSize.get(3).getText());
+		        int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
+				List<Map<String,String>> arr=new ArrayList<Map<String,String>>();
+				for(int k=0;k<=pages;k++){
+
+				waitUntilWebElementIsVisible(grid2);
+				List<WebElement> rows=grid2.findElements(By.tagName("tr"));
+				List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
+				for(int i=1;i<rows.size();i++) {
+					Map<String,String> map = new HashMap<String,String>();
+					List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
+					String col=null;
+					for(int j=1;j<headers.size();j++){
+						scrollToElement(headers.get(j));
+						if(headers.get(j).getText().equals("Last Changed On")){
+							col=cols.get(j).getText().substring(11);
+							}
+						else if(headers.get(j).getText().equals("Enabled")) {
+							if(cols.get(j).getText().equals("Yes"))
+								col="1";
+							else
+								col="0";
+						}
+						else
+							col=cols.get(j).getText();
+						map.put(headers.get(j).getText(),col);
+					}
+					map.remove("");
+					arr.add(map);
+				}
+				if(k!=pages)
+				{
+					nextPageIcon.get(3).click();
+					waitForJqueryLoad(driver);}
+				}
+					return arr;
+			}
 		    
 }

@@ -1,5 +1,6 @@
 package com.tetherfi.test.chat;
 
+import com.tetherfi.model.chat.ChatIntentSkillMappingDetails;
 import com.tetherfi.model.chat.ChatTemplateDetails;
 import com.tetherfi.model.report.ReportDetails;
 import com.tetherfi.model.tmac.TmacUserDetails;
@@ -715,11 +716,114 @@ public class ChatTemplatesTest {
         tmacPopupPage.clickOnChatTemplate();
         Assert.assertTrue(tmacPopupPage.ChatTemplate(ChatTemplatesDetails));
         tmacPopupPage.disconnectchat();
-
-    }*/
+	}
+	
+    @Test(priority=69,groups= {"OCM"})//,dependsOnMethods = "AddNewChatTemplatesRecord")
+    public void EditChatTemplatesRecord() throws IOException {
+        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
+        ChatTemplateDetails chatTemplateDetails= new ChatTemplateDetails(map);
+        ChatTemplatesPage chatTemplatesPage = PageFactory.createPageInstance(driver,ChatTemplatesPage.class);
+        chatTemplatesPage.editChatTemplatesRecord(chatTemplateDetails);
+        Assert.assertTrue(chatTemplatesPage.verifyRecordUpdated(),"Edit record assertion failed");
+    }
     
-    @Test(priority=38)
-    public void EditDepartmentRecord() throws IOException {
+    @Test(priority=70,groups= {"OCM"},dependsOnMethods="EditChatTemplatesRecord")
+    public void VerifyAuditTrialReportForUpdate() throws Exception {
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
+        ChatTemplateDetails chatTemplateDetails= new ChatTemplateDetails(map);
+        HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
+        homePage.navigateToOCMReportsPage();
+        OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver, OCMReportsPage.class);
+        String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AuditTrailReportData.xlsx";
+        Map<String, String> map1 = new ExcelReader(filePath1,"Show").getTestData().get(0);
+        ReportDetails reportDetails= new ReportDetails(map1);
+        ocmReportsPage.showReport(reportDetails);
+        Assert.assertTrue(ocmReportsPage.verifyChatTemplateUpdate(chatTemplateDetails,"Update"));
+    }
+    
+    @Test(priority=71,groups= {"OCM"})
+    public void EditWithoutModifyReasonRecord() throws Exception {
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
+        ChatTemplateDetails chatTemplateDetails= new ChatTemplateDetails(map);
+        ChatTemplatesPage chatTemplatePage = PageFactory.createPageInstance(driver, ChatTemplatesPage.class);
+        chatTemplatePage.editChatTemplateWithoutModifyReason(chatTemplateDetails);
+        Assert.assertEquals(chatTemplatePage.getMessage(),"×\nPlease enter the modify reason", "empty modify reason record assertion failed");
+    }
+    
+    @Test(priority=72,groups= {"OCM"})
+    public void VerifyCancelBtnAtEditRecord() throws InterruptedException{
+        ChatTemplatesPage chatTemplatePage = PageFactory.createPageInstance(driver, ChatTemplatesPage.class);
+        chatTemplatePage.searchChatTemplatesRecord("PalakChatTemplate");
+        Thread.sleep(1000);
+        chatTemplatePage .clickOnEditButton();
+        chatTemplatePage .clickOnCancelBtn();
+        Assert.assertFalse(chatTemplatePage .verifyEditFormContainer(), "Cancel Btn at Edit record assertion failed");
+    }
+    
+    @Test(priority=74,groups= {"OCM"})//,dependsOnMethods = "AddNewChatTemplatesRecord")
+    public void EditGroupRecord() throws IOException {
+        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"EditGroup").getTestData().get(0);
+        ChatTemplateDetails chatTemplateDetails= new ChatTemplateDetails(map);
+        ChatTemplatesPage chatTemplatesPage = PageFactory.createPageInstance(driver,ChatTemplatesPage.class);
+        chatTemplatesPage.navigateToTab("Groups");
+        Assert.assertTrue(chatTemplatesPage.isGroupTabDisplayed());
+        chatTemplatesPage.editGroupRecord(chatTemplateDetails);
+        Assert.assertTrue(chatTemplatesPage.verifyRecordUpdated(),"Edit record assertion failed");
+    }
+    
+    @Test(priority=75,groups= {"OCM"},dependsOnMethods="EditGroupRecord")
+    public void VerifyAuditTrialReportForGroupUpdate() throws Exception {
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"EditGroup").getTestData().get(0);
+        ChatTemplateDetails chatTemplateDetails= new ChatTemplateDetails(map);
+        HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
+        homePage.navigateToOCMReportsPage();
+        OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver, OCMReportsPage.class);
+        String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AuditTrailReportData.xlsx";
+        Map<String, String> map1 = new ExcelReader(filePath1,"Show").getTestData().get(0);
+        ReportDetails reportDetails= new ReportDetails(map1);
+        ocmReportsPage.showReport(reportDetails);
+        Assert.assertTrue(ocmReportsPage.verifyChatTemplateGroupUpdate(chatTemplateDetails,"Update"));
+    }
+    
+    @Test(priority=76,groups= {"OCM"})
+    public void EditWithoutModifyReasonGroupRecord() throws Exception {
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"EditGroup").getTestData().get(0);
+        ChatTemplateDetails chatTemplateDetails= new ChatTemplateDetails(map);
+        ChatTemplatesPage chatTemplatePage = PageFactory.createPageInstance(driver, ChatTemplatesPage.class);
+        chatTemplatePage.navigateToTab("Groups");
+        chatTemplatePage.editChatTemplateGroupWithoutModifyReason(chatTemplateDetails);
+        Assert.assertEquals(chatTemplatePage.getMessage(),"×\nPlease enter the modify reason", "empty modify reason record assertion failed");
+    }
+    
+    @Test(priority=77,groups= {"OCM"})
+    public void VerifyCancelBtnAtEditGroupRecord() throws InterruptedException{
+        ChatTemplatesPage chatTemplatePage = PageFactory.createPageInstance(driver, ChatTemplatesPage.class);
+        chatTemplatePage.navigateToTab("Groups");
+        chatTemplatePage.searchGroupRecord("GrpPalak");
+        Thread.sleep(1000);
+        chatTemplatePage .clickOnEditButton();
+        chatTemplatePage .clickOnCancelBtn();
+        Assert.assertFalse(chatTemplatePage .verifyEditFormContainer(), "Cancel Btn at Edit record assertion failed");
+    }
+    
+    @Test(priority=78,groups= {"OCM"})
+    public void VerifyUpdateGroupRecordInMain() throws Exception {
+  	   String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
+         Map<String, String> map = new ExcelReader(filePath,"EditGroup").getTestData().get(0);
+         ChatTemplateDetails chatTemplateDetails= new ChatTemplateDetails(map);
+         ChatTemplatesPage chatTemplatesPage = PageFactory.createPageInstance(driver,ChatTemplatesPage.class);
+         chatTemplatesPage.clickOnAddRecord();
+         Assert.assertFalse(chatTemplatesPage.VerifyGroupDropdown(chatTemplateDetails));
+     }
+    
+    @Test(priority=80,groups= {"OCM"})
+    public void EditDepartmentRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"EditDepartment").getTestData().get(0);
         ChatTemplateDetails chatTemplateDetails= new ChatTemplateDetails(map);
@@ -729,8 +833,45 @@ public class ChatTemplatesTest {
         chatTemplatesPage.editDepartmentRecord(chatTemplateDetails);
         Assert.assertTrue(chatTemplatesPage.verifyRecordUpdated(),"Edit record assertion failed");
     }
+    
+    @Test(priority=81,groups= {"OCM"},dependsOnMethods="EditDepartmentRecord")
+    public void VerifyAuditTrialReportForDepartmentUpdate() throws Exception {
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"EditDepartment").getTestData().get(0);
+        ChatTemplateDetails chatTemplateDetails= new ChatTemplateDetails(map);
+        HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
+        homePage.navigateToOCMReportsPage();
+        OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver, OCMReportsPage.class);
+        String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AuditTrailReportData.xlsx";
+        Map<String, String> map1 = new ExcelReader(filePath1,"Show").getTestData().get(0);
+        ReportDetails reportDetails= new ReportDetails(map1);
+        ocmReportsPage.showReport(reportDetails);
+        Assert.assertTrue(ocmReportsPage.verifyChatTemplateDepartmentUpdate(chatTemplateDetails,"Update"));
+    }
+       
+    @Test(priority=82,groups= {"OCM"})
+    public void EditWithoutModifyReasonDepartmentRecord() throws Exception {
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"EditDepartment").getTestData().get(0);
+        ChatTemplateDetails chatTemplateDetails= new ChatTemplateDetails(map);
+        ChatTemplatesPage chatTemplatePage = PageFactory.createPageInstance(driver, ChatTemplatesPage.class);
+        chatTemplatePage.navigateToTab("Departments");
+        chatTemplatePage.editChatDepartmentWithoutModifyReason(chatTemplateDetails);
+        Assert.assertEquals(chatTemplatePage.getMessage(),"×\nPlease enter the modify reason", "empty modify reason record assertion failed");
+    }
+    
+    @Test(priority=83,groups= {"OCM"})
+    public void VerifyCancelBtnAtEditDepartmentRecord() throws InterruptedException{
+        ChatTemplatesPage chatTemplatePage = PageFactory.createPageInstance(driver, ChatTemplatesPage.class);
+        chatTemplatePage.navigateToTab("Departments");
+        chatTemplatePage.searchDepartmentRecord("DeptPalak");
+        Thread.sleep(1000);
+        chatTemplatePage .clickOnEditButton();
+        chatTemplatePage .clickOnCancelBtn();
+        Assert.assertFalse(chatTemplatePage .verifyEditFormContainer(), "Cancel Btn at Edit record assertion failed");
+    }
    
-   @Test(priority=39)
+   @Test(priority=84,groups= {"OCM"})
    public void VerifyUpdateDepartmentRecordInGroup() throws IOException {
 	   String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
        Map<String, String> map = new ExcelReader(filePath,"EditDepartment").getTestData().get(0);
@@ -738,13 +879,203 @@ public class ChatTemplatesTest {
        ChatTemplatesPage chatTemplatesPage = PageFactory.createPageInstance(driver,ChatTemplatesPage.class);
        chatTemplatesPage.navigateToTab("Groups");
        chatTemplatesPage.clickOnAddGroupRecord();
-       Assert.assertTrue(chatTemplatesPage.VerifyDepartmentDropdown());
+       Assert.assertFalse(chatTemplatesPage.VerifyDepartmentDropdown(chatTemplateDetails));
    }
-
-    /*@Test(dependsOnMethods = {"EditDepartmentRecord","DeleteGroupRecord","DeleteChatTemplatesRecord"})
-    public void DeleteDepartmentRecord() throws IOException {
+   
+   @Test(priority=85,groups= {"OCM"})
+   public void VerifyUpdateDepartmentRecordInMain() throws IOException {
+ 	   String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"EditDepartment").getTestData().get(0);
+        ChatTemplateDetails chatTemplateDetails= new ChatTemplateDetails(map);
+        ChatTemplatesPage chatTemplatesPage = PageFactory.createPageInstance(driver,ChatTemplatesPage.class);
+        chatTemplatesPage.clickOnAddRecord();
+        Assert.assertFalse(chatTemplatesPage.VerifyDepartmentDropdown(chatTemplateDetails));
+    }
+       
+    @Test(priority=86,groups= {"OCM"})
+    public void searchDepartmentPage() throws IOException {
+  	   String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
+    	Map<String, String> map = new ExcelReader(filePath,"CreateDepartment").getTestData().get(0);
+        ChatTemplateDetails chatTemplateDetails= new ChatTemplateDetails(map);
+        ChatTemplatesPage chatTemplatesPage = PageFactory.createPageInstance(driver,ChatTemplatesPage.class);
+        chatTemplatesPage.navigateToTab("Departments");
+        Assert.assertFalse(chatTemplatesPage.departmentclearAll(chatTemplateDetails),"ClearAll Assertion Failed");
+        screenshot.captureScreen("ChatTemplatesTest", "clearall");
+        Assert.assertTrue(chatTemplatesPage.verifyDepartmentclose());
+    }
+    
+    @Test(priority=87,groups= {"OCM"})
+    public void searchDepartmentwithoutSearchTextbox() throws IOException {
+        ChatTemplatesPage chatTemplatesPage = PageFactory.createPageInstance(driver,ChatTemplatesPage.class);
+        chatTemplatesPage.navigateToTab("Departments");
+        chatTemplatesPage.searchwithoutextsearch();
+        Assert.assertEquals(chatTemplatesPage.getMessage(),"×\nPlease enter the text to search or remove the filter", "Add invalid record assertion failed");
+    }
+    
+    @Test(priority=88,groups= {"OCM"})
+    public void searchGroupsPage() throws IOException {
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
+    	Map<String, String> map = new ExcelReader(filePath,"CreateGroup").getTestData().get(0);
+        ChatTemplateDetails chatTemplateDetails= new ChatTemplateDetails(map);
+        ChatTemplatesPage chatTemplatesPage = PageFactory.createPageInstance(driver,ChatTemplatesPage.class);
+        chatTemplatesPage.navigateToTab("Groups");
+        Assert.assertFalse(chatTemplatesPage.GroupclearAll(chatTemplateDetails),"ClearAll Assertion Failed");
+        screenshot.captureScreen("ChatTemplatesTest", "clearall");
+        Assert.assertTrue(chatTemplatesPage.verifyGroupclose());
+    }
+    
+    @Test(priority=89,groups= {"OCM"})
+    public void searchGroupwithoutSearchTextbox() throws IOException {
+        ChatTemplatesPage chatTemplatesPage = PageFactory.createPageInstance(driver,ChatTemplatesPage.class);
+        chatTemplatesPage.navigateToTab("Groupss");
+        chatTemplatesPage.searchwithoutextsearch();
+        Assert.assertEquals(chatTemplatesPage.getMessage(),"×\nPlease enter the text to search or remove the filter", "Add invalid record assertion failed");
+    }
+    
+    @Test(priority=90,groups= {"OCM"})
+    public void searchPage() throws IOException {
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
+    	Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
+        ChatTemplateDetails chatTemplateDetails= new ChatTemplateDetails(map);
+        ChatTemplatesPage chatTemplatesPage = PageFactory.createPageInstance(driver,ChatTemplatesPage.class);
+        Assert.assertFalse(chatTemplatesPage.clearAll(chatTemplateDetails),"ClearAll Assertion Failed");
+        screenshot.captureScreen("ChatTemplateTest", "clearall");
+        Assert.assertTrue(chatTemplatesPage.verifyclose());
+    }
+    
+    @Test(priority=91,groups= {"OCM"})
+    public void searchwithoutSearchTextbox() throws IOException {
+        ChatTemplatesPage chatTemplatesPage = PageFactory.createPageInstance(driver,ChatTemplatesPage.class);
+        chatTemplatesPage.searchwithoutextsearch();
+        Assert.assertEquals(chatTemplatesPage.getMessage(),"×\nPlease enter the text to search or remove the filter", "Add invalid record assertion failed");
+    }
+   
+    @Test(priority=92,groups= {"OCM"})
+    public void DeleteWithoutDeleteReasonRecord() throws Exception {
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
+        ChatTemplateDetails chatTemplateDetails= new ChatTemplateDetails(map);
+        ChatTemplatesPage chatTemplatesPage = PageFactory.createPageInstance(driver,ChatTemplatesPage.class);
+        chatTemplatesPage.deleteChatTempalateWithoutDeleteReasonRecord(chatTemplateDetails);
+        Assert.assertEquals(chatTemplatesPage.getMessage(),"×\nPlease enter the delete reason","empty delete reason record assertion failed");
+    }
+    @Test(priority=93,groups= {"OCM"})
+    public void VerifyCancelBtnAtDeleteChatTemplateRecord() throws Exception{
+        ChatTemplatesPage chatTemplatesPage = PageFactory.createPageInstance(driver,ChatTemplatesPage.class);
+        chatTemplatesPage.searchChatTemplatesRecord("PalakChatTemplate");
+        Thread.sleep(1000);
+        chatTemplatesPage.clickOnDeleteButton();
+        chatTemplatesPage.clickOnDeleteCancelBtn();
+        Assert.assertFalse(chatTemplatesPage.verifyDeleteContainer(), "Cancel Btn at Delete record assertion failed");
+    }
+    @Test(priority=94,groups= {"OCM"})//dependsOnMethods = "EditChatTemplatesRecord")
+    public void DeleteChatTemplatesRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath,"DeleteDepartment").getTestData().get(0);
+        Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
+        ChatTemplateDetails chatTemplateDetails= new ChatTemplateDetails(map);
+        ChatTemplatesPage chatTemplatesPage = PageFactory.createPageInstance(driver,ChatTemplatesPage.class);
+        chatTemplatesPage.deleteChatTemplatesRecord(chatTemplateDetails.getName(),chatTemplateDetails.getDeleteReason());
+        Assert.assertTrue(chatTemplatesPage.verifyRecordDeleted(),"Delete record assertion failed");
+    }
+    
+    @Test(priority=95,groups= {"OCM"},dependsOnMethods= {"DeleteChatTemplatesRecord"})
+    public void VerifyAuditTrialReportForDelete() throws Exception {
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
+        ChatTemplateDetails chatTemplateDetails= new ChatTemplateDetails(map);
+        HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
+        homePage.navigateToOCMReportsPage();
+        OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver, OCMReportsPage.class);
+        String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AuditTrailReportData.xlsx";
+        Map<String, String> map1 = new ExcelReader(filePath1,"Show").getTestData().get(0);
+        ReportDetails reportDetails= new ReportDetails(map1);
+        ocmReportsPage.showReport(reportDetails);
+        Assert.assertTrue(ocmReportsPage.verifyChatTemplatedelete(chatTemplateDetails,"Delete"));
+    }
+    
+    @Test(priority=97,groups= {"OCM"})
+    public void DeleteGroupWithoutDeleteReasonRecord() throws Exception {
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
+        ChatTemplateDetails chatTemplateDetails= new ChatTemplateDetails(map);
+        ChatTemplatesPage chatTemplatesPage = PageFactory.createPageInstance(driver,ChatTemplatesPage.class);
+        chatTemplatesPage.navigateToTab("Groups");
+        chatTemplatesPage.deleteGroupsWithoutDeleteReasonRecord(chatTemplateDetails);
+        Assert.assertEquals(chatTemplatesPage.getMessage(),"×\nPlease enter the delete reason","empty delete reason record assertion failed");
+    }
+    @Test(priority=98,groups= {"OCM"})
+    public void VerifyCancelBtnAtDeleteGroupRecord() throws Exception{
+        ChatTemplatesPage chatTemplatesPage = PageFactory.createPageInstance(driver,ChatTemplatesPage.class);
+        chatTemplatesPage.navigateToTab("Groups");
+        chatTemplatesPage.searchGroupRecord("GrpPalak");
+        Thread.sleep(1000);
+        chatTemplatesPage.clickOnDeleteButton();
+        chatTemplatesPage.clickOnDeleteCancelBtn();
+        Assert.assertFalse(chatTemplatesPage.verifyDeleteContainer(), "Cancel Btn at Delete record assertion failed");
+    }
+    
+    @Test(priority=99,groups= {"OCM"})//dependsOnMethods = {"EditGroupRecord","DeleteChatTemplatesRecord"})
+    public void DeleteGroupRecord() throws Exception {
+        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
+        ChatTemplateDetails chatTemplateDetails= new ChatTemplateDetails(map);
+        ChatTemplatesPage chatTemplatesPage = PageFactory.createPageInstance(driver,ChatTemplatesPage.class);
+        chatTemplatesPage.navigateToTab("Groups");
+        Assert.assertTrue(chatTemplatesPage.isGroupTabDisplayed());
+        chatTemplatesPage.deleteGroupRecord(chatTemplateDetails.getGroupName(),chatTemplateDetails.getDeleteReason());
+        Assert.assertTrue(chatTemplatesPage.verifyRecordDeleted(),"Delete record assertion failed");
+    }
+     
+    @Test(priority=100,groups= {"OCM"})//,dependsOnMethods= {"DeleteGroupRecord"})
+    public void VerifyAuditTrialReportForGroupDelete() throws Exception {
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
+        ChatTemplateDetails chatTemplateDetails= new ChatTemplateDetails(map);
+        HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
+        homePage.navigateToOCMReportsPage();
+        OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver, OCMReportsPage.class);
+        String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AuditTrailReportData.xlsx";
+        Map<String, String> map1 = new ExcelReader(filePath1,"Show").getTestData().get(0);
+        ReportDetails reportDetails= new ReportDetails(map1);
+        ocmReportsPage.showReport(reportDetails);
+        Assert.assertTrue(ocmReportsPage.verifyGroupdelete(chatTemplateDetails,"Delete"));
+    }
+    
+    @Test(priority=101,groups= {"OCM"})
+    public void VerifyDeleteGroupRecordInMain() throws Exception {
+  	   String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
+         Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
+         ChatTemplateDetails chatTemplateDetails= new ChatTemplateDetails(map);
+         ChatTemplatesPage chatTemplatesPage = PageFactory.createPageInstance(driver,ChatTemplatesPage.class);
+         chatTemplatesPage.clickOnAddRecord();
+         Assert.assertFalse(chatTemplatesPage.VerifyGroupDropdown(chatTemplateDetails));
+     }
+    
+   @Test(priority=102,groups= {"OCM"})
+    public void DeleteDepartmentWithoutDeleteReasonRecord() throws Exception {
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
+        ChatTemplateDetails chatTemplateDetails= new ChatTemplateDetails(map);
+        ChatTemplatesPage chatTemplatesPage = PageFactory.createPageInstance(driver,ChatTemplatesPage.class);
+        chatTemplatesPage.navigateToTab("Departments");
+        chatTemplatesPage.deleteDepartmentWithoutDeleteReasonRecord(chatTemplateDetails);
+        Assert.assertEquals(chatTemplatesPage.getMessage(),"×\nPlease enter the delete reason","empty delete reason record assertion failed");
+    }
+    @Test(priority=103,groups= {"OCM"})
+    public void VerifyCancelBtnAtDeleteDepartmentRecord() throws Exception{
+        ChatTemplatesPage chatTemplatesPage = PageFactory.createPageInstance(driver,ChatTemplatesPage.class);
+        chatTemplatesPage.navigateToTab("Departments");
+        chatTemplatesPage.searchDepartmentRecord("DeptPalak");
+        Thread.sleep(1000);
+        chatTemplatesPage.clickOnDeleteButton();
+        chatTemplatesPage.clickOnDeleteCancelBtn();
+        Assert.assertFalse(chatTemplatesPage.verifyDeleteContainer(), "Cancel Btn at Delete record assertion failed");
+    }
+    
+   @Test(priority=104,groups= {"OCM"})//dependsOnMethods = {"EditDepartmentRecord","DeleteGroupRecord","DeleteChatTemplatesRecord"})
+    public void DeleteDepartmentRecord() throws Exception {
+        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
         ChatTemplateDetails chatTemplateDetails= new ChatTemplateDetails(map);
         ChatTemplatesPage chatTemplatesPage = PageFactory.createPageInstance(driver,ChatTemplatesPage.class);
         chatTemplatesPage.navigateToTab("Departments");
@@ -752,52 +1083,109 @@ public class ChatTemplatesTest {
         chatTemplatesPage.deleteDepartmentRecord(chatTemplateDetails.getDepartmentName(),chatTemplateDetails.getDeleteReason());
         Assert.assertTrue(chatTemplatesPage.verifyRecordDeleted(),"Delete record assertion failed");
     }
-    
-    @Test(dependsOnMethods = {"AddNewGroupsRecord","DeleteChatTemplatesRecord"})
-    public void EditGroupRecord() throws IOException {
-        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath,"EditGroup").getTestData().get(0);
-        ChatTemplateDetails chatTemplateDetails= new ChatTemplateDetails(map);
-
-        ChatTemplatesPage chatTemplatesPage = PageFactory.createPageInstance(driver,ChatTemplatesPage.class);
-        chatTemplatesPage.navigateToTab("Groups");
-        Assert.assertTrue(chatTemplatesPage.isGroupTabDisplayed());
-        chatTemplatesPage.editGroupRecord(chatTemplateDetails);
-        Assert.assertTrue(chatTemplatesPage.verifyRecordUpdated(),"Edit record assertion failed");
-    }
-    @Test(dependsOnMethods = {"EditGroupRecord","DeleteChatTemplatesRecord"})
-    public void DeleteGroupRecord() throws IOException {
-        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath,"DeleteGroup").getTestData().get(0);
-        ChatTemplateDetails chatTemplateDetails= new ChatTemplateDetails(map);
-
-        ChatTemplatesPage chatTemplatesPage = PageFactory.createPageInstance(driver,ChatTemplatesPage.class);
-        chatTemplatesPage.navigateToTab("Groups");
-        Assert.assertTrue(chatTemplatesPage.isGroupTabDisplayed());
-        chatTemplatesPage.deleteGroupRecord(chatTemplateDetails.getGroupName(),chatTemplateDetails.getDeleteReason());
-        Assert.assertTrue(chatTemplatesPage.verifyRecordDeleted(),"Delete record assertion failed");
-    }
-    
-    @Test(dependsOnMethods = "AddNewChatTemplatesRecord")
-    public void EditChatTemplatesRecord() throws IOException {
-        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
-        ChatTemplateDetails chatTemplateDetails= new ChatTemplateDetails(map);
-
-        ChatTemplatesPage chatTemplatesPage = PageFactory.createPageInstance(driver,ChatTemplatesPage.class);
-        chatTemplatesPage.editChatTemplatesRecord(chatTemplateDetails);
-        Assert.assertTrue(chatTemplatesPage.verifyRecordUpdated(),"Edit record assertion failed");
-    }
-    @Test(dependsOnMethods = "EditChatTemplatesRecord")
-    public void DeleteChatTemplatesRecord() throws IOException {
-        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
+   @Test(priority=105,groups= {"OCM"},dependsOnMethods= {"DeleteDepartmentRecord"})
+   public void VerifyAuditTrialReportForDepartmentDelete() throws Exception {
+   	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
+       Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
+       ChatTemplateDetails chatTemplateDetails= new ChatTemplateDetails(map);
+       HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
+       homePage.navigateToOCMReportsPage();
+       OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver, OCMReportsPage.class);
+       String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AuditTrailReportData.xlsx";
+       Map<String, String> map1 = new ExcelReader(filePath1,"Show").getTestData().get(0);
+       ReportDetails reportDetails= new ReportDetails(map1);
+       ocmReportsPage.showReport(reportDetails);
+       Assert.assertTrue(ocmReportsPage.verifyDepartmentdelete(chatTemplateDetails,"Delete"));
+   }
+   
+   @Test(priority=106,groups= {"OCM"})
+   public void VerifyDeleteDepartmentRecordInGroup() throws IOException {
+	   String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
+       Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
+       ChatTemplateDetails chatTemplateDetails= new ChatTemplateDetails(map);
+       ChatTemplatesPage chatTemplatesPage = PageFactory.createPageInstance(driver,ChatTemplatesPage.class);
+       chatTemplatesPage.navigateToTab("Groups");
+       chatTemplatesPage.clickOnAddGroupRecord();
+       Assert.assertFalse(chatTemplatesPage.VerifyDepartmentDropdown(chatTemplateDetails));
+   }
+   
+   @Test(priority=107,groups= {"OCM"})
+   public void VerifyDeleteDepartmentRecordInMain() throws IOException {
+ 	   String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
         ChatTemplateDetails chatTemplateDetails= new ChatTemplateDetails(map);
-
         ChatTemplatesPage chatTemplatesPage = PageFactory.createPageInstance(driver,ChatTemplatesPage.class);
-        chatTemplatesPage.deleteChatTemplatesRecord(chatTemplateDetails.getName(),chatTemplateDetails.getDeleteReason());
-        Assert.assertTrue(chatTemplatesPage.verifyRecordDeleted(),"Delete record assertion failed");
-    }*/
+        chatTemplatesPage.clickOnAddRecord();
+        Assert.assertFalse(chatTemplatesPage.VerifyDepartmentDropdown(chatTemplateDetails));
+    }
+   
+   @Test(priority=108,groups= {"OCM"})
+   public void SearchDepartmentClearSearch() throws Exception
+   {
+	   String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
+       Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
+       ChatTemplateDetails chatTemplateDetails= new ChatTemplateDetails(map);
+       ChatTemplatesPage chatTemplatesPage = PageFactory.createPageInstance(driver,ChatTemplatesPage.class);
+       chatTemplatesPage.navigateToTab("Departments");
+       Assert.assertTrue(chatTemplatesPage.verifyinvalidDepartmentsearchwithwrongdata(chatTemplateDetails),"invalidsearchwithwrongdata");
+       screenshot.captureScreen("ChatTemplateTest","Invalid Search with wrong data");
+       Assert.assertTrue(chatTemplatesPage.verifyDepartmentclearsearch(), "Clear All Assertion Failed");
+   }
+   
+   @Test(priority=109,groups= {"OCM"})
+   public void SearchGroupClearSearch() throws Exception
+   {
+	   String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
+       Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
+       ChatTemplateDetails chatTemplateDetails= new ChatTemplateDetails(map);
+       ChatTemplatesPage chatTemplatesPage = PageFactory.createPageInstance(driver,ChatTemplatesPage.class);
+       chatTemplatesPage.navigateToTab("Groups");
+       Assert.assertTrue(chatTemplatesPage.verifyinvalidGroupsearchwithwrongdata(chatTemplateDetails),"invalidsearchwithwrongdata");
+       screenshot.captureScreen("ChatTemplateTest","Invalid Search with wrong data");
+       Assert.assertTrue(chatTemplatesPage.verifyGroupclearsearch(), "Clear All Assertion Failed");
+   }
+   
+   @Test(priority=110,groups= {"OCM"})
+   public void SearchClearSearch() throws Exception
+   {
+	   String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
+       Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
+       ChatTemplateDetails chatTemplateDetails= new ChatTemplateDetails(map);
+       ChatTemplatesPage chatTemplatesPage = PageFactory.createPageInstance(driver,ChatTemplatesPage.class);
+       Assert.assertTrue(chatTemplatesPage.verifyinvalidsearchwithwrongdata(chatTemplateDetails),"invalidsearchwithwrongdata");
+       screenshot.captureScreen("ChatTemplateTest","Invalid Search with wrong data");
+       Assert.assertTrue(chatTemplatesPage.verifyclearsearch(), "Clear All Assertion Failed");
+   }*/
+   
+   @Test(priority=111,groups= {"OCM"})
+   public void DepartmentDatabase() throws Exception {
+	   String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
+       Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(0);
+       ChatTemplateDetails chatTemplateDetails= new ChatTemplateDetails(map);
+       ChatTemplatesPage chatTemplatesPage = PageFactory.createPageInstance(driver,ChatTemplatesPage.class);
+       chatTemplatesPage.navigateToTab("Departments");
+       Assert.assertTrue(chatTemplatesPage.verifyDepartmentDatabase(chatTemplateDetails.getQuery()));
+   }
+   
+   @Test(priority=112,groups= {"OCM"})
+   public void GroupDatabase() throws Exception {
+	   String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
+       Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(1);
+       ChatTemplateDetails chatTemplateDetails= new ChatTemplateDetails(map);
+       ChatTemplatesPage chatTemplatesPage = PageFactory.createPageInstance(driver,ChatTemplatesPage.class);
+       chatTemplatesPage.navigateToTab("Groups");
+       Assert.assertTrue(chatTemplatesPage.verifyGroupDatabase(chatTemplateDetails.getQuery()));
+   }
+   
+   @Test(priority=113,groups= {"OCM"})
+   public void Database() throws Exception {
+	   String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
+       Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(2);
+       ChatTemplateDetails chatTemplateDetails= new ChatTemplateDetails(map);
+       ChatTemplatesPage chatTemplatesPage = PageFactory.createPageInstance(driver,ChatTemplatesPage.class);
+       Assert.assertTrue(chatTemplatesPage.verifyDatabase(chatTemplateDetails.getQuery()));
+   }
+   
    
     @AfterMethod
 	 public void close(Method method){
@@ -809,6 +1197,14 @@ public class ChatTemplatesTest {
 	        driver.close();
 	        }
 	        else 
-	        	driver.close();
+	        	 try{
+	                 HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
+	                 homePage.userLogout();
+	                 driver.close();
+	             }catch(Exception e)
+	               {
+	                 driver.close();
+	               e.printStackTrace();
+	               }
 	    }
 }
