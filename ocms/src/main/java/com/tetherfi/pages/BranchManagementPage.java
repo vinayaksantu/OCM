@@ -656,7 +656,7 @@ public class BranchManagementPage extends BasePage {
 		return false;
 	}
 
-	private void searchBranchManagementRecord(String BranchName) {
+	private void searchBranchManagementRecord(String BranchName) throws Exception {
 		selectWebElement(searchLink);
         selectWebElement(selectSearchColumn.get(0));
         selectDropdownFromVisibleText(columnNameList,"Branch Name");
@@ -668,7 +668,7 @@ public class BranchManagementPage extends BasePage {
         waitUntilWebElementIsVisible(gridContent);	
 	}
 	
-	private void searchBranchManagementRecordApprovedData(String branchName) {
+	private void searchBranchManagementRecordApprovedData(String branchName) throws Exception {
 		selectWebElement(gridsearchLink);
         selectWebElement(selectSearchColumn.get(0));
         selectDropdownFromVisibleText(columnNameList,"Branch Name");
@@ -764,7 +764,7 @@ public class BranchManagementPage extends BasePage {
 		}
 			return arr;
 	}
-	public boolean clearAll(BranchManagementDetails branchManagementDetails) {
+	public boolean clearAll(BranchManagementDetails branchManagementDetails) throws Exception {
 		selectWebElement(gridsearchLink);
         selectWebElement(selectSearchColumn.get(0));
         selectDropdownFromVisibleText(columnNameList,"Branch Name");
@@ -819,7 +819,7 @@ public class BranchManagementPage extends BasePage {
 			return true;
 	}
 	
-	public boolean verifyApprovedSectionData(BranchManagementDetails details) {
+	public boolean verifyApprovedSectionData(BranchManagementDetails details) throws Exception {
 		searchBranchManagementRecordApprovedData(details.getBranchName());
 		if(norecords.isDisplayed())
 			return true; 
@@ -986,7 +986,7 @@ public class BranchManagementPage extends BasePage {
 
 	}
 
-	public void taskCompleteAction(String comment) {
+	public void taskCompleteAction(String comment) throws Exception {
 		selectWebElement(makeBranchManagementChanges);
         waitForLoad(driver);
         selectWebElement(taskCompleteBtn);
@@ -1015,7 +1015,7 @@ public class BranchManagementPage extends BasePage {
         return firstRowData.get("Status").equals(status);
 	}
 
-	public void clickonApprove(String comment) {
+	public void clickonApprove(String comment) throws Exception {
 		 selectWebElement(BranchManagementTabs.get(1));
 	        try {
 	            Thread.sleep(3000);
@@ -1050,7 +1050,7 @@ public class BranchManagementPage extends BasePage {
 	        return stat;
 	}
 
-	public boolean verifyApprovedSectionDataafterapproval(BranchManagementDetails branchManagementDetails) {
+	public boolean verifyApprovedSectionDataafterapproval(BranchManagementDetails branchManagementDetails) throws Exception {
 		searchBranchManagementRecordApprovedData(branchManagementDetails.getBranchName());
 		if(rowdata.getText().equals(branchManagementDetails.getBranchName()))
 			return true;
@@ -1292,7 +1292,7 @@ public class BranchManagementPage extends BasePage {
         selectWebElement(cancelBtn);
 	}
 
-	public void clickonReject(String comment) {
+	public void clickonReject(String comment) throws Exception {
 		 selectWebElement(BranchManagementTabs.get(1));
 	        try {
 	            Thread.sleep(3000);
@@ -1330,7 +1330,7 @@ public class BranchManagementPage extends BasePage {
 		return false;
 	}
 	
-	public void EditRecordWithoutModifyReason(BranchManagementDetails branchManagementDetails) throws InterruptedException {
+	public void EditRecordWithoutModifyReason(BranchManagementDetails branchManagementDetails) throws Exception {
 		selectWebElement(BranchManagementTabs.get(1));
 		Thread.sleep(1000);
 		selectWebElement(makeBranchManagementChanges);

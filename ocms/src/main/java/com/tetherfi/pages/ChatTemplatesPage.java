@@ -401,7 +401,7 @@ public class ChatTemplatesPage extends BasePage {
 	        return status;
 	    }
 	    
-    public void addNewChatTemplatesRecord(ChatTemplateDetails details) {
+    public void addNewChatTemplatesRecord(ChatTemplateDetails details) throws Exception {
         selectWebElement(addNewChatTemplatesRecordBtn);
         waitUntilWebElementIsVisible(popupContent);
         waitForJqueryLoad(driver);
@@ -432,7 +432,7 @@ public class ChatTemplatesPage extends BasePage {
         	e.printStackTrace();
         }
     }
-    public void searchChatTemplatesRecord(String name)  {
+    public void searchChatTemplatesRecord(String name) throws Exception  {
         selectWebElement(searchLink);
         selectWebElement(selectSearchColumn.get(0));
         selectDropdownFromVisibleText(columnNameList,"Name");
@@ -443,7 +443,7 @@ public class ChatTemplatesPage extends BasePage {
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(gridContent);
     }
-    public void editChatTemplatesRecord(ChatTemplateDetails details) {
+    public void editChatTemplatesRecord(ChatTemplateDetails details) throws Exception {
         searchChatTemplatesRecord(details.getName());
         selectWebElement(editBtn);
         waitForJqueryLoad(driver);
@@ -491,7 +491,7 @@ public class ChatTemplatesPage extends BasePage {
             if(ele.getText().equalsIgnoreCase(tabname)){ele.click();break;}
         }
     }
-    public void addNewDepartmentRecord(ChatTemplateDetails details) {
+    public void addNewDepartmentRecord(ChatTemplateDetails details) throws Exception {
         selectWebElement(addNewDepartmentRecordBtn);
         selectWebElement(nameTextbox);
         enterValueToTxtField(nameTextbox,details.getDepartmentName());
@@ -506,7 +506,7 @@ public class ChatTemplatesPage extends BasePage {
         	e.printStackTrace();
         }
     }
-    public void searchDepartmentRecord(String name)  {
+    public void searchDepartmentRecord(String name) throws Exception  {
         selectWebElement(searchLink);
         selectWebElement(selectSearchColumn.get(0));
         selectDropdownFromVisibleText(columnNameList,"Name");
@@ -517,7 +517,7 @@ public class ChatTemplatesPage extends BasePage {
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(departmentsGridContent);
     }
-    public void editDepartmentRecord(ChatTemplateDetails details) {
+    public void editDepartmentRecord(ChatTemplateDetails details) throws Exception {
         searchDepartmentRecord(details.getDepartmentName());
         selectWebElement(editBtn);
         waitForJqueryLoad(driver);
@@ -539,7 +539,7 @@ public class ChatTemplatesPage extends BasePage {
         Thread.sleep(2000);
         selectWebElement(yesBtn);
     }
-    public void addNewGroupRecord(ChatTemplateDetails details) {
+    public void addNewGroupRecord(ChatTemplateDetails details) throws Exception {
         selectWebElement(addNewGroupRecordBtn);
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(popupContent);
@@ -563,7 +563,7 @@ public class ChatTemplatesPage extends BasePage {
         	e.printStackTrace();
         }
     }
-    public void searchGroupRecord(String name)  {
+    public void searchGroupRecord(String name) throws Exception  {
         selectWebElement(searchLink);
         selectWebElement(selectSearchColumn.get(0));
         selectDropdownFromVisibleText(columnNameList,"Name");
@@ -574,7 +574,7 @@ public class ChatTemplatesPage extends BasePage {
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(groupsGridContent);
     }
-    public void editGroupRecord(ChatTemplateDetails details) {
+    public void editGroupRecord(ChatTemplateDetails details) throws Exception {
         searchGroupRecord(details.getGroupName());
         selectWebElement(editBtn);
         waitForJqueryLoad(driver);
@@ -652,7 +652,7 @@ public class ChatTemplatesPage extends BasePage {
 	public void clickOnAddRecord() {
 		selectWebElement(addNewChatTemplatesRecordBtn);
 	}
-	public void addRecordWithoutEnabled(ChatTemplateDetails details) {
+	public void addRecordWithoutEnabled(ChatTemplateDetails details) throws Exception {
 		selectWebElement(addNewDepartmentRecordBtn);
 		waitForJqueryLoad(driver);
         selectWebElement(nameTextbox);
@@ -675,7 +675,7 @@ public class ChatTemplatesPage extends BasePage {
         selectWebElement(saveBtn);	
         selectWebElement(cancelBtn);
 	}
-	public void addRecordWithoutDepartmentName(ChatTemplateDetails details) {
+	public void addRecordWithoutDepartmentName(ChatTemplateDetails details) throws Exception {
 		selectWebElement(addNewGroupRecordBtn);
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(popupContent);
@@ -707,7 +707,7 @@ public class ChatTemplatesPage extends BasePage {
         selectWebElement(saveBtn);	
         selectWebElement(cancelBtn);
 	}
-	public void addRecordWithoutGroupEnabled(ChatTemplateDetails details) {
+	public void addRecordWithoutGroupEnabled(ChatTemplateDetails details) throws Exception {
 		selectWebElement(addNewGroupRecordBtn);
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(popupContent);
@@ -750,7 +750,7 @@ public class ChatTemplatesPage extends BasePage {
         selectWebElement(saveBtn);
         selectWebElement(cancelBtn);
 	}
-	public void addRecordWithoutChatDepartmentName(ChatTemplateDetails details) {
+	public void addRecordWithoutChatDepartmentName(ChatTemplateDetails details) throws Exception {
 		  selectWebElement(addNewChatTemplatesRecordBtn);
 	        waitUntilWebElementIsVisible(popupContent);
 	        waitForJqueryLoad(driver);
@@ -777,7 +777,7 @@ public class ChatTemplatesPage extends BasePage {
 	        	e.printStackTrace();
 	        }
 	}
-	public void addRecordWithoutGroupName(ChatTemplateDetails details) {
+	public void addRecordWithoutGroupName(ChatTemplateDetails details) throws Exception {
 		  selectWebElement(addNewChatTemplatesRecordBtn);
 	        waitUntilWebElementIsVisible(popupContent);
 	        waitForJqueryLoad(driver);
@@ -801,7 +801,7 @@ public class ChatTemplatesPage extends BasePage {
 	        selectWebElement(saveBtn);
 	        selectWebElement(cancelBtn);
 	}
-	public void addRecordWithoutChatName(ChatTemplateDetails details) {
+	public void addRecordWithoutChatName(ChatTemplateDetails details) throws Exception {
 		  selectWebElement(addNewChatTemplatesRecordBtn);
 	        waitUntilWebElementIsVisible(popupContent);
 	        waitForJqueryLoad(driver);
@@ -829,7 +829,7 @@ public class ChatTemplatesPage extends BasePage {
 		// TODO Auto-generated method stub
 		
 	}
-	public void addRecordWithoutEndTime(ChatTemplateDetails details) {
+	public void addRecordWithoutEndTime(ChatTemplateDetails details) throws Exception {
 		  selectWebElement(addNewChatTemplatesRecordBtn);
 	        waitUntilWebElementIsVisible(popupContent);
 	        waitForJqueryLoad(driver);
@@ -859,7 +859,7 @@ public class ChatTemplatesPage extends BasePage {
 	        }
 		
 	}
-	public void addRecordWithoutStartTime(ChatTemplateDetails details) {
+	public void addRecordWithoutStartTime(ChatTemplateDetails details) throws Exception {
 		  selectWebElement(addNewChatTemplatesRecordBtn);
 	        waitUntilWebElementIsVisible(popupContent);
 	        waitForJqueryLoad(driver);
@@ -888,7 +888,7 @@ public class ChatTemplatesPage extends BasePage {
 	        	e.printStackTrace();
 	        }		
 	}
-	public void addRecordWithoutText(ChatTemplateDetails details) {
+	public void addRecordWithoutText(ChatTemplateDetails details) throws Exception {
 		  selectWebElement(addNewChatTemplatesRecordBtn);
 	        waitUntilWebElementIsVisible(popupContent);
 	        waitForJqueryLoad(driver);
@@ -933,7 +933,7 @@ public class ChatTemplatesPage extends BasePage {
 		return Status;
 	}
 	
-	public void addRecordWithoutChatEnabled(ChatTemplateDetails details) {
+	public void addRecordWithoutChatEnabled(ChatTemplateDetails details) throws Exception {
 		selectWebElement(addNewChatTemplatesRecordBtn);
         waitUntilWebElementIsVisible(popupContent);
         waitForJqueryLoad(driver);
@@ -1318,7 +1318,7 @@ public class ChatTemplatesPage extends BasePage {
 		        String item = items.get(z).getText();
 		        return item.matches("(\\d.*) - (\\d.*) of (\\d.*) items");
 		    }
-			public void editChatDepartmentWithoutModifyReason(ChatTemplateDetails details) {
+			public void editChatDepartmentWithoutModifyReason(ChatTemplateDetails details) throws Exception {
 				searchDepartmentRecord(details.getDepartmentName());
 		        selectWebElement(editBtn);
 		        waitForJqueryLoad(driver);
@@ -1335,7 +1335,7 @@ public class ChatTemplatesPage extends BasePage {
 			public void clickOnEditButton() {
 		        selectWebElement(editBtn);				
 			}
-			public void editChatTemplateWithoutModifyReason(ChatTemplateDetails details) {
+			public void editChatTemplateWithoutModifyReason(ChatTemplateDetails details) throws Exception {
 				searchChatTemplatesRecord(details.getName());
 		        selectWebElement(editBtn);
 		        waitForJqueryLoad(driver);
@@ -1348,7 +1348,7 @@ public class ChatTemplatesPage extends BasePage {
 		        selectDropdownFromVisibleText(enableListbox,details.getUpdatedEnabled());
 		        selectWebElement(saveBtn);				
 			}
-			public void editChatTemplateGroupWithoutModifyReason(ChatTemplateDetails details) {
+			public void editChatTemplateGroupWithoutModifyReason(ChatTemplateDetails details) throws Exception {
 				searchGroupRecord(details.getGroupName());
 		        selectWebElement(editBtn);
 		        waitForJqueryLoad(driver);
@@ -1381,7 +1381,7 @@ public class ChatTemplatesPage extends BasePage {
 				}
 				return Status;
 			}
-			public boolean clearAll(ChatTemplateDetails chatTemplateDetails) {
+			public boolean clearAll(ChatTemplateDetails chatTemplateDetails) throws Exception {
 				selectWebElement(searchLink);
 		        selectWebElement(selectSearchColumn.get(0));
 		        selectDropdownFromVisibleText(columnNameList,"Name");
@@ -1394,7 +1394,7 @@ public class ChatTemplatesPage extends BasePage {
 		        else
 				return false;
 			}
-			public boolean GroupclearAll(ChatTemplateDetails chatTemplateDetails) {
+			public boolean GroupclearAll(ChatTemplateDetails chatTemplateDetails) throws Exception {
 				selectWebElement(searchLink);
 		        selectWebElement(selectSearchColumn.get(0));
 		        selectDropdownFromVisibleText(columnNameList,"Name");
@@ -1407,7 +1407,7 @@ public class ChatTemplatesPage extends BasePage {
 		        else
 				return false;
 			}
-			public boolean departmentclearAll(ChatTemplateDetails chatTemplateDetails) {
+			public boolean departmentclearAll(ChatTemplateDetails chatTemplateDetails) throws Exception {
 				selectWebElement(searchLink);
 		        selectWebElement(selectSearchColumn.get(0));
 		        selectDropdownFromVisibleText(columnNameList,"Name");
@@ -1464,26 +1464,26 @@ public class ChatTemplatesPage extends BasePage {
 		        }
 		        return isElementExist(deleteContainer);
 			}
-			public void deleteChatTempalateWithoutDeleteReasonRecord(ChatTemplateDetails details) {
+			public void deleteChatTempalateWithoutDeleteReasonRecord(ChatTemplateDetails details) throws Exception {
 				searchChatTemplatesRecord(details.getName());
 		        btnClick(deleteBtn);
 		        selectWebElement(deleteReasonTextBox);
 		        selectWebElement(yesBtn);
 			}
-			public void deleteGroupsWithoutDeleteReasonRecord(ChatTemplateDetails details) {
+			public void deleteGroupsWithoutDeleteReasonRecord(ChatTemplateDetails details) throws Exception {
 				searchGroupRecord(details.getGroupName());
 		        btnClick(deleteBtn);
 		        selectWebElement(deleteReasonTextBox);
 		        selectWebElement(yesBtn);
 				
 			}
-			public void deleteDepartmentWithoutDeleteReasonRecord(ChatTemplateDetails details) {
+			public void deleteDepartmentWithoutDeleteReasonRecord(ChatTemplateDetails details) throws Exception {
 				searchDepartmentRecord(details.getDepartmentName());
 		        btnClick(deleteBtn);
 		        selectWebElement(deleteReasonTextBox);
 		        selectWebElement(yesBtn);				
 			}
-			public boolean verifyinvalidDepartmentsearchwithwrongdata(ChatTemplateDetails chatTemplateDetails) {
+			public boolean verifyinvalidDepartmentsearchwithwrongdata(ChatTemplateDetails chatTemplateDetails) throws Exception {
 				searchDepartmentRecord(chatTemplateDetails.getDepartmentName());
 				try {
 					Thread.sleep(1000);
@@ -1517,7 +1517,7 @@ public class ChatTemplatesPage extends BasePage {
 				else
 				return false;
 			}
-			public boolean verifyinvalidGroupsearchwithwrongdata(ChatTemplateDetails chatTemplateDetails) {
+			public boolean verifyinvalidGroupsearchwithwrongdata(ChatTemplateDetails chatTemplateDetails) throws Exception {
 				searchGroupRecord(chatTemplateDetails.getGroupName());
 				try {
 					Thread.sleep(1000);
@@ -1530,7 +1530,7 @@ public class ChatTemplatesPage extends BasePage {
 					else
 						return false;
 			}
-			public boolean verifyinvalidsearchwithwrongdata(ChatTemplateDetails chatTemplateDetails) {
+			public boolean verifyinvalidsearchwithwrongdata(ChatTemplateDetails chatTemplateDetails) throws Exception {
 				searchChatTemplatesRecord(chatTemplateDetails.getName());
 				try {
 					Thread.sleep(1000);

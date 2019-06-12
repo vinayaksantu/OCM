@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import com.tetherfi.model.chat.ChatTemplateDetails;
+import com.tetherfi.model.fax.FaxTemplateDetails;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -317,7 +318,7 @@ public class TmacPopupPage extends BasePage {
             e.printStackTrace();
         }
     }
-    public void sendDataToIservePopUpUrl(){
+    public void sendDataToIservePopUpUrl() throws Exception{
         waitUntilNewTabIsOpen(3);
         ArrayList<String> Tabs = new ArrayList<String>(driver.getWindowHandles());
         if(Tabs.size()>2){
@@ -485,4 +486,8 @@ public class TmacPopupPage extends BasePage {
     	}
     	return status;
     }
+	public boolean verifyFaxTemplate(FaxTemplateDetails faxTemplateDetails) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }

@@ -88,11 +88,14 @@ public class OCMFaxSentDetailsReportPage extends BasePage {
     
     @FindBy(xpath="//div[@id='gridDrillOne']/div[4]")
     private WebElement grid;
+    
+    @FindBy(id="drillSearchClose")
+    private WebElement drillSearchClose;
     		
 
 
     
-    public void searchReport(String SearchTextBox) {
+    public void searchReport(String SearchTextBox) throws Exception {
         selectWebElement(searchBtn);
         selectWebElement(searchColDropdown);
         selectDropdownFromVisibleText(searchColListBox,"Sender Number");
@@ -104,7 +107,7 @@ public class OCMFaxSentDetailsReportPage extends BasePage {
         waitUntilWebElementIsVisible(gridContent);
     }
     
-    public boolean VerifySendStatus(SendFaxDetails details) {
+    public boolean VerifySendStatus(SendFaxDetails details) throws Exception {
     	Boolean status =false;
     	searchReport(details.getFaxLine());
 		List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
@@ -116,10 +119,16 @@ public class OCMFaxSentDetailsReportPage extends BasePage {
 			for(int j=0;j<headers.size();j++) {
 				if(headers.get(j).getText().equals("Send Status")){
 					col=cols.get(j).getText();
-					if(col.equals("SendSuccess"))
+					if(col.equals("SendSuccess")) {
 						status=true;
-					else 
+						moveToElement(drillSearchClose);
+						clickOn(drillSearchClose);
+					}
+					else {
 						status=false;
+						moveToElement(drillSearchClose);
+						clickOn(drillSearchClose);
+					}
 				}
 			}	
 		return status;

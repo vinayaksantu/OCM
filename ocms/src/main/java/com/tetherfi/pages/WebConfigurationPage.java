@@ -94,7 +94,7 @@ public class WebConfigurationPage extends BasePage {
         waitForJqueryLoad(driver);
         return webConfiguration.isEnabled();
     }
-    public void addNewWebConfigurationRecord(WebConfigurationDetails details) {
+    public void addNewWebConfigurationRecord(WebConfigurationDetails details) throws Exception {
         selectWebElement(addNewWebConfigurationRecordBtn);
         selectWebElement(key);
         enterValueToTxtField(key,details.getKey());
@@ -104,7 +104,7 @@ public class WebConfigurationPage extends BasePage {
         enterValueToTxtField(comment,details.getComment());
         selectWebElement(saveBtn);
     }
-    public void searchWebConfigurationRecord(String key) {
+    public void searchWebConfigurationRecord(String key) throws Exception {
         selectWebElement(searchLink);
         selectWebElement(selectSearchColumn.get(0));
         selectDropdownFromVisibleText(columnNameList,"Key");
@@ -115,7 +115,7 @@ public class WebConfigurationPage extends BasePage {
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(gridContent);
     }
-    public void editWebConfigurationRecord(WebConfigurationDetails details) {
+    public void editWebConfigurationRecord(WebConfigurationDetails details) throws Exception {
         searchWebConfigurationRecord(details.getKey());
         selectWebElement(editBtn);
         selectWebElement(key);
@@ -127,7 +127,7 @@ public class WebConfigurationPage extends BasePage {
         enterValueToTxtField(modifyReasonTextBox,details.getModifyReason());
         selectWebElement(saveBtn);
     }
-    public void deleteWebConfigurationRecord(String key, String reason) {
+    public void deleteWebConfigurationRecord(String key, String reason) throws Exception {
         searchWebConfigurationRecord(key);
         selectWebElement(deleteBtn);
         selectWebElement(deleteReasonTextBox);

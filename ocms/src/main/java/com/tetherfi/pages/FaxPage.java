@@ -38,6 +38,9 @@ public class FaxPage extends BasePage {
     @FindBy(css="a[href$='/SplitFax/Index'] div")
     private WebElement splitFax;
     
+    @FindBy(css="a[href$='/FaxAddressBook/Index'] div")
+    private WebElement faxAddressBook;
+    
     public boolean isFaxPageDisplayed() {
         boolean status = false;
         waitForLoad(driver);
@@ -85,5 +88,10 @@ public class FaxPage extends BasePage {
 	public void navigateToSplitFaxPage() {
 		waitUntilWebElementIsClickable(splitFax);
 		selectWebElement(splitFax);
+	}
+
+	public void navigateToFaxAddressBookPage() {
+		waitUntilWebElementIsClickable(faxAddressBook);
+		selectWebElement(faxAddressBook);		
 	}
 }

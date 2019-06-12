@@ -248,7 +248,7 @@ public class AdhocOptionEnhancementPage extends BasePage {
         waitForJqueryLoad(driver);
         return AdhocOptionEnhancement.isEnabled();
     }
-    public void addNewAdhocOptionEnhancementRecord(AdhocOptionEnhancementDetails details) {
+    public void addNewAdhocOptionEnhancementRecord(AdhocOptionEnhancementDetails details) throws Exception {
         selectWebElement(addNewAdhocOptionEnhancementRcrdBtn);
         waitForJqueryLoad(driver);
         try {
@@ -284,7 +284,7 @@ public class AdhocOptionEnhancementPage extends BasePage {
         selectWebElement(saveButton);
     }
     
-    public boolean addnewAdhocOptionEnhancementCancel(AdhocOptionEnhancementDetails details) {
+    public boolean addnewAdhocOptionEnhancementCancel(AdhocOptionEnhancementDetails details) throws Exception {
     	String actualitems=items.getText();
     	selectWebElement(addNewAdhocOptionEnhancementRcrdBtn);
         waitForJqueryLoad(driver);
@@ -325,7 +325,7 @@ public class AdhocOptionEnhancementPage extends BasePage {
 		return false;
 	}
 
-    public void searchAdhocOptionEnhancementRecord(String column, String value) {
+    public void searchAdhocOptionEnhancementRecord(String column, String value) throws Exception {
         selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,column);
@@ -346,7 +346,7 @@ public class AdhocOptionEnhancementPage extends BasePage {
         selectWebElement(searchSearchBtn);
     }
     
-    public Boolean validAndBooleanSearch(AdhocOptionEnhancementDetails details) {
+    public Boolean validAndBooleanSearch(AdhocOptionEnhancementDetails details) throws Exception {
     	Boolean Status=false;
     	selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
@@ -377,7 +377,7 @@ public class AdhocOptionEnhancementPage extends BasePage {
 		return Status;	
     }
     
-    public boolean validORBooleanSearch(AdhocOptionEnhancementDetails details) {
+    public boolean validORBooleanSearch(AdhocOptionEnhancementDetails details) throws Exception {
 		Boolean Status=false;
     	selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
@@ -404,14 +404,15 @@ public class AdhocOptionEnhancementPage extends BasePage {
         List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));	
         for(WebElement e:rows)
         {
-        	if(rowdata.getText().equals(details.getPromotionalNumber())||rowdata.getText().equals(details.getLanguage()))
+        	if(rowdata.getText().equals(details.getPromotionalNumber())||rowdatatwo.getText().equals(details.getLanguage()))
         		Status=true;
         }
         return Status;
 	}
     
-    public void editAdhocOptionEnhancementRecord(AdhocOptionEnhancementDetails details) {
+    public void editAdhocOptionEnhancementRecord(AdhocOptionEnhancementDetails details) throws Exception {
         searchAdhocOptionEnhancementRecord(details.getSearchColumn(),details.getSearchValue());
+        Thread.sleep(1000);
         selectWebElement(editButton);
         selectWebElement(promotionalDescription);
         enterValueToTxtField(promotionalDescription,details.getUpdatedPromotiondescription());
@@ -441,8 +442,9 @@ public class AdhocOptionEnhancementPage extends BasePage {
         	e.printStackTrace();
         }
     }
-    public void deleteAdhocOptionEnhancementRecord(AdhocOptionEnhancementDetails details) {
+    public void deleteAdhocOptionEnhancementRecord(AdhocOptionEnhancementDetails details) throws Exception {
         searchAdhocOptionEnhancementRecord(details.getSearchColumn(),details.getSearchValue());
+        waitUntilWebElementIsClickable(deleteButton);
         selectWebElement(deleteButton);
         enterValueToTxtField(deleteReasonTextBox,details.getDeleteReason());
         selectWebElement(deleteYesBtn);
@@ -1176,7 +1178,7 @@ public class AdhocOptionEnhancementPage extends BasePage {
         }
 		
 	}
-	public boolean clearAll(AdhocOptionEnhancementDetails details) {
+	public boolean clearAll(AdhocOptionEnhancementDetails details) throws Exception {
 		selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Promotion Number");
@@ -1196,7 +1198,7 @@ public class AdhocOptionEnhancementPage extends BasePage {
 		else
 		return false;
 	}
-	public boolean verifyinvalidsearchwithwrongdata(AdhocOptionEnhancementDetails details) {
+	public boolean verifyinvalidsearchwithwrongdata(AdhocOptionEnhancementDetails details) throws Exception {
 		searchAdhocOptionEnhancementRecord("Promotion Number",details.getPromotionalNumber());
 		if(norecords.isDisplayed())
 			return true; 
@@ -1211,7 +1213,7 @@ public class AdhocOptionEnhancementPage extends BasePage {
 		else
 		return false;
 	}
-	public void InvalidBooleanSearchwithoutSearchTextbox(AdhocOptionEnhancementDetails details) {
+	public void InvalidBooleanSearchwithoutSearchTextbox(AdhocOptionEnhancementDetails details) throws Exception {
 		selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Promotion Number");
@@ -1233,7 +1235,7 @@ public class AdhocOptionEnhancementPage extends BasePage {
         selectWebElement(searchSearchBtn);
         selectWebElement(searchClose);
 	}
-	public void InvalidBooleanSearchwithoutSearchTextbox1(AdhocOptionEnhancementDetails details) {
+	public void InvalidBooleanSearchwithoutSearchTextbox1(AdhocOptionEnhancementDetails details) throws Exception {
 		selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Promotion Number");
@@ -1257,6 +1259,18 @@ public class AdhocOptionEnhancementPage extends BasePage {
         selectWebElement(searchSearchBtn);
         selectWebElement(searchClose);
 		
+	}
+	public void editRecordWithoutModifyReason(AdhocOptionEnhancementDetails details) throws Exception {
+		searchAdhocOptionEnhancementRecord(details.getSearchColumn(),details.getSearchValue());
+        waitUntilWebElementIsClickable(editButton);
+		selectWebElement(editButton);
+        selectWebElement(saveButton);
+        try {
+        	selectWebElement(cancelBtn);
+        }
+        catch(Exception e) {
+        	e.printStackTrace();
+        }		
 	}
 
 	

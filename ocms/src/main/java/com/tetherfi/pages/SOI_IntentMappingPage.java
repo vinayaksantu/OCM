@@ -105,7 +105,7 @@ public class SOI_IntentMappingPage extends BasePage {
         return soiIntentMapping.isEnabled();
     }
 
-    public void addNewSoiIntentMappingRecord(SOI_IntentMappingDetails details){
+    public void addNewSoiIntentMappingRecord(SOI_IntentMappingDetails details) throws Exception{
         selectWebElement(addNewSoiIntentMappingRecordBtn);
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(popupContent);
@@ -127,7 +127,7 @@ public class SOI_IntentMappingPage extends BasePage {
         enterValueToTxtField(custEntType,details.getCustEntType());
         btnClick(saveBtn);
     }
-    public void searchSoiIntentMappingRecord(String segment)  {
+    public void searchSoiIntentMappingRecord(String segment) throws Exception  {
         selectWebElement(searchLink);
         selectWebElement(selectSearchColumn.get(0));
         selectDropdownFromVisibleText(columnNameList,"Segment");
@@ -138,7 +138,7 @@ public class SOI_IntentMappingPage extends BasePage {
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(gridContent);
     }
-    public void editSoiIntentMappingRecord(SOI_IntentMappingDetails details) {
+    public void editSoiIntentMappingRecord(SOI_IntentMappingDetails details) throws Exception {
         searchSoiIntentMappingRecord(details.getSegment());
         selectWebElement(editBtn);
         waitForJqueryLoad(driver);
@@ -159,7 +159,7 @@ public class SOI_IntentMappingPage extends BasePage {
         enterValueToTxtField(modifyReasonTextBox,details.getModifyReason());
         btnClick(saveBtn);
     }
-    public void deleteWaitTimeColorConfigRecord(String segment, String reason) {
+    public void deleteWaitTimeColorConfigRecord(String segment, String reason) throws Exception {
         searchSoiIntentMappingRecord(segment);
         btnClick(deleteBtn);
         selectWebElement(deleteReasonTextBox);

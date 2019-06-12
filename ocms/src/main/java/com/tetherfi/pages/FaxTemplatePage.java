@@ -124,7 +124,7 @@ public class FaxTemplatePage extends BasePage {
     @FindBy(xpath="//span[@class='k-icon k-i-arrow-60-right k-menu-expand-arrow']")
     private WebElement coloumnarrow;
     
-    @FindBy(id="grid")
+    @FindBy(id="tgrid")
     private WebElement auditGridContent;
     
     @FindBy(css=".k-pager-sizes .k-input")
@@ -663,7 +663,7 @@ public class FaxTemplatePage extends BasePage {
 		return false;
 	}
 
-	private void searchFaxTemplateRecord(String templateName) {
+	private void searchFaxTemplateRecord(String templateName) throws Exception {
 		selectWebElement(searchLink);
         selectWebElement(selectSearchColumn.get(0));
         selectDropdownFromVisibleText(columnNameList,"Template Name");
@@ -675,7 +675,7 @@ public class FaxTemplatePage extends BasePage {
         waitUntilWebElementIsVisible(gridContent);	
 	}
 	
-	private void searchFaxTemplateRecordApprovedData(String templateName) {
+	private void searchFaxTemplateRecordApprovedData(String templateName) throws Exception {
 		selectWebElement(gridsearchLink);
         selectWebElement(selectSearchColumn.get(0));
         selectDropdownFromVisibleText(columnNameList,"Template Name");
@@ -727,9 +727,10 @@ public class FaxTemplatePage extends BasePage {
 
 	public String getSuccessMessage() {
 		waitForJqueryLoad(driver);
-        if(errorMsg.size()>0){return errorMsg.get(0).getText();}
-        waitUntilWebElementIsVisible(successmsg);
-        return successmsg.getText();
+		if(successmsg.isDisplayed())
+			return successmsg.getText();
+		else
+			return errorMsg.get(0).getText();
 	}
 	
 	public boolean getErrorMsg() {
@@ -817,16 +818,17 @@ public class FaxTemplatePage extends BasePage {
         return taskCompleteBtn.isEnabled();
 	}
 
-	public void taskCompleteAction(String comment) {
+	public void taskCompleteAction(String comment) throws Exception {
 		selectWebElement(makeFaxTemplateChanges);
         waitForLoad(driver);
         selectWebElement(taskCompleteBtn);
+        waitUntilWebElementIsVisible(makerComments);
         enterValueToTxtField(makerComments,comment);
         selectWebElement(taskCompleteBtnAtMakerCommentsPopUp);
 		
 	}
 	
-	public void selecttaskCompleteAction(String comment) {
+	public void selecttaskCompleteAction(String comment) throws Exception {
         selectWebElement(taskCompleteBtn);
         enterValueToTxtField(makerComments,comment);
         selectWebElement(taskCompleteBtnAtMakerCommentsPopUp);
@@ -847,21 +849,15 @@ public class FaxTemplatePage extends BasePage {
         return firstRowData.get("Status").equals(status);
 	}
 
-	public void clickonApprove(String comment) {
+	public void clickonApprove(String comment) throws Exception {
 		 selectWebElement(FaxTemplateTabs.get(1));
-	        try {
-	            Thread.sleep(3000);
-	        } catch (InterruptedException e) {
-	            e.printStackTrace();
-	        }
+	        waitForJqueryLoad(driver);
+	        waitUntilWebElementIsClickable(approveBtn);
 	        clickOn(approveBtn);
-	        selectWebElement(checkerReason);
+	        Thread.sleep(1000);
+	        waitUntilWebElementIsVisible(checkerReason);
 	        enterValueToTxtField(checkerReason,comment);
-	        try {
-	            Thread.sleep(3000);
-	        } catch (InterruptedException e) {
-	            e.printStackTrace();
-	        }
+	        waitUntilWebElementIsClickable(approveYesBtn);
 	        clickOn(approveYesBtn);
 		
 	}
@@ -923,7 +919,7 @@ public class FaxTemplatePage extends BasePage {
 		
 	}
 
-	public boolean verifyApprovedSectionData(FaxTemplateDetails faxTemplateDetails) {
+	public boolean verifyApprovedSectionData(FaxTemplateDetails faxTemplateDetails) throws Exception {
 		searchFaxTemplateRecordApprovedData(faxTemplateDetails.getTemplateName());
 		if(norecords.isDisplayed())
 			return true; 
@@ -931,7 +927,7 @@ public class FaxTemplatePage extends BasePage {
 				return false;
 	}
 
-	public boolean verifyApprovedSectionDataafterapproval(FaxTemplateDetails faxTemplateDetails) {
+	public boolean verifyApprovedSectionDataafterapproval(FaxTemplateDetails faxTemplateDetails) throws Exception {
 		searchFaxTemplateRecordApprovedData(faxTemplateDetails.getTemplateName());
 		if(rowdata.getText().equals(faxTemplateDetails.getTemplateName()))
 			return true;
@@ -941,13 +937,10 @@ public class FaxTemplatePage extends BasePage {
 
 	public boolean addCancelButton(FaxTemplateDetails faxTemplateDetails) throws Exception {
 		selectWebElement(FaxTemplateTabs.get(1));
-		Thread.sleep(1000);
 		selectWebElement(makeFaxTemplateChanges);
-		Thread.sleep(1000);
 		String actualitems=items.get(1).getText();
 		selectWebElement(addNewFaxTemplateRecordBtn);
 		waitForJqueryLoad(driver);
-	    Thread.sleep(2000);
         enterValueToTxtFieldWithoutClear(TemplateNameTextBox,faxTemplateDetails.getTemplateName());
         driver.switchTo().frame(iframe);
         enterValueToTxtFieldWithoutClear(Body,faxTemplateDetails.getBody());
@@ -961,12 +954,9 @@ public class FaxTemplatePage extends BasePage {
 
 	public void addwithoutTemplateName(FaxTemplateDetails faxTemplateDetails) throws Exception {
 		selectWebElement(FaxTemplateTabs.get(1));
-		Thread.sleep(1000);
 		selectWebElement(makeFaxTemplateChanges);
-		Thread.sleep(1000);
 		selectWebElement(addNewFaxTemplateRecordBtn);
 		waitForJqueryLoad(driver);
-	    Thread.sleep(2000);
         driver.switchTo().frame(iframe);
         enterValueToTxtFieldWithoutClear(Body,faxTemplateDetails.getBody());
         driver.switchTo().defaultContent();
@@ -976,12 +966,9 @@ public class FaxTemplatePage extends BasePage {
 
 	public void addwithoutBody(FaxTemplateDetails faxTemplateDetails) throws Exception {
 		selectWebElement(FaxTemplateTabs.get(1));
-		Thread.sleep(1000);
 		selectWebElement(makeFaxTemplateChanges);
-		Thread.sleep(1000);
 		selectWebElement(addNewFaxTemplateRecordBtn);
 		waitForJqueryLoad(driver);
-	    Thread.sleep(2000);
         enterValueToTxtFieldWithoutClear(TemplateNameTextBox,faxTemplateDetails.getTemplateName());
         selectWebElement(saveBtn);
         selectWebElement(cancelBtn);	
@@ -989,12 +976,9 @@ public class FaxTemplatePage extends BasePage {
 
 	public void addwithoutUploadingFile(FaxTemplateDetails faxTemplateDetails) throws Exception {
 		selectWebElement(FaxTemplateTabs.get(1));
-		Thread.sleep(1000);
 		selectWebElement(makeFaxTemplateChanges);
-		Thread.sleep(1000);
 		selectWebElement(addNewFaxTemplateRecordBtn);
 		waitForJqueryLoad(driver);
-	    Thread.sleep(2000);
         enterValueToTxtFieldWithoutClear(TemplateNameTextBox,faxTemplateDetails.getTemplateName());
         selectWebElement(customEnable);
         selectWebElement(uploadEnable);
@@ -1009,12 +993,9 @@ public class FaxTemplatePage extends BasePage {
 
 	public void addwithoutUploadingWrongFile(FaxTemplateDetails faxTemplateDetails) throws Exception {
 		selectWebElement(FaxTemplateTabs.get(1));
-		Thread.sleep(1000);
 		selectWebElement(makeFaxTemplateChanges);
-		Thread.sleep(1000);
 		selectWebElement(addNewFaxTemplateRecordBtn);
 		waitForJqueryLoad(driver);
-	    Thread.sleep(2000);
         enterValueToTxtFieldWithoutClear(TemplateNameTextBox,faxTemplateDetails.getTemplateName());
         selectWebElement(customEnable);
         selectWebElement(uploadEnable);
@@ -1030,34 +1011,21 @@ public class FaxTemplatePage extends BasePage {
 		return makeFaxTemplateChanges.isDisplayed();
 	}
 
-	public void clickonReject(String comment) {
+	public void clickonReject(String comment) throws Exception {
 		 selectWebElement(FaxTemplateTabs.get(1));
-	        try {
-	            Thread.sleep(3000);
-	        } catch (InterruptedException e) {
-	            e.printStackTrace();
-	        }
+	     waitForJqueryLoad(driver);
 	        clickOn(rejectBtn);
-	        selectWebElement(checkerReason);
+	        waitUntilWebElementIsVisible(checkerReason);
 	        enterValueToTxtField(checkerReason,comment);
-	        try {
-	            Thread.sleep(2000);
-	        } catch (InterruptedException e) {
-	            e.printStackTrace();
-	        }
 	        clickOn(approveYesBtn);
 		
 	}
 
 	public void EditFaxTemplateRecord(FaxTemplateDetails faxTemplateDetails) throws Exception {
 		selectWebElement(FaxTemplateTabs.get(1));
-		Thread.sleep(1000);
 		selectWebElement(makeFaxTemplateChanges);
-		Thread.sleep(1000);
 		searchFaxTemplateRecord(faxTemplateDetails.getTemplateName());
-		Thread.sleep(1000);
 		selectWebElement(editButton);
-		Thread.sleep(1000);
 		selectWebElement(uploadEnable);
 		selectWebElement(logoEnable);
 		selectWebElement(uploadfile);
@@ -1066,8 +1034,9 @@ public class FaxTemplatePage extends BasePage {
         driver.switchTo().frame(iframe);
         enterValueToTxtField(Body,faxTemplateDetails.getUpdatedBody());
         driver.switchTo().defaultContent();
-        selectWebElement(modifyReasonTextBox);
-        enterValueToTxtField(modifyReasonTextBox,faxTemplateDetails.getModifyReason());
+        scrollToElement(modifyReasonTextBox);
+		selectWebElement(modifyReasonTextBox);
+        enterValueToTxtFieldWithoutClear(modifyReasonTextBox,faxTemplateDetails.getModifyReason());
         selectWebElement(saveBtn);	
 		
 	}
@@ -1159,7 +1128,7 @@ public class FaxTemplatePage extends BasePage {
         FileUploader upload = new FileUploader();
         upload.uploadFile(System.getProperty("user.dir") + "\\src\\test\\resources\\FileUpload\\" + faxTemplateDetails.getUpdatedFilename());
         selectWebElement(modifyReasonTextBox);
-        enterValueToTxtField(modifyReasonTextBox,faxTemplateDetails.getModifyReason());
+        enterValueToTxtFieldWithoutClear(modifyReasonTextBox,faxTemplateDetails.getModifyReason());
         selectWebElement(saveBtn);	
 	}
 
@@ -1203,7 +1172,7 @@ public class FaxTemplatePage extends BasePage {
 		selectWebElement(deleteButton);
 		Thread.sleep(1000);
         selectWebElement(deleteReasonTextBox);
-        enterValueToTxtField(deleteReasonTextBox,faxTemplateDetails.getDeleteReason());
+        enterValueToTxtFieldWithoutClear(deleteReasonTextBox,faxTemplateDetails.getDeleteReason());
         selectWebElement(yesBtn);		
 	}
 
@@ -1279,7 +1248,7 @@ public class FaxTemplatePage extends BasePage {
 			return arr;
 	}
 	
-	public boolean clearAll(FaxTemplateDetails faxTemplateDetails) {
+	public boolean clearAll(FaxTemplateDetails faxTemplateDetails) throws Exception {
 		selectWebElement(gridsearchLink);
         selectWebElement(selectSearchColumn.get(0));
         selectDropdownFromVisibleText(columnNameList,"Template Name");

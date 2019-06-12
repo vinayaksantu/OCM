@@ -534,7 +534,7 @@ public class VbEnrollmentFlagPage extends BasePage {
 		else
 			return false;		
 	}
-	public boolean clearAll(VBEnrollmentFlagDetails vBEnrollmentFlagDetails) {
+	public boolean clearAll(VBEnrollmentFlagDetails vBEnrollmentFlagDetails) throws Exception {
 		selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"DNIS");
@@ -563,7 +563,7 @@ public class VbEnrollmentFlagPage extends BasePage {
         selectWebElement(searchSearchBtn);	
 		selectWebElement(searchClose);		
 	}
-	public boolean verifyinvalidsearchwithwrongdata(VBEnrollmentFlagDetails details) {
+	public boolean verifyinvalidsearchwithwrongdata(VBEnrollmentFlagDetails details) throws Exception {
 		searchVbEnrollmentFlagRecord(details.getDNIS());
 		try {
 			Thread.sleep(1000);
@@ -576,7 +576,7 @@ public class VbEnrollmentFlagPage extends BasePage {
 			else
 				return false;
 	}
-	public void searchVbEnrollmentFlagRecord(String dnis) {
+	public void searchVbEnrollmentFlagRecord(String dnis) throws Exception {
 		selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"DNIS");
@@ -630,7 +630,7 @@ public class VbEnrollmentFlagPage extends BasePage {
 		 if(errorMsg.size()>0){return errorMsg.get(0).getText();}
 	       else{waitUntilWebElementIsVisible(successmsg);return successmsg.getText();}
 	}
-	public void addNewVBEnrollmentFlagRecord(VBEnrollmentFlagDetails details) {
+	public void addNewVBEnrollmentFlagRecord(VBEnrollmentFlagDetails details) throws Exception {
 		selectWebElement(addNewVbEnrollmentFlagRecordBtn);
 		selectWebElement(DNISTextbox);
 		enterValueToTxtField(DNISTextbox,details.getDNIS());
@@ -645,7 +645,7 @@ public class VbEnrollmentFlagPage extends BasePage {
 		selectWebElement(saveButton);
 		selectWebElement(cancelBtn);			
 	}
-	public void addRecordWithoutDNIS(VBEnrollmentFlagDetails details) {
+	public void addRecordWithoutDNIS(VBEnrollmentFlagDetails details) throws Exception {
 		selectWebElement(addNewVbEnrollmentFlagRecordBtn);
 		selectWebElement(HotLineNameTextBox);
 		enterValueToTxtField(HotLineNameTextBox,details.getHotLineName());
@@ -654,7 +654,7 @@ public class VbEnrollmentFlagPage extends BasePage {
 		selectWebElement(saveButton);
 		selectWebElement(cancelBtn);			
 	}
-	public void addRecordWithoutEnrollmentFlag(VBEnrollmentFlagDetails details) {
+	public void addRecordWithoutEnrollmentFlag(VBEnrollmentFlagDetails details) throws Exception {
 		selectWebElement(addNewVbEnrollmentFlagRecordBtn);
 		selectWebElement(DNISTextbox);
 		enterValueToTxtField(DNISTextbox,details.getDNIS());
@@ -663,7 +663,7 @@ public class VbEnrollmentFlagPage extends BasePage {
 		selectWebElement(saveButton);
 		selectWebElement(cancelBtn);			
 	}
-	public void addRecordWithoutHotLineName(VBEnrollmentFlagDetails details) {
+	public void addRecordWithoutHotLineName(VBEnrollmentFlagDetails details) throws Exception {
 		selectWebElement(addNewVbEnrollmentFlagRecordBtn);
 		selectWebElement(DNISTextbox);
 		enterValueToTxtField(DNISTextbox,details.getDNIS());

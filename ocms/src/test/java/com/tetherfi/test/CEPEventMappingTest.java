@@ -34,7 +34,7 @@ public class CEPEventMappingTest extends BaseTest {
          CepEventMappingPage CepEventMappingPage=PageFactory.createPageInstance(driver,CepEventMappingPage.class);
          Assert.assertTrue(CepEventMappingPage.isCepEventMappingPageDisplayed(),"Cep Event Mapping assertion failed");
     }
-    /*@Test(priority=1)
+    @Test(priority=1)
     public void CepEventMappingPage() {
         CepEventMappingPage CepEventMappingPage=PageFactory.createPageInstance(driver,CepEventMappingPage.class);
     	Assert.assertTrue(CepEventMappingPage.VerifyLogo(),"Cep Event Mapping logo assertion failed");
@@ -69,7 +69,7 @@ public class CEPEventMappingTest extends BaseTest {
         CepEventMappingDetails CepEventMappingDetails = new CepEventMappingDetails(map);
     	CepEventMappingPage CepEventMappingPage=PageFactory.createPageInstance(driver,CepEventMappingPage.class);
         CepEventMappingPage.addNewCepEventMappingRecord(CepEventMappingDetails);
-        Assert.assertEquals(CepEventMappingPage.getMessage(),"Record Created Successfully","Add New record assertion failed");
+        Assert.assertEquals(CepEventMappingPage.getSuccessMessage(),"Record Created Successfully","Add New record assertion failed");
     }
     
     @Test(priority=6)
@@ -162,7 +162,7 @@ public class CEPEventMappingTest extends BaseTest {
         CepEventMappingDetails CepEventMappingDetails = new CepEventMappingDetails(map);
     	CepEventMappingPage CepEventMappingPage=PageFactory.createPageInstance(driver,CepEventMappingPage.class);
     	CepEventMappingPage.editCepEventMappingRecord(CepEventMappingDetails);
-        Assert.assertEquals(CepEventMappingPage.getMessage(),"Record Updated Successfully","Edit record assertion failed");
+        Assert.assertEquals(CepEventMappingPage.getSuccessMessage(),"Record Updated Successfully","Edit record assertion failed");
     }
     
    	@Test(priority=15)
@@ -180,7 +180,7 @@ public class CEPEventMappingTest extends BaseTest {
         Assert.assertTrue(ocmReportsPage.verifyCepEventMappingUpdate(CepEventMappingDetails,"Update"));
     }
   
-   	@Test(priority=16)//,dependsOnMethods = "EditCepEventMappingRecord")
+   	@Test(priority=16)
     public void EditWithoutModifyReasonRecord() throws Exception {
    		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\CepEventMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
@@ -190,11 +190,11 @@ public class CEPEventMappingTest extends BaseTest {
         Assert.assertEquals(CepEventMappingPage.getMessage(),"Please enter the modify reason", "empty modify reason record assertion failed");
     }
     
-    @Test(priority=17)//,dependsOnMethods = "EditWithoutModifyReasonRecord")
-    public void VerifyCancelBtnAtEditRecord(){
+    @Test(priority=17)
+    public void VerifyCancelBtnAtEditRecord() throws InterruptedException{
     	CepEventMappingPage CepEventMappingPage=PageFactory.createPageInstance(driver,CepEventMappingPage.class);
     	CepEventMappingPage.searchCepEventMapping("1919");
-    	Thread.sleep(1000);
+    	Thread.sleep(3000);
     	CepEventMappingPage.clickOnEditButton();
     	CepEventMappingPage.clickOnCancelBtn();
         Assert.assertFalse(CepEventMappingPage.verifyEditFormContainer(), "Cancel Btn at Edit record assertion failed");
@@ -254,7 +254,7 @@ public class CEPEventMappingTest extends BaseTest {
          CepEventMappingDetails CepEventMappingDetails = new CepEventMappingDetails(map);
      	 CepEventMappingPage CepEventMappingPage=PageFactory.createPageInstance(driver,CepEventMappingPage.class);
      	 CepEventMappingPage.deleteCEPEventMappingRecord(CepEventMappingDetails);
-     	 Assert.assertEquals(CepEventMappingPage.getMessage(),"Record Deleted Successfully","Delete record assertion failed");
+     	 Assert.assertEquals(CepEventMappingPage.getSuccessMessage(),"Record Deleted Successfully","Delete record assertion failed");
     }
     
     @Test(priority=24)
@@ -343,7 +343,7 @@ public class CEPEventMappingTest extends BaseTest {
     public void VerifyNumberOfItemsPerPageSelection() {
     	CepEventMappingPage CepEventMappingPage=PageFactory.createPageInstance(driver,CepEventMappingPage.class);
         Assert.assertTrue(CepEventMappingPage.verifyNumberOfItemsPerPage(),"item per page assertion failed");
-    }*/
+    }
     
     @Test(priority=34)
     public void searchwithoutSearchTextbox() throws IOException {

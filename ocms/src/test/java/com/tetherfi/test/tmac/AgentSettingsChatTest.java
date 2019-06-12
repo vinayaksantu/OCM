@@ -16,7 +16,7 @@ import java.util.Map;
 public class AgentSettingsChatTest {
     protected WebDriver driver;
     @BeforeClass
-    public void NavigateToTmacPopupPage() throws IOException {
+    public void NavigateToTmacPopupPage() throws Exception {
         try {
             PageFactory.reset();
             BrowserFactory browserFactory = new BrowserFactory();

@@ -501,7 +501,7 @@ public class HolidayListPage extends BasePage{
 			e.printStackTrace();
 		}
 	}
-	public boolean addnewHolidayListCancel(HolidayListDetails details) {
+	public boolean addnewHolidayListCancel(HolidayListDetails details) throws Exception {
 		String actualitems=items.getText();
 		selectWebElement(addNewHolidayListRecordBtn);
 		enterValueToTxtField(announcedHolidayTextbox,details.getAnnouncedHoliday());
@@ -516,8 +516,9 @@ public class HolidayListPage extends BasePage{
 		else
 			return false;
 	}
-	public void addNewHolidayList(HolidayListDetails details) {
+	public void addNewHolidayList(HolidayListDetails details) throws Exception {
 		selectWebElement(addNewHolidayListRecordBtn);
+		waitForJqueryLoad(driver);
 		enterValueToTxtField(announcedHolidayTextbox,details.getAnnouncedHoliday());
 		enterValueToTxtField(startDateTextbox,details.getStartDate());
 		enterValueToTxtField(startTimeTextbox,details.getStartTime());
@@ -537,7 +538,7 @@ public class HolidayListPage extends BasePage{
 			{return false;}
 	}
 
-	public boolean ExporttoExcelWithoutData(HolidayListDetails details) {
+	public boolean ExporttoExcelWithoutData(HolidayListDetails details) throws Exception {
 		searchHolidayList(details.getStartDate());
 		waitForJqueryLoad(driver);
 		selectWebElement(exporttoexcel);
@@ -547,7 +548,7 @@ public class HolidayListPage extends BasePage{
 		return false;
 	}
 	
-	private void searchHolidayList(String startDate) {
+	private void searchHolidayList(String startDate) throws Exception {
 		selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Start Date");
@@ -559,7 +560,7 @@ public class HolidayListPage extends BasePage{
         waitUntilWebElementIsVisible(gridContent);
 		
 	}
-	public boolean editHolidaylistCancelbtn(HolidayListDetails details) {
+	public boolean editHolidaylistCancelbtn(HolidayListDetails details) throws Exception {
 		searchHolidayList(details.getStartDate());
 		selectWebElement(editButton);
 		enterValueToTxtField(ModifyReasonTxtbox,details.getModifyReason());
@@ -570,7 +571,7 @@ public class HolidayListPage extends BasePage{
 		return false;
 		
 	}
-	public void editHolidayListRecord(HolidayListDetails details) {
+	public void editHolidayListRecord(HolidayListDetails details) throws Exception {
 		searchHolidayList(details.getStartDate());
 		selectWebElement(editButton);		
 		enterValueToTxtField(announcedHolidayTextbox,details.getUpdatedAnnouncedHoliday());
@@ -631,7 +632,7 @@ public class HolidayListPage extends BasePage{
 	}	
 	
 	
-	public boolean verifydeleteNo(HolidayListDetails details) {
+	public boolean verifydeleteNo(HolidayListDetails details) throws Exception {
 		searchHolidayList(details.getStartDate());
 		selectWebElement(deleteButton);
 		try {
@@ -646,7 +647,7 @@ public class HolidayListPage extends BasePage{
 		else
 		return false;
 	}
-	public void deleteHolidayListRecord(HolidayListDetails details) {
+	public void deleteHolidayListRecord(HolidayListDetails details) throws Exception {
 		searchHolidayList(details.getStartDate());
 		selectWebElement(deleteButton);
 		try {
@@ -729,19 +730,19 @@ public class HolidayListPage extends BasePage{
 		selectWebElement(savebtn);
 		selectWebElement(cancelbtn);			
 	}
-	public void EditLeavingModifyReasonBlank(HolidayListDetails details) {
+	public void EditLeavingModifyReasonBlank(HolidayListDetails details) throws Exception {
 		searchHolidayList(details.getStartDate());
 		selectWebElement(editButton);		
 		selectWebElement(savebtn);
 		selectWebElement(cancelbtn);
 		
 	}
-	public void addDuplicateRecord(HolidayListDetails details) {
+	public void addDuplicateRecord(HolidayListDetails details) throws Exception {
 		addNewHolidayList(details);
 		selectWebElement(cancelbtn);	
 	}
 	
-	public boolean clearAll(HolidayListDetails details) {
+	public boolean clearAll(HolidayListDetails details) throws Exception {
 		selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Start Date");
@@ -762,7 +763,7 @@ public class HolidayListPage extends BasePage{
 		else
 		return false;
 	}
-	public boolean verifyinvalidsearchwithwrongdata(HolidayListDetails details) {
+	public boolean verifyinvalidsearchwithwrongdata(HolidayListDetails details) throws Exception {
 		searchHolidayList(details.getStartDate());
 		if(norecords.isDisplayed())
 			return true; 

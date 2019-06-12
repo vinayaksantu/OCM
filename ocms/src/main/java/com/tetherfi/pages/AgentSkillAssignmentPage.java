@@ -230,7 +230,7 @@ public class AgentSkillAssignmentPage extends BasePage {
         multiSkillTab.click();
         waitForJqueryLoad(driver);
     }
-    public void searchAgentListRecord(String username) {
+    public void searchAgentListRecord(String username) throws Exception {
         selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"User Name");
@@ -242,7 +242,7 @@ public class AgentSkillAssignmentPage extends BasePage {
         waitUntilWebElementIsVisible(gridContent);
     }
 
-    public void assignSkillToAgent(AgentSkillAssignmentDetails details) {
+    public void assignSkillToAgent(AgentSkillAssignmentDetails details) throws Exception {
         searchAgentListRecord(details.getUsername());
         selectWebElement(editButton);
         waitForJqueryLoad(driver);
@@ -254,7 +254,7 @@ public class AgentSkillAssignmentPage extends BasePage {
         selectWebElement(okButton);
         clickOn(saveBtn);
     }
-    public void assignSkillToMultipleAgent(AgentSkillAssignmentDetails details) {
+    public void assignSkillToMultipleAgent(AgentSkillAssignmentDetails details) throws Exception {
         selectAgent(details.getUsername());
         selectmultiSkillTab(details.getSkillType());
         waitUntilWebElementListIsVisible(multiskillsSelected);
@@ -285,7 +285,7 @@ public class AgentSkillAssignmentPage extends BasePage {
             }
         }
     }
-    public void selectmultiSkillName(String skillName, String skLevel){
+    public void selectmultiSkillName(String skillName, String skLevel) throws Exception{
         String[] a=skillName.split(",");
         String[] b=skLevel.split(",");
         for(String skill:a){
@@ -464,7 +464,7 @@ public class AgentSkillAssignmentPage extends BasePage {
 		}
 			return arr;
 	}
-	public boolean ExporttoExcelWithoutData(AgentSkillAssignmentDetails details) {
+	public boolean ExporttoExcelWithoutData(AgentSkillAssignmentDetails details) throws Exception {
 		searchAgentListRecord(details.getUsername());
 		waitForJqueryLoad(driver);
 		selectWebElement(exporttoexcel);

@@ -121,8 +121,8 @@ public class FaxTemplateUITest extends BaseTest{
         faxTemplatePage.selectFaxTemplateAuditTrailTab();
         faxTemplatePage.selectMakeFaxTemplateChanges();
         Assert.assertTrue(faxTemplatePage.verifyNumberOfItemsPerPage(2),"item per page assertion failed");
-    }
-    */
+    }*/
+    
     @Test(priority=12)
     public void ExportToExcel() throws Exception
     {
@@ -176,7 +176,7 @@ public class FaxTemplateUITest extends BaseTest{
         Assert.assertTrue(faxTemplatePage.verifyexportToExcelSheet(maplist));
     }
     
-    /*@Test(priority=17)
+    //@Test(priority=17)
     public void VerifyDragAndDrop() {
     	FaxTemplatePage faxTemplatePage = PageFactory.createPageInstance(driver, FaxTemplatePage.class);
         faxTemplatePage.selectFaxTemplateAuditTrailTab();
@@ -184,7 +184,7 @@ public class FaxTemplateUITest extends BaseTest{
         faxTemplatePage.dragColumntoGroup("Template Name");
         Assert.assertTrue(faxTemplatePage.verifyDragColumntoGroup("Template Name"),"drag and drop assertion failed");
     }
-    @Test(priority=18)
+    //@Test(priority=18)
     public void VerifyDragAndDropofAlreadyGroupedHeader() {
     	FaxTemplatePage faxTemplatePage = PageFactory.createPageInstance(driver, FaxTemplatePage.class);
         faxTemplatePage.selectFaxTemplateAuditTrailTab();
@@ -194,7 +194,7 @@ public class FaxTemplateUITest extends BaseTest{
         Assert.assertTrue(faxTemplatePage.verifyDragColumntoGroup("Template Name"),"drag and drop assertion failed");
     }
     
-    @Test(priority=19)
+   // @Test(priority=19)
     public void database() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxTemplateData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(0);
@@ -204,7 +204,7 @@ public class FaxTemplateUITest extends BaseTest{
     }
     
     @Test(priority=20)
-    public void searchPage() throws IOException {
+    public void searchPage() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxTemplateData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
 	    FaxTemplateDetails faxTemplateDetails = new FaxTemplateDetails(map);
@@ -214,7 +214,7 @@ public class FaxTemplateUITest extends BaseTest{
         Assert.assertTrue(faxTemplatePage.verifyclose());
         screenshot.captureScreen("FaxTemplateUITest","SearchClose");
     }
-    @Test(priority=21)
+    //@Test(priority=21)
     public void searchwithoutSearchTextbox() throws IOException {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxTemplateData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -224,7 +224,7 @@ public class FaxTemplateUITest extends BaseTest{
     	Assert.assertFalse(faxTemplatePage.getErrorMsg());
     }
     
-    @Test(priority=22)
+    //@Test(priority=22)
     public void SearchClearSearch() throws Exception
     {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxTemplateData.xlsx";
@@ -236,7 +236,7 @@ public class FaxTemplateUITest extends BaseTest{
         Assert.assertTrue(faxTemplatePage.verifyclearsearch(), "Clear All Assertion Failed");
         screenshot.captureScreen("FaxTemplateUITest","ClearSearch");    
         }
-        */
+    
     
     @AfterMethod
     public void afterEachMethod(Method method) throws InterruptedException {

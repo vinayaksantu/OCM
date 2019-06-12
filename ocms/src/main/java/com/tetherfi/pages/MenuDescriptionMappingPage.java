@@ -540,7 +540,7 @@ public class MenuDescriptionMappingPage extends BasePage {
 		else
 			return false;		
 	}
-	public boolean clearAll(MenuDescriptionMappingDetails details) {
+	public boolean clearAll(MenuDescriptionMappingDetails details) throws Exception {
 		selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Menu ID");
@@ -569,7 +569,7 @@ public class MenuDescriptionMappingPage extends BasePage {
         selectWebElement(searchSearchBtn);	
 		selectWebElement(searchClose);		
 	}
-	public boolean verifyinvalidsearchwithwrongdata(MenuDescriptionMappingDetails details) {
+	public boolean verifyinvalidsearchwithwrongdata(MenuDescriptionMappingDetails details) throws Exception {
 		searchMenuDescriptionMappingRecord(details.getMenuID());
 		try {
 			Thread.sleep(1000);
@@ -601,7 +601,7 @@ public class MenuDescriptionMappingPage extends BasePage {
 		return false;
 	}
 
-	public void addNewMenuDescriptionMappingRecord(MenuDescriptionMappingDetails details) {
+	public void addNewMenuDescriptionMappingRecord(MenuDescriptionMappingDetails details) throws Exception {
 		selectWebElement(addMenuDescMappingRecdBtn);
 		waitForLoad(driver);
 		selectWebElement(menuIDTextbox);
@@ -624,7 +624,7 @@ public class MenuDescriptionMappingPage extends BasePage {
 		selectWebElement(saveButton);
 	}
 
-	public void addRecordWithoutMenuID(MenuDescriptionMappingDetails details) {
+	public void addRecordWithoutMenuID(MenuDescriptionMappingDetails details) throws Exception {
 		selectWebElement(addMenuDescMappingRecdBtn);
 		waitForLoad(driver);
 		selectWebElement(menuNameTextbox);
@@ -635,7 +635,7 @@ public class MenuDescriptionMappingPage extends BasePage {
 		selectWebElement(cancelBtn);
 	}
 
-	public void addRecordWithoutMenuName(MenuDescriptionMappingDetails details) {
+	public void addRecordWithoutMenuName(MenuDescriptionMappingDetails details) throws Exception {
 		selectWebElement(addMenuDescMappingRecdBtn);
 		waitForLoad(driver);
 		selectWebElement(menuIDTextbox);
@@ -646,7 +646,7 @@ public class MenuDescriptionMappingPage extends BasePage {
 		selectWebElement(cancelBtn);
 		}
 
-	public void addRecordWithoutIntent(MenuDescriptionMappingDetails details) {
+	public void addRecordWithoutIntent(MenuDescriptionMappingDetails details) throws Exception {
 		selectWebElement(addMenuDescMappingRecdBtn);
 		waitForLoad(driver);
 		selectWebElement(menuIDTextbox);
@@ -697,7 +697,7 @@ public class MenuDescriptionMappingPage extends BasePage {
 		selectWebElement(cancelBtn);
 	}
 
-	public void searchMenuDescriptionMappingRecord(String menuid) {
+	public void searchMenuDescriptionMappingRecord(String menuid) throws Exception {
 		selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Menu Id");

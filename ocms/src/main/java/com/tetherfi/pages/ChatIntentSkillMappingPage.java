@@ -526,7 +526,7 @@ public class ChatIntentSkillMappingPage extends BasePage {
 		else
 			return false;		
 	}
-	public boolean clearAll(ChatIntentSkillMappingDetails details) {
+	public boolean clearAll(ChatIntentSkillMappingDetails details) throws Exception {
 		selectWebElement(searchLink);
         selectWebElement(selectSearchColumn.get(0));
         selectDropdownFromVisibleText(columnNameList,"Segment");
@@ -555,7 +555,7 @@ public class ChatIntentSkillMappingPage extends BasePage {
         selectWebElement(searchBtn);	
 		selectWebElement(searchClose);		
 	}
-	public boolean verifyinvalidsearchwithwrongdata(ChatIntentSkillMappingDetails chatIntentSkillMappingDetails) {
+	public boolean verifyinvalidsearchwithwrongdata(ChatIntentSkillMappingDetails chatIntentSkillMappingDetails) throws Exception {
 		searchChatIntentSkillMappingRecord(chatIntentSkillMappingDetails.getSegment());
 		try {
 			Thread.sleep(1000);
@@ -609,7 +609,7 @@ public class ChatIntentSkillMappingPage extends BasePage {
 		}
 	}
 
-    public void addNewChatIntentSkillMappingRecord(ChatIntentSkillMappingDetails details){
+    public void addNewChatIntentSkillMappingRecord(ChatIntentSkillMappingDetails details) throws Exception{
         selectWebElement(addNewIntentSkillMappingRecordBtn);
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(popupContent);
@@ -629,7 +629,7 @@ public class ChatIntentSkillMappingPage extends BasePage {
         enterValueToTxtField(custEntType,details.getCustEntType());
         btnClick(saveBtn);
     }
-    public void searchChatIntentSkillMappingRecord(String segment)  {
+    public void searchChatIntentSkillMappingRecord(String segment) throws Exception  {
         selectWebElement(searchLink);
         selectWebElement(selectSearchColumn.get(0));
         selectDropdownFromVisibleText(columnNameList,"Segment");
@@ -640,7 +640,7 @@ public class ChatIntentSkillMappingPage extends BasePage {
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(gridContent);
     }
-    public void editIntentSkillMappingRecord(ChatIntentSkillMappingDetails details) {
+    public void editIntentSkillMappingRecord(ChatIntentSkillMappingDetails details) throws Exception {
         searchChatIntentSkillMappingRecord(details.getSegment());
         selectWebElement(editBtn);
         waitForJqueryLoad(driver);
@@ -651,7 +651,7 @@ public class ChatIntentSkillMappingPage extends BasePage {
         enterValueToTxtField(modifyReasonTextBox,details.getModifyReason());
         btnClick(saveBtn);
     }
-    public void deleteIntentSkillMappingRecord(String segment, String reason) {
+    public void deleteIntentSkillMappingRecord(String segment, String reason) throws Exception {
         searchChatIntentSkillMappingRecord(segment);
         btnClick(deleteBtn);
         selectWebElement(deleteReasonTextBox);
@@ -694,7 +694,7 @@ public class ChatIntentSkillMappingPage extends BasePage {
     	return exporttoexcel.isDisplayed() && exporttoexcel.isEnabled();
     }
 
-	public void addRecordWithoutChannel(ChatIntentSkillMappingDetails details) {
+	public void addRecordWithoutChannel(ChatIntentSkillMappingDetails details) throws Exception {
 		selectWebElement(addNewIntentSkillMappingRecordBtn);
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(popupContent);
@@ -714,7 +714,7 @@ public class ChatIntentSkillMappingPage extends BasePage {
         selectWebElement(cancelBtn);
 	}
 
-	public void addRecordWithoutSkill(ChatIntentSkillMappingDetails details) {
+	public void addRecordWithoutSkill(ChatIntentSkillMappingDetails details) throws Exception {
 		selectWebElement(addNewIntentSkillMappingRecordBtn);
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(popupContent);
@@ -734,7 +734,7 @@ public class ChatIntentSkillMappingPage extends BasePage {
         selectWebElement(cancelBtn);
 	}
 
-	public void addRecordWithoutIntent(ChatIntentSkillMappingDetails details) {
+	public void addRecordWithoutIntent(ChatIntentSkillMappingDetails details) throws Exception {
 		selectWebElement(addNewIntentSkillMappingRecordBtn);
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(popupContent);
@@ -754,7 +754,7 @@ public class ChatIntentSkillMappingPage extends BasePage {
         selectWebElement(cancelBtn);
 	}
 
-	public void addRecordWithoutLanguage(ChatIntentSkillMappingDetails details) {
+	public void addRecordWithoutLanguage(ChatIntentSkillMappingDetails details) throws Exception {
 		selectWebElement(addNewIntentSkillMappingRecordBtn);
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(popupContent);
@@ -798,7 +798,7 @@ public class ChatIntentSkillMappingPage extends BasePage {
 	    
 	}
 
-	public void editChatIntentSkillMappingWithoutModifyReason(ChatIntentSkillMappingDetails details) {
+	public void editChatIntentSkillMappingWithoutModifyReason(ChatIntentSkillMappingDetails details) throws Exception {
 		searchChatIntentSkillMappingRecord(details.getUpdatedSegment());
         waitForJqueryLoad(driver);
         selectWebElement(editBtn);
@@ -841,7 +841,7 @@ public class ChatIntentSkillMappingPage extends BasePage {
 	        return isElementExist(deleteContainer);
 	}
 
-	public void addRecordWithoutSegment(ChatIntentSkillMappingDetails details) {
+	public void addRecordWithoutSegment(ChatIntentSkillMappingDetails details) throws Exception {
 		 selectWebElement(addNewIntentSkillMappingRecordBtn);
 	        waitForJqueryLoad(driver);
 	        waitUntilWebElementIsVisible(popupContent);
@@ -860,7 +860,7 @@ public class ChatIntentSkillMappingPage extends BasePage {
 	        btnClick(saveBtn);		
 	}
 
-	public void addRecordWithoutSubSegment(ChatIntentSkillMappingDetails details) {
+	public void addRecordWithoutSubSegment(ChatIntentSkillMappingDetails details) throws Exception {
 		 selectWebElement(addNewIntentSkillMappingRecordBtn);
 	        waitForJqueryLoad(driver);
 	        waitUntilWebElementIsVisible(popupContent);
@@ -879,7 +879,7 @@ public class ChatIntentSkillMappingPage extends BasePage {
 	        btnClick(saveBtn);		
 	}
 
-	public void addRecordWithoutCustomEntType(ChatIntentSkillMappingDetails details) {
+	public void addRecordWithoutCustomEntType(ChatIntentSkillMappingDetails details) throws Exception {
 		 selectWebElement(addNewIntentSkillMappingRecordBtn);
 	        waitForJqueryLoad(driver);
 	        waitUntilWebElementIsVisible(popupContent);

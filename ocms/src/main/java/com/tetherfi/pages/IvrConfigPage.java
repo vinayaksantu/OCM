@@ -231,7 +231,7 @@ public class IvrConfigPage extends BasePage {
         	e.printStackTrace();
         }
     }
-    public void searchIvrConfigRecord(String column,String value) {
+    public void searchIvrConfigRecord(String column,String value) throws Exception {
         selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,column);
@@ -242,7 +242,7 @@ public class IvrConfigPage extends BasePage {
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(gridContent);
     }
-    public void editIvrConfigRecord(IvrConfigDetails details) {
+    public void editIvrConfigRecord(IvrConfigDetails details) throws Exception {
         searchIvrConfigRecord(details.getSearchColumn(),details.getSearchValue());
         selectWebElement(editButton);
         try {
@@ -271,7 +271,7 @@ public class IvrConfigPage extends BasePage {
         	e.printStackTrace();
         }
     }
-    public void deleteIvrConfigRecord(IvrConfigDetails details) {
+    public void deleteIvrConfigRecord(IvrConfigDetails details) throws Exception {
         searchIvrConfigRecord(details.getSearchColumn(),details.getSearchValue());
         selectWebElement(deleteButton);
         enterValueToTxtField(deleteReasonTextBox,details.getDeleteReason());
@@ -680,7 +680,7 @@ public class IvrConfigPage extends BasePage {
 		else
 			return false;		
 	}
-	public boolean clearAll(IvrConfigDetails details) {
+	public boolean clearAll(IvrConfigDetails details) throws Exception {
 		selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Parameter");
@@ -709,7 +709,7 @@ public class IvrConfigPage extends BasePage {
         selectWebElement(searchSearchBtn);	
 		selectWebElement(searchClose);		
 	}
-	public boolean verifyinvalidsearchwithwrongdata(IvrConfigDetails ivrConfigDetails) {
+	public boolean verifyinvalidsearchwithwrongdata(IvrConfigDetails ivrConfigDetails) throws Exception {
 		searchIvrConfigRecord("Parameter",ivrConfigDetails.getParameter());
 		if(norecords.isDisplayed())
 			return true; 

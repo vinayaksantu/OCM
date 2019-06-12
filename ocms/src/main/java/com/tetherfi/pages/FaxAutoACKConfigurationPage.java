@@ -12,6 +12,7 @@ import java.util.Map;
 import com.tetherfi.model.chat.CallBackManagementDetails;
 import com.tetherfi.model.fax.FaxAutoACKConfigurationDetails;
 import com.tetherfi.model.fax.FaxLineConfigDetails;
+import com.tetherfi.model.fax.FaxTemplateDetails;
 import com.tetherfi.model.fax.SendFaxDetails;
 
 import org.openqa.selenium.By;
@@ -403,7 +404,7 @@ public class FaxAutoACKConfigurationPage extends BasePage {
 		return false;
 	}
 
-	public void searchFaxAutoACKConfigurationRecord(String name) {
+	public void searchFaxAutoACKConfigurationRecord(String name) throws Exception {
 		selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Name");
@@ -726,7 +727,7 @@ public class FaxAutoACKConfigurationPage extends BasePage {
 
 	}
 
-	public boolean Editcancel(FaxAutoACKConfigurationDetails details) {
+	public boolean Editcancel(FaxAutoACKConfigurationDetails details) throws Exception {
 		searchFaxAutoACKConfigurationRecord(details.getName());
 		selectWebElement(editBtn);
 		waitForJqueryLoad(driver);
@@ -737,7 +738,7 @@ public class FaxAutoACKConfigurationPage extends BasePage {
 		return false;
 	}
 
-	public void editFaxAutoAckConfigRecord(FaxAutoACKConfigurationDetails details) {
+	public void editFaxAutoAckConfigRecord(FaxAutoACKConfigurationDetails details) throws Exception {
 		searchFaxAutoACKConfigurationRecord(details.getName());
 		selectWebElement(editBtn);
 		waitForJqueryLoad(driver);
@@ -747,7 +748,7 @@ public class FaxAutoACKConfigurationPage extends BasePage {
         selectWebElement(SaveBtn);
 	}
 
-	public void EditInvalidRecord(FaxAutoACKConfigurationDetails details) {
+	public void EditInvalidRecord(FaxAutoACKConfigurationDetails details) throws Exception {
 		searchFaxAutoACKConfigurationRecord(details.getName());
 		selectWebElement(editBtn);
 		waitForJqueryLoad(driver);
@@ -757,7 +758,7 @@ public class FaxAutoACKConfigurationPage extends BasePage {
         selectWebElement(cancelBtn);
 	}
 
-	public boolean clearAll(FaxAutoACKConfigurationDetails faxAutoAckConfigurationDetails) {
+	public boolean clearAll(FaxAutoACKConfigurationDetails faxAutoAckConfigurationDetails) throws Exception {
 		selectWebElement(searchBtn);
 	    selectWebElement(selectSearchCol.get(0));
 	    selectDropdownFromVisibleText(columnNameList,"Name");
@@ -789,7 +790,7 @@ public class FaxAutoACKConfigurationPage extends BasePage {
 	    selectWebElement(searchCloseBtn);
 	}
 
-	public boolean Deletecancel(FaxAutoACKConfigurationDetails details) {
+	public boolean Deletecancel(FaxAutoACKConfigurationDetails details) throws Exception {
 		searchFaxAutoACKConfigurationRecord(details.getName());
 		selectWebElement(deleteBtn);
 		waitForJqueryLoad(driver);
@@ -819,7 +820,7 @@ public class FaxAutoACKConfigurationPage extends BasePage {
 		
 	}
 
-	public boolean verifyinvalidsearchwithwrongdata(FaxAutoACKConfigurationDetails details) {
+	public boolean verifyinvalidsearchwithwrongdata(FaxAutoACKConfigurationDetails details) throws Exception {
 		searchFaxAutoACKConfigurationRecord(details.getName());
 		if(norecords.isDisplayed())
 			return true; 
@@ -833,6 +834,23 @@ public class FaxAutoACKConfigurationPage extends BasePage {
 			return true;
 		else
 		return false;
+	}
+
+	public boolean verifyFaxTemplate(FaxTemplateDetails faxTemplateDetails) {
+		Boolean Status =false;
+		selectWebElement(addFaxAutoAckConfigBtn);
+		waitForLoad(driver);
+		selectWebElement(templateDropdown);
+		for(WebElement ele:templateListBox)
+		{
+			if(ele.getText().equals(faxTemplateDetails.getTemplateName())){
+				selectWebElement(ele);
+				Status=true;
+				break;
+			}
+		}
+		selectWebElement(cancelBtn);
+		return Status;
 	}
 	
 

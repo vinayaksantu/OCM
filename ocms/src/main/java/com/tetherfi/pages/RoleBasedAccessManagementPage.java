@@ -239,13 +239,13 @@ public class RoleBasedAccessManagementPage extends BasePage{
         return roleBasedAccessManagement.isEnabled();
     }
 
-    public void addNewRoleBasedAccessManagementRecord(String roleName) {
+    public void addNewRoleBasedAccessManagementRecord(String roleName) throws Exception {
         selectWebElement(addNewRoleBasedAccessManagementRecordBtn);
         selectWebElement(roleNameTextBox);
         enterValueToTxtField(roleNameTextBox,roleName);
         selectWebElement(saveBtn);
     }
-    public void searchRoleBasedAccessManagementRecord(String roleName) {
+    public void searchRoleBasedAccessManagementRecord(String roleName) throws Exception {
         selectWebElement(searchLink);
         selectWebElement(selectSearchColumn.get(0));
         selectDropdownFromVisibleText(columnNameList,"Role Name");
@@ -265,7 +265,7 @@ public class RoleBasedAccessManagementPage extends BasePage{
         enterValueToTxtField(modifyReasonTextBox,reason);
         selectWebElement(saveBtn);
     }
-    public void deleteRoleBasedAccessManagementRecord(String oldrolename, String reason) {
+    public void deleteRoleBasedAccessManagementRecord(String oldrolename, String reason) throws Exception {
         searchRoleBasedAccessManagementRecord(oldrolename);
         selectWebElement(deleteBtn);
         selectWebElement(deleteReasonTextBox);
@@ -357,7 +357,7 @@ public class RoleBasedAccessManagementPage extends BasePage{
 		else 
 			return false;}
 
-	public boolean addNewCancel(String roleName) {
+	public boolean addNewCancel(String roleName) throws Exception {
 		String actualitems=items.getText();
 		selectWebElement(addNewRoleBasedAccessManagementRecordBtn);
         selectWebElement(roleNameTextBox);
@@ -376,7 +376,7 @@ public class RoleBasedAccessManagementPage extends BasePage{
         selectWebElement(cancelBtn);
 	}
 
-	public void DuplicateRecord(UserDetails userDetails) {
+	public void DuplicateRecord(UserDetails userDetails) throws Exception {
 		selectWebElement(addNewRoleBasedAccessManagementRecordBtn);
         selectWebElement(roleNameTextBox);
         enterValueToTxtField(roleNameTextBox,userDetails.getRoleName());
@@ -389,7 +389,7 @@ public class RoleBasedAccessManagementPage extends BasePage{
         }
 	}
 
-	public boolean clearAll(String roleName) {
+	public boolean clearAll(String roleName) throws Exception {
 		selectWebElement(searchLink);
         selectWebElement(selectSearchColumn.get(0));
         selectDropdownFromVisibleText(columnNameList,"Role Name");
@@ -411,7 +411,7 @@ public class RoleBasedAccessManagementPage extends BasePage{
 		return false;
 	}
 
-	public boolean verifyinvalidsearch(UserDetails userDetails) {
+	public boolean verifyinvalidsearch(UserDetails userDetails) throws Exception {
 		try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
@@ -439,7 +439,7 @@ public class RoleBasedAccessManagementPage extends BasePage{
 		return false;
 	}
 
-	public boolean editCancel(String roleName, String newrolename, String reason) {
+	public boolean editCancel(String roleName, String newrolename, String reason) throws Exception {
 		searchRoleBasedAccessManagementRecord(roleName);
         selectWebElement(editBtn);
         selectWebElement(roleNameTextBox);
@@ -452,7 +452,7 @@ public class RoleBasedAccessManagementPage extends BasePage{
         return false;
 	}
 
-	public boolean deleteRecordNoBtn(String roleName, String deleteReason) {
+	public boolean deleteRecordNoBtn(String roleName, String deleteReason) throws Exception {
 		searchRoleBasedAccessManagementRecord(roleName);
 		selectWebElement(deleteBtn);
         try {
@@ -738,7 +738,7 @@ public class RoleBasedAccessManagementPage extends BasePage{
 		
 	}
 
-	public boolean ExporttoExcelWithoutData(UserDetails userDetails) {
+	public boolean ExporttoExcelWithoutData(UserDetails userDetails) throws Exception {
 		selectWebElement(searchLink);
         selectWebElement(selectSearchColumn.get(0));
         selectDropdownFromVisibleText(columnNameList,"Role Name");
@@ -803,7 +803,7 @@ public class RoleBasedAccessManagementPage extends BasePage{
 		}
 			return arr;
 	}
-	public boolean verifypagebaseduseraccess(UserDetails userDetails) {
+	public boolean verifypagebaseduseraccess(UserDetails userDetails) throws Exception {
 		searchRoleBasedAccessManagementRecord(userDetails.getRoleName());
 		selectWebElement(rowdata);
 		try {
@@ -825,7 +825,7 @@ public class RoleBasedAccessManagementPage extends BasePage{
 		else
 		return false;
 	}
-	public boolean verifyaccesscheckbox(UserDetails userDetails) {
+	public boolean verifyaccesscheckbox(UserDetails userDetails) throws Exception {
 		searchRoleBasedAccessManagementRecord(userDetails.getRoleName());
 		selectWebElement(rowdata);
 		try {

@@ -132,7 +132,7 @@ public class AdhocOptionEnhancementTest extends BaseTest {
     	screenshot.captureScreen(driver,"aaddNewRecordwithoutStatus","AdhocOptionEnhancementTest");
     }
     
-    @Test(dependsOnMethods = "AddEmptyAdhocOptionEnhancementRecord",priority=7)
+    @Test(priority=7)
     public void VerifyCancelButtonAtAddAdhocOptionEnhancementRecord() throws IOException {
         AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);
         adhocOptionEnhancementPage.clickonAddNewRecord();
@@ -141,7 +141,7 @@ public class AdhocOptionEnhancementTest extends BaseTest {
 }
     
     @Test(dependsOnMethods = "AddDuplicateAdhocOptionEnhancementRecord",priority=8)
-    public void EditAdhocOptionEnhancementRecord() throws IOException {
+    public void EditAdhocOptionEnhancementRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AdhocOptionEnhancementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
         AdhocOptionEnhancementDetails adhocOptionEnhancementDetails=new AdhocOptionEnhancementDetails(map);
@@ -164,8 +164,8 @@ public class AdhocOptionEnhancementTest extends BaseTest {
         ocmReportsPage.showReport(reportDetails);
         Assert.assertTrue(ocmReportsPage.verifyAdhocOptionEnhancementUpdate(adhocOptionEnhancementDetails,"Update"));
     }
-    @Test(dependsOnMethods = "EditAdhocOptionEnhancementRecord",priority=10)
-    public void EditEmptyAdhocOptionEnhancementRecord() throws IOException {
+    @Test(priority=10)
+    public void EditEmptyAdhocOptionEnhancementRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AdhocOptionEnhancementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Invalid").getTestData().get(1);
         AdhocOptionEnhancementDetails adhocOptionEnhancementDetails=new AdhocOptionEnhancementDetails(map);
@@ -174,26 +174,27 @@ public class AdhocOptionEnhancementTest extends BaseTest {
         Assert.assertEquals(adhocOptionEnhancementPage.verifySuccessMessage(),"Please Provide Promotion Description, Intent","Edit empty record assertion failed");
     }
     
-    @Test(dependsOnMethods = "EditEmptyAdhocOptionEnhancementRecord",priority=11)
-    public void EditWithoutModifyReasonAdhocOptionEnhancementRecord() throws IOException {
+    @Test(priority=11)
+    public void EditWithoutModifyReasonAdhocOptionEnhancementRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AdhocOptionEnhancementData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath,"Invalid").getTestData().get(2);
+        Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
         AdhocOptionEnhancementDetails adhocOptionEnhancementDetails=new AdhocOptionEnhancementDetails(map);
         AdhocOptionEnhancementPage adhocOptionEnhancementPage= PageFactory.createPageInstance(driver,AdhocOptionEnhancementPage.class);
-        adhocOptionEnhancementPage.editAdhocOptionEnhancementRecord(adhocOptionEnhancementDetails);
+        adhocOptionEnhancementPage.editRecordWithoutModifyReason(adhocOptionEnhancementDetails);
         Assert.assertEquals(adhocOptionEnhancementPage.verifySuccessMessage(),"Please enter the modify reason","Edit without modify reason record assertion failed");
     }
     
-    @Test(dependsOnMethods = "EditWithoutModifyReasonAdhocOptionEnhancementRecord",priority=12)
-    public void VerifyCancelButtonAtEditAdhocOptionEnhancementRecord() throws IOException {
+    @Test(priority=12)
+    public void VerifyCancelButtonAtEditAdhocOptionEnhancementRecord() throws IOException, Exception {
         AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);
         adhocOptionEnhancementPage.searchAdhocOptionEnhancementRecord("Promotion Number","4");
+        Thread.sleep(2000);
         adhocOptionEnhancementPage.clickOnEditButton();
         adhocOptionEnhancementPage.clickOnCancelBtn();
         Assert.assertFalse(adhocOptionEnhancementPage.verifyEditFormContainer(), "Cancel Btn at Edit record assertion failed");
     }
     
-    @Test(dependsOnMethods = {"VerifyCancelButtonAtEditAdhocOptionEnhancementRecord"},priority=13)
+    @Test(priority=13)
     public void DeleteWithoutDeleteReasonInAdhocOptionEnhancementRecord() throws IOException {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AdhocOptionEnhancementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Invalid").getTestData().get(3);
@@ -203,16 +204,17 @@ public class AdhocOptionEnhancementTest extends BaseTest {
         Assert.assertEquals(adhocOptionEnhancementPage.verifySuccessMessage(),"Please enter the delete reason","delete record assertion failed");
     }
     
-    @Test(dependsOnMethods = {"DeleteWithoutDeleteReasonInAdhocOptionEnhancementRecord"},priority=14)
-    public void VerifyCancelButtonInDeleteAdhocOptionEnhancementRecord() throws IOException {
+    @Test(priority=14)
+    public void VerifyCancelButtonInDeleteAdhocOptionEnhancementRecord() throws Exception {
         AdhocOptionEnhancementPage adhocOptionEnhancementPage= PageFactory.createPageInstance(driver,AdhocOptionEnhancementPage.class);
         adhocOptionEnhancementPage.searchAdhocOptionEnhancementRecord("Promotion Number","4");
+        Thread.sleep(2000);
         adhocOptionEnhancementPage.clickOnDeleteButton();
         adhocOptionEnhancementPage.clickOnDeleteCancelBtn();
         Assert.assertFalse(adhocOptionEnhancementPage.verifyDeleteContainer(), "Cancel Btn at Delete record assertion failed");
     }
     
-    @Test(dependsOnMethods = {"VerifyCancelButtonInDeleteAdhocOptionEnhancementRecord"},priority=15)
+    @Test(priority=15,dependsOnMethods= {"EditAdhocOptionEnhancementRecord"})
     public void DeleteAdhocOptionEnhancementRecord() throws IOException {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AdhocOptionEnhancementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);

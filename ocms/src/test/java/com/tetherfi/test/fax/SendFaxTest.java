@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.lang.reflect.Method;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -36,7 +37,7 @@ public class SendFaxTest extends BaseTest{
 	Screenshot screenshot=new Screenshot(driver);
     FTPServer ftp=new FTPServer();
     String filepath = "\\\\172.16.2.16\\d$\\Products\\WindowsServices\\TFaxManagementConsole\\TiffFileUploadPath";
-    String filepath1 = "\\\\172.16.2.16\\d$\\Products\\WindowsServices\\TFax\\ReceivedFaxes";
+    String filepath1 = "\\\\172.16.2.16\\d$\\Products\\WindowsServices\\TestTFax\\ReceivedFaxes";
 
 
 	//@BeforeClass
@@ -52,7 +53,7 @@ public class SendFaxTest extends BaseTest{
         FaxLineConfigPage faxLineConfigPage = PageFactory.createPageInstance(driver, FaxLineConfigPage.class);
         Assert.assertTrue(faxLineConfigPage.isFaxLineConfigPageDisplayed(), "FAX page assertion failed");
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxLineConfigData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(2);
+        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(4);
         FaxLineConfigDetails faxLineConfigDetails = new FaxLineConfigDetails(map);
         faxLineConfigPage.addNewFaxLineConfigRecord(faxLineConfigDetails);
         Assert.assertEquals(faxLineConfigPage.getSuccessMessage(), "Record Created Successfully");
@@ -60,7 +61,7 @@ public class SendFaxTest extends BaseTest{
     }
     
 	@BeforeMethod
-    public void NavigateToFaxRoutingConfigPage() throws Exception {
+    public void NavigateToSendFaxPage() throws Exception {
         HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
         homePage.navigateToOCMPage();
         OCMHomePage ocmHomePage = PageFactory.createPageInstance(driver, OCMHomePage.class);
@@ -71,16 +72,17 @@ public class SendFaxTest extends BaseTest{
         faxPage.navigateToSendFaxPage();
         SendFaxPage sendFaxPage = PageFactory.createPageInstance(driver, SendFaxPage.class);
         Assert.assertTrue(sendFaxPage.isSendFaxPageDisplayed(), "FAX page assertion failed");  
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
     }
     
-	@Test(priority=1)
+	/*@Test(priority=1)
     public void SendFaxPage() {
         SendFaxPage sendFaxPage = PageFactory.createPageInstance(driver, SendFaxPage.class);
     	Assert.assertTrue(sendFaxPage.verifylogo(),"FaxLineConfig logo assertion failed");
     	Assert.assertTrue(sendFaxPage .maximizewindow(),"Fullscreen Assertion Failed"); 
-    	screenshot.captureScreen(driver,"maximize window","SendFaxTest");
+    	screenshot.captureScreen("SendFaxTest","maximize window");
     	Assert.assertTrue(sendFaxPage .minimizewindow(), "Restored Assertion Failed");
-    	screenshot.captureScreen(driver,"minimize window","SendFaxTest");
+    	screenshot.captureScreen("SendFaxTest","minimize window");
     }
     
     @Test(priority=2)
@@ -113,7 +115,7 @@ public class SendFaxTest extends BaseTest{
         Assert.assertEquals(sendFaxPage.getSuccessMessage(), "Send Fax Initiated successfully");
     }
     
-    @Test(dependsOnMethods = {"AddSendFaxRecordFromTemplate"},priority=6)
+    @Test(priority=6,dependsOnMethods = {"AddSendFaxRecordFromTemplate"})
     public void VerifyAuditTrialReportForCreate() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\SendFaxData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -126,7 +128,6 @@ public class SendFaxTest extends BaseTest{
         ReportDetails reportDetails= new ReportDetails(map1);
         ocmReportsPage.showReport(reportDetails);
         Assert.assertTrue(ocmReportsPage.verifySendFaxCreate(sendFaxDetails,"Create"));
-    	screenshot.captureScreen(driver,"VerifyAuditTrialReportForCreate","SendFaxTest");
     	}
     
     @Test(priority=7)
@@ -141,23 +142,21 @@ public class SendFaxTest extends BaseTest{
     @Test(priority=8)
     public void SearchClearSeach() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\SendFaxData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(1);
+        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(3);
         SendFaxDetails sendFaxDetails = new SendFaxDetails(map);
         SendFaxPage sendFaxPage = PageFactory.createPageInstance(driver, SendFaxPage.class);
         Assert.assertTrue(sendFaxPage.verifyinvalidsearchwithwrongdata(sendFaxDetails));
         Assert.assertTrue(sendFaxPage.verifyclearsearch());
-
     }
     
     @Test(priority=9)
     public void ExporttoExcelWithoutData() throws Exception
     {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\SendFaxData.xlsx";
-    	Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);
+    	Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(3);
         SendFaxDetails sendFaxDetails = new SendFaxDetails(map);
         SendFaxPage sendFaxPage = PageFactory.createPageInstance(driver, SendFaxPage.class);
         Assert.assertTrue(sendFaxPage.ExporttoExcelWithoutData(sendFaxDetails));
-        screenshot.captureScreen( driver,"ExporttoExcelWithoutData", "SendFaxTest");
     }
     
     @Test(priority=10)
@@ -199,7 +198,6 @@ public class SendFaxTest extends BaseTest{
          SendFaxPage sendFaxPage = PageFactory.createPageInstance(driver, SendFaxPage.class);
          sendFaxPage.addRecordWithoutRecipientNumber(sendFaxDetails);
          Assert.assertFalse(sendFaxPage.getErrorMsg());
-     	 screenshot.captureScreen(driver,"AddRecordWithoutRecipientNumber","SendFaxTest");
     }
     
     @Test(priority=15)
@@ -210,7 +208,6 @@ public class SendFaxTest extends BaseTest{
          SendFaxPage sendFaxPage = PageFactory.createPageInstance(driver, SendFaxPage.class);
     	 sendFaxPage.addRecordWithoutFaxLine(sendFaxDetails);
          Assert.assertFalse(sendFaxPage.getErrorMsg());
-     	 screenshot.captureScreen(driver,"AddRecordWithoutFaxLine","SendFaxTest");
     }
     @Test(priority=16)
     public void AddRecordWithoutDateTime() throws Exception {
@@ -220,7 +217,6 @@ public class SendFaxTest extends BaseTest{
         SendFaxPage sendFaxPage = PageFactory.createPageInstance(driver, SendFaxPage.class);
         sendFaxPage.addNewInvalidRecordWithoutDateTime(sendFaxDetails);
      	Assert.assertFalse(sendFaxPage.getErrorMsg());
-    	screenshot.captureScreen(driver,"AddRecordWithoutDateTime","SendFaxTest");
     }
     
     @Test(priority=17)
@@ -231,7 +227,6 @@ public class SendFaxTest extends BaseTest{
         SendFaxPage sendFaxPage = PageFactory.createPageInstance(driver, SendFaxPage.class);
         sendFaxPage.addNewInvalidRecordWithoutTemplate(sendFaxDetails);
      	Assert.assertFalse(sendFaxPage.getErrorMsg());
-    	screenshot.captureScreen(driver,"AddRecordWithoutDateTime","SendFaxTest");
     }
     
     @Test(priority=18)
@@ -242,7 +237,6 @@ public class SendFaxTest extends BaseTest{
         SendFaxPage sendFaxPage = PageFactory.createPageInstance(driver, SendFaxPage.class);
         sendFaxPage.addNewInvalidRecordUploadingWrongFile(sendFaxDetails);
      	Assert.assertFalse(sendFaxPage.getErrorMsg());
-    	screenshot.captureScreen(driver,"AddRecordWithoutDateTime","SendFaxTest");
     }
     
     @Test(priority=19)
@@ -253,7 +247,6 @@ public class SendFaxTest extends BaseTest{
         SendFaxPage sendFaxPage = PageFactory.createPageInstance(driver, SendFaxPage.class);
         sendFaxPage.addRecordWithoutTemplate(sendFaxDetails);
      	Assert.assertFalse(sendFaxPage.getErrorMsg());
-    	screenshot.captureScreen(driver,"addNewInvalidRecordWithoutRouteData","FaxRoutingConfigTest");
     }
     
     @Test(priority=20)
@@ -264,7 +257,6 @@ public class SendFaxTest extends BaseTest{
         SendFaxPage sendFaxPage = PageFactory.createPageInstance(driver, SendFaxPage.class);
         sendFaxPage.addButtonPreviewuploadWrongfile(sendFaxDetails);
      	Assert.assertFalse(sendFaxPage.getErrorMsg());
-    	screenshot.captureScreen(driver,"addNewInvalidRecordWithoutRouteData","FaxRoutingConfigTest");
    }
     
     @Test(priority=21)
@@ -275,19 +267,18 @@ public class SendFaxTest extends BaseTest{
          SendFaxPage sendFaxPage = PageFactory.createPageInstance(driver, SendFaxPage.class);
          sendFaxPage.addButtonPreviewwithoutuploadingfile(sendFaxDetails);
       	Assert.assertEquals(sendFaxPage.getInfoMsg(),"Please upload a file to preview");
-     	screenshot.captureScreen(driver,"addNewInvalidRecordWithoutRouteData","FaxRoutingConfigTest");
     }
     
     @Test(priority=22)
-    public void searchPage() throws IOException {
+    public void searchPage() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\SendFaxData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         SendFaxDetails sendFaxDetails = new SendFaxDetails(map);
         SendFaxPage sendFaxPage = PageFactory.createPageInstance(driver, SendFaxPage.class);
         Assert.assertFalse(sendFaxPage.clearAll(sendFaxDetails),"ClearAll Assertion Failed");
-        screenshot.captureScreen(driver, "clearall","SendFaxTest");
+        screenshot.captureScreen("SendFaxTest", "clearall");
         Assert.assertTrue(sendFaxPage.verifyclose());
-        screenshot.captureScreen(driver, "SearchClose","SendFaxTest");
+        screenshot.captureScreen("SendFaxTest", "SearchClose");
     }
     
     @Test(priority=23)
@@ -295,9 +286,9 @@ public class SendFaxTest extends BaseTest{
     	SendFaxPage sendFaxPage = PageFactory.createPageInstance(driver, SendFaxPage.class);
         sendFaxPage.searchwithoutextsearch();
     	Assert.assertFalse(sendFaxPage.getErrorMsg());
-    	screenshot.captureScreen(driver, "searchwithoutSearchTextbox()","SendFaxTest");
-    }
-    @Test(dependsOnMethods = {"AddSendFaxRecordByUploadingMultiplePages"},priority=24)
+    }*/
+    
+    @Test(priority=24)//,dependsOnMethods = {"AddSendFaxRecordByUploadingMultiplePages"})
     public void VerifyOCMFaxSentDetailsReportMutiplePages() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\SendFaxData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(2);
@@ -313,7 +304,7 @@ public class SendFaxTest extends BaseTest{
         Assert.assertTrue(ocmFaxSentDetailsReportsPage.VerifySendStatus(sendFaxDetails));
     	}
     
-    @Test(dependsOnMethods = {"AddSendFaxRecordByFileUpload"},priority=25)
+    @Test(priority=25)//,dependsOnMethods = {"AddSendFaxRecordByFileUpload"})
     public void VerifyOCMFaxSentDetailsReport() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\SendFaxData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);
@@ -330,7 +321,7 @@ public class SendFaxTest extends BaseTest{
     	}
     
     
-    @Test(priority=26)
+   @Test(priority=26)
     public void database() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\SendFaxData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Queries").getTestData().get(0);
@@ -339,13 +330,12 @@ public class SendFaxTest extends BaseTest{
         Assert.assertTrue(sendFaxPage.verifyDatabase(sendFaxDetails.getQuery()));
     }
     
-    @Test(priority=27)
+   @Test(priority=27)
     public void ExportToExcel() throws Exception
     {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles";
         SendFaxPage sendFaxPage = PageFactory.createPageInstance(driver, SendFaxPage.class);
         Assert.assertTrue(sendFaxPage.verifyExportToExcel(filePath));
-        screenshot.captureScreen(driver,"Export Excel","SendFaxTest");
     }
     
     @Test(priority=28)
@@ -354,7 +344,6 @@ public class SendFaxTest extends BaseTest{
     	List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
         SendFaxPage sendFaxPage = PageFactory.createPageInstance(driver, SendFaxPage.class);
     	Assert.assertTrue(sendFaxPage.verifyexportToExcelSheet(maplist));	
-    	screenshot.captureScreen(driver,"Export Excel Sheet","SendFaxTest");
     }
     
   
@@ -412,11 +401,12 @@ public class SendFaxTest extends BaseTest{
     
     @AfterMethod
     public void afterEachMethod(Method method) {
-        screenshot.captureScreen(driver,method.getName(),"FaxLineConfigTest");
+    	Screenshot screenshot=new Screenshot(driver);
+        screenshot.captureScreen("SendFaxTest",method.getName());
     }
     
     @AfterClass
-    public void DeleteFaxLineConfigRecord() throws IOException {
+    public void DeleteFaxLineConfigRecord() throws Exception {
         HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
         homePage.navigateToOCMPage();
         OCMHomePage ocmHomePage = PageFactory.createPageInstance(driver, OCMHomePage.class);
@@ -428,7 +418,7 @@ public class SendFaxTest extends BaseTest{
         FaxLineConfigPage faxLineConfigPage = PageFactory.createPageInstance(driver, FaxLineConfigPage.class);
         Assert.assertTrue(faxLineConfigPage.isFaxLineConfigPageDisplayed(), "FAX page assertion failed");
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxLineConfigData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(2);
+        Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(1);
         FaxLineConfigDetails faxLineConfigDetails = new FaxLineConfigDetails(map);
         faxLineConfigPage.deleteFaxLineConfig(faxLineConfigDetails);
         Assert.assertEquals(faxLineConfigPage.getSuccessMessage(),"Record Deleted Successfully");

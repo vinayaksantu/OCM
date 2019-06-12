@@ -46,7 +46,7 @@ public class FaxAutoACKConfigurationTest extends BaseTest{
         FaxLineConfigPage faxLineConfigPage = PageFactory.createPageInstance(driver, FaxLineConfigPage.class);
         Assert.assertTrue(faxLineConfigPage.isFaxLineConfigPageDisplayed(), "FAX page assertion failed");
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxLineConfigData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
+        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(4);
         FaxLineConfigDetails faxLineConfigDetails = new FaxLineConfigDetails(map);
         faxLineConfigPage.addNewFaxLineConfigRecord(faxLineConfigDetails);
         Assert.assertEquals(faxLineConfigPage.getSuccessMessage(), "Record Created Successfully");
@@ -70,9 +70,9 @@ public class FaxAutoACKConfigurationTest extends BaseTest{
         FaxAutoACKConfigurationPage faxAutoAckConfigurationPage = PageFactory.createPageInstance(driver, FaxAutoACKConfigurationPage.class);
     	Assert.assertTrue(faxAutoAckConfigurationPage.verifylogo(),"FaxSenderslogo assertion failed");
     	Assert.assertTrue(faxAutoAckConfigurationPage .maximizewindow(),"Fullscreen Assertion Failed"); 
-    	screenshot.captureScreen(driver,"maximize window","FaxAutoACKConfigurationTest");
+    	screenshot.captureScreen("FaxAutoACKConfigurationTest","maximize window");
     	Assert.assertTrue(faxAutoAckConfigurationPage .minimizewindow(), "Restored Assertion Failed");
-    	screenshot.captureScreen(driver,"minimize window","FaxAutoACKConfigurationTest");
+    	screenshot.captureScreen("FaxAutoACKConfigurationTest","minimize window");
     }
     
     @Test(priority=2)
@@ -122,7 +122,6 @@ public class FaxAutoACKConfigurationTest extends BaseTest{
         ReportDetails reportDetails= new ReportDetails(map1);
         ocmReportsPage.showReport(reportDetails);
         Assert.assertTrue(ocmReportsPage.verifyFaxAutoACKConfigCreate(faxAutoAckConfigurationDetails,"Create"));
-    	screenshot.captureScreen(driver,"VerifyAuditTrialReportForCreate","FaxAutoACKConfigTest");
     	}
     
     @Test(priority=8)
@@ -190,9 +189,9 @@ public class FaxAutoACKConfigurationTest extends BaseTest{
     {
         FaxAutoACKConfigurationPage faxAutoAckConfigurationPage = PageFactory.createPageInstance(driver, FaxAutoACKConfigurationPage.class);
     	Assert.assertTrue(faxAutoAckConfigurationPage.groupby());
-        screenshot.captureScreen(driver, "GroupBy","FaxAutoACKConfigTest");
+        screenshot.captureScreen("FaxAutoACKConfigurationTest", "GroupBy");
     	Assert.assertTrue(faxAutoAckConfigurationPage.groupby());
-        screenshot.captureScreen(driver, "AlreadyGroupBy","FaxAutoACKConfigTest");
+        screenshot.captureScreen("FaxAutoACKConfigurationTest", "AlreadyGroupBy");
     }
     @Test(priority=15)
     public void EditCancelFaxAutoACKConfigRecord() throws Exception {
@@ -226,7 +225,6 @@ public class FaxAutoACKConfigurationTest extends BaseTest{
         ReportDetails reportDetails= new ReportDetails(map1);
         ocmReportsPage.showReport(reportDetails);
         Assert.assertTrue(ocmReportsPage.verifyFaxAutoACKConfigUpdate(faxAutoAckConfigurationDetails,"Update"));
-    	screenshot.captureScreen(driver,"VerifyAuditTrialReportForUpdate","FaxAutoACKConfigTest");
     }
     
     @Test(priority=18)
@@ -245,7 +243,6 @@ public class FaxAutoACKConfigurationTest extends BaseTest{
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles";
         FaxAutoACKConfigurationPage faxAutoAckConfigurationPage = PageFactory.createPageInstance(driver, FaxAutoACKConfigurationPage.class);
         Assert.assertTrue(faxAutoAckConfigurationPage.verifyExportToExcel(filePath));
-        screenshot.captureScreen(driver,"Export Excel","FaxAutoACKConfigTest");
     }
     
     @Test(priority=20)
@@ -254,7 +251,6 @@ public class FaxAutoACKConfigurationTest extends BaseTest{
     	List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
         FaxAutoACKConfigurationPage faxAutoAckConfigurationPage = PageFactory.createPageInstance(driver, FaxAutoACKConfigurationPage.class);
     	Assert.assertTrue(faxAutoAckConfigurationPage.verifyexportToExcelSheet(maplist));	
-    	screenshot.captureScreen(driver,"Export Excel Sheet","FaxLineConfigTest");
     }
     
     
@@ -269,15 +265,15 @@ public class FaxAutoACKConfigurationTest extends BaseTest{
     }
     
     @Test(priority=22)
-    public void searchPage() throws IOException {
+    public void searchPage() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxAutoACKConfigurationData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         FaxAutoACKConfigurationDetails faxAutoAckConfigurationDetails= new FaxAutoACKConfigurationDetails(map);
         FaxAutoACKConfigurationPage faxAutoAckConfigurationPage = PageFactory.createPageInstance(driver, FaxAutoACKConfigurationPage.class);
         Assert.assertFalse(faxAutoAckConfigurationPage.clearAll(faxAutoAckConfigurationDetails),"ClearAll Assertion Failed");
-        screenshot.captureScreen(driver, "clearall","FaxAutoAckConfigTest");
+        screenshot.captureScreen("FaxAutoACKConfigurationTest", "clearall");
         Assert.assertTrue(faxAutoAckConfigurationPage.verifyclose());
-        screenshot.captureScreen(driver, "SearchClose","FaxAutoAckConfigTest");
+        screenshot.captureScreen("FaxAutoACKConfigurationTest", "SearchClose");
     }
     
     @Test(priority=23)
@@ -285,7 +281,6 @@ public class FaxAutoACKConfigurationTest extends BaseTest{
         FaxAutoACKConfigurationPage faxAutoAckConfigurationPage = PageFactory.createPageInstance(driver, FaxAutoACKConfigurationPage.class);
         faxAutoAckConfigurationPage.searchwithoutextsearch();
     	Assert.assertFalse(faxAutoAckConfigurationPage.getErrorMsg());
-    	screenshot.captureScreen(driver, "searchwithoutSearchTextbox()","FaxAutoAckConfigTest");
     }
     
     @Test(priority=24)
@@ -320,7 +315,6 @@ public class FaxAutoACKConfigurationTest extends BaseTest{
         ReportDetails reportDetails= new ReportDetails(map1);
         ocmReportsPage.showReport(reportDetails);
         Assert.assertTrue(ocmReportsPage.verifyFaxAutoACKConfigDelete(faxAutoAckConfigurationDetails,"Delete"));
-    	screenshot.captureScreen(driver,"VerifyAuditTrialReportForDelete","FaxAutoACKConfigTest");
     }
     
     @Test(priority=27)
@@ -351,7 +345,6 @@ public class FaxAutoACKConfigurationTest extends BaseTest{
         FaxAutoACKConfigurationDetails faxAutoAckConfigurationDetails = new FaxAutoACKConfigurationDetails(map);
         faxAutoAckConfigurationPage.deleteFaxAutoAckConfigRecord(faxAutoAckConfigurationDetails);
         Assert.assertTrue(faxAutoAckConfigurationPage.ExporttoExcelWithoutData(faxAutoAckConfigurationDetails));
-        screenshot.captureScreen(driver,"ExporttoExcelWithoutData", "FaxLineConfigTest");
     }
     
     @Test(priority=30)
@@ -362,9 +355,8 @@ public class FaxAutoACKConfigurationTest extends BaseTest{
         FaxAutoACKConfigurationDetails faxAutoAckConfigurationDetails = new FaxAutoACKConfigurationDetails(map);
         FaxAutoACKConfigurationPage faxAutoAckConfigurationPage = PageFactory.createPageInstance(driver, FaxAutoACKConfigurationPage.class);
         Assert.assertTrue(faxAutoAckConfigurationPage.verifyinvalidsearchwithwrongdata(faxAutoAckConfigurationDetails),"invalidsearchwithwrongdata");
-        screenshot.captureScreen(driver,"Invalid Search with wrong data", "FaxAutoACKConfigTest");
+        screenshot.captureScreen("FaxAutoACKConfigurationTest","Invalid Search with wrong data");
         Assert.assertTrue(faxAutoAckConfigurationPage.verifyclearsearch(), "Clear All Assertion Failed");
-        screenshot.captureScreen( driver,"Clear Search", "FaxAutoACKConfigTest");
     }
   
     @Test(priority=31)
@@ -411,11 +403,13 @@ public class FaxAutoACKConfigurationTest extends BaseTest{
     
     @AfterMethod
     public void afterEachMethod(Method method) {
-        screenshot.captureScreen(driver,method.getName(),"FaxAutoAckConfigTest");
-    }
+        	Screenshot screenshot=new Screenshot(driver);
+            screenshot.captureScreen("FaxAutoAckConfigurationTest",method.getName());
+            driver.navigate().refresh();    
+            }
     
     @AfterClass
-    public void DeleteFaxLineConfigRecord() throws IOException {
+    public void DeleteFaxLineConfigRecord() throws Exception {
         HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
         homePage.navigateToOCMPage();
         OCMHomePage ocmHomePage = PageFactory.createPageInstance(driver, OCMHomePage.class);
@@ -427,7 +421,7 @@ public class FaxAutoACKConfigurationTest extends BaseTest{
         FaxLineConfigPage faxLineConfigPage = PageFactory.createPageInstance(driver, FaxLineConfigPage.class);
         Assert.assertTrue(faxLineConfigPage.isFaxLineConfigPageDisplayed(), "FAX page assertion failed");
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxLineConfigData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
+        Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(1);
         FaxLineConfigDetails faxLineConfigDetails = new FaxLineConfigDetails(map);
         faxLineConfigPage.deleteFaxLineConfig(faxLineConfigDetails);
         Assert.assertEquals(faxLineConfigPage.getSuccessMessage(),"Record Deleted Successfully");

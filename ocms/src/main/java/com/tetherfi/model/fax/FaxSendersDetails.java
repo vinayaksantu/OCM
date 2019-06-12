@@ -92,9 +92,6 @@ public class FaxSendersDetails {
 
     public String readDeleteReason(Map<String,String> map){
         String value=map.get("Delete Reason");
-        if(value==null||value.equalsIgnoreCase("random.str")){
-            value=RandomStringUtils.randomAlphabetic(10);
-        }
         return value;
     }
 

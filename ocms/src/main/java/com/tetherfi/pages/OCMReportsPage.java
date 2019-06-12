@@ -54,6 +54,12 @@ public class OCMReportsPage extends BasePage {
 
     @FindBy(id = "form")
     private WebElement formContents;
+    
+    @FindBy(xpath="//input[@placeholder='Search by Function Name..']")
+    private WebElement SearchByFunctionName;
+    
+    @FindBy(css="ul[id='autoCompleteTextbox_listbox'] li")
+    private List<WebElement> autoCompleteListBox;
 
     @FindBy(id="grid")
     private WebElement auditGridContent;
@@ -294,7 +300,7 @@ public class OCMReportsPage extends BasePage {
         waitForJqueryLoad(driver);
         return ocmReportsManager.isEnabled();
     }
-    public void showReport(ReportDetails details) {
+    public void showReport(ReportDetails details) throws Exception {
         chooseReport(details);
         if(details.getAdvancedsearch().equalsIgnoreCase("Yes")){chooseAdvancedSearch(details);}
         selectWebElement(showReportBtn.get(0));
@@ -312,7 +318,7 @@ public class OCMReportsPage extends BasePage {
     selectDropdownFromVisibleText(searchTypeList,details.getColtype());
     enterValueToTxtField(searchText.get(0),details.getSearchStr());
     }catch(Exception e){e.printStackTrace();}}
-    public void showReportInNewPage(ReportDetails details) {
+    public void showReportInNewPage(ReportDetails details) throws Exception {
         chooseReport(details);
         selectWebElement(showReportBtn.get(1));
         switchToNewWindow();
@@ -320,11 +326,11 @@ public class OCMReportsPage extends BasePage {
         waitForJqueryLoad(driver);
       waitUntilWebElementIsVisible(gridBoxContent);
     }
-    public void exportReport(ReportDetails details){
+    public void exportReport(ReportDetails details) throws Exception{
         chooseReport(details);
         selectWebElement(exportReportBtn);
     }
-    public void scheduleReport(ReportDetails details){
+    public void scheduleReport(ReportDetails details) throws Exception{
         chooseReport(details);
         selectWebElement(scheduleReport);
     }
@@ -434,7 +440,7 @@ public class OCMReportsPage extends BasePage {
         selectDropdownFromVisibleText(reportNameListbox, rptName);
     }
     
-    public void chooseReport(ReportDetails details)
+    public void chooseReport(ReportDetails details) throws Exception
     {
         waitUntilWebElementIsVisible(formContents);
         try {
@@ -601,7 +607,7 @@ public class OCMReportsPage extends BasePage {
         for(WebElement e:headers){if(cname.contains(e.getText())){return e.getText();}}
         return "";
     }
-    public boolean verifySearchByTextbox(){
+    public boolean verifySearchByTextbox() throws Exception{
         boolean status=false;
         String colname=searchByTextBox.getAttribute("placeholder").split("Search by ")[1];
         if(colname.contains(".")){colname=colname.split("\\.")[0];}
@@ -631,7 +637,7 @@ public class OCMReportsPage extends BasePage {
         }
         return status;
     }
-    public boolean verifySearchByColumnValue(){
+    public boolean verifySearchByColumnValue() throws Exception{
         boolean status=false;
         List<Map<String,String>> table=getAllDatafromTable();
         List<String> colDataFromTable=new ArrayList<>();
@@ -679,7 +685,7 @@ return status;
         }
         return map;
     }
-    public void searchReport(String colname, String criteria, String searchString) {
+    public void searchReport(String colname, String criteria, String searchString) throws Exception {
         selectWebElement(searchBtn);
         selectWebElement(searchColDropdown);
         selectDropdownFromVisibleText(searchColListBox,colname);
@@ -692,7 +698,7 @@ return status;
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(gridContent);
     }
-    public boolean verifySearchContainsColumnValue(){
+    public boolean verifySearchContainsColumnValue() throws Exception{
         boolean status=false;
         List<Map<String,String>> table=getAllDatafromTable();
         List<String> colDataFromTable=new ArrayList<>();
@@ -732,7 +738,7 @@ return status;
         }
         return status;
     }
-    public boolean verifySearchIsNotEqualsColumnValue(){
+    public boolean verifySearchIsNotEqualsColumnValue() throws Exception{
         boolean status=false;
         List<Map<String,String>> table=getAllDatafromTable();
         List<String> colDataFromTable=new ArrayList<>();
@@ -770,7 +776,7 @@ return status;
         }
         return status;
     }
-    public boolean verifySearchStartsWithColumnValue(){
+    public boolean verifySearchStartsWithColumnValue() throws Exception{
         boolean status=false;
         List<Map<String,String>> table=getAllDatafromTable();
         List<String> colDataFromTable=new ArrayList<>();
@@ -808,7 +814,7 @@ return status;
         }
         return status;
     }
-    public boolean verifySearchEndsWithColumnValue(){
+    public boolean verifySearchEndsWithColumnValue() throws Exception{
         boolean status=false;
         List<Map<String,String>> table=getAllDatafromTable();
         List<String> colDataFromTable=new ArrayList<>();
@@ -846,7 +852,7 @@ return status;
         }
         return status;
     }
-    public boolean verifySearchDoesNotContainsColumnValue(){
+    public boolean verifySearchDoesNotContainsColumnValue() throws Exception{
         boolean status=false;
         List<Map<String,String>> table=getAllDatafromTable();
         List<String> colDataFromTable=new ArrayList<>();
@@ -1711,7 +1717,7 @@ return status;
 						{
 							if(newvalues.get("SendEnabled").equals(details.getSendStatus()))
 							{
-								if(newvalues.get("RecieveEnabled").equals(details.getReceiveStatus()))
+								if(newvalues.get("ReceiveEnabled").equals(details.getReceiveStatus()))
 								{
 									Status= true;
 								}
@@ -1762,7 +1768,7 @@ return status;
             										if(newvalues.get("Enabled").equals(details.getUpdatedStatus())){
                 										if(newvalues.get("SendEnabled").equals(details.getUpdatedSendStatus())){
                     										if(newvalues.get("ReceiveEnabled").equals(details.getUpdatedReceiveStatus())){
-                    											if(newvalues.get("Modify Reason").equals(details.getModifyReason())) {
+                    											if(newvalues.get("ModifyReason").equals(details.getModifyReason())) {
                     												if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getModifyReason()))
                     													Status=true;
                     												else System.out.println("Change reason data mismatch");
@@ -1819,7 +1825,7 @@ return status;
 					{
 						if(oldvalues.get("Enabled").equals(details.getStatus())){
 							if(oldvalues.get("Send Enabled").equals(details.getSendStatus())) {
-								if(oldvalues.get("Receive Enabled").equals(details.getReceiveStatus())) {
+								if(oldvalues.get("ReceiveEnabled").equals(details.getReceiveStatus())) {
 									if(oldvalues.get("ModifyReason").equals(details.getDeleteReason()))
 									{
 										if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getDeleteReason()))
@@ -1902,7 +1908,7 @@ return status;
             						if(newvalues.get("Name").equals(details.getUpdatedName())){
             							if(newvalues.get("FaxNumber").equals(details.getFaxNumber())){
                 							if(newvalues.get("Type").equals(details.getUpdatedSenderType())){
-                								if(newvalues.get("Modify Reason").equals(details.getModifyReason())) {
+                								if(newvalues.get("ModifyReason").equals(details.getModifyReason())) {
                     								if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getModifyReason()))
                     									Status=true;
                     								else System.out.println("Change reason data mismatch");
@@ -1967,7 +1973,7 @@ return status;
 	}
 
 	public boolean verifyFaxRoutingConfigCreate(FaxRoutingConfigurationDetails details, String Transaction) throws Exception {
-		booleansearchnew("RouteType:Folder",Transaction);
+		booleansearchnew(details.getRouteData(),Transaction);
 		Boolean Status=false;
         Map<String,String> firstRowData=getFirstRowDatafromTable1();
 		Map<String,String> newvalues=new HashMap<>();
@@ -2081,7 +2087,7 @@ return status;
 					if(oldvalues.get("Intent").equals(details.getIntent()))
 					{
 						if(oldvalues.get("RouteType").equals(details.getRouteType())) {
-							if(oldvalues.get("ModifyReason").equals(details.getRouteData())) {
+							if(oldvalues.get("RouteData").equals(details.getRouteData())) {
 								if(oldvalues.get("ModifyReason").equals(details.getDeleteReason())) {
 									if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getDeleteReason()))
 										Status=true;
@@ -2102,7 +2108,7 @@ return status;
 	}
 
 	public boolean verifySendFaxCreate(SendFaxDetails details, String Transaction) throws Exception {
-		booleansearchnew(details.getFaxLine(),Transaction);
+		booleansearchnew(details.getRecipientNumber(),Transaction);
 		Boolean Status=false;
         Map<String,String> firstRowData=getFirstRowDatafromTable1();
 		Map<String,String> newvalues=new HashMap<>();
@@ -3149,7 +3155,7 @@ return status;
 	}
 
 	public boolean verifyFaxApplicationFormdelete(FaxApplicationFormDetails details, String Transaction) throws Exception {
-		booleansearchold(details.getWavFile(),Transaction);
+		booleansearchold(details.getFunctionality(),Transaction);
 		Boolean Status=false;
         Map<String,String> firstRowData=getFirstRowDatafromTable1();
 		Map<String,String> oldvalues=new HashMap<>();

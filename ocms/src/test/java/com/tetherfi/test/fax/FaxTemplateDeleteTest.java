@@ -27,7 +27,7 @@ import com.tetherfi.utility.Screenshot;
 public class FaxTemplateDeleteTest {
 	protected WebDriver driver;
 	@BeforeMethod
-    public void NavigateToFaxTemplatePage(Method method) throws IOException, InterruptedException {
+    public void NavigateToFaxTemplatePage(Method method) throws Exception {
         try {
             PageFactory.reset();
             BrowserFactory browserFactory = new BrowserFactory();
@@ -110,7 +110,7 @@ public class FaxTemplateDeleteTest {
     }
 	
 	@Test(groups = { "Maker" },dependsOnMethods="VerifyAuditTrailDataForDeleteFaxTemplateRecord")
-    public void VerifyTaskCompleteActionForDeleteFaxTemplateRecord() {
+    public void VerifyTaskCompleteActionForDeleteFaxTemplateRecord() throws Exception {
         FaxTemplatePage faxTemplatePage = PageFactory.createPageInstance(driver, FaxTemplatePage.class);
         faxTemplatePage.selectFaxTemplateAuditTrailTab();
         faxTemplatePage.taskCompleteAction("Task Complete for Delete");
@@ -119,7 +119,7 @@ public class FaxTemplateDeleteTest {
     }
 	
 	@Test(groups = { "Checker" },dependsOnMethods="VerifyTaskCompleteActionForDeleteFaxTemplateRecord")
-    public void ApproveforDeleteFaxTemplateRecord(){
+    public void ApproveforDeleteFaxTemplateRecord() throws Exception{
         FaxTemplatePage faxTemplatePage = PageFactory.createPageInstance(driver, FaxTemplatePage.class);
         faxTemplatePage.clickonApprove("Approve Deleted");
         Assert.assertEquals(faxTemplatePage.getSuccessMessage(),"All the data has been approved successfully!","Approve record assertion failed");
@@ -151,8 +151,8 @@ public class FaxTemplateDeleteTest {
         Assert.assertEquals(faxTemplatePage.getSuccessMessage(), "Record Deleted Successfully");
      }
         
-    @Test(groups = { "Maker" },dependsOnMethods="DeleteRecord()")
-    public void VerifyTaskCompleteAction() {
+    @Test(groups = { "Maker" },dependsOnMethods="DeleteRecord")
+    public void VerifyTaskCompleteAction() throws Exception {
         FaxTemplatePage faxTemplatePage = PageFactory.createPageInstance(driver, FaxTemplatePage.class);
         faxTemplatePage.selectFaxTemplateAuditTrailTab();
         faxTemplatePage.taskCompleteAction("Task Complete for Delete");
@@ -160,8 +160,8 @@ public class FaxTemplateDeleteTest {
         Assert.assertTrue(faxTemplatePage.verifyStatus("Approval Pending"),"approal status details failed");
     }
     
-    @Test(groups = { "Checker" })//,dependsOnMethods="DeleteRecord")
-    public void RejectforDeleteFaxTemplateRecord(){
+    @Test(groups = { "Checker" },dependsOnMethods="DeleteRecord")
+    public void RejectforDeleteFaxTemplateRecord() throws Exception{
         FaxTemplatePage faxTemplatePage = PageFactory.createPageInstance(driver, FaxTemplatePage.class);
         faxTemplatePage.clickonReject("Reject Deleted");
         Assert.assertFalse(faxTemplatePage.getErrorMsg(),"Reject record assertion failed");
@@ -203,14 +203,14 @@ public class FaxTemplateDeleteTest {
         Assert.assertEquals(faxTemplatePage.getSuccessMessage(), "Record Deleted Successfully");
     }
     @Test(groups = { "Maker" },dependsOnMethods="DeleteAllRecord")
-    public void VerifyTaskCompleteActionForDeleteRecord() {
+    public void VerifyTaskCompleteActionForDeleteRecord() throws Exception {
         FaxTemplatePage faxTemplatePage = PageFactory.createPageInstance(driver, FaxTemplatePage.class);
         faxTemplatePage.selectFaxTemplateAuditTrailTab();
         faxTemplatePage.taskCompleteAction("Task Complete for Delete");
     }
     
     @Test(groups = { "Checker" },dependsOnMethods="VerifyTaskCompleteActionForDeleteRecord")
-    public void ApprovalforDeleteAllFaxTemplateRecord(){
+    public void ApprovalforDeleteAllFaxTemplateRecord() throws Exception{
         FaxTemplatePage faxTemplatePage = PageFactory.createPageInstance(driver, FaxTemplatePage.class);
         faxTemplatePage.clickonApprove("Reject Deleted");
     }

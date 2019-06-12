@@ -280,7 +280,7 @@ public class OperatingHoursPage extends BasePage {
 			return false;
 	}
 
-    public void searchOperatingHoursRecord(String vdn) {
+    public void searchOperatingHoursRecord(String vdn) throws Exception {
         selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"vdn");
@@ -357,7 +357,7 @@ public class OperatingHoursPage extends BasePage {
         selectWebElement(CancelButton);
 		
 	}
-    public void deleteOperatingHoursRecord(OperatingHoursDetails operatingHoursDetails) {
+    public void deleteOperatingHoursRecord(OperatingHoursDetails operatingHoursDetails) throws Exception {
         searchOperatingHoursRecord(operatingHoursDetails.getVdnName());
         selectWebElement(deleteButton);
         enterValueToTxtField(deleteReasonTextBox,operatingHoursDetails.getDeleteReason());
@@ -535,7 +535,7 @@ public class OperatingHoursPage extends BasePage {
 		}
 			return arr;
 	}
-	public boolean ExporttoExcelWithoutData(OperatingHoursDetails details) {
+	public boolean ExporttoExcelWithoutData(OperatingHoursDetails details) throws Exception {
 		searchOperatingHoursRecord(details.getVdnName());
 		waitForJqueryLoad(driver);
 		selectWebElement(exporttoexcel);
@@ -736,7 +736,7 @@ public class OperatingHoursPage extends BasePage {
 			return false;		
 	}
     
-    public boolean verifydeleteNo(OperatingHoursDetails details) {
+    public boolean verifydeleteNo(OperatingHoursDetails details) throws Exception {
     	searchOperatingHoursRecord(details.getVdnName());		
     	selectWebElement(deleteButton);
 		try {
@@ -763,7 +763,7 @@ public class OperatingHoursPage extends BasePage {
 		else
 		return false;
 	}
-	public boolean clearAll(OperatingHoursDetails details) {
+	public boolean clearAll(OperatingHoursDetails details) throws Exception {
 		selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"VDN");
@@ -784,7 +784,7 @@ public class OperatingHoursPage extends BasePage {
 		else
 		return false;
 	}
-	public boolean verifyinvalidsearchwithwrongdata(OperatingHoursDetails operatingHoursDetails) {
+	public boolean verifyinvalidsearchwithwrongdata(OperatingHoursDetails operatingHoursDetails) throws Exception {
 		searchOperatingHoursRecord(operatingHoursDetails.getVdnName());		
 		if(norecords.isDisplayed())
 			return true; 

@@ -229,7 +229,7 @@ public class WaitTimeColorConfigPage extends BasePage {
         waitForJqueryLoad(driver);
         return waitTimeColorConfig.isEnabled();
     }
-    public void addNewWaitTimeColorConfigRecord(WaitTimeColorConfigDetails details) {
+    public void addNewWaitTimeColorConfigRecord(WaitTimeColorConfigDetails details) throws Exception {
         selectWebElement(addNewWaitTimeColorConfigRecordBtn);
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(popupContent);
@@ -248,7 +248,7 @@ public class WaitTimeColorConfigPage extends BasePage {
         selectWebElement(applyBtn);
         selectWebElement(saveBtn);
     }
-    public void searchWaitTimeColorConfigRecord(String StartTime)  {
+    public void searchWaitTimeColorConfigRecord(String StartTime) throws Exception  {
         selectWebElement(searchLink);
         selectWebElement(selectSearchColumn.get(0));
         selectDropdownFromVisibleText(columnNameList,"Start Duration");
@@ -259,7 +259,7 @@ public class WaitTimeColorConfigPage extends BasePage {
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(gridContent);
     }
-    public void editWaitTimeColorConfigRecord(WaitTimeColorConfigDetails details) {
+    public void editWaitTimeColorConfigRecord(WaitTimeColorConfigDetails details) throws Exception {
         searchWaitTimeColorConfigRecord(details.getStartTime());
         try {
 			Thread.sleep(500);
@@ -279,7 +279,7 @@ public class WaitTimeColorConfigPage extends BasePage {
         enterValueToTxtField(modifyReasonTextBox,details.getModifyReason());
         btnClick(saveBtn);
     }
-    public void deleteWaitTimeColorConfigRecord(String Starttime, String reason) {
+    public void deleteWaitTimeColorConfigRecord(String Starttime, String reason) throws Exception {
         searchWaitTimeColorConfigRecord(Starttime);
         btnClick(deleteBtn);
         selectWebElement(deleteReasonTextBox);
@@ -297,7 +297,7 @@ public class WaitTimeColorConfigPage extends BasePage {
         selectWebElement(yesBtn);
     }
     
-    public boolean deleteNo(String Starttime, String reason) {
+    public boolean deleteNo(String Starttime, String reason) throws Exception {
 		searchWaitTimeColorConfigRecord(Starttime);
         btnClick(deleteBtn);
         selectWebElement(deleteReasonTextBox);
@@ -407,7 +407,7 @@ public class WaitTimeColorConfigPage extends BasePage {
 		else 
 			return false;
 	}
-	public boolean addNewCancel(WaitTimeColorConfigDetails details) {
+	public boolean addNewCancel(WaitTimeColorConfigDetails details) throws Exception {
 		String actualitems=items.getText();
 		selectWebElement(addNewWaitTimeColorConfigRecordBtn);
         waitForJqueryLoad(driver);
@@ -427,7 +427,7 @@ public class WaitTimeColorConfigPage extends BasePage {
 		return false;
 	}
 	
-	public boolean editcancel(WaitTimeColorConfigDetails details) {
+	public boolean editcancel(WaitTimeColorConfigDetails details) throws Exception {
 		searchWaitTimeColorConfigRecord(details.getStartTime());
         selectWebElement(editBtn);
         waitForJqueryLoad(driver);
@@ -467,7 +467,7 @@ public class WaitTimeColorConfigPage extends BasePage {
 		else
 			return false;
 	}
-	public boolean verifyinvalidsearch(WaitTimeColorConfigDetails details) {
+	public boolean verifyinvalidsearch(WaitTimeColorConfigDetails details) throws Exception {
 		searchWaitTimeColorConfigRecord(details.getStartTime());
 		if(norecords.isDisplayed())
 			return true; 
@@ -667,7 +667,7 @@ public class WaitTimeColorConfigPage extends BasePage {
         String item = items.getText();
         return item.matches("(\\d.*) - (\\d.*) of (\\d.*) items");
     }
-	public void addRecordWithoutStartTime(WaitTimeColorConfigDetails details) {
+	public void addRecordWithoutStartTime(WaitTimeColorConfigDetails details) throws Exception {
 		selectWebElement(addNewWaitTimeColorConfigRecordBtn);
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(popupContent);
@@ -687,7 +687,7 @@ public class WaitTimeColorConfigPage extends BasePage {
 		else 
 			return true;
 	}
-	public void addRecordWithoutEndTime(WaitTimeColorConfigDetails details) {
+	public void addRecordWithoutEndTime(WaitTimeColorConfigDetails details) throws Exception {
 		selectWebElement(addNewWaitTimeColorConfigRecordBtn);
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(popupContent);
@@ -850,7 +850,7 @@ public class WaitTimeColorConfigPage extends BasePage {
 			e.printStackTrace();
 		}		
 	}
-	public boolean ExporttoExcelWithoutData(WaitTimeColorConfigDetails waitTimeColorConfigDetails) {
+	public boolean ExporttoExcelWithoutData(WaitTimeColorConfigDetails waitTimeColorConfigDetails) throws Exception {
 		searchWaitTimeColorConfigRecord(waitTimeColorConfigDetails.getStartTime());	
 		waitForJqueryLoad(driver);
 		selectWebElement(exporttoexcel);

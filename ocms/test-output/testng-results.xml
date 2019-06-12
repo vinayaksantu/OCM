@@ -1,62 +1,131 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="4" passed="3" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2019-05-28T08:37:41Z" name="Default suite" finished-at="2019-05-28T08:37:59Z" duration-ms="17546">
+  <suite started-at="2019-06-11T10:24:58Z" name="Default suite" finished-at="2019-06-11T10:26:43Z" duration-ms="105272">
     <groups>
     </groups>
-    <test started-at="2019-05-28T08:37:41Z" name="Default test" finished-at="2019-05-28T08:37:59Z" duration-ms="17546">
-      <class name="com.tetherfi.test.CEPEventMappingTest">
-        <test-method is-config="true" signature="openApplication()[pri:0, instance:com.tetherfi.test.CEPEventMappingTest@7eb200ce]" started-at="2019-05-28T14:07:41Z" name="openApplication" finished-at="2019-05-28T14:07:50Z" duration-ms="8702" status="PASS">
+    <test started-at="2019-06-11T10:24:58Z" name="Default test" finished-at="2019-06-11T10:26:43Z" duration-ms="105272">
+      <class name="com.tetherfi.test.fax.FaxAddressBookTest">
+        <test-method is-config="true" signature="openApplication()[pri:0, instance:com.tetherfi.test.fax.FaxAddressBookTest@2ee83775]" started-at="2019-06-11T15:54:58Z" name="openApplication" finished-at="2019-06-11T15:55:57Z" duration-ms="59032" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- openApplication -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.CEPEventMappingTest@7eb200ce]" started-at="2019-05-28T14:07:50Z" name="startTestCase" finished-at="2019-05-28T14:07:50Z" duration-ms="2" status="PASS">
+        <test-method is-config="true" signature="NavigatetoFaxAddressPage()[pri:0, instance:com.tetherfi.test.fax.FaxAddressBookTest@2ee83775]" started-at="2019-06-11T15:55:57Z" name="NavigatetoFaxAddressPage" finished-at="2019-06-11T15:56:08Z" duration-ms="11062" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigatetoFaxAddressPage -->
+        <test-method signature="FaxSendersPage()[pri:1, instance:com.tetherfi.test.fax.FaxAddressBookTest@2ee83775]" started-at="2019-06-11T15:56:08Z" name="FaxSendersPage" finished-at="2019-06-11T15:56:09Z" duration-ms="784" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- FaxSendersPage -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxAddressBookTest@2ee83775]" started-at="2019-06-11T15:56:09Z" name="afterEachMethod" finished-at="2019-06-11T15:56:10Z" duration-ms="1536" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.CEPEventMappingTest.database() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigateToCepEventMappingPage()[pri:0, instance:com.tetherfi.test.CEPEventMappingTest@7eb200ce]" started-at="2019-05-28T14:07:50Z" name="NavigateToCepEventMappingPage" finished-at="2019-05-28T14:07:53Z" duration-ms="3301" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToCepEventMappingPage -->
-        <test-method signature="database()[pri:33, instance:com.tetherfi.test.CEPEventMappingTest@7eb200ce]" started-at="2019-05-28T14:07:53Z" name="database" finished-at="2019-05-28T14:07:56Z" duration-ms="3041" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- database -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.CEPEventMappingTest@7eb200ce]" started-at="2019-05-28T14:07:56Z" name="afterEachMethod" finished-at="2019-05-28T14:07:57Z" duration-ms="1240" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.CEPEventMappingTest.database() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.fax.FaxAddressBookTest.FaxSendersPage()]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.CEPEventMappingTest@7eb200ce]" started-at="2019-05-28T14:07:57Z" name="endTestCase" finished-at="2019-05-28T14:07:57Z" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="NavigatetoFaxAddressPage()[pri:0, instance:com.tetherfi.test.fax.FaxAddressBookTest@2ee83775]" started-at="2019-06-11T15:56:10Z" name="NavigatetoFaxAddressPage" finished-at="2019-06-11T15:56:16Z" duration-ms="5483" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigatetoFaxAddressPage -->
+        <test-method signature="VerifyDropdownForAllTheColumns()[pri:2, instance:com.tetherfi.test.fax.FaxAddressBookTest@2ee83775]" started-at="2019-06-11T15:56:16Z" name="VerifyDropdownForAllTheColumns" finished-at="2019-06-11T15:56:26Z" duration-ms="9899" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyDropdownForAllTheColumns -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxAddressBookTest@2ee83775]" started-at="2019-06-11T15:56:26Z" name="afterEachMethod" finished-at="2019-06-11T15:56:28Z" duration-ms="2348" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.CEPEventMappingTest.database() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.fax.FaxAddressBookTest.VerifyDropdownForAllTheColumns()]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.tetherfi.test.CEPEventMappingTest@7eb200ce]" started-at="2019-05-28T14:07:57Z" name="tearDown" finished-at="2019-05-28T14:07:59Z" duration-ms="1220" status="PASS">
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="NavigatetoFaxAddressPage()[pri:0, instance:com.tetherfi.test.fax.FaxAddressBookTest@2ee83775]" started-at="2019-06-11T15:56:28Z" name="NavigatetoFaxAddressPage" finished-at="2019-06-11T15:56:34Z" duration-ms="5596" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- com.tetherfi.test.CEPEventMappingTest -->
+        </test-method> <!-- NavigatetoFaxAddressPage -->
+        <test-method signature="VerifyColumnsHeaderEnable()[pri:3, instance:com.tetherfi.test.fax.FaxAddressBookTest@2ee83775]" started-at="2019-06-11T15:56:34Z" name="VerifyColumnsHeaderEnable" finished-at="2019-06-11T15:56:34Z" duration-ms="60" status="FAIL">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[columns enabled assertion failed expected [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: columns enabled assertion failed expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:93)
+	at org.testng.Assert.failNotEquals(Assert.java:512)
+	at org.testng.Assert.assertTrue(Assert.java:41)
+	at com.tetherfi.test.fax.FaxAddressBookTest.VerifyColumnsHeaderEnable(FaxAddressBookTest.java:88)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyColumnsHeaderEnable -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxAddressBookTest@2ee83775]" started-at="2019-06-11T15:56:34Z" name="afterEachMethod" finished-at="2019-06-11T15:56:36Z" duration-ms="1967" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.fax.FaxAddressBookTest.VerifyColumnsHeaderEnable()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="NavigatetoFaxAddressPage()[pri:0, instance:com.tetherfi.test.fax.FaxAddressBookTest@2ee83775]" started-at="2019-06-11T15:56:36Z" name="NavigatetoFaxAddressPage" finished-at="2019-06-11T15:56:41Z" duration-ms="5179" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigatetoFaxAddressPage -->
+        <test-method signature="VerifyColumnsHeaderDisable()[pri:4, instance:com.tetherfi.test.fax.FaxAddressBookTest@2ee83775]" started-at="2019-06-11T15:56:41Z" name="VerifyColumnsHeaderDisable" finished-at="2019-06-11T15:56:41Z" duration-ms="76" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyColumnsHeaderDisable -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxAddressBookTest@2ee83775]" started-at="2019-06-11T15:56:41Z" name="afterEachMethod" finished-at="2019-06-11T15:56:43Z" duration-ms="2170" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.fax.FaxAddressBookTest.VerifyColumnsHeaderDisable()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+      </class> <!-- com.tetherfi.test.fax.FaxAddressBookTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

@@ -299,12 +299,12 @@ public class TmacTransferListPage extends BasePage {
         //waitForJqueryLoad(driver);
     }
     
-    public void EnterNameNewConsulTrans(TmacTransferListDetails tmacTransferListDetails){
+    public void EnterNameNewConsulTrans(TmacTransferListDetails tmacTransferListDetails) throws Exception{
     	selectWebElement(tmacTransferListNameTextBox);
         enterValueToTxtField(tmacTransferListNameTextBox,tmacTransferListDetails.getName());
     }
     
-    public void EnterAgtExtNewConsulTrans(TmacTransferListDetails tmacTransferListDetails){
+    public void EnterAgtExtNewConsulTrans(TmacTransferListDetails tmacTransferListDetails) throws Exception{
     	selectWebElement(tmacTransferListAgentExtnsnTextBox);
     	enterValueToTxtFieldWithoutClear(tmacTransferListAgentExtnsnTextBox1,tmacTransferListDetails.getAgentExtension());
     }
@@ -329,7 +329,7 @@ public class TmacTransferListPage extends BasePage {
         Thread.sleep(2000);
     }
     
-    public void addNewTmacConsultTransferList(TmacTransferListDetails tmacTransferListDetails) {
+    public void addNewTmacConsultTransferList(TmacTransferListDetails tmacTransferListDetails) throws Exception {
         selectWebElement(addNewTmacTransferListBtn.get(0));
         selectWebElement(tmacTransferListNameTextBox);
         enterValueToTxtField(tmacTransferListNameTextBox,tmacTransferListDetails.getName());
@@ -339,7 +339,7 @@ public class TmacTransferListPage extends BasePage {
         selectDropdownFromVisibleText(typeListBox,tmacTransferListDetails.getType());
         selectWebElement(SaveButton);
     }
-    public void searchTmacTransferRecord(String Name,String columnNameListValue,int index) {
+    public void searchTmacTransferRecord(String Name,String columnNameListValue,int index) throws Exception {
         selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,columnNameListValue);
@@ -360,7 +360,7 @@ public class TmacTransferListPage extends BasePage {
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(gridContent.get(index));
     }
-    public void editTmacConsultTransferList(TmacTransferListDetails tmacTransferListDetails) {
+    public void editTmacConsultTransferList(TmacTransferListDetails tmacTransferListDetails) throws Exception {
         searchTmacTransferRecord(tmacTransferListDetails.getName(),"Name",0);
         selectWebElement(editButton);
         selectWebElement(tmacTransferListNameTextBox);
@@ -376,28 +376,28 @@ public class TmacTransferListPage extends BasePage {
         enterValueToTxtField(editModifyReasonTextBox,tmacTransferListDetails.getModReason());
         selectWebElement(SaveButton);
     }
-    public void deleteTmacConsultTransferList(TmacTransferListDetails tmacTransferListDetails) {
+    public void deleteTmacConsultTransferList(TmacTransferListDetails tmacTransferListDetails) throws Exception {
         searchTmacTransferRecord(tmacTransferListDetails.getName(),"Name",0);
         selectWebElement(deleteButton);
         enterValueToTxtField(deleteReasonTextBox,tmacTransferListDetails.getDeleteReason());
         selectWebElement(deleteYesBtn);
     }
     
-    public void deleteTmacConsultTransferListNoBtn(TmacTransferListDetails tmacTransferListDetails) {
+    public void deleteTmacConsultTransferListNoBtn(TmacTransferListDetails tmacTransferListDetails) throws Exception {
         searchTmacTransferRecord(tmacTransferListDetails.getName(),"Name",0);
         selectWebElement(deleteButton);
         enterValueToTxtField(deleteReasonTextBox,tmacTransferListDetails.getDeleteReason());
         selectWebElement(deleteNoBtn);
     }
     
-    public void deleteTmacBlindTransferListNoBtn(TmacTransferListDetails tmacTransferListDetails) {
+    public void deleteTmacBlindTransferListNoBtn(TmacTransferListDetails tmacTransferListDetails) throws Exception {
         searchTmacTransferRecord(tmacTransferListDetails.getSkillName(),"Skill Name",1);
         selectWebElement(deleteButton1);
         enterValueToTxtField(deleteReasonTextBox,tmacTransferListDetails.getDeleteReason());
         selectWebElement(deleteNoBtn);
     }
 
-    public void addNewTmacBlindTransferList(TmacTransferListDetails tmacTransferListDetails) {
+    public void addNewTmacBlindTransferList(TmacTransferListDetails tmacTransferListDetails) throws Exception {
         selectWebElement(addNewTmacBlindTransferListBtn.get(0));
         try {
             Thread.sleep(2000);
@@ -410,7 +410,7 @@ public class TmacTransferListPage extends BasePage {
         enterValueToTxtField(skillIdVdnList.get(1),tmacTransferListDetails.getVdn());
         selectWebElement(SaveButton);
     }
-    public void editTmacBlindTransferList(TmacTransferListDetails tmacTransferListDetails) throws InterruptedException {
+    public void editTmacBlindTransferList(TmacTransferListDetails tmacTransferListDetails) throws Exception {
     	searchTmacTransferRecord(tmacTransferListDetails.getSkillName(),"Skill Name",1);
     	selectWebElement(editButton1);
     	enterValueToTxtFieldWithoutClear(skillIdVdnList.get(1),tmacTransferListDetails.getUpdVdn());
@@ -422,7 +422,7 @@ public class TmacTransferListPage extends BasePage {
         selectWebElement(SaveButton);
     }
 
-    public void deleteTmacBlindTransferList(TmacTransferListDetails tmacTransferListDetails) {
+    public void deleteTmacBlindTransferList(TmacTransferListDetails tmacTransferListDetails) throws Exception {
         searchTmacTransferRecord(tmacTransferListDetails.getSkillName(),"Skill Name",1);
         selectWebElement(deleteButton1);
         enterValueToTxtField(deleteReasonTextBox,tmacTransferListDetails.getDeleteReason());
@@ -505,7 +505,7 @@ public class TmacTransferListPage extends BasePage {
 		return errorMsg.isEmpty();
 	}
 	
-	public boolean addNewCancel(TmacTransferListDetails tmacTransferListDetails) {
+	public boolean addNewCancel(TmacTransferListDetails tmacTransferListDetails) throws Exception {
 		String actualitems=items.getText();
 		selectWebElement(addNewTmacTransferListBtn.get(0));
         waitForJqueryLoad(driver);
@@ -809,7 +809,7 @@ public class TmacTransferListPage extends BasePage {
         selectDropdownFromVisibleText(skillNameListElements,tmacTransferListDetails.getSkillName());	
 	}
 
-	public void EnterVDNNewBlindTrans(TmacTransferListDetails tmacTransferListDetails) {
+	public void EnterVDNNewBlindTrans(TmacTransferListDetails tmacTransferListDetails) throws Exception {
 		//selectWebElement(skillIdVdnList.get(1));
 		enterValueToTxtField(skillIdVdnList.get(1),tmacTransferListDetails.getVdn());
 	}

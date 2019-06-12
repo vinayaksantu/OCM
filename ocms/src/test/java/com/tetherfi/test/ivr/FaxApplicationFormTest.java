@@ -80,10 +80,9 @@ public class FaxApplicationFormTest extends BaseTest {
         FaxApplicationFormDetails faxApplicationFormDetails = new FaxApplicationFormDetails(map);
         FaxApplicationFormPage faxApplicationFormPage = PageFactory.createPageInstance(driver, FaxApplicationFormPage.class);
         Assert.assertTrue(faxApplicationFormPage.addnewCancel(faxApplicationFormDetails), "Add new record cancel assertion failed");
-        screenshot.captureScreen(driver, "Cancel Record","FaxApplicationFormTest");
+        screenshot.captureScreen("FaxApplicationFormTest", "Cancel Record");
         faxApplicationFormPage.addNewFaxApplicationFormRecord(faxApplicationFormDetails);
         Assert.assertEquals(faxApplicationFormPage.verifySuccessMessage(),"Record Created Successfully", "Add New record assertion failed");
-        screenshot.captureScreen(driver,"Record Creation","FaxApplicationFormTest");
 
     }
     
@@ -100,7 +99,6 @@ public class FaxApplicationFormTest extends BaseTest {
         ReportDetails reportDetails= new ReportDetails(map2);
         ocmReportsPage.showReport(reportDetails);
         Assert.assertTrue(ocmReportsPage.verifyFaxApplicationFormCreate(faxApplicationFormDetails,"Create"));
-        screenshot.captureScreen(driver,"VerifyAuditTrialReportForCreate","FaxApplicationFormTest");    
     }
    
     @Test(priority=7,dependsOnMethods = "AddNewFaxApplicationFormRecord")
@@ -111,7 +109,6 @@ public class FaxApplicationFormTest extends BaseTest {
         FaxApplicationFormPage faxApplicationFormPage = PageFactory.createPageInstance(driver, FaxApplicationFormPage.class);
         faxApplicationFormPage.addNewFaxApplicationFormRecord(faxApplicationFormDetails);
         Assert.assertEquals(faxApplicationFormPage.verifySuccessMessage(),"Record Creation Failed, Already Exist", "Duplicate record assertion failed");
-    	screenshot.captureScreen(driver,"Duplicate Record","FaxApplicationFormTest");
     }
     
     @Test(priority=8)
@@ -122,7 +119,6 @@ public class FaxApplicationFormTest extends BaseTest {
         FaxApplicationFormPage faxApplicationFormPage = PageFactory.createPageInstance(driver, FaxApplicationFormPage.class);
         faxApplicationFormPage.addNewFaxApplicationFormWithoutFunctionlaity(faxApplicationFormDetails);
         Assert.assertTrue(faxApplicationFormPage.verifyErrorMessage(), "Add New record assertion failed");
-        screenshot.captureScreen(driver,"AddNewFaxApplicationFormWithoutFunctionality","FaxApplicationFormTest");
     }
     
     @Test(priority=9)
@@ -133,7 +129,6 @@ public class FaxApplicationFormTest extends BaseTest {
         FaxApplicationFormPage faxApplicationFormPage = PageFactory.createPageInstance(driver, FaxApplicationFormPage.class);
         faxApplicationFormPage.addNewFaxApplicationFormWithoutLanguage(faxApplicationFormDetails);
         Assert.assertTrue(faxApplicationFormPage.verifyErrorMessage(), "Add New record assertion failed");
-        screenshot.captureScreen(driver,"AddNewFaxApplicationFormWithoutLanguage","FaxApplicationFormTest");
     }
     
     @Test(priority=10)
@@ -144,7 +139,6 @@ public class FaxApplicationFormTest extends BaseTest {
         FaxApplicationFormPage faxApplicationFormPage = PageFactory.createPageInstance(driver, FaxApplicationFormPage.class);
         faxApplicationFormPage.addNewFaxApplicationFormWithoutPDFFile(faxApplicationFormDetails);
         Assert.assertTrue(faxApplicationFormPage.verifyErrorMessage(), "Add New record assertion failed");
-        screenshot.captureScreen(driver,"AddNewFaxApplicationFormWithoutPDfFile","FaxApplicationFormTest");
     }
     
     @Test(priority=11)
@@ -155,7 +149,6 @@ public class FaxApplicationFormTest extends BaseTest {
         FaxApplicationFormPage faxApplicationFormPage = PageFactory.createPageInstance(driver, FaxApplicationFormPage.class);
         faxApplicationFormPage.addNewFaxApplicationFormWithoutWaveFile(faxApplicationFormDetails);
         Assert.assertTrue(faxApplicationFormPage.verifyErrorMessage(), "Add New record assertion failed");
-        screenshot.captureScreen(driver,"AddNewFaxApplicationFormWithoutWaveFile","FaxApplicationFormTest");
     }
     
     @Test(priority=12)
@@ -166,10 +159,9 @@ public class FaxApplicationFormTest extends BaseTest {
         FaxApplicationFormPage faxApplicationFormPage = PageFactory.createPageInstance(driver, FaxApplicationFormPage.class);
         faxApplicationFormPage.addNewFaxApplicationFormWithoutStatus(faxApplicationFormDetails);
         Assert.assertTrue(faxApplicationFormPage.verifyErrorMessage(), "Add New record assertion failed");
-        screenshot.captureScreen(driver,"AddNewFaxApplicationFormWithoutStatus","FaxApplicationFormTest");
     }
     
-    @Test(priority=13,dependsOnMethods = "AddNewFaxApplicationFormRecord")
+    @Test(priority=13)//,dependsOnMethods = "AddNewFaxApplicationFormRecord")
     public void EditFaxApplicationFormRecord() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxApplicationFormData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(0);
@@ -177,7 +169,6 @@ public class FaxApplicationFormTest extends BaseTest {
         FaxApplicationFormPage faxApplicationFormPage = PageFactory.createPageInstance(driver, FaxApplicationFormPage.class);
         faxApplicationFormPage.editFaxApplicationFormRecord(faxApplicationFormDetails);
         Assert.assertEquals(faxApplicationFormPage.verifySuccessMessage(),"Record Updated Successfully","Edit record assertion failed");
-    	screenshot.captureScreen(driver,"Record Updated","FaxApplicationFormTest");
     }
     
     @Test(priority=14,dependsOnMethods="EditFaxApplicationFormRecord")
@@ -193,7 +184,6 @@ public class FaxApplicationFormTest extends BaseTest {
         ReportDetails reportDetails= new ReportDetails(map1);
         ocmReportsPage.showReport(reportDetails);
         Assert.assertTrue(ocmReportsPage.verifyFaxApplicationFormUpdate(faxApplicationFormDetails,"Update"));
-        screenshot.captureScreen(driver, "VerifyAuditTrialReportForUpdate","FaxApplicationFormTest");
     }
     
     @Test(priority=15)
@@ -204,7 +194,6 @@ public class FaxApplicationFormTest extends BaseTest {
         FaxApplicationFormPage faxApplicationFormPage = PageFactory.createPageInstance(driver, FaxApplicationFormPage.class);
         faxApplicationFormPage.editwithoutModifyreasonRecord(faxApplicationFormDetails);
         Assert.assertTrue(faxApplicationFormPage.verifyErrorMessage(), "Edit assertion failed");
-        screenshot.captureScreen(driver,"EditWithoutModifyReasonCallbackAnnouncementRecord","FaxApplicationFormTest");
     }
     
     @Test(priority=16)
@@ -214,7 +203,6 @@ public class FaxApplicationFormTest extends BaseTest {
         Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
         FaxApplicationFormDetails faxApplicationFormDetails = new FaxApplicationFormDetails(map);
         Assert.assertTrue(faxApplicationFormPage.editcancel(faxApplicationFormDetails ));
-        screenshot.captureScreen(driver,"VerifyCancelButtonAtEditRecord","FaxApplicationFormTest");
     }
     
     @Test(priority=17)
@@ -224,10 +212,10 @@ public class FaxApplicationFormTest extends BaseTest {
         FaxApplicationFormDetails faxApplicationFormDetails = new FaxApplicationFormDetails(map);
         FaxApplicationFormPage faxApplicationFormPage = PageFactory.createPageInstance(driver, FaxApplicationFormPage.class);
         Assert.assertFalse(faxApplicationFormPage .clearAll(faxApplicationFormDetails),"ClearAll Assertion Failed");
-        screenshot.captureScreen(driver, "clearall","FaxApplicationFormTest");
+        screenshot.captureScreen("FaxApplicationFormTest","clearall");
         Assert.assertTrue(faxApplicationFormPage .verifyclose());
-        screenshot.captureScreen(driver, "SearchClose","FaxApplicationFormTest");
     }
+    
     @Test(priority=18)
     public void searchwithoutSearchTextbox() throws IOException {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxApplicationFormData.xlsx";
@@ -236,7 +224,6 @@ public class FaxApplicationFormTest extends BaseTest {
         FaxApplicationFormPage faxApplicationFormPage = PageFactory.createPageInstance(driver, FaxApplicationFormPage.class);
         faxApplicationFormPage.searchwithoutextsearch(faxApplicationFormDetails);
     	Assert.assertTrue(faxApplicationFormPage.verifyErrorMessage());
-    	screenshot.captureScreen(driver, "searchwithoutSearchTextbox()","FaxApplicationFormTest");
     }
     
     @Test(priority=19)
@@ -247,7 +234,6 @@ public class FaxApplicationFormTest extends BaseTest {
         FaxApplicationFormPage faxApplicationFormPage = PageFactory.createPageInstance(driver, FaxApplicationFormPage.class);
         faxApplicationFormPage.deleteWithoutModifyReasonRecord(faxApplicationFormDetails);
         Assert.assertTrue(faxApplicationFormPage.verifyErrorMessage(), "Delete assertion failed");
-        screenshot.captureScreen(driver,"DeleteWithoutDeleteReasonRecord","FaxApplicationFormTest");
     }
     
     @Test(priority=20,dependsOnMethods = {"DeleteWithoutDeleteReasonRecord"})
@@ -257,10 +243,9 @@ public class FaxApplicationFormTest extends BaseTest {
          FaxApplicationFormDetails faxApplicationFormDetails = new FaxApplicationFormDetails(map);
          FaxApplicationFormPage faxApplicationFormPage = PageFactory.createPageInstance(driver, FaxApplicationFormPage.class);
          Assert.assertTrue(faxApplicationFormPage.Canceldelete(faxApplicationFormDetails), "Cancel Btn at Delete record assertion failed");
-         screenshot.captureScreen(driver,"VerifyCancelButtonRecord","FaxApplicationFormTest");
     }
     
-    @Test(dependsOnMethods = {"VerifyCancelButtonDeleteRecord"},priority=21)
+    @Test(priority=21)
     public void DeleteFaxApplicationFormRecord() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxApplicationFormData.xlsx";
          Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
@@ -268,10 +253,9 @@ public class FaxApplicationFormTest extends BaseTest {
          FaxApplicationFormPage faxApplicationFormPage = PageFactory.createPageInstance(driver, FaxApplicationFormPage.class);
          faxApplicationFormPage.deleteFaxApplicationFormRecord(faxApplicationFormDetails);
          Assert.assertEquals(faxApplicationFormPage.verifySuccessMessage(),"Record Deleted Successfully","delete record assertion failed");
-         screenshot.captureScreen(driver,"DeleteFaxApplicationFormRecord","FaxApplicationFormTest");
     }
     
-    @Test(dependsOnMethods= {"DeleteFaxApplicationFormRecord"},priority=22)
+    @Test(priority=22,dependsOnMethods= {"DeleteFaxApplicationFormRecord"})
     public void VerifyAuditTrialReportForDelete() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxApplicationFormData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(0);	
@@ -284,7 +268,6 @@ public class FaxApplicationFormTest extends BaseTest {
         ReportDetails reportDetails= new ReportDetails(map1);
         ocmReportsPage.showReport(reportDetails);
         Assert.assertTrue(ocmReportsPage.verifyFaxApplicationFormdelete(faxApplicationFormDetails,"Delete"));
-        screenshot.captureScreen(driver,"VerifyAuditTrialReportForUpdate","FaxApplicationFormTest");
     }
     
     @Test(priority=23)
@@ -293,7 +276,6 @@ public class FaxApplicationFormTest extends BaseTest {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles";
         FaxApplicationFormPage faxApplicationFormPage = PageFactory.createPageInstance(driver, FaxApplicationFormPage.class);
         Assert.assertTrue(faxApplicationFormPage.verifyExportToExcel(filePath));
-        screenshot.captureScreen(driver,"Export Excel","FaxApplicationFormTest");
     }
     
     @Test(priority=24)
@@ -302,7 +284,6 @@ public class FaxApplicationFormTest extends BaseTest {
     	List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
         FaxApplicationFormPage faxApplicationFormPage = PageFactory.createPageInstance(driver, FaxApplicationFormPage.class);
     	Assert.assertTrue(faxApplicationFormPage.verifyexportToExcelSheet(maplist));	
-    	screenshot.captureScreen(driver,"Export Excel Sheet","FaxApplicationFormTest");
     } 
 
     @Test(priority=24)
@@ -313,9 +294,8 @@ public class FaxApplicationFormTest extends BaseTest {
         FaxApplicationFormDetails faxApplicationFormDetails = new FaxApplicationFormDetails(map);
         FaxApplicationFormPage faxApplicationFormPage = PageFactory.createPageInstance(driver, FaxApplicationFormPage.class);
     	Assert.assertTrue(faxApplicationFormPage.verifyinvalidsearchwithwrongdata(faxApplicationFormDetails),"invalidsearchwithwrongdata");
-        screenshot.captureScreen(driver,"Invalid Search with wrong data", "CallbackAnnouncementTest");
+        screenshot.captureScreen("FaxApplicationFormTest","Invalid Search with wrong data");
         Assert.assertTrue(faxApplicationFormPage.verifyclearsearch(), "Clear All Assertion Failed");
-        screenshot.captureScreen( driver,"Clear Search", "FaxApplicationFormTest");
     }
     
     @Test(priority=25)
@@ -326,7 +306,6 @@ public class FaxApplicationFormTest extends BaseTest {
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         FaxApplicationFormDetails faxApplicationFormDetails = new FaxApplicationFormDetails(map);
         Assert.assertTrue(faxApplicationFormPage.ExporttoExcelWithoutData(faxApplicationFormDetails));
-        screenshot.captureScreen( driver,"ExporttoExcelWithoutData", "CallbackAnnouncementTest");
     }
   
     @Test(priority=26)
@@ -352,9 +331,9 @@ public class FaxApplicationFormTest extends BaseTest {
     {
         FaxApplicationFormPage faxApplicationFormPage = PageFactory.createPageInstance(driver, FaxApplicationFormPage.class);
     	Assert.assertTrue(faxApplicationFormPage.groupby());
-        screenshot.captureScreen(driver, "GroupBy","FaxApplicationFormTest");
+        screenshot.captureScreen("FaxApplicationFormTest","GroupBy");
     	Assert.assertTrue(faxApplicationFormPage.groupby());
-        screenshot.captureScreen(driver, "AlreadyGroupBy","FaxApplicationFormTest");
+        screenshot.captureScreen("FaxApplicationFormTest", "AlreadyGroupBy");
     }
     
     @Test(priority=29)
@@ -391,14 +370,9 @@ public class FaxApplicationFormTest extends BaseTest {
     }
     
     @AfterMethod
-    public void afterEachMethod(ITestResult result, Method method) throws InterruptedException {
-   	 if(ITestResult.FAILURE==result.getStatus()){
-      		 try{
-      			 screenshot.captureScreen(driver,method.getName(),"FaxApplicationFormTest");
-      		 }
-      		catch (Exception e){
-      		 System.out.println("Exception while taking screenshot "+e.getMessage());
-      		 } 
-      		 driver.navigate().refresh();
-      		 }    }
+    public void afterEachMethod(Method method) throws InterruptedException {
+        Screenshot screenshot=new Screenshot(driver);
+        screenshot.captureScreen("FaxApplicationFormTest",method.getName());
+        driver.navigate().refresh();
+    }
 }

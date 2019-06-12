@@ -401,7 +401,7 @@ public class FaxRoutingConfigurationPage extends BasePage {
 		return false;
 	}
 
-	private void searchFaxRoutingConfigurationRecord(String faxLine) {
+	private void searchFaxRoutingConfigurationRecord(String faxLine) throws Exception {
 		selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Fax Line");
@@ -607,12 +607,13 @@ public class FaxRoutingConfigurationPage extends BasePage {
 
 	public String getSuccessMessage() {
 		waitForJqueryLoad(driver);
-        if(errorMsg.size()>0){return errorMsg.get(0).getText();}
-        waitUntilWebElementIsVisible(successmsg);
+		if(successmsg.isDisplayed())
         return successmsg.getText();
+		else
+			return errorMsg.get(0).getText();
 	}
 
-	public boolean AddCancelRecord(FaxRoutingConfigurationDetails faxRoutingConfigDetails) {
+	public boolean AddCancelRecord(FaxRoutingConfigurationDetails faxRoutingConfigDetails) throws Exception {
 		String actualitems=items.getText();
 		selectWebElement(addFaxRoutingConfigBtn);
         waitForJqueryLoad(driver);
@@ -636,7 +637,7 @@ public class FaxRoutingConfigurationPage extends BasePage {
 		return false;
 	}
 
-	public void addNewFaxRoutingConfigRecord(FaxRoutingConfigurationDetails faxRoutingConfigDetails) {
+	public void addNewFaxRoutingConfigRecord(FaxRoutingConfigurationDetails faxRoutingConfigDetails) throws Exception {
 		selectWebElement(addFaxRoutingConfigBtn);
         waitForJqueryLoad(driver);
         try {
@@ -663,7 +664,7 @@ public class FaxRoutingConfigurationPage extends BasePage {
 			return true;
 	}
 
-	public void addNewInvalidRecordWithoutFaxLine(FaxRoutingConfigurationDetails faxRoutingConfigDetails) {
+	public void addNewInvalidRecordWithoutFaxLine(FaxRoutingConfigurationDetails faxRoutingConfigDetails) throws Exception {
 		selectWebElement(addFaxRoutingConfigBtn);
         waitForJqueryLoad(driver);
         try {
@@ -681,7 +682,7 @@ public class FaxRoutingConfigurationPage extends BasePage {
 		selectWebElement(cancelBtn);
 	}
 
-	public void addNewInvalidRecordWithoutSenderType(FaxRoutingConfigurationDetails faxRoutingConfigDetails) {
+	public void addNewInvalidRecordWithoutSenderType(FaxRoutingConfigurationDetails faxRoutingConfigDetails) throws Exception {
 		selectWebElement(addFaxRoutingConfigBtn);
 	    waitForJqueryLoad(driver);
 	    try {
@@ -700,7 +701,7 @@ public class FaxRoutingConfigurationPage extends BasePage {
 		
 	}
 
-	public void addNewInvalidRecordWithoutRouteType(FaxRoutingConfigurationDetails faxRoutingConfigDetails) {
+	public void addNewInvalidRecordWithoutRouteType(FaxRoutingConfigurationDetails faxRoutingConfigDetails) throws Exception {
 		selectWebElement(addFaxRoutingConfigBtn);
 	    waitForJqueryLoad(driver);
 	    try {
@@ -717,7 +718,7 @@ public class FaxRoutingConfigurationPage extends BasePage {
 	    selectWebElement(cancelBtn);
 	}
 
-	public void addNewInvalidRecordWithoutRouteData(FaxRoutingConfigurationDetails faxRoutingConfigDetails) {
+	public void addNewInvalidRecordWithoutRouteData(FaxRoutingConfigurationDetails faxRoutingConfigDetails) throws Exception {
 		selectWebElement(addFaxRoutingConfigBtn);
 	    waitForJqueryLoad(driver);
 	    try {
@@ -752,7 +753,7 @@ public class FaxRoutingConfigurationPage extends BasePage {
        return false;
 	}
 
-	private void searchBooleanFaxRoutingConfigRecord(String faxLine, String routeData) {
+	private void searchBooleanFaxRoutingConfigRecord(String faxLine, String routeData) throws Exception {
 		selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Fax Line");
@@ -802,7 +803,7 @@ public class FaxRoutingConfigurationPage extends BasePage {
 		
 	}
 
-	public boolean clearAll(FaxRoutingConfigurationDetails faxRoutingConfigDetails) {
+	public boolean clearAll(FaxRoutingConfigurationDetails faxRoutingConfigDetails) throws Exception {
 		selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Fax Line");
@@ -835,7 +836,7 @@ public class FaxRoutingConfigurationPage extends BasePage {
 		
 	}
 
-	public boolean deletecancelRecord(FaxRoutingConfigurationDetails faxRoutingConfigDetails) {
+	public boolean deletecancelRecord(FaxRoutingConfigurationDetails faxRoutingConfigDetails) throws Exception {
 		searchFaxRoutingConfigurationRecord(faxRoutingConfigDetails.getFaxLine());
         selectWebElement(deleteBtn);
         try {
@@ -851,7 +852,7 @@ public class FaxRoutingConfigurationPage extends BasePage {
 		return false;
 	}
 
-	public void deleteRoutingConfigwithoutReason(FaxRoutingConfigurationDetails faxRoutingConfigDetails) {
+	public void deleteRoutingConfigwithoutReason(FaxRoutingConfigurationDetails faxRoutingConfigDetails) throws Exception {
 		searchFaxRoutingConfigurationRecord(faxRoutingConfigDetails.getFaxLine());
         selectWebElement(deleteBtn);
         try {
@@ -863,7 +864,7 @@ public class FaxRoutingConfigurationPage extends BasePage {
         selectWebElement(deleteNoBtn);	
 	}
 
-	public void deleteFaxRoutingConfigRecord(FaxRoutingConfigurationDetails faxRoutingConfigDetails) {
+	public void deleteFaxRoutingConfigRecord(FaxRoutingConfigurationDetails faxRoutingConfigDetails) throws Exception {
 		searchBooleanFaxRoutingConfigRecord(faxRoutingConfigDetails.getFaxLine(),faxRoutingConfigDetails.getRouteData());
         selectWebElement(deleteBtn);
         try {
@@ -875,7 +876,7 @@ public class FaxRoutingConfigurationPage extends BasePage {
         selectWebElement(deleteYesBtn);
 	}
 
-	public boolean verifyinvalidsearchwithwrongdata(FaxRoutingConfigurationDetails faxRoutingConfigDetails) {
+	public boolean verifyinvalidsearchwithwrongdata(FaxRoutingConfigurationDetails faxRoutingConfigDetails) throws Exception {
 		searchBooleanFaxRoutingConfigRecord(faxRoutingConfigDetails.getFaxLine(),faxRoutingConfigDetails.getRouteData());
 		if(norecords.isDisplayed())
 			return true; 

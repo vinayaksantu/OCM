@@ -316,7 +316,7 @@ public class IntroMessageAnnouncementPage extends BasePage {
     	waitForLoad(driver);waitForJqueryLoad(driver);
     }
     
-    public void addNewIntroMessageAnnouncementRecord(IntroMessageAnnouncementDetails details) {
+    public void addNewIntroMessageAnnouncementRecord(IntroMessageAnnouncementDetails details) throws Exception {
 		selectWebElement(IntroMessageAnnouncementTabs.get(1));
         selectWebElement(makeIntroMessageAnnouncementChanges);
         waitForLoad(driver);waitForJqueryLoad(driver);
@@ -367,14 +367,14 @@ public class IntroMessageAnnouncementPage extends BasePage {
         	return false;
 	}
     
-    public void taskCompleteAction(String comment){
+    public void taskCompleteAction(String comment) throws Exception{
         selectWebElement(makeIntroMessageAnnouncementChanges);
         waitForLoad(driver);waitForJqueryLoad(driver);
         selectWebElement(taskCompleteBtn);
         enterValueToTxtField(makerComments,comment);
         clickOn(taskCompleteBtnAtMakerCommentsPopUp);
     }
-    public void searchIntroMessageAnnouncementRecord(String hotline) {
+    public void searchIntroMessageAnnouncementRecord(String hotline) throws Exception {
         selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Hotline");
@@ -386,7 +386,7 @@ public class IntroMessageAnnouncementPage extends BasePage {
         waitUntilWebElementIsVisible(gridContent1);
     }
 
-    public void editIntroMessageAnnouncementRecord(IntroMessageAnnouncementDetails details) {
+    public void editIntroMessageAnnouncementRecord(IntroMessageAnnouncementDetails details) throws Exception {
         selectWebElement(makeIntroMessageAnnouncementChanges);
         waitForJqueryLoad(driver);
         searchIntroMessageAnnouncementRecord(details.getFunctionality());
@@ -408,7 +408,7 @@ public class IntroMessageAnnouncementPage extends BasePage {
         enterValueToTxtField(ModifyReasonTextBox,details.getModifyReason());
         selectWebElement(saveBtn);
     }
-    public void deleteIntroMessageAnnouncementRecord(IntroMessageAnnouncementDetails details) {
+    public void deleteIntroMessageAnnouncementRecord(IntroMessageAnnouncementDetails details) throws Exception {
         selectWebElement(makeIntroMessageAnnouncementChanges);
         waitForJqueryLoad(driver);
         searchIntroMessageAnnouncementRecord(details.getFunctionality());
@@ -481,7 +481,7 @@ public class IntroMessageAnnouncementPage extends BasePage {
             }else{System.out.println("data mismatch"+newvalues.get("Functionality")+"\t"+details.getFunctionality());}
         return stat;
     }
-    public void clickonApprove(String comment){
+    public void clickonApprove(String comment) throws Exception{
         clickOn(approveBtn);
         waitForJqueryLoad(driver);
         selectWebElement(checkerReason);
@@ -899,7 +899,7 @@ public class IntroMessageAnnouncementPage extends BasePage {
 		return false;
 	}
 
-	public boolean clearAll(IntroMessageAnnouncementDetails details) {
+	public boolean clearAll(IntroMessageAnnouncementDetails details) throws Exception {
 		selectWebElement(gridsearchLink);
         selectWebElement(selectSearchColumn.get(0));
         selectDropdownFromVisibleText(columnNameList,"Hotline");
@@ -975,7 +975,7 @@ public class IntroMessageAnnouncementPage extends BasePage {
 		}
 	}
 	
-	public boolean verifyApprovedSectionData(IntroMessageAnnouncementDetails details) {
+	public boolean verifyApprovedSectionData(IntroMessageAnnouncementDetails details) throws Exception {
 		searchIntroMessageAnnouncementRecordApprovedData(details.getHotLine());
 		if(norecords.isDisplayed())
 			return true; 
@@ -983,7 +983,7 @@ public class IntroMessageAnnouncementPage extends BasePage {
 				return false;
 	}
 
-	private void searchIntroMessageAnnouncementRecordApprovedData(String hotline) {
+	private void searchIntroMessageAnnouncementRecordApprovedData(String hotline) throws Exception {
 		selectWebElement(gridsearchLink);
         selectWebElement(selectSearchColumn.get(0));
         selectDropdownFromVisibleText(columnNameList,"Hotline");

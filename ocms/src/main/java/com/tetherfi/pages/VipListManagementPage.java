@@ -572,7 +572,7 @@ public class VipListManagementPage extends BasePage{
 		else
 			return false;		
 	}
-	public boolean clearAll(VipListManagementDetails vipListManagementDetails) {
+	public boolean clearAll(VipListManagementDetails vipListManagementDetails) throws Exception {
 		selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Caller ID");
@@ -601,7 +601,7 @@ public class VipListManagementPage extends BasePage{
         selectWebElement(searchSearchBtn);	
 		selectWebElement(searchClose);		
 	}
-	public boolean verifyinvalidsearchwithwrongdata(VipListManagementDetails vipListManagementDetails) {
+	public boolean verifyinvalidsearchwithwrongdata(VipListManagementDetails vipListManagementDetails) throws Exception {
 		searchVipListManagementRecord(vipListManagementDetails.getCallerID());
 		if(norecords.isDisplayed())
 			return true; 
@@ -627,7 +627,7 @@ public class VipListManagementPage extends BasePage{
 		return false;
 	}
 	
-	public void searchVipListManagementRecord(String callerID ) {
+	public void searchVipListManagementRecord(String callerID ) throws Exception {
 		selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Caller ID");
@@ -658,7 +658,7 @@ public class VipListManagementPage extends BasePage{
 			e.printStackTrace();
 		}
 	}
-	public void addNewVipListManagementRecord(VipListManagementDetails details) {
+	public void addNewVipListManagementRecord(VipListManagementDetails details) throws Exception {
 		selectWebElement(addNewVipListRecordBtn);
 		waitForLoad(driver);
 		selectWebElement(callerIDTextBox);
@@ -692,7 +692,7 @@ public class VipListManagementPage extends BasePage{
 		selectWebElement(saveButton);
 		selectWebElement(cancelBtn);
 	}
-	public void addRecordWithoutCallerID(VipListManagementDetails details) {
+	public void addRecordWithoutCallerID(VipListManagementDetails details) throws Exception {
 		selectWebElement(addNewVipListRecordBtn);
 		waitForLoad(driver);
 		selectWebElement(emailIDTextBox);
@@ -715,7 +715,7 @@ public class VipListManagementPage extends BasePage{
 		selectWebElement(saveButton);
 		selectWebElement(cancelBtn);		
 	}
-	public void addRecordWithoutEmailId(VipListManagementDetails details) {
+	public void addRecordWithoutEmailId(VipListManagementDetails details) throws Exception {
 		selectWebElement(addNewVipListRecordBtn);
 		waitForLoad(driver);
 		selectWebElement(callerIDTextBox);
@@ -738,7 +738,7 @@ public class VipListManagementPage extends BasePage{
 		selectWebElement(saveButton);
 		selectWebElement(cancelBtn);		
 	}
-	public void addRecordWithoutFBHandle(VipListManagementDetails details) {
+	public void addRecordWithoutFBHandle(VipListManagementDetails details) throws Exception {
 		selectWebElement(addNewVipListRecordBtn);
 		waitForLoad(driver);
 		selectWebElement(callerIDTextBox);
@@ -761,7 +761,7 @@ public class VipListManagementPage extends BasePage{
 		selectWebElement(saveButton);
 		selectWebElement(cancelBtn);		
 	}
-	public void addRecordWithoutMessengerID(VipListManagementDetails details) {
+	public void addRecordWithoutMessengerID(VipListManagementDetails details) throws Exception {
 		selectWebElement(addNewVipListRecordBtn);
 		waitForLoad(driver);
 		selectWebElement(callerIDTextBox);
@@ -784,7 +784,7 @@ public class VipListManagementPage extends BasePage{
 		selectWebElement(saveButton);
 		selectWebElement(cancelBtn);		
 	}
-	public void addRecordWithoutCustomerIDType(VipListManagementDetails details) {
+	public void addRecordWithoutCustomerIDType(VipListManagementDetails details) throws Exception {
 		selectWebElement(addNewVipListRecordBtn);
 		waitForLoad(driver);
 		selectWebElement(callerIDTextBox);
@@ -807,7 +807,7 @@ public class VipListManagementPage extends BasePage{
 		selectWebElement(saveButton);
 		selectWebElement(cancelBtn);		
 	}
-	public void addRecordWithoutCustomerIDNo(VipListManagementDetails details) {
+	public void addRecordWithoutCustomerIDNo(VipListManagementDetails details) throws Exception {
 		selectWebElement(addNewVipListRecordBtn);
 		waitForLoad(driver);
 		selectWebElement(callerIDTextBox);
@@ -831,7 +831,7 @@ public class VipListManagementPage extends BasePage{
 		selectWebElement(saveButton);
 		selectWebElement(cancelBtn);		
 	}
-	public void addRecordWithoutCountry(VipListManagementDetails details) {
+	public void addRecordWithoutCountry(VipListManagementDetails details) throws Exception {
 		selectWebElement(addNewVipListRecordBtn);
 		waitForLoad(driver);
 		selectWebElement(callerIDTextBox);
@@ -855,7 +855,7 @@ public class VipListManagementPage extends BasePage{
 		selectWebElement(saveButton);
 		selectWebElement(cancelBtn);		
 	}
-	public void addRecordWithoutContactType(VipListManagementDetails details) {
+	public void addRecordWithoutContactType(VipListManagementDetails details) throws Exception {
 		selectWebElement(addNewVipListRecordBtn);
 		waitForLoad(driver);
 		selectWebElement(callerIDTextBox);
@@ -878,7 +878,7 @@ public class VipListManagementPage extends BasePage{
 		selectWebElement(saveButton);
 		selectWebElement(cancelBtn);		
 	}
-	public void addRecordWithoutInclusionFlag(VipListManagementDetails details) {
+	public void addRecordWithoutInclusionFlag(VipListManagementDetails details) throws Exception {
 		selectWebElement(addNewVipListRecordBtn);
 		waitForLoad(driver);
 		selectWebElement(callerIDTextBox);
@@ -901,7 +901,7 @@ public class VipListManagementPage extends BasePage{
 		selectWebElement(saveButton);
 		selectWebElement(cancelBtn);		
 	}
-	public void addRecordWithoutExclusionFlag(VipListManagementDetails details) {
+	public void addRecordWithoutExclusionFlag(VipListManagementDetails details) throws Exception {
 		selectWebElement(addNewVipListRecordBtn);
 		waitForLoad(driver);
 		selectWebElement(callerIDTextBox);
@@ -924,7 +924,7 @@ public class VipListManagementPage extends BasePage{
 		selectWebElement(saveButton);
 		selectWebElement(cancelBtn);		
 	}
-	public void addRecordWithoutOtherData(VipListManagementDetails details) {
+	public void addRecordWithoutOtherData(VipListManagementDetails details) throws Exception {
 		selectWebElement(addNewVipListRecordBtn);
 		waitForLoad(driver);
 		selectWebElement(callerIDTextBox);
@@ -965,7 +965,7 @@ public class VipListManagementPage extends BasePage{
 	        }
 	        return isElementExist(editFormContainer);
 	    }
-	public void editVIPListRecord(VipListManagementDetails details) {
+	public void editVIPListRecord(VipListManagementDetails details) throws Exception {
 		searchVipListManagementRecord(details.getCallerID());
 		selectWebElement(editButton);
 		waitForLoad(driver);
@@ -976,7 +976,7 @@ public class VipListManagementPage extends BasePage{
 		selectWebElement(saveButton);
 		
 	}
-	public void editVIPListRecordWithoutModifyReason(VipListManagementDetails details) {
+	public void editVIPListRecordWithoutModifyReason(VipListManagementDetails details) throws Exception {
 		searchVipListManagementRecord(details.getCallerID());
 		selectWebElement(editButton);
 		waitForLoad(driver);
@@ -989,7 +989,7 @@ public class VipListManagementPage extends BasePage{
         selectWebElement(editButton);
 		
 	}
-	public void deleteVIPListManagementRecord(VipListManagementDetails details) {
+	public void deleteVIPListManagementRecord(VipListManagementDetails details) throws Exception {
 		 searchVipListManagementRecord(details.getCallerID());
 	        selectWebElement(deleteButton);
 	        enterValueToTxtField(deleteReasonTextBox,details.getDeleteReason());
@@ -1012,7 +1012,7 @@ public class VipListManagementPage extends BasePage{
 	        return isElementExist(deleteContainer);
 	}
 	
-	public void deleteVIPListWithoutDeleteReasonRecord(VipListManagementDetails details) {
+	public void deleteVIPListWithoutDeleteReasonRecord(VipListManagementDetails details) throws Exception {
 		 searchVipListManagementRecord(details.getCallerID());
 		 selectWebElement(deleteYesBtn);
 		 selectWebElement(deleteNoBtn);

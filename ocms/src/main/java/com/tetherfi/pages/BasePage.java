@@ -11,6 +11,12 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import com.tetherfi.constants.Constants;
 import com.tetherfi.utility.DatabaseConnector;
 
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
 import java.io.File;
 import java.sql.ResultSet;
 import java.text.DateFormat;
@@ -122,6 +128,8 @@ public class BasePage {
         }
 		
 	}
+    
+    
 
     public void waitUntilWebElementListIsVisible(List<WebElement> webElementList) 
     {
@@ -138,26 +146,38 @@ public class BasePage {
         return wait.until(ExpectedConditions.textToBePresentInElement(element, text));
     }
 
-    public void enterValueToTxtField(WebElement webElement, String value) {
+    public void enterValueToTxtField(WebElement webElement, String value) throws Exception {
         waitUntilWebElementIsVisible(webElement);
         waitUntilWebElementIsClickable(webElement);
         webElement.clear();
-        webElement.sendKeys(value);
-        try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+        webElement.sendKeys("");
+        setclipboard(value);
+        Robot robot=new Robot();
+    	robot.keyPress(KeyEvent.VK_CONTROL);
+    	robot.keyPress(KeyEvent.VK_V);
+    	robot.keyRelease(KeyEvent.VK_V);
+    	robot.keyRelease(KeyEvent.VK_CONTROL);
+    	robot.keyPress(KeyEvent.VK_TAB);
+    	robot.keyRelease(KeyEvent.VK_TAB);
     }
     public void enterValueToTxtBox(List<WebElement> webElement, String value) {
         webElement.get(1).clear();
         webElement.get(0).click();
         webElement.get(1).sendKeys(value);
     }
-    public void enterValueToTxtFieldWithoutClear(WebElement webElement, String value) {
+    
+    
+    public void setclipboard(String value) {
+	StringSelection stringSelection = new StringSelection(value);
+	Clipboard clipBoard = Toolkit.getDefaultToolkit().getSystemClipboard();
+			clipBoard.setContents(stringSelection, null);
+    }
+
+    public void enterValueToTxtFieldWithoutClear(WebElement webElement, String value) throws Exception {
         waitUntilWebElementIsVisible(webElement);
         waitUntilWebElementIsClickable(webElement);
         webElement.sendKeys(value);
+        
     }
 
     public void enterValueToDropdownText(WebElement webElement, String value) {

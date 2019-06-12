@@ -398,7 +398,7 @@ public class SkillConfigurationPage extends BasePage {
 		else
 		return false;
 	}
-	private void searchSkillConfigurationRecord(String skillID) {
+	private void searchSkillConfigurationRecord(String skillID) throws Exception {
 		selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Skill ID");
@@ -601,7 +601,7 @@ public class SkillConfigurationPage extends BasePage {
 			return false;		
 	}
     
-    public boolean verifydeleteNo(SkillConfigurationDetails details) {
+    public boolean verifydeleteNo(SkillConfigurationDetails details) throws Exception {
     	searchSkillConfigurationRecord(details.getSkillID());		
     	selectWebElement(deleteButton);
 		try {
@@ -628,7 +628,7 @@ public class SkillConfigurationPage extends BasePage {
 		else
 		return false;
 	}
-	public boolean clearAll(SkillConfigurationDetails details) {
+	public boolean clearAll(SkillConfigurationDetails details) throws Exception {
 		selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Skill Name");
@@ -649,7 +649,7 @@ public class SkillConfigurationPage extends BasePage {
 		else
 		return false;
 	}
-	public boolean verifyinvalidsearch(SkillConfigurationDetails details) {
+	public boolean verifyinvalidsearch(SkillConfigurationDetails details) throws Exception {
 		searchSkillConfigurationRecord(details.getSkillName());		
 		if(norecords.isDisplayed())
 			return true; 
@@ -664,7 +664,7 @@ public class SkillConfigurationPage extends BasePage {
 		return false;
 	}
 
-	public boolean addNewCancel(SkillConfigurationDetails details) {
+	public boolean addNewCancel(SkillConfigurationDetails details) throws Exception {
 		String actualitems=items.getText();
 		selectWebElement(addNewRecordBtn);
         waitForJqueryLoad(driver);
@@ -684,7 +684,7 @@ public class SkillConfigurationPage extends BasePage {
 		return false;
 	}
 
-	public void addNewSkillConfigurationRecord(SkillConfigurationDetails details) {
+	public void addNewSkillConfigurationRecord(SkillConfigurationDetails details) throws Exception {
 		selectWebElement(addNewRecordBtn);
         waitForJqueryLoad(driver);
         enterValueToTxtField(skillIdTextbox, details.getSkillID());
@@ -721,7 +721,7 @@ public class SkillConfigurationPage extends BasePage {
 			return true;
 	}
 
-	public void addNewRecordWithoutSkillID(SkillConfigurationDetails details) {
+	public void addNewRecordWithoutSkillID(SkillConfigurationDetails details) throws Exception {
 		selectWebElement(addNewRecordBtn);
         waitForJqueryLoad(driver);
         enterValueToTxtField(skillNameTextbox, details.getSkillName());
@@ -736,7 +736,7 @@ public class SkillConfigurationPage extends BasePage {
         selectWebElement(cancelBtn);
 	}
 
-	public void addNewRecordWithoutSkillName(SkillConfigurationDetails details) {
+	public void addNewRecordWithoutSkillName(SkillConfigurationDetails details) throws Exception {
 		selectWebElement(addNewRecordBtn);
         waitForJqueryLoad(driver);
         enterValueToTxtField(skillIdTextbox, details.getSkillID());
@@ -751,7 +751,7 @@ public class SkillConfigurationPage extends BasePage {
         selectWebElement(cancelBtn);
 	}
 
-	public void addNewRecordWithoutSkillExtension(SkillConfigurationDetails details) {
+	public void addNewRecordWithoutSkillExtension(SkillConfigurationDetails details) throws Exception {
 		selectWebElement(addNewRecordBtn);
         waitForJqueryLoad(driver);
         enterValueToTxtField(skillIdTextbox, details.getSkillID());
@@ -766,7 +766,7 @@ public class SkillConfigurationPage extends BasePage {
         selectWebElement(cancelBtn);		
 	}
 
-	public void addNewRecordWithoutSkillPriority(SkillConfigurationDetails details) {
+	public void addNewRecordWithoutSkillPriority(SkillConfigurationDetails details) throws Exception {
 		selectWebElement(addNewRecordBtn);
         waitForJqueryLoad(driver);
         enterValueToTxtField(skillIdTextbox, details.getSkillID());
@@ -780,7 +780,7 @@ public class SkillConfigurationPage extends BasePage {
         selectWebElement(cancelBtn);		
 	}
 
-	public void addNewRecordWithoutEnabled(SkillConfigurationDetails details) {
+	public void addNewRecordWithoutEnabled(SkillConfigurationDetails details) throws Exception {
 		selectWebElement(addNewRecordBtn);
         waitForJqueryLoad(driver);
         enterValueToTxtField(skillIdTextbox, details.getSkillID());
@@ -794,7 +794,7 @@ public class SkillConfigurationPage extends BasePage {
         selectWebElement(cancelBtn);		
 	}
 
-	public boolean editcancel(SkillConfigurationDetails details) {
+	public boolean editcancel(SkillConfigurationDetails details) throws Exception {
 		searchSkillConfigurationRecord(details.getSkillID());
         try {
 			Thread.sleep(500);
@@ -813,7 +813,7 @@ public class SkillConfigurationPage extends BasePage {
         return false;
 	}
 
-	public void editSkillConfigurationRecord(SkillConfigurationDetails details) {
+	public void editSkillConfigurationRecord(SkillConfigurationDetails details) throws Exception {
 		searchSkillConfigurationRecord(details.getSkillID());
         try {
 			Thread.sleep(500);
@@ -834,7 +834,7 @@ public class SkillConfigurationPage extends BasePage {
         selectWebElement(saveBtn);
 	}
 
-	public void deleteWaitTimeColorConfigRecord(SkillConfigurationDetails details) {
+	public void deleteWaitTimeColorConfigRecord(SkillConfigurationDetails details) throws Exception {
 		searchSkillConfigurationRecord(details.getSkillID());		
     	selectWebElement(deleteButton);
 		try {

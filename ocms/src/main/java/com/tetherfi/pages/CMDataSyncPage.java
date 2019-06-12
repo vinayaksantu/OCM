@@ -40,7 +40,7 @@ public class CMDataSyncPage extends BasePage {
         waitForJqueryLoad(driver);
         return cmDataSync.isEnabled();
     }
-    public void agentVdnSynchronization(CmDataSyncDetails cmDataSyncDetails){
+    public void agentVdnSynchronization(CmDataSyncDetails cmDataSyncDetails) throws Exception{
         selectWebElement(objTypeDropdown);
         selectDropdownFromVisibleText(objTypeListBox,cmDataSyncDetails.getObjectType());
         enterValueToTxtField(modifyReasonTextBox,cmDataSyncDetails.getModifyReason());

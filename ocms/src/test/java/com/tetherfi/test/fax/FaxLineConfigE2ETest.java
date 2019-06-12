@@ -7,6 +7,7 @@ import java.util.Map;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -27,11 +28,12 @@ import com.tetherfi.pages.TmacPopupPage;
 import com.tetherfi.utility.BrowserFactory;
 import com.tetherfi.utility.ExcelReader;
 import com.tetherfi.utility.PageFactory;
+import com.tetherfi.utility.Screenshot;
 
 public class FaxLineConfigE2ETest {
 	protected WebDriver driver;
 	 @BeforeMethod
-	    public void NavigateToTmacPopupPage(Method method) throws IOException {
+	    public void NavigateToTmacPopupPage(Method method) throws Exception {
 		 try {
 	            PageFactory.reset();
 	            BrowserFactory browserFactory = new BrowserFactory();
@@ -92,8 +94,8 @@ public class FaxLineConfigE2ETest {
 	        }
 	    }
 	    
-	 //@Test(priority=2,groups= {"OCM"})
-	    public void AddFaxLineConfigRecord() throws IOException {
+	 @Test(priority=1,groups= {"OCM"})
+	    public void AddFaxLineConfigRecord() throws Exception {
 	        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxLineConfigData.xlsx";
 	        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
 	        FaxLineConfigDetails faxLineConfigDetails = new FaxLineConfigDetails(map);
@@ -102,7 +104,7 @@ public class FaxLineConfigE2ETest {
 	        Assert.assertEquals(faxLineConfigPage.getSuccessMessage(), "Record Created Successfully");
 	 }
 	 
-	 //@Test(priority=3,groups= {"TMAC"})
+	 @Test(priority=2,groups= {"TMAC"})
 	    public void VerifyFaxLineCreateInTMAC() throws IOException {
 		 	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxLineConfigData.xlsx";
 	        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -111,8 +113,8 @@ public class FaxLineConfigE2ETest {
             Assert.assertTrue(tmacloginPage.VerifyDropdownForCreate(faxLineConfigDetails));
 	 }
 	 
-	 //@Test(priority=4,groups= {"OCM"})//,dependsOnMethods = {"AddFaxLineConfigRecord"})
-	 public void EditFaxLineConfigRecord() throws IOException {
+	 @Test(priority=3,groups= {"OCM"},dependsOnMethods = {"AddFaxLineConfigRecord"})
+	 public void EditFaxLineConfigRecord() throws Exception {
 	        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxLineConfigData.xlsx";
 	        Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
 	        FaxLineConfigDetails faxLineConfigDetails = new FaxLineConfigDetails(map);
@@ -121,7 +123,7 @@ public class FaxLineConfigE2ETest {
 	        Assert.assertEquals(faxLineConfigPage.getSuccessMessage(),"Record Updated Successfully");
 	    }
 	 
-	 //@Test(priority=4,groups= {"OCM"})
+	 @Test(priority=4,groups= {"OCM"})
 	 public void verifyEditSendFaxModule() throws IOException {
 		 HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
 	        homePage.navigateToOCMPage();
@@ -139,7 +141,7 @@ public class FaxLineConfigE2ETest {
 	        
 	 }
 	 
-	 //@Test(priority=5,groups= {"TMAC"})
+	 @Test(priority=5,groups= {"TMAC"})
 	    public void VerifyFaxLineEditInTMAC() throws IOException {
 		 	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxLineConfigData.xlsx";
 	        Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
@@ -148,8 +150,8 @@ public class FaxLineConfigE2ETest {
 	        Assert.assertTrue(tmacloginPage.VerifyDropdownForEdit(faxLineConfigDetails));
 	 }
 	    
-	    //@Test(priority=6,groups= {"OCM"})//dependsOnMethods = {"DeleteCancelFaxLineConfigRecord"},priority=8)
-	    public void DeleteFaxLineConfigRecord() throws IOException {
+	 @Test(priority=6,groups= {"OCM"})//dependsOnMethods = {"DeleteCancelFaxLineConfigRecord"},priority=8)
+	    public void DeleteFaxLineConfigRecord() throws Exception {
 	        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxLineConfigData.xlsx";
 	        Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
 	        FaxLineConfigDetails faxLineConfigDetails = new FaxLineConfigDetails(map);
@@ -158,7 +160,7 @@ public class FaxLineConfigE2ETest {
 	        Assert.assertEquals(faxLineConfigPage.getSuccessMessage(),"Record Deleted Successfully");
 	    }
 	    
-	    @Test(priority=7,groups= {"TMAC"})
+	  @Test(priority=7,groups= {"TMAC"})
 	    public void VerifyFaxLineDeleteInTMAC() throws IOException {
 		 	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxLineConfigData.xlsx";
 	        Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
@@ -166,7 +168,7 @@ public class FaxLineConfigE2ETest {
 	        TmacLoginPage tmacloginPage = PageFactory.createPageInstance(driver,TmacLoginPage.class);
 	        Assert.assertTrue(tmacloginPage.VerifyDropdownForEdit(faxLineConfigDetails));
 	 }
-	    //@Test(priority=4,groups= {"OCM"})
+	   @Test(priority=4,groups= {"OCM"})
 		 public void verifyDeleteSendFaxModule() throws IOException {
 			 HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
 		        homePage.navigateToOCMPage();
@@ -184,7 +186,7 @@ public class FaxLineConfigE2ETest {
 		        
 		 }
 	    
-	    @Test(priority=4,groups= {"OCM"})//,dependsOnMethods = {"AddFaxLineConfigRecord"})
+	   @Test(priority=4,groups= {"OCM"},dependsOnMethods = {"AddFaxLineConfigRecord"})
 		 public void AddFaxLineConfigRecordforSendDisable() throws Exception {
 		        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxLineConfigData.xlsx";
 		        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(3);
@@ -211,5 +213,22 @@ public class FaxLineConfigE2ETest {
 		 public void RecieveFax() {
 			 
 		 }
+		 
+		 @AfterMethod
+		    public void afterEachMethod(Method method){
+		        Screenshot screenshot=new Screenshot(driver);
+		        screenshot.captureScreen("FaxTemplateE2ETest",method.getName());
+		        driver.navigate().refresh();
+		        Test t = method.getAnnotation(Test.class);
+		        if(t.groups()[0].equalsIgnoreCase("TMAC"))
+		        {	
+		        TmacPopupPage tmacPopupPage= PageFactory.createPageInstance(driver,TmacPopupPage.class);
+		        tmacPopupPage.userLogout();
+		        driver.close();
+		        }
+		        else 
+		        	driver.close();
+		       
+		    }
 	    
 }

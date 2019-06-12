@@ -235,14 +235,9 @@ public class FaxLineConfigPage extends BasePage{
         return faxLineConfig.isEnabled();
     }
 
-    public void addNewFaxLineConfigRecord(FaxLineConfigDetails faxLineConfigDetails) {
+    public void addNewFaxLineConfigRecord(FaxLineConfigDetails faxLineConfigDetails) throws Exception {
         selectWebElement(addNewFaxLineConfigRcrdBtn);
         waitForJqueryLoad(driver);
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         enterValueToTxtFieldWithoutClear(faxLineTextBox,faxLineConfigDetails.getFaxLine());
         selectWebElement(faxLineNameTextBox);
         enterValueToTxtField(faxLineNameTextBox,faxLineConfigDetails.getFaxLineName());
@@ -257,7 +252,7 @@ public class FaxLineConfigPage extends BasePage{
         selectWebElement(faxLineSaveButton);
         }
     
-    public boolean AddCancelRecord(FaxLineConfigDetails faxLineConfigDetails) {
+    public boolean AddCancelRecord(FaxLineConfigDetails faxLineConfigDetails) throws Exception {
 		String actualitems=items.getText();
 		selectWebElement(addNewFaxLineConfigRcrdBtn);
         waitForJqueryLoad(driver);
@@ -284,7 +279,7 @@ public class FaxLineConfigPage extends BasePage{
 		return false;
 	}
 
-    public void editFaxLineConfig(FaxLineConfigDetails faxLineConfigDetails) {
+    public void editFaxLineConfig(FaxLineConfigDetails faxLineConfigDetails) throws Exception {
         searchFaxLineConfigRecord(faxLineConfigDetails.getFaxLine());
         selectWebElement(editButton);
         selectWebElement(descriptionTextBox);
@@ -299,7 +294,7 @@ public class FaxLineConfigPage extends BasePage{
        enterValueToTxtField(modifyReasonTextBox,faxLineConfigDetails.getModifyReason());
        selectWebElement(faxLineSaveButton);
     }
-    public boolean editcancel(FaxLineConfigDetails faxLineConfigDetails) {
+    public boolean editcancel(FaxLineConfigDetails faxLineConfigDetails) throws Exception {
     	searchFaxLineConfigRecord(faxLineConfigDetails.getFaxLine());
         selectWebElement(editButton);
         selectWebElement(descriptionTextBox);
@@ -324,13 +319,18 @@ public class FaxLineConfigPage extends BasePage{
         selectDropdownFromVisibleText(columnNameList,"Fax Line");
         selectWebElement(selectSearchCol.get(1));
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is equal to");
-        enterValueToTxtField(searchTextBox,faxLine);
+        try {
+			enterValueToTxtField(searchTextBox,faxLine);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
         selectWebElement(searchSearchBtn);
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(gridContent);
         }
 
-    public void deleteFaxLineConfig(FaxLineConfigDetails faxLineConfigDetails) {
+    public void deleteFaxLineConfig(FaxLineConfigDetails faxLineConfigDetails) throws Exception {
             searchFaxLineConfigRecord(faxLineConfigDetails.getFaxLine());
             selectWebElement(deleteButton);
             try {
@@ -338,11 +338,11 @@ public class FaxLineConfigPage extends BasePage{
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            enterValueToTxtField(deleteReasonTextBox,faxLineConfigDetails.getDeleteReason());
+            enterValueToTxtFieldWithoutClear(deleteReasonTextBox,faxLineConfigDetails.getDeleteReason());
             selectWebElement(deleteYesBtn);
         }
     
-    public boolean deletecancelRecord(FaxLineConfigDetails faxLineConfigDetails) {
+    public boolean deletecancelRecord(FaxLineConfigDetails faxLineConfigDetails) throws Exception {
     	searchFaxLineConfigRecord(faxLineConfigDetails.getFaxLine());
         selectWebElement(deleteButton);
         try {
@@ -360,9 +360,10 @@ public class FaxLineConfigPage extends BasePage{
 
     public String getSuccessMessage(){
         waitForJqueryLoad(driver);
-        if(errorMsg.size()>0){return errorMsg.get(0).getText();}
-        waitUntilWebElementIsVisible(successmsg);
-        return successmsg.getText();
+        if(successmsg.isDisplayed())
+        	return successmsg.getText();
+        else
+        	return errorMsg.get(0).getText();
     }
     
     public boolean getErrorMessage() {
@@ -519,6 +520,12 @@ public class FaxLineConfigPage extends BasePage{
 				if(headers.get(j).getText().equals("Last Changed On")){
 					col=cols.get(j).getText().substring(11);
 					}
+				else if(headers.get(j).getText().contains("Enabled")){
+					if(cols.get(j).getText().equals("Enabled"))
+						col="1";
+					else
+						col="0";
+				}
 				else
 					col=cols.get(j).getText();
 				map.put(headers.get(j).getText(),col);
@@ -883,7 +890,7 @@ public class FaxLineConfigPage extends BasePage{
 	        selectWebElement(cancelBtn);
 	        }
 
-	public boolean clearAll(FaxLineConfigDetails details) {
+	public boolean clearAll(FaxLineConfigDetails details) throws Exception {
 		selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Fax Line");

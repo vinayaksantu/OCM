@@ -423,7 +423,7 @@ public class AgentTransferPage extends BasePage{
 	        return item.matches("(\\d.*) - (\\d.*) of (\\d.*) items");
 	    }
 
-		public boolean addCancel(AgentTransferDetails details) {
+		public boolean addCancel(AgentTransferDetails details) throws Exception {
 			String actualitems=items.getText();
 			selectWebElement(addNewAgentTransferBtn);
 			enterValueToTxtField(menuIdTextbox,details.getMenuId());
@@ -439,7 +439,7 @@ public class AgentTransferPage extends BasePage{
 				return false;
 		}
 
-		public void addNewAgentTransferRecord(AgentTransferDetails details) {
+		public void addNewAgentTransferRecord(AgentTransferDetails details) throws Exception {
 			selectWebElement(addNewAgentTransferBtn);
 			enterValueToTxtField(menuIdTextbox,details.getMenuId());
 			enterValueToTxtField(vdnTextbox,details.getVdn());
@@ -461,7 +461,7 @@ public class AgentTransferPage extends BasePage{
 				{return false;}
 		}
 
-		public void addRecordWithoutMenuId(AgentTransferDetails details) {
+		public void addRecordWithoutMenuId(AgentTransferDetails details) throws Exception {
 			selectWebElement(addNewAgentTransferBtn);
 			enterValueToTxtField(vdnTextbox,details.getVdn());
 			enterValueToTxtField(vipVdnTextbox,details.getVipVdn());
@@ -473,7 +473,7 @@ public class AgentTransferPage extends BasePage{
 			
 		}
 
-		public void addRecordWithoutVDN(AgentTransferDetails details) {
+		public void addRecordWithoutVDN(AgentTransferDetails details) throws Exception {
 			selectWebElement(addNewAgentTransferBtn);
 			enterValueToTxtField(menuIdTextbox,details.getMenuId());
 			enterValueToTxtField(vipVdnTextbox,details.getVipVdn());
@@ -484,7 +484,7 @@ public class AgentTransferPage extends BasePage{
 			selectWebElement(cancelbtn);			
 		}
 
-		public void addRecordWithoutOption(AgentTransferDetails details) {
+		public void addRecordWithoutOption(AgentTransferDetails details) throws Exception {
 			selectWebElement(addNewAgentTransferBtn);
 			enterValueToTxtField(menuIdTextbox,details.getMenuId());
 			enterValueToTxtField(vdnTextbox,details.getVdn());
@@ -495,7 +495,7 @@ public class AgentTransferPage extends BasePage{
 			selectWebElement(cancelbtn);			
 		}
 
-		public void addRecordWithoutVDNDescription(AgentTransferDetails details) {
+		public void addRecordWithoutVDNDescription(AgentTransferDetails details) throws Exception {
 			selectWebElement(addNewAgentTransferBtn);
 			enterValueToTxtField(menuIdTextbox,details.getMenuId());
 			enterValueToTxtField(vdnTextbox,details.getVdn());
@@ -519,7 +519,7 @@ public class AgentTransferPage extends BasePage{
 			return false;
 		}
 
-		private void searchAgentTransfer(String vdnDescription) {
+		private void searchAgentTransfer(String vdnDescription) throws Exception {
 			selectWebElement(searchBtn);
 	        selectWebElement(selectSearchCol.get(0));
 	        selectDropdownFromVisibleText(columnNameList,"VDN Description");
@@ -621,7 +621,7 @@ public class AgentTransferPage extends BasePage{
 			}
 		}
 		
-		public boolean clearAll(AgentTransferDetails details) {
+		public boolean clearAll(AgentTransferDetails details) throws Exception {
 			selectWebElement(searchBtn);
 	        selectWebElement(selectSearchCol.get(0));
 	        selectDropdownFromVisibleText(columnNameList,"VDN Description");
@@ -643,7 +643,7 @@ public class AgentTransferPage extends BasePage{
 			return false;
 		}
 		
-		public boolean verifyinvalidsearchwithwrongdata(AgentTransferDetails details) {
+		public boolean verifyinvalidsearchwithwrongdata(AgentTransferDetails details) throws Exception {
 			searchAgentTransfer(details.getVdnDescription());
 			if(norecords.isDisplayed())
 				return true; 
@@ -658,7 +658,7 @@ public class AgentTransferPage extends BasePage{
 			return false;
 		}
 
-		public boolean verifydeleteNo(AgentTransferDetails details) {
+		public boolean verifydeleteNo(AgentTransferDetails details) throws Exception {
 			searchAgentTransfer(details.getVdnDescription());
 			selectWebElement(deleteButton);
 			try {
@@ -674,7 +674,7 @@ public class AgentTransferPage extends BasePage{
 			return false;
 		}
 
-		public void deleteAgentTransferRecord(AgentTransferDetails details) {
+		public void deleteAgentTransferRecord(AgentTransferDetails details) throws Exception {
 			searchAgentTransfer(details.getVdnDescription());
 			try {
 				Thread.sleep(1000);
@@ -690,7 +690,7 @@ public class AgentTransferPage extends BasePage{
 			selectWebElement(yesbtn);				
 		}
 		
-		public boolean ExporttoExcelWithoutData(AgentTransferDetails details) {
+		public boolean ExporttoExcelWithoutData(AgentTransferDetails details) throws Exception {
 			searchAgentTransfer(details.getVdnDescription());
 			waitForJqueryLoad(driver);
 			selectWebElement(exporttoexcel);

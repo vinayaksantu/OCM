@@ -382,7 +382,7 @@ public class CallbackAnnouncementPage extends BasePage{
 		return false;
 	}
 
-	private void searchCallbackAnnouncementRecord(String startTime) {
+	private void searchCallbackAnnouncementRecord(String startTime) throws Exception {
 		selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Start Time");
@@ -590,7 +590,7 @@ public class CallbackAnnouncementPage extends BasePage{
         else{waitUntilWebElementIsVisible(successmsg);return successmsg.getText();}
     }
     
-	public boolean addnewCancel(CallbackAnnouncementDetails details) {
+	public boolean addnewCancel(CallbackAnnouncementDetails details) throws Exception {
 		String actualitems=items.getText();
     	selectWebElement(addNewCallBackAnnouncementRecordBtn);
         waitForJqueryLoad(driver);
@@ -615,7 +615,7 @@ public class CallbackAnnouncementPage extends BasePage{
 		else
 		return false;
 	}
-	public void addNewCallbackAnnouncementRecord(CallbackAnnouncementDetails details) {
+	public void addNewCallbackAnnouncementRecord(CallbackAnnouncementDetails details) throws Exception {
 		selectWebElement(addNewCallBackAnnouncementRecordBtn);
         waitForJqueryLoad(driver);
         try {
@@ -643,7 +643,7 @@ public class CallbackAnnouncementPage extends BasePage{
 			else 
 				return false;
 	}
-	public void addNewCallbackAnnouncementWithoutWavFileRecord(CallbackAnnouncementDetails details) {
+	public void addNewCallbackAnnouncementWithoutWavFileRecord(CallbackAnnouncementDetails details) throws Exception {
 		selectWebElement(addNewCallBackAnnouncementRecordBtn);
         waitForJqueryLoad(driver);
         try {
@@ -661,7 +661,7 @@ public class CallbackAnnouncementPage extends BasePage{
         selectWebElement(cancelBtn);
 		
 	}
-	public void addNewCallbackAnnouncementWithoutStartTimeRecord(CallbackAnnouncementDetails details) {
+	public void addNewCallbackAnnouncementWithoutStartTimeRecord(CallbackAnnouncementDetails details) throws Exception {
 		selectWebElement(addNewCallBackAnnouncementRecordBtn);
         waitForJqueryLoad(driver);
         try {
@@ -680,7 +680,7 @@ public class CallbackAnnouncementPage extends BasePage{
         selectWebElement(saveButton);
         selectWebElement(cancelBtn);
 	}
-	public void addNewCallbackAnnouncementWithoutEndTimeRecord(CallbackAnnouncementDetails details) {
+	public void addNewCallbackAnnouncementWithoutEndTimeRecord(CallbackAnnouncementDetails details) throws Exception {
 		selectWebElement(addNewCallBackAnnouncementRecordBtn);
         waitForJqueryLoad(driver);
         try {
@@ -699,7 +699,7 @@ public class CallbackAnnouncementPage extends BasePage{
         selectWebElement(saveButton);
         selectWebElement(cancelBtn);
 	}
-	public void addNewCallbackAnnouncementWithoutLanguageRecord(CallbackAnnouncementDetails details) {
+	public void addNewCallbackAnnouncementWithoutLanguageRecord(CallbackAnnouncementDetails details) throws Exception {
 		selectWebElement(addNewCallBackAnnouncementRecordBtn);
         waitForJqueryLoad(driver);
         try {
@@ -757,7 +757,7 @@ public class CallbackAnnouncementPage extends BasePage{
 	        else 
 	        	return false;	
 	}
-	public boolean clearAll(CallbackAnnouncementDetails details) {
+	public boolean clearAll(CallbackAnnouncementDetails details) throws Exception {
 		selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Start Time");
@@ -777,7 +777,7 @@ public class CallbackAnnouncementPage extends BasePage{
 		else
 		return false;
 	}
-	public boolean verifyinvalidsearchwithwrongdata(CallbackAnnouncementDetails details) {
+	public boolean verifyinvalidsearchwithwrongdata(CallbackAnnouncementDetails details) throws Exception {
 		searchCallbackAnnouncementRecord(details.getStartTime());
 		if(norecords.isDisplayed())
 			return true; 
@@ -800,7 +800,7 @@ public class CallbackAnnouncementPage extends BasePage{
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is equal to");
         selectWebElement(searchSearchBtn);		
 	}
-	public void deleteWithoutModifyReasonRecord(CallbackAnnouncementDetails details) {
+	public void deleteWithoutModifyReasonRecord(CallbackAnnouncementDetails details) throws Exception {
 		searchCallbackAnnouncementRecord(details.getStartTime());
         selectWebElement(deleteButton);
         selectWebElement(deleteYesBtn);		

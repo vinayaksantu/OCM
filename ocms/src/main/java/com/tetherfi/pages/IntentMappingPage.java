@@ -549,7 +549,7 @@ public class IntentMappingPage extends BasePage{
 		else
 			return false;		
 	}
-	public boolean clearAll(IntentMappingDetails details) {
+	public boolean clearAll(IntentMappingDetails details) throws Exception {
 		selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"VDN");
@@ -578,7 +578,7 @@ public class IntentMappingPage extends BasePage{
         selectWebElement(searchSearchBtn);	
 		selectWebElement(searchClose);		
 	}
-	public boolean verifyinvalidsearchwithwrongdata(IntentMappingDetails details) {
+	public boolean verifyinvalidsearchwithwrongdata(IntentMappingDetails details) throws Exception {
 		searchIntentMappingRecord(details.getVDN());
 		try {
 			Thread.sleep(1000);
@@ -591,7 +591,7 @@ public class IntentMappingPage extends BasePage{
 			else
 				return false;
 	}
-	public void searchIntentMappingRecord(String vdn) {
+	public void searchIntentMappingRecord(String vdn) throws Exception {
 		selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"VDN");
@@ -645,7 +645,7 @@ public class IntentMappingPage extends BasePage{
 		 if(errorMsg.size()>0){return errorMsg.get(0).getText();}
 	       else{waitUntilWebElementIsVisible(successmsg);return successmsg.getText();}
 	}
-	public void addNewIntentMappingRecord(IntentMappingDetails details) {
+	public void addNewIntentMappingRecord(IntentMappingDetails details) throws Exception {
 		selectWebElement(addNewIntentMappingRecordBtn);
 		selectWebElement(ProductDropdown);
         selectDropdownFromVisibleText(ProductListbox,details.getProduct());
@@ -749,7 +749,7 @@ public class IntentMappingPage extends BasePage{
 		selectWebElement(saveButton);
 		selectWebElement(cancelBtn);
 	}
-	public void addRecordWithoutProduct(IntentMappingDetails details) {
+	public void addRecordWithoutProduct(IntentMappingDetails details) throws Exception {
 		selectWebElement(addNewIntentMappingRecordBtn);
         selectWebElement(SegmentDropdown);
         selectDropdownFromVisibleText(SegmentListbox,details.getSegment());
@@ -762,7 +762,7 @@ public class IntentMappingPage extends BasePage{
 		selectWebElement(saveButton);
 		selectWebElement(cancelBtn);
 	}
-	public void addRecordWithoutSegment(IntentMappingDetails details) {
+	public void addRecordWithoutSegment(IntentMappingDetails details) throws Exception {
 		selectWebElement(addNewIntentMappingRecordBtn);
 		selectWebElement(ProductDropdown);
         selectDropdownFromVisibleText(ProductListbox,details.getProduct());
@@ -775,7 +775,7 @@ public class IntentMappingPage extends BasePage{
 		selectWebElement(saveButton);
 		selectWebElement(cancelBtn);
 	}
-	public void addRecordWithoutLanguage(IntentMappingDetails details) {
+	public void addRecordWithoutLanguage(IntentMappingDetails details) throws Exception {
 		selectWebElement(addNewIntentMappingRecordBtn);
 		selectWebElement(ProductDropdown);
         selectDropdownFromVisibleText(ProductListbox,details.getProduct());
@@ -788,7 +788,7 @@ public class IntentMappingPage extends BasePage{
 		selectWebElement(saveButton);
 		selectWebElement(cancelBtn);		
 	}
-	public void addRecordWithoutIntentTalent(IntentMappingDetails details) {
+	public void addRecordWithoutIntentTalent(IntentMappingDetails details) throws Exception {
 		selectWebElement(addNewIntentMappingRecordBtn);
 		selectWebElement(ProductDropdown);
         selectDropdownFromVisibleText(ProductListbox,details.getProduct());

@@ -2,6 +2,7 @@ package com.tetherfi.pages;
 
 import com.tetherfi.model.fax.FaxLineConfigDetails;
 import com.tetherfi.model.fax.FaxRoutingConfigurationDetails;
+import com.tetherfi.model.fax.FaxTemplateDetails;
 import com.tetherfi.model.fax.SendFaxDetails;
 import com.tetherfi.utility.FileUploader;
 
@@ -384,7 +385,7 @@ public class SendFaxPage extends BasePage {
         return status;
     }
     
-    public boolean clearAll(SendFaxDetails sendFaxDetails) {
+    public boolean clearAll(SendFaxDetails sendFaxDetails) throws Exception {
 		selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Number");
@@ -418,9 +419,11 @@ public class SendFaxPage extends BasePage {
 	
 	public String getSuccessMessage() {
 		waitForJqueryLoad(driver);
-        if(errorMsg.size()>0){return errorMsg.get(0).getText();}
-        waitUntilWebElementIsVisible(successmsg);
-        return successmsg.getText();
+		if(successmsg.isDisplayed()) {
+			return successmsg.getText();
+		}
+		else
+			return errorMsg.get(0).getText();
 	}
 	
 	public boolean getErrorMsg() {
@@ -433,9 +436,13 @@ public class SendFaxPage extends BasePage {
 	
 	public String getInfoMsg() {
 		waitForJqueryLoad(driver);
-        if(errorMsg.size()>0){return errorMsg.get(0).getText();}
-        waitUntilWebElementIsVisible(infoMsg);
-        return infoMsg.getText();
+		if(infoMsg.isDisplayed())
+			{
+			return infoMsg.getText();
+			}
+		else
+			{return errorMsg.get(0).getText();}
+
 	}
 	
 	public boolean verifyExportToExcel(String filePath) {
@@ -553,7 +560,7 @@ public class SendFaxPage extends BasePage {
 		return false;
 	}
 
-	public void searchSendFaxRecord(String faxLine) {
+	public void searchSendFaxRecord(String faxLine) throws Exception {
 		selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Fax Line");
@@ -564,7 +571,7 @@ public class SendFaxPage extends BasePage {
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(gridContent);
 	}
-	public boolean verifyvalidsearchdata(SendFaxDetails details) {
+	public boolean verifyvalidsearchdata(SendFaxDetails details) throws Exception {
 		searchSendFaxRecord(details.getFaxLine());
 		if(faxlinedata.getText().equals(details.getFaxLine()))
 			return true; 
@@ -573,7 +580,7 @@ public class SendFaxPage extends BasePage {
 	}
 	
 	
-	public boolean verifyinvalidsearchwithwrongdata(SendFaxDetails details) {
+	public boolean verifyinvalidsearchwithwrongdata(SendFaxDetails details) throws Exception {
 		searchSendFaxRecord(details.getFaxLine());
 		if(norecords.isDisplayed())
 			return true; 
@@ -810,7 +817,7 @@ public class SendFaxPage extends BasePage {
 		
 	}
 
-	public void addNewInvalidRecordUploadingWrongFile(SendFaxDetails sendFaxDetails) throws InterruptedException {
+	public void addNewInvalidRecordUploadingWrongFile(SendFaxDetails sendFaxDetails) throws Exception {
 		selectWebElement(addNewRecdBtn);
 		waitForJqueryLoad(driver);
 	    Thread.sleep(2000);
@@ -868,6 +875,23 @@ public class SendFaxPage extends BasePage {
 				Status= false;
 			break;}
 		}
+		return Status;
+	}
+
+	public boolean verifyFaxTemplate(FaxTemplateDetails faxTemplateDetails) {
+		Boolean Status=false;
+		selectWebElement(addNewRecdBtn);
+		selectWebElement(enableTemplate);
+	    selectWebElement(templateDropdown);
+	    for(WebElement ele: templatelistbox)
+		{
+			if(ele.getText().equals(faxTemplateDetails.getTemplateName())) {
+				selectWebElement(ele);
+				Status=true;
+				break;
+			}
+		}
+		selectWebElement(cancelBtn);
 		return Status;
 	}
 

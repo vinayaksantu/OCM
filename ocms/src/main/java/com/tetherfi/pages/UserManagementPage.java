@@ -290,13 +290,13 @@ public class UserManagementPage extends BasePage {
 		else 
 			return false;}
 	
-    public void addNewUserManagementRecord(String userID) {
+    public void addNewUserManagementRecord(String userID) throws Exception {
         selectWebElement(addNewUserManagementRecordBtn);
         selectWebElement(userIdTextBox);
         enterValueToTxtField(userIdTextBox,userID);
         selectWebElement(saveBtn);
     }
-    public void editUserManagementRecord(String UserID, String reason,String user) {
+    public void editUserManagementRecord(String UserID, String reason,String user) throws Exception {
         searchUserManagementRecord(user);
         try {
 			Thread.sleep(1000);
@@ -320,7 +320,7 @@ public class UserManagementPage extends BasePage {
         	e.printStackTrace();
         }
     }
-    public void searchUserManagementRecord(String UserID) {
+    public void searchUserManagementRecord(String UserID) throws Exception {
         selectWebElement(searchLink);
         selectWebElement(selectSearchColumn.get(0));
         selectDropdownFromVisibleText(columnNameList,"User Id");
@@ -330,7 +330,7 @@ public class UserManagementPage extends BasePage {
         selectWebElement(searchBtn);
         waitForJqueryLoad(driver);
     }
-    public void deleteUserManagementRecord(String username, String reason) {
+    public void deleteUserManagementRecord(String username, String reason) throws Exception {
         searchUserManagementRecord(username);
         selectWebElement(deleteBtn);
         enterValueToTxtField(deleteReasonTextBox,reason);
@@ -460,7 +460,7 @@ public class UserManagementPage extends BasePage {
 		
 	}
 	
-	public boolean addNewCancel(String userId) {
+	public boolean addNewCancel(String userId) throws Exception {
 		String actualitems=items.getText();
 		selectWebElement(addNewUserManagementRecordBtn);
         selectWebElement(userIdTextBox);
@@ -471,7 +471,7 @@ public class UserManagementPage extends BasePage {
         else
 		return false;
 	}
-	public void addUserManagementRecord(String userID) {
+	public void addUserManagementRecord(String userID) throws Exception {
         selectWebElement(addNewUserManagementRecordBtn);
         selectWebElement(userIdTextBox);
         enterValueToTxtField(userIdTextBox,userID);
@@ -485,7 +485,7 @@ public class UserManagementPage extends BasePage {
 		selectWebElement(cancelBtn);
 	}
 
-	public void DuplicateRecord(String userId) {
+	public void DuplicateRecord(String userId) throws Exception {
 		selectWebElement(addNewUserManagementRecordBtn);
         selectWebElement(userIdTextBox);
         enterValueToTxtField(userIdTextBox,userId);
@@ -497,7 +497,7 @@ public class UserManagementPage extends BasePage {
         }
 	}
 
-	public boolean editcancel(String UserID, String reason,String user) {
+	public boolean editcancel(String UserID, String reason,String user) throws Exception {
 		searchUserManagementRecord(user);
 		try {
 			Thread.sleep(1000);
@@ -515,7 +515,7 @@ public class UserManagementPage extends BasePage {
         
 	}
 
-	public boolean clearAll(UserDetails userDetails) {
+	public boolean clearAll(UserDetails userDetails) throws Exception {
 		selectWebElement(searchLink);
         selectWebElement(selectSearchColumn.get(0));
         selectDropdownFromVisibleText(columnNameList,"User Id");
@@ -545,7 +545,7 @@ public class UserManagementPage extends BasePage {
 		return false;
 	}
 
-	public boolean verifyinvalidsearch(UserDetails userDetails) {
+	public boolean verifyinvalidsearch(UserDetails userDetails) throws Exception {
 		try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
@@ -613,7 +613,7 @@ public class UserManagementPage extends BasePage {
 			return false;	
 	}
 
-	public Boolean deleteUserManagementRecordNoBtn(String userId, String deleteReason) {
+	public Boolean deleteUserManagementRecordNoBtn(String userId, String deleteReason) throws Exception {
 		searchUserManagementRecord(userId);
         selectWebElement(deleteBtn);
         try {
@@ -842,7 +842,7 @@ public class UserManagementPage extends BasePage {
 			return arr;
 	}
 
-	public void editInvalidUserManagementRecord(String updatedUserId, String user) {
+	public void editInvalidUserManagementRecord(String updatedUserId, String user) throws Exception {
 		searchUserManagementRecord(user);
         try {
 			Thread.sleep(1000);
@@ -860,7 +860,7 @@ public class UserManagementPage extends BasePage {
         selectWebElement(editcancel);
 	}
 
-	public void editInvalidUserManagementRecord2(String reason, String userId2) {
+	public void editInvalidUserManagementRecord2(String reason, String userId2) throws Exception {
 		searchUserManagementRecord(userId2);
         try {
 			Thread.sleep(1000);
@@ -899,7 +899,7 @@ public class UserManagementPage extends BasePage {
 		}
 	}
 
-	public boolean ExporttoExcelWithoutData(UserDetails userDetails) {
+	public boolean ExporttoExcelWithoutData(UserDetails userDetails) throws Exception {
 		searchUserManagementRecord(userDetails.getUserId());
 		waitForJqueryLoad(driver);
 		selectWebElement(exporttoexcel);
@@ -909,7 +909,7 @@ public class UserManagementPage extends BasePage {
 		return false;
 	}
 	
-	public boolean verifypagebaseduseraccess(UserDetails userDetails) {
+	public boolean verifypagebaseduseraccess(UserDetails userDetails) throws Exception {
 		searchUserManagementRecord(userDetails.getUserId());
 		selectWebElement(rowdata);
 		try {
@@ -933,7 +933,7 @@ public class UserManagementPage extends BasePage {
 		return false;
 	}
 
-	public boolean verifyaccesscheckbox(UserDetails userDetails) {
+	public boolean verifyaccesscheckbox(UserDetails userDetails) throws Exception {
 		searchUserManagementRecord(userDetails.getUserId());
 		selectWebElement(rowdata);
 		try {
@@ -1289,7 +1289,7 @@ public class UserManagementPage extends BasePage {
 		
 	}
 
-	public void ProvideDashboardAccess(String value) throws InterruptedException {
+	public void ProvideDashboardAccess(String value) throws Exception {
 		Thread.sleep(2000);
 		selectWebElement(tablerow);
 		waitForJqueryLoad(driver);
@@ -1344,7 +1344,7 @@ public class UserManagementPage extends BasePage {
     	return exporttoexcel.isDisplayed() && exporttoexcel.isEnabled();
     }
 
-	public void ProvideOtherAppsAccess(String value) throws InterruptedException {
+	public void ProvideOtherAppsAccess(String value) throws Exception {
 		Thread.sleep(2000);
 		selectWebElement(tablerow);
 		waitForJqueryLoad(driver);

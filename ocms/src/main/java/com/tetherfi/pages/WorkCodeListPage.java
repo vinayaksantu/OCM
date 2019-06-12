@@ -310,14 +310,14 @@ public class WorkCodeListPage extends BasePage{
 			return false; 
 	}
 
-	public void addNewWorkGroup(WorkCodeListDetails details) {
+	public void addNewWorkGroup(WorkCodeListDetails details) throws Exception {
 		selectWebElement(addnewrecordbtn);
 		chooseWorkLevel(details);
 		enterValueToTxtField(addnametextbox,details.getName());
 		selectWebElement(savebtn);
 	}
 	
-	public boolean addnewWorkGroupCancel(WorkCodeListDetails details) {
+	public boolean addnewWorkGroupCancel(WorkCodeListDetails details) throws Exception {
 		String actualitems=items.getText();
 		selectWebElement(addnewrecordbtn);
 		chooseWorkLevel(details);
@@ -358,7 +358,7 @@ public class WorkCodeListPage extends BasePage{
 		else 
 			return true;
 	}
-	public void addNewWorkCode(WorkCodeListDetails details) {
+	public void addNewWorkCode(WorkCodeListDetails details) throws Exception {
 		selectWebElement(addnewrecordbtn);
 		chooseWorkLevel(details);
 		selectWebElement(TeamNameDropDown);
@@ -375,7 +375,7 @@ public class WorkCodeListPage extends BasePage{
 		enterValueToTxtField(addnametextbox,details.getName());
 		selectWebElement(savebtn);
 	}
-	public Boolean addNewWorkCodeCancel(WorkCodeListDetails details) {
+	public Boolean addNewWorkCodeCancel(WorkCodeListDetails details) throws Exception {
 		String actualitems=items.getText();
 		selectWebElement(addnewrecordbtn);
 		chooseWorkLevel(details);
@@ -420,7 +420,7 @@ public class WorkCodeListPage extends BasePage{
 		selectWebElement(cancelbtn);
 	}
 
-	public void addRecordWithoutWorkGroup(WorkCodeListDetails details) {
+	public void addRecordWithoutWorkGroup(WorkCodeListDetails details) throws Exception {
 		selectWebElement(addnewrecordbtn);
 		chooseWorkLevel(details);
 		enterValueToTxtField(addnametextbox,details.getName());
@@ -436,7 +436,7 @@ public class WorkCodeListPage extends BasePage{
 		selectWebElement(cancelbtn);
 	}
 
-	public void duplicateRecord(WorkCodeListDetails details) {
+	public void duplicateRecord(WorkCodeListDetails details) throws Exception {
 		selectWebElement(addnewrecordbtn);
 		chooseWorkLevel(details);
 		selectWebElement(TeamNameDropDown);
@@ -459,7 +459,7 @@ public class WorkCodeListPage extends BasePage{
 			e.printStackTrace();
 		}
 	}
-	public void searchWorkcodeList(String Name) {
+	public void searchWorkcodeList(String Name) throws Exception {
 		selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Name");
@@ -471,7 +471,7 @@ public class WorkCodeListPage extends BasePage{
         waitUntilWebElementIsVisible(gridContent);
 	}
 
-	public boolean editWorkcodecancelled(WorkCodeListDetails workcodeListDetails) {
+	public boolean editWorkcodecancelled(WorkCodeListDetails workcodeListDetails) throws Exception {
 		searchWorkcodeList(workcodeListDetails.getName());
 		try {
             Thread.sleep(1000);
@@ -492,7 +492,7 @@ public class WorkCodeListPage extends BasePage{
 		return false;
 	}
 
-	public void editworkcodeListRecord(WorkCodeListDetails workcodeListDetails) {
+	public void editworkcodeListRecord(WorkCodeListDetails workcodeListDetails) throws Exception {
 		searchWorkcodeList(workcodeListDetails.getName());
 		try {
             Thread.sleep(1000);
@@ -510,7 +510,7 @@ public class WorkCodeListPage extends BasePage{
 		selectWebElement(savebtn);
 	}
 
-	public boolean clearAll(WorkCodeListDetails details) {
+	public boolean clearAll(WorkCodeListDetails details) throws Exception {
 		selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Name");
@@ -546,7 +546,7 @@ public class WorkCodeListPage extends BasePage{
 		return false;
 	}
 	
-	public boolean verifyinvalidsearchwithwrongdata(WorkCodeListDetails workcodeListDetails) {
+	public boolean verifyinvalidsearchwithwrongdata(WorkCodeListDetails workcodeListDetails) throws Exception {
 		try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
@@ -567,7 +567,7 @@ public class WorkCodeListPage extends BasePage{
 		return false;
 	}
 
-	public boolean verifydeleteNo(WorkCodeListDetails workcodeListDetails) {
+	public boolean verifydeleteNo(WorkCodeListDetails workcodeListDetails) throws Exception {
 		searchWorkcodeList(workcodeListDetails.getUpdatedName());
 		try {
 			Thread.sleep(3000);
@@ -588,7 +588,7 @@ public class WorkCodeListPage extends BasePage{
 		return false;
 	}
 
-	public void deleteWorkCodeListRecord(WorkCodeListDetails workcodeListDetails) {
+	public void deleteWorkCodeListRecord(WorkCodeListDetails workcodeListDetails) throws Exception {
 		searchWorkcodeList(workcodeListDetails.getUpdatedName());
 		try {
 			Thread.sleep(3000);
@@ -883,7 +883,7 @@ public class WorkCodeListPage extends BasePage{
 			}
 		}
 
-		public boolean ExporttoExcelWithoutData(WorkCodeListDetails workcodeListDetails) {
+		public boolean ExporttoExcelWithoutData(WorkCodeListDetails workcodeListDetails) throws Exception {
 			searchWorkcodeList(workcodeListDetails.getName());
 			waitForJqueryLoad(driver);
 			selectWebElement(exporttoexcel);

@@ -584,7 +584,7 @@ public class FaxApplicationFormPage extends BasePage {
         else{waitUntilWebElementIsVisible(successmsg);return successmsg.getText();}
     }
 
-	public boolean addnewCancel(FaxApplicationFormDetails details) {
+	public boolean addnewCancel(FaxApplicationFormDetails details) throws Exception {
 		String actualitems=items.getText();
     	selectWebElement(addFaxappFormBtn);
         waitForJqueryLoad(driver);
@@ -612,7 +612,7 @@ public class FaxApplicationFormPage extends BasePage {
 		return false;
 	}
 
-	public void addNewFaxApplicationFormRecord(FaxApplicationFormDetails details) {
+	public void addNewFaxApplicationFormRecord(FaxApplicationFormDetails details) throws Exception {
 		selectWebElement(addFaxappFormBtn);
         waitForJqueryLoad(driver);
         try {
@@ -665,7 +665,7 @@ public class FaxApplicationFormPage extends BasePage {
         selectWebElement(cancelBtn);
 	}
 
-	public void addNewFaxApplicationFormWithoutLanguage(FaxApplicationFormDetails details) {
+	public void addNewFaxApplicationFormWithoutLanguage(FaxApplicationFormDetails details) throws Exception {
 		selectWebElement(addFaxappFormBtn);
         waitForJqueryLoad(driver);
         try {
@@ -687,7 +687,7 @@ public class FaxApplicationFormPage extends BasePage {
         selectWebElement(cancelBtn);
 	}
 
-	public void addNewFaxApplicationFormWithoutPDFFile(FaxApplicationFormDetails details) {
+	public void addNewFaxApplicationFormWithoutPDFFile(FaxApplicationFormDetails details) throws Exception {
 		selectWebElement(addFaxappFormBtn);
         waitForJqueryLoad(driver);
         try {
@@ -708,7 +708,7 @@ public class FaxApplicationFormPage extends BasePage {
         selectWebElement(cancelBtn);
 	}
 
-	public void addNewFaxApplicationFormWithoutWaveFile(FaxApplicationFormDetails details) {
+	public void addNewFaxApplicationFormWithoutWaveFile(FaxApplicationFormDetails details) throws Exception {
 		selectWebElement(addFaxappFormBtn);
         waitForJqueryLoad(driver);
         try {
@@ -730,7 +730,7 @@ public class FaxApplicationFormPage extends BasePage {
         selectWebElement(cancelBtn);
 	}
 
-	public void addNewFaxApplicationFormWithoutStatus(FaxApplicationFormDetails details) {
+	public void addNewFaxApplicationFormWithoutStatus(FaxApplicationFormDetails details) throws Exception {
 		selectWebElement(addFaxappFormBtn);
         waitForJqueryLoad(driver);
         try {
@@ -754,6 +754,7 @@ public class FaxApplicationFormPage extends BasePage {
 
 	public void editFaxApplicationFormRecord(FaxApplicationFormDetails details) throws Exception {
 		searchFaxApplicationFormRecord(details.getFunctionality());
+		waitUntilWebElementIsVisible(editBtn);
         selectWebElement(editBtn);
         Thread.sleep(2000);
         selectWebElement(StatusDropdown);
@@ -763,7 +764,7 @@ public class FaxApplicationFormPage extends BasePage {
         selectWebElement(saveButton);		
 	}
 
-	private void searchFaxApplicationFormRecord(String functionality) {
+	private void searchFaxApplicationFormRecord(String functionality) throws Exception {
 		selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Functionality");
@@ -777,6 +778,7 @@ public class FaxApplicationFormPage extends BasePage {
 
 	public void editwithoutModifyreasonRecord(FaxApplicationFormDetails details) throws Exception {
 		searchFaxApplicationFormRecord(details.getFunctionality());
+		waitUntilWebElementIsVisible(editBtn);
         selectWebElement(editBtn);
         Thread.sleep(2000);
         selectWebElement(StatusDropdown);
@@ -785,8 +787,9 @@ public class FaxApplicationFormPage extends BasePage {
         selectWebElement(cancelBtn);
 	}
 
-	public boolean editcancel(FaxApplicationFormDetails details) throws InterruptedException {
+	public boolean editcancel(FaxApplicationFormDetails details) throws Exception {
 		searchFaxApplicationFormRecord(details.getFunctionality());
+		waitUntilWebElementIsClickable(editBtn);
         selectWebElement(editBtn);
         Thread.sleep(2000);
         selectWebElement(StatusDropdown);
@@ -798,7 +801,7 @@ public class FaxApplicationFormPage extends BasePage {
         return false;
 	}
 	
-	public boolean clearAll(FaxApplicationFormDetails details) {
+	public boolean clearAll(FaxApplicationFormDetails details) throws Exception {
 		selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Functionality");
@@ -818,7 +821,7 @@ public class FaxApplicationFormPage extends BasePage {
 		else
 		return false;
 	}
-	public boolean verifyinvalidsearchwithwrongdata(FaxApplicationFormDetails faxApplicationFormDetails) {
+	public boolean verifyinvalidsearchwithwrongdata(FaxApplicationFormDetails faxApplicationFormDetails) throws Exception {
 		searchFaxApplicationFormRecord(faxApplicationFormDetails.getFunctionality());
 		if(norecords.isDisplayed())
 			return true; 
@@ -842,8 +845,9 @@ public class FaxApplicationFormPage extends BasePage {
         selectWebElement(searchSearchBtn);	
 		selectWebElement(searchClose);
 	}
-	public void deleteWithoutModifyReasonRecord(FaxApplicationFormDetails details) {
+	public void deleteWithoutModifyReasonRecord(FaxApplicationFormDetails details) throws Exception {
 		searchFaxApplicationFormRecord(details.getFunctionality());
+		waitUntilWebElementIsClickable(deleteBtn);
         selectWebElement(deleteBtn);
         selectWebElement(deleteYesBtn);		
         selectWebElement(deleteNoBtn);
@@ -851,6 +855,7 @@ public class FaxApplicationFormPage extends BasePage {
 	}
 	public boolean Canceldelete(FaxApplicationFormDetails faxApplicationFormDetails) throws Exception {
 		searchFaxApplicationFormRecord(faxApplicationFormDetails.getFunctionality());
+		waitUntilWebElementIsClickable(deleteBtn);
         selectWebElement(deleteBtn);
         Thread.sleep(2000);
         enterValueToTxtField(deleteReasonTextBox,faxApplicationFormDetails.getDeleteReason());
@@ -862,6 +867,7 @@ public class FaxApplicationFormPage extends BasePage {
 	}
 	public void deleteFaxApplicationFormRecord(FaxApplicationFormDetails details) throws Exception {
 		searchFaxApplicationFormRecord(details.getFunctionality());
+		waitUntilWebElementIsClickable(deleteBtn);
         selectWebElement(deleteBtn);
         Thread.sleep(2000);
         enterValueToTxtField(deleteReasonTextBox,details.getDeleteReason());

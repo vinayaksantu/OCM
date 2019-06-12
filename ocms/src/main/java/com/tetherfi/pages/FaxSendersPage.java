@@ -223,7 +223,7 @@ public class FaxSendersPage extends BasePage{
             return faxSenders.isEnabled();
         }
 
-    public void addNewFaxSendersRecord(FaxSendersDetails faxSendersDetails) {
+    public void addNewFaxSendersRecord(FaxSendersDetails faxSendersDetails) throws Exception {
         selectWebElement(addNewFaxSendersRcrdBtn);
         waitForJqueryLoad(driver);
         try {
@@ -242,7 +242,7 @@ public class FaxSendersPage extends BasePage{
         selectWebElement(faxSendersSaveButton);
     }
     
-    public boolean AddCancelRecord(FaxSendersDetails faxSendersDetails) {
+    public boolean AddCancelRecord(FaxSendersDetails faxSendersDetails) throws Exception {
 		String actualitems=items.getText();
 		selectWebElement(addNewFaxSendersRcrdBtn);
         waitForJqueryLoad(driver);
@@ -265,7 +265,7 @@ public class FaxSendersPage extends BasePage{
         else
 		return false;
 	}
-    public void searchFaxSendersRecord(String faxLine) {
+    public void searchFaxSendersRecord(String faxLine) throws Exception {
         selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Fax Line");
@@ -276,7 +276,7 @@ public class FaxSendersPage extends BasePage{
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(gridContent);
     }
-    public void editFaxSendersRecord(FaxSendersDetails faxSendersDetails) {
+    public void editFaxSendersRecord(FaxSendersDetails faxSendersDetails) throws Exception {
         searchFaxSendersRecord(faxSendersDetails.getFaxLine());
         selectWebElement(editButton);
         selectWebElement(nameTextBox);
@@ -288,7 +288,7 @@ public class FaxSendersPage extends BasePage{
         selectWebElement(faxSendersSaveButton);
     }
     
-    public boolean EditCancelRecord(FaxSendersDetails faxSendersDetails) {
+    public boolean EditCancelRecord(FaxSendersDetails faxSendersDetails) throws Exception {
     	searchFaxSendersRecord(faxSendersDetails.getFaxLine());
         selectWebElement(editButton);
         selectWebElement(nameTextBox);
@@ -304,7 +304,7 @@ public class FaxSendersPage extends BasePage{
 		return false;
 	}
     
-    public void editFaxSendersInvalidRecord(FaxSendersDetails faxSendersDetails) {
+    public void editFaxSendersInvalidRecord(FaxSendersDetails faxSendersDetails) throws Exception {
     	searchFaxSendersRecord(faxSendersDetails.getFaxLine());
         selectWebElement(editButton);
         selectWebElement(nameTextBox);
@@ -315,26 +315,16 @@ public class FaxSendersPage extends BasePage{
         selectWebElement(cancelBtn);		
 	}
 
-    public void deleteFaxSendersRecord(FaxSendersDetails faxSendersDetails) {
+    public void deleteFaxSendersRecord(FaxSendersDetails faxSendersDetails) throws Exception {
         searchFaxSendersRecord(faxSendersDetails.getFaxLine());
         selectWebElement(deleteButton);
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         enterValueToTxtField(deleteReasonTextBox,faxSendersDetails.getDeleteReason());
         selectWebElement(deleteYesBtn);
     }
     
-    public boolean deleteFaxSendersCancelRecord(FaxSendersDetails faxSendersDetails) {
+    public boolean deleteFaxSendersCancelRecord(FaxSendersDetails faxSendersDetails) throws Exception {
     	searchFaxSendersRecord(faxSendersDetails.getFaxLine());
         selectWebElement(deleteButton);
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         enterValueToTxtField(deleteReasonTextBox,faxSendersDetails.getDeleteReason());
         selectWebElement(deleteNoBtn);
         if(rowdata.getText().equals(faxSendersDetails.getFaxNumber()))
@@ -343,7 +333,7 @@ public class FaxSendersPage extends BasePage{
         	return false;
 	}
 
-	public void deleteFaxSendersInvalidRecord(FaxSendersDetails faxSendersDetails) {
+	public void deleteFaxSendersInvalidRecord(FaxSendersDetails faxSendersDetails) throws Exception {
 		searchFaxSendersRecord(faxSendersDetails.getFaxLine());
         selectWebElement(deleteButton);
         try {
@@ -357,9 +347,12 @@ public class FaxSendersPage extends BasePage{
 	}
     public String getSuccessMessage(){
         waitForJqueryLoad(driver);
-        if(errorMsg.size()>0){return errorMsg.get(0).getText();}
-        waitUntilWebElementIsVisible(successmsg);
+        if(successmsg.isDisplayed())
+        {
         return successmsg.getText();
+        }
+        else
+        return errorMsg.get(0).getText();
     }
     
     public Boolean getErrorMessage() {
@@ -841,7 +834,7 @@ public class FaxSendersPage extends BasePage{
 		
 	}
 
-	public boolean clearAll(FaxSendersDetails faxSendersDetails) {
+	public boolean clearAll(FaxSendersDetails faxSendersDetails) throws Exception {
 		selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Fax Line");
@@ -873,7 +866,7 @@ public class FaxSendersPage extends BasePage{
 		
 	}
 
-	public boolean verifyinvalidsearchwithwrongdata(FaxSendersDetails faxSendersDetails) {
+	public boolean verifyinvalidsearchwithwrongdata(FaxSendersDetails faxSendersDetails) throws Exception  {
 		searchFaxSendersRecord(faxSendersDetails.getFaxLine());
 		if(norecords.isDisplayed())
 			return true; 

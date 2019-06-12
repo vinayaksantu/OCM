@@ -3,6 +3,7 @@ package com.tetherfi.test.fax;
 import java.io.IOException;
 import java.lang.reflect.Method;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
@@ -27,7 +28,7 @@ import com.tetherfi.utility.Screenshot;
 public class FaxTemplateUpdateTest {
 	protected WebDriver driver;
 	@BeforeMethod
-    public void NavigateToFaxTemplatePage(Method method) throws IOException, InterruptedException {
+    public void NavigateToFaxTemplatePage(Method method) throws Exception {
         try {
             PageFactory.reset();
             BrowserFactory browserFactory = new BrowserFactory();
@@ -62,9 +63,10 @@ public class FaxTemplateUpdateTest {
         faxPage.navigateToFaxTemplatePage();
         FaxTemplatePage faxTemplatePage = PageFactory.createPageInstance(driver, FaxTemplatePage.class);
         Assert.assertTrue(faxTemplatePage.isFaxTemplatePageDisplayed(), "FAX page assertion failed");
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
     }
 	
-	@Test(groups= {"Maker"},priority=1)
+	//@Test(groups= {"Maker"},priority=1)
 	public void EditCancelFaxTemplateRecord() throws Exception {
 	    String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxTemplateData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(0);
@@ -111,7 +113,7 @@ public class FaxTemplateUpdateTest {
     }
 	
 	@Test(priority=5,groups = { "Maker" },dependsOnMethods="VerifyAuditTrailDataForEditFaxTemplateRecord")
-    public void VerifyTaskCompleteActionForEditFaxTemplateRecord() {
+    public void VerifyTaskCompleteActionForEditFaxTemplateRecord() throws Exception {
         FaxTemplatePage faxTemplatePage = PageFactory.createPageInstance(driver, FaxTemplatePage.class);
         faxTemplatePage.selectFaxTemplateAuditTrailTab();
         faxTemplatePage.taskCompleteAction("Task Complete for Edit");
@@ -120,7 +122,7 @@ public class FaxTemplateUpdateTest {
     }
 	
 	@Test(priority=6,groups = { "Checker" },dependsOnMethods="VerifyTaskCompleteActionForEditFaxTemplateRecord")
-    public void ApproveforEditFaxTemplateRecord(){
+    public void ApproveforEditFaxTemplateRecord() throws Exception{
         FaxTemplatePage faxTemplatePage = PageFactory.createPageInstance(driver, FaxTemplatePage.class);
         faxTemplatePage.clickonApprove("Approve Edited");
         Assert.assertEquals(faxTemplatePage.getSuccessMessage(),"All the data has been approved successfully!","Approve record assertion failed");
@@ -161,7 +163,7 @@ public class FaxTemplateUpdateTest {
     }
     
     @Test(priority=10,groups = { "Checker" },dependsOnMethods="VerifyMakeFaxTemplateButtonafterTaskComplete")
-    public void RejectforEditFaxTemplateRecord(){
+    public void RejectforEditFaxTemplateRecord() throws Exception{
         FaxTemplatePage faxTemplatePage = PageFactory.createPageInstance(driver, FaxTemplatePage.class);
         faxTemplatePage.clickonReject("Reject Updated");
         Assert.assertFalse(faxTemplatePage.getErrorMsg(),"Reject record assertion failed");
@@ -183,7 +185,7 @@ public class FaxTemplateUpdateTest {
         Assert.assertTrue(ocmReportsPage.verifyFaxTemplateUpdate(faxTemplateDetails, "CheckerReject"),"Audit Trail report assertion failed");
     }
     
-    @Test(groups = { "Maker" })
+    //@Test(groups = { "Maker" })
     public void EditInvalidRecord() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxTemplateData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(1);

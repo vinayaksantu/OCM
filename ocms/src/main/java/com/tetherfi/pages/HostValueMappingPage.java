@@ -669,7 +669,7 @@ public class HostValueMappingPage extends BasePage {
 		return false;
 	}
 	
-	private void searchHostValueMappingRecord(String hostData) {
+	private void searchHostValueMappingRecord(String hostData) throws Exception {
 		selectWebElement(searchLink);
         selectWebElement(selectSearchColumn.get(0));
         selectDropdownFromVisibleText(columnNameList,"Host Data");
@@ -681,7 +681,7 @@ public class HostValueMappingPage extends BasePage {
         waitUntilWebElementIsVisible(gridContent);			
 	}
 
-	public boolean clearAll(HostValueMappingDetails details) {
+	public boolean clearAll(HostValueMappingDetails details) throws Exception {
 		selectWebElement(gridsearchLink);
         selectWebElement(selectSearchColumn.get(0));
         selectDropdownFromVisibleText(columnNameList,"Host Data");
@@ -757,7 +757,7 @@ public class HostValueMappingPage extends BasePage {
 		}
 	}
 	
-	public boolean verifyApprovedSectionData(HostValueMappingDetails details) {
+	public boolean verifyApprovedSectionData(HostValueMappingDetails details) throws Exception {
 		searchHostValueMappingRecordApprovedData(details.getHostData());
 		if(norecords.isDisplayed())
 			return true; 
@@ -765,7 +765,7 @@ public class HostValueMappingPage extends BasePage {
 				return false;
 	}
 
-	private void searchHostValueMappingRecordApprovedData(String hostData) {
+	private void searchHostValueMappingRecordApprovedData(String hostData) throws Exception {
 		selectWebElement(gridsearchLink);
         selectWebElement(selectSearchColumn.get(0));
         selectDropdownFromVisibleText(columnNameList,"Host Data");
@@ -836,7 +836,7 @@ public class HostValueMappingPage extends BasePage {
 		return false;
 	}
 
-	public void addNewHostValueMappingRecord(HostValueMappingDetails hostValueMappingDetails) {
+	public void addNewHostValueMappingRecord(HostValueMappingDetails hostValueMappingDetails) throws Exception {
 		selectWebElement(HostValueMappingTabs.get(1));
 		selectWebElement(makeHostValueMappingChanges);
 		selectWebElement(addNewHostValueMappingRecordBtn);
@@ -936,7 +936,7 @@ public class HostValueMappingPage extends BasePage {
         return taskCompleteBtn.isEnabled();
 	}
 
-	public void taskCompleteAction(String comment) {
+	public void taskCompleteAction(String comment) throws Exception {
 		selectWebElement(makeHostValueMappingChanges);
         waitForLoad(driver);
         selectWebElement(taskCompleteBtn);
@@ -960,7 +960,7 @@ public class HostValueMappingPage extends BasePage {
         return firstRowData.get("Status").equals(status);
 	}
 
-	public void clickonApprove(String comment) {
+	public void clickonApprove(String comment) throws Exception {
 		selectWebElement(HostValueMappingTabs.get(1));
         try {
             Thread.sleep(3000);
@@ -995,7 +995,7 @@ public class HostValueMappingPage extends BasePage {
 	        return stat;
 	}
 
-	public boolean verifyApprovedSectionDataafterapproval(HostValueMappingDetails hostValueMappingDetails) {
+	public boolean verifyApprovedSectionDataafterapproval(HostValueMappingDetails hostValueMappingDetails) throws Exception {
 		searchHostValueMappingRecordApprovedData(hostValueMappingDetails.getHostData());
 		if(rowdata.getText().equals(hostValueMappingDetails.getHostData()))
 			return true;
@@ -1003,7 +1003,7 @@ public class HostValueMappingPage extends BasePage {
 		return false;
 	}
 
-	public void addwithoutFunctionality(HostValueMappingDetails hostValueMappingDetails) {
+	public void addwithoutFunctionality(HostValueMappingDetails hostValueMappingDetails) throws Exception {
 		selectWebElement(HostValueMappingTabs.get(1));
 		selectWebElement(makeHostValueMappingChanges);
 		selectWebElement(addNewHostValueMappingRecordBtn);
@@ -1022,7 +1022,7 @@ public class HostValueMappingPage extends BasePage {
         selectWebElement(cancelBtn);
 	}
 
-	public void addwithoutLanguage(HostValueMappingDetails hostValueMappingDetails) {
+	public void addwithoutLanguage(HostValueMappingDetails hostValueMappingDetails) throws Exception {
 		selectWebElement(HostValueMappingTabs.get(1));
 		selectWebElement(makeHostValueMappingChanges);
 		selectWebElement(addNewHostValueMappingRecordBtn);
@@ -1041,7 +1041,7 @@ public class HostValueMappingPage extends BasePage {
         selectWebElement(cancelBtn);
 	}
 
-	public void addwithoutHostData(HostValueMappingDetails hostValueMappingDetails) {
+	public void addwithoutHostData(HostValueMappingDetails hostValueMappingDetails) throws Exception {
 		selectWebElement(HostValueMappingTabs.get(1));
 		selectWebElement(makeHostValueMappingChanges);
 		selectWebElement(addNewHostValueMappingRecordBtn);
@@ -1060,7 +1060,7 @@ public class HostValueMappingPage extends BasePage {
         selectWebElement(cancelBtn);
 	}
 
-	public void addwithoutStatus(HostValueMappingDetails hostValueMappingDetails) {
+	public void addwithoutStatus(HostValueMappingDetails hostValueMappingDetails) throws Exception {
 		selectWebElement(HostValueMappingTabs.get(1));
 		selectWebElement(makeHostValueMappingChanges);
 		selectWebElement(addNewHostValueMappingRecordBtn);
@@ -1079,7 +1079,7 @@ public class HostValueMappingPage extends BasePage {
         selectWebElement(cancelBtn);
 	}
 
-	public void addwithoutDescription(HostValueMappingDetails hostValueMappingDetails) {
+	public void addwithoutDescription(HostValueMappingDetails hostValueMappingDetails) throws Exception {
 		selectWebElement(HostValueMappingTabs.get(1));
 		selectWebElement(makeHostValueMappingChanges);
 		selectWebElement(addNewHostValueMappingRecordBtn);
@@ -1099,7 +1099,7 @@ public class HostValueMappingPage extends BasePage {
         selectWebElement(cancelBtn);
 	}
 
-	public void addwithoutWaveFile(HostValueMappingDetails hostValueMappingDetails) {
+	public void addwithoutWaveFile(HostValueMappingDetails hostValueMappingDetails) throws Exception {
 		selectWebElement(HostValueMappingTabs.get(1));
 		selectWebElement(makeHostValueMappingChanges);
 		selectWebElement(addNewHostValueMappingRecordBtn);
@@ -1118,7 +1118,7 @@ public class HostValueMappingPage extends BasePage {
         selectWebElement(cancelBtn);
 	}
 
-	public void clickonReject(String comment) {
+	public void clickonReject(String comment) throws Exception {
 		 selectWebElement(HostValueMappingTabs.get(1));
 	        try {
 	            Thread.sleep(3000);

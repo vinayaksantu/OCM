@@ -36,7 +36,7 @@ public class WorkCodeListE2ETest {
 	protected WebDriver driver;
 	Screenshot screenshot=new Screenshot(driver);
 	@BeforeMethod
-    public void NavigateToWorkCodeListPage(Method method) throws IOException {
+    public void NavigateToWorkCodeListPage(Method method) throws Exception {
 		 try {
 	            PageFactory.reset();
 	            BrowserFactory browserFactory = new BrowserFactory();

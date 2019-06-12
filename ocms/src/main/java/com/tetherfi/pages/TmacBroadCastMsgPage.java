@@ -216,7 +216,7 @@ public class TmacBroadCastMsgPage extends BasePage {
         return tmacBroadcastMsg.isEnabled();
     }
 
-    public void searchTmacBroadcastMsg(String message) {
+    public void searchTmacBroadcastMsg(String message) throws Exception {
         selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Message");
@@ -227,7 +227,7 @@ public class TmacBroadCastMsgPage extends BasePage {
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(gridContent);
     }
-    public void addTmacBroadcastMsg(TmacBroadCastMsgDetails tmacBroadCastMsgDetails) {
+    public void addTmacBroadcastMsg(TmacBroadCastMsgDetails tmacBroadCastMsgDetails) throws Exception {
         selectWebElement(addnewTmacBroadcastMessage);
         selectWebElement(TeamNameDropDown);
         try {
@@ -250,7 +250,7 @@ public class TmacBroadCastMsgPage extends BasePage {
 		}
         selectWebElement(SaveButton);
     }
-    public void addTmacBroadcastMsgDivision(TmacBroadCastMsgDetails tmacBroadCastMsgDetails) {
+    public void addTmacBroadcastMsgDivision(TmacBroadCastMsgDetails tmacBroadCastMsgDetails) throws Exception {
     	selectWebElement(addnewTmacBroadcastMessage);
     	selectWebElement(TeamNameDropDown);
     	try {
@@ -267,7 +267,7 @@ public class TmacBroadCastMsgPage extends BasePage {
         selectWebElement(SaveButton);
     }
     
-    public void editTmacBroadcastMsg(TmacBroadCastMsgDetails tmacBroadCastMsgDetails) {
+    public void editTmacBroadcastMsg(TmacBroadCastMsgDetails tmacBroadCastMsgDetails) throws Exception {
         searchTmacBroadcastMsg(tmacBroadCastMsgDetails.getMessage());
         try {
             Thread.sleep(1000);
@@ -401,7 +401,7 @@ public class TmacBroadCastMsgPage extends BasePage {
 		else 
 			return false; 
 	}
-	public boolean addNewCancel(TmacBroadCastMsgDetails tmacBroadCastMsgDetails) {
+	public boolean addNewCancel(TmacBroadCastMsgDetails tmacBroadCastMsgDetails) throws Exception {
 		String actualitems=items.getText();
 		selectWebElement(addnewTmacBroadcastMessage);
         //waitForJqueryLoad(driver);
@@ -433,7 +433,7 @@ public class TmacBroadCastMsgPage extends BasePage {
         	return false;
 }
 
-	public boolean clearAll(TmacBroadCastMsgDetails tmacBroadCastMsgDetails) {
+	public boolean clearAll(TmacBroadCastMsgDetails tmacBroadCastMsgDetails) throws Exception {
 		selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Message");
@@ -455,7 +455,7 @@ public class TmacBroadCastMsgPage extends BasePage {
 		return false;
 	}
 
-	public boolean verifyinvalidsearch(TmacBroadCastMsgDetails tmacBroadCastMsgDetails) {
+	public boolean verifyinvalidsearch(TmacBroadCastMsgDetails tmacBroadCastMsgDetails) throws Exception {
 		searchTmacBroadcastMsg(tmacBroadCastMsgDetails.getMessage());
 		if(norecords.isDisplayed())
 			return true; 
@@ -471,7 +471,7 @@ public class TmacBroadCastMsgPage extends BasePage {
 		return false;
 	}
 
-	public void duplicateRecord(TmacBroadCastMsgDetails tmacBroadCastMsgDetails) {
+	public void duplicateRecord(TmacBroadCastMsgDetails tmacBroadCastMsgDetails) throws Exception {
 		addTmacBroadcastMsg(tmacBroadCastMsgDetails);
 	   try {
 		selectWebElement(addcancel);
@@ -494,7 +494,7 @@ public class TmacBroadCastMsgPage extends BasePage {
         selectWebElement(SaveButton);
         selectWebElement(addcancel);
 	}
-	public void addInvalidRecord1(TmacBroadCastMsgDetails tmacBroadCastMsgDetails) {
+	public void addInvalidRecord1(TmacBroadCastMsgDetails tmacBroadCastMsgDetails) throws Exception {
 		selectWebElement(addnewTmacBroadcastMessage);
         selectWebElement(TeamNameDropDown);
         ChooseTeamHeirarchy(tmacBroadCastMsgDetails.getCountry());
@@ -505,7 +505,7 @@ public class TmacBroadCastMsgPage extends BasePage {
         selectWebElement(SaveButton);
         selectWebElement(addcancel);
 	}
-	public void addInvalidRecord2(TmacBroadCastMsgDetails tmacBroadCastMsgDetails) {
+	public void addInvalidRecord2(TmacBroadCastMsgDetails tmacBroadCastMsgDetails) throws Exception {
 		selectWebElement(addnewTmacBroadcastMessage);
         enterValueToTxtField(messageTextbox,tmacBroadCastMsgDetails.getMessage());
         selectWebElement(statusDropdown);
@@ -514,7 +514,7 @@ public class TmacBroadCastMsgPage extends BasePage {
         selectWebElement(addcancel);
 	}
 
-	public boolean editcancel(TmacBroadCastMsgDetails tmacBroadCastMsgDetails) {
+	public boolean editcancel(TmacBroadCastMsgDetails tmacBroadCastMsgDetails) throws Exception {
 		searchTmacBroadcastMsg(tmacBroadCastMsgDetails.getMessage());
 		try {
 			Thread.sleep(500);
@@ -897,7 +897,7 @@ public class TmacBroadCastMsgPage extends BasePage {
 		}
 	}
 
-	public boolean ExporttoExcelWithoutData(TmacBroadCastMsgDetails tmacBroadCastMsgDetails) {
+	public boolean ExporttoExcelWithoutData(TmacBroadCastMsgDetails tmacBroadCastMsgDetails) throws Exception {
 			searchTmacBroadcastMsg(tmacBroadCastMsgDetails.getMessage());
 			waitForJqueryLoad(driver);
 			selectWebElement(exporttoexcel);
