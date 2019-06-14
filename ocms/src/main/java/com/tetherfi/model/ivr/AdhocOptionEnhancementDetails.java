@@ -18,12 +18,15 @@ public class AdhocOptionEnhancementDetails {
     private String status;
     private String modifyReason;
     private String deleteReason;
+	private String UpdatedPromotiondescription;
+	private String query;
 
     public AdhocOptionEnhancementDetails(Map<String, String> map){
         searchColumn=readSearchColumn(map);
         searchValue=readSearchValue(map);
-    promotionalNumber=readPromotionalNumber(map);
-    promotionalDescription=readPromotionalDescription(map);
+        promotionalNumber=readPromotionalNumber(map);
+        promotionalDescription=readPromotionalDescription(map);
+        UpdatedPromotiondescription=readUpdatedPromotiondescription(map);
     language=readLanguage(map);
     directTransferEnabled=readDirectTransferEnabled(map);
     promotionNameWavFile=readPromotionNameWavFile(map);
@@ -32,8 +35,23 @@ public class AdhocOptionEnhancementDetails {
         status=readStatus(map);
         modifyReason=readModifyReason(map);
         deleteReason=readDeleteReason(map);
+        query=readQuery(map);
     }
-    private String readSearchValue(Map<String, String> map) {
+    private String readQuery(Map<String, String> map) {
+    	String value=map.get("Query");
+        try{if(value.equalsIgnoreCase("random.str")){
+            value= RandomStringUtils.randomAlphabetic(7);
+        }}catch (NullPointerException e){value="";}
+        return value;
+	}
+	private String readUpdatedPromotiondescription(Map<String, String> map) {
+    	String value=map.get("Updated Promotion Description");
+        try{if(value.equalsIgnoreCase("random.str")){
+            value= RandomStringUtils.randomAlphabetic(7);
+        }}catch (NullPointerException e){value="";}
+        return value;
+	}
+	private String readSearchValue(Map<String, String> map) {
         String value=map.get("Search Value");
         try{if(value.equalsIgnoreCase("random.str")){
             value= RandomStringUtils.randomAlphabetic(7);
@@ -171,4 +189,11 @@ public class AdhocOptionEnhancementDetails {
     public String getSearchValue() {
         return searchValue;
     }
+    public String getUpdatedPromotiondescription()
+    {
+    	return UpdatedPromotiondescription;
+    }
+	public String getQuery() {
+		return query;
+	}
 }

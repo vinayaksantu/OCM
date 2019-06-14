@@ -13,6 +13,8 @@ public class FaxAutoACKConfigurationDetails {
     private String template;
     private String modifyReason;
     private String deleteReason;
+    private String updatedStatus;
+    private String query;
 
     public FaxAutoACKConfigurationDetails(Map<String, String> map) {
         faxLine = readFaxline(map);
@@ -22,9 +24,23 @@ public class FaxAutoACKConfigurationDetails {
         template=readTemplate(map);
         deleteReason = readDeleteReason(map);
         modifyReason = readModifyReason(map);
+        updatedStatus=readUpdatedStatus(map);
+        query=readQuery(map);
     }
+    
 
-    public String readFaxline(Map<String, String> map) {
+    private String readQuery(Map<String, String> map) {
+    	 String value = map.get("Query");
+ 		return value;
+	}
+
+
+	private String readUpdatedStatus(Map<String, String> map) {
+        String value = map.get("Updated Status");
+		return value;
+	}
+
+	public String readFaxline(Map<String, String> map) {
         String value = map.get("FaxLine");
         if (value == null || value.equalsIgnoreCase("random.str")) {
             value = RandomStringUtils.randomAlphabetic(7);
@@ -56,7 +72,7 @@ public class FaxAutoACKConfigurationDetails {
     }
 
     public String readSenderType(Map<String, String> map) {
-        String value = map.get("SenderType");
+        String value = map.get("Sender Type");
         if (value == null || value.equalsIgnoreCase("random.str")) {
             value = RandomStringUtils.randomAlphabetic(7);
         }
@@ -107,4 +123,12 @@ public class FaxAutoACKConfigurationDetails {
     public String getTemplate() {
         return template;
     }
+
+	public String getUpdatedStatus() {
+		return updatedStatus;
+	}
+
+	public String getQuery() {
+		return query;
+	}
 }

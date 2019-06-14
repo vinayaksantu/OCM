@@ -6,6 +6,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import com.tetherfi.model.chat.ChatTemplateDetails;
+import com.tetherfi.model.fax.FaxTemplateDetails;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -88,6 +91,7 @@ public class TmacPopupPage extends BasePage {
 
 	@FindBy(css="a[id^='btnTextChat_Answer1']")
     private WebElement recieveChatBtn;
+	
     @FindBy(css="a[id^='btnTextChat_Disconnect1']")
     private List<WebElement> endChat;
 
@@ -108,6 +112,43 @@ public class TmacPopupPage extends BasePage {
 
     @FindBy(id="sendText")
     private WebElement sendDataTextbox;
+    
+    @FindBy(id="btnTextChat_Answer1000")
+	private WebElement answerchat;
+    
+    @FindBy(id="btnTextChat_ChatTemplate1000")
+    private WebElement chatTemplate;
+	
+	@FindBy(id="btnTextChat_Disconnect1000")
+	private WebElement disconnectchat;
+	
+	@FindBy(css="ul[id='workcodes1000_listbox'] li")
+	private List<WebElement> workcodelist;
+	
+	@FindBy(id="divTabHeader1000")
+	private WebElement navigatetotab;
+	
+	@FindBy(id="btnCloseTab1000")
+	private WebElement closetab;
+	
+	@FindBy(css="input[aria-owns='workcodes1000_taglist workcodes1000_listbox']")
+	private WebElement selectcompletioncode;
+	
+	@FindBy(css="span[aria-controls='chat_dept_combobox_listbox']")
+	private WebElement deptDropdown;
+	
+	@FindBy(css="ul[id='chat_dept_combobox_listbox'] li")
+	private List<WebElement> deptListBox;
+	
+	@FindBy(css="span[aria-controls='chat_grp_combobox_listbox']")
+	private WebElement groupDropdown;
+	
+	@FindBy(css="ul[id='chat_grp_combobox_listbox'] li")
+	private List<WebElement> groupListBox;
+	
+	@FindBy(css="#chat_template_grid tr")
+	private List<WebElement> templates;
+	
 
     public boolean isTmacPopUpDisplayed(){
     waitForLoad(driver);
@@ -277,7 +318,7 @@ public class TmacPopupPage extends BasePage {
             e.printStackTrace();
         }
     }
-    public void sendDataToIservePopUpUrl(){
+    public void sendDataToIservePopUpUrl() throws Exception{
         waitUntilNewTabIsOpen(3);
         ArrayList<String> Tabs = new ArrayList<String>(driver.getWindowHandles());
         if(Tabs.size()>2){
@@ -371,4 +412,82 @@ public class TmacPopupPage extends BasePage {
     public boolean verifyChatAutoAnswered(){
         return (endChat.get(0).isDisplayed()&&endChat.get(0).isEnabled());
     }
+    
+    public void receivechat() throws Exception {
+        switchToWindow(1);
+    	Thread.sleep(2000);
+    	waitUntilWebElementIsClickable(answerchat);
+    	selectWebElement(navigatetotab);
+    	clickOn(answerchat);
+    	
+    }
+    
+    public void clickOnChatTemplate() {
+    	waitUntilWebElementIsClickable(chatTemplate);
+    	clickOn(chatTemplate);	
+    }
+    
+    public void WorkCodeList(String workCode) throws Exception {
+    	scrollToElement(selectcompletioncode);
+    	selectWebElement(selectcompletioncode);
+    	Thread.sleep(2000);
+    	selectDropdownFromVisibleText(workcodelist,workCode);
+    	Thread.sleep(2000);
+    }
+    
+    public void disconnectchat() {
+    	waitUntilWebElementIsClickable(disconnectchat);
+    	clickOn(disconnectchat);
+    }
+    
+    public Boolean verifyDropdown(List<String> List) throws InterruptedException {
+    	scrollToElement(selectcompletioncode);
+    	selectWebElement(selectcompletioncode);
+    	List <String> lst=new ArrayList<String>();
+    	lst.add(workcodelist.get(0).getText());
+    	for(int i=0;i<workcodelist.size();i++)
+    	{
+    		String value=workcodelist.get(i).getText();
+    		lst.add(value);
+    		
+    	}
+    	while(lst.remove(null))
+    	System.out.println(lst);
+    	System.out.println(List);
+    	if(List.equals(lst))
+    		return true;
+    	else 
+    		return false;
+    }
+	
+    public Boolean ChatTemplate(ChatTemplateDetails details) {
+		Boolean status=false;
+		selectWebElement(deptDropdown);
+    	selectDropdownFromVisibleText(deptListBox,details.getDepartmentName());
+    	selectWebElement(groupDropdown);
+    	selectDropdownFromVisibleText(groupListBox,details.getGroupName());
+    	try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	List<WebElement> template=templates.get(1).findElements(By.tagName("td"));
+    	{
+    		for(WebElement ele:template)
+    		{
+    			if(ele.getText().equals(details.getText())) {
+    				selectWebElement(ele);
+    				status=true;
+    				break;
+    			}
+    		}
+    		
+    	}
+    	return status;
+    }
+	public boolean verifyFaxTemplate(FaxTemplateDetails faxTemplateDetails) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }

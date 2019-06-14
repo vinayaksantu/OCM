@@ -113,7 +113,7 @@ public class TmacTransferListTest extends BaseTest {
     }
     
     //@Test (priority=7)
-    public void VerifyCancelonNewConsulTransfer() throws IOException, InterruptedException {
+    public void VerifyCancelonNewConsulTransfer() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\TmacTransferListData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "ConsulCreate").getTestData().get(3);
         TmacTransferListDetails tmacTransferListDetails=new TmacTransferListDetails(map);
@@ -122,7 +122,7 @@ public class TmacTransferListTest extends BaseTest {
     }
     
     //@Test (priority=8)
-    public void AddNewTmacConsultTransferRecord() throws IOException {
+    public void AddNewTmacConsultTransferRecord() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\TmacTransferListData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "ConsulCreate").getTestData().get(3);
         TmacTransferListDetails tmacTransferListDetails=new TmacTransferListDetails(map);
@@ -133,7 +133,7 @@ public class TmacTransferListTest extends BaseTest {
     }
     
     //@Test (priority=9, dependsOnMethods = ("AddNewTmacConsultTransferRecord"))
-    public void VerifyErrMsgDuplicateName() throws IOException, InterruptedException {
+    public void VerifyErrMsgDuplicateName() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\TmacTransferListData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "ConsulCreate").getTestData().get(4);
         TmacTransferListDetails tmacTransferListDetails=new TmacTransferListDetails(map);
@@ -198,7 +198,7 @@ public class TmacTransferListTest extends BaseTest {
     }
     
     //@Test (priority=14, dependsOnMethods = ("AddNewTmacConsultTransferRecord2"))
-    public void VerifyNoModReasonErrMsgOnEditConsulRecd() throws IOException, InterruptedException {
+    public void VerifyNoModReasonErrMsgOnEditConsulRecd() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\TmacTransferListData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "ConsulEdit").getTestData().get(2);
         TmacTransferListDetails tmacTransferListDetails=new TmacTransferListDetails(map);
@@ -210,7 +210,7 @@ public class TmacTransferListTest extends BaseTest {
     }
     
     //@Test (priority=15, dependsOnMethods = {"AddNewTmacConsultTransferRecord"})
-    public void EditNameOnTmacConsultTransferRecord() throws IOException {
+    public void EditNameOnTmacConsultTransferRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacTransferListData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ConsulEdit").getTestData().get(3);
         TmacTransferListDetails tmacTransferListDetails=new TmacTransferListDetails(map);

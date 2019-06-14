@@ -161,7 +161,7 @@ public class UserRoleMappingPage extends BasePage {
     	selectWebElement(makeChangesBtn);
     }
     
-    public void addNewUserRoleMappingRecord(UserRoleMappingDetails details) {
+    public void addNewUserRoleMappingRecord(UserRoleMappingDetails details) throws Exception {
         selectWebElement(addNewUserRoleMappingRecordBtn);
         enterValueToTxtField(userToSearchTextBox,details.getBankUserName());
         try {
@@ -187,7 +187,7 @@ public class UserRoleMappingPage extends BasePage {
             editProfile(details.getProfile(),details.getSupervisor());
             btnClick(editFormSaveBtn);}
     }
-    public void searchUserRoleMappingRecord(String bankUsername)  {
+    public void searchUserRoleMappingRecord(String bankUsername) throws Exception  {
         selectWebElement(searchLink);
         selectWebElement(selectSearchColumn.get(0));
         selectDropdownFromVisibleText(columnNameList,"1Bank User Name");
@@ -198,7 +198,7 @@ public class UserRoleMappingPage extends BasePage {
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(gridContent);
     }
-    public void editUserRoleMappingRecord(UserRoleMappingDetails details) {
+    public void editUserRoleMappingRecord(UserRoleMappingDetails details) throws Exception {
         searchUserRoleMappingRecord(details.getBankUserName());
         selectWebElement(editBtn);
         waitForJqueryLoad(driver);
@@ -260,7 +260,7 @@ public class UserRoleMappingPage extends BasePage {
         if(waitUntilTextToBePresentInWebElement(successmsg,"Record Created Successfully"))
         {return true;}else{return false;}
     }
-    public void deleteUserRoleMappingRecord(String bankusername, String reason) {
+    public void deleteUserRoleMappingRecord(String bankusername, String reason) throws Exception {
         searchUserRoleMappingRecord(bankusername);
         btnClick(deleteBtn);
         selectWebElement(deleteReasonTextBox);

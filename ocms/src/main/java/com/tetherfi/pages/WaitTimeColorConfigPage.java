@@ -9,6 +9,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -118,7 +119,7 @@ public class WaitTimeColorConfigPage extends BasePage {
     @FindBy(css=".toast-message")
     private WebElement successmsg;
 
-    @FindBy(css="#toast-container .toast-error")
+    @FindBy(css="#toast-container .toast-error .toast-message")
     private List<WebElement> errorMsg;
 
     @FindBy(css=".search-link")
@@ -178,6 +179,9 @@ public class WaitTimeColorConfigPage extends BasePage {
     @FindBy(id="tGrid")
     private WebElement auditGridContent;
     
+    @FindBy(xpath="//tbody/tr/td[2]")
+    private WebElement rowdata;
+    
     @FindBy(xpath="//p[@class='k-reset']")
     private WebElement groupby;
     
@@ -225,7 +229,7 @@ public class WaitTimeColorConfigPage extends BasePage {
         waitForJqueryLoad(driver);
         return waitTimeColorConfig.isEnabled();
     }
-    public void addNewWaitTimeColorConfigRecord(WaitTimeColorConfigDetails details) {
+    public void addNewWaitTimeColorConfigRecord(WaitTimeColorConfigDetails details) throws Exception {
         selectWebElement(addNewWaitTimeColorConfigRecordBtn);
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(popupContent);
@@ -244,7 +248,7 @@ public class WaitTimeColorConfigPage extends BasePage {
         selectWebElement(applyBtn);
         selectWebElement(saveBtn);
     }
-    public void searchWaitTimeColorConfigRecord(String StartTime)  {
+    public void searchWaitTimeColorConfigRecord(String StartTime) throws Exception  {
         selectWebElement(searchLink);
         selectWebElement(selectSearchColumn.get(0));
         selectDropdownFromVisibleText(columnNameList,"Start Duration");
@@ -255,7 +259,7 @@ public class WaitTimeColorConfigPage extends BasePage {
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(gridContent);
     }
-    public void editWaitTimeColorConfigRecord(WaitTimeColorConfigDetails details) {
+    public void editWaitTimeColorConfigRecord(WaitTimeColorConfigDetails details) throws Exception {
         searchWaitTimeColorConfigRecord(details.getStartTime());
         try {
 			Thread.sleep(500);
@@ -275,7 +279,7 @@ public class WaitTimeColorConfigPage extends BasePage {
         enterValueToTxtField(modifyReasonTextBox,details.getModifyReason());
         btnClick(saveBtn);
     }
-    public void deleteWaitTimeColorConfigRecord(String Starttime, String reason) {
+    public void deleteWaitTimeColorConfigRecord(String Starttime, String reason) throws Exception {
         searchWaitTimeColorConfigRecord(Starttime);
         btnClick(deleteBtn);
         selectWebElement(deleteReasonTextBox);
@@ -292,14 +296,14 @@ public class WaitTimeColorConfigPage extends BasePage {
 		}
         selectWebElement(yesBtn);
     }
-    public boolean deleteNo(String Starttime, String reason) {
-		String actualitems=items.getText();
+    
+    public boolean deleteNo(String Starttime, String reason) throws Exception {
 		searchWaitTimeColorConfigRecord(Starttime);
         btnClick(deleteBtn);
         selectWebElement(deleteReasonTextBox);
         enterValueToTxtField(deleteReasonTextBox,reason);
         selectWebElement(noBtn);
-        if(actualitems.equals(items.getText()))
+        if(rowdata.getText().equals(Starttime))
         {return true;}
         else
         	return false;
@@ -403,7 +407,7 @@ public class WaitTimeColorConfigPage extends BasePage {
 		else 
 			return false;
 	}
-	public boolean addNewCancel(WaitTimeColorConfigDetails details) {
+	public boolean addNewCancel(WaitTimeColorConfigDetails details) throws Exception {
 		String actualitems=items.getText();
 		selectWebElement(addNewWaitTimeColorConfigRecordBtn);
         waitForJqueryLoad(driver);
@@ -423,7 +427,7 @@ public class WaitTimeColorConfigPage extends BasePage {
 		return false;
 	}
 	
-	public boolean editcancel(WaitTimeColorConfigDetails details) {
+	public boolean editcancel(WaitTimeColorConfigDetails details) throws Exception {
 		searchWaitTimeColorConfigRecord(details.getStartTime());
         selectWebElement(editBtn);
         waitForJqueryLoad(driver);
@@ -463,7 +467,7 @@ public class WaitTimeColorConfigPage extends BasePage {
 		else
 			return false;
 	}
-	public boolean verifyinvalidsearch(WaitTimeColorConfigDetails details) {
+	public boolean verifyinvalidsearch(WaitTimeColorConfigDetails details) throws Exception {
 		searchWaitTimeColorConfigRecord(details.getStartTime());
 		if(norecords.isDisplayed())
 			return true; 
@@ -479,6 +483,12 @@ public class WaitTimeColorConfigPage extends BasePage {
 	}
 	
 	public boolean verifyExportToExcel(String filePath) {
+		final File folder = new File(filePath);
+		for (final File f : folder.listFiles()) {
+		    if (f.getName().startsWith("Wait Time")) {
+		        f.delete();
+		    }
+		}
 		selectWebElement(exporttoexcel);
 		try {
 			Thread.sleep(2000);
@@ -536,7 +546,7 @@ public class WaitTimeColorConfigPage extends BasePage {
 			String col="";
 			for(int j=1;j<headers.size();j++){
 				if(headers.get(j).getText().equals("Last Changed On")){
-					col=cols.get(j).getText().substring(10);
+					col=cols.get(j).getText().substring(11);
 					}
 				else if(headers.get(j).getText().equals("Start Duration")) {
 					String str[]=cols.get(j).getText().split(":");
@@ -657,7 +667,7 @@ public class WaitTimeColorConfigPage extends BasePage {
         String item = items.getText();
         return item.matches("(\\d.*) - (\\d.*) of (\\d.*) items");
     }
-	public void addRecordWithoutStartTime(WaitTimeColorConfigDetails details) {
+	public void addRecordWithoutStartTime(WaitTimeColorConfigDetails details) throws Exception {
 		selectWebElement(addNewWaitTimeColorConfigRecordBtn);
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(popupContent);
@@ -671,12 +681,13 @@ public class WaitTimeColorConfigPage extends BasePage {
         selectWebElement(cancelBtn);
 	}
 	public boolean verifymessage() {
+		waitUntilWebElementListIsVisible(errorMsg);									 
 		if(errorMsg.size()>0)
 		return false;
 		else 
 			return true;
 	}
-	public void addRecordWithoutEndTime(WaitTimeColorConfigDetails details) {
+	public void addRecordWithoutEndTime(WaitTimeColorConfigDetails details) throws Exception {
 		selectWebElement(addNewWaitTimeColorConfigRecordBtn);
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(popupContent);
@@ -819,5 +830,33 @@ public class WaitTimeColorConfigPage extends BasePage {
     public boolean isExportBtnDisplayed() {
     	return exporttoexcel.isDisplayed() && exporttoexcel.isEnabled();
     }
-
+	
+	public void SortByAscending() {
+		selectWebElement(startDuration);
+		selectWebElement(exporttoexcel);
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+	public void SortByDescending() {
+		selectWebElement(endDuration);
+		selectWebElement(endDuration);
+		selectWebElement(exporttoexcel);
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}		
+	}
+	public boolean ExporttoExcelWithoutData(WaitTimeColorConfigDetails waitTimeColorConfigDetails) throws Exception {
+		searchWaitTimeColorConfigRecord(waitTimeColorConfigDetails.getStartTime());	
+		waitForJqueryLoad(driver);
+		selectWebElement(exporttoexcel);
+		if(errorMsg.get(0).getText().equals("There is no record to export"))
+			return true;
+		else
+		return false;
+	}	
 }

@@ -8,6 +8,10 @@ import java.util.Map;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+
+import com.tetherfi.model.fax.FaxLineConfigDetails;
+import com.tetherfi.model.fax.FaxTemplateDetails;
+
 import org.openqa.selenium.By;
 
 public class TmacLoginPage extends BasePage {
@@ -97,8 +101,27 @@ public class TmacLoginPage extends BasePage {
 
 	@FindBy(css=".js-modal-confirm")
 	private WebElement confirmLogoutbtn;
+	
+	@FindBy(id="compose_fax_li")
+	private WebElement fax;
+	
+	@FindBy(css="span[aria-owns='DNISList_listbox']")
+	private WebElement FaxLineDropDown;
+	
+	@FindBy(css="ul[id='DNISList_listbox'] li")
+	private List<WebElement> faxLineListBox;
+	
+	@FindBy(id="faxTemplateRadio")
+	private WebElement TemplateRadio;
+	
+	@FindBy(css="span[aria-owns='faxTemplates_listbox']")
+	private WebElement faxTemplateDropdown;
+	
+	@FindBy(css="ul[id='faxTemplates_listbox'] li")
+	private List<WebElement> faxTemplateListBox;
+	
 	 
-	public void loginIntoTmac(String landid, String stn){
+	public void loginIntoTmac(String landid, String stn) throws Exception{
         //selectWebElement(domainListDropdown);
         //selectDropdownFromVisibleText(domainList,details.getDomain());
         selectWebElement(lanID);
@@ -143,13 +166,20 @@ public class TmacLoginPage extends BasePage {
         return errorMsg.getText().contains(text);
     }
 	
-	 public void logintotmac(String LanId,String Station)
+	 public void logintotmac(String LanId,String Station) throws Exception
 	    {
 		 	waitForJqueryLoad(driver);
 	    	enterValueToTxtField(lanId,LanId);
 	    	enterValueToTxtField(station,Station);
 	    	clickOn(tmacLogin);
-	    	
+	    }
+	 
+	 public void logintotmac_WQ(String LanId,String Station) throws Exception
+	    {
+		 	waitForJqueryLoad(driver);
+	    	enterValueToTxtField(lanId,LanId);
+	    	enterValueToTxtField(password,Station);
+	    	clickOn(tmacLogin);
 	    }
 	 
 	 public boolean isTmacPopUpDisplayed(){
@@ -255,6 +285,46 @@ public class TmacLoginPage extends BasePage {
 	    		return true;
 	    	else
 	    	return false;
+		}
+		
+		public Boolean VerifyDropdownForCreate(FaxLineConfigDetails faxLineConfigDetails) {
+			Boolean Status=false;
+			selectWebElement(fax);
+			selectWebElement(FaxLineDropDown);
+			for(int i=0;i<faxLineListBox.size();i++) {
+				String value=faxLineListBox.get(i).getText();
+				if(value.equals(faxLineConfigDetails.getFaxLine())) {
+					Status= true;
+				break;}
+			}
+			return Status;
+		}
+		public boolean VerifyDropdownForEdit(FaxLineConfigDetails faxLineConfigDetails) {
+			Boolean Status=true;
+			selectWebElement(fax);
+			selectWebElement(FaxLineDropDown);
+			for(int i=0;i<faxLineListBox.size();i++) {
+				String value=faxLineListBox.get(i).getText();
+				if(value.equals(faxLineConfigDetails.getFaxLine())) {
+					Status= false;
+				break;}
+			}
+			return Status;
+		}
+		public boolean verifyFaxTemplate(FaxTemplateDetails faxTemplateDetails) {
+			Boolean Status=false;
+			selectWebElement(fax);
+			clickOn(TemplateRadio);
+			selectWebElement(faxTemplateDropdown);
+			for(WebElement ele: faxTemplateListBox)
+			{
+				if(ele.getText().equals(faxTemplateDetails.getTemplateName())) {
+					selectWebElement(ele);
+					Status= true;
+				break;
+				}
+			}
+			return Status;
 		}
 
 }

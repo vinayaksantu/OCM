@@ -12,6 +12,10 @@ public class FaxRoutingConfigurationDetails {
     private String routeData;
     private String modifyReason;
     private String deleteReason;
+    private String updatedRouteType;
+    private String updatedRouteData;
+    private String query;
+    
 
     public FaxRoutingConfigurationDetails(Map<String, String> map) {
         faxLine = readFaxline(map);
@@ -21,9 +25,27 @@ public class FaxRoutingConfigurationDetails {
         routeData=readRouteData(map);
         deleteReason = readDeleteReason(map);
         modifyReason = readModifyReason(map);
+        updatedRouteType=readUpdatedRouteType(map);
+        updatedRouteData=readUpdatedRouteData(map);
+        query=readQuery(map);  
     }
 
-    public String readFaxline(Map<String, String> map) {
+    private String readQuery(Map<String, String> map) {
+    	String value = map.get("Query");
+		return value;
+	}
+
+	private String readUpdatedRouteData(Map<String, String> map) {
+        String value = map.get("UpdatedRouteData");
+		return value;
+	}
+
+	private String readUpdatedRouteType(Map<String, String> map) {
+        String value = map.get("UpdatedRouteType");
+		return value;
+	}
+
+	public String readFaxline(Map<String, String> map) {
         String value = map.get("FaxLine");
         if (value == null || value.equalsIgnoreCase("random.str")) {
             value = RandomStringUtils.randomAlphabetic(7);
@@ -33,9 +55,6 @@ public class FaxRoutingConfigurationDetails {
 
     public String readIntent(Map<String, String> map) {
         String value = map.get("Intent");
-        if (value == null || value.equalsIgnoreCase("random.str")) {
-            value = RandomStringUtils.randomAlphabetic(7);
-        }
         return value;
     }
 
@@ -106,4 +125,16 @@ public class FaxRoutingConfigurationDetails {
     public String getRouteData() {
         return routeData;
     }
+
+	public String getUpdatedRouteType() {
+		return updatedRouteType;
+	}
+
+	public String getUpdatedRouteData() {
+		return updatedRouteData;
+	}
+
+	public String getQuery() {
+		return query;
+	}
 }

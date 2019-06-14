@@ -43,4 +43,37 @@ public class FTPServer {
             e.printStackTrace();
         }
     }
+        
+        public void DeleteFilesFromFolder(String filepath) throws Exception {
+        	UserAuthenticator auth = new StaticUserAuthenticator(Constants.ftp_domain, Constants.ftp_userName, Constants.ftp_password);
+            FileSystemOptions opts = new FileSystemOptions();
+            DefaultFileSystemConfigBuilder.getInstance().setUserAuthenticator(opts, auth);
+        	File folder = new File(filepath);
+    		for (final File f : folder.listFiles()) {
+    		        f.delete();
+    		    }
+    		}
+
+		public Boolean FileExist(String filePath) throws Exception {
+			UserAuthenticator auth = new StaticUserAuthenticator(Constants.ftp_domain, Constants.ftp_userName, Constants.ftp_password);
+            FileSystemOptions opts = new FileSystemOptions();
+            DefaultFileSystemConfigBuilder.getInstance().setUserAuthenticator(opts, auth);
+        	File folder = new File(filePath);
+        	if(folder.list().length>0)
+        		return true;
+        	else
+			return false;
+		}
+		
+		public Boolean FolderExist(String filepath) throws Exception {
+			UserAuthenticator auth = new StaticUserAuthenticator(Constants.ftp_domain, Constants.ftp_userName, Constants.ftp_password);
+            FileSystemOptions opts = new FileSystemOptions();
+            DefaultFileSystemConfigBuilder.getInstance().setUserAuthenticator(opts, auth);
+        	File folder = new File(filepath);
+        	if(folder.exists())
+        		return true;
+        	else
+			return false;
+			
+		}
 }

@@ -83,7 +83,7 @@ public class LogfileDownloaderPage extends BasePage {
         waitForJqueryLoad(driver);
         return logfileDownloader.isEnabled();
     }
-    public void fetchFiles(LogfileDownloaderDetails details){
+    public void fetchFiles(LogfileDownloaderDetails details) throws Exception{
         navigateToTab("Downloader");
         if(!details.getModule().equals(""))
         {selectWebElement(moduleDropdown);
@@ -103,7 +103,7 @@ public class LogfileDownloaderPage extends BasePage {
             if(ele.getText().equalsIgnoreCase(tabname)){ele.click();break;}
         }
     }
-    public void searchFile(String file) {
+    public void searchFile(String file) throws Exception {
         selectWebElement(searchLink);
         selectWebElement(selectSearchColumn.get(0));
         selectDropdownFromVisibleText(columnNameList,"File");
@@ -114,7 +114,7 @@ public class LogfileDownloaderPage extends BasePage {
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(downloaderGridContent);
     }
-    public void searchFilename(String filename) {
+    public void searchFilename(String filename) throws Exception {
         selectWebElement(searchLink);
         selectWebElement(selectSearchColumn.get(0));
         selectDropdownFromVisibleText(columnNameList,"File Names");
@@ -135,7 +135,7 @@ public class LogfileDownloaderPage extends BasePage {
         {return true;}else{return false;}
     }
 
-    public void downloadFile(String filename){
+    public void downloadFile(String filename) throws Exception{
         navigateToTab("Saved Files");
         searchFilename(filename);
         waitUntilWebElementIsVisible(savedFilesGridContent);
@@ -151,7 +151,7 @@ public class LogfileDownloaderPage extends BasePage {
     public boolean verifyFileDownloaded(){
         return verifyFilePresentInFolder(System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles","LogfileDownload-");
     }
-    public void DeleteFile(String filename){
+    public void DeleteFile(String filename) throws Exception{
         DateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
         Date date = new Date();
         String newdate= dateFormat.format(date);
@@ -168,7 +168,7 @@ public class LogfileDownloaderPage extends BasePage {
             return true;
         }else{return false;}
     }
-    private void searchFoldername(String folder){
+    private void searchFoldername(String folder) throws Exception{
         selectWebElement(searchLink);
         selectWebElement(selectSearchColumn.get(0));
         selectDropdownFromVisibleText(columnNameList,"Folder");

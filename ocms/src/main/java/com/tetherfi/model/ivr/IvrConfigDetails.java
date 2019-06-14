@@ -12,6 +12,8 @@ public class IvrConfigDetails {
     private String parametervalue;
     private String modifyReason;
     private String deleteReason;
+    private String updatedValue;
+    private String query;
 
     public IvrConfigDetails(Map<String,String> map){
         searchColumn=readSearchColumn(map);
@@ -20,8 +22,24 @@ public class IvrConfigDetails {
         parametervalue=readValue(map);
         modifyReason=readModifyReason(map);
         deleteReason=readDeleteReason(map);
+        updatedValue=readUpdatedValue(map);
+        query=readQuery(map);
     }
-    private String readSearchValue(Map<String, String> map) {
+    private String readQuery(Map<String, String> map) {
+    	String value=map.get("Query");
+        if(value==null||value.equalsIgnoreCase("random.str")){
+            value= RandomStringUtils.randomAlphabetic(7);
+        }
+        return value;
+	}
+	private String readUpdatedValue(Map<String, String> map) {
+    	String value=map.get("Updated Value");
+        if(value==null||value.equalsIgnoreCase("random.str")){
+            value= RandomStringUtils.randomAlphabetic(7);
+        }
+        return value;
+	}
+	private String readSearchValue(Map<String, String> map) {
         String value=map.get("Search Value");
         if(value==null||value.equalsIgnoreCase("random.str")){
             value= RandomStringUtils.randomAlphabetic(7);
@@ -90,4 +108,10 @@ public class IvrConfigDetails {
     public String getSearchValue() {
         return searchValue;
     }
+	public String getUpdatedValue() {
+		return updatedValue;
+	}
+	public String getQuery() {
+		return query;
+	}
 }

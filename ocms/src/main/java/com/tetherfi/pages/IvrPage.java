@@ -161,10 +161,12 @@ public class IvrPage extends BasePage {
 		selectWebElement(holidayList);		
 	}
 	public void navigateToVipListManagementPage() {
+		scrollToElement(vipListManagement);
 		waitUntilWebElementIsClickable(vipListManagement);
 		selectWebElement(vipListManagement);		
 	}
 	public void navigateToVbEnrollmentFlagPage() {
+		scrollToElement(vbEnrollmentFlag);
 		waitUntilWebElementIsClickable(vbEnrollmentFlag);
 		selectWebElement(vbEnrollmentFlag);			
 	}

@@ -1,19 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
+<suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.tetherfi.test.tmac.TmacTransferListE2E">
+      <class name="com.tetherfi.test.fax.FaxAddressBookTest">
         <methods>
-          <include name="startTestCase"/>
           <include name="openApplication"/>
-          <include name="verifyBlindSkillListOnTmac"/>
-          <include name="endTestCase"/>
-          <include name="tearDown"/>
-          <include name="aftereachmethod"/>
-          <include name="NavigateToTmacTransferListPage"/>
+          <include name="VerifyColumnsHeaderEnable"/>
+          <include name="NavigatetoFaxAddressPage"/>
+          <include name="afterEachMethod"/>
         </methods>
-      </class> <!-- com.tetherfi.test.tmac.TmacTransferListE2E -->
+      </class> <!-- com.tetherfi.test.fax.FaxAddressBookTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

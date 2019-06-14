@@ -34,7 +34,7 @@ public class LoginPage extends BasePage {
         return loginForm.isEnabled();
     }
 
-    public void login(String user, String pass, String domainname){
+    public void login(String user, String pass, String domainname) throws Exception{
         try {selectWebElement(domainDropDown);
             selectDropdownFromVisibleText(domainListbox,domainname);
             Thread.sleep(2000);

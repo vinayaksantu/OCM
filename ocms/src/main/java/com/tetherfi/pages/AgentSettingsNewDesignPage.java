@@ -499,7 +499,7 @@ public class AgentSettingsNewDesignPage extends BasePage {
             e.printStackTrace();
         }
     }
-    public void addNewAgentSettingsRecord(AgentSettingsDetails details) {
+    public void addNewAgentSettingsRecord(AgentSettingsDetails details) throws Exception {
         selectWebElement(agentSettingsTabs.get(1));
         selectWebElement(makeAgentSettingsChanges);
         //waitForJqueryLoad(driver);
@@ -620,7 +620,7 @@ public class AgentSettingsNewDesignPage extends BasePage {
             if(ele.isSelected()){selectCheckbox(ele);}
         }
     }
-    public void searchAgentSettingsRecord(String name)  {
+    public void searchAgentSettingsRecord(String name) throws Exception  {
         selectWebElement(searchLink);
         selectWebElement(selectSearchColumn.get(0));
         selectDropdownFromVisibleText(columnNameList,"Lan ID");
@@ -712,7 +712,7 @@ public class AgentSettingsNewDesignPage extends BasePage {
             e.printStackTrace();
         }
     }
-    public void deleteSupervisorRecordWhenAssignedToAgent(String username) {
+    public void deleteSupervisorRecordWhenAssignedToAgent(String username) throws Exception {
         selectWebElement(agentSettingsTabs.get(1));
         selectWebElement(makeAgentSettingsChanges);
         searchAgentSettingsRecord(username);
@@ -862,7 +862,7 @@ return status;
         }else{System.out.println("data mismatch"+newvalues.get("IsCrmEnabled")+"\t"+details.iscRMEnabled());}
         return status;
     }
-    public void taskCompleteAction(String comment){
+    public void taskCompleteAction(String comment) throws Exception{
         selectWebElement(makeAgentSettingsChanges);
         waitForLoad(driver);
         selectWebElement(taskCompleteBtn);
@@ -885,7 +885,7 @@ return status;
         Map<String,String> firstRowData=getFirstRowDatafromTable();
         return firstRowData.get("Status").equals(status);
     }
-    public void clickonApprove(String comment){
+    public void clickonApprove(String comment) throws Exception{
         selectWebElement(agentSettingsTabs.get(1));
         try {
             Thread.sleep(3000);
@@ -897,7 +897,7 @@ return status;
         enterValueToTxtField(checkerReason,comment);
         clickOn(approveYesBtn);
     }
-	public void clickonReject(String comment){
+	public void clickonReject(String comment) throws Exception{
         selectWebElement(agentSettingsTabs.get(1));
         try {
             Thread.sleep(3000);
@@ -964,7 +964,7 @@ return status;
     }if(!status){break;}}
     return status;
     }
-    public boolean verifyClearAllFunctionality(){
+    public boolean verifyClearAllFunctionality() throws Exception{
         boolean clear=false;
         selectWebElement(searchLink);
         selectWebElement(selectSearchColumn.get(0));
@@ -1440,14 +1440,14 @@ return status;
 		return status;
 	}
 	
-	public void rejectChanges() {
+	public void rejectChanges() throws Exception {
 		selectWebElement(rejectBtn);
 		selectWebElement(checkerReason);
 		enterValueToTxtField(checkerReason, "Rejected");
 		selectWebElement(approveYesBtn);
 	}
 	
-	public void addRecdOnlyInfo(AgentSettingsDetails details) {
+	public void addRecdOnlyInfo(AgentSettingsDetails details) throws Exception {
 		selectWebElement(agentSettingsTabs.get(1));
         selectWebElement(makeAgentSettingsChanges);
         //waitForJqueryLoad(driver);
@@ -1489,7 +1489,7 @@ return status;
         selectWebElement(taskCompleteBtn);
 	}
 	
-	public void enterTaskCompleteText(String comment) {
+	public void enterTaskCompleteText(String comment) throws Exception {
 		enterValueToTxtField(makerComments,comment);
 	}
 	

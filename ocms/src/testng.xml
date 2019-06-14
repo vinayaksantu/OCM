@@ -8,43 +8,8 @@
     <test name="OCMS Portal" parallel="false">
       <classes>
 
-          <class name="com.tetherfi.test.LoginTest"/>
-          <class name="com.tetherfi.test.UserManagementTest"/>
-          <class name="com.tetherfi.test.UserRoleMappingTest"/>
-          <class name="com.tetherfi.test.NewUserRoleMappingTest"/>
-          <class name="com.tetherfi.test.RoleBasedAccessManagementTest"/>
-          <class name="com.tetherfi.test.chat.ChatTemplatesTest"/>
-          <class name="com.tetherfi.test.tmac.AgentTeamMgmtTest"/>
-          <class name="com.tetherfi.test.tmac.TmacBroadCastMsgTest"/>
-          <class name="com.tetherfi.test.ivr.OperatingHoursTest"/>
-          <class name="com.tetherfi.test.tmac.AgentSettingsTest"/>
-          <class name="com.tetherfi.test.tmac.AgentSettingsNewDesignTest"/>
-          <class name="com.tetherfi.test.WebConfigurationsTest"/>
-          <class name="com.tetherfi.test.LogfileDownloaderTest"/>
-          <class name="com.tetherfi.test.CmDataSyncTest"/>
-          <class name="com.tetherfi.test.chat.CallBackManagementTest"/>
-          <class name="com.tetherfi.test.tmac.TmacTransferListTest"/>
-          <class name="com.tetherfi.test.tmac.WaitTimeColorConfigTest"/>
-          <class name="com.tetherfi.test.chat.SOI_IntentMappingTest"/>
-          <class name="com.tetherfi.test.AgentSkillAssignmentTest"/>
            <class name="com.tetherfi.test.fax.FaxLineConfigTest"/> 
-          <class name="com.tetherfi.test.fax.FaxSendersTest"/>
-
-         <class name="com.tetherfi.test.reports.AuditTrailReportTest"/>
-          <class name="com.tetherfi.test.reports.NiceIntegrationReportTest"/>
-          <class name="com.tetherfi.test.reports.CallBackSlaReport"/>
-          <class name="com.tetherfi.test.reports.ChatInteractionReportTest"/>
-          <class name="com.tetherfi.test.reports.AgentHistoricalReportTest"/>
-          <class name="com.tetherfi.test.reports.AgentInteractionReportTest"/>
-          <class name="com.tetherfi.test.reports.AgentLoginLogoutReportTest"/>
-          <class name="com.tetherfi.test.reports.AgentSummaryReportTest"/>
-          <class name="com.tetherfi.test.reports.SkillHistoricalReportTest"/>
-          <class name="com.tetherfi.test.reports.AgentAuxReportTest"/>
-          <class name="com.tetherfi.test.reports.CallWorkReportTest"/>
-
-          <class name="com.tetherfi.test.dashboard.ChatDashboardTest"/>
-          <class name="com.tetherfi.test.dashboard.ChatCallbackDashboardTest"/>
-          <class name="com.tetherfi.test.dashboard.VoiceAgentServiceQueueTest"/>
+           
       </classes>
     </test>
 

@@ -13,6 +13,12 @@ public class FaxLineConfigDetails {
     private String receiveStatus;
     private String modifyReason;
     private String deleteReason;
+    private String updatedFaxLine;
+    private String updatedSendStatus;
+    private String updatedReceiveStatus;
+    private String updatedStatus;
+    private String updatedDescription;
+    private String query;
 
     public FaxLineConfigDetails(Map<String,String> map) {
         faxLine=readFaxline(map);
@@ -23,10 +29,46 @@ public class FaxLineConfigDetails {
         sendStatus=readSendStatus(map);
         receiveStatus=readReceiveStatus(map);
         deleteReason=readDeleteReason(map);
+        updatedFaxLine=readUpdatedFaxLine(map);
+        updatedStatus=readUpdatedStatus(map);
+        updatedSendStatus=readUpdatedSendStatus(map);
+        updatedDescription=readUpdatedDescription(map);
+        updatedReceiveStatus=readUpdatedReceiveStatus(map);
         modifyReason=readModifyReason(map);
+        query=readQuery(map);
     }
 
-    public String readFaxline(Map<String,String> map){
+    private String readQuery(Map<String, String> map) {
+    	String value=map.get("Query");
+    	return value;
+	}
+
+	private String readUpdatedReceiveStatus(Map<String, String> map) {
+    	String value=map.get("Updated ReceiveStatus");
+    	return value;
+	}
+
+	private String readUpdatedDescription(Map<String, String> map) {
+		String value=map.get("Updated Description");
+		return value;
+	}
+
+	private String readUpdatedSendStatus(Map<String, String> map) {
+		String value=map.get("Updated SendStatus");
+		return value;
+	}
+
+	private String readUpdatedStatus(Map<String, String> map) {
+		String value=map.get("Updated Status");		
+		return value;
+	}
+
+	private String readUpdatedFaxLine(Map<String, String> map) {
+		String value=map.get("Updated FaxLine");
+		return value;
+	}
+
+	public String readFaxline(Map<String,String> map){
         String value=map.get("FaxLine");
         if(value==null||value.equalsIgnoreCase("random.str")){
             value= RandomStringUtils.randomAlphabetic(7);
@@ -132,4 +174,28 @@ public class FaxLineConfigDetails {
 
         return deleteReason;
     }
+
+	public String getUpdatedFaxLineName() {
+		return updatedFaxLine;
+	}
+
+	public String getUpdatedDescription() {
+		return updatedDescription;
+	}
+
+	public String getUpdatedStatus() {
+		return updatedStatus;
+	}
+
+	public String getUpdatedSendStatus() {
+		return updatedSendStatus;
+	}
+
+	public String getUpdatedReceiveStatus() {
+		return updatedReceiveStatus;
+	}
+
+	public String getQuery() {
+		return query;
+	}
 }

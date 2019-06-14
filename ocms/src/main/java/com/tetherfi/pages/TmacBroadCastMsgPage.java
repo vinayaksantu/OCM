@@ -2,6 +2,7 @@ package com.tetherfi.pages;
 
 
 import com.tetherfi.model.tmac.TmacBroadCastMsgDetails;
+import com.tetherfi.model.tmac.WorkCodeListDetails;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -53,7 +54,7 @@ public class TmacBroadCastMsgPage extends BasePage {
     @FindBy(xpath="//a[text()='Message']")
     private WebElement message;
    
-    @FindBy(xpath="//a[text()='Team Name']")
+    @FindBy(xpath="//a[text()='TeamName']")
     private WebElement teamName;
    
     @FindBy(xpath="//a[text()='Status']")
@@ -134,7 +135,7 @@ public class TmacBroadCastMsgPage extends BasePage {
     @FindBy(css=".toast-message")
     private WebElement successmsg;
 
-    @FindBy(css = "#toast-container .toast-error")
+    @FindBy(css = "#toast-container .toast-error .toast-message")
     private List<WebElement> errorMsg;
 
     @FindBy(xpath = "//a[@class='k-button k-button-icontext k-grid-edit']")
@@ -215,7 +216,7 @@ public class TmacBroadCastMsgPage extends BasePage {
         return tmacBroadcastMsg.isEnabled();
     }
 
-    public void searchTmacBroadcastMsg(String message) {
+    public void searchTmacBroadcastMsg(String message) throws Exception {
         selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Message");
@@ -226,7 +227,7 @@ public class TmacBroadCastMsgPage extends BasePage {
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(gridContent);
     }
-    public void addTmacBroadcastMsg(TmacBroadCastMsgDetails tmacBroadCastMsgDetails) {
+    public void addTmacBroadcastMsg(TmacBroadCastMsgDetails tmacBroadCastMsgDetails) throws Exception {
         selectWebElement(addnewTmacBroadcastMessage);
         selectWebElement(TeamNameDropDown);
         try {
@@ -249,7 +250,7 @@ public class TmacBroadCastMsgPage extends BasePage {
 		}
         selectWebElement(SaveButton);
     }
-    public void addTmacBroadcastMsgDivision(TmacBroadCastMsgDetails tmacBroadCastMsgDetails) {
+    public void addTmacBroadcastMsgDivision(TmacBroadCastMsgDetails tmacBroadCastMsgDetails) throws Exception {
     	selectWebElement(addnewTmacBroadcastMessage);
     	selectWebElement(TeamNameDropDown);
     	try {
@@ -266,7 +267,7 @@ public class TmacBroadCastMsgPage extends BasePage {
         selectWebElement(SaveButton);
     }
     
-    public void editTmacBroadcastMsg(TmacBroadCastMsgDetails tmacBroadCastMsgDetails) {
+    public void editTmacBroadcastMsg(TmacBroadCastMsgDetails tmacBroadCastMsgDetails) throws Exception {
         searchTmacBroadcastMsg(tmacBroadCastMsgDetails.getMessage());
         try {
             Thread.sleep(1000);
@@ -283,7 +284,7 @@ public class TmacBroadCastMsgPage extends BasePage {
         selectWebElement(messageTextbox);
         enterValueToTxtField(messageTextbox,tmacBroadCastMsgDetails.getUpdatedMessage());
         selectWebElement(statusDropdown);
-        selectDropdownFromVisibleText(statusListBox,tmacBroadCastMsgDetails.getStatus());
+        selectDropdownFromVisibleText(statusListBox,tmacBroadCastMsgDetails.getUpdatedStatus());
         selectWebElement(ModifyReasonTextBox);
         enterValueToTxtField(ModifyReasonTextBox,tmacBroadCastMsgDetails.getModifyReason());
         selectWebElement(SaveButton);
@@ -316,6 +317,7 @@ public class TmacBroadCastMsgPage extends BasePage {
 	}
     
     public boolean verifyErrorMessage() {
+		waitUntilWebElementListIsVisible(errorMsg);										
     	if(errorMsg.size()>0) {
     		return true;}
     		else return false;
@@ -378,6 +380,7 @@ public class TmacBroadCastMsgPage extends BasePage {
 		return true;
 		else return false;
 	}
+	
 	public boolean maximizewindow()
 	 {
 		selectWebElement(maximize);
@@ -398,7 +401,7 @@ public class TmacBroadCastMsgPage extends BasePage {
 		else 
 			return false; 
 	}
-	public boolean addNewCancel(TmacBroadCastMsgDetails tmacBroadCastMsgDetails) {
+	public boolean addNewCancel(TmacBroadCastMsgDetails tmacBroadCastMsgDetails) throws Exception {
 		String actualitems=items.getText();
 		selectWebElement(addnewTmacBroadcastMessage);
         //waitForJqueryLoad(driver);
@@ -430,7 +433,7 @@ public class TmacBroadCastMsgPage extends BasePage {
         	return false;
 }
 
-	public boolean clearAll(TmacBroadCastMsgDetails tmacBroadCastMsgDetails) {
+	public boolean clearAll(TmacBroadCastMsgDetails tmacBroadCastMsgDetails) throws Exception {
 		selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Message");
@@ -452,7 +455,7 @@ public class TmacBroadCastMsgPage extends BasePage {
 		return false;
 	}
 
-	public boolean verifyinvalidsearch(TmacBroadCastMsgDetails tmacBroadCastMsgDetails) {
+	public boolean verifyinvalidsearch(TmacBroadCastMsgDetails tmacBroadCastMsgDetails) throws Exception {
 		searchTmacBroadcastMsg(tmacBroadCastMsgDetails.getMessage());
 		if(norecords.isDisplayed())
 			return true; 
@@ -468,9 +471,15 @@ public class TmacBroadCastMsgPage extends BasePage {
 		return false;
 	}
 
-	public void duplicateRecord(TmacBroadCastMsgDetails tmacBroadCastMsgDetails) {
+	public void duplicateRecord(TmacBroadCastMsgDetails tmacBroadCastMsgDetails) throws Exception {
 		addTmacBroadcastMsg(tmacBroadCastMsgDetails);
+	   try {
 		selectWebElement(addcancel);
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
 	}
 
 	public void addInvalidRecord(TmacBroadCastMsgDetails tmacBroadCastMsgDetails) {
@@ -485,7 +494,7 @@ public class TmacBroadCastMsgPage extends BasePage {
         selectWebElement(SaveButton);
         selectWebElement(addcancel);
 	}
-	public void addInvalidRecord1(TmacBroadCastMsgDetails tmacBroadCastMsgDetails) {
+	public void addInvalidRecord1(TmacBroadCastMsgDetails tmacBroadCastMsgDetails) throws Exception {
 		selectWebElement(addnewTmacBroadcastMessage);
         selectWebElement(TeamNameDropDown);
         ChooseTeamHeirarchy(tmacBroadCastMsgDetails.getCountry());
@@ -496,7 +505,7 @@ public class TmacBroadCastMsgPage extends BasePage {
         selectWebElement(SaveButton);
         selectWebElement(addcancel);
 	}
-	public void addInvalidRecord2(TmacBroadCastMsgDetails tmacBroadCastMsgDetails) {
+	public void addInvalidRecord2(TmacBroadCastMsgDetails tmacBroadCastMsgDetails) throws Exception {
 		selectWebElement(addnewTmacBroadcastMessage);
         enterValueToTxtField(messageTextbox,tmacBroadCastMsgDetails.getMessage());
         selectWebElement(statusDropdown);
@@ -505,7 +514,7 @@ public class TmacBroadCastMsgPage extends BasePage {
         selectWebElement(addcancel);
 	}
 
-	public boolean editcancel(TmacBroadCastMsgDetails tmacBroadCastMsgDetails) {
+	public boolean editcancel(TmacBroadCastMsgDetails tmacBroadCastMsgDetails) throws Exception {
 		searchTmacBroadcastMsg(tmacBroadCastMsgDetails.getMessage());
 		try {
 			Thread.sleep(500);
@@ -523,7 +532,7 @@ public class TmacBroadCastMsgPage extends BasePage {
         selectWebElement(messageTextbox);
         enterValueToTxtField(messageTextbox,tmacBroadCastMsgDetails.getUpdatedMessage());
         selectWebElement(statusDropdown);
-        selectDropdownFromVisibleText(statusListBox,tmacBroadCastMsgDetails.getStatus());
+        selectDropdownFromVisibleText(statusListBox,tmacBroadCastMsgDetails.getUpdatedStatus());
         selectWebElement(ModifyReasonTextBox);
         enterValueToTxtField(ModifyReasonTextBox,tmacBroadCastMsgDetails.getModifyReason());
         selectWebElement(addcancel);
@@ -865,4 +874,36 @@ public class TmacBroadCastMsgPage extends BasePage {
     public boolean isExportBtnDisplayed() {
     	return exporttoexcel.isDisplayed() && exporttoexcel.isEnabled();
     }
+	
+	public void SortByAscending() {
+		selectWebElement(teamName);
+		selectWebElement(exporttoexcel);
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void SortByDescending() {
+		selectWebElement(message);
+		selectWebElement(message);
+		selectWebElement(exporttoexcel);
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	public boolean ExporttoExcelWithoutData(TmacBroadCastMsgDetails tmacBroadCastMsgDetails) throws Exception {
+			searchTmacBroadcastMsg(tmacBroadCastMsgDetails.getMessage());
+			waitForJqueryLoad(driver);
+			selectWebElement(exporttoexcel);
+			if(errorMsg.get(0).getText().equals("There is no record to export"))
+				return true;
+			else
+			return false;
+	}
 }

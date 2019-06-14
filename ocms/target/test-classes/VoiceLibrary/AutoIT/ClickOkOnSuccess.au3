@@ -1,0 +1,1 @@
+ControlClick("","","Button1")

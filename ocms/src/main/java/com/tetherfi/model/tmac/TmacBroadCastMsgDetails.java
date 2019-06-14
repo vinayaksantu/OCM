@@ -16,6 +16,7 @@ public class TmacBroadCastMsgDetails {
     private String status;
     private String header;
     private String query;
+    private String updatedStatus;
     public  TmacBroadCastMsgDetails(Map<String,String> map){
         teamName=readTeamName(map);
         level=readLevel(map);
@@ -29,8 +30,13 @@ public class TmacBroadCastMsgDetails {
         status=readStatus(map);
         header=readHeader(map);
         query=readQuery(map);
+        updatedStatus=readUpdatedStatus(map);
     }
-    private String readQuery(Map<String, String> map) {
+    private String readUpdatedStatus(Map<String, String> map) {
+    	String value=map.get("Updated Status");
+		return value;
+	}
+	private String readQuery(Map<String, String> map) {
     	String value=map.get("Query");
 		return value;
 	}
@@ -97,6 +103,9 @@ public class TmacBroadCastMsgDetails {
     public String getUpdatedMessage() {return updatedMessage;}
 	public String getHeader() {return header;}
 	public String getQuery() {return query;
+	}
+	public String getUpdatedStatus() {
+		return updatedStatus;
 	}
 
    

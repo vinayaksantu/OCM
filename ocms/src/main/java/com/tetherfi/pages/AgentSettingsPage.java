@@ -186,7 +186,7 @@ public class AgentSettingsPage extends BasePage {
         return agentSettings.isEnabled();
     }
 
-    public void addNewAgentSettingsRecord(AgentSettingsDetails details) {
+    public void addNewAgentSettingsRecord(AgentSettingsDetails details) throws Exception {
         selectWebElement(addNewAgentSettingsRecordBtn);
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(popupContent);
@@ -267,7 +267,7 @@ public class AgentSettingsPage extends BasePage {
     public void selectCheckBox(WebElement ele, boolean value){
         if(value&&!ele.isSelected()){selectCheckbox(ele);}
     }
-    public void searchAgentSettingsRecord(String name)  {
+    public void searchAgentSettingsRecord(String name) throws Exception  {
         selectWebElement(searchLink);
         selectWebElement(selectSearchColumn.get(0));
         selectDropdownFromVisibleText(columnNameList,"User Name");
@@ -278,7 +278,7 @@ public class AgentSettingsPage extends BasePage {
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(gridContent);
     }
-    public void editAgentSettingsRecord(AgentSettingsDetails details) {
+    public void editAgentSettingsRecord(AgentSettingsDetails details) throws Exception {
         searchAgentSettingsRecord(details.getUsername());
         selectWebElement(editBtn);
         waitForJqueryLoad(driver);
@@ -317,7 +317,7 @@ public class AgentSettingsPage extends BasePage {
         enterValueToTxtField(modifyReasonTextBox,details.getModifyReason());
         selectWebElement(saveBtn);
     }
-    public void deleteAgentSettingsRecord(String username,String reason) {
+    public void deleteAgentSettingsRecord(String username,String reason) throws Exception {
         searchAgentSettingsRecord(username);
         btnClick(deleteBtn);
         selectWebElement(deleteReasonTextBox);

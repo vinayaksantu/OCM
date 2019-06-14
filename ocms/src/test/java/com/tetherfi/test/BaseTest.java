@@ -37,7 +37,7 @@ public class BaseTest {
             driver.close();
             e.printStackTrace();
         }
-        //driver.manage().timeouts().implicitlyWait(40,TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
     }
     @BeforeMethod
         public void startTestCase(Method method){

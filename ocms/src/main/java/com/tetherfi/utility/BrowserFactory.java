@@ -8,6 +8,8 @@ import org.openqa.selenium.firefox.FirefoxBinary;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.FirefoxProfile;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.ie.InternetExplorerOptions;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
@@ -29,6 +31,7 @@ public class BrowserFactory {
             this.browserType = browserType;
         }
     }
+    public String browserName = "";
 
     public WebDriver createBrowserInstance(BrowserType browserType) {
         return createBrowserInstance(browserType, null);
@@ -49,7 +52,28 @@ public class BrowserFactory {
           driver=new ChromeDriver(options);
           driver.manage().window().maximize();
         }
+      else if(browserType==BrowserType.IE){
+            Map<String, Object> prefs = new HashMap<String, Object>();
+            prefs.put("download.default_directory",  fileDownloadLocation);
+            InternetExplorerOptions options= new InternetExplorerOptions();
+            options.setCapability("prefs", prefs);
+            DesiredCapabilities capabilities = DesiredCapabilities.internetExplorer();
+            capabilities.setCapability(CapabilityType.ACCEPT_SSL_CERTS,true);
+            System.setProperty("webdriver.ie.driver", getDriverPath("IE"));
+            //it is used to initialize the IE driver
+            driver = new InternetExplorerDriver(options);
+            driver.manage().window().maximize();
+            browserName = "IE";
+        }
+      
         return driver;
+    }
+    
+    private static String getDriverPath(String browser) {
+        if(browser.equals("Chrome"))
+        return Constants.chromeDriverPath + "chromedriver.exe";
+        else
+            return Constants.ieDriverPath+"IEDriverServer.exe";
     }
 
     private static String getChromeDriverPath() {

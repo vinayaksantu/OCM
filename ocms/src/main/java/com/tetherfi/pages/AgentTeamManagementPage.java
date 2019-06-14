@@ -288,14 +288,14 @@ public class AgentTeamManagementPage extends BasePage {
 		else return false;
 	}
 
-	public void addnewCountry(AgentTeamMgmtDetails details) {
+	public void addnewCountry(AgentTeamMgmtDetails details) throws Exception {
 		selectWebElement(addNewAgentTeamMgmtRcrdBtn);
 		chooseLevel(details.getLevel());
 		enterValueToTxtField(addTeamNameTextBox,details.getTeamName());
 		selectWebElement(addTeamNameSaveButton);
 	}
 		
-	public void addnewDivision(AgentTeamMgmtDetails details) {
+	public void addnewDivision(AgentTeamMgmtDetails details) throws Exception {
 	selectWebElement(addNewAgentTeamMgmtRcrdBtn);
 	chooseLevel(details.getLevel()); 
 	chooseCountry(details.getCountry());
@@ -303,7 +303,7 @@ public class AgentTeamManagementPage extends BasePage {
 	selectWebElement(addTeamNameSaveButton);
 	}
 	
-	public void addnewDepartment(AgentTeamMgmtDetails details) {
+	public void addnewDepartment(AgentTeamMgmtDetails details) throws Exception {
 	selectWebElement(addNewAgentTeamMgmtRcrdBtn);
 	chooseLevel(details.getLevel()); 
 	chooseCountry(details.getCountry());
@@ -313,7 +313,7 @@ public class AgentTeamManagementPage extends BasePage {
 	}
 	
 	
-	public void addNewAgentTeamManagementRecord(String Level,String Country,String Division,String Department,String Teamname)  {
+	public void addNewAgentTeamManagementRecord(String Level,String Country,String Division,String Department,String Teamname) throws Exception  {
 		selectWebElement(addNewAgentTeamMgmtRcrdBtn);
 		chooseLevel(Level); 
 		chooseCountry(Country);
@@ -367,7 +367,7 @@ public class AgentTeamManagementPage extends BasePage {
 		}
 	}
 
-	public void searchAgentTeamManagementRecord(String teamName) {
+	public void searchAgentTeamManagementRecord(String teamName) throws Exception {
 		selectWebElement(searchBtn);
 		selectWebElement(selectSearchCol.get(0));
 		selectDropdownFromVisibleText(columnNameList,"Name");
@@ -379,7 +379,7 @@ public class AgentTeamManagementPage extends BasePage {
 		waitUntilWebElementIsVisible(gridContent);
 	}
 
-	public void editAgentTeamManagementRecord(String oldteamname, String newteamname, String reason) {
+	public void editAgentTeamManagementRecord(String oldteamname, String newteamname, String reason) throws Exception {
 		searchAgentTeamManagementRecord(oldteamname);
 		try {
 			Thread.sleep(5000);
@@ -398,7 +398,7 @@ public class AgentTeamManagementPage extends BasePage {
 		selectWebElement(editTeamNameSaveButton);
 	}
 
-	public Boolean editCancelRecord(String oldteamname, String newteamname, String reason) {
+	public Boolean editCancelRecord(String oldteamname, String newteamname, String reason) throws Exception {
 		searchAgentTeamManagementRecord(oldteamname);
 		selectWebElement(editButton);
 		selectWebElement(editTeamNameTextBox);
@@ -411,7 +411,7 @@ public class AgentTeamManagementPage extends BasePage {
 		else return false;
 	}
 
-	public void deleteAgentTeamManagementRecord(String oldteamname, String reason) {
+	public void deleteAgentTeamManagementRecord(String oldteamname, String reason) throws Exception {
 		searchAgentTeamManagementRecord(oldteamname);
 		try {
 			Thread.sleep(1000);
@@ -480,7 +480,7 @@ public class AgentTeamManagementPage extends BasePage {
 		else 
 			return false;}
 
-	public boolean addNewCancel(AgentTeamMgmtDetails details) {
+	public boolean addNewCancel(AgentTeamMgmtDetails details) throws Exception {
 		String actualitems=items.getText();
 		selectWebElement(addNewAgentTeamMgmtRcrdBtn);
 		chooseLevel(details.getLevel()); 
@@ -505,7 +505,7 @@ public class AgentTeamManagementPage extends BasePage {
 
 	}
 
-	public void addInvalidRecord2(AgentTeamMgmtDetails details){
+	public void addInvalidRecord2(AgentTeamMgmtDetails details) throws Exception{
 		selectWebElement(addNewAgentTeamMgmtRcrdBtn);
 		chooseLevel(details.getLevel()); 
 		enterValueToTxtField(addTeamNameTextBox,details.getTeamName());
@@ -513,7 +513,7 @@ public class AgentTeamManagementPage extends BasePage {
 		selectWebElement(addcancel);
 	}
 
-	public void addInvalidRecord3(AgentTeamMgmtDetails details) {
+	public void addInvalidRecord3(AgentTeamMgmtDetails details) throws Exception {
 		selectWebElement(addNewAgentTeamMgmtRcrdBtn);
 		chooseLevel(details.getLevel()); 
 		chooseCountry(details.getCountry());
@@ -522,7 +522,7 @@ public class AgentTeamManagementPage extends BasePage {
 		selectWebElement(addcancel);
 	}
 
-	public void addInvalidRecord4(AgentTeamMgmtDetails details){
+	public void addInvalidRecord4(AgentTeamMgmtDetails details) throws Exception{
 		selectWebElement(addNewAgentTeamMgmtRcrdBtn);
 		chooseLevel(details.getLevel()); 
 		chooseCountry(details.getCountry());
@@ -532,8 +532,14 @@ public class AgentTeamManagementPage extends BasePage {
 		selectWebElement(addcancel);
 	}
 
-	public void duplicateRecord(String Level,String Country,String Division,String Department,String Teamname) {
+	public void duplicateRecord(String Level,String Country,String Division,String Department,String Teamname) throws Exception {
 		addNewAgentTeamManagementRecord(Level,Country,Division,Department,Teamname);
+		try {
+			selectWebElement(addcancel);
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	public boolean clearAll(AgentTeamMgmtDetails details) throws Exception {
@@ -557,7 +563,7 @@ public class AgentTeamManagementPage extends BasePage {
 		else
 			return false;	
 	}
-	public boolean verifyinvalidsearch(AgentTeamMgmtDetails details) {
+	public boolean verifyinvalidsearch(AgentTeamMgmtDetails details) throws Exception {
 		searchAgentTeamManagementRecord(details.getTeamName());
 		if(norecords.isDisplayed())
 			return true; 
@@ -571,7 +577,7 @@ public class AgentTeamManagementPage extends BasePage {
 		else
 			return false;
 	}
-	public boolean verifydeleteNo(String updateTeamName, String deleteReason) {
+	public boolean verifydeleteNo(String updateTeamName, String deleteReason) throws Exception {
 		searchAgentTeamManagementRecord(updateTeamName);
 		String actualitems=items.getText();
 		selectWebElement(deleteButton);
@@ -616,7 +622,7 @@ public class AgentTeamManagementPage extends BasePage {
 			String col=null;
 			for(int j=1;j<headers.size();j++){
 				if(headers.get(j).getText().equals("Last Changed On")){
-					col=cols.get(j).getText().substring(10);
+					col=cols.get(j).getText().substring(11);
 					}
 				else
 					col=cols.get(j).getText();
@@ -888,4 +894,33 @@ public class AgentTeamManagementPage extends BasePage {
 		wait.until(ExpectedConditions.elementToBeClickable(ele));	
 	}
 	
+	public void SortByAscending() {
+		selectWebElement(name);		
+		selectWebElement(exporttoexcel);
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void SortByDescending() {
+		selectWebElement(name);
+		selectWebElement(name);
+		selectWebElement(exporttoexcel);
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+	public boolean ExporttoExcelWithoutData(AgentTeamMgmtDetails agentTeamMgmtDetails) throws Exception {
+		searchAgentTeamManagementRecord(agentTeamMgmtDetails.getTeamName());
+		waitForJqueryLoad(driver);
+		selectWebElement(exporttoexcel);
+		if(errorMsg.get(0).getText().equals("There is no record to export"))
+			return true;
+		else
+		return false;
+	}
 }
