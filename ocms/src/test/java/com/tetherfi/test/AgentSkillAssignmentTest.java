@@ -41,7 +41,7 @@ public class AgentSkillAssignmentTest extends BaseTest{
     	screenshot.captureScreen("minimize window","AgentSkillAssignmentTest");
     }
     //@Test
-    public void EditAgentListRecord() throws IOException {
+    public void EditAgentListRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentSkillAssignmentData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
         AgentSkillAssignmentDetails agentSkillAssignmentDetails= new AgentSkillAssignmentDetails(map);
@@ -50,7 +50,7 @@ public class AgentSkillAssignmentTest extends BaseTest{
         Assert.assertTrue(agentSkillAssignmentPage.verifyRecordUpdated(),"Assign skill assertion failed");
     }
     //@Test
-    public void AddMultiSkillRecord() throws IOException {
+    public void AddMultiSkillRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentSkillAssignmentData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(1);
         AgentSkillAssignmentDetails agentSkillAssignmentDetails= new AgentSkillAssignmentDetails(map);

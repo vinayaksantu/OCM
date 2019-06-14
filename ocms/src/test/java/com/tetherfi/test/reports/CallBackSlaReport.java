@@ -27,7 +27,7 @@ public class CallBackSlaReport extends BaseTest {
         Assert.assertTrue(ocmReportsPage.isOCMReportPageIsDisplayed());
     }
     @Test
-    public void ShowCallBackSlaReport() throws IOException {
+    public void ShowCallBackSlaReport() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\CallBackSlaReportData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
@@ -37,7 +37,7 @@ public class CallBackSlaReport extends BaseTest {
         Assert.assertTrue(ocmReportsPage.verifyReportDisplayed(reportDetails),"Show report assertion failed");
     }
     @Test(dependsOnMethods ="ShowCallBackSlaReport")
-    public void ShowCallBackSlaReportInNewTab() throws IOException {
+    public void ShowCallBackSlaReportInNewTab() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\CallBackSlaReportData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ShowInNewPage").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
@@ -48,7 +48,7 @@ public class CallBackSlaReport extends BaseTest {
         ocmReportsPage.switchBackToParentWindow();
     }
     //@Test
-    public void ScheduleCallBackSlaReport() throws IOException {
+    public void ScheduleCallBackSlaReport() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\CallBackSlaReportData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ExportReport").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
@@ -58,7 +58,7 @@ public class CallBackSlaReport extends BaseTest {
         Assert.assertTrue(ocmReportsPage.verifyScheduleReport(),"schedule report assertion failed");
     }
     @Test(dependsOnMethods ="ShowCallBackSlaReportInNewTab")
-    public void ExportCallBackSlaReport() throws IOException {
+    public void ExportCallBackSlaReport() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\CallBackSlaReportData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ExportReport").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
@@ -89,7 +89,7 @@ public class CallBackSlaReport extends BaseTest {
         Assert.assertTrue(ocmReportsPage.verifyDownloadedReportNameAndTimeInReportsDownloadPage(reportDetails.getReportName()),"Report not found in Reporter download page");
     }
     @Test
-    public void ShowCallBackSlaReportForDateRange() throws IOException {
+    public void ShowCallBackSlaReportForDateRange() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\CallBackSlaReportData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
@@ -99,7 +99,7 @@ public class CallBackSlaReport extends BaseTest {
         Assert.assertTrue(ocmReportsPage.verifyDateRangeReportDisplayed(reportDetails),"Show report assertion failed");
     }
     @Test(dependsOnMethods ="ShowCallBackSlaReportForDateRange")
-    public void ShowCallBackSlaReportInNewTabDateRange() throws IOException {
+    public void ShowCallBackSlaReportInNewTabDateRange() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\CallBackSlaReportData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ShowInNewPageDateRange").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
@@ -110,7 +110,7 @@ public class CallBackSlaReport extends BaseTest {
         ocmReportsPage.switchBackToParentWindow();
     }
     @Test(dependsOnMethods ="ShowCallBackSlaReportInNewTabDateRange")
-    public void ExportCallBackSlaReportDateRange() throws IOException {
+    public void ExportCallBackSlaReportDateRange() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\CallBackSlaReportData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ExportReportDateRange").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
@@ -141,7 +141,7 @@ public class CallBackSlaReport extends BaseTest {
         Assert.assertTrue(ocmReportsPage.verifyDownloadedReportNameAndTimeInReportsDownloadPage(reportDetails.getReportName()),"Report not found in Reporter download page");
     }
     @Test(dependsOnMethods = "ShowCallBackSlaReportForDateRange")
-    public void ExportPageForCallBackSlaReportForDateRange() throws IOException {
+    public void ExportPageForCallBackSlaReportForDateRange() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\CallBackSlaReportData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
@@ -153,7 +153,7 @@ public class CallBackSlaReport extends BaseTest {
         Assert.assertTrue(ocmReportsPage.verifyExportPageFileDownloaded("CallBack SLA Report.xlsx"),"Export page assertion failed");
     }
     @Test(dependsOnMethods = "ShowCallBackSlaReportForDateRange")
-    public void ExportToCSVForCallBackSlaReportForDateRange() throws IOException {
+    public void ExportToCSVForCallBackSlaReportForDateRange() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\CallBackSlaReportData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
@@ -167,7 +167,7 @@ public class CallBackSlaReport extends BaseTest {
         Assert.assertTrue(ocmReportsPage.verifyDownloadedReportNameAndTimeInReportsDownloadPage(reportDetails.getReportName()),"Report not found in Reporter download page");
     }
     //@Test(dependsOnMethods = "ShowCallBackSlaReportForDateRange")
-    public void ScheduledReportsForCallBackSlaReportForDateRange() throws IOException {
+    public void ScheduledReportsForCallBackSlaReportForDateRange() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\CallBackSlaReportData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
@@ -179,7 +179,7 @@ public class CallBackSlaReport extends BaseTest {
         Assert.assertTrue(ocmReportsPage.verifyScheduleReport(),"Scheduled report at reports page assertion failed");
     }
     @Test(dependsOnMethods ="ShowCallBackSlaReportForDateRange")
-    public void VerifySortingForCallBackSlaReport() throws IOException {
+    public void VerifySortingForCallBackSlaReport() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\CallBackSlaReportData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
@@ -190,7 +190,7 @@ public class CallBackSlaReport extends BaseTest {
         Assert.assertTrue(ocmReportsPage.verifySorting());
     }
     @Test(dependsOnMethods ="ShowCallBackSlaReportForDateRange")
-    public void VerifySearchByFeatureForCallBackSlaReport() throws IOException {
+    public void VerifySearchByFeatureForCallBackSlaReport() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\CallBackSlaReportData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
@@ -201,7 +201,7 @@ public class CallBackSlaReport extends BaseTest {
         Assert.assertTrue(ocmReportsPage.verifySearchByTextbox());
     }
     @Test(dependsOnMethods ="ShowCallBackSlaReportForDateRange")
-    public void VerifySearchFeatureForCallBackSlaReport() throws IOException {
+    public void VerifySearchFeatureForCallBackSlaReport() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\CallBackSlaReportData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
@@ -212,7 +212,7 @@ public class CallBackSlaReport extends BaseTest {
         Assert.assertTrue(ocmReportsPage.verifySearchByColumnValue());
     }
     @Test(dependsOnMethods ="ShowCallBackSlaReportForDateRange")
-    public void VerifySearchContainsForCallBackSlaReport() throws IOException {
+    public void VerifySearchContainsForCallBackSlaReport() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\CallBackSlaReportData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);

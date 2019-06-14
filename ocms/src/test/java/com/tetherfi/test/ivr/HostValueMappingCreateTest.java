@@ -27,7 +27,7 @@ import com.tetherfi.utility.Screenshot;
 public class HostValueMappingCreateTest {
 	protected WebDriver driver;
 	@BeforeMethod
-    public void NavigateToHostValueMappingPage(Method method) throws IOException, InterruptedException {
+    public void NavigateToHostValueMappingPage(Method method) throws Exception {
         try {
             PageFactory.reset();
             BrowserFactory browserFactory = new BrowserFactory();
@@ -233,7 +233,7 @@ public class HostValueMappingCreateTest {
        }
 	
 	//@Test(groups = { "Maker" })//,dependsOnMethods="AddRecord")
-    public void VerifyTaskCompleteActionForAddNewRecord() {
+    public void VerifyTaskCompleteActionForAddNewRecord() throws Exception {
        	HostValueMappingPage HostValueMappingPage = PageFactory.createPageInstance(driver, HostValueMappingPage.class);
        	HostValueMappingPage.selectHostValueMappingAuditTrailTab();
        	HostValueMappingPage.taskCompleteAction("Task Complete for Create");
@@ -251,7 +251,7 @@ public class HostValueMappingCreateTest {
 	}
     
     @Test(groups = { "Checker" })//,dependsOnMethods="VerifyApprovedDataSectionWithoutApproval")
-    public void RejectforAddNewHostValueMappingRecord(){
+    public void RejectforAddNewHostValueMappingRecord() throws Exception{
         HostValueMappingPage HostValueMappingPage = PageFactory.createPageInstance(driver, HostValueMappingPage.class);
         HostValueMappingPage.clickonReject("Reject Created");
         Assert.assertFalse(HostValueMappingPage.getErrorMsg(),"Reject record assertion failed");

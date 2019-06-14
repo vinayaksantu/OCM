@@ -27,7 +27,7 @@ public class AgentHistoricalReportTest extends BaseTest {
         Assert.assertTrue(ocmReportsPage.isOCMReportPageIsDisplayed());
     }
     @Test
-    public void ShowAgentHistoricalReport() throws IOException {
+    public void ShowAgentHistoricalReport() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
@@ -37,7 +37,7 @@ public class AgentHistoricalReportTest extends BaseTest {
         Assert.assertTrue(ocmReportsPage.verifyReportDisplayed(reportDetails),"Show report assertion failed");
     }
     @Test(dependsOnMethods ="ShowAgentHistoricalReport")
-    public void ShowAgentHistoricalReportInNewTab() throws IOException {
+    public void ShowAgentHistoricalReportInNewTab() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ShowInNewPage").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
@@ -48,7 +48,7 @@ public class AgentHistoricalReportTest extends BaseTest {
         ocmReportsPage.switchBackToParentWindow();
     }
     //@Test
-    public void ScheduleAgentHistoricalReport() throws IOException {
+    public void ScheduleAgentHistoricalReport() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ExportReport").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
@@ -58,7 +58,7 @@ public class AgentHistoricalReportTest extends BaseTest {
         Assert.assertTrue(ocmReportsPage.verifyScheduleReport(),"schedule report assertion failed");
     }
     @Test(dependsOnMethods ="ShowAgentHistoricalReportInNewTab")
-    public void ExportAgentHistoricalReport() throws IOException {
+    public void ExportAgentHistoricalReport() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ExportReport").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
@@ -89,7 +89,7 @@ public class AgentHistoricalReportTest extends BaseTest {
         Assert.assertTrue(ocmReportsPage.verifyDownloadedReportNameAndTimeInReportsDownloadPage(reportDetails.getReportName()),"Report not found in Reporter download page");
     }
     @Test
-    public void ShowAgentHistoricalReportForDateRange() throws IOException {
+    public void ShowAgentHistoricalReportForDateRange() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
@@ -99,7 +99,7 @@ public class AgentHistoricalReportTest extends BaseTest {
         Assert.assertTrue(ocmReportsPage.verifyDateRangeReportDisplayed(reportDetails),"Show report assertion failed");
     }
     @Test(dependsOnMethods ="ShowAgentHistoricalReportForDateRange")
-    public void ShowAgentHistoricalReportInNewTabDateRange() throws IOException {
+    public void ShowAgentHistoricalReportInNewTabDateRange() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ShowInNewPageDateRange").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
@@ -110,7 +110,7 @@ public class AgentHistoricalReportTest extends BaseTest {
         ocmReportsPage.switchBackToParentWindow();
     }
     @Test(dependsOnMethods ="ShowAgentHistoricalReportInNewTabDateRange")
-    public void ExportAgentHistoricalReportDateRange() throws IOException {
+    public void ExportAgentHistoricalReportDateRange() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ExportReportDateRange").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
@@ -141,7 +141,7 @@ public class AgentHistoricalReportTest extends BaseTest {
         Assert.assertTrue(ocmReportsPage.verifyDownloadedReportNameAndTimeInReportsDownloadPage(reportDetails.getReportName()),"Report not found in Reporter download page");
     }
     @Test(dependsOnMethods ="ShowAgentHistoricalReportForDateRange")
-    public void ExportPageForAgentHistoricalReport() throws IOException {
+    public void ExportPageForAgentHistoricalReport() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
@@ -153,7 +153,7 @@ public class AgentHistoricalReportTest extends BaseTest {
         Assert.assertTrue(ocmReportsPage.verifyExportPageFileDownloaded("Agent Historical Report.xlsx"),"Export page assertion failed");
     }
     @Test(dependsOnMethods ="ShowAgentHistoricalReportForDateRange")
-    public void ExportToCSVForAgentHistoricalReport() throws IOException {
+    public void ExportToCSVForAgentHistoricalReport() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
@@ -167,7 +167,7 @@ public class AgentHistoricalReportTest extends BaseTest {
         Assert.assertTrue(ocmReportsPage.verifyDownloadedReportNameAndTimeInReportsDownloadPage(reportDetails.getReportName()),"Report not found in Reporter download page");
     }
    // @Test(dependsOnMethods ="ShowAgentHistoricalReportForDateRange")
-    public void ScheduleReportsForAgentHistoricalReport() throws IOException {
+    public void ScheduleReportsForAgentHistoricalReport() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
@@ -179,7 +179,7 @@ public class AgentHistoricalReportTest extends BaseTest {
         Assert.assertTrue(ocmReportsPage.verifyScheduleReport(),"Scheduled report at reports page assertion failed");
     }
     @Test(dependsOnMethods ="ShowAgentHistoricalReportForDateRange")
-    public void VerifySortingForAgentHistoricalReport() throws IOException {
+    public void VerifySortingForAgentHistoricalReport() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
@@ -190,7 +190,7 @@ public class AgentHistoricalReportTest extends BaseTest {
         Assert.assertTrue(ocmReportsPage.verifySorting());
     }
     @Test(dependsOnMethods ="ShowAgentHistoricalReportForDateRange")
-    public void VerifySearchByFeatureForAgentHistoricalReport() throws IOException {
+    public void VerifySearchByFeatureForAgentHistoricalReport() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
@@ -201,7 +201,7 @@ public class AgentHistoricalReportTest extends BaseTest {
         Assert.assertTrue(ocmReportsPage.verifySearchByTextbox());
     }
     @Test(dependsOnMethods ="ShowAgentHistoricalReportForDateRange")
-    public void VerifySearchFeatureForAgentHistoricalReport() throws IOException {
+    public void VerifySearchFeatureForAgentHistoricalReport() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
@@ -212,7 +212,7 @@ public class AgentHistoricalReportTest extends BaseTest {
         Assert.assertTrue(ocmReportsPage.verifySearchByColumnValue());
     }
     @Test(dependsOnMethods ="ShowAgentHistoricalReportForDateRange")
-    public void VerifySearchContainsForAgentHistoricalReport() throws IOException {
+    public void VerifySearchContainsForAgentHistoricalReport() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);

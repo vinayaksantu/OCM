@@ -43,7 +43,7 @@ public class RoleBasedAccessManagementTest extends BaseTest {
     }
    
     //@Test(priority=2)
-    public void AddNewRoleBasedAccessManagementRecord() throws IOException {
+    public void AddNewRoleBasedAccessManagementRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\RoleBasedAccessManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
         UserDetails userDetails=new UserDetails(map);
@@ -90,7 +90,7 @@ public class RoleBasedAccessManagementTest extends BaseTest {
     }
    
    //@Test(priority=6)
-   public void searchPage() throws IOException {
+   public void searchPage() throws Exception {
    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\RoleBasedAccessManagementData.xlsx";
        Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
        UserDetails userDetails=new UserDetails(map);	
@@ -101,7 +101,7 @@ public class RoleBasedAccessManagementTest extends BaseTest {
        screenshot.captureScreen(driver, "SearchClose","RoleBasedAccessManagementTest");
    }
    //@Test(priority=7)
-   public void ClearSearch() throws IOException {
+   public void ClearSearch() throws Exception {
    		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\RoleBasedAccessManagementData.xlsx";
    		Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
    		UserDetails userDetails=new UserDetails(map);	
@@ -209,7 +209,7 @@ public class RoleBasedAccessManagementTest extends BaseTest {
        Assert.assertTrue(roleBasedAccessManagementPage.ExporttoExcelWithoutData(userDetails));
    }
   //@Test(priority=21)
-    public void VerifyDeleteRoleBasedAccessManagementNoButton() throws IOException {
+    public void VerifyDeleteRoleBasedAccessManagementNoButton() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\RoleBasedAccessManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
         UserDetails userDetails=new UserDetails(map);
@@ -218,7 +218,7 @@ public class RoleBasedAccessManagementTest extends BaseTest {
         screenshot.captureScreen(driver, "Record deleted No button", "RoleBasedAccessManagementTest");
   }
   //@Test(priority=22)
-  	public void DeleteRoleBasedAccessManagementRecord() throws IOException {
+  	public void DeleteRoleBasedAccessManagementRecord() throws Exception {
       	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\RoleBasedAccessManagementData.xlsx";
       	Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
       	UserDetails userDetails=new UserDetails(map);
@@ -250,7 +250,7 @@ public class RoleBasedAccessManagementTest extends BaseTest {
 
     }
     //@Test(priority=25)
-    public void VerifyAccessCheckBox() throws IOException
+    public void VerifyAccessCheckBox() throws Exception
     { 
       	RoleBasedAccessManagementPage roleBasedAccessManagementPage=PageFactory.createPageInstance(driver,RoleBasedAccessManagementPage.class);
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\RoleBasedAccessManagementData.xlsx";

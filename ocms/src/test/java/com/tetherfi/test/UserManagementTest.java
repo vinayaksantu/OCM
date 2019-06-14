@@ -46,7 +46,7 @@ public class UserManagementTest extends BaseTest{
     }
     
     @Test(priority=2)
-    public void AddNewUserManagementRecord() throws IOException {
+    public void AddNewUserManagementRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\UserManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
         UserDetails userDetails=new UserDetails(map);
@@ -58,7 +58,7 @@ public class UserManagementTest extends BaseTest{
     	screenshot.captureScreen(driver, "Record Created Successfully","UserManagementTest");
     }
     @Test(priority=3)
-    public void AddInvalidRecord() throws IOException {
+    public void AddInvalidRecord() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\UserManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
         UserDetails userDetails=new UserDetails(map);
@@ -81,7 +81,7 @@ public class UserManagementTest extends BaseTest{
    		screenshot.captureScreen(driver, "Invalid Record","UserManagementTest");
     }
     @Test(priority=4)
-    public void EditUserManagementRecord() throws IOException {
+    public void EditUserManagementRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\UserManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
         UserDetails userDetails=new UserDetails(map);
@@ -93,7 +93,7 @@ public class UserManagementTest extends BaseTest{
    		screenshot.captureScreen(driver, "Record Updated","UserManagementTest");
     }
     @Test(priority=5)
-    public void EditInvalidUserManagementRecord() throws IOException {
+    public void EditInvalidUserManagementRecord() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\UserManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(1);
         UserDetails userDetails=new UserDetails(map);
@@ -124,7 +124,7 @@ public class UserManagementTest extends BaseTest{
     }
     
     @Test(priority=6)
-    public void searchPage() throws IOException {
+    public void searchPage() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\UserManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
         UserDetails userDetails=new UserDetails(map);	
@@ -135,7 +135,7 @@ public class UserManagementTest extends BaseTest{
         screenshot.captureScreen(driver, "SearchClose","UserManagementTest");
     }
     @Test(priority=7)
-    public void ClearSearch() throws IOException {
+    public void ClearSearch() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\UserManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
         UserDetails userDetails=new UserDetails(map);	
@@ -154,7 +154,7 @@ public class UserManagementTest extends BaseTest{
     	Assert.assertTrue(userManagementPage.verifyDatabase(userDetails.getQuery()));
     }
    @Test(priority=9)
-    public void DeleteUserManagementRecord() throws IOException {
+    public void DeleteUserManagementRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\UserManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
         UserDetails userDetails=new UserDetails(map);
@@ -272,7 +272,7 @@ public class UserManagementTest extends BaseTest{
 
     }
     @Test(priority=24)
-    public void VerifyAccessCheckBox() throws IOException
+    public void VerifyAccessCheckBox() throws Exception
     { 
     	UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\UserManagementData.xlsx";

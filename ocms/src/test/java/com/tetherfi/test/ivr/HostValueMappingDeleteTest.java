@@ -27,7 +27,7 @@ import com.tetherfi.utility.Screenshot;
 public class HostValueMappingDeleteTest {
 	protected WebDriver driver;
 	@BeforeMethod
-    public void NavigateToHostValueMappingPage(Method method) throws IOException, InterruptedException {
+    public void NavigateToHostValueMappingPage(Method method) throws Exception {
         try {
             PageFactory.reset();
             BrowserFactory browserFactory = new BrowserFactory();
@@ -94,7 +94,7 @@ public class HostValueMappingDeleteTest {
      }
         
     @Test(priority=4,groups = { "Maker" })//,dependsOnMethods="DeleteRecord")
-    public void VerifyTaskCompleteActionForDeleteRecord() {
+    public void VerifyTaskCompleteActionForDeleteRecord() throws Exception {
 	     HostValueMappingPage HostValueMappingPage = PageFactory.createPageInstance(driver, HostValueMappingPage.class);
 	     HostValueMappingPage.selectHostValueMappingAuditTrailTab();
 	     HostValueMappingPage.taskCompleteAction("Task Complete for Delete");
@@ -103,7 +103,7 @@ public class HostValueMappingDeleteTest {
     }
     
     @Test(priority=5,groups = { "Checker" },dependsOnMethods="VerifyTaskCompleteActionForDeleteRecord")
-    public void RejectforDeleteHostValueMappingRecord(){
+    public void RejectforDeleteHostValueMappingRecord() throws Exception{
 	     HostValueMappingPage HostValueMappingPage = PageFactory.createPageInstance(driver, HostValueMappingPage.class);
 	     HostValueMappingPage.clickonReject("Reject Deleted");
         Assert.assertFalse(HostValueMappingPage.getErrorMsg(),"Reject record assertion failed");
@@ -163,7 +163,7 @@ public class HostValueMappingDeleteTest {
     }
 	
 	@Test(priority=10,groups = { "Maker" },dependsOnMethods="VerifyAuditTrailDataForDeleteHostValueMappingRecord")
-    public void VerifyTaskCompleteActionForDeleteHostValueMappingRecord() {
+    public void VerifyTaskCompleteActionForDeleteHostValueMappingRecord() throws Exception {
 	     HostValueMappingPage HostValueMappingPage = PageFactory.createPageInstance(driver, HostValueMappingPage.class);
 	     HostValueMappingPage.selectHostValueMappingAuditTrailTab();
 	     HostValueMappingPage.taskCompleteAction("Task Complete for Delete");
@@ -172,7 +172,7 @@ public class HostValueMappingDeleteTest {
     }
 	
 	@Test(priority=11,groups = { "Checker" },dependsOnMethods="VerifyTaskCompleteActionForDeleteHostValueMappingRecord")
-    public void ApproveforDeleteHostValueMappingRecord(){
+    public void ApproveforDeleteHostValueMappingRecord() throws Exception{
 	     HostValueMappingPage HostValueMappingPage = PageFactory.createPageInstance(driver, HostValueMappingPage.class);
 	     HostValueMappingPage.clickonApprove("Approve Deleted");
 	     Assert.assertEquals(HostValueMappingPage.getSuccessMessage(),"All the data has been approved successfully!","Approve record assertion failed");

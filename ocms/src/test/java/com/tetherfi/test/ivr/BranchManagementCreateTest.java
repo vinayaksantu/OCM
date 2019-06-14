@@ -29,7 +29,7 @@ import com.tetherfi.utility.Screenshot;
 public class BranchManagementCreateTest {
 	protected WebDriver driver;
 	@BeforeMethod
-    public void NavigateToBranchManagementPage(Method method) throws IOException, InterruptedException {
+    public void NavigateToBranchManagementPage(Method method) throws Exception {
         try {
             PageFactory.reset();
             BrowserFactory browserFactory = new BrowserFactory();
@@ -113,7 +113,7 @@ public class BranchManagementCreateTest {
     }
     
     @Test(groups = { "Maker" },dependsOnMethods="VerifyAuditTrailDataForAddNewBranchManagementRecord")
-    public void VerifyTaskCompleteActionForAddNewBranchManagementRecord() {
+    public void VerifyTaskCompleteActionForAddNewBranchManagementRecord() throws Exception {
        	BranchManagementPage branchManagementPage = PageFactory.createPageInstance(driver, BranchManagementPage.class);
        	branchManagementPage.selectBranchManagementAuditTrailTab();
        	branchManagementPage.taskCompleteAction("Task Complete for Create");
@@ -122,7 +122,7 @@ public class BranchManagementCreateTest {
     }
     
     @Test(groups = { "Checker" },dependsOnMethods="VerifyTaskCompleteActionForAddNewBranchManagementRecord")
-    public void ApproveforAddNewBranchManagementRecord(){
+    public void ApproveforAddNewBranchManagementRecord() throws Exception{
        	BranchManagementPage branchManagementPage = PageFactory.createPageInstance(driver, BranchManagementPage.class);
        	branchManagementPage.clickonApprove("Approve Create");
         Assert.assertEquals(branchManagementPage.getSuccessMessage(),"All the data has been approved successfully!","Approve record assertion failed");
@@ -264,7 +264,7 @@ public class BranchManagementCreateTest {
        }
 	
 	@Test(groups = { "Maker" },dependsOnMethods="AddRecord")
-    public void VerifyTaskCompleteActionForAddRecord() {
+    public void VerifyTaskCompleteActionForAddRecord() throws Exception {
        	BranchManagementPage branchManagementPage = PageFactory.createPageInstance(driver, BranchManagementPage.class);
        	branchManagementPage.selectBranchManagementAuditTrailTab();
        	branchManagementPage.taskCompleteAction("Task Complete for Create");
@@ -282,7 +282,7 @@ public class BranchManagementCreateTest {
 	}
     
     @Test(groups = { "Checker" },dependsOnMethods="VerifyApprovedDataSectionWithoutApproval")
-    public void RejectforAddNewBranchManagementRecord(){
+    public void RejectforAddNewBranchManagementRecord() throws Exception{
         BranchManagementPage branchManagementPage = PageFactory.createPageInstance(driver, BranchManagementPage.class);
         branchManagementPage.clickonReject("Reject Created");
         Assert.assertFalse(branchManagementPage.getErrorMsg(),"Reject record assertion failed");

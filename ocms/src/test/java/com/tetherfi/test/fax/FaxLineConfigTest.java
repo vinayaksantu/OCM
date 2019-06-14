@@ -78,7 +78,7 @@ public class FaxLineConfigTest extends BaseTest {
     	}
     
     @Test(priority=4)
-    public void SendersLink() throws IOException {
+    public void SendersLink() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxLineConfigData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(1);
         FaxLineConfigDetails faxLineConfigDetails = new FaxLineConfigDetails(map);
@@ -108,7 +108,7 @@ public class FaxLineConfigTest extends BaseTest {
     }
     
     @Test(priority=6)
-    public void RoutesLink() throws IOException {
+    public void RoutesLink() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxLineConfigData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(1);
         FaxLineConfigDetails faxLineConfigDetails = new FaxLineConfigDetails(map);

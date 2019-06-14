@@ -205,7 +205,7 @@ Screenshot screenshot=new Screenshot(driver);
     }
     
     @Test(priority=20)
-    public void searchPage() throws IOException {
+    public void searchPage() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntroMessageAnnouncementData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
 	    IntroMessageAnnouncementDetails IntroMessageAnnouncementDetails = new IntroMessageAnnouncementDetails(map);

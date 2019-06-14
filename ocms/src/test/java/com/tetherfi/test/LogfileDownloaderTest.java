@@ -28,7 +28,7 @@ public class LogfileDownloaderTest extends BaseTest {
         Assert.assertTrue(logfileDownloaderPage.isLogFileDownloaderPageDisplayed(),"logfile downloader assertion failed");
     }
     @Test
-    public void DownloaderFetchFiles() throws IOException {
+    public void DownloaderFetchFiles() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\LogfileDownloaderData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"FetchFiles").getTestData().get(0);
         LogfileDownloaderDetails logfileDownloaderDetails=new LogfileDownloaderDetails(map);
@@ -38,7 +38,7 @@ public class LogfileDownloaderTest extends BaseTest {
         Assert.assertTrue(logfileDownloaderPage.verifyFilesFetched(),"fetch files assertion failed");
     }
     @Test(dependsOnMethods="DownloaderFetchFiles")
-    public void SavedFilesDownload() throws IOException {
+    public void SavedFilesDownload() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\LogfileDownloaderData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Download").getTestData().get(0);
         LogfileDownloaderDetails logfileDownloaderDetails=new LogfileDownloaderDetails(map);
@@ -48,7 +48,7 @@ public class LogfileDownloaderTest extends BaseTest {
         Assert.assertTrue(logfileDownloaderPage.verifyFileDownloaded(),"download files assertion failed");
     }
     @Test(dependsOnMethods="SavedFilesDownload")
-    public void SavedFilesDelete() throws IOException {
+    public void SavedFilesDelete() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\LogfileDownloaderData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
         LogfileDownloaderDetails logfileDownloaderDetails=new LogfileDownloaderDetails(map);

@@ -91,7 +91,7 @@ public class ChatTemplatesTest {
 	    }
       }
     
-    /*@Test(priority=1)
+    @Test(priority=1)
 	public void ChatTemplatePage() {
         ChatTemplatesPage ChatTemplatePage = PageFactory.createPageInstance(driver, ChatTemplatesPage.class);
         Assert.assertTrue(ChatTemplatePage.VerifyLogo(),"Logo assertion failed");
@@ -168,7 +168,7 @@ public class ChatTemplatesTest {
     }
     
     @Test(priority=11)
-    public void AddNewDepartmentRecord() throws IOException {
+    public void AddNewDepartmentRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"CreateDepartment").getTestData().get(0);
         ChatTemplateDetails chatTemplateDetails= new ChatTemplateDetails(map);
@@ -180,7 +180,7 @@ public class ChatTemplatesTest {
     }
     
     @Test(priority=12,dependsOnMethods = "AddNewDepartmentRecord")
-    public void AddDuplicateDepartmentRecord() throws IOException {
+    public void AddDuplicateDepartmentRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"CreateDepartment").getTestData().get(0);
         ChatTemplateDetails ChatTemplatesDetails = new ChatTemplateDetails(map);
@@ -228,7 +228,7 @@ public class ChatTemplatesTest {
     }
     
     @Test(priority=16)
-    public void AddRecordWithoutEnabled() throws IOException {
+    public void AddRecordWithoutEnabled() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"CreateDepartment").getTestData().get(0);
         ChatTemplateDetails ChatTemplatesDetails = new ChatTemplateDetails(map);
@@ -248,7 +248,7 @@ public class ChatTemplatesTest {
 	}
     
     @Test(priority=18)//,dependsOnMethods = "AddNewDepartmentRecord")
-    public void AddNewGroupsRecord() throws IOException {
+    public void AddNewGroupsRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"CreateGroup").getTestData().get(0);
         ChatTemplateDetails chatTemplateDetails= new ChatTemplateDetails(map);
@@ -260,7 +260,7 @@ public class ChatTemplatesTest {
     }
     
     @Test(priority=19,dependsOnMethods = "AddNewGroupsRecord")
-    public void AddDuplicateGroupsRecord() throws IOException {
+    public void AddDuplicateGroupsRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"CreateGroup").getTestData().get(0);
         ChatTemplateDetails ChatTemplatesDetails = new ChatTemplateDetails(map);
@@ -297,7 +297,7 @@ public class ChatTemplatesTest {
     }
     
     @Test(priority=22)
-    public void AddRecordWithoutDepartmentName() throws IOException {
+    public void AddRecordWithoutDepartmentName() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"CreateGroup").getTestData().get(0);
         ChatTemplateDetails ChatTemplatesDetails = new ChatTemplateDetails(map);
@@ -318,7 +318,7 @@ public class ChatTemplatesTest {
         Assert.assertEquals(ChatTemplatesPage.getMessage(),"×\nPlease Provide Name", "Add invalid record assertion failed");
     }
     @Test(priority=24)
-    public void AddRecordWithoutGroupEnabled() throws IOException {
+    public void AddRecordWithoutGroupEnabled() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"CreateGroup").getTestData().get(0);
         ChatTemplateDetails ChatTemplatesDetails = new ChatTemplateDetails(map);
@@ -338,7 +338,7 @@ public class ChatTemplatesTest {
 	}
     
     @Test(priority=26,dependsOnMethods = "AddNewGroupsRecord")
-    public void AddNewChatTemplatesRecord() throws IOException {
+    public void AddNewChatTemplatesRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
         ChatTemplateDetails chatTemplateDetails= new ChatTemplateDetails(map);
@@ -348,7 +348,7 @@ public class ChatTemplatesTest {
     }
     
     @Test(priority=27,dependsOnMethods = "AddNewChatTemplatesRecord")
-    public void AddDuplicateChatTemplatesRecord() throws IOException {
+    public void AddDuplicateChatTemplatesRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
         ChatTemplateDetails ChatTemplatesDetails = new ChatTemplateDetails(map);
@@ -383,7 +383,7 @@ public class ChatTemplatesTest {
     }
     
     @Test(priority=30)
-    public void AddRecordWithoutChatDepartmentName() throws IOException {
+    public void AddRecordWithoutChatDepartmentName() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
         ChatTemplateDetails ChatTemplatesDetails = new ChatTemplateDetails(map);
@@ -393,7 +393,7 @@ public class ChatTemplatesTest {
     }
     
     @Test(priority=31)
-    public void AddRecordWithoutGroupsName() throws IOException {
+    public void AddRecordWithoutGroupsName() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
         ChatTemplateDetails ChatTemplatesDetails = new ChatTemplateDetails(map);
@@ -403,7 +403,7 @@ public class ChatTemplatesTest {
     }
     
     @Test(priority=32)
-    public void AddRecordWithoutChatName() throws IOException {
+    public void AddRecordWithoutChatName() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
         ChatTemplateDetails ChatTemplatesDetails = new ChatTemplateDetails(map);
@@ -412,7 +412,7 @@ public class ChatTemplatesTest {
         Assert.assertEquals(ChatTemplatesPage.getMessage(),"×\nPlease Provide Name", "Add invalid record assertion failed");
     }
     @Test(priority=33)
-    public void AddRecordWithoutText() throws IOException {
+    public void AddRecordWithoutText() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
         ChatTemplateDetails ChatTemplatesDetails = new ChatTemplateDetails(map);
@@ -422,7 +422,7 @@ public class ChatTemplatesTest {
     }
     
     @Test(priority=34)
-    public void AddRecordWithoutStartTime() throws IOException {
+    public void AddRecordWithoutStartTime() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
         ChatTemplateDetails ChatTemplatesDetails = new ChatTemplateDetails(map);
@@ -432,7 +432,7 @@ public class ChatTemplatesTest {
     }
     
     @Test(priority=35)
-    public void AddRecordWithoutEndTime() throws IOException {
+    public void AddRecordWithoutEndTime() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
         ChatTemplateDetails ChatTemplatesDetails = new ChatTemplateDetails(map);
@@ -442,7 +442,7 @@ public class ChatTemplatesTest {
     }
     
     @Test(priority=36)
-    public void AddRecordWithoutChatEnabled() throws IOException {
+    public void AddRecordWithoutChatEnabled() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"CreateGroup").getTestData().get(0);
         ChatTemplateDetails ChatTemplatesDetails = new ChatTemplateDetails(map);
@@ -719,7 +719,7 @@ public class ChatTemplatesTest {
 	}
 	
     @Test(priority=69,groups= {"OCM"})//,dependsOnMethods = "AddNewChatTemplatesRecord")
-    public void EditChatTemplatesRecord() throws IOException {
+    public void EditChatTemplatesRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
         ChatTemplateDetails chatTemplateDetails= new ChatTemplateDetails(map);
@@ -754,7 +754,7 @@ public class ChatTemplatesTest {
     }
     
     @Test(priority=72,groups= {"OCM"})
-    public void VerifyCancelBtnAtEditRecord() throws InterruptedException{
+    public void VerifyCancelBtnAtEditRecord() throws Exception{
         ChatTemplatesPage chatTemplatePage = PageFactory.createPageInstance(driver, ChatTemplatesPage.class);
         chatTemplatePage.searchChatTemplatesRecord("PalakChatTemplate");
         Thread.sleep(1000);
@@ -764,7 +764,7 @@ public class ChatTemplatesTest {
     }
     
     @Test(priority=74,groups= {"OCM"})//,dependsOnMethods = "AddNewChatTemplatesRecord")
-    public void EditGroupRecord() throws IOException {
+    public void EditGroupRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"EditGroup").getTestData().get(0);
         ChatTemplateDetails chatTemplateDetails= new ChatTemplateDetails(map);
@@ -802,7 +802,7 @@ public class ChatTemplatesTest {
     }
     
     @Test(priority=77,groups= {"OCM"})
-    public void VerifyCancelBtnAtEditGroupRecord() throws InterruptedException{
+    public void VerifyCancelBtnAtEditGroupRecord() throws Exception{
         ChatTemplatesPage chatTemplatePage = PageFactory.createPageInstance(driver, ChatTemplatesPage.class);
         chatTemplatePage.navigateToTab("Groups");
         chatTemplatePage.searchGroupRecord("GrpPalak");
@@ -861,7 +861,7 @@ public class ChatTemplatesTest {
     }
     
     @Test(priority=83,groups= {"OCM"})
-    public void VerifyCancelBtnAtEditDepartmentRecord() throws InterruptedException{
+    public void VerifyCancelBtnAtEditDepartmentRecord() throws Exception{
         ChatTemplatesPage chatTemplatePage = PageFactory.createPageInstance(driver, ChatTemplatesPage.class);
         chatTemplatePage.navigateToTab("Departments");
         chatTemplatePage.searchDepartmentRecord("DeptPalak");
@@ -893,7 +893,7 @@ public class ChatTemplatesTest {
     }
        
     @Test(priority=86,groups= {"OCM"})
-    public void searchDepartmentPage() throws IOException {
+    public void searchDepartmentPage() throws Exception {
   	   String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath,"CreateDepartment").getTestData().get(0);
         ChatTemplateDetails chatTemplateDetails= new ChatTemplateDetails(map);
@@ -913,7 +913,7 @@ public class ChatTemplatesTest {
     }
     
     @Test(priority=88,groups= {"OCM"})
-    public void searchGroupsPage() throws IOException {
+    public void searchGroupsPage() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath,"CreateGroup").getTestData().get(0);
         ChatTemplateDetails chatTemplateDetails= new ChatTemplateDetails(map);
@@ -933,7 +933,7 @@ public class ChatTemplatesTest {
     }
     
     @Test(priority=90,groups= {"OCM"})
-    public void searchPage() throws IOException {
+    public void searchPage() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
         ChatTemplateDetails chatTemplateDetails= new ChatTemplateDetails(map);
@@ -1155,7 +1155,7 @@ public class ChatTemplatesTest {
        Assert.assertTrue(chatTemplatesPage.verifyinvalidsearchwithwrongdata(chatTemplateDetails),"invalidsearchwithwrongdata");
        screenshot.captureScreen("ChatTemplateTest","Invalid Search with wrong data");
        Assert.assertTrue(chatTemplatesPage.verifyclearsearch(), "Clear All Assertion Failed");
-   }*/
+   }
    
    @Test(priority=111,groups= {"OCM"})
    public void DepartmentDatabase() throws Exception {

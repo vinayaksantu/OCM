@@ -74,7 +74,7 @@ public class CallBackAnnouncementTest extends BaseTest {
     }
     
     @Test(priority=5)
-    public void AddNewCallbackAnnouncementRecord() throws IOException {
+    public void AddNewCallbackAnnouncementRecord() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\CallbackAnnouncementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         CallbackAnnouncementDetails callbackAnnouncementDetails = new CallbackAnnouncementDetails(map);
@@ -104,7 +104,7 @@ public class CallBackAnnouncementTest extends BaseTest {
     }
    
     @Test(priority=7,dependsOnMethods = "AddNewCallbackAnnouncementRecord")
-    public void AddDuplicateCallBackAnnouncementRecord() throws IOException {
+    public void AddDuplicateCallBackAnnouncementRecord() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\CallbackAnnouncementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         CallbackAnnouncementDetails callbackAnnouncementDetails = new CallbackAnnouncementDetails(map);
@@ -115,7 +115,7 @@ public class CallBackAnnouncementTest extends BaseTest {
     }
     
     @Test(priority=8)
-    public void AddNewCallbackAnnouncementWithoutWavFile() throws IOException {
+    public void AddNewCallbackAnnouncementWithoutWavFile() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\CallbackAnnouncementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         CallbackAnnouncementDetails callbackAnnouncementDetails = new CallbackAnnouncementDetails(map);
@@ -126,7 +126,7 @@ public class CallBackAnnouncementTest extends BaseTest {
     }
     
     @Test(priority=9)
-    public void AddNewCallbackAnnouncementWithoutStartTime() throws IOException {
+    public void AddNewCallbackAnnouncementWithoutStartTime() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\CallbackAnnouncementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         CallbackAnnouncementDetails callbackAnnouncementDetails = new CallbackAnnouncementDetails(map);
@@ -137,7 +137,7 @@ public class CallBackAnnouncementTest extends BaseTest {
     }
     
     @Test(priority=10)
-    public void AddNewCallbackAnnouncementWithoutEndTime() throws IOException {
+    public void AddNewCallbackAnnouncementWithoutEndTime() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\CallbackAnnouncementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         CallbackAnnouncementDetails callbackAnnouncementDetails = new CallbackAnnouncementDetails(map);
@@ -148,7 +148,7 @@ public class CallBackAnnouncementTest extends BaseTest {
     }
     
     @Test(priority=11)
-    public void AddNewCallbackAnnouncementWithoutLanguage() throws IOException {
+    public void AddNewCallbackAnnouncementWithoutLanguage() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\CallbackAnnouncementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         CallbackAnnouncementDetails callbackAnnouncementDetails = new CallbackAnnouncementDetails(map);
@@ -208,7 +208,7 @@ public class CallBackAnnouncementTest extends BaseTest {
     }
     
     @Test(priority=16)
-    public void searchPage() throws IOException {
+    public void searchPage() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\CallbackAnnouncementData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
         CallbackAnnouncementDetails callbackAnnouncementDetails = new CallbackAnnouncementDetails(map);
@@ -230,7 +230,7 @@ public class CallBackAnnouncementTest extends BaseTest {
     }
     
     @Test(priority=18)
-    public void DeleteWithoutDeleteReasonRecord() throws IOException {
+    public void DeleteWithoutDeleteReasonRecord() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\CallbackAnnouncementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
         CallbackAnnouncementDetails callbackAnnouncementDetails = new CallbackAnnouncementDetails(map);

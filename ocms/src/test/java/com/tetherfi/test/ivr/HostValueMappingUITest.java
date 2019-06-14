@@ -205,7 +205,7 @@ public class HostValueMappingUITest extends BaseTest{
     }
     
     @Test(priority=20)
-    public void searchPage() throws IOException {
+    public void searchPage() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\HostValueMappingData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
 	    HostValueMappingDetails hostValueMappingDetails = new HostValueMappingDetails(map);

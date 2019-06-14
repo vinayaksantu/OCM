@@ -54,7 +54,7 @@ public class WaitTimeColorConfigTest extends BaseTest {
     }
    
     @Test(priority=2)
-    public void AddNewWaitTimeColorConfigRecord() throws IOException {
+    public void AddNewWaitTimeColorConfigRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\WaitTimeColorConfigData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
         WaitTimeColorConfigDetails waitTimeColorConfigDetails = new WaitTimeColorConfigDetails(map);
@@ -100,7 +100,7 @@ public class WaitTimeColorConfigTest extends BaseTest {
    }
   
    	@Test(priority=5)
-    public void EditWaitTimeColorConfigRecord() throws IOException {
+    public void EditWaitTimeColorConfigRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\WaitTimeColorConfigData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
         WaitTimeColorConfigDetails waitTimeColorConfigDetails = new WaitTimeColorConfigDetails(map);
@@ -170,7 +170,7 @@ public class WaitTimeColorConfigTest extends BaseTest {
    }
    
    @Test(priority=11)
-    public void DeleteRecord() throws IOException {
+    public void DeleteRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\WaitTimeColorConfigData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
         WaitTimeColorConfigDetails waitTimeColorConfigDetails = new WaitTimeColorConfigDetails(map);

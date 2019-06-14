@@ -69,7 +69,7 @@ public class TmacTransferListTest extends BaseTest {
     }
     
     //@Test (priority=4)
-    public void VerifyErrMsgNameBlank() throws IOException, InterruptedException {
+    public void VerifyErrMsgNameBlank() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\TmacTransferListData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "ConsulCreate").getTestData().get(0);
         TmacTransferListDetails tmacTransferListDetails=new TmacTransferListDetails(map);
@@ -84,7 +84,7 @@ public class TmacTransferListTest extends BaseTest {
     }
     
     //@Test (priority=5)
-    public void VerifyErrMsgAgtExtBlank() throws IOException, InterruptedException {
+    public void VerifyErrMsgAgtExtBlank() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\TmacTransferListData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "ConsulCreate").getTestData().get(1);
         TmacTransferListDetails tmacTransferListDetails=new TmacTransferListDetails(map);
@@ -99,7 +99,7 @@ public class TmacTransferListTest extends BaseTest {
     }
     
     //@Test (priority=6)
-    public void VerifyErrMsgTypeNotSelected() throws IOException, InterruptedException {
+    public void VerifyErrMsgTypeNotSelected() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\TmacTransferListData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "ConsulCreate").getTestData().get(2);
         TmacTransferListDetails tmacTransferListDetails=new TmacTransferListDetails(map);
@@ -148,7 +148,7 @@ public class TmacTransferListTest extends BaseTest {
     }
     
     //@Test (priority=10, dependsOnMethods = ("AddNewTmacConsultTransferRecord"))
-    public void VerifyErrMsgDuplicateValue() throws IOException, InterruptedException {
+    public void VerifyErrMsgDuplicateValue() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\TmacTransferListData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "ConsulCreate").getTestData().get(5);
         TmacTransferListDetails tmacTransferListDetails=new TmacTransferListDetails(map);
@@ -163,7 +163,7 @@ public class TmacTransferListTest extends BaseTest {
     }
     
     //@Test (priority=11)
-    public void AddNewTmacConsultTransferRecord2() throws IOException {
+    public void AddNewTmacConsultTransferRecord2() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\TmacTransferListData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "BlindCreate").getTestData().get(6);
         TmacTransferListDetails tmacTransferListDetails=new TmacTransferListDetails(map);
@@ -174,7 +174,7 @@ public class TmacTransferListTest extends BaseTest {
     }
     
     //@Test (priority=12, dependsOnMethods = ("AddNewTmacConsultTransferRecord2"))
-    public void VerifyDupNameErrMsgOnEditConsulRecd() throws IOException, InterruptedException {
+    public void VerifyDupNameErrMsgOnEditConsulRecd() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\TmacTransferListData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "ConsulEdit").getTestData().get(0);
         TmacTransferListDetails tmacTransferListDetails=new TmacTransferListDetails(map);
@@ -186,7 +186,7 @@ public class TmacTransferListTest extends BaseTest {
     }
     
     //@Test (priority=13, dependsOnMethods = ("AddNewTmacConsultTransferRecord2"))
-    public void VerifyDupValueErrMsgOnEditConsulRecd() throws IOException, InterruptedException {
+    public void VerifyDupValueErrMsgOnEditConsulRecd() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\TmacTransferListData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "ConsulEdit").getTestData().get(1);
         TmacTransferListDetails tmacTransferListDetails=new TmacTransferListDetails(map);
@@ -221,7 +221,7 @@ public class TmacTransferListTest extends BaseTest {
     }
     
     //@Test (priority=16, dependsOnMethods = {"EditNameOnTmacConsultTransferRecord"})
-    public void EditAgtExtOnTmacConsultTransferRecord() throws IOException {
+    public void EditAgtExtOnTmacConsultTransferRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacTransferListData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ConsulEdit").getTestData().get(4);
         TmacTransferListDetails tmacTransferListDetails=new TmacTransferListDetails(map);
@@ -232,7 +232,7 @@ public class TmacTransferListTest extends BaseTest {
     }
     
     //@Test (priority=17, dependsOnMethods = {"EditNameOnTmacConsultTransferRecord"})
-    public void EditTypeOnTmacConsultTransferRecord() throws IOException {
+    public void EditTypeOnTmacConsultTransferRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacTransferListData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ConsulEdit").getTestData().get(5);
         TmacTransferListDetails tmacTransferListDetails=new TmacTransferListDetails(map);
@@ -243,7 +243,7 @@ public class TmacTransferListTest extends BaseTest {
     }
     
     //@Test (priority=18, dependsOnMethods = {"EditNameOnTmacConsultTransferRecord"})
-    public void EditAllOnTmacConsultTransferRecord() throws IOException {
+    public void EditAllOnTmacConsultTransferRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacTransferListData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ConsulEdit").getTestData().get(6);
         TmacTransferListDetails tmacTransferListDetails=new TmacTransferListDetails(map);
@@ -287,7 +287,7 @@ public class TmacTransferListTest extends BaseTest {
     }
     
     //@Test (priority=23, dependsOnMethods = {"EditAllOnTmacConsultTransferRecord"})
-    public void DeleteNoReasonErrMsgTmacConsultTransferRecord() throws IOException, InterruptedException {
+    public void DeleteNoReasonErrMsgTmacConsultTransferRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacTransferListData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ConsulDelete").getTestData().get(0);
         TmacTransferListDetails tmacTransferListDetails=new TmacTransferListDetails(map);
@@ -299,7 +299,7 @@ public class TmacTransferListTest extends BaseTest {
     }
     
     //@Test (priority=24, dependsOnMethods = {"EditAllOnTmacConsultTransferRecord"})
-    public void DeleteNoReasonNoBtnTmacConsultTransferRecord() throws IOException, InterruptedException {
+    public void DeleteNoReasonNoBtnTmacConsultTransferRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacTransferListData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ConsulDelete").getTestData().get(1);
         TmacTransferListDetails tmacTransferListDetails=new TmacTransferListDetails(map);
@@ -311,7 +311,7 @@ public class TmacTransferListTest extends BaseTest {
     }
     
     //@Test (priority=25, dependsOnMethods = {"EditAllOnTmacConsultTransferRecord"})
-    public void DeleteTmacConsultTransferRecord() throws IOException, InterruptedException {
+    public void DeleteTmacConsultTransferRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacTransferListData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ConsulDelete").getTestData().get(2);
         TmacTransferListDetails tmacTransferListDetails=new TmacTransferListDetails(map);
@@ -322,7 +322,7 @@ public class TmacTransferListTest extends BaseTest {
     }
     
     //@Test (priority=26, dependsOnMethods = {"EditAllOnTmacConsultTransferRecord"})
-    public void DeleteTmacConsultTransferRecord2() throws IOException, InterruptedException {
+    public void DeleteTmacConsultTransferRecord2() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacTransferListData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ConsulDelete").getTestData().get(3);
         TmacTransferListDetails tmacTransferListDetails=new TmacTransferListDetails(map);
@@ -394,7 +394,7 @@ public class TmacTransferListTest extends BaseTest {
     }
     
     //@Test (priority=33)
-    public void VerifyErrMsgSkillNameNotSelected() throws IOException, InterruptedException {
+    public void VerifyErrMsgSkillNameNotSelected() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\TmacTransferListData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "BlindCreate").getTestData().get(2);
         TmacTransferListDetails tmacTransferListDetails=new TmacTransferListDetails(map);
@@ -418,7 +418,7 @@ public class TmacTransferListTest extends BaseTest {
     }
     
     //@Test (priority=35)
-    public void AddNewTmacBlindTransferRecord() throws IOException {
+    public void AddNewTmacBlindTransferRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacTransferListData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"BlindCreate").getTestData().get(3);
         TmacTransferListDetails tmacTransferListDetails=new TmacTransferListDetails(map);
@@ -429,7 +429,7 @@ public class TmacTransferListTest extends BaseTest {
     }
     
     //@Test (priority=36, dependsOnMethods = ("AddNewTmacBlindTransferRecord"))
-    public void VerifyErrMsgDupSkillIdNameVdn() throws IOException, InterruptedException {
+    public void VerifyErrMsgDupSkillIdNameVdn() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\TmacTransferListData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "BlindCreate").getTestData().get(4);
         TmacTransferListDetails tmacTransferListDetails=new TmacTransferListDetails(map);
@@ -445,7 +445,7 @@ public class TmacTransferListTest extends BaseTest {
     }
     
     //@Test (priority=37, dependsOnMethods = ("AddNewTmacBlindTransferRecord"))
-    public void VerifyErrMsgDupSkillIdName() throws IOException, InterruptedException {
+    public void VerifyErrMsgDupSkillIdName() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\TmacTransferListData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "BlindCreate").getTestData().get(5);
         TmacTransferListDetails tmacTransferListDetails=new TmacTransferListDetails(map);
@@ -461,7 +461,7 @@ public class TmacTransferListTest extends BaseTest {
     }
     
     //@Test (priority=38, dependsOnMethods = ("AddNewTmacBlindTransferRecord"))
-    public void VerifyRecdBlindTransDupVDN() throws IOException, InterruptedException {
+    public void VerifyRecdBlindTransDupVDN() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacTransferListData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"BlindCreate").getTestData().get(6);
         TmacTransferListDetails tmacTransferListDetails=new TmacTransferListDetails(map);
@@ -472,7 +472,7 @@ public class TmacTransferListTest extends BaseTest {
     }
     
     //@Test (priority=39, dependsOnMethods = ("AddNewTmacBlindTransferRecord"))
-    public void VerifyRecdBlindTransDiffVDN() throws IOException, InterruptedException {
+    public void VerifyRecdBlindTransDiffVDN() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacTransferListData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"BlindCreate").getTestData().get(7);
         TmacTransferListDetails tmacTransferListDetails=new TmacTransferListDetails(map);
@@ -483,7 +483,7 @@ public class TmacTransferListTest extends BaseTest {
     }
     
     //@Test (priority=40, dependsOnMethods = ("AddNewTmacBlindTransferRecord"))
-    public void VerifyDupErrMsgEditTmacBlindTransferRecord() throws IOException, InterruptedException {
+    public void VerifyDupErrMsgEditTmacBlindTransferRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacTransferListData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"BlindEdit").getTestData().get(0);
         TmacTransferListDetails tmacTransferListDetails=new TmacTransferListDetails(map);
@@ -495,7 +495,7 @@ public class TmacTransferListTest extends BaseTest {
     }
     
     //@Test (priority=41, dependsOnMethods = ("AddNewTmacBlindTransferRecord"))
-    public void VerifyErrMsgNoModReasonEditTmacBlindTransferRecord() throws IOException, InterruptedException {
+    public void VerifyErrMsgNoModReasonEditTmacBlindTransferRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacTransferListData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"BlindEdit").getTestData().get(1);
         TmacTransferListDetails tmacTransferListDetails=new TmacTransferListDetails(map);
@@ -506,7 +506,7 @@ public class TmacTransferListTest extends BaseTest {
     }
     
     //@Test (priority=42, dependsOnMethods = ("AddNewTmacBlindTransferRecord"))
-    public void EditTmacBlindTransferRecord() throws IOException, InterruptedException {
+    public void EditTmacBlindTransferRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacTransferListData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"BlindEdit").getTestData().get(2);
         TmacTransferListDetails tmacTransferListDetails=new TmacTransferListDetails(map);
@@ -554,7 +554,7 @@ public class TmacTransferListTest extends BaseTest {
     }
     
     //@Test (priority=47, dependsOnMethods = {"EditTmacBlindTransferRecord"})
-    public void DeleteNoReasonErrMsgTmacBlindTransferRecord() throws IOException, InterruptedException {
+    public void DeleteNoReasonErrMsgTmacBlindTransferRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacTransferListData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"BlindDelete").getTestData().get(0);
         TmacTransferListDetails tmacTransferListDetails=new TmacTransferListDetails(map);
@@ -566,7 +566,7 @@ public class TmacTransferListTest extends BaseTest {
     }
     
     //@Test (priority=48, dependsOnMethods = {"EditTmacBlindTransferRecord"})
-    public void DeleteNoReasonNoBtnTmacBlindTransferRecord() throws IOException, InterruptedException {
+    public void DeleteNoReasonNoBtnTmacBlindTransferRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacTransferListData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"BlindDelete").getTestData().get(0);
         TmacTransferListDetails tmacTransferListDetails=new TmacTransferListDetails(map);
@@ -578,7 +578,7 @@ public class TmacTransferListTest extends BaseTest {
     }
     
     //@Test (priority=49, dependsOnMethods = {"EditTmacBlindTransferRecord"})
-    public void DeleteTmacBlindTransferRecord() throws IOException, InterruptedException {
+    public void DeleteTmacBlindTransferRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacTransferListData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"BlindDelete").getTestData().get(1);
         TmacTransferListDetails tmacTransferListDetails=new TmacTransferListDetails(map);
@@ -589,7 +589,7 @@ public class TmacTransferListTest extends BaseTest {
     }
     
     //@Test (priority=50, dependsOnMethods = {"EditTmacBlindTransferRecord"})
-    public void DeleteTmacBlindTransferRecord2() throws IOException, InterruptedException {
+    public void DeleteTmacBlindTransferRecord2() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacTransferListData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"BlindDelete").getTestData().get(2);
         TmacTransferListDetails tmacTransferListDetails=new TmacTransferListDetails(map);
@@ -600,7 +600,7 @@ public class TmacTransferListTest extends BaseTest {
     }
     
     //@Test (priority=51, dependsOnMethods = {"EditTmacBlindTransferRecord"})
-    public void DeleteTmacBlindTransferRecord3() throws IOException, InterruptedException {
+    public void DeleteTmacBlindTransferRecord3() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacTransferListData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"BlindDelete").getTestData().get(3);
         TmacTransferListDetails tmacTransferListDetails=new TmacTransferListDetails(map);

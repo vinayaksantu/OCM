@@ -27,7 +27,7 @@ public class NiceIntegrationReportTest extends BaseTest {
         Assert.assertTrue(ocmReportsPage.isOCMReportPageIsDisplayed());
     }
     @Test
-    public void ShowNiceIntegrationReport() throws IOException {
+    public void ShowNiceIntegrationReport() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\NiceIntegrationReportData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
@@ -37,7 +37,7 @@ public class NiceIntegrationReportTest extends BaseTest {
         Assert.assertTrue(ocmReportsPage.verifyReportDisplayed(reportDetails),"Show report assertion failed");
     }
     @Test(dependsOnMethods ="ShowNiceIntegrationReport")
-    public void ShowNiceIntegrationReportInNewTab() throws IOException {
+    public void ShowNiceIntegrationReportInNewTab() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\NiceIntegrationReportData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ShowInNewPage").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
@@ -48,7 +48,7 @@ public class NiceIntegrationReportTest extends BaseTest {
         ocmReportsPage.switchBackToParentWindow();
     }
     //@Test
-    public void SceduleNiceIntegrationReport() throws IOException {
+    public void SceduleNiceIntegrationReport() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\NiceIntegrationReportData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ExportReport").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
@@ -58,7 +58,7 @@ public class NiceIntegrationReportTest extends BaseTest {
         Assert.assertTrue(ocmReportsPage.verifyScheduleReport(),"schedule report assertion failed");
     }
     @Test(dependsOnMethods ="ShowNiceIntegrationReportInNewTab")
-    public void ExportNiceIntegrationReport() throws IOException {
+    public void ExportNiceIntegrationReport() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\NiceIntegrationReportData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ExportReport").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
@@ -89,7 +89,7 @@ public class NiceIntegrationReportTest extends BaseTest {
         Assert.assertTrue(ocmReportsPage.verifyDownloadedReportNameAndTimeInReportsDownloadPage(reportDetails.getReportName()),"Report not found in Reporter download page");
     }
     @Test
-    public void ShowNiceIntegrationReportForDateRange() throws IOException {
+    public void ShowNiceIntegrationReportForDateRange() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\NiceIntegrationReportData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
@@ -99,7 +99,7 @@ public class NiceIntegrationReportTest extends BaseTest {
         Assert.assertTrue(ocmReportsPage.verifyDateRangeReportDisplayed(reportDetails),"Show report assertion failed");
     }
     @Test(dependsOnMethods ="ShowNiceIntegrationReportForDateRange")
-    public void ShowNiceIntegrationReportInNewTabDateRange() throws IOException {
+    public void ShowNiceIntegrationReportInNewTabDateRange() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\NiceIntegrationReportData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ShowInNewPageDateRange").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
@@ -110,7 +110,7 @@ public class NiceIntegrationReportTest extends BaseTest {
         ocmReportsPage.switchBackToParentWindow();
     }
     @Test(dependsOnMethods ="ShowNiceIntegrationReportInNewTabDateRange")
-    public void ExportNiceIntegrationReportDateRange() throws IOException {
+    public void ExportNiceIntegrationReportDateRange() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\NiceIntegrationReportData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ExportReportDateRange").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
@@ -141,7 +141,7 @@ public class NiceIntegrationReportTest extends BaseTest {
         Assert.assertTrue(ocmReportsPage.verifyDownloadedReportNameAndTimeInReportsDownloadPage(reportDetails.getReportName()),"Report not found in Reporter download page");
     }
     @Test(dependsOnMethods = "ShowNiceIntegrationReportForDateRange")
-    public void ExportPageForNiceIntegrationReport() throws IOException {
+    public void ExportPageForNiceIntegrationReport() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\NiceIntegrationReportData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
@@ -153,7 +153,7 @@ public class NiceIntegrationReportTest extends BaseTest {
         Assert.assertTrue(ocmReportsPage.verifyExportPageFileDownloaded("Nice Integration Report.xlsx"),"Export page assertion failed");
     }
     @Test(dependsOnMethods = "ShowNiceIntegrationReportForDateRange")
-    public void ExportToCSVForNiceIntegrationReport() throws IOException {
+    public void ExportToCSVForNiceIntegrationReport() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\NiceIntegrationReportData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
@@ -167,7 +167,7 @@ public class NiceIntegrationReportTest extends BaseTest {
         Assert.assertTrue(ocmReportsPage.verifyDownloadedReportNameAndTimeInReportsDownloadPage(reportDetails.getReportName()),"Report not found in Reporter download page");
     }
     //@Test(dependsOnMethods = "ShowNiceIntegrationReportForDateRange")
-    public void ScheduledReportsForNiceIntegrationReport() throws IOException {
+    public void ScheduledReportsForNiceIntegrationReport() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\NiceIntegrationReportData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
@@ -179,7 +179,7 @@ public class NiceIntegrationReportTest extends BaseTest {
         Assert.assertTrue(ocmReportsPage.verifyScheduleReport(),"Scheduled report at reports page assertion failed");
     }
     @Test(dependsOnMethods ="ShowNiceIntegrationReportForDateRange")
-    public void VerifySortingForNiceIntegrationReport() throws IOException {
+    public void VerifySortingForNiceIntegrationReport() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\NiceIntegrationReportData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
@@ -190,7 +190,7 @@ public class NiceIntegrationReportTest extends BaseTest {
         Assert.assertTrue(ocmReportsPage.verifySorting());
     }
     @Test(dependsOnMethods ="ShowNiceIntegrationReportForDateRange")
-    public void VerifySearchByFeatureForNiceIntegrationReport() throws IOException {
+    public void VerifySearchByFeatureForNiceIntegrationReport() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\NiceIntegrationReportData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
@@ -201,7 +201,7 @@ public class NiceIntegrationReportTest extends BaseTest {
         Assert.assertTrue(ocmReportsPage.verifySearchByTextbox());
     }
     @Test(dependsOnMethods ="ShowNiceIntegrationReportForDateRange")
-    public void VerifySearchFeatureForNiceIntegrationReport() throws IOException {
+    public void VerifySearchFeatureForNiceIntegrationReport() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\NiceIntegrationReportData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
@@ -212,7 +212,7 @@ public class NiceIntegrationReportTest extends BaseTest {
         Assert.assertTrue(ocmReportsPage.verifySearchByColumnValue());
     }
     @Test(dependsOnMethods ="ShowNiceIntegrationReportForDateRange")
-    public void VerifySearchContainsForNiceIntegrationReport() throws IOException {
+    public void VerifySearchContainsForNiceIntegrationReport() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\NiceIntegrationReportData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);

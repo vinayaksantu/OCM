@@ -27,7 +27,7 @@ import com.tetherfi.utility.Screenshot;
 public class IntroMessageAnnouncementCreateTest {
 	protected WebDriver driver;
 	@BeforeMethod
-    public void NavigateToIntroMessageAnnouncementPage(Method method) throws IOException, InterruptedException {
+    public void NavigateToIntroMessageAnnouncementPage(Method method) throws Exception {
         try {
             PageFactory.reset();
             BrowserFactory browserFactory = new BrowserFactory();
@@ -111,7 +111,7 @@ public class IntroMessageAnnouncementCreateTest {
     }
     
     @Test(groups = { "Maker" },dependsOnMethods="VerifyAuditTrailDataForAddNewIntroMessageAnnouncementRecord")
-    public void VerifyTaskCompleteActionForAddNewIntroMessageAnnouncementRecord() {
+    public void VerifyTaskCompleteActionForAddNewIntroMessageAnnouncementRecord() throws Exception {
        	IntroMessageAnnouncementPage IntroMessageAnnouncementPage = PageFactory.createPageInstance(driver, IntroMessageAnnouncementPage.class);
        	IntroMessageAnnouncementPage.selectIntroMessageAnnouncementAuditTrailTab();
        	IntroMessageAnnouncementPage.taskCompleteAction("Task Complete for Create");
@@ -120,7 +120,7 @@ public class IntroMessageAnnouncementCreateTest {
     }
     
     @Test(groups = { "Checker" },dependsOnMethods="VerifyTaskCompleteActionForAddNewIntroMessageAnnouncementRecord")
-    public void ApproveforAddNewIntroMessageAnnouncementRecord(){
+    public void ApproveforAddNewIntroMessageAnnouncementRecord() throws Exception{
        	IntroMessageAnnouncementPage IntroMessageAnnouncementPage = PageFactory.createPageInstance(driver, IntroMessageAnnouncementPage.class);
        	IntroMessageAnnouncementPage.clickonApprove("Approve Create");
         Assert.assertEquals(IntroMessageAnnouncementPage.getSuccessMessage(),"All the data has been approved successfully!","Approve record assertion failed");

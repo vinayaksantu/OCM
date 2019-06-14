@@ -21,7 +21,7 @@ import java.util.Map;
 public class AgentSettingsDeleteTest {
     protected WebDriver driver;
     @BeforeMethod
-    public void NavigateToAgentSettingsPage(Method method) throws IOException, InterruptedException {
+    public void NavigateToAgentSettingsPage(Method method) throws Exception {
         try {
             PageFactory.reset();
             BrowserFactory browserFactory = new BrowserFactory();
@@ -81,7 +81,7 @@ public class AgentSettingsDeleteTest {
         Assert.assertTrue(agentSettingsPage.verifyTaskCompleteEnabled(), "Task complete button not enabled");
     }
     @Test(groups = { "Maker" },dependsOnMethods="VerifyAuditTrailDataForDeleteAgentSettingsRecord")
-    public void VerifyTaskCompleteActionForDeleteAgentSettingsRecord() {
+    public void VerifyTaskCompleteActionForDeleteAgentSettingsRecord() throws Exception {
         AgentSettingsNewDesignPage agentSettingsPage = PageFactory.createPageInstance(driver, AgentSettingsNewDesignPage.class);
         agentSettingsPage.selectAgentSettingsAuditTrailTab();
         agentSettingsPage.taskCompleteAction("Task Complete for Delete");
@@ -89,7 +89,7 @@ public class AgentSettingsDeleteTest {
         Assert.assertTrue(agentSettingsPage.verifyStatus("Approval Pending"),"approal status details failed");
     }
     @Test(groups = { "Checker" },dependsOnMethods="VerifyTaskCompleteActionForDeleteAgentSettingsRecord")
-    public void ApproveforDeleteAgentRecord(){
+    public void ApproveforDeleteAgentRecord() throws Exception{
         AgentSettingsNewDesignPage agentSettingsPage=PageFactory.createPageInstance(driver,AgentSettingsNewDesignPage.class);
         agentSettingsPage.clickonApprove("Approve Delete");
         Assert.assertEquals(agentSettingsPage.verifySuccessMessage(),"All the data has been approved successfully!","Approve record assertion failed");
@@ -106,7 +106,7 @@ public class AgentSettingsDeleteTest {
         Assert.assertTrue(agentSettingsPage.verifyRecordDeleted(), "delete record assertion failed");
     }
     @Test(groups = { "Maker" },dependsOnMethods = "DeleteSupervisorRecord")
-    public void VerifyAuditTrailReportForDelete() throws IOException {
+    public void VerifyAuditTrailReportForDelete() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentSettingsData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Report").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
@@ -130,7 +130,7 @@ public class AgentSettingsDeleteTest {
         Assert.assertTrue(agentSettingsPage.verifyTaskCompleteEnabled(), "Task complete button not enabled");
     }
     @Test(groups = { "Maker" },dependsOnMethods="VerifyAuditTrailDataForDeleteSupervisorRecord")
-    public void VerifyTaskCompleteActionForDeleteSupervisorRecord() {
+    public void VerifyTaskCompleteActionForDeleteSupervisorRecord() throws Exception {
         AgentSettingsNewDesignPage agentSettingsPage = PageFactory.createPageInstance(driver, AgentSettingsNewDesignPage.class);
         agentSettingsPage.selectAgentSettingsAuditTrailTab();
         agentSettingsPage.taskCompleteAction("Task Complete for Delete");
@@ -138,7 +138,7 @@ public class AgentSettingsDeleteTest {
         Assert.assertTrue(agentSettingsPage.verifyStatus("Approval Pending"),"approal status details failed");
     }
     @Test(groups = { "Checker" },dependsOnMethods="VerifyTaskCompleteActionForDeleteSupervisorRecord")
-    public void ApproveforDeleteSupervisorRecord(){
+    public void ApproveforDeleteSupervisorRecord() throws Exception{
         AgentSettingsNewDesignPage agentSettingsPage=PageFactory.createPageInstance(driver,AgentSettingsNewDesignPage.class);
         agentSettingsPage.clickonApprove("Approve Delete");
         Assert.assertEquals(agentSettingsPage.verifySuccessMessage(),"All the data has been approved successfully!","Approve record assertion failed");

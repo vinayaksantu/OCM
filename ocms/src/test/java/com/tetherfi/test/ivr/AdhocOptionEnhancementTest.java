@@ -53,7 +53,7 @@ public class AdhocOptionEnhancementTest extends BaseTest {
     	screenshot.captureScreen("AdhocOptionEnhancementTest","minimize window");
     }
     @Test(priority=2)
-    public void AddNewAdhocOptionEnhancementRecord() throws IOException {
+    public void AddNewAdhocOptionEnhancementRecord() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AdhocOptionEnhancementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         AdhocOptionEnhancementDetails adhocOptionEnhancementDetails = new AdhocOptionEnhancementDetails(map);
@@ -78,7 +78,7 @@ public class AdhocOptionEnhancementTest extends BaseTest {
     }
    
     @Test(dependsOnMethods = "AddNewAdhocOptionEnhancementRecord",priority=4)
-    public void AddDuplicateAdhocOptionEnhancementRecord() throws IOException {
+    public void AddDuplicateAdhocOptionEnhancementRecord() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AdhocOptionEnhancementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         AdhocOptionEnhancementDetails adhocOptionEnhancementDetails = new AdhocOptionEnhancementDetails(map);
@@ -88,7 +88,7 @@ public class AdhocOptionEnhancementTest extends BaseTest {
     }
     
     @Test(dependsOnMethods = "AddDuplicateAdhocOptionEnhancementRecord",priority=5)
-    public void AddNewAdhocOptionEnhancementwithdifferentLangvageRecord() throws IOException {
+    public void AddNewAdhocOptionEnhancementwithdifferentLangvageRecord() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AdhocOptionEnhancementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(1);
         AdhocOptionEnhancementDetails adhocOptionEnhancementDetails = new AdhocOptionEnhancementDetails(map);
@@ -195,7 +195,7 @@ public class AdhocOptionEnhancementTest extends BaseTest {
     }
     
     @Test(priority=13)
-    public void DeleteWithoutDeleteReasonInAdhocOptionEnhancementRecord() throws IOException {
+    public void DeleteWithoutDeleteReasonInAdhocOptionEnhancementRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AdhocOptionEnhancementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Invalid").getTestData().get(3);
         AdhocOptionEnhancementDetails adhocOptionEnhancementDetails=new AdhocOptionEnhancementDetails(map);
@@ -215,7 +215,7 @@ public class AdhocOptionEnhancementTest extends BaseTest {
     }
     
     @Test(priority=15,dependsOnMethods= {"EditAdhocOptionEnhancementRecord"})
-    public void DeleteAdhocOptionEnhancementRecord() throws IOException {
+    public void DeleteAdhocOptionEnhancementRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AdhocOptionEnhancementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
         AdhocOptionEnhancementDetails adhocOptionEnhancementDetails=new AdhocOptionEnhancementDetails(map);
@@ -256,7 +256,7 @@ public class AdhocOptionEnhancementTest extends BaseTest {
     }
     
     @Test(priority=19)
-    public void searchPage() throws IOException {
+    public void searchPage() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AdhocOptionEnhancementData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);
         AdhocOptionEnhancementDetails adhocOptionEnhancementDetails=new AdhocOptionEnhancementDetails(map);
@@ -276,7 +276,7 @@ public class AdhocOptionEnhancementTest extends BaseTest {
     }
     
     @Test(priority=21)
-    public void ValidANDBooleanSearch() throws IOException {
+    public void ValidANDBooleanSearch() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AdhocOptionEnhancementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);
         AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);
@@ -285,7 +285,7 @@ public class AdhocOptionEnhancementTest extends BaseTest {
     }
     
     @Test(priority=22)
-    public void ValiORBooleanSearch() throws IOException {
+    public void ValiORBooleanSearch() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AdhocOptionEnhancementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);
         AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);

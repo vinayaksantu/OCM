@@ -46,7 +46,7 @@ public class TmacTransferListE2E extends BaseTest {
 	    }
 	
 	@Test(priority=1)
-    public void verifyBlindSkillListOnTmac() throws IOException
+    public void verifyBlindSkillListOnTmac() throws Exception
     { 
 		/*TmacTransferListPage tmacTransferListPage  = PageFactory.createPageInstance(driver, TmacTransferListPage.class);
 		tmacTransferListPage.navigateToTab("TMAC Blind Transfer");

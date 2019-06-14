@@ -24,6 +24,16 @@ public class DatabaseConnector {
             e.printStackTrace();
         }
     }
+    
+    public void insertQuery(String query) {
+    	try {
+            stmt = con.createStatement();
+            rs = stmt.executeQuery(query);
+        } catch (Exception e) {
+            System.out.println("Unable to execute query in DB");
+            e.printStackTrace();
+        }
+    }
 
     public ResultSet executeQuery(String query) {
         try {

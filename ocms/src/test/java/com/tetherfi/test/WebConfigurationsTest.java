@@ -29,7 +29,7 @@ public class WebConfigurationsTest extends BaseTest{
         Assert.assertTrue(webConfigurationPage.isWebConfigurationPageDisplayed(),"Web Configuration assertion failed");
     }
     @Test
-    public void AddNewWebConfigurationRecord() throws IOException {
+    public void AddNewWebConfigurationRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\WebConfigurationData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
         WebConfigurationDetails webConfigurationDetails=new WebConfigurationDetails(map);
@@ -39,7 +39,7 @@ public class WebConfigurationsTest extends BaseTest{
         Assert.assertTrue(webConfigurationPage.verifyNewRecordCreated(),"Add New record assertion failed");
     }
     @Test(dependsOnMethods = "AddNewWebConfigurationRecord")
-    public void EditWebConfigurationRecord() throws IOException {
+    public void EditWebConfigurationRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\WebConfigurationData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
         WebConfigurationDetails webConfigurationDetails=new WebConfigurationDetails(map);
@@ -49,7 +49,7 @@ public class WebConfigurationsTest extends BaseTest{
         Assert.assertTrue(webConfigurationPage.verifyRecordUpdated(),"edit record assertion failed");
     }
     @Test(dependsOnMethods = "EditWebConfigurationRecord")
-    public void DeleteWebConfigurationRecord() throws IOException {
+    public void DeleteWebConfigurationRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\WebConfigurationData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
         WebConfigurationDetails webConfigurationDetails=new WebConfigurationDetails(map);

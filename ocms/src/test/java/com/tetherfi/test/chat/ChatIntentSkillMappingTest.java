@@ -63,7 +63,7 @@ public class ChatIntentSkillMappingTest extends BaseTest {
     }
     
     @Test(priority=5)
-    public void AddNewChatIntentSkillMappingRecord() throws IOException {
+    public void AddNewChatIntentSkillMappingRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IntentSkillMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
         ChatIntentSkillMappingDetails intentSkillMappingDetails=new ChatIntentSkillMappingDetails(map);
@@ -73,7 +73,7 @@ public class ChatIntentSkillMappingTest extends BaseTest {
     }
     
     @Test(priority=6)//,dependsOnMethods = "AddNewChatIntentSkillMappingRecord")
-    public void AddDuplicateChatIntentSkillMappingRecord() throws IOException {
+    public void AddDuplicateChatIntentSkillMappingRecord() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntentSkillMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         ChatIntentSkillMappingDetails ChatIntentSkillMappingDetails = new ChatIntentSkillMappingDetails(map);
@@ -108,7 +108,7 @@ public class ChatIntentSkillMappingTest extends BaseTest {
     }
     
     @Test(priority=9)
-    public void AddRecordWithoutSkill() throws IOException {
+    public void AddRecordWithoutSkill() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntentSkillMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         ChatIntentSkillMappingDetails ChatIntentSkillMappingDetails = new ChatIntentSkillMappingDetails(map);
@@ -118,7 +118,7 @@ public class ChatIntentSkillMappingTest extends BaseTest {
     }
     
     @Test(priority=10)
-    public void AddRecordWithoutIntent() throws IOException {
+    public void AddRecordWithoutIntent() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntentSkillMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         ChatIntentSkillMappingDetails ChatIntentSkillMappingDetails = new ChatIntentSkillMappingDetails(map);
@@ -128,7 +128,7 @@ public class ChatIntentSkillMappingTest extends BaseTest {
     }
     
     @Test(priority=11)
-    public void AddRecordWithoutLanguage() throws IOException {
+    public void AddRecordWithoutLanguage() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntentSkillMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         ChatIntentSkillMappingDetails ChatIntentSkillMappingDetails = new ChatIntentSkillMappingDetails(map);
@@ -138,7 +138,7 @@ public class ChatIntentSkillMappingTest extends BaseTest {
     }
     
     @Test(priority=12)
-    public void AddRecordWithoutChannel() throws IOException {
+    public void AddRecordWithoutChannel() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntentSkillMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         ChatIntentSkillMappingDetails ChatIntentSkillMappingDetails = new ChatIntentSkillMappingDetails(map);
@@ -156,7 +156,7 @@ public class ChatIntentSkillMappingTest extends BaseTest {
 	}
     
     @Test(priority=14)//,dependsOnMethods = "AddNewChatIntentSkillMappingRecord")
-    public void EditChatIntentSkillMappingRecord() throws IOException {
+    public void EditChatIntentSkillMappingRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IntentSkillMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
         ChatIntentSkillMappingDetails intentSkillMappingDetails=new ChatIntentSkillMappingDetails(map);
@@ -191,7 +191,7 @@ public class ChatIntentSkillMappingTest extends BaseTest {
     }
     
     @Test(priority=17)
-    public void VerifyCancelBtnAtEditRecord() throws InterruptedException{
+    public void VerifyCancelBtnAtEditRecord() throws Exception{
         ChatIntentSkillMappingPage ChatIntentSkillMappingPage = PageFactory.createPageInstance(driver, ChatIntentSkillMappingPage.class);
         ChatIntentSkillMappingPage.searchChatIntentSkillMappingRecord("L4");
         Thread.sleep(1000);
@@ -201,7 +201,7 @@ public class ChatIntentSkillMappingTest extends BaseTest {
     }
     
     @Test(priority=18)
-    public void searchPage() throws IOException {
+    public void searchPage() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntentSkillMappingData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
         ChatIntentSkillMappingDetails ChatIntentSkillMappingDetails = new ChatIntentSkillMappingDetails(map);
@@ -254,7 +254,7 @@ public class ChatIntentSkillMappingTest extends BaseTest {
     }
     
     @Test(priority=24)//,dependsOnMethods = "EditIntentSkillMappingRecord")
-    public void DeleteIntentSkillMappingRecord() throws IOException {
+    public void DeleteIntentSkillMappingRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IntentSkillMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
         ChatIntentSkillMappingDetails intentSkillMappingDetails=new ChatIntentSkillMappingDetails(map);
@@ -363,7 +363,7 @@ public class ChatIntentSkillMappingTest extends BaseTest {
     }
     
     @Test(priority=36)
-    public void AddRecordWithoutSegment() throws IOException {
+    public void AddRecordWithoutSegment() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntentSkillMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         ChatIntentSkillMappingDetails ChatIntentSkillMappingDetails = new ChatIntentSkillMappingDetails(map);
@@ -372,7 +372,7 @@ public class ChatIntentSkillMappingTest extends BaseTest {
         Assert.assertEquals(ChatIntentSkillMappingPage.getMessage(),"Record Created Successfully", "Add invalid record assertion failed");
     }
     @Test(priority=37)
-    public void AddRecordWithoutSubSegment() throws IOException {
+    public void AddRecordWithoutSubSegment() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntentSkillMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         ChatIntentSkillMappingDetails ChatIntentSkillMappingDetails = new ChatIntentSkillMappingDetails(map);
@@ -382,7 +382,7 @@ public class ChatIntentSkillMappingTest extends BaseTest {
     }
     
     @Test(priority=38)
-    public void AddRecordWithoutCustEntType() throws IOException {
+    public void AddRecordWithoutCustEntType() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntentSkillMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         ChatIntentSkillMappingDetails ChatIntentSkillMappingDetails = new ChatIntentSkillMappingDetails(map);

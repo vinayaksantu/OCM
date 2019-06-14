@@ -63,7 +63,7 @@ public class CEPEventMappingTest extends BaseTest {
     }
     
     @Test(priority=5)
-    public void AddCepEventMappingRecord() throws IOException {
+    public void AddCepEventMappingRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\CepEventMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
         CepEventMappingDetails CepEventMappingDetails = new CepEventMappingDetails(map);
@@ -191,7 +191,7 @@ public class CEPEventMappingTest extends BaseTest {
     }
     
     @Test(priority=17)
-    public void VerifyCancelBtnAtEditRecord() throws InterruptedException{
+    public void VerifyCancelBtnAtEditRecord() throws Exception{
     	CepEventMappingPage CepEventMappingPage=PageFactory.createPageInstance(driver,CepEventMappingPage.class);
     	CepEventMappingPage.searchCepEventMapping("1919");
     	Thread.sleep(3000);

@@ -42,7 +42,7 @@ public class TmacBroadCastMsgE2E extends BaseTest {
 	    }
 	
 	@Test(priority=1)
-    public void addTmacBroadcastMessage() throws IOException
+    public void addTmacBroadcastMessage() throws Exception
     { 
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacBroadcastMsgData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);

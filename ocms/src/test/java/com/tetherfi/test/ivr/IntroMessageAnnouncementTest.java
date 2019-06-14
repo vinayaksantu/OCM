@@ -55,7 +55,7 @@ public class IntroMessageAnnouncementTest{
         Assert.assertTrue(introMessageAnnouncementPage.isIntroMessageAnnouncementPageDisplayed(), "Operating hours page assertion failed");
     }
     @Test(groups = { "Maker" })
-    public void AddNewIntroMessageAnnouncementRecord() throws IOException {
+    public void AddNewIntroMessageAnnouncementRecord() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntroMessageAnnouncementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         IntroMessageAnnouncementDetails introMessageAnnouncementDetails=new IntroMessageAnnouncementDetails(map);
@@ -70,14 +70,14 @@ public class IntroMessageAnnouncementTest{
         Assert.assertTrue(introMessageAnnouncementPage.verifyStatus("Approval Pending"),"approal status details failed");
     }
     @Test(groups = { "Checker" },dependsOnMethods="AddNewIntroMessageAnnouncementRecord")
-    public void ApproveforAddNewIntroMessageAnnouncementRecord() throws IOException {
+    public void ApproveforAddNewIntroMessageAnnouncementRecord() throws Exception {
         IntroMessageAnnouncementPage introMessageAnnouncementPage= PageFactory.createPageInstance(driver,IntroMessageAnnouncementPage.class);
         introMessageAnnouncementPage.clickonApprove("Approve Create");
         Assert.assertEquals(introMessageAnnouncementPage.verifySuccessMessage(),"All the data has been approved successfully!","Approve record assertion failed");
         Assert.assertTrue(introMessageAnnouncementPage.verifyReviewAuditTrail("Approved","Approve Create"));
     }
     @Test(groups = { "Maker" },dependsOnMethods = "ApproveforAddNewIntroMessageAnnouncementRecord")
-    public void EditIntroMessageAnnouncementRecord() throws IOException {
+    public void EditIntroMessageAnnouncementRecord() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntroMessageAnnouncementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(0);
         IntroMessageAnnouncementDetails introMessageAnnouncementDetails=new IntroMessageAnnouncementDetails(map);
@@ -92,14 +92,14 @@ public class IntroMessageAnnouncementTest{
         Assert.assertTrue(introMessageAnnouncementPage.verifyStatus("Approval Pending"),"approal status details failed");
     }
     @Test(groups = { "Checker" },dependsOnMethods="EditIntroMessageAnnouncementRecord")
-    public void ApproveforEditIntroMessageAnnouncementRecord() throws IOException {
+    public void ApproveforEditIntroMessageAnnouncementRecord() throws Exception {
         IntroMessageAnnouncementPage introMessageAnnouncementPage= PageFactory.createPageInstance(driver,IntroMessageAnnouncementPage.class);
         introMessageAnnouncementPage.clickonApprove("Approve Edit");
         Assert.assertEquals(introMessageAnnouncementPage.verifySuccessMessage(),"All the data has been approved successfully!","Approve record assertion failed");
         Assert.assertTrue(introMessageAnnouncementPage.verifyReviewAuditTrail("Approved","Approve Edit"));
     }
     @Test(groups = { "Maker" },dependsOnMethods = "ApproveforEditIntroMessageAnnouncementRecord")
-    public void DeleteIntroMessageAnnouncementRecord() throws IOException {
+    public void DeleteIntroMessageAnnouncementRecord() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntroMessageAnnouncementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(0);
         IntroMessageAnnouncementDetails introMessageAnnouncementDetails=new IntroMessageAnnouncementDetails(map);
@@ -114,7 +114,7 @@ public class IntroMessageAnnouncementTest{
         Assert.assertTrue(introMessageAnnouncementPage.verifyStatus("Approval Pending"),"approal status details failed");
     }
     @Test(groups = { "Checker" },dependsOnMethods="DeleteIntroMessageAnnouncementRecord")
-    public void ApproveforDeleteIntroMessageAnnouncementRecord() throws IOException {
+    public void ApproveforDeleteIntroMessageAnnouncementRecord() throws Exception {
         IntroMessageAnnouncementPage introMessageAnnouncementPage= PageFactory.createPageInstance(driver,IntroMessageAnnouncementPage.class);
         introMessageAnnouncementPage.clickonApprove("Approve Delete");
         Assert.assertEquals(introMessageAnnouncementPage.verifySuccessMessage(),"All the data has been approved successfully!","Approve record assertion failed");
