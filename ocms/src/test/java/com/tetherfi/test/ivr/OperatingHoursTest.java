@@ -176,7 +176,7 @@ public class OperatingHoursTest extends BaseTest {
     }
     
     //@Test(priority=5)
-    public void searchPage() throws IOException {
+    public void searchPage() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OperatingHoursData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(1);
     	OperatingHoursDetails operatingHoursDetails=new OperatingHoursDetails(map);
@@ -297,7 +297,7 @@ public class OperatingHoursTest extends BaseTest {
     }
     
     //@Test(priority=19)
-    public void DeleteNoRecord() throws IOException {
+    public void DeleteNoRecord() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OperatingHoursData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
     	OperatingHoursDetails operatingHoursDetails=new OperatingHoursDetails(map);
@@ -307,7 +307,7 @@ public class OperatingHoursTest extends BaseTest {
     }
     
     //@Test(priority=20)
-    public void DeleteAgentTeamManagementRecord() throws IOException {
+    public void DeleteAgentTeamManagementRecord() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OperatingHoursData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
     	OperatingHoursDetails operatingHoursDetails=new OperatingHoursDetails(map);

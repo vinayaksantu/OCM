@@ -239,7 +239,7 @@ public class HolidayListTest extends BaseTest {
   	}
   	
   	@Test(priority=21,dependsOnMethods = ("editHolidayListRecord"))
-    public void DeleteHolidayListRecord() throws IOException {
+    public void DeleteHolidayListRecord() throws Exception {
         HolidayListPage holidaylistPage = PageFactory.createPageInstance(driver, HolidayListPage.class);
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Holiday List.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
@@ -342,7 +342,7 @@ public class HolidayListTest extends BaseTest {
     }
 	
     @Test(priority=34)
-    public void searchPage() throws IOException {
+    public void searchPage() throws Exception {
     	HolidayListPage holidaylistPage = PageFactory.createPageInstance(driver, HolidayListPage.class);
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Holiday List.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);

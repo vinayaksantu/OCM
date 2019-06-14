@@ -445,6 +445,13 @@ public class BasePage {
 		dc.closeDbConnection();
 		return dbdata;
 	}
+    
+    public void InsertQuery(String Query) {
+    	DatabaseConnector dc=new DatabaseConnector();
+		dc.connectToDataBase(Constants.db_name);
+		dc.insertQuery(Query);
+		dc.closeDbConnection();
+    }
     public boolean verifyExportPageFileDownload(String filepath, String pattern){
         File downloadsDir = new File(filepath);
         File[] downloadDirFiles = downloadsDir.listFiles();

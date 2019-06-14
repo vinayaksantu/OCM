@@ -27,7 +27,7 @@ public void NavigateToOcmReportsPage() {
     Assert.assertTrue(ocmReportsPage.isOCMReportPageIsDisplayed());
 }
     @Test
-    public void ShowIVRHostTransactionReport() throws IOException {
+    public void ShowIVRHostTransactionReport() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRHostTransactionReportData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
@@ -37,7 +37,7 @@ public void NavigateToOcmReportsPage() {
         Assert.assertTrue(ocmReportsPage.verifyReportDisplayed(reportDetails),"Show report assertion failed");
     }
     @Test(dependsOnMethods ="ShowIVRHostTransactionReport")
-    public void ShowIVRHostTransactionReportInNewTab() throws IOException {
+    public void ShowIVRHostTransactionReportInNewTab() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRHostTransactionReportData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ShowInNewPage").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
@@ -48,7 +48,7 @@ public void NavigateToOcmReportsPage() {
         ocmReportsPage.switchBackToParentWindow();
     }
     //@Test
-    public void ScheduleIVRHostTransactionReport() throws IOException {
+    public void ScheduleIVRHostTransactionReport() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRHostTransactionReportData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ExportReport").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
@@ -58,7 +58,7 @@ public void NavigateToOcmReportsPage() {
         Assert.assertTrue(ocmReportsPage.verifyScheduleReport(),"Schedule report assertion failed");
     }
     @Test(dependsOnMethods ="ShowIVRHostTransactionReportInNewTab")
-    public void ExportIVRHostTransactionReport() throws IOException {
+    public void ExportIVRHostTransactionReport() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRHostTransactionReportData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ExportReport").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
@@ -89,7 +89,7 @@ public void NavigateToOcmReportsPage() {
         Assert.assertTrue(ocmReportsPage.verifyDownloadedReportNameAndTimeInReportsDownloadPage(reportDetails.getReportName()),"Report not found in Reporter download page");
     }
     @Test
-    public void ShowIVRHostTransactionReportForDateRange() throws IOException {
+    public void ShowIVRHostTransactionReportForDateRange() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRHostTransactionReportData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
@@ -99,7 +99,7 @@ public void NavigateToOcmReportsPage() {
         Assert.assertTrue(ocmReportsPage.verifyDateRangeReportDisplayed(reportDetails),"Show report assertion failed");
     }
     @Test(dependsOnMethods ="ShowIVRHostTransactionReportForDateRange")
-    public void ShowIVRHostTransactionReportInNewTabDateRange() throws IOException {
+    public void ShowIVRHostTransactionReportInNewTabDateRange() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRHostTransactionReportData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ShowInNewPageDateRange").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
@@ -110,7 +110,7 @@ public void NavigateToOcmReportsPage() {
         ocmReportsPage.switchBackToParentWindow();
     }
     @Test(dependsOnMethods ="ShowIVRHostTransactionReportInNewTabDateRange")
-    public void ExportIVRHostTransactionReportDateRange() throws IOException {
+    public void ExportIVRHostTransactionReportDateRange() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRHostTransactionReportData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ExportReportDateRange").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
@@ -141,7 +141,7 @@ public void NavigateToOcmReportsPage() {
         Assert.assertTrue(ocmReportsPage.verifyDownloadedReportNameAndTimeInReportsDownloadPage(reportDetails.getReportName()),"Report not found in Reporter download page");
     }
     @Test(dependsOnMethods ="ShowIVRHostTransactionReportForDateRange")
-    public void ExportPageForIVRHostTransactionReport() throws IOException {
+    public void ExportPageForIVRHostTransactionReport() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRHostTransactionReportData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
@@ -153,7 +153,7 @@ public void NavigateToOcmReportsPage() {
         Assert.assertTrue(ocmReportsPage.verifyExportPageFileDownloaded("Audit Trail Report.xlsx"),"Export page assertion failed");
     }
     @Test(dependsOnMethods ="ShowIVRHostTransactionReport")
-    public void ExportToCsvForIVRHostTransactionReport() throws IOException {
+    public void ExportToCsvForIVRHostTransactionReport() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRHostTransactionReportData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
@@ -167,7 +167,7 @@ public void NavigateToOcmReportsPage() {
         Assert.assertTrue(ocmReportsPage.verifyDownloadedReportNameAndTimeInReportsDownloadPage(reportDetails.getReportName()),"Report not found in Reporter download page");
     }
     //@Test(dependsOnMethods ="ShowIVRHostTransactionReport")
-    public void ScheduledReportsForIVRHostTransactionReport() throws IOException {
+    public void ScheduledReportsForIVRHostTransactionReport() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRHostTransactionReportData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
@@ -179,7 +179,7 @@ public void NavigateToOcmReportsPage() {
         Assert.assertTrue(ocmReportsPage.verifyScheduleReport(),"Scheduled report at reports page assertion failed");
     }
     @Test(dependsOnMethods ="ShowIVRHostTransactionReport")
-    public void VerifySortingForIVRHostTransactionReport() throws IOException {
+    public void VerifySortingForIVRHostTransactionReport() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRHostTransactionReportData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
@@ -190,7 +190,7 @@ public void NavigateToOcmReportsPage() {
         Assert.assertTrue(ocmReportsPage.verifySorting());
     }
     @Test(dependsOnMethods ="ShowIVRHostTransactionReport")
-    public void VerifySearchByFeatureForIVRHostTransactionReport() throws IOException {
+    public void VerifySearchByFeatureForIVRHostTransactionReport() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRHostTransactionReportData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
@@ -201,7 +201,7 @@ public void NavigateToOcmReportsPage() {
         Assert.assertTrue(ocmReportsPage.verifySearchByTextbox());
     }
     @Test(dependsOnMethods ="ShowIVRHostTransactionReportForDateRange")
-    public void VerifySearchFeatureForIVRHostTransactionReport() throws IOException {
+    public void VerifySearchFeatureForIVRHostTransactionReport() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRHostTransactionReportData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
@@ -212,7 +212,7 @@ public void NavigateToOcmReportsPage() {
         Assert.assertTrue(ocmReportsPage.verifySearchByColumnValue());
     }
     @Test(dependsOnMethods ="ShowIVRHostTransactionReportForDateRange")
-    public void VerifySearchContainsForIVRHostTransactionReport() throws IOException {
+    public void VerifySearchContainsForIVRHostTransactionReport() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRHostTransactionReportData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);

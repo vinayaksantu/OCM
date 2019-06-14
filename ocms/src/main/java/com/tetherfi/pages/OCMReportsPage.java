@@ -2,6 +2,7 @@ package com.tetherfi.pages;
 
 import com.tetherfi.model.chat.ChatIntentSkillMappingDetails;
 import com.tetherfi.model.chat.ChatTemplateDetails;
+import com.tetherfi.model.fax.FaxAddressBookDetails;
 import com.tetherfi.model.fax.FaxAutoACKConfigurationDetails;
 import com.tetherfi.model.fax.FaxLineConfigDetails;
 import com.tetherfi.model.fax.FaxRoutingConfigurationDetails;
@@ -4634,5 +4635,227 @@ return status;
 		}
 		else {System.out.println("Event Type data mismatch");}
 		return Status;	
+	}
+
+	public boolean verifyRecipientCreate(FaxAddressBookDetails details, String Transaction) throws Exception {
+		booleansearchnew(details.getfirstName(),Transaction);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+		Map<String,String> newvalues=new HashMap<>();
+		String[]d=firstRowData.get("New Values").split("\n");
+		for(String e:d) {
+			String f[]=e.split(":",2);
+			if(f.length>1)
+			newvalues.put(f[0], f[1]);
+		}
+			if(newvalues.get("FirstName").equals(details.getfirstName()))
+			{
+				if(newvalues.get("LastName").equals(details.getlastName()))
+				{
+					if(newvalues.get("FaxNumber").equals(details.getNumber()))
+					{
+						Status= true;
+					}
+					else {System.out.println("Fax Number data mismatch");}
+				}
+				else {System.out.println("Last Name data mismatch");}
+			}
+			else {System.out.println("First Name data mismatch");	}
+		return Status;
+	}
+
+	public boolean verifyRecipientUpdate(FaxAddressBookDetails details, String Transaction) throws Exception {
+		booleansearchnew(details.getUpdatedFirstName(),Transaction);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+        if(firstRowData.containsKey("Old Values")) {
+        	Map<String,String> oldvalues=new HashMap<>();
+    		String[]d=firstRowData.get("Old Values").split("\n");
+    		for(String e:d) {
+    			System.out.println(e);
+    			String f[]=e.split(":",2);
+    			if(f.length>1)
+    				oldvalues.put(f[0], f[1]);
+    		}
+    		if(oldvalues.get("FirstName").equals(details.getfirstName())){
+    			if(oldvalues.get("LastName").equals(details.getlastName())){
+    				if(oldvalues.get("FaxNumber").equals(details.getNumber())) {
+    					if(firstRowData.containsKey("New Values")) {
+    						Map<String,String> newvalues=new HashMap<>();
+                			String[]d1=firstRowData.get("New Values").split("\n");
+                			for(String e:d1) {
+                				String f[]=e.split(":",2);
+                				if(f.length>1)
+                					newvalues.put(f[0], f[1]);
+                			}
+                			if(newvalues.get("FirstName").equals(details.getUpdatedFirstName())) {
+                				if(newvalues.get("LastName").equals(details.getlastName())){
+                					if(newvalues.get("FaxNumber").equals(details.getNumber())) {	
+                    					if(newvalues.get("ModifyReason").equals(details.getModifyReason())){ 
+                							if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getModifyReason()))
+                								Status=true;
+                							else System.out.println("Change reason data mismatch");
+                    					}
+                    					else System.out.println("Modify reason data mismatch");
+                					}
+                					else System.out.println("Number data mismatch");
+            					}
+            					else System.out.println("Last Name data mismatch");
+        					}
+        					else System.out.println("First Name data mismatch");
+    					}
+    					else System.out.println("New values data mismatch");
+    				}
+    				else System.out.println("Number data mismatch");
+    			}
+    			else {System.out.println("Last Name data mismatch");}
+    		}
+			else {System.out.println("First Name data mismatch");}
+    	}
+        else {System.out.println("Old values data mismatch");}
+ return Status;
+	}
+
+	public boolean verifyRecipientdelete(FaxAddressBookDetails details, String Transaction) throws Exception {
+		booleansearchold(details.getfirstName(),Transaction);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+		Map<String,String> oldvalues=new HashMap<>();
+		String[]d=firstRowData.get("Old Values").split("\n");
+		for(String e:d) {
+			String f[]=e.split(":",2);
+			if(f.length>1)
+			oldvalues.put(f[0], f[1]);
+		}
+			if(oldvalues.get("FirstName").equals(details.getfirstName()))
+			{
+				if(oldvalues.get("LastName").equals(details.getlastName()))
+				{
+					if(oldvalues.get("FaxNumber").equals(details.getNumber()))
+					{
+						if(firstRowData.get("ModifyReason").equalsIgnoreCase(details.getDeleteReason())) {
+							if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getDeleteReason()))
+		    		        	Status=true;
+							else System.out.println("Change reason data mismatch");
+						}
+						else System.out.println("Modify reason data mismatch");
+					}
+					else {System.out.println("Enabled data mismatch");}
+				}
+				else {System.out.println("Template data mismatch");}
+			}
+			else {System.out.println("DNIS data mismatch");}
+			return Status;
+	}
+
+	public boolean verifyFaxAddressCreate(FaxAddressBookDetails details, String Transaction) throws Exception {
+		booleansearchnew(details.getName(),Transaction);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+		Map<String,String> newvalues=new HashMap<>();
+		String[]d=firstRowData.get("New Values").split("\n");
+		for(String e:d) {
+			String f[]=e.split(":",2);
+			if(f.length>1)
+			newvalues.put(f[0], f[1]);
+		}
+			if(newvalues.get("FaxLine").equals(details.getFaxLine()))
+			{
+				if(newvalues.get("Name").equals(details.getName()))
+				{
+					if(newvalues.get("Recipients").equals(details.getRecipients()))
+					{
+						Status= true;
+					}
+					else {System.out.println("Recipients data mismatch");}
+				}
+				else {System.out.println("Name data mismatch");}
+			}
+			else {System.out.println("FaxLine data mismatch");	}
+		return Status;
+	}
+
+	public boolean verifyAddressBookUpdate(FaxAddressBookDetails details, String Transaction) throws Exception {
+		booleansearchnew(details.getUpdatedName(),Transaction);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+        if(firstRowData.containsKey("Old Values")) {
+        	Map<String,String> oldvalues=new HashMap<>();
+    		String[]d=firstRowData.get("Old Values").split("\n");
+    		for(String e:d) {
+    			System.out.println(e);
+    			String f[]=e.split(":",2);
+    			if(f.length>1)
+    				oldvalues.put(f[0], f[1]);
+    		}
+    		if(oldvalues.get("Name").equals(details.getName())){
+    			if(oldvalues.get("FaxLine").equals(details.getFaxLine())){
+    				if(oldvalues.get("Recipients").equals(details.getRecipients())) {
+    					if(firstRowData.containsKey("New Values")) {
+    						Map<String,String> newvalues=new HashMap<>();
+                			String[]d1=firstRowData.get("New Values").split("\n");
+                			for(String e:d1) {
+                				String f[]=e.split(":",2);
+                				if(f.length>1)
+                					newvalues.put(f[0], f[1]);
+                			}
+                			if(newvalues.get("Name").equals(details.getUpdatedName())) {
+                				if(newvalues.get("FaxLine").equals(details.getFaxLine())){
+                					if(newvalues.get("Recipients").equals(details.getUpdatedRecipients())) {	
+                    					if(newvalues.get("ModifyReason").equals(details.getModifyReason())){ 
+                							if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getModifyReason()))
+                								Status=true;
+                							else System.out.println("Change reason data mismatch");
+                    					}
+                    					else System.out.println("Modify reason data mismatch");
+                					}
+                					else System.out.println("Recipients data mismatch");
+            					}
+            					else System.out.println("FaxLine data mismatch");
+        					}
+        					else System.out.println("Name data mismatch");
+    					}
+    					else System.out.println("New values data mismatch");
+    				}
+    				else System.out.println("Recipients data mismatch");
+    			}
+    			else {System.out.println("FaxLine data mismatch");}
+    		}
+			else {System.out.println("Name data mismatch");}
+    	}
+        else {System.out.println("Old values data mismatch");}
+ return Status;
+	}
+
+	public boolean verifyAddressBookdelete(FaxAddressBookDetails details, String Transaction) throws Exception {
+		booleansearchold(details.getName(),Transaction);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+		Map<String,String> oldvalues=new HashMap<>();
+		String[]d=firstRowData.get("Old Values").split("\n");
+		for(String e:d) {
+			String f[]=e.split(":",2);
+			if(f.length>1)
+			oldvalues.put(f[0], f[1]);
+		}
+			if(oldvalues.get("Name").equals(details.getName()))
+			{
+				if(oldvalues.get("FaxLine").equals(details.getFaxLine()))
+				{
+					if(oldvalues.get("Recipients").equals(details.getRecipients()))
+					{
+						if(firstRowData.get("ModifyReason").equalsIgnoreCase(details.getDeleteReason())) {
+							if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getDeleteReason()))
+		    		        	Status=true;
+							else System.out.println("Change reason data mismatch");
+						}
+						else System.out.println("Modify reason data mismatch");
+					}
+					else {System.out.println("Recipients data mismatch");}
+				}
+				else {System.out.println("Faxline data mismatch");}
+			}
+			else {System.out.println("Name data mismatch");}
+			return Status;
 	}
 }

@@ -5,10 +5,34 @@
     <classes>
       <class name="com.tetherfi.test.fax.FaxAddressBookTest">
         <methods>
+          <include name="VerifyAuditTrialReportForDelete"/>
+          <include name="AddNewFaxAddressBookRecord"/>
+          <include name="DeleteRecipientRecord"/>
+          <include name="AddNewEmptyRecord"/>
+          <include name="DeleteWithoutDeleteReasonAddressBookRecord"/>
+          <include name="startTestCase"/>
           <include name="openApplication"/>
+          <include name="VerifyCancelBtnAtEditAddressBookRecord"/>
           <include name="VerifyColumnsHeaderEnable"/>
+          <include name="EditWithoutModifyReasonRecipientRecord"/>
+          <include name="VerifyCancelBtnAtEditDepartmentRecord"/>
+          <include name="EditFaxAddressBookRecord"/>
+          <include name="VerifyAuditTrailReportForAddressCreate"/>
+          <include name="VerifyAuditTrailReportForCreate"/>
+          <include name="VerifyAuditTrialReportForAddressBookDelete"/>
           <include name="NavigatetoFaxAddressPage"/>
+          <include name="endTestCase"/>
+          <include name="tearDown"/>
           <include name="afterEachMethod"/>
+          <include name="VerifyAuditTrialReportForRecipientUpdate"/>
+          <include name="VerifyCancelButtonAtAddAdhocOptionEnhancementRecord"/>
+          <include name="AddNewFaxAddressBookRecipientRecord"/>
+          <include name="EditRecipientRecord"/>
+          <include name="VerifyDropdownForAllTheColumns"/>
+          <include name="DeleteWithoutDeleteReasonRecord"/>
+          <include name="ExportToExcelData"/>
+          <include name="DeleteAddressBookRecord"/>
+          <include name="VerifyAuditTrialReportForFaxAddressBookUpdate"/>
         </methods>
       </class> <!-- com.tetherfi.test.fax.FaxAddressBookTest -->
     </classes>

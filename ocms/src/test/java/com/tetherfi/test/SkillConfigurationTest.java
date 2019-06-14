@@ -68,7 +68,7 @@ public class SkillConfigurationTest extends BaseTest{
     }
     
     @Test(priority=5)
-    public void AddSkillConfigurationRecord() throws IOException {
+    public void AddSkillConfigurationRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillConfigurationData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
         SkillConfigurationDetails skillConfigurationDetails = new SkillConfigurationDetails(map);
@@ -178,7 +178,7 @@ public class SkillConfigurationTest extends BaseTest{
     }
     
     @Test(priority=14)
-    public void EditCancelSkillConfigurationRecord() throws IOException {
+    public void EditCancelSkillConfigurationRecord() throws Exception {
    	 	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillConfigurationData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
         SkillConfigurationDetails skillConfigurationDetails = new SkillConfigurationDetails(map);
@@ -188,7 +188,7 @@ public class SkillConfigurationTest extends BaseTest{
     }
     
     @Test(priority=15)
-    public void EditSkillConfigurationRecord() throws IOException {
+    public void EditSkillConfigurationRecord() throws Exception {
    	 	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillConfigurationData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
         SkillConfigurationDetails skillConfigurationDetails = new SkillConfigurationDetails(map);

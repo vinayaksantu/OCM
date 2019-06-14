@@ -28,7 +28,7 @@ public class CmDataSyncTest extends BaseTest {
         Assert.assertTrue(cmDataSyncPage.isCMDataSyncPageDisplayed(),"CMDataSync assertion failed");
     }
     @Test
-    public void AgentSynchronization() throws IOException{
+    public void AgentSynchronization() throws Exception{
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\CmDataSyncData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"AgentSync").getTestData().get(0);
         CmDataSyncDetails cmDataSyncDetails=new CmDataSyncDetails(map);
@@ -37,7 +37,7 @@ public class CmDataSyncTest extends BaseTest {
         Assert.assertTrue(cmDataSyncPage.verifyAgentVdnSynchronized("Agent Sync Thread Started Successfully"),"Add New record assertion failed");
     }
     @Test
-    public void VdnSynchronization() throws IOException{
+    public void VdnSynchronization() throws Exception{
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\CmDataSyncData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"VdnSync").getTestData().get(0);
         CmDataSyncDetails cmDataSyncDetails=new CmDataSyncDetails(map);

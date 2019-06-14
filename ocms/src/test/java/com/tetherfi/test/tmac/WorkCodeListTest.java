@@ -31,7 +31,7 @@ import com.tetherfi.utility.Screenshot;
 public class WorkCodeListTest extends BaseTest{
 	Screenshot screenshot=new Screenshot(driver);
    //@BeforeClass
-    public void AddNewAgentTeamManagementRecord() throws IOException {
+    public void AddNewAgentTeamManagementRecord() throws Exception {
         HomePage homePage= PageFactory.createPageInstance(driver,HomePage.class);
         homePage.navigateToOCMPage();
         OCMHomePage ocmHomePage = PageFactory.createPageInstance(driver,OCMHomePage.class);
@@ -166,7 +166,7 @@ public class WorkCodeListTest extends BaseTest{
     }
     
     //@Test(priority=5)
-    public void searchPage() throws IOException {
+    public void searchPage() throws Exception {
     	WorkCodeListPage workCodeListPage  = PageFactory.createPageInstance(driver, WorkCodeListPage.class);
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\WorkCodeListData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);

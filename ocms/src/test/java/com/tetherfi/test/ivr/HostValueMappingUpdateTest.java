@@ -27,7 +27,7 @@ import com.tetherfi.utility.Screenshot;
 public class HostValueMappingUpdateTest {
 	protected WebDriver driver;
 	@BeforeMethod
-    public void NavigateHostValueMappingPage(Method method) throws IOException, InterruptedException {
+    public void NavigateHostValueMappingPage(Method method) throws Exception {
         try {
             PageFactory.reset();
             BrowserFactory browserFactory = new BrowserFactory();
@@ -111,7 +111,7 @@ public class HostValueMappingUpdateTest {
     }
 	
 	@Test(groups = { "Maker" },dependsOnMethods="VerifyAuditTrailDataForEditHostValueMappingRecord")
-    public void VerifyTaskCompleteActionForEditHostValueMappingRecord() {
+    public void VerifyTaskCompleteActionForEditHostValueMappingRecord() throws Exception {
         HostValueMappingPage HostValueMappingPage = PageFactory.createPageInstance(driver, HostValueMappingPage.class);
         HostValueMappingPage.selectHostValueMappingAuditTrailTab();
         HostValueMappingPage.taskCompleteAction("Task Complete for Edit");
@@ -120,7 +120,7 @@ public class HostValueMappingUpdateTest {
     }
 	
 	@Test(groups = { "Checker" },dependsOnMethods="VerifyTaskCompleteActionForEditHostValueMappingRecord")
-    public void ApproveforEditHostValueMappingRecord(){
+    public void ApproveforEditHostValueMappingRecord() throws Exception{
         HostValueMappingPage HostValueMappingPage = PageFactory.createPageInstance(driver, HostValueMappingPage.class);
         HostValueMappingPage.clickonApprove("Approve Edited");
         Assert.assertEquals(HostValueMappingPage.getSuccessMessage(),"All the data has been approved successfully!","Approve record assertion failed");
@@ -161,7 +161,7 @@ public class HostValueMappingUpdateTest {
     }
     
     @Test(groups = { "Checker" })//,dependsOnMethods="VerifyMakeHostValueMappingButtonafterTaskComplete")
-    public void RejectforEditHostValueMappingRecord(){
+    public void RejectforEditHostValueMappingRecord() throws Exception{
         HostValueMappingPage HostValueMappingPage = PageFactory.createPageInstance(driver, HostValueMappingPage.class);
         HostValueMappingPage.clickonReject("Reject Updated");
         Assert.assertFalse(HostValueMappingPage.getErrorMsg(),"Reject record assertion failed");

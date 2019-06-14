@@ -74,7 +74,7 @@ public class FaxApplicationFormTest extends BaseTest {
     }
     
     @Test(priority=5)
-    public void AddNewFaxApplicationFormRecord() throws IOException {
+    public void AddNewFaxApplicationFormRecord() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxApplicationFormData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         FaxApplicationFormDetails faxApplicationFormDetails = new FaxApplicationFormDetails(map);
@@ -102,7 +102,7 @@ public class FaxApplicationFormTest extends BaseTest {
     }
    
     @Test(priority=7,dependsOnMethods = "AddNewFaxApplicationFormRecord")
-    public void AddDuplicateFaxApplicationFormRecord() throws IOException {
+    public void AddDuplicateFaxApplicationFormRecord() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxApplicationFormData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         FaxApplicationFormDetails faxApplicationFormDetails = new FaxApplicationFormDetails(map);
@@ -122,7 +122,7 @@ public class FaxApplicationFormTest extends BaseTest {
     }
     
     @Test(priority=9)
-    public void AddNewFaxApplicationFormWithoutLanguage() throws IOException {
+    public void AddNewFaxApplicationFormWithoutLanguage() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxApplicationFormData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         FaxApplicationFormDetails faxApplicationFormDetails = new FaxApplicationFormDetails(map);
@@ -132,7 +132,7 @@ public class FaxApplicationFormTest extends BaseTest {
     }
     
     @Test(priority=10)
-    public void AddNewFaxApplicationFormWithoutPDFFile() throws IOException {
+    public void AddNewFaxApplicationFormWithoutPDFFile() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxApplicationFormData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         FaxApplicationFormDetails faxApplicationFormDetails = new FaxApplicationFormDetails(map);
@@ -142,7 +142,7 @@ public class FaxApplicationFormTest extends BaseTest {
     }
     
     @Test(priority=11)
-    public void AddNewFaxApplicationFormWithoutWaveFile() throws IOException {
+    public void AddNewFaxApplicationFormWithoutWaveFile() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxApplicationFormData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         FaxApplicationFormDetails faxApplicationFormDetails = new FaxApplicationFormDetails(map);
@@ -152,7 +152,7 @@ public class FaxApplicationFormTest extends BaseTest {
     }
     
     @Test(priority=12)
-    public void AddNewFaxApplicationFormWithoutStatus() throws IOException {
+    public void AddNewFaxApplicationFormWithoutStatus() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxApplicationFormData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         FaxApplicationFormDetails faxApplicationFormDetails = new FaxApplicationFormDetails(map);
@@ -206,7 +206,7 @@ public class FaxApplicationFormTest extends BaseTest {
     }
     
     @Test(priority=17)
-    public void searchPage() throws IOException {
+    public void searchPage() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxApplicationFormData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
         FaxApplicationFormDetails faxApplicationFormDetails = new FaxApplicationFormDetails(map);
@@ -227,7 +227,7 @@ public class FaxApplicationFormTest extends BaseTest {
     }
     
     @Test(priority=19)
-    public void DeleteWithoutDeleteReasonRecord() throws IOException {
+    public void DeleteWithoutDeleteReasonRecord() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxApplicationFormData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
         FaxApplicationFormDetails faxApplicationFormDetails = new FaxApplicationFormDetails(map);

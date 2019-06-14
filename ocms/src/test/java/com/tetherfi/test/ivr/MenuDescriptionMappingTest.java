@@ -75,7 +75,7 @@ public class MenuDescriptionMappingTest extends BaseTest {
     }
     
    @Test(priority=5)
-    public void AddNewMenuDescriptionMappingRecord() throws IOException {
+    public void AddNewMenuDescriptionMappingRecord() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\MenuDescriptionMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         MenuDescriptionMappingDetails MenuDescriptionMappingDetails = new MenuDescriptionMappingDetails(map);
@@ -85,7 +85,7 @@ public class MenuDescriptionMappingTest extends BaseTest {
     }
     
     @Test(priority=6,dependsOnMethods = "AddNewMenuDescriptionMappingRecord")
-    public void AddDuplicateMenuDescriptionMappingRecord() throws IOException {
+    public void AddDuplicateMenuDescriptionMappingRecord() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\MenuDescriptionMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         MenuDescriptionMappingDetails MenuDescriptionMappingDetails = new MenuDescriptionMappingDetails(map);
@@ -120,7 +120,7 @@ public class MenuDescriptionMappingTest extends BaseTest {
     }
     
     @Test(priority=9)
-    public void AddRecordWithoutMenuID() throws IOException {
+    public void AddRecordWithoutMenuID() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\MenuDescriptionMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         MenuDescriptionMappingDetails MenuDescriptionMappingDetails = new MenuDescriptionMappingDetails(map);
@@ -130,7 +130,7 @@ public class MenuDescriptionMappingTest extends BaseTest {
     }
     
     @Test(priority=10)
-    public void AddRecordWithoutMenuName() throws IOException {
+    public void AddRecordWithoutMenuName() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\MenuDescriptionMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         MenuDescriptionMappingDetails MenuDescriptionMappingDetails = new MenuDescriptionMappingDetails(map);
@@ -140,7 +140,7 @@ public class MenuDescriptionMappingTest extends BaseTest {
     }
     
     @Test(priority=11)
-    public void AddRecordWithoutIntent() throws IOException {
+    public void AddRecordWithoutIntent() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\MenuDescriptionMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         MenuDescriptionMappingDetails MenuDescriptionMappingDetails = new MenuDescriptionMappingDetails(map);
@@ -193,7 +193,7 @@ public class MenuDescriptionMappingTest extends BaseTest {
     }
     
     @Test(priority=16,dependsOnMethods = "EditWithoutModifyReasonRecord")
-    public void VerifyCancelBtnAtEditRecord(){
+    public void VerifyCancelBtnAtEditRecord() throws Exception{
         MenuDescriptionMappingPage menuDescriptionMappingPage = PageFactory.createPageInstance(driver, MenuDescriptionMappingPage.class);
         menuDescriptionMappingPage.searchMenuDescriptionMappingRecord("4");
         menuDescriptionMappingPage.clickOnEditButton();
@@ -202,7 +202,7 @@ public class MenuDescriptionMappingTest extends BaseTest {
     }
     
     @Test(priority=17)
-    public void searchPage() throws IOException {
+    public void searchPage() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\MenuDescriptionMappingData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
         MenuDescriptionMappingDetails MenuDescriptionMappingDetails = new MenuDescriptionMappingDetails(map);
@@ -245,7 +245,7 @@ public class MenuDescriptionMappingTest extends BaseTest {
         Assert.assertEquals(menuDescriptionMappingPage.verifySuccessMessage(),"Please enter the delete reason","empty delete reason record assertion failed");
     }
     @Test(priority=22)
-    public void VerifyCancelBtnAtDeleteMenuDescriptionMappingRecord(){
+    public void VerifyCancelBtnAtDeleteMenuDescriptionMappingRecord() throws Exception{
         MenuDescriptionMappingPage menuDescriptionMappingPage = PageFactory.createPageInstance(driver, MenuDescriptionMappingPage.class);
         menuDescriptionMappingPage.searchMenuDescriptionMappingRecord("4");
         menuDescriptionMappingPage.clickOnDeleteButton();

@@ -54,7 +54,7 @@ public class AgentTeamMgmtTest extends BaseTest {
     }
 
     //@Test(priority=2)
-    public void AddNewAgentTeamManagementRecord() throws IOException, InterruptedException {
+    public void AddNewAgentTeamManagementRecord() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentTeamManagementData.xlsx";
         Map<String, String> map1 = new ExcelReader(filePath, "Create").getTestData().get(1);
         AgentTeamMgmtDetails agentTeamMgmtDetails1=new AgentTeamMgmtDetails(map1);
@@ -95,7 +95,7 @@ public class AgentTeamMgmtTest extends BaseTest {
     }
     
     //@Test(priority=3)
-    public void AddInvalidRecord() throws IOException {
+    public void AddInvalidRecord() throws Exception {
    	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentTeamManagementData.xlsx";
        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
        AgentTeamMgmtDetails agentTeamMgmtDetails=new AgentTeamMgmtDetails(map);

@@ -101,7 +101,7 @@ public class FaxRoutingConfigurationTest extends BaseTest{
     }
     
     @Test(priority=5)
-    public void AddFaxRoutingConfigQueueRecord() throws IOException {
+    public void AddFaxRoutingConfigQueueRecord() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxRoutingConfigData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         FaxRoutingConfigurationDetails faxRoutingConfigDetails = new FaxRoutingConfigurationDetails(map);
@@ -267,7 +267,7 @@ public class FaxRoutingConfigurationTest extends BaseTest{
     }
     
     @Test(priority=19)
-    public void searchPage() throws IOException {
+    public void searchPage() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxRoutingConfigData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
         FaxRoutingConfigurationDetails faxRoutingConfigDetails = new FaxRoutingConfigurationDetails(map);
@@ -299,7 +299,7 @@ public class FaxRoutingConfigurationTest extends BaseTest{
     }
     
     @Test(priority=22)
-    public void DeleteCancelFaxRoutingConfigRecord() throws IOException {
+    public void DeleteCancelFaxRoutingConfigRecord() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxRoutingConfigData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
         FaxRoutingConfigurationDetails faxRoutingConfigDetails = new FaxRoutingConfigurationDetails(map);
@@ -308,7 +308,7 @@ public class FaxRoutingConfigurationTest extends BaseTest{
     }
     
     @Test(priority=23)
-    public void DeleteFaxRoutingConfigRecordWithoutReason() throws IOException {
+    public void DeleteFaxRoutingConfigRecordWithoutReason() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxRoutingConfigData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
         FaxRoutingConfigurationDetails faxRoutingConfigDetails = new FaxRoutingConfigurationDetails(map);
@@ -319,7 +319,7 @@ public class FaxRoutingConfigurationTest extends BaseTest{
     }
     
     @Test(dependsOnMethods = {"EditFaxRoutingConfigRecord"},priority=24)
-    public void DeleteFaxRoutingConfigRecord() throws IOException {
+    public void DeleteFaxRoutingConfigRecord() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxRoutingConfigData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
         FaxRoutingConfigurationDetails faxRoutingConfigDetails = new FaxRoutingConfigurationDetails(map);

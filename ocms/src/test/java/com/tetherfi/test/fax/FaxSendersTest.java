@@ -436,7 +436,7 @@ public class FaxSendersTest extends BaseTest {
     @AfterMethod
     public void afterEachMethod(Method method) {
         	Screenshot screenshot=new Screenshot(driver);
-            screenshot.captureScreen("FaxLineConfigTest",method.getName());
+            screenshot.captureScreen("FaxSendersTest",method.getName());
             driver.navigate().refresh();    
             }   
     

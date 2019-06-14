@@ -37,7 +37,7 @@ public class AgentSettingsTmac1Test {
         System.out.println("Started Executing : "+method.getName());
     }
     @Test(dependsOnMethods = "com.tetherfi.test.tmac.AgentSettingsEditTest.EditSupervisorRecord")
-    public void VerifyInvalidAgentLogin() throws IOException {
+    public void VerifyInvalidAgentLogin() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\LoginData.xlsx";
         Map<String, String> map2 = new ExcelReader(filePath, "TMAC").getTestData().get(1);
 
@@ -46,7 +46,7 @@ public class AgentSettingsTmac1Test {
         Assert.assertEquals(tmacloginPage.getErrorMessage(),"Invalid LAN ID detected. Please contact administrator for TMAC access.\nX", "Tmac invalid login assertion failed");
     }
     @Test(dependsOnMethods = "VerifyInvalidAgentLogin")
-    public void VerifyAutoInDropdownSelected() throws IOException {
+    public void VerifyAutoInDropdownSelected() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\LoginData.xlsx";
         String filePath1 = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentSettingsData.xlsx";
         Map<String, String> map1 = new ExcelReader(filePath1, "Create").getTestData().get(0);
@@ -71,7 +71,7 @@ public class AgentSettingsTmac1Test {
         Assert.assertEquals(tmacPopupPage.getCurrentStatus(),"Available");
     }
    // @Test(dependsOnMethods = "VerifyInvalidAgentLogin")
-    public void VerifyRoutingCallByDisablingVoice() throws IOException {
+    public void VerifyRoutingCallByDisablingVoice() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\LoginData.xlsx";
         String filePath1 = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentSettingsData.xlsx";
         Map<String, String> map1 = new ExcelReader(filePath1, "Create").getTestData().get(0);

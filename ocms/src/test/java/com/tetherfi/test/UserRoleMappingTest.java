@@ -14,7 +14,7 @@ import java.util.Map;
 
 public class UserRoleMappingTest extends BaseTest {
     @BeforeClass
-    public void AddNewAgentTeamManagementRecord() throws IOException {
+    public void AddNewAgentTeamManagementRecord() throws Exception {
         HomePage homePage= PageFactory.createPageInstance(driver,HomePage.class);
         homePage.navigateToOCMPage();
         OCMHomePage ocmHomePage = PageFactory.createPageInstance(driver,OCMHomePage.class);
@@ -45,7 +45,7 @@ public class UserRoleMappingTest extends BaseTest {
         Assert.assertTrue(userRoleMappingPage.isUserRoleMappingPageDisplayed(),"User role mapping page is displayed");
             }
     @Test
-    public void AddNewUserRoleMappingRecord() throws IOException {
+    public void AddNewUserRoleMappingRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\UserRoleMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
         UserRoleMappingDetails userRoleMappingDetails = new UserRoleMappingDetails(map);
@@ -55,7 +55,7 @@ public class UserRoleMappingTest extends BaseTest {
         Assert.assertTrue(userRoleMappingPage.verifyNewRecordCreated(),"Add New record assertion failed");
     }
     @Test(dependsOnMethods = "AddNewUserRoleMappingRecord")
-    public void EditUserRoleMappingRecord() throws IOException {
+    public void EditUserRoleMappingRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\UserRoleMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
         UserRoleMappingDetails userRoleMappingDetails = new UserRoleMappingDetails(map);
@@ -65,7 +65,7 @@ public class UserRoleMappingTest extends BaseTest {
         Assert.assertTrue(userRoleMappingPage.verifyRecordUpdated(),"Edit record assertion failed");
     }
     @Test(dependsOnMethods = "EditUserRoleMappingRecord")
-    public void DeleteUserRoleMappingRecord() throws IOException {
+    public void DeleteUserRoleMappingRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\UserRoleMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
         UserRoleMappingDetails userRoleMappingDetails = new UserRoleMappingDetails(map);
@@ -81,7 +81,7 @@ public class UserRoleMappingTest extends BaseTest {
         driver.navigate().refresh();
     }
     @AfterClass
-    public void DeleteAgentTeamManagementRecord() throws IOException {
+    public void DeleteAgentTeamManagementRecord() throws Exception {
         HomePage homePage= PageFactory.createPageInstance(driver,HomePage.class);
         homePage.navigateToOcmIconImg();
         homePage.navigateToOCMPage();

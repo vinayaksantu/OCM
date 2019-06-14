@@ -74,7 +74,7 @@ public class IntentMappingTest extends BaseTest {
     }
     
    @Test(priority=5)
-    public void AddNewIntentMappingRecord() throws IOException {
+    public void AddNewIntentMappingRecord() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntentMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         IntentMappingDetails IntentMappingDetails = new IntentMappingDetails(map);
@@ -84,7 +84,7 @@ public class IntentMappingTest extends BaseTest {
     }
     
     @Test(priority=6,dependsOnMethods = "AddNewIntentMappingRecord")
-    public void AddDuplicateIntentMappingRecord() throws IOException {
+    public void AddDuplicateIntentMappingRecord() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntentMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         IntentMappingDetails IntentMappingDetails = new IntentMappingDetails(map);
@@ -119,7 +119,7 @@ public class IntentMappingTest extends BaseTest {
     }
     
     @Test(priority=9)
-    public void AddRecordWithoutProduct() throws IOException {
+    public void AddRecordWithoutProduct() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntentMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         IntentMappingDetails IntentMappingDetails = new IntentMappingDetails(map);
@@ -129,7 +129,7 @@ public class IntentMappingTest extends BaseTest {
     }
     
     @Test(priority=10)
-    public void AddRecordWithoutSegment() throws IOException {
+    public void AddRecordWithoutSegment() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntentMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         IntentMappingDetails IntentMappingDetails = new IntentMappingDetails(map);
@@ -139,7 +139,7 @@ public class IntentMappingTest extends BaseTest {
     }
     
     @Test(priority=11)
-    public void AddRecordWithoutLanguage() throws IOException {
+    public void AddRecordWithoutLanguage() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntentMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         IntentMappingDetails IntentMappingDetails = new IntentMappingDetails(map);
@@ -149,7 +149,7 @@ public class IntentMappingTest extends BaseTest {
     }
     
     @Test(priority=12)
-    public void AddRecordWithoutIntentTalent() throws IOException {
+    public void AddRecordWithoutIntentTalent() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntentMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         IntentMappingDetails IntentMappingDetails = new IntentMappingDetails(map);
@@ -212,7 +212,7 @@ public class IntentMappingTest extends BaseTest {
     }
     
     @Test(priority=18,dependsOnMethods = "EditWithoutModifyReasonRecord")
-    public void VerifyCancelBtnAtEditRecord() throws InterruptedException{
+    public void VerifyCancelBtnAtEditRecord() throws Exception{
         IntentMappingPage IntentMappingPage = PageFactory.createPageInstance(driver, IntentMappingPage.class);
         IntentMappingPage.searchIntentMappingRecord("40000");
         Thread.sleep(1000);
@@ -222,7 +222,7 @@ public class IntentMappingTest extends BaseTest {
     }
     
     @Test(priority=19)
-    public void searchPage() throws IOException {
+    public void searchPage() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntentMappingData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
         IntentMappingDetails IntentMappingDetails = new IntentMappingDetails(map);

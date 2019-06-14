@@ -74,7 +74,7 @@ public class VBEnrollmentFlagTest extends BaseTest {
     }
     
    @Test(priority=5)
-    public void AddNewVBEnrollmentFlagRecord() throws IOException {
+    public void AddNewVBEnrollmentFlagRecord() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\VBEnrollmentFlagData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         VBEnrollmentFlagDetails VBEnrollmentFlagDetails = new VBEnrollmentFlagDetails(map);
@@ -84,7 +84,7 @@ public class VBEnrollmentFlagTest extends BaseTest {
     }
     
     @Test(priority=6,dependsOnMethods = "AddNewVBEnrollmentFlagRecord")
-    public void AddDuplicateVBEnrollmentFlagRecord() throws IOException {
+    public void AddDuplicateVBEnrollmentFlagRecord() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\VBEnrollmentFlagData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         VBEnrollmentFlagDetails VBEnrollmentFlagDetails = new VBEnrollmentFlagDetails(map);
@@ -119,7 +119,7 @@ public class VBEnrollmentFlagTest extends BaseTest {
     }
     
     @Test(priority=9)
-    public void AddRecordWithoutDNIS() throws IOException {
+    public void AddRecordWithoutDNIS() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\VBEnrollmentFlagData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         VBEnrollmentFlagDetails VBEnrollmentFlagDetails = new VBEnrollmentFlagDetails(map);
@@ -129,7 +129,7 @@ public class VBEnrollmentFlagTest extends BaseTest {
     }
     
     @Test(priority=10)
-    public void AddRecordWithoutHotLineName() throws IOException {
+    public void AddRecordWithoutHotLineName() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\VBEnrollmentFlagData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         VBEnrollmentFlagDetails VBEnrollmentFlagDetails = new VBEnrollmentFlagDetails(map);
@@ -139,7 +139,7 @@ public class VBEnrollmentFlagTest extends BaseTest {
     }
     
     @Test(priority=11)
-    public void AddRecordWithoutEnrollmentFlag() throws IOException {
+    public void AddRecordWithoutEnrollmentFlag() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\VBEnrollmentFlagData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         VBEnrollmentFlagDetails VBEnrollmentFlagDetails = new VBEnrollmentFlagDetails(map);
@@ -192,7 +192,7 @@ public class VBEnrollmentFlagTest extends BaseTest {
     }
     
     @Test(priority=16,dependsOnMethods = "EditWithoutModifyReasonRecord")
-    public void VerifyCancelBtnAtEditRecord() throws InterruptedException{
+    public void VerifyCancelBtnAtEditRecord() throws Exception{
         VbEnrollmentFlagPage VbEnrollmentFlagPage = PageFactory.createPageInstance(driver, VbEnrollmentFlagPage.class);
         VbEnrollmentFlagPage.searchVbEnrollmentFlagRecord("40000");
         Thread.sleep(1000);
@@ -202,7 +202,7 @@ public class VBEnrollmentFlagTest extends BaseTest {
     }
     
     @Test(priority=17)
-    public void searchPage() throws IOException {
+    public void searchPage() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\VBEnrollmentFlagData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
         VBEnrollmentFlagDetails VBEnrollmentFlagDetails = new VBEnrollmentFlagDetails(map);

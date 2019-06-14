@@ -19,7 +19,7 @@ import java.util.Map;
 public class TmacBroadCastMsgTest extends BaseTest {
 	Screenshot screenshot=new Screenshot(driver);
     @BeforeClass
-    public void AddNewAgentTeamManagementRecord() throws IOException {
+    public void AddNewAgentTeamManagementRecord() throws Exception {
         HomePage homePage= PageFactory.createPageInstance(driver,HomePage.class);
         homePage.navigateToOCMPage();
         OCMHomePage ocmHomePage = PageFactory.createPageInstance(driver,OCMHomePage.class);
@@ -66,7 +66,7 @@ public class TmacBroadCastMsgTest extends BaseTest {
     	screenshot.captureScreen(driver, "minimize window","TmacBroadCastMsgTest");
     }
     @Test(priority=2)
-    public void AddNewTmacBroadCastMsg() throws IOException {
+    public void AddNewTmacBroadCastMsg() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacBroadcastMsgData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);
         TmacBroadCastMsgDetails tmacBroadCastMsgDetails=new TmacBroadCastMsgDetails(map);
@@ -114,7 +114,7 @@ public class TmacBroadCastMsgTest extends BaseTest {
         screenshot.captureScreen(driver, "Invalid Record when Teamname is null","TmacBroadCastMsgTest");
     }
     @Test(priority=5)
-    public void EditTmacBroadCastMsg() throws IOException {
+    public void EditTmacBroadCastMsg() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacBroadcastMsgData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(2);
         TmacBroadCastMsgDetails tmacBroadCastMsgDetails=new TmacBroadCastMsgDetails(map);

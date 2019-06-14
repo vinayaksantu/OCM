@@ -27,7 +27,7 @@ import com.tetherfi.utility.Screenshot;
 public class BranchManagementDeleteTest {
 	protected WebDriver driver;
 	@BeforeMethod
-    public void NavigateToBranchManagementPage(Method method) throws IOException, InterruptedException {
+    public void NavigateToBranchManagementPage(Method method) throws Exception {
         try {
             PageFactory.reset();
             BrowserFactory browserFactory = new BrowserFactory();
@@ -120,7 +120,7 @@ public class BranchManagementDeleteTest {
     }
 	
 	@Test(groups = { "Maker" },dependsOnMethods="VerifyAuditTrailDataForDeleteBranchManagementRecord")
-    public void VerifyTaskCompleteActionForDeleteBranchManagementRecord() {
+    public void VerifyTaskCompleteActionForDeleteBranchManagementRecord() throws Exception {
 	     BranchManagementPage branchManagementPage = PageFactory.createPageInstance(driver, BranchManagementPage.class);
 	     branchManagementPage.selectBranchManagementAuditTrailTab();
 	     branchManagementPage.taskCompleteAction("Task Complete for Delete");
@@ -129,7 +129,7 @@ public class BranchManagementDeleteTest {
     }
 	
 	@Test(groups = { "Checker" },dependsOnMethods="VerifyTaskCompleteActionForDeleteBranchManagementRecord")
-    public void ApproveforDeleteBranchManagementRecord(){
+    public void ApproveforDeleteBranchManagementRecord() throws Exception{
 	     BranchManagementPage branchManagementPage = PageFactory.createPageInstance(driver, BranchManagementPage.class);
 	     branchManagementPage.clickonApprove("Approve Deleted");
 	     Assert.assertEquals(branchManagementPage.getSuccessMessage(),"All the data has been approved successfully!","Approve record assertion failed");
@@ -162,7 +162,7 @@ public class BranchManagementDeleteTest {
      }
         
     @Test(groups = { "Maker" },dependsOnMethods="DeleteRecord")
-    public void VerifyTaskCompleteActionForDeleteRecord() {
+    public void VerifyTaskCompleteActionForDeleteRecord() throws Exception {
 	     BranchManagementPage branchManagementPage = PageFactory.createPageInstance(driver, BranchManagementPage.class);
 	     branchManagementPage.selectBranchManagementAuditTrailTab();
 	     branchManagementPage.taskCompleteAction("Task Complete for Delete");
@@ -171,7 +171,7 @@ public class BranchManagementDeleteTest {
     }
     
     @Test(groups = { "Checker" },dependsOnMethods="VerifyTaskCompleteActionForDeleteRecord")
-    public void RejectforDeleteBranchManagementRecord(){
+    public void RejectforDeleteBranchManagementRecord() throws Exception{
 	     BranchManagementPage branchManagementPage = PageFactory.createPageInstance(driver, BranchManagementPage.class);
 	     branchManagementPage.clickonReject("Reject Deleted");
         Assert.assertFalse(branchManagementPage.getErrorMsg(),"Reject record assertion failed");

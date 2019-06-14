@@ -27,7 +27,7 @@ import com.tetherfi.utility.Screenshot;
 public class BranchManagementEditTest {
 	protected WebDriver driver;
 	@BeforeMethod
-    public void NavigateBranchManagementPage(Method method) throws IOException, InterruptedException {
+    public void NavigateBranchManagementPage(Method method) throws Exception {
         try {
             PageFactory.reset();
             BrowserFactory browserFactory = new BrowserFactory();
@@ -111,7 +111,7 @@ public class BranchManagementEditTest {
     }
 	
 	@Test(groups = { "Maker" },dependsOnMethods="VerifyAuditTrailDataForEditBranchManagementRecord")
-    public void VerifyTaskCompleteActionForEditBranchManagementRecord() {
+    public void VerifyTaskCompleteActionForEditBranchManagementRecord() throws Exception {
         BranchManagementPage branchManagementPage = PageFactory.createPageInstance(driver, BranchManagementPage.class);
         branchManagementPage.selectBranchManagementAuditTrailTab();
         branchManagementPage.taskCompleteAction("Task Complete for Edit");
@@ -120,7 +120,7 @@ public class BranchManagementEditTest {
     }
 	
 	@Test(groups = { "Checker" },dependsOnMethods="VerifyTaskCompleteActionForEditBranchManagementRecord")
-    public void ApproveforEditBranchManagementRecord(){
+    public void ApproveforEditBranchManagementRecord() throws Exception{
         BranchManagementPage branchManagementPage = PageFactory.createPageInstance(driver, BranchManagementPage.class);
         branchManagementPage.clickonApprove("Approve Edited");
         Assert.assertEquals(branchManagementPage.getSuccessMessage(),"All the data has been approved successfully!","Approve record assertion failed");
@@ -161,7 +161,7 @@ public class BranchManagementEditTest {
     }
     
     @Test(groups = { "Checker" },dependsOnMethods="VerifyMakeBranchManagementButtonafterTaskComplete")
-    public void RejectforEditBranchManagementRecord(){
+    public void RejectforEditBranchManagementRecord() throws Exception{
         BranchManagementPage branchManagementPage = PageFactory.createPageInstance(driver, BranchManagementPage.class);
         branchManagementPage.clickonReject("Reject Updated");
         Assert.assertFalse(branchManagementPage.getErrorMsg(),"Reject record assertion failed");

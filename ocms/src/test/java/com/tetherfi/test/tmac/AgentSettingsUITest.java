@@ -70,7 +70,7 @@ public class AgentSettingsUITest extends BaseTest {
         Assert.assertTrue(agentSettingsPage.verifyAddNewPopupContents(),"Add new pop up content assertion failed");
     }
     @Test()
-    public void VerifyClearAllAtSearchRecord() {
+    public void VerifyClearAllAtSearchRecord() throws Exception {
         AgentSettingsNewDesignPage agentSettingsPage = PageFactory.createPageInstance(driver, AgentSettingsNewDesignPage.class);
         agentSettingsPage.selectAgentSettingsAuditTrailTab();
         agentSettingsPage.selectMakeAgentSettingsChanges();
@@ -98,7 +98,7 @@ public class AgentSettingsUITest extends BaseTest {
         Assert.assertTrue(agentSettingsPage.verifyExportToExcel(),"export to excel assertion failed");
     }
     @Test()
-    public void VerifyExportToExcelWithoutData() {
+    public void VerifyExportToExcelWithoutData() throws Exception {
         AgentSettingsNewDesignPage agentSettingsPage = PageFactory.createPageInstance(driver, AgentSettingsNewDesignPage.class);
         agentSettingsPage.selectAgentSettingsAuditTrailTab();
         agentSettingsPage.selectMakeAgentSettingsChanges();
