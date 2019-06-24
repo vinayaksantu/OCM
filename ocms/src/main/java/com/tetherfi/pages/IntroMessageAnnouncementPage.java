@@ -1,5 +1,6 @@
 package com.tetherfi.pages;
 
+import com.tetherfi.model.ivr.HostValueMappingDetails;
 import com.tetherfi.model.ivr.IntroMessageAnnouncementDetails;
 import com.tetherfi.model.ivr.IntroMessageAnnouncementDetails;
 import com.tetherfi.utility.FileUploader;
@@ -140,6 +141,10 @@ public class IntroMessageAnnouncementPage extends BasePage {
 
     @FindBy(id = "yesButton")
     private WebElement deleteYesBtn;
+    
+    @FindBy(id = "noButton")
+    private WebElement deleteNoBtn;
+    
 
     @FindBy(css = "#toast-container .toast-error .toast-message")
     private List<WebElement> errorMsg;
@@ -266,7 +271,7 @@ public class IntroMessageAnnouncementPage extends BasePage {
     @FindBy(css="#tcheckerGrid .k-grid-content")
     private WebElement approvedgridcontent;
     
-    @FindBy(xpath="//tbody/tr/td[1]")
+    @FindBy(xpath="//tbody/tr/td[2]")
     private WebElement rowdata;
     
     @FindBy(css="#drillGrid tbody tr td")
@@ -387,25 +392,18 @@ public class IntroMessageAnnouncementPage extends BasePage {
     }
 
     public void editIntroMessageAnnouncementRecord(IntroMessageAnnouncementDetails details) throws Exception {
-        selectWebElement(makeIntroMessageAnnouncementChanges);
+    	selectWebElement(IntroMessageAnnouncementTabs.get(1));
+		Thread.sleep(1000);
+    	selectWebElement(makeIntroMessageAnnouncementChanges);
         waitForJqueryLoad(driver);
-        searchIntroMessageAnnouncementRecord(details.getFunctionality());
+        searchIntroMessageAnnouncementRecord(details.getHotLine());
+        waitForJqueryLoad(driver);
         selectWebElement(editButton);
         waitForJqueryLoad(driver);
-        selectWebElement(statusDropdown);
-        selectDropdownFromVisibleText(statusListBox,details.getStatus());
         selectWebElement(interruptDropdown);
-        selectDropdownFromVisibleText(interruptListBox,details.getInterrupt());
-        selectWebElement(startDateTime);
-        enterValueToTxtField(startDateTime,details.getStartDateTime());
-        selectWebElement(endDateTime);
-        enterValueToTxtField(endDateTime,details.getEndDateTime());
-        clickOnUsingActionClass(selectFile);
-        //Auto It script to load wave file
-        FileUploader upload= new FileUploader();
-        upload.uploadFile(System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\welcome.wav");
+        selectDropdownFromVisibleText(interruptListBox,details.getUpdatedInterrupt());
         selectWebElement(ModifyReasonTextBox);
-        enterValueToTxtField(ModifyReasonTextBox,details.getModifyReason());
+        enterValueToTxtFieldWithoutClear(ModifyReasonTextBox,details.getModifyReason());
         selectWebElement(saveBtn);
     }
     public void deleteIntroMessageAnnouncementRecord(IntroMessageAnnouncementDetails details) throws Exception {
@@ -941,11 +939,12 @@ public class IntroMessageAnnouncementPage extends BasePage {
 	
 	public String getSuccessMessage() {
 		waitForJqueryLoad(driver);
-        if(errorMsg.size()>0){return errorMsg.get(0).getText();}
-        waitUntilWebElementIsVisible(successmsg);
-        return successmsg.getText();
-	}
-	
+		if(successmsg.isDisplayed())
+	        return successmsg.getText();
+		else
+			return errorMsg.get(0).getText();}
+
+    
 	public boolean getErrorMsg() {
 		waitUntilWebElementListIsVisible(errorMsg);
 		if(errorMsg.size()>0)
@@ -1045,6 +1044,397 @@ public class IntroMessageAnnouncementPage extends BasePage {
         return taskCompleteBtn.isEnabled();
 
 	}
+
+	public boolean verifyApprovedSectionDataafterapproval(IntroMessageAnnouncementDetails details) throws Exception {
+		searchIntroMessageAnnouncementRecordApprovedData(details.getHotLine());
+		if(rowdata.getText().equals(details.getHotLine()))
+			return true;
+		else
+		return false;
+	}
+
+	public void addwithoutFunctionality(IntroMessageAnnouncementDetails details) throws Exception {
+		selectWebElement(IntroMessageAnnouncementTabs.get(1));
+        selectWebElement(makeIntroMessageAnnouncementChanges);
+        waitForLoad(driver);waitForJqueryLoad(driver);
+        selectWebElement(addNewIntroMessageAnnouncementRcrdBtn);
+        waitForJqueryLoad(driver);
+        selectWebElement(HotlineTextbox);
+        enterValueToTxtField(HotlineTextbox,details.getHotLine());
+        selectWebElement(startDateTime);
+        enterValueToTxtField(startDateTime,details.getStartDateTime());
+        selectWebElement(endDateTime);
+        enterValueToTxtField(endDateTime,details.getEndDateTime());
+        selectWebElement(languageDropdown);
+        selectDropdownFromVisibleText(languageListBox,details.getLanguage());
+        selectWebElement(statusDropdown);
+        selectDropdownFromVisibleText(statusListBox,details.getStatus());
+        selectWebElement(interruptDropdown);
+        selectDropdownFromVisibleText(interruptListBox,details.getInterrupt());
+        clickOnUsingActionClass(selectFile);
+        //Auto It script to load wave file
+        FileUploader upload= new FileUploader();
+        upload.uploadFile(System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\"+details.getWavFile());
+        selectWebElement(saveBtn);		
+	}
+
+	public void addwithoutHotLine(IntroMessageAnnouncementDetails details) throws Exception {
+		selectWebElement(IntroMessageAnnouncementTabs.get(1));
+        selectWebElement(makeIntroMessageAnnouncementChanges);
+        waitForLoad(driver);waitForJqueryLoad(driver);
+        selectWebElement(addNewIntroMessageAnnouncementRcrdBtn);
+        waitForJqueryLoad(driver);
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        selectWebElement(funtionalityDropdown);
+        selectDropdownFromVisibleText(functionalityListBox,details.getFunctionality());
+        selectWebElement(startDateTime);
+        enterValueToTxtField(startDateTime,details.getStartDateTime());
+        selectWebElement(endDateTime);
+        enterValueToTxtField(endDateTime,details.getEndDateTime());
+        selectWebElement(languageDropdown);
+        selectDropdownFromVisibleText(languageListBox,details.getLanguage());
+        selectWebElement(statusDropdown);
+        selectDropdownFromVisibleText(statusListBox,details.getStatus());
+        selectWebElement(interruptDropdown);
+        selectDropdownFromVisibleText(interruptListBox,details.getInterrupt());
+        clickOnUsingActionClass(selectFile);
+        //Auto It script to load wave file
+        FileUploader upload= new FileUploader();
+        upload.uploadFile(System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\"+details.getWavFile());
+        selectWebElement(saveBtn);	
+	}
+
+	public void addwithoutStartDateTime(IntroMessageAnnouncementDetails details) throws Exception {
+		selectWebElement(IntroMessageAnnouncementTabs.get(1));
+        selectWebElement(makeIntroMessageAnnouncementChanges);
+        waitForLoad(driver);waitForJqueryLoad(driver);
+        selectWebElement(addNewIntroMessageAnnouncementRcrdBtn);
+        waitForJqueryLoad(driver);
+        selectWebElement(funtionalityDropdown);
+        selectDropdownFromVisibleText(functionalityListBox,details.getFunctionality());
+        selectWebElement(HotlineTextbox);
+        enterValueToTxtField(HotlineTextbox,details.getHotLine());
+        selectWebElement(endDateTime);
+        enterValueToTxtField(endDateTime,details.getEndDateTime());
+        selectWebElement(languageDropdown);
+        selectDropdownFromVisibleText(languageListBox,details.getLanguage());
+        selectWebElement(statusDropdown);
+        selectDropdownFromVisibleText(statusListBox,details.getStatus());
+        selectWebElement(interruptDropdown);
+        selectDropdownFromVisibleText(interruptListBox,details.getInterrupt());
+        clickOnUsingActionClass(selectFile);
+        //Auto It script to load wave file
+        FileUploader upload= new FileUploader();
+        upload.uploadFile(System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\"+details.getWavFile());
+        selectWebElement(saveBtn);		
+	}
+
+	public void addwithoutEndDateTime(IntroMessageAnnouncementDetails details) throws Exception {
+		selectWebElement(IntroMessageAnnouncementTabs.get(1));
+        selectWebElement(makeIntroMessageAnnouncementChanges);
+        waitForLoad(driver);waitForJqueryLoad(driver);
+        selectWebElement(addNewIntroMessageAnnouncementRcrdBtn);
+        waitForJqueryLoad(driver);
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        selectWebElement(funtionalityDropdown);
+        selectDropdownFromVisibleText(functionalityListBox,details.getFunctionality());
+        selectWebElement(HotlineTextbox);
+        enterValueToTxtField(HotlineTextbox,details.getHotLine());
+        selectWebElement(startDateTime);
+        enterValueToTxtField(startDateTime,details.getStartDateTime());
+        selectWebElement(languageDropdown);
+        selectDropdownFromVisibleText(languageListBox,details.getLanguage());
+        selectWebElement(statusDropdown);
+        selectDropdownFromVisibleText(statusListBox,details.getStatus());
+        selectWebElement(interruptDropdown);
+        selectDropdownFromVisibleText(interruptListBox,details.getInterrupt());
+        clickOnUsingActionClass(selectFile);
+        //Auto It script to load wave file
+        FileUploader upload= new FileUploader();
+        upload.uploadFile(System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\"+details.getWavFile());
+        selectWebElement(saveBtn);	
+        selectWebElement(cancelBtn);
+	}
+
+	public void addwithoutLanguage(IntroMessageAnnouncementDetails details) throws Exception {
+		selectWebElement(IntroMessageAnnouncementTabs.get(1));
+        selectWebElement(makeIntroMessageAnnouncementChanges);
+        waitForLoad(driver);waitForJqueryLoad(driver);
+        selectWebElement(addNewIntroMessageAnnouncementRcrdBtn);
+        waitForJqueryLoad(driver);
+        selectWebElement(funtionalityDropdown);
+        selectDropdownFromVisibleText(functionalityListBox,details.getFunctionality());
+        selectWebElement(HotlineTextbox);
+        enterValueToTxtField(HotlineTextbox,details.getHotLine());
+        selectWebElement(startDateTime);
+        enterValueToTxtField(startDateTime,details.getStartDateTime());
+        selectWebElement(endDateTime);
+        enterValueToTxtField(endDateTime,details.getEndDateTime());
+        selectWebElement(statusDropdown);
+        selectDropdownFromVisibleText(statusListBox,details.getStatus());
+        selectWebElement(interruptDropdown);
+        selectDropdownFromVisibleText(interruptListBox,details.getInterrupt());
+        clickOnUsingActionClass(selectFile);
+        //Auto It script to load wave file
+        FileUploader upload= new FileUploader();
+        upload.uploadFile(System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\"+details.getWavFile());
+        selectWebElement(saveBtn);	
+        selectWebElement(cancelBtn);
+	}
+
+	public void addwithoutWaveFile(IntroMessageAnnouncementDetails details) throws Exception {
+		selectWebElement(IntroMessageAnnouncementTabs.get(1));
+        selectWebElement(makeIntroMessageAnnouncementChanges);
+        waitForLoad(driver);waitForJqueryLoad(driver);
+        selectWebElement(addNewIntroMessageAnnouncementRcrdBtn);
+        waitForJqueryLoad(driver);
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        selectWebElement(funtionalityDropdown);
+        selectDropdownFromVisibleText(functionalityListBox,details.getFunctionality());
+        selectWebElement(HotlineTextbox);
+        enterValueToTxtField(HotlineTextbox,details.getHotLine());
+        selectWebElement(startDateTime);
+        enterValueToTxtField(startDateTime,details.getStartDateTime());
+        selectWebElement(endDateTime);
+        enterValueToTxtField(endDateTime,details.getEndDateTime());
+        selectWebElement(languageDropdown);
+        selectDropdownFromVisibleText(languageListBox,details.getLanguage());
+        selectWebElement(statusDropdown);
+        selectDropdownFromVisibleText(statusListBox,details.getStatus());
+        selectWebElement(interruptDropdown);
+        selectDropdownFromVisibleText(interruptListBox,details.getInterrupt());
+        selectWebElement(saveBtn);	
+        selectWebElement(cancelBtn);
+	}
+
+	public void addwithoutStatus(IntroMessageAnnouncementDetails details) throws Exception {
+		selectWebElement(IntroMessageAnnouncementTabs.get(1));
+        selectWebElement(makeIntroMessageAnnouncementChanges);
+        waitForLoad(driver);waitForJqueryLoad(driver);
+        selectWebElement(addNewIntroMessageAnnouncementRcrdBtn);
+        waitForJqueryLoad(driver);
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        selectWebElement(funtionalityDropdown);
+        selectDropdownFromVisibleText(functionalityListBox,details.getFunctionality());
+        selectWebElement(HotlineTextbox);
+        enterValueToTxtField(HotlineTextbox,details.getHotLine());
+        selectWebElement(startDateTime);
+        enterValueToTxtField(startDateTime,details.getStartDateTime());
+        selectWebElement(endDateTime);
+        enterValueToTxtField(endDateTime,details.getEndDateTime());
+        selectWebElement(languageDropdown);
+        selectDropdownFromVisibleText(languageListBox,details.getLanguage());
+        selectWebElement(interruptDropdown);
+        selectDropdownFromVisibleText(interruptListBox,details.getInterrupt());
+        clickOnUsingActionClass(selectFile);
+        //Auto It script to load wave file
+        FileUploader upload= new FileUploader();
+        upload.uploadFile(System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\"+details.getWavFile());
+        selectWebElement(saveBtn);	
+        selectWebElement(cancelBtn);
+	}
+
+	public void addwithoutInterrupt(IntroMessageAnnouncementDetails details) throws Exception {
+		selectWebElement(IntroMessageAnnouncementTabs.get(1));
+        selectWebElement(makeIntroMessageAnnouncementChanges);
+        waitForLoad(driver);waitForJqueryLoad(driver);
+        selectWebElement(addNewIntroMessageAnnouncementRcrdBtn);
+        waitForJqueryLoad(driver);
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        selectWebElement(funtionalityDropdown);
+        selectDropdownFromVisibleText(functionalityListBox,details.getFunctionality());
+        selectWebElement(HotlineTextbox);
+        enterValueToTxtField(HotlineTextbox,details.getHotLine());
+        selectWebElement(startDateTime);
+        enterValueToTxtField(startDateTime,details.getStartDateTime());
+        selectWebElement(endDateTime);
+        enterValueToTxtField(endDateTime,details.getEndDateTime());
+        selectWebElement(languageDropdown);
+        selectDropdownFromVisibleText(languageListBox,details.getLanguage());
+        selectWebElement(statusDropdown);
+        selectDropdownFromVisibleText(statusListBox,details.getStatus());
+        clickOnUsingActionClass(selectFile);
+        //Auto It script to load wave file
+        FileUploader upload= new FileUploader();
+        upload.uploadFile(System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\"+details.getWavFile());
+        selectWebElement(saveBtn);	
+        selectWebElement(cancelBtn);
+	}
+
+	public void clickonReject(String comment) throws Exception {
+		selectWebElement(IntroMessageAnnouncementTabs.get(1));
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        clickOn(rejectBtn);
+        selectWebElement(checkerReason);
+        enterValueToTxtField(checkerReason,comment);
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        clickOn(yesBtn);			
+	}
+
+	public boolean VerifyMakeIntroMessageAnnouncementChangeButton() {
+		return makeIntroMessageAnnouncementChanges.isDisplayed();
+	}
+
+	public boolean EditCancel(IntroMessageAnnouncementDetails details) throws Exception {
+		selectWebElement(IntroMessageAnnouncementTabs.get(1));
+		Thread.sleep(1000);
+		selectWebElement(makeIntroMessageAnnouncementChanges);
+		Thread.sleep(1000);
+		searchIntroMessageAnnouncementRecord(details.getHotLine());
+		selectWebElement(editButton);
+		waitForJqueryLoad(driver);
+		selectWebElement(cancelBtn);
+		if(editrowdata.get(3).getText().equals(details.getHotLine()))
+			return true;
+		else
+		return false;
+	}
+
+	public boolean verifyAuditTrailUpdate(IntroMessageAnnouncementDetails details,String Transaction, String Status) {
+		boolean stat=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable();
+        if(firstRowData.get("Transaction").equalsIgnoreCase(Transaction)){
+            if(firstRowData.get("Status").equalsIgnoreCase(Status)){
+                if(firstRowData.get("Function").equalsIgnoreCase("IvrIntroductoryMessageAnnouncement")){
+                       if(Transaction.equals("MakerUpdate")){
+                           Map<String,String> newvalues=new HashMap<>();
+                            String[] d=firstRowData.get("New Values").split("\n");
+                            for(String e:d){
+                                String[]f=e.split(":",2);
+                                if(f.length>1){newvalues.put(f[0],f[1]);}
+                            }
+                            if(verifyUpdatedNewValues(details,newvalues)){
+                                stat=true;}
+                            else 
+                            stat=false;
+                       }
+                       else{System.out.println("Data mismatch");}
+                }else{System.out.println("Data mismatch:"+firstRowData.get("Function")+"\t"+"RoleManagement");}
+            }else{System.out.println("Data mismatch:"+firstRowData.get("Status")+"\t"+Status);}
+        }else{System.out.println("Data mismatch:"+firstRowData.get("Transaction")+"\t"+Transaction);}
+        return stat;
+	}
+	
+	private boolean verifyUpdatedNewValues(IntroMessageAnnouncementDetails details, Map<String, String> newvalues) {
+		Boolean Status=false;
+		if(newvalues.get("Functionality").equals(details.getFunctionality())) {
+			if(newvalues.get("Language").equals(details.getLanguage())){
+				if(newvalues.get("Hotline").equals(details.getHotLine())){
+					if(newvalues.get("Status").equals(details.getStatus())){
+						if(newvalues.get("Interrupt").equals(details.getUpdatedInterrupt())){
+							if(newvalues.get("WaveFile").equals(details.getWavFile())) {	
+								Status=true;
+        					}
+        					else System.out.println("WaveFile data mismatch");
+    					}
+    					else System.out.println("Interrupt data mismatch");
+					}
+					else System.out.println("Status data mismatch");
+				}
+				else System.out.println("HotLinedata mismatch");
+			}
+			else System.out.println("Language data mismatch");
+		}
+		else {System.out.println("Functionality data mismatch");}
+	return Status;
+	}
+
+	public void EditRecordWithoutModifyReason(IntroMessageAnnouncementDetails details) throws Exception {
+		selectWebElement(IntroMessageAnnouncementTabs.get(1));
+		Thread.sleep(1000);
+		selectWebElement(makeIntroMessageAnnouncementChanges);
+		Thread.sleep(1000);
+		searchIntroMessageAnnouncementRecord(details.getHotLine());
+		selectWebElement(editButton);
+		waitForJqueryLoad(driver);		
+		Thread.sleep(1000);
+        selectWebElement(saveBtn);	
+        selectWebElement(cancelBtn);		
+	}
+
+	public boolean DeleteCancel(IntroMessageAnnouncementDetails details) throws Exception {
+		selectWebElement(IntroMessageAnnouncementTabs.get(1));
+		Thread.sleep(1000);
+		selectWebElement(makeIntroMessageAnnouncementChanges);
+		Thread.sleep(1000);
+		searchIntroMessageAnnouncementRecord(details.getHotLine());
+		selectWebElement(deleteButton);
+		waitForJqueryLoad(driver);
+		selectWebElement(noBtn);
+		if(editrowdata.get(3).getText().equals(details.getHotLine()))
+			return true;
+		else
+		return false;
+	}
+
+	public void DeleteRecordWithoutModifyReason(IntroMessageAnnouncementDetails details) throws Exception {
+		selectWebElement(IntroMessageAnnouncementTabs.get(1));
+		Thread.sleep(1000);
+		selectWebElement(makeIntroMessageAnnouncementChanges);
+		Thread.sleep(1000);
+		searchIntroMessageAnnouncementRecord(details.getHotLine());
+		waitForJqueryLoad(driver);
+		selectWebElement(deleteButton);
+		waitForJqueryLoad(driver);	
+		selectWebElement(deleteYesBtn);
+		selectWebElement(deleteNoBtn);
+	}
+
+	public void DeleteIntroMessageAnnouncementRecord(IntroMessageAnnouncementDetails details) throws Exception {
+		selectWebElement(IntroMessageAnnouncementTabs.get(1));
+		Thread.sleep(1000);
+		selectWebElement(makeIntroMessageAnnouncementChanges);
+		Thread.sleep(1000);
+		searchIntroMessageAnnouncementRecord(details.getHotLine());
+		waitForJqueryLoad(driver);
+		selectWebElement(deleteButton);
+		waitForJqueryLoad(driver);	
+		enterValueToTxtFieldWithoutClear(deleteReasonTextBox,details.getDeleteReason());
+		selectWebElement(deleteYesBtn);		
+	}
+
+	public boolean verifyAuditTrailDelete(IntroMessageAnnouncementDetails introMessageAnnouncementDetails,
+			String Transaction, String Status) {
+		boolean stat=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable();
+        if(firstRowData.get("Transaction").equalsIgnoreCase(Transaction)){
+            if(firstRowData.get("Status").equalsIgnoreCase(Status)){
+                if(firstRowData.get("Function").equalsIgnoreCase("IvrIntroductoryMessageAnnouncement")){
+                       stat=true;
+                }else{System.out.println("Data mismatch:"+firstRowData.get("Function")+"\t"+"RoleManagement");}
+            }else{System.out.println("Data mismatch:"+firstRowData.get("Status")+"\t"+Status);}
+        }else{System.out.println("Data mismatch:"+firstRowData.get("Transaction")+"\t"+Transaction);}
+        return stat;
+	}
+
 
 	
 }

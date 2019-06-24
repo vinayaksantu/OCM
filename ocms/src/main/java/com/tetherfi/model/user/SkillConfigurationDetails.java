@@ -18,6 +18,7 @@ public class SkillConfigurationDetails {
     private String updatedSkillName;
     private String updatedEnabled;
     private String Query;
+    private String SkillTab;
 
     public SkillConfigurationDetails(Map<String,String> map){
         skillID=readSkillID(map);
@@ -31,10 +32,16 @@ public class SkillConfigurationDetails {
         deleteReason=readDeleteReason(map);
         updatedSkillName=readUpdatedSkillName(map);
         updatedEnabled=readUpdatedEnabled(map);
+        SkillTab=readSkillTab(map);
         Query=readQuery(map);
     }
 
-    private String readQuery(Map<String, String> map) {
+    private String readSkillTab(Map<String, String> map) {
+    	String value=map.get("Skill Tab");
+		return value;
+	}
+
+	private String readQuery(Map<String, String> map) {
     	String value=map.get("Query");
 		return value;
 	}
@@ -157,5 +164,9 @@ public class SkillConfigurationDetails {
 
 	public String getQuery() {
 		return Query;
+	}
+
+	public String getSkillTab() {
+		return SkillTab;
 	}
 }

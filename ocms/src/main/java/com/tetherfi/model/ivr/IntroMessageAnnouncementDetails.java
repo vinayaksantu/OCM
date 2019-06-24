@@ -19,6 +19,7 @@ public class IntroMessageAnnouncementDetails {
     private String Query;
     private String HotLine;
     private String Wavefile;
+    private String UpdatedInterrupt;
 
     public IntroMessageAnnouncementDetails(Map<String,String> map){
         functionality=readFunctionality(map);
@@ -32,10 +33,17 @@ public class IntroMessageAnnouncementDetails {
         Query=readQuery(map);
         HotLine=readHotLine(map);
         Wavefile=readWaveFile(map);
+        UpdatedInterrupt=readUpdatedInterrupt(map);
         		
     }
 
-    private String readWaveFile(Map<String, String> map) {
+    private String readUpdatedInterrupt(Map<String, String> map) {
+    	String value=map.get("Updated Interrupt");
+    	return value;
+
+	}
+
+	private String readWaveFile(Map<String, String> map) {
     	String value=map.get("Wave File");
         if(value==null||value.equalsIgnoreCase("random.str")){
             value= RandomStringUtils.randomAlphabetic(10);
@@ -170,5 +178,9 @@ public class IntroMessageAnnouncementDetails {
 
 	public String getWavFile() {
 		return Wavefile;
+	}
+
+	public String getUpdatedInterrupt() {
+		return UpdatedInterrupt;
 	}
 }

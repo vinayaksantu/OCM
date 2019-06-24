@@ -4,7 +4,7 @@ import org.apache.commons.lang3.RandomStringUtils;
 
 import java.util.Map;
 
-public class SMSResponseTemplateDetails {
+public class SmsResponseTemplateDetails {
     private String text;
     private String intent;
     private String enable;
@@ -15,8 +15,9 @@ public class SMSResponseTemplateDetails {
     private String iCOMTemplateID;
     private String modifyReason;
     private String deleteReason;
+    private String UpdatedMessageDescription;
 
-    public SMSResponseTemplateDetails(Map<String,String> map){
+    public SmsResponseTemplateDetails(Map<String,String> map){
         text=readText(map);
         intent=readIntent(map);
         enable=readEnable(map);
@@ -27,10 +28,19 @@ public class SMSResponseTemplateDetails {
         iCOMTemplateID=readIcomTemplateID(map);
         modifyReason=readModifyReason(map);
         deleteReason=readDeleteReason(map);
+        UpdatedMessageDescription=readUpdatedMessageDescription(map);
     }
 
-    private String readIcomTemplateID(Map<String, String> map) {
-        String value=map.get("IconTemplateID");
+    private String readUpdatedMessageDescription(Map<String, String> map) {
+    	 String value=map.get("Updated Message Description");
+         if(value==null||value.equalsIgnoreCase("random.str")){
+             value= RandomStringUtils.randomAlphabetic(10);
+         }
+         return value;
+	}
+
+	private String readIcomTemplateID(Map<String, String> map) {
+        String value=map.get("IcomTemplateID");
         if(value==null||value.equalsIgnoreCase("random.str")){
             value= RandomStringUtils.randomAlphabetic(10);
         }
@@ -147,4 +157,13 @@ public class SMSResponseTemplateDetails {
     public String getiCOMTemplateID() {
         return iCOMTemplateID;
     }
+
+	public String getUpdatedMessageDescription() {
+		return UpdatedMessageDescription;
+	}
+
+	public String getQuery() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

@@ -3,38 +3,26 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.tetherfi.test.fax.FaxAddressBookTest">
+      <class name="com.tetherfi.test.sms.SmsResponseTemplateCreateTest">
         <methods>
-          <include name="VerifyAuditTrialReportForDelete"/>
-          <include name="AddNewFaxAddressBookRecord"/>
-          <include name="DeleteRecipientRecord"/>
-          <include name="AddNewEmptyRecord"/>
-          <include name="DeleteWithoutDeleteReasonAddressBookRecord"/>
-          <include name="startTestCase"/>
-          <include name="openApplication"/>
-          <include name="VerifyCancelBtnAtEditAddressBookRecord"/>
-          <include name="VerifyColumnsHeaderEnable"/>
-          <include name="EditWithoutModifyReasonRecipientRecord"/>
-          <include name="VerifyCancelBtnAtEditDepartmentRecord"/>
-          <include name="EditFaxAddressBookRecord"/>
-          <include name="VerifyAuditTrailReportForAddressCreate"/>
-          <include name="VerifyAuditTrailReportForCreate"/>
-          <include name="VerifyAuditTrialReportForAddressBookDelete"/>
-          <include name="NavigatetoFaxAddressPage"/>
-          <include name="endTestCase"/>
-          <include name="tearDown"/>
+          <include name="VerifyRecordAfterRejection"/>
+          <include name="VerifyRecordApprovedDataSectionafterApproval"/>
           <include name="afterEachMethod"/>
-          <include name="VerifyAuditTrialReportForRecipientUpdate"/>
-          <include name="VerifyCancelButtonAtAddAdhocOptionEnhancementRecord"/>
-          <include name="AddNewFaxAddressBookRecipientRecord"/>
-          <include name="EditRecipientRecord"/>
-          <include name="VerifyDropdownForAllTheColumns"/>
-          <include name="DeleteWithoutDeleteReasonRecord"/>
-          <include name="ExportToExcelData"/>
-          <include name="DeleteAddressBookRecord"/>
-          <include name="VerifyAuditTrialReportForFaxAddressBookUpdate"/>
+          <include name="RejectforAddNewSmsResponseTemplateRecord"/>
+          <include name="VerifyMakeSmsResponseTemplateButtonafterRejection"/>
+          <include name="VerifyAuditTrailReportForApprove"/>
+          <include name="VerifyAuditTrailDataForAddNewSmsResponseTemplateRecord"/>
+          <include name="VerifyTaskCompleteActionForAddNewRecord"/>
+          <include name="AddRecord"/>
+          <include name="VerifyApprovedDataSectionWithoutApproval"/>
+          <include name="VerifyAuditTrailReportForReject"/>
+          <include name="NavigateToSmsResponseTemplatePage"/>
+          <include name="VerifyAuditTrailReportForCreate"/>
+          <include name="ApproveforAddNewSmsResponseTemplateRecord"/>
+          <include name="VerifyTaskCompleteActionForAddNewSmsResponseTemplateRecord"/>
+          <include name="AddDuplicateRecord"/>
         </methods>
-      </class> <!-- com.tetherfi.test.fax.FaxAddressBookTest -->
+      </class> <!-- com.tetherfi.test.sms.SmsResponseTemplateCreateTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -665,9 +665,9 @@ public class AgentSkillAssignmentPage extends BasePage {
 			return false;		
 	}
     
-    public Boolean VerifySkill(String SkillName){
+    public Boolean VerifySkill(String SkillName,String SkillTab){
     	Boolean Status=false;
-    	selectmultiSkillTab("Voice Skills");
+    	selectmultiSkillTab(SkillTab);
     	for(WebElement ele:multiskillsName){
             if(ele.getText().equalsIgnoreCase(SkillName))
             	Status= true;
