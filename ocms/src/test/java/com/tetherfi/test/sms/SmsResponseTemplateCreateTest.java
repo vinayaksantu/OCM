@@ -66,7 +66,7 @@ public class SmsResponseTemplateCreateTest {
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 	}
 	
-	//@Test(groups= {"Maker"})
+	@Test(groups= {"Maker"})
     public void VerifyAddCancelButton() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\SmsResponseTemplateData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -75,7 +75,7 @@ public class SmsResponseTemplateCreateTest {
         Assert.assertTrue(SmsResponseTemplatePage.addCancelButton(SmsResponseTemplateDetails), "Add cancel button assertion failed");
     }
 	
-	//@Test(groups = { "Maker" })
+	@Test(groups = { "Maker" })
     public void AddNewSmsResponseTemplateRecord() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\SmsResponseTemplateData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -85,7 +85,7 @@ public class SmsResponseTemplateCreateTest {
         Assert.assertEquals(SmsResponseTemplatePage.getSuccessMessage(), "Record Created Successfully");
     }
 	
-	@Test(groups = { "Maker" })//,dependsOnMethods = "AddNewSmsResponseTemplateRecord")
+	@Test(groups = { "Maker" },dependsOnMethods = "AddNewSmsResponseTemplateRecord")
     public void VerifyAuditTrailReportForCreate() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\SmsResponseTemplateData.xlsx";
 	    Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -100,7 +100,7 @@ public class SmsResponseTemplateCreateTest {
         Assert.assertTrue(ocmReportsPage.verifySmsResponseTemplateCreate(SmsResponseTemplateDetails, "MakerCreate"),"Audit Trail report assertion failed");
     }
     
-    @Test(groups = { "Maker" })//,dependsOnMethods="AddNewSmsResponseTemplateRecord")
+    @Test(groups = { "Maker" },dependsOnMethods="AddNewSmsResponseTemplateRecord")
     public void VerifyAuditTrailDataForAddNewSmsResponseTemplateRecord() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\SmsResponseTemplateData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -153,7 +153,7 @@ public class SmsResponseTemplateCreateTest {
         Assert.assertTrue(SmsResponseTemplatePage.verifyApprovedSectionDataafterapproval(SmsResponseTemplateDetails));
     }
     
-    @Test(groups = { "Maker" })//,dependsOnMethods="AddNewSmsResponseTemplateRecord")
+    @Test(groups = { "Maker" },dependsOnMethods="AddNewSmsResponseTemplateRecord")
     public void AddDuplicateRecord() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\SmsResponseTemplateData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -163,7 +163,7 @@ public class SmsResponseTemplateCreateTest {
         Assert.assertFalse(SmsResponseTemplatePage.getErrorMsg(),"Duplicate assetion failed");
     }
     
-   //@Test(groups = { "Maker" })
+   @Test(groups = { "Maker" })
     public void VerifyAddRecordwithoutText() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\SmsResponseTemplateData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -173,7 +173,7 @@ public class SmsResponseTemplateCreateTest {
         Assert.assertFalse(SmsResponseTemplatePage.getErrorMsg());
     }
     
-    //@Test(groups = { "Maker" })
+    @Test(groups = { "Maker" })
     public void VerifyAddRecordWithoutIntent() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\SmsResponseTemplateData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -183,7 +183,7 @@ public class SmsResponseTemplateCreateTest {
         Assert.assertFalse(SmsResponseTemplatePage.getErrorMsg());
     }
     
-    //@Test(groups = { "Maker" })
+    @Test(groups = { "Maker" })
     public void VerifyAddRecordWithoutEnable() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\SmsResponseTemplateData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -193,7 +193,7 @@ public class SmsResponseTemplateCreateTest {
         Assert.assertFalse(SmsResponseTemplatePage.getErrorMsg());
     }
     
-    //@Test(groups = { "Maker" })
+    @Test(groups = { "Maker" })
     public void VerifyAddRecordWithoutICOMTemplateID() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\SmsResponseTemplateData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);

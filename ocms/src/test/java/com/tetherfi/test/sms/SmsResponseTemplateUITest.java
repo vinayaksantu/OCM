@@ -30,7 +30,7 @@ Screenshot screenshot=new Screenshot(driver);
         homePage.navigateToOCMPage();
         OCMHomePage ocmHomePage = PageFactory.createPageInstance(driver, OCMHomePage.class);
         Assert.assertTrue(ocmHomePage.isOCMHomePageIsDisplayed(), "OCM HOME Page assertion failed");
-        ocmHomePage.navigateToTab("IVR");
+        ocmHomePage.navigateToTab("SMS");
         SmsPage smsPage = PageFactory.createPageInstance(driver, SmsPage.class);
         Assert.assertTrue(smsPage.isSMSPageDisplayed(), "IVR Page assertion failed");
         smsPage.navigateToSMSResponseTemplatePage();
@@ -59,7 +59,7 @@ Screenshot screenshot=new Screenshot(driver);
 		SmsResponseTemplatePage.selectSmsResponseTemplateAuditTrailTab();
         Assert.assertTrue(SmsResponseTemplatePage.verifyAuditTrailDataTableHeaders(),"Audit Trail table assertion failed");
        }
-       
+	
 	@Test(priority=4)
     public void VerifyMakeSmsResponseTemplateChangeButton() {
 		SmsResponseTemplatePage SmsResponseTemplatePage = PageFactory.createPageInstance(driver, SmsResponseTemplatePage.class);
@@ -137,7 +137,7 @@ Screenshot screenshot=new Screenshot(driver);
     
     @Test(priority=13)
     public void ExportToExcelData() throws Exception
-    {	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Intro Message Announcement.xlsx";
+    {	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\SMS Response Template.xlsx";
     	List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
     	SmsResponseTemplatePage SmsResponseTemplatePage = PageFactory.createPageInstance(driver, SmsResponseTemplatePage.class);
         SmsResponseTemplatePage.selectSmsResponseTemplateAuditTrailTab();
@@ -162,7 +162,7 @@ Screenshot screenshot=new Screenshot(driver);
         SmsResponseTemplatePage.selectSmsResponseTemplateAuditTrailTab();
         SmsResponseTemplatePage.selectMakeSmsResponseTemplateChanges();
         SmsResponseTemplatePage.SortByAscending();
-    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Intro Message Announcement (1).xlsx";
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\SMS Response Template (1).xlsx";
         List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
         Assert.assertTrue(SmsResponseTemplatePage.verifyexportToExcelSheet(maplist));
     }
@@ -173,7 +173,7 @@ Screenshot screenshot=new Screenshot(driver);
         SmsResponseTemplatePage.selectSmsResponseTemplateAuditTrailTab();
         SmsResponseTemplatePage.selectMakeSmsResponseTemplateChanges();
         SmsResponseTemplatePage.SortByDescending();
-    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Intro Message Announcement (2).xlsx";
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\SMS Response Template (2).xlsx";
         List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
         Assert.assertTrue(SmsResponseTemplatePage.verifyexportToExcelSheet(maplist));
     }
@@ -183,17 +183,17 @@ Screenshot screenshot=new Screenshot(driver);
     	SmsResponseTemplatePage SmsResponseTemplatePage = PageFactory.createPageInstance(driver, SmsResponseTemplatePage.class);
         SmsResponseTemplatePage.selectSmsResponseTemplateAuditTrailTab();
         SmsResponseTemplatePage.selectMakeSmsResponseTemplateChanges();
-        SmsResponseTemplatePage.dragColumntoGroup("Functionality");
-        Assert.assertTrue(SmsResponseTemplatePage.verifyDragColumntoGroup("Functionality"),"drag and drop assertion failed");
+        SmsResponseTemplatePage.dragColumntoGroup("Intent");
+        Assert.assertTrue(SmsResponseTemplatePage.verifyDragColumntoGroup("Intent"),"drag and drop assertion failed");
     }
     @Test(priority=18)
     public void VerifyDragAndDropofAlreadyGroupedHeader() {
     	SmsResponseTemplatePage SmsResponseTemplatePage = PageFactory.createPageInstance(driver, SmsResponseTemplatePage.class);
         SmsResponseTemplatePage.selectSmsResponseTemplateAuditTrailTab();
         SmsResponseTemplatePage.selectMakeSmsResponseTemplateChanges();
-        SmsResponseTemplatePage.dragColumntoGroup("Functionality");
-        SmsResponseTemplatePage.dragColumntoGroup("Functionality");
-        Assert.assertTrue(SmsResponseTemplatePage.verifyDragColumntoGroup("Functionality"),"drag and drop assertion failed");
+        SmsResponseTemplatePage.dragColumntoGroup("Intent");
+        SmsResponseTemplatePage.dragColumntoGroup("Intent");
+        Assert.assertTrue(SmsResponseTemplatePage.verifyDragColumntoGroup("Intent"),"drag and drop assertion failed");
     }
     
     @Test(priority=19)

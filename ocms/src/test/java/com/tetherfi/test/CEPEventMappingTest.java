@@ -10,11 +10,9 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import com.tetherfi.model.ivr.MenuDescriptionMappingDetails;
 import com.tetherfi.model.report.ReportDetails;
 import com.tetherfi.model.user.CepEventMappingDetails;
 import com.tetherfi.pages.HomePage;
-import com.tetherfi.pages.MenuDescriptionMappingPage;
 import com.tetherfi.pages.OCMHomePage;
 import com.tetherfi.pages.OCMReportsPage;
 import com.tetherfi.pages.CepEventMappingPage;

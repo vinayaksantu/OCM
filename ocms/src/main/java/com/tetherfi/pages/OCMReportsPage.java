@@ -3,6 +3,7 @@ package com.tetherfi.pages;
 import com.tetherfi.model.chat.ChatIntentSkillMappingDetails;
 import com.tetherfi.model.chat.ChatMenuDescriptionDetails;
 import com.tetherfi.model.chat.ChatTemplateDetails;
+import com.tetherfi.model.email.EmailTemplateDetails;
 import com.tetherfi.model.fax.FaxAddressBookDetails;
 import com.tetherfi.model.fax.FaxAutoACKConfigurationDetails;
 import com.tetherfi.model.fax.FaxLineConfigDetails;
@@ -5257,6 +5258,61 @@ return status;
 		}
 		else {System.out.println("Text data mismatch");}
 		return Status;	
+	}
+
+	public boolean verifyEmailTemplateDepartmentCreate(EmailTemplateDetails details, String Transaction) throws Exception {
+		booleansearchnew(details.getDepartmentName(),Transaction);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+		Map<String,String> newvalues=new HashMap<>();
+		String[]d=firstRowData.get("New Values").split("\n");
+		for(String e:d) {
+			String f[]=e.split(":",2);
+			if(f.length>1)
+			newvalues.put(f[0], f[1]);
+		}
+			if(newvalues.get("Name").equals(details.getDepartmentName()))
+			{
+				if(newvalues.get("Enabled").equals(details.getDeptEnabled()))
+				{
+					Status= true;
+				}
+				else {System.out.println("Enabled data mismatch");}
+			}
+			else {System.out.println("Name data mismatch");	}
+			return Status;		
+	}
+
+	public boolean verifyEmailTemplateGroupCreate(EmailTemplateDetails details, String Transaction) throws Exception {
+		booleansearchnew(details.getGroupName(),Transaction);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+		Map<String,String> newvalues=new HashMap<>();
+		String[]d=firstRowData.get("New Values").split("\n");
+		for(String e:d) {
+			String f[]=e.split(":",2);
+			if(f.length>1)
+			newvalues.put(f[0], f[1]);
+		}
+		if(newvalues.get("DepartmentName").equals(details.getDepartmentName()))
+		{
+			if(newvalues.get("Name").equals(details.getGroupName()))
+			{
+				if(newvalues.get("Enabled").equals(details.getGroupEnabled()))
+				{
+					Status= true;
+				}
+				else {System.out.println("Enabled data mismatch");}
+			}
+			else {System.out.println("Name data mismatch");	}
+		}	
+		else {System.out.println("Department Name data mismatch");	}
+		return Status;
+	}
+
+	public boolean verifyEmailTemplateCreate(EmailTemplateDetails emailTemplateDetails, String string) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 

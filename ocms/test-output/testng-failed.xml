@@ -3,26 +3,28 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.tetherfi.test.sms.SmsResponseTemplateCreateTest">
+      <class name="com.tetherfi.test.email.EmailTemplateTest">
         <methods>
-          <include name="VerifyRecordAfterRejection"/>
-          <include name="VerifyRecordApprovedDataSectionafterApproval"/>
-          <include name="afterEachMethod"/>
-          <include name="RejectforAddNewSmsResponseTemplateRecord"/>
-          <include name="VerifyMakeSmsResponseTemplateButtonafterRejection"/>
-          <include name="VerifyAuditTrailReportForApprove"/>
-          <include name="VerifyAuditTrailDataForAddNewSmsResponseTemplateRecord"/>
-          <include name="VerifyTaskCompleteActionForAddNewRecord"/>
-          <include name="AddRecord"/>
-          <include name="VerifyApprovedDataSectionWithoutApproval"/>
-          <include name="VerifyAuditTrailReportForReject"/>
-          <include name="NavigateToSmsResponseTemplatePage"/>
-          <include name="VerifyAuditTrailReportForCreate"/>
-          <include name="ApproveforAddNewSmsResponseTemplateRecord"/>
-          <include name="VerifyTaskCompleteActionForAddNewSmsResponseTemplateRecord"/>
-          <include name="AddDuplicateRecord"/>
+          <include name="AddRecordWithoutEmailEnabled"/>
+          <include name="VerifyCancelBtnAtAddEmailTemplateRecord"/>
+          <include name="AddEmptyEmailTemplateRecord"/>
+          <include name="AddDuplicateEmailTemplateRecord"/>
+          <include name="AddRecordWithoutType"/>
+          <include name="endTestCase"/>
+          <include name="tearDown"/>
+          <include name="AddRecordWithoutEmailTemplateName"/>
+          <include name="NavigateToEmailTemplatePage"/>
+          <include name="AddRecordWithoutGroupsName"/>
+          <include name="startTestCase"/>
+          <include name="openApplication"/>
+          <include name="AddNewEmailTemplateRecord"/>
+          <include name="VerifyAuditTrialReportForCreate"/>
+          <include name="AddRecordWithoutBody"/>
+          <include name="close"/>
+          <include name="AddRecordWithoutSubject"/>
+          <include name="AddRecordWithoutEmailDepartmentName"/>
         </methods>
-      </class> <!-- com.tetherfi.test.sms.SmsResponseTemplateCreateTest -->
+      </class> <!-- com.tetherfi.test.email.EmailTemplateTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

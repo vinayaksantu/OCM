@@ -359,7 +359,7 @@ public class SmsResponseTemplatePage extends BasePage {
         }
 
 	public boolean verifyApprovedDataTableHeaders() {
-		ArrayList<String> Expected=new ArrayList<String>(Arrays.asList("Functionality","Language","Host Data","Description","Wave File","Last Changed By","Last Changed On"));
+		ArrayList<String> Expected=new ArrayList<String>(Arrays.asList("Text","Intent","Enable","Source","Alert Code","App ID","Message Description","ICOM Template ID","Last Changed By","Last Changed On"));
         ArrayList Actual = getHeadersfromTable(approvedDataTableHeaders);
         System.out.println(Actual);
         Collections.sort(Expected);
@@ -421,7 +421,7 @@ public class SmsResponseTemplatePage extends BasePage {
 	}
 
 	public boolean verifyMakerDataTableHeaders() {
-		ArrayList<String> Expected=new ArrayList<String>(Arrays.asList("Functionality","Language","Host Data","Description","Wave File","Last Changed By","Last Changed On"));
+		ArrayList<String> Expected=new ArrayList<String>(Arrays.asList("Text","Intent","Enable","Source","Alert Code","App ID","Message Description","ICOM Template ID","Last Changed By","Last Changed On"));
 		ArrayList Actual = getHeadersfromTable(makerTableHeaders);
 		System.out.println(Actual);
         Collections.sort(Expected);Collections.sort(Actual);
@@ -589,7 +589,7 @@ public class SmsResponseTemplatePage extends BasePage {
     public boolean verifyExportToExcel(String filePath) {
 		final File folder = new File(filePath);
 		for (final File f : folder.listFiles()) {
-		    if (f.getName().startsWith("Host Value Mapping")) {
+		    if (f.getName().startsWith("SMS Response Template")) {
 		        f.delete();
 		    }
 		}
@@ -600,7 +600,7 @@ public class SmsResponseTemplatePage extends BasePage {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		Boolean Status=verifyExportPageFileDownload(filePath, "Host Value Mapping");
+		Boolean Status=verifyExportPageFileDownload(filePath, "SMS Response Template");
 		return Status;
 	}
 	public boolean verifyexportToExcelSheet(List<Map<String, String>> maplist) {
@@ -945,7 +945,7 @@ public class SmsResponseTemplatePage extends BasePage {
 		selectWebElement(makeSmsResponseTemplateChanges);
         waitForLoad(driver);
         selectWebElement(taskCompleteBtn);
-        enterValueToTxtField(makerComments,comment);
+        enterValueToTxtFieldWithoutClear(makerComments,comment);
         try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {

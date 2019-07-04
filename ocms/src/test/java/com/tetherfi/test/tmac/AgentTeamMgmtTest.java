@@ -19,6 +19,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
 import java.io.IOException;
+import java.lang.reflect.Method;
 import java.util.List;
 import java.util.Map;
 
@@ -41,7 +42,7 @@ public class AgentTeamMgmtTest extends BaseTest {
     	screenshot.captureScreen(driver, "Agent Team Management Page","AgentTeamMgmtTest");
     }
     
-  // (priority=1)
+    @Test(priority=1)
     public void AgentTeamManagementPage()
     {
     	AgentTeamManagementPage agentTeamManagementPage=PageFactory.createPageInstance(driver,AgentTeamManagementPage.class);
@@ -53,7 +54,7 @@ public class AgentTeamMgmtTest extends BaseTest {
     	screenshot.captureScreen(driver, "Minimize Window","AgentTeamMgmtTest");
     }
 
-    //@Test(priority=2)
+    @Test(priority=2)
     public void AddNewAgentTeamManagementRecord() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentTeamManagementData.xlsx";
         Map<String, String> map1 = new ExcelReader(filePath, "Create").getTestData().get(1);
@@ -191,10 +192,9 @@ public class AgentTeamMgmtTest extends BaseTest {
         ReportDetails reportDetails= new ReportDetails(map2);
         ocmReportsPage.showReport(reportDetails);
         Assert.assertTrue(ocmReportsPage.verifyAgentTeamMgmtdelete(agentTeamMgmtDetails,"Delete",displayname));
-        screenshot.captureScreen("AgentTeamMgmtTest", "VerifyAuditTrialReportForUpdate");
         }
    
-    /*@Test(priority=8)
+    @Test(priority=8)
     public void ExportToExcel() throws Exception
     {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles";
@@ -287,19 +287,12 @@ public class AgentTeamMgmtTest extends BaseTest {
     	Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         AgentTeamMgmtDetails agentTeamMgmtDetails=new AgentTeamMgmtDetails(map);
         Assert.assertTrue(agentTeamManagementPage.ExporttoExcelWithoutData(agentTeamMgmtDetails));
-    }*/
+    }
     
     @AfterMethod
-    public void afterEachMethod(ITestResult result){
-   	 if(ITestResult.FAILURE==result.getStatus()){
-		 try{
-			 screenshot.captureScreen(driver, result.getName(),"AgentTeamMgmtTest");
-		 }
-		catch (Exception e){
-		 System.out.println("Exception while taking screenshot "+e.getMessage());
-		 } 
-		 driver.navigate().refresh();
-		 }
-	
+    public void afterEachMethod(Method method){
+    	Screenshot screenshot=new Screenshot(driver);
+        screenshot.captureScreen("AgentTeamManagementTest",method.getName());
+        driver.navigate().refresh(); 
     }
 }
