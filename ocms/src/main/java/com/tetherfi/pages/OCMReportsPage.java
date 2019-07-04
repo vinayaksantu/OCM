@@ -5310,7 +5310,7 @@ return status;
 		return Status;
 	}
 
-	public boolean verifyEmailTemplateCreate(EmailTemplateDetails details, String Transaction) {
+	public boolean verifyEmailTemplateCreate(EmailTemplateDetails details, String Transaction) throws Exception {
 		booleansearchnew(details.getTemplateName(),Transaction);
 		Boolean Status=false;
         Map<String,String> firstRowData=getFirstRowDatafromTable1();
@@ -5331,17 +5331,17 @@ return status;
 						{
 							if(newvalues.get("Enabled").equals(details.getEnabled()))
 							{
-								if(newvalues.get("StartTime").equals(details.getStartTime()))
+								if(newvalues.get("Type").equals(details.getType()))
 								{
-									if(newvalues.get("EndTime").equals(details.getEndTime()))
+									if(newvalues.get("Body").equals(details.getBody()))
 										Status= true;
-									else {System.out.println("EndTime data mismatch");}
+									else {System.out.println("Body data mismatch");}
 								}
-								else {System.out.println("StartTime data mismatch");}
+								else {System.out.println("Type data mismatch");}
 							}
 							else {System.out.println("Enabled data mismatch");}
 						}
-						else {System.out.println("Text data mismatch");}
+						else {System.out.println("Subject data mismatch");}
 					}
 					else {System.out.println("Name data mismatch");}
 				}
