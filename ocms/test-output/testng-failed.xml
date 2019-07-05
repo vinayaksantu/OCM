@@ -6,7 +6,6 @@
       <class name="com.tetherfi.test.email.EmailTemplateTest">
         <methods>
           <include name="AddRecordWithoutEmailEnabled"/>
-          <include name="VerifyCancelBtnAtAddEmailTemplateRecord"/>
           <include name="AddEmptyEmailTemplateRecord"/>
           <include name="AddDuplicateEmailTemplateRecord"/>
           <include name="AddRecordWithoutType"/>
