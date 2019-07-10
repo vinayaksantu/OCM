@@ -3,27 +3,17 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.tetherfi.test.email.EmailTemplateTest">
+      <class name="com.tetherfi.test.tmac.TmacTransferListTest">
         <methods>
-          <include name="AddRecordWithoutEmailEnabled"/>
-          <include name="AddEmptyEmailTemplateRecord"/>
-          <include name="AddDuplicateEmailTemplateRecord"/>
-          <include name="AddRecordWithoutType"/>
-          <include name="endTestCase"/>
-          <include name="tearDown"/>
-          <include name="AddRecordWithoutEmailTemplateName"/>
-          <include name="NavigateToEmailTemplatePage"/>
-          <include name="AddRecordWithoutGroupsName"/>
           <include name="startTestCase"/>
           <include name="openApplication"/>
-          <include name="AddNewEmailTemplateRecord"/>
-          <include name="VerifyAuditTrialReportForCreate"/>
-          <include name="AddRecordWithoutBody"/>
-          <include name="close"/>
-          <include name="AddRecordWithoutSubject"/>
-          <include name="AddRecordWithoutEmailDepartmentName"/>
+          <include name="afterEachMethod"/>
+          <include name="VerifyErrMsgNameBlank"/>
+          <include name="NavigatetoTmacTransferListPage"/>
+          <include name="endTestCase"/>
+          <include name="tearDown"/>
         </methods>
-      </class> <!-- com.tetherfi.test.email.EmailTemplateTest -->
+      </class> <!-- com.tetherfi.test.tmac.TmacTransferListTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

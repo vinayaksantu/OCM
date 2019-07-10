@@ -68,7 +68,7 @@ public class TmacTransferListTest extends BaseTest {
     	tmacTransferListPage.selectCancelOnAddNewConsulTransPopUp();
     }
     
-    //@Test (priority=4)
+    @Test (priority=4)
     public void VerifyErrMsgNameBlank() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\TmacTransferListData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "ConsulCreate").getTestData().get(0);

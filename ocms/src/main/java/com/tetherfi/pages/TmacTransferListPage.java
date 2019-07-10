@@ -305,7 +305,8 @@ public class TmacTransferListPage extends BasePage {
     }
     
     public void EnterAgtExtNewConsulTrans(TmacTransferListDetails tmacTransferListDetails) throws Exception{
-    	selectWebElement(tmacTransferListAgentExtnsnTextBox);
+    	Thread.sleep(1000);
+    	clickOn(tmacTransferListAgentExtnsnTextBox);
     	enterValueToTxtFieldWithoutClear(tmacTransferListAgentExtnsnTextBox1,tmacTransferListDetails.getAgentExtension());
     }
     
