@@ -33,6 +33,9 @@ public class OCMHomePage extends BasePage {
 
     @FindBy(css="a[href$='/LogfileData/Index'] div")
     private WebElement logfileDownloader;
+    
+    @FindBy(css="a[href$='/DeskManager/Index'] div")
+    private WebElement deskManager;
 
     @FindBy(id="adminLoadingAccess")
     private WebElement loadingModulesImg;
@@ -193,6 +196,11 @@ public class OCMHomePage extends BasePage {
 
 	public void navigateToWorkFlowDesignerPage() {
 		selectWebElement(workflowDesigner);
+	}
+
+	public void navigateToDeskManagerPage() {
+		selectWebElement(deskManager);
+		
 	}
 
 

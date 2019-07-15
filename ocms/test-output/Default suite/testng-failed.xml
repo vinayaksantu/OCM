@@ -3,38 +3,49 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.tetherfi.test.fax.FaxAddressBookTest">
+      <class name="com.tetherfi.test.fax.FaxLineConfigTest">
         <methods>
+          <include name="EditFaxLineConfigRecord"/>
+          <include name="GroupBy"/>
+          <include name="AddInvalidFaxLineConfigRecordWithoutDescription"/>
           <include name="VerifyAuditTrialReportForDelete"/>
-          <include name="AddNewFaxAddressBookRecord"/>
-          <include name="DeleteRecipientRecord"/>
-          <include name="AddNewEmptyRecord"/>
-          <include name="DeleteWithoutDeleteReasonAddressBookRecord"/>
+          <include name="ExporttoExcelWithoutData"/>
+          <include name="VerifyArrowMoveForPreviousAndNextPage"/>
+          <include name="AutoAckLink"/>
+          <include name="VerifyTotalNumberOfItemsPerPageDetails"/>
+          <include name="AddInvalidFaxLineConfigRecordWithoutRecieveStatus"/>
+          <include name="VerifyNumberOfItemsPerPageSelection"/>
+          <include name="VerifyAuditTrialReportForUpdate"/>
+          <include name="VerifyDropdownForAllTheColumns"/>
+          <include name="AddInvalidFaxLineConfigRecordWithoutSendStatus"/>
+          <include name="DeleteFaxLineConfigRecordWithoutReason"/>
+          <include name="EditInvalidFaxLineConfigRecord"/>
+          <include name="database"/>
+          <include name="ExportToExcelData"/>
+          <include name="ExportToExcel"/>
           <include name="startTestCase"/>
           <include name="openApplication"/>
-          <include name="VerifyCancelBtnAtEditAddressBookRecord"/>
-          <include name="VerifyColumnsHeaderEnable"/>
-          <include name="EditWithoutModifyReasonRecipientRecord"/>
-          <include name="VerifyCancelBtnAtEditDepartmentRecord"/>
-          <include name="EditFaxAddressBookRecord"/>
-          <include name="VerifyAuditTrailReportForAddressCreate"/>
-          <include name="VerifyAuditTrailReportForCreate"/>
-          <include name="VerifyAuditTrialReportForAddressBookDelete"/>
-          <include name="NavigatetoFaxAddressPage"/>
-          <include name="endTestCase"/>
-          <include name="tearDown"/>
+          <include name="VerifyColumnsHeaderDisable"/>
           <include name="afterEachMethod"/>
-          <include name="VerifyAuditTrialReportForRecipientUpdate"/>
-          <include name="VerifyCancelButtonAtAddAdhocOptionEnhancementRecord"/>
-          <include name="AddNewFaxAddressBookRecipientRecord"/>
-          <include name="EditRecipientRecord"/>
-          <include name="VerifyDropdownForAllTheColumns"/>
-          <include name="DeleteWithoutDeleteReasonRecord"/>
-          <include name="ExportToExcelData"/>
-          <include name="DeleteAddressBookRecord"/>
-          <include name="VerifyAuditTrialReportForFaxAddressBookUpdate"/>
+          <include name="searchPage"/>
+          <include name="DeleteCancelFaxLineConfigRecord"/>
+          <include name="searchwithoutSearchTextbox"/>
+          <include name="EditFaxLineConfigCancelRecord"/>
+          <include name="AddInvalidFaxLineConfigRecordWithoutStatus"/>
+          <include name="RoutesLink"/>
+          <include name="SearchClearSearch"/>
+          <include name="VerifyColumnsHeaderEnable"/>
+          <include name="endTestCase"/>
+          <include name="SendersLink"/>
+          <include name="tearDown"/>
+          <include name="DeleteFaxLineConfigRecord"/>
+          <include name="NavigateToFaxLineConfigPage"/>
+          <include name="SortingByDescending"/>
+          <include name="VerifyArrowMoveForFirstAndLastPage"/>
+          <include name="AddFaxLineConfigRecord"/>
+          <include name="SortingByAscending"/>
         </methods>
-      </class> <!-- com.tetherfi.test.fax.FaxAddressBookTest -->
+      </class> <!-- com.tetherfi.test.fax.FaxLineConfigTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

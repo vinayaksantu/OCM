@@ -6,22 +6,17 @@ import java.util.List;
 import java.util.Map;
 
 import org.testng.Assert;
-import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import com.tetherfi.model.ivr.HolidayListDetails;
 import com.tetherfi.model.report.ReportDetails;
-import com.tetherfi.model.tmac.WaitTimeColorConfigDetails;
 import com.tetherfi.model.user.SkillConfigurationDetails;
 import com.tetherfi.pages.AgentSkillAssignmentPage;
-import com.tetherfi.pages.HolidayListPage;
 import com.tetherfi.pages.HomePage;
 import com.tetherfi.pages.OCMHomePage;
 import com.tetherfi.pages.OCMReportsPage;
 import com.tetherfi.pages.SkillConfigurationPage;
-import com.tetherfi.pages.WaitTimeColorConfigPage;
 import com.tetherfi.utility.ExcelReader;
 import com.tetherfi.utility.PageFactory;
 import com.tetherfi.utility.Screenshot;
@@ -39,45 +34,44 @@ public class SkillConfigurationTest extends BaseTest{
          SkillConfigurationPage skillConfigurationPage=PageFactory.createPageInstance(driver,SkillConfigurationPage.class);
          Assert.assertTrue(skillConfigurationPage.isSkillConfigurationPageDisplayed(),"Skill Configuration assertion failed");
     }
-    @Test(priority=1)
+    /*101	FaxSkill-2	@Test(priority=1)
     public void SkillConfigurationPage() {
         SkillConfigurationPage skillConfigurationPage=PageFactory.createPageInstance(driver,SkillConfigurationPage.class);
     	Assert.assertTrue(skillConfigurationPage.verifylogo(),"Skill Configuration logo assertion failed");
     	Assert.assertTrue(skillConfigurationPage .maximizewindow(),"Fullscreen Assertion Failed"); 
-    	screenshot.captureScreen("maximize window","SkillConfigurationTest");
+    	screenshot.captureScreen("SkillConfigurationTest","maximize window");
     	Assert.assertTrue(skillConfigurationPage .minimizewindow(), "Restored Assertion Failed");
-    	screenshot.captureScreen("minimize window","SkillConfigurationTest");
+    	screenshot.captureScreen("SkillConfigurationTest","minimize window");
     }
     
-  	@Test(priority=2)
+  	//@Test(priority=2)
     public void VerifyDropdownForAllTheColumns() {
     	SkillConfigurationPage skillConfigurationPage=PageFactory.createPageInstance(driver,SkillConfigurationPage.class);
         Assert.assertTrue(skillConfigurationPage.verifyDropDownOfAllHeaders(), "Columns dropdown assertion failed");
     }
     
-    @Test(priority=3)
+    //@Test(priority=3)
     public void VerifyColumnsHeaderEnable() {
     	SkillConfigurationPage skillConfigurationPage=PageFactory.createPageInstance(driver,SkillConfigurationPage.class);
         Assert.assertTrue(skillConfigurationPage.verifycolumnsHeaderEnabled(),"columns enabled assertion failed");
     }
     
-    @Test(priority=4)
+    //@Test(priority=4)
     public void VerifyColumnsHeaderDisable() {
     	SkillConfigurationPage skillConfigurationPage=PageFactory.createPageInstance(driver,SkillConfigurationPage.class);
         Assert.assertFalse(skillConfigurationPage.verifycolumnsHeaderDisabled(),"columns disabled assertion failed");
     }
     
-    @Test(priority=5)
+    //@Test(priority=5)
     public void AddSkillConfigurationRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillConfigurationData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
         SkillConfigurationDetails skillConfigurationDetails = new SkillConfigurationDetails(map);
     	SkillConfigurationPage skillConfigurationPage=PageFactory.createPageInstance(driver,SkillConfigurationPage.class);
         Assert.assertTrue(skillConfigurationPage.addNewCancel(skillConfigurationDetails));
-        screenshot.captureScreen(driver, "add cancel","SkillConfigurationTest");
+        screenshot.captureScreen("SkillConfigurationTest", "add cancel");
         skillConfigurationPage.addNewSkillConfigurationRecord(skillConfigurationDetails);
         Assert.assertEquals(skillConfigurationPage.getMessage(),"Record Created Successfully","Add New record assertion failed");
-        screenshot.captureScreen(driver, "Record Created Successfully","SkillConfigurationTest");
     }
     
     @Test(priority=6)
@@ -93,7 +87,6 @@ public class SkillConfigurationTest extends BaseTest{
         ReportDetails reportDetails= new ReportDetails(map1);
         ocmReportsPage.showReport(reportDetails);
         Assert.assertTrue(ocmReportsPage.verifySkillConfigurationCreate(skillConfigurationDetails,"Create"));
-        screenshot.captureScreen(driver,"VerifyAuditTrialReportForCreate","SkillConfigurationTest");   
     }
     
     @Test(priority=7)
@@ -108,7 +101,7 @@ public class SkillConfigurationTest extends BaseTest{
         ocmHomePage.navigateToAgentSkillAssignmentPage();
         AgentSkillAssignmentPage agentSkillAssignmentPage=PageFactory.createPageInstance(driver,AgentSkillAssignmentPage.class);
         agentSkillAssignmentPage.navigateToMultiSkillTab();
-        Assert.assertTrue(agentSkillAssignmentPage.VerifySkill(skillConfigurationDetails.getSkillName()));  
+        Assert.assertTrue(agentSkillAssignmentPage.VerifySkill(skillConfigurationDetails.getSkillName(),skillConfigurationDetails.getSkillTab()));  
     }
     
     @Test(priority=8)
@@ -119,7 +112,6 @@ public class SkillConfigurationTest extends BaseTest{
      	 SkillConfigurationPage skillConfigurationPage=PageFactory.createPageInstance(driver,SkillConfigurationPage.class);
          skillConfigurationPage.addNewSkillConfigurationRecord(skillConfigurationDetails);
          Assert.assertFalse(skillConfigurationPage.verifyMessage(),"Duplicate record assertion failed");
-         screenshot.captureScreen(driver, "Duplicate Record","SkillConfigurationTest");	
     }
     
     @Test(priority=9)
@@ -130,9 +122,8 @@ public class SkillConfigurationTest extends BaseTest{
     	SkillConfigurationPage skillConfigurationPage=PageFactory.createPageInstance(driver,SkillConfigurationPage.class);
         skillConfigurationPage.addNewRecordWithoutSkillID(skillConfigurationDetails);
         Assert.assertFalse(skillConfigurationPage.verifyMessage(),"Duplicate record assertion failed");
-        screenshot.captureScreen(driver, "AddRecordWithoutSkillID","SkillConfigurationTest");	
     }
-    
+    */
     @Test(priority=10)
     public void AddRecordWithoutSkillName() throws Exception {
    	 	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillConfigurationData.xlsx";
@@ -141,7 +132,6 @@ public class SkillConfigurationTest extends BaseTest{
     	SkillConfigurationPage skillConfigurationPage=PageFactory.createPageInstance(driver,SkillConfigurationPage.class);
         skillConfigurationPage.addNewRecordWithoutSkillName(skillConfigurationDetails);
         Assert.assertFalse(skillConfigurationPage.verifyMessage(),"Duplicate record assertion failed");
-        screenshot.captureScreen(driver, "AddRecordWithoutSkillName","SkillConfigurationTest");	
     }
     
     @Test(priority=11)
@@ -152,7 +142,6 @@ public class SkillConfigurationTest extends BaseTest{
     	SkillConfigurationPage skillConfigurationPage=PageFactory.createPageInstance(driver,SkillConfigurationPage.class);
         skillConfigurationPage.addNewRecordWithoutSkillExtension(skillConfigurationDetails);
         Assert.assertFalse(skillConfigurationPage.verifyMessage(),"Duplicate record assertion failed");
-        screenshot.captureScreen(driver, "AddRecordWithoutSkillExtension","SkillConfigurationTest");	
     }
     
     @Test(priority=12)
@@ -163,7 +152,6 @@ public class SkillConfigurationTest extends BaseTest{
     	SkillConfigurationPage skillConfigurationPage=PageFactory.createPageInstance(driver,SkillConfigurationPage.class);
         skillConfigurationPage.addNewRecordWithoutSkillPriority(skillConfigurationDetails);
         Assert.assertFalse(skillConfigurationPage.verifyMessage(),"Duplicate record assertion failed");
-        screenshot.captureScreen(driver, "AddRecordWithoutSkillPriority","SkillConfigurationTest");	
     }
     
     @Test(priority=13)
@@ -174,7 +162,6 @@ public class SkillConfigurationTest extends BaseTest{
     	SkillConfigurationPage skillConfigurationPage=PageFactory.createPageInstance(driver,SkillConfigurationPage.class);
         skillConfigurationPage.addNewRecordWithoutEnabled(skillConfigurationDetails);
         Assert.assertFalse(skillConfigurationPage.verifyMessage(),"Duplicate record assertion failed");
-        screenshot.captureScreen(driver, "AddRecordWithoutEnabled","SkillConfigurationTest");	
     }
     
     @Test(priority=14)
@@ -184,7 +171,6 @@ public class SkillConfigurationTest extends BaseTest{
         SkillConfigurationDetails skillConfigurationDetails = new SkillConfigurationDetails(map);
     	SkillConfigurationPage skillConfigurationPage=PageFactory.createPageInstance(driver,SkillConfigurationPage.class);
         Assert.assertTrue(skillConfigurationPage.editcancel(skillConfigurationDetails));
-        screenshot.captureScreen(driver, "edit cancel","SkillConfigurationTest");
     }
     
     @Test(priority=15)
@@ -195,7 +181,6 @@ public class SkillConfigurationTest extends BaseTest{
     	SkillConfigurationPage skillConfigurationPage=PageFactory.createPageInstance(driver,SkillConfigurationPage.class);
     	skillConfigurationPage.editSkillConfigurationRecord(skillConfigurationDetails);
         Assert.assertEquals(skillConfigurationPage.getMessage(),"Record Updated Successfully","Edit record assertion failed");
-        screenshot.captureScreen(driver, "Record Updated Successfully","SkillConfigurationTest"); 
     }
     
    	@Test(priority=16)
@@ -211,9 +196,9 @@ public class SkillConfigurationTest extends BaseTest{
         ReportDetails reportDetails= new ReportDetails(map1);
         ocmReportsPage.showReport(reportDetails);
         Assert.assertTrue(ocmReportsPage.verifySkillConfigurationUpdate(skillConfigurationDetails,"Update"));
-        screenshot.captureScreen(driver,"VerifyAuditTrialReportForUpdate","SkillConfigurationTest");
     }
-    @Test(priority=17)
+    
+   	@Test(priority=17)
     public void VerifyUpdatedSkillInSkillAssignment() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillConfigurationData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
@@ -225,7 +210,7 @@ public class SkillConfigurationTest extends BaseTest{
         ocmHomePage.navigateToAgentSkillAssignmentPage();
         AgentSkillAssignmentPage agentSkillAssignmentPage=PageFactory.createPageInstance(driver,AgentSkillAssignmentPage.class);
         agentSkillAssignmentPage.navigateToMultiSkillTab();
-        Assert.assertFalse(agentSkillAssignmentPage.VerifySkill(skillConfigurationDetails.getSkillName()));  
+        Assert.assertFalse(agentSkillAssignmentPage.VerifySkill(skillConfigurationDetails.getSkillName(),skillConfigurationDetails.getSkillTab()));  
     
     }
   
@@ -270,7 +255,7 @@ public class SkillConfigurationTest extends BaseTest{
     }
     
     
-    @Test(priority=21)
+    @Test(priority=22)
     public void DeleteRecord() throws Exception {
   	 	 String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillConfigurationData.xlsx";
          Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
@@ -281,7 +266,7 @@ public class SkillConfigurationTest extends BaseTest{
          screenshot.captureScreen(driver, "Deleted Successfully","SkillConfigurationTest");  
     }
     
-    @Test(priority=22)
+    @Test(priority=23)
     public void VerifyAuditTrialReportForDelete() throws Exception {
  	 	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillConfigurationData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
@@ -297,7 +282,7 @@ public class SkillConfigurationTest extends BaseTest{
         screenshot.captureScreen(driver, "VerifyAuditTrialReportForUpdate","SkillConfigurationTest");
     }
     
-    @Test(priority=23)
+    @Test(priority=24)
     public void VerifyDeletedSkillInSkillAssignment() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillConfigurationData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
@@ -309,11 +294,11 @@ public class SkillConfigurationTest extends BaseTest{
         ocmHomePage.navigateToAgentSkillAssignmentPage();
         AgentSkillAssignmentPage agentSkillAssignmentPage=PageFactory.createPageInstance(driver,AgentSkillAssignmentPage.class);
         agentSkillAssignmentPage.navigateToMultiSkillTab();
-        Assert.assertFalse(agentSkillAssignmentPage.VerifySkill(skillConfigurationDetails.getSkillName()));  
+        Assert.assertFalse(agentSkillAssignmentPage.VerifySkill(skillConfigurationDetails.getSkillName(),skillConfigurationDetails.getSkillTab()));  
     
     }
     
-    /*@Test(priority=24)
+    @Test(priority=25)
     public void SearchClearSearch() throws Exception
     {
   	 	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillConfigurationData.xlsx";
@@ -326,7 +311,7 @@ public class SkillConfigurationTest extends BaseTest{
         screenshot.captureScreen(driver, "Clear Search", "SkillConfigurationTest");
     }
     
-    @Test(priority=23)
+    @Test(priority=26)
     public void ExporttoExcelWithoutData() throws Exception
     {
     	SkillConfigurationPage skillConfigurationPage=PageFactory.createPageInstance(driver,SkillConfigurationPage.class);
@@ -336,7 +321,7 @@ public class SkillConfigurationTest extends BaseTest{
         Assert.assertTrue(skillConfigurationPage.ExporttoExcelWithoutData(skillConfigurationDetails));
     }
   
-    @Test(priority=24)
+    @Test(priority=27)
     public void SortingByAscending() throws IOException {
     	SkillConfigurationPage skillConfigurationPage=PageFactory.createPageInstance(driver,SkillConfigurationPage.class);
     	skillConfigurationPage.SortByAscending();
@@ -344,7 +329,7 @@ public class SkillConfigurationTest extends BaseTest{
         List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
         Assert.assertTrue(skillConfigurationPage.verifyexportToExcelSheet(maplist));
     }
-    @Test(priority=25)
+    @Test(priority=28)
     public void SortingByDescending() throws IOException {
     	SkillConfigurationPage skillConfigurationPage=PageFactory.createPageInstance(driver,SkillConfigurationPage.class);
     	skillConfigurationPage.SortByDescending();
@@ -353,40 +338,41 @@ public class SkillConfigurationTest extends BaseTest{
         Assert.assertTrue(skillConfigurationPage.verifyexportToExcelSheet(maplist));
     }
     
-    @Test(priority=26)
+    @Test(priority=29)
     public void GroupBy()
     {
     	SkillConfigurationPage skillConfigurationPage=PageFactory.createPageInstance(driver,SkillConfigurationPage.class);
     	Assert.assertTrue(skillConfigurationPage.groupby());
-        screenshot.captureScreen(driver, "GroupBy","SkillConfigurationTest");
+        screenshot.captureScreen("SkillConfigurationTest", "GroupBy");
     	Assert.assertTrue(skillConfigurationPage.groupby());
-        screenshot.captureScreen(driver, "AlreadyGroupBy","SkillConfigurationTest");
+        screenshot.captureScreen("SkillConfigurationTest", "AlreadyGroupBy");
     }
     
-    //@Test(priority=27)
+    @Test(priority=30)
     public void VerifyArrowMoveForPreviousAndNextPage() {
     	SkillConfigurationPage skillConfigurationPage=PageFactory.createPageInstance(driver,SkillConfigurationPage.class);
     	Assert.assertTrue(skillConfigurationPage.verifyArrowMoveForPreviousAndNextPage(),"arrow move for previous and next page assertion failed");
     }
     
-    //@Test(priority=28)
+    @Test(priority=31)
     public void VerifyArrowMoveForFirstAndLastPage() {
     	SkillConfigurationPage skillConfigurationPage=PageFactory.createPageInstance(driver,SkillConfigurationPage.class);
         Assert.assertTrue(skillConfigurationPage.verifyArrowMoveForFirstAndLastPage(),"arrow move for first and last page assertion failed");
     }
-    //@Test(priority=29)
+    
+    @Test(priority=32)
     public void VerifyTotalNumberOfItemsPerPageDetails() {
     	SkillConfigurationPage skillConfigurationPage=PageFactory.createPageInstance(driver,SkillConfigurationPage.class);
         Assert.assertTrue(skillConfigurationPage.verifyTotalNumberOfItemsPerPageDetails(),"item per page assertion failed");
     }
     
-    //@Test(priority=30)
+    @Test(priority=33)
     public void VerifyNumberOfItemsPerPageSelection() {
     	SkillConfigurationPage skillConfigurationPage=PageFactory.createPageInstance(driver,SkillConfigurationPage.class);
         Assert.assertTrue(skillConfigurationPage.verifyNumberOfItemsPerPage(),"item per page assertion failed");
     }
     
-    @Test(priority=31)
+    @Test(priority=34)
     public void database() throws Exception
     {
     	SkillConfigurationPage skillConfigurationPage=PageFactory.createPageInstance(driver,SkillConfigurationPage.class);
@@ -395,18 +381,13 @@ public class SkillConfigurationTest extends BaseTest{
         SkillConfigurationDetails skillConfigurationDetails = new SkillConfigurationDetails(map);
         Assert.assertTrue(skillConfigurationPage.verifyDatabase(skillConfigurationDetails.getQuery()));
    
-    }*/
+    }
     
     @AfterMethod
-    public void afterEachMethod(ITestResult result, Method method) throws InterruptedException {
-    	 if(ITestResult.FAILURE==result.getStatus()){
-       		 try{
-       			 screenshot.captureScreen(method.getName(),"SkillConfigurationTest");
-       		 }
-       		catch (Exception e){
-       		 System.out.println("Exception while taking screenshot "+e.getMessage());
-       		 } 
-       		 driver.navigate().refresh();
-       		 }    }
+    public void afterEachMethod(Method method) throws InterruptedException {
+    	Screenshot screenshot=new Screenshot(driver);
+	        screenshot.captureScreen("SkillConfigurationTest",method.getName());
+	        driver.navigate().refresh();
+	}
 
 }

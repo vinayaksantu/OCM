@@ -75,7 +75,7 @@ public class SendFaxTest extends BaseTest{
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
     }
     
-	/*@Test(priority=1)
+	@Test(priority=1)
     public void SendFaxPage() {
         SendFaxPage sendFaxPage = PageFactory.createPageInstance(driver, SendFaxPage.class);
     	Assert.assertTrue(sendFaxPage.verifylogo(),"FaxLineConfig logo assertion failed");
@@ -286,7 +286,7 @@ public class SendFaxTest extends BaseTest{
     	SendFaxPage sendFaxPage = PageFactory.createPageInstance(driver, SendFaxPage.class);
         sendFaxPage.searchwithoutextsearch();
     	Assert.assertFalse(sendFaxPage.getErrorMsg());
-    }*/
+    }
     
     @Test(priority=24)//,dependsOnMethods = {"AddSendFaxRecordByUploadingMultiplePages"})
     public void VerifyOCMFaxSentDetailsReportMutiplePages() throws Exception {

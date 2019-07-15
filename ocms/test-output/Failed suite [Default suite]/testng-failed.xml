@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Failed suite [Default suite]]" guice-stage="DEVELOPMENT">
+  <test name="Default test(failed)(failed)">
+    <classes>
+      <class name="com.tetherfi.test.email.EmailTemplateTest">
+        <methods>
+          <include name="startTestCase"/>
+          <include name="openApplication"/>
+          <include name="close"/>
+          <include name="endTestCase"/>
+          <include name="tearDown"/>
+          <include name="NavigateToEmailTemplatePage"/>
+          <include name="VerifyAuditTrialReportForCreateGroup"/>
+        </methods>
+      </class> <!-- com.tetherfi.test.email.EmailTemplateTest -->
+    </classes>
+  </test> <!-- Default test(failed)(failed) -->
+</suite> <!-- Failed suite [Failed suite [Default suite]] -->

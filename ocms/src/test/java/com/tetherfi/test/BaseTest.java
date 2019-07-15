@@ -27,7 +27,7 @@ public class BaseTest {
             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
             if(map.get("LoginType").equals("Custom")){
                 LoginPage loginPage=PageFactory.createPageInstance(driver,LoginPage.class);
-                loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+                loginPage.login(map.get("Username"),map.get("Password"));
                 Thread.sleep(5000);
             }
             HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
@@ -37,7 +37,7 @@ public class BaseTest {
             driver.close();
             e.printStackTrace();
         }
-        //driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
     }
     @BeforeMethod
         public void startTestCase(Method method){

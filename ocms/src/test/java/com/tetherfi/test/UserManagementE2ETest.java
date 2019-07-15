@@ -69,10 +69,10 @@ import com.tetherfi.pages.ReportDownloadsPage;
 import com.tetherfi.pages.ReportSchedulerPage;
 import com.tetherfi.pages.RoleBasedAccessManagementPage;
 import com.tetherfi.pages.SMSAlertPage;
-import com.tetherfi.pages.SMSResponseTemplatePage;
 import com.tetherfi.pages.SendFaxPage;
 import com.tetherfi.pages.SkillConfigurationPage;
 import com.tetherfi.pages.SmsPage;
+import com.tetherfi.pages.SmsResponseTemplatePage;
 import com.tetherfi.pages.SpeechModulePage;
 import com.tetherfi.pages.SplitFaxPage;
 import com.tetherfi.pages.TPRedemptionPage;
@@ -10553,7 +10553,7 @@ public class UserManagementE2ETest extends BaseTest {
 		      ocmHomePage.navigateToTab("SMS");
 		      SmsPage smsPage=PageFactory.createPageInstance(driver,SmsPage.class);
 		      smsPage.navigateToSMSResponseTemplatePage();
-		      SMSResponseTemplatePage modPageInst=PageFactory.createPageInstance(driver,SMSResponseTemplatePage.class);
+		      SmsResponseTemplatePage modPageInst=PageFactory.createPageInstance(driver,SmsResponseTemplatePage.class);
 		      Assert.assertTrue(modPageInst.isSMSResponseTemplatePageDisplayed(), "SMS Response Template Page assertion failed");
 		      modPageInst.navigateToTab("SMS Response Template Audit Trail");
 		      Assert.assertFalse(modPageInst.isMakeChangesBtnDisplayed(), "View assertion failed");
@@ -10597,7 +10597,7 @@ public class UserManagementE2ETest extends BaseTest {
 		      ocmHomePage.navigateToTab("SMS");
 		      SmsPage smsPage=PageFactory.createPageInstance(driver,SmsPage.class);
 		      smsPage.navigateToSMSResponseTemplatePage();
-		      SMSResponseTemplatePage modPageInst=PageFactory.createPageInstance(driver,SMSResponseTemplatePage.class);
+		      SmsResponseTemplatePage modPageInst=PageFactory.createPageInstance(driver,SmsResponseTemplatePage.class);
 		      Assert.assertTrue(modPageInst.isSMSResponseTemplatePageDisplayed(), "SMS Response Template Page assertion failed");
 		      modPageInst.navigateToTab("SMS Response Template Audit Trail");
 		      Assert.assertFalse(modPageInst.isMakeChangesBtnDisplayed(), "View assertion failed");
@@ -10646,7 +10646,7 @@ public class UserManagementE2ETest extends BaseTest {
 		      ocmHomePage.navigateToTab("SMS");
 		      SmsPage smsPage=PageFactory.createPageInstance(driver,SmsPage.class);
 		      smsPage.navigateToSMSResponseTemplatePage();
-		      SMSResponseTemplatePage modPageInst=PageFactory.createPageInstance(driver,SMSResponseTemplatePage.class);
+		      SmsResponseTemplatePage modPageInst=PageFactory.createPageInstance(driver,SmsResponseTemplatePage.class);
 		      Assert.assertTrue(modPageInst.isSMSResponseTemplatePageDisplayed(), "SMS Response Template Page assertion failed");
 		      modPageInst.navigateToTab("SMS Response Template Audit Trail");
 		      Assert.assertFalse(modPageInst.isMakeChangesBtnDisplayed(), "View assertion failed");
@@ -10695,7 +10695,7 @@ public class UserManagementE2ETest extends BaseTest {
 		      ocmHomePage.navigateToTab("SMS");
 		      SmsPage smsPage=PageFactory.createPageInstance(driver,SmsPage.class);
 		      smsPage.navigateToSMSResponseTemplatePage();
-		      SMSResponseTemplatePage modPageInst=PageFactory.createPageInstance(driver,SMSResponseTemplatePage.class);
+		      SmsResponseTemplatePage modPageInst=PageFactory.createPageInstance(driver,SmsResponseTemplatePage.class);
 		      Assert.assertTrue(modPageInst.isSMSResponseTemplatePageDisplayed(), "SMS Response Template Page assertion failed");
 		      modPageInst.navigateToTab("SMS Response Template Audit Trail");
 		      Assert.assertFalse(modPageInst.isMakeChangesBtnDisplayed(), "View assertion failed");
@@ -10744,7 +10744,7 @@ public class UserManagementE2ETest extends BaseTest {
 		      ocmHomePage.navigateToTab("SMS");
 		      SmsPage smsPage=PageFactory.createPageInstance(driver,SmsPage.class);
 		      smsPage.navigateToSMSResponseTemplatePage();
-		      SMSResponseTemplatePage modPageInst=PageFactory.createPageInstance(driver,SMSResponseTemplatePage.class);
+		      SmsResponseTemplatePage modPageInst=PageFactory.createPageInstance(driver,SmsResponseTemplatePage.class);
 		      Assert.assertTrue(modPageInst.isSMSResponseTemplatePageDisplayed(), "SMS Response Template Page assertion failed");
 		      modPageInst.navigateToTab("SMS Response Template Audit Trail");
 		      Assert.assertFalse(modPageInst.isMakeChangesBtnDisplayed(), "View assertion failed");

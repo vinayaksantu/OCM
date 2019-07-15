@@ -716,6 +716,9 @@ public class SendFaxPage extends BasePage {
 		selectWebElement(addNewRecdBtn);
 		waitForJqueryLoad(driver);
 	    Thread.sleep(2000);
+	    selectWebElement(faxlineDropdown);
+	    selectDropdownFromVisibleText(faxlinelistbox,sendFaxDetails.getFaxLine());
+	    
         enterValueToTxtFieldWithoutClear(recipientnumber,sendFaxDetails.getRecipientNumber());
         recipientnumber.sendKeys(Keys.ENTER);
 	    selectWebElement(faxlineDropdown);
