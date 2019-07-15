@@ -1,62 +1,2203 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="39" passed="7" failed="3" skipped="29">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2019-07-10T05:47:23Z" name="Default suite" finished-at="2019-07-10T05:47:45Z" duration-ms="22025">
+  <suite started-at="2019-07-15T05:28:43Z" name="Default suite" finished-at="2019-07-15T05:33:36Z" duration-ms="293351">
     <groups>
     </groups>
-    <test started-at="2019-07-10T05:47:23Z" name="Default test" finished-at="2019-07-10T05:47:45Z" duration-ms="22025">
-      <class name="com.tetherfi.test.tmac.TmacTransferListTest">
-        <test-method is-config="true" signature="openApplication()[pri:0, instance:com.tetherfi.test.tmac.TmacTransferListTest@3f6bf8aa]" started-at="2019-07-10T11:17:23Z" name="openApplication" finished-at="2019-07-10T11:17:33Z" duration-ms="9887" status="PASS">
+    <test started-at="2019-07-15T05:28:43Z" name="Default test" finished-at="2019-07-15T05:33:36Z" duration-ms="293351">
+      <class name="com.tetherfi.test.fax.FaxLineConfigTest">
+        <test-method is-config="true" signature="openApplication()[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T10:58:43Z" name="openApplication" finished-at="2019-07-15T10:59:07Z" duration-ms="23812" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- openApplication -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.TmacTransferListTest@3f6bf8aa]" started-at="2019-07-10T11:17:33Z" name="startTestCase" finished-at="2019-07-10T11:17:33Z" duration-ms="2" status="PASS">
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T10:59:07Z" name="startTestCase" finished-at="2019-07-15T10:59:07Z" duration-ms="1" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.tmac.TmacTransferListTest.VerifyErrMsgNameBlank() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.fax.FaxLineConfigTest.FaxLineConfigPage()]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigatetoTmacTransferListPage()[pri:0, instance:com.tetherfi.test.tmac.TmacTransferListTest@3f6bf8aa]" started-at="2019-07-10T11:17:33Z" name="NavigatetoTmacTransferListPage" finished-at="2019-07-10T11:17:37Z" duration-ms="4389" status="PASS">
+        <test-method is-config="true" signature="NavigateToFaxLineConfigPage()[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T10:59:07Z" name="NavigateToFaxLineConfigPage" finished-at="2019-07-15T10:59:12Z" duration-ms="5175" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- NavigatetoTmacTransferListPage -->
-        <test-method signature="VerifyErrMsgNameBlank()[pri:4, instance:com.tetherfi.test.tmac.TmacTransferListTest@3f6bf8aa]" started-at="2019-07-10T11:17:37Z" name="VerifyErrMsgNameBlank" finished-at="2019-07-10T11:17:44Z" duration-ms="6443" status="PASS">
+        </test-method> <!-- NavigateToFaxLineConfigPage -->
+        <test-method signature="FaxLineConfigPage()[pri:1, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T10:59:12Z" name="FaxLineConfigPage" finished-at="2019-07-15T10:59:13Z" duration-ms="1334" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- VerifyErrMsgNameBlank -->
-        <test-method is-config="true" signature="afterEachMethod(org.testng.ITestResult)[pri:0, instance:com.tetherfi.test.tmac.TmacTransferListTest@3f6bf8aa]" started-at="2019-07-10T11:17:44Z" name="afterEachMethod" finished-at="2019-07-10T11:17:44Z" duration-ms="1" status="PASS">
+        </test-method> <!-- FaxLineConfigPage -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T10:59:13Z" name="afterEachMethod" finished-at="2019-07-15T10:59:14Z" duration-ms="1290" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=VerifyErrMsgNameBlank status=SUCCESS method=TmacTransferListTest.VerifyErrMsgNameBlank()[pri:4, instance:com.tetherfi.test.tmac.TmacTransferListTest@3f6bf8aa] output={null}]]]>
+                <![CDATA[public void com.tetherfi.test.fax.FaxLineConfigTest.FaxLineConfigPage()]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.TmacTransferListTest@3f6bf8aa]" started-at="2019-07-10T11:17:44Z" name="endTestCase" finished-at="2019-07-10T11:17:44Z" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T10:59:14Z" name="endTestCase" finished-at="2019-07-15T10:59:14Z" duration-ms="0" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.tmac.TmacTransferListTest.VerifyErrMsgNameBlank() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.fax.FaxLineConfigTest.FaxLineConfigPage()]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.tetherfi.test.tmac.TmacTransferListTest@3f6bf8aa]" started-at="2019-07-10T11:17:44Z" name="tearDown" finished-at="2019-07-10T11:17:45Z" duration-ms="1247" status="PASS">
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T10:59:14Z" name="startTestCase" finished-at="2019-07-15T10:59:14Z" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.fax.FaxLineConfigTest.AddFaxLineConfigRecord() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method is-config="true" signature="NavigateToFaxLineConfigPage()[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T10:59:14Z" name="NavigateToFaxLineConfigPage" finished-at="2019-07-15T10:59:18Z" duration-ms="3901" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToFaxLineConfigPage -->
+        <test-method signature="AddFaxLineConfigRecord()[pri:2, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T10:59:18Z" name="AddFaxLineConfigRecord" finished-at="2019-07-15T10:59:31Z" duration-ms="12645" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AddFaxLineConfigRecord -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T10:59:31Z" name="afterEachMethod" finished-at="2019-07-15T10:59:32Z" duration-ms="1219" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.fax.FaxLineConfigTest.AddFaxLineConfigRecord() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T10:59:32Z" name="endTestCase" finished-at="2019-07-15T10:59:32Z" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.fax.FaxLineConfigTest.AddFaxLineConfigRecord() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T10:59:32Z" name="startTestCase" finished-at="2019-07-15T10:59:32Z" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.fax.FaxLineConfigTest.VerifyAuditTrialReportForCreate() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method is-config="true" signature="NavigateToFaxLineConfigPage()[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T10:59:32Z" name="NavigateToFaxLineConfigPage" finished-at="2019-07-15T10:59:36Z" duration-ms="3518" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToFaxLineConfigPage -->
+        <test-method signature="VerifyAuditTrialReportForCreate()[pri:3, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T10:59:36Z" name="VerifyAuditTrialReportForCreate" finished-at="2019-07-15T11:00:02Z" depends-on-methods="com.tetherfi.test.fax.FaxLineConfigTest.AddFaxLineConfigRecord" duration-ms="26020" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyAuditTrialReportForCreate -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:00:02Z" name="afterEachMethod" finished-at="2019-07-15T11:00:03Z" duration-ms="1463" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.fax.FaxLineConfigTest.VerifyAuditTrialReportForCreate() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:00:03Z" name="endTestCase" finished-at="2019-07-15T11:00:03Z" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.fax.FaxLineConfigTest.VerifyAuditTrialReportForCreate() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method is-config="true" signature="NavigateToFaxLineConfigPage()[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:00:03Z" name="NavigateToFaxLineConfigPage" finished-at="2019-07-15T11:00:07Z" duration-ms="3915" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToFaxLineConfigPage -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:00:03Z" name="startTestCase" finished-at="2019-07-15T11:00:03Z" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.fax.FaxLineConfigTest.SendersLink() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method signature="SendersLink()[pri:4, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:00:07Z" name="SendersLink" finished-at="2019-07-15T11:00:28Z" duration-ms="20930" status="FAIL">
+          <exception class="org.openqa.selenium.TimeoutException">
+            <message>
+              <![CDATA[Expected condition failed: waiting for visibility of [[ChromeDriver: chrome on WIN8_1 (b95c30615bcc975fe5d3eaa102983383)] -> css selector: ul[id='1001sColumnName_listbox'] li] (tried for 20 second(s) with 500 MILLISECONDS interval)
+Build info: version: '3.5.3', revision: 'a88d25fe6b', time: '2017-08-29T12:42:44.417Z'
+System info: host: 'ADMIN', ip: '192.168.1.65', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '9.0.4'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{mobileEmulationEnabled=false, timeouts={implicit=0, pageLoad=300000, script=30000}, hasTouchScreen=false, platform=WIN8_1, acceptSslCerts=false, goog:chromeOptions={debuggerAddress=localhost:54602}, acceptInsecureCerts=false, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, platformName=WIN8_1, setWindowRect=true, unexpectedAlertBehaviour=ignore, applicationCacheEnabled=false, rotatable=false, networkConnectionEnabled=false, chrome={chromedriverVersion=74.0.3729.6 (255758eccf3d244491b8a1317aa76e1ce10d57e9-refs/branch-heads/3729@{#29}), userDataDir=C:\Users\ADMINP~1\AppData\Local\Temp\scoped_dir5600_16482}, takesHeapSnapshot=true, unhandledPromptBehavior=ignore, pageLoadStrategy=normal, strictFileInteractability=false, databaseEnabled=false, handlesAlerts=true, version=75.0.3770.100, browserConnectionEnabled=false, proxy=Proxy(), nativeEvents=true, locationContextEnabled=true, cssSelectorsEnabled=true}]
+Session ID: b95c30615bcc975fe5d3eaa102983383]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of [[ChromeDriver: chrome on WIN8_1 (b95c30615bcc975fe5d3eaa102983383)] -> css selector: ul[id='1001sColumnName_listbox'] li] (tried for 20 second(s) with 500 MILLISECONDS interval)
+Build info: version: '3.5.3', revision: 'a88d25fe6b', time: '2017-08-29T12:42:44.417Z'
+System info: host: 'ADMIN', ip: '192.168.1.65', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '9.0.4'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{mobileEmulationEnabled=false, timeouts={implicit=0, pageLoad=300000, script=30000}, hasTouchScreen=false, platform=WIN8_1, acceptSslCerts=false, goog:chromeOptions={debuggerAddress=localhost:54602}, acceptInsecureCerts=false, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, platformName=WIN8_1, setWindowRect=true, unexpectedAlertBehaviour=ignore, applicationCacheEnabled=false, rotatable=false, networkConnectionEnabled=false, chrome={chromedriverVersion=74.0.3729.6 (255758eccf3d244491b8a1317aa76e1ce10d57e9-refs/branch-heads/3729@{#29}), userDataDir=C:\Users\ADMINP~1\AppData\Local\Temp\scoped_dir5600_16482}, takesHeapSnapshot=true, unhandledPromptBehavior=ignore, pageLoadStrategy=normal, strictFileInteractability=false, databaseEnabled=false, handlesAlerts=true, version=75.0.3770.100, browserConnectionEnabled=false, proxy=Proxy(), nativeEvents=true, locationContextEnabled=true, cssSelectorsEnabled=true}]
+Session ID: b95c30615bcc975fe5d3eaa102983383
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:80)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:232)
+	at com.tetherfi.pages.BasePage.waitUntilWebElementListIsVisible(BasePage.java:139)
+	at com.tetherfi.pages.BasePage.selectDropdownFromVisibleText(BasePage.java:328)
+	at com.tetherfi.pages.FaxLineConfigPage.searchFaxLineConfigRecord(FaxLineConfigPage.java:319)
+	at com.tetherfi.pages.FaxLineConfigPage.verifySendersLink(FaxLineConfigPage.java:970)
+	at com.tetherfi.test.fax.FaxLineConfigTest.SendersLink(FaxLineConfigTest.java:86)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.TimeoutException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SendersLink -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:00:28Z" name="afterEachMethod" finished-at="2019-07-15T11:00:30Z" duration-ms="1655" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.fax.FaxLineConfigTest.SendersLink() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:00:30Z" name="endTestCase" finished-at="2019-07-15T11:00:30Z" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.fax.FaxLineConfigTest.SendersLink() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:00:30Z" name="startTestCase" finished-at="2019-07-15T11:00:30Z" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.fax.FaxLineConfigTest.AutoAckLink() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method is-config="true" signature="NavigateToFaxLineConfigPage()[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:00:30Z" name="NavigateToFaxLineConfigPage" finished-at="2019-07-15T11:00:34Z" duration-ms="4012" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToFaxLineConfigPage -->
+        <test-method signature="AutoAckLink()[pri:5, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:00:34Z" name="AutoAckLink" finished-at="2019-07-15T11:01:38Z" duration-ms="64540" status="FAIL">
+          <exception class="org.openqa.selenium.TimeoutException">
+            <message>
+              <![CDATA[Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //td/a[@class='k-button k-button-icontext k-grid-CustomPreview1']' (tried for 30 second(s) with 500 MILLISECONDS interval)]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //td/a[@class='k-button k-button-icontext k-grid-CustomPreview1']' (tried for 30 second(s) with 500 MILLISECONDS interval)
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:80)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:232)
+	at com.tetherfi.pages.BasePage.waitUntilWebElementIsVisible(BasePage.java:127)
+	at com.tetherfi.pages.BasePage.selectWebElement(BasePage.java:191)
+	at com.tetherfi.pages.FaxLineConfigPage.verifyAutoAckLink(FaxLineConfigPage.java:990)
+	at com.tetherfi.test.fax.FaxLineConfigTest.AutoAckLink(FaxLineConfigTest.java:101)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//td/a[@class='k-button k-button-icontext k-grid-CustomPreview1']"}
+  (Session info: chrome=75.0.3770.100)
+  (Driver info: chromedriver=74.0.3729.6 (255758eccf3d244491b8a1317aa76e1ce10d57e9-refs/branch-heads/3729@{#29}),platform=Windows NT 6.3.9600 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.5.3', revision: 'a88d25fe6b', time: '2017-08-29T12:42:44.417Z'
+System info: host: 'ADMIN', ip: '192.168.1.65', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '9.0.4'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{mobileEmulationEnabled=false, timeouts={implicit=0, pageLoad=300000, script=30000}, hasTouchScreen=false, platform=WIN8_1, acceptSslCerts=false, goog:chromeOptions={debuggerAddress=localhost:54602}, acceptInsecureCerts=false, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, platformName=WIN8_1, setWindowRect=true, unexpectedAlertBehaviour=ignore, applicationCacheEnabled=false, rotatable=false, networkConnectionEnabled=false, chrome={chromedriverVersion=74.0.3729.6 (255758eccf3d244491b8a1317aa76e1ce10d57e9-refs/branch-heads/3729@{#29}), userDataDir=C:\Users\ADMINP~1\AppData\Local\Temp\scoped_dir5600_16482}, takesHeapSnapshot=true, unhandledPromptBehavior=ignore, pageLoadStrategy=normal, strictFileInteractability=false, databaseEnabled=false, handlesAlerts=true, version=75.0.3770.100, browserConnectionEnabled=false, proxy=Proxy(), nativeEvents=true, locationContextEnabled=true, cssSelectorsEnabled=true}]
+Session ID: b95c30615bcc975fe5d3eaa102983383
+*** Element info: {Using=xpath, value=//td/a[@class='k-button k-button-icontext k-grid-CustomPreview1']}
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.base/java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:215)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:167)
+	at org.openqa.selenium.remote.http.JsonHttpResponseCodec.reconstructValue(JsonHttpResponseCodec.java:40)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:82)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:45)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:82)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:646)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:416)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:518)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:408)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at com.sun.proxy.$Proxy14.isDisplayed(Unknown Source)
+	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:302)
+	at org.openqa.selenium.support.ui.ExpectedConditions.access$100(ExpectedConditions.java:44)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:288)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:285)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:209)
+	... 29 more
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.TimeoutException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AutoAckLink -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:01:38Z" name="afterEachMethod" finished-at="2019-07-15T11:01:40Z" duration-ms="1548" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.fax.FaxLineConfigTest.AutoAckLink() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:01:40Z" name="endTestCase" finished-at="2019-07-15T11:01:40Z" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.fax.FaxLineConfigTest.AutoAckLink() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method is-config="true" signature="NavigateToFaxLineConfigPage()[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:01:40Z" name="NavigateToFaxLineConfigPage" finished-at="2019-07-15T11:01:43Z" duration-ms="3566" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToFaxLineConfigPage -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:01:40Z" name="startTestCase" finished-at="2019-07-15T11:01:40Z" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.fax.FaxLineConfigTest.RoutesLink() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method signature="RoutesLink()[pri:6, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:01:43Z" name="RoutesLink" finished-at="2019-07-15T11:02:48Z" duration-ms="64726" status="FAIL">
+          <exception class="org.openqa.selenium.TimeoutException">
+            <message>
+              <![CDATA[Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //td/a[@class='k-button k-button-icontext k-grid-CustomPreview2']' (tried for 30 second(s) with 500 MILLISECONDS interval)]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //td/a[@class='k-button k-button-icontext k-grid-CustomPreview2']' (tried for 30 second(s) with 500 MILLISECONDS interval)
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:80)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:232)
+	at com.tetherfi.pages.BasePage.waitUntilWebElementIsVisible(BasePage.java:127)
+	at com.tetherfi.pages.BasePage.selectWebElement(BasePage.java:191)
+	at com.tetherfi.pages.FaxLineConfigPage.verifyRoutesLink(FaxLineConfigPage.java:1009)
+	at com.tetherfi.test.fax.FaxLineConfigTest.RoutesLink(FaxLineConfigTest.java:116)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//td/a[@class='k-button k-button-icontext k-grid-CustomPreview2']"}
+  (Session info: chrome=75.0.3770.100)
+  (Driver info: chromedriver=74.0.3729.6 (255758eccf3d244491b8a1317aa76e1ce10d57e9-refs/branch-heads/3729@{#29}),platform=Windows NT 6.3.9600 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.5.3', revision: 'a88d25fe6b', time: '2017-08-29T12:42:44.417Z'
+System info: host: 'ADMIN', ip: '192.168.1.65', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '9.0.4'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{mobileEmulationEnabled=false, timeouts={implicit=0, pageLoad=300000, script=30000}, hasTouchScreen=false, platform=WIN8_1, acceptSslCerts=false, goog:chromeOptions={debuggerAddress=localhost:54602}, acceptInsecureCerts=false, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, platformName=WIN8_1, setWindowRect=true, unexpectedAlertBehaviour=ignore, applicationCacheEnabled=false, rotatable=false, networkConnectionEnabled=false, chrome={chromedriverVersion=74.0.3729.6 (255758eccf3d244491b8a1317aa76e1ce10d57e9-refs/branch-heads/3729@{#29}), userDataDir=C:\Users\ADMINP~1\AppData\Local\Temp\scoped_dir5600_16482}, takesHeapSnapshot=true, unhandledPromptBehavior=ignore, pageLoadStrategy=normal, strictFileInteractability=false, databaseEnabled=false, handlesAlerts=true, version=75.0.3770.100, browserConnectionEnabled=false, proxy=Proxy(), nativeEvents=true, locationContextEnabled=true, cssSelectorsEnabled=true}]
+Session ID: b95c30615bcc975fe5d3eaa102983383
+*** Element info: {Using=xpath, value=//td/a[@class='k-button k-button-icontext k-grid-CustomPreview2']}
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.base/java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:215)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:167)
+	at org.openqa.selenium.remote.http.JsonHttpResponseCodec.reconstructValue(JsonHttpResponseCodec.java:40)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:82)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:45)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:82)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:646)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:416)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:518)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:408)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at com.sun.proxy.$Proxy14.isDisplayed(Unknown Source)
+	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:302)
+	at org.openqa.selenium.support.ui.ExpectedConditions.access$100(ExpectedConditions.java:44)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:288)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:285)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:209)
+	... 29 more
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.TimeoutException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- RoutesLink -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:02:48Z" name="afterEachMethod" finished-at="2019-07-15T11:02:49Z" duration-ms="1377" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.fax.FaxLineConfigTest.RoutesLink() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:02:49Z" name="endTestCase" finished-at="2019-07-15T11:02:49Z" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.fax.FaxLineConfigTest.RoutesLink() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method is-config="true" signature="NavigateToFaxLineConfigPage()[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:02:49Z" name="NavigateToFaxLineConfigPage" finished-at="2019-07-15T11:02:53Z" duration-ms="3776" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToFaxLineConfigPage -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:02:49Z" name="startTestCase" finished-at="2019-07-15T11:02:49Z" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.fax.FaxLineConfigTest.AddDuplicateFaxLineConfigRecord() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method signature="AddDuplicateFaxLineConfigRecord()[pri:7, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:02:53Z" name="AddDuplicateFaxLineConfigRecord" finished-at="2019-07-15T11:02:58Z" duration-ms="4344" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AddDuplicateFaxLineConfigRecord -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:02:58Z" name="afterEachMethod" finished-at="2019-07-15T11:02:59Z" duration-ms="1297" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.fax.FaxLineConfigTest.AddDuplicateFaxLineConfigRecord() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:02:59Z" name="endTestCase" finished-at="2019-07-15T11:02:59Z" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.fax.FaxLineConfigTest.AddDuplicateFaxLineConfigRecord() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method is-config="true" signature="NavigateToFaxLineConfigPage()[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:02:59Z" name="NavigateToFaxLineConfigPage" finished-at="2019-07-15T11:03:03Z" duration-ms="3751" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToFaxLineConfigPage -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:02:59Z" name="startTestCase" finished-at="2019-07-15T11:02:59Z" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.fax.FaxLineConfigTest.AddInvalidFaxLineConfigRecordWithoutInput() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method signature="AddInvalidFaxLineConfigRecordWithoutInput()[pri:8, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:03Z" name="AddInvalidFaxLineConfigRecordWithoutInput" finished-at="2019-07-15T11:03:07Z" duration-ms="4053" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AddInvalidFaxLineConfigRecordWithoutInput -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:07Z" name="afterEachMethod" finished-at="2019-07-15T11:03:08Z" duration-ms="1240" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.fax.FaxLineConfigTest.AddInvalidFaxLineConfigRecordWithoutInput() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:08Z" name="endTestCase" finished-at="2019-07-15T11:03:08Z" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.fax.FaxLineConfigTest.AddInvalidFaxLineConfigRecordWithoutInput() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:08Z" name="startTestCase" finished-at="2019-07-15T11:03:08Z" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.fax.FaxLineConfigTest.AddInvalidFaxLineConfigRecordWithoutFaxLine() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method is-config="true" signature="NavigateToFaxLineConfigPage()[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:08Z" name="NavigateToFaxLineConfigPage" finished-at="2019-07-15T11:03:12Z" duration-ms="3788" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToFaxLineConfigPage -->
+        <test-method signature="AddInvalidFaxLineConfigRecordWithoutFaxLine()[pri:9, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:12Z" name="AddInvalidFaxLineConfigRecordWithoutFaxLine" finished-at="2019-07-15T11:03:20Z" duration-ms="7919" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AddInvalidFaxLineConfigRecordWithoutFaxLine -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:20Z" name="afterEachMethod" finished-at="2019-07-15T11:03:21Z" duration-ms="1792" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.fax.FaxLineConfigTest.AddInvalidFaxLineConfigRecordWithoutFaxLine() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:21Z" name="endTestCase" finished-at="2019-07-15T11:03:21Z" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.fax.FaxLineConfigTest.AddInvalidFaxLineConfigRecordWithoutFaxLine() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:21Z" name="startTestCase" finished-at="2019-07-15T11:03:21Z" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.fax.FaxLineConfigTest.AddInvalidFaxLineConfigRecordWithoutFaxLineName() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method is-config="true" signature="NavigateToFaxLineConfigPage()[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:21Z" name="NavigateToFaxLineConfigPage" finished-at="2019-07-15T11:03:25Z" duration-ms="3617" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToFaxLineConfigPage -->
+        <test-method signature="AddInvalidFaxLineConfigRecordWithoutFaxLineName()[pri:10, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:25Z" name="AddInvalidFaxLineConfigRecordWithoutFaxLineName" finished-at="2019-07-15T11:03:33Z" duration-ms="7769" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AddInvalidFaxLineConfigRecordWithoutFaxLineName -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:33Z" name="afterEachMethod" finished-at="2019-07-15T11:03:34Z" duration-ms="1320" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.fax.FaxLineConfigTest.AddInvalidFaxLineConfigRecordWithoutFaxLineName() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:34Z" name="endTestCase" finished-at="2019-07-15T11:03:34Z" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.fax.FaxLineConfigTest.AddInvalidFaxLineConfigRecordWithoutFaxLineName() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:34Z" name="startTestCase" finished-at="2019-07-15T11:03:34Z" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.fax.FaxLineConfigTest.AddInvalidFaxLineConfigRecordWithoutDescription() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method is-config="true" signature="NavigateToFaxLineConfigPage()[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:34Z" name="NavigateToFaxLineConfigPage" finished-at="2019-07-15T11:03:36Z" duration-ms="1579" status="FAIL">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at org.openqa.selenium.remote.RemoteWebElement.isDisplayed(RemoteWebElement.java:319)
+	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:302)
+	at org.openqa.selenium.support.ui.ExpectedConditions.access$100(ExpectedConditions.java:44)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:288)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:285)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:209)
+	at com.tetherfi.pages.BasePage.waitUntilWebElementListIsVisible(BasePage.java:139)
+	at com.tetherfi.pages.OCMHomePage.isOCMHomePageIsDisplayed(OCMHomePage.java:114)
+	at com.tetherfi.test.fax.FaxLineConfigTest.NavigateToFaxLineConfigPage(FaxLineConfigTest.java:36)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:523)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:224)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:599)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NullPointerException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToFaxLineConfigPage -->
+        <test-method signature="AddInvalidFaxLineConfigRecordWithoutDescription()[pri:11, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:36Z" name="AddInvalidFaxLineConfigRecordWithoutDescription" finished-at="2019-07-15T11:03:36Z" duration-ms="0" status="SKIP">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at org.openqa.selenium.remote.RemoteWebElement.isDisplayed(RemoteWebElement.java:319)
+	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:302)
+	at org.openqa.selenium.support.ui.ExpectedConditions.access$100(ExpectedConditions.java:44)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:288)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:285)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:209)
+	at com.tetherfi.pages.BasePage.waitUntilWebElementListIsVisible(BasePage.java:139)
+	at com.tetherfi.pages.OCMHomePage.isOCMHomePageIsDisplayed(OCMHomePage.java:114)
+	at com.tetherfi.test.fax.FaxLineConfigTest.NavigateToFaxLineConfigPage(FaxLineConfigTest.java:36)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:523)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:224)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:599)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NullPointerException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AddInvalidFaxLineConfigRecordWithoutDescription -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:36Z" name="startTestCase" finished-at="2019-07-15T11:03:36Z" duration-ms="0" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method is-config="true" signature="NavigateToFaxLineConfigPage()[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:36Z" name="NavigateToFaxLineConfigPage" finished-at="2019-07-15T11:03:36Z" duration-ms="0" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToFaxLineConfigPage -->
+        <test-method signature="AddInvalidFaxLineConfigRecordWithoutStatus()[pri:12, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:36Z" name="AddInvalidFaxLineConfigRecordWithoutStatus" finished-at="2019-07-15T11:03:36Z" duration-ms="0" status="SKIP">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at org.openqa.selenium.remote.RemoteWebElement.isDisplayed(RemoteWebElement.java:319)
+	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:302)
+	at org.openqa.selenium.support.ui.ExpectedConditions.access$100(ExpectedConditions.java:44)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:288)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:285)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:209)
+	at com.tetherfi.pages.BasePage.waitUntilWebElementListIsVisible(BasePage.java:139)
+	at com.tetherfi.pages.OCMHomePage.isOCMHomePageIsDisplayed(OCMHomePage.java:114)
+	at com.tetherfi.test.fax.FaxLineConfigTest.NavigateToFaxLineConfigPage(FaxLineConfigTest.java:36)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:523)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:224)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:599)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NullPointerException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AddInvalidFaxLineConfigRecordWithoutStatus -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:36Z" name="startTestCase" finished-at="2019-07-15T11:03:36Z" duration-ms="0" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method is-config="true" signature="NavigateToFaxLineConfigPage()[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:36Z" name="NavigateToFaxLineConfigPage" finished-at="2019-07-15T11:03:36Z" duration-ms="0" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToFaxLineConfigPage -->
+        <test-method signature="AddInvalidFaxLineConfigRecordWithoutSendStatus()[pri:13, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:36Z" name="AddInvalidFaxLineConfigRecordWithoutSendStatus" finished-at="2019-07-15T11:03:36Z" duration-ms="0" status="SKIP">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at org.openqa.selenium.remote.RemoteWebElement.isDisplayed(RemoteWebElement.java:319)
+	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:302)
+	at org.openqa.selenium.support.ui.ExpectedConditions.access$100(ExpectedConditions.java:44)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:288)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:285)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:209)
+	at com.tetherfi.pages.BasePage.waitUntilWebElementListIsVisible(BasePage.java:139)
+	at com.tetherfi.pages.OCMHomePage.isOCMHomePageIsDisplayed(OCMHomePage.java:114)
+	at com.tetherfi.test.fax.FaxLineConfigTest.NavigateToFaxLineConfigPage(FaxLineConfigTest.java:36)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:523)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:224)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:599)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NullPointerException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AddInvalidFaxLineConfigRecordWithoutSendStatus -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:36Z" name="startTestCase" finished-at="2019-07-15T11:03:36Z" duration-ms="0" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method is-config="true" signature="NavigateToFaxLineConfigPage()[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:36Z" name="NavigateToFaxLineConfigPage" finished-at="2019-07-15T11:03:36Z" duration-ms="0" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToFaxLineConfigPage -->
+        <test-method signature="AddInvalidFaxLineConfigRecordWithoutRecieveStatus()[pri:14, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:36Z" name="AddInvalidFaxLineConfigRecordWithoutRecieveStatus" finished-at="2019-07-15T11:03:36Z" duration-ms="0" status="SKIP">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at org.openqa.selenium.remote.RemoteWebElement.isDisplayed(RemoteWebElement.java:319)
+	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:302)
+	at org.openqa.selenium.support.ui.ExpectedConditions.access$100(ExpectedConditions.java:44)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:288)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:285)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:209)
+	at com.tetherfi.pages.BasePage.waitUntilWebElementListIsVisible(BasePage.java:139)
+	at com.tetherfi.pages.OCMHomePage.isOCMHomePageIsDisplayed(OCMHomePage.java:114)
+	at com.tetherfi.test.fax.FaxLineConfigTest.NavigateToFaxLineConfigPage(FaxLineConfigTest.java:36)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:523)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:224)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:599)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NullPointerException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AddInvalidFaxLineConfigRecordWithoutRecieveStatus -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:36Z" name="startTestCase" finished-at="2019-07-15T11:03:36Z" duration-ms="0" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method is-config="true" signature="NavigateToFaxLineConfigPage()[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:36Z" name="NavigateToFaxLineConfigPage" finished-at="2019-07-15T11:03:36Z" duration-ms="0" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToFaxLineConfigPage -->
+        <test-method signature="EditFaxLineConfigCancelRecord()[pri:15, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:36Z" name="EditFaxLineConfigCancelRecord" finished-at="2019-07-15T11:03:36Z" duration-ms="0" status="SKIP">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at org.openqa.selenium.remote.RemoteWebElement.isDisplayed(RemoteWebElement.java:319)
+	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:302)
+	at org.openqa.selenium.support.ui.ExpectedConditions.access$100(ExpectedConditions.java:44)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:288)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:285)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:209)
+	at com.tetherfi.pages.BasePage.waitUntilWebElementListIsVisible(BasePage.java:139)
+	at com.tetherfi.pages.OCMHomePage.isOCMHomePageIsDisplayed(OCMHomePage.java:114)
+	at com.tetherfi.test.fax.FaxLineConfigTest.NavigateToFaxLineConfigPage(FaxLineConfigTest.java:36)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:523)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:224)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:599)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NullPointerException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- EditFaxLineConfigCancelRecord -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:36Z" name="startTestCase" finished-at="2019-07-15T11:03:36Z" duration-ms="0" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method is-config="true" signature="NavigateToFaxLineConfigPage()[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:36Z" name="NavigateToFaxLineConfigPage" finished-at="2019-07-15T11:03:36Z" duration-ms="0" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToFaxLineConfigPage -->
+        <test-method signature="EditInvalidFaxLineConfigRecord()[pri:16, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:36Z" name="EditInvalidFaxLineConfigRecord" finished-at="2019-07-15T11:03:36Z" duration-ms="0" status="SKIP">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at org.openqa.selenium.remote.RemoteWebElement.isDisplayed(RemoteWebElement.java:319)
+	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:302)
+	at org.openqa.selenium.support.ui.ExpectedConditions.access$100(ExpectedConditions.java:44)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:288)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:285)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:209)
+	at com.tetherfi.pages.BasePage.waitUntilWebElementListIsVisible(BasePage.java:139)
+	at com.tetherfi.pages.OCMHomePage.isOCMHomePageIsDisplayed(OCMHomePage.java:114)
+	at com.tetherfi.test.fax.FaxLineConfigTest.NavigateToFaxLineConfigPage(FaxLineConfigTest.java:36)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:523)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:224)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:599)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NullPointerException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- EditInvalidFaxLineConfigRecord -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:36Z" name="startTestCase" finished-at="2019-07-15T11:03:36Z" duration-ms="0" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method is-config="true" signature="NavigateToFaxLineConfigPage()[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:36Z" name="NavigateToFaxLineConfigPage" finished-at="2019-07-15T11:03:36Z" duration-ms="0" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToFaxLineConfigPage -->
+        <test-method signature="EditFaxLineConfigRecord()[pri:17, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:36Z" name="EditFaxLineConfigRecord" finished-at="2019-07-15T11:03:36Z" depends-on-methods="com.tetherfi.test.fax.FaxLineConfigTest.AddFaxLineConfigRecord" duration-ms="0" status="SKIP">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at org.openqa.selenium.remote.RemoteWebElement.isDisplayed(RemoteWebElement.java:319)
+	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:302)
+	at org.openqa.selenium.support.ui.ExpectedConditions.access$100(ExpectedConditions.java:44)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:288)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:285)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:209)
+	at com.tetherfi.pages.BasePage.waitUntilWebElementListIsVisible(BasePage.java:139)
+	at com.tetherfi.pages.OCMHomePage.isOCMHomePageIsDisplayed(OCMHomePage.java:114)
+	at com.tetherfi.test.fax.FaxLineConfigTest.NavigateToFaxLineConfigPage(FaxLineConfigTest.java:36)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:523)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:224)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:599)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NullPointerException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- EditFaxLineConfigRecord -->
+        <test-method signature="VerifyAuditTrialReportForUpdate()[pri:18, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:36Z" name="VerifyAuditTrialReportForUpdate" finished-at="2019-07-15T11:03:36Z" depends-on-methods="com.tetherfi.test.fax.FaxLineConfigTest.EditFaxLineConfigRecord" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method FaxLineConfigTest.VerifyAuditTrialReportForUpdate()[pri:18, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method FaxLineConfigTest.VerifyAuditTrialReportForUpdate()[pri:18, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1084)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyAuditTrialReportForUpdate -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:36Z" name="startTestCase" finished-at="2019-07-15T11:03:36Z" duration-ms="0" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method is-config="true" signature="NavigateToFaxLineConfigPage()[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:36Z" name="NavigateToFaxLineConfigPage" finished-at="2019-07-15T11:03:36Z" duration-ms="0" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToFaxLineConfigPage -->
+        <test-method signature="searchPage()[pri:19, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:36Z" name="searchPage" finished-at="2019-07-15T11:03:36Z" duration-ms="0" status="SKIP">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at org.openqa.selenium.remote.RemoteWebElement.isDisplayed(RemoteWebElement.java:319)
+	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:302)
+	at org.openqa.selenium.support.ui.ExpectedConditions.access$100(ExpectedConditions.java:44)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:288)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:285)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:209)
+	at com.tetherfi.pages.BasePage.waitUntilWebElementListIsVisible(BasePage.java:139)
+	at com.tetherfi.pages.OCMHomePage.isOCMHomePageIsDisplayed(OCMHomePage.java:114)
+	at com.tetherfi.test.fax.FaxLineConfigTest.NavigateToFaxLineConfigPage(FaxLineConfigTest.java:36)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:523)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:224)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:599)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NullPointerException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- searchPage -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:36Z" name="startTestCase" finished-at="2019-07-15T11:03:36Z" duration-ms="0" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method is-config="true" signature="NavigateToFaxLineConfigPage()[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:36Z" name="NavigateToFaxLineConfigPage" finished-at="2019-07-15T11:03:36Z" duration-ms="0" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToFaxLineConfigPage -->
+        <test-method signature="searchwithoutSearchTextbox()[pri:20, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:36Z" name="searchwithoutSearchTextbox" finished-at="2019-07-15T11:03:36Z" duration-ms="0" status="SKIP">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at org.openqa.selenium.remote.RemoteWebElement.isDisplayed(RemoteWebElement.java:319)
+	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:302)
+	at org.openqa.selenium.support.ui.ExpectedConditions.access$100(ExpectedConditions.java:44)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:288)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:285)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:209)
+	at com.tetherfi.pages.BasePage.waitUntilWebElementListIsVisible(BasePage.java:139)
+	at com.tetherfi.pages.OCMHomePage.isOCMHomePageIsDisplayed(OCMHomePage.java:114)
+	at com.tetherfi.test.fax.FaxLineConfigTest.NavigateToFaxLineConfigPage(FaxLineConfigTest.java:36)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:523)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:224)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:599)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NullPointerException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- searchwithoutSearchTextbox -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:36Z" name="startTestCase" finished-at="2019-07-15T11:03:36Z" duration-ms="0" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method is-config="true" signature="NavigateToFaxLineConfigPage()[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:36Z" name="NavigateToFaxLineConfigPage" finished-at="2019-07-15T11:03:36Z" duration-ms="0" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToFaxLineConfigPage -->
+        <test-method signature="database()[pri:21, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:36Z" name="database" finished-at="2019-07-15T11:03:36Z" duration-ms="0" status="SKIP">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at org.openqa.selenium.remote.RemoteWebElement.isDisplayed(RemoteWebElement.java:319)
+	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:302)
+	at org.openqa.selenium.support.ui.ExpectedConditions.access$100(ExpectedConditions.java:44)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:288)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:285)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:209)
+	at com.tetherfi.pages.BasePage.waitUntilWebElementListIsVisible(BasePage.java:139)
+	at com.tetherfi.pages.OCMHomePage.isOCMHomePageIsDisplayed(OCMHomePage.java:114)
+	at com.tetherfi.test.fax.FaxLineConfigTest.NavigateToFaxLineConfigPage(FaxLineConfigTest.java:36)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:523)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:224)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:599)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NullPointerException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- database -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:36Z" name="startTestCase" finished-at="2019-07-15T11:03:36Z" duration-ms="0" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method is-config="true" signature="NavigateToFaxLineConfigPage()[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:36Z" name="NavigateToFaxLineConfigPage" finished-at="2019-07-15T11:03:36Z" duration-ms="0" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToFaxLineConfigPage -->
+        <test-method signature="DeleteCancelFaxLineConfigRecord()[pri:22, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:36Z" name="DeleteCancelFaxLineConfigRecord" finished-at="2019-07-15T11:03:36Z" duration-ms="0" status="SKIP">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at org.openqa.selenium.remote.RemoteWebElement.isDisplayed(RemoteWebElement.java:319)
+	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:302)
+	at org.openqa.selenium.support.ui.ExpectedConditions.access$100(ExpectedConditions.java:44)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:288)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:285)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:209)
+	at com.tetherfi.pages.BasePage.waitUntilWebElementListIsVisible(BasePage.java:139)
+	at com.tetherfi.pages.OCMHomePage.isOCMHomePageIsDisplayed(OCMHomePage.java:114)
+	at com.tetherfi.test.fax.FaxLineConfigTest.NavigateToFaxLineConfigPage(FaxLineConfigTest.java:36)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:523)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:224)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:599)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NullPointerException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- DeleteCancelFaxLineConfigRecord -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:36Z" name="startTestCase" finished-at="2019-07-15T11:03:36Z" duration-ms="0" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method is-config="true" signature="NavigateToFaxLineConfigPage()[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:36Z" name="NavigateToFaxLineConfigPage" finished-at="2019-07-15T11:03:36Z" duration-ms="0" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToFaxLineConfigPage -->
+        <test-method signature="DeleteFaxLineConfigRecordWithoutReason()[pri:23, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:36Z" name="DeleteFaxLineConfigRecordWithoutReason" finished-at="2019-07-15T11:03:36Z" duration-ms="0" status="SKIP">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at org.openqa.selenium.remote.RemoteWebElement.isDisplayed(RemoteWebElement.java:319)
+	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:302)
+	at org.openqa.selenium.support.ui.ExpectedConditions.access$100(ExpectedConditions.java:44)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:288)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:285)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:209)
+	at com.tetherfi.pages.BasePage.waitUntilWebElementListIsVisible(BasePage.java:139)
+	at com.tetherfi.pages.OCMHomePage.isOCMHomePageIsDisplayed(OCMHomePage.java:114)
+	at com.tetherfi.test.fax.FaxLineConfigTest.NavigateToFaxLineConfigPage(FaxLineConfigTest.java:36)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:523)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:224)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:599)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NullPointerException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- DeleteFaxLineConfigRecordWithoutReason -->
+        <test-method signature="DeleteFaxLineConfigRecord()[pri:24, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:36Z" name="DeleteFaxLineConfigRecord" finished-at="2019-07-15T11:03:36Z" depends-on-methods="com.tetherfi.test.fax.FaxLineConfigTest.EditFaxLineConfigRecord" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method FaxLineConfigTest.DeleteFaxLineConfigRecord()[pri:24, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method FaxLineConfigTest.DeleteFaxLineConfigRecord()[pri:24, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1084)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- DeleteFaxLineConfigRecord -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:36Z" name="startTestCase" finished-at="2019-07-15T11:03:36Z" duration-ms="0" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method is-config="true" signature="NavigateToFaxLineConfigPage()[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:36Z" name="NavigateToFaxLineConfigPage" finished-at="2019-07-15T11:03:36Z" duration-ms="0" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToFaxLineConfigPage -->
+        <test-method signature="VerifyAuditTrialReportForDelete()[pri:25, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:36Z" name="VerifyAuditTrialReportForDelete" finished-at="2019-07-15T11:03:36Z" duration-ms="0" status="SKIP">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at org.openqa.selenium.remote.RemoteWebElement.isDisplayed(RemoteWebElement.java:319)
+	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:302)
+	at org.openqa.selenium.support.ui.ExpectedConditions.access$100(ExpectedConditions.java:44)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:288)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:285)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:209)
+	at com.tetherfi.pages.BasePage.waitUntilWebElementListIsVisible(BasePage.java:139)
+	at com.tetherfi.pages.OCMHomePage.isOCMHomePageIsDisplayed(OCMHomePage.java:114)
+	at com.tetherfi.test.fax.FaxLineConfigTest.NavigateToFaxLineConfigPage(FaxLineConfigTest.java:36)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:523)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:224)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:599)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NullPointerException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyAuditTrialReportForDelete -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:36Z" name="startTestCase" finished-at="2019-07-15T11:03:36Z" duration-ms="0" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method is-config="true" signature="NavigateToFaxLineConfigPage()[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:36Z" name="NavigateToFaxLineConfigPage" finished-at="2019-07-15T11:03:36Z" duration-ms="0" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToFaxLineConfigPage -->
+        <test-method signature="SearchClearSearch()[pri:26, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:36Z" name="SearchClearSearch" finished-at="2019-07-15T11:03:36Z" duration-ms="0" status="SKIP">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at org.openqa.selenium.remote.RemoteWebElement.isDisplayed(RemoteWebElement.java:319)
+	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:302)
+	at org.openqa.selenium.support.ui.ExpectedConditions.access$100(ExpectedConditions.java:44)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:288)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:285)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:209)
+	at com.tetherfi.pages.BasePage.waitUntilWebElementListIsVisible(BasePage.java:139)
+	at com.tetherfi.pages.OCMHomePage.isOCMHomePageIsDisplayed(OCMHomePage.java:114)
+	at com.tetherfi.test.fax.FaxLineConfigTest.NavigateToFaxLineConfigPage(FaxLineConfigTest.java:36)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:523)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:224)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:599)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NullPointerException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SearchClearSearch -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:36Z" name="startTestCase" finished-at="2019-07-15T11:03:36Z" duration-ms="0" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method is-config="true" signature="NavigateToFaxLineConfigPage()[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:36Z" name="NavigateToFaxLineConfigPage" finished-at="2019-07-15T11:03:36Z" duration-ms="0" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToFaxLineConfigPage -->
+        <test-method signature="ExportToExcel()[pri:27, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:36Z" name="ExportToExcel" finished-at="2019-07-15T11:03:36Z" duration-ms="0" status="SKIP">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at org.openqa.selenium.remote.RemoteWebElement.isDisplayed(RemoteWebElement.java:319)
+	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:302)
+	at org.openqa.selenium.support.ui.ExpectedConditions.access$100(ExpectedConditions.java:44)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:288)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:285)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:209)
+	at com.tetherfi.pages.BasePage.waitUntilWebElementListIsVisible(BasePage.java:139)
+	at com.tetherfi.pages.OCMHomePage.isOCMHomePageIsDisplayed(OCMHomePage.java:114)
+	at com.tetherfi.test.fax.FaxLineConfigTest.NavigateToFaxLineConfigPage(FaxLineConfigTest.java:36)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:523)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:224)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:599)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NullPointerException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ExportToExcel -->
+        <test-method is-config="true" signature="NavigateToFaxLineConfigPage()[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:36Z" name="NavigateToFaxLineConfigPage" finished-at="2019-07-15T11:03:36Z" duration-ms="0" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToFaxLineConfigPage -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:36Z" name="startTestCase" finished-at="2019-07-15T11:03:36Z" duration-ms="0" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method signature="ExportToExcelData()[pri:28, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:36Z" name="ExportToExcelData" finished-at="2019-07-15T11:03:36Z" duration-ms="0" status="SKIP">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at org.openqa.selenium.remote.RemoteWebElement.isDisplayed(RemoteWebElement.java:319)
+	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:302)
+	at org.openqa.selenium.support.ui.ExpectedConditions.access$100(ExpectedConditions.java:44)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:288)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:285)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:209)
+	at com.tetherfi.pages.BasePage.waitUntilWebElementListIsVisible(BasePage.java:139)
+	at com.tetherfi.pages.OCMHomePage.isOCMHomePageIsDisplayed(OCMHomePage.java:114)
+	at com.tetherfi.test.fax.FaxLineConfigTest.NavigateToFaxLineConfigPage(FaxLineConfigTest.java:36)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:523)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:224)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:599)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NullPointerException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ExportToExcelData -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:36Z" name="startTestCase" finished-at="2019-07-15T11:03:36Z" duration-ms="0" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method is-config="true" signature="NavigateToFaxLineConfigPage()[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:36Z" name="NavigateToFaxLineConfigPage" finished-at="2019-07-15T11:03:36Z" duration-ms="0" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToFaxLineConfigPage -->
+        <test-method signature="ExporttoExcelWithoutData()[pri:29, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:36Z" name="ExporttoExcelWithoutData" finished-at="2019-07-15T11:03:36Z" duration-ms="0" status="SKIP">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at org.openqa.selenium.remote.RemoteWebElement.isDisplayed(RemoteWebElement.java:319)
+	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:302)
+	at org.openqa.selenium.support.ui.ExpectedConditions.access$100(ExpectedConditions.java:44)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:288)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:285)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:209)
+	at com.tetherfi.pages.BasePage.waitUntilWebElementListIsVisible(BasePage.java:139)
+	at com.tetherfi.pages.OCMHomePage.isOCMHomePageIsDisplayed(OCMHomePage.java:114)
+	at com.tetherfi.test.fax.FaxLineConfigTest.NavigateToFaxLineConfigPage(FaxLineConfigTest.java:36)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:523)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:224)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:599)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NullPointerException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ExporttoExcelWithoutData -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:36Z" name="startTestCase" finished-at="2019-07-15T11:03:36Z" duration-ms="0" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method is-config="true" signature="NavigateToFaxLineConfigPage()[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:36Z" name="NavigateToFaxLineConfigPage" finished-at="2019-07-15T11:03:36Z" duration-ms="0" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToFaxLineConfigPage -->
+        <test-method signature="SortingByAscending()[pri:30, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:36Z" name="SortingByAscending" finished-at="2019-07-15T11:03:36Z" duration-ms="0" status="SKIP">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at org.openqa.selenium.remote.RemoteWebElement.isDisplayed(RemoteWebElement.java:319)
+	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:302)
+	at org.openqa.selenium.support.ui.ExpectedConditions.access$100(ExpectedConditions.java:44)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:288)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:285)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:209)
+	at com.tetherfi.pages.BasePage.waitUntilWebElementListIsVisible(BasePage.java:139)
+	at com.tetherfi.pages.OCMHomePage.isOCMHomePageIsDisplayed(OCMHomePage.java:114)
+	at com.tetherfi.test.fax.FaxLineConfigTest.NavigateToFaxLineConfigPage(FaxLineConfigTest.java:36)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:523)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:224)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:599)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NullPointerException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SortingByAscending -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:36Z" name="startTestCase" finished-at="2019-07-15T11:03:36Z" duration-ms="0" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method is-config="true" signature="NavigateToFaxLineConfigPage()[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:36Z" name="NavigateToFaxLineConfigPage" finished-at="2019-07-15T11:03:36Z" duration-ms="0" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToFaxLineConfigPage -->
+        <test-method signature="SortingByDescending()[pri:31, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:36Z" name="SortingByDescending" finished-at="2019-07-15T11:03:36Z" duration-ms="0" status="SKIP">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at org.openqa.selenium.remote.RemoteWebElement.isDisplayed(RemoteWebElement.java:319)
+	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:302)
+	at org.openqa.selenium.support.ui.ExpectedConditions.access$100(ExpectedConditions.java:44)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:288)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:285)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:209)
+	at com.tetherfi.pages.BasePage.waitUntilWebElementListIsVisible(BasePage.java:139)
+	at com.tetherfi.pages.OCMHomePage.isOCMHomePageIsDisplayed(OCMHomePage.java:114)
+	at com.tetherfi.test.fax.FaxLineConfigTest.NavigateToFaxLineConfigPage(FaxLineConfigTest.java:36)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:523)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:224)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:599)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NullPointerException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SortingByDescending -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:36Z" name="startTestCase" finished-at="2019-07-15T11:03:36Z" duration-ms="0" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method is-config="true" signature="NavigateToFaxLineConfigPage()[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:36Z" name="NavigateToFaxLineConfigPage" finished-at="2019-07-15T11:03:36Z" duration-ms="0" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToFaxLineConfigPage -->
+        <test-method signature="GroupBy()[pri:32, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:36Z" name="GroupBy" finished-at="2019-07-15T11:03:36Z" duration-ms="0" status="SKIP">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at org.openqa.selenium.remote.RemoteWebElement.isDisplayed(RemoteWebElement.java:319)
+	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:302)
+	at org.openqa.selenium.support.ui.ExpectedConditions.access$100(ExpectedConditions.java:44)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:288)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:285)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:209)
+	at com.tetherfi.pages.BasePage.waitUntilWebElementListIsVisible(BasePage.java:139)
+	at com.tetherfi.pages.OCMHomePage.isOCMHomePageIsDisplayed(OCMHomePage.java:114)
+	at com.tetherfi.test.fax.FaxLineConfigTest.NavigateToFaxLineConfigPage(FaxLineConfigTest.java:36)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:523)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:224)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:599)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NullPointerException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- GroupBy -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:36Z" name="startTestCase" finished-at="2019-07-15T11:03:36Z" duration-ms="0" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method is-config="true" signature="NavigateToFaxLineConfigPage()[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:36Z" name="NavigateToFaxLineConfigPage" finished-at="2019-07-15T11:03:36Z" duration-ms="0" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToFaxLineConfigPage -->
+        <test-method signature="VerifyArrowMoveForPreviousAndNextPage()[pri:33, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:36Z" name="VerifyArrowMoveForPreviousAndNextPage" finished-at="2019-07-15T11:03:36Z" duration-ms="0" status="SKIP">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at org.openqa.selenium.remote.RemoteWebElement.isDisplayed(RemoteWebElement.java:319)
+	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:302)
+	at org.openqa.selenium.support.ui.ExpectedConditions.access$100(ExpectedConditions.java:44)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:288)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:285)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:209)
+	at com.tetherfi.pages.BasePage.waitUntilWebElementListIsVisible(BasePage.java:139)
+	at com.tetherfi.pages.OCMHomePage.isOCMHomePageIsDisplayed(OCMHomePage.java:114)
+	at com.tetherfi.test.fax.FaxLineConfigTest.NavigateToFaxLineConfigPage(FaxLineConfigTest.java:36)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:523)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:224)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:599)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NullPointerException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyArrowMoveForPreviousAndNextPage -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:36Z" name="startTestCase" finished-at="2019-07-15T11:03:36Z" duration-ms="0" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method is-config="true" signature="NavigateToFaxLineConfigPage()[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:36Z" name="NavigateToFaxLineConfigPage" finished-at="2019-07-15T11:03:36Z" duration-ms="0" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToFaxLineConfigPage -->
+        <test-method signature="VerifyArrowMoveForFirstAndLastPage()[pri:34, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:36Z" name="VerifyArrowMoveForFirstAndLastPage" finished-at="2019-07-15T11:03:36Z" duration-ms="0" status="SKIP">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at org.openqa.selenium.remote.RemoteWebElement.isDisplayed(RemoteWebElement.java:319)
+	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:302)
+	at org.openqa.selenium.support.ui.ExpectedConditions.access$100(ExpectedConditions.java:44)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:288)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:285)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:209)
+	at com.tetherfi.pages.BasePage.waitUntilWebElementListIsVisible(BasePage.java:139)
+	at com.tetherfi.pages.OCMHomePage.isOCMHomePageIsDisplayed(OCMHomePage.java:114)
+	at com.tetherfi.test.fax.FaxLineConfigTest.NavigateToFaxLineConfigPage(FaxLineConfigTest.java:36)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:523)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:224)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:599)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NullPointerException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyArrowMoveForFirstAndLastPage -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:36Z" name="startTestCase" finished-at="2019-07-15T11:03:36Z" duration-ms="0" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method is-config="true" signature="NavigateToFaxLineConfigPage()[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:36Z" name="NavigateToFaxLineConfigPage" finished-at="2019-07-15T11:03:36Z" duration-ms="0" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToFaxLineConfigPage -->
+        <test-method signature="VerifyTotalNumberOfItemsPerPageDetails()[pri:35, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:36Z" name="VerifyTotalNumberOfItemsPerPageDetails" finished-at="2019-07-15T11:03:36Z" duration-ms="0" status="SKIP">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at org.openqa.selenium.remote.RemoteWebElement.isDisplayed(RemoteWebElement.java:319)
+	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:302)
+	at org.openqa.selenium.support.ui.ExpectedConditions.access$100(ExpectedConditions.java:44)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:288)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:285)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:209)
+	at com.tetherfi.pages.BasePage.waitUntilWebElementListIsVisible(BasePage.java:139)
+	at com.tetherfi.pages.OCMHomePage.isOCMHomePageIsDisplayed(OCMHomePage.java:114)
+	at com.tetherfi.test.fax.FaxLineConfigTest.NavigateToFaxLineConfigPage(FaxLineConfigTest.java:36)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:523)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:224)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:599)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NullPointerException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyTotalNumberOfItemsPerPageDetails -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:36Z" name="startTestCase" finished-at="2019-07-15T11:03:36Z" duration-ms="0" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method is-config="true" signature="NavigateToFaxLineConfigPage()[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:36Z" name="NavigateToFaxLineConfigPage" finished-at="2019-07-15T11:03:36Z" duration-ms="0" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToFaxLineConfigPage -->
+        <test-method signature="VerifyNumberOfItemsPerPageSelection()[pri:36, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:36Z" name="VerifyNumberOfItemsPerPageSelection" finished-at="2019-07-15T11:03:36Z" duration-ms="0" status="SKIP">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at org.openqa.selenium.remote.RemoteWebElement.isDisplayed(RemoteWebElement.java:319)
+	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:302)
+	at org.openqa.selenium.support.ui.ExpectedConditions.access$100(ExpectedConditions.java:44)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:288)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:285)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:209)
+	at com.tetherfi.pages.BasePage.waitUntilWebElementListIsVisible(BasePage.java:139)
+	at com.tetherfi.pages.OCMHomePage.isOCMHomePageIsDisplayed(OCMHomePage.java:114)
+	at com.tetherfi.test.fax.FaxLineConfigTest.NavigateToFaxLineConfigPage(FaxLineConfigTest.java:36)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:523)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:224)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:599)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NullPointerException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyNumberOfItemsPerPageSelection -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:36Z" name="startTestCase" finished-at="2019-07-15T11:03:36Z" duration-ms="0" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method is-config="true" signature="NavigateToFaxLineConfigPage()[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:36Z" name="NavigateToFaxLineConfigPage" finished-at="2019-07-15T11:03:36Z" duration-ms="0" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToFaxLineConfigPage -->
+        <test-method signature="VerifyDropdownForAllTheColumns()[pri:37, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:36Z" name="VerifyDropdownForAllTheColumns" finished-at="2019-07-15T11:03:36Z" duration-ms="0" status="SKIP">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at org.openqa.selenium.remote.RemoteWebElement.isDisplayed(RemoteWebElement.java:319)
+	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:302)
+	at org.openqa.selenium.support.ui.ExpectedConditions.access$100(ExpectedConditions.java:44)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:288)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:285)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:209)
+	at com.tetherfi.pages.BasePage.waitUntilWebElementListIsVisible(BasePage.java:139)
+	at com.tetherfi.pages.OCMHomePage.isOCMHomePageIsDisplayed(OCMHomePage.java:114)
+	at com.tetherfi.test.fax.FaxLineConfigTest.NavigateToFaxLineConfigPage(FaxLineConfigTest.java:36)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:523)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:224)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:599)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NullPointerException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyDropdownForAllTheColumns -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:36Z" name="startTestCase" finished-at="2019-07-15T11:03:36Z" duration-ms="0" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method is-config="true" signature="NavigateToFaxLineConfigPage()[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:36Z" name="NavigateToFaxLineConfigPage" finished-at="2019-07-15T11:03:36Z" duration-ms="0" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToFaxLineConfigPage -->
+        <test-method signature="VerifyColumnsHeaderEnable()[pri:38, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:36Z" name="VerifyColumnsHeaderEnable" finished-at="2019-07-15T11:03:36Z" duration-ms="0" status="SKIP">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at org.openqa.selenium.remote.RemoteWebElement.isDisplayed(RemoteWebElement.java:319)
+	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:302)
+	at org.openqa.selenium.support.ui.ExpectedConditions.access$100(ExpectedConditions.java:44)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:288)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:285)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:209)
+	at com.tetherfi.pages.BasePage.waitUntilWebElementListIsVisible(BasePage.java:139)
+	at com.tetherfi.pages.OCMHomePage.isOCMHomePageIsDisplayed(OCMHomePage.java:114)
+	at com.tetherfi.test.fax.FaxLineConfigTest.NavigateToFaxLineConfigPage(FaxLineConfigTest.java:36)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:523)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:224)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:599)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NullPointerException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyColumnsHeaderEnable -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:36Z" name="startTestCase" finished-at="2019-07-15T11:03:36Z" duration-ms="0" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method is-config="true" signature="NavigateToFaxLineConfigPage()[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:36Z" name="NavigateToFaxLineConfigPage" finished-at="2019-07-15T11:03:36Z" duration-ms="0" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToFaxLineConfigPage -->
+        <test-method signature="VerifyColumnsHeaderDisable()[pri:39, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:36Z" name="VerifyColumnsHeaderDisable" finished-at="2019-07-15T11:03:36Z" duration-ms="0" status="SKIP">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at org.openqa.selenium.remote.RemoteWebElement.isDisplayed(RemoteWebElement.java:319)
+	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:302)
+	at org.openqa.selenium.support.ui.ExpectedConditions.access$100(ExpectedConditions.java:44)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:288)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:285)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:209)
+	at com.tetherfi.pages.BasePage.waitUntilWebElementListIsVisible(BasePage.java:139)
+	at com.tetherfi.pages.OCMHomePage.isOCMHomePageIsDisplayed(OCMHomePage.java:114)
+	at com.tetherfi.test.fax.FaxLineConfigTest.NavigateToFaxLineConfigPage(FaxLineConfigTest.java:36)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:523)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:224)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:599)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NullPointerException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyColumnsHeaderDisable -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@7d97e06c]" started-at="2019-07-15T11:03:36Z" name="tearDown" finished-at="2019-07-15T11:03:36Z" duration-ms="0" status="SKIP">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.tetherfi.test.tmac.TmacTransferListTest -->
+      </class> <!-- com.tetherfi.test.fax.FaxLineConfigTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
