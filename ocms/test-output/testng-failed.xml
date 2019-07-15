@@ -3,32 +3,17 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.tetherfi.test.fax.FaxAutoACKConfigurationTest">
+      <class name="com.tetherfi.test.fax.FaxLineConfigTest">
         <methods>
-          <include name="ExporttoExcelWithoutData"/>
-          <include name="DeleteInvalidRecord"/>
-          <include name="EditFaxAutoAckConfigRecord"/>
-          <include name="VerifyAuditTrialReportForDelete"/>
-          <include name="endTestCase"/>
-          <include name="VerifyAuditTrialReportForUpdate"/>
-          <include name="tearDown"/>
-          <include name="VerifyNumberOfItemsPerPageSelection"/>
-          <include name="DeleteFaxLineConfigRecord"/>
-          <include name="DeleteFaxAutoAckConfigRecord"/>
-          <include name="DuplicateRecord"/>
-          <include name="AddFaxLineConfigRecord"/>
-          <include name="NavigateToFaxAutoACKConfigurationPage"/>
-          <include name="AddNewAutoAckConfigRecord"/>
           <include name="startTestCase"/>
           <include name="openApplication"/>
           <include name="afterEachMethod"/>
-          <include name="AddDuplicateFaxlineDifferentSenderType"/>
-          <include name="DeleteCancelFaxAutoAckConfigRecord"/>
-          <include name="EditCancelFaxAutoACKConfigRecord"/>
-          <include name="VerifyAuditTrialReportForCreate"/>
-          <include name="EditInvalidRecord"/>
+          <include name="endTestCase"/>
+          <include name="tearDown"/>
+          <include name="database"/>
+          <include name="NavigateToFaxLineConfigPage"/>
         </methods>
-      </class> <!-- com.tetherfi.test.fax.FaxAutoACKConfigurationTest -->
+      </class> <!-- com.tetherfi.test.fax.FaxLineConfigTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
