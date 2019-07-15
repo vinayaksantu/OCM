@@ -3,49 +3,32 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.tetherfi.test.fax.FaxLineConfigTest">
+      <class name="com.tetherfi.test.fax.FaxAutoACKConfigurationTest">
         <methods>
-          <include name="EditFaxLineConfigRecord"/>
-          <include name="GroupBy"/>
-          <include name="AddInvalidFaxLineConfigRecordWithoutDescription"/>
-          <include name="VerifyAuditTrialReportForDelete"/>
           <include name="ExporttoExcelWithoutData"/>
-          <include name="VerifyArrowMoveForPreviousAndNextPage"/>
-          <include name="AutoAckLink"/>
-          <include name="VerifyTotalNumberOfItemsPerPageDetails"/>
-          <include name="AddInvalidFaxLineConfigRecordWithoutRecieveStatus"/>
-          <include name="VerifyNumberOfItemsPerPageSelection"/>
+          <include name="DeleteInvalidRecord"/>
+          <include name="EditFaxAutoAckConfigRecord"/>
+          <include name="VerifyAuditTrialReportForDelete"/>
+          <include name="endTestCase"/>
           <include name="VerifyAuditTrialReportForUpdate"/>
-          <include name="VerifyDropdownForAllTheColumns"/>
-          <include name="AddInvalidFaxLineConfigRecordWithoutSendStatus"/>
-          <include name="DeleteFaxLineConfigRecordWithoutReason"/>
-          <include name="EditInvalidFaxLineConfigRecord"/>
-          <include name="database"/>
-          <include name="ExportToExcelData"/>
-          <include name="ExportToExcel"/>
+          <include name="tearDown"/>
+          <include name="VerifyNumberOfItemsPerPageSelection"/>
+          <include name="DeleteFaxLineConfigRecord"/>
+          <include name="DeleteFaxAutoAckConfigRecord"/>
+          <include name="DuplicateRecord"/>
+          <include name="AddFaxLineConfigRecord"/>
+          <include name="NavigateToFaxAutoACKConfigurationPage"/>
+          <include name="AddNewAutoAckConfigRecord"/>
           <include name="startTestCase"/>
           <include name="openApplication"/>
-          <include name="VerifyColumnsHeaderDisable"/>
           <include name="afterEachMethod"/>
-          <include name="searchPage"/>
-          <include name="DeleteCancelFaxLineConfigRecord"/>
-          <include name="searchwithoutSearchTextbox"/>
-          <include name="EditFaxLineConfigCancelRecord"/>
-          <include name="AddInvalidFaxLineConfigRecordWithoutStatus"/>
-          <include name="RoutesLink"/>
-          <include name="SearchClearSearch"/>
-          <include name="VerifyColumnsHeaderEnable"/>
-          <include name="endTestCase"/>
-          <include name="SendersLink"/>
-          <include name="tearDown"/>
-          <include name="DeleteFaxLineConfigRecord"/>
-          <include name="NavigateToFaxLineConfigPage"/>
-          <include name="SortingByDescending"/>
-          <include name="VerifyArrowMoveForFirstAndLastPage"/>
-          <include name="AddFaxLineConfigRecord"/>
-          <include name="SortingByAscending"/>
+          <include name="AddDuplicateFaxlineDifferentSenderType"/>
+          <include name="DeleteCancelFaxAutoAckConfigRecord"/>
+          <include name="EditCancelFaxAutoACKConfigRecord"/>
+          <include name="VerifyAuditTrialReportForCreate"/>
+          <include name="EditInvalidRecord"/>
         </methods>
-      </class> <!-- com.tetherfi.test.fax.FaxLineConfigTest -->
+      </class> <!-- com.tetherfi.test.fax.FaxAutoACKConfigurationTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
