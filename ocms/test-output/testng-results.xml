@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="0" failed="0" skipped="1">
+<testng-results ignored="0" total="2" passed="0" failed="0" skipped="2">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2019-08-08T08:54:30Z" name="Default suite" finished-at="2019-08-08T08:54:32Z" duration-ms="2934">
+  <suite started-at="2019-08-08T10:07:02Z" name="Default suite" finished-at="2019-08-08T10:07:05Z" duration-ms="2718">
     <groups>
     </groups>
-    <test started-at="2019-08-08T08:54:30Z" name="Default test" finished-at="2019-08-08T08:54:32Z" duration-ms="2934">
+    <test started-at="2019-08-08T10:07:02Z" name="Default test" finished-at="2019-08-08T10:07:05Z" duration-ms="2718">
       <class name="com.tetherfi.test.fax.FaxLineConfigTest">
-        <test-method is-config="true" signature="openApplication()[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@6680f714]" started-at="2019-08-08T14:24:30Z" name="openApplication" finished-at="2019-08-08T14:24:32Z" duration-ms="2773" status="FAIL">
+        <test-method is-config="true" signature="openApplication()[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@6680f714]" started-at="2019-08-08T15:37:03Z" name="openApplication" finished-at="2019-08-08T15:37:05Z" duration-ms="2605" status="FAIL">
           <exception class="java.lang.NullPointerException">
             <full-stacktrace>
               <![CDATA[java.lang.NullPointerException
@@ -43,15 +43,59 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- openApplication -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@6680f714]" started-at="2019-08-08T14:24:32Z" name="startTestCase" finished-at="2019-08-08T14:24:32Z" duration-ms="0" status="SKIP">
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@6680f714]" started-at="2019-08-08T15:37:05Z" name="startTestCase" finished-at="2019-08-08T15:37:05Z" duration-ms="0" status="SKIP">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigateToFaxLineConfigPage()[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@6680f714]" started-at="2019-08-08T14:24:32Z" name="NavigateToFaxLineConfigPage" finished-at="2019-08-08T14:24:32Z" duration-ms="0" status="SKIP">
+        <test-method is-config="true" signature="NavigateToFaxLineConfigPage()[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@6680f714]" started-at="2019-08-08T15:37:05Z" name="NavigateToFaxLineConfigPage" finished-at="2019-08-08T15:37:05Z" duration-ms="0" status="SKIP">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- NavigateToFaxLineConfigPage -->
-        <test-method signature="database()[pri:21, instance:com.tetherfi.test.fax.FaxLineConfigTest@6680f714]" started-at="2019-08-08T14:24:32Z" name="database" finished-at="2019-08-08T14:24:32Z" duration-ms="1" status="SKIP">
+        <test-method signature="FaxLineConfigPage()[pri:1, instance:com.tetherfi.test.fax.FaxLineConfigTest@6680f714]" started-at="2019-08-08T15:37:05Z" name="FaxLineConfigPage" finished-at="2019-08-08T15:37:05Z" duration-ms="0" status="SKIP">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at com.tetherfi.test.BaseTest.openApplication(BaseTest.java:37)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:523)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:224)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:166)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:105)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NullPointerException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- FaxLineConfigPage -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@6680f714]" started-at="2019-08-08T15:37:05Z" name="startTestCase" finished-at="2019-08-08T15:37:05Z" duration-ms="0" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method is-config="true" signature="NavigateToFaxLineConfigPage()[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@6680f714]" started-at="2019-08-08T15:37:05Z" name="NavigateToFaxLineConfigPage" finished-at="2019-08-08T15:37:05Z" duration-ms="0" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToFaxLineConfigPage -->
+        <test-method signature="database()[pri:21, instance:com.tetherfi.test.fax.FaxLineConfigTest@6680f714]" started-at="2019-08-08T15:37:05Z" name="database" finished-at="2019-08-08T15:37:05Z" duration-ms="0" status="SKIP">
           <exception class="java.lang.NullPointerException">
             <full-stacktrace>
               <![CDATA[java.lang.NullPointerException
@@ -87,7 +131,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- database -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@6680f714]" started-at="2019-08-08T14:24:32Z" name="tearDown" finished-at="2019-08-08T14:24:32Z" duration-ms="0" status="SKIP">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.tetherfi.test.fax.FaxLineConfigTest@6680f714]" started-at="2019-08-08T15:37:05Z" name="tearDown" finished-at="2019-08-08T15:37:05Z" duration-ms="0" status="SKIP">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->

@@ -8,6 +8,7 @@
           <include name="startTestCase"/>
           <include name="openApplication"/>
           <include name="afterEachMethod"/>
+          <include name="FaxLineConfigPage"/>
           <include name="endTestCase"/>
           <include name="tearDown"/>
           <include name="database"/>
