@@ -52,7 +52,7 @@ public class FaxLineConfigTest extends BaseTest {
     	screenshot.captureScreen(driver,"minimize window","FaxLineConfigTest");
     }
    
-    @Test(priority=2)
+    //@Test(priority=2)
     public void AddFaxLineConfigRecord() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxLineConfigData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -62,7 +62,7 @@ public class FaxLineConfigTest extends BaseTest {
         faxLineConfigPage.addNewFaxLineConfigRecord(faxLineConfigDetails);
         Assert.assertEquals(faxLineConfigPage.getSuccessMessage(), "Record Created Successfully");
     }
-    @Test(dependsOnMethods = {"AddFaxLineConfigRecord"},priority=3)
+    //@Test(dependsOnMethods = {"AddFaxLineConfigRecord"},priority=3)
     public void VerifyAuditTrialReportForCreate() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxLineConfigData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -77,7 +77,7 @@ public class FaxLineConfigTest extends BaseTest {
         Assert.assertTrue(ocmReportsPage.verifyFaxLineConfigCreate(faxLineConfigDetails,"Create"));
     	}
     
-    @Test(priority=4)
+    //@Test(priority=4)
     public void SendersLink() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxLineConfigData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(1);
@@ -92,7 +92,7 @@ public class FaxLineConfigTest extends BaseTest {
         Assert.assertEquals(faxSendersPage.getSuccessMessage(), "Record Created Successfully");
     }
     
-    @Test(priority=5)
+    //@Test(priority=5)
     public void AutoAckLink() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxLineConfigData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(1);
@@ -107,7 +107,7 @@ public class FaxLineConfigTest extends BaseTest {
         Assert.assertEquals(faxAutoAckConfigurationPage.getSuccessMessage(), "Record Created Successfully");
     }
     
-    @Test(priority=6)
+    //@Test(priority=6)
     public void RoutesLink() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxLineConfigData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(1);
@@ -124,7 +124,7 @@ public class FaxLineConfigTest extends BaseTest {
     
     }
     
-    @Test(priority=7)
+    //@Test(priority=7)
     public void AddDuplicateFaxLineConfigRecord() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxLineConfigData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -134,7 +134,7 @@ public class FaxLineConfigTest extends BaseTest {
         Assert.assertFalse(faxLineConfigPage.getErrorMessage());
     }
     
-    @Test(priority=8)
+    //@Test(priority=8)
     public void AddInvalidFaxLineConfigRecordWithoutInput() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxLineConfigData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -143,7 +143,7 @@ public class FaxLineConfigTest extends BaseTest {
         faxLineConfigPage.addNewFaxLineConfigRecordwithoutInput(faxLineConfigDetails);
         Assert.assertFalse(faxLineConfigPage.getErrorMessage());
     }
-    @Test(priority=9)
+    //@Test(priority=9)
     public void AddInvalidFaxLineConfigRecordWithoutFaxLine() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxLineConfigData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -152,7 +152,7 @@ public class FaxLineConfigTest extends BaseTest {
         faxLineConfigPage.addNewFaxLineConfigRecordwithoutFaxline(faxLineConfigDetails);
         Assert.assertFalse(faxLineConfigPage.getErrorMessage());
     }
-    @Test(priority=10)
+    //@Test(priority=10)
     public void AddInvalidFaxLineConfigRecordWithoutFaxLineName() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxLineConfigData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -162,7 +162,7 @@ public class FaxLineConfigTest extends BaseTest {
         Assert.assertFalse(faxLineConfigPage.getErrorMessage());
     }
     
-    @Test(priority=11)
+    //@Test(priority=11)
     public void AddInvalidFaxLineConfigRecordWithoutDescription() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxLineConfigData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -171,7 +171,7 @@ public class FaxLineConfigTest extends BaseTest {
         faxLineConfigPage.addNewFaxLineConfigRecordwithoutDescription(faxLineConfigDetails);
         Assert.assertFalse(faxLineConfigPage.getErrorMessage());
     }
-    @Test(priority=12)
+    //@Test(priority=12)
     public void AddInvalidFaxLineConfigRecordWithoutStatus() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxLineConfigData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -180,7 +180,7 @@ public class FaxLineConfigTest extends BaseTest {
         faxLineConfigPage.addNewFaxLineConfigRecordwithoutStatus(faxLineConfigDetails);
         Assert.assertFalse(faxLineConfigPage.getErrorMessage());
     }
-    @Test(priority=13)
+    //@Test(priority=13)
     public void AddInvalidFaxLineConfigRecordWithoutSendStatus() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxLineConfigData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -190,7 +190,7 @@ public class FaxLineConfigTest extends BaseTest {
         Assert.assertFalse(faxLineConfigPage.getErrorMessage());
     }
     
-    @Test(priority=14)
+    //@Test(priority=14)
     public void AddInvalidFaxLineConfigRecordWithoutRecieveStatus() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxLineConfigData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -200,7 +200,7 @@ public class FaxLineConfigTest extends BaseTest {
         Assert.assertFalse(faxLineConfigPage.getErrorMessage());
     }
     
-    @Test(priority=15)
+    //@Test(priority=15)
     public void EditFaxLineConfigCancelRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxLineConfigData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
@@ -209,7 +209,7 @@ public class FaxLineConfigTest extends BaseTest {
         Assert.assertTrue(faxLineConfigPage.editcancel(faxLineConfigDetails));
     }
     
-    @Test(priority=16)
+    //@Test(priority=16)
     public void EditInvalidFaxLineConfigRecord() throws IOException {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxLineConfigData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
@@ -219,7 +219,7 @@ public class FaxLineConfigTest extends BaseTest {
         Assert.assertFalse(faxLineConfigPage.getErrorMessage());
     }
     
-    @Test(dependsOnMethods = {"AddFaxLineConfigRecord"},priority=17)
+    //@Test(dependsOnMethods = {"AddFaxLineConfigRecord"},priority=17)
     public void EditFaxLineConfigRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxLineConfigData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
@@ -229,7 +229,7 @@ public class FaxLineConfigTest extends BaseTest {
         Assert.assertEquals(faxLineConfigPage.getSuccessMessage(),"Record Updated Successfully");
     }
     
-    @Test(dependsOnMethods="EditFaxLineConfigRecord",priority=18)
+    //@Test(dependsOnMethods="EditFaxLineConfigRecord",priority=18)
     public void VerifyAuditTrialReportForUpdate() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxLineConfigData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(0);	
@@ -244,7 +244,7 @@ public class FaxLineConfigTest extends BaseTest {
         Assert.assertTrue(ocmReportsPage.verifyFaxLineConfigUpdate(faxLineConfigDetails,"Update"));
     }
     
-    @Test(priority=19)
+    //@Test(priority=19)
     public void searchPage() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxLineConfigData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -255,7 +255,7 @@ public class FaxLineConfigTest extends BaseTest {
         Assert.assertTrue(faxLineConfigPage.verifyclose());
         screenshot.captureScreen("FaxLineConfigTest", "SearchClose");
     }
-    @Test(priority=20)
+    //@Test(priority=20)
     public void searchwithoutSearchTextbox() throws IOException {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxLineConfigData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -274,7 +274,7 @@ public class FaxLineConfigTest extends BaseTest {
     	Assert.assertTrue(faxLineConfigPage.verifyDatabase(faxLineConfigDetails.getQuery()));
     }
     
-    @Test(priority=22)
+    //@Test(priority=22)
     public void DeleteCancelFaxLineConfigRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxLineConfigData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
@@ -283,7 +283,7 @@ public class FaxLineConfigTest extends BaseTest {
         Assert.assertTrue(faxLineConfigPage.deletecancelRecord(faxLineConfigDetails));
     }
     
-    @Test(priority=23)
+    //@Test(priority=23)
     public void DeleteFaxLineConfigRecordWithoutReason() throws IOException {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxLineConfigData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
@@ -294,7 +294,7 @@ public class FaxLineConfigTest extends BaseTest {
 
     }
     
-    @Test(dependsOnMethods = {"EditFaxLineConfigRecord"},priority=24)
+    //@Test(dependsOnMethods = {"EditFaxLineConfigRecord"},priority=24)
     public void DeleteFaxLineConfigRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxLineConfigData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
@@ -304,7 +304,7 @@ public class FaxLineConfigTest extends BaseTest {
         Assert.assertEquals(faxLineConfigPage.getSuccessMessage(),"Record Deleted Successfully");
     }
     
-    @Test(priority=25)
+    //@Test(priority=25)
     public void VerifyAuditTrialReportForDelete() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxLineConfigData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
@@ -319,7 +319,7 @@ public class FaxLineConfigTest extends BaseTest {
         Assert.assertTrue(ocmReportsPage.verifyFaxLineConfigdelete(faxLineConfigDetails,"Delete"));
     }
     
-    @Test(priority=26)
+    //@Test(priority=26)
     public void SearchClearSearch() throws Exception
     {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxLineConfigData.xlsx";
@@ -331,7 +331,7 @@ public class FaxLineConfigTest extends BaseTest {
         Assert.assertTrue(faxLineConfigPage.verifyclearsearch(), "Clear All Assertion Failed");
     }
     
-    @Test(priority=27)
+    //@Test(priority=27)
     public void ExportToExcel() throws Exception
     {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles";
@@ -339,7 +339,7 @@ public class FaxLineConfigTest extends BaseTest {
         Assert.assertTrue(faxLineConfigPage.verifyExportToExcel(filePath));
     }
     
-    @Test(priority=28)
+    //@Test(priority=28)
     public void ExportToExcelData() throws Exception
     {	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Fax Line Config.xlsx";
     	List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
@@ -347,7 +347,7 @@ public class FaxLineConfigTest extends BaseTest {
     	Assert.assertTrue(faxLineConfigPage.verifyexportToExcelSheet(maplist));	
     }
     
-    @Test(priority=29)
+    //@Test(priority=29)
     public void ExporttoExcelWithoutData() throws Exception
     {
         FaxLineConfigPage faxLineConfigPage = PageFactory.createPageInstance(driver, FaxLineConfigPage.class);
@@ -357,7 +357,7 @@ public class FaxLineConfigTest extends BaseTest {
         Assert.assertTrue(faxLineConfigPage.ExporttoExcelWithoutData(faxLineConfigDetails));
     }
   
-   @Test(priority=30)
+   //@Test(priority=30)
     public void SortingByAscending() throws IOException {
         FaxLineConfigPage faxLineConfigPage = PageFactory.createPageInstance(driver, FaxLineConfigPage.class);
         faxLineConfigPage.SortByAscending();
@@ -366,7 +366,7 @@ public class FaxLineConfigTest extends BaseTest {
         Assert.assertTrue(faxLineConfigPage.verifyexportToExcelSheet(maplist));
     }
     
-    @Test(priority=31)
+    //@Test(priority=31)
     public void SortingByDescending() throws IOException {
         FaxLineConfigPage faxLineConfigPage = PageFactory.createPageInstance(driver, FaxLineConfigPage.class);
         faxLineConfigPage.SortByDescending();
@@ -375,7 +375,7 @@ public class FaxLineConfigTest extends BaseTest {
         Assert.assertTrue(faxLineConfigPage.verifyexportToExcelSheet(maplist));
     }
     
-    @Test(priority=32)
+    //@Test(priority=32)
     public void GroupBy()
     {
         FaxLineConfigPage faxLineConfigPage = PageFactory.createPageInstance(driver, FaxLineConfigPage.class);
@@ -385,43 +385,43 @@ public class FaxLineConfigTest extends BaseTest {
         screenshot.captureScreen("FaxLineConfigTest", "AlreadyGroupBy");
     }
     
-    @Test(priority=33)
+    //@Test(priority=33)
     public void VerifyArrowMoveForPreviousAndNextPage() {
         FaxLineConfigPage faxLineConfigPage = PageFactory.createPageInstance(driver, FaxLineConfigPage.class);
     	Assert.assertTrue(faxLineConfigPage.verifyArrowMoveForPreviousAndNextPage(),"arrow move for previous and next page assertion failed");
     }
     
-    @Test(priority=34)
+    //@Test(priority=34)
     public void VerifyArrowMoveForFirstAndLastPage() {
         FaxLineConfigPage faxLineConfigPage = PageFactory.createPageInstance(driver, FaxLineConfigPage.class);
         Assert.assertTrue(faxLineConfigPage.verifyArrowMoveForFirstAndLastPage(),"arrow move for first and last page assertion failed");
     }
     
-    @Test(priority=35)
+    //@Test(priority=35)
     public void VerifyTotalNumberOfItemsPerPageDetails() {
         FaxLineConfigPage faxLineConfigPage = PageFactory.createPageInstance(driver, FaxLineConfigPage.class);
         Assert.assertTrue(faxLineConfigPage.verifyTotalNumberOfItemsPerPageDetails(),"item per page assertion failed");
     }
     
-    @Test(priority=36)
+    //@Test(priority=36)
     public void VerifyNumberOfItemsPerPageSelection() {
         FaxLineConfigPage faxLineConfigPage = PageFactory.createPageInstance(driver, FaxLineConfigPage.class);
         Assert.assertTrue(faxLineConfigPage.verifyNumberOfItemsPerPage(),"item per page assertion failed");
     }
     
-    @Test(priority=37)
+    //@Test(priority=37)
     public void VerifyDropdownForAllTheColumns() {
         FaxLineConfigPage faxLineConfigPage = PageFactory.createPageInstance(driver, FaxLineConfigPage.class);
         Assert.assertTrue(faxLineConfigPage.verifyDropDownOfAllHeaders(), "Columns dropdown assertion failed");
     }
     
-    @Test(priority=38)
+    //@Test(priority=38)
     public void VerifyColumnsHeaderEnable() {
         FaxLineConfigPage faxLineConfigPage = PageFactory.createPageInstance(driver, FaxLineConfigPage.class);
         Assert.assertTrue(faxLineConfigPage.verifycolumnsHeaderEnabled(),"columns enabled assertion failed");
     }
     
-    @Test(priority=39)
+    //@Test(priority=39)
     public void VerifyColumnsHeaderDisable() {
         FaxLineConfigPage faxLineConfigPage = PageFactory.createPageInstance(driver, FaxLineConfigPage.class);
         Assert.assertFalse(faxLineConfigPage.verifycolumnsHeaderDisabled(),"columns disabled assertion failed");
