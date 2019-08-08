@@ -52,7 +52,7 @@ public class FaxLineConfigTest extends BaseTest {
     	screenshot.captureScreen(driver,"minimize window","FaxLineConfigTest");
     }
    
-    @Test(priority=2)
+    //@Test(priority=2)
     public void AddFaxLineConfigRecord() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxLineConfigData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -62,8 +62,7 @@ public class FaxLineConfigTest extends BaseTest {
         faxLineConfigPage.addNewFaxLineConfigRecord(faxLineConfigDetails);
         Assert.assertEquals(faxLineConfigPage.getSuccessMessage(), "Record Created Successfully");
     }
-    
-    @Test(dependsOnMethods = {"AddFaxLineConfigRecord"},priority=3)
+    //@Test(dependsOnMethods = {"AddFaxLineConfigRecord"},priority=3)
     public void VerifyAuditTrialReportForCreate() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxLineConfigData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
