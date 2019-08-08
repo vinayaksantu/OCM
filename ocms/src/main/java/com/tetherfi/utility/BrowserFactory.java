@@ -49,7 +49,7 @@ public class BrowserFactory {
           DesiredCapabilities capabilities=getDesiredCapForDriver(browserType);
           String exePath = Constants.chromeDriverPath+"chromedriver.exe";
           System.setProperty("webdriver.chrome.driver", exePath);
-          driver=new ChromeDriver(options);
+          driver=new ChromeDriver();//options);
           driver.manage().window().maximize();
         }
       else if(browserType==BrowserType.IE){
