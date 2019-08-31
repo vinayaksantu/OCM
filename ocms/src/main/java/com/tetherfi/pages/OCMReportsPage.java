@@ -34,7 +34,6 @@ import com.tetherfi.model.user.SkillConfigurationDetails;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.poi.util.SystemOutLogger;
-import org.apache.xalan.xsltc.compiler.sym;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;

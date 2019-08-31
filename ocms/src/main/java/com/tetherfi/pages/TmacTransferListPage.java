@@ -11,6 +11,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -147,11 +149,17 @@ public class TmacTransferListPage extends BasePage {
     @FindBy(css="#SkillName")
     private WebElement skillNameTextBox;
     
-    @FindBy(css=".col-lg-7 .k-dropdown .k-dropdown-wrap .k-input")
+    @FindBy(css="span[aria-owns='SkillName_listbox']")
     private WebElement skillNameListBox;
     
     @FindBy(css="ul[id='SkillName_listbox'] li")
     private List<WebElement> skillNameListElements;
+    
+    @FindBy(css="span[aria-owns='Channel_listbox']")
+    private WebElement channelListBox;
+    
+    @FindBy(css="ul[id='Channel_listbox'] li")
+    private List<WebElement> channelLisElements;
 
    @FindBy(css=".col-lg-7 .k-numerictextbox .k-numeric-wrap .k-formatted-value")
    private List<WebElement> skillIdVdnList;
@@ -218,7 +226,7 @@ public class TmacTransferListPage extends BasePage {
    @FindBy(xpath="//tbody/tr/td/p[@class='k-reset']/../../following-sibling::tr/td[4]")
 	private WebElement groupbymessage;
 	
-   @FindBy(xpath="//*[@id='drillgrid']//tbody/tr/td/p[@class='k-reset']/../../following-sibling::tr/td[3]")
+   @FindBy(xpath="//*[@id='drillgrid']//tbody/tr/td/p[@class='k-reset']/../../following-sibling::tr/td[4]")
 	private WebElement groupbymessageBlindTrans;
    
 	@FindBy(xpath="//p[@class='k-reset']")
@@ -280,7 +288,7 @@ public class TmacTransferListPage extends BasePage {
     }
     
     public boolean verifyTmacBlindTransferDataTableHeaders() {
-        ArrayList<String> Expected=new ArrayList<String>(Arrays.asList("Skill Name","Skill Id","VDN","Last Changed By","Last Changed On"));
+        ArrayList<String> Expected=new ArrayList<String>(Arrays.asList("Channel","Skill Name","Skill Id","VDN","Last Changed By","Last Changed On"));
         ArrayList Actual = getHeadersfromTable(TmacTransferListTableHeaders);
         Collections.sort(Expected);Collections.sort(Actual);
         return Actual.equals(Expected);
@@ -305,8 +313,7 @@ public class TmacTransferListPage extends BasePage {
     }
     
     public void EnterAgtExtNewConsulTrans(TmacTransferListDetails tmacTransferListDetails) throws Exception{
-    	Thread.sleep(1000);
-    	clickOn(tmacTransferListAgentExtnsnTextBox);
+    	clickOn(tmacTransferListAgentExtnsnTextBox);	
     	enterValueToTxtFieldWithoutClear(tmacTransferListAgentExtnsnTextBox1,tmacTransferListDetails.getAgentExtension());
     }
     
@@ -334,7 +341,7 @@ public class TmacTransferListPage extends BasePage {
         selectWebElement(addNewTmacTransferListBtn.get(0));
         selectWebElement(tmacTransferListNameTextBox);
         enterValueToTxtField(tmacTransferListNameTextBox,tmacTransferListDetails.getName());
-        selectWebElement(tmacTransferListAgentExtnsnTextBox);
+        clickOn(tmacTransferListAgentExtnsnTextBox);
         enterValueToTxtField(tmacTransferListAgentExtnsnTextBox1,tmacTransferListDetails.getAgentExtension());
         selectWebElement(typeDropdown);
         selectDropdownFromVisibleText(typeListBox,tmacTransferListDetails.getType());
@@ -374,13 +381,13 @@ public class TmacTransferListPage extends BasePage {
         //enterValueToTxtField(tmacTransferListAgentExtnsnTextBox1,tmacTransferListDetails.getUpdAgtExt());
         selectWebElement(typeDropdown);
         selectDropdownFromVisibleText(typeListBox,tmacTransferListDetails.getType());
-        enterValueToTxtField(editModifyReasonTextBox,tmacTransferListDetails.getModReason());
+        enterValueToTxtFieldWithoutClear(editModifyReasonTextBox,tmacTransferListDetails.getModReason());
         selectWebElement(SaveButton);
     }
     public void deleteTmacConsultTransferList(TmacTransferListDetails tmacTransferListDetails) throws Exception {
         searchTmacTransferRecord(tmacTransferListDetails.getName(),"Name",0);
         selectWebElement(deleteButton);
-        enterValueToTxtField(deleteReasonTextBox,tmacTransferListDetails.getDeleteReason());
+        enterValueToTxtFieldWithoutClear(deleteReasonTextBox,tmacTransferListDetails.getDeleteReason());
         selectWebElement(deleteYesBtn);
     }
     
@@ -405,6 +412,8 @@ public class TmacTransferListPage extends BasePage {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        selectWebElement(channelListBox);
+        selectDropdownFromVisibleText(channelLisElements,tmacTransferListDetails.getChannel());
         selectWebElement(skillNameListBox);
         selectDropdownFromVisibleText(skillNameListElements,tmacTransferListDetails.getSkillName());
         //selectWebElement(skillIdVdnList.get(1));
@@ -413,22 +422,27 @@ public class TmacTransferListPage extends BasePage {
     }
     public void editTmacBlindTransferList(TmacTransferListDetails tmacTransferListDetails) throws Exception {
     	searchTmacTransferRecord(tmacTransferListDetails.getSkillName(),"Skill Name",1);
+    	waitUntilWebElementIsVisible(editButton1);
     	selectWebElement(editButton1);
-    	enterValueToTxtFieldWithoutClear(skillIdVdnList.get(1),tmacTransferListDetails.getUpdVdn());
+    	selectWebElement(channelListBox);
+        selectDropdownFromVisibleText(channelLisElements,tmacTransferListDetails.getChannel());	         
         selectWebElement(skillNameListBox);
         selectDropdownFromVisibleText(skillNameListElements,tmacTransferListDetails.getSkillNameUpdate());
-        //selectWebElement(skillIdVdnList.get(1));
+        //selectWebElement(skillIdVdnList.get(1));    	
         selectWebElement(editModifyReasonTextBox);
-        enterValueToTxtField(editModifyReasonTextBox,tmacTransferListDetails.getModReason());
+        enterValueToTxtFieldWithoutClear(editModifyReasonTextBox,tmacTransferListDetails.getModReason());
         selectWebElement(SaveButton);
     }
 
     public void deleteTmacBlindTransferList(TmacTransferListDetails tmacTransferListDetails) throws Exception {
         searchTmacTransferRecord(tmacTransferListDetails.getSkillName(),"Skill Name",1);
+    	waitUntilWebElementIsVisible(deleteButton1);
         selectWebElement(deleteButton1);
-        enterValueToTxtField(deleteReasonTextBox,tmacTransferListDetails.getDeleteReason());
+        enterValueToTxtFieldWithoutClear(deleteReasonTextBox,tmacTransferListDetails.getDeleteReason());
         selectWebElement(deleteYesBtn);
     }
+    
+    
     
     public String verifyMessage() {
     	if(errorMsg.size()>0){
@@ -448,25 +462,11 @@ public class TmacTransferListPage extends BasePage {
         	return successmsg.getText();}
     	}
     
-    public boolean verifyNewRecordCreated(){
-        //waitForJqueryLoad(driver);
-        if(errorMsg.size()>0){return false;}
-        if(waitUntilTextToBePresentInWebElement(successmsg,"Record Created Successfully"))
-        {return true;}else{return false;}
-    }
-    public boolean verifyRecordUpdated(){
-       // waitForJqueryLoad(driver);
-        if(errorMsg.size()>0){return false;}
-        if(waitUntilTextToBePresentInWebElement(successmsg,"Record Updated Successfully"))
-        {return true;}else{return false;}
-    }
-
-    public boolean verifyRecordDeleted(){
-        //waitForJqueryLoad(driver);
-        if(errorMsg.size()>0){return false;}
-        if(waitUntilTextToBePresentInWebElement(successmsg,"Record Deleted Successfully")){
-            return true;
-        }else{return false;}
+    public String VerifySuccessMsg(){
+    	if(successmsg.isDisplayed())
+    		return successmsg.getText();
+    	else 
+    		return errorMsg.get(0).getText();
     }
 
     public boolean verifyAddNewConsulTransPopupContents(){
@@ -512,7 +512,6 @@ public class TmacTransferListPage extends BasePage {
         waitForJqueryLoad(driver);
         selectWebElement(tmacTransferListNameTextBox);
         enterValueToTxtField(tmacTransferListNameTextBox,tmacTransferListDetails.getName());
-        selectWebElement(tmacTransferListAgentExtnsnTextBox);
         enterValueToTxtField(tmacTransferListAgentExtnsnTextBox1,tmacTransferListDetails.getAgentExtension());
         selectWebElement(typeDropdown);
         selectDropdownFromVisibleText(typeListBox,tmacTransferListDetails.getType());
@@ -543,6 +542,8 @@ public class TmacTransferListPage extends BasePage {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+		selectWebElement(channelListBox);
+        selectDropdownFromVisibleText(channelLisElements,tmacTransferListDetails.getChannel());
 		EnterSkillNameNewBlindTrans(tmacTransferListDetails);
         try {
             Thread.sleep(1000);
@@ -844,5 +845,43 @@ public class TmacTransferListPage extends BasePage {
     public boolean isExportBtnDisplayed() {
     	return exporttoexcel.isDisplayed() && exporttoexcel.isEnabled();
     }
+
+	public void selectChannel(TmacTransferListDetails tmacTransferListDetails) {
+		selectWebElement(channelListBox);
+        selectDropdownFromVisibleText(channelLisElements,tmacTransferListDetails.getChannel());	
+			
+	}
+
+	public void addWithoutVDNBlank(TmacTransferListDetails tmacTransferListDetails) throws Exception {
+		selectWebElement(addNewTmacBlindTransferListBtn.get(0));
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        selectWebElement(channelListBox);
+        selectDropdownFromVisibleText(channelLisElements,tmacTransferListDetails.getChannel());	
+        selectWebElement(skillNameListBox);
+        selectDropdownFromVisibleText(skillNameListElements,tmacTransferListDetails.getSkillName());
+        //selectWebElement(skillIdVdnList.get(1));
+        selectWebElement(SaveButton);
+        selectWebElement(CancelButton);
+		
+	}
+
+	public void addwithoutSkill(TmacTransferListDetails tmacTransferListDetails) throws Exception {
+		selectWebElement(addNewTmacBlindTransferListBtn.get(0));
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        selectWebElement(channelListBox);
+        selectDropdownFromVisibleText(channelLisElements,tmacTransferListDetails.getChannel());	
+        //selectWebElement(skillIdVdnList.get(1));
+        enterValueToTxtField(skillIdVdnList.get(1),tmacTransferListDetails.getVdn());
+        selectWebElement(SaveButton);
+        selectWebElement(CancelButton);		
+	}
     
 }

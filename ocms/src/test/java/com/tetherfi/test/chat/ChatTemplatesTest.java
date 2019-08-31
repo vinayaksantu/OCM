@@ -55,7 +55,7 @@ public class ChatTemplatesTest {
 	        if(map.get("LoginType").equals("Custom")){
 	        LoginPage loginPage=PageFactory.createPageInstance(driver,LoginPage.class);
 	        Assert.assertTrue(loginPage.isLoginPageDisplayed(),"Login page not loaded");
-	        loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	        loginPage.login(map.get("Username"),map.get("Password"));
 	        try {
 	        	Thread.sleep(5000);
 	        } catch (InterruptedException e) {

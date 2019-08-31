@@ -131,7 +131,7 @@ public class UserManagementE2ETest extends BaseTest {
             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
             if(map.get("LoginType").equals("Custom")){
                 LoginPage loginPage=new LoginPage(driver);
-                loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+                loginPage.login(map.get("Username"),map.get("Password"));
                 Thread.sleep(5000);
             }
         }catch (Exception e){
@@ -170,7 +170,7 @@ public class UserManagementE2ETest extends BaseTest {
             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
             if(map.get("LoginType").equals("Custom")){
                 LoginPage loginPage=new LoginPage(driver);
-                loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+                loginPage.login(map.get("Username"),map.get("Password"));
                 Thread.sleep(5000);
             }
         }catch (Exception e){
@@ -221,7 +221,7 @@ public class UserManagementE2ETest extends BaseTest {
 			driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 			if(map.get("LoginType").equals("Custom")){
 				LoginPage loginPage=new LoginPage(driver);
-				loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+				loginPage.login(map.get("Username"),map.get("Password"));
 				Thread.sleep(5000);
 			}
 		}catch (Exception e){
@@ -272,7 +272,7 @@ public class UserManagementE2ETest extends BaseTest {
 			driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 			if(map.get("LoginType").equals("Custom")){
 				LoginPage loginPage=new LoginPage(driver);
-				loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+				loginPage.login(map.get("Username"),map.get("Password"));
 				Thread.sleep(5000);
 			}
 		}catch (Exception e){
@@ -323,7 +323,7 @@ public class UserManagementE2ETest extends BaseTest {
 			driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 			if(map.get("LoginType").equals("Custom")){
 				LoginPage loginPage=new LoginPage(driver);
-				loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+				loginPage.login(map.get("Username"),map.get("Password"));
 				Thread.sleep(5000);
 			}
 		}catch (Exception e){
@@ -373,7 +373,7 @@ public class UserManagementE2ETest extends BaseTest {
 			driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 			if(map.get("LoginType").equals("Custom")){
 				LoginPage loginPage=new LoginPage(driver);
-				loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+				loginPage.login(map.get("Username"),map.get("Password"));
 				Thread.sleep(5000);
 			}
 		}catch (Exception e){
@@ -420,7 +420,7 @@ public class UserManagementE2ETest extends BaseTest {
             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
             if(map.get("LoginType").equals("Custom")){
                 LoginPage loginPage=new LoginPage(driver);
-                loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+                loginPage.login(map.get("Username"),map.get("Password"));
                 Thread.sleep(5000);
             }
         }catch (Exception e){
@@ -466,7 +466,7 @@ public class UserManagementE2ETest extends BaseTest {
 			driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 			if(map.get("LoginType").equals("Custom")){
 				LoginPage loginPage=new LoginPage(driver);
-				loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+				loginPage.login(map.get("Username"),map.get("Password"));
 				Thread.sleep(5000);
 			}
 		}catch (Exception e){
@@ -508,7 +508,7 @@ public class UserManagementE2ETest extends BaseTest {
 			driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 			if(map.get("LoginType").equals("Custom")){
 				LoginPage loginPage=new LoginPage(driver);
-				loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+				loginPage.login(map.get("Username"),map.get("Password"));
 				Thread.sleep(5000);
 			}
 		}catch (Exception e){
@@ -549,7 +549,7 @@ public class UserManagementE2ETest extends BaseTest {
 			driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 			if(map.get("LoginType").equals("Custom")){
 				LoginPage loginPage=new LoginPage(driver);
-				loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+				loginPage.login(map.get("Username"),map.get("Password"));
 				Thread.sleep(5000);
 			}
 		}catch (Exception e){
@@ -591,7 +591,7 @@ public class UserManagementE2ETest extends BaseTest {
             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
             if(map.get("LoginType").equals("Custom")){
                 LoginPage loginPage=new LoginPage(driver);
-                loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+                loginPage.login(map.get("Username"),map.get("Password"));
                 Thread.sleep(5000);
             }
         }catch (Exception e){
@@ -637,7 +637,7 @@ public class UserManagementE2ETest extends BaseTest {
 			driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 			if(map.get("LoginType").equals("Custom")){
 				LoginPage loginPage=new LoginPage(driver);
-				loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+				loginPage.login(map.get("Username"),map.get("Password"));
 				Thread.sleep(5000);
 			}
 		}catch (Exception e){
@@ -684,7 +684,7 @@ public class UserManagementE2ETest extends BaseTest {
 			driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 			if(map.get("LoginType").equals("Custom")){
 				LoginPage loginPage=new LoginPage(driver);
-				loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+				loginPage.login(map.get("Username"),map.get("Password"));
 				Thread.sleep(5000);
 			}
 		}catch (Exception e){
@@ -731,7 +731,7 @@ public class UserManagementE2ETest extends BaseTest {
 			driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 			if(map.get("LoginType").equals("Custom")){
 				LoginPage loginPage=new LoginPage(driver);
-				loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+				loginPage.login(map.get("Username"),map.get("Password"));
 				Thread.sleep(5000);
 			}
 		}catch (Exception e){
@@ -774,7 +774,7 @@ public class UserManagementE2ETest extends BaseTest {
 			driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 			if(map.get("LoginType").equals("Custom")){
 				LoginPage loginPage=new LoginPage(driver);
-				loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+				loginPage.login(map.get("Username"),map.get("Password"));
 				Thread.sleep(5000);
 			}
 		}catch (Exception e){
@@ -816,7 +816,7 @@ public class UserManagementE2ETest extends BaseTest {
             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
             if(map.get("LoginType").equals("Custom")){
                 LoginPage loginPage=new LoginPage(driver);
-                loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+                loginPage.login(map.get("Username"),map.get("Password"));
                 Thread.sleep(5000);
             }
         }catch (Exception e){
@@ -858,7 +858,7 @@ public class UserManagementE2ETest extends BaseTest {
 			driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 			if(map.get("LoginType").equals("Custom")){
 				LoginPage loginPage=new LoginPage(driver);
-				loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+				loginPage.login(map.get("Username"),map.get("Password"));
 				Thread.sleep(5000);
 			}
 		}catch (Exception e){
@@ -901,7 +901,7 @@ public class UserManagementE2ETest extends BaseTest {
 			driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 			if(map.get("LoginType").equals("Custom")){
 				LoginPage loginPage=new LoginPage(driver);
-				loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+				loginPage.login(map.get("Username"),map.get("Password"));
 				Thread.sleep(5000);
 			}
 		}catch (Exception e){
@@ -944,7 +944,7 @@ public class UserManagementE2ETest extends BaseTest {
 			driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 			if(map.get("LoginType").equals("Custom")){
 				LoginPage loginPage=new LoginPage(driver);
-				loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+				loginPage.login(map.get("Username"),map.get("Password"));
 				Thread.sleep(5000);
 			}
 		}catch (Exception e){
@@ -986,7 +986,7 @@ public class UserManagementE2ETest extends BaseTest {
 			driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 			if(map.get("LoginType").equals("Custom")){
 				LoginPage loginPage=new LoginPage(driver);
-				loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+				loginPage.login(map.get("Username"),map.get("Password"));
 				Thread.sleep(5000);
 			}
 		}catch (Exception e){
@@ -1029,7 +1029,7 @@ public class UserManagementE2ETest extends BaseTest {
             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
             if(map.get("LoginType").equals("Custom")){
                 LoginPage loginPage=new LoginPage(driver);
-                loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+                loginPage.login(map.get("Username"),map.get("Password"));
                 Thread.sleep(5000);
             }
         }catch (Exception e){
@@ -1072,7 +1072,7 @@ public class UserManagementE2ETest extends BaseTest {
             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
             if(map.get("LoginType").equals("Custom")){
                 LoginPage loginPage=new LoginPage(driver);
-                loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+                loginPage.login(map.get("Username"),map.get("Password"));
                 Thread.sleep(5000);
             }
         }catch (Exception e){
@@ -1119,7 +1119,7 @@ public class UserManagementE2ETest extends BaseTest {
             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
             if(map.get("LoginType").equals("Custom")){
                 LoginPage loginPage=new LoginPage(driver);
-                loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+                loginPage.login(map.get("Username"),map.get("Password"));
                 Thread.sleep(5000);
             }
         }catch (Exception e){
@@ -1166,7 +1166,7 @@ public class UserManagementE2ETest extends BaseTest {
 	            driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	            if(map.get("LoginType").equals("Custom")){
 	                LoginPage loginPage=new LoginPage(driver);
-	                loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                loginPage.login(map.get("Username"),map.get("Password"));
 	                Thread.sleep(5000);
 	            }
 	        }catch (Exception e){
@@ -1212,7 +1212,7 @@ public class UserManagementE2ETest extends BaseTest {
 			     driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 			     if(map.get("LoginType").equals("Custom")){
 			         LoginPage loginPage=new LoginPage(driver);
-			         loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+			         loginPage.login(map.get("Username"),map.get("Password"));
 			         Thread.sleep(5000);
 			      	}
 			}catch (Exception e){
@@ -1254,7 +1254,7 @@ public class UserManagementE2ETest extends BaseTest {
 				driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 				if(map.get("LoginType").equals("Custom")){
 					LoginPage loginPage=new LoginPage(driver);
-				    loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+				    loginPage.login(map.get("Username"),map.get("Password"));
 				    Thread.sleep(5000);
 				}
 			}catch (Exception e){
@@ -1294,7 +1294,7 @@ public class UserManagementE2ETest extends BaseTest {
 				driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 				if(map.get("LoginType").equals("Custom")){
 					LoginPage loginPage=new LoginPage(driver);
-				    loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+				    loginPage.login(map.get("Username"),map.get("Password"));
 				    Thread.sleep(5000);
 				}
 			}catch (Exception e){
@@ -1334,7 +1334,7 @@ public class UserManagementE2ETest extends BaseTest {
 				 driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 				 if(map.get("LoginType").equals("Custom")){
 					 LoginPage loginPage=new LoginPage(driver);
-					 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+					 loginPage.login(map.get("Username"),map.get("Password"));
 					 Thread.sleep(5000);
 				 }
 			}catch (Exception e){
@@ -1375,7 +1375,7 @@ public class UserManagementE2ETest extends BaseTest {
 				 driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 				 if(map.get("LoginType").equals("Custom")){
 				     LoginPage loginPage=new LoginPage(driver);
-				     loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+				     loginPage.login(map.get("Username"),map.get("Password"));
 				     Thread.sleep(5000);
 				  }
 			}catch (Exception e){
@@ -1415,7 +1415,7 @@ public class UserManagementE2ETest extends BaseTest {
 				             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 				             if(map.get("LoginType").equals("Custom")){
 				                 LoginPage loginPage=new LoginPage(driver);
-				                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+				                 loginPage.login(map.get("Username"),map.get("Password"));
 				                 Thread.sleep(5000);
 				              }
 				      }catch (Exception e){
@@ -1460,7 +1460,7 @@ public class UserManagementE2ETest extends BaseTest {
 				             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 				             if(map.get("LoginType").equals("Custom")){
 				                 LoginPage loginPage=new LoginPage(driver);
-				                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+				                 loginPage.login(map.get("Username"),map.get("Password"));
 				                 Thread.sleep(5000);
 				              }
 				      }catch (Exception e){
@@ -1505,7 +1505,7 @@ public class UserManagementE2ETest extends BaseTest {
 				             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 				             if(map.get("LoginType").equals("Custom")){
 				                 LoginPage loginPage=new LoginPage(driver);
-				                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+				                 loginPage.login(map.get("Username"),map.get("Password"));
 				                 Thread.sleep(5000);
 				              }
 				      }catch (Exception e){
@@ -1551,7 +1551,7 @@ public class UserManagementE2ETest extends BaseTest {
 				             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 				             if(map.get("LoginType").equals("Custom")){
 				                 LoginPage loginPage=new LoginPage(driver);
-				                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+				                 loginPage.login(map.get("Username"),map.get("Password"));
 				                 Thread.sleep(5000);
 				              }
 				      }catch (Exception e){
@@ -1597,7 +1597,7 @@ public class UserManagementE2ETest extends BaseTest {
 				             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 				             if(map.get("LoginType").equals("Custom")){
 				                 LoginPage loginPage=new LoginPage(driver);
-				                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+				                 loginPage.login(map.get("Username"),map.get("Password"));
 				                 Thread.sleep(5000);
 				              }
 				      }catch (Exception e){
@@ -1643,7 +1643,7 @@ public class UserManagementE2ETest extends BaseTest {
 				             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 				             if(map.get("LoginType").equals("Custom")){
 				                 LoginPage loginPage=new LoginPage(driver);
-				                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+				                 loginPage.login(map.get("Username"),map.get("Password"));
 				                 Thread.sleep(5000);
 				              }
 				      }catch (Exception e){
@@ -1689,7 +1689,7 @@ public class UserManagementE2ETest extends BaseTest {
 				             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 				             if(map.get("LoginType").equals("Custom")){
 				                 LoginPage loginPage=new LoginPage(driver);
-				                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+				                 loginPage.login(map.get("Username"),map.get("Password"));
 				                 Thread.sleep(5000);
 				              }
 				      }catch (Exception e){
@@ -1735,7 +1735,7 @@ public class UserManagementE2ETest extends BaseTest {
 				driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 				if(map.get("LoginType").equals("Custom")){
 					LoginPage loginPage=new LoginPage(driver);
-					loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+					loginPage.login(map.get("Username"),map.get("Password"));
 					Thread.sleep(5000);
 					}
 		}catch (Exception e){
@@ -1776,7 +1776,7 @@ public class UserManagementE2ETest extends BaseTest {
 			driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 			if(map.get("LoginType").equals("Custom")){
 			LoginPage loginPage=new LoginPage(driver);
-			loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+			loginPage.login(map.get("Username"),map.get("Password"));
 			Thread.sleep(5000);
 			}
 		}catch (Exception e){
@@ -1822,7 +1822,7 @@ public class UserManagementE2ETest extends BaseTest {
 		driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		if(map.get("LoginType").equals("Custom")){
 			LoginPage loginPage=new LoginPage(driver);
-			loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+			loginPage.login(map.get("Username"),map.get("Password"));
 			Thread.sleep(5000);
 		}
 		}catch (Exception e){
@@ -1868,7 +1868,7 @@ public class UserManagementE2ETest extends BaseTest {
 			driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 			if(map.get("LoginType").equals("Custom")){
 				LoginPage loginPage=new LoginPage(driver);
-				loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+				loginPage.login(map.get("Username"),map.get("Password"));
 				Thread.sleep(5000);
 				}
 			}catch (Exception e){
@@ -1910,7 +1910,7 @@ public class UserManagementE2ETest extends BaseTest {
 			driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 			if(map.get("LoginType").equals("Custom")){
 				LoginPage loginPage=new LoginPage(driver);
-				loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+				loginPage.login(map.get("Username"),map.get("Password"));
 				Thread.sleep(5000);
 				}
 			}catch (Exception e){
@@ -1952,7 +1952,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -1998,7 +1998,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -2044,7 +2044,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -2090,7 +2090,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -2136,7 +2136,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -2182,7 +2182,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -2228,7 +2228,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -2274,7 +2274,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -2320,7 +2320,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -2366,7 +2366,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -2412,7 +2412,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -2458,7 +2458,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -2504,7 +2504,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -2550,7 +2550,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -2596,7 +2596,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -2642,7 +2642,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -2688,7 +2688,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -2734,7 +2734,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -2780,7 +2780,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -2826,7 +2826,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -2872,7 +2872,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -2918,7 +2918,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -2964,7 +2964,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -3010,7 +3010,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -3056,7 +3056,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -3102,7 +3102,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -3148,7 +3148,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -3194,7 +3194,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -3240,7 +3240,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -3286,7 +3286,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -3332,7 +3332,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -3378,7 +3378,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -3424,7 +3424,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -3470,7 +3470,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -3516,7 +3516,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -3562,7 +3562,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -3608,7 +3608,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -3654,7 +3654,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -3700,7 +3700,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -3746,7 +3746,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -3792,7 +3792,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -3838,7 +3838,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -3884,7 +3884,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -3930,7 +3930,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -3976,7 +3976,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -4022,7 +4022,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -4068,7 +4068,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -4114,7 +4114,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -4160,7 +4160,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -4206,7 +4206,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -4252,7 +4252,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -4298,7 +4298,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -4344,7 +4344,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -4390,7 +4390,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -4436,7 +4436,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -4482,7 +4482,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -4528,7 +4528,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -4574,7 +4574,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -4620,7 +4620,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -4666,7 +4666,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -4712,7 +4712,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -4758,7 +4758,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -4804,7 +4804,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -4850,7 +4850,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -4896,7 +4896,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -4942,7 +4942,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -4988,7 +4988,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -5034,7 +5034,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -5080,7 +5080,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -5126,7 +5126,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -5172,7 +5172,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -5218,7 +5218,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -5264,7 +5264,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -5310,7 +5310,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -5356,7 +5356,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -5402,7 +5402,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -5448,7 +5448,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -5494,7 +5494,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -5540,7 +5540,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -5586,7 +5586,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -5632,7 +5632,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -5677,7 +5677,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -5722,7 +5722,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -5767,7 +5767,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -5812,7 +5812,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -5857,7 +5857,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -5902,7 +5902,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -5947,7 +5947,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -5992,7 +5992,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -6037,7 +6037,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -6082,7 +6082,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -6127,7 +6127,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -6172,7 +6172,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -6217,7 +6217,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -6262,7 +6262,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -6307,7 +6307,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -6352,7 +6352,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -6397,7 +6397,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -6442,7 +6442,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -6487,7 +6487,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -6532,7 +6532,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -6577,7 +6577,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -6622,7 +6622,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -6667,7 +6667,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -6712,7 +6712,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -6757,7 +6757,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -6801,7 +6801,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -6849,7 +6849,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -6897,7 +6897,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -6946,7 +6946,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -6994,7 +6994,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -7038,7 +7038,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -7086,7 +7086,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -7134,7 +7134,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -7183,7 +7183,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -7248,7 +7248,7 @@ public class UserManagementE2ETest extends BaseTest {
             driver.get("http://"+map2.get("Username")+":"+map2.get("Password")+"@"+map2.get("Application URL").split("//")[1]);
             if(map2.get("LoginType").equals("Custom")){
                 LoginPage loginPage=new LoginPage(driver);
-                loginPage.login(map2.get("Username"),map2.get("Password"),map2.get("DomainName"));
+                loginPage.login(map2.get("Username"),map2.get("Password"));
                 Thread.sleep(5000);
              }
      }catch (Exception e){
@@ -7292,7 +7292,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -7335,7 +7335,7 @@ public class UserManagementE2ETest extends BaseTest {
 	             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	             if(map.get("LoginType").equals("Custom")){
 	                 LoginPage loginPage=new LoginPage(driver);
-	                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                 loginPage.login(map.get("Username"),map.get("Password"));
 	                 Thread.sleep(5000);
 	              }
 	      }catch (Exception e){
@@ -7378,7 +7378,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -7420,7 +7420,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -7462,7 +7462,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -7504,7 +7504,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -7546,7 +7546,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -7588,7 +7588,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -7631,7 +7631,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -7674,7 +7674,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -7715,7 +7715,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -7760,7 +7760,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -7805,7 +7805,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -7850,7 +7850,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -7895,7 +7895,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -7940,7 +7940,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -7983,7 +7983,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -8026,7 +8026,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -8072,7 +8072,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -8118,7 +8118,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -8164,7 +8164,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -8210,7 +8210,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -8256,7 +8256,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -8302,7 +8302,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -8348,7 +8348,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -8394,7 +8394,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -8440,7 +8440,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -8486,7 +8486,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -8532,7 +8532,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -8578,7 +8578,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -8624,7 +8624,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -8670,7 +8670,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -8716,7 +8716,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -8760,7 +8760,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -8808,7 +8808,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -8856,7 +8856,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -8905,7 +8905,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -8953,7 +8953,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -8996,7 +8996,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -9039,7 +9039,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -9083,7 +9083,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -9131,7 +9131,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -9179,7 +9179,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -9228,7 +9228,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -9276,7 +9276,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -9320,7 +9320,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -9368,7 +9368,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -9416,7 +9416,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -9465,7 +9465,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -9513,7 +9513,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -9556,7 +9556,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -9602,7 +9602,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -9648,7 +9648,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -9694,7 +9694,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -9740,7 +9740,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -9785,7 +9785,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -9830,7 +9830,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -9875,7 +9875,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -9920,7 +9920,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -9965,7 +9965,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -10006,7 +10006,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -10049,7 +10049,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -10092,7 +10092,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -10135,7 +10135,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -10176,7 +10176,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -10220,7 +10220,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -10264,7 +10264,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -10308,7 +10308,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -10353,7 +10353,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -10398,7 +10398,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -10443,7 +10443,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -10488,7 +10488,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -10533,7 +10533,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -10577,7 +10577,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -10626,7 +10626,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -10675,7 +10675,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -10724,7 +10724,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -10773,7 +10773,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -10816,7 +10816,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -10859,7 +10859,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -10905,7 +10905,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -10951,7 +10951,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -10997,7 +10997,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -11043,7 +11043,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -11089,7 +11089,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -11136,7 +11136,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -11183,7 +11183,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -11230,7 +11230,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -11277,7 +11277,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -11324,7 +11324,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -11369,7 +11369,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -11414,7 +11414,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -11459,7 +11459,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -11504,7 +11504,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -11549,7 +11549,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -11592,7 +11592,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -11639,7 +11639,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -11686,7 +11686,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -11733,7 +11733,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -11780,7 +11780,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -11825,7 +11825,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -11870,7 +11870,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -11915,7 +11915,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -11960,7 +11960,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -12005,7 +12005,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -12046,7 +12046,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -12088,7 +12088,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -12132,7 +12132,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -12176,7 +12176,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -12220,7 +12220,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -12264,7 +12264,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -12310,7 +12310,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -12356,7 +12356,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -12402,7 +12402,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -12448,7 +12448,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -12494,7 +12494,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -12540,7 +12540,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -12586,7 +12586,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -12629,7 +12629,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -12672,7 +12672,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -12716,7 +12716,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -12760,7 +12760,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -12804,7 +12804,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -12845,7 +12845,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -12891,7 +12891,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -12937,7 +12937,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -12983,7 +12983,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -13029,7 +13029,7 @@ public class UserManagementE2ETest extends BaseTest {
 		             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 		             if(map.get("LoginType").equals("Custom")){
 		                 LoginPage loginPage=new LoginPage(driver);
-		                 loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+		                 loginPage.login(map.get("Username"),map.get("Password"));
 		                 Thread.sleep(5000);
 		              }
 		      }catch (Exception e){
@@ -13082,7 +13082,7 @@ public class UserManagementE2ETest extends BaseTest {
 	            driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	            if(map.get("LoginType").equals("Custom")){
 	                LoginPage loginPage=PageFactory.createPageInstance(driver,LoginPage.class);
-	                loginPage.login(map.get("Username"),map.get("Password"),map.get("DomainName"));
+	                loginPage.login(map.get("Username"),map.get("Password"));
 	                Thread.sleep(5000);
 	            }
 	            HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);

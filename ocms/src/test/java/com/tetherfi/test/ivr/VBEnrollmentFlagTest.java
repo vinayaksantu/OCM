@@ -236,6 +236,68 @@ public class VBEnrollmentFlagTest extends BaseTest {
     } 
     
     @Test(priority=21)
+    public void SortingByAscending() throws IOException {
+        VbEnrollmentFlagPage VbEnrollmentFlagPage = PageFactory.createPageInstance(driver, VbEnrollmentFlagPage.class);
+        VbEnrollmentFlagPage.SortByAscending();
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\VB Enrollment Flag (1).xlsx";
+        List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
+        Assert.assertTrue(VbEnrollmentFlagPage.verifyexportToExcelSheet(maplist));
+    }
+    
+    @Test(priority=22)
+    public void SortingByDescending() throws IOException {
+        VbEnrollmentFlagPage VbEnrollmentFlagPage = PageFactory.createPageInstance(driver, VbEnrollmentFlagPage.class);
+        VbEnrollmentFlagPage.SortByDescending();
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\VB Enrollment Flag (2).xlsx";
+        List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
+        Assert.assertTrue(VbEnrollmentFlagPage.verifyexportToExcelSheet(maplist));
+    }
+    
+    @Test(priority=23)
+    public void GroupBy()
+    {
+        VbEnrollmentFlagPage VbEnrollmentFlagPage = PageFactory.createPageInstance(driver, VbEnrollmentFlagPage.class);
+    	Assert.assertTrue(VbEnrollmentFlagPage.groupby());
+        screenshot.captureScreen("VBEnrollmentFlagTest", "GroupBy");
+    	Assert.assertTrue(VbEnrollmentFlagPage.groupby());
+        screenshot.captureScreen("VBEnrollmentFlagTest", "AlreadyGroupBy");
+    }
+    
+    @Test(priority=24)
+    public void VerifyArrowMoveForPreviousAndNextPage() {
+        VbEnrollmentFlagPage VbEnrollmentFlagPage = PageFactory.createPageInstance(driver, VbEnrollmentFlagPage.class);
+    	Assert.assertTrue(VbEnrollmentFlagPage.verifyArrowMoveForPreviousAndNextPage(),"arrow move for previous and next page assertion failed");
+    }
+    
+    @Test(priority=25)
+    public void VerifyArrowMoveForFirstAndLastPage() {
+        VbEnrollmentFlagPage VbEnrollmentFlagPage = PageFactory.createPageInstance(driver, VbEnrollmentFlagPage.class);
+        Assert.assertTrue(VbEnrollmentFlagPage.verifyArrowMoveForFirstAndLastPage(),"arrow move for first and last page assertion failed");
+    }
+    
+    @Test(priority=26)
+    public void VerifyTotalNumberOfItemsPerPageDetails() {
+        VbEnrollmentFlagPage VbEnrollmentFlagPage = PageFactory.createPageInstance(driver, VbEnrollmentFlagPage.class);
+        Assert.assertTrue(VbEnrollmentFlagPage.verifyTotalNumberOfItemsPerPageDetails(),"item per page assertion failed");
+    }
+    
+    @Test(priority=27)
+    public void VerifyNumberOfItemsPerPageSelection() {
+        VbEnrollmentFlagPage VbEnrollmentFlagPage = PageFactory.createPageInstance(driver, VbEnrollmentFlagPage.class);
+        Assert.assertTrue(VbEnrollmentFlagPage.verifyNumberOfItemsPerPage(),"item per page assertion failed");
+    }
+    
+    
+    @Test(priority=28)
+    public void database() throws Exception {
+        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\VBEnrollmentFlagData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(0);
+        VbEnrollmentFlagPage VbEnrollmentFlagPage = PageFactory.createPageInstance(driver, VbEnrollmentFlagPage.class);
+        VBEnrollmentFlagDetails VBEnrollmentFlagDetails = new VBEnrollmentFlagDetails(map);
+    	Assert.assertTrue(VbEnrollmentFlagPage.verifyDatabase(VBEnrollmentFlagDetails.getQuery()));
+    }
+    
+    @Test(priority=29)
     public void DeleteWithoutDeleteReasonRecord() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\VBEnrollmentFlagData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
@@ -244,7 +306,7 @@ public class VBEnrollmentFlagTest extends BaseTest {
         VbEnrollmentFlagPage.deleteVBEnrollmentFlagWithoutDeleteReasonRecord(VBEnrollmentFlagDetails);
         Assert.assertEquals(VbEnrollmentFlagPage.verifySuccessMessage(),"Please enter the delete reason","empty delete reason record assertion failed");
     }
-    @Test(priority=22)
+    @Test(priority=30)
     public void VerifyCancelBtnAtDeleteVBEnrollmentFlagRecord() throws Exception{
         VbEnrollmentFlagPage VbEnrollmentFlagPage = PageFactory.createPageInstance(driver, VbEnrollmentFlagPage.class);
         VbEnrollmentFlagPage.searchVbEnrollmentFlagRecord("40000");
@@ -253,7 +315,7 @@ public class VBEnrollmentFlagTest extends BaseTest {
         VbEnrollmentFlagPage.clickOnDeleteCancelBtn();
         Assert.assertFalse(VbEnrollmentFlagPage.verifyDeleteContainer(), "Cancel Btn at Delete record assertion failed");
     }
-    @Test(priority=23,dependsOnMethods = "VerifyCancelBtnAtDeleteVBEnrollmentFlagRecord")
+    @Test(priority=31,dependsOnMethods = "VerifyCancelBtnAtDeleteVBEnrollmentFlagRecord")
     public void DeleteVBEnrollmentFlagRecord() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\VBEnrollmentFlagData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
@@ -263,7 +325,7 @@ public class VBEnrollmentFlagTest extends BaseTest {
         Assert.assertEquals(VbEnrollmentFlagPage.verifySuccessMessage(),"Record Deleted Successfully","delete record assertion failed");
     }
     
-    @Test(priority=24,dependsOnMethods= {"DeleteVBEnrollmentFlagRecord"})
+    @Test(priority=32,dependsOnMethods= {"DeleteVBEnrollmentFlagRecord"})
     public void VerifyAuditTrialReportForDelete() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\VBEnrollmentFlagData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(0);	
@@ -278,7 +340,7 @@ public class VBEnrollmentFlagTest extends BaseTest {
         Assert.assertTrue(ocmReportsPage.verifyVBEnrollmentFlagdelete(VBEnrollmentFlagDetails,"Delete"));
     }
     
-    @Test(priority=24)
+    @Test(priority=33)
     public void SearchClearSearch() throws Exception
     {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\VBEnrollmentFlagData.xlsx";
@@ -290,7 +352,7 @@ public class VBEnrollmentFlagTest extends BaseTest {
         Assert.assertTrue(VbEnrollmentFlagPage.verifyclearsearch(), "Clear All Assertion Failed");
     }
     
-    @Test(priority=25)
+    @Test(priority=34)
     public void ExporttoExcelWithoutData() throws Exception
     {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\VBEnrollmentFlagData.xlsx";
@@ -300,67 +362,7 @@ public class VBEnrollmentFlagTest extends BaseTest {
         Assert.assertTrue(VbEnrollmentFlagPage.ExporttoExcelWithoutData(VBEnrollmentFlagDetails));
     }
   
-    @Test(priority=26)
-    public void SortingByAscending() throws IOException {
-        VbEnrollmentFlagPage VbEnrollmentFlagPage = PageFactory.createPageInstance(driver, VbEnrollmentFlagPage.class);
-        VbEnrollmentFlagPage.SortByAscending();
-    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\VB Enrollment Flag (1).xlsx";
-        List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
-        Assert.assertTrue(VbEnrollmentFlagPage.verifyexportToExcelSheet(maplist));
-    }
     
-    @Test(priority=27)
-    public void SortingByDescending() throws IOException {
-        VbEnrollmentFlagPage VbEnrollmentFlagPage = PageFactory.createPageInstance(driver, VbEnrollmentFlagPage.class);
-        VbEnrollmentFlagPage.SortByDescending();
-    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\VB Enrollment Flag (2).xlsx";
-        List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
-        Assert.assertTrue(VbEnrollmentFlagPage.verifyexportToExcelSheet(maplist));
-    }
-    
-    @Test(priority=28)
-    public void GroupBy()
-    {
-        VbEnrollmentFlagPage VbEnrollmentFlagPage = PageFactory.createPageInstance(driver, VbEnrollmentFlagPage.class);
-    	Assert.assertTrue(VbEnrollmentFlagPage.groupby());
-        screenshot.captureScreen("VBEnrollmentFlagTest", "GroupBy");
-    	Assert.assertTrue(VbEnrollmentFlagPage.groupby());
-        screenshot.captureScreen("VBEnrollmentFlagTest", "AlreadyGroupBy");
-    }
-    
-    @Test(priority=29)
-    public void VerifyArrowMoveForPreviousAndNextPage() {
-        VbEnrollmentFlagPage VbEnrollmentFlagPage = PageFactory.createPageInstance(driver, VbEnrollmentFlagPage.class);
-    	Assert.assertTrue(VbEnrollmentFlagPage.verifyArrowMoveForPreviousAndNextPage(),"arrow move for previous and next page assertion failed");
-    }
-    
-    @Test(priority=30)
-    public void VerifyArrowMoveForFirstAndLastPage() {
-        VbEnrollmentFlagPage VbEnrollmentFlagPage = PageFactory.createPageInstance(driver, VbEnrollmentFlagPage.class);
-        Assert.assertTrue(VbEnrollmentFlagPage.verifyArrowMoveForFirstAndLastPage(),"arrow move for first and last page assertion failed");
-    }
-    
-    @Test(priority=31)
-    public void VerifyTotalNumberOfItemsPerPageDetails() {
-        VbEnrollmentFlagPage VbEnrollmentFlagPage = PageFactory.createPageInstance(driver, VbEnrollmentFlagPage.class);
-        Assert.assertTrue(VbEnrollmentFlagPage.verifyTotalNumberOfItemsPerPageDetails(),"item per page assertion failed");
-    }
-    
-    @Test(priority=32)
-    public void VerifyNumberOfItemsPerPageSelection() {
-        VbEnrollmentFlagPage VbEnrollmentFlagPage = PageFactory.createPageInstance(driver, VbEnrollmentFlagPage.class);
-        Assert.assertTrue(VbEnrollmentFlagPage.verifyNumberOfItemsPerPage(),"item per page assertion failed");
-    }
-    
-    
-    @Test(priority=33)
-    public void database() throws Exception {
-        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\VBEnrollmentFlagData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(0);
-        VbEnrollmentFlagPage VbEnrollmentFlagPage = PageFactory.createPageInstance(driver, VbEnrollmentFlagPage.class);
-        VBEnrollmentFlagDetails VBEnrollmentFlagDetails = new VBEnrollmentFlagDetails(map);
-    	Assert.assertTrue(VbEnrollmentFlagPage.verifyDatabase(VBEnrollmentFlagDetails.getQuery()));
-    }
 	
 	 @AfterMethod
 	    public void afterEachMethod(Method method) throws InterruptedException {
