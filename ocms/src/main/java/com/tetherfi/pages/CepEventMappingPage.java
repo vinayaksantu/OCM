@@ -766,7 +766,7 @@ public class CepEventMappingPage extends BasePage {
 		waitUntilWebElementIsClickable(deleteButton);
         selectWebElement(deleteButton);
 		Thread.sleep(2000);
-		enterValueToTxtField(deleteReasonTextBox,details.getDeleteReason());
+		enterValueToTxtFieldWithoutClear(deleteReasonTextBox,details.getDeleteReason());
         selectWebElement(deleteYesBtn);	
 	}
 	

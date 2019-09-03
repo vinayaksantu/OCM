@@ -44,7 +44,7 @@ public class BrowserFactory {
           prefs.put("profile.default_content_settings.popups", 0);
           prefs.put("download.default_directory",  fileDownloadLocation);
           ChromeOptions options = new ChromeOptions();
-          options.setExperimentalOption("prefs", prefs);
+          //options.setExperimentalOption("prefs", prefs);
           //options.addArguments("headless");
           //options.addArguments("--disable-gpu");
           //options.addArguments("--no-sandbox");

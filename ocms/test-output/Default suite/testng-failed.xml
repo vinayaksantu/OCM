@@ -3,17 +3,34 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.tetherfi.test.TdmThresholdConfigTest">
+      <class name="com.tetherfi.test.CEPEventMappingTest">
         <methods>
+          <include name="AddRecordWithoutCEPEvent"/>
+          <include name="DeleteRecord"/>
+          <include name="EditWithoutModifyReasonRecord"/>
+          <include name="SortingByDescending"/>
+          <include name="afterEachMethod"/>
+          <include name="VerifyCancelBtnAtAddRecord"/>
+          <include name="VerifyAuditTrialReportForCreate"/>
+          <include name="endTestCase"/>
+          <include name="AddCepEventMappingRecord"/>
+          <include name="SortingByAscending"/>
+          <include name="tearDown"/>
+          <include name="AddRecordWithoutDescription"/>
+          <include name="EditCepEventMappingRecord"/>
           <include name="startTestCase"/>
           <include name="openApplication"/>
-          <include name="addNewRow"/>
-          <include name="endTestCase"/>
-          <include name="tearDown"/>
-          <include name="NavigatetoTdmThresholdConfigPage"/>
-          <include name="afterEachMethod"/>
+          <include name="AddRecordWithoutTransferFlag"/>
+          <include name="VerifyAuditTrialReportForDelete"/>
+          <include name="ExporttoExcelWithoutData"/>
+          <include name="SearchClearSearch"/>
+          <include name="AddRecordWithoutBins"/>
+          <include name="DuplicateRecord"/>
+          <include name="VerifyAuditTrialReportForUpdate"/>
+          <include name="NavigateToCepEventMappingPage"/>
+          <include name="ExportToExcelData"/>
         </methods>
-      </class> <!-- com.tetherfi.test.TdmThresholdConfigTest -->
+      </class> <!-- com.tetherfi.test.CEPEventMappingTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
