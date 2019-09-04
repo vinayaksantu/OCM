@@ -1,26 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.tetherfi.test.tmac.TmacBroadCastMsgTest">
+      <class name="com.tetherfi.test.ivr.CallBackAnnouncementTest">
         <methods>
-          <include name="database"/>
-          <include name="afterEachMethod"/>
-          <include name="VerifyAuditTrailReportForUpdate"/>
+          <include name="ExportToExcelData"/>
+          <include name="DeleteWithoutDeleteReasonRecord"/>
+          <include name="VerifyNumberOfItemsPerPageSelection"/>
+          <include name="NavigateToCallBackAnnouncementPage"/>
+          <include name="VerifyAuditTrialReportForDelete"/>
+          <include name="SearchClearSearch"/>
           <include name="endTestCase"/>
           <include name="tearDown"/>
-          <include name="SortingByAscending"/>
+          <include name="ExporttoExcelWithoutData"/>
           <include name="SortingByDescending"/>
-          <include name="NavigateToTmacBroadcastMsgPage"/>
+          <include name="AddDuplicateCallBackAnnouncementRecord"/>
           <include name="startTestCase"/>
           <include name="openApplication"/>
-          <include name="SearchClearSearch"/>
-          <include name="ExportToExcelData"/>
-          <include name="EditTmacBroadCastMsg"/>
-          <include name="Afterclass"/>
+          <include name="VerifyCancelButtonDeleteRecord"/>
+          <include name="SortingByAscending"/>
+          <include name="VerifyAuditTrialReportForCreate"/>
+          <include name="DeleteCallbackAnnouncementRecord"/>
+          <include name="AddNewCallbackAnnouncementRecord"/>
+          <include name="afterEachMethod"/>
         </methods>
-      </class> <!-- com.tetherfi.test.tmac.TmacBroadCastMsgTest -->
+      </class> <!-- com.tetherfi.test.ivr.CallBackAnnouncementTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
