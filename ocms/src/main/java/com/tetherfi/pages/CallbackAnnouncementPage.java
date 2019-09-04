@@ -586,8 +586,7 @@ public class CallbackAnnouncementPage extends BasePage{
 	}
     
     public String verifySuccessMessage(){
-        if(errorMsg.size()>0){return errorMsg.get(0).getText();}
-        else{waitUntilWebElementIsVisible(successmsg);return successmsg.getText();}
+        waitUntilWebElementIsVisible(successmsg);return successmsg.getText();
     }
     
 	public boolean addnewCancel(CallbackAnnouncementDetails details) throws Exception {
@@ -727,7 +726,7 @@ public class CallbackAnnouncementPage extends BasePage{
 	        selectWebElement(endTimeTextbox);
 	        enterValueToTxtField(endTimeTextbox,details.getUpdatedEndTime());
 	        selectWebElement(ModifyReasonTextBox);
-	        enterValueToTxtField(ModifyReasonTextBox,details.getModifyReason());
+	        enterValueToTxtFieldWithoutClear(ModifyReasonTextBox,details.getModifyReason());
 	        selectWebElement(saveButton);
 	}
 	public void editwithoutModifyreasonRecord(CallbackAnnouncementDetails details) throws Exception {

@@ -90,8 +90,7 @@ public class CallBackAnnouncementTest extends BaseTest {
         callbackAnnouncementPage.addNewCallbackAnnouncementRecord(callbackAnnouncementDetails);
         Assert.assertEquals(callbackAnnouncementPage.verifySuccessMessage(),"Record Created Successfully", "Add New record assertion failed");
     }
-    
-    @Test(priority=7,dependsOnMethods ="AddNewCallbackAnnouncementRecord")
+   @Test(priority=7,dependsOnMethods ="AddNewCallbackAnnouncementRecord")
     public void VerifyAuditTrialReportForCreate() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\CallbackAnnouncementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
