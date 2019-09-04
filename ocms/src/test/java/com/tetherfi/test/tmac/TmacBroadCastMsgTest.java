@@ -54,7 +54,7 @@ public class TmacBroadCastMsgTest extends BaseTest {
         Assert.assertTrue(tmacBroadCastMsgPage.isTmacBroadcastMsgPageDisplayed(), "TMAC Broadcast page assertion failed");
     }
    
-    @Test(priority=1)
+    /*@Test(priority=1)
     public void TmacBroadCastMsgPage()
     {
         TmacBroadCastMsgPage tmacBroadCastMsgPage  = PageFactory.createPageInstance(driver, TmacBroadCastMsgPage.class);
@@ -179,7 +179,7 @@ public class TmacBroadCastMsgTest extends BaseTest {
         screenshot.captureScreen("TmacBroadCastMsgTest", "clearall");
         Assert.assertTrue(tmacBroadCastMsgPage.verifyclose());
         screenshot.captureScreen("TmacBroadCastMsgTest", "SearchClose");	
-    }
+    }*/
     
     @Test(priority=13)
     public void SearchClearSearch() throws Exception
@@ -295,16 +295,29 @@ public class TmacBroadCastMsgTest extends BaseTest {
     }
     
     @AfterMethod
-    public void afterEachMethod(Method method) throws InterruptedException {
-	        Screenshot screenshot=new Screenshot(driver);
-	        screenshot.captureScreen("TmacBroadcastMsgTest",method.getName());
-	        driver.navigate().refresh();
-	}
-
+    public void afterEachMethod(Method method){
+    	 Screenshot screenshot=new Screenshot(driver);
+         screenshot.captureScreen("TmacBroadCastMsgTest",method.getName());
+         driver.navigate().refresh();
+     
+    }
     @AfterClass
-    public void Afterclass()
+    public void Afterclass() throws Exception
     {
-    	System.out.println("Run successfully");
-    	
+    	HomePage homePage= PageFactory.createPageInstance(driver,HomePage.class);
+        homePage.navigateToOCMPage();
+    	 OCMHomePage ocmHomePage = PageFactory.createPageInstance(driver,OCMHomePage.class);
+         Assert.assertTrue(ocmHomePage.isOCMHomePageIsDisplayed(),"OCM HOME Page assertion failed");
+         ocmHomePage.navigateToTab("TMAC");
+         TmacPage tmacPage=PageFactory.createPageInstance(driver,TmacPage.class);
+         Assert.assertTrue(tmacPage.isTMACPageDisplayed(),"tmac page assertion failed");
+         tmacPage.navigateToAgentTeamManagementPage();
+         AgentTeamManagementPage agentTeamManagementPage=PageFactory.createPageInstance(driver,AgentTeamManagementPage.class);
+         Assert.assertTrue(agentTeamManagementPage.isAgentTeamManagementPageDisplayed(),"Agent Team  management assertion failed");
+         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacBroadcastMsgData.xlsx";
+         Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
+         TmacBroadCastMsgDetails tmacBroadCastMsgDetails=new TmacBroadCastMsgDetails(map);
+         agentTeamManagementPage.deleteAgentTeamManagementRecord(tmacBroadCastMsgDetails.getTeamName(),tmacBroadCastMsgDetails.getModifyReason());
+         Assert.assertTrue(agentTeamManagementPage.verifyMessage(),"Add New record assertion failed");
     }
 }
