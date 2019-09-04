@@ -46,10 +46,9 @@ public class VIPListManagementTest extends BaseTest{
         ivrPage.navigateToVipListManagementPage();
         VipListManagementPage vipListMangementPage = PageFactory.createPageInstance(driver, VipListManagementPage.class);
         Assert.assertTrue(vipListMangementPage.isVipListManagementPageDisplayed(), "VIP List Management page assertion failed");
-    	screenshot.captureScreen(driver,"VIPListManagementTest","VIPListManagementPage");
     }
 	
-	/*@Test(priority=1)
+	@Test(priority=1)
 	public void VIPListManagementPage() {
         VipListManagementPage vipListMangementPage = PageFactory.createPageInstance(driver, VipListManagementPage.class);
         Assert.assertTrue(vipListMangementPage.VerifyLogo(),"Logo assertion failed");
@@ -78,7 +77,7 @@ public class VIPListManagementTest extends BaseTest{
     }
     
    @Test(priority=5)
-    public void AddNewVIPListRecord() throws IOException {
+    public void AddNewVIPListRecord() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\VIPListManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         VipListManagementDetails vipListManagementDetails = new VipListManagementDetails(map);
@@ -88,7 +87,7 @@ public class VIPListManagementTest extends BaseTest{
     }
     
     @Test(priority=6,dependsOnMethods = "AddNewVIPListRecord")
-    public void AddDuplicateVIPListRecord() throws IOException {
+    public void AddDuplicateVIPListRecord() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\VIPListManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         VipListManagementDetails vipListManagementDetails = new VipListManagementDetails(map);
@@ -123,7 +122,7 @@ public class VIPListManagementTest extends BaseTest{
     }
     
     @Test(priority=9)
-    public void AddRecordWithoutCallerID() throws IOException {
+    public void AddRecordWithoutCallerID() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\VIPListManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         VipListManagementDetails vipListManagementDetails = new VipListManagementDetails(map);
@@ -133,7 +132,7 @@ public class VIPListManagementTest extends BaseTest{
     }
     
     @Test(priority=10)
-    public void AddRecordWithoutEmailId() throws IOException {
+    public void AddRecordWithoutEmailId() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\VIPListManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         VipListManagementDetails vipListManagementDetails = new VipListManagementDetails(map);
@@ -143,7 +142,7 @@ public class VIPListManagementTest extends BaseTest{
     }
     
     @Test(priority=11)
-    public void AddRecordWithoutFBHandle() throws IOException {
+    public void AddRecordWithoutFBHandle() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\VIPListManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         VipListManagementDetails vipListManagementDetails = new VipListManagementDetails(map);
@@ -153,7 +152,7 @@ public class VIPListManagementTest extends BaseTest{
     }
     
     @Test(priority=12)
-    public void AddRecordWithoutMessengerID() throws IOException {
+    public void AddRecordWithoutMessengerID() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\VIPListManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         VipListManagementDetails vipListManagementDetails = new VipListManagementDetails(map);
@@ -163,7 +162,7 @@ public class VIPListManagementTest extends BaseTest{
     }
     
     @Test(priority=13)
-    public void AddRecordWithoutCustomerIDType() throws IOException {
+    public void AddRecordWithoutCustomerIDType() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\VIPListManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         VipListManagementDetails vipListManagementDetails = new VipListManagementDetails(map);
@@ -173,7 +172,7 @@ public class VIPListManagementTest extends BaseTest{
     }
     
     @Test(priority=14)
-    public void AddRecordWithoutCustomerIDNo() throws IOException {
+    public void AddRecordWithoutCustomerIDNo() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\VIPListManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         VipListManagementDetails vipListManagementDetails = new VipListManagementDetails(map);
@@ -183,7 +182,7 @@ public class VIPListManagementTest extends BaseTest{
     }
     
     @Test(priority=15)
-    public void AddRecordWithoutCountry() throws IOException {
+    public void AddRecordWithoutCountry() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\VIPListManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         VipListManagementDetails vipListManagementDetails = new VipListManagementDetails(map);
@@ -193,7 +192,7 @@ public class VIPListManagementTest extends BaseTest{
     }
     
     @Test(priority=16)
-    public void AddRecordWithoutContactType() throws IOException {
+    public void AddRecordWithoutContactType() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\VIPListManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         VipListManagementDetails vipListManagementDetails = new VipListManagementDetails(map);
@@ -203,7 +202,7 @@ public class VIPListManagementTest extends BaseTest{
     }
     
     @Test(priority=17)
-    public void AddRecordWithoutInclusionFlag() throws IOException {
+    public void AddRecordWithoutInclusionFlag() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\VIPListManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         VipListManagementDetails vipListManagementDetails = new VipListManagementDetails(map);
@@ -213,7 +212,7 @@ public class VIPListManagementTest extends BaseTest{
     }
     
     @Test(priority=18)
-    public void AddRecordWithoutExclusionFlag() throws IOException {
+    public void AddRecordWithoutExclusionFlag() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\VIPListManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         VipListManagementDetails vipListManagementDetails = new VipListManagementDetails(map);
@@ -223,7 +222,7 @@ public class VIPListManagementTest extends BaseTest{
     }
     
     @Test(priority=19)
-    public void AddRecordWithoutOtherData() throws IOException {
+    public void AddRecordWithoutOtherData() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\VIPListManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         VipListManagementDetails vipListManagementDetails = new VipListManagementDetails(map);
@@ -241,7 +240,7 @@ public class VIPListManagementTest extends BaseTest{
 	}
 	
     @Test(priority=21)
-    public void EditVIPListRecord() throws IOException {
+    public void EditVIPListRecord() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\VIPListManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
         VipListManagementDetails vipListManagementDetails = new VipListManagementDetails(map);
@@ -266,7 +265,7 @@ public class VIPListManagementTest extends BaseTest{
     }
     
     @Test(priority=23,dependsOnMethods = "EditVIPListRecord")
-    public void EditWithoutModifyReasonRecord() throws IOException {
+    public void EditWithoutModifyReasonRecord() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\VIPListManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(0);
         VipListManagementDetails vipListManagementDetails = new VipListManagementDetails(map);
@@ -276,7 +275,7 @@ public class VIPListManagementTest extends BaseTest{
     }
     
     @Test(priority=24,dependsOnMethods = "EditWithoutModifyReasonRecord")
-    public void VerifyCancelBtnAtEditConfigRecord(){
+    public void VerifyCancelBtnAtEditConfigRecord() throws Exception{
         VipListManagementPage vipListMangementPage = PageFactory.createPageInstance(driver, VipListManagementPage.class);
         vipListMangementPage.searchVipListManagementRecord("12");
         vipListMangementPage.clickOnEditButton();
@@ -285,7 +284,7 @@ public class VIPListManagementTest extends BaseTest{
     }
     
     @Test(priority=25)
-    public void searchPage() throws IOException {
+    public void searchPage() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\VIPListManagementData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
         VipListManagementDetails vipListManagementDetails = new VipListManagementDetails(map);
@@ -319,7 +318,7 @@ public class VIPListManagementTest extends BaseTest{
     } 
     
     @Test(priority=29)
-    public void DeleteWithoutDeleteReasonRecord() throws IOException {
+    public void DeleteWithoutDeleteReasonRecord() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\VIPListManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
         VipListManagementDetails vipListManagementDetails = new VipListManagementDetails(map);
@@ -328,7 +327,7 @@ public class VIPListManagementTest extends BaseTest{
         Assert.assertEquals(vipListMangementPage.verifySuccessMessage(),"Please enter the delete reason","empty delete reason record assertion failed");
     }
     @Test(priority=30)
-    public void VerifyCancelBtnAtDeleteVIPListRecord(){
+    public void VerifyCancelBtnAtDeleteVIPListRecord() throws Exception{
         VipListManagementPage vipListMangementPage = PageFactory.createPageInstance(driver, VipListManagementPage.class);
         vipListMangementPage.searchVipListManagementRecord("2");
         vipListMangementPage.clickOnDeleteButton();
@@ -336,7 +335,7 @@ public class VIPListManagementTest extends BaseTest{
         Assert.assertFalse(vipListMangementPage.verifyDeleteContainer(), "Cancel Btn at Delete record assertion failed");
     }
     @Test(priority=31,dependsOnMethods = "VerifyCancelBtnAtDeleteVIPListRecord")
-    public void DeleteVIPListRecord() throws IOException {
+    public void DeleteVIPListRecord() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\VIPListManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
         VipListManagementDetails vipListManagementDetails = new VipListManagementDetails(map);
@@ -433,7 +432,7 @@ public class VIPListManagementTest extends BaseTest{
         VipListManagementPage vipListMangementPage = PageFactory.createPageInstance(driver, VipListManagementPage.class);
         Assert.assertTrue(vipListMangementPage.verifyNumberOfItemsPerPage(),"item per page assertion failed");
     }
-    */
+    
     
     @Test(priority=36)
     public void database() throws Exception {

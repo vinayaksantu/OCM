@@ -30,7 +30,7 @@ import com.tetherfi.utility.Screenshot;
 
 public class WorkCodeListTest extends BaseTest{
 	Screenshot screenshot=new Screenshot(driver);
-   //@BeforeClass
+	@BeforeClass
     public void AddNewAgentTeamManagementRecord() throws Exception {
         HomePage homePage= PageFactory.createPageInstance(driver,HomePage.class);
         homePage.navigateToOCMPage();
@@ -65,7 +65,8 @@ public class WorkCodeListTest extends BaseTest{
         Assert.assertTrue(workCodeListPage.isWorkCodeListPageDisplayed(), "WorkCodeList page assertion failed");
         screenshot.captureScreen(driver, "WorkCodeList Page","WorkCodeListTest");
     }
-    //@Test(priority=1)
+    
+    @Test(priority=1)
     public void WorkCodeListPage()
     {
         WorkCodeListPage workCodeListPage  = PageFactory.createPageInstance(driver, WorkCodeListPage.class);
@@ -77,7 +78,7 @@ public class WorkCodeListTest extends BaseTest{
     	screenshot.captureScreen(driver, "minimize window","WorkCodeListTest");
     }
     
-    //@Test(priority=2)
+    @Test(priority=2)
     public void addNewWorkcodeListRecord() throws Exception
     {
         WorkCodeListPage workCodeListPage  = PageFactory.createPageInstance(driver, WorkCodeListPage.class);

@@ -13,12 +13,13 @@ import org.testng.ITestResult;
 import org.testng.annotations.*;
 
 import java.io.IOException;
+import java.lang.reflect.Method;
 import java.util.List;
 import java.util.Map;
 
 public class TmacBroadCastMsgTest extends BaseTest {
 	Screenshot screenshot=new Screenshot(driver);
-    @BeforeClass
+    //@BeforeClass
     public void AddNewAgentTeamManagementRecord() throws Exception {
         HomePage homePage= PageFactory.createPageInstance(driver,HomePage.class);
         homePage.navigateToOCMPage();
@@ -31,7 +32,7 @@ public class TmacBroadCastMsgTest extends BaseTest {
         AgentTeamManagementPage agentTeamManagementPage=PageFactory.createPageInstance(driver,AgentTeamManagementPage.class);
         Assert.assertTrue(agentTeamManagementPage.isAgentTeamManagementPageDisplayed(),"Agent Team  management assertion failed");
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacBroadcastMsgData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);
+        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
         TmacBroadCastMsgDetails tmacBroadCastMsgDetails=new TmacBroadCastMsgDetails(map);
         agentTeamManagementPage.addNewAgentTeamManagementRecord(tmacBroadCastMsgDetails.getLevel(),tmacBroadCastMsgDetails.getCountry(),tmacBroadCastMsgDetails.getDivision(),tmacBroadCastMsgDetails.getDepartment(),tmacBroadCastMsgDetails.getTeamName());
         Assert.assertTrue(agentTeamManagementPage.verifyMessage(),"Add New record assertion failed");
@@ -51,7 +52,6 @@ public class TmacBroadCastMsgTest extends BaseTest {
         tmacPage.navigateToTmacBroadcastMsgPage();
         TmacBroadCastMsgPage tmacBroadCastMsgPage  = PageFactory.createPageInstance(driver, TmacBroadCastMsgPage.class);
         Assert.assertTrue(tmacBroadCastMsgPage.isTmacBroadcastMsgPageDisplayed(), "TMAC Broadcast page assertion failed");
-        screenshot.captureScreen(driver, "TMACBroadcastMsg Page","TmacBroadCastMsgTest");
     }
    
     @Test(priority=1)
@@ -61,27 +61,32 @@ public class TmacBroadCastMsgTest extends BaseTest {
     	Assert.assertTrue(tmacBroadCastMsgPage.verifylogo(),"Tmac Broadcast Message logo assertion failed");
         Assert.assertTrue(tmacBroadCastMsgPage.verifygridcontent(),"grid container assertion failed");
     	Assert.assertTrue(tmacBroadCastMsgPage.maximizewindow(),"Fullscreen Assertion Failed"); 
-    	screenshot.captureScreen(driver, "maximize window","TmacBroadCastMsgTest");
+    	screenshot.captureScreen("TmacBroadCastMsgTest", "maximize window");
     	Assert.assertTrue(tmacBroadCastMsgPage.minimizewindow(), "Restored Assertion Failed");
-    	screenshot.captureScreen(driver, "minimize window","TmacBroadCastMsgTest");
+    	screenshot.captureScreen("TmacBroadCastMsgTest", "minimize window");
     }
     @Test(priority=2)
-    public void AddNewTmacBroadCastMsg() throws Exception {
+    public void AddNewTmacBroadCastMsgCancel() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacBroadcastMsgData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);
+        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
         TmacBroadCastMsgDetails tmacBroadCastMsgDetails=new TmacBroadCastMsgDetails(map);
         TmacBroadCastMsgPage tmacBroadCastMsgPage  = PageFactory.createPageInstance(driver, TmacBroadCastMsgPage.class);
         Assert.assertTrue(tmacBroadCastMsgPage.addNewCancel(tmacBroadCastMsgDetails), "record cancelled assertion failed");
-        screenshot.captureScreen(driver, "Add New Cancel","TmacBroadCastMsgTest");
+    }
+    @Test(priority=3)
+    public void AddNewTmacBroadCastMsg() throws Exception {
+        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacBroadcastMsgData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
+        TmacBroadCastMsgDetails tmacBroadCastMsgDetails=new TmacBroadCastMsgDetails(map);
+        TmacBroadCastMsgPage tmacBroadCastMsgPage  = PageFactory.createPageInstance(driver, TmacBroadCastMsgPage.class);
         tmacBroadCastMsgPage.addTmacBroadcastMsg(tmacBroadCastMsgDetails);
         Assert.assertTrue(tmacBroadCastMsgPage.verifyNewRecordCreated(),"add record assertion failed");
-        screenshot.captureScreen(driver, "Record Created Successfully","TmacBroadCastMsgTest");
     }
     
-    @Test(dependsOnMethods = {"AddNewTmacBroadCastMsg()"},priority=3)
+    @Test(dependsOnMethods = {"AddNewTmacBroadCastMsg"},priority=4)
     public void VerifyAuditTrialReportForCreate() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacBroadcastMsgData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);
+        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
         TmacBroadCastMsgDetails tmacBroadCastMsgDetails=new TmacBroadCastMsgDetails(map);
         HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
         homePage.navigateToOCMReportsPage();
@@ -91,42 +96,65 @@ public class TmacBroadCastMsgTest extends BaseTest {
         ReportDetails reportDetails= new ReportDetails(map1);
         ocmReportsPage.showReport(reportDetails);
         Assert.assertTrue(ocmReportsPage.verifyTmacBroadcastMsgCreate(tmacBroadCastMsgDetails,"Create"));
-        screenshot.captureScreen("TmacBroadCastMsgTest", "VerifyAuditTrialReportForCreate");
         
     }
-   @Test(priority=4)
-    public void AddInvalidRecord() throws Exception {
+   @Test(priority=5)
+    public void AddDuplicateRecord() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacBroadcastMsgData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);
+        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
         TmacBroadCastMsgDetails tmacBroadCastMsgDetails=new TmacBroadCastMsgDetails(map);
         TmacBroadCastMsgPage tmacBroadCastMsgPage  = PageFactory.createPageInstance(driver, TmacBroadCastMsgPage.class);
         tmacBroadCastMsgPage.duplicateRecord(tmacBroadCastMsgDetails);
         Assert.assertTrue(tmacBroadCastMsgPage.verifyErrorMessage(),"Duplicate Assertion failed");
-        screenshot.captureScreen(driver, "Duplicate Record","TmacBroadCastMsgTest");
-        tmacBroadCastMsgPage.addInvalidRecord(tmacBroadCastMsgDetails);
+   }
+   @Test(priority=6)
+   public void AddRecordWithoutMesage() throws Exception {
+   	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacBroadcastMsgData.xlsx";
+       Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
+       TmacBroadCastMsgDetails tmacBroadCastMsgDetails=new TmacBroadCastMsgDetails(map);
+       TmacBroadCastMsgPage tmacBroadCastMsgPage  = PageFactory.createPageInstance(driver, TmacBroadCastMsgPage.class);
+       tmacBroadCastMsgPage.addInvalidRecord(tmacBroadCastMsgDetails);
         Assert.assertTrue(tmacBroadCastMsgPage.verifyErrorMessage(),"Invalid Record Assertion failed");
-        screenshot.captureScreen(driver, "Invalid Record when message is null","TmacBroadCastMsgTest");
-        tmacBroadCastMsgPage.addInvalidRecord1(tmacBroadCastMsgDetails);
+   }
+   
+   @Test(priority=7)
+   public void AddRecordwithoutStatus() throws Exception {
+   		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacBroadcastMsgData.xlsx";
+   		Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
+   		TmacBroadCastMsgDetails tmacBroadCastMsgDetails=new TmacBroadCastMsgDetails(map);
+   		TmacBroadCastMsgPage tmacBroadCastMsgPage  = PageFactory.createPageInstance(driver, TmacBroadCastMsgPage.class);
+   		tmacBroadCastMsgPage.addInvalidRecord1(tmacBroadCastMsgDetails);
         Assert.assertTrue(tmacBroadCastMsgPage.verifyErrorMessage(),"Invalid Record Assertion failed");
-        screenshot.captureScreen(driver, "Invalid record when status is null","TmacBroadCastMsgTest");
-        tmacBroadCastMsgPage.addInvalidRecord2(tmacBroadCastMsgDetails);
+   }
+   
+   @Test(priority=8)
+   public void AddRecordWithoutTeamName() throws Exception {
+   	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacBroadcastMsgData.xlsx";
+       	Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
+       	TmacBroadCastMsgDetails tmacBroadCastMsgDetails=new TmacBroadCastMsgDetails(map);
+       	TmacBroadCastMsgPage tmacBroadCastMsgPage  = PageFactory.createPageInstance(driver, TmacBroadCastMsgPage.class);
+       	tmacBroadCastMsgPage.addInvalidRecord2(tmacBroadCastMsgDetails);
         Assert.assertTrue(tmacBroadCastMsgPage.verifyErrorMessage(),"Invalid Record Assertion failed");
-        screenshot.captureScreen(driver, "Invalid Record when Teamname is null","TmacBroadCastMsgTest");
     }
-    @Test(priority=5)
-    public void EditTmacBroadCastMsg() throws Exception {
+    @Test(priority=9)
+    public void EditTmacBroadCastMsgCancel() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacBroadcastMsgData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(2);
+        Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
         TmacBroadCastMsgDetails tmacBroadCastMsgDetails=new TmacBroadCastMsgDetails(map);
         TmacBroadCastMsgPage tmacBroadCastMsgPage  = PageFactory.createPageInstance(driver, TmacBroadCastMsgPage.class);
         Assert.assertTrue(tmacBroadCastMsgPage.editcancel(tmacBroadCastMsgDetails),"Cancel assertion failed");
-        screenshot.captureScreen(driver, "Cancelled Record","TmacBroadCastMsgTest");
-        tmacBroadCastMsgPage.editTmacBroadcastMsg(tmacBroadCastMsgDetails);
+    }
+    @Test(priority=10)
+    public void EditTmacBroadCastMsg() throws Exception {
+        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacBroadcastMsgData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
+        TmacBroadCastMsgDetails tmacBroadCastMsgDetails=new TmacBroadCastMsgDetails(map);
+        TmacBroadCastMsgPage tmacBroadCastMsgPage  = PageFactory.createPageInstance(driver, TmacBroadCastMsgPage.class);     
+    	tmacBroadCastMsgPage.editTmacBroadcastMsg(tmacBroadCastMsgDetails);
         Assert.assertTrue(tmacBroadCastMsgPage.verifyRecordUpdated(),"Record Updated assertion failed");
-        screenshot.captureScreen(driver, "Updated Record","TmacBroadCastMsgTest");
     }
     
-    @Test(dependsOnMethods = {"EditTmacBroadCastMsg()"}, priority=6)
+    @Test(dependsOnMethods = {"EditTmacBroadCastMsg"}, priority=11)
     	public void VerifyAuditTrailReportForUpdate() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacBroadcastMsgData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(2);
@@ -141,29 +169,30 @@ public class TmacBroadCastMsgTest extends BaseTest {
         Assert.assertTrue(ocmReportsPage.verifyTmacBroadcastMsgUpdate(tmacBroadCastMsgDetails,"Update"));
     }
     
-    @Test(priority=7)
+    @Test(priority=12)
     public void searchPage() throws Exception{
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacBroadcastMsgData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(2);
+        Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
         TmacBroadCastMsgDetails tmacBroadCastMsgDetails=new TmacBroadCastMsgDetails(map);
         TmacBroadCastMsgPage tmacBroadCastMsgPage  = PageFactory.createPageInstance(driver, TmacBroadCastMsgPage.class);
         Assert.assertFalse(tmacBroadCastMsgPage.clearAll(tmacBroadCastMsgDetails),"ClearAll Assertion Failed");
-        screenshot.captureScreen(driver, "clearall","TmacBroadCastMsgTest");
+        screenshot.captureScreen("TmacBroadCastMsgTest", "clearall");
         Assert.assertTrue(tmacBroadCastMsgPage.verifyclose());
-        screenshot.captureScreen(driver, "SearchClose","TmacBroadCastMsgTest");	
+        screenshot.captureScreen("TmacBroadCastMsgTest", "SearchClose");	
     }
-    @Test(priority=8)
+    
+    @Test(priority=13)
     public void SearchClearSearch() throws Exception
     {
     String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacBroadcastMsgData.xlsx";
-    Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(2);
+    Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
     TmacBroadCastMsgDetails tmacBroadCastMsgDetails=new TmacBroadCastMsgDetails(map);
     TmacBroadCastMsgPage tmacBroadCastMsgPage  = PageFactory.createPageInstance(driver, TmacBroadCastMsgPage.class);
     Assert.assertTrue(tmacBroadCastMsgPage.verifyinvalidsearch(tmacBroadCastMsgDetails), "InvalidSearchAssertionFailed");
     Assert.assertTrue(tmacBroadCastMsgPage.verifyclearsearch(), "Clear All Assertion Failed");
     }
     
-    @Test(priority=9)
+    @Test(priority=14)
     public void ExportToExcel() throws Exception
     {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles";
@@ -171,7 +200,7 @@ public class TmacBroadCastMsgTest extends BaseTest {
         Assert.assertTrue(tmacBroadCastMsgPage.verifyExportToExcel(filePath));
     }
     
-    @Test(priority=10)
+    @Test(priority=15)
     public void ExportToExcelData() throws Exception
     {String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\TMAC Broadcast Message.xlsx";
     List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
@@ -179,7 +208,7 @@ public class TmacBroadCastMsgTest extends BaseTest {
     Assert.assertTrue(tmacBroadCastMsgPage.verifyexportToExcelSheet(maplist));	
     }
     
-    @Test(priority=11)
+    @Test(priority=16)
     public void database() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacBroadcastMsgData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(0);
@@ -188,7 +217,7 @@ public class TmacBroadCastMsgTest extends BaseTest {
     	Assert.assertTrue(tmacBroadCastMsgPage.verifyDatabase(tmacBroadCastMsgDetails.getQuery()));
     }
     
-    @Test(priority=12)
+    @Test(priority=17)
     public void GroupBy()
     {
         TmacBroadCastMsgPage tmacBroadCastMsgPage  = PageFactory.createPageInstance(driver, TmacBroadCastMsgPage.class);
@@ -198,44 +227,44 @@ public class TmacBroadCastMsgTest extends BaseTest {
         screenshot.captureScreen(driver, "AlreadyGroupBy","TmacBroadCastMsgTest");
     }
     
-    @Test(priority=13)
+    @Test(priority=18)
     public void VerifyArrowMoveForPreviousAndNextPage() {
         TmacBroadCastMsgPage tmacBroadCastMsgPage  = PageFactory.createPageInstance(driver, TmacBroadCastMsgPage.class);
     	Assert.assertTrue(tmacBroadCastMsgPage.verifyArrowMoveForPreviousAndNextPage(),"arrow move for previous and next page assertion failed");
     }
     
-    @Test(priority=14)
+    @Test(priority=19)
     public void VerifyArrowMoveForFirstAndLastPage() {
         TmacBroadCastMsgPage tmacBroadCastMsgPage  = PageFactory.createPageInstance(driver, TmacBroadCastMsgPage.class);
         Assert.assertTrue(tmacBroadCastMsgPage.verifyArrowMoveForFirstAndLastPage(),"arrow move for first and last page assertion failed");
     }
-    @Test(priority=15)
+    @Test(priority=20)
     public void VerifyTotalNumberOfItemsPerPageDetails() {
         TmacBroadCastMsgPage tmacBroadCastMsgPage  = PageFactory.createPageInstance(driver, TmacBroadCastMsgPage.class);
         Assert.assertTrue(tmacBroadCastMsgPage.verifyTotalNumberOfItemsPerPageDetails(),"item per page assertion failed");
     }
     
-    @Test(priority=16)
+    @Test(priority=21)
     public void VerifyNumberOfItemsPerPageSelection() {
         TmacBroadCastMsgPage tmacBroadCastMsgPage  = PageFactory.createPageInstance(driver, TmacBroadCastMsgPage.class);
         Assert.assertTrue(tmacBroadCastMsgPage.verifyNumberOfItemsPerPage(),"item per page assertion failed");
     }
-    @Test(priority=17)
+    @Test(priority=22)
     public void VerifyDropdownForAllTheColumns() {
         TmacBroadCastMsgPage tmacBroadCastMsgPage  = PageFactory.createPageInstance(driver, TmacBroadCastMsgPage.class);
         Assert.assertTrue(tmacBroadCastMsgPage.verifyDropDownOfAllHeaders(), "Columns dropdown assertion failed");
     }
-    @Test(priority=18)
+    @Test(priority=23)
     public void VerifyColumnsHeaderEnable() {
         TmacBroadCastMsgPage tmacBroadCastMsgPage  = PageFactory.createPageInstance(driver, TmacBroadCastMsgPage.class);
         Assert.assertTrue(tmacBroadCastMsgPage.verifycolumnsHeaderEnabled(),"columns enabled assertion failed");
     }
-    @Test(priority=19)
+    @Test(priority=24)
     public void VerifyColumnsHeaderDisable() {
         TmacBroadCastMsgPage tmacBroadCastMsgPage  = PageFactory.createPageInstance(driver, TmacBroadCastMsgPage.class);
         Assert.assertFalse(tmacBroadCastMsgPage.verifycolumnsHeaderDisabled(),"columns disabled assertion failed");
     }
-    @Test(priority=20)
+    @Test(priority=25)
     public void SortingByAscending() throws Exception {
         TmacBroadCastMsgPage tmacBroadCastMsgPage  = PageFactory.createPageInstance(driver, TmacBroadCastMsgPage.class);
         tmacBroadCastMsgPage.SortByAscending();
@@ -243,7 +272,7 @@ public class TmacBroadCastMsgTest extends BaseTest {
         List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
         Assert.assertTrue(tmacBroadCastMsgPage.verifyexportToExcelSheet(maplist));	
         }
-    @Test(priority=21)
+    @Test(priority=26)
     public void SortingByDescending() throws Exception {
         TmacBroadCastMsgPage tmacBroadCastMsgPage  = PageFactory.createPageInstance(driver, TmacBroadCastMsgPage.class);
         tmacBroadCastMsgPage.SortByDescending();
@@ -252,7 +281,7 @@ public class TmacBroadCastMsgTest extends BaseTest {
         Assert.assertTrue(tmacBroadCastMsgPage.verifyexportToExcelSheet(maplist));	
         }
     
-    @Test(priority=22)
+    @Test(priority=27)
     public void ExporttoExcelWithoutData() throws Exception
     {
         TmacBroadCastMsgPage tmacBroadCastMsgPage  = PageFactory.createPageInstance(driver, TmacBroadCastMsgPage.class);
@@ -260,24 +289,18 @@ public class TmacBroadCastMsgTest extends BaseTest {
         Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(1);
         TmacBroadCastMsgDetails tmacBroadCastMsgDetails=new TmacBroadCastMsgDetails(map);
         tmacBroadCastMsgPage.database(tmacBroadCastMsgDetails.getQuery());
-        Map<String, String> map1 = new ExcelReader(filePath,"Create").getTestData().get(1);
+        Map<String, String> map1 = new ExcelReader(filePath,"Create").getTestData().get(0);
         TmacBroadCastMsgDetails tmacBroadCastMsgDetails1=new TmacBroadCastMsgDetails(map1);
         Assert.assertTrue(tmacBroadCastMsgPage .ExporttoExcelWithoutData(tmacBroadCastMsgDetails1));
     }
     
     @AfterMethod
-    public void afterEachMethod(ITestResult result){
-   	 if(ITestResult.FAILURE==result.getStatus()){
-   		 try{
-   			 screenshot.captureScreen(driver, "failed","TmacBroadCastMsgTest");
-   		 }
-   		catch (Exception e){
-   		 System.out.println("Exception while taking screenshot "+e.getMessage());
-   		 } 
-   		 driver.navigate().refresh();
-   		 }
-   		
-    }
+    public void afterEachMethod(Method method) throws InterruptedException {
+	        Screenshot screenshot=new Screenshot(driver);
+	        screenshot.captureScreen("TmacBroadcastMsgTest",method.getName());
+	        driver.navigate().refresh();
+	}
+
     @AfterClass
     public void Afterclass()
     {

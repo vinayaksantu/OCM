@@ -1435,9 +1435,8 @@ return status;
 			return Status;
 	}
 
-	public boolean verifyAgentTeamMgmtUpdate(AgentTeamMgmtDetails details, String Transaction, String displayname,AgentTeamMgmtDetails details2) throws Exception {
+	public boolean verifyAgentTeamMgmtUpdate(AgentTeamMgmtDetails details, String Transaction) throws Exception {
 		booleansearchnew(details.getUpdateTeamName(),Transaction);
-		String displayname2=RunQuery(details2.getQuery(),"DisplayName");
 		Boolean Status=false;
         Map<String,String> firstRowData=getFirstRowDatafromTable1();
         if(firstRowData.containsKey("Old Values")) {
@@ -1488,7 +1487,7 @@ return status;
     return Status;
 	}
 
-	public boolean verifyAgentTeamMgmtdelete(AgentTeamMgmtDetails details, String Transaction,String displayname) throws Exception {
+	public boolean verifyAgentTeamMgmtdelete(AgentTeamMgmtDetails details, String Transaction) throws Exception {
 		booleansearchold(details.getUpdateTeamName(),Transaction);
 		System.out.println(displayname);
 		Boolean Status=false;

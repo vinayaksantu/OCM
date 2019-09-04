@@ -3,22 +3,25 @@
 <suite name="Failed suite [Failed suite [Failed suite [Failed suite [Default suite]]]]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)(failed)(failed)(failed)">
     <classes>
-      <class name="com.tetherfi.test.ivr.AdhocOptionEnhancementTest">
+      <class name="com.tetherfi.test.tmac.TmacBroadCastMsgTest">
         <methods>
+          <include name="database"/>
+          <include name="afterEachMethod"/>
+          <include name="VerifyAuditTrailReportForUpdate"/>
+          <include name="endTestCase"/>
+          <include name="tearDown"/>
+          <include name="SortingByAscending"/>
+          <include name="SortingByDescending"/>
+          <include name="NavigateToTmacBroadcastMsgPage"/>
+          <include name="ExporttoExcelWithoutData"/>
           <include name="startTestCase"/>
           <include name="openApplication"/>
-          <include name="EditAdhocOptionEnhancementRecord"/>
-          <include name="VerifyAuditTrialReportForDelete"/>
-          <include name="endTestCase"/>
-          <include name="SortingByDescending"/>
-          <include name="tearDown"/>
-          <include name="afterEachMethod"/>
-          <include name="SortingByAscending"/>
-          <include name="NavigateToAdhocOptionEnhancementPage"/>
-          <include name="ExportToExcelData"/>
-          <include name="DeleteAdhocOptionEnhancementRecord"/>
+          <include name="SearchClearSearch"/>
+          <include name="EditTmacBroadCastMsg"/>
+          <include name="EditTmacBroadCastMsgCancel"/>
+          <include name="Afterclass"/>
         </methods>
-      </class> <!-- com.tetherfi.test.ivr.AdhocOptionEnhancementTest -->
+      </class> <!-- com.tetherfi.test.tmac.TmacBroadCastMsgTest -->
     </classes>
   </test> <!-- Default test(failed)(failed)(failed)(failed) -->
 </suite> <!-- Failed suite [Failed suite [Failed suite [Failed suite [Default suite]]]] -->
