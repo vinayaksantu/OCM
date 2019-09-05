@@ -3,87 +3,21 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-<<<<<<< HEAD
       <class name="com.tetherfi.test.ivr.CallBackAnnouncementTest">
-=======
-      <class name="com.tetherfi.test.CEPEventMappingTest">
->>>>>>> branch 'Palak3' of https://git.tetherfi.com:1443/tetherfi-product-qa/automation-testing/ocm/scripts.git
         <methods>
-<<<<<<< HEAD
-          <include name="ExportToExcel"/>
-          <include name="SearchClearSearch"/>
-          <include name="VerifyCancelButtonAtEditCallbackAnnouncementRecord"/>
-          <include name="VerifyColumnsHeaderEnable"/>
-=======
-          <include name="AddRecordWithoutCEPEvent"/>
->>>>>>> branch 'Palak3' of https://git.tetherfi.com:1443/tetherfi-product-qa/automation-testing/ocm/scripts.git
-          <include name="SortingByDescending"/>
-<<<<<<< HEAD
-          <include name="AddDuplicateCallBackAnnouncementRecord"/>
-=======
-          <include name="afterEachMethod"/>
-          <include name="endTestCase"/>
-          <include name="AddCepEventMappingRecord"/>
-          <include name="SortingByAscending"/>
-          <include name="tearDown"/>
-          <include name="AddRecordWithoutDescription"/>
-          <include name="EditCepEventMappingRecord"/>
->>>>>>> branch 'Palak3' of https://git.tetherfi.com:1443/tetherfi-product-qa/automation-testing/ocm/scripts.git
+          <include name="DeleteWithoutDeleteReasonRecord"/>
           <include name="startTestCase"/>
           <include name="openApplication"/>
-<<<<<<< HEAD
-          <include name="AddNewCallbackAnnouncementCancelRecord"/>
-          <include name="EditWithoutModifyReasonCallbackannouncementRecord"/>
-          <include name="SortingByAscending"/>
-          <include name="DeleteCallbackAnnouncementRecord"/>
-          <include name="database"/>
-          <include name="AddNewCallbackAnnouncementRecord"/>
-          <include name="VerifyArrowMoveForFirstAndLastPage"/>
-          <include name="EditCallBackAnnouncementRecord"/>
-=======
-          <include name="AddRecordWithoutTransferFlag"/>
-          <include name="VerifyAuditTrialReportForDelete"/>
-          <include name="ExporttoExcelWithoutData"/>
-          <include name="SearchClearSearch"/>
-          <include name="AddRecordWithoutBins"/>
-          <include name="DuplicateRecord"/>
-          <include name="VerifyNumberOfItemsPerPageSelection"/>
-          <include name="VerifyAuditTrialReportForUpdate"/>
-          <include name="NavigateToCepEventMappingPage"/>
->>>>>>> branch 'Palak3' of https://git.tetherfi.com:1443/tetherfi-product-qa/automation-testing/ocm/scripts.git
-          <include name="ExportToExcelData"/>
-<<<<<<< HEAD
-          <include name="DeleteWithoutDeleteReasonRecord"/>
-          <include name="VerifyAuditTrialReportForUpdate"/>
-          <include name="VerifyDropdownForAllTheColumns"/>
+          <include name="VerifyCancelButtonDeleteRecord"/>
           <include name="VerifyNumberOfItemsPerPageSelection"/>
           <include name="NavigateToCallBackAnnouncementPage"/>
           <include name="VerifyAuditTrialReportForDelete"/>
           <include name="endTestCase"/>
           <include name="tearDown"/>
-          <include name="ExporttoExcelWithoutData"/>
-          <include name="VerifyArrowMoveForPreviousAndNextPage"/>
-          <include name="GroupBy"/>
-          <include name="searchwithoutSearchTextbox"/>
-          <include name="AddNewCallbackAnnouncementWithoutWavFile"/>
-          <include name="VerifyCancelButtonDeleteRecord"/>
-          <include name="AddNewCallbackAnnouncementWithoutStartTime"/>
-          <include name="VerifyTotalNumberOfItemsPerPageDetails"/>
-          <include name="VerifyAuditTrialReportForCreate"/>
-          <include name="VerifyColumnsHeaderDisable"/>
-          <include name="AddNewCallbackAnnouncementWithoutEndTime"/>
-          <include name="CallbackAnnouncementPage"/>
-          <include name="searchPage"/>
+          <include name="DeleteCallbackAnnouncementRecord"/>
           <include name="afterEachMethod"/>
-          <include name="AddNewCallbackAnnouncementWithoutLanguage"/>
-=======
->>>>>>> branch 'Palak3' of https://git.tetherfi.com:1443/tetherfi-product-qa/automation-testing/ocm/scripts.git
         </methods>
-<<<<<<< HEAD
       </class> <!-- com.tetherfi.test.ivr.CallBackAnnouncementTest -->
-=======
-      </class> <!-- com.tetherfi.test.CEPEventMappingTest -->
->>>>>>> branch 'Palak3' of https://git.tetherfi.com:1443/tetherfi-product-qa/automation-testing/ocm/scripts.git
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

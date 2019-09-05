@@ -44,8 +44,8 @@ public class CallBackAnnouncementTest extends BaseTest {
         Assert.assertTrue(callbackAnnouncementPage.isCallbackAnnouncementPageDisplayed(), "CallBack Announcement page assertion failed");
     	screenshot.captureScreen(driver,"CallBackAnnouncement Page","CallBackAnnouncementTest");
     }
-    
-    @Test(priority=1)
+  
+  @Test(priority=1)
     public void CallbackAnnouncementPage() {
         CallbackAnnouncementPage callbackAnnouncementPage = PageFactory.createPageInstance(driver, CallbackAnnouncementPage.class);
     	Assert.assertTrue(callbackAnnouncementPage.verifylogo(),"CallBackAnnouncement logo assertion failed");
@@ -81,6 +81,7 @@ public class CallBackAnnouncementTest extends BaseTest {
         CallbackAnnouncementPage callbackAnnouncementPage = PageFactory.createPageInstance(driver, CallbackAnnouncementPage.class);
         Assert.assertTrue(callbackAnnouncementPage.addnewCancel(callbackAnnouncementDetails), "Add new record cancel assertion failed");
     }
+    
     @Test(priority=6)
     public void AddNewCallbackAnnouncementRecord() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\CallbackAnnouncementData.xlsx";
@@ -114,7 +115,7 @@ public class CallBackAnnouncementTest extends BaseTest {
         callbackAnnouncementPage.addNewCallbackAnnouncementRecord(callbackAnnouncementDetails);
         Assert.assertEquals(callbackAnnouncementPage.verifySuccessMessage(),"Record Creation Failed, Already Exist", "Duplicate record assertion failed");
     }
-    
+  
     @Test(priority=9)
     public void AddNewCallbackAnnouncementWithoutWavFile() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\CallbackAnnouncementData.xlsx";
