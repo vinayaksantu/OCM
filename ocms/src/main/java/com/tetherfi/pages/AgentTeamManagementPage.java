@@ -89,7 +89,7 @@ public class AgentTeamManagementPage extends BasePage {
 	//@FindBy(css="#toast-container .toast-message")
 	private WebElement successmsg;
 
-	@FindBy(css = "#toast-container .toast-error")
+	@FindBy(css = "#toast-container .toast-error .toast-message")
 	private List<WebElement> errorMsg;
 
 	@FindBy(id = "Name")
@@ -336,24 +336,14 @@ public class AgentTeamManagementPage extends BasePage {
 	}
 
 	private void chooseDepartment(String department) {
-		try {
-			Thread.sleep(1000);
 			selectWebElement(departmentdropdown);
-			Thread.sleep(1000);
 			selectDropdownFromVisibleText(departmentList,department);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
 	}
 
 	private void chooseDivision(String division) {
-		try {
-			Thread.sleep(1000);
 			selectWebElement(divisiondropdown);
-			Thread.sleep(1000);
 			selectDropdownFromVisibleText(divisionList,division);
-		} catch (InterruptedException e) {
-			e.printStackTrace();}
+
 	}
 
 	private void chooseCountry(String country) {
@@ -381,20 +371,10 @@ public class AgentTeamManagementPage extends BasePage {
 
 	public void editAgentTeamManagementRecord(String oldteamname, String newteamname, String reason) throws Exception {
 		searchAgentTeamManagementRecord(oldteamname);
-		try {
-			Thread.sleep(5000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
 		selectWebElement(editButton);
 		selectWebElement(editTeamNameTextBox);
 		enterValueToTxtField(editTeamNameTextBox,newteamname);
-		try {
-			Thread.sleep(500);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		enterValueToTxtField(editModifyReasonTextBox,reason);
+		enterValueToTxtFieldWithoutClear(editModifyReasonTextBox,reason);
 		selectWebElement(editTeamNameSaveButton);
 	}
 
@@ -403,7 +383,7 @@ public class AgentTeamManagementPage extends BasePage {
 		selectWebElement(editButton);
 		selectWebElement(editTeamNameTextBox);
 		enterValueToTxtField(editTeamNameTextBox,newteamname);
-		enterValueToTxtField(editModifyReasonTextBox,reason);
+		enterValueToTxtFieldWithoutClear(editModifyReasonTextBox,reason);
 		selectWebElement(editCancel);
 		waitForJqueryLoad(driver);
 		if(tabledata.getText().equals(oldteamname))
@@ -424,12 +404,10 @@ public class AgentTeamManagementPage extends BasePage {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		enterValueToTxtField(deleteReasonTextBox,reason);
+		enterValueToTxtFieldWithoutClear(deleteReasonTextBox,reason);
 		selectWebElement(deleteYesBtn);
 	}
 	public Boolean verifyMessage(){
-		if (errorMsg.size()>0)
-		return false;
 		waitUntilWebElementIsVisible(successmsg);
     	if(successmsg.getText().contains("Successfully"))
 		return true;
@@ -628,7 +606,7 @@ public class AgentTeamManagementPage extends BasePage {
 					col=cols.get(j).getText();
 				map.put(headers.get(j).getText(),col);
 			}
-			while(map.values().remove(""));
+			map.remove("");
 			arr.add(map);
 		}
 		if(k!=pages) {
@@ -651,14 +629,10 @@ public class AgentTeamManagementPage extends BasePage {
 			Map<String,String> map = new HashMap<String,String>();
 			List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
 			for(int j=1;j<headers.size();j++) {
-				if(headers.get(j).getText().equals("Last Changed On")){
-					col=cols.get(j).getText().substring(0,10);
-					}
-				else
 					col=cols.get(j).getText();
 				map.put(headers.get(j).getText(),col);
 			}
-			while(map.values().remove(""));
+			map.remove("");
 			arr.add(map);
 		}
 		if(k!=pages) {
@@ -669,6 +643,12 @@ public class AgentTeamManagementPage extends BasePage {
 	}
 
 	public boolean verifyExportToExcel(String filepath) {
+		final File folder = new File(filepath);
+		for (final File f : folder.listFiles()) {
+		    if (f.getName().startsWith("Organizational Structure")) {
+		        f.delete();
+		    }
+		}
 		selectWebElement(exporttoexcel);
 		waitForJqueryLoad(driver);
 		try {
@@ -677,12 +657,14 @@ public class AgentTeamManagementPage extends BasePage {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		Boolean Status=verifyExportPageFileDownload(filepath, "Agent Team Management");
+		Boolean Status=verifyExportPageFileDownload(filepath, "Organizational Structure");
 		return Status;
 	}
 		
 	public boolean verifyexportToExcelSheet(List<Map<String, String>> maplist) {
 		List<Map<String,String>> UI=getdata(); 
+		System.out.println(UI);
+		System.out.println(maplist);
 		if(UI.equals(maplist))
 		return true;
 		else

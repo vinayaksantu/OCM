@@ -41,15 +41,19 @@ public class BrowserFactory {
         WebDriver driver = null;
       if(browserType==BrowserType.CHROME){
           Map<String, Object> prefs = new HashMap<String, Object>();
+          prefs.put("profile.default_content_settings.popups", 0);
           prefs.put("download.default_directory",  fileDownloadLocation);
           ChromeOptions options = new ChromeOptions();
           options.setExperimentalOption("prefs", prefs);
           //options.addArguments("headless");
+          //options.addArguments("--disable-gpu");
+          //options.addArguments("--no-sandbox");
+          //options.addArguments("--allow-insecure-localhost");
           //options.addArguments("window-size=1200x600");
           DesiredCapabilities capabilities=getDesiredCapForDriver(browserType);
           String exePath = Constants.chromeDriverPath+"chromedriver.exe";
           System.setProperty("webdriver.chrome.driver", exePath);
-          driver=new ChromeDriver();//options);
+          driver=new ChromeDriver(options);
           driver.manage().window().maximize();
         }
       else if(browserType==BrowserType.IE){

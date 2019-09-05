@@ -11,19 +11,18 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import com.tetherfi.model.user.CepEventMappingDetails;
-import com.tetherfi.model.user.DeskManagerDetails;
+import com.tetherfi.model.user.TdmThresholdConfigDetails;
 
-public class DeskManagerPage extends BasePage{
-	public DeskManagerPage(WebDriver driver) {
+public class TdmThresholdConfigPage extends BasePage{
+	public TdmThresholdConfigPage(WebDriver driver) {
 		super(driver);
 	}
 	
 	@FindBy(css=".ibox-title h5")
-    private WebElement deskManager;
+    private WebElement TdmThresholdConfig;
 	
 	@FindBy(css="#DrillReportNameLbl")
-	private WebElement deskManagerThresholdPopup;
+	private WebElement TdmThresholdConfigThresholdPopup;
 	
 	@FindBy(xpath="//i[@class='fas fa-tasks']")
 	private WebElement DMImg;
@@ -69,6 +68,9 @@ public class DeskManagerPage extends BasePage{
 	    
 	@FindBy(css="th a[class='k-header-column-menu']")
 	private List<WebElement> headersDropdown;
+	
+	@FindBy(css="#gridDetails th a[class='k-header-column-menu']")
+	private List<WebElement> popupHeadersDropdown;
 	    
 	@FindBy(css="div[style*='overflow: visible'] span[class^='k-link']")
 	private List<WebElement> headersColumns;
@@ -151,33 +153,46 @@ public class DeskManagerPage extends BasePage{
 	@FindBy(css=".k-grid-cancel-changes")
     private WebElement cancelBtn;
 	
-	@FindBy(xpath="//span[text()='×']")
+	@FindBy(xpath="span[text()='×']")
 	private WebElement closeBtn;
 	
-	@FindBy(css="//span[aria-owns='AuxCodeFrom_listbox']")
+	@FindBy(css="span[aria-owns='AuxCodeFrom_listbox']")
 	private WebElement auxCodeFromDropDown;
 	
-	@FindBy(id="AuxCodeFrom_listbox")
+	@FindBy(css="ul[id='AuxCodeFrom_listbox'] li")
 	private List<WebElement> auxCodeFromListbox;
 	
-	@FindBy(css="//span[aria-owns='AuxCodeTo_listbox']")
+	@FindBy(css="span[aria-owns='AuxCodeTo_listbox']")
 	private WebElement auxCodeToDropDown;
 	
-	@FindBy(id="AuxCodeTo_listbox")
+
+	@FindBy(css=".editableFiled k-edit-cell")
+	private WebElement editableCell;
+	
+	@FindBy(css="ul[id='AuxCodeTo_listbox'] li")
 	private List<WebElement> auxCodeToListbox;
 	
 	@FindBy(id="Threshold")
 	private WebElement thresholdTextbox;
 	
-
-
+	@FindBy(id="ModifyReasonUser")
+	private  WebElement modifyReasonTextBox;
 	
-	    
+	@FindBy(id="IsStatusChange")
+	private WebElement statusChange;
+	
+	@FindBy(id="AllowNotification")
+	private WebElement allowNotification;
 
-	public boolean isDeskManagerPageDisplayed() {
+	@FindBy(id="yesButton")
+	private List<WebElement> saveBtn;
+	
+	
+
+	public boolean isTdmThresholdConfigPageDisplayed() {
 		waitForLoad(driver);
         waitForJqueryLoad(driver);
-		return deskManager.isEnabled();
+		return TdmThresholdConfig.isEnabled();
 	}
 	
 	public boolean verifylogo() {
@@ -271,7 +286,7 @@ public class DeskManagerPage extends BasePage{
 	    public boolean verifyExportToExcel(String filePath) {
 			final File folder = new File(filePath);
 			for (final File f : folder.listFiles()) {
-			    if (f.getName().startsWith("Desk Manager")) {
+			    if (f.getName().startsWith("TDM Threshold Configuration")) {
 			        f.delete();
 			    }
 			}
@@ -282,7 +297,7 @@ public class DeskManagerPage extends BasePage{
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-			Boolean Status=verifyExportPageFileDownload(filePath, "Desk Manager");
+			Boolean Status=verifyExportPageFileDownload(filePath, "TDM Threshold Configuration");
 			return Status;
 		}
 		public boolean verifyexportToExcelSheet(List<Map<String, String>> maplist) {
@@ -311,10 +326,10 @@ public class DeskManagerPage extends BasePage{
 				for(int j=1;j<headers.size();j++) {
 					scrollToElement(headers.get(j));
 					System.out.println(headers.get(j).getText());
-					if(headers.get(j).getText().equals("Last Changed On")){
-					col=cols.get(j).getText().substring(0,10);
-					}
-					else
+					//if(headers.get(j).getText().equals("Last Changed On")){
+					//col=cols.get(j).getText().substring(0,10);
+					//}
+					//else
 						col=cols.get(j).getText();
 					map.put(headers.get(j).getText(),col);
 				}
@@ -329,8 +344,8 @@ public class DeskManagerPage extends BasePage{
 				return arr;
 		}
 		
-		public boolean ExporttoExcelWithoutData(DeskManagerDetails deskManagerDetails ) throws Exception {
-			searchDeskManager(deskManagerDetails.getTeamName());
+		public boolean ExporttoExcelWithoutData(TdmThresholdConfigDetails TdmThresholdConfigDetails ) throws Exception {
+			searchTdmThresholdConfig(TdmThresholdConfigDetails.getTeamName());
 			waitForJqueryLoad(driver);
 			Thread.sleep(1000);
 			selectWebElement(exporttoexcel);
@@ -340,7 +355,7 @@ public class DeskManagerPage extends BasePage{
 			return false;
 		}
 		
-		public void searchDeskManager(String teamName) throws Exception {
+		public void searchTdmThresholdConfig(String teamName) throws Exception {
 			selectWebElement(searchBtn);
 	        selectWebElement(selectSearchCol.get(0));
 	        selectDropdownFromVisibleText(columnNameList,"Team Name");
@@ -503,6 +518,97 @@ public class DeskManagerPage extends BasePage{
 			}
 			return status;
 		}
+		public boolean verifyPopupColumnsHeaderDisabled() {
+			boolean status = false;
+			try{
+				for(WebElement ele:popupHeadersDropdown) {
+					scrollToElement(ele);
+					if (!ele.isDisplayed()) {
+	                continue;
+					}
+					else {
+						try {
+							selectWebElement(ele);
+							Thread.sleep(1000);
+							selectWebElement(headersColumns.get(2));
+							Thread.sleep(1000);
+						} catch (InterruptedException e) {
+							e.printStackTrace();
+						}
+						for (int i =3; i < headersColumns.size(); i++) {
+							System.out.println(headersColumns.get(i).getText());
+							WebElement checkbox = headersColumns.get(i).findElement(By.tagName("input"));
+							if (checkbox.isSelected()) {
+								checkbox.click();
+							} else {
+							}
+							for (WebElement ele1 : headersText) {
+								System.out.println(ele1.getText());
+								if (ele1.getText().equals(headersColumns.get(i).getText())) {
+									status = true;
+									break;
+								}
+							}
+							if (!status) {
+								checkbox.click();
+							} else {
+								break;
+							}
+						}
+
+					}
+					break;
+				}
+	        	}
+	        	catch (Exception e) {
+	            e.printStackTrace();
+	        	}
+			return status;
+		}
+		public boolean verifyPopupColumnsHeaderEnabled(){
+			boolean status=false;
+			try{
+				for(WebElement ele:popupHeadersDropdown) {
+					scrollToElement(ele);
+					if (!ele.isDisplayed()) {
+						continue;
+					}
+					else {
+						try {
+							selectWebElement(ele);
+							Thread.sleep(1000);
+							selectWebElement(headersColumns.get(2));
+							Thread.sleep(1000);
+						} catch (InterruptedException e) {
+							e.printStackTrace();
+						}
+						for (int i = 3; i <headersColumns.size(); i++) {
+							WebElement checkbox = headersColumns.get(i).findElement(By.tagName("input"));
+							checkbox.click();
+							if (checkbox.isSelected()) {
+							} else {
+								checkbox.click();
+							}
+							for (WebElement ele1 : headersText) {
+								if (ele1.getText().equals(headersColumns.get(i).getText())) {
+									status = true;
+									break;
+								}
+							}
+							if (status) {
+							} else {
+								break;
+							}
+						}
+					}
+					break;
+				}
+			}
+			catch (Exception e) {
+				e.printStackTrace();
+			}
+			return status;
+		}
 		
 		public void searchwithoutextsearch() {
 			selectWebElement(searchBtn);
@@ -528,13 +634,13 @@ public class DeskManagerPage extends BasePage{
 	        	return errorMsg.get(0).getText();}
 		}
 		
-		public boolean clearAll(DeskManagerDetails deskManagerDetails) throws Exception {
+		public boolean clearAll(TdmThresholdConfigDetails TdmThresholdConfigDetails) throws Exception {
 			selectWebElement(searchBtn);
 	        selectWebElement(selectSearchCol.get(0));
 	        selectDropdownFromVisibleText(columnNameList,"Team Name");
 	        selectWebElement(selectSearchCol.get(1));
 	        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is equal to");
-	        enterValueToTxtField(searchTextBox,deskManagerDetails.getTeamName());
+	        enterValueToTxtField(searchTextBox,TdmThresholdConfigDetails.getTeamName());
 	        selectWebElement(clearall);
 			if(searchTextBox.isEnabled())
 	        	return true;
@@ -549,8 +655,8 @@ public class DeskManagerPage extends BasePage{
 			return false;
 		}
 		
-		public boolean verifyinvalidsearchwithwrongdata(DeskManagerDetails details) throws Exception {
-			searchDeskManager(details.getTeamName());
+		public boolean verifyinvalidsearchwithwrongdata(TdmThresholdConfigDetails details) throws Exception {
+			searchTdmThresholdConfig(details.getTeamName());
 			try {
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {
@@ -570,13 +676,13 @@ public class DeskManagerPage extends BasePage{
 			return false;
 		}
 
-		public boolean verifyDeskManagerThresholdDetailsPage(DeskManagerDetails details) throws Exception {
-			searchDeskManager(details.getTeamName());
+		public boolean verifyTdmThresholdConfigThresholdDetailsPage(TdmThresholdConfigDetails details) throws Exception {
+			searchTdmThresholdConfig(details.getTeamName());
             List<WebElement> row=gridContent.findElements(By.tagName("tr"));
             List<WebElement>column=row.get(0).findElements(By.tagName("td"));
             Thread.sleep(1000);
 			selectWebElement(column.get(2));
-			return deskManagerThresholdPopup.isEnabled();
+			return TdmThresholdConfigThresholdPopup.isEnabled();
 		}
 
 		public boolean verifyaddNewRowButton() {
@@ -602,17 +708,170 @@ public class DeskManagerPage extends BasePage{
 			return gridContent.isDisplayed();
 		}
 
-		public void addNewRow(DeskManagerDetails details) throws Exception {
+		public void addNewRow(TdmThresholdConfigDetails details) throws Exception {
 			selectWebElement(addButton);
 			selectWebElement(auxCodeFromDropDown);
-	        selectDropdownFromVisibleText(auxCodeFromListbox,details.getAuxCodeFrom());
-	        selectWebElement(auxCodeToDropDown);
-	        selectDropdownFromVisibleText(auxCodeToListbox,details.getAuxCodeTo());	
-	        enterValueToTxtField(thresholdTextbox,details.getThreshold());
-	        selectWebElement(popupSaveBtn);
+			selectDropdownFromVisibleText(auxCodeFromListbox,details.getAuxCodeFrom());
+			driver.findElement(By.xpath("//*[@id='gridDetails']/div[3]/table/tbody/tr/td[4]")).click();
+			selectWebElement(auxCodeToDropDown);
+			selectDropdownFromVisibleText(auxCodeToListbox,details.getAuxCodeTo());	
+			driver.findElement(By.xpath("//*[@id='gridDetails']/div[3]/table/tbody/tr/td[5]")).click();
+			enterValueToTxtField(thresholdTextbox,details.getThreshold());
+			driver.findElement(By.xpath("//*[@id='gridDetails']/div[3]/table/tbody/tr/td[7]")).click();
+			statusChange.click();
+			driver.findElement(By.xpath("//*[@id='gridDetails']/div[3]/table/tbody/tr/td[8]")).click();
+			allowNotification.click();
+			selectWebElement(popupSaveBtn);
+	        enterValueToTxtFieldWithoutClear(modifyReasonTextBox,details.getModifyReason());
+	        selectWebElement(saveBtn.get(1));
 		}
-		
-		
-		
 
+		public boolean verifyDatabase(String query) {
+			selectWebElement(TeamName);
+			List<Map<String,String>> database=database(query);
+			System.out.println(database);
+			List<Map<String,String>> UI=gettable(); 
+			System.out.println(UI);
+			if(UI.equals(database))
+				return true;
+			else
+				return false;
+		}
+		private List<Map<String, String>> gettable() {
+			int item=Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
+	        int pagersize=Integer.valueOf(pagerSize.getText());
+	        int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
+			List<Map<String,String>> arr=new ArrayList<Map<String,String>>();
+			for(int k=0;k<=pages;k++){
+			waitUntilWebElementIsVisible(auditGridContent);
+			List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
+			List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
+			for(int i=1;i<rows.size();i++) {
+				Map<String,String> map = new HashMap<String,String>();
+				List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
+				String col=null;
+				for(int j=1;j<headers.size();j++){
+					if(headers.get(j).getText().equals("Team Name")){
+						col=cols.get(j).getText();
+					map.put(headers.get(j).getText(),col);
+				}}
+				map.remove("");
+				arr.add(map);
+			}
+			if(k!=pages)
+			{
+				nextPageIcon.click();
+				waitForJqueryLoad(driver);}
+			}
+				return arr;
+		
+		}
+
+		public boolean verifySearchIsNotEqualTo(String teamName) throws Exception {
+			Boolean Status=false;
+			Map<String, String> map=new HashMap<String,String>() ;
+			map.put("Team Name", teamName);
+			selectWebElement(searchBtn);
+	        selectWebElement(selectSearchCol.get(0));
+	        selectDropdownFromVisibleText(columnNameList,"Team Name");
+	        selectWebElement(selectSearchCol.get(1));
+	        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is not equal to");
+	        enterValueToTxtField(searchTextBox,teamName);		
+	        selectWebElement(searchSearchBtn);
+	        waitUntilWebElementIsVisible(gridContent);
+	        List<Map<String,String>> UI=gettable(); 
+	        for (Map<String,String> map1: UI)
+	        {   	
+				if(map1.equals(map))
+	        	Status= false;
+	        	else 
+	        		Status= true;
+		}
+	        return Status;
+		
+		}
+
+		public boolean verifySearchContains(String teamName) throws Exception {
+			Boolean Status=false;
+			selectWebElement(searchBtn);
+	        selectWebElement(selectSearchCol.get(0));
+	        selectDropdownFromVisibleText(columnNameList,"Team Name");
+	        selectWebElement(selectSearchCol.get(1));
+	        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Contains");
+	        enterValueToTxtField(searchTextBox,teamName);		
+	        selectWebElement(searchSearchBtn);
+	        waitUntilWebElementIsVisible(gridContent);
+	        List<Map<String,String>> UI=gettable(); 
+	        for (Map<String,String> map1: UI)
+	        {   	
+				if(map1.get("Team Name").toUpperCase().contains(teamName.toUpperCase()))
+	        	Status= true;
+	        	else 
+	        		Status= false;
+		}
+	        return Status;
+		}
+
+		public boolean verifySearchDoesNotContains(String teamName) throws Exception {
+			Boolean Status=false;
+			selectWebElement(searchBtn);
+	        selectWebElement(selectSearchCol.get(0));
+	        selectDropdownFromVisibleText(columnNameList,"Team Name");
+	        selectWebElement(selectSearchCol.get(1));
+	        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Does not contain");
+	        enterValueToTxtField(searchTextBox,teamName);		
+	        selectWebElement(searchSearchBtn);
+	        waitUntilWebElementIsVisible(gridContent);
+	        List<Map<String,String>> UI=gettable(); 
+	        for (Map<String,String> map1: UI)
+	        {   	
+				if(!map1.get("Team Name").toLowerCase().contains(teamName.toLowerCase()))
+	        	Status= true;
+	        	else 
+	        		Status= false;
+		}
+	        return Status;
+		}
+
+		public boolean verifySearchStartsWith(String teamName) throws Exception {
+			Boolean Status=false;
+			selectWebElement(searchBtn);
+	        selectWebElement(selectSearchCol.get(0));
+	        selectDropdownFromVisibleText(columnNameList,"Team Name");
+	        selectWebElement(selectSearchCol.get(1));
+	        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Starts with");
+	        enterValueToTxtField(searchTextBox,teamName);		
+	        selectWebElement(searchSearchBtn);
+	        waitUntilWebElementIsVisible(gridContent);
+	        List<Map<String,String>> UI=gettable(); 
+	        for (Map<String,String> map1: UI)
+	        {   	
+				if(map1.get("Team Name").toLowerCase().startsWith(teamName.toLowerCase()))
+	        	Status= true;
+	        	else 
+	        		Status= false;
+		}
+	        return Status;
+		}
+
+		public boolean verifySearchEndsWith(String teamName) throws Exception {
+			Boolean Status=false;
+			selectWebElement(searchBtn);
+	        selectWebElement(selectSearchCol.get(0));
+	        selectDropdownFromVisibleText(columnNameList,"Team Name");
+	        selectWebElement(selectSearchCol.get(1));
+	        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Ends with");
+	        enterValueToTxtField(searchTextBox,teamName);		
+	        selectWebElement(searchSearchBtn);
+	        waitUntilWebElementIsVisible(gridContent);
+	        List<Map<String,String>> UI=gettable(); 
+	        for (Map<String,String> map1: UI)
+	        {   	
+				if(map1.get("Team Name").toUpperCase().endsWith(teamName.toUpperCase()))
+	        	Status= true;
+	        	else 
+	        		Status= false;
+		}
+	        return Status;
+		}
 }

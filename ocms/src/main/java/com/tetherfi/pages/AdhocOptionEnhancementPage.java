@@ -433,7 +433,7 @@ public class AdhocOptionEnhancementPage extends BasePage {
         selectWebElement(statusDropdown);
         selectDropdownFromVisibleText(statusListbox,details.getStatus());
         selectWebElement(ModifyReasonTextBox);
-        enterValueToTxtField(ModifyReasonTextBox,details.getModifyReason());
+        enterValueToTxtFieldWithoutClear(ModifyReasonTextBox,details.getModifyReason());
         selectWebElement(saveButton);
         try {
         	selectWebElement(cancelBtn);
@@ -446,7 +446,7 @@ public class AdhocOptionEnhancementPage extends BasePage {
         searchAdhocOptionEnhancementRecord(details.getSearchColumn(),details.getSearchValue());
         waitUntilWebElementIsClickable(deleteButton);
         selectWebElement(deleteButton);
-        enterValueToTxtField(deleteReasonTextBox,details.getDeleteReason());
+        enterValueToTxtFieldWithoutClear(deleteReasonTextBox,details.getDeleteReason());
         selectWebElement(deleteYesBtn);
         try {
         	selectWebElement(deleteNoBtn);
@@ -456,9 +456,9 @@ public class AdhocOptionEnhancementPage extends BasePage {
         }
     }
     public String verifySuccessMessage(){
-        if(errorMsg.size()>0){return errorMsg.get(0).getText();}
-        else{waitUntilWebElementIsVisible(successmsg);return successmsg.getText();}
+        waitUntilWebElementIsVisible(successmsg);return successmsg.getText();
     }
+    
     public void clickonAddNewRecord(){
         selectWebElement(addNewAdhocOptionEnhancementRcrdBtn);
     }
@@ -864,13 +864,11 @@ public class AdhocOptionEnhancementPage extends BasePage {
 	        }
 		
 	}
-	public Boolean verifyErrorMessage() {
+	public String verifyErrorMessage() {
 		waitUntilWebElementListIsVisible(errorMsg);
-		if(errorMsg.size()>0){
-			return true;}
-			else 
-				return false;
+			return errorMsg.get(0).getText();
 	}
+		
 	public void addNewRecordwithoutPromotionNumber(AdhocOptionEnhancementDetails details) throws Exception {
 		Thread.sleep(500);
 		selectWebElement(addNewAdhocOptionEnhancementRcrdBtn);

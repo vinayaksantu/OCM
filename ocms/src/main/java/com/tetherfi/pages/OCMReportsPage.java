@@ -34,7 +34,6 @@ import com.tetherfi.model.user.SkillConfigurationDetails;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.poi.util.SystemOutLogger;
-import org.apache.xalan.xsltc.compiler.sym;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
@@ -1286,7 +1285,7 @@ return status;
 			return Status;
 	}
 
-	public boolean verifyWorkcodeListCreate(WorkCodeListDetails details, String Transaction, WorkCodeListDetails details1) throws Exception {
+	public boolean verifyWorkcodeListCreate(WorkCodeListDetails details, String Transaction) throws Exception {
 		booleansearchnew(details.getName(),Transaction);
 		String workcode=database(details1.getQuery()).get(0).remove("WorkCode");
 		System.out.println(workcode);
@@ -1313,7 +1312,7 @@ return status;
 			return Status;
 	}
 	public String workcode;
-	public boolean verifyWorkcodeListUpdate(WorkCodeListDetails details,String Transaction,WorkCodeListDetails details1) throws Exception {
+	public boolean verifyWorkcodeListUpdate(WorkCodeListDetails details,String Transaction) throws Exception {
 		booleansearchnew(details.getUpdatedName(),Transaction);
 		workcode=database(details1.getQuery()).get(0).remove("WorkCode");
 		System.out.println(workcode);
@@ -1375,7 +1374,7 @@ return status;
     return Status;
 	}
 
-	public boolean verifycodeListdelete(WorkCodeListDetails details, String Transaction,String workcode) throws Exception {
+	public boolean verifycodeListdelete(WorkCodeListDetails details, String Transaction) throws Exception {
 		booleansearchold(details.getUpdatedName(),Transaction);
 		System.out.println(workcode);
 		Boolean Status=false;
@@ -1436,9 +1435,8 @@ return status;
 			return Status;
 	}
 
-	public boolean verifyAgentTeamMgmtUpdate(AgentTeamMgmtDetails details, String Transaction, String displayname,AgentTeamMgmtDetails details2) throws Exception {
+	public boolean verifyAgentTeamMgmtUpdate(AgentTeamMgmtDetails details, String Transaction) throws Exception {
 		booleansearchnew(details.getUpdateTeamName(),Transaction);
-		String displayname2=RunQuery(details2.getQuery(),"DisplayName");
 		Boolean Status=false;
         Map<String,String> firstRowData=getFirstRowDatafromTable1();
         if(firstRowData.containsKey("Old Values")) {
@@ -1489,7 +1487,7 @@ return status;
     return Status;
 	}
 
-	public boolean verifyAgentTeamMgmtdelete(AgentTeamMgmtDetails details, String Transaction,String displayname) throws Exception {
+	public boolean verifyAgentTeamMgmtdelete(AgentTeamMgmtDetails details, String Transaction) throws Exception {
 		booleansearchold(details.getUpdateTeamName(),Transaction);
 		System.out.println(displayname);
 		Boolean Status=false;

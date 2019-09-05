@@ -21,6 +21,7 @@ public class TmacTransferListDetails {
     private String experrmsg2;
     private String updateVdn;
     private int incAgtExt;
+    private String channel;
 
     public TmacTransferListDetails(Map<String, String> map) {
         name=readName(map);
@@ -39,9 +40,15 @@ public class TmacTransferListDetails {
         experrmsg2=readExpErrMsg2(map);
         updateVdn=readUpdVdn(map);
         incAgtExt=readIncAgtExt(map);
+        channel=readChannel(map);
     }
     
-    private int readIncAgtExt(Map<String, String> map) {
+    private String readChannel(Map<String, String> map) {
+    	String value=map.get("Channel");
+		return value;
+	}
+
+	private int readIncAgtExt(Map<String, String> map) {
     	int value=0;
     	try {
     		value=Integer.parseInt(map.get("Inc Agt Ext"));
@@ -129,4 +136,8 @@ public class TmacTransferListDetails {
 	public String getExpErrMsg2() { return experrmsg2; }
 	public String getUpdVdn(){return updateVdn;}
 	public int getIncAgtExt(){return incAgtExt;}
+
+	public String getChannel() {
+		return channel;
+	}
 }

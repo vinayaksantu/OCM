@@ -198,7 +198,7 @@ public class OCMHomePage extends BasePage {
 		selectWebElement(workflowDesigner);
 	}
 
-	public void navigateToDeskManagerPage() {
+	public void navigateToTdmThresholdConfigPage() {
 		selectWebElement(deskManager);
 		
 	}

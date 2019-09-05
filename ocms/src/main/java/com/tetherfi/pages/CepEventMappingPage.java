@@ -307,11 +307,6 @@ public class CepEventMappingPage extends BasePage {
 			List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
 			for(int j=1;j<headers.size();j++) {
 				scrollToElement(headers.get(j));
-				System.out.println(headers.get(j).getText());
-				if(headers.get(j).getText().equals("Last Changed On")){
-				col=cols.get(j).getText().substring(0,10);
-				}
-				else
 					col=cols.get(j).getText();
 				map.put(headers.get(j).getText(),col);
 			}
@@ -601,7 +596,7 @@ public class CepEventMappingPage extends BasePage {
 	}
 	public void addNewCepEventMappingRecord(CepEventMappingDetails details) throws Exception {
 		selectWebElement(addNewCEPEventMappingRecordBtn);
-		waitForJqueryLoad(driver);
+		waitUntilWebElementIsVisible(CepEventTextbox);
 		enterValueToTxtField(CepEventTextbox,details.getCepEvent());
 		enterValueToTxtField(DescriptionTextbox,details.getDescription());
 		enterValueToTxtField(ProductTypeTextbox,details.getProductType());
@@ -614,7 +609,6 @@ public class CepEventMappingPage extends BasePage {
 	public String getMessage() {
 		if(errorMsg.size()>0){return errorMsg.get(0).getText();}
         else {
-        waitUntilWebElementIsVisible(successmsg);
          return successmsg.getText();}
 	}
 	
@@ -707,7 +701,7 @@ public class CepEventMappingPage extends BasePage {
 		waitForJqueryLoad(driver);
 		Thread.sleep(3000);
 		enterValueToTxtField(DescriptionTextbox,details.getUpdatedDescription());
-		enterValueToTxtField(ModifyReasonTextBox,details.getModifyReason());
+		enterValueToTxtFieldWithoutClear(ModifyReasonTextBox,details.getModifyReason());
 		selectWebElement(saveButton);
 	}
 	
@@ -766,7 +760,7 @@ public class CepEventMappingPage extends BasePage {
 		waitUntilWebElementIsClickable(deleteButton);
         selectWebElement(deleteButton);
 		Thread.sleep(2000);
-		enterValueToTxtField(deleteReasonTextBox,details.getDeleteReason());
+		enterValueToTxtFieldWithoutClear(deleteReasonTextBox,details.getDeleteReason());
         selectWebElement(deleteYesBtn);	
 	}
 	

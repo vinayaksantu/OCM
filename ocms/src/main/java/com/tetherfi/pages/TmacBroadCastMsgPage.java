@@ -269,24 +269,13 @@ public class TmacBroadCastMsgPage extends BasePage {
     
     public void editTmacBroadcastMsg(TmacBroadCastMsgDetails tmacBroadCastMsgDetails) throws Exception {
         searchTmacBroadcastMsg(tmacBroadCastMsgDetails.getMessage());
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         selectWebElement(editButton);
         waitForJqueryLoad(driver);
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         selectWebElement(messageTextbox);
         enterValueToTxtField(messageTextbox,tmacBroadCastMsgDetails.getUpdatedMessage());
         selectWebElement(statusDropdown);
         selectDropdownFromVisibleText(statusListBox,tmacBroadCastMsgDetails.getUpdatedStatus());
-        selectWebElement(ModifyReasonTextBox);
-        enterValueToTxtField(ModifyReasonTextBox,tmacBroadCastMsgDetails.getModifyReason());
+        enterValueToTxtFieldWithoutClear(ModifyReasonTextBox,tmacBroadCastMsgDetails.getModifyReason());
         selectWebElement(SaveButton);
    }
     
@@ -516,25 +505,13 @@ public class TmacBroadCastMsgPage extends BasePage {
 
 	public boolean editcancel(TmacBroadCastMsgDetails tmacBroadCastMsgDetails) throws Exception {
 		searchTmacBroadcastMsg(tmacBroadCastMsgDetails.getMessage());
-		try {
-			Thread.sleep(500);
-		} catch (InterruptedException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
         selectWebElement(editButton);
         waitForJqueryLoad(driver);
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         selectWebElement(messageTextbox);
         enterValueToTxtField(messageTextbox,tmacBroadCastMsgDetails.getUpdatedMessage());
         selectWebElement(statusDropdown);
         selectDropdownFromVisibleText(statusListBox,tmacBroadCastMsgDetails.getUpdatedStatus());
-        selectWebElement(ModifyReasonTextBox);
-        enterValueToTxtField(ModifyReasonTextBox,tmacBroadCastMsgDetails.getModifyReason());
+        enterValueToTxtFieldWithoutClear(ModifyReasonTextBox,tmacBroadCastMsgDetails.getModifyReason());
         selectWebElement(addcancel);
         waitForJqueryLoad(driver);
         if(tablerow.getText().equals(tmacBroadCastMsgDetails.getMessage())) {

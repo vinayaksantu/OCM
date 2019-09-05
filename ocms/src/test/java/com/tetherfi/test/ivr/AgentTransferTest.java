@@ -43,17 +43,16 @@ public class AgentTransferTest extends BaseTest{
         ivrPage.navigateToAgentTransferPage();
         AgentTransferPage agentTransferPage = PageFactory.createPageInstance(driver, AgentTransferPage.class);
         Assert.assertTrue(agentTransferPage.isAgentTransferPageDisplayed(), "Holiday List page assertion failed");
-        screenshot.captureScreen(driver,"AgentTransfer Page","AgentTransferTest");
     }
 	
-	/*@Test(priority=1)
+	@Test(priority=1)
 	public void AgentTransferPage() {
         AgentTransferPage agentTransferPage = PageFactory.createPageInstance(driver, AgentTransferPage.class);
     	Assert.assertTrue(agentTransferPage.verifylogo(),"Agent transfer logo assertion failed");
     	Assert.assertTrue(agentTransferPage.maximizewindow(),"Fullscreen Assertion Failed"); 
-    	screenshot.captureScreen(driver,"maximize window","AgentTransferTest");
+    	screenshot.captureScreen("AgentTransferTest","maximize window");
     	Assert.assertTrue(agentTransferPage.minimizewindow(), "Restored Assertion Failed");
-    	screenshot.captureScreen(driver,"minimize window","AgentTransferTest");
+    	screenshot.captureScreen("AgentTransferTest","minimize window");
 	}
 	
 	@Test(priority=2)
@@ -76,19 +75,24 @@ public class AgentTransferTest extends BaseTest{
 	
 	
 	@Test(priority=5)
-	public void addNewAgentTransferRecord() throws Exception {
+	public void addNewAgentTransferCancelRecord() throws Exception {
         AgentTransferPage agentTransferPage = PageFactory.createPageInstance(driver, AgentTransferPage.class);
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentTransferData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         AgentTransferDetails agentTransferDetails=new AgentTransferDetails (map);
         Assert.assertTrue(agentTransferPage.addCancel(agentTransferDetails), "Add cancel assertion failed");
-    	screenshot.captureScreen(driver,"Add Cancel","AgentTransferTest");
+	}
+	@Test(priority=6)
+	public void addNewAgentTransferRecord() throws Exception {
+        AgentTransferPage agentTransferPage = PageFactory.createPageInstance(driver, AgentTransferPage.class);
+		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentTransferData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
+        AgentTransferDetails agentTransferDetails=new AgentTransferDetails (map);
     	agentTransferPage.addNewAgentTransferRecord(agentTransferDetails);
         Assert.assertTrue(agentTransferPage.verifymessage(), "Record creation assertion failed" );
-    	screenshot.captureScreen(driver,"Record Created Successfully","AgentTransferTest");
 	}
 	
-	@Test(priority=6)
+	@Test(priority=7)
     public void VerifyAuditTrialReportForCreate() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentTransferData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -101,21 +105,19 @@ public class AgentTransferTest extends BaseTest{
         ReportDetails reportDetails= new ReportDetails(map2);
         ocmReportsPage.showReport(reportDetails);
         Assert.assertTrue(ocmReportsPage.verifyAgentTransferCreate(agentTransferDetails,"Create"));
-        screenshot.captureScreen(driver, "VerifyAuditTrialReportForCreate","AgentTransferTest");   
     }
 	
-	@Test(priority=7)
+	@Test(priority=8)
 	public void DuplicateRecord() throws Exception {
 		AgentTransferPage agentTransferPage = PageFactory.createPageInstance(driver, AgentTransferPage.class);
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentTransferData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         AgentTransferDetails agentTransferDetails=new AgentTransferDetails (map);
     	agentTransferPage.addNewAgentTransferRecord(agentTransferDetails);
-        Assert.assertFalse(agentTransferPage.verifymessage(), "Duplicate Record creation assertion failed" );
-    	screenshot.captureScreen(driver,"Duplicate Record","AgentTransferTest");
+        Assert.assertFalse(agentTransferPage.verifyErrorMessage(), "Duplicate Record creation assertion failed" );
 	}
 	
-	@Test(priority=8)
+	@Test(priority=9)
 	public void AddRecordDifferentVDNSameOption() throws Exception {
 		AgentTransferPage agentTransferPage = PageFactory.createPageInstance(driver, AgentTransferPage.class);
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentTransferData.xlsx";
@@ -123,10 +125,9 @@ public class AgentTransferTest extends BaseTest{
         AgentTransferDetails agentTransferDetails=new AgentTransferDetails (map);
     	agentTransferPage.addNewAgentTransferRecord(agentTransferDetails);
         Assert.assertTrue(agentTransferPage.verifymessage(), "Record creation assertion failed" );
-    	screenshot.captureScreen(driver,"AddRecordDifferentVDNSameOption","AgentTransferTest");
 	}
 	
-	@Test(priority=9)
+	@Test(priority=10)
 	public void AddRecordDifferentOptionSameVDN() throws Exception {
 		AgentTransferPage agentTransferPage = PageFactory.createPageInstance(driver, AgentTransferPage.class);
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentTransferData.xlsx";
@@ -134,10 +135,9 @@ public class AgentTransferTest extends BaseTest{
         AgentTransferDetails agentTransferDetails=new AgentTransferDetails (map);
     	agentTransferPage.addNewAgentTransferRecord(agentTransferDetails);
         Assert.assertTrue(agentTransferPage.verifymessage(), "Record creation assertion failed" );
-    	screenshot.captureScreen(driver,"AddRecordDifferentOptionSameVDN","AgentTransferTest");
 	}
 	
-	@Test(priority=10)
+	@Test(priority=11)
 	public void AddRecordDifferentMenuID() throws Exception {
 		AgentTransferPage agentTransferPage = PageFactory.createPageInstance(driver, AgentTransferPage.class);
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentTransferData.xlsx";
@@ -145,64 +145,58 @@ public class AgentTransferTest extends BaseTest{
         AgentTransferDetails agentTransferDetails=new AgentTransferDetails (map);
     	agentTransferPage.addNewAgentTransferRecord(agentTransferDetails);
         Assert.assertTrue(agentTransferPage.verifymessage(), "Record creation assertion failed" );
-    	screenshot.captureScreen(driver,"AddRecordDifferentMenuID","AgentTransferTest");
 	}
 	
-	@Test(priority=11)
+	@Test(priority=12)
 	public void AddRecordwithoutMenuId() throws Exception {
 		AgentTransferPage agentTransferPage = PageFactory.createPageInstance(driver, AgentTransferPage.class);
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentTransferData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         AgentTransferDetails agentTransferDetails=new AgentTransferDetails (map);
     	agentTransferPage.addRecordWithoutMenuId(agentTransferDetails);
-        Assert.assertFalse(agentTransferPage.verifymessage(), "Record creation assertion failed" );
-    	screenshot.captureScreen(driver,"AddRecordDifferentMenuID","AgentTransferTest");
+        Assert.assertFalse(agentTransferPage.verifyErrorMessage(), "Record creation assertion failed" );
 	}
 	
-	@Test(priority=12)
+	@Test(priority=13)
 	public void AddRecordwithoutVDN() throws Exception {
 		AgentTransferPage agentTransferPage = PageFactory.createPageInstance(driver, AgentTransferPage.class);
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentTransferData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         AgentTransferDetails agentTransferDetails=new AgentTransferDetails (map);
     	agentTransferPage.addRecordWithoutVDN(agentTransferDetails);
-        Assert.assertFalse(agentTransferPage.verifymessage(), "Record creation assertion failed" );
-    	screenshot.captureScreen(driver,"AddRecordwithoutVDN","AgentTransferTest");
+        Assert.assertFalse(agentTransferPage.verifyErrorMessage(), "Record creation assertion failed" );
 	}
 	
-	@Test(priority=13)
+	@Test(priority=14)
 	public void AddRecordwithoutOption() throws Exception {
 		AgentTransferPage agentTransferPage = PageFactory.createPageInstance(driver, AgentTransferPage.class);
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentTransferData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         AgentTransferDetails agentTransferDetails=new AgentTransferDetails (map);
     	agentTransferPage.addRecordWithoutOption(agentTransferDetails);
-        Assert.assertFalse(agentTransferPage.verifymessage(), "Record creation assertion failed" );
-    	screenshot.captureScreen(driver,"AddRecordwithoutOption","AgentTransferTest");
+        Assert.assertFalse(agentTransferPage.verifyErrorMessage(), "Record creation assertion failed" );
 	}
 	
-	@Test(priority=14)
+	@Test(priority=15)
 	public void AddRecordwithoutVdnDecription() throws Exception {
 		AgentTransferPage agentTransferPage = PageFactory.createPageInstance(driver, AgentTransferPage.class);
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentTransferData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         AgentTransferDetails agentTransferDetails=new AgentTransferDetails (map);
     	agentTransferPage.addRecordWithoutVDNDescription(agentTransferDetails);
-        Assert.assertFalse(agentTransferPage.verifymessage(), "Record creation assertion failed" );
-    	screenshot.captureScreen(driver,"AddRecordwithoutVdnDescription","AgentTransferTest");
+        Assert.assertFalse(agentTransferPage.verifyErrorMessage(), "Record creation assertion failed" );
 	}
 	
-	//@Test(priority=15)//,dependsOnMethods = ("addNewHolidayListRecord"))
+	@Test(priority=16)//,dependsOnMethods = ("addNewHolidayListRecord"))
   	public void editCancelAgentTransferRecord() throws Exception {
 		AgentTransferPage agentTransferPage = PageFactory.createPageInstance(driver, AgentTransferPage.class);
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentTransferData.xlsx";
   		Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(0);
         AgentTransferDetails agentTransferDetails=new AgentTransferDetails (map);
         Assert.assertTrue(agentTransferPage.editCancelbtn(agentTransferDetails));
-      	screenshot.captureScreen(driver, "edit Cancel","AgentTransferTest");
 	}
 	
-	//@Test(priority=16)//,dependsOnMethods = ("addNewHolidayListRecord"))
+	@Test(priority=17)//,dependsOnMethods = ("addNewHolidayListRecord"))
   	public void editAgentTransferRecord() throws Exception {
 		AgentTransferPage agentTransferPage = PageFactory.createPageInstance(driver, AgentTransferPage.class);
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentTransferData.xlsx";
@@ -210,10 +204,9 @@ public class AgentTransferTest extends BaseTest{
         AgentTransferDetails agentTransferDetails=new AgentTransferDetails (map);
         agentTransferPage.editAgentTransferRecord(agentTransferDetails);
         Assert.assertTrue(agentTransferPage.verifymessage(), "Record updation assertion failed" );
-      	screenshot.captureScreen(driver, "Record Updated Successfully","AgentTransferTest");
   	}
 	
-	//@Test(priority=17)
+	@Test(priority=18)
     public void VerifyAuditTrialReportForUpdate() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentTransferData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(0);	
@@ -226,10 +219,9 @@ public class AgentTransferTest extends BaseTest{
         ReportDetails reportDetails= new ReportDetails(map1);
         ocmReportsPage.showReport(reportDetails);
         Assert.assertTrue(ocmReportsPage.verifyAgentTransferUpdate(agentTransferDetails,"Update"));
-        screenshot.captureScreen(driver, "VerifyAuditTrialReportForUpdate","AgentTransferTest");
     }
    
-    @Test(priority=18)
+    @Test(priority=19)
     public void ExportToExcel() throws Exception
     {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles";
@@ -237,7 +229,7 @@ public class AgentTransferTest extends BaseTest{
         Assert.assertTrue(agentTransferPage.verifyExportToExcel(filePath));
     }
     
-    @Test(priority=19)
+    @Test(priority=20)
     public void ExportToExcelData() throws Exception
     {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Agent Transfer.xlsx";
@@ -246,60 +238,56 @@ public class AgentTransferTest extends BaseTest{
 		Assert.assertTrue(agentTransferPage.verifyexportToExcelSheet(maplist));	
     }
 	
-	@Test(priority=20)
+	@Test(priority=21)
     public void SortingByAscending() throws IOException {
 		AgentTransferPage agentTransferPage = PageFactory.createPageInstance(driver, AgentTransferPage.class);
 		agentTransferPage.SortByAscending();
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Agent Transfer (1).xlsx";
         List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
         Assert.assertTrue(agentTransferPage.verifyexportToExcelSheet(maplist));
-        screenshot.captureScreen(driver, "SortingByAscending","AgentTransferTest");
     }
     
-	@Test(priority=21)
+	@Test(priority=22)
     public void SortingByDescending() throws IOException {
 		AgentTransferPage agentTransferPage = PageFactory.createPageInstance(driver, AgentTransferPage.class);
 		agentTransferPage.SortByDescending();
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Agent Transfer (2).xlsx";
         List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
         Assert.assertTrue(agentTransferPage.verifyexportToExcelSheet(maplist));
-        screenshot.captureScreen(driver, "SortingByDescending","AgentTransferTest");
     }
 	
-	@Test(priority=22)
-	public void searchPage() throws IOException {
+	@Test(priority=23)
+	public void searchPage() throws Exception {
 		AgentTransferPage agentTransferPage = PageFactory.createPageInstance(driver, AgentTransferPage.class);
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentTransferData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
         AgentTransferDetails agentTransferDetails=new AgentTransferDetails (map);
         Assert.assertFalse(agentTransferPage.clearAll(agentTransferDetails),"ClearAll Assertion Failed");
-        screenshot.captureScreen(driver, "clearall","AgentTransferTest");
+        screenshot.captureScreen("AgentTransferTest", "clearall");
         Assert.assertTrue(agentTransferPage.verifyclose());
-        screenshot.captureScreen(driver, "SearchClose","AgentTransferTest");
+        screenshot.captureScreen("AgentTransferTest", "SearchClose");
     }
     
-	//@Test(priority=23)//,dependsOnMethods = ("editHolidayListRecord"))
-    public void DeleteCancelAgentTransferRecord() throws IOException {
+	@Test(priority=24)//,dependsOnMethods = ("editHolidayListRecord"))
+    public void DeleteCancelAgentTransferRecord() throws Exception {
 		AgentTransferPage agentTransferPage = PageFactory.createPageInstance(driver, AgentTransferPage.class);
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentTransferData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
         AgentTransferDetails agentTransferDetails=new AgentTransferDetails (map);
         Assert.assertTrue(agentTransferPage.verifydeleteNo(agentTransferDetails));
-        screenshot.captureScreen(driver, "delete No","AgentTransferTest");
 	}
 	
-	@Test(priority=24)//,dependsOnMethods = ("editHolidayListRecord"))
-    public void DeleteAgentTransferRecord() throws IOException {
+	@Test(priority=25)//,dependsOnMethods = ("editHolidayListRecord"))
+    public void DeleteAgentTransferRecord() throws Exception {
 		AgentTransferPage agentTransferPage = PageFactory.createPageInstance(driver, AgentTransferPage.class);
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentTransferData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
         AgentTransferDetails agentTransferDetails=new AgentTransferDetails (map);
         agentTransferPage.deleteAgentTransferRecord(agentTransferDetails);
         Assert.assertTrue(agentTransferPage.verifymessage(),"delete record assertion failed");
-        screenshot.captureScreen(driver, "Verify Record Deleted", "AgentTransferTest");
         }
 	
-	@Test(priority=25)
+	@Test(priority=26)
     public void ExporttoExcelWithoutData() throws Exception
     {
 		AgentTransferPage agentTransferPage = PageFactory.createPageInstance(driver, AgentTransferPage.class);
@@ -307,10 +295,9 @@ public class AgentTransferTest extends BaseTest{
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         AgentTransferDetails agentTransferDetails=new AgentTransferDetails (map);
         Assert.assertTrue(agentTransferPage.ExporttoExcelWithoutData(agentTransferDetails));
-       screenshot.captureScreen(driver, "ExporttoExcelWithoutData", "AgentTransferTest");
 	}
 	
-	@Test(priority=26)
+	@Test(priority=27)
     public void SearchClearSearch() throws Exception
     {
 		AgentTransferPage agentTransferPage = PageFactory.createPageInstance(driver, AgentTransferPage.class);
@@ -318,12 +305,11 @@ public class AgentTransferTest extends BaseTest{
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         AgentTransferDetails agentTransferDetails=new AgentTransferDetails (map);
         Assert.assertTrue(agentTransferPage.verifyinvalidsearchwithwrongdata(agentTransferDetails),"invalidsearchwithwrongdata");
-        screenshot.captureScreen(driver,"Invalid Search with wrong data", "AgentTransferTest");
+        screenshot.captureScreen("AgentTransferTest","Invalid Search with wrong data");
         Assert.assertTrue(agentTransferPage.verifyclearsearch(), "Clear All Assertion Failed");
-        screenshot.captureScreen(driver,"Clear Search", "AgentTransferTest");
-    }*/
+    }
     
-    @Test(priority=27)
+    @Test(priority=28)
     public void database() throws Exception
     {
         AgentTransferPage agentTransferPage = PageFactory.createPageInstance(driver, AgentTransferPage.class);
@@ -333,51 +319,44 @@ public class AgentTransferTest extends BaseTest{
         Assert.assertTrue(agentTransferPage .verifyDatabase(agentTransferDetails.getQuery()));
     }
 	
-	@Test(priority=28)
+	@Test(priority=29)
     public void GroupBy()
     {
         AgentTransferPage agentTransferPage = PageFactory.createPageInstance(driver, AgentTransferPage.class);
     	Assert.assertTrue(agentTransferPage.groupby());
-        screenshot.captureScreen(driver, "GroupBy","AgentTranferTest");
+        screenshot.captureScreen("AgentTranferTest", "GroupBy");
     	Assert.assertTrue(agentTransferPage.groupby());
-        screenshot.captureScreen(driver, "AlreadyGroupBy","AgentTransferTest");
+        screenshot.captureScreen("AgentTranferTest", "AlreadyGroupBy");
     }
     
-    @Test(priority=29)
+    @Test(priority=30)
     public void VerifyArrowMoveForPreviousAndNextPage() {
         AgentTransferPage agentTransferPage = PageFactory.createPageInstance(driver, AgentTransferPage.class);
     	Assert.assertTrue(agentTransferPage.verifyArrowMoveForPreviousAndNextPage(),"arrow move for previous and next page assertion failed");
     }
     
-    @Test(priority=30)
+    @Test(priority=31)
     public void VerifyArrowMoveForFirstAndLastPage() {
         AgentTransferPage agentTransferPage = PageFactory.createPageInstance(driver, AgentTransferPage.class);
         Assert.assertTrue(agentTransferPage.verifyArrowMoveForFirstAndLastPage(),"arrow move for first and last page assertion failed");
     }
-    @Test(priority=31)
+    @Test(priority=32)
     public void VerifyTotalNumberOfItemsPerPageDetails() {
         AgentTransferPage agentTransferPage = PageFactory.createPageInstance(driver, AgentTransferPage.class);
         Assert.assertTrue(agentTransferPage.verifyTotalNumberOfItemsPerPageDetails(),"item per page assertion failed");
     }
     
-    @Test(priority=32)
+    @Test(priority=33)
     public void VerifyNumberOfItemsPerPageSelection() {
         AgentTransferPage agentTransferPage = PageFactory.createPageInstance(driver, AgentTransferPage.class);
         Assert.assertTrue(agentTransferPage.verifyNumberOfItemsPerPage(),"item per page assertion failed");
     }
     
     @AfterMethod
-    public void afterEachMethod(ITestResult result,Method method){
-   	 if(ITestResult.FAILURE==result.getStatus()){
-   		 try{
-   			 screenshot.captureScreen(driver, method.getName(),"AgentTransferTest");
-   		 }
-   		catch (Exception e){
-   		 System.out.println("Exception while taking screenshot "+e.getMessage());
-   		 } 
-   		 driver.navigate().refresh();
-   		 }
-   		
-    }
+    public void afterEachMethod(Method method){
+		Screenshot screenshot=new Screenshot(driver);
+        screenshot.captureScreen("AgentTransferTest",method.getName());
+        driver.navigate().refresh();
+	}
 
 }

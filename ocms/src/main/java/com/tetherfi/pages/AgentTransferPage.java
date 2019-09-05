@@ -452,8 +452,6 @@ public class AgentTransferPage extends BasePage{
 		}
 
 		public boolean verifymessage() {
-			if (errorMsg.size()>0)
-				return false;
 				waitUntilWebElementIsVisible(successmsg);
 		    	if(successmsg.getText().contains("Successfully"))
 				return true;
@@ -536,7 +534,7 @@ public class AgentTransferPage extends BasePage{
 			selectWebElement(editButton);
 			Thread.sleep(1000);
 			enterValueToTxtField(vdnDescriptionTextbox,details.getUpdateVdnDescription());
-			enterValueToTxtField(ModifyReasonTxtbox,details.getModifyReason());
+			enterValueToTxtFieldWithoutClear(ModifyReasonTxtbox,details.getModifyReason());
 			selectWebElement(savebtn);
 			
 		}
@@ -738,5 +736,12 @@ public class AgentTransferPage extends BasePage{
 				waitForJqueryLoad(driver);}
 			}
 				return arr;
+		}
+
+		public boolean verifyErrorMessage() {
+			if (errorMsg.size()>0)
+				return false;
+			else 
+				return true;
 		}	
 }

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Failed suite [Failed suite [Failed suite [Default suite]]]]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Default test(failed)(failed)(failed)(failed)">
+    <classes>
+      <class name="com.tetherfi.test.tmac.TmacBroadCastMsgTest">
+        <methods>
+          <include name="database"/>
+          <include name="afterEachMethod"/>
+          <include name="VerifyAuditTrailReportForUpdate"/>
+          <include name="endTestCase"/>
+          <include name="tearDown"/>
+          <include name="SortingByAscending"/>
+          <include name="SortingByDescending"/>
+          <include name="NavigateToTmacBroadcastMsgPage"/>
+          <include name="ExporttoExcelWithoutData"/>
+          <include name="startTestCase"/>
+          <include name="openApplication"/>
+          <include name="SearchClearSearch"/>
+          <include name="EditTmacBroadCastMsg"/>
+          <include name="EditTmacBroadCastMsgCancel"/>
+          <include name="Afterclass"/>
+        </methods>
+      </class> <!-- com.tetherfi.test.tmac.TmacBroadCastMsgTest -->
+    </classes>
+  </test> <!-- Default test(failed)(failed)(failed)(failed) -->
+</suite> <!-- Failed suite [Failed suite [Failed suite [Failed suite [Default suite]]]] -->

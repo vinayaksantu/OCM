@@ -308,12 +308,7 @@ public class CallbackAnnouncementPage extends BasePage{
 			List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
 			for(int j=1;j<headers.size();j++) {
 				scrollToElement(headers.get(j));
-				System.out.println(headers.get(j).getText());
-				if(headers.get(j).getText().equals("Last Changed On")){
-				col=cols.get(j).getText().substring(0,10);
-				}
-				else
-					col=cols.get(j).getText();
+				col=cols.get(j).getText();
 				map.put(headers.get(j).getText(),col);
 			}
 			map.remove("");
@@ -586,8 +581,7 @@ public class CallbackAnnouncementPage extends BasePage{
 	}
     
     public String verifySuccessMessage(){
-        if(errorMsg.size()>0){return errorMsg.get(0).getText();}
-        else{waitUntilWebElementIsVisible(successmsg);return successmsg.getText();}
+        waitUntilWebElementIsVisible(successmsg);return successmsg.getText();
     }
     
 	public boolean addnewCancel(CallbackAnnouncementDetails details) throws Exception {
@@ -727,7 +721,7 @@ public class CallbackAnnouncementPage extends BasePage{
 	        selectWebElement(endTimeTextbox);
 	        enterValueToTxtField(endTimeTextbox,details.getUpdatedEndTime());
 	        selectWebElement(ModifyReasonTextBox);
-	        enterValueToTxtField(ModifyReasonTextBox,details.getModifyReason());
+	        enterValueToTxtFieldWithoutClear(ModifyReasonTextBox,details.getModifyReason());
 	        selectWebElement(saveButton);
 	}
 	public void editwithoutModifyreasonRecord(CallbackAnnouncementDetails details) throws Exception {
@@ -822,7 +816,7 @@ public class CallbackAnnouncementPage extends BasePage{
 		searchCallbackAnnouncementRecord(details.getStartTime());
         selectWebElement(deleteButton);
         Thread.sleep(2000);
-        enterValueToTxtField(deleteReasonTextBox,details.getDeleteReason());
+        enterValueToTxtFieldWithoutClear(deleteReasonTextBox,details.getDeleteReason());
         selectWebElement(deleteYesBtn);
         try {
         	selectWebElement(deleteNoBtn);

@@ -276,7 +276,7 @@ public class WaitTimeColorConfigPage extends BasePage {
         selectWebElement(colorValue);
         enterValueToTxtField(colorValue,details.getUpdatedColorCode());
         selectWebElement(applyBtn);
-        enterValueToTxtField(modifyReasonTextBox,details.getModifyReason());
+        enterValueToTxtFieldWithoutClear(modifyReasonTextBox,details.getModifyReason());
         btnClick(saveBtn);
     }
     public void deleteWaitTimeColorConfigRecord(String Starttime, String reason) throws Exception {
@@ -288,7 +288,7 @@ public class WaitTimeColorConfigPage extends BasePage {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-        enterValueToTxtField(deleteReasonTextBox,reason);
+        enterValueToTxtFieldWithoutClear(deleteReasonTextBox,reason);
         try {
 			Thread.sleep(500);
 		} catch (InterruptedException e) {
@@ -313,7 +313,6 @@ public class WaitTimeColorConfigPage extends BasePage {
     public String getMessage(){
         if(errorMsg.size()>0){return errorMsg.get(0).getText();}
         else {
-        waitUntilWebElementIsVisible(successmsg);
          return successmsg.getText();}
     }
 	public boolean verifylogo() {
@@ -638,6 +637,9 @@ public class WaitTimeColorConfigPage extends BasePage {
         try {
           //  if (norecords.size() <= 0) {
                 int item = Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
+                if(item<=5)
+                	return true;
+                else {
                 selectWebElement(pagerDropdown);
                 Thread.sleep(1500);
                 for (int i = 0; i < pageSizeListBox.size(); i++) {
@@ -657,6 +659,7 @@ public class WaitTimeColorConfigPage extends BasePage {
                         status = false;
                         break;
                     }selectWebElement(pagerDropdown);Thread.sleep(1500);
+                }
                 }
            // }
         } catch (Exception e) {
@@ -858,5 +861,11 @@ public class WaitTimeColorConfigPage extends BasePage {
 			return true;
 		else
 		return false;
+	}
+	public String getSuccessMessage() {
+		if(successmsg.isDisplayed()){
+			return successmsg.getText();}
+        else {
+         return errorMsg.get(0).getText();}
 	}	
 }

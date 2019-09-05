@@ -1445,7 +1445,7 @@ public class EmailTemplatePage extends BasePage {
 	
 	
 	
-	
+	/*
 		
 	    
 	    public void editEmailTemplatesRecord(EmailTemplateDetails details) throws Exception {
@@ -1526,7 +1526,7 @@ public class EmailTemplatePage extends BasePage {
 	        enterValueToTxtField(deleteReasonTextBox,reason);
 	        Thread.sleep(2000);
 	        selectWebElement(yesBtn);
-	    }
+	    }*/
 	    
 		
 		
@@ -1584,7 +1584,7 @@ public class EmailTemplatePage extends BasePage {
 				public void clickOnEditButton() {
 			        selectWebElement(editBtn);				
 				}
-				public void editEmailTemplateWithoutModifyReason(EmailTemplateDetails details) throws Exception {
+				/*public void editEmailTemplateWithoutModifyReason(EmailTemplateDetails details) throws Exception {
 					searchEmailTemplatesRecord(details.getName());
 			        selectWebElement(editBtn);
 			        waitForJqueryLoad(driver);
@@ -1814,7 +1814,7 @@ public class EmailTemplatePage extends BasePage {
 						return arr;
 				}
 				
-				
+				*/
 				
 
 
