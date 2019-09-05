@@ -5,25 +5,46 @@
     <classes>
       <class name="com.tetherfi.test.ivr.CallBackAnnouncementTest">
         <methods>
-          <include name="ExportToExcelData"/>
-          <include name="DeleteWithoutDeleteReasonRecord"/>
-          <include name="VerifyNumberOfItemsPerPageSelection"/>
-          <include name="NavigateToCallBackAnnouncementPage"/>
-          <include name="VerifyAuditTrialReportForDelete"/>
+          <include name="ExportToExcel"/>
           <include name="SearchClearSearch"/>
-          <include name="endTestCase"/>
-          <include name="tearDown"/>
-          <include name="ExporttoExcelWithoutData"/>
+          <include name="VerifyCancelButtonAtEditCallbackAnnouncementRecord"/>
+          <include name="VerifyColumnsHeaderEnable"/>
           <include name="SortingByDescending"/>
           <include name="AddDuplicateCallBackAnnouncementRecord"/>
           <include name="startTestCase"/>
           <include name="openApplication"/>
-          <include name="VerifyCancelButtonDeleteRecord"/>
+          <include name="AddNewCallbackAnnouncementCancelRecord"/>
+          <include name="EditWithoutModifyReasonCallbackannouncementRecord"/>
           <include name="SortingByAscending"/>
-          <include name="VerifyAuditTrialReportForCreate"/>
           <include name="DeleteCallbackAnnouncementRecord"/>
+          <include name="database"/>
           <include name="AddNewCallbackAnnouncementRecord"/>
+          <include name="VerifyArrowMoveForFirstAndLastPage"/>
+          <include name="EditCallBackAnnouncementRecord"/>
+          <include name="ExportToExcelData"/>
+          <include name="DeleteWithoutDeleteReasonRecord"/>
+          <include name="VerifyAuditTrialReportForUpdate"/>
+          <include name="VerifyDropdownForAllTheColumns"/>
+          <include name="VerifyNumberOfItemsPerPageSelection"/>
+          <include name="NavigateToCallBackAnnouncementPage"/>
+          <include name="VerifyAuditTrialReportForDelete"/>
+          <include name="endTestCase"/>
+          <include name="tearDown"/>
+          <include name="ExporttoExcelWithoutData"/>
+          <include name="VerifyArrowMoveForPreviousAndNextPage"/>
+          <include name="GroupBy"/>
+          <include name="searchwithoutSearchTextbox"/>
+          <include name="AddNewCallbackAnnouncementWithoutWavFile"/>
+          <include name="VerifyCancelButtonDeleteRecord"/>
+          <include name="AddNewCallbackAnnouncementWithoutStartTime"/>
+          <include name="VerifyTotalNumberOfItemsPerPageDetails"/>
+          <include name="VerifyAuditTrialReportForCreate"/>
+          <include name="VerifyColumnsHeaderDisable"/>
+          <include name="AddNewCallbackAnnouncementWithoutEndTime"/>
+          <include name="CallbackAnnouncementPage"/>
+          <include name="searchPage"/>
           <include name="afterEachMethod"/>
+          <include name="AddNewCallbackAnnouncementWithoutLanguage"/>
         </methods>
       </class> <!-- com.tetherfi.test.ivr.CallBackAnnouncementTest -->
     </classes>
