@@ -1285,7 +1285,7 @@ return status;
 			return Status;
 	}
 
-	public boolean verifyWorkcodeListCreate(WorkCodeListDetails details, String Transaction, WorkCodeListDetails details1) throws Exception {
+	public boolean verifyWorkcodeListCreate(WorkCodeListDetails details, String Transaction) throws Exception {
 		booleansearchnew(details.getName(),Transaction);
 		String workcode=database(details1.getQuery()).get(0).remove("WorkCode");
 		System.out.println(workcode);
@@ -1312,7 +1312,7 @@ return status;
 			return Status;
 	}
 	public String workcode;
-	public boolean verifyWorkcodeListUpdate(WorkCodeListDetails details,String Transaction,WorkCodeListDetails details1) throws Exception {
+	public boolean verifyWorkcodeListUpdate(WorkCodeListDetails details,String Transaction) throws Exception {
 		booleansearchnew(details.getUpdatedName(),Transaction);
 		workcode=database(details1.getQuery()).get(0).remove("WorkCode");
 		System.out.println(workcode);
@@ -1374,7 +1374,7 @@ return status;
     return Status;
 	}
 
-	public boolean verifycodeListdelete(WorkCodeListDetails details, String Transaction,String workcode) throws Exception {
+	public boolean verifycodeListdelete(WorkCodeListDetails details, String Transaction) throws Exception {
 		booleansearchold(details.getUpdatedName(),Transaction);
 		System.out.println(workcode);
 		Boolean Status=false;

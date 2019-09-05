@@ -1,27 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
 <testng-results skipped="34" failed="0" ignored="0" total="34" passed="0">
+=======
+<testng-results ignored="20" total="35" passed="3" failed="12" skipped="0">
+>>>>>>> branch 'Palak3' of https://git.tetherfi.com:1443/tetherfi-product-qa/automation-testing/ocm/scripts.git
   <reporter-output>
   </reporter-output>
+<<<<<<< HEAD
   <suite name="Default suite" duration-ms="41854" started-at="2019-09-05T10:23:28 IST" finished-at="2019-09-05T10:24:10 IST">
+=======
+  <suite started-at="2019-09-04T13:04:28 IST" name="Failed suite [Default suite]" finished-at="2019-09-04T13:10:22 IST" duration-ms="354308">
+>>>>>>> branch 'Palak3' of https://git.tetherfi.com:1443/tetherfi-product-qa/automation-testing/ocm/scripts.git
     <groups>
     </groups>
+<<<<<<< HEAD
     <test name="Default test" duration-ms="41854" started-at="2019-09-05T10:23:28 IST" finished-at="2019-09-05T10:24:10 IST">
       <class name="com.tetherfi.test.ivr.CallBackAnnouncementTest">
         <test-method status="PASS" signature="openApplication()[pri:0, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@50850539]" name="openApplication" is-config="true" duration-ms="9865" started-at="2019-09-05T10:23:28 IST" finished-at="2019-09-05T10:23:38 IST">
+=======
+    <test started-at="2019-09-04T13:04:28 IST" name="Default test(failed)" finished-at="2019-09-04T13:10:22 IST" duration-ms="354308">
+      <class name="com.tetherfi.test.CEPEventMappingTest">
+        <test-method is-config="true" signature="openApplication()[pri:0, instance:com.tetherfi.test.CEPEventMappingTest@748ac6f3]" started-at="2019-09-04T13:04:28 IST" name="openApplication" finished-at="2019-09-04T13:04:39 IST" duration-ms="10921" status="PASS">
+>>>>>>> branch 'Palak3' of https://git.tetherfi.com:1443/tetherfi-product-qa/automation-testing/ocm/scripts.git
           <reporter-output>
           </reporter-output>
         </test-method> <!-- openApplication -->
+<<<<<<< HEAD
         <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@50850539]" name="startTestCase" is-config="true" duration-ms="4" started-at="2019-09-05T10:23:38 IST" finished-at="2019-09-05T10:23:38 IST">
+=======
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.CEPEventMappingTest@748ac6f3]" started-at="2019-09-04T13:04:39 IST" name="startTestCase" finished-at="2019-09-04T13:04:39 IST" duration-ms="4" status="PASS">
+>>>>>>> branch 'Palak3' of https://git.tetherfi.com:1443/tetherfi-product-qa/automation-testing/ocm/scripts.git
           <params>
             <param index="0">
               <value>
+<<<<<<< HEAD
                 <![CDATA[public void com.tetherfi.test.ivr.CallBackAnnouncementTest.CallbackAnnouncementPage()]]>
+=======
+                <![CDATA[public void com.tetherfi.test.CEPEventMappingTest.AddCepEventMappingRecord() throws java.lang.Exception]]>
+>>>>>>> branch 'Palak3' of https://git.tetherfi.com:1443/tetherfi-product-qa/automation-testing/ocm/scripts.git
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startTestCase -->
+<<<<<<< HEAD
         <test-method status="FAIL" signature="NavigateToCallBackAnnouncementPage()[pri:0, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@50850539]" name="NavigateToCallBackAnnouncementPage" is-config="true" duration-ms="30982" started-at="2019-09-05T10:23:38 IST" finished-at="2019-09-05T10:24:09 IST">
           <exception class="org.openqa.selenium.TimeoutException">
             <message>
@@ -1918,27 +1941,1100 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 ]]>
             </full-stacktrace>
           </exception> <!-- org.openqa.selenium.TimeoutException -->
+=======
+        <test-method is-config="true" signature="NavigateToCepEventMappingPage()[pri:0, instance:com.tetherfi.test.CEPEventMappingTest@748ac6f3]" started-at="2019-09-04T13:04:39 IST" name="NavigateToCepEventMappingPage" finished-at="2019-09-04T13:04:42 IST" duration-ms="3357" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- SortingByAscending -->
-        <test-method status="SKIP" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@50850539]" name="afterEachMethod" is-config="true" duration-ms="-1567659250372" started-at="2019-09-05T10:24:10 IST" finished-at="1970-01-01T05:30:00 IST">
+        </test-method> <!-- NavigateToCepEventMappingPage -->
+        <test-method signature="AddCepEventMappingRecord()[pri:5, instance:com.tetherfi.test.CEPEventMappingTest@748ac6f3]" started-at="2019-09-04T13:04:42 IST" name="AddCepEventMappingRecord" finished-at="2019-09-04T13:04:45 IST" duration-ms="3037" status="FAIL">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Add New record assertion failed expected [Record Created Successfully] but found [Please Provide CEP Event]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Add New record assertion failed expected [Record Created Successfully] but found [Please Provide CEP Event]
+at org.testng.Assert.fail(Assert.java:97)
+at org.testng.Assert.assertEqualsImpl(Assert.java:136)
+at org.testng.Assert.assertEquals(Assert.java:118)
+at org.testng.Assert.assertEquals(Assert.java:575)
+at com.tetherfi.test.CEPEventMappingTest.AddCepEventMappingRecord(CEPEventMappingTest.java:70)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AddCepEventMappingRecord -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.CEPEventMappingTest@748ac6f3]" started-at="2019-09-04T13:04:45 IST" name="afterEachMethod" finished-at="2019-09-04T13:04:46 IST" duration-ms="1325" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.CEPEventMappingTest.AddCepEventMappingRecord() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterEachMethod -->
-        <test-method status="SKIP" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@50850539]" name="endTestCase" is-config="true" duration-ms="-1567659250374" started-at="2019-09-05T10:24:10 IST" finished-at="1970-01-01T05:30:00 IST">
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.CEPEventMappingTest@748ac6f3]" started-at="2019-09-04T13:04:46 IST" name="endTestCase" finished-at="2019-09-04T13:04:46 IST" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.CEPEventMappingTest.AddCepEventMappingRecord() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- endTestCase -->
-        <test-method status="SKIP" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@50850539]" name="startTestCase" is-config="true" duration-ms="-1567659250381" started-at="2019-09-05T10:24:10 IST" finished-at="1970-01-01T05:30:00 IST">
+        <test-method is-config="true" signature="NavigateToCepEventMappingPage()[pri:0, instance:com.tetherfi.test.CEPEventMappingTest@748ac6f3]" started-at="2019-09-04T13:04:46 IST" name="NavigateToCepEventMappingPage" finished-at="2019-09-04T13:04:50 IST" duration-ms="3282" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToCepEventMappingPage -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.CEPEventMappingTest@748ac6f3]" started-at="2019-09-04T13:04:46 IST" name="startTestCase" finished-at="2019-09-04T13:04:46 IST" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.CEPEventMappingTest.DuplicateRecord() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startTestCase -->
+        <test-method signature="DuplicateRecord()[pri:7, instance:com.tetherfi.test.CEPEventMappingTest@748ac6f3]" started-at="2019-09-04T13:04:50 IST" name="DuplicateRecord" finished-at="2019-09-04T13:06:12 IST" duration-ms="82501" status="FAIL">
+          <exception class="org.openqa.selenium.NoSuchElementException">
+            <message>
+              <![CDATA[no such element: Unable to locate element: {"method":"css selector","selector":"#toast-container .toast-message"}
+  (Session info: chrome=76.0.3809.132)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'ADMIN', ip: '192.168.1.13', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '9.0.4'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 76.0.3809.132, chrome: {chromedriverVersion: 76.0.3809.68 (420c9498db8ce..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:55951}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: c94739a9857d2101a1e0a8155f5602b1
+*** Element info: {Using=css selector, value=#toast-container .toast-message}]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"css selector","selector":"#toast-container .toast-message"}
+  (Session info: chrome=76.0.3809.132)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'ADMIN', ip: '192.168.1.13', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '9.0.4'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 76.0.3809.132, chrome: {chromedriverVersion: 76.0.3809.68 (420c9498db8ce..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:55951}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: c94739a9857d2101a1e0a8155f5602b1
+*** Element info: {Using=css selector, value=#toast-container .toast-message}
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+at java.base/java.lang.reflect.Constructor.newInstance(Unknown Source)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:420)
+at org.openqa.selenium.By$ByCssSelector.findElement(By.java:431)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+at com.sun.proxy.$Proxy14.getText(Unknown Source)
+at com.tetherfi.pages.CepEventMappingPage.getMessage(CepEventMappingPage.java:612)
+at com.tetherfi.test.CEPEventMappingTest.DuplicateRecord(CEPEventMappingTest.java:95)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- DuplicateRecord -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.CEPEventMappingTest@748ac6f3]" started-at="2019-09-04T13:06:12 IST" name="afterEachMethod" finished-at="2019-09-04T13:06:14 IST" duration-ms="1401" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.CEPEventMappingTest.DuplicateRecord() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.CEPEventMappingTest@748ac6f3]" started-at="2019-09-04T13:06:14 IST" name="endTestCase" finished-at="2019-09-04T13:06:14 IST" duration-ms="4" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.CEPEventMappingTest.DuplicateRecord() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method is-config="true" signature="NavigateToCepEventMappingPage()[pri:0, instance:com.tetherfi.test.CEPEventMappingTest@748ac6f3]" started-at="2019-09-04T13:06:14 IST" name="NavigateToCepEventMappingPage" finished-at="2019-09-04T13:06:16 IST" duration-ms="2578" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToCepEventMappingPage -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.CEPEventMappingTest@748ac6f3]" started-at="2019-09-04T13:06:14 IST" name="startTestCase" finished-at="2019-09-04T13:06:14 IST" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.CEPEventMappingTest.AddRecordWithoutCEPEvent() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method signature="AddRecordWithoutCEPEvent()[pri:9, instance:com.tetherfi.test.CEPEventMappingTest@748ac6f3]" started-at="2019-09-04T13:06:16 IST" name="AddRecordWithoutCEPEvent" finished-at="2019-09-04T13:06:18 IST" duration-ms="2217" status="FAIL">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Invalid record assertion failed expected [Please provide a valid CEP Event] but found [Please Provide CEP Event]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Invalid record assertion failed expected [Please provide a valid CEP Event] but found [Please Provide CEP Event]
+at org.testng.Assert.fail(Assert.java:97)
+at org.testng.Assert.assertEqualsImpl(Assert.java:136)
+at org.testng.Assert.assertEquals(Assert.java:118)
+at org.testng.Assert.assertEquals(Assert.java:575)
+at com.tetherfi.test.CEPEventMappingTest.AddRecordWithoutCEPEvent(CEPEventMappingTest.java:113)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AddRecordWithoutCEPEvent -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.CEPEventMappingTest@748ac6f3]" started-at="2019-09-04T13:06:18 IST" name="afterEachMethod" finished-at="2019-09-04T13:06:20 IST" duration-ms="1236" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.CEPEventMappingTest.AddRecordWithoutCEPEvent() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.CEPEventMappingTest@748ac6f3]" started-at="2019-09-04T13:06:20 IST" name="endTestCase" finished-at="2019-09-04T13:06:20 IST" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.CEPEventMappingTest.AddRecordWithoutCEPEvent() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method is-config="true" signature="NavigateToCepEventMappingPage()[pri:0, instance:com.tetherfi.test.CEPEventMappingTest@748ac6f3]" started-at="2019-09-04T13:06:20 IST" name="NavigateToCepEventMappingPage" finished-at="2019-09-04T13:06:22 IST" duration-ms="2828" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToCepEventMappingPage -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.CEPEventMappingTest@748ac6f3]" started-at="2019-09-04T13:06:20 IST" name="startTestCase" finished-at="2019-09-04T13:06:20 IST" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.CEPEventMappingTest.AddRecordWithoutDescription() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method signature="AddRecordWithoutDescription()[pri:10, instance:com.tetherfi.test.CEPEventMappingTest@748ac6f3]" started-at="2019-09-04T13:06:22 IST" name="AddRecordWithoutDescription" finished-at="2019-09-04T13:06:25 IST" duration-ms="2756" status="FAIL">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Invalid record assertion failed expected [Please provide a valid description] but found [Please Provide Description]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Invalid record assertion failed expected [Please provide a valid description] but found [Please Provide Description]
+at org.testng.Assert.fail(Assert.java:97)
+at org.testng.Assert.assertEqualsImpl(Assert.java:136)
+at org.testng.Assert.assertEquals(Assert.java:118)
+at org.testng.Assert.assertEquals(Assert.java:575)
+at com.tetherfi.test.CEPEventMappingTest.AddRecordWithoutDescription(CEPEventMappingTest.java:123)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AddRecordWithoutDescription -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.CEPEventMappingTest@748ac6f3]" started-at="2019-09-04T13:06:25 IST" name="afterEachMethod" finished-at="2019-09-04T13:06:27 IST" duration-ms="1264" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.CEPEventMappingTest.AddRecordWithoutDescription() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.CEPEventMappingTest@748ac6f3]" started-at="2019-09-04T13:06:27 IST" name="endTestCase" finished-at="2019-09-04T13:06:27 IST" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.CEPEventMappingTest.AddRecordWithoutDescription() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.CEPEventMappingTest@748ac6f3]" started-at="2019-09-04T13:06:27 IST" name="startTestCase" finished-at="2019-09-04T13:06:27 IST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.CEPEventMappingTest.AddRecordWithoutBins() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method is-config="true" signature="NavigateToCepEventMappingPage()[pri:0, instance:com.tetherfi.test.CEPEventMappingTest@748ac6f3]" started-at="2019-09-04T13:06:27 IST" name="NavigateToCepEventMappingPage" finished-at="2019-09-04T13:06:29 IST" duration-ms="2884" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToCepEventMappingPage -->
+        <test-method signature="AddRecordWithoutBins()[pri:11, instance:com.tetherfi.test.CEPEventMappingTest@748ac6f3]" started-at="2019-09-04T13:06:29 IST" name="AddRecordWithoutBins" finished-at="2019-09-04T13:06:33 IST" duration-ms="3306" status="FAIL">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Invalid record assertion failed expected [Please provide a valid BINS] but found [Please Provide BINS]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Invalid record assertion failed expected [Please provide a valid BINS] but found [Please Provide BINS]
+at org.testng.Assert.fail(Assert.java:97)
+at org.testng.Assert.assertEqualsImpl(Assert.java:136)
+at org.testng.Assert.assertEquals(Assert.java:118)
+at org.testng.Assert.assertEquals(Assert.java:575)
+at com.tetherfi.test.CEPEventMappingTest.AddRecordWithoutBins(CEPEventMappingTest.java:133)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AddRecordWithoutBins -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.CEPEventMappingTest@748ac6f3]" started-at="2019-09-04T13:06:33 IST" name="afterEachMethod" finished-at="2019-09-04T13:06:33 IST" duration-ms="436" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.CEPEventMappingTest.AddRecordWithoutBins() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.CEPEventMappingTest@748ac6f3]" started-at="2019-09-04T13:06:33 IST" name="endTestCase" finished-at="2019-09-04T13:06:33 IST" duration-ms="4" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.CEPEventMappingTest.AddRecordWithoutBins() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.CEPEventMappingTest@748ac6f3]" started-at="2019-09-04T13:06:33 IST" name="startTestCase" finished-at="2019-09-04T13:06:33 IST" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.CEPEventMappingTest.AddRecordWithoutTransferFlag() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method is-config="true" signature="NavigateToCepEventMappingPage()[pri:0, instance:com.tetherfi.test.CEPEventMappingTest@748ac6f3]" started-at="2019-09-04T13:06:33 IST" name="NavigateToCepEventMappingPage" finished-at="2019-09-04T13:06:37 IST" duration-ms="3627" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToCepEventMappingPage -->
+        <test-method signature="AddRecordWithoutTransferFlag()[pri:12, instance:com.tetherfi.test.CEPEventMappingTest@748ac6f3]" started-at="2019-09-04T13:06:37 IST" name="AddRecordWithoutTransferFlag" finished-at="2019-09-04T13:06:39 IST" duration-ms="2463" status="FAIL">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Invalid record assertion failed expected [Please select a transfer flag] but found [Please Provide Transfer flag]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Invalid record assertion failed expected [Please select a transfer flag] but found [Please Provide Transfer flag]
+at org.testng.Assert.fail(Assert.java:97)
+at org.testng.Assert.assertEqualsImpl(Assert.java:136)
+at org.testng.Assert.assertEquals(Assert.java:118)
+at org.testng.Assert.assertEquals(Assert.java:575)
+at com.tetherfi.test.CEPEventMappingTest.AddRecordWithoutTransferFlag(CEPEventMappingTest.java:143)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AddRecordWithoutTransferFlag -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.CEPEventMappingTest@748ac6f3]" started-at="2019-09-04T13:06:39 IST" name="afterEachMethod" finished-at="2019-09-04T13:06:41 IST" duration-ms="1344" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.CEPEventMappingTest.AddRecordWithoutTransferFlag() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.CEPEventMappingTest@748ac6f3]" started-at="2019-09-04T13:06:41 IST" name="endTestCase" finished-at="2019-09-04T13:06:41 IST" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.CEPEventMappingTest.AddRecordWithoutTransferFlag() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.CEPEventMappingTest@748ac6f3]" started-at="2019-09-04T13:06:41 IST" name="startTestCase" finished-at="2019-09-04T13:06:41 IST" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.CEPEventMappingTest.EditCepEventMappingRecord() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method is-config="true" signature="NavigateToCepEventMappingPage()[pri:0, instance:com.tetherfi.test.CEPEventMappingTest@748ac6f3]" started-at="2019-09-04T13:06:41 IST" name="NavigateToCepEventMappingPage" finished-at="2019-09-04T13:06:43 IST" duration-ms="2551" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToCepEventMappingPage -->
+        <test-method signature="EditCepEventMappingRecord()[pri:14, instance:com.tetherfi.test.CEPEventMappingTest@748ac6f3]" started-at="2019-09-04T13:06:43 IST" name="EditCepEventMappingRecord" finished-at="2019-09-04T13:06:53 IST" duration-ms="9631" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- EditCepEventMappingRecord -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.CEPEventMappingTest@748ac6f3]" started-at="2019-09-04T13:06:53 IST" name="afterEachMethod" finished-at="2019-09-04T13:06:54 IST" duration-ms="1269" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.CEPEventMappingTest.EditCepEventMappingRecord() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.CEPEventMappingTest@748ac6f3]" started-at="2019-09-04T13:06:54 IST" name="endTestCase" finished-at="2019-09-04T13:06:54 IST" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.CEPEventMappingTest.EditCepEventMappingRecord() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.CEPEventMappingTest@748ac6f3]" started-at="2019-09-04T13:06:54 IST" name="startTestCase" finished-at="2019-09-04T13:06:54 IST" duration-ms="2" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.CEPEventMappingTest.VerifyAuditTrialReportForUpdate() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method is-config="true" signature="NavigateToCepEventMappingPage()[pri:0, instance:com.tetherfi.test.CEPEventMappingTest@748ac6f3]" started-at="2019-09-04T13:06:54 IST" name="NavigateToCepEventMappingPage" finished-at="2019-09-04T13:06:57 IST" duration-ms="3375" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToCepEventMappingPage -->
+        <test-method signature="VerifyAuditTrialReportForUpdate()[pri:15, instance:com.tetherfi.test.CEPEventMappingTest@748ac6f3]" started-at="2019-09-04T13:06:57 IST" name="VerifyAuditTrialReportForUpdate" finished-at="2019-09-04T13:07:25 IST" duration-ms="27539" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyAuditTrialReportForUpdate -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.CEPEventMappingTest@748ac6f3]" started-at="2019-09-04T13:07:25 IST" name="afterEachMethod" finished-at="2019-09-04T13:07:26 IST" duration-ms="1396" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.CEPEventMappingTest.VerifyAuditTrialReportForUpdate() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.CEPEventMappingTest@748ac6f3]" started-at="2019-09-04T13:07:26 IST" name="endTestCase" finished-at="2019-09-04T13:07:26 IST" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.CEPEventMappingTest.VerifyAuditTrialReportForUpdate() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.CEPEventMappingTest@748ac6f3]" started-at="2019-09-04T13:07:26 IST" name="startTestCase" finished-at="2019-09-04T13:07:26 IST" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.CEPEventMappingTest.ExportToExcelData() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method is-config="true" signature="NavigateToCepEventMappingPage()[pri:0, instance:com.tetherfi.test.CEPEventMappingTest@748ac6f3]" started-at="2019-09-04T13:07:26 IST" name="NavigateToCepEventMappingPage" finished-at="2019-09-04T13:07:30 IST" duration-ms="3215" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToCepEventMappingPage -->
+        <test-method signature="ExportToExcelData()[pri:20, instance:com.tetherfi.test.CEPEventMappingTest@748ac6f3]" started-at="2019-09-04T13:07:30 IST" name="ExportToExcelData" finished-at="2019-09-04T13:07:32 IST" duration-ms="2627" status="FAIL">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[did not expect to find [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: did not expect to find [true] but found [false]
+at org.testng.Assert.fail(Assert.java:97)
+at org.testng.Assert.failNotEquals(Assert.java:969)
+at org.testng.Assert.assertTrue(Assert.java:43)
+at org.testng.Assert.assertTrue(Assert.java:53)
+at com.tetherfi.test.CEPEventMappingTest.ExportToExcelData(CEPEventMappingTest.java:226)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ExportToExcelData -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.CEPEventMappingTest@748ac6f3]" started-at="2019-09-04T13:07:32 IST" name="afterEachMethod" finished-at="2019-09-04T13:07:33 IST" duration-ms="1245" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.CEPEventMappingTest.ExportToExcelData() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.CEPEventMappingTest@748ac6f3]" started-at="2019-09-04T13:07:33 IST" name="endTestCase" finished-at="2019-09-04T13:07:33 IST" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.CEPEventMappingTest.ExportToExcelData() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method is-config="true" signature="NavigateToCepEventMappingPage()[pri:0, instance:com.tetherfi.test.CEPEventMappingTest@748ac6f3]" started-at="2019-09-04T13:07:33 IST" name="NavigateToCepEventMappingPage" finished-at="2019-09-04T13:07:36 IST" duration-ms="3006" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToCepEventMappingPage -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.CEPEventMappingTest@748ac6f3]" started-at="2019-09-04T13:07:33 IST" name="startTestCase" finished-at="2019-09-04T13:07:33 IST" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.CEPEventMappingTest.VerifyAuditTrialReportForDelete() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method signature="VerifyAuditTrialReportForDelete()[pri:24, instance:com.tetherfi.test.CEPEventMappingTest@748ac6f3]" started-at="2019-09-04T13:07:36 IST" name="VerifyAuditTrialReportForDelete" finished-at="2019-09-04T13:08:02 IST" duration-ms="25446" status="FAIL">
+          <exception class="java.lang.IndexOutOfBoundsException">
+            <message>
+              <![CDATA[Index 1 out-of-bounds for length 1]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.IndexOutOfBoundsException: Index 1 out-of-bounds for length 1
+at java.base/jdk.internal.util.Preconditions.outOfBounds(Unknown Source)
+at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Unknown Source)
+at java.base/jdk.internal.util.Preconditions.checkIndex(Unknown Source)
+at java.base/java.util.Objects.checkIndex(Unknown Source)
+at java.base/java.util.ArrayList.get(Unknown Source)
+at com.tetherfi.pages.OCMReportsPage.getFirstRowDatafromTable1(OCMReportsPage.java:1157)
+at com.tetherfi.pages.OCMReportsPage.verifyCepEventMappingdelete(OCMReportsPage.java:4715)
+at com.tetherfi.test.CEPEventMappingTest.VerifyAuditTrialReportForDelete(CEPEventMappingTest.java:270)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.IndexOutOfBoundsException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyAuditTrialReportForDelete -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.CEPEventMappingTest@748ac6f3]" started-at="2019-09-04T13:08:02 IST" name="afterEachMethod" finished-at="2019-09-04T13:08:03 IST" duration-ms="1345" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.CEPEventMappingTest.VerifyAuditTrialReportForDelete() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.CEPEventMappingTest@748ac6f3]" started-at="2019-09-04T13:08:03 IST" name="endTestCase" finished-at="2019-09-04T13:08:03 IST" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.CEPEventMappingTest.VerifyAuditTrialReportForDelete() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.CEPEventMappingTest@748ac6f3]" started-at="2019-09-04T13:08:03 IST" name="startTestCase" finished-at="2019-09-04T13:08:03 IST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.CEPEventMappingTest.SearchClearSearch() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method is-config="true" signature="NavigateToCepEventMappingPage()[pri:0, instance:com.tetherfi.test.CEPEventMappingTest@748ac6f3]" started-at="2019-09-04T13:08:03 IST" name="NavigateToCepEventMappingPage" finished-at="2019-09-04T13:08:07 IST" duration-ms="3647" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToCepEventMappingPage -->
+        <test-method signature="SearchClearSearch()[pri:25, instance:com.tetherfi.test.CEPEventMappingTest@748ac6f3]" started-at="2019-09-04T13:08:07 IST" name="SearchClearSearch" finished-at="2019-09-04T13:08:53 IST" duration-ms="46534" status="FAIL">
+          <exception class="org.openqa.selenium.NoSuchElementException">
+            <message>
+              <![CDATA[no such element: Unable to locate element: {"method":"xpath","selector":"//div[text()='No records to display']"}
+  (Session info: chrome=76.0.3809.132)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'ADMIN', ip: '192.168.1.13', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '9.0.4'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 76.0.3809.132, chrome: {chromedriverVersion: 76.0.3809.68 (420c9498db8ce..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:55951}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: c94739a9857d2101a1e0a8155f5602b1
+*** Element info: {Using=xpath, value=//div[text()='No records to display']}]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//div[text()='No records to display']"}
+  (Session info: chrome=76.0.3809.132)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'ADMIN', ip: '192.168.1.13', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '9.0.4'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 76.0.3809.132, chrome: {chromedriverVersion: 76.0.3809.68 (420c9498db8ce..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:55951}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: c94739a9857d2101a1e0a8155f5602b1
+*** Element info: {Using=xpath, value=//div[text()='No records to display']}
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+at java.base/java.lang.reflect.Constructor.newInstance(Unknown Source)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)
+at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+at com.sun.proxy.$Proxy14.isDisplayed(Unknown Source)
+at com.tetherfi.pages.CepEventMappingPage.verifyinvalidsearchwithwrongdata(CepEventMappingPage.java:574)
+at com.tetherfi.test.CEPEventMappingTest.SearchClearSearch(CEPEventMappingTest.java:280)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SearchClearSearch -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.CEPEventMappingTest@748ac6f3]" started-at="2019-09-04T13:08:53 IST" name="afterEachMethod" finished-at="2019-09-04T13:08:55 IST" duration-ms="1562" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.CEPEventMappingTest.SearchClearSearch() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.CEPEventMappingTest@748ac6f3]" started-at="2019-09-04T13:08:55 IST" name="endTestCase" finished-at="2019-09-04T13:08:55 IST" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.CEPEventMappingTest.SearchClearSearch() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.CEPEventMappingTest@748ac6f3]" started-at="2019-09-04T13:08:55 IST" name="startTestCase" finished-at="2019-09-04T13:08:55 IST" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.CEPEventMappingTest.ExporttoExcelWithoutData() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method is-config="true" signature="NavigateToCepEventMappingPage()[pri:0, instance:com.tetherfi.test.CEPEventMappingTest@748ac6f3]" started-at="2019-09-04T13:08:55 IST" name="NavigateToCepEventMappingPage" finished-at="2019-09-04T13:08:59 IST" duration-ms="3584" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToCepEventMappingPage -->
+        <test-method signature="ExporttoExcelWithoutData()[pri:26, instance:com.tetherfi.test.CEPEventMappingTest@748ac6f3]" started-at="2019-09-04T13:08:59 IST" name="ExporttoExcelWithoutData" finished-at="2019-09-04T13:09:45 IST" duration-ms="46669" status="FAIL">
+          <exception class="java.lang.IndexOutOfBoundsException">
+            <message>
+              <![CDATA[Index 0 out-of-bounds for length 0]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.IndexOutOfBoundsException: Index 0 out-of-bounds for length 0
+at java.base/jdk.internal.util.Preconditions.outOfBounds(Unknown Source)
+at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Unknown Source)
+at java.base/jdk.internal.util.Preconditions.checkIndex(Unknown Source)
+at java.base/java.util.Objects.checkIndex(Unknown Source)
+at java.base/java.util.ArrayList.get(Unknown Source)
+at java.base/jdk.internal.reflect.GeneratedMethodAccessor7.invoke(Unknown Source)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementListHandler.invoke(LocatingElementListHandler.java:39)
+at com.sun.proxy.$Proxy15.get(Unknown Source)
+at com.tetherfi.pages.CepEventMappingPage.ExporttoExcelWithoutData(CepEventMappingPage.java:592)
+at com.tetherfi.test.CEPEventMappingTest.ExporttoExcelWithoutData(CEPEventMappingTest.java:293)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.IndexOutOfBoundsException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ExporttoExcelWithoutData -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.CEPEventMappingTest@748ac6f3]" started-at="2019-09-04T13:09:45 IST" name="afterEachMethod" finished-at="2019-09-04T13:09:47 IST" duration-ms="1470" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.CEPEventMappingTest.ExporttoExcelWithoutData() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.CEPEventMappingTest@748ac6f3]" started-at="2019-09-04T13:09:47 IST" name="endTestCase" finished-at="2019-09-04T13:09:47 IST" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.CEPEventMappingTest.ExporttoExcelWithoutData() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.CEPEventMappingTest@748ac6f3]" started-at="2019-09-04T13:09:47 IST" name="startTestCase" finished-at="2019-09-04T13:09:47 IST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.CEPEventMappingTest.SortingByAscending() throws java.io.IOException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method is-config="true" signature="NavigateToCepEventMappingPage()[pri:0, instance:com.tetherfi.test.CEPEventMappingTest@748ac6f3]" started-at="2019-09-04T13:09:47 IST" name="NavigateToCepEventMappingPage" finished-at="2019-09-04T13:09:50 IST" duration-ms="3701" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToCepEventMappingPage -->
+        <test-method signature="SortingByAscending()[pri:27, instance:com.tetherfi.test.CEPEventMappingTest@748ac6f3]" started-at="2019-09-04T13:09:50 IST" name="SortingByAscending" finished-at="2019-09-04T13:09:56 IST" duration-ms="5323" status="FAIL">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[did not expect to find [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: did not expect to find [true] but found [false]
+at org.testng.Assert.fail(Assert.java:97)
+at org.testng.Assert.failNotEquals(Assert.java:969)
+at org.testng.Assert.assertTrue(Assert.java:43)
+at org.testng.Assert.assertTrue(Assert.java:53)
+at com.tetherfi.test.CEPEventMappingTest.SortingByAscending(CEPEventMappingTest.java:302)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+>>>>>>> branch 'Palak3' of https://git.tetherfi.com:1443/tetherfi-product-qa/automation-testing/ocm/scripts.git
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SortingByAscending -->
+<<<<<<< HEAD
+        <test-method status="SKIP" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@50850539]" name="afterEachMethod" is-config="true" duration-ms="-1567659250372" started-at="2019-09-05T10:24:10 IST" finished-at="1970-01-01T05:30:00 IST">
+=======
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.CEPEventMappingTest@748ac6f3]" started-at="2019-09-04T13:09:56 IST" name="afterEachMethod" finished-at="2019-09-04T13:09:57 IST" duration-ms="1253" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.CEPEventMappingTest.SortingByAscending() throws java.io.IOException]]>
+              </value>
+            </param>
+          </params>
+>>>>>>> branch 'Palak3' of https://git.tetherfi.com:1443/tetherfi-product-qa/automation-testing/ocm/scripts.git
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+<<<<<<< HEAD
+        <test-method status="SKIP" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@50850539]" name="endTestCase" is-config="true" duration-ms="-1567659250374" started-at="2019-09-05T10:24:10 IST" finished-at="1970-01-01T05:30:00 IST">
+=======
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.CEPEventMappingTest@748ac6f3]" started-at="2019-09-04T13:09:57 IST" name="endTestCase" finished-at="2019-09-04T13:09:57 IST" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.CEPEventMappingTest.SortingByAscending() throws java.io.IOException]]>
+              </value>
+            </param>
+          </params>
+>>>>>>> branch 'Palak3' of https://git.tetherfi.com:1443/tetherfi-product-qa/automation-testing/ocm/scripts.git
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+<<<<<<< HEAD
+        <test-method status="SKIP" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@50850539]" name="startTestCase" is-config="true" duration-ms="-1567659250381" started-at="2019-09-05T10:24:10 IST" finished-at="1970-01-01T05:30:00 IST">
+=======
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.CEPEventMappingTest@748ac6f3]" started-at="2019-09-04T13:09:57 IST" name="startTestCase" finished-at="2019-09-04T13:09:57 IST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.CEPEventMappingTest.SortingByDescending() throws java.io.IOException]]>
+              </value>
+            </param>
+          </params>
+>>>>>>> branch 'Palak3' of https://git.tetherfi.com:1443/tetherfi-product-qa/automation-testing/ocm/scripts.git
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+<<<<<<< HEAD
         <test-method status="SKIP" signature="NavigateToCallBackAnnouncementPage()[pri:0, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@50850539]" name="NavigateToCallBackAnnouncementPage" is-config="true" duration-ms="-1567659250383" started-at="2019-09-05T10:24:10 IST" finished-at="1970-01-01T05:30:00 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- NavigateToCallBackAnnouncementPage -->
         <test-method status="SKIP" signature="SortingByDescending()[pri:28, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@50850539]" name="SortingByDescending" duration-ms="0" started-at="2019-09-05T10:24:10 IST" finished-at="2019-09-05T10:24:10 IST">
           <exception class="org.openqa.selenium.TimeoutException">
+=======
+        <test-method is-config="true" signature="NavigateToCepEventMappingPage()[pri:0, instance:com.tetherfi.test.CEPEventMappingTest@748ac6f3]" started-at="2019-09-04T13:09:57 IST" name="NavigateToCepEventMappingPage" finished-at="2019-09-04T13:10:00 IST" duration-ms="3244" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToCepEventMappingPage -->
+        <test-method signature="SortingByDescending()[pri:28, instance:com.tetherfi.test.CEPEventMappingTest@748ac6f3]" started-at="2019-09-04T13:10:00 IST" name="SortingByDescending" finished-at="2019-09-04T13:10:06 IST" duration-ms="6216" status="FAIL">
+          <exception class="java.lang.AssertionError">
+>>>>>>> branch 'Palak3' of https://git.tetherfi.com:1443/tetherfi-product-qa/automation-testing/ocm/scripts.git
             <message>
               <![CDATA[Expected condition failed: waiting for visibility of [[ChromeDriver: chrome on XP (5461c482909331eb4c6d2a539a4548b9)] -> xpath: //a[@class='OCM-sidebar-toggle white-color']] (tried for 30 second(s) with 500 milliseconds interval)
 Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
@@ -1948,6 +3044,7 @@ Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 7
 Session ID: 5461c482909331eb4c6d2a539a4548b9]]>
             </message>
             <full-stacktrace>
+<<<<<<< HEAD
               <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of [[ChromeDriver: chrome on XP (5461c482909331eb4c6d2a539a4548b9)] -> xpath: //a[@class='OCM-sidebar-toggle white-color']] (tried for 30 second(s) with 500 milliseconds interval)
 Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
 System info: host: 'DESKTOP-SNCCD49', ip: '192.168.1.10', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_181'
@@ -1964,6 +3061,18 @@ at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 at java.lang.reflect.Method.invoke(Unknown Source)
+=======
+              <![CDATA[java.lang.AssertionError: did not expect to find [true] but found [false]
+at org.testng.Assert.fail(Assert.java:97)
+at org.testng.Assert.failNotEquals(Assert.java:969)
+at org.testng.Assert.assertTrue(Assert.java:43)
+at org.testng.Assert.assertTrue(Assert.java:53)
+at com.tetherfi.test.CEPEventMappingTest.SortingByDescending(CEPEventMappingTest.java:310)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+>>>>>>> branch 'Palak3' of https://git.tetherfi.com:1443/tetherfi-product-qa/automation-testing/ocm/scripts.git
 at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
 at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:62)
 at org.testng.internal.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:340)
@@ -1998,21 +3107,59 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- SortingByDescending -->
+<<<<<<< HEAD
         <test-method status="SKIP" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@50850539]" name="afterEachMethod" is-config="true" duration-ms="-1567659250393" started-at="2019-09-05T10:24:10 IST" finished-at="1970-01-01T05:30:00 IST">
+=======
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.CEPEventMappingTest@748ac6f3]" started-at="2019-09-04T13:10:06 IST" name="afterEachMethod" finished-at="2019-09-04T13:10:08 IST" duration-ms="1245" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.CEPEventMappingTest.SortingByDescending() throws java.io.IOException]]>
+              </value>
+            </param>
+          </params>
+>>>>>>> branch 'Palak3' of https://git.tetherfi.com:1443/tetherfi-product-qa/automation-testing/ocm/scripts.git
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterEachMethod -->
+<<<<<<< HEAD
         <test-method status="SKIP" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@50850539]" name="endTestCase" is-config="true" duration-ms="-1567659250397" started-at="2019-09-05T10:24:10 IST" finished-at="1970-01-01T05:30:00 IST">
+=======
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.CEPEventMappingTest@748ac6f3]" started-at="2019-09-04T13:10:08 IST" name="endTestCase" finished-at="2019-09-04T13:10:08 IST" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.CEPEventMappingTest.SortingByDescending() throws java.io.IOException]]>
+              </value>
+            </param>
+          </params>
+>>>>>>> branch 'Palak3' of https://git.tetherfi.com:1443/tetherfi-product-qa/automation-testing/ocm/scripts.git
           <reporter-output>
           </reporter-output>
         </test-method> <!-- endTestCase -->
+<<<<<<< HEAD
         <test-method status="SKIP" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@50850539]" name="startTestCase" is-config="true" duration-ms="-1567659250402" started-at="2019-09-05T10:24:10 IST" finished-at="1970-01-01T05:30:00 IST">
+=======
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.CEPEventMappingTest@748ac6f3]" started-at="2019-09-04T13:10:08 IST" name="startTestCase" finished-at="2019-09-04T13:10:08 IST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.CEPEventMappingTest.VerifyNumberOfItemsPerPageSelection()]]>
+              </value>
+            </param>
+          </params>
+>>>>>>> branch 'Palak3' of https://git.tetherfi.com:1443/tetherfi-product-qa/automation-testing/ocm/scripts.git
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startTestCase -->
+<<<<<<< HEAD
         <test-method status="SKIP" signature="NavigateToCallBackAnnouncementPage()[pri:0, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@50850539]" name="NavigateToCallBackAnnouncementPage" is-config="true" duration-ms="-1567659250404" started-at="2019-09-05T10:24:10 IST" finished-at="1970-01-01T05:30:00 IST">
+=======
+        <test-method is-config="true" signature="NavigateToCepEventMappingPage()[pri:0, instance:com.tetherfi.test.CEPEventMappingTest@748ac6f3]" started-at="2019-09-04T13:10:08 IST" name="NavigateToCepEventMappingPage" finished-at="2019-09-04T13:10:11 IST" duration-ms="3643" status="PASS">
+>>>>>>> branch 'Palak3' of https://git.tetherfi.com:1443/tetherfi-product-qa/automation-testing/ocm/scripts.git
           <reporter-output>
           </reporter-output>
+<<<<<<< HEAD
         </test-method> <!-- NavigateToCallBackAnnouncementPage -->
         <test-method status="SKIP" signature="GroupBy()[pri:29, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@50850539]" name="GroupBy" duration-ms="0" started-at="2019-09-05T10:24:10 IST" finished-at="2019-09-05T10:24:10 IST">
           <exception class="org.openqa.selenium.TimeoutException">
@@ -2076,13 +3223,40 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
           </reporter-output>
         </test-method> <!-- GroupBy -->
         <test-method status="SKIP" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@50850539]" name="afterEachMethod" is-config="true" duration-ms="-1567659250410" started-at="2019-09-05T10:24:10 IST" finished-at="1970-01-01T05:30:00 IST">
+=======
+        </test-method> <!-- NavigateToCepEventMappingPage -->
+        <test-method signature="VerifyNumberOfItemsPerPageSelection()[pri:33, instance:com.tetherfi.test.CEPEventMappingTest@748ac6f3]" started-at="2019-09-04T13:10:11 IST" name="VerifyNumberOfItemsPerPageSelection" finished-at="2019-09-04T13:10:17 IST" duration-ms="5740" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyNumberOfItemsPerPageSelection -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.CEPEventMappingTest@748ac6f3]" started-at="2019-09-04T13:10:17 IST" name="afterEachMethod" finished-at="2019-09-04T13:10:18 IST" duration-ms="1267" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.CEPEventMappingTest.VerifyNumberOfItemsPerPageSelection()]]>
+              </value>
+            </param>
+          </params>
+>>>>>>> branch 'Palak3' of https://git.tetherfi.com:1443/tetherfi-product-qa/automation-testing/ocm/scripts.git
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterEachMethod -->
+<<<<<<< HEAD
         <test-method status="SKIP" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@50850539]" name="endTestCase" is-config="true" duration-ms="-1567659250413" started-at="2019-09-05T10:24:10 IST" finished-at="1970-01-01T05:30:00 IST">
+=======
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.CEPEventMappingTest@748ac6f3]" started-at="2019-09-04T13:10:18 IST" name="endTestCase" finished-at="2019-09-04T13:10:18 IST" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.CEPEventMappingTest.VerifyNumberOfItemsPerPageSelection()]]>
+              </value>
+            </param>
+          </params>
+>>>>>>> branch 'Palak3' of https://git.tetherfi.com:1443/tetherfi-product-qa/automation-testing/ocm/scripts.git
           <reporter-output>
           </reporter-output>
         </test-method> <!-- endTestCase -->
+<<<<<<< HEAD
         <test-method status="SKIP" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@50850539]" name="startTestCase" is-config="true" duration-ms="-1567659250415" started-at="2019-09-05T10:24:10 IST" finished-at="1970-01-01T05:30:00 IST">
           <reporter-output>
           </reporter-output>
@@ -2469,10 +3643,19 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
           </reporter-output>
         </test-method> <!-- endTestCase -->
         <test-method status="SKIP" signature="tearDown()[pri:0, instance:com.tetherfi.test.ivr.CallBackAnnouncementTest@50850539]" name="tearDown" is-config="true" duration-ms="-1567659250582" started-at="2019-09-05T10:24:10 IST" finished-at="1970-01-01T05:30:00 IST">
+=======
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.tetherfi.test.CEPEventMappingTest@748ac6f3]" started-at="2019-09-04T13:10:18 IST" name="tearDown" finished-at="2019-09-04T13:10:22 IST" duration-ms="3602" status="PASS">
+>>>>>>> branch 'Palak3' of https://git.tetherfi.com:1443/tetherfi-product-qa/automation-testing/ocm/scripts.git
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
+<<<<<<< HEAD
       </class> <!-- com.tetherfi.test.ivr.CallBackAnnouncementTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
+=======
+      </class> <!-- com.tetherfi.test.CEPEventMappingTest -->
+    </test> <!-- Default test(failed) -->
+  </suite> <!-- Failed suite [Default suite] -->
+>>>>>>> branch 'Palak3' of https://git.tetherfi.com:1443/tetherfi-product-qa/automation-testing/ocm/scripts.git
 </testng-results>

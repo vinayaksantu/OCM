@@ -14,6 +14,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.tetherfi.model.report.ReportDetails;
+import com.tetherfi.model.tmac.TmacBroadCastMsgDetails;
 import com.tetherfi.model.tmac.WaitTimeColorConfigDetails;
 import com.tetherfi.model.tmac.WorkCodeListDetails;
 import com.tetherfi.pages.AgentSettingsNewDesignPage;
@@ -59,11 +60,9 @@ public class WorkCodeListTest extends BaseTest{
         ocmHomePage.navigateToTab("TMAC");
         TmacPage tmacPage = PageFactory.createPageInstance(driver, TmacPage.class);
         Assert.assertTrue(tmacPage.isTMACPageDisplayed(), "tmac page assertion failed");
-        screenshot.captureScreen(driver, "TMAC Page","WorkCodeListTest");
         tmacPage.navigateToWorkCodeListPage();
         WorkCodeListPage workCodeListPage  = PageFactory.createPageInstance(driver, WorkCodeListPage.class);
         Assert.assertTrue(workCodeListPage.isWorkCodeListPageDisplayed(), "WorkCodeList page assertion failed");
-        screenshot.captureScreen(driver, "WorkCodeList Page","WorkCodeListTest");
     }
     
     @Test(priority=1)
@@ -73,38 +72,55 @@ public class WorkCodeListTest extends BaseTest{
     	Assert.assertTrue(workCodeListPage.verifylogo(),"Tmac Broadcast Message logo assertion failed");
         Assert.assertTrue(workCodeListPage.verifygridcontent(),"grid container assertion failed");
     	Assert.assertTrue(workCodeListPage.maximizewindow(),"Fullscreen Assertion Failed"); 
-    	screenshot.captureScreen(driver, "maximize window","WorkCodeListTest");
+    	screenshot.captureScreen("WorkCodeListTest", "maximize window");
     	Assert.assertTrue(workCodeListPage.minimizewindow(), "Restored Assertion Failed");
-    	screenshot.captureScreen(driver, "minimize window","WorkCodeListTest");
+    	screenshot.captureScreen("WorkCodeListTest", "minimize window");
     }
     
     @Test(priority=2)
-    public void addNewWorkcodeListRecord() throws Exception
+    public void addNewWorkGroupListCancelRecord() throws Exception
     {
         WorkCodeListPage workCodeListPage  = PageFactory.createPageInstance(driver, WorkCodeListPage.class);
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\WorkCodeListData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         WorkCodeListDetails workcodeListDetails=new WorkCodeListDetails (map);
         Assert.assertTrue(workCodeListPage.addnewWorkGroupCancel(workcodeListDetails), "WorkGroup cancel assertion failed");
-        screenshot.captureScreen(driver, "Workgroup record cancelled","WorkCodeListTest");
-        workCodeListPage.addNewWorkGroup(workcodeListDetails);
-        Assert.assertTrue(workCodeListPage.verifymessage(), "Workgroup Record creation assertion failed" );
-        screenshot.captureScreen(driver, "Workgroup Record Created","WorkCodeListTest");
-        Map<String, String> map1 = new ExcelReader(filePath, "Create").getTestData().get(1);
-        WorkCodeListDetails workcodeListDetails1=new WorkCodeListDetails (map1);
-        Assert.assertTrue(workCodeListPage.addNewWorkCodeCancel(workcodeListDetails1), "Workcode cancel assertion failed");
-        screenshot.captureScreen(driver, "Workcode record cancelled","WorkCodeListTest");
-        workCodeListPage.addNewWorkCode(workcodeListDetails1);
-        Assert.assertTrue(workCodeListPage.verifymessage(), "Workcode Record creation assertion failed" );
-        screenshot.captureScreen(driver, "Workcode record created","WorkCodeListTest");     
     }
-    //@Test()
+    @Test(priority=3)
+    public void addNewWorkGroupListRecord() throws Exception
+    {
+        WorkCodeListPage workCodeListPage  = PageFactory.createPageInstance(driver, WorkCodeListPage.class);
+    	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\WorkCodeListData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
+        WorkCodeListDetails workcodeListDetails=new WorkCodeListDetails (map);
+      	workCodeListPage.addNewWorkGroup(workcodeListDetails);
+        Assert.assertTrue(workCodeListPage.verifymessage(), "Workgroup Record creation assertion failed" );
+    }
+    @Test(priority=4)
+    public void addNewWorkcodeListCancelRecord() throws Exception
+    {
+        WorkCodeListPage workCodeListPage  = PageFactory.createPageInstance(driver, WorkCodeListPage.class);
+    	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\WorkCodeListData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(1);
+        WorkCodeListDetails workcodeListDetails=new WorkCodeListDetails (map);
+        Assert.assertTrue(workCodeListPage.addNewWorkCodeCancel(workcodeListDetails), "Workcode cancel assertion failed");
+    }  
+    @Test(priority=5)
+    public void addNewWorkcodeListRecord() throws Exception
+    {
+        WorkCodeListPage workCodeListPage  = PageFactory.createPageInstance(driver, WorkCodeListPage.class);
+    	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\WorkCodeListData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(1);
+        WorkCodeListDetails workcodeListDetails=new WorkCodeListDetails (map);
+        workCodeListPage.addNewWorkCode(workcodeListDetails);
+        Assert.assertTrue(workCodeListPage.verifymessage(), "Workcode Record creation assertion failed" );
+    }
+    
+    //@Test(priority=6)
     public void VerifyAuditTrialReportForCreate() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\WorkCodeListData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(1);
         WorkCodeListDetails workcodeListDetails=new WorkCodeListDetails (map);
-        Map<String, String> map1 = new ExcelReader(filePath, "Queries").getTestData().get(1);
-        WorkCodeListDetails workcodeListDetails1=new WorkCodeListDetails (map1);
         HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
         homePage.navigateToOCMReportsPage();
         OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver, OCMReportsPage.class);
@@ -112,49 +128,70 @@ public class WorkCodeListTest extends BaseTest{
         Map<String, String> map2 = new ExcelReader(filePath1,"Show").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map2);
         ocmReportsPage.showReport(reportDetails);
-        Assert.assertTrue(ocmReportsPage.verifyWorkcodeListCreate(workcodeListDetails,"Create",workcodeListDetails1));
-        screenshot.captureScreen("WorkCodeListTest", "VerifyAuditTrialReportForCreate");
+        Assert.assertTrue(ocmReportsPage.verifyWorkcodeListCreate(workcodeListDetails,"Create"));
         
     }
-    //@Test(priority=3)
-    public void addInvalidRecord() throws Exception{
+    @Test(priority=7)
+    public void addInvalidRecordWithoutWorkLevel() throws Exception{
     	WorkCodeListPage workCodeListPage  = PageFactory.createPageInstance(driver, WorkCodeListPage.class);
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\WorkCodeListData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(1);
         WorkCodeListDetails workcodeListDetails=new WorkCodeListDetails (map);	
         workCodeListPage.addRecordWithoutWorklevel(workcodeListDetails);
         Assert.assertFalse(workCodeListPage.errormessage(),"AddRecordWithoutWorklevel Assertion failed");
-        screenshot.captureScreen(driver, "addRecordWithoutWorklevel","WorkCodeListTest");
+    }
+    @Test(priority=7)
+    public void addInvalidRecordWithoutWorkGroup() throws Exception{
+    	WorkCodeListPage workCodeListPage  = PageFactory.createPageInstance(driver, WorkCodeListPage.class);
+    	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\WorkCodeListData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(1);
+        WorkCodeListDetails workcodeListDetails=new WorkCodeListDetails (map);	
         workCodeListPage.addRecordWithoutWorkGroup(workcodeListDetails);
         Assert.assertFalse(workCodeListPage.errormessage(),"AddRecordWithoutWorkGroup Assertion failed");
-        screenshot.captureScreen(driver, "AddRecordWithoutWorkGroup","WorkCodeListTest");
+    }
+    @Test(priority=8)
+    public void addInvalidRecordWithoutName() throws Exception{
+    	WorkCodeListPage workCodeListPage  = PageFactory.createPageInstance(driver, WorkCodeListPage.class);
+    	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\WorkCodeListData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(1);
+        WorkCodeListDetails workcodeListDetails=new WorkCodeListDetails (map);	
         workCodeListPage.addRecordWithoutName(workcodeListDetails);
         Assert.assertFalse(workCodeListPage.errormessage(),"AddRecordWithoutName Assertion failed");
-        screenshot.captureScreen(driver, "AddRecordWithoutName","WorkCodeListTest");
+    }
+    
+    @Test(priority=9)
+    public void addDuplicateRecord() throws Exception{
+    	WorkCodeListPage workCodeListPage  = PageFactory.createPageInstance(driver, WorkCodeListPage.class);
+    	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\WorkCodeListData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(1);
+        WorkCodeListDetails workcodeListDetails=new WorkCodeListDetails (map);	
         workCodeListPage.duplicateRecord(workcodeListDetails);
         Assert.assertFalse(workCodeListPage.errormessage(),"DuplicateRecord Assertion failed");
-        screenshot.captureScreen(driver, "Duplicate Record","WorkCodeListTest");	
     }
-   //@Test(priority=4)
-    public void editWorkCodeListRecord() throws Exception {
+    
+    @Test(priority=10)
+    public void editWorkCodeListCancelRecord() throws Exception {
     	WorkCodeListPage workCodeListPage  = PageFactory.createPageInstance(driver, WorkCodeListPage.class);
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\WorkCodeListData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(0);	
         WorkCodeListDetails workcodeListDetails=new WorkCodeListDetails (map);	
         Assert.assertTrue(workCodeListPage.editWorkcodecancelled(workcodeListDetails),"EditWorkCode cancelled assertion failed");
-        screenshot.captureScreen(driver, "EditWorkCode Cancelled","WorkCodeListTest");
+    }
+    @Test(priority=11)
+    public void editWorkCodeListRecord() throws Exception {
+    	WorkCodeListPage workCodeListPage  = PageFactory.createPageInstance(driver, WorkCodeListPage.class);
+    	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\WorkCodeListData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(0);	
+        WorkCodeListDetails workcodeListDetails=new WorkCodeListDetails (map);	
         workCodeListPage.editworkcodeListRecord(workcodeListDetails);
         Assert.assertTrue(workCodeListPage.verifymessage(),"Record updation assertion failed");
-        screenshot.captureScreen(driver, "Record Updated","WorkCodeListTest");
     }
     
-    //@Test()
+    //@Test(priority=12)
     public void VerifyAuditTrialReportForUpdate() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\WorkCodeListData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(0);	
         WorkCodeListDetails workcodeListDetails=new WorkCodeListDetails (map);	
-        Map<String, String> map2 = new ExcelReader(filePath, "Queries").getTestData().get(2);	
-        WorkCodeListDetails workcodeListDetails1=new WorkCodeListDetails (map2);	
         HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
         homePage.navigateToOCMReportsPage();
         OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver, OCMReportsPage.class);
@@ -162,23 +199,22 @@ public class WorkCodeListTest extends BaseTest{
         Map<String, String> map1 = new ExcelReader(filePath1,"Show").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map1);
         ocmReportsPage.showReport(reportDetails);
-        Assert.assertTrue(ocmReportsPage.verifyWorkcodeListUpdate(workcodeListDetails,"Update",workcodeListDetails1));
-        screenshot.captureScreen("WorkCodeListTest", "VerifyAuditTrialReportForUpdate");
+        Assert.assertTrue(ocmReportsPage.verifyWorkcodeListUpdate(workcodeListDetails,"Update"));
     }
     
-    //@Test(priority=5)
+    @Test(priority=13)
     public void searchPage() throws Exception {
     	WorkCodeListPage workCodeListPage  = PageFactory.createPageInstance(driver, WorkCodeListPage.class);
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\WorkCodeListData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);
+        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
         WorkCodeListDetails workcodeListDetails=new WorkCodeListDetails (map);	
         Assert.assertFalse(workCodeListPage.clearAll(workcodeListDetails),"ClearAll Assertion Failed");
-        screenshot.captureScreen(driver, "clearall","WorkCodeListTest");
+        screenshot.captureScreen("WorkCodeListTest", "clearall");
         Assert.assertTrue(workCodeListPage.verifyclose());
-        screenshot.captureScreen(driver, "SearchClose","WorkCodeListTest");
+        screenshot.captureScreen("WorkCodeListTest", "SearchClose");
     }
     
-    //@Test(priority=6)
+    @Test(priority=14)
     public void SearchClearSearch() throws Exception
     {
     	WorkCodeListPage workCodeListPage  = PageFactory.createPageInstance(driver, WorkCodeListPage.class);
@@ -186,47 +222,46 @@ public class WorkCodeListTest extends BaseTest{
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);
         WorkCodeListDetails workcodeListDetails=new WorkCodeListDetails (map);
         Assert.assertTrue(workCodeListPage.verifyinvalidsearchwithwrongdata(workcodeListDetails),"invalidsearchwithwrongdata");
-        screenshot.captureScreen(driver, "Invalid Search with wrong data", "WorkCodeListTest");
+        screenshot.captureScreen("WorkCodeListTest", "Invalid Search with wrong data");
         Assert.assertTrue(workCodeListPage.verifyclearsearch(), "Clear All Assertion Failed");
-        screenshot.captureScreen(driver, "Clear Search", "WorkCodeListTest");
+        screenshot.captureScreen("WorkCodeListTest", "Clear Search");
     }
     
-    //@Test(priority=7)
-    public void InvalidSearch() throws Exception {
+    @Test(priority=15)
+    public void DeleteWorkCodeListCancelRecord() throws Exception {
     	WorkCodeListPage workCodeListPage  = PageFactory.createPageInstance(driver, WorkCodeListPage.class);
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\WorkCodeListData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);
+        Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
         WorkCodeListDetails workcodeListDetails=new WorkCodeListDetails (map);
-        Assert.assertTrue(workCodeListPage.verifyinvalidsearch(workcodeListDetails), "InvalidSearchAssertionFailed");
-        screenshot.captureScreen(driver, "Invalid Search", "WorkCodeListTest");
+        Assert.assertTrue(workCodeListPage.verifydeleteNo(workcodeListDetails));
     }
-    
-    @Test(priority=8)
+    @Test(priority=16)
     public void DeleteWorkCodeListRecord() throws Exception {
+    	WorkCodeListPage workCodeListPage  = PageFactory.createPageInstance(driver, WorkCodeListPage.class);
+    	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\WorkCodeListData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
+        WorkCodeListDetails workcodeListDetails=new WorkCodeListDetails (map);   
+    	workCodeListPage.deleteWorkCodeListRecord(workcodeListDetails);
+        Assert.assertTrue(workCodeListPage.verifymessage(),"delete record assertion failed");
+    }
+    	
+    @Test(priority=17)
+    public void VerifyauditTrailReportDelete() throws Exception {
         OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver, OCMReportsPage.class);
     	WorkCodeListPage workCodeListPage  = PageFactory.createPageInstance(driver, WorkCodeListPage.class);
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\WorkCodeListData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
         WorkCodeListDetails workcodeListDetails=new WorkCodeListDetails (map);
-        Map<String, String> map2 = new ExcelReader(filePath,"Queries").getTestData().get(2);
-        WorkCodeListDetails workcodeListDetails1=new WorkCodeListDetails (map2);
-        String workcode=ocmReportsPage.RunQuery(workcodeListDetails1.getQuery(),"WorkCode");
-        Assert.assertTrue(workCodeListPage.verifydeleteNo(workcodeListDetails));
-        screenshot.captureScreen(driver, "delete No","WorkCodeListTest");
-        workCodeListPage.deleteWorkCodeListRecord(workcodeListDetails);
-        Assert.assertTrue(workCodeListPage.verifymessage(),"delete record assertion failed");
-        screenshot.captureScreen(driver, "Verify Record Deleted", "WorkCodeListTest");
         HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
         homePage.navigateToOCMReportsPage();
         String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AuditTrailReportData.xlsx";
         Map<String, String> map1 = new ExcelReader(filePath1,"Show").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map1);
         ocmReportsPage.showReport(reportDetails);
-        Assert.assertTrue(ocmReportsPage.verifycodeListdelete(workcodeListDetails,"Delete",workcode));
-        screenshot.captureScreen("WorkCodeListTest", "VerifyAuditTrialReportForUpdate");
+        Assert.assertTrue(ocmReportsPage.verifycodeListdelete(workcodeListDetails,"Delete"));
         }
    
-    /*@Test(priority=9)
+    @Test(priority=18)
     public void ExportToExcel() throws Exception
     {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles";
@@ -234,7 +269,7 @@ public class WorkCodeListTest extends BaseTest{
         Assert.assertTrue(workCodeListPage.verifyExportToExcel(filePath));
     }
     
-    @Test(priority=10)
+    @Test(priority=19)
     public void ExportToExcelData() throws Exception
     {String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\WorkCode List.xlsx";
     List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
@@ -243,7 +278,7 @@ public class WorkCodeListTest extends BaseTest{
     	
     }
     
-    @Test(priority=11)
+    @Test(priority=20)
     public void database() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\WorkCodeListData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(0);
@@ -251,7 +286,7 @@ public class WorkCodeListTest extends BaseTest{
         WorkCodeListDetails workcodeListDetails=new WorkCodeListDetails (map);
     	Assert.assertTrue(workCodeListPage .verifyDatabase(workcodeListDetails.getQuery()));
     }
-    @Test(priority=12)
+    @Test(priority=21)
     public void GroupBy()
     {
     	WorkCodeListPage workCodeListPage  = PageFactory.createPageInstance(driver, WorkCodeListPage.class);
@@ -260,49 +295,46 @@ public class WorkCodeListTest extends BaseTest{
     	Assert.assertTrue(workCodeListPage.groupby());
     	screenshot.captureScreen(driver, "AlreadyGroupBy", "WorkCodeListTest");	
     }
-    @Test(priority=13)
+    @Test(priority=22)
     public void VerifyArrowMoveForPreviousAndNextPage() {
     	WorkCodeListPage workCodeListPage  = PageFactory.createPageInstance(driver, WorkCodeListPage.class);
     	Assert.assertTrue(workCodeListPage.verifyArrowMoveForPreviousAndNextPage(),"arrow move for previous and next page assertion failed");
-    	screenshot.captureScreen(driver, "VerifyArrowMoveForPreviousAndNextPage", "WorkCodeListTest");	
     }
-    @Test(priority=14)
+    @Test(priority=23)
     public void VerifyArrowMoveForFirstAndLastPage() {
     	WorkCodeListPage workCodeListPage  = PageFactory.createPageInstance(driver, WorkCodeListPage.class);
         Assert.assertTrue(workCodeListPage.verifyArrowMoveForFirstAndLastPage(),"arrow move for first and last page assertion failed");
-    	screenshot.captureScreen(driver, "VerifyArrowMoveForFirstAndLastPage", "WorkCodeListTest");	
 
     }
-    @Test(priority=15)
+    @Test(priority=24)
     public void VerifyTotalNumberOfItemsPerPageDetails() {
     	WorkCodeListPage workCodeListPage  = PageFactory.createPageInstance(driver, WorkCodeListPage.class);
         Assert.assertTrue(workCodeListPage.verifyTotalNumberOfItemsPerPageDetails(),"item per page assertion failed");
-    	screenshot.captureScreen(driver, "VerifyTotalNumberOfItemsPerPageDetails", "WorkCodeListTest");	
     }
     
-    @Test(priority=16)
+    @Test(priority=25)
     public void VerifyNumberOfItemsPerPageSelection() {
     	WorkCodeListPage workCodeListPage  = PageFactory.createPageInstance(driver, WorkCodeListPage.class);
         Assert.assertTrue(workCodeListPage.verifyNumberOfItemsPerPage(),"item per page assertion failed");
         screenshot.captureScreen(driver, "VerifyNumberOfItemsPerPageSelection","WorkCodeListTest");
 
     }
-    @Test(priority=17)
+    @Test(priority=26)
     public void VerifyDropdownForAllTheColumns() {
     	WorkCodeListPage workCodeListPage  = PageFactory.createPageInstance(driver, WorkCodeListPage.class);
         Assert.assertTrue(workCodeListPage.verifyDropDownOfAllHeaders(), "Columns dropdown assertion failed");
     }
-    @Test(priority=18)
+    @Test(priority=27)
     public void VerifyColumnsHeaderEnable() {
     	WorkCodeListPage workCodeListPage  = PageFactory.createPageInstance(driver, WorkCodeListPage.class);
         Assert.assertTrue(workCodeListPage.verifycolumnsHeaderEnabled(),"columns enabled assertion failed");
     }
-    @Test(priority=19)
+    @Test(priority=28)
     public void VerifyColumnsHeaderDisable() {
     	WorkCodeListPage workCodeListPage  = PageFactory.createPageInstance(driver, WorkCodeListPage.class);
         Assert.assertFalse(workCodeListPage.verifycolumnsHeaderDisabled(),"columns disabled assertion failed");
     }
-	@Test(priority=20)
+	@Test(priority=29)
     public void SortingByAscending() throws IOException {
     	WorkCodeListPage workCodeListPage  = PageFactory.createPageInstance(driver, WorkCodeListPage.class);
     	workCodeListPage.SortByAscending();
@@ -310,7 +342,7 @@ public class WorkCodeListTest extends BaseTest{
         List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
         Assert.assertTrue(workCodeListPage.verifyexportToExcelSheet(maplist));
     }
-    @Test(priority=21)
+    @Test(priority=30)
     public void SortingByDescending() throws IOException {
     	WorkCodeListPage workCodeListPage  = PageFactory.createPageInstance(driver, WorkCodeListPage.class);
     	workCodeListPage.SortByDescending();
@@ -318,7 +350,7 @@ public class WorkCodeListTest extends BaseTest{
         List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
         Assert.assertTrue(workCodeListPage.verifyexportToExcelSheet(maplist));
     }
-    @Test(priority=22)
+    @Test(priority=31)
     public void ExporttoExcelWithoutData() throws Exception
     {
     	WorkCodeListPage workCodeListPage  = PageFactory.createPageInstance(driver, WorkCodeListPage.class);
@@ -326,24 +358,36 @@ public class WorkCodeListTest extends BaseTest{
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(1);
         WorkCodeListDetails workcodeListDetails=new WorkCodeListDetails (map);	
         Assert.assertTrue(workCodeListPage.ExporttoExcelWithoutData(workcodeListDetails));
-    }*/
-        @AfterMethod
-    public void afterEachMethod(ITestResult result,Method method){
-   	 if(ITestResult.FAILURE==result.getStatus()){
-   		 try{
-   			 screenshot.captureScreen(driver, method.getName(),"TmacBroadCastMsgTest");
-   		 }
-   		catch (Exception e){
-   		 System.out.println("Exception while taking screenshot "+e.getMessage());
-   		 } 
-   		 driver.navigate().refresh();
-   		 }
-   		
+    }
+        
+    @AfterMethod
+    public void afterEachMethod(Method method){
+    	 Screenshot screenshot=new Screenshot(driver);
+         screenshot.captureScreen("WorkCodeListTest",method.getName());
+         driver.navigate().refresh();
+     
     }
     @AfterClass
-    public void Afterclass()
+    public void Afterclass() throws Exception
     {
-    	System.out.println("Run successfully");
-    	
+    	HomePage homePage= PageFactory.createPageInstance(driver,HomePage.class);
+        homePage.navigateToOCMPage();
+    	 OCMHomePage ocmHomePage = PageFactory.createPageInstance(driver,OCMHomePage.class);
+         Assert.assertTrue(ocmHomePage.isOCMHomePageIsDisplayed(),"OCM HOME Page assertion failed");
+         ocmHomePage.navigateToTab("TMAC");
+         TmacPage tmacPage=PageFactory.createPageInstance(driver,TmacPage.class);
+         Assert.assertTrue(tmacPage.isTMACPageDisplayed(),"tmac page assertion failed");
+         tmacPage.navigateToAgentTeamManagementPage();
+         AgentTeamManagementPage agentTeamManagementPage=PageFactory.createPageInstance(driver,AgentTeamManagementPage.class);
+         Assert.assertTrue(agentTeamManagementPage.isAgentTeamManagementPageDisplayed(),"Agent Team  management assertion failed");
+         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacBroadcastMsgData.xlsx";
+         Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
+         TmacBroadCastMsgDetails tmacBroadCastMsgDetails=new TmacBroadCastMsgDetails(map);
+         agentTeamManagementPage.deleteAgentTeamManagementRecord(tmacBroadCastMsgDetails.getTeamName(),tmacBroadCastMsgDetails.getModifyReason());
+         Assert.assertTrue(agentTeamManagementPage.verifyMessage(),"Add New record assertion failed");
+         Map<String, String> map1 = new ExcelReader(filePath,"Queries").getTestData().get(2);
+         TmacBroadCastMsgDetails tmacBroadCastMsgDetails1=new TmacBroadCastMsgDetails(map1);
+         agentTeamManagementPage.database(tmacBroadCastMsgDetails1.getQuery());
+
     }
 }

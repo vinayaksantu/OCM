@@ -473,11 +473,6 @@ public class WorkCodeListPage extends BasePage{
 
 	public boolean editWorkcodecancelled(WorkCodeListDetails workcodeListDetails) throws Exception {
 		searchWorkcodeList(workcodeListDetails.getName());
-		try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
 		selectWebElement(editbtn);
 		try {
             Thread.sleep(1000);
@@ -580,7 +575,7 @@ public class WorkCodeListPage extends BasePage{
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		enterValueToTxtField(deletereasontextbox,workcodeListDetails.getDeleteReason());
+		enterValueToTxtFieldWithoutClear(deletereasontextbox,workcodeListDetails.getDeleteReason());
 		selectWebElement(nobtn);
 		if(rowdata.getText().equals(workcodeListDetails.getUpdatedName()))
 				return true;
@@ -601,7 +596,7 @@ public class WorkCodeListPage extends BasePage{
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		enterValueToTxtField(deletereasontextbox,workcodeListDetails.getDeleteReason());
+		enterValueToTxtFieldWithoutClear(deletereasontextbox,workcodeListDetails.getDeleteReason());
 		selectWebElement(yesbtn);
 	}
 
