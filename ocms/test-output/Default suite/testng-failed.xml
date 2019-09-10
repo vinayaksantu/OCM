@@ -1,23 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
+<suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.tetherfi.test.ivr.CallBackAnnouncementTest">
+      <class name="com.tetherfi.test.sms.SmsResponseTemplateCreateTest">
         <methods>
-          <include name="DeleteWithoutDeleteReasonRecord"/>
-          <include name="startTestCase"/>
-          <include name="openApplication"/>
-          <include name="VerifyCancelButtonDeleteRecord"/>
-          <include name="VerifyNumberOfItemsPerPageSelection"/>
-          <include name="NavigateToCallBackAnnouncementPage"/>
-          <include name="VerifyAuditTrialReportForDelete"/>
-          <include name="endTestCase"/>
-          <include name="tearDown"/>
-          <include name="DeleteCallbackAnnouncementRecord"/>
+          <include name="AddRejectRecord"/>
+          <include name="VerifyRecordAfterRejection"/>
+          <include name="VerifyRecordApprovedDataSectionafterApproval"/>
+          <include name="AddRevertRecord"/>
+          <include name="VerifyRevertForAddNewRecord"/>
           <include name="afterEachMethod"/>
+          <include name="RejectforAddNewSmsResponseTemplateRecord"/>
+          <include name="VerifyAuditTrailReportForApprove"/>
+          <include name="VerifyAuditTrailDataForAddNewSmsResponseTemplateRecord"/>
+          <include name="VerifyAuditTrailReportForSendForApproval"/>
+          <include name="VerifyApprovedDataSectionWithoutApproval"/>
+          <include name="VerifyAuditTrailReportForReject"/>
+          <include name="VerifyAuditTrailReportForRevert"/>
+          <include name="NavigateToSmsResponseTemplatePage"/>
+          <include name="VerifySendForApprovalForAddNewRecord"/>
+          <include name="ApproveforAddNewSmsResponseTemplateRecord"/>
+          <include name="VerifySendForApprovalForAddNewSmsResponseTemplateRecord"/>
+          <include name="AddNewSmsResponseTemplateRecord"/>
         </methods>
-      </class> <!-- com.tetherfi.test.ivr.CallBackAnnouncementTest -->
+      </class> <!-- com.tetherfi.test.sms.SmsResponseTemplateCreateTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

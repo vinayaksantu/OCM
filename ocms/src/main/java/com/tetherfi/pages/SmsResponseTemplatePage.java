@@ -209,14 +209,23 @@ public class SmsResponseTemplatePage extends BasePage {
     @FindBy(css=".k-grid-update")
     private WebElement saveBtn;
     
-    @FindBy(id="taskComplete")
-    private WebElement taskCompleteBtn;
+    @FindBy(id="sendForApproval")
+    private WebElement sendForApprovalBtn;
+    
+    @FindBy(id="undoChanges")
+    private WebElement revertBtn;
 
     @FindBy(id="MakerComments")
     private WebElement makerComments;
     
+    @FindBy(id="undoChangesMakerComments")
+    private WebElement revertMakerComments;
+    
     @FindBy(id="submitMakerComment")
-    private WebElement taskCompleteBtnAtMakerCommentsPopUp;
+    private WebElement submitMakerComments;
+    
+    @FindBy(id="submitUndoChangesMakerComment")
+    private WebElement revertSubmitMakerComments;
     
     @FindBy(id="Approve")
     private WebElement approveBtn;
@@ -864,7 +873,7 @@ public class SmsResponseTemplatePage extends BasePage {
         Map<String,String> firstRowData=getFirstRowDatafromTable();
         if(firstRowData.get("Transaction").equalsIgnoreCase(Transaction)){
             if(firstRowData.get("Status").equalsIgnoreCase(Status)){
-                if(firstRowData.get("Function").equalsIgnoreCase("SmsResponseTemplate")){
+                if(firstRowData.get("Function").equalsIgnoreCase("SMS Response Template")){
                        if(Transaction.equals("MakerCreate")){
                            Map<String,String> newvalues=new HashMap<>();
                             String[] d=firstRowData.get("New Values").split("\n");
@@ -878,7 +887,7 @@ public class SmsResponseTemplatePage extends BasePage {
                             stat=false;
                        }
                        else{System.out.println("Data mismatch");}
-                }else{System.out.println("Data mismatch:"+firstRowData.get("Function")+"\t"+"RoleManagement");}
+                }else{System.out.println("Data mismatch:"+firstRowData.get("Function")+"\t"+"SMS Response Template");}
             }else{System.out.println("Data mismatch:"+firstRowData.get("Status")+"\t"+Status);}
         }else{System.out.println("Data mismatch:"+firstRowData.get("Transaction")+"\t"+Transaction);}
         return stat;
@@ -937,23 +946,27 @@ public class SmsResponseTemplatePage extends BasePage {
         return map;
 	}
 
-	public boolean verifyTaskCompleteEnabled() {
-        return taskCompleteBtn.isEnabled();
+
+	public void selectRecord() {
+		Map<String,String> map = new HashMap<>();
+		waitUntilWebElementIsVisible(auditGridContent);
+		List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
+		List<WebElement> cols=rows.get(1).findElements(By.tagName("td"));
+		selectWebElement(cols.get(0).findElement(By.id("isEnabled")));
+    }
+	
+	public void sendForAprroval(String comments) throws Exception {
+		selectWebElement(sendForApprovalBtn);
+		enterValueToTxtField(makerComments, comments);
+		selectWebElement(submitMakerComments);		
+	}
+	
+	public void Revert(String comments) throws Exception {
+		selectWebElement(revertBtn);
+		enterValueToTxtField(revertMakerComments,comments);
+		selectWebElement(revertSubmitMakerComments);				
 	}
 
-	public void taskCompleteAction(String comment) throws Exception {
-		selectWebElement(makeSmsResponseTemplateChanges);
-        waitForLoad(driver);
-        selectWebElement(taskCompleteBtn);
-        enterValueToTxtFieldWithoutClear(makerComments,comment);
-        try {
-			Thread.sleep(1000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-        selectWebElement(taskCompleteBtnAtMakerCommentsPopUp);			
-	}
 
 	public boolean verifyStatus(String status) {
 		try {
@@ -972,6 +985,7 @@ public class SmsResponseTemplatePage extends BasePage {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        selectRecord();
         clickOn(approveBtn);
         selectWebElement(checkerReason);
         enterValueToTxtField(checkerReason,comment);
@@ -1017,6 +1031,7 @@ public class SmsResponseTemplatePage extends BasePage {
 	        } catch (InterruptedException e) {
 	            e.printStackTrace();
 	        }
+	        selectRecord();
 	        clickOn(rejectBtn);
 	        selectWebElement(checkerReason);
 	        enterValueToTxtField(checkerReason,comment);
@@ -1126,8 +1141,8 @@ public class SmsResponseTemplatePage extends BasePage {
 		return Status;
 	}
 
-	public boolean verifyTaskCompleteSuccessMessage() {
-        return(getSuccessMessage().contains("Record submission for approval success. Your Request ID is :"));
+	public boolean verifyMessage() {
+        return(getSuccessMessage().contains("Record approved successfully. Request ID :"));
 
 	}
 
@@ -1293,5 +1308,11 @@ public class SmsResponseTemplatePage extends BasePage {
 	        selectWebElement(cancelBtn);
 		}
 
+		
+
+		
+		
+
+		
 	
 }

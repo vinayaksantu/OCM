@@ -1,133 +1,361 @@
-package com.tetherfi.test;
+package com.tetherfi.test.sms;
+
+import java.lang.reflect.Method;
+import java.util.Map;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.TimeoutException;
+import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
 import com.tetherfi.model.user.UserRoleMappingDetails;
-import com.tetherfi.pages.*;
+import com.tetherfi.model.report.ReportDetails;
+import com.tetherfi.pages.HomePage;
+import com.tetherfi.pages.NewUserRoleMappingPage;
+import com.tetherfi.pages.LoginPage;
+import com.tetherfi.pages.OCMHomePage;
+import com.tetherfi.pages.OCMReportsPage;
+import com.tetherfi.pages.SmsPage;
+import com.tetherfi.pages.NewUserRoleMappingPage;
+import com.tetherfi.utility.BrowserFactory;
 import com.tetherfi.utility.ExcelReader;
 import com.tetherfi.utility.PageFactory;
 import com.tetherfi.utility.Screenshot;
-import org.testng.Assert;
-import org.testng.annotations.*;
 
-import java.io.IOException;
-import java.lang.reflect.Method;
-import java.util.Map;
-
-public class NewUserRoleMappingTest extends BaseTest {
-    @BeforeClass
-    public void AddNewAgentTeamManagementRecord() throws Exception {
-        HomePage homePage= PageFactory.createPageInstance(driver,HomePage.class);
+public class NewUserRoleMappingTest {
+	
+	protected WebDriver driver;
+	@BeforeMethod
+    public void NavigateToNewUserRoleMappingPage(Method method) throws Exception {
+        try {
+            PageFactory.reset();
+            BrowserFactory browserFactory = new BrowserFactory();
+            driver = browserFactory.createBrowserInstance(BrowserFactory.BrowserType.CHROME, System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles");
+        }catch (Exception e){
+            PageFactory.reset();
+            driver.close();
+            e.printStackTrace();
+        }
+        System.out.println("Started Executing : "+method.getName());
+        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\LoginData.xlsx";
+        Test t = method.getAnnotation(Test.class);
+        Map<String, String> map;
+        if(t.groups()[0].equalsIgnoreCase("Checker"))
+            map= new ExcelReader(filePath,"Login").getTestData().get(1);
+        else
+            map= new ExcelReader(filePath,"Login").getTestData().get(0);
+        try{driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);}catch (TimeoutException e){e.printStackTrace();driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);}
+        if(map.get("LoginType").equals("Custom")){
+            LoginPage loginPage=PageFactory.createPageInstance(driver,LoginPage.class);
+            Assert.assertTrue(loginPage.isLoginPageDisplayed(),"Login page not loaded");
+            loginPage.login(map.get("Username"),map.get("Password"));
+            Thread.sleep(5000);
+        }
+        HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
         homePage.navigateToOCMPage();
-        OCMHomePage ocmHomePage = PageFactory.createPageInstance(driver,OCMHomePage.class);
-        Assert.assertTrue(ocmHomePage.isOCMHomePageIsDisplayed(),"OCM HOME Page assertion failed");
-        ocmHomePage.navigateToTab("TMAC");
-        TmacPage tmacPage=PageFactory.createPageInstance(driver,TmacPage.class);
-        Assert.assertTrue(tmacPage.isTMACPageDisplayed(),"tmac page assertion failed");
-        tmacPage.navigateToAgentTeamManagementPage();
-        AgentTeamManagementPage agentTeamManagementPage=PageFactory.createPageInstance(driver,AgentTeamManagementPage.class);
-        Assert.assertTrue(agentTeamManagementPage.isAgentTeamManagementPageDisplayed(),"Agent Team  management assertion failed");
-        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\UserRoleMappingData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
-        UserRoleMappingDetails userRoleMappingDetails=new UserRoleMappingDetails(map);
-        agentTeamManagementPage.addNewAgentTeamManagementRecord(userRoleMappingDetails.getLevel(),userRoleMappingDetails.getCountry(),userRoleMappingDetails.getDivision(),userRoleMappingDetails.getDepartment(),userRoleMappingDetails.getTeamName());
-        Assert.assertTrue(agentTeamManagementPage.verifyMessage(),"Add New record assertion failed");
-        driver.navigate().refresh();
-        homePage.navigateToOcmIconImg();
-    }
-    @BeforeMethod
-    public void NavigateToUserRoleMappingPage() throws Exception {
-        HomePage homePage= PageFactory.createPageInstance(driver,HomePage.class);
-        homePage.navigateToOCMPage();
-        OCMHomePage ocmHomePage = PageFactory.createPageInstance(driver,OCMHomePage.class);
-        Assert.assertTrue(ocmHomePage.isOCMHomePageIsDisplayed(),"OCM HOME Page assertion failed");
-        ocmHomePage.navigateToTab("Home");
+        OCMHomePage ocmHomePage = PageFactory.createPageInstance(driver, OCMHomePage.class);
+        Assert.assertTrue(ocmHomePage.isOCMHomePageIsDisplayed(), "OCM HOME Page assertion failed");
         ocmHomePage.navigateToUserRoleMappingPage();
-        NewUserRoleMappingPage userRoleMappingPage=PageFactory.createPageInstance(driver,NewUserRoleMappingPage.class);
-        Assert.assertTrue(userRoleMappingPage.isUserRoleMappingPageDisplayed(),"User role mapping page is displayed");
+        NewUserRoleMappingPage NewUserRoleMappingPage = PageFactory.createPageInstance(driver, NewUserRoleMappingPage.class);
+        Assert.assertTrue(NewUserRoleMappingPage.isUserRoleMappingPageDisplayed(), "User Role Mapping page assertion failed");
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+	}
+	
+	@Test(groups= {"Maker"},priority=1)
+    public void VerifyAddCancelButton() throws Exception {
+    	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\NewUserRoleMappingData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
+	    UserRoleMappingDetails UserRoleMappingDetails = new UserRoleMappingDetails(map);
+        NewUserRoleMappingPage NewUserRoleMappingPage = PageFactory.createPageInstance(driver, NewUserRoleMappingPage.class);
+        Assert.assertTrue(NewUserRoleMappingPage.addCancelButton(UserRoleMappingDetails), "Add cancel button assertion failed");
     }
-    @Test
-    public void AddNewSupervisorUserRoleMappingRecord() throws Exception {
-        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\UserRoleMappingData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
-        UserRoleMappingDetails userRoleMappingDetails = new UserRoleMappingDetails(map);
-
-        NewUserRoleMappingPage userRoleMappingPage=PageFactory.createPageInstance(driver,NewUserRoleMappingPage.class);
-        userRoleMappingPage.addNewUserRoleMappingRecord(userRoleMappingDetails);
-        Assert.assertTrue(userRoleMappingPage.verifyNewRecordCreated(),"Add New record assertion failed");
+	
+	@Test(groups = { "Maker" },priority=2)
+    public void VerifyAddRecordwithoutFirstName() throws Exception {
+    	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\NewUserRoleMappingData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
+	    UserRoleMappingDetails UserRoleMappingDetails = new UserRoleMappingDetails(map);
+        NewUserRoleMappingPage NewUserRoleMappingPage = PageFactory.createPageInstance(driver, NewUserRoleMappingPage.class);
+        NewUserRoleMappingPage.addwithoutFirstName(UserRoleMappingDetails);
+        Assert.assertFalse(NewUserRoleMappingPage.getErrorMsg());
     }
-    @Test(dependsOnMethods = "AddNewSupervisorUserRoleMappingRecord")
-    public void EditSupervisorUserRoleMappingRecord() throws Exception {
-        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\UserRoleMappingData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
-        UserRoleMappingDetails userRoleMappingDetails = new UserRoleMappingDetails(map);
-
-        NewUserRoleMappingPage userRoleMappingPage=PageFactory.createPageInstance(driver,NewUserRoleMappingPage.class);
-        userRoleMappingPage.editNewUserRoleMappingRecord(userRoleMappingDetails);
-        Assert.assertTrue(userRoleMappingPage.verifyRecordUpdated(),"Edit record assertion failed");
+    
+    @Test(groups = { "Maker" },priority=3)
+    public void VerifyAddRecordWithoutLastName() throws Exception {
+    	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\NewUserRoleMappingData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
+	    UserRoleMappingDetails UserRoleMappingDetails = new UserRoleMappingDetails(map);
+        NewUserRoleMappingPage NewUserRoleMappingPage = PageFactory.createPageInstance(driver, NewUserRoleMappingPage.class);
+        NewUserRoleMappingPage.addwithoutLastName(UserRoleMappingDetails);
+        Assert.assertFalse(NewUserRoleMappingPage.getErrorMsg());
     }
-    @Test(dependsOnMethods = "EditSupervisorUserRoleMappingRecord")
-    public void DeleteSupervisorUserRoleMappingRecord() throws Exception {
-        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\UserRoleMappingData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
-        UserRoleMappingDetails userRoleMappingDetails = new UserRoleMappingDetails(map);
-
-        NewUserRoleMappingPage userRoleMappingPage=PageFactory.createPageInstance(driver,NewUserRoleMappingPage.class);
-        userRoleMappingPage.deleteUserRoleMappingRecord(userRoleMappingDetails.getBankUserName(),userRoleMappingDetails.getDeleteReason());
-        Assert.assertTrue(userRoleMappingPage.verifyRecordDeleted(),"Delete record assertion failed");
+    
+    @Test(groups = { "Maker" },priority=4)
+    public void VerifyAddRecordWithoutLanId() throws Exception {
+    	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\NewUserRoleMappingData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
+	    UserRoleMappingDetails UserRoleMappingDetails = new UserRoleMappingDetails(map);
+        NewUserRoleMappingPage NewUserRoleMappingPage = PageFactory.createPageInstance(driver, NewUserRoleMappingPage.class);
+        NewUserRoleMappingPage.addwithoutLanID(UserRoleMappingDetails);
+        Assert.assertFalse(NewUserRoleMappingPage.getErrorMsg());
     }
-    @Test
-    public void AddNewAgentUserRoleMappingRecord() throws Exception {
-        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\UserRoleMappingData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);
-        UserRoleMappingDetails userRoleMappingDetails = new UserRoleMappingDetails(map);
-
-        NewUserRoleMappingPage userRoleMappingPage=PageFactory.createPageInstance(driver,NewUserRoleMappingPage.class);
-        userRoleMappingPage.addNewUserRoleMappingRecord(userRoleMappingDetails);
-        Assert.assertTrue(userRoleMappingPage.verifyNewRecordCreated(),"Add New record assertion failed");
+    
+    @Test(groups = { "Maker" },priority=5)
+    public void VerifyAddRecordWithoutLoginID() throws Exception {
+    	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\NewUserRoleMappingData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
+	    UserRoleMappingDetails UserRoleMappingDetails = new UserRoleMappingDetails(map);
+        NewUserRoleMappingPage NewUserRoleMappingPage = PageFactory.createPageInstance(driver, NewUserRoleMappingPage.class);
+        NewUserRoleMappingPage.addwithoutLoginID(UserRoleMappingDetails);
+        Assert.assertFalse(NewUserRoleMappingPage.getErrorMsg());
     }
-    @Test(dependsOnMethods = "AddNewAgentUserRoleMappingRecord")
-    public void EditAgentUserRoleMappingRecord() throws Exception {
-        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\UserRoleMappingData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(1);
-        UserRoleMappingDetails userRoleMappingDetails = new UserRoleMappingDetails(map);
-
-        NewUserRoleMappingPage userRoleMappingPage=PageFactory.createPageInstance(driver,NewUserRoleMappingPage.class);
-        userRoleMappingPage.editNewUserRoleMappingRecord(userRoleMappingDetails);
-        Assert.assertTrue(userRoleMappingPage.verifyRecordUpdated(),"Edit record assertion failed");
+    
+    @Test(groups = { "Maker" },priority=6)
+    public void VerifyAddRecordWithoutOrgUnit() throws Exception {
+    	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\NewUserRoleMappingData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
+	    UserRoleMappingDetails UserRoleMappingDetails = new UserRoleMappingDetails(map);
+        NewUserRoleMappingPage NewUserRoleMappingPage = PageFactory.createPageInstance(driver, NewUserRoleMappingPage.class);
+        NewUserRoleMappingPage.addwithoutOrgUnit(UserRoleMappingDetails);
+        Assert.assertFalse(NewUserRoleMappingPage.getErrorMsg());
     }
-    @Test(dependsOnMethods = "EditAgentUserRoleMappingRecord")
-    public void DeleteAgentUserRoleMappingRecord() throws Exception {
-        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\UserRoleMappingData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(1);
-        UserRoleMappingDetails userRoleMappingDetails = new UserRoleMappingDetails(map);
-
-        NewUserRoleMappingPage userRoleMappingPage=PageFactory.createPageInstance(driver,NewUserRoleMappingPage.class);
-        userRoleMappingPage.deleteUserRoleMappingRecord(userRoleMappingDetails.getBankUserName(),userRoleMappingDetails.getDeleteReason());
-        Assert.assertTrue(userRoleMappingPage.verifyRecordDeleted(),"Delete record assertion failed");
+    
+    @Test(groups = { "Maker" },priority=7)
+    public void VerifyAddRecordWithoutProfile() throws Exception {
+    	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\NewUserRoleMappingData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
+	    UserRoleMappingDetails UserRoleMappingDetails = new UserRoleMappingDetails(map);
+        NewUserRoleMappingPage NewUserRoleMappingPage = PageFactory.createPageInstance(driver, NewUserRoleMappingPage.class);
+        NewUserRoleMappingPage.addwithoutProfile(UserRoleMappingDetails);
+        Assert.assertFalse(NewUserRoleMappingPage.getErrorMsg());
     }
+    
+    @Test(groups = { "Maker" },priority=8)
+    public void VerifyAddRecordWithoutSupervisor() throws Exception {
+    	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\NewUserRoleMappingData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
+	    UserRoleMappingDetails UserRoleMappingDetails = new UserRoleMappingDetails(map);
+        NewUserRoleMappingPage NewUserRoleMappingPage = PageFactory.createPageInstance(driver, NewUserRoleMappingPage.class);
+        NewUserRoleMappingPage.addwithoutSupervisor(UserRoleMappingDetails);
+        Assert.assertFalse(NewUserRoleMappingPage.getErrorMsg());
+    }
+    
+    @Test(groups = { "Maker" },priority=9)
+    public void VerifyAddRecordWithoutRole() throws Exception {
+    	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\NewUserRoleMappingData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
+	    UserRoleMappingDetails UserRoleMappingDetails = new UserRoleMappingDetails(map);
+        NewUserRoleMappingPage NewUserRoleMappingPage = PageFactory.createPageInstance(driver, NewUserRoleMappingPage.class);
+        NewUserRoleMappingPage.addwithoutRole(UserRoleMappingDetails);
+        Assert.assertFalse(NewUserRoleMappingPage.getErrorMsg());
+    }
+    
+    
+    /*@Test(groups = { "Maker" },priority=6)
+    public void AddRevertRecord() throws Exception {
+		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\NewUserRoleMappingData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
+	    UserRoleMappingDetails UserRoleMappingDetails = new UserRoleMappingDetails(map);
+        NewUserRoleMappingPage NewUserRoleMappingPage = PageFactory.createPageInstance(driver, NewUserRoleMappingPage.class);
+        NewUserRoleMappingPage.addNewNewUserRoleMappingRecord(UserRoleMappingDetails);
+        Assert.assertEquals(NewUserRoleMappingPage.getSuccessMessage(), "Record Created Successfully");
+       }
+	
+	@Test(groups = { "Maker" },priority=7,dependsOnMethods="AddRevertRecord")
+    public void VerifyRevertForAddNewRecord() throws Exception {
+       	NewUserRoleMappingPage NewUserRoleMappingPage = PageFactory.createPageInstance(driver, NewUserRoleMappingPage.class);
+       	NewUserRoleMappingPage.selectNewUserRoleMappingAuditTrailTab();
+       	NewUserRoleMappingPage.selectRecord();
+       	NewUserRoleMappingPage.Revert("revert");
+        Assert.assertTrue(NewUserRoleMappingPage.verifyStatus("Reverted"),"approal status details failed");
+    }
+	
+	@Test(groups= {"Maker"},priority=8,dependsOnMethods="VerifyRevertForAddNewRecord")
+	public void VerifyApprovedDataSectionWithoutApproval() throws Exception {
+		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\NewUserRoleMappingData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
+	    UserRoleMappingDetails UserRoleMappingDetails = new UserRoleMappingDetails(map);
+        NewUserRoleMappingPage NewUserRoleMappingPage = PageFactory.createPageInstance(driver, NewUserRoleMappingPage.class);
+        Assert.assertTrue(NewUserRoleMappingPage.verifyApprovedSectionData(UserRoleMappingDetails));
+	}
+	
+	@Test(groups = { "Maker" },priority=9,dependsOnMethods = "VerifyApprovedDataSectionWithoutApproval")
+    public void VerifyAuditTrailReportForRevert() throws Exception {
+        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\NewUserRoleMappingData.xlsx";
+	    Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);
+	    UserRoleMappingDetails UserRoleMappingDetails = new UserRoleMappingDetails(map);
+	    HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
+	    homePage.navigateToOCMReportsPage();
+	    OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver, OCMReportsPage.class);
+	    String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AuditTrailReportData.xlsx";
+	    Map<String, String> map1 = new ExcelReader(filePath1,"Show").getTestData().get(0);
+	    ReportDetails reportDetails= new ReportDetails(map1);
+	    ocmReportsPage.showReport(reportDetails);
+        Assert.assertTrue(ocmReportsPage.verifyNewUserRoleMappingCreate(UserRoleMappingDetails, "MakerReverted"),"Audit Trail report assertion failed");
+    }
+	@Test(groups = { "Maker" },priority=10)
+    public void AddRejectRecord() throws Exception {
+		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\NewUserRoleMappingData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
+	    UserRoleMappingDetails UserRoleMappingDetails = new UserRoleMappingDetails(map);
+        NewUserRoleMappingPage NewUserRoleMappingPage = PageFactory.createPageInstance(driver, NewUserRoleMappingPage.class);
+        NewUserRoleMappingPage.addNewNewUserRoleMappingRecord(UserRoleMappingDetails);
+        Assert.assertEquals(NewUserRoleMappingPage.getSuccessMessage(), "Record Created Successfully");
+       }
+	
+	@Test(groups = { "Maker" },priority=11,dependsOnMethods="AddRejectRecord")
+    public void VerifySendForApprovalForAddNewRecord() throws Exception {
+       	NewUserRoleMappingPage NewUserRoleMappingPage = PageFactory.createPageInstance(driver, NewUserRoleMappingPage.class);
+       	NewUserRoleMappingPage.selectNewUserRoleMappingAuditTrailTab();
+       	NewUserRoleMappingPage.selectRecord();
+       	NewUserRoleMappingPage.sendForAprroval("sent");
+        Assert.assertTrue(NewUserRoleMappingPage.verifyStatus("Approval Pending"),"approal status details failed");
+    }
+    
+    @Test(groups = { "Checker" },priority=12,dependsOnMethods="VerifySendForApprovalForAddNewRecord")
+    public void RejectforAddNewNewUserRoleMappingRecord() throws Exception{
+        NewUserRoleMappingPage NewUserRoleMappingPage = PageFactory.createPageInstance(driver, NewUserRoleMappingPage.class);
+        NewUserRoleMappingPage.clickonReject("Reject Created");
+        Assert.assertFalse(NewUserRoleMappingPage.verifyMessage(),"Reject record assertion failed");
+        Assert.assertTrue(NewUserRoleMappingPage.verifyReviewAuditTrail("Rejected","Reject Created"));
+    }
+    
+    @Test(groups = { "Checker" },priority=13,dependsOnMethods = "RejectforAddNewNewUserRoleMappingRecord")
+    public void VerifyAuditTrailReportForReject() throws Exception {
+        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\NewUserRoleMappingData.xlsx";
+	    Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
+	    UserRoleMappingDetails UserRoleMappingDetails = new UserRoleMappingDetails(map);
+	    HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
+	    homePage.navigateToOCMReportsPage();
+	    OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver, OCMReportsPage.class);
+	    String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AuditTrailReportData.xlsx";
+	    Map<String, String> map1 = new ExcelReader(filePath1,"Show").getTestData().get(0);
+	    ReportDetails reportDetails= new ReportDetails(map1);
+	    ocmReportsPage.showReport(reportDetails);
+        Assert.assertTrue(ocmReportsPage.verifyNewUserRoleMappingCreate(UserRoleMappingDetails, "CheckerReject"),"Audit Trail report assertion failed");
+    }
+    
+    @Test(groups= {"Maker"},priority=14,dependsOnMethods="VerifyAuditTrailReportForReject")
+    public void VerifyRecordAfterRejection() throws Exception {
+    	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\NewUserRoleMappingData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
+	    UserRoleMappingDetails UserRoleMappingDetails = new UserRoleMappingDetails(map);
+        NewUserRoleMappingPage NewUserRoleMappingPage = PageFactory.createPageInstance(driver, NewUserRoleMappingPage.class);
+        Assert.assertTrue(NewUserRoleMappingPage.verifyApprovedSectionData(UserRoleMappingDetails));
+    }
+	@Test(groups = { "Maker" },priority=15)
+    public void AddNewNewUserRoleMappingRecord() throws Exception {
+		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\NewUserRoleMappingData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
+	    UserRoleMappingDetails UserRoleMappingDetails = new UserRoleMappingDetails(map);
+        NewUserRoleMappingPage NewUserRoleMappingPage = PageFactory.createPageInstance(driver, NewUserRoleMappingPage.class);
+        NewUserRoleMappingPage.addNewNewUserRoleMappingRecord(UserRoleMappingDetails);
+        Assert.assertEquals(NewUserRoleMappingPage.getSuccessMessage(), "Record Created Successfully");
+    }
+	
+	@Test(groups = { "Maker" },priority=16,dependsOnMethods = "AddNewNewUserRoleMappingRecord")
+    public void VerifyAuditTrailReportForCreate() throws Exception {
+		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\NewUserRoleMappingData.xlsx";
+	    Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
+	    UserRoleMappingDetails UserRoleMappingDetails = new UserRoleMappingDetails(map);
+	    HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
+	    homePage.navigateToOCMReportsPage();
+	    OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver, OCMReportsPage.class);
+	    String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AuditTrailReportData.xlsx";
+	    Map<String, String> map1 = new ExcelReader(filePath1,"Show").getTestData().get(0);
+	    ReportDetails reportDetails= new ReportDetails(map1);
+	    ocmReportsPage.showReport(reportDetails);
+        Assert.assertTrue(ocmReportsPage.verifyNewUserRoleMappingCreate(UserRoleMappingDetails, "MakerCreate"),"Audit Trail report assertion failed");
+    }
+    
+    @Test(groups = { "Maker" },priority=17,dependsOnMethods="AddNewNewUserRoleMappingRecord")
+    public void VerifyAuditTrailDataForAddNewNewUserRoleMappingRecord() throws Exception {
+		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\NewUserRoleMappingData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
+	    UserRoleMappingDetails UserRoleMappingDetails = new UserRoleMappingDetails(map);
+        NewUserRoleMappingPage NewUserRoleMappingPage = PageFactory.createPageInstance(driver, NewUserRoleMappingPage.class);
+        NewUserRoleMappingPage.selectNewUserRoleMappingAuditTrailTab();
+        Assert.assertTrue(NewUserRoleMappingPage.verifyAuditTrail(UserRoleMappingDetails, "MakerCreate", "New"), "Audit trail details failed");
+    }
+    
+    @Test(groups = { "Maker" },priority=18,dependsOnMethods="VerifyAuditTrailDataForAddNewNewUserRoleMappingRecord")
+    public void VerifySendForApprovalForAddNewNewUserRoleMappingRecord() throws Exception {
+       	NewUserRoleMappingPage NewUserRoleMappingPage = PageFactory.createPageInstance(driver, NewUserRoleMappingPage.class);
+       	NewUserRoleMappingPage.selectNewUserRoleMappingAuditTrailTab();
+       	NewUserRoleMappingPage.selectRecord();
+       	NewUserRoleMappingPage.sendForAprroval("sent");
+        Assert.assertTrue(NewUserRoleMappingPage.verifyStatus("Approval Pending"),"approal status details failed");
+    }
+    
+    @Test(groups = { "Maker" },priority=19,dependsOnMethods = "VerifySendForApprovalForAddNewNewUserRoleMappingRecord")
+    public void VerifyAuditTrailReportForSendForApproval() throws Exception {
+		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\NewUserRoleMappingData.xlsx";
+	    Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
+	    UserRoleMappingDetails UserRoleMappingDetails = new UserRoleMappingDetails(map);
+	    HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
+	    homePage.navigateToOCMReportsPage();
+	    OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver, OCMReportsPage.class);
+	    String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AuditTrailReportData.xlsx";
+	    Map<String, String> map1 = new ExcelReader(filePath1,"Show").getTestData().get(0);
+	    ReportDetails reportDetails= new ReportDetails(map1);
+	    ocmReportsPage.showReport(reportDetails);
+        Assert.assertTrue(ocmReportsPage.verifyNewUserRoleMappingCreate(UserRoleMappingDetails, "MakerSendToApproval"),"Audit Trail report assertion failed");
+    }
+    
+	@Test(groups = { "Checker" },priority=20,dependsOnMethods="VerifyAuditTrailReportForSendForApproval")
+    public void ApproveforAddNewNewUserRoleMappingRecord() throws Exception{
+       	NewUserRoleMappingPage NewUserRoleMappingPage = PageFactory.createPageInstance(driver, NewUserRoleMappingPage.class);
+       	NewUserRoleMappingPage.clickonApprove("Approve Create");
+        Assert.assertTrue(NewUserRoleMappingPage.verifyMessage());
+        Assert.assertTrue(NewUserRoleMappingPage.verifyReviewAuditTrail("Approved","Approve Create"));
+    }
+    
+    @Test(groups = { "Checker" },priority=21,dependsOnMethods = "ApproveforAddNewNewUserRoleMappingRecord")
+    public void VerifyAuditTrailReportForApprove() throws Exception {
+		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\NewUserRoleMappingData.xlsx";
+	    Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
+	    UserRoleMappingDetails UserRoleMappingDetails = new UserRoleMappingDetails(map);
+	    HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
+	    homePage.navigateToOCMReportsPage();
+	    OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver, OCMReportsPage.class);
+	    String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AuditTrailReportData.xlsx";
+	    Map<String, String> map1 = new ExcelReader(filePath1,"Show").getTestData().get(0);
+	    ReportDetails reportDetails= new ReportDetails(map1);
+	    ocmReportsPage.showReport(reportDetails);
+        Assert.assertTrue(ocmReportsPage.verifyNewUserRoleMappingCreate(UserRoleMappingDetails, "CheckerApprove"),"Audit Trail report assertion failed");
+    }
+    
+    @Test(groups= {"Checker"},priority=22,dependsOnMethods="ApproveforAddNewNewUserRoleMappingRecord")
+    public void VerifyRecordApprovedDataSectionafterApproval()throws Exception{
+    	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\NewUserRoleMappingData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
+	    UserRoleMappingDetails UserRoleMappingDetails = new UserRoleMappingDetails(map);
+        NewUserRoleMappingPage NewUserRoleMappingPage = PageFactory.createPageInstance(driver, NewUserRoleMappingPage.class);
+        Assert.assertTrue(NewUserRoleMappingPage.verifyApprovedSectionDataafterapproval(UserRoleMappingDetails));
+    }
+    
+    @Test(groups = { "Maker" },priority=23,dependsOnMethods="AddNewNewUserRoleMappingRecord")
+    public void AddDuplicateRecord() throws Exception {
+    	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\NewUserRoleMappingData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
+	    UserRoleMappingDetails UserRoleMappingDetails = new UserRoleMappingDetails(map);
+        NewUserRoleMappingPage NewUserRoleMappingPage = PageFactory.createPageInstance(driver, NewUserRoleMappingPage.class);
+        NewUserRoleMappingPage.addNewNewUserRoleMappingRecord(UserRoleMappingDetails);
+        Assert.assertFalse(NewUserRoleMappingPage.getErrorMsg(),"Duplicate assetion failed");
+    }
+    */
     @AfterMethod
-    public void afterEachMethod(Method method) {
+    public void afterEachMethod(Method method){
         Screenshot screenshot=new Screenshot(driver);
-        screenshot.captureScreen(driver,method.getName(),"NewUserRoleMappingTest");
+        screenshot.captureScreen("NewUserRoleMappingCreateTest",method.getName());
         driver.navigate().refresh();
+        HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
+        homePage.userLogout();
+        driver.close();
+        System.out.println("Completed Executing : "+method.getName());
     }
-    @AfterClass
-    public void DeleteAgentTeamManagementRecord() throws Exception {
-        HomePage homePage= PageFactory.createPageInstance(driver,HomePage.class);
-        homePage.navigateToOcmIconImg();
-        homePage.navigateToOCMPage();
-        OCMHomePage ocmHomePage = PageFactory.createPageInstance(driver,OCMHomePage.class);
-        Assert.assertTrue(ocmHomePage.isOCMHomePageIsDisplayed(),"OCM HOME Page assertion failed");
-        ocmHomePage.navigateToTab("TMAC");
-        TmacPage tmacPage=PageFactory.createPageInstance(driver,TmacPage.class);
-        Assert.assertTrue(tmacPage.isTMACPageDisplayed(),"tmac page assertion failed");
-        tmacPage.navigateToAgentTeamManagementPage();
-        AgentTeamManagementPage agentTeamManagementPage=PageFactory.createPageInstance(driver,AgentTeamManagementPage.class);
-        Assert.assertTrue(agentTeamManagementPage.isAgentTeamManagementPageDisplayed(),"Agent Team  management assertion failed");
-        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\UserRoleMappingData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
-        UserRoleMappingDetails userRoleMappingDetails = new UserRoleMappingDetails(map);
-        agentTeamManagementPage.deleteAgentTeamManagementRecord(userRoleMappingDetails.getTeamName(),userRoleMappingDetails.getDeleteReason());
-        Assert.assertTrue(agentTeamManagementPage.verifyMessage(),"delete record assertion failed");
-        driver.navigate().refresh();
-    }
+
 }
