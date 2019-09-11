@@ -15,6 +15,7 @@ public class UserRoleMappingDetails {
     private String role;
     private String modifyReason;
     private String deleteReason;
+    private String UpdatedFirstName;
 
     public UserRoleMappingDetails(Map<String,String> map){
         firstname=readFirstName(map);
@@ -27,9 +28,15 @@ public class UserRoleMappingDetails {
         supervisor=readSupervisor(map);
         modifyReason=readModifyReason(map);
         deleteReason=readDeleteReason(map);
+        UpdatedFirstName=readUpdatedFirstName(map);
     }
 
-    private String readRole(Map<String, String> map) {
+    private String readUpdatedFirstName(Map<String, String> map) {
+    	String value=map.get("Updated First Name");
+        return value;
+	}
+
+	private String readRole(Map<String, String> map) {
         String value=map.get("Role");
         if(value==null||value.equalsIgnoreCase("random.str")){
             value= RandomStringUtils.randomAlphabetic(10);
@@ -141,5 +148,9 @@ public class UserRoleMappingDetails {
 	public String getDepartment() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	public String getUpdatedFirstname() {
+	return UpdatedFirstName;
 	}
 }

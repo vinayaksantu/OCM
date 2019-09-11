@@ -1,283 +1,1067 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="23" passed="14" failed="3" skipped="6">
+<testng-results ignored="0" total="27" passed="0" failed="0" skipped="27">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2019-09-07T13:36:38 IST" name="Default suite" finished-at="2019-09-07T13:48:11 IST" duration-ms="692728">
+  <suite started-at="2019-09-11T20:18:22 IST" name="Default suite" finished-at="2019-09-11T20:21:22 IST" duration-ms="179797">
     <groups>
       <group name="Checker">
-        <method signature="SmsResponseTemplateCreateTest.RejectforAddNewSmsResponseTemplateRecord()[pri:12, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9]" name="RejectforAddNewSmsResponseTemplateRecord" class="com.tetherfi.test.sms.SmsResponseTemplateCreateTest"/>
-        <method signature="SmsResponseTemplateCreateTest.VerifyAuditTrailReportForReject()[pri:13, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9]" name="VerifyAuditTrailReportForReject" class="com.tetherfi.test.sms.SmsResponseTemplateCreateTest"/>
-        <method signature="SmsResponseTemplateCreateTest.ApproveforAddNewSmsResponseTemplateRecord()[pri:20, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9]" name="ApproveforAddNewSmsResponseTemplateRecord" class="com.tetherfi.test.sms.SmsResponseTemplateCreateTest"/>
-        <method signature="SmsResponseTemplateCreateTest.VerifyAuditTrailReportForApprove()[pri:21, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9]" name="VerifyAuditTrailReportForApprove" class="com.tetherfi.test.sms.SmsResponseTemplateCreateTest"/>
-        <method signature="SmsResponseTemplateCreateTest.VerifyRecordApprovedDataSectionafterApproval()[pri:22, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9]" name="VerifyRecordApprovedDataSectionafterApproval" class="com.tetherfi.test.sms.SmsResponseTemplateCreateTest"/>
+        <method signature="NewUserRoleMappingTest.ApproveforAddNewNewUserRoleMappingRecord()[pri:24, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0]" name="ApproveforAddNewNewUserRoleMappingRecord" class="com.tetherfi.test.NewUserRoleMappingTest"/>
+        <method signature="NewUserRoleMappingTest.VerifyAuditTrailReportForApprove()[pri:25, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0]" name="VerifyAuditTrailReportForApprove" class="com.tetherfi.test.NewUserRoleMappingTest"/>
+        <method signature="NewUserRoleMappingTest.VerifyRecordApprovedDataSectionafterApproval()[pri:26, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0]" name="VerifyRecordApprovedDataSectionafterApproval" class="com.tetherfi.test.NewUserRoleMappingTest"/>
+        <method signature="NewUserRoleMappingTest.RejectforAddNewNewUserRoleMappingRecord()[pri:16, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0]" name="RejectforAddNewNewUserRoleMappingRecord" class="com.tetherfi.test.NewUserRoleMappingTest"/>
+        <method signature="NewUserRoleMappingTest.VerifyAuditTrailReportForReject()[pri:17, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0]" name="VerifyAuditTrailReportForReject" class="com.tetherfi.test.NewUserRoleMappingTest"/>
       </group> <!-- Checker -->
       <group name="Maker">
-        <method signature="SmsResponseTemplateCreateTest.AddNewSmsResponseTemplateRecord()[pri:15, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9]" name="AddNewSmsResponseTemplateRecord" class="com.tetherfi.test.sms.SmsResponseTemplateCreateTest"/>
-        <method signature="SmsResponseTemplateCreateTest.AddDuplicateRecord()[pri:23, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9]" name="AddDuplicateRecord" class="com.tetherfi.test.sms.SmsResponseTemplateCreateTest"/>
-        <method signature="SmsResponseTemplateCreateTest.AddRejectRecord()[pri:10, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9]" name="AddRejectRecord" class="com.tetherfi.test.sms.SmsResponseTemplateCreateTest"/>
-        <method signature="SmsResponseTemplateCreateTest.AddRevertRecord()[pri:6, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9]" name="AddRevertRecord" class="com.tetherfi.test.sms.SmsResponseTemplateCreateTest"/>
-        <method signature="SmsResponseTemplateCreateTest.VerifyAddCancelButton()[pri:1, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9]" name="VerifyAddCancelButton" class="com.tetherfi.test.sms.SmsResponseTemplateCreateTest"/>
-        <method signature="SmsResponseTemplateCreateTest.VerifyAddRecordWithoutEnable()[pri:4, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9]" name="VerifyAddRecordWithoutEnable" class="com.tetherfi.test.sms.SmsResponseTemplateCreateTest"/>
-        <method signature="SmsResponseTemplateCreateTest.VerifyAddRecordWithoutICOMTemplateID()[pri:5, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9]" name="VerifyAddRecordWithoutICOMTemplateID" class="com.tetherfi.test.sms.SmsResponseTemplateCreateTest"/>
-        <method signature="SmsResponseTemplateCreateTest.VerifyAddRecordWithoutIntent()[pri:3, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9]" name="VerifyAddRecordWithoutIntent" class="com.tetherfi.test.sms.SmsResponseTemplateCreateTest"/>
-        <method signature="SmsResponseTemplateCreateTest.VerifyAddRecordwithoutText()[pri:2, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9]" name="VerifyAddRecordwithoutText" class="com.tetherfi.test.sms.SmsResponseTemplateCreateTest"/>
-        <method signature="SmsResponseTemplateCreateTest.VerifyAuditTrailDataForAddNewSmsResponseTemplateRecord()[pri:17, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9]" name="VerifyAuditTrailDataForAddNewSmsResponseTemplateRecord" class="com.tetherfi.test.sms.SmsResponseTemplateCreateTest"/>
-        <method signature="SmsResponseTemplateCreateTest.VerifyAuditTrailReportForCreate()[pri:16, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9]" name="VerifyAuditTrailReportForCreate" class="com.tetherfi.test.sms.SmsResponseTemplateCreateTest"/>
-        <method signature="SmsResponseTemplateCreateTest.VerifyRevertForAddNewRecord()[pri:7, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9]" name="VerifyRevertForAddNewRecord" class="com.tetherfi.test.sms.SmsResponseTemplateCreateTest"/>
-        <method signature="SmsResponseTemplateCreateTest.VerifyApprovedDataSectionWithoutApproval()[pri:8, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9]" name="VerifyApprovedDataSectionWithoutApproval" class="com.tetherfi.test.sms.SmsResponseTemplateCreateTest"/>
-        <method signature="SmsResponseTemplateCreateTest.VerifyAuditTrailReportForRevert()[pri:9, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9]" name="VerifyAuditTrailReportForRevert" class="com.tetherfi.test.sms.SmsResponseTemplateCreateTest"/>
-        <method signature="SmsResponseTemplateCreateTest.VerifySendForApprovalForAddNewRecord()[pri:11, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9]" name="VerifySendForApprovalForAddNewRecord" class="com.tetherfi.test.sms.SmsResponseTemplateCreateTest"/>
-        <method signature="SmsResponseTemplateCreateTest.VerifyRecordAfterRejection()[pri:14, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9]" name="VerifyRecordAfterRejection" class="com.tetherfi.test.sms.SmsResponseTemplateCreateTest"/>
-        <method signature="SmsResponseTemplateCreateTest.VerifySendForApprovalForAddNewSmsResponseTemplateRecord()[pri:18, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9]" name="VerifySendForApprovalForAddNewSmsResponseTemplateRecord" class="com.tetherfi.test.sms.SmsResponseTemplateCreateTest"/>
-        <method signature="SmsResponseTemplateCreateTest.VerifyAuditTrailReportForSendForApproval()[pri:19, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9]" name="VerifyAuditTrailReportForSendForApproval" class="com.tetherfi.test.sms.SmsResponseTemplateCreateTest"/>
+        <method signature="NewUserRoleMappingTest.AddNewNewUserRoleMappingRecord()[pri:19, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0]" name="AddNewNewUserRoleMappingRecord" class="com.tetherfi.test.NewUserRoleMappingTest"/>
+        <method signature="NewUserRoleMappingTest.AddDuplicateRecord()[pri:27, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0]" name="AddDuplicateRecord" class="com.tetherfi.test.NewUserRoleMappingTest"/>
+        <method signature="NewUserRoleMappingTest.AddRejectRecord()[pri:14, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0]" name="AddRejectRecord" class="com.tetherfi.test.NewUserRoleMappingTest"/>
+        <method signature="NewUserRoleMappingTest.AddRevertRecord()[pri:10, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0]" name="AddRevertRecord" class="com.tetherfi.test.NewUserRoleMappingTest"/>
+        <method signature="NewUserRoleMappingTest.VerifyAddCancelButton()[pri:1, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0]" name="VerifyAddCancelButton" class="com.tetherfi.test.NewUserRoleMappingTest"/>
+        <method signature="NewUserRoleMappingTest.VerifyAddRecordWithoutLanId()[pri:4, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0]" name="VerifyAddRecordWithoutLanId" class="com.tetherfi.test.NewUserRoleMappingTest"/>
+        <method signature="NewUserRoleMappingTest.VerifyAddRecordWithoutLastName()[pri:3, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0]" name="VerifyAddRecordWithoutLastName" class="com.tetherfi.test.NewUserRoleMappingTest"/>
+        <method signature="NewUserRoleMappingTest.VerifyAddRecordWithoutLoginID()[pri:5, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0]" name="VerifyAddRecordWithoutLoginID" class="com.tetherfi.test.NewUserRoleMappingTest"/>
+        <method signature="NewUserRoleMappingTest.VerifyAddRecordWithoutOrgUnit()[pri:6, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0]" name="VerifyAddRecordWithoutOrgUnit" class="com.tetherfi.test.NewUserRoleMappingTest"/>
+        <method signature="NewUserRoleMappingTest.VerifyAddRecordWithoutProfile()[pri:7, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0]" name="VerifyAddRecordWithoutProfile" class="com.tetherfi.test.NewUserRoleMappingTest"/>
+        <method signature="NewUserRoleMappingTest.VerifyAddRecordWithoutRole()[pri:9, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0]" name="VerifyAddRecordWithoutRole" class="com.tetherfi.test.NewUserRoleMappingTest"/>
+        <method signature="NewUserRoleMappingTest.VerifyAddRecordWithoutSupervisor()[pri:8, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0]" name="VerifyAddRecordWithoutSupervisor" class="com.tetherfi.test.NewUserRoleMappingTest"/>
+        <method signature="NewUserRoleMappingTest.VerifyAddRecordwithoutFirstName()[pri:2, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0]" name="VerifyAddRecordwithoutFirstName" class="com.tetherfi.test.NewUserRoleMappingTest"/>
+        <method signature="NewUserRoleMappingTest.VerifyAuditTrailDataForAddNewNewUserRoleMappingRecord()[pri:21, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0]" name="VerifyAuditTrailDataForAddNewNewUserRoleMappingRecord" class="com.tetherfi.test.NewUserRoleMappingTest"/>
+        <method signature="NewUserRoleMappingTest.VerifyAuditTrailReportForCreate()[pri:20, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0]" name="VerifyAuditTrailReportForCreate" class="com.tetherfi.test.NewUserRoleMappingTest"/>
+        <method signature="NewUserRoleMappingTest.VerifyRevertForAddNewRecord()[pri:11, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0]" name="VerifyRevertForAddNewRecord" class="com.tetherfi.test.NewUserRoleMappingTest"/>
+        <method signature="NewUserRoleMappingTest.VerifyApprovedDataSectionWithoutApproval()[pri:12, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0]" name="VerifyApprovedDataSectionWithoutApproval" class="com.tetherfi.test.NewUserRoleMappingTest"/>
+        <method signature="NewUserRoleMappingTest.VerifyAuditTrailReportForRevert()[pri:13, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0]" name="VerifyAuditTrailReportForRevert" class="com.tetherfi.test.NewUserRoleMappingTest"/>
+        <method signature="NewUserRoleMappingTest.VerifySendForApprovalForAddNewNewUserRoleMappingRecord()[pri:22, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0]" name="VerifySendForApprovalForAddNewNewUserRoleMappingRecord" class="com.tetherfi.test.NewUserRoleMappingTest"/>
+        <method signature="NewUserRoleMappingTest.VerifyAuditTrailReportForSendForApproval()[pri:23, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0]" name="VerifyAuditTrailReportForSendForApproval" class="com.tetherfi.test.NewUserRoleMappingTest"/>
+        <method signature="NewUserRoleMappingTest.VerifySendForApprovalForAddNewRecord()[pri:15, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0]" name="VerifySendForApprovalForAddNewRecord" class="com.tetherfi.test.NewUserRoleMappingTest"/>
+        <method signature="NewUserRoleMappingTest.VerifyRecordAfterRejection()[pri:18, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0]" name="VerifyRecordAfterRejection" class="com.tetherfi.test.NewUserRoleMappingTest"/>
       </group> <!-- Maker -->
     </groups>
-    <test started-at="2019-09-07T13:36:38 IST" name="Default test" finished-at="2019-09-07T13:48:11 IST" duration-ms="692728">
-      <class name="com.tetherfi.test.sms.SmsResponseTemplateCreateTest">
-        <test-method is-config="true" signature="NavigateToSmsResponseTemplatePage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9]" started-at="2019-09-07T13:36:38 IST" name="NavigateToSmsResponseTemplatePage" finished-at="2019-09-07T13:37:09 IST" duration-ms="30639" status="PASS">
+    <test started-at="2019-09-11T20:18:22 IST" name="Default test" finished-at="2019-09-11T20:21:22 IST" duration-ms="179797">
+      <class name="com.tetherfi.test.NewUserRoleMappingTest">
+        <test-method is-config="true" signature="NavigateToNewUserRoleMappingPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0]" started-at="2019-09-11T20:18:22 IST" name="NavigateToNewUserRoleMappingPage" finished-at="2019-09-11T20:21:21 IST" duration-ms="179288" status="FAIL">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.sms.SmsResponseTemplateCreateTest.VerifyAddCancelButton() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.NewUserRoleMappingTest.VerifyAddCancelButton() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
+          <exception class="org.openqa.selenium.NoSuchWindowException">
+            <message>
+              <![CDATA[no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=76.0.3809.132)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'ADMIN', ip: '192.168.0.102', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '9.0.4'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 76.0.3809.132, chrome: {chromedriverVersion: 76.0.3809.68 (420c9498db8ce..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:49408}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 2cf86c18ba4e81a98bc5b65e976df201
+*** Element info: {Using=id, value=login-page}]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=76.0.3809.132)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'ADMIN', ip: '192.168.0.102', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '9.0.4'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 76.0.3809.132, chrome: {chromedriverVersion: 76.0.3809.68 (420c9498db8ce..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:49408}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 2cf86c18ba4e81a98bc5b65e976df201
+*** Element info: {Using=id, value=login-page}
+at jdk.internal.reflect.GeneratedConstructorAccessor22.newInstance(Unknown Source)
+at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+at java.base/java.lang.reflect.Constructor.newInstance(Unknown Source)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:372)
+at org.openqa.selenium.By$ById.findElement(By.java:188)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+at com.sun.proxy.$Proxy12.isEnabled(Unknown Source)
+at com.tetherfi.pages.LoginPage.isLoginPageDisplayed(LoginPage.java:34)
+at com.tetherfi.test.NewUserRoleMappingTest.NavigateToNewUserRoleMappingPage(NewUserRoleMappingTest.java:51)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:62)
+at org.testng.internal.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:340)
+at org.testng.internal.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:294)
+at org.testng.internal.TestInvoker.runConfigMethods(TestInvoker.java:683)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:510)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchWindowException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- NavigateToSmsResponseTemplatePage -->
-        <test-method signature="VerifyAddCancelButton()[pri:1, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9]" started-at="2019-09-07T13:37:09 IST" name="VerifyAddCancelButton" finished-at="2019-09-07T13:37:11 IST" duration-ms="2245" status="PASS">
+        </test-method> <!-- NavigateToNewUserRoleMappingPage -->
+        <test-method signature="VerifyAddCancelButton()[pri:1, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0]" started-at="2019-09-11T20:21:21 IST" name="VerifyAddCancelButton" finished-at="2019-09-11T20:21:21 IST" duration-ms="0" status="SKIP">
+          <exception class="org.openqa.selenium.NoSuchWindowException">
+            <message>
+              <![CDATA[no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=76.0.3809.132)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'ADMIN', ip: '192.168.0.102', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '9.0.4'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 76.0.3809.132, chrome: {chromedriverVersion: 76.0.3809.68 (420c9498db8ce..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:49408}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 2cf86c18ba4e81a98bc5b65e976df201
+*** Element info: {Using=id, value=login-page}]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=76.0.3809.132)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'ADMIN', ip: '192.168.0.102', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '9.0.4'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 76.0.3809.132, chrome: {chromedriverVersion: 76.0.3809.68 (420c9498db8ce..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:49408}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 2cf86c18ba4e81a98bc5b65e976df201
+*** Element info: {Using=id, value=login-page}
+at jdk.internal.reflect.GeneratedConstructorAccessor22.newInstance(Unknown Source)
+at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+at java.base/java.lang.reflect.Constructor.newInstance(Unknown Source)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:372)
+at org.openqa.selenium.By$ById.findElement(By.java:188)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+at com.sun.proxy.$Proxy12.isEnabled(Unknown Source)
+at com.tetherfi.pages.LoginPage.isLoginPageDisplayed(LoginPage.java:34)
+at com.tetherfi.test.NewUserRoleMappingTest.NavigateToNewUserRoleMappingPage(NewUserRoleMappingTest.java:51)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:62)
+at org.testng.internal.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:340)
+at org.testng.internal.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:294)
+at org.testng.internal.TestInvoker.runConfigMethods(TestInvoker.java:683)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:510)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchWindowException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- VerifyAddCancelButton -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9]" started-at="2019-09-07T13:37:11 IST" name="afterEachMethod" finished-at="2019-09-07T13:37:15 IST" duration-ms="3773" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.sms.SmsResponseTemplateCreateTest.VerifyAddCancelButton() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0]" started-at="2019-09-11T20:21:21 IST" name="afterEachMethod" finished-at="1970-01-01T05:30:00 IST" duration-ms="-1568213481829" status="SKIP">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="NavigateToSmsResponseTemplatePage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9]" started-at="2019-09-07T13:37:15 IST" name="NavigateToSmsResponseTemplatePage" finished-at="2019-09-07T13:37:39 IST" duration-ms="24402" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.sms.SmsResponseTemplateCreateTest.VerifyAddRecordwithoutText() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
+        <test-method is-config="true" signature="NavigateToNewUserRoleMappingPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0]" started-at="2019-09-11T20:21:21 IST" name="NavigateToNewUserRoleMappingPage" finished-at="1970-01-01T05:30:00 IST" duration-ms="-1568213481842" status="SKIP">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- NavigateToSmsResponseTemplatePage -->
-        <test-method signature="VerifyAddRecordwithoutText()[pri:2, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9]" started-at="2019-09-07T13:37:39 IST" name="VerifyAddRecordwithoutText" finished-at="2019-09-07T13:37:44 IST" duration-ms="5027" status="PASS">
+        </test-method> <!-- NavigateToNewUserRoleMappingPage -->
+        <test-method signature="VerifyAddRecordwithoutFirstName()[pri:2, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0]" started-at="2019-09-11T20:21:21 IST" name="VerifyAddRecordwithoutFirstName" finished-at="2019-09-11T20:21:21 IST" duration-ms="0" status="SKIP">
+          <exception class="org.openqa.selenium.NoSuchWindowException">
+            <message>
+              <![CDATA[no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=76.0.3809.132)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'ADMIN', ip: '192.168.0.102', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '9.0.4'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 76.0.3809.132, chrome: {chromedriverVersion: 76.0.3809.68 (420c9498db8ce..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:49408}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 2cf86c18ba4e81a98bc5b65e976df201
+*** Element info: {Using=id, value=login-page}]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=76.0.3809.132)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'ADMIN', ip: '192.168.0.102', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '9.0.4'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 76.0.3809.132, chrome: {chromedriverVersion: 76.0.3809.68 (420c9498db8ce..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:49408}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 2cf86c18ba4e81a98bc5b65e976df201
+*** Element info: {Using=id, value=login-page}
+at jdk.internal.reflect.GeneratedConstructorAccessor22.newInstance(Unknown Source)
+at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+at java.base/java.lang.reflect.Constructor.newInstance(Unknown Source)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:372)
+at org.openqa.selenium.By$ById.findElement(By.java:188)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+at com.sun.proxy.$Proxy12.isEnabled(Unknown Source)
+at com.tetherfi.pages.LoginPage.isLoginPageDisplayed(LoginPage.java:34)
+at com.tetherfi.test.NewUserRoleMappingTest.NavigateToNewUserRoleMappingPage(NewUserRoleMappingTest.java:51)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:62)
+at org.testng.internal.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:340)
+at org.testng.internal.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:294)
+at org.testng.internal.TestInvoker.runConfigMethods(TestInvoker.java:683)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:510)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchWindowException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- VerifyAddRecordwithoutText -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9]" started-at="2019-09-07T13:37:44 IST" name="afterEachMethod" finished-at="2019-09-07T13:37:47 IST" duration-ms="3480" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.sms.SmsResponseTemplateCreateTest.VerifyAddRecordwithoutText() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="NavigateToSmsResponseTemplatePage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9]" started-at="2019-09-07T13:37:47 IST" name="NavigateToSmsResponseTemplatePage" finished-at="2019-09-07T13:38:14 IST" duration-ms="26977" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.sms.SmsResponseTemplateCreateTest.VerifyAddRecordWithoutIntent() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToSmsResponseTemplatePage -->
-        <test-method signature="VerifyAddRecordWithoutIntent()[pri:3, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9]" started-at="2019-09-07T13:38:14 IST" name="VerifyAddRecordWithoutIntent" finished-at="2019-09-07T13:38:20 IST" duration-ms="5581" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- VerifyAddRecordWithoutIntent -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9]" started-at="2019-09-07T13:38:20 IST" name="afterEachMethod" finished-at="2019-09-07T13:38:23 IST" duration-ms="3206" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.sms.SmsResponseTemplateCreateTest.VerifyAddRecordWithoutIntent() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="NavigateToSmsResponseTemplatePage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9]" started-at="2019-09-07T13:38:23 IST" name="NavigateToSmsResponseTemplatePage" finished-at="2019-09-07T13:38:49 IST" duration-ms="25925" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.sms.SmsResponseTemplateCreateTest.VerifyAddRecordWithoutEnable() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToSmsResponseTemplatePage -->
-        <test-method signature="VerifyAddRecordWithoutEnable()[pri:4, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9]" started-at="2019-09-07T13:38:49 IST" name="VerifyAddRecordWithoutEnable" finished-at="2019-09-07T13:38:54 IST" duration-ms="4745" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- VerifyAddRecordWithoutEnable -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9]" started-at="2019-09-07T13:38:54 IST" name="afterEachMethod" finished-at="2019-09-07T13:38:57 IST" duration-ms="2852" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.sms.SmsResponseTemplateCreateTest.VerifyAddRecordWithoutEnable() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="NavigateToSmsResponseTemplatePage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9]" started-at="2019-09-07T13:38:57 IST" name="NavigateToSmsResponseTemplatePage" finished-at="2019-09-07T13:39:21 IST" duration-ms="24470" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.sms.SmsResponseTemplateCreateTest.VerifyAddRecordWithoutICOMTemplateID() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToSmsResponseTemplatePage -->
-        <test-method signature="VerifyAddRecordWithoutICOMTemplateID()[pri:5, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9]" started-at="2019-09-07T13:39:21 IST" name="VerifyAddRecordWithoutICOMTemplateID" finished-at="2019-09-07T13:39:27 IST" duration-ms="5530" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- VerifyAddRecordWithoutICOMTemplateID -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9]" started-at="2019-09-07T13:39:27 IST" name="afterEachMethod" finished-at="2019-09-07T13:39:32 IST" duration-ms="5116" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.sms.SmsResponseTemplateCreateTest.VerifyAddRecordWithoutICOMTemplateID() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
+        </test-method> <!-- VerifyAddRecordwithoutFirstName -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0]" started-at="2019-09-11T20:21:21 IST" name="afterEachMethod" finished-at="1970-01-01T05:30:00 IST" duration-ms="-1568213481860" status="SKIP">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="NavigateToSmsResponseTemplatePage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9]" started-at="2019-09-07T13:39:32 IST" name="NavigateToSmsResponseTemplatePage" finished-at="2019-09-07T13:39:57 IST" duration-ms="25058" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.sms.SmsResponseTemplateCreateTest.AddRevertRecord() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
+        <test-method is-config="true" signature="NavigateToNewUserRoleMappingPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0]" started-at="2019-09-11T20:21:21 IST" name="NavigateToNewUserRoleMappingPage" finished-at="1970-01-01T05:30:00 IST" duration-ms="-1568213481867" status="SKIP">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- NavigateToSmsResponseTemplatePage -->
-        <test-method signature="AddRevertRecord()[pri:6, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9]" started-at="2019-09-07T13:39:57 IST" name="AddRevertRecord" finished-at="2019-09-07T13:40:04 IST" duration-ms="6906" status="PASS">
+        </test-method> <!-- NavigateToNewUserRoleMappingPage -->
+        <test-method signature="VerifyAddRecordWithoutLastName()[pri:3, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0]" started-at="2019-09-11T20:21:21 IST" name="VerifyAddRecordWithoutLastName" finished-at="2019-09-11T20:21:21 IST" duration-ms="0" status="SKIP">
+          <exception class="org.openqa.selenium.NoSuchWindowException">
+            <message>
+              <![CDATA[no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=76.0.3809.132)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'ADMIN', ip: '192.168.0.102', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '9.0.4'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 76.0.3809.132, chrome: {chromedriverVersion: 76.0.3809.68 (420c9498db8ce..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:49408}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 2cf86c18ba4e81a98bc5b65e976df201
+*** Element info: {Using=id, value=login-page}]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=76.0.3809.132)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'ADMIN', ip: '192.168.0.102', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '9.0.4'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 76.0.3809.132, chrome: {chromedriverVersion: 76.0.3809.68 (420c9498db8ce..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:49408}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 2cf86c18ba4e81a98bc5b65e976df201
+*** Element info: {Using=id, value=login-page}
+at jdk.internal.reflect.GeneratedConstructorAccessor22.newInstance(Unknown Source)
+at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+at java.base/java.lang.reflect.Constructor.newInstance(Unknown Source)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:372)
+at org.openqa.selenium.By$ById.findElement(By.java:188)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+at com.sun.proxy.$Proxy12.isEnabled(Unknown Source)
+at com.tetherfi.pages.LoginPage.isLoginPageDisplayed(LoginPage.java:34)
+at com.tetherfi.test.NewUserRoleMappingTest.NavigateToNewUserRoleMappingPage(NewUserRoleMappingTest.java:51)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:62)
+at org.testng.internal.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:340)
+at org.testng.internal.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:294)
+at org.testng.internal.TestInvoker.runConfigMethods(TestInvoker.java:683)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:510)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchWindowException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyAddRecordWithoutLastName -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0]" started-at="2019-09-11T20:21:21 IST" name="afterEachMethod" finished-at="1970-01-01T05:30:00 IST" duration-ms="-1568213481880" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="NavigateToNewUserRoleMappingPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0]" started-at="2019-09-11T20:21:21 IST" name="NavigateToNewUserRoleMappingPage" finished-at="1970-01-01T05:30:00 IST" duration-ms="-1568213481887" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToNewUserRoleMappingPage -->
+        <test-method signature="VerifyAddRecordWithoutLanId()[pri:4, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0]" started-at="2019-09-11T20:21:21 IST" name="VerifyAddRecordWithoutLanId" finished-at="2019-09-11T20:21:21 IST" duration-ms="0" status="SKIP">
+          <exception class="org.openqa.selenium.NoSuchWindowException">
+            <message>
+              <![CDATA[no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=76.0.3809.132)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'ADMIN', ip: '192.168.0.102', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '9.0.4'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 76.0.3809.132, chrome: {chromedriverVersion: 76.0.3809.68 (420c9498db8ce..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:49408}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 2cf86c18ba4e81a98bc5b65e976df201
+*** Element info: {Using=id, value=login-page}]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=76.0.3809.132)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'ADMIN', ip: '192.168.0.102', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '9.0.4'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 76.0.3809.132, chrome: {chromedriverVersion: 76.0.3809.68 (420c9498db8ce..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:49408}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 2cf86c18ba4e81a98bc5b65e976df201
+*** Element info: {Using=id, value=login-page}
+at jdk.internal.reflect.GeneratedConstructorAccessor22.newInstance(Unknown Source)
+at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+at java.base/java.lang.reflect.Constructor.newInstance(Unknown Source)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:372)
+at org.openqa.selenium.By$ById.findElement(By.java:188)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+at com.sun.proxy.$Proxy12.isEnabled(Unknown Source)
+at com.tetherfi.pages.LoginPage.isLoginPageDisplayed(LoginPage.java:34)
+at com.tetherfi.test.NewUserRoleMappingTest.NavigateToNewUserRoleMappingPage(NewUserRoleMappingTest.java:51)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:62)
+at org.testng.internal.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:340)
+at org.testng.internal.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:294)
+at org.testng.internal.TestInvoker.runConfigMethods(TestInvoker.java:683)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:510)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchWindowException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyAddRecordWithoutLanId -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0]" started-at="2019-09-11T20:21:21 IST" name="afterEachMethod" finished-at="1970-01-01T05:30:00 IST" duration-ms="-1568213481902" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="NavigateToNewUserRoleMappingPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0]" started-at="2019-09-11T20:21:21 IST" name="NavigateToNewUserRoleMappingPage" finished-at="1970-01-01T05:30:00 IST" duration-ms="-1568213481905" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToNewUserRoleMappingPage -->
+        <test-method signature="VerifyAddRecordWithoutLoginID()[pri:5, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0]" started-at="2019-09-11T20:21:21 IST" name="VerifyAddRecordWithoutLoginID" finished-at="2019-09-11T20:21:21 IST" duration-ms="0" status="SKIP">
+          <exception class="org.openqa.selenium.NoSuchWindowException">
+            <message>
+              <![CDATA[no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=76.0.3809.132)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'ADMIN', ip: '192.168.0.102', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '9.0.4'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 76.0.3809.132, chrome: {chromedriverVersion: 76.0.3809.68 (420c9498db8ce..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:49408}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 2cf86c18ba4e81a98bc5b65e976df201
+*** Element info: {Using=id, value=login-page}]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=76.0.3809.132)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'ADMIN', ip: '192.168.0.102', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '9.0.4'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 76.0.3809.132, chrome: {chromedriverVersion: 76.0.3809.68 (420c9498db8ce..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:49408}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 2cf86c18ba4e81a98bc5b65e976df201
+*** Element info: {Using=id, value=login-page}
+at jdk.internal.reflect.GeneratedConstructorAccessor22.newInstance(Unknown Source)
+at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+at java.base/java.lang.reflect.Constructor.newInstance(Unknown Source)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:372)
+at org.openqa.selenium.By$ById.findElement(By.java:188)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+at com.sun.proxy.$Proxy12.isEnabled(Unknown Source)
+at com.tetherfi.pages.LoginPage.isLoginPageDisplayed(LoginPage.java:34)
+at com.tetherfi.test.NewUserRoleMappingTest.NavigateToNewUserRoleMappingPage(NewUserRoleMappingTest.java:51)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:62)
+at org.testng.internal.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:340)
+at org.testng.internal.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:294)
+at org.testng.internal.TestInvoker.runConfigMethods(TestInvoker.java:683)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:510)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchWindowException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyAddRecordWithoutLoginID -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0]" started-at="2019-09-11T20:21:21 IST" name="afterEachMethod" finished-at="1970-01-01T05:30:00 IST" duration-ms="-1568213481936" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="NavigateToNewUserRoleMappingPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0]" started-at="2019-09-11T20:21:21 IST" name="NavigateToNewUserRoleMappingPage" finished-at="1970-01-01T05:30:00 IST" duration-ms="-1568213481944" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToNewUserRoleMappingPage -->
+        <test-method signature="VerifyAddRecordWithoutOrgUnit()[pri:6, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0]" started-at="2019-09-11T20:21:21 IST" name="VerifyAddRecordWithoutOrgUnit" finished-at="2019-09-11T20:21:21 IST" duration-ms="0" status="SKIP">
+          <exception class="org.openqa.selenium.NoSuchWindowException">
+            <message>
+              <![CDATA[no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=76.0.3809.132)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'ADMIN', ip: '192.168.0.102', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '9.0.4'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 76.0.3809.132, chrome: {chromedriverVersion: 76.0.3809.68 (420c9498db8ce..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:49408}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 2cf86c18ba4e81a98bc5b65e976df201
+*** Element info: {Using=id, value=login-page}]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=76.0.3809.132)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'ADMIN', ip: '192.168.0.102', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '9.0.4'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 76.0.3809.132, chrome: {chromedriverVersion: 76.0.3809.68 (420c9498db8ce..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:49408}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 2cf86c18ba4e81a98bc5b65e976df201
+*** Element info: {Using=id, value=login-page}
+at jdk.internal.reflect.GeneratedConstructorAccessor22.newInstance(Unknown Source)
+at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+at java.base/java.lang.reflect.Constructor.newInstance(Unknown Source)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:372)
+at org.openqa.selenium.By$ById.findElement(By.java:188)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+at com.sun.proxy.$Proxy12.isEnabled(Unknown Source)
+at com.tetherfi.pages.LoginPage.isLoginPageDisplayed(LoginPage.java:34)
+at com.tetherfi.test.NewUserRoleMappingTest.NavigateToNewUserRoleMappingPage(NewUserRoleMappingTest.java:51)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:62)
+at org.testng.internal.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:340)
+at org.testng.internal.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:294)
+at org.testng.internal.TestInvoker.runConfigMethods(TestInvoker.java:683)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:510)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchWindowException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyAddRecordWithoutOrgUnit -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0]" started-at="2019-09-11T20:21:21 IST" name="afterEachMethod" finished-at="1970-01-01T05:30:00 IST" duration-ms="-1568213481953" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="NavigateToNewUserRoleMappingPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0]" started-at="2019-09-11T20:21:21 IST" name="NavigateToNewUserRoleMappingPage" finished-at="1970-01-01T05:30:00 IST" duration-ms="-1568213481968" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToNewUserRoleMappingPage -->
+        <test-method signature="VerifyAddRecordWithoutProfile()[pri:7, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0]" started-at="2019-09-11T20:21:21 IST" name="VerifyAddRecordWithoutProfile" finished-at="2019-09-11T20:21:21 IST" duration-ms="0" status="SKIP">
+          <exception class="org.openqa.selenium.NoSuchWindowException">
+            <message>
+              <![CDATA[no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=76.0.3809.132)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'ADMIN', ip: '192.168.0.102', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '9.0.4'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 76.0.3809.132, chrome: {chromedriverVersion: 76.0.3809.68 (420c9498db8ce..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:49408}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 2cf86c18ba4e81a98bc5b65e976df201
+*** Element info: {Using=id, value=login-page}]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=76.0.3809.132)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'ADMIN', ip: '192.168.0.102', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '9.0.4'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 76.0.3809.132, chrome: {chromedriverVersion: 76.0.3809.68 (420c9498db8ce..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:49408}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 2cf86c18ba4e81a98bc5b65e976df201
+*** Element info: {Using=id, value=login-page}
+at jdk.internal.reflect.GeneratedConstructorAccessor22.newInstance(Unknown Source)
+at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+at java.base/java.lang.reflect.Constructor.newInstance(Unknown Source)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:372)
+at org.openqa.selenium.By$ById.findElement(By.java:188)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+at com.sun.proxy.$Proxy12.isEnabled(Unknown Source)
+at com.tetherfi.pages.LoginPage.isLoginPageDisplayed(LoginPage.java:34)
+at com.tetherfi.test.NewUserRoleMappingTest.NavigateToNewUserRoleMappingPage(NewUserRoleMappingTest.java:51)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:62)
+at org.testng.internal.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:340)
+at org.testng.internal.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:294)
+at org.testng.internal.TestInvoker.runConfigMethods(TestInvoker.java:683)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:510)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchWindowException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyAddRecordWithoutProfile -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0]" started-at="2019-09-11T20:21:21 IST" name="afterEachMethod" finished-at="1970-01-01T05:30:00 IST" duration-ms="-1568213481984" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="NavigateToNewUserRoleMappingPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0]" started-at="2019-09-11T20:21:21 IST" name="NavigateToNewUserRoleMappingPage" finished-at="1970-01-01T05:30:00 IST" duration-ms="-1568213481989" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToNewUserRoleMappingPage -->
+        <test-method signature="VerifyAddRecordWithoutSupervisor()[pri:8, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0]" started-at="2019-09-11T20:21:21 IST" name="VerifyAddRecordWithoutSupervisor" finished-at="2019-09-11T20:21:21 IST" duration-ms="1" status="SKIP">
+          <exception class="org.openqa.selenium.NoSuchWindowException">
+            <message>
+              <![CDATA[no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=76.0.3809.132)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'ADMIN', ip: '192.168.0.102', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '9.0.4'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 76.0.3809.132, chrome: {chromedriverVersion: 76.0.3809.68 (420c9498db8ce..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:49408}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 2cf86c18ba4e81a98bc5b65e976df201
+*** Element info: {Using=id, value=login-page}]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=76.0.3809.132)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'ADMIN', ip: '192.168.0.102', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '9.0.4'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 76.0.3809.132, chrome: {chromedriverVersion: 76.0.3809.68 (420c9498db8ce..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:49408}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 2cf86c18ba4e81a98bc5b65e976df201
+*** Element info: {Using=id, value=login-page}
+at jdk.internal.reflect.GeneratedConstructorAccessor22.newInstance(Unknown Source)
+at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+at java.base/java.lang.reflect.Constructor.newInstance(Unknown Source)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:372)
+at org.openqa.selenium.By$ById.findElement(By.java:188)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+at com.sun.proxy.$Proxy12.isEnabled(Unknown Source)
+at com.tetherfi.pages.LoginPage.isLoginPageDisplayed(LoginPage.java:34)
+at com.tetherfi.test.NewUserRoleMappingTest.NavigateToNewUserRoleMappingPage(NewUserRoleMappingTest.java:51)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:62)
+at org.testng.internal.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:340)
+at org.testng.internal.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:294)
+at org.testng.internal.TestInvoker.runConfigMethods(TestInvoker.java:683)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:510)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchWindowException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyAddRecordWithoutSupervisor -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0]" started-at="2019-09-11T20:21:21 IST" name="afterEachMethod" finished-at="1970-01-01T05:30:00 IST" duration-ms="-1568213481995" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="NavigateToNewUserRoleMappingPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0]" started-at="2019-09-11T20:21:21 IST" name="NavigateToNewUserRoleMappingPage" finished-at="1970-01-01T05:30:00 IST" duration-ms="-1568213481999" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToNewUserRoleMappingPage -->
+        <test-method signature="VerifyAddRecordWithoutRole()[pri:9, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0]" started-at="2019-09-11T20:21:22 IST" name="VerifyAddRecordWithoutRole" finished-at="2019-09-11T20:21:22 IST" duration-ms="0" status="SKIP">
+          <exception class="org.openqa.selenium.NoSuchWindowException">
+            <message>
+              <![CDATA[no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=76.0.3809.132)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'ADMIN', ip: '192.168.0.102', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '9.0.4'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 76.0.3809.132, chrome: {chromedriverVersion: 76.0.3809.68 (420c9498db8ce..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:49408}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 2cf86c18ba4e81a98bc5b65e976df201
+*** Element info: {Using=id, value=login-page}]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=76.0.3809.132)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'ADMIN', ip: '192.168.0.102', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '9.0.4'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 76.0.3809.132, chrome: {chromedriverVersion: 76.0.3809.68 (420c9498db8ce..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:49408}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 2cf86c18ba4e81a98bc5b65e976df201
+*** Element info: {Using=id, value=login-page}
+at jdk.internal.reflect.GeneratedConstructorAccessor22.newInstance(Unknown Source)
+at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+at java.base/java.lang.reflect.Constructor.newInstance(Unknown Source)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:372)
+at org.openqa.selenium.By$ById.findElement(By.java:188)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+at com.sun.proxy.$Proxy12.isEnabled(Unknown Source)
+at com.tetherfi.pages.LoginPage.isLoginPageDisplayed(LoginPage.java:34)
+at com.tetherfi.test.NewUserRoleMappingTest.NavigateToNewUserRoleMappingPage(NewUserRoleMappingTest.java:51)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:62)
+at org.testng.internal.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:340)
+at org.testng.internal.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:294)
+at org.testng.internal.TestInvoker.runConfigMethods(TestInvoker.java:683)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:510)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchWindowException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyAddRecordWithoutRole -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0]" started-at="2019-09-11T20:21:22 IST" name="afterEachMethod" finished-at="1970-01-01T05:30:00 IST" duration-ms="-1568213482007" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="NavigateToNewUserRoleMappingPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0]" started-at="2019-09-11T20:21:22 IST" name="NavigateToNewUserRoleMappingPage" finished-at="1970-01-01T05:30:00 IST" duration-ms="-1568213482009" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToNewUserRoleMappingPage -->
+        <test-method signature="AddRevertRecord()[pri:10, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0]" started-at="2019-09-11T20:21:22 IST" name="AddRevertRecord" finished-at="2019-09-11T20:21:22 IST" duration-ms="0" status="SKIP">
+          <exception class="org.openqa.selenium.NoSuchWindowException">
+            <message>
+              <![CDATA[no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=76.0.3809.132)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'ADMIN', ip: '192.168.0.102', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '9.0.4'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 76.0.3809.132, chrome: {chromedriverVersion: 76.0.3809.68 (420c9498db8ce..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:49408}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 2cf86c18ba4e81a98bc5b65e976df201
+*** Element info: {Using=id, value=login-page}]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=76.0.3809.132)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'ADMIN', ip: '192.168.0.102', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '9.0.4'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 76.0.3809.132, chrome: {chromedriverVersion: 76.0.3809.68 (420c9498db8ce..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:49408}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 2cf86c18ba4e81a98bc5b65e976df201
+*** Element info: {Using=id, value=login-page}
+at jdk.internal.reflect.GeneratedConstructorAccessor22.newInstance(Unknown Source)
+at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+at java.base/java.lang.reflect.Constructor.newInstance(Unknown Source)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:372)
+at org.openqa.selenium.By$ById.findElement(By.java:188)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+at com.sun.proxy.$Proxy12.isEnabled(Unknown Source)
+at com.tetherfi.pages.LoginPage.isLoginPageDisplayed(LoginPage.java:34)
+at com.tetherfi.test.NewUserRoleMappingTest.NavigateToNewUserRoleMappingPage(NewUserRoleMappingTest.java:51)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:62)
+at org.testng.internal.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:340)
+at org.testng.internal.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:294)
+at org.testng.internal.TestInvoker.runConfigMethods(TestInvoker.java:683)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:510)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchWindowException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- AddRevertRecord -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9]" started-at="2019-09-07T13:40:04 IST" name="afterEachMethod" finished-at="2019-09-07T13:40:07 IST" duration-ms="2851" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.sms.SmsResponseTemplateCreateTest.AddRevertRecord() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0]" started-at="2019-09-11T20:21:22 IST" name="afterEachMethod" finished-at="1970-01-01T05:30:00 IST" duration-ms="-1568213482025" status="SKIP">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="NavigateToSmsResponseTemplatePage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9]" started-at="2019-09-07T13:40:07 IST" name="NavigateToSmsResponseTemplatePage" finished-at="2019-09-07T13:40:31 IST" duration-ms="24634" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.sms.SmsResponseTemplateCreateTest.VerifyRevertForAddNewRecord() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToSmsResponseTemplatePage -->
-        <test-method signature="VerifyRevertForAddNewRecord()[pri:7, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9]" started-at="2019-09-07T13:40:31 IST" name="VerifyRevertForAddNewRecord" finished-at="2019-09-07T13:40:42 IST" depends-on-methods="com.tetherfi.test.sms.SmsResponseTemplateCreateTest.AddRevertRecord" duration-ms="10828" status="PASS">
+        <test-method signature="VerifyRevertForAddNewRecord()[pri:11, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0]" started-at="2019-09-11T20:21:22 IST" name="VerifyRevertForAddNewRecord" finished-at="2019-09-11T20:21:22 IST" depends-on-methods="com.tetherfi.test.NewUserRoleMappingTest.AddRevertRecord" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method NewUserRoleMappingTest.VerifyRevertForAddNewRecord()[pri:11, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method NewUserRoleMappingTest.VerifyRevertForAddNewRecord()[pri:11, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0] depends on not successfully finished methods
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:99)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- VerifyRevertForAddNewRecord -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9]" started-at="2019-09-07T13:40:42 IST" name="afterEachMethod" finished-at="2019-09-07T13:40:48 IST" duration-ms="5540" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.sms.SmsResponseTemplateCreateTest.VerifyRevertForAddNewRecord() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="NavigateToSmsResponseTemplatePage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9]" started-at="2019-09-07T13:40:48 IST" name="NavigateToSmsResponseTemplatePage" finished-at="2019-09-07T13:41:13 IST" duration-ms="25721" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.sms.SmsResponseTemplateCreateTest.VerifyApprovedDataSectionWithoutApproval() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToSmsResponseTemplatePage -->
-        <test-method signature="VerifyApprovedDataSectionWithoutApproval()[pri:8, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9]" started-at="2019-09-07T13:41:13 IST" name="VerifyApprovedDataSectionWithoutApproval" finished-at="2019-09-07T13:41:20 IST" depends-on-methods="com.tetherfi.test.sms.SmsResponseTemplateCreateTest.VerifyRevertForAddNewRecord" duration-ms="6468" status="PASS">
+        <test-method signature="VerifyApprovedDataSectionWithoutApproval()[pri:12, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0]" started-at="2019-09-11T20:21:22 IST" name="VerifyApprovedDataSectionWithoutApproval" finished-at="2019-09-11T20:21:22 IST" depends-on-methods="com.tetherfi.test.NewUserRoleMappingTest.VerifyRevertForAddNewRecord" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method NewUserRoleMappingTest.VerifyApprovedDataSectionWithoutApproval()[pri:12, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method NewUserRoleMappingTest.VerifyApprovedDataSectionWithoutApproval()[pri:12, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0] depends on not successfully finished methods
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:99)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- VerifyApprovedDataSectionWithoutApproval -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9]" started-at="2019-09-07T13:41:20 IST" name="afterEachMethod" finished-at="2019-09-07T13:41:25 IST" duration-ms="5182" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.sms.SmsResponseTemplateCreateTest.VerifyApprovedDataSectionWithoutApproval() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="NavigateToSmsResponseTemplatePage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9]" started-at="2019-09-07T13:41:25 IST" name="NavigateToSmsResponseTemplatePage" finished-at="2019-09-07T13:41:50 IST" duration-ms="25024" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.sms.SmsResponseTemplateCreateTest.VerifyAuditTrailReportForRevert() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToSmsResponseTemplatePage -->
-        <test-method signature="VerifyAuditTrailReportForRevert()[pri:9, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9]" started-at="2019-09-07T13:41:50 IST" name="VerifyAuditTrailReportForRevert" finished-at="2019-09-07T13:42:15 IST" depends-on-methods="com.tetherfi.test.sms.SmsResponseTemplateCreateTest.VerifyApprovedDataSectionWithoutApproval" duration-ms="24992" status="FAIL">
-          <exception class="java.lang.IndexOutOfBoundsException">
+        <test-method signature="VerifyAuditTrailReportForRevert()[pri:13, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0]" started-at="2019-09-11T20:21:22 IST" name="VerifyAuditTrailReportForRevert" finished-at="2019-09-11T20:21:22 IST" depends-on-methods="com.tetherfi.test.NewUserRoleMappingTest.VerifyApprovedDataSectionWithoutApproval" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
             <message>
-              <![CDATA[Index 1 out-of-bounds for length 1]]>
+              <![CDATA[Method NewUserRoleMappingTest.VerifyAuditTrailReportForRevert()[pri:13, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0] depends on not successfully finished methods]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.IndexOutOfBoundsException: Index 1 out-of-bounds for length 1
-at java.base/jdk.internal.util.Preconditions.outOfBounds(Unknown Source)
-at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Unknown Source)
-at java.base/jdk.internal.util.Preconditions.checkIndex(Unknown Source)
-at java.base/java.util.Objects.checkIndex(Unknown Source)
-at java.base/java.util.ArrayList.get(Unknown Source)
-at com.tetherfi.pages.OCMReportsPage.getFirstRowDatafromTable1(OCMReportsPage.java:1157)
-at com.tetherfi.pages.OCMReportsPage.verifySmsResponseTemplateCreate(OCMReportsPage.java:5095)
-at com.tetherfi.test.sms.SmsResponseTemplateCreateTest.VerifyAuditTrailReportForRevert(SmsResponseTemplateCreateTest.java:158)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+              <![CDATA[java.lang.Throwable: Method NewUserRoleMappingTest.VerifyAuditTrailReportForRevert()[pri:13, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0] depends on not successfully finished methods
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:99)
 at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
 at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
 at java.base/java.util.ArrayList.forEach(Unknown Source)
@@ -298,140 +1082,65 @@ at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 ]]>
             </full-stacktrace>
-          </exception> <!-- java.lang.IndexOutOfBoundsException -->
+          </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- VerifyAuditTrailReportForRevert -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9]" started-at="2019-09-07T13:42:15 IST" name="afterEachMethod" finished-at="2019-09-07T13:42:20 IST" duration-ms="4830" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.sms.SmsResponseTemplateCreateTest.VerifyAuditTrailReportForRevert() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
+        <test-method is-config="true" signature="NavigateToNewUserRoleMappingPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0]" started-at="2019-09-11T20:21:22 IST" name="NavigateToNewUserRoleMappingPage" finished-at="1970-01-01T05:30:00 IST" duration-ms="-1568213482055" status="SKIP">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="NavigateToSmsResponseTemplatePage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9]" started-at="2019-09-07T13:42:20 IST" name="NavigateToSmsResponseTemplatePage" finished-at="2019-09-07T13:42:44 IST" duration-ms="23939" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.sms.SmsResponseTemplateCreateTest.AddRejectRecord() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToSmsResponseTemplatePage -->
-        <test-method signature="AddRejectRecord()[pri:10, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9]" started-at="2019-09-07T13:42:44 IST" name="AddRejectRecord" finished-at="2019-09-07T13:42:50 IST" duration-ms="6174" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- AddRejectRecord -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9]" started-at="2019-09-07T13:42:50 IST" name="afterEachMethod" finished-at="2019-09-07T13:42:53 IST" duration-ms="2953" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.sms.SmsResponseTemplateCreateTest.AddRejectRecord() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="NavigateToSmsResponseTemplatePage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9]" started-at="2019-09-07T13:42:53 IST" name="NavigateToSmsResponseTemplatePage" finished-at="2019-09-07T13:43:19 IST" duration-ms="25682" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.sms.SmsResponseTemplateCreateTest.VerifySendForApprovalForAddNewRecord() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToSmsResponseTemplatePage -->
-        <test-method signature="VerifySendForApprovalForAddNewRecord()[pri:11, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9]" started-at="2019-09-07T13:43:19 IST" name="VerifySendForApprovalForAddNewRecord" finished-at="2019-09-07T13:43:30 IST" depends-on-methods="com.tetherfi.test.sms.SmsResponseTemplateCreateTest.AddRejectRecord" duration-ms="11154" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- VerifySendForApprovalForAddNewRecord -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9]" started-at="2019-09-07T13:43:30 IST" name="afterEachMethod" finished-at="2019-09-07T13:43:33 IST" duration-ms="2852" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.sms.SmsResponseTemplateCreateTest.VerifySendForApprovalForAddNewRecord() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="NavigateToSmsResponseTemplatePage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9]" started-at="2019-09-07T13:43:33 IST" name="NavigateToSmsResponseTemplatePage" finished-at="2019-09-07T13:43:57 IST" duration-ms="24619" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.sms.SmsResponseTemplateCreateTest.RejectforAddNewSmsResponseTemplateRecord() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToSmsResponseTemplatePage -->
-        <test-method signature="RejectforAddNewSmsResponseTemplateRecord()[pri:12, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9]" started-at="2019-09-07T13:43:57 IST" name="RejectforAddNewSmsResponseTemplateRecord" finished-at="2019-09-07T13:44:10 IST" depends-on-methods="com.tetherfi.test.sms.SmsResponseTemplateCreateTest.VerifySendForApprovalForAddNewRecord" duration-ms="12558" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- RejectforAddNewSmsResponseTemplateRecord -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9]" started-at="2019-09-07T13:44:10 IST" name="afterEachMethod" finished-at="2019-09-07T13:44:15 IST" duration-ms="4842" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.sms.SmsResponseTemplateCreateTest.RejectforAddNewSmsResponseTemplateRecord() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="NavigateToSmsResponseTemplatePage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9]" started-at="2019-09-07T13:44:15 IST" name="NavigateToSmsResponseTemplatePage" finished-at="2019-09-07T13:44:40 IST" duration-ms="24791" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.sms.SmsResponseTemplateCreateTest.VerifyAuditTrailReportForReject() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToSmsResponseTemplatePage -->
-        <test-method signature="VerifyAuditTrailReportForReject()[pri:13, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9]" started-at="2019-09-07T13:44:40 IST" name="VerifyAuditTrailReportForReject" finished-at="2019-09-07T13:45:16 IST" depends-on-methods="com.tetherfi.test.sms.SmsResponseTemplateCreateTest.RejectforAddNewSmsResponseTemplateRecord" duration-ms="36209" status="FAIL">
-          <exception class="org.openqa.selenium.TimeoutException">
+        </test-method> <!-- NavigateToNewUserRoleMappingPage -->
+        <test-method signature="AddRejectRecord()[pri:14, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0]" started-at="2019-09-11T20:21:22 IST" name="AddRejectRecord" finished-at="2019-09-11T20:21:22 IST" duration-ms="0" status="SKIP">
+          <exception class="org.openqa.selenium.NoSuchWindowException">
             <message>
-              <![CDATA[Expected condition failed: waiting for visibility of [[ChromeDriver: chrome on XP (39e677229bfd4723773bc94036f21ab0)] -> css selector: ul[id='1001sColumnName_listbox'] li] (tried for 20 second(s) with 500 milliseconds interval)
+              <![CDATA[no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=76.0.3809.132)
 Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
 System info: host: 'ADMIN', ip: '192.168.0.102', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '9.0.4'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 76.0.3809.132, chrome: {chromedriverVersion: 76.0.3809.68 (420c9498db8ce..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:51094}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 39e677229bfd4723773bc94036f21ab0]]>
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 76.0.3809.132, chrome: {chromedriverVersion: 76.0.3809.68 (420c9498db8ce..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:49408}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 2cf86c18ba4e81a98bc5b65e976df201
+*** Element info: {Using=id, value=login-page}]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of [[ChromeDriver: chrome on XP (39e677229bfd4723773bc94036f21ab0)] -> css selector: ul[id='1001sColumnName_listbox'] li] (tried for 20 second(s) with 500 milliseconds interval)
+              <![CDATA[org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=76.0.3809.132)
 Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
 System info: host: 'ADMIN', ip: '192.168.0.102', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '9.0.4'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 76.0.3809.132, chrome: {chromedriverVersion: 76.0.3809.68 (420c9498db8ce..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:51094}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 39e677229bfd4723773bc94036f21ab0
-at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
-at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
-at com.tetherfi.pages.BasePage.waitUntilWebElementListIsVisible(BasePage.java:139)
-at com.tetherfi.pages.BasePage.selectDropdownFromVisibleText(BasePage.java:328)
-at com.tetherfi.pages.OCMReportsPage.booleansearchnew(OCMReportsPage.java:1031)
-at com.tetherfi.pages.OCMReportsPage.verifySmsResponseTemplateCreate(OCMReportsPage.java:5093)
-at com.tetherfi.test.sms.SmsResponseTemplateCreateTest.VerifyAuditTrailReportForReject(SmsResponseTemplateCreateTest.java:199)
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 76.0.3809.132, chrome: {chromedriverVersion: 76.0.3809.68 (420c9498db8ce..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:49408}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 2cf86c18ba4e81a98bc5b65e976df201
+*** Element info: {Using=id, value=login-page}
+at jdk.internal.reflect.GeneratedConstructorAccessor22.newInstance(Unknown Source)
+at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+at java.base/java.lang.reflect.Constructor.newInstance(Unknown Source)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:372)
+at org.openqa.selenium.By$ById.findElement(By.java:188)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+at com.sun.proxy.$Proxy12.isEnabled(Unknown Source)
+at com.tetherfi.pages.LoginPage.isLoginPageDisplayed(LoginPage.java:34)
+at com.tetherfi.test.NewUserRoleMappingTest.NavigateToNewUserRoleMappingPage(NewUserRoleMappingTest.java:51)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 at java.base/java.lang.reflect.Method.invoke(Unknown Source)
 at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:62)
+at org.testng.internal.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:340)
+at org.testng.internal.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:294)
+at org.testng.internal.TestInvoker.runConfigMethods(TestInvoker.java:683)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:510)
 at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
 at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
 at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
@@ -456,28 +1165,117 @@ at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 ]]>
             </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.TimeoutException -->
+          </exception> <!-- org.openqa.selenium.NoSuchWindowException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- VerifyAuditTrailReportForReject -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9]" started-at="2019-09-07T13:45:16 IST" name="afterEachMethod" finished-at="2019-09-07T13:45:21 IST" duration-ms="4912" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.sms.SmsResponseTemplateCreateTest.VerifyAuditTrailReportForReject() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
+        </test-method> <!-- AddRejectRecord -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0]" started-at="2019-09-11T20:21:22 IST" name="afterEachMethod" finished-at="1970-01-01T05:30:00 IST" duration-ms="-1568213482067" status="SKIP">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterEachMethod -->
-        <test-method signature="VerifyRecordAfterRejection()[pri:14, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9]" started-at="2019-09-07T13:45:21 IST" name="VerifyRecordAfterRejection" finished-at="2019-09-07T13:45:21 IST" depends-on-methods="com.tetherfi.test.sms.SmsResponseTemplateCreateTest.VerifyAuditTrailReportForReject" duration-ms="0" status="SKIP">
+        <test-method signature="VerifySendForApprovalForAddNewRecord()[pri:15, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0]" started-at="2019-09-11T20:21:22 IST" name="VerifySendForApprovalForAddNewRecord" finished-at="2019-09-11T20:21:22 IST" depends-on-methods="com.tetherfi.test.NewUserRoleMappingTest.AddRejectRecord" duration-ms="0" status="SKIP">
           <exception class="java.lang.Throwable">
             <message>
-              <![CDATA[Method SmsResponseTemplateCreateTest.VerifyRecordAfterRejection()[pri:14, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9] depends on not successfully finished methods]]>
+              <![CDATA[Method NewUserRoleMappingTest.VerifySendForApprovalForAddNewRecord()[pri:15, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0] depends on not successfully finished methods]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.Throwable: Method SmsResponseTemplateCreateTest.VerifyRecordAfterRejection()[pri:14, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9] depends on not successfully finished methods
+              <![CDATA[java.lang.Throwable: Method NewUserRoleMappingTest.VerifySendForApprovalForAddNewRecord()[pri:15, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0] depends on not successfully finished methods
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:99)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifySendForApprovalForAddNewRecord -->
+        <test-method signature="RejectforAddNewNewUserRoleMappingRecord()[pri:16, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0]" started-at="2019-09-11T20:21:22 IST" name="RejectforAddNewNewUserRoleMappingRecord" finished-at="2019-09-11T20:21:22 IST" depends-on-methods="com.tetherfi.test.NewUserRoleMappingTest.VerifySendForApprovalForAddNewRecord" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method NewUserRoleMappingTest.RejectforAddNewNewUserRoleMappingRecord()[pri:16, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method NewUserRoleMappingTest.RejectforAddNewNewUserRoleMappingRecord()[pri:16, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0] depends on not successfully finished methods
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:99)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- RejectforAddNewNewUserRoleMappingRecord -->
+        <test-method signature="VerifyAuditTrailReportForReject()[pri:17, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0]" started-at="2019-09-11T20:21:22 IST" name="VerifyAuditTrailReportForReject" finished-at="2019-09-11T20:21:22 IST" depends-on-methods="com.tetherfi.test.NewUserRoleMappingTest.RejectforAddNewNewUserRoleMappingRecord" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method NewUserRoleMappingTest.VerifyAuditTrailReportForReject()[pri:17, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method NewUserRoleMappingTest.VerifyAuditTrailReportForReject()[pri:17, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0] depends on not successfully finished methods
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:99)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyAuditTrailReportForReject -->
+        <test-method signature="VerifyRecordAfterRejection()[pri:18, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0]" started-at="2019-09-11T20:21:22 IST" name="VerifyRecordAfterRejection" finished-at="2019-09-11T20:21:22 IST" depends-on-methods="com.tetherfi.test.NewUserRoleMappingTest.VerifyAuditTrailReportForReject" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method NewUserRoleMappingTest.VerifyRecordAfterRejection()[pri:18, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method NewUserRoleMappingTest.VerifyRecordAfterRejection()[pri:18, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0] depends on not successfully finished methods
 at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:99)
 at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
 at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
@@ -503,86 +1301,61 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- VerifyRecordAfterRejection -->
-        <test-method is-config="true" signature="NavigateToSmsResponseTemplatePage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9]" started-at="2019-09-07T13:45:21 IST" name="NavigateToSmsResponseTemplatePage" finished-at="2019-09-07T13:45:44 IST" duration-ms="23767" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.sms.SmsResponseTemplateCreateTest.AddNewSmsResponseTemplateRecord() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
+        <test-method is-config="true" signature="NavigateToNewUserRoleMappingPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0]" started-at="2019-09-11T20:21:22 IST" name="NavigateToNewUserRoleMappingPage" finished-at="1970-01-01T05:30:00 IST" duration-ms="-1568213482099" status="SKIP">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- NavigateToSmsResponseTemplatePage -->
-        <test-method signature="AddNewSmsResponseTemplateRecord()[pri:15, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9]" started-at="2019-09-07T13:45:44 IST" name="AddNewSmsResponseTemplateRecord" finished-at="2019-09-07T13:45:53 IST" duration-ms="8559" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- AddNewSmsResponseTemplateRecord -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9]" started-at="2019-09-07T13:45:53 IST" name="afterEachMethod" finished-at="2019-09-07T13:45:59 IST" duration-ms="6291" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.sms.SmsResponseTemplateCreateTest.AddNewSmsResponseTemplateRecord() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="NavigateToSmsResponseTemplatePage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9]" started-at="2019-09-07T13:45:59 IST" name="NavigateToSmsResponseTemplatePage" finished-at="2019-09-07T13:46:27 IST" duration-ms="27625" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.sms.SmsResponseTemplateCreateTest.VerifyAuditTrailReportForCreate() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToSmsResponseTemplatePage -->
-        <test-method signature="VerifyAuditTrailReportForCreate()[pri:16, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9]" started-at="2019-09-07T13:46:27 IST" name="VerifyAuditTrailReportForCreate" finished-at="2019-09-07T13:46:55 IST" depends-on-methods="com.tetherfi.test.sms.SmsResponseTemplateCreateTest.AddNewSmsResponseTemplateRecord" duration-ms="27939" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- VerifyAuditTrailReportForCreate -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9]" started-at="2019-09-07T13:46:55 IST" name="afterEachMethod" finished-at="2019-09-07T13:46:58 IST" duration-ms="2833" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.sms.SmsResponseTemplateCreateTest.VerifyAuditTrailReportForCreate() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="NavigateToSmsResponseTemplatePage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9]" started-at="2019-09-07T13:46:58 IST" name="NavigateToSmsResponseTemplatePage" finished-at="2019-09-07T13:47:22 IST" duration-ms="24355" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.sms.SmsResponseTemplateCreateTest.VerifyAuditTrailDataForAddNewSmsResponseTemplateRecord() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToSmsResponseTemplatePage -->
-        <test-method signature="VerifyAuditTrailDataForAddNewSmsResponseTemplateRecord()[pri:17, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9]" started-at="2019-09-07T13:47:22 IST" name="VerifyAuditTrailDataForAddNewSmsResponseTemplateRecord" finished-at="2019-09-07T13:47:29 IST" depends-on-methods="com.tetherfi.test.sms.SmsResponseTemplateCreateTest.AddNewSmsResponseTemplateRecord" duration-ms="6478" status="FAIL">
-          <exception class="java.lang.AssertionError">
+        </test-method> <!-- NavigateToNewUserRoleMappingPage -->
+        <test-method signature="AddNewNewUserRoleMappingRecord()[pri:19, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0]" started-at="2019-09-11T20:21:22 IST" name="AddNewNewUserRoleMappingRecord" finished-at="2019-09-11T20:21:22 IST" duration-ms="0" status="SKIP">
+          <exception class="org.openqa.selenium.NoSuchWindowException">
             <message>
-              <![CDATA[Audit trail details failed did not expect to find [true] but found [false]]]>
+              <![CDATA[no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=76.0.3809.132)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'ADMIN', ip: '192.168.0.102', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '9.0.4'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 76.0.3809.132, chrome: {chromedriverVersion: 76.0.3809.68 (420c9498db8ce..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:49408}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 2cf86c18ba4e81a98bc5b65e976df201
+*** Element info: {Using=id, value=login-page}]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: Audit trail details failed did not expect to find [true] but found [false]
-at org.testng.Assert.fail(Assert.java:97)
-at org.testng.Assert.failNotEquals(Assert.java:969)
-at org.testng.Assert.assertTrue(Assert.java:43)
-at com.tetherfi.test.sms.SmsResponseTemplateCreateTest.VerifyAuditTrailDataForAddNewSmsResponseTemplateRecord(SmsResponseTemplateCreateTest.java:242)
+              <![CDATA[org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=76.0.3809.132)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'ADMIN', ip: '192.168.0.102', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '9.0.4'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 76.0.3809.132, chrome: {chromedriverVersion: 76.0.3809.68 (420c9498db8ce..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:49408}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 2cf86c18ba4e81a98bc5b65e976df201
+*** Element info: {Using=id, value=login-page}
+at jdk.internal.reflect.GeneratedConstructorAccessor22.newInstance(Unknown Source)
+at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+at java.base/java.lang.reflect.Constructor.newInstance(Unknown Source)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:372)
+at org.openqa.selenium.By$ById.findElement(By.java:188)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+at com.sun.proxy.$Proxy12.isEnabled(Unknown Source)
+at com.tetherfi.pages.LoginPage.isLoginPageDisplayed(LoginPage.java:34)
+at com.tetherfi.test.NewUserRoleMappingTest.NavigateToNewUserRoleMappingPage(NewUserRoleMappingTest.java:51)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 at java.base/java.lang.reflect.Method.invoke(Unknown Source)
 at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:62)
+at org.testng.internal.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:340)
+at org.testng.internal.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:294)
+at org.testng.internal.TestInvoker.runConfigMethods(TestInvoker.java:683)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:510)
 at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
 at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
 at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
@@ -607,28 +1380,21 @@ at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 ]]>
             </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
+          </exception> <!-- org.openqa.selenium.NoSuchWindowException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- VerifyAuditTrailDataForAddNewSmsResponseTemplateRecord -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9]" started-at="2019-09-07T13:47:29 IST" name="afterEachMethod" finished-at="2019-09-07T13:47:33 IST" duration-ms="4845" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.sms.SmsResponseTemplateCreateTest.VerifyAuditTrailDataForAddNewSmsResponseTemplateRecord() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
+        </test-method> <!-- AddNewNewUserRoleMappingRecord -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0]" started-at="2019-09-11T20:21:22 IST" name="afterEachMethod" finished-at="1970-01-01T05:30:00 IST" duration-ms="-1568213482113" status="SKIP">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterEachMethod -->
-        <test-method signature="VerifySendForApprovalForAddNewSmsResponseTemplateRecord()[pri:18, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9]" started-at="2019-09-07T13:47:33 IST" name="VerifySendForApprovalForAddNewSmsResponseTemplateRecord" finished-at="2019-09-07T13:47:33 IST" depends-on-methods="com.tetherfi.test.sms.SmsResponseTemplateCreateTest.VerifyAuditTrailDataForAddNewSmsResponseTemplateRecord" duration-ms="0" status="SKIP">
+        <test-method signature="VerifyAuditTrailReportForCreate()[pri:20, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0]" started-at="2019-09-11T20:21:22 IST" name="VerifyAuditTrailReportForCreate" finished-at="2019-09-11T20:21:22 IST" depends-on-methods="com.tetherfi.test.NewUserRoleMappingTest.AddNewNewUserRoleMappingRecord" duration-ms="0" status="SKIP">
           <exception class="java.lang.Throwable">
             <message>
-              <![CDATA[Method SmsResponseTemplateCreateTest.VerifySendForApprovalForAddNewSmsResponseTemplateRecord()[pri:18, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9] depends on not successfully finished methods]]>
+              <![CDATA[Method NewUserRoleMappingTest.VerifyAuditTrailReportForCreate()[pri:20, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0] depends on not successfully finished methods]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.Throwable: Method SmsResponseTemplateCreateTest.VerifySendForApprovalForAddNewSmsResponseTemplateRecord()[pri:18, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9] depends on not successfully finished methods
+              <![CDATA[java.lang.Throwable: Method NewUserRoleMappingTest.VerifyAuditTrailReportForCreate()[pri:20, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0] depends on not successfully finished methods
 at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:99)
 at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
 at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
@@ -653,14 +1419,78 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
           </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- VerifySendForApprovalForAddNewSmsResponseTemplateRecord -->
-        <test-method signature="VerifyAuditTrailReportForSendForApproval()[pri:19, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9]" started-at="2019-09-07T13:47:33 IST" name="VerifyAuditTrailReportForSendForApproval" finished-at="2019-09-07T13:47:33 IST" depends-on-methods="com.tetherfi.test.sms.SmsResponseTemplateCreateTest.VerifySendForApprovalForAddNewSmsResponseTemplateRecord" duration-ms="0" status="SKIP">
+        </test-method> <!-- VerifyAuditTrailReportForCreate -->
+        <test-method signature="VerifyAuditTrailDataForAddNewNewUserRoleMappingRecord()[pri:21, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0]" started-at="2019-09-11T20:21:22 IST" name="VerifyAuditTrailDataForAddNewNewUserRoleMappingRecord" finished-at="2019-09-11T20:21:22 IST" depends-on-methods="com.tetherfi.test.NewUserRoleMappingTest.AddNewNewUserRoleMappingRecord" duration-ms="0" status="SKIP">
           <exception class="java.lang.Throwable">
             <message>
-              <![CDATA[Method SmsResponseTemplateCreateTest.VerifyAuditTrailReportForSendForApproval()[pri:19, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9] depends on not successfully finished methods]]>
+              <![CDATA[Method NewUserRoleMappingTest.VerifyAuditTrailDataForAddNewNewUserRoleMappingRecord()[pri:21, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0] depends on not successfully finished methods]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.Throwable: Method SmsResponseTemplateCreateTest.VerifyAuditTrailReportForSendForApproval()[pri:19, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9] depends on not successfully finished methods
+              <![CDATA[java.lang.Throwable: Method NewUserRoleMappingTest.VerifyAuditTrailDataForAddNewNewUserRoleMappingRecord()[pri:21, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0] depends on not successfully finished methods
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:99)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyAuditTrailDataForAddNewNewUserRoleMappingRecord -->
+        <test-method signature="VerifySendForApprovalForAddNewNewUserRoleMappingRecord()[pri:22, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0]" started-at="2019-09-11T20:21:22 IST" name="VerifySendForApprovalForAddNewNewUserRoleMappingRecord" finished-at="2019-09-11T20:21:22 IST" depends-on-methods="com.tetherfi.test.NewUserRoleMappingTest.VerifyAuditTrailDataForAddNewNewUserRoleMappingRecord" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method NewUserRoleMappingTest.VerifySendForApprovalForAddNewNewUserRoleMappingRecord()[pri:22, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method NewUserRoleMappingTest.VerifySendForApprovalForAddNewNewUserRoleMappingRecord()[pri:22, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0] depends on not successfully finished methods
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:99)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifySendForApprovalForAddNewNewUserRoleMappingRecord -->
+        <test-method signature="VerifyAuditTrailReportForSendForApproval()[pri:23, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0]" started-at="2019-09-11T20:21:22 IST" name="VerifyAuditTrailReportForSendForApproval" finished-at="2019-09-11T20:21:22 IST" depends-on-methods="com.tetherfi.test.NewUserRoleMappingTest.VerifySendForApprovalForAddNewNewUserRoleMappingRecord" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method NewUserRoleMappingTest.VerifyAuditTrailReportForSendForApproval()[pri:23, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method NewUserRoleMappingTest.VerifyAuditTrailReportForSendForApproval()[pri:23, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0] depends on not successfully finished methods
 at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:99)
 at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
 at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
@@ -686,13 +1516,13 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- VerifyAuditTrailReportForSendForApproval -->
-        <test-method signature="ApproveforAddNewSmsResponseTemplateRecord()[pri:20, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9]" started-at="2019-09-07T13:47:33 IST" name="ApproveforAddNewSmsResponseTemplateRecord" finished-at="2019-09-07T13:47:33 IST" depends-on-methods="com.tetherfi.test.sms.SmsResponseTemplateCreateTest.VerifyAuditTrailReportForSendForApproval" duration-ms="0" status="SKIP">
+        <test-method signature="ApproveforAddNewNewUserRoleMappingRecord()[pri:24, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0]" started-at="2019-09-11T20:21:22 IST" name="ApproveforAddNewNewUserRoleMappingRecord" finished-at="2019-09-11T20:21:22 IST" depends-on-methods="com.tetherfi.test.NewUserRoleMappingTest.VerifyAuditTrailReportForSendForApproval" duration-ms="0" status="SKIP">
           <exception class="java.lang.Throwable">
             <message>
-              <![CDATA[Method SmsResponseTemplateCreateTest.ApproveforAddNewSmsResponseTemplateRecord()[pri:20, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9] depends on not successfully finished methods]]>
+              <![CDATA[Method NewUserRoleMappingTest.ApproveforAddNewNewUserRoleMappingRecord()[pri:24, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0] depends on not successfully finished methods]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.Throwable: Method SmsResponseTemplateCreateTest.ApproveforAddNewSmsResponseTemplateRecord()[pri:20, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9] depends on not successfully finished methods
+              <![CDATA[java.lang.Throwable: Method NewUserRoleMappingTest.ApproveforAddNewNewUserRoleMappingRecord()[pri:24, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0] depends on not successfully finished methods
 at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:99)
 at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
 at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
@@ -717,14 +1547,14 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
           </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- ApproveforAddNewSmsResponseTemplateRecord -->
-        <test-method signature="VerifyAuditTrailReportForApprove()[pri:21, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9]" started-at="2019-09-07T13:47:33 IST" name="VerifyAuditTrailReportForApprove" finished-at="2019-09-07T13:47:33 IST" depends-on-methods="com.tetherfi.test.sms.SmsResponseTemplateCreateTest.ApproveforAddNewSmsResponseTemplateRecord" duration-ms="0" status="SKIP">
+        </test-method> <!-- ApproveforAddNewNewUserRoleMappingRecord -->
+        <test-method signature="VerifyAuditTrailReportForApprove()[pri:25, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0]" started-at="2019-09-11T20:21:22 IST" name="VerifyAuditTrailReportForApprove" finished-at="2019-09-11T20:21:22 IST" depends-on-methods="com.tetherfi.test.NewUserRoleMappingTest.ApproveforAddNewNewUserRoleMappingRecord" duration-ms="0" status="SKIP">
           <exception class="java.lang.Throwable">
             <message>
-              <![CDATA[Method SmsResponseTemplateCreateTest.VerifyAuditTrailReportForApprove()[pri:21, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9] depends on not successfully finished methods]]>
+              <![CDATA[Method NewUserRoleMappingTest.VerifyAuditTrailReportForApprove()[pri:25, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0] depends on not successfully finished methods]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.Throwable: Method SmsResponseTemplateCreateTest.VerifyAuditTrailReportForApprove()[pri:21, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9] depends on not successfully finished methods
+              <![CDATA[java.lang.Throwable: Method NewUserRoleMappingTest.VerifyAuditTrailReportForApprove()[pri:25, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0] depends on not successfully finished methods
 at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:99)
 at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
 at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
@@ -750,13 +1580,13 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- VerifyAuditTrailReportForApprove -->
-        <test-method signature="VerifyRecordApprovedDataSectionafterApproval()[pri:22, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9]" started-at="2019-09-07T13:47:33 IST" name="VerifyRecordApprovedDataSectionafterApproval" finished-at="2019-09-07T13:47:33 IST" depends-on-methods="com.tetherfi.test.sms.SmsResponseTemplateCreateTest.ApproveforAddNewSmsResponseTemplateRecord" duration-ms="16" status="SKIP">
+        <test-method signature="VerifyRecordApprovedDataSectionafterApproval()[pri:26, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0]" started-at="2019-09-11T20:21:22 IST" name="VerifyRecordApprovedDataSectionafterApproval" finished-at="2019-09-11T20:21:22 IST" depends-on-methods="com.tetherfi.test.NewUserRoleMappingTest.ApproveforAddNewNewUserRoleMappingRecord" duration-ms="0" status="SKIP">
           <exception class="java.lang.Throwable">
             <message>
-              <![CDATA[Method SmsResponseTemplateCreateTest.VerifyRecordApprovedDataSectionafterApproval()[pri:22, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9] depends on not successfully finished methods]]>
+              <![CDATA[Method NewUserRoleMappingTest.VerifyRecordApprovedDataSectionafterApproval()[pri:26, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0] depends on not successfully finished methods]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.Throwable: Method SmsResponseTemplateCreateTest.VerifyRecordApprovedDataSectionafterApproval()[pri:22, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9] depends on not successfully finished methods
+              <![CDATA[java.lang.Throwable: Method NewUserRoleMappingTest.VerifyRecordApprovedDataSectionafterApproval()[pri:26, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0] depends on not successfully finished methods
 at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:99)
 at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
 at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
@@ -782,33 +1612,39 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- VerifyRecordApprovedDataSectionafterApproval -->
-        <test-method is-config="true" signature="NavigateToSmsResponseTemplatePage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9]" started-at="2019-09-07T13:47:33 IST" name="NavigateToSmsResponseTemplatePage" finished-at="2019-09-07T13:47:58 IST" duration-ms="24552" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.sms.SmsResponseTemplateCreateTest.AddDuplicateRecord() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToSmsResponseTemplatePage -->
-        <test-method signature="AddDuplicateRecord()[pri:23, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9]" started-at="2019-09-07T13:47:58 IST" name="AddDuplicateRecord" finished-at="2019-09-07T13:48:05 IST" depends-on-methods="com.tetherfi.test.sms.SmsResponseTemplateCreateTest.AddNewSmsResponseTemplateRecord" duration-ms="6838" status="PASS">
+        <test-method signature="AddDuplicateRecord()[pri:27, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0]" started-at="2019-09-11T20:21:22 IST" name="AddDuplicateRecord" finished-at="2019-09-11T20:21:22 IST" depends-on-methods="com.tetherfi.test.NewUserRoleMappingTest.AddNewNewUserRoleMappingRecord" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method NewUserRoleMappingTest.AddDuplicateRecord()[pri:27, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method NewUserRoleMappingTest.AddDuplicateRecord()[pri:27, instance:com.tetherfi.test.NewUserRoleMappingTest@67536ae0] depends on not successfully finished methods
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:99)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- AddDuplicateRecord -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.sms.SmsResponseTemplateCreateTest@4a92c6a9]" started-at="2019-09-07T13:48:05 IST" name="afterEachMethod" finished-at="2019-09-07T13:48:11 IST" duration-ms="5648" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.sms.SmsResponseTemplateCreateTest.AddDuplicateRecord() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-      </class> <!-- com.tetherfi.test.sms.SmsResponseTemplateCreateTest -->
+      </class> <!-- com.tetherfi.test.NewUserRoleMappingTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

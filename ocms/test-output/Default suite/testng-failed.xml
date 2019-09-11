@@ -3,28 +3,39 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.tetherfi.test.sms.SmsResponseTemplateCreateTest">
+      <class name="com.tetherfi.test.NewUserRoleMappingTest">
         <methods>
-          <include name="AddRejectRecord"/>
-          <include name="VerifyRecordAfterRejection"/>
-          <include name="VerifyRecordApprovedDataSectionafterApproval"/>
+          <include name="AddNewNewUserRoleMappingRecord"/>
+          <include name="VerifyAuditTrailReportForReject"/>
+          <include name="VerifySendForApprovalForAddNewRecord"/>
+          <include name="VerifyAddRecordWithoutSupervisor"/>
+          <include name="VerifyAddRecordwithoutFirstName"/>
+          <include name="NavigateToNewUserRoleMappingPage"/>
+          <include name="VerifyAddCancelButton"/>
           <include name="AddRevertRecord"/>
+          <include name="VerifyRecordAfterRejection"/>
           <include name="VerifyRevertForAddNewRecord"/>
           <include name="afterEachMethod"/>
-          <include name="RejectforAddNewSmsResponseTemplateRecord"/>
-          <include name="VerifyAuditTrailReportForApprove"/>
-          <include name="VerifyAuditTrailDataForAddNewSmsResponseTemplateRecord"/>
-          <include name="VerifyAuditTrailReportForSendForApproval"/>
+          <include name="AddDuplicateRecord"/>
+          <include name="VerifyAddRecordWithoutRole"/>
+          <include name="VerifyAuditTrailReportForCreate"/>
+          <include name="VerifyAddRecordWithoutLoginID"/>
+          <include name="VerifyAuditTrailDataForAddNewNewUserRoleMappingRecord"/>
           <include name="VerifyApprovedDataSectionWithoutApproval"/>
-          <include name="VerifyAuditTrailReportForReject"/>
+          <include name="VerifyAddRecordWithoutProfile"/>
           <include name="VerifyAuditTrailReportForRevert"/>
-          <include name="NavigateToSmsResponseTemplatePage"/>
-          <include name="VerifySendForApprovalForAddNewRecord"/>
-          <include name="ApproveforAddNewSmsResponseTemplateRecord"/>
-          <include name="VerifySendForApprovalForAddNewSmsResponseTemplateRecord"/>
-          <include name="AddNewSmsResponseTemplateRecord"/>
+          <include name="VerifyAddRecordWithoutOrgUnit"/>
+          <include name="VerifyAuditTrailReportForSendForApproval"/>
+          <include name="VerifyAuditTrailReportForApprove"/>
+          <include name="VerifySendForApprovalForAddNewNewUserRoleMappingRecord"/>
+          <include name="VerifyAddRecordWithoutLastName"/>
+          <include name="ApproveforAddNewNewUserRoleMappingRecord"/>
+          <include name="VerifyAddRecordWithoutLanId"/>
+          <include name="RejectforAddNewNewUserRoleMappingRecord"/>
+          <include name="VerifyRecordApprovedDataSectionafterApproval"/>
+          <include name="AddRejectRecord"/>
         </methods>
-      </class> <!-- com.tetherfi.test.sms.SmsResponseTemplateCreateTest -->
+      </class> <!-- com.tetherfi.test.NewUserRoleMappingTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

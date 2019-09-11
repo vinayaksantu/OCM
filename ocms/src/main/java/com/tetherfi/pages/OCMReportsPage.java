@@ -31,6 +31,7 @@ import com.tetherfi.model.tmac.WaitTimeColorConfigDetails;
 import com.tetherfi.model.tmac.WorkCodeListDetails;
 import com.tetherfi.model.user.CepEventMappingDetails;
 import com.tetherfi.model.user.SkillConfigurationDetails;
+import com.tetherfi.model.user.UserRoleMappingDetails;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.poi.util.SystemOutLogger;
@@ -1287,8 +1288,6 @@ return status;
 
 	public boolean verifyWorkcodeListCreate(WorkCodeListDetails details, String Transaction) throws Exception {
 		booleansearchnew(details.getName(),Transaction);
-		String workcode=database(details1.getQuery()).get(0).remove("WorkCode");
-		System.out.println(workcode);
 		Boolean Status=false;
         Map<String,String> firstRowData=getFirstRowDatafromTable1();
 		Map<String,String> newvalues=new HashMap<>();
@@ -1302,9 +1301,7 @@ return status;
 			{
 				if(newvalues.get("Name").equals(details.getName()))
 				{
-					if(newvalues.get("WorkCode").equals(workcode))
 						Status= true;
-					else {System.out.println("Workcode data mismatch");}
 				}
 				else {System.out.println("Name data mismatch");}
 			}
@@ -1314,10 +1311,6 @@ return status;
 	public String workcode;
 	public boolean verifyWorkcodeListUpdate(WorkCodeListDetails details,String Transaction) throws Exception {
 		booleansearchnew(details.getUpdatedName(),Transaction);
-		workcode=database(details1.getQuery()).get(0).remove("WorkCode");
-		System.out.println(workcode);
-		String teamid=database(details1.getQuery()).get(0).remove("TeamID");
-		System.out.println(teamid);
 		Boolean Status=false;
         Map<String,String> firstRowData=getFirstRowDatafromTable1();
         if(firstRowData.containsKey("Old Values")) {
@@ -1331,8 +1324,7 @@ return status;
     		}
     		if(oldvalues.get("WorkLevel").equals(details.getWorkLevel())){
     			if(oldvalues.get("Name").equals(details.getName())){
-    				if(oldvalues.get("WorkCode").equals(workcode)) {
-    					if(oldvalues.get("TeamID").equals(teamid)){
+    					if(oldvalues.get("TeamName").equals(details.getTeamName())){
     						if(firstRowData.containsKey("New Values")) {
     							Map<String,String> newvalues=new HashMap<>();
     							String[]d1=firstRowData.get("New Values").split("\n");
@@ -1343,8 +1335,7 @@ return status;
     							}
     							if(newvalues.get("WorkLevel").equals(details.getWorkLevel())){
     								if(newvalues.get("Name").equals(details.getUpdatedName())){
-    									if(newvalues.get("WorkCode").equals(workcode)) {
-    										if(newvalues.get("TeamID").equals(teamid)){
+    										if(newvalues.get("TeamName").equals(details.getTeamName())){
     											if(newvalues.get("Modify Reason").equals(details.getModifyReason())) {
     												if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getModifyReason()))
     													Status=true;
@@ -1362,10 +1353,6 @@ return status;
     		    		}
     		    		else {System.out.println("New values data mismatch");}
     					}
-    				else {System.out.println("Team Id data mismatch");}
-    			}
-    			else {System.out.println("WorkCode data mismatch");}
-    			}
     		else {System.out.println("Name data mismatch");	}	
     	}
     	else System.out.println("WorkLevel data mismatch");
@@ -1450,7 +1437,7 @@ return status;
     		}
     		if(oldvalues.get("LevelHierarchy").equals(details.getLevel())){
     			if(oldvalues.get("Name").equals(details.getTeamName())){
-    				if(oldvalues.get("DisplayHierarchy").equals(displayname)) {
+    				if(oldvalues.get("DisplayHierarchy").equals(details.getDisplayHierarchy())) {
     					if(firstRowData.containsKey("New Values")) {
     						Map<String,String> newvalues=new HashMap<>();
     						String[]d1=firstRowData.get("New Values").split("\n");
@@ -1461,7 +1448,7 @@ return status;
     						}
     						if(newvalues.get("LevelHierarchy").equals(details.getLevel())){
     							if(newvalues.get("Name").equals(details.getUpdateTeamName())){
-    								if(newvalues.get("DisplayHierarchy").equals(displayname2)) {
+    								if(newvalues.get("DisplayHierarchy").equals(details.getDisplayHierarchy())) {
     									if(newvalues.get("Modify Reason").equals(details.getModifyReason())) {
     										if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getModifyReason()))
     											Status=true;
@@ -1489,7 +1476,6 @@ return status;
 
 	public boolean verifyAgentTeamMgmtdelete(AgentTeamMgmtDetails details, String Transaction) throws Exception {
 		booleansearchold(details.getUpdateTeamName(),Transaction);
-		System.out.println(displayname);
 		Boolean Status=false;
         Map<String,String> firstRowData=getFirstRowDatafromTable1();
 		Map<String,String> oldvalues=new HashMap<>();
@@ -1503,7 +1489,7 @@ return status;
 			{
 				if(oldvalues.get("Name").equals(details.getUpdateTeamName()))
 				{
-					if(oldvalues.get("DisplayHierarchy").equals(displayname))
+					if(oldvalues.get("DisplayHierarchy").equals(details.getDisplayHierarchy()))
 					{
 						if(oldvalues.get("ModifyReason").equals(details.getDeleteReason()))
 						{
@@ -5346,6 +5332,197 @@ return status;
 				else {System.out.println("GroupName data mismatch");}
 			}
 			else {System.out.println("Department data mismatch");	}
+		return Status;
+	}
+
+	public boolean verifyUserRoleMappingCreate(UserRoleMappingDetails details, String Transaction) throws Exception {
+		booleansearchnew(details.getBankUserName(),Transaction);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+		Map<String,String> newvalues=new HashMap<>();
+		String[]d=firstRowData.get("New Values").split("\n");
+		for(String e:d) {
+			String f[]=e.split(":",2);
+			if(f.length>1)
+			newvalues.put(f[0], f[1]);
+		}
+		if(newvalues.get("UserName").equals(details.getBankUserName()))
+		{
+			if(newvalues.get("AvayaLoginID").equals(details.getAvayaLoginID()))
+			{
+				if(newvalues.get("FirstName").equals(details.getFirstname()))
+				{
+					if(newvalues.get("LastName").equals(details.getLastname()))
+					{
+						if(newvalues.get("Profile").equals(details.getProfile()))
+						{
+							if(newvalues.get("OrgUnit").equals(details.getTeamName()))
+							{
+								if(newvalues.get("SupervisorName").equals(details.getSupervisor()))
+								{
+									if(newvalues.get("Role").equals(details.getRole()))
+									{
+										Status=true;
+									}
+									else {System.out.println("Role data mismatch");}
+								}
+								else {System.out.println("Supervisor Name data mismatch");}
+							}
+							else {System.out.println("OrgUnit data mismatch");}
+						}
+						else {System.out.println("Profile data mismatch");}
+					}	
+					else {System.out.println("LastName data mismatch");}
+				}
+				else {System.out.println("FirstName data mismatch");}
+			}
+			else {System.out.println("AvayaLoginID data mismatch");}
+		}
+		else {System.out.println("UserName data mismatch");}
+		return Status;
+	}
+
+	public boolean verifyUserRoleMappingUpdate(UserRoleMappingDetails details, String Transaction) throws Exception {
+		booleansearchnew(details.getUpdatedFirstname(),Transaction);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+        if(firstRowData.containsKey("Old Values")) {
+        	Map<String,String> oldvalues=new HashMap<>();
+    		String[]d=firstRowData.get("Old Values").split("\n");
+    		for(String e:d) {
+    			System.out.println(e);
+    			String f[]=e.split(":",2);
+    			if(f.length>1)
+    				oldvalues.put(f[0], f[1]);
+    		}
+    		if(oldvalues.get("UserName").equals(details.getBankUserName()))
+    		{
+    			if(oldvalues.get("AvayaLoginID").equals(details.getAvayaLoginID()))
+    			{
+    				if(oldvalues.get("FirstName").equals(details.getFirstname()))
+    				{
+    					if(oldvalues.get("LastName").equals(details.getLastname()))
+    					{
+    						if(oldvalues.get("Profile").equals(details.getProfile()))
+    						{
+    							if(oldvalues.get("OrgUnit").equals(details.getTeamName()))
+    							{
+    								if(oldvalues.get("SupervisorName").equals(details.getSupervisor()))
+    								{
+    									if(oldvalues.get("Role").equals(details.getRole())) {
+                						if(firstRowData.containsKey("New Values")) {
+                						Map<String,String> newvalues=new HashMap<>();
+                						String[]d1=firstRowData.get("New Values").split("\n");
+                						for(String e:d1) {
+                							String f[]=e.split(":",2);
+                							if(f.length>1)
+                								newvalues.put(f[0], f[1]);
+                						}
+                						if(newvalues.get("UserName").equals(details.getBankUserName()))
+                						{
+                							if(newvalues.get("AvayaLoginID").equals(details.getAvayaLoginID()))
+                							{
+                								if(newvalues.get("FirstName").equals(details.getUpdatedFirstname()))
+                								{
+                									if(newvalues.get("LastName").equals(details.getLastname()))
+                									{
+                										if(newvalues.get("Profile").equals(details.getProfile()))
+                										{
+                											if(newvalues.get("OrgUnit").equals(details.getTeamName()))
+                											{
+                												if(newvalues.get("SupervisorName").equals(details.getSupervisor()))
+                												{
+                													if(newvalues.get("Role").equals(details.getRole()))
+                													{	
+                														if(newvalues.get("ModifyReason").equals(details.getModifyReason())){ 
+                                												Status=true;
+                                										}
+                                										else System.out.println("Modify reason data mismatch");
+                                									}
+                													else {System.out.println("Role data mismatch");}
+                												}
+                												else {System.out.println("Supervisor Name data mismatch");}
+                											}
+                											else {System.out.println("OrgUnit data mismatch");}
+                										}
+                										else {System.out.println("Profile data mismatch");}
+                									}	
+                									else {System.out.println("LastName data mismatch");}
+                								}
+                								else {System.out.println("FirstName data mismatch");}
+                							}
+                							else {System.out.println("AvayaLoginID data mismatch");}
+                						}
+                						else {System.out.println("UserName data mismatch");}
+                						}
+                					else System.out.println("New Values data mismatch");
+            					}
+    									else {System.out.println("Role data mismatch");}
+    								}
+    								else {System.out.println("Supervisor Name data mismatch");}
+    							}
+    							else {System.out.println("OrgUnit data mismatch");}
+    						}
+    						else {System.out.println("Profile data mismatch");}
+    					}	
+    					else {System.out.println("LastName data mismatch");}
+    				}
+    				else {System.out.println("FirstName data mismatch");}
+    			}
+    			else {System.out.println("AvayaLoginID data mismatch");}
+    		}
+    		else {System.out.println("UserName data mismatch");}
+        }
+        else {System.out.println("Old values data mismatch");}
+ return Status;
+	}
+
+	public boolean verifyUserRoleMappingDelete(UserRoleMappingDetails details, String Transaction) throws Exception {
+		booleansearchold(details.getBankUserName(),Transaction);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+		Map<String,String> oldvalues=new HashMap<>();
+		String[]d=firstRowData.get("Old Values").split("\n");
+		for(String e:d) {
+			String f[]=e.split(":",2);
+			if(f.length>1)
+			oldvalues.put(f[0], f[1]);
+		}
+		if(oldvalues.get("UserName").equals(details.getBankUserName()))
+		{
+			if(oldvalues.get("AvayaLoginID").equals(details.getAvayaLoginID()))
+			{
+				if(oldvalues.get("FirstName").equals(details.getFirstname()))
+				{
+					if(oldvalues.get("LastName").equals(details.getLastname()))
+					{
+						if(oldvalues.get("Profile").equals(details.getProfile()))
+						{
+							if(oldvalues.get("OrgUnit").equals(details.getTeamName()))
+							{
+								if(oldvalues.get("SupervisorName").equals(details.getSupervisor()))
+								{
+									if(oldvalues.get("Role").equals(details.getRole()))
+									{
+										if(oldvalues.get("ModifyReason").equals(details.getDeleteReason()))
+										Status=true;
+										else{System.out.println("Reason data mismatch");}
+									}
+									else {System.out.println("Role data mismatch");}
+								}
+								else {System.out.println("Supervisor Name data mismatch");}
+							}
+							else {System.out.println("OrgUnit data mismatch");}
+						}
+						else {System.out.println("Profile data mismatch");}
+					}	
+					else {System.out.println("LastName data mismatch");}
+				}
+				else {System.out.println("FirstName data mismatch");}
+			}
+			else {System.out.println("AvayaLoginID data mismatch");}
+		}
+		else {System.out.println("UserName data mismatch");}
 		return Status;
 	}
 
