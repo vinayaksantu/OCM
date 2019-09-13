@@ -23,7 +23,7 @@ public class NewUserRoleMappingPage extends BasePage {
     @FindBy(css=".ibox-title h5")
     private WebElement userRoleMapping;
 
-    @FindBy(css=".k-grid-content .k-selectable")
+    @FindBy(css="#drillGrid .k-grid-content")
     private WebElement gridContent;
 
     @FindBy(css=".k-loading-img")
@@ -105,10 +105,10 @@ public class NewUserRoleMappingPage extends BasePage {
     @FindBy(css=".toast-message")
     private WebElement successmsg;
 
-    @FindBy(css="#toast-container .toast-error")
+    @FindBy(css="#toast-container .toast-error .toast-message")
     private List<WebElement> errorMsg;
 
-    @FindBy(css=".search-link")
+    @FindBy(css="#gridDiv2 .search-link")
     private WebElement searchLink;
 
     @FindBy(css=".modal-body .form-inline .form-group .k-select")
@@ -172,8 +172,8 @@ public class NewUserRoleMappingPage extends BasePage {
     @FindBy(css="#makeChanges")
     private WebElement makeChangesButton;
     
-    @FindBy(xpath="//i[@class='fab fa-replyd']")
-	private WebElement SRTImg;
+    @FindBy(xpath="//i[@class='far fa-users']")
+	private WebElement URMImg;
 	    
 	@FindBy(xpath="//i[@class='fas fa-expand']")
 	private WebElement maximize;
@@ -337,6 +337,8 @@ public class NewUserRoleMappingPage extends BasePage {
         return userRoleMapping.isEnabled();
     }
     public void addNewUserRoleMappingRecord(UserRoleMappingDetails details) throws Exception {
+    	selectWebElement(UserRoleMappingTabs.get(1));
+		selectWebElement(makeUserRoleMappingChanges);
         selectWebElement(addNewUserRoleMappingRecordBtn);
         selectWebElement(firstnameTextBox);
         enterValueToTxtField(firstnameTextBox,details.getFirstname());
@@ -345,9 +347,9 @@ public class NewUserRoleMappingPage extends BasePage {
         selectWebElement(usernameTextBox);
         enterValueToTxtFieldWithoutClear(usernameTextBox,details.getBankUserName());
         enterValueToTxtFieldWithoutClear(editAvayaLoginIDTextbox,details.getAvayaLoginID());
-        editProfile(details.getProfile(),details.getSupervisor());
         selectWebElement(TeamNameDropDown);
         ChooseTeamHeirarchy(details.getTeamName());
+        editProfile(details.getProfile(),details.getSupervisor());        
         selectWebElement(RoleDropDown);
         selectDropdownFromVisibleText(RoleListBox,details.getRole());
         btnClick(editFormSaveBtn);
@@ -359,12 +361,15 @@ public class NewUserRoleMappingPage extends BasePage {
             for(WebElement e: teamList){
                 if(e.getText().equals(hrcy[i]))
                     if(e.findElements(By.className("k-icon")).size()>0)
-                    {selectWebElement(e.findElement(By.className("k-icon")));break;}
+                    {selectWebElement(e.findElement(By.className("k-icon")));
+                    break;}
                     else
                     {selectWebElement(e.findElement(By.className("k-in")));break;}   }}
     }
     
     public void addwithoutFirstName(UserRoleMappingDetails details) throws Exception {
+    	selectWebElement(UserRoleMappingTabs.get(1));
+		selectWebElement(makeUserRoleMappingChanges);
     	selectWebElement(addNewUserRoleMappingRecordBtn);
         selectWebElement(lastnameTextBox);
         enterValueToTxtField(lastnameTextBox,details.getLastname());
@@ -380,6 +385,8 @@ public class NewUserRoleMappingPage extends BasePage {
         selectWebElement(cancelBtn);
 	}
 	public void addwithoutLastName(UserRoleMappingDetails details) throws Exception {
+		selectWebElement(UserRoleMappingTabs.get(1));
+		selectWebElement(makeUserRoleMappingChanges);
 		selectWebElement(addNewUserRoleMappingRecordBtn);
         selectWebElement(firstnameTextBox);
         enterValueToTxtField(firstnameTextBox,details.getFirstname());
@@ -395,6 +402,8 @@ public class NewUserRoleMappingPage extends BasePage {
         selectWebElement(cancelBtn);		
 	}
 	public void addwithoutLanID(UserRoleMappingDetails details) throws Exception {
+		selectWebElement(UserRoleMappingTabs.get(1));
+		selectWebElement(makeUserRoleMappingChanges);
 		selectWebElement(addNewUserRoleMappingRecordBtn);
         selectWebElement(firstnameTextBox);
         enterValueToTxtField(firstnameTextBox,details.getFirstname());
@@ -410,6 +419,8 @@ public class NewUserRoleMappingPage extends BasePage {
         selectWebElement(cancelBtn);		
 	}
 	public void addwithoutLoginID(UserRoleMappingDetails details) throws Exception {
+		selectWebElement(UserRoleMappingTabs.get(1));
+		selectWebElement(makeUserRoleMappingChanges);
 		selectWebElement(addNewUserRoleMappingRecordBtn);
         selectWebElement(firstnameTextBox);
         enterValueToTxtField(firstnameTextBox,details.getFirstname());
@@ -426,6 +437,8 @@ public class NewUserRoleMappingPage extends BasePage {
         selectWebElement(cancelBtn);		
 	}
 	public void addwithoutProfile(UserRoleMappingDetails details) throws Exception {
+		selectWebElement(UserRoleMappingTabs.get(1));
+		selectWebElement(makeUserRoleMappingChanges);
 		selectWebElement(addNewUserRoleMappingRecordBtn);
         selectWebElement(firstnameTextBox);
         enterValueToTxtField(firstnameTextBox,details.getFirstname());
@@ -442,6 +455,8 @@ public class NewUserRoleMappingPage extends BasePage {
         selectWebElement(cancelBtn);		
 	}
 	public void addwithoutSupervisor(UserRoleMappingDetails details) throws Exception {
+		selectWebElement(UserRoleMappingTabs.get(1));
+		selectWebElement(makeUserRoleMappingChanges);
 		selectWebElement(addNewUserRoleMappingRecordBtn);
         selectWebElement(firstnameTextBox);
         enterValueToTxtField(firstnameTextBox,details.getFirstname());
@@ -460,6 +475,8 @@ public class NewUserRoleMappingPage extends BasePage {
         selectWebElement(cancelBtn);		
 	}
 	public void addwithoutRole(UserRoleMappingDetails details) throws Exception {
+		selectWebElement(UserRoleMappingTabs.get(1));
+		selectWebElement(makeUserRoleMappingChanges);
 		selectWebElement(addNewUserRoleMappingRecordBtn);
         selectWebElement(firstnameTextBox);
         enterValueToTxtField(firstnameTextBox,details.getFirstname());
@@ -475,6 +492,8 @@ public class NewUserRoleMappingPage extends BasePage {
         selectWebElement(cancelBtn);		
 	}
 	public void addwithoutOrgUnit(UserRoleMappingDetails details) throws Exception {
+		selectWebElement(UserRoleMappingTabs.get(1));
+		selectWebElement(makeUserRoleMappingChanges);
 		selectWebElement(addNewUserRoleMappingRecordBtn);
         selectWebElement(firstnameTextBox);
         enterValueToTxtField(firstnameTextBox,details.getFirstname());
@@ -501,6 +520,8 @@ public class NewUserRoleMappingPage extends BasePage {
         waitUntilWebElementIsVisible(gridContent);
     }
     public void editUserRoleMappingRecord(UserRoleMappingDetails details) throws Exception {
+    	selectWebElement(UserRoleMappingTabs.get(1));
+		selectWebElement(makeUserRoleMappingChanges);
         searchUserRoleMappingRecord(details.getBankUserName());
         selectWebElement(editBtn);
         waitForJqueryLoad(driver);
@@ -634,7 +655,7 @@ public class NewUserRoleMappingPage extends BasePage {
 	}
 
 	 public boolean verifylogo() {
-		if(isElementExist(SRTImg))
+		if(isElementExist(URMImg))
 				return true;
 		else
 		return false;
@@ -668,7 +689,7 @@ public class NewUserRoleMappingPage extends BasePage {
         }
 
 	public boolean verifyApprovedDataTableHeaders() {
-		ArrayList<String> Expected=new ArrayList<String>(Arrays.asList("First Name","Last Name","Lan ID","Login ID","Profile","Supervisor Name","Org.Unit","Role"));
+		ArrayList<String> Expected=new ArrayList<String>(Arrays.asList("First Name","Last Name","Lan ID","Login ID","Profile","Supervisor Name","Org. Unit","Role"));
         ArrayList Actual = getHeadersfromTable(approvedDataTableHeaders);
         System.out.println(Actual);
         Collections.sort(Expected);
@@ -730,7 +751,7 @@ public class NewUserRoleMappingPage extends BasePage {
 	}
     
 	public boolean verifyMakerDataTableHeaders() {
-		ArrayList<String> Expected=new ArrayList<String>(Arrays.asList("First Name","Last Name","Lan ID","Login ID","Profile","Supervisor Name","Org.Unit","Role"));
+		ArrayList<String> Expected=new ArrayList<String>(Arrays.asList("First Name","Last Name","Lan ID","Login ID","Profile","Supervisor Name","Org. Unit","Role"));
 		ArrayList Actual = getHeadersfromTable(makerTableHeaders);
 		System.out.println(Actual);
         Collections.sort(Expected);Collections.sort(Actual);
@@ -898,7 +919,7 @@ public class NewUserRoleMappingPage extends BasePage {
     public boolean verifyExportToExcel(String filePath) {
 		final File folder = new File(filePath);
 		for (final File f : folder.listFiles()) {
-		    if (f.getName().startsWith("SMS Response Template")) {
+		    if (f.getName().startsWith("User Role Mapping")) {
 		        f.delete();
 		    }
 		}
@@ -909,7 +930,7 @@ public class NewUserRoleMappingPage extends BasePage {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		Boolean Status=verifyExportPageFileDownload(filePath, "SMS Response Template");
+		Boolean Status=verifyExportPageFileDownload(filePath, "User Role Mapping");
 		return Status;
 	}    
     
@@ -1010,7 +1031,7 @@ public class NewUserRoleMappingPage extends BasePage {
         selectDropdownFromVisibleText(columnNameList,"Lan ID");
         selectWebElement(selectSearchColumn.get(1));
         selectDropdownFromVisibleText(searchTypeList,"Is equal to");
-        selectWebElement(searchBtn);	
+        selectWebElement(popupSearchBtn);	
         selectWebElement(searchClose);
 	}
 
@@ -1075,7 +1096,7 @@ public class NewUserRoleMappingPage extends BasePage {
         selectWebElement(selectSearchColumn.get(1));
         selectDropdownFromVisibleText(searchTypeList,"Is equal to");
         enterValueToTxtField(searchText.get(0),LanId);
-        selectWebElement(searchBtn);
+        selectWebElement(popupSearchBtn);
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(approvedgridcontent);		
 	}
@@ -1177,7 +1198,7 @@ public class NewUserRoleMappingPage extends BasePage {
 					{
 						if(newvalues.get("Profile").equals(details.getProfile()))
 						{
-							if(newvalues.get("OrgUnit").equals(details.getTeamName()))
+							if(newvalues.get("OrgUnit").equals(details.getOrgUnit()))
 							{
 								if(newvalues.get("SupervisorName").equals(details.getSupervisor()))
 								{
@@ -1229,7 +1250,7 @@ public class NewUserRoleMappingPage extends BasePage {
 	
 	public void sendForAprroval(String comments) throws Exception {
 		selectWebElement(sendForApprovalBtn);
-		enterValueToTxtField(makerComments, comments);
+		enterValueToTxtFieldWithoutClear(makerComments, comments);
 		selectWebElement(submitMakerComments);		
 	}
 	
@@ -1329,7 +1350,7 @@ public class NewUserRoleMappingPage extends BasePage {
 		selectWebElement(editBtn);
 		waitForJqueryLoad(driver);
 		selectWebElement(cancelBtn);
-		if(editrowdata.get(4).getText().equals(details.getBankUserName()))
+		if(editrowdata.get(3).getText().equals(details.getBankUserName()))
 			return true;
 		else
 		return false;
@@ -1340,7 +1361,7 @@ public class NewUserRoleMappingPage extends BasePage {
         Map<String,String> firstRowData=getFirstRowDatafromTable();
         if(firstRowData.get("Transaction").equalsIgnoreCase(Transaction)){
             if(firstRowData.get("Status").equalsIgnoreCase(Status)){
-                if(firstRowData.get("Function").equalsIgnoreCase("IvrHostMap")){
+                if(firstRowData.get("Function").equalsIgnoreCase("User Role Mapping")){
                        if(Transaction.equals("MakerUpdate")){
                            Map<String,String> newvalues=new HashMap<>();
                             String[] d=firstRowData.get("New Values").split("\n");
@@ -1427,7 +1448,7 @@ public class NewUserRoleMappingPage extends BasePage {
 		selectWebElement(deleteBtn);
 		Thread.sleep(1000);
         selectWebElement(deleteReasonTextBox);
-        enterValueToTxtField(deleteReasonTextBox,details.getDeleteReason());
+        enterValueToTxtFieldWithoutClear(deleteReasonTextBox,details.getDeleteReason());
         selectWebElement(yesBtn);				
 	}
 
@@ -1485,6 +1506,8 @@ public class NewUserRoleMappingPage extends BasePage {
 			selectWebElement(addNewUserRoleMappingRecordBtn);
 		}
 		public void EditRecordWithoutModifyReason(UserRoleMappingDetails details) throws Exception {
+			selectWebElement(UserRoleMappingTabs.get(1));
+			selectWebElement(makeUserRoleMappingChanges);
 			searchUserRoleMappingRecord(details.getBankUserName());
 	        selectWebElement(editBtn);
 	        waitForJqueryLoad(driver);

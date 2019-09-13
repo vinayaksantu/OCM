@@ -54,7 +54,7 @@ public class TmacBroadCastMsgTest extends BaseTest {
         Assert.assertTrue(tmacBroadCastMsgPage.isTmacBroadcastMsgPageDisplayed(), "TMAC Broadcast page assertion failed");
     }
    
-    /*@Test(priority=1)
+    @Test(priority=1)
     public void TmacBroadCastMsgPage()
     {
         TmacBroadCastMsgPage tmacBroadCastMsgPage  = PageFactory.createPageInstance(driver, TmacBroadCastMsgPage.class);
@@ -179,7 +179,7 @@ public class TmacBroadCastMsgTest extends BaseTest {
         screenshot.captureScreen("TmacBroadCastMsgTest", "clearall");
         Assert.assertTrue(tmacBroadCastMsgPage.verifyclose());
         screenshot.captureScreen("TmacBroadCastMsgTest", "SearchClose");	
-    }*/
+    }
     
     @Test(priority=13)
     public void SearchClearSearch() throws Exception

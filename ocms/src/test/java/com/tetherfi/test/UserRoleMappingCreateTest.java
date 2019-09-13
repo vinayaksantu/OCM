@@ -64,7 +64,7 @@ public class UserRoleMappingCreateTest {
 	
 	@Test(groups= {"Maker"},priority=1)
     public void VerifyAddCancelButton() throws Exception {
-    	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\NewUserRoleMappingData.xlsx";
+    	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserRoleMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
 	    UserRoleMappingDetails UserRoleMappingDetails = new UserRoleMappingDetails(map);
         NewUserRoleMappingPage NewUserRoleMappingPage = PageFactory.createPageInstance(driver, NewUserRoleMappingPage.class);
@@ -73,7 +73,7 @@ public class UserRoleMappingCreateTest {
 	
 	@Test(groups = { "Maker" },priority=2)
     public void VerifyAddRecordwithoutFirstName() throws Exception {
-    	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\NewUserRoleMappingData.xlsx";
+    	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserRoleMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
 	    UserRoleMappingDetails UserRoleMappingDetails = new UserRoleMappingDetails(map);
         NewUserRoleMappingPage NewUserRoleMappingPage = PageFactory.createPageInstance(driver, NewUserRoleMappingPage.class);
@@ -83,7 +83,7 @@ public class UserRoleMappingCreateTest {
     
     @Test(groups = { "Maker" },priority=3)
     public void VerifyAddRecordWithoutLastName() throws Exception {
-    	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\NewUserRoleMappingData.xlsx";
+    	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserRoleMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
 	    UserRoleMappingDetails UserRoleMappingDetails = new UserRoleMappingDetails(map);
         NewUserRoleMappingPage NewUserRoleMappingPage = PageFactory.createPageInstance(driver, NewUserRoleMappingPage.class);
@@ -93,7 +93,7 @@ public class UserRoleMappingCreateTest {
     
     @Test(groups = { "Maker" },priority=4)
     public void VerifyAddRecordWithoutLanId() throws Exception {
-    	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\NewUserRoleMappingData.xlsx";
+    	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserRoleMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
 	    UserRoleMappingDetails UserRoleMappingDetails = new UserRoleMappingDetails(map);
         NewUserRoleMappingPage NewUserRoleMappingPage = PageFactory.createPageInstance(driver, NewUserRoleMappingPage.class);
@@ -103,7 +103,7 @@ public class UserRoleMappingCreateTest {
     
     @Test(groups = { "Maker" },priority=5)
     public void VerifyAddRecordWithoutLoginID() throws Exception {
-    	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\NewUserRoleMappingData.xlsx";
+    	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserRoleMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
 	    UserRoleMappingDetails UserRoleMappingDetails = new UserRoleMappingDetails(map);
         NewUserRoleMappingPage NewUserRoleMappingPage = PageFactory.createPageInstance(driver, NewUserRoleMappingPage.class);
@@ -113,7 +113,7 @@ public class UserRoleMappingCreateTest {
     
     @Test(groups = { "Maker" },priority=6)
     public void VerifyAddRecordWithoutOrgUnit() throws Exception {
-    	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\NewUserRoleMappingData.xlsx";
+    	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserRoleMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
 	    UserRoleMappingDetails UserRoleMappingDetails = new UserRoleMappingDetails(map);
         NewUserRoleMappingPage NewUserRoleMappingPage = PageFactory.createPageInstance(driver, NewUserRoleMappingPage.class);
@@ -123,7 +123,7 @@ public class UserRoleMappingCreateTest {
     
     @Test(groups = { "Maker" },priority=7)
     public void VerifyAddRecordWithoutProfile() throws Exception {
-    	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\NewUserRoleMappingData.xlsx";
+    	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserRoleMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
 	    UserRoleMappingDetails UserRoleMappingDetails = new UserRoleMappingDetails(map);
         NewUserRoleMappingPage NewUserRoleMappingPage = PageFactory.createPageInstance(driver, NewUserRoleMappingPage.class);
@@ -133,7 +133,7 @@ public class UserRoleMappingCreateTest {
     
     @Test(groups = { "Maker" },priority=8)
     public void VerifyAddRecordWithoutSupervisor() throws Exception {
-    	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\NewUserRoleMappingData.xlsx";
+    	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserRoleMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
 	    UserRoleMappingDetails UserRoleMappingDetails = new UserRoleMappingDetails(map);
         NewUserRoleMappingPage NewUserRoleMappingPage = PageFactory.createPageInstance(driver, NewUserRoleMappingPage.class);
@@ -143,17 +143,17 @@ public class UserRoleMappingCreateTest {
     
     @Test(groups = { "Maker" },priority=9)
     public void VerifyAddRecordWithoutRole() throws Exception {
-    	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\NewUserRoleMappingData.xlsx";
+    	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserRoleMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
 	    UserRoleMappingDetails UserRoleMappingDetails = new UserRoleMappingDetails(map);
         NewUserRoleMappingPage NewUserRoleMappingPage = PageFactory.createPageInstance(driver, NewUserRoleMappingPage.class);
         NewUserRoleMappingPage.addwithoutRole(UserRoleMappingDetails);
         Assert.assertFalse(NewUserRoleMappingPage.getErrorMsg());
-    }    
+    }   
     
-    @Test(groups = { "Maker" },priority=10)
+	@Test(groups = { "Maker" },priority=10)
     public void AddRevertRecord() throws Exception {
-		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\NewUserRoleMappingData.xlsx";
+		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserRoleMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
 	    UserRoleMappingDetails UserRoleMappingDetails = new UserRoleMappingDetails(map);
         NewUserRoleMappingPage NewUserRoleMappingPage = PageFactory.createPageInstance(driver, NewUserRoleMappingPage.class);
@@ -172,7 +172,7 @@ public class UserRoleMappingCreateTest {
 	
 	@Test(groups= {"Maker"},priority=12,dependsOnMethods="VerifyRevertForAddNewRecord")
 	public void VerifyApprovedDataSectionWithoutApproval() throws Exception {
-		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\NewUserRoleMappingData.xlsx";
+		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserRoleMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
 	    UserRoleMappingDetails UserRoleMappingDetails = new UserRoleMappingDetails(map);
         NewUserRoleMappingPage NewUserRoleMappingPage = PageFactory.createPageInstance(driver, NewUserRoleMappingPage.class);
@@ -181,8 +181,8 @@ public class UserRoleMappingCreateTest {
 	
 	@Test(groups = { "Maker" },priority=13,dependsOnMethods = "VerifyApprovedDataSectionWithoutApproval")
     public void VerifyAuditTrailReportForRevert() throws Exception {
-        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\NewUserRoleMappingData.xlsx";
-	    Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);
+        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserRoleMappingData.xlsx";
+	    Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
 	    UserRoleMappingDetails UserRoleMappingDetails = new UserRoleMappingDetails(map);
 	    HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
 	    homePage.navigateToOCMReportsPage();
@@ -196,7 +196,7 @@ public class UserRoleMappingCreateTest {
 	
 	@Test(groups = { "Maker" },priority=14)
     public void AddRejectRecord() throws Exception {
-		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\NewUserRoleMappingData.xlsx";
+		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserRoleMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
 	    UserRoleMappingDetails UserRoleMappingDetails = new UserRoleMappingDetails(map);
         NewUserRoleMappingPage NewUserRoleMappingPage = PageFactory.createPageInstance(driver, NewUserRoleMappingPage.class);
@@ -223,7 +223,7 @@ public class UserRoleMappingCreateTest {
     
     @Test(groups = { "Checker" },priority=17,dependsOnMethods = "RejectforAddNewNewUserRoleMappingRecord")
     public void VerifyAuditTrailReportForReject() throws Exception {
-        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\NewUserRoleMappingData.xlsx";
+        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserRoleMappingData.xlsx";
 	    Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
 	    UserRoleMappingDetails UserRoleMappingDetails = new UserRoleMappingDetails(map);
 	    HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
@@ -238,7 +238,7 @@ public class UserRoleMappingCreateTest {
     
     @Test(groups= {"Maker"},priority=18,dependsOnMethods="VerifyAuditTrailReportForReject")
     public void VerifyRecordAfterRejection() throws Exception {
-    	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\NewUserRoleMappingData.xlsx";
+    	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserRoleMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
 	    UserRoleMappingDetails UserRoleMappingDetails = new UserRoleMappingDetails(map);
         NewUserRoleMappingPage NewUserRoleMappingPage = PageFactory.createPageInstance(driver, NewUserRoleMappingPage.class);
@@ -246,7 +246,7 @@ public class UserRoleMappingCreateTest {
     }
 	@Test(groups = { "Maker" },priority=19)
     public void AddNewNewUserRoleMappingRecord() throws Exception {
-		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\NewUserRoleMappingData.xlsx";
+		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserRoleMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
 	    UserRoleMappingDetails UserRoleMappingDetails = new UserRoleMappingDetails(map);
         NewUserRoleMappingPage NewUserRoleMappingPage = PageFactory.createPageInstance(driver, NewUserRoleMappingPage.class);
@@ -256,7 +256,7 @@ public class UserRoleMappingCreateTest {
 	
 	@Test(groups = { "Maker" },priority=20,dependsOnMethods = "AddNewNewUserRoleMappingRecord")
     public void VerifyAuditTrailReportForCreate() throws Exception {
-		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\NewUserRoleMappingData.xlsx";
+		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserRoleMappingData.xlsx";
 	    Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
 	    UserRoleMappingDetails UserRoleMappingDetails = new UserRoleMappingDetails(map);
 	    HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
@@ -269,9 +269,9 @@ public class UserRoleMappingCreateTest {
         Assert.assertTrue(ocmReportsPage.verifyUserRoleMappingCreate(UserRoleMappingDetails, "MakerCreate"),"Audit Trail report assertion failed");
     }
     
-    @Test(groups = { "Maker" },priority=21,dependsOnMethods="AddNewNewUserRoleMappingRecord")
+    @Test(groups = { "Maker" },priority=21)//,dependsOnMethods="AddNewNewUserRoleMappingRecord")
     public void VerifyAuditTrailDataForAddNewNewUserRoleMappingRecord() throws Exception {
-		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\NewUserRoleMappingData.xlsx";
+		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserRoleMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
 	    UserRoleMappingDetails UserRoleMappingDetails = new UserRoleMappingDetails(map);
         NewUserRoleMappingPage NewUserRoleMappingPage = PageFactory.createPageInstance(driver, NewUserRoleMappingPage.class);
@@ -290,7 +290,7 @@ public class UserRoleMappingCreateTest {
     
     @Test(groups = { "Maker" },priority=23,dependsOnMethods = "VerifySendForApprovalForAddNewNewUserRoleMappingRecord")
     public void VerifyAuditTrailReportForSendForApproval() throws Exception {
-		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\NewUserRoleMappingData.xlsx";
+		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserRoleMappingData.xlsx";
 	    Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
 	    UserRoleMappingDetails UserRoleMappingDetails = new UserRoleMappingDetails(map);
 	    HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
@@ -313,7 +313,7 @@ public class UserRoleMappingCreateTest {
     
     @Test(groups = { "Checker" },priority=25,dependsOnMethods = "ApproveforAddNewNewUserRoleMappingRecord")
     public void VerifyAuditTrailReportForApprove() throws Exception {
-		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\NewUserRoleMappingData.xlsx";
+		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserRoleMappingData.xlsx";
 	    Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
 	    UserRoleMappingDetails UserRoleMappingDetails = new UserRoleMappingDetails(map);
 	    HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
@@ -328,16 +328,16 @@ public class UserRoleMappingCreateTest {
     
     @Test(groups= {"Checker"},priority=26,dependsOnMethods="ApproveforAddNewNewUserRoleMappingRecord")
     public void VerifyRecordApprovedDataSectionafterApproval()throws Exception{
-    	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\NewUserRoleMappingData.xlsx";
+    	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserRoleMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
 	    UserRoleMappingDetails UserRoleMappingDetails = new UserRoleMappingDetails(map);
         NewUserRoleMappingPage NewUserRoleMappingPage = PageFactory.createPageInstance(driver, NewUserRoleMappingPage.class);
         Assert.assertTrue(NewUserRoleMappingPage.verifyApprovedSectionDataafterapproval(UserRoleMappingDetails));
     }
     
-    @Test(groups = { "Maker" },priority=27,dependsOnMethods="AddNewNewUserRoleMappingRecord")
+    @Test(groups = { "Maker" },priority=27)//,dependsOnMethods="AddNewNewUserRoleMappingRecord")
     public void AddDuplicateRecord() throws Exception {
-    	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\NewUserRoleMappingData.xlsx";
+    	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserRoleMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
 	    UserRoleMappingDetails UserRoleMappingDetails = new UserRoleMappingDetails(map);
         NewUserRoleMappingPage NewUserRoleMappingPage = PageFactory.createPageInstance(driver, NewUserRoleMappingPage.class);

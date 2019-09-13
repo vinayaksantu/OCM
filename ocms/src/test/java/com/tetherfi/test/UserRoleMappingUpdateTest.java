@@ -60,8 +60,7 @@ public class UserRoleMappingUpdateTest {
         Assert.assertTrue(NewUserRoleMappingPage.isUserRoleMappingPageDisplayed(), "Branch Management page assertion failed");
         driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 	}
-	
-	@Test(groups= {"Maker"})
+	@Test(groups= {"Maker"}, priority=1)
 	public void EditCancelUserRoleMappingRecord() throws Exception {
 	    String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserRoleMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(0);
@@ -70,17 +69,17 @@ public class UserRoleMappingUpdateTest {
         Assert.assertTrue(NewUserRoleMappingPage.EditCancel(UserRoleMappingDetails), "Edit Cancel assertion Failed");
 	}
 	
-	@Test(groups= {"Maker"})
+	@Test(groups= {"Maker"},priority=2)
 	public void EditRevertUserRoleMappingRecord() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserRoleMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(0);
 	    UserRoleMappingDetails UserRoleMappingDetails = new UserRoleMappingDetails(map);
         NewUserRoleMappingPage NewUserRoleMappingPage = PageFactory.createPageInstance(driver, NewUserRoleMappingPage.class);
         NewUserRoleMappingPage.editUserRoleMappingRecord(UserRoleMappingDetails);
-        Assert.assertEquals(NewUserRoleMappingPage.getSuccessMessage(), "Record updated successfully");
+        Assert.assertEquals(NewUserRoleMappingPage.getSuccessMessage(), "Record Updated Successfully");
 	}
 	
-	@Test(groups = { "Maker" },dependsOnMethods="EditRevertUserRoleMappingRecord")
+	@Test(groups = { "Maker" },priority=3,dependsOnMethods="EditRevertUserRoleMappingRecord")
     public void VerifyRevertForEditRecord() throws Exception {
        	NewUserRoleMappingPage NewUserRoleMappingPage = PageFactory.createPageInstance(driver, NewUserRoleMappingPage.class);
        	NewUserRoleMappingPage.selectUserRoleMappingAuditTrailTab();
@@ -89,7 +88,7 @@ public class UserRoleMappingUpdateTest {
         Assert.assertTrue(NewUserRoleMappingPage.verifyStatus("Reverted"),"approval status details failed");
     }
 	
-	@Test(groups= {"Maker"})//,dependsOnMethods="VerifyRevertForEditRecord")
+	@Test(groups= {"Maker"},priority=4,dependsOnMethods="VerifyRevertForEditRecord")
     public void VerifyAuditTrialReportForRevertUpdate() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserRoleMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(0);	
@@ -104,17 +103,17 @@ public class UserRoleMappingUpdateTest {
         Assert.assertTrue(ocmReportsPage.verifyUserRoleMappingUpdate(UserRoleMappingDetails,"MakerReverted"));
     }
 	
-	@Test(groups= {"Maker"})
+	@Test(groups= {"Maker"},priority=5)
 	public void EditRejectRecord() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserRoleMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(0);
 	    UserRoleMappingDetails UserRoleMappingDetails = new UserRoleMappingDetails(map);
         NewUserRoleMappingPage NewUserRoleMappingPage = PageFactory.createPageInstance(driver, NewUserRoleMappingPage.class);
         NewUserRoleMappingPage.editUserRoleMappingRecord(UserRoleMappingDetails);
-        Assert.assertEquals(NewUserRoleMappingPage.getSuccessMessage(), "Record updated successfully");
+        Assert.assertEquals(NewUserRoleMappingPage.getSuccessMessage(), "Record Updated Successfully");
 	}
 	
-	@Test(groups = { "Maker" },dependsOnMethods="EditRejectRecord")
+	@Test(groups = { "Maker" },priority=6,dependsOnMethods="EditRejectRecord")
     public void VerifySendForApprovalForEditRejectRecord() throws Exception {
        	NewUserRoleMappingPage NewUserRoleMappingPage = PageFactory.createPageInstance(driver, NewUserRoleMappingPage.class);
        	NewUserRoleMappingPage.selectUserRoleMappingAuditTrailTab();
@@ -123,7 +122,7 @@ public class UserRoleMappingUpdateTest {
         Assert.assertTrue(NewUserRoleMappingPage.verifyStatus("Approval Pending"),"approal status details failed");
     }
 
-	@Test(groups = { "Checker" },dependsOnMethods="VerifySendForApprovalForEditRejectRecord")
+	@Test(groups = { "Checker" },priority=7,dependsOnMethods="VerifySendForApprovalForEditRejectRecord")
     public void RejectforEditUserRoleMappingRecord() throws Exception{
         NewUserRoleMappingPage NewUserRoleMappingPage = PageFactory.createPageInstance(driver, NewUserRoleMappingPage.class);
         NewUserRoleMappingPage.clickonReject("Reject Updated");
@@ -131,7 +130,7 @@ public class UserRoleMappingUpdateTest {
         Assert.assertTrue(NewUserRoleMappingPage.verifyReviewAuditTrail("Rejected","Reject Updated"));
     }
     
-    @Test(groups = { "Checker" },dependsOnMethods = "RejectforEditUserRoleMappingRecord")
+    @Test(groups = { "Checker" },priority=8,dependsOnMethods = "RejectforEditUserRoleMappingRecord")
     public void VerifyAuditTrailReportForReject() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserRoleMappingData.xlsx";
 	    Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
@@ -146,17 +145,17 @@ public class UserRoleMappingUpdateTest {
         Assert.assertTrue(ocmReportsPage.verifyUserRoleMappingUpdate(UserRoleMappingDetails, "CheckerReject"),"Audit Trail report assertion failed");
     }
     
-	@Test(groups= {"Maker"})
+	@Test(groups= {"Maker"},priority=9)
 	public void EditUserRoleMappingRecord() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserRoleMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(0);
 	    UserRoleMappingDetails UserRoleMappingDetails = new UserRoleMappingDetails(map);
         NewUserRoleMappingPage NewUserRoleMappingPage = PageFactory.createPageInstance(driver, NewUserRoleMappingPage.class);
         NewUserRoleMappingPage.editUserRoleMappingRecord(UserRoleMappingDetails);
-        Assert.assertEquals(NewUserRoleMappingPage.getSuccessMessage(), "Record updated successfully");
+        Assert.assertEquals(NewUserRoleMappingPage.getSuccessMessage(), "Record Updated Successfully");
 	}
 	
-	@Test(groups = { "Maker" },dependsOnMethods="EditUserRoleMappingRecord")
+	@Test(groups = { "Maker" },priority=10,dependsOnMethods="EditUserRoleMappingRecord")
     public void VerifyAuditTrailDataForEditUserRoleMappingRecord() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserRoleMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(0);
@@ -166,8 +165,7 @@ public class UserRoleMappingUpdateTest {
         Assert.assertTrue(NewUserRoleMappingPage.verifyAuditTrailUpdate(UserRoleMappingDetails, "MakerUpdate", "New"), "Audit trail details failed");
     }
 	
-
-	@Test(groups= {"Maker"},dependsOnMethods="EditUserRoleMappingRecord")
+	@Test(groups= {"Maker"},priority=11,dependsOnMethods="EditUserRoleMappingRecord")
     public void VerifyAuditTrialReportForUpdate() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserRoleMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(0);	
@@ -182,7 +180,7 @@ public class UserRoleMappingUpdateTest {
         Assert.assertTrue(ocmReportsPage.verifyUserRoleMappingUpdate(UserRoleMappingDetails,"MakerUpdate"));
     }
     
-	@Test(groups = { "Maker" },dependsOnMethods="VerifyAuditTrialReportForUpdate")
+	@Test(groups = { "Maker" },priority=12,dependsOnMethods="VerifyAuditTrialReportForUpdate")
     public void VerifySendForApprovalForEditRecord() throws Exception {
        	NewUserRoleMappingPage NewUserRoleMappingPage = PageFactory.createPageInstance(driver, NewUserRoleMappingPage.class);
        	NewUserRoleMappingPage.selectUserRoleMappingAuditTrailTab();
@@ -191,7 +189,7 @@ public class UserRoleMappingUpdateTest {
         Assert.assertTrue(NewUserRoleMappingPage.verifyStatus("Approval Pending"),"approal status details failed");
     }
 	
-	@Test(groups= {"Maker"},dependsOnMethods="EditUserRoleMappingRecord")
+	@Test(groups= {"Maker"},priority=13,dependsOnMethods="EditUserRoleMappingRecord")
     public void VerifyAuditTrialReportForSendForApprovalUpdate() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserRoleMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(0);	
@@ -206,7 +204,7 @@ public class UserRoleMappingUpdateTest {
         Assert.assertTrue(ocmReportsPage.verifyUserRoleMappingUpdate(UserRoleMappingDetails,"MakerSendToApproval"));
     }
     
-    @Test(groups = { "Checker" })//,dependsOnMethods="VerifyAuditTrialReportForSendForApprovalUpdate")
+    @Test(groups = { "Checker" },priority=14,dependsOnMethods="VerifyAuditTrialReportForSendForApprovalUpdate")
     public void ApproveforEditUserRoleMappingRecord() throws Exception{
         NewUserRoleMappingPage NewUserRoleMappingPage = PageFactory.createPageInstance(driver, NewUserRoleMappingPage.class);
         NewUserRoleMappingPage.clickonApprove("Approve Edited");
@@ -214,7 +212,7 @@ public class UserRoleMappingUpdateTest {
         Assert.assertTrue(NewUserRoleMappingPage.verifyReviewAuditTrail("Approved","Approve Edited"));
     }
 	
-	@Test(groups = { "Checker" },dependsOnMethods = "ApproveforEditUserRoleMappingRecord")
+	@Test(groups = { "Checker" },priority=15,dependsOnMethods = "ApproveforEditUserRoleMappingRecord")
     public void VerifyAuditTrailReportForApprove() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserRoleMappingData.xlsx";
 	    Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);

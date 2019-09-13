@@ -146,7 +146,7 @@ public class SmsResponseTemplateCreateTest {
 	@Test(groups = { "Maker" },priority=9,dependsOnMethods = "VerifyApprovedDataSectionWithoutApproval")
     public void VerifyAuditTrailReportForRevert() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\SmsResponseTemplateData.xlsx";
-	    Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);
+	    Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
 	    SmsResponseTemplateDetails SmsResponseTemplateDetails = new SmsResponseTemplateDetails(map);
 	    HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
 	    homePage.navigateToOCMReportsPage();

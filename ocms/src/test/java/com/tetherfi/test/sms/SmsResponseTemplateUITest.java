@@ -13,7 +13,6 @@ import org.testng.annotations.Test;
 import com.tetherfi.model.sms.SmsResponseTemplateDetails;
 import com.tetherfi.pages.HomePage;
 import com.tetherfi.pages.SmsResponseTemplatePage;
-import com.tetherfi.pages.IvrPage;
 import com.tetherfi.pages.OCMHomePage;
 import com.tetherfi.pages.SmsPage;
 import com.tetherfi.test.BaseTest;

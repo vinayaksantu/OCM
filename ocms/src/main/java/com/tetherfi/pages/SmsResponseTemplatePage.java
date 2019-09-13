@@ -395,7 +395,7 @@ public class SmsResponseTemplatePage extends BasePage {
 	}
 
 	public boolean verifyAuditTrailDataTableHeaders() {
-		ArrayList<String> Expected=new ArrayList<String>(Arrays.asList("Request Id", "Transaction", "Function", "Status", "User Id", "Submission DateTime", "Maker Comments", "Old Values", "New Values", "Reviewed By","Review DateTime", "Checker Comments"));
+		ArrayList<String> Expected=new ArrayList<String>(Arrays.asList(" ","Request Id", "Transaction", "Function", "Status", "User Id", "Submission DateTime", "Maker Comments", "Old Values", "New Values", "Reviewed By","Review DateTime", "Checker Comments"));
         ArrayList Actual = getHeadersfromTable(auditTrailTableHeaders);
         System.out.println(Actual);
         Collections.sort(Expected);Collections.sort(Actual);
@@ -592,7 +592,7 @@ public class SmsResponseTemplatePage extends BasePage {
     }
     public boolean verifyTotalNumberOfItemsPerPageDetails(int z){
         String item = items.get(z).getText();
-        return item.matches("(\\d.*) - (\\d.*) of (\\d.*) items");
+        return item.matches("(\\d.) - (\\d.) of (\\d.*) items");
     }
     
     public boolean verifyExportToExcel(String filePath) {
@@ -1057,7 +1057,7 @@ public class SmsResponseTemplatePage extends BasePage {
 		selectWebElement(editButton);
 		waitForJqueryLoad(driver);
 		selectWebElement(cancelBtn);
-		if(editrowdata.get(3).getText().equals(details.getiCOMTemplateID()))
+		if(editrowdata.get(8).getText().equals(details.getiCOMTemplateID()))
 			return true;
 		else
 		return false;
@@ -1065,15 +1065,12 @@ public class SmsResponseTemplatePage extends BasePage {
 
 	public void EditSmsResponseTemplateRecord(SmsResponseTemplateDetails details) throws Exception {
 		selectWebElement(SmsResponseTemplateTabs.get(1));
-		Thread.sleep(1000);
 		selectWebElement(makeSmsResponseTemplateChanges);
-		Thread.sleep(1000);
 		searchSmsResponseTemplateRecord(details.getiCOMTemplateID());
 		selectWebElement(editButton);
 		waitForJqueryLoad(driver);		
-		Thread.sleep(1000);
         enterValueToTxtField(MessageDescriptionTextbox,details.getUpdatedMessageDescription());
-        enterValueToTxtField(modifyReasonTextBox,details.getModifyReason());
+        enterValueToTxtFieldWithoutClear(modifyReasonTextBox,details.getModifyReason());
         selectWebElement(saveBtn);
 
 	}
@@ -1083,7 +1080,7 @@ public class SmsResponseTemplatePage extends BasePage {
         Map<String,String> firstRowData=getFirstRowDatafromTable();
         if(firstRowData.get("Transaction").equalsIgnoreCase(Transaction)){
             if(firstRowData.get("Status").equalsIgnoreCase(Status)){
-                if(firstRowData.get("Function").equalsIgnoreCase("IvrHostMap")){
+                if(firstRowData.get("Function").equalsIgnoreCase("SMS Response Template")){
                        if(Transaction.equals("MakerUpdate")){
                            Map<String,String> newvalues=new HashMap<>();
                             String[] d=firstRowData.get("New Values").split("\n");
@@ -1097,7 +1094,7 @@ public class SmsResponseTemplatePage extends BasePage {
                             stat=false;
                        }
                        else{System.out.println("Data mismatch");}
-                }else{System.out.println("Data mismatch:"+firstRowData.get("Function")+"\t"+"RoleManagement");}
+                }else{System.out.println("Data mismatch:"+firstRowData.get("Function")+"\t"+"SMS Response Template");}
             }else{System.out.println("Data mismatch:"+firstRowData.get("Status")+"\t"+Status);}
         }else{System.out.println("Data mismatch:"+firstRowData.get("Transaction")+"\t"+Transaction);}
         return stat;
@@ -1145,6 +1142,10 @@ public class SmsResponseTemplatePage extends BasePage {
         return(getSuccessMessage().contains("Record approved successfully. Request ID :"));
 
 	}
+	
+	/*public boolean verifyRejectedMessage() {
+		return(getSuccessMessage().contains("Record Rejected successfully. Request ID :")); 
+	}*/
 
 	public void EditRecordWithoutModifyReason(SmsResponseTemplateDetails details) throws Exception {
 		selectWebElement(SmsResponseTemplateTabs.get(1));
@@ -1169,7 +1170,7 @@ public class SmsResponseTemplatePage extends BasePage {
 		selectWebElement(deleteButton);
 		waitForJqueryLoad(driver);
 		selectWebElement(noBtn);
-		if(editrowdata.get(3).getText().equals(details.getiCOMTemplateID()))
+		if(editrowdata.get(8).getText().equals(details.getiCOMTemplateID()))
 			return true;
 		else
 		return false;
@@ -1185,7 +1186,7 @@ public class SmsResponseTemplatePage extends BasePage {
 		selectWebElement(deleteButton);
 		Thread.sleep(1000);
         selectWebElement(deleteReasonTextBox);
-        enterValueToTxtField(deleteReasonTextBox,details.getDeleteReason());
+        enterValueToTxtFieldWithoutClear(deleteReasonTextBox,details.getDeleteReason());
         selectWebElement(yesBtn);				
 	}
 
@@ -1195,7 +1196,7 @@ public class SmsResponseTemplatePage extends BasePage {
         Map<String,String> firstRowData=getFirstRowDatafromTable();
         if(firstRowData.get("Transaction").equalsIgnoreCase(Transaction)){
             if(firstRowData.get("Status").equalsIgnoreCase(Status)){
-                if(firstRowData.get("Function").equalsIgnoreCase("SmsResponseTemplate")){
+                if(firstRowData.get("Function").equalsIgnoreCase("Sms Response Template")){
                        stat=true;
                 }else{System.out.println("Data mismatch:"+firstRowData.get("Function")+"\t"+"RoleManagement");}
             }else{System.out.println("Data mismatch:"+firstRowData.get("Status")+"\t"+Status);}
@@ -1307,12 +1308,4 @@ public class SmsResponseTemplatePage extends BasePage {
 	        selectWebElement(saveBtn);	
 	        selectWebElement(cancelBtn);
 		}
-
-		
-
-		
-		
-
-		
-	
-}
+	}

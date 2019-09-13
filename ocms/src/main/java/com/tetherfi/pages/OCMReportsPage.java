@@ -31,6 +31,7 @@ import com.tetherfi.model.tmac.WaitTimeColorConfigDetails;
 import com.tetherfi.model.tmac.WorkCodeListDetails;
 import com.tetherfi.model.user.CepEventMappingDetails;
 import com.tetherfi.model.user.SkillConfigurationDetails;
+import com.tetherfi.model.user.TdmThresholdConfigDetails;
 import com.tetherfi.model.user.UserRoleMappingDetails;
 
 import org.apache.commons.lang3.StringUtils;
@@ -5139,7 +5140,7 @@ return status;
     		if(oldvalues.get("Text").equals(details.getText())){
     			if(oldvalues.get("Intent").equals(details.getIntent())){
     				if(oldvalues.get("Enable").equals(details.getEnable())) {
-    					if(oldvalues.get("ICOMTemplateId").equals(details.getiCOMTemplateID())){
+    					if(oldvalues.get("ICOMTemplateID").equals(details.getiCOMTemplateID())){
         					if(oldvalues.get("AppID").equals(details.getAppID())){
             					if(oldvalues.get("AlertCode").equals(details.getAlertCode())){
                 					if(oldvalues.get("MessageDescription").equals(details.getMessageDescription())){
@@ -5154,15 +5155,13 @@ return status;
                 						if(newvalues.get("Text").equals(details.getText())) {
                 							if(newvalues.get("Intent").equals(details.getIntent())){
                 								if(newvalues.get("Enable").equals(details.getEnable())){
-                									if(newvalues.get("ICOMTemplateId").equals(details.getiCOMTemplateID())){
+                									if(newvalues.get("ICOMTemplateID").equals(details.getiCOMTemplateID())){
                     									if(newvalues.get("MessageDescription").equals(details.getUpdatedMessageDescription())) {	
-                        									if(newvalues.get("Source").equals(details.getUpdatedMessageDescription())) {	
-                            									if(newvalues.get("AppID").equals(details.getUpdatedMessageDescription())) {	
-                                									if(newvalues.get("AlertCode").equals(details.getUpdatedMessageDescription())) {	
+                        									if(newvalues.get("Source").equals(details.getSource())) {	
+                            									if(newvalues.get("AppID").equals(details.getAppID())) {	
+                                									if(newvalues.get("AlertCode").equals(details.getAlertCode())) {	
                                 										if(newvalues.get("ModifyReason").equals(details.getModifyReason())){ 
-                                											if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getModifyReason()))
-                                												Status=true;
-                                											else System.out.println("Change reason data mismatch");
+                                											Status=true;
                                 										}
                                 										else System.out.println("Modify reason data mismatch");
                                 									}
@@ -5217,14 +5216,12 @@ return status;
 		if(oldvalues.get("Text").equals(details.getText())){
 			if(oldvalues.get("Intent").equals(details.getIntent())){
 				if(oldvalues.get("Enable").equals(details.getEnable())) {
-					if(oldvalues.get("ICOMTemplateId").equals(details.getiCOMTemplateID())){
+					if(oldvalues.get("ICOMTemplateID").equals(details.getiCOMTemplateID())){
     					if(oldvalues.get("AppID").equals(details.getAppID())){
         					if(oldvalues.get("AlertCode").equals(details.getAlertCode())){
             					if(oldvalues.get("MessageDescription").equals(details.getMessageDescription())){
 									if(oldvalues.get("ModifyReason").equals(details.getDeleteReason())) {
-										if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getDeleteReason()))
 											Status=true;
-										else System.out.println("Change reason data mismatch");
 									}
 									else System.out.println("Modify reason data mismatch");
 								}
@@ -5356,7 +5353,7 @@ return status;
 					{
 						if(newvalues.get("Profile").equals(details.getProfile()))
 						{
-							if(newvalues.get("OrgUnit").equals(details.getTeamName()))
+							if(newvalues.get("OrgUnit").equals(details.getOrgUnit()))
 							{
 								if(newvalues.get("SupervisorName").equals(details.getSupervisor()))
 								{
@@ -5405,7 +5402,7 @@ return status;
     					{
     						if(oldvalues.get("Profile").equals(details.getProfile()))
     						{
-    							if(oldvalues.get("OrgUnit").equals(details.getTeamName()))
+    							if(oldvalues.get("OrgUnit").equals(details.getOrgUnit()))
     							{
     								if(oldvalues.get("SupervisorName").equals(details.getSupervisor()))
     								{
@@ -5428,7 +5425,7 @@ return status;
                 									{
                 										if(newvalues.get("Profile").equals(details.getProfile()))
                 										{
-                											if(newvalues.get("OrgUnit").equals(details.getTeamName()))
+                											if(newvalues.get("OrgUnit").equals(details.getOrgUnit()))
                 											{
                 												if(newvalues.get("SupervisorName").equals(details.getSupervisor()))
                 												{
@@ -5498,7 +5495,7 @@ return status;
 					{
 						if(oldvalues.get("Profile").equals(details.getProfile()))
 						{
-							if(oldvalues.get("OrgUnit").equals(details.getTeamName()))
+							if(oldvalues.get("OrgUnit").equals(details.getOrgUnit()))
 							{
 								if(oldvalues.get("SupervisorName").equals(details.getSupervisor()))
 								{
@@ -5524,6 +5521,21 @@ return status;
 		}
 		else {System.out.println("UserName data mismatch");}
 		return Status;
+	}
+
+	public boolean verifyTdmThresholdConfigCreate(TdmThresholdConfigDetails tdmThresholdConfigDetails, String string) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean verifyTdmThresholdConfigUpdate(TdmThresholdConfigDetails tdmThresholdConfigDetails, String string) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean verifyTdmThresholdConfigDelete(TdmThresholdConfigDetails tdmThresholdConfigDetails, String string) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 
