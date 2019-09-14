@@ -3,25 +3,21 @@
 <suite name="Failed suite [Failed suite [Failed suite [Failed suite [Default suite]]]]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)(failed)(failed)(failed)">
     <classes>
-      <class name="com.tetherfi.test.tmac.TmacBroadCastMsgTest">
+      <class name="com.tetherfi.test.tmac.WaitTimeColorConfigTest">
         <methods>
-          <include name="database"/>
+          <include name="startTestCase"/>
           <include name="afterEachMethod"/>
-          <include name="VerifyAuditTrailReportForUpdate"/>
+          <include name="openApplication"/>
+          <include name="ExportToExcel"/>
+          <include name="database"/>
+          <include name="SortingByAscending"/>
+          <include name="NavigateToWaitTimeColorConfigPage"/>
           <include name="endTestCase"/>
           <include name="tearDown"/>
-          <include name="SortingByAscending"/>
+          <include name="ExportToExcelData"/>
           <include name="SortingByDescending"/>
-          <include name="NavigateToTmacBroadcastMsgPage"/>
-          <include name="ExporttoExcelWithoutData"/>
-          <include name="startTestCase"/>
-          <include name="openApplication"/>
-          <include name="SearchClearSearch"/>
-          <include name="EditTmacBroadCastMsg"/>
-          <include name="EditTmacBroadCastMsgCancel"/>
-          <include name="Afterclass"/>
         </methods>
-      </class> <!-- com.tetherfi.test.tmac.TmacBroadCastMsgTest -->
+      </class> <!-- com.tetherfi.test.tmac.WaitTimeColorConfigTest -->
     </classes>
   </test> <!-- Default test(failed)(failed)(failed)(failed) -->
 </suite> <!-- Failed suite [Failed suite [Failed suite [Failed suite [Default suite]]]] -->
