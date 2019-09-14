@@ -258,6 +258,21 @@ public class HostValueMappingPage extends BasePage {
 
     @FindBy(id="approveButton")
     private WebElement approveYesBtn;
+    
+    @FindBy(id="sendForApproval")
+    private WebElement sendForApprovalBtn;
+    
+    @FindBy(id="undoChanges")
+    private WebElement revertBtn;
+    
+    @FindBy(id="undoChangesMakerComments")
+    private WebElement revertMakerComments;
+    
+    @FindBy(id="submitMakerComment")
+    private WebElement submitMakerComments;
+    
+    @FindBy(id="submitUndoChangesMakerComment")
+    private WebElement revertSubmitMakerComments;
 	
 	
 	public boolean isHostValueMappingPageDisplayed() {
@@ -1380,5 +1395,29 @@ public class HostValueMappingPage extends BasePage {
 			selectWebElement(addNewHostValueMappingRecordBtn);
 		}
 
+		public void selectRecord() {
+			Map<String,String> map = new HashMap<>();
+			waitUntilWebElementIsVisible(auditGridContent);
+			List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
+			List<WebElement> cols=rows.get(1).findElements(By.tagName("td"));
+			selectWebElement(cols.get(0).findElement(By.id("isEnabled")));
+	    }
+		
+		public void sendForAprroval(String comments) throws Exception {
+			selectWebElement(sendForApprovalBtn);
+			enterValueToTxtField(makerComments, comments);
+			selectWebElement(submitMakerComments);		
+		}
+		
+		public void Revert(String comments) throws Exception {
+			selectWebElement(revertBtn);
+			enterValueToTxtField(revertMakerComments,comments);
+			selectWebElement(revertSubmitMakerComments);				
+		}
+		
+		public boolean verifyMessage() {
+	        return(getSuccessMessage().contains("Record approved successfully. Request ID :"));
+
+		}
 	
 }

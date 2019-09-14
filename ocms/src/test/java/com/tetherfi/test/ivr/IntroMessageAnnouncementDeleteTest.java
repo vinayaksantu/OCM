@@ -83,6 +83,7 @@ public class IntroMessageAnnouncementDeleteTest {
 	     Assert.assertFalse(IntroMessageAnnouncementPage.getErrorMsg(),"Invalid Record Assertion failed");
     }
 	
+	
 	@Test(groups = { "Maker" },priority=3)
     public void DeleteRecord() throws Exception {
 		 String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntroMessageAnnouncementData.xlsx";
@@ -93,24 +94,58 @@ public class IntroMessageAnnouncementDeleteTest {
         Assert.assertEquals(IntroMessageAnnouncementPage.getSuccessMessage(), "Record deleted successfully");
      }
         
-    @Test(priority=4,groups = { "Maker" },dependsOnMethods="DeleteRecord")
-    public void VerifyTaskCompleteActionForDeleteRecord() throws Exception {
-	     IntroMessageAnnouncementPage IntroMessageAnnouncementPage = PageFactory.createPageInstance(driver, IntroMessageAnnouncementPage.class);
-	     IntroMessageAnnouncementPage.selectIntroMessageAnnouncementAuditTrailTab();
-	     IntroMessageAnnouncementPage.taskCompleteAction("Task Complete for Delete");
-        Assert.assertTrue(IntroMessageAnnouncementPage.verifyTaskCompleteSuccessMessage(),"Task Complete record assertion failed");
-        Assert.assertTrue(IntroMessageAnnouncementPage.verifyStatus("Approval Pending"),"approal status details failed");
+	@Test(groups = { "Maker" },priority=4,dependsOnMethods="DeleteRecord")
+    public void VerifyRevertForDeleteRecord() throws Exception {
+       	IntroMessageAnnouncementPage IntroMessageAnnouncementPage = PageFactory.createPageInstance(driver, IntroMessageAnnouncementPage.class);
+       	IntroMessageAnnouncementPage.selectIntroMessageAnnouncementAuditTrailTab();
+       	IntroMessageAnnouncementPage.selectRecord();
+       	IntroMessageAnnouncementPage.Revert("revert");
+        Assert.assertTrue(IntroMessageAnnouncementPage.verifyStatus("Reverted"),"approval status details failed");
     }
     
-    @Test(priority=5,groups = { "Checker" },dependsOnMethods="VerifyTaskCompleteActionForDeleteRecord")
+	@Test(groups= {"Maker"},priority=5,dependsOnMethods="VerifyRevertForDeleteRecord")
+    public void VerifyAuditTrialReportForRevertDelete() throws Exception {
+		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntroMessageAnnouncementData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(0);	
+	    IntroMessageAnnouncementDetails IntroMessageAnnouncementDetails = new IntroMessageAnnouncementDetails(map);
+        HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
+        homePage.navigateToOCMReportsPage();
+        OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver, OCMReportsPage.class);
+        String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AuditTrailReportData.xlsx";
+        Map<String, String> map1 = new ExcelReader(filePath1,"Show").getTestData().get(0);
+        ReportDetails reportDetails= new ReportDetails(map1);
+        ocmReportsPage.showReport(reportDetails);
+        Assert.assertTrue(ocmReportsPage.verifyIntroMessageAnnouncementDelete(IntroMessageAnnouncementDetails,"MakerReverted"));
+    }
+	
+	@Test(groups = { "Maker" },priority=6)
+    public void RejectDeleteRecord() throws Exception {
+		 String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntroMessageAnnouncementData.xlsx";
+		 Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(0);
+	     IntroMessageAnnouncementDetails IntroMessageAnnouncementDetails = new IntroMessageAnnouncementDetails(map);
+	     IntroMessageAnnouncementPage IntroMessageAnnouncementPage = PageFactory.createPageInstance(driver, IntroMessageAnnouncementPage.class);
+	     IntroMessageAnnouncementPage.DeleteIntroMessageAnnouncementRecord(IntroMessageAnnouncementDetails);
+        Assert.assertEquals(IntroMessageAnnouncementPage.getSuccessMessage(), "Record deleted successfully");
+     }
+	
+	@Test(groups = { "Maker" },priority=7,dependsOnMethods="RejectDeleteRecord")
+    public void VerifySendForApprovalForDeleteNewRecord() throws Exception {
+       	IntroMessageAnnouncementPage IntroMessageAnnouncementPage = PageFactory.createPageInstance(driver, IntroMessageAnnouncementPage.class);
+       	IntroMessageAnnouncementPage.selectIntroMessageAnnouncementAuditTrailTab();
+       	IntroMessageAnnouncementPage.selectRecord();
+       	IntroMessageAnnouncementPage.sendForAprroval("sent");
+        Assert.assertTrue(IntroMessageAnnouncementPage.verifyStatus("Approval Pending"),"approal status details failed");
+    }
+		
+    @Test(priority=8,groups = { "Checker" },dependsOnMethods="VerifySendForApprovalForDeleteNewRecord")
     public void RejectforDeleteIntroMessageAnnouncementRecord() throws Exception{
 	     IntroMessageAnnouncementPage IntroMessageAnnouncementPage = PageFactory.createPageInstance(driver, IntroMessageAnnouncementPage.class);
 	     IntroMessageAnnouncementPage.clickonReject("Reject Deleted");
-        Assert.assertFalse(IntroMessageAnnouncementPage.getErrorMsg(),"Reject record assertion failed");
+        Assert.assertFalse(IntroMessageAnnouncementPage.verifyMessage(),"Reject record assertion failed");
         Assert.assertTrue(IntroMessageAnnouncementPage.verifyReviewAuditTrail("Rejected","Reject Deleted"));
     }
     
-    @Test(priority=6,groups = { "Checker" },dependsOnMethods = "RejectforDeleteIntroMessageAnnouncementRecord")
+    @Test(priority=9,groups = { "Checker" },dependsOnMethods = "RejectforDeleteIntroMessageAnnouncementRecord")
     public void VerifyAuditTrailReportForReject() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntroMessageAnnouncementData.xlsx";
 	    Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(1);
@@ -125,7 +160,7 @@ public class IntroMessageAnnouncementDeleteTest {
         Assert.assertTrue(ocmReportsPage.verifyIntroMessageAnnouncementDelete(IntroMessageAnnouncementDetails, "CheckerReject"),"Audit Trail report assertion failed");
     }
 	
-	@Test(groups= {"Maker"},priority=7)
+	@Test(groups= {"Maker"},priority=10)
 	public void DeleteIntroMessageAnnouncementRecord() throws Exception {
 		 String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntroMessageAnnouncementData.xlsx";
 		 Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(0);
@@ -135,7 +170,7 @@ public class IntroMessageAnnouncementDeleteTest {
 	     Assert.assertEquals(IntroMessageAnnouncementPage.getSuccessMessage(), "Record deleted successfully");
 	}
 	
-	@Test(priority=8,groups= {"Maker"},dependsOnMethods="DeleteIntroMessageAnnouncementRecord")
+	@Test(priority=11,groups= {"Maker"},dependsOnMethods="DeleteIntroMessageAnnouncementRecord")
     public void VerifyAuditTrialReportForDelete() throws Exception {
 		 String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntroMessageAnnouncementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(0);	
@@ -150,7 +185,7 @@ public class IntroMessageAnnouncementDeleteTest {
         Assert.assertTrue(ocmReportsPage.verifyIntroMessageAnnouncementDelete(IntroMessageAnnouncementDetails,"MakerDelete"));
     }
 	
-	@Test(priority=9,groups = { "Maker" },dependsOnMethods="DeleteIntroMessageAnnouncementRecord")
+	@Test(priority=12,groups = { "Maker" },dependsOnMethods="DeleteIntroMessageAnnouncementRecord")
     public void VerifyAuditTrailDataForDeleteIntroMessageAnnouncementRecord() throws Exception {
 		 String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntroMessageAnnouncementData.xlsx";
 		 Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(0);
@@ -158,28 +193,41 @@ public class IntroMessageAnnouncementDeleteTest {
 	     IntroMessageAnnouncementPage IntroMessageAnnouncementPage = PageFactory.createPageInstance(driver, IntroMessageAnnouncementPage.class);
 	     IntroMessageAnnouncementPage.selectIntroMessageAnnouncementAuditTrailTab();
 	     Assert.assertTrue(IntroMessageAnnouncementPage.verifyAuditTrailDelete(IntroMessageAnnouncementDetails, "MakerDelete", "New"), "Audit trail details failed");
-	     IntroMessageAnnouncementPage.selectMakeIntroMessageAnnouncementChanges();
-	     Assert.assertTrue(IntroMessageAnnouncementPage.verifyTaskCompleteEnabled(), "Task complete button not enabled");
+    }
+
+	@Test(groups = { "Maker" },priority=13,dependsOnMethods="VerifyAuditTrailDataForDeleteIntroMessageAnnouncementRecord")
+    public void VerifySendForApprovalForDeleteRecord() throws Exception {
+       	IntroMessageAnnouncementPage IntroMessageAnnouncementPage = PageFactory.createPageInstance(driver, IntroMessageAnnouncementPage.class);
+       	IntroMessageAnnouncementPage.selectIntroMessageAnnouncementAuditTrailTab();
+       	IntroMessageAnnouncementPage.selectRecord();
+       	IntroMessageAnnouncementPage.sendForAprroval("sent");
+        Assert.assertTrue(IntroMessageAnnouncementPage.verifyStatus("Approval Pending"),"approal status details failed");
     }
 	
-	@Test(priority=10,groups = { "Maker" },dependsOnMethods="VerifyAuditTrailDataForDeleteIntroMessageAnnouncementRecord")
-    public void VerifyTaskCompleteActionForDeleteIntroMessageAnnouncementRecord() throws Exception {
-	     IntroMessageAnnouncementPage IntroMessageAnnouncementPage = PageFactory.createPageInstance(driver, IntroMessageAnnouncementPage.class);
-	     IntroMessageAnnouncementPage.selectIntroMessageAnnouncementAuditTrailTab();
-	     IntroMessageAnnouncementPage.taskCompleteAction("Task Complete for Delete");
-	     Assert.assertTrue(IntroMessageAnnouncementPage.verifyTaskCompleteSuccessMessage(),"Task Complete record assertion failed");
-	     Assert.assertTrue(IntroMessageAnnouncementPage.verifyStatus("Approval Pending"),"approal status details failed");
+	@Test(priority=14,groups = { "Maker" },dependsOnMethods = "ApproveforDeleteIntroMessageAnnouncementRecord")
+    public void VerifyAuditTrailReportForSendForApprove() throws Exception {
+		 String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntroMessageAnnouncementData.xlsx";
+		 Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
+	     IntroMessageAnnouncementDetails IntroMessageAnnouncementDetails = new IntroMessageAnnouncementDetails(map);
+	     HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
+	     homePage.navigateToOCMReportsPage();
+	     OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver, OCMReportsPage.class);
+	     String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AuditTrailReportData.xlsx";
+	     Map<String, String> map1 = new ExcelReader(filePath1,"Show").getTestData().get(0);
+	     ReportDetails reportDetails= new ReportDetails(map1);
+	     ocmReportsPage.showReport(reportDetails);
+	     Assert.assertTrue(ocmReportsPage.verifyIntroMessageAnnouncementDelete(IntroMessageAnnouncementDetails, "MakerSendToApproval"),"Audit Trail report assertion failed");
     }
 	
-	@Test(priority=11,groups = { "Checker" },dependsOnMethods="VerifyTaskCompleteActionForDeleteIntroMessageAnnouncementRecord")
+	@Test(priority=15,groups = { "Checker" },dependsOnMethods="VerifyAuditTrailReportForSendForApprove")
     public void ApproveforDeleteIntroMessageAnnouncementRecord() throws Exception{
 	     IntroMessageAnnouncementPage IntroMessageAnnouncementPage = PageFactory.createPageInstance(driver, IntroMessageAnnouncementPage.class);
 	     IntroMessageAnnouncementPage.clickonApprove("Approve Deleted");
-	     Assert.assertEquals(IntroMessageAnnouncementPage.getSuccessMessage(),"All the data has been approved successfully!","Approve record assertion failed");
+	     Assert.assertTrue(IntroMessageAnnouncementPage.verifyMessage(),"Approve record assertion failed");
 	     Assert.assertTrue(IntroMessageAnnouncementPage.verifyReviewAuditTrail("Approved","Approve Deleted"));
     }
 	
-	@Test(priority=12,groups = { "Checker" },dependsOnMethods = "ApproveforDeleteIntroMessageAnnouncementRecord")
+	@Test(priority=16,groups = { "Checker" },dependsOnMethods = "ApproveforDeleteIntroMessageAnnouncementRecord")
     public void VerifyAuditTrailReportForApprove() throws Exception {
 		 String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntroMessageAnnouncementData.xlsx";
 		 Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
@@ -193,7 +241,7 @@ public class IntroMessageAnnouncementDeleteTest {
 	     ocmReportsPage.showReport(reportDetails);
 	     Assert.assertTrue(ocmReportsPage.verifyIntroMessageAnnouncementDelete(IntroMessageAnnouncementDetails, "CheckerApprove"),"Audit Trail report assertion failed");
     }
-	
+    
 	
     
 	@AfterMethod

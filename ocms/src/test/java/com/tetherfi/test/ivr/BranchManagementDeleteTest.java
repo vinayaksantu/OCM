@@ -83,21 +83,31 @@ public class BranchManagementDeleteTest {
 	     Assert.assertFalse(branchManagementPage.getErrorMsg(),"Invalid Record Assertion failed");
     }
 	
-	@Test(groups= {"Maker"})
-	public void DeleteBranchManagementRecord() throws Exception {
+	
+    @Test(groups = { "Maker" },priority=3)
+    public void DeleteRecord() throws Exception {
 		 String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\BranchManagementData.xlsx";
 		 Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(0);
-	     BranchManagementDetails branchManagementDetails = new BranchManagementDetails(map);
-	     BranchManagementPage branchManagementPage = PageFactory.createPageInstance(driver, BranchManagementPage.class);
-	     branchManagementPage.DeleteBranchManagementRecord(branchManagementDetails);
-	     Assert.assertEquals(branchManagementPage.getSuccessMessage(), "Record Deleted Successfully");
-	}
-	
-	@Test(groups= {"Maker"},dependsOnMethods="DeleteBranchManagementRecord")
-    public void VerifyAuditTrialReportForDelete() throws Exception {
-		 String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\BranchManagementData.xlsx";
+	     BranchManagementDetails BranchManagementDetails = new BranchManagementDetails(map);
+	     BranchManagementPage BranchManagementPage = PageFactory.createPageInstance(driver, BranchManagementPage.class);
+	     BranchManagementPage.DeleteBranchManagementRecord(BranchManagementDetails);
+        Assert.assertEquals(BranchManagementPage.getSuccessMessage(), "Record deleted successfully");
+     }
+        
+	@Test(groups = { "Maker" },priority=4,dependsOnMethods="DeleteRecord")
+    public void VerifyRevertForDeleteRecord() throws Exception {
+       	BranchManagementPage BranchManagementPage = PageFactory.createPageInstance(driver, BranchManagementPage.class);
+       	BranchManagementPage.selectBranchManagementAuditTrailTab();
+       	BranchManagementPage.selectRecord();
+       	BranchManagementPage.Revert("revert");
+        Assert.assertTrue(BranchManagementPage.verifyStatus("Reverted"),"approval status details failed");
+    }
+    
+	@Test(groups= {"Maker"},priority=5,dependsOnMethods="VerifyRevertForDeleteRecord")
+    public void VerifyAuditTrialReportForRevertDelete() throws Exception {
+		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\BranchManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(0);	
-	     BranchManagementDetails branchManagementDetails = new BranchManagementDetails(map);
+	    BranchManagementDetails BranchManagementDetails = new BranchManagementDetails(map);
         HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
         homePage.navigateToOCMReportsPage();
         OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver, OCMReportsPage.class);
@@ -105,84 +115,41 @@ public class BranchManagementDeleteTest {
         Map<String, String> map1 = new ExcelReader(filePath1,"Show").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map1);
         ocmReportsPage.showReport(reportDetails);
-        Assert.assertTrue(ocmReportsPage.verifyBranchManagementDelete(branchManagementDetails,"MakerDelete"));
+        Assert.assertTrue(ocmReportsPage.verifyBranchManagementDelete(BranchManagementDetails,"MakerReverted"));
     }
-	@Test(groups = { "Maker" },dependsOnMethods="DeleteBranchManagementRecord")
-    public void VerifyAuditTrailDataForDeleteBranchManagementRecord() throws Exception {
+	
+	@Test(groups = { "Maker" },priority=6)
+    public void RejectDeleteRecord() throws Exception {
 		 String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\BranchManagementData.xlsx";
 		 Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(0);
-	     BranchManagementDetails branchManagementDetails = new BranchManagementDetails(map);
-	     BranchManagementPage branchManagementPage = PageFactory.createPageInstance(driver, BranchManagementPage.class);
-	     branchManagementPage.selectBranchManagementAuditTrailTab();
-	     Assert.assertTrue(branchManagementPage.verifyAuditTrailDelete(branchManagementDetails, "MakerDelete", "New"), "Audit trail details failed");
-	     branchManagementPage.selectMakeBranchManagementChanges();
-	     Assert.assertTrue(branchManagementPage.verifyTaskCompleteEnabled(), "Task complete button not enabled");
-    }
-	
-	@Test(groups = { "Maker" },dependsOnMethods="VerifyAuditTrailDataForDeleteBranchManagementRecord")
-    public void VerifyTaskCompleteActionForDeleteBranchManagementRecord() throws Exception {
-	     BranchManagementPage branchManagementPage = PageFactory.createPageInstance(driver, BranchManagementPage.class);
-	     branchManagementPage.selectBranchManagementAuditTrailTab();
-	     branchManagementPage.taskCompleteAction("Task Complete for Delete");
-	     Assert.assertTrue(branchManagementPage.verifyTaskCompleteSuccessMessage(),"Task Complete record assertion failed");
-	     Assert.assertTrue(branchManagementPage.verifyStatus("Approval Pending"),"approal status details failed");
-    }
-	
-	@Test(groups = { "Checker" },dependsOnMethods="VerifyTaskCompleteActionForDeleteBranchManagementRecord")
-    public void ApproveforDeleteBranchManagementRecord() throws Exception{
-	     BranchManagementPage branchManagementPage = PageFactory.createPageInstance(driver, BranchManagementPage.class);
-	     branchManagementPage.clickonApprove("Approve Deleted");
-	     Assert.assertEquals(branchManagementPage.getSuccessMessage(),"All the data has been approved successfully!","Approve record assertion failed");
-	     Assert.assertTrue(branchManagementPage.verifyReviewAuditTrail("Approved","Approve Deleted"));
-    }
-	
-	@Test(groups = { "Checker" },dependsOnMethods = "ApproveforDeleteBranchManagementRecord")
-    public void VerifyAuditTrailReportForApprove() throws Exception {
-		 String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\BranchManagementData.xlsx";
-		 Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
-	     BranchManagementDetails branchManagementDetails = new BranchManagementDetails(map);
-	     HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
-	     homePage.navigateToOCMReportsPage();
-	     OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver, OCMReportsPage.class);
-	     String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AuditTrailReportData.xlsx";
-	     Map<String, String> map1 = new ExcelReader(filePath1,"Show").getTestData().get(0);
-	     ReportDetails reportDetails= new ReportDetails(map1);
-	     ocmReportsPage.showReport(reportDetails);
-	     Assert.assertTrue(ocmReportsPage.verifyBranchManagementDelete(branchManagementDetails, "CheckerApprove"),"Audit Trail report assertion failed");
-    }
-	
-	@Test(groups = { "Maker" })
-    public void DeleteRecord() throws Exception {
-		 String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\BranchManagementData.xlsx";
-		 Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(1);
-	     BranchManagementDetails branchManagementDetails = new BranchManagementDetails(map);
-	     BranchManagementPage branchManagementPage = PageFactory.createPageInstance(driver, BranchManagementPage.class);
-	     branchManagementPage.DeleteBranchManagementRecord(branchManagementDetails);
-        Assert.assertEquals(branchManagementPage.getSuccessMessage(), "Record Deleted Successfully");
+	     BranchManagementDetails BranchManagementDetails = new BranchManagementDetails(map);
+	     BranchManagementPage BranchManagementPage = PageFactory.createPageInstance(driver, BranchManagementPage.class);
+	     BranchManagementPage.DeleteBranchManagementRecord(BranchManagementDetails);
+        Assert.assertEquals(BranchManagementPage.getSuccessMessage(), "Record deleted successfully");
      }
-        
-    @Test(groups = { "Maker" },dependsOnMethods="DeleteRecord")
-    public void VerifyTaskCompleteActionForDeleteRecord() throws Exception {
-	     BranchManagementPage branchManagementPage = PageFactory.createPageInstance(driver, BranchManagementPage.class);
-	     branchManagementPage.selectBranchManagementAuditTrailTab();
-	     branchManagementPage.taskCompleteAction("Task Complete for Delete");
-        Assert.assertTrue(branchManagementPage.verifyTaskCompleteSuccessMessage(),"Task Complete record assertion failed");
-        Assert.assertTrue(branchManagementPage.verifyStatus("Approval Pending"),"approal status details failed");
+	
+	@Test(groups = { "Maker" },priority=7,dependsOnMethods="RejectDeleteRecord")
+    public void VerifySendForApprovalForDeleteNewRecord() throws Exception {
+       	BranchManagementPage BranchManagementPage = PageFactory.createPageInstance(driver, BranchManagementPage.class);
+       	BranchManagementPage.selectBranchManagementAuditTrailTab();
+       	BranchManagementPage.selectRecord();
+       	BranchManagementPage.sendForAprroval("sent");
+        Assert.assertTrue(BranchManagementPage.verifyStatus("Approval Pending"),"approal status details failed");
     }
-    
-    @Test(groups = { "Checker" },dependsOnMethods="VerifyTaskCompleteActionForDeleteRecord")
+		
+    @Test(priority=8,groups = { "Checker" },dependsOnMethods="VerifySendForApprovalForDeleteNewRecord")
     public void RejectforDeleteBranchManagementRecord() throws Exception{
-	     BranchManagementPage branchManagementPage = PageFactory.createPageInstance(driver, BranchManagementPage.class);
-	     branchManagementPage.clickonReject("Reject Deleted");
-        Assert.assertFalse(branchManagementPage.getErrorMsg(),"Reject record assertion failed");
-        Assert.assertTrue(branchManagementPage.verifyReviewAuditTrail("Rejected","Reject Deleted"));
+	     BranchManagementPage BranchManagementPage = PageFactory.createPageInstance(driver, BranchManagementPage.class);
+	     BranchManagementPage.clickonReject("Reject Deleted");
+        Assert.assertFalse(BranchManagementPage.verifyMessage(),"Reject record assertion failed");
+        Assert.assertTrue(BranchManagementPage.verifyReviewAuditTrail("Rejected","Reject Deleted"));
     }
     
-    @Test(groups = { "Checker" },dependsOnMethods = "RejectforDeleteBranchManagementRecord")
+    @Test(priority=9,groups = { "Checker" },dependsOnMethods = "RejectforDeleteBranchManagementRecord")
     public void VerifyAuditTrailReportForReject() throws Exception {
-		 String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\BranchManagementData.xlsx";
+		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\BranchManagementData.xlsx";
 	    Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(1);
-	     BranchManagementDetails branchManagementDetails = new BranchManagementDetails(map);
+	    BranchManagementDetails BranchManagementDetails = new BranchManagementDetails(map);
 	    HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
 	    homePage.navigateToOCMReportsPage();
 	    OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver, OCMReportsPage.class);
@@ -190,7 +157,89 @@ public class BranchManagementDeleteTest {
 	    Map<String, String> map1 = new ExcelReader(filePath1,"Show").getTestData().get(0);
 	    ReportDetails reportDetails= new ReportDetails(map1);
 	    ocmReportsPage.showReport(reportDetails);
-        Assert.assertTrue(ocmReportsPage.verifyBranchManagementDelete(branchManagementDetails, "CheckerReject"),"Audit Trail report assertion failed");
+        Assert.assertTrue(ocmReportsPage.verifyBranchManagementDelete(BranchManagementDetails, "CheckerReject"),"Audit Trail report assertion failed");
+    }
+	
+	@Test(groups= {"Maker"},priority=10)
+	public void DeleteBranchManagementRecord() throws Exception {
+		 String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\BranchManagementData.xlsx";
+		 Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(0);
+	     BranchManagementDetails BranchManagementDetails = new BranchManagementDetails(map);
+	     BranchManagementPage BranchManagementPage = PageFactory.createPageInstance(driver, BranchManagementPage.class);
+	     BranchManagementPage.DeleteBranchManagementRecord(BranchManagementDetails);
+	     Assert.assertEquals(BranchManagementPage.getSuccessMessage(), "Record deleted successfully");
+	}
+	
+	@Test(priority=11,groups= {"Maker"},dependsOnMethods="DeleteBranchManagementRecord")
+    public void VerifyAuditTrialReportForDelete() throws Exception {
+		 String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\BranchManagementData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(0);	
+	     BranchManagementDetails BranchManagementDetails = new BranchManagementDetails(map);
+        HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
+        homePage.navigateToOCMReportsPage();
+        OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver, OCMReportsPage.class);
+        String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AuditTrailReportData.xlsx";
+        Map<String, String> map1 = new ExcelReader(filePath1,"Show").getTestData().get(0);
+        ReportDetails reportDetails= new ReportDetails(map1);
+        ocmReportsPage.showReport(reportDetails);
+        Assert.assertTrue(ocmReportsPage.verifyBranchManagementDelete(BranchManagementDetails,"MakerDelete"));
+    }
+	
+	@Test(priority=12,groups = { "Maker" },dependsOnMethods="DeleteBranchManagementRecord")
+    public void VerifyAuditTrailDataForDeleteBranchManagementRecord() throws Exception {
+		 String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\BranchManagementData.xlsx";
+		 Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(0);
+	     BranchManagementDetails BranchManagementDetails = new BranchManagementDetails(map);
+	     BranchManagementPage BranchManagementPage = PageFactory.createPageInstance(driver, BranchManagementPage.class);
+	     BranchManagementPage.selectBranchManagementAuditTrailTab();
+	     Assert.assertTrue(BranchManagementPage.verifyAuditTrailDelete(BranchManagementDetails, "MakerDelete", "New"), "Audit trail details failed");
+    }
+
+	@Test(groups = { "Maker" },priority=13,dependsOnMethods="VerifyAuditTrailDataForDeleteBranchManagementRecord")
+    public void VerifySendForApprovalForDeleteRecord() throws Exception {
+       	BranchManagementPage BranchManagementPage = PageFactory.createPageInstance(driver, BranchManagementPage.class);
+       	BranchManagementPage.selectBranchManagementAuditTrailTab();
+       	BranchManagementPage.selectRecord();
+       	BranchManagementPage.sendForAprroval("sent");
+        Assert.assertTrue(BranchManagementPage.verifyStatus("Approval Pending"),"approal status details failed");
+    }
+	
+	@Test(priority=14,groups = { "Maker" },dependsOnMethods = "ApproveforDeleteBranchManagementRecord")
+    public void VerifyAuditTrailReportForSendForApprove() throws Exception {
+		 String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\BranchManagementData.xlsx";
+		 Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
+	     BranchManagementDetails BranchManagementDetails = new BranchManagementDetails(map);
+	     HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
+	     homePage.navigateToOCMReportsPage();
+	     OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver, OCMReportsPage.class);
+	     String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AuditTrailReportData.xlsx";
+	     Map<String, String> map1 = new ExcelReader(filePath1,"Show").getTestData().get(0);
+	     ReportDetails reportDetails= new ReportDetails(map1);
+	     ocmReportsPage.showReport(reportDetails);
+	     Assert.assertTrue(ocmReportsPage.verifyBranchManagementDelete(BranchManagementDetails, "MakerSendToApproval"),"Audit Trail report assertion failed");
+    }
+	
+	@Test(priority=15,groups = { "Checker" },dependsOnMethods="VerifyAuditTrailReportForSendForApprove")
+    public void ApproveforDeleteBranchManagementRecord() throws Exception{
+	     BranchManagementPage BranchManagementPage = PageFactory.createPageInstance(driver, BranchManagementPage.class);
+	     BranchManagementPage.clickonApprove("Approve Deleted");
+	     Assert.assertTrue(BranchManagementPage.verifyMessage(),"Approve record assertion failed");
+	     Assert.assertTrue(BranchManagementPage.verifyReviewAuditTrail("Approved","Approve Deleted"));
+    }
+	
+	@Test(priority=16,groups = { "Checker" },dependsOnMethods = "ApproveforDeleteBranchManagementRecord")
+    public void VerifyAuditTrailReportForApprove() throws Exception {
+		 String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\BranchManagementData.xlsx";
+		 Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
+	     BranchManagementDetails BranchManagementDetails = new BranchManagementDetails(map);
+	     HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
+	     homePage.navigateToOCMReportsPage();
+	     OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver, OCMReportsPage.class);
+	     String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AuditTrailReportData.xlsx";
+	     Map<String, String> map1 = new ExcelReader(filePath1,"Show").getTestData().get(0);
+	     ReportDetails reportDetails= new ReportDetails(map1);
+	     ocmReportsPage.showReport(reportDetails);
+	     Assert.assertTrue(ocmReportsPage.verifyBranchManagementDelete(BranchManagementDetails, "CheckerApprove"),"Audit Trail report assertion failed");
     }
     
    

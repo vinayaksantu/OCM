@@ -21,7 +21,7 @@ import com.tetherfi.utility.ExcelReader;
 import com.tetherfi.utility.PageFactory;
 import com.tetherfi.utility.Screenshot;
 
-public class BranchManagementTest extends BaseTest{
+public class BranchManagementUITest extends BaseTest{
 	Screenshot screenshot=new Screenshot(driver);
 
 	@BeforeMethod
@@ -245,6 +245,9 @@ public class BranchManagementTest extends BaseTest{
         Assert.assertTrue(branchManagementPage.verifyclearsearch(), "Clear All Assertion Failed");
         screenshot.captureScreen( driver,"Clear Search", "BranchManagementTest");
     }
+    
+       
+    
     
     @AfterMethod
     public void afterEachMethod(ITestResult result, Method method) throws InterruptedException {

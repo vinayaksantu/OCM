@@ -72,94 +72,6 @@ public class IntroMessageAnnouncementCreateTest {
         IntroMessageAnnouncementPage IntroMessageAnnouncementPage = PageFactory.createPageInstance(driver, IntroMessageAnnouncementPage.class);
         Assert.assertTrue(IntroMessageAnnouncementPage.addCancelButton(IntroMessageAnnouncementDetails), "Add cancel button assertion failed");
     }
-	
-	@Test(groups = { "Maker" })
-    public void AddNewIntroMessageAnnouncementRecord() throws Exception {
-		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntroMessageAnnouncementData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
-	    IntroMessageAnnouncementDetails IntroMessageAnnouncementDetails = new IntroMessageAnnouncementDetails(map);
-        IntroMessageAnnouncementPage IntroMessageAnnouncementPage = PageFactory.createPageInstance(driver, IntroMessageAnnouncementPage.class);
-        IntroMessageAnnouncementPage.addNewIntroMessageAnnouncementRecord(IntroMessageAnnouncementDetails);
-        Assert.assertEquals(IntroMessageAnnouncementPage.getSuccessMessage(), "Record created successfully");
-    }
-	
-	@Test(groups = { "Maker" },dependsOnMethods = "AddNewIntroMessageAnnouncementRecord")
-    public void VerifyAuditTrailReportForCreate() throws Exception {
-		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntroMessageAnnouncementData.xlsx";
-	    Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
-	    IntroMessageAnnouncementDetails IntroMessageAnnouncementDetails = new IntroMessageAnnouncementDetails(map);
-	    HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
-	    homePage.navigateToOCMReportsPage();
-	    OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver, OCMReportsPage.class);
-	    String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AuditTrailReportData.xlsx";
-	    Map<String, String> map1 = new ExcelReader(filePath1,"Show").getTestData().get(0);
-	    ReportDetails reportDetails= new ReportDetails(map1);
-	    ocmReportsPage.showReport(reportDetails);
-        Assert.assertTrue(ocmReportsPage.verifyIntroMessageAnnouncementCreate(IntroMessageAnnouncementDetails, "MakerCreate"),"Audit Trail report assertion failed");
-    }
-    
-    @Test(groups = { "Maker" },dependsOnMethods="AddNewIntroMessageAnnouncementRecord")
-    public void VerifyAuditTrailDataForAddNewIntroMessageAnnouncementRecord() throws Exception {
-		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntroMessageAnnouncementData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
-	    IntroMessageAnnouncementDetails IntroMessageAnnouncementDetails = new IntroMessageAnnouncementDetails(map);
-        IntroMessageAnnouncementPage IntroMessageAnnouncementPage = PageFactory.createPageInstance(driver, IntroMessageAnnouncementPage.class);
-        IntroMessageAnnouncementPage.selectIntroMessageAnnouncementAuditTrailTab();
-        Assert.assertTrue(IntroMessageAnnouncementPage.verifyAuditTrail(IntroMessageAnnouncementDetails, "MakerCreate", "New"), "Audit trail details failed");
-        IntroMessageAnnouncementPage.selectMakeIntroMessageAnnouncementChanges();
-        Assert.assertTrue(IntroMessageAnnouncementPage.verifyTaskCompleteEnabled(), "Task complete button not enabled");
-    }
-    
-    @Test(groups = { "Maker" },dependsOnMethods="VerifyAuditTrailDataForAddNewIntroMessageAnnouncementRecord")
-    public void VerifyTaskCompleteActionForAddNewIntroMessageAnnouncementRecord() throws Exception {
-       	IntroMessageAnnouncementPage IntroMessageAnnouncementPage = PageFactory.createPageInstance(driver, IntroMessageAnnouncementPage.class);
-       	IntroMessageAnnouncementPage.selectIntroMessageAnnouncementAuditTrailTab();
-       	IntroMessageAnnouncementPage.taskCompleteAction("Task Complete for Create");
-        Assert.assertTrue(IntroMessageAnnouncementPage.verifyTaskCompleteSuccessMessage(),"Task Complete record assertion failed");
-        Assert.assertTrue(IntroMessageAnnouncementPage.verifyStatus("Approval Pending"),"approal status details failed");
-    }
-    
-    @Test(groups = { "Checker" },dependsOnMethods="VerifyTaskCompleteActionForAddNewIntroMessageAnnouncementRecord")
-    public void ApproveforAddNewIntroMessageAnnouncementRecord() throws Exception{
-       	IntroMessageAnnouncementPage IntroMessageAnnouncementPage = PageFactory.createPageInstance(driver, IntroMessageAnnouncementPage.class);
-       	IntroMessageAnnouncementPage.clickonApprove("Approve Create");
-        Assert.assertEquals(IntroMessageAnnouncementPage.getSuccessMessage(),"All the data has been approved successfully!","Approve record assertion failed");
-        Assert.assertTrue(IntroMessageAnnouncementPage.verifyReviewAuditTrail("Approved","Approve Create"));
-    }
-    
-    @Test(groups = { "Checker" },dependsOnMethods = "ApproveforAddNewIntroMessageAnnouncementRecord")
-    public void VerifyAuditTrailReportForApprove() throws Exception {
-		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntroMessageAnnouncementData.xlsx";
-	    Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
-	    IntroMessageAnnouncementDetails IntroMessageAnnouncementDetails = new IntroMessageAnnouncementDetails(map);
-	    HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
-	    homePage.navigateToOCMReportsPage();
-	    OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver, OCMReportsPage.class);
-	    String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AuditTrailReportData.xlsx";
-	    Map<String, String> map1 = new ExcelReader(filePath1,"Show").getTestData().get(0);
-	    ReportDetails reportDetails= new ReportDetails(map1);
-	    ocmReportsPage.showReport(reportDetails);
-        Assert.assertTrue(ocmReportsPage.verifyIntroMessageAnnouncementCreate(IntroMessageAnnouncementDetails, "CheckerApprove"),"Audit Trail report assertion failed");
-    }
-    
-    @Test(groups= {"Checker"})//,dependsOnMethods="ApproveforAddNewIntroMessageAnnouncementRecord")
-    public void VerifyRecordApprovedDataSectionafterApproval()throws Exception{
-    	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntroMessageAnnouncementData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
-	    IntroMessageAnnouncementDetails IntroMessageAnnouncementDetails = new IntroMessageAnnouncementDetails(map);
-        IntroMessageAnnouncementPage IntroMessageAnnouncementPage = PageFactory.createPageInstance(driver, IntroMessageAnnouncementPage.class);
-        Assert.assertTrue(IntroMessageAnnouncementPage.verifyApprovedSectionDataafterapproval(IntroMessageAnnouncementDetails));
-    }
-    
-    @Test(groups = { "Maker" })//,dependsOnMethods="AddNewIntroMessageAnnouncementRecord")
-    public void AddDuplicateRecord() throws Exception {
-    	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntroMessageAnnouncementData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
-	    IntroMessageAnnouncementDetails IntroMessageAnnouncementDetails = new IntroMessageAnnouncementDetails(map);
-        IntroMessageAnnouncementPage IntroMessageAnnouncementPage = PageFactory.createPageInstance(driver, IntroMessageAnnouncementPage.class);
-        IntroMessageAnnouncementPage.addNewIntroMessageAnnouncementRecord(IntroMessageAnnouncementDetails);
-        Assert.assertFalse(IntroMessageAnnouncementPage.getErrorMsg(),"Duplicate assetion failed");
-    }
     
     @Test(groups = { "Maker" })
     public void VerifyAddRecordwithoutFunctionality() throws Exception {
@@ -241,53 +153,79 @@ public class IntroMessageAnnouncementCreateTest {
         Assert.assertFalse(IntroMessageAnnouncementPage.getErrorMsg());
     }
     
-	@Test(groups = { "Maker" })
-    public void AddRecord() throws Exception {
+    @Test(groups = { "Maker" },priority=6)
+    public void AddRevertRecord() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntroMessageAnnouncementData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(1);
+        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
 	    IntroMessageAnnouncementDetails IntroMessageAnnouncementDetails = new IntroMessageAnnouncementDetails(map);
         IntroMessageAnnouncementPage IntroMessageAnnouncementPage = PageFactory.createPageInstance(driver, IntroMessageAnnouncementPage.class);
         IntroMessageAnnouncementPage.addNewIntroMessageAnnouncementRecord(IntroMessageAnnouncementDetails);
         Assert.assertEquals(IntroMessageAnnouncementPage.getSuccessMessage(), "Record Created Successfully");
        }
 	
-	@Test(groups = { "Maker" })//,dependsOnMethods="AddRecord")
-    public void VerifyTaskCompleteActionForAddRecord() throws Exception {
+	@Test(groups = { "Maker" },priority=7,dependsOnMethods="AddRevertRecord")
+    public void VerifyRevertForAddNewRecord() throws Exception {
        	IntroMessageAnnouncementPage IntroMessageAnnouncementPage = PageFactory.createPageInstance(driver, IntroMessageAnnouncementPage.class);
        	IntroMessageAnnouncementPage.selectIntroMessageAnnouncementAuditTrailTab();
-       	IntroMessageAnnouncementPage.taskCompleteAction("Task Complete for Create");
-        Assert.assertTrue(IntroMessageAnnouncementPage.verifyTaskCompleteSuccessMessage(),"Task Complete record assertion failed");
-        Assert.assertTrue(IntroMessageAnnouncementPage.verifyStatus("Approval Pending"),"approal status details failed");
+       	IntroMessageAnnouncementPage.selectRecord();
+       	IntroMessageAnnouncementPage.Revert("revert");
+        Assert.assertTrue(IntroMessageAnnouncementPage.verifyStatus("Reverted"),"approal status details failed");
     }
 	
-	@Test(groups= {"Maker"})//, dependsOnMethods="AddRecord")
+	@Test(groups= {"Maker"},priority=8,dependsOnMethods="VerifyRevertForAddNewRecord")
 	public void VerifyApprovedDataSectionWithoutApproval() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntroMessageAnnouncementData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(1);
+        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
 	    IntroMessageAnnouncementDetails IntroMessageAnnouncementDetails = new IntroMessageAnnouncementDetails(map);
         IntroMessageAnnouncementPage IntroMessageAnnouncementPage = PageFactory.createPageInstance(driver, IntroMessageAnnouncementPage.class);
         Assert.assertTrue(IntroMessageAnnouncementPage.verifyApprovedSectionData(IntroMessageAnnouncementDetails));
 	}
+	
+	@Test(groups = { "Maker" },priority=9,dependsOnMethods = "VerifyApprovedDataSectionWithoutApproval")
+    public void VerifyAuditTrailReportForRevert() throws Exception {
+        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntroMessageAnnouncementData.xlsx";
+	    Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
+	    IntroMessageAnnouncementDetails IntroMessageAnnouncementDetails = new IntroMessageAnnouncementDetails(map);
+	    HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
+	    homePage.navigateToOCMReportsPage();
+	    OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver, OCMReportsPage.class);
+	    String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AuditTrailReportData.xlsx";
+	    Map<String, String> map1 = new ExcelReader(filePath1,"Show").getTestData().get(0);
+	    ReportDetails reportDetails= new ReportDetails(map1);
+	    ocmReportsPage.showReport(reportDetails);
+        Assert.assertTrue(ocmReportsPage.verifyIntroMessageAnnouncementCreate(IntroMessageAnnouncementDetails, "MakerReverted"),"Audit Trail report assertion failed");
+    }
+	@Test(groups = { "Maker" },priority=10)
+    public void AddRejectRecord() throws Exception {
+		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntroMessageAnnouncementData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
+	    IntroMessageAnnouncementDetails IntroMessageAnnouncementDetails = new IntroMessageAnnouncementDetails(map);
+        IntroMessageAnnouncementPage IntroMessageAnnouncementPage = PageFactory.createPageInstance(driver, IntroMessageAnnouncementPage.class);
+        IntroMessageAnnouncementPage.addNewIntroMessageAnnouncementRecord(IntroMessageAnnouncementDetails);
+        Assert.assertEquals(IntroMessageAnnouncementPage.getSuccessMessage(), "Record Created Successfully");
+       }
+	
+	@Test(groups = { "Maker" },priority=11,dependsOnMethods="AddRejectRecord")
+    public void VerifySendForApprovalForAddNewRecord() throws Exception {
+       	IntroMessageAnnouncementPage IntroMessageAnnouncementPage = PageFactory.createPageInstance(driver, IntroMessageAnnouncementPage.class);
+       	IntroMessageAnnouncementPage.selectIntroMessageAnnouncementAuditTrailTab();
+       	IntroMessageAnnouncementPage.selectRecord();
+       	IntroMessageAnnouncementPage.sendForAprroval("sent");
+        Assert.assertTrue(IntroMessageAnnouncementPage.verifyStatus("Approval Pending"),"approal status details failed");
+    }
     
-    @Test(groups = { "Checker" },dependsOnMethods="VerifyApprovedDataSectionWithoutApproval")
+    @Test(groups = { "Checker" },priority=12,dependsOnMethods="VerifySendForApprovalForAddNewRecord")
     public void RejectforAddNewIntroMessageAnnouncementRecord() throws Exception{
         IntroMessageAnnouncementPage IntroMessageAnnouncementPage = PageFactory.createPageInstance(driver, IntroMessageAnnouncementPage.class);
         IntroMessageAnnouncementPage.clickonReject("Reject Created");
-        Assert.assertFalse(IntroMessageAnnouncementPage.getErrorMsg(),"Reject record assertion failed");
+        Assert.assertFalse(IntroMessageAnnouncementPage.verifyMessage(),"Reject record assertion failed");
         Assert.assertTrue(IntroMessageAnnouncementPage.verifyReviewAuditTrail("Rejected","Reject Created"));
     }
     
-    @Test(groups = { "Maker" },dependsOnMethods="RejectforAddNewIntroMessageAnnouncementRecord")
-    public void VerifyMakeIntroMessageAnnouncementButtonafterRejection() {
-        IntroMessageAnnouncementPage IntroMessageAnnouncementPage = PageFactory.createPageInstance(driver, IntroMessageAnnouncementPage.class);
-        IntroMessageAnnouncementPage.selectIntroMessageAnnouncementAuditTrailTab();
-        Assert.assertTrue(IntroMessageAnnouncementPage.VerifyMakeIntroMessageAnnouncementChangeButton());
-    }
-    
-    @Test(groups = { "Checker" },dependsOnMethods = "VerifyMakeIntroMessageAnnouncementButtonafterRejection")
+    @Test(groups = { "Checker" },priority=13,dependsOnMethods = "RejectforAddNewIntroMessageAnnouncementRecord")
     public void VerifyAuditTrailReportForReject() throws Exception {
-        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxTemplateData.xlsx";
-	    Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);
+        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntroMessageAnnouncementData.xlsx";
+	    Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
 	    IntroMessageAnnouncementDetails IntroMessageAnnouncementDetails = new IntroMessageAnnouncementDetails(map);
 	    HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
 	    homePage.navigateToOCMReportsPage();
@@ -299,13 +237,113 @@ public class IntroMessageAnnouncementCreateTest {
         Assert.assertTrue(ocmReportsPage.verifyIntroMessageAnnouncementCreate(IntroMessageAnnouncementDetails, "CheckerReject"),"Audit Trail report assertion failed");
     }
     
-    @Test(groups= {"Maker"})//,dependsOnMethods="VerifyAuditTrailReportForReject")
+    @Test(groups= {"Maker"},priority=14,dependsOnMethods="VerifyAuditTrailReportForReject")
     public void VerifyRecordAfterRejection() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntroMessageAnnouncementData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(1);
+        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
 	    IntroMessageAnnouncementDetails IntroMessageAnnouncementDetails = new IntroMessageAnnouncementDetails(map);
         IntroMessageAnnouncementPage IntroMessageAnnouncementPage = PageFactory.createPageInstance(driver, IntroMessageAnnouncementPage.class);
         Assert.assertTrue(IntroMessageAnnouncementPage.verifyApprovedSectionData(IntroMessageAnnouncementDetails));
+    }
+	@Test(groups = { "Maker" },priority=15)
+    public void AddNewIntroMessageAnnouncementRecord() throws Exception {
+		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntroMessageAnnouncementData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
+	    IntroMessageAnnouncementDetails IntroMessageAnnouncementDetails = new IntroMessageAnnouncementDetails(map);
+        IntroMessageAnnouncementPage IntroMessageAnnouncementPage = PageFactory.createPageInstance(driver, IntroMessageAnnouncementPage.class);
+        IntroMessageAnnouncementPage.addNewIntroMessageAnnouncementRecord(IntroMessageAnnouncementDetails);
+        Assert.assertEquals(IntroMessageAnnouncementPage.getSuccessMessage(), "Record Created Successfully");
+    }
+	
+	@Test(groups = { "Maker" },priority=16,dependsOnMethods = "AddNewIntroMessageAnnouncementRecord")
+    public void VerifyAuditTrailReportForCreate() throws Exception {
+		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntroMessageAnnouncementData.xlsx";
+	    Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
+	    IntroMessageAnnouncementDetails IntroMessageAnnouncementDetails = new IntroMessageAnnouncementDetails(map);
+	    HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
+	    homePage.navigateToOCMReportsPage();
+	    OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver, OCMReportsPage.class);
+	    String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AuditTrailReportData.xlsx";
+	    Map<String, String> map1 = new ExcelReader(filePath1,"Show").getTestData().get(0);
+	    ReportDetails reportDetails= new ReportDetails(map1);
+	    ocmReportsPage.showReport(reportDetails);
+        Assert.assertTrue(ocmReportsPage.verifyIntroMessageAnnouncementCreate(IntroMessageAnnouncementDetails, "MakerCreate"),"Audit Trail report assertion failed");
+    }
+    
+    @Test(groups = { "Maker" },priority=17,dependsOnMethods="AddNewIntroMessageAnnouncementRecord")
+    public void VerifyAuditTrailDataForAddNewIntroMessageAnnouncementRecord() throws Exception {
+		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntroMessageAnnouncementData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
+	    IntroMessageAnnouncementDetails IntroMessageAnnouncementDetails = new IntroMessageAnnouncementDetails(map);
+        IntroMessageAnnouncementPage IntroMessageAnnouncementPage = PageFactory.createPageInstance(driver, IntroMessageAnnouncementPage.class);
+        IntroMessageAnnouncementPage.selectIntroMessageAnnouncementAuditTrailTab();
+        Assert.assertTrue(IntroMessageAnnouncementPage.verifyAuditTrail(IntroMessageAnnouncementDetails, "MakerCreate", "New"), "Audit trail details failed");
+    }
+    
+    @Test(groups = { "Maker" },priority=18,dependsOnMethods="VerifyAuditTrailDataForAddNewIntroMessageAnnouncementRecord")
+    public void VerifySendForApprovalForAddNewIntroMessageAnnouncementRecord() throws Exception {
+       	IntroMessageAnnouncementPage IntroMessageAnnouncementPage = PageFactory.createPageInstance(driver, IntroMessageAnnouncementPage.class);
+       	IntroMessageAnnouncementPage.selectIntroMessageAnnouncementAuditTrailTab();
+       	IntroMessageAnnouncementPage.selectRecord();
+       	IntroMessageAnnouncementPage.sendForAprroval("sent");
+        Assert.assertTrue(IntroMessageAnnouncementPage.verifyStatus("Approval Pending"),"approal status details failed");
+    }
+    
+    @Test(groups = { "Maker" },priority=19,dependsOnMethods = "VerifySendForApprovalForAddNewIntroMessageAnnouncementRecord")
+    public void VerifyAuditTrailReportForSendForApproval() throws Exception {
+		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntroMessageAnnouncementData.xlsx";
+	    Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
+	    IntroMessageAnnouncementDetails IntroMessageAnnouncementDetails = new IntroMessageAnnouncementDetails(map);
+	    HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
+	    homePage.navigateToOCMReportsPage();
+	    OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver, OCMReportsPage.class);
+	    String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AuditTrailReportData.xlsx";
+	    Map<String, String> map1 = new ExcelReader(filePath1,"Show").getTestData().get(0);
+	    ReportDetails reportDetails= new ReportDetails(map1);
+	    ocmReportsPage.showReport(reportDetails);
+        Assert.assertTrue(ocmReportsPage.verifyIntroMessageAnnouncementCreate(IntroMessageAnnouncementDetails, "MakerSendToApproval"),"Audit Trail report assertion failed");
+    }
+    
+	@Test(groups = { "Checker" },priority=20,dependsOnMethods="VerifyAuditTrailReportForSendForApproval")
+    public void ApproveforAddNewIntroMessageAnnouncementRecord() throws Exception{
+       	IntroMessageAnnouncementPage IntroMessageAnnouncementPage = PageFactory.createPageInstance(driver, IntroMessageAnnouncementPage.class);
+       	IntroMessageAnnouncementPage.clickonApprove("Approve Create");
+        Assert.assertTrue(IntroMessageAnnouncementPage.verifyMessage());
+        Assert.assertTrue(IntroMessageAnnouncementPage.verifyReviewAuditTrail("Approved","Approve Create"));
+    }
+    
+    @Test(groups = { "Checker" },priority=21,dependsOnMethods = "ApproveforAddNewIntroMessageAnnouncementRecord")
+    public void VerifyAuditTrailReportForApprove() throws Exception {
+		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntroMessageAnnouncementData.xlsx";
+	    Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
+	    IntroMessageAnnouncementDetails IntroMessageAnnouncementDetails = new IntroMessageAnnouncementDetails(map);
+	    HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
+	    homePage.navigateToOCMReportsPage();
+	    OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver, OCMReportsPage.class);
+	    String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AuditTrailReportData.xlsx";
+	    Map<String, String> map1 = new ExcelReader(filePath1,"Show").getTestData().get(0);
+	    ReportDetails reportDetails= new ReportDetails(map1);
+	    ocmReportsPage.showReport(reportDetails);
+        Assert.assertTrue(ocmReportsPage.verifyIntroMessageAnnouncementCreate(IntroMessageAnnouncementDetails, "CheckerApprove"),"Audit Trail report assertion failed");
+    }
+    
+    @Test(groups= {"Checker"},priority=22,dependsOnMethods="ApproveforAddNewIntroMessageAnnouncementRecord")
+    public void VerifyRecordApprovedDataSectionafterApproval()throws Exception{
+    	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntroMessageAnnouncementData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
+	    IntroMessageAnnouncementDetails IntroMessageAnnouncementDetails = new IntroMessageAnnouncementDetails(map);
+        IntroMessageAnnouncementPage IntroMessageAnnouncementPage = PageFactory.createPageInstance(driver, IntroMessageAnnouncementPage.class);
+        Assert.assertTrue(IntroMessageAnnouncementPage.verifyApprovedSectionDataafterapproval(IntroMessageAnnouncementDetails));
+    }
+    
+    @Test(groups = { "Maker" },priority=23,dependsOnMethods="AddNewIntroMessageAnnouncementRecord")
+    public void AddDuplicateRecord() throws Exception {
+    	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntroMessageAnnouncementData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
+	    IntroMessageAnnouncementDetails IntroMessageAnnouncementDetails = new IntroMessageAnnouncementDetails(map);
+        IntroMessageAnnouncementPage IntroMessageAnnouncementPage = PageFactory.createPageInstance(driver, IntroMessageAnnouncementPage.class);
+        IntroMessageAnnouncementPage.addNewIntroMessageAnnouncementRecord(IntroMessageAnnouncementDetails);
+        Assert.assertFalse(IntroMessageAnnouncementPage.getErrorMsg(),"Duplicate assetion failed");
     }
     
     @AfterMethod
