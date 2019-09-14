@@ -352,7 +352,6 @@ public class AdhocOptionEnhancementTest extends BaseTest {
     public void VerifyCancelButtonInDeleteAdhocOptionEnhancementRecord() throws Exception {
         AdhocOptionEnhancementPage adhocOptionEnhancementPage= PageFactory.createPageInstance(driver,AdhocOptionEnhancementPage.class);
         adhocOptionEnhancementPage.searchAdhocOptionEnhancementRecord("Promotion Number","4");
-        Thread.sleep(2000);
         adhocOptionEnhancementPage.clickOnDeleteButton();
         adhocOptionEnhancementPage.clickOnDeleteCancelBtn();
         Assert.assertFalse(adhocOptionEnhancementPage.verifyDeleteContainer(), "Cancel Btn at Delete record assertion failed");

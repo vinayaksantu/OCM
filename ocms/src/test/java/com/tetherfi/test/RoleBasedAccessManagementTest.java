@@ -31,7 +31,8 @@ public class RoleBasedAccessManagementTest extends BaseTest {
         RoleBasedAccessManagementPage roleBasedAccessManagementPage=PageFactory.createPageInstance(driver,RoleBasedAccessManagementPage.class);
         Assert.assertTrue(roleBasedAccessManagementPage.isRoleBasedAccessManagementPageDisplayed(),"Role Based access management assertion failed");
     }
-    //@Test(priority=1)
+    
+    @Test(priority=1)
     public void RoleBasedAccessManagementPage(){
         RoleBasedAccessManagementPage roleBasedAccessManagementPage=PageFactory.createPageInstance(driver,RoleBasedAccessManagementPage.class);
     	Assert.assertTrue(roleBasedAccessManagementPage.verifylogo(),"Role Based Access Management logo assertion failed");
@@ -42,7 +43,7 @@ public class RoleBasedAccessManagementTest extends BaseTest {
     	screenshot.captureScreen(driver, "Minimize Window","RoleBasedAccessManagementTest");
     }
    
-    //@Test(priority=2)
+    @Test(priority=2)
     public void AddNewRoleBasedAccessManagementRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\RoleBasedAccessManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -54,7 +55,8 @@ public class RoleBasedAccessManagementTest extends BaseTest {
         Assert.assertTrue(roleBasedAccessManagementPage.verifyNewRecordCreated(),"Add New record assertion failed");
     	screenshot.captureScreen(driver, "Record Created","RoleBasedAccessManagementTest");
     }
-    //@Test(priority=3)
+    
+    @Test(priority=3)
     public void AddNewInvalidRecord() throws Exception
     {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\RoleBasedAccessManagementData.xlsx";

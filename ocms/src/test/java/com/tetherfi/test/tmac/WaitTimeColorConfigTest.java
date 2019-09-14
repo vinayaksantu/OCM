@@ -181,7 +181,7 @@ public class WaitTimeColorConfigTest extends BaseTest {
        Assert.assertTrue(waitTimeColorConfigPage.verifyExportToExcel(filePath));
    }
    
-   @Test(priority=14)
+   @Test(priority=14,dependsOnMethods="ExportToExcel")
    public void ExportToExcelData() throws Exception
    {	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Wait Time Color Config.xlsx";
    		List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
