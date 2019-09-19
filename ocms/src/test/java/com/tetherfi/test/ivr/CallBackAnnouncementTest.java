@@ -27,11 +27,6 @@ public class CallBackAnnouncementTest extends BaseTest {
 	Screenshot screenshot=new Screenshot(driver);
     @BeforeMethod
     public void NavigateToCallBackAnnouncementPage() {
-    	try {
-			Thread.sleep(500);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
         HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
         homePage.navigateToOCMPage();
         OCMHomePage ocmHomePage = PageFactory.createPageInstance(driver, OCMHomePage.class);
@@ -42,7 +37,6 @@ public class CallBackAnnouncementTest extends BaseTest {
         ivrPage.navigateToCallbackAnnouncementPage();
         CallbackAnnouncementPage callbackAnnouncementPage = PageFactory.createPageInstance(driver, CallbackAnnouncementPage.class);
         Assert.assertTrue(callbackAnnouncementPage.isCallbackAnnouncementPageDisplayed(), "CallBack Announcement page assertion failed");
-    	screenshot.captureScreen(driver,"CallBackAnnouncement Page","CallBackAnnouncementTest");
     }
   
   @Test(priority=1)

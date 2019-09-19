@@ -247,8 +247,8 @@ public class AgentSettingsNewDesignPage extends BasePage {
     @FindBy(css=".form-group #ModifyReason1")
     private  WebElement deleteReasonTextBox;
 
-    @FindBy(css=".k-grid-edit")
-    private List<WebElement> editBtn;
+    @FindBy(xpath="//a[@class='k-button k-button-icontext k-grid-edit']")
+    private WebElement editBtn;
 
     @FindBy(css=".k-edit-form-container #ModifyReason")
     private  WebElement modifyReasonTextBox;
@@ -372,6 +372,24 @@ public class AgentSettingsNewDesignPage extends BasePage {
 
     @FindBy(css="#drillGrid th a[class='k-link']")
     private List<WebElement> headersText;
+    
+    @FindBy(id="sendForApproval")
+    private WebElement sendForApprovalBtn;
+    
+    @FindBy(id="undoChanges")
+    private WebElement revertBtn;
+    
+    @FindBy(id="undoChangesMakerComments")
+    private WebElement revertMakerComments;
+    
+    @FindBy(id="submitMakerComment")
+    private WebElement submitMakerComments;
+    
+    @FindBy(id="submitUndoChangesMakerComment")
+    private WebElement revertSubmitMakerComments;
+    
+    @FindBy(css="#drillGrid tbody tr td")
+    private List<WebElement> editrowdata;
 
     public boolean isAgentSettingsPageDisplayed() throws InterruptedException {
         waitForLoad(driver);
@@ -634,68 +652,20 @@ public class AgentSettingsNewDesignPage extends BasePage {
 	public void clickonTopmostEditButton(){
         try {
             Thread.sleep(5000);
-            selectWebElement(editBtn.get(0));
+            selectWebElement(editBtn);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
     public void editAgentSettingsRecord(AgentSettingsDetails details) {
         try{selectWebElement(agentSettingsTabs.get(1));
-        Thread.sleep(3000);
         selectWebElement(makeAgentSettingsChanges);
-        Thread.sleep(3000);
         searchAgentSettingsRecord(details.getUsername());
         Thread.sleep(3000);
-        selectWebElement(editBtn.get(0));
-        selectWebElement(firstnameTextBox);
-        enterValueToTxtField(firstnameTextBox,details.getFirstname());
-        selectWebElement(lastnameTextBox);
-        enterValueToTxtField(lastnameTextBox,details.getLastname());
-        selectProfile(details.getProfile(),details.getSupervisor());
-        /*selectWebElement(teamnameDropdown);
-        try{Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        ChooseTeamHeirarchy(details.getTeamName());*/
-        //selectDropdownFromVisibleText(teamNameListBox,details.getTeamName());
-        selectWebElement(accessroleDropdown);
-        selectDropdownFromVisibleText(accessroleListBox,details.getAccessRole());
-        selectWebElement(crmnameDropdown);
-        selectDropdownFromVisibleText(crmnameListBox,details.getCrmName());
-        // selectWebElement(texttemplatenameDropdown);
-        // selectDropdownFromVisibleText(texttemplatenameListBox,details.getTextTemplateName());
-        navigateToTab("Settings");
-        selectFeaturesToBeSelected(details.getFeaturestobeSeleted());
-        selectWebElement(numericTextbox.get(1));
-        enterValueToTxtBox(totalVoiceTabsAllowedTextBox,String.valueOf(details.getTotalVoiceTabs()));
-        selectWebElement(numericTextbox.get(2));
-        enterValueToTxtBox(totalChatTabsAllowedTextBox,String.valueOf(details.getTotalChatTabs()));
-        selectWebElement(numericTextbox.get(3));
-        enterValueToTxtBox(totalAudioChatTabsAllowedTextBox,String.valueOf(details.getTotalAudioChatTabs()));
-        selectWebElement(numericTextbox.get(4));
-        enterValueToTxtBox(totalVideoChatTabsAllowedTextBox,String.valueOf(details.getTotalVideoChatTabs()));
-        selectWebElement(numericTextbox.get(5));
-        enterValueToTxtBox(totalFaxTabsAllowedTextBox,String.valueOf(details.getTotalFaxTabs()));
-        selectWebElement(numericTextbox.get(6));
-        enterValueToTxtBox(totalEmailTabsAllowedTextBox,String.valueOf(details.getTotalEmailTabs()));
-        selectWebElement(numericTextbox.get(7));
-        enterValueToTxtBox(totalSMSTabsAllowedTextBox,String.valueOf(details.getTotalSMSTabs()));
-        selectWebElement(numericTextbox.get(8));
-        enterValueToTxtBox(totalFaxoutTabsAllowedTextBox,String.valueOf(details.getTotalFaxoutTabs()));
-        selectWebElement(numericTextbox.get(9));
-        enterValueToTxtBox(totalFaxInternationalTabsAllowedTextBox,String.valueOf(details.getTotalFaxInternationalTabs()));																			   
-        selectWebElement(featuresDropdown);
-        selectDropdownFromVisibleText(featuresListBox,details.getFeatures());
-        selectCheckBox(goToAcwAfterEachAcdCallsCheckbox,details.isGotoACWaftereachACDcalls());
-        selectCheckBox(autoAnswerAllAcdCallsCheckbox,details.isAutoanswerallACDcalls());
-        selectCheckBox(goToAcwAfterAnyCallsCheckbox,details.isGotoACWafteranycalls());
-        selectCheckBox(crmEnabledCheckbox,details.iscRMEnabled());
-        selectCheckBox(holdVoiceCallOnChatCallCheckbox,details.isHoldVoiceCallOnChatCall());
-        selectCheckBox(secondTextChatAutoAnswerCheckbox,details.isSecondTextChatAutoAnswer());
-        selectCheckBox(textChatAutoACWCheckbox,details.isTextChatAutoACWEnabled());
-        selectCheckBox(textChatAutoAnswerCheckbox,details.isTextChatAutoAnswer());
-        enterValueToTxtField(modifyReasonTextBox,details.getModifyReason());
+        selectWebElement(editBtn);
+        waitForJqueryLoad(driver);
+        enterValueToTxtField(firstnameTextBox,details.getUpdatedFirstname());
+        enterValueToTxtFieldWithoutClear(modifyReasonTextBox,details.getModifyReason());
         selectWebElement(saveBtn);}catch (Exception e){e.printStackTrace();}
     }
     public void deleteAgentSettingsRecord(String username,String reason) {
@@ -723,10 +693,11 @@ public class AgentSettingsNewDesignPage extends BasePage {
         if(errorMsg.size()>0){return false;}
         return(waitUntilTextToBePresentInWebElement(successmsg,"Record Deleted Successfully"));
     }
-    public boolean verifyRecordUpdated(){
+    public boolean getErrorMsg(){
         //waitForJqueryLoad(driver);
         if(errorMsg.size()>0){return false;}
-        return(waitUntilTextToBePresentInWebElement(successmsg,"Record Updated Successfully"));
+        else 
+        	return true;
     }
     public void clickOnGoBackButton(){
         selectWebElement(goBackBtn);
@@ -873,8 +844,7 @@ return status;
         return(verifySuccessMessage().contains("Record submission for approval success. Your Request ID is :"));
     }
     public String verifySuccessMessage(){
-        if(errorMsg.size()>0){return errorMsg.get(0).getText();}
-        else { waitUntilWebElementIsVisible(successmsg);return successmsg.getText();}
+        	waitUntilWebElementIsVisible(successmsg);return successmsg.getText();
     }
     public boolean verifyStatus(String status){
         try {
@@ -892,6 +862,7 @@ return status;
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        selectRecord();
         clickOn(approveBtn);
         selectWebElement(checkerReason);
         enterValueToTxtField(checkerReason,comment);
@@ -904,6 +875,7 @@ return status;
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        selectRecord();
         clickOn(rejectBtn);
         selectWebElement(checkerReason);
         enterValueToTxtField(checkerReason,comment);
@@ -1385,7 +1357,7 @@ return status;
     public boolean isEditBtnDisplayed() {
     	Boolean status = false;
     	try {
-    		if(editBtn.get(0).isDisplayed() && editBtn.get(0).isEnabled())
+    		if(editBtn.isDisplayed() && editBtn.isEnabled())
     			status = true;
     	}catch(Exception e) {
     		status = false;
@@ -1497,4 +1469,113 @@ return status;
 		selectWebElement(taskCompleteBtnAtMakerCommentsPopUp);
 	}
 	
+	public void selectRecord() {
+		Map<String,String> map = new HashMap<>();
+		waitUntilWebElementIsVisible(auditGridContent);
+		List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
+		List<WebElement> cols=rows.get(1).findElements(By.tagName("td"));
+		selectWebElement(cols.get(0).findElement(By.id("isEnabled")));
+    }
+	
+	public void sendForAprroval(String comments) throws Exception {
+		selectWebElement(sendForApprovalBtn);
+		enterValueToTxtField(makerComments, comments);
+		selectWebElement(submitMakerComments);		
+	}
+	
+	public void Revert(String comments) throws Exception {
+		selectWebElement(revertBtn);
+		enterValueToTxtField(revertMakerComments,comments);
+		selectWebElement(revertSubmitMakerComments);				
+	}
+	
+	public boolean verifyMessage() {
+        return(verifySuccessMessage().contains("Record approved successfully. Request ID :"));
+
+	}
+	
+	
+	public boolean EditCancel(AgentSettingsDetails details) throws Exception {
+		selectWebElement(agentSettingsTabs.get(1));
+		Thread.sleep(1000);
+		selectWebElement(makeAgentSettingsChanges);
+		Thread.sleep(1000);
+		searchAgentSettingsRecord(details.getUsername());
+		Thread.sleep(2000);
+		selectWebElement(editBtn);
+		waitForJqueryLoad(driver);
+		selectWebElement(cancelBtn);
+		if(editrowdata.get(4).getText().equals(details.getFirstname()))
+			return true;
+		else
+		return false;	
+	}
+	public boolean verifyAuditTrailUpdate(AgentSettingsDetails details, String Transaction, String Status) {
+		boolean stat=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable();
+        if(firstRowData.get("Transaction").equalsIgnoreCase(Transaction)){
+            if(firstRowData.get("Status").equalsIgnoreCase(Status)){
+                if(firstRowData.get("Function").equalsIgnoreCase("Agent Settings")){
+                       if(Transaction.equals("MakerUpdate")){
+                           Map<String,String> newvalues=new HashMap<>();
+                            String[] d=firstRowData.get("New Values").split("\n");
+                            for(String e:d){
+                                String[]f=e.split(":",2);
+                                if(f.length>1){newvalues.put(f[0],f[1]);}
+                            }
+                            if(verifyUpdatedNewValues(details,newvalues)){
+                                stat=true;}
+                            else 
+                            stat=false;
+                       }
+                       else{System.out.println("Data mismatch");}
+                }else{System.out.println("Data mismatch:"+firstRowData.get("Function")+"\t"+"RoleManagement");}
+            }else{System.out.println("Data mismatch:"+firstRowData.get("Status")+"\t"+Status);}
+        }else{System.out.println("Data mismatch:"+firstRowData.get("Transaction")+"\t"+Transaction);}
+        return stat;
+	}
+	
+	private boolean verifyUpdatedNewValues(AgentSettingsDetails details, Map<String, String> newvalues) {
+		Boolean Status=false;
+		if(newvalues.get("UserName").equals(details.getUsername())) {
+			if(newvalues.get("FirstName").equals(details.getUpdatedFirstname())){
+				if(newvalues.get("LastName").equals(details.getLastname())){
+					if(newvalues.get("Profile").equals(details.getProfile())){
+						if(newvalues.get("AvayaLoginID").equals(details.getAvayaLoginID())){
+							if(newvalues.get("OrgUnit").equals(details.getOrgUnit())) {	
+								if(newvalues.get("SupervisorName").equals(details.getSupervisor())){
+									if(newvalues.get("CrmName").equals(details.getCrmName())){
+											Status=true;
+									}
+		        					else System.out.println("CrmName data mismatch");
+								}
+	        					else System.out.println("SupervisorName data mismatch");
+        					}
+        					else System.out.println("OrgUnit data mismatch");
+    					}
+    					else System.out.println("AvayaLoginID data mismatch");
+					}
+					else System.out.println("Profile data mismatch");
+				}
+				else System.out.println("LastName data mismatch");
+			}
+			else System.out.println("FirstName data mismatch");
+		}
+		else {System.out.println("UserName data mismatch");}
+	return Status;
+	}
+	
+	public void EditRecordWithoutModifyReason(AgentSettingsDetails details) throws Exception {
+		selectWebElement(agentSettingsTabs.get(1));
+		Thread.sleep(1000);
+		selectWebElement(makeAgentSettingsChanges);
+		Thread.sleep(1000);
+		searchAgentSettingsRecord(details.getUsername());
+		waitUntilWebElementIsVisible(editBtn);
+		selectWebElement(editBtn);
+		waitForJqueryLoad(driver);		
+		Thread.sleep(1000);
+        selectWebElement(saveBtn);	
+        selectWebElement(cancelBtn);		
+	}
 }

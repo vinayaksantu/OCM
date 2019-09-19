@@ -31,7 +31,7 @@ public class AgentSkillAssignmentTest extends BaseTest{
         Assert.assertTrue(agentSkillAssignmentPage.isAgentSkillAssignmentPageDisplayed(),"Agent skill assignment assertion failed");
     }
     
-    //@Test(priority=1)
+    @Test(priority=1)
     public void AgentSkillAssignmentPage() {
         AgentSkillAssignmentPage agentSkillAssignmentPage=PageFactory.createPageInstance(driver,AgentSkillAssignmentPage.class);
     	Assert.assertTrue(agentSkillAssignmentPage.verifylogo(),"Skill Configuration logo assertion failed");
@@ -40,7 +40,8 @@ public class AgentSkillAssignmentTest extends BaseTest{
     	Assert.assertTrue(agentSkillAssignmentPage .minimizewindow(), "Restored Assertion Failed");
     	screenshot.captureScreen("minimize window","AgentSkillAssignmentTest");
     }
-    //@Test
+    
+    @Test(priority=2)
     public void EditAgentListRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentSkillAssignmentData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
@@ -49,7 +50,8 @@ public class AgentSkillAssignmentTest extends BaseTest{
         agentSkillAssignmentPage.assignSkillToAgent(agentSkillAssignmentDetails);
         Assert.assertTrue(agentSkillAssignmentPage.verifyRecordUpdated(),"Assign skill assertion failed");
     }
-    //@Test
+    
+    @Test(priority=3)
     public void AddMultiSkillRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentSkillAssignmentData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(1);
@@ -61,7 +63,7 @@ public class AgentSkillAssignmentTest extends BaseTest{
         Assert.assertTrue(agentSkillAssignmentPage.verifyRecordUpdated(),"Assign skill assertion failed");
     }
     
-    //@Test(priority=6)
+    @Test(priority=6)
     public void ExportToExcel() throws Exception
     {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles";
@@ -69,7 +71,8 @@ public class AgentSkillAssignmentTest extends BaseTest{
         Assert.assertTrue(agentSkillAssignmentPage.verifyExportToExcel(filePath));
         screenshot.captureScreen("Export Excel", "AgentSkillAssignmentTest");
     }
-    //@Test(priority=7)
+    
+    @Test(priority=7)
     public void ExportToExcelData() throws Exception
     {	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Agent Skill Assignment.xlsx";
     	List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();

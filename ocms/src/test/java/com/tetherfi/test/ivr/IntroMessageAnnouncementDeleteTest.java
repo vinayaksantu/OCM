@@ -42,7 +42,7 @@ public class IntroMessageAnnouncementDeleteTest {
         Test t = method.getAnnotation(Test.class);
         Map<String, String> map;
         if(t.groups()[0].equalsIgnoreCase("Checker"))
-            map= new ExcelReader(filePath,"Login").getTestData().get(2);
+            map= new ExcelReader(filePath,"Login").getTestData().get(1);
         else
             map= new ExcelReader(filePath,"Login").getTestData().get(0);
         try{driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);}catch (TimeoutException e){e.printStackTrace();driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);}
@@ -64,7 +64,7 @@ public class IntroMessageAnnouncementDeleteTest {
         Assert.assertTrue(IntroMessageAnnouncementPage.isIntroMessageAnnouncementPageDisplayed(), "Branch Management page assertion failed");
     }
 	
-	//@Test(groups= {"Maker"}, priority=1)
+	@Test(groups= {"Maker"}, priority=1)
 	public void DeleteCancelIntroMessageAnnouncementRecord() throws Exception {
 		 String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntroMessageAnnouncementData.xlsx";
 	     Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(0);
@@ -73,7 +73,7 @@ public class IntroMessageAnnouncementDeleteTest {
 	     Assert.assertTrue(IntroMessageAnnouncementPage.DeleteCancel(IntroMessageAnnouncementDetails), "Delete Cancel assertion Failed");
 	}
 	
-	//@Test(groups = { "Maker" }, priority=2)
+	@Test(groups = { "Maker" }, priority=2)
     public void DeleteWithoutModifyReasonRecord() throws Exception {
 		 String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntroMessageAnnouncementData.xlsx";
 		 Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(0);
@@ -204,7 +204,7 @@ public class IntroMessageAnnouncementDeleteTest {
         Assert.assertTrue(IntroMessageAnnouncementPage.verifyStatus("Approval Pending"),"approal status details failed");
     }
 	
-	@Test(priority=14,groups = { "Maker" },dependsOnMethods = "ApproveforDeleteIntroMessageAnnouncementRecord")
+	@Test(priority=14,groups = { "Maker" },dependsOnMethods = "VerifySendForApprovalForDeleteRecord")
     public void VerifyAuditTrailReportForSendForApprove() throws Exception {
 		 String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntroMessageAnnouncementData.xlsx";
 		 Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);

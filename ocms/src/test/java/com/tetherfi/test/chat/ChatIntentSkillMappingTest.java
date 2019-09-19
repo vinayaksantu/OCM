@@ -34,7 +34,7 @@ public class ChatIntentSkillMappingTest extends BaseTest {
         Assert.assertTrue(intentSkillMappingPage.isChatIntentSkillMappingPageDisplayed(),"Intent skill mapping page assertion failed");
     }
     
-    @Test(priority=1)
+   @Test(priority=1)
 	public void ChatIntentSkillMappingPage() {
         ChatIntentSkillMappingPage ChatIntentSkillMappingPage = PageFactory.createPageInstance(driver, ChatIntentSkillMappingPage.class);
         Assert.assertTrue(ChatIntentSkillMappingPage.VerifyLogo(),"Logo assertion failed");
@@ -72,7 +72,7 @@ public class ChatIntentSkillMappingTest extends BaseTest {
         Assert.assertEquals(intentSkillMappingPage.getMessage(),"Record Created Successfully","Add New record assertion failed");
     }
     
-    @Test(priority=6)//,dependsOnMethods = "AddNewChatIntentSkillMappingRecord")
+   @Test(priority=6)//,dependsOnMethods = "AddNewChatIntentSkillMappingRecord")
     public void AddDuplicateChatIntentSkillMappingRecord() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntentSkillMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -190,17 +190,17 @@ public class ChatIntentSkillMappingTest extends BaseTest {
         Assert.assertEquals(ChatIntentSkillMappingPage.getMessage(),"×\nPlease enter the modify reason", "empty modify reason record assertion failed");
     }
     
-    @Test(priority=17)
+   @Test(priority=17)
     public void VerifyCancelBtnAtEditRecord() throws Exception{
         ChatIntentSkillMappingPage ChatIntentSkillMappingPage = PageFactory.createPageInstance(driver, ChatIntentSkillMappingPage.class);
-        ChatIntentSkillMappingPage.searchChatIntentSkillMappingRecord("L4");
+        ChatIntentSkillMappingPage.searchChatIntentSkillMappingRecord("L3");
         Thread.sleep(1000);
         ChatIntentSkillMappingPage.clickOnEditButton();
         ChatIntentSkillMappingPage.clickOnCancelBtn();
         Assert.assertFalse(ChatIntentSkillMappingPage.verifyEditFormContainer(), "Cancel Btn at Edit record assertion failed");
     }
     
-    @Test(priority=18)
+   @Test(priority=18)
     public void searchPage() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntentSkillMappingData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -301,7 +301,7 @@ public class ChatIntentSkillMappingTest extends BaseTest {
         Assert.assertTrue(ChatIntentSkillMappingPage.ExporttoExcelWithoutData(ChatIntentSkillMappingDetails));
     }
   
-    @Test(priority=28)
+   @Test(priority=28)
     public void SortingByAscending() throws IOException {
         ChatIntentSkillMappingPage ChatIntentSkillMappingPage = PageFactory.createPageInstance(driver, ChatIntentSkillMappingPage.class);
         ChatIntentSkillMappingPage.SortByAscending();
@@ -347,7 +347,7 @@ public class ChatIntentSkillMappingTest extends BaseTest {
         Assert.assertTrue(ChatIntentSkillMappingPage.verifyTotalNumberOfItemsPerPageDetails(),"item per page assertion failed");
     }
     
-    @Test(priority=34)
+   @Test(priority=34)
     public void VerifyNumberOfItemsPerPageSelection() {
         ChatIntentSkillMappingPage ChatIntentSkillMappingPage = PageFactory.createPageInstance(driver, ChatIntentSkillMappingPage.class);
         Assert.assertTrue(ChatIntentSkillMappingPage.verifyNumberOfItemsPerPage(),"item per page assertion failed");

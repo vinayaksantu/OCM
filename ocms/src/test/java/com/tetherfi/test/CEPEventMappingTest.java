@@ -110,7 +110,7 @@ public class CEPEventMappingTest extends BaseTest {
         CepEventMappingDetails CepEventMappingDetails = new CepEventMappingDetails(map);
     	CepEventMappingPage CepEventMappingPage=PageFactory.createPageInstance(driver,CepEventMappingPage.class);
         CepEventMappingPage.addNewRecordWithoutCEPEvent(CepEventMappingDetails);
-        Assert.assertEquals(CepEventMappingPage.getMessage(),"Please provide a valid CEP Event","Invalid record assertion failed");
+        Assert.assertEquals(CepEventMappingPage.getMessage(),"Please Provide CEP Event","Invalid record assertion failed");
     }
     
     @Test(priority=10)
@@ -120,7 +120,7 @@ public class CEPEventMappingTest extends BaseTest {
         CepEventMappingDetails CepEventMappingDetails = new CepEventMappingDetails(map);
     	CepEventMappingPage CepEventMappingPage=PageFactory.createPageInstance(driver,CepEventMappingPage.class);
         CepEventMappingPage.addNewRecordWithoutDescription(CepEventMappingDetails);
-        Assert.assertEquals(CepEventMappingPage.getMessage(),"Please provide a valid description","Invalid record assertion failed");
+        Assert.assertEquals(CepEventMappingPage.getMessage(),"Please Provide Description","Invalid record assertion failed");
     }
     
     @Test(priority=11)
@@ -130,7 +130,7 @@ public class CEPEventMappingTest extends BaseTest {
         CepEventMappingDetails CepEventMappingDetails = new CepEventMappingDetails(map);
     	CepEventMappingPage CepEventMappingPage=PageFactory.createPageInstance(driver,CepEventMappingPage.class);
         CepEventMappingPage.addNewRecordWithoutBins(CepEventMappingDetails);
-        Assert.assertEquals(CepEventMappingPage.getMessage(),"Please provide a valid BINS","Invalid record assertion failed");
+        Assert.assertEquals(CepEventMappingPage.getMessage(),"Please Provide BINS","Invalid record assertion failed");
     }
     
     @Test(priority=12)
@@ -140,7 +140,7 @@ public class CEPEventMappingTest extends BaseTest {
         CepEventMappingDetails CepEventMappingDetails = new CepEventMappingDetails(map);
     	CepEventMappingPage CepEventMappingPage=PageFactory.createPageInstance(driver,CepEventMappingPage.class);
         CepEventMappingPage.addNewRecordWithoutTransferFlag(CepEventMappingDetails);
-        Assert.assertEquals(CepEventMappingPage.getMessage(),"Please select a transfer flag","Invalid record assertion failed");
+        Assert.assertEquals(CepEventMappingPage.getMessage(),"Please Provide Transfer flag","Invalid record assertion failed");
     }
     
     @Test(priority=13)

@@ -1,7 +1,6 @@
 package com.tetherfi.pages;
 
 import com.tetherfi.model.chat.ChatIntentSkillMappingDetails;
-import com.tetherfi.model.ivr.IntentMappingDetails;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -298,10 +297,6 @@ public class ChatIntentSkillMappingPage extends BasePage {
 			for(int j=1;j<headers.size();j++) {
 				scrollToElement(headers.get(j));
 				System.out.println(headers.get(j).getText());
-				if(headers.get(j).getText().equals("Insert Date Time")){
-				col=cols.get(j).getText().substring(0,10);
-				}
-				else
 					col=cols.get(j).getText();
 				map.put(headers.get(j).getText(),col);
 			}
@@ -661,8 +656,9 @@ public class ChatIntentSkillMappingPage extends BasePage {
 
     public String getMessage(){
         waitForJqueryLoad(driver);
-        if(errorMsg.size()>0){return errorMsg.get(0).getText();}
-        else {return successmsg.getText();}
+       // if(errorMsg.size()>0){return errorMsg.get(0).getText();}
+       // else 
+        {return successmsg.getText();}
     }
     public boolean isAddBtnDisplayed() {
     	return addNewIntentSkillMappingRecordBtn.isDisplayed() && addNewIntentSkillMappingRecordBtn.isEnabled();

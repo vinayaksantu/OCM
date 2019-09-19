@@ -93,7 +93,7 @@ public class VIPListManagementTest extends BaseTest{
         VipListManagementDetails vipListManagementDetails = new VipListManagementDetails(map);
         VipListManagementPage vipListMangementPage = PageFactory.createPageInstance(driver, VipListManagementPage.class);
         vipListMangementPage.addNewVipListManagementRecord(vipListManagementDetails);
-        Assert.assertEquals(vipListMangementPage.verifySuccessMessage(),"Record Creation Failed, Already Exist", "Duplicate record assertion failed");
+        Assert.assertFalse(vipListMangementPage.verifyErrorMsg());
     }
     
     @Test(priority=7,dependsOnMethods ="AddNewVIPListRecord")
@@ -118,7 +118,7 @@ public class VIPListManagementTest extends BaseTest{
         VipListManagementDetails vipListManagementDetails = new VipListManagementDetails(map);
         VipListManagementPage vipListMangementPage = PageFactory.createPageInstance(driver, VipListManagementPage.class);
         vipListMangementPage.addNewEmptyRecord(vipListManagementDetails);
-        Assert.assertEquals(vipListMangementPage.verifySuccessMessage(),"Please Provide Caller ID, Email ID, FB Handle, Messenger ID, CustomerID Type, CustomerID No, Country, Contact Type, Inclusion Flag, Exclusion Flag, Other Data", "Add invalid record assertion failed");
+        Assert.assertFalse(vipListMangementPage.verifyErrorMsg());
     }
     
     @Test(priority=9)
@@ -128,8 +128,8 @@ public class VIPListManagementTest extends BaseTest{
         VipListManagementDetails vipListManagementDetails = new VipListManagementDetails(map);
         VipListManagementPage vipListMangementPage = PageFactory.createPageInstance(driver, VipListManagementPage.class);
         vipListMangementPage.addRecordWithoutCallerID(vipListManagementDetails);
-        Assert.assertEquals(vipListMangementPage.verifySuccessMessage(),"Please Provide Caller ID", "Add invalid record assertion failed");
-    }
+        Assert.assertFalse(vipListMangementPage.verifyErrorMsg());
+     }
     
     @Test(priority=10)
     public void AddRecordWithoutEmailId() throws Exception {
@@ -138,7 +138,7 @@ public class VIPListManagementTest extends BaseTest{
         VipListManagementDetails vipListManagementDetails = new VipListManagementDetails(map);
         VipListManagementPage vipListMangementPage = PageFactory.createPageInstance(driver, VipListManagementPage.class);
         vipListMangementPage.addRecordWithoutEmailId(vipListManagementDetails);
-        Assert.assertEquals(vipListMangementPage.verifySuccessMessage(),"Please Provide Email ID", "Add invalid record assertion failed");
+        Assert.assertFalse(vipListMangementPage.verifyErrorMsg());
     }
     
     @Test(priority=11)
@@ -148,7 +148,7 @@ public class VIPListManagementTest extends BaseTest{
         VipListManagementDetails vipListManagementDetails = new VipListManagementDetails(map);
         VipListManagementPage vipListMangementPage = PageFactory.createPageInstance(driver, VipListManagementPage.class);
         vipListMangementPage.addRecordWithoutFBHandle(vipListManagementDetails);
-        Assert.assertEquals(vipListMangementPage.verifySuccessMessage(),"Please Provide FB Handle", "Add invalid record assertion failed");
+        Assert.assertEquals(vipListMangementPage.verifySuccessMessage(),"Record Created Successfully", "Add New record assertion failed");
     }
     
     @Test(priority=12)
@@ -158,7 +158,7 @@ public class VIPListManagementTest extends BaseTest{
         VipListManagementDetails vipListManagementDetails = new VipListManagementDetails(map);
         VipListManagementPage vipListMangementPage = PageFactory.createPageInstance(driver, VipListManagementPage.class);
         vipListMangementPage.addRecordWithoutMessengerID(vipListManagementDetails);
-        Assert.assertEquals(vipListMangementPage.verifySuccessMessage(),"Please Provide Messenger ID", "Add invalid record assertion failed");
+        Assert.assertFalse(vipListMangementPage.verifyErrorMsg());
     }
     
     @Test(priority=13)
@@ -168,7 +168,7 @@ public class VIPListManagementTest extends BaseTest{
         VipListManagementDetails vipListManagementDetails = new VipListManagementDetails(map);
         VipListManagementPage vipListMangementPage = PageFactory.createPageInstance(driver, VipListManagementPage.class);
         vipListMangementPage.addRecordWithoutCustomerIDType(vipListManagementDetails);
-        Assert.assertEquals(vipListMangementPage.verifySuccessMessage(),"Please Provide CustomerID Type", "Add invalid record assertion failed");
+        Assert.assertFalse(vipListMangementPage.verifyErrorMsg());
     }
     
     @Test(priority=14)
@@ -178,7 +178,7 @@ public class VIPListManagementTest extends BaseTest{
         VipListManagementDetails vipListManagementDetails = new VipListManagementDetails(map);
         VipListManagementPage vipListMangementPage = PageFactory.createPageInstance(driver, VipListManagementPage.class);
         vipListMangementPage.addRecordWithoutCustomerIDNo(vipListManagementDetails);
-        Assert.assertEquals(vipListMangementPage.verifySuccessMessage(),"Please Provide CustomerID No", "Add invalid record assertion failed");
+        Assert.assertFalse(vipListMangementPage.verifyErrorMsg());
     }
     
     @Test(priority=15)
@@ -188,7 +188,7 @@ public class VIPListManagementTest extends BaseTest{
         VipListManagementDetails vipListManagementDetails = new VipListManagementDetails(map);
         VipListManagementPage vipListMangementPage = PageFactory.createPageInstance(driver, VipListManagementPage.class);
         vipListMangementPage.addRecordWithoutCountry(vipListManagementDetails);
-        Assert.assertEquals(vipListMangementPage.verifySuccessMessage(),"Please Provide Country", "Add invalid record assertion failed");
+        Assert.assertFalse(vipListMangementPage.verifyErrorMsg());
     }
     
     @Test(priority=16)
@@ -198,7 +198,7 @@ public class VIPListManagementTest extends BaseTest{
         VipListManagementDetails vipListManagementDetails = new VipListManagementDetails(map);
         VipListManagementPage vipListMangementPage = PageFactory.createPageInstance(driver, VipListManagementPage.class);
         vipListMangementPage.addRecordWithoutContactType(vipListManagementDetails);
-        Assert.assertEquals(vipListMangementPage.verifySuccessMessage(),"Please Provide Contact Type", "Add invalid record assertion failed");
+        Assert.assertFalse(vipListMangementPage.verifyErrorMsg());
     }
     
     @Test(priority=17)
@@ -208,8 +208,8 @@ public class VIPListManagementTest extends BaseTest{
         VipListManagementDetails vipListManagementDetails = new VipListManagementDetails(map);
         VipListManagementPage vipListMangementPage = PageFactory.createPageInstance(driver, VipListManagementPage.class);
         vipListMangementPage.addRecordWithoutInclusionFlag(vipListManagementDetails);
-        Assert.assertEquals(vipListMangementPage.verifySuccessMessage(),"Please Provide Inclusion Flag", "Add invalid record assertion failed");
-    }
+        Assert.assertFalse(vipListMangementPage.verifyErrorMsg());
+     }
     
     @Test(priority=18)
     public void AddRecordWithoutExclusionFlag() throws Exception {
@@ -218,8 +218,8 @@ public class VIPListManagementTest extends BaseTest{
         VipListManagementDetails vipListManagementDetails = new VipListManagementDetails(map);
         VipListManagementPage vipListMangementPage = PageFactory.createPageInstance(driver, VipListManagementPage.class);
         vipListMangementPage.addRecordWithoutExclusionFlag(vipListManagementDetails);
-        Assert.assertEquals(vipListMangementPage.verifySuccessMessage(),"Please Provide Exclusion Flag", "Add invalid record assertion failed");
-    }
+        Assert.assertFalse(vipListMangementPage.verifyErrorMsg());
+     }
     
     @Test(priority=19)
     public void AddRecordWithoutOtherData() throws Exception {
@@ -228,8 +228,8 @@ public class VIPListManagementTest extends BaseTest{
         VipListManagementDetails vipListManagementDetails = new VipListManagementDetails(map);
         VipListManagementPage vipListMangementPage = PageFactory.createPageInstance(driver, VipListManagementPage.class);
         vipListMangementPage.addRecordWithoutOtherData(vipListManagementDetails);
-        Assert.assertEquals(vipListMangementPage.verifySuccessMessage(),"Please Provide Other Data", "Add invalid record assertion failed");
-    }
+        Assert.assertFalse(vipListMangementPage.verifyErrorMsg());
+     }
     
     @Test(priority=20)
     public void VerifyCancelBtnAtAddRecord(){
@@ -298,7 +298,7 @@ public class VIPListManagementTest extends BaseTest{
     public void searchwithoutSearchTextbox() throws IOException {
         VipListManagementPage vipListMangementPage = PageFactory.createPageInstance(driver, VipListManagementPage.class);
         vipListMangementPage.searchwithoutextsearch();
-        Assert.assertEquals(vipListMangementPage.verifySuccessMessage(),"Please enter the text to search or remove the filter", "Add invalid record assertion failed");
+        Assert.assertFalse(vipListMangementPage.verifyErrorMsg());
     }
     
     @Test(priority=27)
@@ -309,7 +309,7 @@ public class VIPListManagementTest extends BaseTest{
         Assert.assertTrue(vipListMangementPage.verifyExportToExcel(filePath));
     }
     
-    @Test(priority=28)
+    //@Test(priority=28)
     public void ExportToExcelData() throws Exception
     {	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\VIP List Management.xlsx";
     	List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
@@ -324,7 +324,7 @@ public class VIPListManagementTest extends BaseTest{
         VipListManagementDetails vipListManagementDetails = new VipListManagementDetails(map);
         VipListManagementPage vipListMangementPage = PageFactory.createPageInstance(driver, VipListManagementPage.class);
         vipListMangementPage.deleteVIPListWithoutDeleteReasonRecord(vipListManagementDetails);
-        Assert.assertEquals(vipListMangementPage.verifySuccessMessage(),"Please enter the delete reason","empty delete reason record assertion failed");
+        Assert.assertFalse(vipListMangementPage.verifyErrorMsg());
     }
     @Test(priority=30)
     public void VerifyCancelBtnAtDeleteVIPListRecord() throws Exception{
@@ -434,7 +434,7 @@ public class VIPListManagementTest extends BaseTest{
     }
     
     
-    @Test(priority=36)
+    @Test(priority=42)
     public void database() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\VIPListManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(0);

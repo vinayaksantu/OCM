@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Default test(failed)</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>2/5/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>1/3/0</td>
 </tr><tr>
-<td>Started on:</td><td>Sat Sep 14 14:37:50 IST 2019</td>
+<td>Started on:</td><td>Tue Sep 17 12:56:34 IST 2019</td>
 </tr>
-<tr><td>Total time:</td><td>190 seconds (190648 ms)</td>
+<tr><td>Total time:</td><td>156 seconds (156775 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -75,17 +75,18 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.tetherfi.test.tmac.WaitTimeColorConfigTest.ExportToExcelData()'><b>ExportToExcelData</b><br>Test class: com.tetherfi.test.tmac.WaitTimeColorConfigTest</td>
-<td><div><pre>java.lang.AssertionError: did not expect to find [true] but found [false]
-	at com.tetherfi.test.tmac.WaitTimeColorConfigTest.ExportToExcelData(WaitTimeColorConfigTest.java:189)
+<td title='com.tetherfi.test.ivr.IntroMessageAnnouncementCreateTest.AddRevertRecord()'><b>AddRevertRecord</b><br>Test class: com.tetherfi.test.ivr.IntroMessageAnnouncementCreateTest</td>
+<td><div><pre>java.lang.AssertionError: expected [Record Created Successfully] but found [Duplicate Record]
+	at com.tetherfi.test.ivr.IntroMessageAnnouncementCreateTest.AddRevertRecord(IntroMessageAnnouncementCreateTest.java:163)
 	at java.base/java.util.ArrayList.forEach(Unknown Source)
-... Removed 31 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace96388064", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace96388064'><pre>java.lang.AssertionError: did not expect to find [true] but found [false]
+... Removed 32 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace977690141", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace977690141'><pre>java.lang.AssertionError: expected [Record Created Successfully] but found [Duplicate Record]
 	at org.testng.Assert.fail(Assert.java:97)
-	at org.testng.Assert.failNotEquals(Assert.java:969)
-	at org.testng.Assert.assertTrue(Assert.java:43)
-	at org.testng.Assert.assertTrue(Assert.java:53)
-	at com.tetherfi.test.tmac.WaitTimeColorConfigTest.ExportToExcelData(WaitTimeColorConfigTest.java:189)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:136)
+	at org.testng.Assert.assertEquals(Assert.java:118)
+	at org.testng.Assert.assertEquals(Assert.java:575)
+	at org.testng.Assert.assertEquals(Assert.java:585)
+	at com.tetherfi.test.ivr.IntroMessageAnnouncementCreateTest.AddRevertRecord(IntroMessageAnnouncementCreateTest.java:163)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -115,20 +116,36 @@ function toggleAllBoxes() {
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
-<td>4</td>
-<td>com.tetherfi.test.tmac.WaitTimeColorConfigTest@34f7cfd9</td></tr>
+<td>15</td>
+<td>com.tetherfi.test.ivr.IntroMessageAnnouncementCreateTest@6a9344f5</td></tr>
 <tr>
-<td title='com.tetherfi.test.tmac.WaitTimeColorConfigTest.SortingByAscending()'><b>SortingByAscending</b><br>Test class: com.tetherfi.test.tmac.WaitTimeColorConfigTest</td>
-<td><div><pre>java.lang.AssertionError: did not expect to find [true] but found [false]
-	at com.tetherfi.test.tmac.WaitTimeColorConfigTest.SortingByAscending(WaitTimeColorConfigTest.java:290)
+<td title='com.tetherfi.test.ivr.IntroMessageAnnouncementCreateTest.VerifyAddRecordWithoutLanguage()'><b>VerifyAddRecordWithoutLanguage</b><br>Test class: com.tetherfi.test.ivr.IntroMessageAnnouncementCreateTest</td>
+<td><div><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of [[ChromeDriver: chrome on XP (fb3a97f704191c930719821ce1729b4a)] -&gt; css selector: ul[id=&apos;Functionality_listbox&apos;] li] (tried for 20 second(s) with 500 milliseconds interval)
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;ADMIN&apos;, ip: &apos;192.168.1.4&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;9.0.4&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 77.0.3865.75, chrome: {chromedriverVersion: 76.0.3809.68 (420c9498db8ce..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:60475}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: fb3a97f704191c930719821ce1729b4a
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
+	at com.tetherfi.pages.BasePage.waitUntilWebElementListIsVisible(BasePage.java:139)
+	at com.tetherfi.pages.BasePage.selectDropdownFromVisibleText(BasePage.java:328)
+	at com.tetherfi.pages.IntroMessageAnnouncementPage.addwithoutLanguage(IntroMessageAnnouncementPage.java:1185)
+	at com.tetherfi.test.ivr.IntroMessageAnnouncementCreateTest.VerifyAddRecordWithoutLanguage(IntroMessageAnnouncementCreateTest.java:122)
 	at java.base/java.util.ArrayList.forEach(Unknown Source)
-... Removed 31 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1030952115", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1030952115'><pre>java.lang.AssertionError: did not expect to find [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:97)
-	at org.testng.Assert.failNotEquals(Assert.java:969)
-	at org.testng.Assert.assertTrue(Assert.java:43)
-	at org.testng.Assert.assertTrue(Assert.java:53)
-	at com.tetherfi.test.tmac.WaitTimeColorConfigTest.SortingByAscending(WaitTimeColorConfigTest.java:290)
+... Removed 27 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1832858963", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1832858963'><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of [[ChromeDriver: chrome on XP (fb3a97f704191c930719821ce1729b4a)] -&gt; css selector: ul[id=&apos;Functionality_listbox&apos;] li] (tried for 20 second(s) with 500 milliseconds interval)
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;ADMIN&apos;, ip: &apos;192.168.1.4&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;9.0.4&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 77.0.3865.75, chrome: {chromedriverVersion: 76.0.3809.68 (420c9498db8ce..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:60475}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: fb3a97f704191c930719821ce1729b4a
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
+	at com.tetherfi.pages.BasePage.waitUntilWebElementListIsVisible(BasePage.java:139)
+	at com.tetherfi.pages.BasePage.selectDropdownFromVisibleText(BasePage.java:328)
+	at com.tetherfi.pages.IntroMessageAnnouncementPage.addwithoutLanguage(IntroMessageAnnouncementPage.java:1185)
+	at com.tetherfi.test.ivr.IntroMessageAnnouncementCreateTest.VerifyAddRecordWithoutLanguage(IntroMessageAnnouncementCreateTest.java:122)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -158,20 +175,36 @@ function toggleAllBoxes() {
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
-<td>6</td>
-<td>com.tetherfi.test.tmac.WaitTimeColorConfigTest@34f7cfd9</td></tr>
+<td>24</td>
+<td>com.tetherfi.test.ivr.IntroMessageAnnouncementCreateTest@6a9344f5</td></tr>
 <tr>
-<td title='com.tetherfi.test.tmac.WaitTimeColorConfigTest.SortingByDescending()'><b>SortingByDescending</b><br>Test class: com.tetherfi.test.tmac.WaitTimeColorConfigTest</td>
-<td><div><pre>java.lang.AssertionError: did not expect to find [true] but found [false]
-	at com.tetherfi.test.tmac.WaitTimeColorConfigTest.SortingByDescending(WaitTimeColorConfigTest.java:298)
+<td title='com.tetherfi.test.ivr.IntroMessageAnnouncementCreateTest.VerifyAddRecordWithoutStartDateTime()'><b>VerifyAddRecordWithoutStartDateTime</b><br>Test class: com.tetherfi.test.ivr.IntroMessageAnnouncementCreateTest</td>
+<td><div><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of [[ChromeDriver: chrome on XP (a1d8644c7ef2bc34371ccc053fab2bdf)] -&gt; css selector: ul[id=&apos;Functionality_listbox&apos;] li] (tried for 20 second(s) with 500 milliseconds interval)
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;ADMIN&apos;, ip: &apos;192.168.1.4&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;9.0.4&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 77.0.3865.75, chrome: {chromedriverVersion: 76.0.3809.68 (420c9498db8ce..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:60454}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: a1d8644c7ef2bc34371ccc053fab2bdf
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
+	at com.tetherfi.pages.BasePage.waitUntilWebElementListIsVisible(BasePage.java:139)
+	at com.tetherfi.pages.BasePage.selectDropdownFromVisibleText(BasePage.java:328)
+	at com.tetherfi.pages.IntroMessageAnnouncementPage.addwithoutStartDateTime(IntroMessageAnnouncementPage.java:1129)
+	at com.tetherfi.test.ivr.IntroMessageAnnouncementCreateTest.VerifyAddRecordWithoutStartDateTime(IntroMessageAnnouncementCreateTest.java:102)
 	at java.base/java.util.ArrayList.forEach(Unknown Source)
-... Removed 31 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1351814143", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1351814143'><pre>java.lang.AssertionError: did not expect to find [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:97)
-	at org.testng.Assert.failNotEquals(Assert.java:969)
-	at org.testng.Assert.assertTrue(Assert.java:43)
-	at org.testng.Assert.assertTrue(Assert.java:53)
-	at com.tetherfi.test.tmac.WaitTimeColorConfigTest.SortingByDescending(WaitTimeColorConfigTest.java:298)
+... Removed 27 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace194227112", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace194227112'><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of [[ChromeDriver: chrome on XP (a1d8644c7ef2bc34371ccc053fab2bdf)] -&gt; css selector: ul[id=&apos;Functionality_listbox&apos;] li] (tried for 20 second(s) with 500 milliseconds interval)
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;ADMIN&apos;, ip: &apos;192.168.1.4&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;9.0.4&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 77.0.3865.75, chrome: {chromedriverVersion: 76.0.3809.68 (420c9498db8ce..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:60454}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: a1d8644c7ef2bc34371ccc053fab2bdf
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
+	at com.tetherfi.pages.BasePage.waitUntilWebElementListIsVisible(BasePage.java:139)
+	at com.tetherfi.pages.BasePage.selectDropdownFromVisibleText(BasePage.java:328)
+	at com.tetherfi.pages.IntroMessageAnnouncementPage.addwithoutStartDateTime(IntroMessageAnnouncementPage.java:1129)
+	at com.tetherfi.test.ivr.IntroMessageAnnouncementCreateTest.VerifyAddRecordWithoutStartDateTime(IntroMessageAnnouncementCreateTest.java:102)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -201,93 +234,8 @@ function toggleAllBoxes() {
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
-<td>7</td>
-<td>com.tetherfi.test.tmac.WaitTimeColorConfigTest@34f7cfd9</td></tr>
-<tr>
-<td title='com.tetherfi.test.tmac.WaitTimeColorConfigTest.VerifyArrowMoveForFirstAndLastPage()'><b>VerifyArrowMoveForFirstAndLastPage</b><br>Test class: com.tetherfi.test.tmac.WaitTimeColorConfigTest</td>
-<td><div><pre>java.lang.AssertionError: arrow move for first and last page assertion failed did not expect to find [true] but found [false]
-	at com.tetherfi.test.tmac.WaitTimeColorConfigTest.VerifyArrowMoveForFirstAndLastPage(WaitTimeColorConfigTest.java:251)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-... Removed 30 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1359891833", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1359891833'><pre>java.lang.AssertionError: arrow move for first and last page assertion failed did not expect to find [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:97)
-	at org.testng.Assert.failNotEquals(Assert.java:969)
-	at org.testng.Assert.assertTrue(Assert.java:43)
-	at com.tetherfi.test.tmac.WaitTimeColorConfigTest.VerifyArrowMoveForFirstAndLastPage(WaitTimeColorConfigTest.java:251)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-	at org.testng.TestRunner.privateRun(TestRunner.java:770)
-	at org.testng.TestRunner.run(TestRunner.java:591)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-	at org.testng.TestNG.runSuites(TestNG.java:1032)
-	at org.testng.TestNG.run(TestNG.java:1000)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div></td>
-<td>0</td>
-<td>com.tetherfi.test.tmac.WaitTimeColorConfigTest@34f7cfd9</td></tr>
-<tr>
-<td title='com.tetherfi.test.tmac.WaitTimeColorConfigTest.database()'><b>database</b><br>Test class: com.tetherfi.test.tmac.WaitTimeColorConfigTest</td>
-<td><div><pre>java.lang.AssertionError: did not expect to find [true] but found [false]
-	at com.tetherfi.test.tmac.WaitTimeColorConfigTest.database(WaitTimeColorConfigTest.java:232)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-... Removed 31 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace280395604", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace280395604'><pre>java.lang.AssertionError: did not expect to find [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:97)
-	at org.testng.Assert.failNotEquals(Assert.java:969)
-	at org.testng.Assert.assertTrue(Assert.java:43)
-	at org.testng.Assert.assertTrue(Assert.java:53)
-	at com.tetherfi.test.tmac.WaitTimeColorConfigTest.database(WaitTimeColorConfigTest.java:232)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-	at org.testng.TestRunner.privateRun(TestRunner.java:770)
-	at org.testng.TestRunner.run(TestRunner.java:591)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-	at org.testng.TestNG.runSuites(TestNG.java:1032)
-	at org.testng.TestNG.run(TestNG.java:1000)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div></td>
-<td>3</td>
-<td>com.tetherfi.test.tmac.WaitTimeColorConfigTest@34f7cfd9</td></tr>
+<td>23</td>
+<td>com.tetherfi.test.ivr.IntroMessageAnnouncementCreateTest@6a9344f5</td></tr>
 </table><p>
 <table width='100%' border='1' class='invocation-passed'>
 <tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
@@ -297,15 +245,10 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.tetherfi.test.tmac.WaitTimeColorConfigTest.ExportToExcel()'><b>ExportToExcel</b><br>Test class: com.tetherfi.test.tmac.WaitTimeColorConfigTest</td>
+<td title='com.tetherfi.test.ivr.IntroMessageAnnouncementCreateTest.VerifyAddRecordWithoutStatus()'><b>VerifyAddRecordWithoutStatus</b><br>Test class: com.tetherfi.test.ivr.IntroMessageAnnouncementCreateTest</td>
 <td></td>
-<td>2</td>
-<td>com.tetherfi.test.tmac.WaitTimeColorConfigTest@34f7cfd9</td></tr>
-<tr>
-<td title='com.tetherfi.test.tmac.WaitTimeColorConfigTest.SearchClearSearch()'><b>SearchClearSearch</b><br>Test class: com.tetherfi.test.tmac.WaitTimeColorConfigTest</td>
-<td></td>
-<td>6</td>
-<td>com.tetherfi.test.tmac.WaitTimeColorConfigTest@34f7cfd9</td></tr>
+<td>16</td>
+<td>com.tetherfi.test.ivr.IntroMessageAnnouncementCreateTest@6a9344f5</td></tr>
 </table><p>
 </body>
 </html>

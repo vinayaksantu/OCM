@@ -3965,7 +3965,7 @@ return status;
                 							}
                 							if(newvalues.get("Functionality").equals(details.getFunctionality())) {
                 								if(newvalues.get("Language").equals(details.getLanguage())){
-                									if(newvalues.get("HotLine").equals(details.getHotLine())){
+                									if(newvalues.get("Hotline").equals(details.getHotLine())){
                 										if(newvalues.get("Interrupt").equals(details.getUpdatedInterrupt())){
                 											if(newvalues.get("Status").equals(details.getStatus())){
                 												if(newvalues.get("WaveFile").equals(details.getWavFile())) {	

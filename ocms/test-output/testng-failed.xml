@@ -3,29 +3,20 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.tetherfi.test.ivr.AdhocOptionEnhancementTest">
+      <class name="com.tetherfi.test.ivr.HostValueMappingUITest">
         <methods>
-          <include name="AddAdhocOptionEnhancementRecordWithoutPromotionNameWavfile"/>
-          <include name="VerifyAuditTrialReportForCreate"/>
-          <include name="ValidANDBooleanSearch"/>
-          <include name="endTestCase"/>
-          <include name="AddNewAdhocOptionEnhancementwithdifferentLangvageRecord"/>
           <include name="SortingByDescending"/>
-          <include name="tearDown"/>
           <include name="afterEachMethod"/>
-          <include name="SortingByAscending"/>
-          <include name="NavigateToAdhocOptionEnhancementPage"/>
-          <include name="DeleteAdhocOptionEnhancementRecord"/>
           <include name="startTestCase"/>
           <include name="openApplication"/>
-          <include name="SearchClearSearch"/>
-          <include name="AddNewAdhocOptionEnhancementRecord"/>
-          <include name="VerifyAuditTrialReportForDelete"/>
-          <include name="AddAdhocOptionEnhancementRecordWithoutPromotionDetailsWavfile"/>
+          <include name="endTestCase"/>
+          <include name="tearDown"/>
+          <include name="SortingByAscending"/>
+          <include name="database"/>
+          <include name="NavigateToHostValueMappingPage"/>
           <include name="ExportToExcelData"/>
-          <include name="AddDuplicateAdhocOptionEnhancementRecord"/>
         </methods>
-      </class> <!-- com.tetherfi.test.ivr.AdhocOptionEnhancementTest -->
+      </class> <!-- com.tetherfi.test.ivr.HostValueMappingUITest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

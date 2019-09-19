@@ -3,22 +3,15 @@
 <suite name="Failed suite [Failed suite [Default suite]]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)(failed)">
     <classes>
-      <class name="com.tetherfi.test.tmac.WaitTimeColorConfigTest">
+      <class name="com.tetherfi.test.ivr.IntroMessageAnnouncementCreateTest">
         <methods>
-          <include name="startTestCase"/>
+          <include name="NavigateToIntroMessageAnnouncementPage"/>
           <include name="afterEachMethod"/>
-          <include name="openApplication"/>
-          <include name="ExportToExcel"/>
-          <include name="database"/>
-          <include name="SortingByAscending"/>
-          <include name="VerifyArrowMoveForFirstAndLastPage"/>
-          <include name="NavigateToWaitTimeColorConfigPage"/>
-          <include name="endTestCase"/>
-          <include name="tearDown"/>
-          <include name="ExportToExcelData"/>
-          <include name="SortingByDescending"/>
+          <include name="AddRevertRecord"/>
+          <include name="VerifyAddRecordWithoutStartDateTime"/>
+          <include name="VerifyAddRecordWithoutLanguage"/>
         </methods>
-      </class> <!-- com.tetherfi.test.tmac.WaitTimeColorConfigTest -->
+      </class> <!-- com.tetherfi.test.ivr.IntroMessageAnnouncementCreateTest -->
     </classes>
   </test> <!-- Default test(failed)(failed) -->
 </suite> <!-- Failed suite [Failed suite [Default suite]] -->

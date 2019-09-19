@@ -49,6 +49,7 @@ public class OperatingHoursPage extends BasePage {
 
     @FindBy(css=".toast-message")
     private WebElement successmsg;
+    
 
     @FindBy(css=".ibox-title h5")
     private WebElement operatingHours;
@@ -321,7 +322,8 @@ public class OperatingHoursPage extends BasePage {
         selectWebElement(EndTimeTextBox);
         enterValueToTxtField(EndTimeTextBox,operatingHoursDetails.getEndTime());
         selectWebElement(ModifyReasonTextBox);
-        enterValueToTxtField(ModifyReasonTextBox,operatingHoursDetails.getModifyReason());
+        waitForJqueryLoad(driver);
+        enterValueToTxtFieldWithoutClear(ModifyReasonTextBox,operatingHoursDetails.getModifyReason());
         selectWebElement(SaveButton);
     }
     
@@ -360,25 +362,31 @@ public class OperatingHoursPage extends BasePage {
     public void deleteOperatingHoursRecord(OperatingHoursDetails operatingHoursDetails) throws Exception {
         searchOperatingHoursRecord(operatingHoursDetails.getVdnName());
         selectWebElement(deleteButton);
-        enterValueToTxtField(deleteReasonTextBox,operatingHoursDetails.getDeleteReason());
+        enterValueToTxtFieldWithoutClear(deleteReasonTextBox,operatingHoursDetails.getDeleteReason());
         selectWebElement(deleteYesBtn);
     }
 
     public boolean verifyNewRecordCreated(){
        //waitForJqueryLoad(driver);
-        if(errorMsg.size()>0){return false;}
+        //if(errorMsg.size()>0){return false;}
         if(waitUntilTextToBePresentInWebElement(successmsg,"Record Created Successfully"))
         {return true;}else{return false;}
     }
+    
+    public boolean verifyErrorMsg() {
+    	if(errorMsg.size()>0){return false;}
+    	else 
+    		return true;
+    }
     public boolean verifyRecordUpdated(){
         waitForJqueryLoad(driver);
-        if(errorMsg.size()>0){return false;}
+        //if(errorMsg.size()>0){return false;}
         if(waitUntilTextToBePresentInWebElement(successmsg,"Record Updated Successfully"))
         {return true;}else{return false;}
     }
     public boolean verifyRecordDeleted(){
           waitForJqueryLoad(driver);
-        if(errorMsg.size()>0){return false;}
+       // if(errorMsg.size()>0){return false;}
         if(waitUntilTextToBePresentInWebElement(successmsg,"Record Deleted Successfully"))
         {return true;}else{return false;}
     }
@@ -475,10 +483,7 @@ public class OperatingHoursPage extends BasePage {
 			Map<String,String> map = new HashMap<String,String>();
 			List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
 			for(int j=1;j<headers.size();j++) {
-				if(headers.get(j).getText().equals("Last Changed On")){
-					col=cols.get(j).getText().substring(0,10);
-					}
-				else
+				
 					col=cols.get(j).getText();
 				map.put(headers.get(j).getText(),col);
 			}

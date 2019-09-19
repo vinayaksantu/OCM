@@ -224,6 +224,7 @@ public class IvrPage extends BasePage {
 		selectWebElement(ivrSurveyQA);
 	}
 	public void navigateToMenuDescriptionMappingPage() {
+		scrollToElement(menuDescMapping);
 		waitUntilWebElementIsClickable(menuDescMapping);
 		selectWebElement(menuDescMapping);
 	}

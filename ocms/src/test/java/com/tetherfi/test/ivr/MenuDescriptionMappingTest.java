@@ -227,7 +227,7 @@ public class MenuDescriptionMappingTest extends BaseTest {
         Assert.assertTrue(menuDescriptionMappingPage.verifyExportToExcel(filePath));
     }
     
-    @Test(priority=20)
+    @Test(priority=20,dependsOnMethods="ExportToExcel")
     public void ExportToExcelData() throws Exception
     {	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Menu Description Mapping.xlsx";
     	List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
@@ -252,7 +252,7 @@ public class MenuDescriptionMappingTest extends BaseTest {
         menuDescriptionMappingPage.clickOnDeleteCancelBtn();
         Assert.assertFalse(menuDescriptionMappingPage.verifyDeleteContainer(), "Cancel Btn at Delete record assertion failed");
     }
-    @Test(priority=23,dependsOnMethods = "VerifyCancelBtnAtDeleteMenuDescriptionMappingRecord")
+    @Test(priority=23)
     public void DeleteMenuDescriptionMappingRecord() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\MenuDescriptionMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);

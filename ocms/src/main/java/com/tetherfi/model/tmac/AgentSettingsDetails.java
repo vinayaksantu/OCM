@@ -16,6 +16,7 @@ public class AgentSettingsDetails {
     private String accessRole;
     private String features;
     private String crmName;
+    private String OrgUnit;
     private String textTemplateName;
     private String totalVoiceTabs;
     private String totalChatTabs;
@@ -37,8 +38,11 @@ public class AgentSettingsDetails {
     private boolean textChatAutoAnswer;
     private String modifyReason;
     private  String deleteReason;
+    private String UpdatedFirstName;
 
     public AgentSettingsDetails(Map<String,String> map){
+    	OrgUnit=readOrgUnit(map);
+    	UpdatedFirstName=readUpdatedFirstName(map);
         avayaLoginID=readAvayaLoginID(map);
         username=readUsername(map);
         firstname=readFirstname(map);
@@ -72,7 +76,17 @@ public class AgentSettingsDetails {
         deleteReason=readDeleteReason(map);
     }
 
-    private String readTotalFaxTabs(Map<String, String> map) {
+    private String readOrgUnit(Map<String, String> map) {
+    	String value=map.get("OrgUnit");
+		return value;
+	}
+
+	private String readUpdatedFirstName(Map<String, String> map) {
+        String value=map.get("Updated FirstName");
+		return value;
+	}
+
+	private String readTotalFaxTabs(Map<String, String> map) {
         String value=map.get("Total Fax Tabs Allowed");
         if(value==null||value.equalsIgnoreCase("random.str")){
             value="0";}
@@ -390,4 +404,12 @@ public class AgentSettingsDetails {
     public String getTotalFaxoutTabs() { return totalFaxoutTabs; }
 
     public String getTotalFaxInternationalTabs() { return totalFaxInternationalTabs; }
+
+	public String getUpdatedFirstname() {
+		return UpdatedFirstName;
+	}
+
+	public Object getOrgUnit() {
+		return OrgUnit;
+	}
 }

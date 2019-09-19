@@ -412,7 +412,7 @@ public class IntroMessageAnnouncementPage extends BasePage {
     	selectWebElement(makeIntroMessageAnnouncementChanges);
         waitForJqueryLoad(driver);
         searchIntroMessageAnnouncementRecord(details.getHotLine());
-        waitForJqueryLoad(driver);
+        waitUntilWebElementIsVisible(editButton);
         selectWebElement(editButton);
         waitForJqueryLoad(driver);
         selectWebElement(interruptDropdown);
@@ -459,7 +459,7 @@ public class IntroMessageAnnouncementPage extends BasePage {
         System.out.println(firstRowData);
         if(firstRowData.get("Transaction").equalsIgnoreCase(transaction)){
             if(firstRowData.get("Status").equalsIgnoreCase(status)){
-                if(firstRowData.get("Function").equalsIgnoreCase("IvrIntroductoryMessageAnnouncement")){
+                if(firstRowData.get("Function").equalsIgnoreCase("Intro Message Announcement")){
                        if(transaction.equals("MakerCreate")){
                            Map<String,String> newvalues=new HashMap<>();
                             String[] d=firstRowData.get("New Values").split("\n");
@@ -495,6 +495,8 @@ public class IntroMessageAnnouncementPage extends BasePage {
         return stat;
     }
     public void clickonApprove(String comment) throws Exception{
+		selectWebElement(IntroMessageAnnouncementTabs.get(1));
+    	selectRecord();
         clickOn(approveBtn);
         waitForJqueryLoad(driver);
         selectWebElement(checkerReason);
@@ -503,19 +505,20 @@ public class IntroMessageAnnouncementPage extends BasePage {
     }
     public boolean verifyReviewAuditTrail(String status,String comment){
         boolean stat=false;
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy HH:");
-        String date = simpleDateFormat.format(new Date());
         Map<String,String> firstRowData=getFirstRowDatafromTable();
         if(firstRowData.get("Status").equals(status)){
             if(firstRowData.get("Checker Comments").equals(comment)){
-                if (firstRowData.get("Review DateTime").contains(date)){
                     stat=true;
-                }else{System.out.println("Data mismatch:"+firstRowData.get("Review DateTime")+"\t"+date);}
             }else{System.out.println("Data mismatch:"+firstRowData.get("Checker Comments")+"\t"+comment);}
         }else{System.out.println("Data mismatch:"+firstRowData.get("Status")+"\t"+status);}
         return stat;
     }
     public boolean verifyStatus(String status){
+    	try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         Map<String,String> firstRowData=getFirstRowDatafromTable();
         return firstRowData.get("Status").equals(status);
     }
@@ -623,7 +626,7 @@ public class IntroMessageAnnouncementPage extends BasePage {
 	}
 
 	public boolean verifyAuditTrailDataTableHeaders() {
-		ArrayList<String> Expected=new ArrayList<String>(Arrays.asList("Request Id", "Transaction", "Function", "Status", "User Id", "Submission DateTime", "Maker Comments", "Old Values", "New Values", "Reviewed By","Review DateTime", "Checker Comments"));
+		ArrayList<String> Expected=new ArrayList<String>(Arrays.asList(" ","Request Id", "Transaction", "Function", "Status", "User Id", "Submission DateTime", "Maker Comments", "Old Values", "New Values", "Reviewed By","Review DateTime", "Checker Comments"));
         ArrayList Actual = getHeadersfromTable(auditTrailTableHeaders);
         System.out.println(Actual);
         Collections.sort(Expected);Collections.sort(Actual);
@@ -865,10 +868,6 @@ public class IntroMessageAnnouncementPage extends BasePage {
 			List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
 			for(int j=1;j<headers.size();j++) {
 				scrollToElement(headers.get(j));
-				if(headers.get(j).getText().equals("Last Changed On")){
-					col=cols.get(j).getText().substring(0,10);
-					}
-				else
 					col=cols.get(j).getText();
 				map.put(headers.get(j).getText(),col);
 			}
@@ -1129,6 +1128,11 @@ public class IntroMessageAnnouncementPage extends BasePage {
         waitForLoad(driver);waitForJqueryLoad(driver);
         selectWebElement(addNewIntroMessageAnnouncementRcrdBtn);
         waitForJqueryLoad(driver);
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         selectWebElement(funtionalityDropdown);
         selectDropdownFromVisibleText(functionalityListBox,details.getFunctionality());
         selectWebElement(HotlineTextbox);
@@ -1185,6 +1189,11 @@ public class IntroMessageAnnouncementPage extends BasePage {
         waitForLoad(driver);waitForJqueryLoad(driver);
         selectWebElement(addNewIntroMessageAnnouncementRcrdBtn);
         waitForJqueryLoad(driver);
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         selectWebElement(funtionalityDropdown);
         selectDropdownFromVisibleText(functionalityListBox,details.getFunctionality());
         selectWebElement(HotlineTextbox);
@@ -1212,7 +1221,7 @@ public class IntroMessageAnnouncementPage extends BasePage {
         selectWebElement(addNewIntroMessageAnnouncementRcrdBtn);
         waitForJqueryLoad(driver);
         try {
-            Thread.sleep(3000);
+            Thread.sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -1303,6 +1312,7 @@ public class IntroMessageAnnouncementPage extends BasePage {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        selectRecord();
         clickOn(rejectBtn);
         selectWebElement(checkerReason);
         enterValueToTxtField(checkerReason,comment);
@@ -1324,10 +1334,11 @@ public class IntroMessageAnnouncementPage extends BasePage {
 		selectWebElement(makeIntroMessageAnnouncementChanges);
 		Thread.sleep(1000);
 		searchIntroMessageAnnouncementRecord(details.getHotLine());
+		waitUntilWebElementIsVisible(editButton);
 		selectWebElement(editButton);
 		waitForJqueryLoad(driver);
 		selectWebElement(cancelBtn);
-		if(editrowdata.get(3).getText().equals(details.getHotLine()))
+		if(editrowdata.get(2).getText().equals(details.getHotLine()))
 			return true;
 		else
 		return false;
@@ -1338,7 +1349,7 @@ public class IntroMessageAnnouncementPage extends BasePage {
         Map<String,String> firstRowData=getFirstRowDatafromTable();
         if(firstRowData.get("Transaction").equalsIgnoreCase(Transaction)){
             if(firstRowData.get("Status").equalsIgnoreCase(Status)){
-                if(firstRowData.get("Function").equalsIgnoreCase("IvrIntroductoryMessageAnnouncement")){
+                if(firstRowData.get("Function").equalsIgnoreCase("Intro Message Announcement")){
                        if(Transaction.equals("MakerUpdate")){
                            Map<String,String> newvalues=new HashMap<>();
                             String[] d=firstRowData.get("New Values").split("\n");
@@ -1388,6 +1399,7 @@ public class IntroMessageAnnouncementPage extends BasePage {
 		selectWebElement(makeIntroMessageAnnouncementChanges);
 		Thread.sleep(1000);
 		searchIntroMessageAnnouncementRecord(details.getHotLine());
+		waitUntilWebElementIsVisible(editButton);
 		selectWebElement(editButton);
 		waitForJqueryLoad(driver);		
 		Thread.sleep(1000);
@@ -1401,10 +1413,11 @@ public class IntroMessageAnnouncementPage extends BasePage {
 		selectWebElement(makeIntroMessageAnnouncementChanges);
 		Thread.sleep(1000);
 		searchIntroMessageAnnouncementRecord(details.getHotLine());
+		waitUntilWebElementIsVisible(deleteButton);
 		selectWebElement(deleteButton);
 		waitForJqueryLoad(driver);
-		selectWebElement(noBtn);
-		if(editrowdata.get(3).getText().equals(details.getHotLine()))
+		selectWebElement(deleteNoBtn);
+		if(editrowdata.get(2).getText().equals(details.getHotLine()))
 			return true;
 		else
 		return false;
@@ -1417,6 +1430,7 @@ public class IntroMessageAnnouncementPage extends BasePage {
 		Thread.sleep(1000);
 		searchIntroMessageAnnouncementRecord(details.getHotLine());
 		waitForJqueryLoad(driver);
+		waitUntilWebElementIsVisible(deleteButton);
 		selectWebElement(deleteButton);
 		waitForJqueryLoad(driver);	
 		selectWebElement(deleteYesBtn);
@@ -1442,7 +1456,7 @@ public class IntroMessageAnnouncementPage extends BasePage {
         Map<String,String> firstRowData=getFirstRowDatafromTable();
         if(firstRowData.get("Transaction").equalsIgnoreCase(Transaction)){
             if(firstRowData.get("Status").equalsIgnoreCase(Status)){
-                if(firstRowData.get("Function").equalsIgnoreCase("IvrIntroductoryMessageAnnouncement")){
+                if(firstRowData.get("Function").equalsIgnoreCase("Intro Message Announcement")){
                        stat=true;
                 }else{System.out.println("Data mismatch:"+firstRowData.get("Function")+"\t"+"RoleManagement");}
             }else{System.out.println("Data mismatch:"+firstRowData.get("Status")+"\t"+Status);}
