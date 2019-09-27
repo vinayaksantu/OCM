@@ -58,23 +58,8 @@ public class BranchManagementWHPage extends BasePage {
 	@FindBy(xpath="//i[@class='fas fa-compress']")
 	private WebElement minimize;
 	
-	@FindBy(css="#checkerGrid th[data-role='columnsorter']")
-	private List<WebElement> approvedDataTableHeaders;
-
-	@FindBy(css="#tGrid th[data-role='columnsorter']")
-	private List<WebElement> auditTrailTableHeaders;
-	
     @FindBy(css="ul[class='k-tabstrip-items k-reset'] li")
     private List<WebElement> BranchManagementTabs;
-    
-    @FindBy(id="goToAuditTrail")
-    private WebElement goBackBtn;
-    
-    @FindBy(id="makeChanges")
-    private WebElement makeBranchManagementChanges;
-    
-    @FindBy(css="#drillGrid th[data-role='columnsorter']")
-    private List<WebElement> makerTableHeaders;
     
     @FindBy(css=".k-grid-cancel")
     private WebElement cancelBtn;
@@ -177,9 +162,6 @@ public class BranchManagementWHPage extends BasePage {
     
     @FindBy(xpath="//i[@class='fas fa-sync']")
     private WebElement clearsearch;
-    
-    @FindBy(css="#tcheckerGrid .k-grid-content")
-    private WebElement approvedgridcontent;
     
     @FindBy(xpath="//div[text()='No records to display']")
     private WebElement norecords;
@@ -372,22 +354,11 @@ public class BranchManagementWHPage extends BasePage {
 
 	}
 
-	public boolean verifyGoBackButton() {
-		return goBackBtn.isEnabled();
-
-	}
 
 	public boolean verifyExportToExcelButton() {
 		return exporttoexcel.isEnabled();
 	}
 
-	public boolean verifyMakerDataTableHeaders() {
-		ArrayList<String> Expected=new ArrayList<String>(Arrays.asList("MainLines","SubLines","Location","BranchType","Branch Wav File","Address Wav File","Branch Name","Address Text","Line/Estate Order","Status","Language","Last Changed By","Last Changed On"));
-		ArrayList Actual = getHeadersfromTable(makerTableHeaders);
-		System.out.println(Actual);
-        Collections.sort(Expected);Collections.sort(Actual);
-        return Actual.equals(Expected);
-	}
 
 	public boolean verifyDropDownOfAllHeaders() {
         boolean status = false;
@@ -632,19 +603,6 @@ public class BranchManagementWHPage extends BasePage {
         waitUntilWebElementIsVisible(gridContent);	
 	}
 	
-	private void searchBranchManagementRecordApprovedData(String branchName) throws Exception {
-		selectWebElement(gridsearchLink);
-        selectWebElement(selectSearchColumn.get(0));
-        selectDropdownFromVisibleText(columnNameList,"Branch Name");
-        selectWebElement(selectSearchColumn.get(1));
-        selectDropdownFromVisibleText(searchTypeList,"Is equal to");
-        enterValueToTxtField(searchText.get(0),branchName);
-        selectWebElement(searchBtn);
-        waitForJqueryLoad(driver);
-        waitUntilWebElementIsVisible(approvedgridcontent);	
-	}
-	
-	
 	public void SortByAscending() {
 		selectWebElement(Location.get(1));
 		selectWebElement(exporttoexcel);
@@ -743,7 +701,7 @@ public class BranchManagementWHPage extends BasePage {
 		}
 	public boolean verifyclose() {
 		selectWebElement(searchClose);
-		if(approvedgridcontent.isDisplayed())
+		if(gridContent.isDisplayed())
 			return true;
 		else
 		return false;
@@ -762,7 +720,7 @@ public class BranchManagementWHPage extends BasePage {
 
 	public boolean verifyclearsearch() {
 		selectWebElement(clearsearch);
-		if(approvedgridcontent.isDisplayed())
+		if(gridContent.isDisplayed())
 			return true;
 		else
 		return false;
@@ -779,14 +737,6 @@ public class BranchManagementWHPage extends BasePage {
 		return false;
 		else
 			return true;
-	}
-	
-	public boolean verifyApprovedSectionData(BranchManagementDetails details) throws Exception {
-		searchBranchManagementRecordApprovedData(details.getBranchName());
-		if(norecords.isDisplayed())
-			return true; 
-			else
-				return false;
 	}
 
 	public boolean addCancelButton(BranchManagementDetails branchManagementDetails) throws Exception {
@@ -821,7 +771,6 @@ public class BranchManagementWHPage extends BasePage {
 
 	public void addNewBranchManagementRecord(BranchManagementDetails branchManagementDetails) throws Exception {
 		selectWebElement(addNewBranchManageRecordBtn);
-		waitForJqueryLoad(driver);
 		selectWebElement(mainLinesDropDown);
         selectDropdownFromVisibleText(mainLinesListbox, branchManagementDetails.getMainLines());
         selectWebElement(subLinesDropDown);
@@ -938,57 +887,7 @@ public class BranchManagementWHPage extends BasePage {
         return map;
 	}
 
-	public boolean verifyTaskCompleteEnabled() {
-        return taskCompleteBtn.isEnabled();
-
-	}
-
-	public void taskCompleteAction(String comment) throws Exception {
-		selectWebElement(makeBranchManagementChanges);
-        waitForLoad(driver);
-        selectWebElement(taskCompleteBtn);
-        enterValueToTxtField(makerComments,comment);
-        try {
-			Thread.sleep(1000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-        selectWebElement(taskCompleteBtnAtMakerCommentsPopUp);		
-	}
-
-	public boolean verifyTaskCompleteSuccessMessage() {
-        return(getSuccessMessage().contains("Record submission for approval success. Your Request ID is :"));
-
-	}
-
-	public boolean verifyStatus(String status) {
-		try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        Map<String,String> firstRowData=getFirstRowDatafromTable();
-        return firstRowData.get("Status").equals(status);
-	}
-
-	public void clickonApprove(String comment) throws Exception {
-		 selectWebElement(BranchManagementTabs.get(1));
-	        try {
-	            Thread.sleep(3000);
-	        } catch (InterruptedException e) {
-	            e.printStackTrace();
-	        }
-	        clickOn(approveBtn);
-	        selectWebElement(checkerReason);
-	        enterValueToTxtField(checkerReason,comment);
-	        try {
-	            Thread.sleep(3000);
-	        } catch (InterruptedException e) {
-	            e.printStackTrace();
-	        }
-	        clickOn(approveYesBtn);		
-	}
+	
 
 	public boolean verifyReviewAuditTrail(String status, String comment) {
 		 try {
@@ -1007,17 +906,9 @@ public class BranchManagementWHPage extends BasePage {
 	        return stat;
 	}
 
-	public boolean verifyApprovedSectionDataafterapproval(BranchManagementDetails branchManagementDetails) throws Exception {
-		searchBranchManagementRecordApprovedData(branchManagementDetails.getBranchName());
-		if(rowdata.getText().equals(branchManagementDetails.getBranchName()))
-			return true;
-		else
-		return false;
-	}
+	
 
 	public void addwithoutMainLines(BranchManagementDetails branchManagementDetails) throws Exception {
-		selectWebElement(BranchManagementTabs.get(1));
-		selectWebElement(makeBranchManagementChanges);
 		selectWebElement(addNewBranchManageRecordBtn);
 		waitForJqueryLoad(driver);
 		Thread.sleep(1000);
@@ -1040,8 +931,6 @@ public class BranchManagementWHPage extends BasePage {
 	}
 
 	public void addwithoutSubLines(BranchManagementDetails branchManagementDetails) throws Exception {
-		selectWebElement(BranchManagementTabs.get(1));
-		selectWebElement(makeBranchManagementChanges);
 		selectWebElement(addNewBranchManageRecordBtn);
 		waitForJqueryLoad(driver);
 		Thread.sleep(1000);
@@ -1066,8 +955,6 @@ public class BranchManagementWHPage extends BasePage {
 	}
 
 	public void addwithoutLocation(BranchManagementDetails branchManagementDetails) throws Exception {
-		selectWebElement(BranchManagementTabs.get(1));
-		selectWebElement(makeBranchManagementChanges);
 		selectWebElement(addNewBranchManageRecordBtn);
 		waitForJqueryLoad(driver);
 		Thread.sleep(1000);
@@ -1093,8 +980,6 @@ public class BranchManagementWHPage extends BasePage {
 	}
 
 	public void addwithoutBranchType(BranchManagementDetails branchManagementDetails) throws Exception {
-		selectWebElement(BranchManagementTabs.get(1));
-		selectWebElement(makeBranchManagementChanges);
 		selectWebElement(addNewBranchManageRecordBtn);
 		waitForJqueryLoad(driver);
 		Thread.sleep(1000);
@@ -1119,8 +1004,6 @@ public class BranchManagementWHPage extends BasePage {
 	}
 
 	public void addwithoutBranchName(BranchManagementDetails branchManagementDetails) throws Exception {
-		selectWebElement(BranchManagementTabs.get(1));
-		selectWebElement(makeBranchManagementChanges);
 		selectWebElement(addNewBranchManageRecordBtn);
 		waitForJqueryLoad(driver);
 		Thread.sleep(1000);
@@ -1144,8 +1027,6 @@ public class BranchManagementWHPage extends BasePage {
 	}
 
 	public void addwithoutAddress(BranchManagementDetails branchManagementDetails) throws Exception {
-		selectWebElement(BranchManagementTabs.get(1));
-		selectWebElement(makeBranchManagementChanges);
 		selectWebElement(addNewBranchManageRecordBtn);
 		waitForJqueryLoad(driver);
 		Thread.sleep(1000);
@@ -1170,8 +1051,6 @@ public class BranchManagementWHPage extends BasePage {
 	}
 
 	public void addwithoutLineOrder(BranchManagementDetails branchManagementDetails) throws Exception {
-		selectWebElement(BranchManagementTabs.get(1));
-		selectWebElement(makeBranchManagementChanges);
 		selectWebElement(addNewBranchManageRecordBtn);
 		waitForJqueryLoad(driver);
 		Thread.sleep(1000);
@@ -1198,15 +1077,11 @@ public class BranchManagementWHPage extends BasePage {
 	}
 
 	public void addwithoutStatus(BranchManagementDetails branchManagementDetails) throws Exception {
-		selectWebElement(BranchManagementTabs.get(1));
-		selectWebElement(makeBranchManagementChanges);
 		selectWebElement(addNewBranchManageRecordBtn);
 		waitForJqueryLoad(driver);
 		Thread.sleep(1000);
 		selectWebElement(mainLinesDropDown);
         selectDropdownFromVisibleText(mainLinesListbox, branchManagementDetails.getMainLines());
-
-
         enterValueToTxtField(LocationTextbox,branchManagementDetails.getLocation());
         selectWebElement(branchTypeDropDown);
         selectDropdownFromVisibleText(branchTypeListbox, branchManagementDetails.getBranchType());
@@ -1224,8 +1099,6 @@ public class BranchManagementWHPage extends BasePage {
 	}
 
 	public void addwithoutLanguage(BranchManagementDetails branchManagementDetails) throws Exception {
-		selectWebElement(BranchManagementTabs.get(1));
-		selectWebElement(makeBranchManagementChanges);
 		selectWebElement(addNewBranchManageRecordBtn);
 		waitForJqueryLoad(driver);
 		Thread.sleep(1000);
@@ -1267,16 +1140,7 @@ public class BranchManagementWHPage extends BasePage {
 	        clickOn(approveYesBtn);		
 	}
 
-	public boolean VerifyMakeBranchManagementChangeButton() {
-		return makeBranchManagementChanges.isDisplayed();
-
-	}
-
 	public boolean EditCancel(BranchManagementDetails branchManagementDetails) throws Exception {
-		selectWebElement(BranchManagementTabs.get(1));
-		Thread.sleep(1000);
-		selectWebElement(makeBranchManagementChanges);
-		Thread.sleep(1000);
 		searchBranchManagementRecord(branchManagementDetails.getBranchName());
 		selectWebElement(editButton);
 		waitForJqueryLoad(driver);
@@ -1288,10 +1152,6 @@ public class BranchManagementWHPage extends BasePage {
 	}
 	
 	public void EditRecordWithoutModifyReason(BranchManagementDetails branchManagementDetails) throws Exception {
-		selectWebElement(BranchManagementTabs.get(1));
-		Thread.sleep(1000);
-		selectWebElement(makeBranchManagementChanges);
-		Thread.sleep(1000);
 		searchBranchManagementRecord(branchManagementDetails.getBranchName());
 		selectWebElement(editButton);
 		waitForJqueryLoad(driver);
@@ -1304,10 +1164,6 @@ public class BranchManagementWHPage extends BasePage {
 	}
 
 	public void EditBranchManagementRecord(BranchManagementDetails branchManagementDetails) throws Exception {
-		selectWebElement(BranchManagementTabs.get(1));
-		Thread.sleep(1000);
-		selectWebElement(makeBranchManagementChanges);
-		Thread.sleep(1000);
 		searchBranchManagementRecord(branchManagementDetails.getBranchName());
 		selectWebElement(editButton);
 		waitForJqueryLoad(driver);
@@ -1320,10 +1176,6 @@ public class BranchManagementWHPage extends BasePage {
         selectWebElement(saveBtn);	
 	}
 	public boolean DeleteCancel(BranchManagementDetails branchManagementDetails) throws Exception {
-		selectWebElement(BranchManagementTabs.get(1));
-		Thread.sleep(1000);
-		selectWebElement(makeBranchManagementChanges);
-		Thread.sleep(1000);
 		searchBranchManagementRecord(branchManagementDetails.getBranchName());
 		selectWebElement(deleteButton);
 		waitForJqueryLoad(driver);
@@ -1335,10 +1187,6 @@ public class BranchManagementWHPage extends BasePage {
 	}
 	
 	public void DeleteRecordWithoutDeleteReason(BranchManagementDetails branchManagementDetails) throws Exception {
-		selectWebElement(BranchManagementTabs.get(1));
-		Thread.sleep(1000);
-		selectWebElement(makeBranchManagementChanges);
-		Thread.sleep(1000);
 		searchBranchManagementRecord(branchManagementDetails.getBranchName());
 		Thread.sleep(1000);
 		selectWebElement(deleteButton);
@@ -1348,9 +1196,6 @@ public class BranchManagementWHPage extends BasePage {
 	}
 
 	public void DeleteBranchManagementRecord(BranchManagementDetails branchManagementDetails) throws Exception {
-		selectWebElement(BranchManagementTabs.get(1));
-		Thread.sleep(1000);
-		selectWebElement(makeBranchManagementChanges);
 		Thread.sleep(1000);
 		searchBranchManagementRecord(branchManagementDetails.getBranchName());
 		Thread.sleep(1000);

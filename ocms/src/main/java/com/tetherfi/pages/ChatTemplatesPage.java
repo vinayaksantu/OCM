@@ -239,6 +239,12 @@ public class ChatTemplatesPage extends BasePage {
     @FindBy(css="#drillGrid .k-grouping-header")
     private WebElement dragColumnDestination;
     
+    @FindBy(css="span[aria-owns='Channel_listbox']")
+    private WebElement channelDropdown;
+    
+    @FindBy(css="ul[id='Channel_listbox'] li")
+    private List<WebElement> channelListbox;
+    
    
 
     public boolean isChatTemplatePageDisplayed() {
@@ -467,7 +473,7 @@ public class ChatTemplatesPage extends BasePage {
     }
     public boolean verifyNewRecordCreated(){
         waitForJqueryLoad(driver);
-        if(errorMsg.size()>0){return false;}
+       // if(errorMsg.size()>0){return false;}
         if(waitUntilTextToBePresentInWebElement(successmsg,"Record Created Successfully"))
         {return true;}else{return false;}
     }
@@ -493,6 +499,8 @@ public class ChatTemplatesPage extends BasePage {
     }
     public void addNewDepartmentRecord(ChatTemplateDetails details) throws Exception {
         selectWebElement(addNewDepartmentRecordBtn);
+        selectWebElement(channelDropdown);
+        selectDropdownFromVisibleText(channelListbox,details.getChannel());
         selectWebElement(nameTextbox);
         enterValueToTxtField(nameTextbox,details.getDepartmentName());
         selectWebElement(enableDropdown);
@@ -655,6 +663,8 @@ public class ChatTemplatesPage extends BasePage {
 	public void addRecordWithoutEnabled(ChatTemplateDetails details) throws Exception {
 		selectWebElement(addNewDepartmentRecordBtn);
 		waitForJqueryLoad(driver);
+		selectWebElement(channelDropdown);
+        selectDropdownFromVisibleText(channelListbox,details.getChannel());
         selectWebElement(nameTextbox);
         enterValueToTxtField(nameTextbox,details.getDepartmentName());
         selectWebElement(saveBtn);		
@@ -664,6 +674,8 @@ public class ChatTemplatesPage extends BasePage {
 		selectWebElement(addNewDepartmentRecordBtn);
 		waitForJqueryLoad(driver);
 		Thread.sleep(1000);
+		selectWebElement(channelDropdown);
+        selectDropdownFromVisibleText(channelListbox,details.getChannel());
         selectWebElement(enableDropdown);
         selectDropdownFromVisibleText(enableListbox,details.getDeptEnabled());
         selectWebElement(saveBtn);	
@@ -675,6 +687,19 @@ public class ChatTemplatesPage extends BasePage {
         selectWebElement(saveBtn);	
         selectWebElement(cancelBtn);
 	}
+	
+	public void addRecordWithoutChannel(ChatTemplateDetails details) throws Exception {
+		selectWebElement(addNewDepartmentRecordBtn);
+		waitForJqueryLoad(driver);
+        selectWebElement(nameTextbox);
+        enterValueToTxtField(nameTextbox,details.getDepartmentName());
+        selectWebElement(enableDropdown);
+        selectDropdownFromVisibleText(enableListbox,details.getDeptEnabled());
+        selectWebElement(saveBtn);	
+        selectWebElement(saveBtn);		
+        selectWebElement(cancelBtn);
+	}		
+	
 	public void addRecordWithoutDepartmentName(ChatTemplateDetails details) throws Exception {
 		selectWebElement(addNewGroupRecordBtn);
         waitForJqueryLoad(driver);
@@ -1691,5 +1716,6 @@ public class ChatTemplatesPage extends BasePage {
 				}
 					return arr;
 			}
+			
 		    
 }

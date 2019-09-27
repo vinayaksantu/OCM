@@ -104,7 +104,7 @@ public class IvrPage extends BasePage {
     public boolean isIVRPageDisplayed() {
         boolean status=false;
         waitForLoad(driver);
-        waitUntilWebElementIsVisible(ivrConfig);
+        //waitUntilWebElementIsVisible(ivrConfig);
         for(WebElement ele:navTabs){if(ele.getText().equals("IVR")){if(ele.isEnabled()){status=true;break;}}}
         return status;
     }

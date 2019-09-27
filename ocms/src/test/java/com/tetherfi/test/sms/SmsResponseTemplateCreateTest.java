@@ -176,7 +176,7 @@ public class SmsResponseTemplateCreateTest {
         Assert.assertTrue(SmsResponseTemplatePage.verifyStatus("Approval Pending"),"approal status details failed");
     }
     
-    @Test(groups = { "Checker" },priority=12,dependsOnMethods="VerifySendForApprovalForAddNewRecord")
+    @Test(groups = { "Checker" },priority=12)//,dependsOnMethods="VerifySendForApprovalForAddNewRecord")
     public void RejectforAddNewSmsResponseTemplateRecord() throws Exception{
         SmsResponseTemplatePage SmsResponseTemplatePage = PageFactory.createPageInstance(driver, SmsResponseTemplatePage.class);
         SmsResponseTemplatePage.clickonReject("Reject Created");

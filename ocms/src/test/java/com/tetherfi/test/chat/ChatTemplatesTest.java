@@ -1,11 +1,9 @@
 package com.tetherfi.test.chat;
 
-import com.tetherfi.model.chat.ChatIntentSkillMappingDetails;
 import com.tetherfi.model.chat.ChatTemplateDetails;
 import com.tetherfi.model.report.ReportDetails;
 import com.tetherfi.model.tmac.TmacUserDetails;
 import com.tetherfi.pages.*;
-import com.tetherfi.test.BaseTest;
 import com.tetherfi.utility.BrowserFactory;
 import com.tetherfi.utility.ChatAPI;
 import com.tetherfi.utility.ExcelReader;
@@ -91,7 +89,7 @@ public class ChatTemplatesTest {
 	    }
       }
     
-    @Test(priority=1)
+    /*@Test(priority=1,groups= {"OCM"})
 	public void ChatTemplatePage() {
         ChatTemplatesPage ChatTemplatePage = PageFactory.createPageInstance(driver, ChatTemplatesPage.class);
         Assert.assertTrue(ChatTemplatePage.VerifyLogo(),"Logo assertion failed");
@@ -101,7 +99,7 @@ public class ChatTemplatesTest {
     	screenshot.captureScreen("ChatTemplateTest","Minimize");	
     }
 	
-    @Test(priority=2)
+    @Test(priority=2,groups= {"OCM"})
     public void VerifyDepartmentsDropdownForAllTheColumns() throws Exception {
         ChatTemplatesPage ChatTemplatesPage = PageFactory.createPageInstance(driver, ChatTemplatesPage.class);
         ChatTemplatesPage.navigateToTab("Departments");
@@ -109,7 +107,7 @@ public class ChatTemplatesTest {
         Assert.assertTrue(ChatTemplatesPage.verifyDropDownOfAllHeaders(), "Columns dropdown assertion failed");
     }
     
-    @Test(priority=3)
+    @Test(priority=3,groups= {"OCM"})
     public void VerifyDepartmentsColumnsHeaderEnable() throws Exception {
         ChatTemplatesPage chatTemplatesPage = PageFactory.createPageInstance(driver, ChatTemplatesPage.class);
         chatTemplatesPage.navigateToTab("Departments");
@@ -117,7 +115,7 @@ public class ChatTemplatesTest {
         Assert.assertTrue(chatTemplatesPage.verifycolumnsHeaderEnabled(),"columns enabled assertion failed");
     }
     
-    @Test(priority=4)
+    @Test(priority=4,groups= {"OCM"})
     public void VerifyDepartmentsColumnsHeaderDisable() throws Exception {
     	 ChatTemplatesPage chatTemplatesPage = PageFactory.createPageInstance(driver, ChatTemplatesPage.class);
          chatTemplatesPage.navigateToTab("Departments");
@@ -125,7 +123,7 @@ public class ChatTemplatesTest {
          Assert.assertFalse(chatTemplatesPage.verifycolumnsHeaderDisabled(),"columns disabled assertion failed");
     }
     
-    @Test(priority=5)
+    @Test(priority=5,groups= {"OCM"})
     public void VerifyGroupsDropdownForAllTheColumns() throws Exception {
     	ChatTemplatesPage chatTemplatesPage = PageFactory.createPageInstance(driver, ChatTemplatesPage.class);
         chatTemplatesPage.navigateToTab("Groups");
@@ -133,7 +131,7 @@ public class ChatTemplatesTest {
         Assert.assertTrue(chatTemplatesPage.verifyDropDownOfAllHeaders(), "Columns dropdown assertion failed");
     }
     
-    @Test(priority=6)
+    @Test(priority=6,groups= {"OCM"})
     public void VerifyGroupsColumnsHeaderEnable() throws Exception {
         ChatTemplatesPage chatTemplatesPage = PageFactory.createPageInstance(driver, ChatTemplatesPage.class);
         chatTemplatesPage.navigateToTab("Groups");
@@ -141,7 +139,7 @@ public class ChatTemplatesTest {
         Assert.assertTrue(chatTemplatesPage.verifycolumnsHeaderEnabled(),"columns enabled assertion failed");
     }
     
-    @Test(priority=7)
+    @Test(priority=7,groups= {"OCM"})
     public void VerifyGroupsColumnsHeaderDisable() throws Exception {
     	 ChatTemplatesPage chatTemplatesPage = PageFactory.createPageInstance(driver, ChatTemplatesPage.class);
     	 chatTemplatesPage.navigateToTab("Groups");
@@ -149,25 +147,25 @@ public class ChatTemplatesTest {
          Assert.assertFalse(chatTemplatesPage.verifycolumnsHeaderDisabled(),"columns disabled assertion failed");
     }
     
-    @Test(priority=8)
+    @Test(priority=8,groups= {"OCM"})
     public void VerifyMainsDropdownForAllTheColumns() throws Exception {
     	ChatTemplatesPage chatTemplatesPage = PageFactory.createPageInstance(driver, ChatTemplatesPage.class);
         Assert.assertTrue(chatTemplatesPage.verifyDropDownOfAllHeaders(), "Columns dropdown assertion failed");
     }
     
-    @Test(priority=9)
+    @Test(priority=9,groups= {"OCM"})
     public void VerifyMainsColumnsHeaderEnable() throws Exception {
         ChatTemplatesPage chatTemplatesPage = PageFactory.createPageInstance(driver, ChatTemplatesPage.class);
         Assert.assertTrue(chatTemplatesPage.verifycolumnsHeaderEnabled(),"columns enabled assertion failed");
     }
     
-    @Test(priority=10)
+    @Test(priority=10,groups= {"OCM"})
     public void VerifyMainsColumnsHeaderDisable() throws Exception {
     	 ChatTemplatesPage chatTemplatesPage = PageFactory.createPageInstance(driver, ChatTemplatesPage.class);
          Assert.assertFalse(chatTemplatesPage.verifycolumnsHeaderDisabled(),"columns disabled assertion failed");
     }
     
-    @Test(priority=11)
+    @Test(priority=11,groups= {"OCM"})
     public void AddNewDepartmentRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"CreateDepartment").getTestData().get(0);
@@ -179,7 +177,7 @@ public class ChatTemplatesTest {
         Assert.assertTrue(chatTemplatesPage.verifyNewRecordCreated(),"Add New record assertion failed");
     }
     
-    @Test(priority=12,dependsOnMethods = "AddNewDepartmentRecord")
+    @Test(priority=12,dependsOnMethods = "AddNewDepartmentRecord",groups= {"OCM"})
     public void AddDuplicateDepartmentRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"CreateDepartment").getTestData().get(0);
@@ -190,7 +188,7 @@ public class ChatTemplatesTest {
         Assert.assertEquals(ChatTemplatesPage.getMessage(),"×\nDuplicate Name");
     }
     
-    @Test(priority=13)//,dependsOnMethods ="AddNewDepartmentRecord")
+    @Test(priority=13,groups= {"OCM"})//,dependsOnMethods ="AddNewDepartmentRecord")
     public void VerifyAuditTrialReportForCreateDepartment() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"CreateDepartment").getTestData().get(0);
@@ -205,7 +203,7 @@ public class ChatTemplatesTest {
         Assert.assertTrue(ocmReportsPage.verifyChatTemplatesDepartmentCreate(ChatTemplatesDetails,"Create"));
     }
     
-    @Test(priority=14)
+    @Test(priority=14,groups= {"OCM"})
     public void AddEmptyDepartmentRecord() throws IOException {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"CreateDepartment").getTestData().get(0);
@@ -213,10 +211,10 @@ public class ChatTemplatesTest {
         ChatTemplatesPage ChatTemplatesPage = PageFactory.createPageInstance(driver, ChatTemplatesPage.class);
         ChatTemplatesPage.navigateToTab("Departments");
         ChatTemplatesPage.addNewEmptyRecord(ChatTemplatesDetails);
-        Assert.assertEquals(ChatTemplatesPage.getMessage(),"×\nPlease Provide Name, Enabled", "Add invalid record assertion failed");
+        Assert.assertEquals(ChatTemplatesPage.getMessage(),"×\nPlease Provide Name, Enabled, Channel", "Add invalid record assertion failed");
     }
     
-    @Test(priority=15)
+    @Test(priority=15,groups= {"OCM"})
     public void AddRecordWithoutDepartment() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"CreateDepartment").getTestData().get(0);
@@ -227,7 +225,7 @@ public class ChatTemplatesTest {
         Assert.assertEquals(ChatTemplatesPage.getMessage(),"×\nPlease Provide Name", "Add invalid record assertion failed");
     }
     
-    @Test(priority=16)
+    @Test(priority=16,groups= {"OCM"})
     public void AddRecordWithoutEnabled() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"CreateDepartment").getTestData().get(0);
@@ -238,7 +236,17 @@ public class ChatTemplatesTest {
         Assert.assertEquals(ChatTemplatesPage.getMessage(),"×\nPlease Provide Enabled", "Add invalid record assertion failed");
     }
     
-    @Test(priority=17)
+    @Test(priority=17,groups= {"OCM"})
+    public void AddRecordWithoutChannel() throws Exception {
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"CreateDepartment").getTestData().get(0);
+        ChatTemplateDetails ChatTemplatesDetails = new ChatTemplateDetails(map);
+        ChatTemplatesPage ChatTemplatesPage = PageFactory.createPageInstance(driver, ChatTemplatesPage.class);
+        ChatTemplatesPage.navigateToTab("Departments");
+        ChatTemplatesPage.addRecordWithoutChannel(ChatTemplatesDetails);
+        Assert.assertEquals(ChatTemplatesPage.getMessage(),"×\nPlease Provide Channel", "Add invalid record assertion failed");
+    }
+    @Test(priority=18,groups= {"OCM"})
     public void VerifyCancelBtnAtAddDepartmentRecord(){
         ChatTemplatesPage ChatTemplatesPage = PageFactory.createPageInstance(driver, ChatTemplatesPage.class);
         ChatTemplatesPage.navigateToTab("Departments");
@@ -247,7 +255,7 @@ public class ChatTemplatesTest {
         Assert.assertFalse(ChatTemplatesPage.verifyEditFormContainer(), "Cancel Btn at Add record assertion failed");
 	}
     
-    @Test(priority=18)//,dependsOnMethods = "AddNewDepartmentRecord")
+    @Test(priority=19,dependsOnMethods = "AddNewDepartmentRecord",groups= {"OCM"})
     public void AddNewGroupsRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"CreateGroup").getTestData().get(0);
@@ -259,7 +267,7 @@ public class ChatTemplatesTest {
         Assert.assertTrue(chatTemplatesPage.verifyNewRecordCreated(),"Add New record assertion failed");
     }
     
-    @Test(priority=19,dependsOnMethods = "AddNewGroupsRecord")
+    @Test(priority=20,groups= {"OCM"})//,dependsOnMethods = "AddNewGroupsRecord")
     public void AddDuplicateGroupsRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"CreateGroup").getTestData().get(0);
@@ -270,7 +278,7 @@ public class ChatTemplatesTest {
         Assert.assertEquals(ChatTemplatesPage.getMessage(),"×\nDuplicate Name");
     }
     
-    @Test(priority=20,dependsOnMethods ="AddNewGroupsRecord")
+    @Test(priority=21,groups= {"OCM"})//,dependsOnMethods ="AddNewGroupsRecord")
     public void VerifyAuditTrialReportForCreateGroup() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"CreateGroup").getTestData().get(0);
@@ -285,7 +293,7 @@ public class ChatTemplatesTest {
         Assert.assertTrue(ocmReportsPage.verifyChatTemplatesGroupCreate(ChatTemplatesDetails,"Create"));
     }
     
-    @Test(priority=21)
+    @Test(priority=22,groups= {"OCM"})
     public void AddEmptyGroupRecord() throws IOException {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"CreateGroup").getTestData().get(0);
@@ -296,7 +304,7 @@ public class ChatTemplatesTest {
         Assert.assertEquals(ChatTemplatesPage.getMessage(),"×\nPlease Provide Department Name, Name, Enabled", "Add invalid record assertion failed");
     }
     
-    @Test(priority=22)
+    @Test(priority=23,groups= {"OCM"})
     public void AddRecordWithoutDepartmentName() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"CreateGroup").getTestData().get(0);
@@ -307,7 +315,7 @@ public class ChatTemplatesTest {
         Assert.assertEquals(ChatTemplatesPage.getMessage(),"×\nPlease Provide Department Name", "Add invalid record assertion failed");
     }
     
-    @Test(priority=23)
+    @Test(priority=24,groups= {"OCM"})
     public void AddRecordWithoutName() throws IOException {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"CreateGroup").getTestData().get(0);
@@ -317,7 +325,7 @@ public class ChatTemplatesTest {
         ChatTemplatesPage.addRecordWithoutName(ChatTemplatesDetails);
         Assert.assertEquals(ChatTemplatesPage.getMessage(),"×\nPlease Provide Name", "Add invalid record assertion failed");
     }
-    @Test(priority=24)
+    @Test(priority=25,groups= {"OCM"})
     public void AddRecordWithoutGroupEnabled() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"CreateGroup").getTestData().get(0);
@@ -328,16 +336,16 @@ public class ChatTemplatesTest {
         Assert.assertEquals(ChatTemplatesPage.getMessage(),"×\nPlease Provide Enabled", "Add invalid record assertion failed");
     }
     
-    @Test(priority=25)
+    @Test(priority=26,groups= {"OCM"})
     public void VerifyCancelBtnAtAddGroupsRecord(){
         ChatTemplatesPage ChatTemplatesPage = PageFactory.createPageInstance(driver, ChatTemplatesPage.class);
         ChatTemplatesPage.navigateToTab("Groups");
         ChatTemplatesPage.clickOnAddGroupRecord();
         ChatTemplatesPage.clickOnCancelBtn();
         Assert.assertFalse(ChatTemplatesPage.verifyEditFormContainer(), "Cancel Btn at Add record assertion failed");
-	}
+	}*/
     
-    @Test(priority=26,dependsOnMethods = "AddNewGroupsRecord")
+    @Test(priority=27,groups= {"OCM"})//,dependsOnMethods = "AddNewGroupsRecord")
     public void AddNewChatTemplatesRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -347,7 +355,7 @@ public class ChatTemplatesTest {
         Assert.assertTrue(chatTemplatesPage.verifyNewRecordCreated(),"Add New record assertion failed");
     }
     
-    @Test(priority=27,dependsOnMethods = "AddNewChatTemplatesRecord")
+    @Test(priority=28,groups= {"OCM"},dependsOnMethods = "AddNewChatTemplatesRecord")
     public void AddDuplicateChatTemplatesRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -357,7 +365,7 @@ public class ChatTemplatesTest {
         Assert.assertEquals(ChatTemplatesPage.getMessage(),"×\nDuplicate Name");
     }
     
-    @Test(priority=28)//,dependsOnMethods ="AddNewChatTemplatesRecord")
+    @Test(priority=29,groups= {"OCM"},dependsOnMethods ="AddNewChatTemplatesRecord")
     public void VerifyAuditTrialReportForCreate() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -372,7 +380,7 @@ public class ChatTemplatesTest {
         Assert.assertTrue(ocmReportsPage.verifyChatTemplatesCreate(ChatTemplatesDetails,"Create"));
     }
     
-    @Test(priority=29)
+    @Test(priority=30,groups= {"OCM"})
     public void AddEmptyChatTemplateRecord() throws IOException {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -382,7 +390,7 @@ public class ChatTemplatesTest {
         Assert.assertEquals(ChatTemplatesPage.getMessage(),"×\nPlease Provide Department Name, Group Name, Name, Enabled, Text, Start Time, End Time", "Add invalid record assertion failed");
     }
     
-    @Test(priority=30)
+    @Test(priority=31,groups= {"OCM"})
     public void AddRecordWithoutChatDepartmentName() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -392,7 +400,7 @@ public class ChatTemplatesTest {
         Assert.assertEquals(ChatTemplatesPage.getMessage(),"×\nPlease Provide Department Name, Group Name", "Add invalid record assertion failed");
     }
     
-    @Test(priority=31)
+    @Test(priority=32,groups= {"OCM"})
     public void AddRecordWithoutGroupsName() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -402,7 +410,7 @@ public class ChatTemplatesTest {
         Assert.assertEquals(ChatTemplatesPage.getMessage(),"×\nPlease Provide Group Name", "Add invalid record assertion failed");
     }
     
-    @Test(priority=32)
+    @Test(priority=33,groups= {"OCM"})
     public void AddRecordWithoutChatName() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -411,7 +419,7 @@ public class ChatTemplatesTest {
         ChatTemplatesPage.addRecordWithoutChatName(ChatTemplatesDetails);
         Assert.assertEquals(ChatTemplatesPage.getMessage(),"×\nPlease Provide Name", "Add invalid record assertion failed");
     }
-    @Test(priority=33)
+    @Test(priority=34,groups= {"OCM"})
     public void AddRecordWithoutText() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -421,7 +429,7 @@ public class ChatTemplatesTest {
         Assert.assertEquals(ChatTemplatesPage.getMessage(),"×\nPlease Provide Text", "Add invalid record assertion failed");
     }
     
-    @Test(priority=34)
+    @Test(priority=35,groups= {"OCM"})
     public void AddRecordWithoutStartTime() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -431,7 +439,7 @@ public class ChatTemplatesTest {
         Assert.assertEquals(ChatTemplatesPage.getMessage(),"×\nPlease Provide Start Time", "Add invalid record assertion failed");
     }
     
-    @Test(priority=35)
+    @Test(priority=36,groups= {"OCM"})
     public void AddRecordWithoutEndTime() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -1186,7 +1194,7 @@ public class ChatTemplatesTest {
        Assert.assertTrue(chatTemplatesPage.verifyDatabase(chatTemplateDetails.getQuery()));
    }
    
-   
+   */
     @AfterMethod
 	 public void close(Method method){
 		 	Test t = method.getAnnotation(Test.class);

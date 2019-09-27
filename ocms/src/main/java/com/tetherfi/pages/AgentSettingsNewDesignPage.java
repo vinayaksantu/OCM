@@ -42,8 +42,14 @@ public class AgentSettingsNewDesignPage extends BasePage {
 
     @FindBy(id="create")
     private WebElement addNewAgentSettingsRecordBtn;
+    
+    @FindBy(css="#drillGrid tbody tr td")
+    private List<WebElement> editrowdata;
 
-    @FindBy(id="export")
+    /*@FindBy(id="export")
+    private WebElement exportToExcelBtn;*/
+    
+    @FindBy(xpath="//div[@id='export']")
     private WebElement exportToExcelBtn;
 
     @FindBy(css=".k-edit-form-container")
@@ -166,33 +172,54 @@ public class AgentSettingsNewDesignPage extends BasePage {
     @FindBy(id="faxinternational8")
     private WebElement faxInternationalCheckbox;
 
-    @FindBy(id="IsVoiceAcdAutoAcwEnabled")
+    @FindBy(id="IsVoiceACDAutoACWEnabled")
     private WebElement goToAcwAfterEachAcdCallsCheckbox;
 
-    @FindBy(id="IsVoiceAcdAutoAnswerEnabled")
-    private WebElement autoAnswerAllAcdCallsCheckbox;
+    @FindBy(id="IsVoiceACDAutoAnswerEnabled")
+    private WebElement autoAnswerAllAcdCallsCheckbox;  //IsVoiceACDAutoAnswerEnabled, IsVoiceAcdAutoAnswerEnabled
 
-    @FindBy(id="IsVoiceAllAutoAcwEnabled")
+    @FindBy(id="IsVoiceAllAutoACWEnabled")
     private WebElement goToAcwAfterAnyCallsCheckbox;
 
-    @FindBy(id="IsCrmEnabled")
+    @FindBy(id="IsCRMEnabled")
     private WebElement crmEnabledCheckbox;
 
-    @FindBy(id="IsHoldVoiceCallOnChatCall")
+    @FindBy(id="IsHoldVoiceCallOnChatCall")   
     private WebElement holdVoiceCallOnChatCallCheckbox;
 
     @FindBy(id="IsSecondTextChatAutoAnswer")
-    private WebElement secondTextChatAutoAnswerCheckbox;
+    private WebElement secondTextChatAutoAnswerCheckbox;  
 
-    @FindBy(id="IsTextChatAutoAcwEnabled")
-    private WebElement textChatAutoACWCheckbox;
+    @FindBy(id="IsTextChatAutoACWEnabled")
+    private WebElement textChatAutoACWCheckbox; //IsTextChatAutoACWEnabled
 
     @FindBy(id="IsTextChatAutoAnswer")
     private WebElement textChatAutoAnswerCheckbox;
 
-    @FindBy(css=".k-edit-form-container .k-grid-update")
-    private WebElement saveBtn;
+    /*@FindBy(css=".k-edit-form-container .k-grid-update")
+    private WebElement saveBtn;*/
 
+    @FindBy(xpath="//a[@class='k-button k-button-icontext k-primary k-grid-update']")
+    private WebElement saveBtn;
+    
+    @FindBy(id="sendForApproval")
+    private WebElement sendForApprovalBtn;
+    
+    @FindBy(id="undoChanges")
+    private WebElement revertBtn;
+    
+    @FindBy(id="undoChangesMakerComments")
+    private WebElement revertMakerComments;
+    
+    @FindBy(id="submitUndoChangesMakerComment")
+    private WebElement revertSubmitMakerComments;
+    
+    @FindBy(id="submitMakerComment")
+    private WebElement submitMakerComments;
+    
+    @FindBy(id="MakerComments")
+    private WebElement makerComments;
+    
     @FindBy(css=".k-grid-cancel")
     private WebElement cancelBtn;
 
@@ -247,6 +274,9 @@ public class AgentSettingsNewDesignPage extends BasePage {
     @FindBy(css=".form-group #ModifyReason1")
     private  WebElement deleteReasonTextBox;
 
+    /*@FindBy(css=".k-grid-edit")
+    private WebElement editBtn;*/
+    
     @FindBy(xpath="//a[@class='k-button k-button-icontext k-grid-edit']")
     private WebElement editBtn;
 
@@ -282,9 +312,6 @@ public class AgentSettingsNewDesignPage extends BasePage {
 
     @FindBy(id="taskComplete")
     private WebElement taskCompleteBtn;
-
-    @FindBy(id="MakerComments")
-    private WebElement makerComments;
 
     @FindBy(id="submitMakerComment")
     private WebElement taskCompleteBtnAtMakerCommentsPopUp;
@@ -372,24 +399,6 @@ public class AgentSettingsNewDesignPage extends BasePage {
 
     @FindBy(css="#drillGrid th a[class='k-link']")
     private List<WebElement> headersText;
-    
-    @FindBy(id="sendForApproval")
-    private WebElement sendForApprovalBtn;
-    
-    @FindBy(id="undoChanges")
-    private WebElement revertBtn;
-    
-    @FindBy(id="undoChangesMakerComments")
-    private WebElement revertMakerComments;
-    
-    @FindBy(id="submitMakerComment")
-    private WebElement submitMakerComments;
-    
-    @FindBy(id="submitUndoChangesMakerComment")
-    private WebElement revertSubmitMakerComments;
-    
-    @FindBy(css="#drillGrid tbody tr td")
-    private List<WebElement> editrowdata;
 
     public boolean isAgentSettingsPageDisplayed() throws InterruptedException {
         waitForLoad(driver);
@@ -450,7 +459,7 @@ public class AgentSettingsNewDesignPage extends BasePage {
         if(retagSupervisorPopupNoButton.isDisplayed()){return false;}else{return true;}
     }						  
     public boolean verifyApprovedDataTableHeaders() {
-        ArrayList<String> Expected=new ArrayList<String>(Arrays.asList("Lan ID","Avaya Login ID","First Name","Last Name","Profile","Supervisor Name","Team Name","Access Role","CRM Name","Text Chat Greeting Template Name","Last Changed On","Last Changed By"));
+        ArrayList<String> Expected=new ArrayList<String>(Arrays.asList("Lan ID","Avaya Login ID","First Name","Last Name","Profile","Supervisor Name","Org. Unit","Access Role","CRM Name","Text Chat Greeting Template Name","Last Changed By","Last Changed On"));
         ArrayList Actual = getHeadersfromTable(approvedDataTableHeaders);
         Collections.sort(Expected);Collections.sort(Actual);
         return Actual.equals(Expected);
@@ -459,7 +468,7 @@ public class AgentSettingsNewDesignPage extends BasePage {
         return agentSettingsTabs.get(0).isDisplayed()&&agentSettingsTabs.get(1).isDisplayed();
     }
     public boolean verifyAuditTrailDataTableHeaders() {
-        ArrayList<String> Expected=new ArrayList<String>(Arrays.asList("Request Id", "Transaction", "Function", "Status", "User Id", "Submission DateTime", "Maker Comments", "Old Values", "New Values", "Review DateTime", "Checker Comments"));
+        ArrayList<String> Expected=new ArrayList<String>(Arrays.asList(" ","Request Id", "Transaction", "Function", "Status", "User Id", "Submission DateTime", "Maker Comments", "Old Values", "New Values","Reviewed By","Review DateTime", "Checker Comments"));
         ArrayList Actual = getHeadersfromTable(auditTrailTableHeaders);
         Collections.sort(Expected);Collections.sort(Actual);
         return Actual.equals(Expected);
@@ -474,7 +483,7 @@ public class AgentSettingsNewDesignPage extends BasePage {
         return exportToExcelBtn.isEnabled();
     }
     public boolean verifyMakerDataTableHeaders() {
-        ArrayList<String> Expected=new ArrayList<String>(Arrays.asList("Lan ID","Avaya Login ID","First Name","Last Name","Profile","Supervisor Name","Team Name","Access Role","CRM Name","Text Chat Greeting Template Name","Last Changed On","Last Changed By"));
+        ArrayList<String> Expected=new ArrayList<String>(Arrays.asList("Lan ID","Avaya Login ID","First Name","Last Name","Profile","Supervisor Name","Org. Unit","Access Role","CRM Name","Text Chat Greeting Template Name","Last Changed By","Last Changed On"));
         ArrayList Actual = getHeadersfromTable(makerTableHeaders);
         Collections.sort(Expected);Collections.sort(Actual);
         return Actual.equals(Expected);
@@ -517,6 +526,7 @@ public class AgentSettingsNewDesignPage extends BasePage {
             e.printStackTrace();
         }
     }
+//    ----Add from here---
     public void addNewAgentSettingsRecord(AgentSettingsDetails details) throws Exception {
         selectWebElement(agentSettingsTabs.get(1));
         selectWebElement(makeAgentSettingsChanges);
@@ -551,9 +561,9 @@ public class AgentSettingsNewDesignPage extends BasePage {
         selectDropdownFromVisibleText(accessroleListBox,details.getAccessRole());
         selectWebElement(crmnameDropdown);
         selectDropdownFromVisibleText(crmnameListBox,details.getCrmName());
-        // selectWebElement(texttemplatenameDropdown);
-        // selectDropdownFromVisibleText(texttemplatenameListBox,details.getTextTemplateName());
-        navigateToTab("Settings");
+//        selectWebElement(texttemplatenameDropdown);
+//        selectDropdownFromVisibleText(texttemplatenameListBox,details.getTextTemplateName());
+        navigateToTab("Channel Count & Features");
         selectFeaturesToBeSelected(details.getFeaturestobeSeleted());
         selectWebElement(numericTextbox.get(1));
         enterValueToTxtFieldWithoutClear(totalVoiceTabsAllowedTextBox.get(1),String.valueOf(details.getTotalVoiceTabs()));
@@ -568,21 +578,19 @@ public class AgentSettingsNewDesignPage extends BasePage {
         selectWebElement(numericTextbox.get(6));
         enterValueToTxtFieldWithoutClear(totalEmailTabsAllowedTextBox.get(1),String.valueOf(details.getTotalEmailTabs()));
         selectWebElement(numericTextbox.get(7));
-        enterValueToTxtFieldWithoutClear(totalSMSTabsAllowedTextBox.get(1),String.valueOf(details.getTotalSMSTabs()));
-		selectWebElement(numericTextbox.get(8));
-        enterValueToTxtFieldWithoutClear(totalFaxoutTabsAllowedTextBox.get(1),String.valueOf(details.getTotalFaxoutTabs()));
-        selectWebElement(numericTextbox.get(9));
-        enterValueToTxtFieldWithoutClear(totalFaxInternationalTabsAllowedTextBox.get(1),String.valueOf(details.getTotalFaxInternationalTabs()));																								
-        selectWebElement(featuresDropdown);
-        selectDropdownFromVisibleText(featuresListBox,details.getFeatures());
-        selectCheckBox(goToAcwAfterEachAcdCallsCheckbox,details.isGotoACWaftereachACDcalls());
+        enterValueToTxtFieldWithoutClear(totalSMSTabsAllowedTextBox.get(1),String.valueOf(details.getTotalSMSTabs()));																								
+       // selectWebElement(featuresDropdown);
+        //selectDropdownFromVisibleText(featuresListBox,details.getFeatures());
         selectCheckBox(autoAnswerAllAcdCallsCheckbox,details.isAutoanswerallACDcalls());
+        selectCheckBox(goToAcwAfterEachAcdCallsCheckbox,details.isGotoACWaftereachACDcalls());
         selectCheckBox(goToAcwAfterAnyCallsCheckbox,details.isGotoACWafteranycalls());
         selectCheckBox(crmEnabledCheckbox,details.iscRMEnabled());
         selectCheckBox(holdVoiceCallOnChatCallCheckbox,details.isHoldVoiceCallOnChatCall());
         selectCheckBox(secondTextChatAutoAnswerCheckbox,details.isSecondTextChatAutoAnswer());
         selectCheckBox(textChatAutoACWCheckbox,details.isTextChatAutoACWEnabled());
         selectCheckBox(textChatAutoAnswerCheckbox,details.isTextChatAutoAnswer());
+//        selectCheckBox(manualInCheckbox,details.isManualIn());
+//        selectCheckBox(smsOutCheckbox,details.isSMSOut());
         selectWebElement(saveBtn);
     }
     private void ChooseTeamHeirarchy(String team){
@@ -608,9 +616,7 @@ public class AgentSettingsNewDesignPage extends BasePage {
             else if(feature.equalsIgnoreCase("TextChat")&&!textChatCheckbox.isSelected()){selectCheckbox(textChatCheckbox);}
             else if(feature.equalsIgnoreCase("VideoChat")&&!videoChatCheckbox.isSelected()){selectCheckbox(videoChatCheckbox);}
             else if(feature.equalsIgnoreCase("AudioChat")&&!audiochatCheckbox.isSelected()){selectCheckbox(audiochatCheckbox);}
-            else if(feature.equalsIgnoreCase("Fax")&&!faxCheckbox.isSelected()){selectCheckbox(faxCheckbox);}
-			else if(feature.equalsIgnoreCase("Faxout")&&!faxoutCheckbox.isSelected()){selectCheckbox(faxoutCheckbox);}
-            else if(feature.equalsIgnoreCase("FaxInternational")&&!faxInternationalCheckbox.isSelected()){selectCheckbox(faxInternationalCheckbox);}																										  
+            else if(feature.equalsIgnoreCase("Fax")&&!faxCheckbox.isSelected()){selectCheckbox(faxCheckbox);}																									  
         }
     }
     public void selectProfile(String profile, String supervisor){
@@ -629,6 +635,8 @@ public class AgentSettingsNewDesignPage extends BasePage {
         }} catch (InterruptedException e) {
             e.printStackTrace();
         }
+//   ----- Remove----     
+        
     }
     public void selectCheckBox(WebElement ele, boolean value){
 		if(value){
@@ -661,10 +669,10 @@ public class AgentSettingsNewDesignPage extends BasePage {
         try{selectWebElement(agentSettingsTabs.get(1));
         selectWebElement(makeAgentSettingsChanges);
         searchAgentSettingsRecord(details.getUsername());
-        Thread.sleep(3000);
+        waitUntilWebElementIsVisible(editBtn);
         selectWebElement(editBtn);
-        waitForJqueryLoad(driver);
-        enterValueToTxtField(firstnameTextBox,details.getUpdatedFirstname());
+        selectWebElement(firstnameTextBox);
+        enterValueToTxtField(firstnameTextBox,details.getUpdatedFirstname());      
         enterValueToTxtFieldWithoutClear(modifyReasonTextBox,details.getModifyReason());
         selectWebElement(saveBtn);}catch (Exception e){e.printStackTrace();}
     }
@@ -676,7 +684,7 @@ public class AgentSettingsNewDesignPage extends BasePage {
         Thread.sleep(4000);
         btnClick(deleteBtn);
         selectWebElement(deleteReasonTextBox);
-        enterValueToTxtField(deleteReasonTextBox,reason);
+        enterValueToTxtFieldWithoutClear(deleteReasonTextBox,reason);
         selectWebElement(yesBtn);
         } catch (Exception e) {
             e.printStackTrace();
@@ -690,14 +698,10 @@ public class AgentSettingsNewDesignPage extends BasePage {
     }
     public boolean verifyRecordDeleted(){
         //waitForJqueryLoad(driver);
-        if(errorMsg.size()>0){return false;}
         return(waitUntilTextToBePresentInWebElement(successmsg,"Record Deleted Successfully"));
     }
-    public boolean getErrorMsg(){
-        //waitForJqueryLoad(driver);
-        if(errorMsg.size()>0){return false;}
-        else 
-        	return true;
+    public boolean verifyRecordUpdated(){
+        return(waitUntilTextToBePresentInWebElement(successmsg,"Record Updated Successfully"));
     }
     public void clickOnGoBackButton(){
         selectWebElement(goBackBtn);
@@ -730,8 +734,7 @@ public class AgentSettingsNewDesignPage extends BasePage {
         Map<String,String> firstRowData=getFirstRowDatafromTable();
         if(firstRowData.get("Transaction").equalsIgnoreCase(transaction)){
             if(firstRowData.get("Status").equalsIgnoreCase(status)){
-                if(firstRowData.get("Function").equalsIgnoreCase("AgentSetting")){
-                    if(firstRowData.get("Submission DateTime").contains(date)){
+                if(firstRowData.get("Function").equalsIgnoreCase("Agent Settings")){
                        // if(transaction.equals("MakerCreate")||transaction.equals("MakerUpdate")){
                            /* Map<String,String> newvalues=new HashMap<>();
                             String[] d=firstRowData.get("New Values").split("\n");
@@ -742,7 +745,6 @@ public class AgentSettingsNewDesignPage extends BasePage {
                             if(verifyNewValues(details,newvalues)){
                                 stat=true;}*/
                             stat=true;//}//else{stat=true;}
-                    }else{System.out.println("Data mismatch:"+firstRowData.get("Submission DateTime")+"\t"+date);}
                 }else{System.out.println("Data mismatch:"+firstRowData.get("Function")+"\t"+"RoleManagement");}
             }else{System.out.println("Data mismatch:"+firstRowData.get("Status")+"\t"+status);}
         }else{System.out.println("Data mismatch:"+firstRowData.get("Transaction")+"\t"+transaction);}
@@ -833,19 +835,13 @@ return status;
         }else{System.out.println("data mismatch"+newvalues.get("IsCrmEnabled")+"\t"+details.iscRMEnabled());}
         return status;
     }
-    public void taskCompleteAction(String comment) throws Exception{
-        selectWebElement(makeAgentSettingsChanges);
-        waitForLoad(driver);
-        selectWebElement(taskCompleteBtn);
-        enterValueToTxtField(makerComments,comment);
-        selectWebElement(taskCompleteBtnAtMakerCommentsPopUp);
-    }
-    public boolean verifyTaskCompleteSuccessMessage(){
-        return(verifySuccessMessage().contains("Record submission for approval success. Your Request ID is :"));
-    }
+    
     public String verifySuccessMessage(){
+        //if(errorMsg.size()>0){return errorMsg.get(0).getText();}
+       // else { 
         	waitUntilWebElementIsVisible(successmsg);return successmsg.getText();
-    }
+        	}
+    
     public boolean verifyStatus(String status){
         try {
             Thread.sleep(3000);
@@ -900,9 +896,7 @@ return status;
         }else{System.out.println("Data mismatch:"+firstRowData.get("Status")+"\t"+status);}
         return stat;
     }
-    public boolean verifyTaskCompleteEnabled(){
-        return taskCompleteBtn.isEnabled();
-    }
+   
     private List<Map<String, String>> getAllDatafromTable(int uitable){
         int items=Integer.valueOf(pagerInfo.get(uitable).getText().split("of ")[1].split(" items")[0]);
         int pagersize=Integer.valueOf(pagerSize.get(uitable).getText());
@@ -1327,7 +1321,7 @@ return status;
         Thread.sleep(3000);
         ChooseTeamHeirarchy(team);
         selectWebElement(profileDropdown);
-        selectDropdownFromVisibleText(profileListBox,"Supervisor");
+        selectDropdownFromVisibleText(profileListBox,"Agent");
         Thread.sleep(3000);
         selectWebElement(supervisorDropdown);}catch (Exception e){e.printStackTrace();}
         for(WebElement e :supervisorListBox){
@@ -1335,21 +1329,7 @@ return status;
         }
         return status;
     }
-    public boolean verifyCRMNameDisplayed(){
-        String filepath="\\\\172.16.2.16\\d$\\Products\\OCM\\UI\\web.config";
-        String destpath="D:/TetherfiWork/ProductOCM/scripts/ocms/src/test/resources/DownloadedFiles/Config/web.config";
-        FTPServer ftp=new FTPServer();
-        ftp.transferFileFromRemote(filepath,destpath);
-        WebConfigReader webconf=new WebConfigReader(destpath);
-        String val=webconf.getKeyValue("CrmName");
-        String [] values=val.split(",");
-        selectWebElement(crmnameDropdown);
-        String [] uivalues=new String[crmnameListBox.size()];int i=0;
-       for(WebElement e: crmnameListBox){
-           uivalues[i]=e.getText();i++;
-       }
-       return Arrays.equals(values,uivalues);
-    }
+   
     public boolean isAddBtnDisplayed() {
     	return addNewAgentSettingsRecordBtn.isDisplayed() && addNewAgentSettingsRecordBtn.isEnabled();
     }
@@ -1455,53 +1435,54 @@ return status;
         selectDropdownFromVisibleText(crmnameListBox,details.getCrmName());
         selectWebElement(saveBtn);
 	}
-		
-	public void selectTaskComplete() {
-		waitForLoad(driver);
-        selectWebElement(taskCompleteBtn);
-	}
-	
-	public void enterTaskCompleteText(String comment) throws Exception {
-		enterValueToTxtField(makerComments,comment);
-	}
-	
-	public void saveTaskCompletePopUp() {
-		selectWebElement(taskCompleteBtnAtMakerCommentsPopUp);
-	}
 	
 	public void selectRecord() {
 		Map<String,String> map = new HashMap<>();
 		waitUntilWebElementIsVisible(auditGridContent);
 		List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
 		List<WebElement> cols=rows.get(1).findElements(By.tagName("td"));
-		selectWebElement(cols.get(0).findElement(By.id("isEnabled")));
-    }
-	
+		selectWebElement(cols.get(0).findElement(By.id("isEnabled")));	
+	}
 	public void sendForAprroval(String comments) throws Exception {
 		selectWebElement(sendForApprovalBtn);
+		Thread.sleep(1000);
 		enterValueToTxtField(makerComments, comments);
-		selectWebElement(submitMakerComments);		
+		selectWebElement(submitMakerComments);			
 	}
 	
 	public void Revert(String comments) throws Exception {
 		selectWebElement(revertBtn);
+		Thread.sleep(1000);
 		enterValueToTxtField(revertMakerComments,comments);
 		selectWebElement(revertSubmitMakerComments);				
 	}
 	
-	public boolean verifyMessage() {
-        return(verifySuccessMessage().contains("Record approved successfully. Request ID :"));
-
+	public String getSuccessMessage() {
+		waitForJqueryLoad(driver);
+		if(successmsg.isDisplayed())
+			return successmsg.getText();
+		else{return errorMsg.get(0).getText();}
+        
 	}
 	
+	public boolean verifyMessage() {
+        return(getSuccessMessage().contains("Record approved successfully. Request ID :"));
+	}
 	
+	public boolean getErrorMsg() {
+		waitUntilWebElementListIsVisible(errorMsg);
+		if(errorMsg.size()>0)
+		return false;
+		else
+			return true;
+	}
 	public boolean EditCancel(AgentSettingsDetails details) throws Exception {
 		selectWebElement(agentSettingsTabs.get(1));
 		Thread.sleep(1000);
 		selectWebElement(makeAgentSettingsChanges);
 		Thread.sleep(1000);
 		searchAgentSettingsRecord(details.getUsername());
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		selectWebElement(editBtn);
 		waitForJqueryLoad(driver);
 		selectWebElement(cancelBtn);
@@ -1509,6 +1490,21 @@ return status;
 			return true;
 		else
 		return false;	
+	}
+	public boolean deleteCancel(AgentSettingsDetails details) throws Exception {
+		selectWebElement(agentSettingsTabs.get(1));
+		Thread.sleep(1000);
+		selectWebElement(makeAgentSettingsChanges);
+		Thread.sleep(1000);
+		searchAgentSettingsRecord(details.getUsername());
+		Thread.sleep(2000);
+		selectWebElement(deleteBtn);
+		waitForJqueryLoad(driver);
+		selectWebElement(noBtn);
+		if(editrowdata.get(4).getText().equals(details.getFirstname()))
+			return true;
+		else
+		return false;
 	}
 	public boolean verifyAuditTrailUpdate(AgentSettingsDetails details, String Transaction, String Status) {
 		boolean stat=false;
@@ -1529,53 +1525,43 @@ return status;
                             stat=false;
                        }
                        else{System.out.println("Data mismatch");}
-                }else{System.out.println("Data mismatch:"+firstRowData.get("Function")+"\t"+"RoleManagement");}
+                }else{System.out.println("Data mismatch:"+firstRowData.get("Function")+"\t"+"Agent Settings");}
             }else{System.out.println("Data mismatch:"+firstRowData.get("Status")+"\t"+Status);}
         }else{System.out.println("Data mismatch:"+firstRowData.get("Transaction")+"\t"+Transaction);}
         return stat;
 	}
-	
 	private boolean verifyUpdatedNewValues(AgentSettingsDetails details, Map<String, String> newvalues) {
 		Boolean Status=false;
-		if(newvalues.get("UserName").equals(details.getUsername())) {
-			if(newvalues.get("FirstName").equals(details.getUpdatedFirstname())){
-				if(newvalues.get("LastName").equals(details.getLastname())){
-					if(newvalues.get("Profile").equals(details.getProfile())){
-						if(newvalues.get("AvayaLoginID").equals(details.getAvayaLoginID())){
-							if(newvalues.get("OrgUnit").equals(details.getOrgUnit())) {	
-								if(newvalues.get("SupervisorName").equals(details.getSupervisor())){
-									if(newvalues.get("CrmName").equals(details.getCrmName())){
-											Status=true;
-									}
-		        					else System.out.println("CrmName data mismatch");
-								}
-	        					else System.out.println("SupervisorName data mismatch");
-        					}
-        					else System.out.println("OrgUnit data mismatch");
-    					}
-    					else System.out.println("AvayaLoginID data mismatch");
-					}
-					else System.out.println("Profile data mismatch");
-				}
-				else System.out.println("LastName data mismatch");
-			}
-			else System.out.println("FirstName data mismatch");
-		}
-		else {System.out.println("UserName data mismatch");}
-	return Status;
+		if(newvalues.get("Lan ID").equals(details.getUsername())){
+			if(newvalues.get("Avaya Login ID").equals(details.getAvayaLoginID())){
+				if(newvalues.get("First Name").equals(details.getUpdatedFirstname())){
+					if(newvalues.get("Last Name").equals(details.getLastname())){
+						if(newvalues.get("Profile").equals(details.getProfile())) {
+							if(newvalues.get("OrgUnit").equals(details.getTeamName().split(">")[details.getTeamName().split(">").length-1])){
+								if(newvalues.get("Supervisor Name").equals(details.getSupervisor())){
+									if(newvalues.get("ModifyReason").equals(details.getModifyReason())) {
+										Status=true;
+									}else {System.out.println("Modify reason data mismatch");}
+								}else{System.out.println("data mismatch"+newvalues.get("Supervisor Name")+"\t"+details.getSupervisor());}
+							}else{System.out.println("data mismatch"+newvalues.get("OrgUnit")+"\t"+details.getTeamName());}
+						}else{System.out.println("data mismatch"+newvalues.get("Profile")+"\t"+details.getProfile());}
+					}else{System.out.println("data mismatch"+newvalues.get("Last Name")+"\t"+details.getLastname());}
+				}else{System.out.println("data mismatch"+newvalues.get("First Name")+"\t"+details.getFirstname());}
+			}else{System.out.println("data mismatch"+newvalues.get("Avaya Login ID")+"\t"+details.getAvayaLoginID());}
+		}else{System.out.println("data mismatch"+newvalues.get("Lan ID")+"\t"+details.getUsername());}
+		return Status;
 	}
 	
-	public void EditRecordWithoutModifyReason(AgentSettingsDetails details) throws Exception {
-		selectWebElement(agentSettingsTabs.get(1));
-		Thread.sleep(1000);
-		selectWebElement(makeAgentSettingsChanges);
-		Thread.sleep(1000);
-		searchAgentSettingsRecord(details.getUsername());
-		waitUntilWebElementIsVisible(editBtn);
-		selectWebElement(editBtn);
-		waitForJqueryLoad(driver);		
-		Thread.sleep(1000);
-        selectWebElement(saveBtn);	
-        selectWebElement(cancelBtn);		
+	public void EditRecordWithoutModifyReason(AgentSettingsDetails details) {
+		try{selectWebElement(agentSettingsTabs.get(1));
+        selectWebElement(makeAgentSettingsChanges);
+        searchAgentSettingsRecord(details.getUsername());
+        waitUntilWebElementIsVisible(editBtn);
+        Thread.sleep(1000);
+        selectWebElement(editBtn);
+        selectWebElement(firstnameTextBox);
+        selectWebElement(saveBtn);}catch (Exception e){e.printStackTrace();}
+    }
+		
 	}
-}
+

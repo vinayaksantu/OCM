@@ -61,7 +61,7 @@ public class SmsResponseTemplateUpdateTest {
         Assert.assertTrue(smsPage.isSMSPageDisplayed(), "IVR page assertion failed");
         smsPage.navigateToSMSResponseTemplatePage();
         SmsResponseTemplatePage SmsResponseTemplatePage = PageFactory.createPageInstance(driver, SmsResponseTemplatePage.class);
-        Assert.assertTrue(SmsResponseTemplatePage.isSMSResponseTemplatePageDisplayed(), "Branch Management page assertion failed");
+        Assert.assertTrue(SmsResponseTemplatePage.isSMSResponseTemplatePageDisplayed(), "SMS Response Template page assertion failed");
         driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 	}
 	

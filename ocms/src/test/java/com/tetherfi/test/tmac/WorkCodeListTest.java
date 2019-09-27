@@ -31,6 +31,7 @@ import com.tetherfi.utility.Screenshot;
 
 public class WorkCodeListTest extends BaseTest{
 	Screenshot screenshot=new Screenshot(driver);
+	
 	@BeforeClass
     public void AddNewAgentTeamManagementRecord() throws Exception {
         HomePage homePage= PageFactory.createPageInstance(driver,HomePage.class);
@@ -116,7 +117,7 @@ public class WorkCodeListTest extends BaseTest{
         Assert.assertTrue(workCodeListPage.verifymessage(), "Workcode Record creation assertion failed" );
     }
     
-    //@Test(priority=6)
+    @Test(priority=6)
     public void VerifyAuditTrialReportForCreate() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\WorkCodeListData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(1);
@@ -187,7 +188,7 @@ public class WorkCodeListTest extends BaseTest{
         Assert.assertTrue(workCodeListPage.verifymessage(),"Record updation assertion failed");
     }
     
-    //@Test(priority=12)
+    @Test(priority=12)
     public void VerifyAuditTrialReportForUpdate() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\WorkCodeListData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(0);	

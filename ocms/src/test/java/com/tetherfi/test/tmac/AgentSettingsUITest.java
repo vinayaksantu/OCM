@@ -90,7 +90,8 @@ public class AgentSettingsUITest extends BaseTest {
         agentSettingsPage.selectMakeAgentSettingsChanges();
         Assert.assertTrue(agentSettingsPage.verifyPageFullScrnd(),"full screen assertion failed");
     }
-   // @Test()
+   
+    @Test()
     public void VerifyExportToExcel() {
         AgentSettingsNewDesignPage agentSettingsPage = PageFactory.createPageInstance(driver, AgentSettingsNewDesignPage.class);
         agentSettingsPage.selectAgentSettingsAuditTrailTab();
@@ -179,7 +180,7 @@ public class AgentSettingsUITest extends BaseTest {
         agentSettingsPage.selectMakeAgentSettingsChanges();
         agentSettingsPage.selectAddNewAgentSettings();
         agentSettingsPage.clickOnSave();
-        Assert.assertEquals(agentSettingsPage.verifySuccessMessage(),"×\nPlease Provide Lan ID, Avaya Login ID, First Name, Last Name, Team, Profile, Supervisor, Access Role", "Mandatory field record assertion failed");
+        Assert.assertEquals(agentSettingsPage.verifySuccessMessage(),"×\nPlease Provide Lan ID, Avaya Login ID, First Name, Last Name, Org. Unit, Profile, Supervisor, Access Role", "Mandatory field record assertion failed");
     }
     @Test()
     public void VerifyCancelButtonAtRecordCreation() {
@@ -208,14 +209,7 @@ public class AgentSettingsUITest extends BaseTest {
         agentSettingsPage.clickOnCancelAtDelete();
         Assert.assertTrue(agentSettingsPage.verifyCancelButtonAtDelete(),"Cancel button assertion at delete failed");
     }
-    @Test()
-    public void VerifyCRMName() {
-        AgentSettingsNewDesignPage agentSettingsPage = PageFactory.createPageInstance(driver, AgentSettingsNewDesignPage.class);
-        agentSettingsPage.selectAgentSettingsAuditTrailTab();
-        agentSettingsPage.selectMakeAgentSettingsChanges();
-        agentSettingsPage.selectAddNewAgentSettings();
-        Assert.assertTrue(agentSettingsPage.verifyCRMNameDisplayed(),"CRM Name displayed assertion failed");
-    }
+    
     @AfterMethod
     public void afterEachMethod(Method method){
         Screenshot screenshot=new Screenshot(driver);

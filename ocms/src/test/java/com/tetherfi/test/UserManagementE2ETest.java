@@ -7234,10 +7234,6 @@ public class UserManagementE2ETest extends BaseTest {
         AgentSettingsNewDesignPage agentSettingsPage = PageFactory.createPageInstance(driver, AgentSettingsNewDesignPage.class);
         agentSettingsPage.addRecdOnlyInfo(agentSettingsDetails);
         Assert.assertTrue(agentSettingsPage.verifyNewRecordCreated(), "Add New record assertion failed");
-        Thread.sleep(2000);
-        agentSettingsPage.selectTaskComplete();
-        agentSettingsPage.enterTaskCompleteText("Complete");
-        agentSettingsPage.saveTaskCompletePopUp();
         driver.close();
         try {
             PageFactory.reset();

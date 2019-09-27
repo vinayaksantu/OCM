@@ -1,5 +1,6 @@
 package com.tetherfi.pages;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -343,8 +344,6 @@ public class WorkCodeListPage extends BasePage{
 	}
 
 	public boolean verifymessage() {
-		if (errorMsg.size()>0)
-			return false;
 			waitUntilWebElementIsVisible(successmsg);
 	    	if(successmsg.getText().contains("Successfully"))
 			return true;
@@ -501,7 +500,7 @@ public class WorkCodeListPage extends BasePage{
             e.printStackTrace();
         }
 		enterValueToTxtField(addnametextbox,workcodeListDetails.getUpdatedName());
-		enterValueToTxtField(modifyreasontextbox,workcodeListDetails.getModifyReason());
+		enterValueToTxtFieldWithoutClear(modifyreasontextbox,workcodeListDetails.getModifyReason());
 		selectWebElement(savebtn);
 	}
 
@@ -601,6 +600,12 @@ public class WorkCodeListPage extends BasePage{
 	}
 
 	public boolean verifyExportToExcel(String filePath) {
+		final File folder = new File(filePath);
+		for (final File f : folder.listFiles()) {
+		    if (f.getName().startsWith("Workcode List")) {
+		        f.delete();
+		    }
+		}
 		selectWebElement(exporttoexcel);
 		waitForJqueryLoad(driver);
 		try {
@@ -636,10 +641,6 @@ public class WorkCodeListPage extends BasePage{
 			Map<String,String> map = new HashMap<String,String>();
 			List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
 			for(int j=1;j<headers.size();j++) {
-				if(headers.get(j).getText().equals("Last Changed On")){
-					col=cols.get(j).getText().substring(0,10);
-					}
-				else
 					col=cols.get(j).getText();
 				map.put(headers.get(j).getText(),col);
 			}

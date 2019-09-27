@@ -25,6 +25,7 @@ import com.tetherfi.model.ivr.VBEnrollmentFlagDetails;
 import com.tetherfi.model.ivr.VipListManagementDetails;
 import com.tetherfi.model.report.ReportDetails;
 import com.tetherfi.model.sms.SmsResponseTemplateDetails;
+import com.tetherfi.model.tmac.AgentSettingsDetails;
 import com.tetherfi.model.tmac.AgentTeamMgmtDetails;
 import com.tetherfi.model.tmac.TmacBroadCastMsgDetails;
 import com.tetherfi.model.tmac.WaitTimeColorConfigDetails;
@@ -387,18 +388,131 @@ public class OCMReportsPage extends BasePage {
             return false;
         }
     }
-    public boolean verifyAuditTrailReportDisplayed(String trans ,String fun) {
-    boolean status=false;
-    List<Map<String,String>> data=getAllDatafromTable();
-    for(Map<String,String> map:data){
-        if(map.get("Transaction").equalsIgnoreCase(trans)){
-            if(map.get("Function").equalsIgnoreCase(fun)){
-                status=true;break;
-            }
-        }
+    public boolean verifyAuditTrailReportDisplayed(AgentSettingsDetails details ,String Transaction) throws Exception {
+    	booleansearchnew(details.getUsername(),Transaction);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+		Map<String,String> newvalues=new HashMap<>();
+		String[]d=firstRowData.get("New Values").split("\n");
+		for(String e:d) {
+			String f[]=e.split(":",2);
+			if(f.length>1)
+			newvalues.put(f[0], f[1]);
+		}
+		if(newvalues.get("Lan ID").equals(details.getUsername())){
+            if(newvalues.get("Avaya Login ID").equals(details.getAvayaLoginID())){
+                    if(newvalues.get("First Name").equals(details.getFirstname())){
+                        if(newvalues.get("Last Name").equals(details.getLastname())){
+                            if(newvalues.get("Profile").equals(details.getProfile())) {
+                            	if(newvalues.get("OrgUnit").equals(details.getTeamName().split(">")[details.getTeamName().split(">").length-1])){
+                                    if(newvalues.get("Supervisor Name").equals(details.getSupervisor())){
+                                    	Status=true;
+                                    }else{System.out.println("data mismatch"+newvalues.get("Supervisor Name")+"\t"+details.getSupervisor());}
+                            	}else{System.out.println("data mismatch"+newvalues.get("OrgUnit")+"\t"+details.getTeamName());}
+                            }else{System.out.println("data mismatch"+newvalues.get("Profile")+"\t"+details.getProfile());}
+                        }else{System.out.println("data mismatch"+newvalues.get("Last Name")+"\t"+details.getLastname());}
+                    }else{System.out.println("data mismatch"+newvalues.get("First Name")+"\t"+details.getFirstname());}
+            }else{System.out.println("data mismatch"+newvalues.get("Avaya Login ID")+"\t"+details.getAvayaLoginID());}
+        }else{System.out.println("data mismatch"+newvalues.get("Lan ID")+"\t"+details.getUsername());}
+        return Status;
     }
-    return status;
-    }
+    
+    
+    public boolean verifyAgentSettingsUpdate(AgentSettingsDetails details, String Transaction) throws Exception {
+    	booleansearchnew(details.getUpdatedFirstname(),Transaction);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+        if(firstRowData.containsKey("Old Values")) {
+        	Map<String,String> oldvalues=new HashMap<>();
+    		String[]d=firstRowData.get("Old Values").split("\n");
+    		for(String e:d) {
+    			System.out.println(e);
+    			String f[]=e.split(":",2);
+    			if(f.length>1)
+    				oldvalues.put(f[0], f[1]);
+    		}
+    		if(oldvalues.get("Lan ID").equals(details.getUsername())){
+	            if(oldvalues.get("Avaya Login ID").equals(details.getAvayaLoginID())){
+	                    if(oldvalues.get("First Name").equals(details.getFirstname())){
+	                        if(oldvalues.get("Last Name").equals(details.getLastname())){
+	                            if(oldvalues.get("Profile").equals(details.getProfile())) {
+	                            	if(oldvalues.get("OrgUnit").equals(details.getTeamName().split(">")[details.getTeamName().split(">").length-1])){
+	                                    if(oldvalues.get("Supervisor Name").equals(details.getSupervisor())){
+	                                    		if(firstRowData.containsKey("New Values")) {
+	                                    			Map<String,String> newvalues=new HashMap<>();
+	                                    			String[]d1=firstRowData.get("New Values").split("\n");
+	                                    			for(String e:d1) {
+	                                    				String f[]=e.split(":",2);
+	                                    				if(f.length>1)
+	                                    					newvalues.put(f[0], f[1]);
+	                                    			}
+	                                    			if(newvalues.get("Lan ID").equals(details.getUsername())){
+	                                    				if(newvalues.get("Avaya Login ID").equals(details.getAvayaLoginID())){
+	                                    					if(newvalues.get("First Name").equals(details.getUpdatedFirstname())){
+	                                    						if(newvalues.get("Last Name").equals(details.getLastname())){
+	                                    							if(newvalues.get("Profile").equals(details.getProfile())) {
+	                                    								if(newvalues.get("OrgUnit").equals(details.getTeamName().split(">")[details.getTeamName().split(">").length-1])){
+	                                    									if(newvalues.get("Supervisor Name").equals(details.getSupervisor())){
+	                                    										if(newvalues.get("ModifyReason").equals(details.getModifyReason())) {
+	                                    											Status=true;
+	                                    										}else {System.out.println("Modify reason data mismatch");}
+	                                    									}else{System.out.println("data mismatch"+newvalues.get("Supervisor Name")+"\t"+details.getSupervisor());}
+	                                    								}else{System.out.println("data mismatch"+newvalues.get("OrgUnit")+"\t"+details.getTeamName());}
+	                                    							}else{System.out.println("data mismatch"+newvalues.get("Profile")+"\t"+details.getProfile());}
+	                                    						}else{System.out.println("data mismatch"+newvalues.get("Last Name")+"\t"+details.getLastname());}
+	                                    					}else{System.out.println("data mismatch"+newvalues.get("First Name")+"\t"+details.getFirstname());}
+	                                    				}else{System.out.println("data mismatch"+newvalues.get("Avaya Login ID")+"\t"+details.getAvayaLoginID());}
+            										}else{System.out.println("data mismatch"+newvalues.get("Lan ID")+"\t"+details.getUsername());}
+	                                    		}else {System.out.println("New values data mismatch");}
+	                                    	}else{System.out.println("data mismatch"+oldvalues.get("Supervisor Name")+"\t"+details.getSupervisor());}
+        								}else{System.out.println("data mismatch"+oldvalues.get("OrgUnit")+"\t"+details.getTeamName());}
+        							}else{System.out.println("data mismatch"+oldvalues.get("Profile")+"\t"+details.getProfile());}
+        						}else{System.out.println("data mismatch"+oldvalues.get("Last Name")+"\t"+details.getLastname());}
+        					}else{System.out.println("data mismatch"+oldvalues.get("First Name")+"\t"+details.getFirstname());}
+        				}else{System.out.println("data mismatch"+oldvalues.get("Avaya Login ID")+"\t"+details.getAvayaLoginID());}
+        			}else{System.out.println("data mismatch"+oldvalues.get("Lan ID")+"\t"+details.getUsername());}
+	            }else {System.out.println("Old values data mismatch");}
+	            return Status;
+    		}
+    public boolean verifyAgentSettingsDelete(AgentSettingsDetails details, String Transaction) throws Exception {
+		booleansearchold(details.getFirstname(),Transaction);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+		Map<String,String> oldvalues=new HashMap<>();
+		String[]d=firstRowData.get("Old Values").split("\n");
+		for(String e:d) {
+			String f[]=e.split(":",2);
+			if(f.length>1)
+			oldvalues.put(f[0], f[1]);
+		}
+		if(oldvalues.get("Lan ID").equals(details.getUsername())){
+            if(oldvalues.get("Avaya Login ID").equals(details.getAvayaLoginID())){
+                    if(oldvalues.get("First Name").equals(details.getFirstname())){
+                        if(oldvalues.get("Last Name").equals(details.getLastname())){
+                            if(oldvalues.get("Profile").equals(details.getProfile())) {
+                            	if(oldvalues.get("OrgUnit").equals(details.getTeamName().split(">")[details.getTeamName().split(">").length-1])){
+                                    if(oldvalues.get("Supervisor Name").equals(details.getSupervisor())){                        
+										if(oldvalues.get("ModifyReason").equals(details.getDeleteReason()))
+										Status=true;
+										else{System.out.println("Reason data mismatch");}
+                                    }								
+								else {System.out.println("Supervisor Name data mismatch");}
+							}
+							else {System.out.println("OrgUnit data mismatch");}
+						}
+						else {System.out.println("Profile data mismatch");}
+					}	
+					else {System.out.println("LastName data mismatch");}
+				}
+				else {System.out.println("FirstName data mismatch");}
+			}
+			else {System.out.println("AvayaLoginID data mismatch");}
+		}
+		else {System.out.println("LanID data mismatch");}
+		return Status;
+	}
+    
+    
     public boolean verifyReportHeaders(ReportDetails details){
         boolean status=false;
         String[] headers=details.getReportHeaders().split(",");
@@ -1337,7 +1451,7 @@ return status;
     							if(newvalues.get("WorkLevel").equals(details.getWorkLevel())){
     								if(newvalues.get("Name").equals(details.getUpdatedName())){
     										if(newvalues.get("TeamName").equals(details.getTeamName())){
-    											if(newvalues.get("Modify Reason").equals(details.getModifyReason())) {
+    											if(newvalues.get("ModifyReason").equals(details.getModifyReason())) {
     												if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getModifyReason()))
     													Status=true;
     												else System.out.println("Change reason data mismatch");
@@ -1378,9 +1492,7 @@ return status;
 			{
 				if(oldvalues.get("Name").equals(details.getUpdatedName()))
 				{
-					if(oldvalues.get("WorkCode").equals(workcode))
-					{
-						if(oldvalues.get("ModifyReason").equals(details.getDeleteReason()))
+					if(oldvalues.get("ModifyReason").equals(details.getDeleteReason()))
 						{
 							if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getDeleteReason()))
     		        			Status=true;
@@ -1388,8 +1500,6 @@ return status;
 						}
 						else {System.out.println("Modify Reason  data mismatch");}
 					}
-					else {System.out.println("Workcode data mismatch");}
-				}
 				else {System.out.println("Name data mismatch");}
 			}
 			else {System.out.println("WOrkLevel data mismatch");}
@@ -1449,8 +1559,8 @@ return status;
     						}
     						if(newvalues.get("LevelHierarchy").equals(details.getLevel())){
     							if(newvalues.get("Name").equals(details.getUpdateTeamName())){
-    								if(newvalues.get("DisplayHierarchy").equals(details.getDisplayHierarchy())) {
-    									if(newvalues.get("Modify Reason").equals(details.getModifyReason())) {
+    								if(newvalues.get("DisplayHierarchy").equals(details.getUpdatedDisplayHierarchy())) {
+    									if(newvalues.get("ModifyReason").equals(details.getModifyReason())) {
     										if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getModifyReason()))
     											Status=true;
     										else System.out.println("Change reason data mismatch");
@@ -4233,7 +4343,9 @@ return status;
 			{
 				if(newvalues.get("Enabled").equals(details.getDeptEnabled()))
 				{
+					if(newvalues.get("Channel").equals(details.getChannel()))
 					Status= true;
+					else {System.out.println("Channel Data mismatch");}
 				}
 				else {System.out.println("Enabled data mismatch");}
 			}
@@ -4242,7 +4354,7 @@ return status;
 	}
 
 	public boolean verifyChatTemplatesGroupCreate(ChatTemplateDetails details, String Transaction) throws Exception {
-		booleansearchnew(details.getDepartmentName(),Transaction);
+		booleansearchnew(details.getGroupName(),Transaction);
 		Boolean Status=false;
         Map<String,String> firstRowData=getFirstRowDatafromTable1();
 		Map<String,String> newvalues=new HashMap<>();
@@ -5537,6 +5649,10 @@ return status;
 		// TODO Auto-generated method stub
 		return false;
 	}
+
+	
+
+	
 
 
 	

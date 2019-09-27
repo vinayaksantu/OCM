@@ -206,6 +206,9 @@ public class IntentMappingPage extends BasePage{
 	@FindBy(id="VDN")
 	private WebElement VDNTextbox;
 	
+	@FindBy(css=".k-edit-form-container .k-formatted-value")
+	private WebElement VDNText;
+	
 	public boolean isIntentMappingPageDisplayed() {
 		waitForLoad(driver);
         waitForJqueryLoad(driver);
@@ -655,8 +658,8 @@ public class IntentMappingPage extends BasePage{
         selectDropdownFromVisibleText(LanguageListbox,details.getLanguage());
         selectWebElement(IntentTalentDropdown);
         selectDropdownFromVisibleText(IntentTalentListbox,details.getIntentTalent());
-		selectWebElement(VDNTextbox);
-		enterValueToTxtField(VDNTextbox,details.getVDN());
+		selectWebElement(VDNText);
+		enterValueToTxtFieldWithoutClear(VDNTextbox,details.getVDN());
 		selectWebElement(saveButton);	
 		try {
 			selectWebElement(cancelBtn);
@@ -757,8 +760,8 @@ public class IntentMappingPage extends BasePage{
         selectDropdownFromVisibleText(LanguageListbox,details.getLanguage());
         selectWebElement(IntentTalentDropdown);
         selectDropdownFromVisibleText(IntentTalentListbox,details.getIntentTalent());
-		selectWebElement(VDNTextbox);
-		enterValueToTxtField(VDNTextbox,details.getVDN());
+		selectWebElement(VDNText);
+		enterValueToTxtFieldWithoutClear(VDNTextbox,details.getVDN());
 		selectWebElement(saveButton);
 		selectWebElement(cancelBtn);
 	}
@@ -770,8 +773,8 @@ public class IntentMappingPage extends BasePage{
         selectDropdownFromVisibleText(LanguageListbox,details.getLanguage());
         selectWebElement(IntentTalentDropdown);
         selectDropdownFromVisibleText(IntentTalentListbox,details.getIntentTalent());
-		selectWebElement(VDNTextbox);
-		enterValueToTxtField(VDNTextbox,details.getVDN());
+		selectWebElement(VDNText);
+		enterValueToTxtFieldWithoutClear(VDNTextbox,details.getVDN());
 		selectWebElement(saveButton);
 		selectWebElement(cancelBtn);
 	}
@@ -783,8 +786,8 @@ public class IntentMappingPage extends BasePage{
         selectDropdownFromVisibleText(SegmentListbox,details.getSegment());
         selectWebElement(IntentTalentDropdown);
         selectDropdownFromVisibleText(IntentTalentListbox,details.getIntentTalent());
-		selectWebElement(VDNTextbox);
-		enterValueToTxtField(VDNTextbox,details.getVDN());
+		selectWebElement(VDNText);
+		enterValueToTxtFieldWithoutClear(VDNTextbox,details.getVDN());
 		selectWebElement(saveButton);
 		selectWebElement(cancelBtn);		
 	}
@@ -796,8 +799,8 @@ public class IntentMappingPage extends BasePage{
         selectDropdownFromVisibleText(SegmentListbox,details.getSegment());
         selectWebElement(LanguageDropdown);
         selectDropdownFromVisibleText(LanguageListbox,details.getLanguage());
-		selectWebElement(VDNTextbox);
-		enterValueToTxtField(VDNTextbox,details.getVDN());
+		selectWebElement(VDNText);
+		enterValueToTxtFieldWithoutClear(VDNTextbox,details.getVDN());
 		selectWebElement(saveButton);
 		selectWebElement(cancelBtn);		
 	}

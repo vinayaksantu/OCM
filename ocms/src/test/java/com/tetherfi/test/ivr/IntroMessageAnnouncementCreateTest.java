@@ -1,6 +1,5 @@
 package com.tetherfi.test.ivr;
 
-import java.io.IOException;
 import java.lang.reflect.Method;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
@@ -162,10 +161,10 @@ public class IntroMessageAnnouncementCreateTest {
 	    IntroMessageAnnouncementDetails IntroMessageAnnouncementDetails = new IntroMessageAnnouncementDetails(map);
         IntroMessageAnnouncementPage IntroMessageAnnouncementPage = PageFactory.createPageInstance(driver, IntroMessageAnnouncementPage.class);
         IntroMessageAnnouncementPage.addNewIntroMessageAnnouncementRecord(IntroMessageAnnouncementDetails);
-        Assert.assertEquals(IntroMessageAnnouncementPage.getSuccessMessage(), "Record Created Successfully");
+        Assert.assertEquals(IntroMessageAnnouncementPage.getSuccessMessage(), "Record created successfully");
        }
 	
-	@Test(groups = { "Maker" },priority=11,dependsOnMethods="AddRevertRecord")
+	@Test(groups = { "Maker" },priority=11)//,dependsOnMethods="AddRevertRecord")
     public void VerifyRevertForAddNewRecord() throws Exception {
        	IntroMessageAnnouncementPage IntroMessageAnnouncementPage = PageFactory.createPageInstance(driver, IntroMessageAnnouncementPage.class);
        	IntroMessageAnnouncementPage.selectIntroMessageAnnouncementAuditTrailTab();

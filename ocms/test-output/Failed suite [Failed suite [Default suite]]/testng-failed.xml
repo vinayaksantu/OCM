@@ -3,19 +3,21 @@
 <suite name="Failed suite [Failed suite [Failed suite [Default suite]]]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)(failed)(failed)">
     <classes>
-      <class name="com.tetherfi.test.ivr.IntroMessageAnnouncementUITest">
+      <class name="com.tetherfi.test.tmac.AgentSettingsUITest">
         <methods>
-          <include name="VerifyNumberOfItemsPerPageSelection"/>
+          <include name="VerifyExportToExcel"/>
+          <include name="afterEachMethod"/>
           <include name="startTestCase"/>
           <include name="openApplication"/>
-          <include name="afterEachMethod"/>
-          <include name="NavigateToIntroMessageAnnouncementPage"/>
+          <include name="VerifyColumnsHeaderDisable"/>
+          <include name="VerifyExportToExcelWithoutData"/>
           <include name="endTestCase"/>
           <include name="tearDown"/>
-          <include name="SearchClearSearch"/>
-          <include name="database"/>
+          <include name="VerifyNumberOfItemsPerPageSelection"/>
+          <include name="VerifyCancelButtonAtRecordDelete"/>
+          <include name="NavigateToAgentSettingsPage"/>
         </methods>
-      </class> <!-- com.tetherfi.test.ivr.IntroMessageAnnouncementUITest -->
+      </class> <!-- com.tetherfi.test.tmac.AgentSettingsUITest -->
     </classes>
   </test> <!-- Default test(failed)(failed)(failed) -->
 </suite> <!-- Failed suite [Failed suite [Failed suite [Default suite]]] -->

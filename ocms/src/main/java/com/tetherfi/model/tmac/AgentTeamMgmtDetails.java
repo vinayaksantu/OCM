@@ -12,6 +12,7 @@ public class AgentTeamMgmtDetails {
     private String deleteReason;
 	private String query;
 	private String DisplayHierarchy;
+	private String UpdatedDisplayHierarchy;
 	
 
     public AgentTeamMgmtDetails(Map<String,String> map){
@@ -25,7 +26,13 @@ public class AgentTeamMgmtDetails {
         deleteReason=readDeleteReason(map);
         query=readQuery(map);
         DisplayHierarchy=readDisplayHiearchy(map);
+        UpdatedDisplayHierarchy=readUpdatedDisplayHierarchy(map);
         
+	}
+
+	private String readUpdatedDisplayHierarchy(Map<String, String> map) {
+		String value=map.get("Updated Display Hierarchy");
+		return value;
 	}
 
 	private String readDisplayHiearchy(Map<String, String> map) {
@@ -85,6 +92,10 @@ public class AgentTeamMgmtDetails {
 
 	public String getDisplayHierarchy() {
 		return DisplayHierarchy;
+	}
+
+	public String getUpdatedDisplayHierarchy() {
+		return UpdatedDisplayHierarchy;
 	}
 	
 	

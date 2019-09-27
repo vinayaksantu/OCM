@@ -152,8 +152,8 @@ public class UserRoleMappingDeleteTest {
 	    ocmReportsPage.showReport(reportDetails);
         Assert.assertTrue(ocmReportsPage.verifyUserRoleMappingDelete(UserRoleMappingDetails, "CheckerReject"),"Audit Trail report assertion failed");
     }
-	
-	@Test(groups= {"Maker"},priority=7)
+    
+	@Test(groups= {"Maker"},priority=10)
 	public void DeleteUserRoleMappingRecord() throws Exception {
 		 String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserRoleMappingData.xlsx";
 		 Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(0);
@@ -163,7 +163,7 @@ public class UserRoleMappingDeleteTest {
 	     Assert.assertEquals(NewUserRoleMappingPage.getSuccessMessage(), "Record Deleted Successfully");
 	}
 	
-	@Test(priority=8,groups= {"Maker"},dependsOnMethods="DeleteUserRoleMappingRecord")
+	@Test(priority=11,groups= {"Maker"},dependsOnMethods="DeleteUserRoleMappingRecord")
     public void VerifyAuditTrialReportForDelete() throws Exception {
 		 String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserRoleMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(0);	
@@ -178,7 +178,7 @@ public class UserRoleMappingDeleteTest {
         Assert.assertTrue(ocmReportsPage.verifyUserRoleMappingDelete(UserRoleMappingDetails,"MakerDelete"));
     }
 	
-	@Test(priority=9,groups = { "Maker" },dependsOnMethods="DeleteUserRoleMappingRecord")
+	@Test(priority=12,groups = { "Maker" },dependsOnMethods="DeleteUserRoleMappingRecord")
     public void VerifyAuditTrailDataForDeleteUserRoleMappingRecord() throws Exception {
 		 String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserRoleMappingData.xlsx";
 		 Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(0);
@@ -188,7 +188,7 @@ public class UserRoleMappingDeleteTest {
 	     Assert.assertTrue(NewUserRoleMappingPage.verifyAuditTrailDelete(UserRoleMappingDetails, "MakerDelete", "New"), "Audit trail details failed");
     }
 	
-	@Test(groups = { "Maker" },priority=10,dependsOnMethods="VerifyAuditTrailDataForDeleteUserRoleMappingRecord")
+	@Test(groups = { "Maker" },priority=13,dependsOnMethods="VerifyAuditTrailDataForDeleteUserRoleMappingRecord")
     public void VerifySendForApprovalForDeleteNewRecord() throws Exception {
        	NewUserRoleMappingPage NewUserRoleMappingPage = PageFactory.createPageInstance(driver, NewUserRoleMappingPage.class);
        	NewUserRoleMappingPage.selectUserRoleMappingAuditTrailTab();
@@ -197,7 +197,7 @@ public class UserRoleMappingDeleteTest {
         Assert.assertTrue(NewUserRoleMappingPage.verifyStatus("Approval Pending"),"approal status details failed");
     }
 	
-	@Test(priority=11,groups = { "Checker" },dependsOnMethods="VerifySendForApprovalForDeleteNewRecord")
+	@Test(priority=14,groups = { "Checker" },dependsOnMethods="VerifySendForApprovalForDeleteNewRecord")
     public void ApproveforDeleteUserRoleMappingRecord() throws Exception{
 	     NewUserRoleMappingPage NewUserRoleMappingPage = PageFactory.createPageInstance(driver, NewUserRoleMappingPage.class);
 	     NewUserRoleMappingPage.clickonApprove("Approve Deleted");
@@ -205,7 +205,7 @@ public class UserRoleMappingDeleteTest {
 	     Assert.assertTrue(NewUserRoleMappingPage.verifyReviewAuditTrail("Approved","Approve Deleted"));
     }
 	
-	@Test(priority=12,groups = { "Checker" },dependsOnMethods = "ApproveforDeleteUserRoleMappingRecord")
+	@Test(priority=15,groups = { "Checker" },dependsOnMethods = "ApproveforDeleteUserRoleMappingRecord")
     public void VerifyAuditTrailReportForApprove() throws Exception {
 		 String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserRoleMappingData.xlsx";
 		 Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);

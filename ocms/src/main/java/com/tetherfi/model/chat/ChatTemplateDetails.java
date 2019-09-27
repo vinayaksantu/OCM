@@ -26,8 +26,10 @@ public class ChatTemplateDetails {
     private String UpdatedDeptEnabled;
     private String UpdatedGroupEnabled;
     private String Query;
+    private String Channel;
 
     public ChatTemplateDetails(Map<String,String> map){
+    	Channel=readChannel(map);
         departmentName=readDepartmentName(map);
         deptEnabled=readDeptEnabled(map);
         groupName=readGroupName(map);
@@ -48,7 +50,12 @@ public class ChatTemplateDetails {
         
     }
 
-    private String readQuery(Map<String, String> map) {
+    private String readChannel(Map<String, String> map) {
+    	String value=map.get("Channel");
+		return value;
+	}
+
+	private String readQuery(Map<String, String> map) {
     	String value=map.get("Query");
         if(value==null||value.equalsIgnoreCase("random.str")){
             value=RandomStringUtils.randomAlphabetic(7);
@@ -250,6 +257,10 @@ public class ChatTemplateDetails {
 
 	public String getQuery() {
 		return Query;
+	}
+
+	public String getChannel() {
+		return Channel;
 	}
 	
 	

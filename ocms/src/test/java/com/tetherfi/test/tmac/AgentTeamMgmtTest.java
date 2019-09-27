@@ -181,10 +181,10 @@ public class AgentTeamMgmtTest extends BaseTest {
         Assert.assertTrue(agentTeamManagementPage.verifyMessage(),"Edit record assertion failed");
     }
     
-    //@Test(priority=15)
+    @Test(priority=15)
     public void VerifyAuditTrialReportForUpdate() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentTeamManagementData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath, "Update").getTestData().get(0);
+        Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(0);
         AgentTeamMgmtDetails agentTeamMgmtDetails=new AgentTeamMgmtDetails(map);
         HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
         homePage.navigateToOCMReportsPage();
@@ -194,7 +194,6 @@ public class AgentTeamMgmtTest extends BaseTest {
         ReportDetails reportDetails= new ReportDetails(map1);
         ocmReportsPage.showReport(reportDetails);
         Assert.assertTrue(ocmReportsPage.verifyAgentTeamMgmtUpdate(agentTeamMgmtDetails,"Update"));
-        screenshot.captureScreen("AgentTeamMgmtTest", "VerifyAuditTrialReportForUpdate");
     }
     
     @Test(priority=16)
@@ -227,7 +226,7 @@ public class AgentTeamMgmtTest extends BaseTest {
         Assert.assertTrue(agentTeamManagementPage.verifyMessage(),"delete record assertion failed");
     }
     
-    //@Test(priority=19)
+    @Test(priority=19)
     public void VerifyAuditTrialReportForDelete() throws Exception {
         OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver, OCMReportsPage.class);
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentTeamManagementData.xlsx";
@@ -287,6 +286,7 @@ public class AgentTeamMgmtTest extends BaseTest {
     	Assert.assertTrue(agentTeamManagementPage.groupby());
     	
     }
+    
     @Test(priority=25)
     public void VerifyArrowMoveForPreviousAndNextPage() {
     	AgentTeamManagementPage agentTeamManagementPage=PageFactory.createPageInstance(driver,AgentTeamManagementPage.class);
