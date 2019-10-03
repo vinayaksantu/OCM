@@ -3,20 +3,22 @@
 <suite name="Failed suite [Failed suite [Default suite]]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)(failed)">
     <classes>
-      <class name="com.tetherfi.test.chat.ChatTemplatesTest">
+      <class name="com.tetherfi.test.TdmThresholdConfigTest">
         <methods>
-          <include name="AddRecordWithoutEnabled"/>
-          <include name="NavigateToChatTemplatesPage"/>
-          <include name="AddEmptyDepartmentRecord"/>
-          <include name="AddRecordWithoutDepartmentName"/>
-          <include name="AddNewGroupsRecord"/>
-          <include name="close"/>
-          <include name="AddNewDepartmentRecord"/>
-          <include name="AddEmptyGroupRecord"/>
-          <include name="VerifyAuditTrialReportForCreateDepartment"/>
-          <include name="VerifyAuditTrialReportForCreateGroup"/>
+          <include name="DeleteNewRow"/>
+          <include name="VerifyAuditTrailReportForUpdate"/>
+          <include name="startTestCase"/>
+          <include name="openApplication"/>
+          <include name="addNewRow"/>
+          <include name="VerifyAuditTrailReportForCreate"/>
+          <include name="endTestCase"/>
+          <include name="UpdateNewRow"/>
+          <include name="tearDown"/>
+          <include name="NavigatetoTdmThresholdConfigPage"/>
+          <include name="VerifyAuditTrailReportForDelete"/>
+          <include name="afterEachMethod"/>
         </methods>
-      </class> <!-- com.tetherfi.test.chat.ChatTemplatesTest -->
+      </class> <!-- com.tetherfi.test.TdmThresholdConfigTest -->
     </classes>
   </test> <!-- Default test(failed)(failed) -->
 </suite> <!-- Failed suite [Failed suite [Default suite]] -->

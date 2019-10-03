@@ -1,84 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="7" total="16" passed="1" failed="7" skipped="1">
+<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2019-09-27T10:46:53 IST" name="Failed suite [Default suite]" finished-at="2019-09-27T10:51:13 IST" duration-ms="259617">
+  <suite started-at="2019-10-03T17:03:15 IST" name="Default suite" finished-at="2019-10-03T17:39:53 IST" duration-ms="2197929">
     <groups>
-      <group name="OCM">
-        <method signature="ChatTemplatesTest.AddDuplicateGroupsRecord()[pri:20, instance:com.tetherfi.test.chat.ChatTemplatesTest@40247d48]" name="AddDuplicateGroupsRecord" class="com.tetherfi.test.chat.ChatTemplatesTest"/>
-        <method signature="ChatTemplatesTest.AddNewDepartmentRecord()[pri:11, instance:com.tetherfi.test.chat.ChatTemplatesTest@40247d48]" name="AddNewDepartmentRecord" class="com.tetherfi.test.chat.ChatTemplatesTest"/>
-        <method signature="ChatTemplatesTest.AddNewGroupsRecord()[pri:19, instance:com.tetherfi.test.chat.ChatTemplatesTest@40247d48]" name="AddNewGroupsRecord" class="com.tetherfi.test.chat.ChatTemplatesTest"/>
-        <method signature="ChatTemplatesTest.AddRecordWithoutDepartmentName()[pri:23, instance:com.tetherfi.test.chat.ChatTemplatesTest@40247d48]" name="AddRecordWithoutDepartmentName" class="com.tetherfi.test.chat.ChatTemplatesTest"/>
-        <method signature="ChatTemplatesTest.AddEmptyDepartmentRecord()[pri:14, instance:com.tetherfi.test.chat.ChatTemplatesTest@40247d48]" name="AddEmptyDepartmentRecord" class="com.tetherfi.test.chat.ChatTemplatesTest"/>
-        <method signature="ChatTemplatesTest.AddEmptyGroupRecord()[pri:22, instance:com.tetherfi.test.chat.ChatTemplatesTest@40247d48]" name="AddEmptyGroupRecord" class="com.tetherfi.test.chat.ChatTemplatesTest"/>
-        <method signature="ChatTemplatesTest.AddRecordWithoutEnabled()[pri:16, instance:com.tetherfi.test.chat.ChatTemplatesTest@40247d48]" name="AddRecordWithoutEnabled" class="com.tetherfi.test.chat.ChatTemplatesTest"/>
-        <method signature="ChatTemplatesTest.VerifyAuditTrialReportForCreateDepartment()[pri:13, instance:com.tetherfi.test.chat.ChatTemplatesTest@40247d48]" name="VerifyAuditTrialReportForCreateDepartment" class="com.tetherfi.test.chat.ChatTemplatesTest"/>
-        <method signature="ChatTemplatesTest.VerifyAuditTrialReportForCreateGroup()[pri:21, instance:com.tetherfi.test.chat.ChatTemplatesTest@40247d48]" name="VerifyAuditTrialReportForCreateGroup" class="com.tetherfi.test.chat.ChatTemplatesTest"/>
-      </group> <!-- OCM -->
     </groups>
-    <test started-at="2019-09-27T10:46:53 IST" name="Default test(failed)" finished-at="2019-09-27T10:51:13 IST" duration-ms="259617">
-      <class name="com.tetherfi.test.chat.ChatTemplatesTest">
-        <test-method is-config="true" signature="NavigateToChatTemplatesPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.chat.ChatTemplatesTest@40247d48]" started-at="2019-09-27T10:46:53 IST" name="NavigateToChatTemplatesPage" finished-at="2019-09-27T10:47:13 IST" duration-ms="19558" status="PASS">
+    <test started-at="2019-10-03T17:03:15 IST" name="Default test" finished-at="2019-10-03T17:39:53 IST" duration-ms="2197929">
+      <class name="com.tetherfi.test.tmac.AgentSettingsWMKTest">
+        <test-method is-config="true" signature="openApplication()[pri:0, instance:com.tetherfi.test.tmac.AgentSettingsWMKTest@d257579]" started-at="2019-10-03T17:03:15 IST" name="openApplication" finished-at="2019-10-03T17:03:25 IST" duration-ms="9875" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openApplication -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.AgentSettingsWMKTest@d257579]" started-at="2019-10-03T17:03:25 IST" name="startTestCase" finished-at="2019-10-03T17:03:25 IST" duration-ms="4" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.chat.ChatTemplatesTest.AddNewDepartmentRecord() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.tmac.AgentSettingsWMKTest.AddNewSupervisorRecord() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- NavigateToChatTemplatesPage -->
-        <test-method signature="AddNewDepartmentRecord()[pri:11, instance:com.tetherfi.test.chat.ChatTemplatesTest@40247d48]" started-at="2019-09-27T10:47:13 IST" name="AddNewDepartmentRecord" finished-at="2019-09-27T10:47:39 IST" duration-ms="25663" status="FAIL">
-          <exception class="org.openqa.selenium.TimeoutException">
+        </test-method> <!-- startTestCase -->
+        <test-method is-config="true" signature="NavigateToAgentSettingsPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.AgentSettingsWMKTest@d257579]" started-at="2019-10-03T17:03:25 IST" name="NavigateToAgentSettingsPage" finished-at="2019-10-03T17:03:29 IST" duration-ms="3922" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.tmac.AgentSettingsWMKTest.AddNewSupervisorRecord() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToAgentSettingsPage -->
+        <test-method signature="AddNewSupervisorRecord()[pri:0, instance:com.tetherfi.test.tmac.AgentSettingsWMKTest@d257579]" started-at="2019-10-03T17:03:29 IST" name="AddNewSupervisorRecord" finished-at="2019-10-03T17:39:47 IST" duration-ms="2177770" status="FAIL">
+          <exception class="org.openqa.selenium.WebDriverException">
             <message>
-              <![CDATA[Expected condition failed: waiting for text ('Record Created Successfully') to be present in element Proxy element for: DefaultElementLocator 'By.cssSelector: .toast-message' (tried for 20 second(s) with 500 milliseconds interval)]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for text ('Record Created Successfully') to be present in element Proxy element for: DefaultElementLocator 'By.cssSelector: .toast-message' (tried for 20 second(s) with 500 milliseconds interval)
-at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
-at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
-at com.tetherfi.pages.BasePage.waitUntilTextToBePresentInWebElement(BasePage.java:146)
-at com.tetherfi.pages.ChatTemplatesPage.verifyNewRecordCreated(ChatTemplatesPage.java:477)
-at com.tetherfi.test.chat.ChatTemplatesTest.AddNewDepartmentRecord(ChatTemplatesTest.java:177)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(Unknown Source)
-at org.testng.TestRunner.privateRun(TestRunner.java:770)
-at org.testng.TestRunner.run(TestRunner.java:591)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-at org.testng.TestNG.runSuites(TestNG.java:1032)
-at org.testng.TestNG.run(TestNG.java:1000)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"css selector","selector":".toast-message"}
+              <![CDATA[chrome not reachable
   (Session info: chrome=77.0.3865.90)
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
 Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
 System info: host: 'ADMIN', ip: '192.168.1.15', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '9.0.4'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 77.0.3865.90, chrome: {chromedriverVersion: 76.0.3809.68 (420c9498db8ce..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:62142}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 0979fb006d49b0cdf270866e33c059b8
-*** Element info: {Using=css selector, value=.toast-message}
-at jdk.internal.reflect.GeneratedConstructorAccessor29.newInstance(Unknown Source)
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 77.0.3865.90, chrome: {chromedriverVersion: 76.0.3809.68 (420c9498db8ce..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:59897}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: f293565c93d99a665a3615a23b03066e
+*** Element info: {Using=id, value=create}]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.WebDriverException: chrome not reachable
+  (Session info: chrome=77.0.3865.90)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'ADMIN', ip: '192.168.1.15', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '9.0.4'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 77.0.3865.90, chrome: {chromedriverVersion: 76.0.3809.68 (420c9498db8ce..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:59897}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: f293565c93d99a665a3615a23b03066e
+*** Element info: {Using=id, value=create}
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
 at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
 at java.base/java.lang.reflect.Constructor.newInstance(Unknown Source)
 at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
@@ -88,56 +65,21 @@ at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.ja
 at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
 at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
 at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
-at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:420)
-at org.openqa.selenium.By$ByCssSelector.findElement(By.java:431)
+at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:372)
+at org.openqa.selenium.By$ById.findElement(By.java:188)
 at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
 at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
 at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
-at com.sun.proxy.$Proxy12.getText(Unknown Source)
-at org.openqa.selenium.support.ui.ExpectedConditions$12.apply(ExpectedConditions.java:353)
-at org.openqa.selenium.support.ui.ExpectedConditions$12.apply(ExpectedConditions.java:349)
+at com.sun.proxy.$Proxy14.isDisplayed(Unknown Source)
+at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:314)
+at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:43)
+at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:300)
+at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:297)
 at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
-... 31 more
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.TimeoutException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- AddNewDepartmentRecord -->
-        <test-method is-config="true" signature="close(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.chat.ChatTemplatesTest@40247d48]" started-at="2019-09-27T10:47:39 IST" name="close" finished-at="2019-09-27T10:47:42 IST" duration-ms="3631" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.chat.ChatTemplatesTest.AddNewDepartmentRecord() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- close -->
-        <test-method is-config="true" signature="NavigateToChatTemplatesPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.chat.ChatTemplatesTest@40247d48]" started-at="2019-09-27T10:47:42 IST" name="NavigateToChatTemplatesPage" finished-at="2019-09-27T10:47:59 IST" duration-ms="16910" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.chat.ChatTemplatesTest.VerifyAuditTrialReportForCreateDepartment() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToChatTemplatesPage -->
-        <test-method signature="VerifyAuditTrialReportForCreateDepartment()[pri:13, instance:com.tetherfi.test.chat.ChatTemplatesTest@40247d48]" started-at="2019-09-27T10:47:59 IST" name="VerifyAuditTrialReportForCreateDepartment" finished-at="2019-09-27T10:48:21 IST" duration-ms="22049" status="FAIL">
-          <exception class="java.lang.AssertionError">
-            <message>
-              <![CDATA[did not expect to find [true] but found [false]]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: did not expect to find [true] but found [false]
-at org.testng.Assert.fail(Assert.java:97)
-at org.testng.Assert.failNotEquals(Assert.java:969)
-at org.testng.Assert.assertTrue(Assert.java:43)
-at org.testng.Assert.assertTrue(Assert.java:53)
-at com.tetherfi.test.chat.ChatTemplatesTest.VerifyAuditTrialReportForCreateDepartment(ChatTemplatesTest.java:203)
+at com.tetherfi.pages.BasePage.waitUntilWebElementIsVisible(BasePage.java:127)
+at com.tetherfi.pages.BasePage.selectWebElement(BasePage.java:191)
+at com.tetherfi.pages.AgentSettingsNewDesignPage.addNewAgentSettingsRecord(AgentSettingsNewDesignPage.java:535)
+at com.tetherfi.test.tmac.AgentSettingsWMKTest.AddNewSupervisorRecord(AgentSettingsWMKTest.java:42)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -168,139 +110,63 @@ at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 ]]>
             </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
+          </exception> <!-- org.openqa.selenium.WebDriverException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- VerifyAuditTrialReportForCreateDepartment -->
-        <test-method is-config="true" signature="close(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.chat.ChatTemplatesTest@40247d48]" started-at="2019-09-27T10:48:21 IST" name="close" finished-at="2019-09-27T10:48:25 IST" duration-ms="3373" status="PASS">
+        </test-method> <!-- AddNewSupervisorRecord -->
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.AgentSettingsWMKTest@d257579]" started-at="2019-10-03T17:39:47 IST" name="endTestCase" finished-at="2019-10-03T17:39:47 IST" duration-ms="1" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.chat.ChatTemplatesTest.VerifyAuditTrialReportForCreateDepartment() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.tmac.AgentSettingsWMKTest.AddNewSupervisorRecord() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- close -->
-        <test-method is-config="true" signature="NavigateToChatTemplatesPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.chat.ChatTemplatesTest@40247d48]" started-at="2019-09-27T10:48:25 IST" name="NavigateToChatTemplatesPage" finished-at="2019-09-27T10:48:40 IST" duration-ms="15107" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.chat.ChatTemplatesTest.AddEmptyDepartmentRecord() throws java.io.IOException]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToChatTemplatesPage -->
-        <test-method signature="AddEmptyDepartmentRecord()[pri:14, instance:com.tetherfi.test.chat.ChatTemplatesTest@40247d48]" started-at="2019-09-27T10:48:40 IST" name="AddEmptyDepartmentRecord" finished-at="2019-09-27T10:48:42 IST" duration-ms="2171" status="FAIL">
-          <exception class="java.lang.AssertionError">
+        </test-method> <!-- endTestCase -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.tetherfi.test.tmac.AgentSettingsWMKTest@d257579]" started-at="2019-10-03T17:39:47 IST" name="tearDown" finished-at="2019-10-03T17:39:53 IST" duration-ms="6258" status="FAIL">
+          <exception class="org.openqa.selenium.WebDriverException">
             <message>
-              <![CDATA[Add invalid record assertion failed expected [×
-Please Provide Name, Enabled,Channel] but found [×
-Please Provide Name, Enabled, Channel]]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: Add invalid record assertion failed expected [×
-Please Provide Name, Enabled,Channel] but found [×
-Please Provide Name, Enabled, Channel]
-at org.testng.Assert.fail(Assert.java:97)
-at org.testng.Assert.assertEqualsImpl(Assert.java:136)
-at org.testng.Assert.assertEquals(Assert.java:118)
-at org.testng.Assert.assertEquals(Assert.java:575)
-at com.tetherfi.test.chat.ChatTemplatesTest.AddEmptyDepartmentRecord(ChatTemplatesTest.java:214)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(Unknown Source)
-at org.testng.TestRunner.privateRun(TestRunner.java:770)
-at org.testng.TestRunner.run(TestRunner.java:591)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-at org.testng.TestNG.runSuites(TestNG.java:1032)
-at org.testng.TestNG.run(TestNG.java:1000)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- AddEmptyDepartmentRecord -->
-        <test-method is-config="true" signature="close(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.chat.ChatTemplatesTest@40247d48]" started-at="2019-09-27T10:48:42 IST" name="close" finished-at="2019-09-27T10:48:42 IST" duration-ms="402" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.chat.ChatTemplatesTest.AddEmptyDepartmentRecord() throws java.io.IOException]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- close -->
-        <test-method is-config="true" signature="NavigateToChatTemplatesPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.chat.ChatTemplatesTest@40247d48]" started-at="2019-09-27T10:48:42 IST" name="NavigateToChatTemplatesPage" finished-at="2019-09-27T10:48:57 IST" duration-ms="15177" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.chat.ChatTemplatesTest.AddRecordWithoutEnabled() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToChatTemplatesPage -->
-        <test-method signature="AddRecordWithoutEnabled()[pri:16, instance:com.tetherfi.test.chat.ChatTemplatesTest@40247d48]" started-at="2019-09-27T10:48:57 IST" name="AddRecordWithoutEnabled" finished-at="2019-09-27T10:49:20 IST" duration-ms="22284" status="FAIL">
-          <exception class="org.openqa.selenium.TimeoutException">
-            <message>
-              <![CDATA[Expected condition failed: waiting for visibility of [[ChromeDriver: chrome on XP (9dc059e6f0106697adfe09c14a7e2a85)] -> css selector: ul[id='Channel_listbox'] li] (tried for 20 second(s) with 500 milliseconds interval)
+              <![CDATA[chrome not reachable
+  (Session info: chrome=77.0.3865.90)
 Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
 System info: host: 'ADMIN', ip: '192.168.1.15', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '9.0.4'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 77.0.3865.90, chrome: {chromedriverVersion: 76.0.3809.68 (420c9498db8ce..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:64209}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 9dc059e6f0106697adfe09c14a7e2a85]]>
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 77.0.3865.90, chrome: {chromedriverVersion: 76.0.3809.68 (420c9498db8ce..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:59897}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: f293565c93d99a665a3615a23b03066e]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of [[ChromeDriver: chrome on XP (9dc059e6f0106697adfe09c14a7e2a85)] -> css selector: ul[id='Channel_listbox'] li] (tried for 20 second(s) with 500 milliseconds interval)
+              <![CDATA[org.openqa.selenium.WebDriverException: chrome not reachable
+  (Session info: chrome=77.0.3865.90)
 Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
 System info: host: 'ADMIN', ip: '192.168.1.15', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '9.0.4'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 77.0.3865.90, chrome: {chromedriverVersion: 76.0.3809.68 (420c9498db8ce..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:64209}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 9dc059e6f0106697adfe09c14a7e2a85
-at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
-at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
-at com.tetherfi.pages.BasePage.waitUntilWebElementListIsVisible(BasePage.java:139)
-at com.tetherfi.pages.BasePage.selectDropdownFromVisibleText(BasePage.java:328)
-at com.tetherfi.pages.ChatTemplatesPage.addRecordWithoutEnabled(ChatTemplatesPage.java:667)
-at com.tetherfi.test.chat.ChatTemplatesTest.AddRecordWithoutEnabled(ChatTemplatesTest.java:235)
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 77.0.3865.90, chrome: {chromedriverVersion: 76.0.3809.68 (420c9498db8ce..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:59897}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: f293565c93d99a665a3615a23b03066e
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+at java.base/java.lang.reflect.Constructor.newInstance(Unknown Source)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:609)
+at org.openqa.selenium.remote.RemoteWebDriver.close(RemoteWebDriver.java:442)
+at com.tetherfi.test.BaseTest.tearDown(BaseTest.java:59)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 at java.base/java.lang.reflect.Method.invoke(Unknown Source)
 at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:62)
+at org.testng.internal.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:340)
+at org.testng.internal.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:294)
+at org.testng.internal.TestMethodWorker.invokeAfterClassMethods(TestMethodWorker.java:217)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:130)
 at java.base/java.util.ArrayList.forEach(Unknown Source)
 at org.testng.TestRunner.privateRun(TestRunner.java:770)
 at org.testng.TestRunner.run(TestRunner.java:591)
@@ -319,286 +185,11 @@ at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 ]]>
             </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.TimeoutException -->
+          </exception> <!-- org.openqa.selenium.WebDriverException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- AddRecordWithoutEnabled -->
-        <test-method is-config="true" signature="close(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.chat.ChatTemplatesTest@40247d48]" started-at="2019-09-27T10:49:20 IST" name="close" finished-at="2019-09-27T10:49:20 IST" duration-ms="343" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.chat.ChatTemplatesTest.AddRecordWithoutEnabled() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- close -->
-        <test-method signature="AddNewGroupsRecord()[pri:19, instance:com.tetherfi.test.chat.ChatTemplatesTest@40247d48]" started-at="2019-09-27T10:49:20 IST" name="AddNewGroupsRecord" finished-at="2019-09-27T10:49:20 IST" depends-on-methods="com.tetherfi.test.chat.ChatTemplatesTest.AddNewDepartmentRecord" duration-ms="0" status="SKIP">
-          <exception class="java.lang.Throwable">
-            <message>
-              <![CDATA[Method ChatTemplatesTest.AddNewGroupsRecord()[pri:19, instance:com.tetherfi.test.chat.ChatTemplatesTest@40247d48] depends on not successfully finished methods]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.Throwable: Method ChatTemplatesTest.AddNewGroupsRecord()[pri:19, instance:com.tetherfi.test.chat.ChatTemplatesTest@40247d48] depends on not successfully finished methods
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:99)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(Unknown Source)
-at org.testng.TestRunner.privateRun(TestRunner.java:770)
-at org.testng.TestRunner.run(TestRunner.java:591)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-at org.testng.TestNG.runSuites(TestNG.java:1032)
-at org.testng.TestNG.run(TestNG.java:1000)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.Throwable -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- AddNewGroupsRecord -->
-        <test-method is-config="true" signature="NavigateToChatTemplatesPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.chat.ChatTemplatesTest@40247d48]" started-at="2019-09-27T10:49:20 IST" name="NavigateToChatTemplatesPage" finished-at="2019-09-27T10:49:35 IST" duration-ms="15039" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.chat.ChatTemplatesTest.AddDuplicateGroupsRecord() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToChatTemplatesPage -->
-        <test-method signature="AddDuplicateGroupsRecord()[pri:20, instance:com.tetherfi.test.chat.ChatTemplatesTest@40247d48]" started-at="2019-09-27T10:49:35 IST" name="AddDuplicateGroupsRecord" finished-at="2019-09-27T10:49:46 IST" duration-ms="10446" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- AddDuplicateGroupsRecord -->
-        <test-method is-config="true" signature="close(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.chat.ChatTemplatesTest@40247d48]" started-at="2019-09-27T10:49:46 IST" name="close" finished-at="2019-09-27T10:49:46 IST" duration-ms="443" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.chat.ChatTemplatesTest.AddDuplicateGroupsRecord() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- close -->
-        <test-method is-config="true" signature="NavigateToChatTemplatesPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.chat.ChatTemplatesTest@40247d48]" started-at="2019-09-27T10:49:46 IST" name="NavigateToChatTemplatesPage" finished-at="2019-09-27T10:50:01 IST" duration-ms="15214" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.chat.ChatTemplatesTest.VerifyAuditTrialReportForCreateGroup() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToChatTemplatesPage -->
-        <test-method signature="VerifyAuditTrialReportForCreateGroup()[pri:21, instance:com.tetherfi.test.chat.ChatTemplatesTest@40247d48]" started-at="2019-09-27T10:50:01 IST" name="VerifyAuditTrialReportForCreateGroup" finished-at="2019-09-27T10:50:23 IST" duration-ms="21987" status="FAIL">
-          <exception class="java.lang.NullPointerException">
-            <full-stacktrace>
-              <![CDATA[java.lang.NullPointerException
-at com.tetherfi.pages.OCMReportsPage.verifyChatTemplatesGroupCreate(OCMReportsPage.java:4367)
-at com.tetherfi.test.chat.ChatTemplatesTest.VerifyAuditTrialReportForCreateGroup(ChatTemplatesTest.java:293)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(Unknown Source)
-at org.testng.TestRunner.privateRun(TestRunner.java:770)
-at org.testng.TestRunner.run(TestRunner.java:591)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-at org.testng.TestNG.runSuites(TestNG.java:1032)
-at org.testng.TestNG.run(TestNG.java:1000)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.NullPointerException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- VerifyAuditTrialReportForCreateGroup -->
-        <test-method is-config="true" signature="close(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.chat.ChatTemplatesTest@40247d48]" started-at="2019-09-27T10:50:23 IST" name="close" finished-at="2019-09-27T10:50:26 IST" duration-ms="3243" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.chat.ChatTemplatesTest.VerifyAuditTrialReportForCreateGroup() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- close -->
-        <test-method is-config="true" signature="NavigateToChatTemplatesPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.chat.ChatTemplatesTest@40247d48]" started-at="2019-09-27T10:50:26 IST" name="NavigateToChatTemplatesPage" finished-at="2019-09-27T10:50:41 IST" duration-ms="14640" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.chat.ChatTemplatesTest.AddEmptyGroupRecord() throws java.io.IOException]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToChatTemplatesPage -->
-        <test-method signature="AddEmptyGroupRecord()[pri:22, instance:com.tetherfi.test.chat.ChatTemplatesTest@40247d48]" started-at="2019-09-27T10:50:41 IST" name="AddEmptyGroupRecord" finished-at="2019-09-27T10:50:48 IST" duration-ms="7285" status="FAIL">
-          <exception class="java.lang.AssertionError">
-            <message>
-              <![CDATA[Add invalid record assertion failed expected [×
-Please Provide Department Name, Name, Enabled] but found [×
-Please Provide Name, Enabled]]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: Add invalid record assertion failed expected [×
-Please Provide Department Name, Name, Enabled] but found [×
-Please Provide Name, Enabled]
-at org.testng.Assert.fail(Assert.java:97)
-at org.testng.Assert.assertEqualsImpl(Assert.java:136)
-at org.testng.Assert.assertEquals(Assert.java:118)
-at org.testng.Assert.assertEquals(Assert.java:575)
-at com.tetherfi.test.chat.ChatTemplatesTest.AddEmptyGroupRecord(ChatTemplatesTest.java:304)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(Unknown Source)
-at org.testng.TestRunner.privateRun(TestRunner.java:770)
-at org.testng.TestRunner.run(TestRunner.java:591)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-at org.testng.TestNG.runSuites(TestNG.java:1032)
-at org.testng.TestNG.run(TestNG.java:1000)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- AddEmptyGroupRecord -->
-        <test-method is-config="true" signature="close(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.chat.ChatTemplatesTest@40247d48]" started-at="2019-09-27T10:50:48 IST" name="close" finished-at="2019-09-27T10:50:49 IST" duration-ms="422" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.chat.ChatTemplatesTest.AddEmptyGroupRecord() throws java.io.IOException]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- close -->
-        <test-method is-config="true" signature="NavigateToChatTemplatesPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.chat.ChatTemplatesTest@40247d48]" started-at="2019-09-27T10:50:49 IST" name="NavigateToChatTemplatesPage" finished-at="2019-09-27T10:51:04 IST" duration-ms="14941" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.chat.ChatTemplatesTest.AddRecordWithoutDepartmentName() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToChatTemplatesPage -->
-        <test-method signature="AddRecordWithoutDepartmentName()[pri:23, instance:com.tetherfi.test.chat.ChatTemplatesTest@40247d48]" started-at="2019-09-27T10:51:04 IST" name="AddRecordWithoutDepartmentName" finished-at="2019-09-27T10:51:12 IST" duration-ms="8750" status="FAIL">
-          <exception class="java.lang.AssertionError">
-            <message>
-              <![CDATA[Add invalid record assertion failed expected [×
-Please Provide Department Name] but found [×
-Duplicate Name]]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: Add invalid record assertion failed expected [×
-Please Provide Department Name] but found [×
-Duplicate Name]
-at org.testng.Assert.fail(Assert.java:97)
-at org.testng.Assert.assertEqualsImpl(Assert.java:136)
-at org.testng.Assert.assertEquals(Assert.java:118)
-at org.testng.Assert.assertEquals(Assert.java:575)
-at com.tetherfi.test.chat.ChatTemplatesTest.AddRecordWithoutDepartmentName(ChatTemplatesTest.java:315)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(Unknown Source)
-at org.testng.TestRunner.privateRun(TestRunner.java:770)
-at org.testng.TestRunner.run(TestRunner.java:591)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-at org.testng.TestNG.runSuites(TestNG.java:1032)
-at org.testng.TestNG.run(TestNG.java:1000)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- AddRecordWithoutDepartmentName -->
-        <test-method is-config="true" signature="close(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.chat.ChatTemplatesTest@40247d48]" started-at="2019-09-27T10:51:12 IST" name="close" finished-at="2019-09-27T10:51:13 IST" duration-ms="372" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.chat.ChatTemplatesTest.AddRecordWithoutDepartmentName() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- close -->
-      </class> <!-- com.tetherfi.test.chat.ChatTemplatesTest -->
-    </test> <!-- Default test(failed) -->
-  </suite> <!-- Failed suite [Default suite] -->
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.tetherfi.test.tmac.AgentSettingsWMKTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>

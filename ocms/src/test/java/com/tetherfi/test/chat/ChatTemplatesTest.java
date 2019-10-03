@@ -21,6 +21,7 @@ import java.io.IOException;
 import java.lang.reflect.Method;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 public class ChatTemplatesTest {
 	protected WebDriver driver;
@@ -87,9 +88,10 @@ public class ChatTemplatesTest {
 	        tmacloginPage.switchToNewWindow();
 	        Assert.assertTrue(tmacloginPage.isTmacPopUpDisplayed(),"TMAC popup not displayed");
 	    }
+	    driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
       }
     
-    /*@Test(priority=1,groups= {"OCM"})
+    @Test(priority=1,groups= {"OCM"})
 	public void ChatTemplatePage() {
         ChatTemplatesPage ChatTemplatePage = PageFactory.createPageInstance(driver, ChatTemplatesPage.class);
         Assert.assertTrue(ChatTemplatePage.VerifyLogo(),"Logo assertion failed");
@@ -343,7 +345,7 @@ public class ChatTemplatesTest {
         ChatTemplatesPage.clickOnAddGroupRecord();
         ChatTemplatesPage.clickOnCancelBtn();
         Assert.assertFalse(ChatTemplatesPage.verifyEditFormContainer(), "Cancel Btn at Add record assertion failed");
-	}*/
+	}
     
     @Test(priority=27,groups= {"OCM"})//,dependsOnMethods = "AddNewGroupsRecord")
     public void AddNewChatTemplatesRecord() throws Exception {
@@ -355,17 +357,17 @@ public class ChatTemplatesTest {
         Assert.assertTrue(chatTemplatesPage.verifyNewRecordCreated(),"Add New record assertion failed");
     }
     
-    @Test(priority=28,groups= {"OCM"},dependsOnMethods = "AddNewChatTemplatesRecord")
+    @Test(priority=28,groups= {"OCM"})//,dependsOnMethods = "AddNewChatTemplatesRecord")
     public void AddDuplicateChatTemplatesRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
         ChatTemplateDetails ChatTemplatesDetails = new ChatTemplateDetails(map);
         ChatTemplatesPage ChatTemplatesPage = PageFactory.createPageInstance(driver, ChatTemplatesPage.class);
         ChatTemplatesPage.addNewChatTemplatesRecord(ChatTemplatesDetails);
-        Assert.assertEquals(ChatTemplatesPage.getMessage(),"×\nDuplicate Name");
+        Assert.assertEquals(ChatTemplatesPage.getMessage(),"×\nDuplicate record. Department Name, Group Name,Name combination should be unique.");
     }
     
-    @Test(priority=29,groups= {"OCM"},dependsOnMethods ="AddNewChatTemplatesRecord")
+    @Test(priority=29,groups= {"OCM"})//,dependsOnMethods ="AddNewChatTemplatesRecord")
     public void VerifyAuditTrialReportForCreate() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -449,7 +451,7 @@ public class ChatTemplatesTest {
         Assert.assertEquals(ChatTemplatesPage.getMessage(),"×\nPlease Provide End Time", "Add invalid record assertion failed");
     }
     
-    @Test(priority=36)
+    @Test(priority=37,groups= {"OCM"})
     public void AddRecordWithoutChatEnabled() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"CreateGroup").getTestData().get(0);
@@ -459,7 +461,7 @@ public class ChatTemplatesTest {
         Assert.assertEquals(ChatTemplatesPage.getMessage(),"×\nPlease Provide Enabled", "Add invalid record assertion failed");
     }
     
-    @Test(priority=37)
+    @Test(priority=38,groups= {"OCM"})
     public void VerifyCancelBtnAtAddChatTemplateRecord(){
         ChatTemplatesPage ChatTemplatesPage = PageFactory.createPageInstance(driver, ChatTemplatesPage.class);
         ChatTemplatesPage.clickOnAddRecord();
@@ -467,7 +469,7 @@ public class ChatTemplatesTest {
         Assert.assertFalse(ChatTemplatesPage.verifyEditFormContainer(), "Cancel Btn at Add record assertion failed");
 	}
     
-    @Test(priority=38)
+    @Test(priority=39,groups= {"OCM"})
     public void DepartmentExportToExcel() throws Exception
     {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles";
@@ -476,7 +478,7 @@ public class ChatTemplatesTest {
         Assert.assertTrue(chatTemplatesPage.verifyDepartmentExportToExcel(filePath));
     }
     
-    @Test(priority=39)
+    @Test(priority=40,groups= {"OCM"})
     public void DepartmentExportToExcelData() throws Exception
     {	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\ChatTemplatesDepartment.xlsx";
     	List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
@@ -485,7 +487,7 @@ public class ChatTemplatesTest {
         Assert.assertTrue(chatTemplatesPage.verifyexportToExcelDepartmentSheet(maplist));	
     } 
     
-    @Test(priority=40)
+    @Test(priority=41,groups= {"OCM"})
     public void DepatmentSortingByAscending() throws IOException {
         ChatTemplatesPage chatTemplatesPage = PageFactory.createPageInstance(driver, ChatTemplatesPage.class);
         chatTemplatesPage.navigateToTab("Departments");
@@ -495,7 +497,7 @@ public class ChatTemplatesTest {
         Assert.assertTrue(chatTemplatesPage.verifyexportToExcelDepartmentSheet(maplist));
     }
     
-    @Test(priority=41)
+    @Test(priority=42,groups= {"OCM"})
     public void DepartmentSortingByDescending() throws IOException {
         ChatTemplatesPage chatTemplatesPage = PageFactory.createPageInstance(driver, ChatTemplatesPage.class);
         chatTemplatesPage.navigateToTab("Departments");
@@ -505,7 +507,7 @@ public class ChatTemplatesTest {
         Assert.assertTrue(chatTemplatesPage.verifyexportToExcelDepartmentSheet(maplist));
     }
     
-    @Test(priority=42)
+    @Test(priority=43,groups= {"OCM"})
     public void GroupsExportToExcel() throws Exception
     {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles";
@@ -514,7 +516,7 @@ public class ChatTemplatesTest {
         Assert.assertTrue(chatTemplatesPage.verifyGroupsExportToExcel(filePath));
     }
     
-    @Test(priority=43)
+    @Test(priority=44,groups= {"OCM"})
     public void GroupsExportToExcelData() throws Exception
     {	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\ChatTemplateGroup.xlsx";
     	List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
@@ -523,27 +525,27 @@ public class ChatTemplatesTest {
         Assert.assertTrue(chatTemplatesPage.verifyexportToExcelGroupsSheet(maplist));	
     } 
     
-    @Test(priority=44)
+    @Test(priority=45,groups= {"OCM"})
     public void GroupsSortingByAscending() throws IOException {
         ChatTemplatesPage chatTemplatesPage = PageFactory.createPageInstance(driver, ChatTemplatesPage.class);
         chatTemplatesPage.navigateToTab("Groups");
         chatTemplatesPage.SortByGroupAscending();
-    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\ChatTemplateGroups (1).xlsx";
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\ChatTemplateGroup (1).xlsx";
         List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
         Assert.assertTrue(chatTemplatesPage.verifyexportToExcelGroupsSheet(maplist));
     }
     
-    @Test(priority=45)
+    @Test(priority=46,groups= {"OCM"})
     public void GroupsSortingByDescending() throws IOException {
         ChatTemplatesPage chatTemplatesPage = PageFactory.createPageInstance(driver, ChatTemplatesPage.class);
         chatTemplatesPage.navigateToTab("Groups");
         chatTemplatesPage.SortByGroupDescending();
-    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\ChatTemplateGroups (2).xlsx";
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\ChatTemplateGroup (2).xlsx";
         List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
         Assert.assertTrue(chatTemplatesPage.verifyexportToExcelGroupsSheet(maplist));
     }
     
-    @Test(priority=46)
+    @Test(priority=47,groups= {"OCM"})
     public void ExportToExcel() throws Exception
     {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles";
@@ -551,7 +553,7 @@ public class ChatTemplatesTest {
         Assert.assertTrue(chatTemplatesPage.verifyExportToExcel(filePath));
     }
     
-    @Test(priority=47)
+    @Test(priority=48,groups= {"OCM"})
     public void ExportToExcelData() throws Exception
     {	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Chat Templates.xlsx";
     	List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
@@ -559,7 +561,7 @@ public class ChatTemplatesTest {
         Assert.assertTrue(chatTemplatesPage.verifyexportToExcelSheet(maplist));	
     } 
     
-    @Test(priority=48)
+    @Test(priority=49,groups= {"OCM"})
     public void SortingByAscending() throws IOException {
         ChatTemplatesPage chatTemplatesPage = PageFactory.createPageInstance(driver, ChatTemplatesPage.class);
         chatTemplatesPage.SortByAscending();
@@ -568,7 +570,7 @@ public class ChatTemplatesTest {
         Assert.assertTrue(chatTemplatesPage.verifyexportToExcelSheet(maplist));
     }
     
-    @Test(priority=49)
+    @Test(priority=50,groups= {"OCM"})
     public void SortingByDescending() throws IOException {
         ChatTemplatesPage chatTemplatesPage = PageFactory.createPageInstance(driver, ChatTemplatesPage.class);
         chatTemplatesPage.SortByDescending();
@@ -577,87 +579,87 @@ public class ChatTemplatesTest {
         Assert.assertTrue(chatTemplatesPage.verifyexportToExcelSheet(maplist));
     }
     
-    @Test(priority=50)
+    @Test(priority=51,groups= {"OCM"})
     public void VerifyDepartmentArrowMoveForPreviousAndNextPage() {
         ChatTemplatesPage chatTemplatesPage = PageFactory.createPageInstance(driver, ChatTemplatesPage.class);
         chatTemplatesPage.navigateToTab("Departments");
         Assert.assertTrue(chatTemplatesPage.verifyArrowMoveForPreviousAndNextPage(0),"arrow move for previous and next page assertion failed");
     }
     
-    @Test(priority=51)
+    @Test(priority=52,groups= {"OCM"})
     public void VerifyDepartmentArrowMoveForFirstAndLastPage() {
         ChatTemplatesPage chatTemplatesPage = PageFactory.createPageInstance(driver, ChatTemplatesPage.class);
         chatTemplatesPage.navigateToTab("Departments");
         Assert.assertTrue(chatTemplatesPage.verifyArrowMoveForFirstAndLastPage(0),"arrow move for first and last page assertion failed");
     }
     
-    @Test(priority=52)
+    @Test(priority=53,groups= {"OCM"})
     public void VerifyDepartmentTotalNumberOfItemsPerPageDetails() {
         ChatTemplatesPage chatTemplatesPage = PageFactory.createPageInstance(driver, ChatTemplatesPage.class);
         chatTemplatesPage.navigateToTab("Departments");
         Assert.assertTrue(chatTemplatesPage.verifyTotalNumberOfItemsPerPageDetails(0),"item per page assertion failed");
     }
     
-    @Test(priority=53)
+    @Test(priority=54,groups= {"OCM"})
     public void VerifyDepartmentNumberOfItemsPerPageSelection() {
         ChatTemplatesPage chatTemplatesPage = PageFactory.createPageInstance(driver, ChatTemplatesPage.class);
         chatTemplatesPage.navigateToTab("Departments");
         Assert.assertTrue(chatTemplatesPage.verifyNumberOfItemsPerPage(0),"item per page assertion failed");
     }
     
-    @Test(priority=54)
+    @Test(priority=55,groups= {"OCM"})
     public void VerifyGroupsArrowMoveForPreviousAndNextPage() {
         ChatTemplatesPage chatTemplatesPage = PageFactory.createPageInstance(driver, ChatTemplatesPage.class);
         chatTemplatesPage.navigateToTab("Groups");
         Assert.assertTrue(chatTemplatesPage.verifyArrowMoveForPreviousAndNextPage(1),"arrow move for previous and next page assertion failed");
     }
     
-    @Test(priority=55)
+    @Test(priority=56,groups= {"OCM"})
     public void VerifyGroupsArrowMoveForFirstAndLastPage() {
         ChatTemplatesPage chatTemplatesPage = PageFactory.createPageInstance(driver, ChatTemplatesPage.class);
         chatTemplatesPage.navigateToTab("Groups");
         Assert.assertTrue(chatTemplatesPage.verifyArrowMoveForFirstAndLastPage(1),"arrow move for first and last page assertion failed");
     }
     
-    @Test(priority=56)
+    @Test(priority=57,groups= {"OCM"})
     public void VerifyGroupsTotalNumberOfItemsPerPageDetails() {
         ChatTemplatesPage chatTemplatesPage = PageFactory.createPageInstance(driver, ChatTemplatesPage.class);
         chatTemplatesPage.navigateToTab("Groups");
         Assert.assertTrue(chatTemplatesPage.verifyTotalNumberOfItemsPerPageDetails(1),"item per page assertion failed");
     }
     
-    @Test(priority=57)
+    @Test(priority=58,groups= {"OCM"})
     public void VerifyGroupsNumberOfItemsPerPageSelection() {
         ChatTemplatesPage chatTemplatesPage = PageFactory.createPageInstance(driver, ChatTemplatesPage.class);
         chatTemplatesPage.navigateToTab("Groups");
         Assert.assertTrue(chatTemplatesPage.verifyNumberOfItemsPerPage(1),"item per page assertion failed");
     }
     
-    @Test(priority=58)
+    @Test(priority=59,groups= {"OCM"})
     public void VerifyArrowMoveForPreviousAndNextPage() {
         ChatTemplatesPage chatTemplatesPage = PageFactory.createPageInstance(driver, ChatTemplatesPage.class);
         Assert.assertTrue(chatTemplatesPage.verifyArrowMoveForPreviousAndNextPage(2),"arrow move for previous and next page assertion failed");
     }
     
-    @Test(priority=59)
+    @Test(priority=60,groups= {"OCM"})
     public void VerifyArrowMoveForFirstAndLastPage() {
         ChatTemplatesPage chatTemplatesPage = PageFactory.createPageInstance(driver, ChatTemplatesPage.class);
         Assert.assertTrue(chatTemplatesPage.verifyArrowMoveForFirstAndLastPage(2),"arrow move for first and last page assertion failed");
     }
     
-    @Test(priority=60)
+    @Test(priority=61,groups= {"OCM"})
     public void VerifyTotalNumberOfItemsPerPageDetails() {
         ChatTemplatesPage chatTemplatesPage = PageFactory.createPageInstance(driver, ChatTemplatesPage.class);
         Assert.assertTrue(chatTemplatesPage.verifyTotalNumberOfItemsPerPageDetails(2),"item per page assertion failed");
     }
     
-    @Test(priority=61)
+    @Test(priority=62,groups= {"OCM"})
     public void VerifyNumberOfItemsPerPageSelection() {
         ChatTemplatesPage chatTemplatesPage = PageFactory.createPageInstance(driver, ChatTemplatesPage.class);
         Assert.assertTrue(chatTemplatesPage.verifyNumberOfItemsPerPage(2),"item per page assertion failed");
     }
     
-    @Test(priority=62)
+    @Test(priority=63,groups= {"OCM"})
     public void VerifyDepartmentDragAndDrop() throws Exception {
         ChatTemplatesPage chatTemplatesPage = PageFactory.createPageInstance(driver, ChatTemplatesPage.class);
         chatTemplatesPage.navigateToTab("Departments");
@@ -665,7 +667,7 @@ public class ChatTemplatesTest {
         chatTemplatesPage.dragDepartmentColumntoGroup("Enabled");
         Assert.assertTrue(chatTemplatesPage.verifyDragColumntoGroup("Enabled", 0),"drag and drop assertion failed");
     }
-    @Test(priority=63)
+    @Test(priority=64,groups= {"OCM"})
     public void VerifyDepartmentDragAndDropofAlreadyGroupedHeader() throws Exception {
         ChatTemplatesPage chatTemplatesPage = PageFactory.createPageInstance(driver, ChatTemplatesPage.class);
         chatTemplatesPage.navigateToTab("Departments");
@@ -675,7 +677,7 @@ public class ChatTemplatesTest {
         Assert.assertTrue(chatTemplatesPage.verifyDragColumntoGroup("Enabled",0),"drag and drop assertion failed");
     }
     
-   @Test(priority=64)
+   @Test(priority=65,groups= {"OCM"})
     public void VerifyGroupsDragAndDrop() throws Exception {
         ChatTemplatesPage chatTemplatesPage = PageFactory.createPageInstance(driver, ChatTemplatesPage.class);
         chatTemplatesPage.navigateToTab("Groups");
@@ -683,7 +685,7 @@ public class ChatTemplatesTest {
         chatTemplatesPage.dragGroupsColumntoGroup("Enabled");
         Assert.assertTrue(chatTemplatesPage.verifyDragColumntoGroup("Enabled",1),"drag and drop assertion failed");
     }
-    @Test(priority=65)
+    @Test(priority=66,groups= {"OCM"})
     public void VerifyGroupsDragAndDropofAlreadyGroupedHeader() throws Exception {
         ChatTemplatesPage chatTemplatesPage = PageFactory.createPageInstance(driver, ChatTemplatesPage.class);
         chatTemplatesPage.navigateToTab("Groups");
@@ -693,14 +695,14 @@ public class ChatTemplatesTest {
         Assert.assertTrue(chatTemplatesPage.verifyDragColumntoGroup("Enabled",1),"drag and drop assertion failed");
     }
     
-    @Test(priority=66)
+    @Test(priority=67,groups= {"OCM"})
     public void VerifyDragAndDrop() throws Exception {
         ChatTemplatesPage chatTemplatesPage = PageFactory.createPageInstance(driver, ChatTemplatesPage.class);
         Thread.sleep(2000);
         chatTemplatesPage.dragColumntoGroup("Enabled");
         Assert.assertTrue(chatTemplatesPage.verifyDragColumntoGroup("Enabled",2),"drag and drop assertion failed");
     }
-    @Test(priority=67)
+    @Test(priority=68,groups= {"OCM"})
     public void VerifyDragAndDropofAlreadyGroupedHeader() throws Exception {
         ChatTemplatesPage chatTemplatesPage = PageFactory.createPageInstance(driver, ChatTemplatesPage.class);
         Thread.sleep(2000);
@@ -709,7 +711,7 @@ public class ChatTemplatesTest {
         Assert.assertTrue(chatTemplatesPage.verifyDragColumntoGroup("Enabled",2),"drag and drop assertion failed");
     }
     
-    @Test(groups= {"TMAC"},priority=68)
+    @Test(groups= {"TMAC"},priority=69)
     public void VerifyChatTemplateInTMAC() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -726,7 +728,7 @@ public class ChatTemplatesTest {
         tmacPopupPage.disconnectchat();
 	}
 	
-    @Test(priority=69,groups= {"OCM"})//,dependsOnMethods = "AddNewChatTemplatesRecord")
+    @Test(priority=70,groups= {"OCM"})//,dependsOnMethods = "AddNewChatTemplatesRecord")
     public void EditChatTemplatesRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
@@ -736,7 +738,7 @@ public class ChatTemplatesTest {
         Assert.assertTrue(chatTemplatesPage.verifyRecordUpdated(),"Edit record assertion failed");
     }
     
-    @Test(priority=70,groups= {"OCM"},dependsOnMethods="EditChatTemplatesRecord")
+    @Test(priority=71,groups= {"OCM"},dependsOnMethods="EditChatTemplatesRecord")
     public void VerifyAuditTrialReportForUpdate() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
@@ -751,7 +753,7 @@ public class ChatTemplatesTest {
         Assert.assertTrue(ocmReportsPage.verifyChatTemplateUpdate(chatTemplateDetails,"Update"));
     }
     
-    @Test(priority=71,groups= {"OCM"})
+    @Test(priority=72,groups= {"OCM"})
     public void EditWithoutModifyReasonRecord() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
@@ -761,7 +763,7 @@ public class ChatTemplatesTest {
         Assert.assertEquals(chatTemplatePage.getMessage(),"×\nPlease enter the modify reason", "empty modify reason record assertion failed");
     }
     
-    @Test(priority=72,groups= {"OCM"})
+    @Test(priority=73,groups= {"OCM"})
     public void VerifyCancelBtnAtEditRecord() throws Exception{
         ChatTemplatesPage chatTemplatePage = PageFactory.createPageInstance(driver, ChatTemplatesPage.class);
         chatTemplatePage.searchChatTemplatesRecord("PalakChatTemplate");
@@ -1194,7 +1196,7 @@ public class ChatTemplatesTest {
        Assert.assertTrue(chatTemplatesPage.verifyDatabase(chatTemplateDetails.getQuery()));
    }
    
-   */
+   
     @AfterMethod
 	 public void close(Method method){
 		 	Test t = method.getAnnotation(Test.class);

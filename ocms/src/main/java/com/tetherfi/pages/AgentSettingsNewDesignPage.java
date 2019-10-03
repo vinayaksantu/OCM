@@ -528,8 +528,8 @@ public class AgentSettingsNewDesignPage extends BasePage {
     }
 //    ----Add from here---
     public void addNewAgentSettingsRecord(AgentSettingsDetails details) throws Exception {
-        selectWebElement(agentSettingsTabs.get(1));
-        selectWebElement(makeAgentSettingsChanges);
+        //selectWebElement(agentSettingsTabs.get(1));
+        //selectWebElement(makeAgentSettingsChanges);
         //waitForJqueryLoad(driver);
         try {Thread.sleep(5000);
         selectWebElement(addNewAgentSettingsRecordBtn);
@@ -559,7 +559,7 @@ public class AgentSettingsNewDesignPage extends BasePage {
         selectProfile(details.getProfile(),details.getSupervisor());
         selectWebElement(accessroleDropdown);
         selectDropdownFromVisibleText(accessroleListBox,details.getAccessRole());
-        selectWebElement(crmnameDropdown);
+       /* selectWebElement(crmnameDropdown);
         selectDropdownFromVisibleText(crmnameListBox,details.getCrmName());
 //        selectWebElement(texttemplatenameDropdown);
 //        selectDropdownFromVisibleText(texttemplatenameListBox,details.getTextTemplateName());
@@ -591,6 +591,8 @@ public class AgentSettingsNewDesignPage extends BasePage {
         selectCheckBox(textChatAutoAnswerCheckbox,details.isTextChatAutoAnswer());
 //        selectCheckBox(manualInCheckbox,details.isManualIn());
 //        selectCheckBox(smsOutCheckbox,details.isSMSOut());
+ * 
+ */
         selectWebElement(saveBtn);
     }
     private void ChooseTeamHeirarchy(String team){

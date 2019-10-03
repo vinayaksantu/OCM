@@ -3,21 +3,20 @@
 <suite name="Failed suite [Failed suite [Failed suite [Default suite]]]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)(failed)(failed)">
     <classes>
-      <class name="com.tetherfi.test.tmac.AgentSettingsUITest">
+      <class name="com.tetherfi.test.TdmThresholdConfigTest">
         <methods>
-          <include name="VerifyExportToExcel"/>
-          <include name="afterEachMethod"/>
+          <include name="DeleteNewRow"/>
+          <include name="VerifyAuditTrailReportForUpdate"/>
           <include name="startTestCase"/>
           <include name="openApplication"/>
-          <include name="VerifyColumnsHeaderDisable"/>
-          <include name="VerifyExportToExcelWithoutData"/>
           <include name="endTestCase"/>
+          <include name="UpdateNewRow"/>
           <include name="tearDown"/>
-          <include name="VerifyNumberOfItemsPerPageSelection"/>
-          <include name="VerifyCancelButtonAtRecordDelete"/>
-          <include name="NavigateToAgentSettingsPage"/>
+          <include name="NavigatetoTdmThresholdConfigPage"/>
+          <include name="VerifyAuditTrailReportForDelete"/>
+          <include name="afterEachMethod"/>
         </methods>
-      </class> <!-- com.tetherfi.test.tmac.AgentSettingsUITest -->
+      </class> <!-- com.tetherfi.test.TdmThresholdConfigTest -->
     </classes>
   </test> <!-- Default test(failed)(failed)(failed) -->
 </suite> <!-- Failed suite [Failed suite [Failed suite [Default suite]]] -->

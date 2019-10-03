@@ -4391,9 +4391,9 @@ return status;
 			if(f.length>1)
 			newvalues.put(f[0], f[1]);
 		}
-			if(newvalues.get("DepartmentName").equals(details.getDepartmentName()))
+			if(newvalues.get("Department Name").equals(details.getDepartmentName()))
 			{
-				if(newvalues.get("GroupName").equals(details.getGroupName()))
+				if(newvalues.get("Group Name").equals(details.getGroupName()))
 				{
 					if(newvalues.get("Name").equals(details.getName()))
 					{
@@ -4401,9 +4401,9 @@ return status;
 						{
 							if(newvalues.get("Enabled").equals(details.getEnabled()))
 							{
-								if(newvalues.get("StartTime").equals(details.getStartTime()))
+								if(newvalues.get("Start Time").equals(details.getStartTime()))
 								{
-									if(newvalues.get("EndTime").equals(details.getEndTime()))
+									if(newvalues.get("End Time").equals(details.getEndTime()))
 										Status= true;
 									else {System.out.println("EndTime data mismatch");}
 								}
@@ -4610,15 +4610,15 @@ return status;
 			{
 				if(oldvalues.get("Enabled").equals(details.getEnabled()))
 				{
-					if(oldvalues.get("DepartmentName").equals(details.getDepartmentName()))
+					if(oldvalues.get("Department Name").equals(details.getDepartmentName()))
 					{
-						if(oldvalues.get("GroupName").equals(details.getGroupName()))
+						if(oldvalues.get("Group Name").equals(details.getGroupName()))
 						{
 							if(oldvalues.get("Text").equals(details.getText()))
 							{
-								if(oldvalues.get("StartTime").equals(details.getStartTime()))
+								if(oldvalues.get("Start Time").equals(details.getStartTime()))
 								{
-									if(oldvalues.get("EndTime").equals(details.getEndTime())) {
+									if(oldvalues.get("End Time").equals(details.getEndTime())) {
 										if(oldvalues.get("ModifyReason").equals(details.getDeleteReason())) {
 											if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getDeleteReason()))
 													Status=true;
@@ -5635,19 +5635,223 @@ return status;
 		return Status;
 	}
 
-	public boolean verifyTdmThresholdConfigCreate(TdmThresholdConfigDetails tdmThresholdConfigDetails, String string) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean verifyTdmThresholdConfigCreate(TdmThresholdConfigDetails details, String Transaction) throws Exception {
+		booleansearchnew("IsStatusChange:False",Transaction);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+		Map<String,String> newvalues=new HashMap<>();
+		String[]d=firstRowData.get("New Values").split("\n");
+		for(String e:d) {
+			String f[]=e.split(":",2);
+			if(f.length>1)
+			newvalues.put(f[0], f[1]);
+		}
+		if(newvalues.get("TeamName").equals(details.getTeamName()))
+		{
+			if(newvalues.get("AuxCodeFrom").equals(details.getAuxCodeFrom()))
+			{
+				if(newvalues.get("AuxCodeTo").equals(details.getAuxCodeTo()))
+				{
+					if(newvalues.get("IsDeleted").equals("False"))
+					{
+						if(newvalues.get("IsStatusChange").equals("True"))
+						{
+							if(newvalues.get("AllowNotification").equals("True"))
+							{
+								if(newvalues.get("Threshold").equals(details.getThreshold()))
+								{
+									if(newvalues.get("ModifyReason").equals(details.getModifyReason()))
+										Status=true;
+									else {System.out.println("Modify Reason data mismatch");}
+								}
+								else {System.out.println("Threshold data mismatch");}
+							}
+							else {System.out.println("AllowNotification data mismatch");}
+						}
+						else {System.out.println("IsStatusChange data mismatch");}
+					}	
+					else {System.out.println("IsDeleted data mismatch");}
+				}
+				else {System.out.println("AuxCodeTo data mismatch");}
+			}
+			else {System.out.println("AuxCodeFrom data mismatch");}
+		}
+		else {System.out.println("TeamName data mismatch");}
+		return Status;
 	}
 
-	public boolean verifyTdmThresholdConfigUpdate(TdmThresholdConfigDetails tdmThresholdConfigDetails, String string) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean verifyTdmThresholdConfigUpdate(TdmThresholdConfigDetails details, String Transaction) throws Exception {
+		booleansearchnew("IsStatusChange:False",Transaction);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+        if(firstRowData.containsKey("Old Values")) {
+        	Map<String,String> oldvalues=new HashMap<>();
+    		String[]d=firstRowData.get("Old Values").split("\n");
+    		for(String e:d) {
+    			System.out.println(e);
+    			String f[]=e.split(":",2);
+    			if(f.length>1)
+    				oldvalues.put(f[0], f[1]);
+    		}
+    		if(oldvalues.get("TeamName").equals(details.getTeamName()))
+			{
+				if(oldvalues.get("AuxCodeFrom").equals(details.getAuxCodeFrom()))
+				{
+					if(oldvalues.get("AuxCodeTo").equals(details.getAuxCodeTo()))
+					{
+						if(oldvalues.get("IsDeleted").equals("False"))
+						{
+							if(oldvalues.get("IsStatusChange").equals("True"))
+							{
+								if(oldvalues.get("AllowNotification").equals("True"))
+								{
+									if(oldvalues.get("Threshold").equals(details.getThreshold()))
+									{	
+										if(firstRowData.containsKey("New Values")) {
+                						Map<String,String> newvalues=new HashMap<>();
+                						String[]d1=firstRowData.get("New Values").split("\n");
+                						for(String e:d1) {
+                							String f[]=e.split(":",2);
+                							if(f.length>1)
+                								newvalues.put(f[0], f[1]);
+                						}
+                						if(newvalues.get("TeamName").equals(details.getTeamName()))
+                						{
+                							if(newvalues.get("AuxCodeFrom").equals(details.getAuxCodeFrom()))
+                							{
+                								if(newvalues.get("AuxCodeTo").equals(details.getAuxCodeTo()))
+                								{
+                									if(newvalues.get("IsDeleted").equals("False"))
+                									{
+                										if(newvalues.get("IsStatusChange").equals("False"))
+                										{
+                											if(newvalues.get("AllowNotification").equals("False"))
+                											{
+                												if(newvalues.get("Threshold").equals(details.getThreshold()))
+                												{
+                													if(newvalues.get("ModifyReason").equals(details.getModifyReason()))
+                														Status=true;
+                													else {System.out.println("Modify Reason data mismatch");}
+                												}
+                												else {System.out.println("Threshold data mismatch");}
+                											}
+                											else {System.out.println("AllowNotification data mismatch");}
+                										}
+                										else {System.out.println("IsStatusChange data mismatch");}
+                									}	
+                									else {System.out.println("IsDeleted data mismatch");}
+                								}
+                								else {System.out.println("AuxCodeTo data mismatch");}
+                							}
+                							else {System.out.println("AuxCodeFrom data mismatch");}
+                						}
+                						else {System.out.println("TeamName data mismatch");}
+                						}
+                					else System.out.println("New Values data mismatch");
+									}
+										else {System.out.println("Threshold data mismatch");}
+									}
+									else {System.out.println("AllowNotification data mismatch");}
+								}
+								else {System.out.println("IsStatusChange data mismatch");}
+							}	
+							else {System.out.println("IsDeleted data mismatch");}
+						}
+						else {System.out.println("AuxCodeTo data mismatch");}
+					}
+					else {System.out.println("AuxCodeFrom data mismatch");}
+				}
+				else {System.out.println("TeamName data mismatch");}
+				}
+    		else {System.out.println("Old values data mismatch");}
+    	return Status;
 	}
 
-	public boolean verifyTdmThresholdConfigDelete(TdmThresholdConfigDetails tdmThresholdConfigDetails, String string) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean verifyTdmThresholdConfigDelete(TdmThresholdConfigDetails details, String Transaction) throws Exception {
+		booleansearchnew("IsDeleted:True",Transaction);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+        if(firstRowData.containsKey("Old Values")) {
+        	Map<String,String> oldvalues=new HashMap<>();
+    		String[]d=firstRowData.get("Old Values").split("\n");
+    		for(String e:d) {
+    			System.out.println(e);
+    			String f[]=e.split(":",2);
+    			if(f.length>1)
+    				oldvalues.put(f[0], f[1]);
+    		}
+    		if(oldvalues.get("TeamName").equals(details.getTeamName()))
+			{
+				if(oldvalues.get("AuxCodeFrom").equals(details.getAuxCodeFrom()))
+				{
+					if(oldvalues.get("AuxCodeTo").equals(details.getAuxCodeTo()))
+					{
+						if(oldvalues.get("IsDeleted").equals("False"))
+						{
+							if(oldvalues.get("IsStatusChange").equals("True"))
+							{
+								if(oldvalues.get("AllowNotification").equals("True"))
+								{
+									if(oldvalues.get("Threshold").equals(details.getThreshold()))
+									{	
+										if(firstRowData.containsKey("New Values")) {
+                						Map<String,String> newvalues=new HashMap<>();
+                						String[]d1=firstRowData.get("New Values").split("\n");
+                						for(String e:d1) {
+                							String f[]=e.split(":",2);
+                							if(f.length>1)
+                								newvalues.put(f[0], f[1]);
+                						}
+                						if(newvalues.get("TeamName").equals(details.getTeamName()))
+                						{
+                							if(newvalues.get("AuxCodeFrom").equals(details.getAuxCodeFrom()))
+                							{
+                								if(newvalues.get("AuxCodeTo").equals(details.getAuxCodeTo()))
+                								{
+                									if(newvalues.get("IsDeleted").equals("True"))
+                									{
+                										if(newvalues.get("IsStatusChange").equals("False"))
+                										{
+                											if(newvalues.get("AllowNotification").equals("False"))
+                											{
+                												if(newvalues.get("Threshold").equals(details.getThreshold()))
+                												{
+                													if(newvalues.get("ModifyReason").equals(details.getModifyReason()))
+                														Status=true;
+                													else {System.out.println("Modify Reason data mismatch");}
+                												}
+                												else {System.out.println("Threshold data mismatch");}
+                											}
+                											else {System.out.println("AllowNotification data mismatch");}
+                										}
+                										else {System.out.println("IsStatusChange data mismatch");}
+                									}	
+                									else {System.out.println("IsDeleted data mismatch");}
+                								}
+                								else {System.out.println("AuxCodeTo data mismatch");}
+                							}
+                							else {System.out.println("AuxCodeFrom data mismatch");}
+                						}
+                						else {System.out.println("TeamName data mismatch");}
+                						}
+                					else System.out.println("New Values data mismatch");
+									}
+										else {System.out.println("Threshold data mismatch");}
+									}
+									else {System.out.println("AllowNotification data mismatch");}
+								}
+								else {System.out.println("IsStatusChange data mismatch");}
+							}	
+							else {System.out.println("IsDeleted data mismatch");}
+						}
+						else {System.out.println("AuxCodeTo data mismatch");}
+					}
+					else {System.out.println("AuxCodeFrom data mismatch");}
+				}
+				else {System.out.println("TeamName data mismatch");}
+				}
+    		else {System.out.println("Old values data mismatch");}
+    	return Status;
 	}
 
 	
