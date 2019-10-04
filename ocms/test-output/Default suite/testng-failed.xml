@@ -3,16 +3,29 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.tetherfi.test.tmac.AgentSettingsWMKTest">
+      <class name="com.tetherfi.test.UserRoleMappingCreateTest">
         <methods>
-          <include name="startTestCase"/>
-          <include name="openApplication"/>
-          <include name="AddNewSupervisorRecord"/>
-          <include name="endTestCase"/>
-          <include name="tearDown"/>
-          <include name="NavigateToAgentSettingsPage"/>
+          <include name="VerifyRevertForAddNewRecord"/>
+          <include name="VerifyApprovedDataSectionWithoutApproval"/>
+          <include name="VerifyAuditTrailReportForReject"/>
+          <include name="ApproveforAddNewNewUserRoleMappingRecord"/>
+          <include name="VerifySendForApprovalForAddNewNewUserRoleMappingRecord"/>
+          <include name="VerifyAuditTrailReportForSendForApproval"/>
+          <include name="NavigateToNewUserRoleMappingPage"/>
+          <include name="afterEachMethod"/>
+          <include name="AddRejectRecord"/>
+          <include name="AddRevertRecord"/>
+          <include name="VerifyRecordAfterRejection"/>
+          <include name="VerifyRecordApprovedDataSectionafterApproval"/>
+          <include name="RejectforAddNewNewUserRoleMappingRecord"/>
+          <include name="VerifyAuditTrailReportForApprove"/>
+          <include name="VerifyAuditTrailDataForAddNewNewUserRoleMappingRecord"/>
+          <include name="VerifySendForApprovalForAddNewRecord"/>
+          <include name="VerifyAuditTrailReportForRevert"/>
+          <include name="AddNewNewUserRoleMappingRecord"/>
+          <include name="VerifyAuditTrailReportForCreate"/>
         </methods>
-      </class> <!-- com.tetherfi.test.tmac.AgentSettingsWMKTest -->
+      </class> <!-- com.tetherfi.test.UserRoleMappingCreateTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -242,7 +242,7 @@ public class SmsResponseTemplateCreateTest {
         Assert.assertTrue(SmsResponseTemplatePage.verifyAuditTrail(SmsResponseTemplateDetails, "MakerCreate", "New"), "Audit trail details failed");
     }
     
-    @Test(groups = { "Maker" },priority=18,dependsOnMethods="VerifyAuditTrailDataForAddNewSmsResponseTemplateRecord")
+    @Test(groups = { "Maker" },priority=18)//,dependsOnMethods="VerifyAuditTrailDataForAddNewSmsResponseTemplateRecord")
     public void VerifySendForApprovalForAddNewSmsResponseTemplateRecord() throws Exception {
        	SmsResponseTemplatePage SmsResponseTemplatePage = PageFactory.createPageInstance(driver, SmsResponseTemplatePage.class);
        	SmsResponseTemplatePage.selectSmsResponseTemplateAuditTrailTab();
@@ -298,7 +298,7 @@ public class SmsResponseTemplateCreateTest {
         Assert.assertTrue(SmsResponseTemplatePage.verifyApprovedSectionDataafterapproval(SmsResponseTemplateDetails));
     }
     
-    @Test(groups = { "Maker" },priority=23,dependsOnMethods="AddNewSmsResponseTemplateRecord")
+    @Test(groups = { "Maker" },priority=23)//,dependsOnMethods="AddNewSmsResponseTemplateRecord")
     public void AddDuplicateRecord() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\SmsResponseTemplateData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);

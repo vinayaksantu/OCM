@@ -2,6 +2,7 @@ package com.tetherfi.test.tmac;
 
 import java.lang.reflect.Method;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -30,11 +31,12 @@ public class AgentSettingsWMKTest extends BaseTest {
     tmacPage.navigateToAgentSettingsPage();
     AgentSettingsNewDesignPage agentSettingsPage=PageFactory.createPageInstance(driver,AgentSettingsNewDesignPage.class);
     Assert.assertTrue(agentSettingsPage.isAgentSettingsPageDisplayed(),"Agent Settings page assertion failed");
+    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
     
     @Test
     public void AddNewSupervisorRecord() throws Exception {
-    	for(int i=0;i<50;i++) {
+    	for(int i=0;i<300;i++) {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentSettingsData (1).xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(i);
         AgentSettingsDetails agentSettingsDetails = new AgentSettingsDetails(map);
