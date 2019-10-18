@@ -3,29 +3,33 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.tetherfi.test.UserRoleMappingCreateTest">
+      <class name="com.tetherfi.test.reports.OCMThresholdReport">
         <methods>
-          <include name="VerifyRevertForAddNewRecord"/>
-          <include name="VerifyApprovedDataSectionWithoutApproval"/>
-          <include name="VerifyAuditTrailReportForReject"/>
-          <include name="ApproveforAddNewNewUserRoleMappingRecord"/>
-          <include name="VerifySendForApprovalForAddNewNewUserRoleMappingRecord"/>
-          <include name="VerifyAuditTrailReportForSendForApproval"/>
-          <include name="NavigateToNewUserRoleMappingPage"/>
+          <include name="ExportPageForOcmThresholdReport"/>
+          <include name="ExportOcmThresholdReport"/>
+          <include name="SortingByDescending"/>
+          <include name="ShowOCMThresholdReport"/>
+          <include name="VerifyTotalNumberOfItemsPerPageDetails"/>
+          <include name="SortingByAscending"/>
+          <include name="ViewDownloadedOcmThresholdReportInReportsDownloadPageDateRange"/>
+          <include name="VerifyArrowMoveForPreviousAndNextPage"/>
+          <include name="ViewDownloadedOcmThresholdReportInReportsDownloadPage"/>
+          <include name="ShowOcmThresholdReportInNewTab"/>
+          <include name="endTestCase"/>
+          <include name="VerifyArrowMoveForFirstAndLastPage"/>
+          <include name="tearDown"/>
+          <include name="ExportOcmThresholdReportDateRange"/>
           <include name="afterEachMethod"/>
-          <include name="AddRejectRecord"/>
-          <include name="AddRevertRecord"/>
-          <include name="VerifyRecordAfterRejection"/>
-          <include name="VerifyRecordApprovedDataSectionafterApproval"/>
-          <include name="RejectforAddNewNewUserRoleMappingRecord"/>
-          <include name="VerifyAuditTrailReportForApprove"/>
-          <include name="VerifyAuditTrailDataForAddNewNewUserRoleMappingRecord"/>
-          <include name="VerifySendForApprovalForAddNewRecord"/>
-          <include name="VerifyAuditTrailReportForRevert"/>
-          <include name="AddNewNewUserRoleMappingRecord"/>
-          <include name="VerifyAuditTrailReportForCreate"/>
+          <include name="NavigateToOcmReportsPage"/>
+          <include name="ShowOcmThresholdReportInNewTabDateRange"/>
+          <include name="ViewDownloadedAuditTrailReportInNotificationPanDateRange"/>
+          <include name="startTestCase"/>
+          <include name="openApplication"/>
+          <include name="VerifyNumberOfItemsPerPageSelection"/>
+          <include name="ViewDownloadedOcmThresholdReportInNotificationPan"/>
+          <include name="ShowOcmThresholdReportForDateRange"/>
         </methods>
-      </class> <!-- com.tetherfi.test.UserRoleMappingCreateTest -->
+      </class> <!-- com.tetherfi.test.reports.OCMThresholdReport -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
