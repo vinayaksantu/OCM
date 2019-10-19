@@ -678,6 +678,110 @@ public class VbEnrollmentFlagPage extends BasePage {
 	public void clickOnCancelBtn() {
 		selectWebElement(cancelBtn);
 	}
+	
+	public boolean verifySearchIsNotEqualTo(String hotlinename) throws Exception {
+		Boolean Status=false;
+		Map<String, String> map=new HashMap<String,String>() ;
+		map.put("Hot Line Name", hotlinename);
+		selectWebElement(searchBtn);
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Hot Line Name");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is not equal to");
+        enterValueToTxtField(searchTextBox,hotlinename);		
+        selectWebElement(searchSearchBtn);
+        waitUntilWebElementIsVisible(gridContent);
+        List<Map<String,String>> UI=gettable(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(map1.equals(map))
+        	Status= false;
+        	else 
+        		Status= true;
+	}
+        return Status;
+	
+	}
+	public boolean verifySearchContains(String hotlinename) throws Exception {
+		Boolean Status=false;
+		selectWebElement(searchBtn);
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Hot Line Name");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Contains");
+        enterValueToTxtField(searchTextBox,hotlinename);		
+        selectWebElement(searchSearchBtn);
+        waitUntilWebElementIsVisible(gridContent);
+        List<Map<String,String>> UI=gettable(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(map1.get("Hot Line Name").toUpperCase().contains(hotlinename.toUpperCase()))
+        	Status= true;
+        	else 
+        		Status= false;
+	}
+        return Status;
+	}
+	public boolean verifySearchDoesNotContains(String hotlinename) throws Exception {
+		Boolean Status=false;
+		selectWebElement(searchBtn);
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Hot Line Name");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Does not contain");
+        enterValueToTxtField(searchTextBox,hotlinename);		
+        selectWebElement(searchSearchBtn);
+        waitUntilWebElementIsVisible(gridContent);
+        List<Map<String,String>> UI=gettable(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(!map1.get("Hot Line Name").toLowerCase().contains(hotlinename.toLowerCase()))
+        	Status= true;
+        	else 
+        		Status= false;
+	}
+        return Status;
+	}
+	public boolean verifySearchStartsWith(String hotlinename) throws Exception {
+		Boolean Status=false;
+		selectWebElement(searchBtn);
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Hot Line Name");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Starts with");
+        enterValueToTxtField(searchTextBox,hotlinename);		
+        selectWebElement(searchSearchBtn);
+        waitUntilWebElementIsVisible(gridContent);
+        List<Map<String,String>> UI=gettable(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(map1.get("Hot Line Name").toLowerCase().startsWith(hotlinename.toLowerCase()))
+        	Status= true;
+        	else 
+        		Status= false;
+	}
+        return Status;
+	}
+	public boolean verifySearchEndsWith(String hotlinename) throws Exception {
+		Boolean Status=false;
+		selectWebElement(searchBtn);
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Hot Line Name");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Ends with");
+        enterValueToTxtField(searchTextBox,hotlinename);		
+        selectWebElement(searchSearchBtn);
+        waitUntilWebElementIsVisible(gridContent);
+        List<Map<String,String>> UI=gettable(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(map1.get("Hot Line Name").toUpperCase().endsWith(hotlinename.toUpperCase()))
+        	Status= true;
+        	else 
+        		Status= false;
+	}
+        return Status;
+	}
 	public boolean verifyEditFormContainer() {
 		  try {
 	            Thread.sleep(3000);

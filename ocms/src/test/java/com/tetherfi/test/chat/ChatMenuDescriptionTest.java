@@ -39,7 +39,7 @@ public class ChatMenuDescriptionTest extends BaseTest {
         Assert.assertTrue(chatMenuDescriptionPage.isChatMenuDescriptionPageDisplayed(),"Chat Menu Description page assertion failed");
     }
     
-    @Test(priority=1)
+   /* @Test(priority=1)
 	public void ChatMenuDescriptionPage() {
         ChatMenuDescriptionPage ChatMenuDescriptionPage = PageFactory.createPageInstance(driver, ChatMenuDescriptionPage.class);
         Assert.assertTrue(ChatMenuDescriptionPage.VerifyLogo(),"Logo assertion failed");
@@ -148,9 +148,54 @@ public class ChatMenuDescriptionTest extends BaseTest {
         ChatMenuDescriptionPage.clickOnAddRecord();
         ChatMenuDescriptionPage.clickOnCancelBtn();
         Assert.assertFalse(ChatMenuDescriptionPage.verifyEditFormContainer(), "Cancel Btn at Add record assertion failed");
-	}
+	}*/
     
-    @Test(priority=13)//,dependsOnMethods = "AddNewChatMenuDescriptionRecord")
+    @Test(priority=13)
+    public void VerifySearchIsNotEqualTo() throws Exception {
+        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatMenuDescriptionData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
+        ChatMenuDescriptionDetails chatMenuDescriptionDetails=new ChatMenuDescriptionDetails(map);
+        ChatMenuDescriptionPage chatMenuDescriptionPage = PageFactory.createPageInstance(driver,ChatMenuDescriptionPage.class);
+        Assert.assertTrue(chatMenuDescriptionPage.verifySearchIsNotEqualTo(chatMenuDescriptionDetails.getMenuName()));
+    }
+    
+    @Test(priority=14)
+    public void VerifySearchContains() throws Exception {
+        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatMenuDescriptionData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);
+        ChatMenuDescriptionDetails chatMenuDescriptionDetails=new ChatMenuDescriptionDetails(map);
+        ChatMenuDescriptionPage chatMenuDescriptionPage = PageFactory.createPageInstance(driver,ChatMenuDescriptionPage.class);
+        Assert.assertTrue(chatMenuDescriptionPage.verifySearchContains(chatMenuDescriptionDetails.getMenuName()));
+    }
+    
+    @Test(priority=15)
+    public void VerifySearchDoesNotContains() throws Exception {
+        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatMenuDescriptionData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);
+        ChatMenuDescriptionDetails chatMenuDescriptionDetails=new ChatMenuDescriptionDetails(map);
+        ChatMenuDescriptionPage chatMenuDescriptionPage = PageFactory.createPageInstance(driver,ChatMenuDescriptionPage.class);
+        Assert.assertTrue(chatMenuDescriptionPage.verifySearchDoesNotContains(chatMenuDescriptionDetails.getMenuName()));
+    }
+    
+    @Test(priority=16)
+    public void VerifySearchStartsWith() throws Exception {
+        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatMenuDescriptionData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(2);
+        ChatMenuDescriptionDetails chatMenuDescriptionDetails=new ChatMenuDescriptionDetails(map);
+        ChatMenuDescriptionPage chatMenuDescriptionPage = PageFactory.createPageInstance(driver,ChatMenuDescriptionPage.class);
+        Assert.assertTrue(chatMenuDescriptionPage.verifySearchStartsWith(chatMenuDescriptionDetails.getMenuName()));
+    }
+    
+    @Test(priority=17)
+    public void VerifySearchEndsWith() throws Exception {
+        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatMenuDescriptionData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);
+        ChatMenuDescriptionDetails chatMenuDescriptionDetails=new ChatMenuDescriptionDetails(map);
+        ChatMenuDescriptionPage chatMenuDescriptionPage = PageFactory.createPageInstance(driver,ChatMenuDescriptionPage.class);
+        Assert.assertTrue(chatMenuDescriptionPage.verifySearchEndsWith(chatMenuDescriptionDetails.getMenuName()));
+    }
+    
+   /*@Test(priority=13)//,dependsOnMethods = "AddNewChatMenuDescriptionRecord")
     public void EditChatMenuDescriptionRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatMenuDescriptionData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
@@ -354,7 +399,7 @@ public class ChatMenuDescriptionTest extends BaseTest {
         ChatMenuDescriptionPage ChatMenuDescriptionPage = PageFactory.createPageInstance(driver, ChatMenuDescriptionPage.class);
         ChatMenuDescriptionDetails ChatMenuDescriptionDetails = new ChatMenuDescriptionDetails(map);
     	Assert.assertTrue(ChatMenuDescriptionPage.verifyDatabase(ChatMenuDescriptionDetails.getQuery()));
-    }
+    }*/
     
     
     

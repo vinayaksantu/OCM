@@ -293,6 +293,114 @@ public class OperatingHoursPage extends BasePage {
         waitUntilWebElementIsVisible(gridContent);
     }
     
+    public boolean verifySearchIsNotEqualTo(String weekday) throws Exception {
+		Boolean Status=false;
+		Map<String, String> map=new HashMap<String,String>() ;
+		map.put("Week Day", weekday);
+		selectWebElement(searchBtn);
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Week Day");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is not equal to");
+        enterValueToTxtField(searchTextBox,weekday);		
+        selectWebElement(searchSearchBtn);
+        waitUntilWebElementIsVisible(gridContent);
+        List<Map<String,String>> UI=gettable(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(map1.equals(map))
+        	Status= false;
+        	else 
+        		Status= true;
+	}
+        return Status;
+	
+	}
+    
+    public boolean verifySearchContains(String weekday) throws Exception {
+		Boolean Status=false;
+		selectWebElement(searchBtn);
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Week Day");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Contains");
+        enterValueToTxtField(searchTextBox,weekday);		
+        selectWebElement(searchSearchBtn);
+        waitUntilWebElementIsVisible(gridContent);
+        List<Map<String,String>> UI=gettable(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(map1.get("Week Day").toUpperCase().contains(weekday.toUpperCase()))
+        	Status= true;
+        	else 
+        		Status= false;
+	}
+        return Status;
+	}
+    
+    public boolean verifySearchDoesNotContains(String weekday) throws Exception {
+		Boolean Status=false;
+		selectWebElement(searchBtn);
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Week Day");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Does not contain");
+        enterValueToTxtField(searchTextBox,weekday);		
+        selectWebElement(searchSearchBtn);
+        waitUntilWebElementIsVisible(gridContent);
+        List<Map<String,String>> UI=gettable(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(!map1.get("Week Day").toLowerCase().contains(weekday.toLowerCase()))
+        	Status= true;
+        	else 
+        		Status= false;
+	}
+        return Status;
+	}
+	
+	public boolean verifySearchStartsWith(String weekday) throws Exception {
+		Boolean Status=false;
+		selectWebElement(searchBtn);
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Week Day");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Starts with");
+        enterValueToTxtField(searchTextBox,weekday);		
+        selectWebElement(searchSearchBtn);
+        waitUntilWebElementIsVisible(gridContent);
+        List<Map<String,String>> UI=gettable(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(map1.get("Week Day").toLowerCase().startsWith(weekday.toLowerCase()))
+        	Status= true;
+        	else 
+        		Status= false;
+	}
+        return Status;
+	}
+	
+	public boolean verifySearchEndsWith(String weekday) throws Exception {
+		Boolean Status=false;
+		selectWebElement(searchBtn);
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Week Day");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Ends with");
+        enterValueToTxtField(searchTextBox,weekday);		
+        selectWebElement(searchSearchBtn);
+        waitUntilWebElementIsVisible(gridContent);
+        List<Map<String,String>> UI=gettable(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(map1.get("Week Day").toUpperCase().endsWith(weekday.toUpperCase()))
+        	Status= true;
+        	else 
+        		Status= false;
+	}
+        return Status;
+	}
+    
     public void BooleansearchOperatingHoursRecord(String vdn, String weekday) throws Exception {
         selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));

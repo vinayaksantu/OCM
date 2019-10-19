@@ -39,7 +39,7 @@ public class CallBackAnnouncementTest extends BaseTest {
         Assert.assertTrue(callbackAnnouncementPage.isCallbackAnnouncementPageDisplayed(), "CallBack Announcement page assertion failed");
     }
   
-  @Test(priority=1)
+ /* @Test(priority=1)
     public void CallbackAnnouncementPage() {
         CallbackAnnouncementPage callbackAnnouncementPage = PageFactory.createPageInstance(driver, CallbackAnnouncementPage.class);
     	Assert.assertTrue(callbackAnnouncementPage.verifylogo(),"CallBackAnnouncement logo assertion failed");
@@ -148,10 +148,53 @@ public class CallBackAnnouncementTest extends BaseTest {
         CallbackAnnouncementPage callbackAnnouncementPage = PageFactory.createPageInstance(driver, CallbackAnnouncementPage.class);
         callbackAnnouncementPage.addNewCallbackAnnouncementWithoutLanguageRecord(callbackAnnouncementDetails);
         Assert.assertTrue(callbackAnnouncementPage.verifyErrorMessage(), "Add New record assertion failed");
+    }*/
+    
+    @Test(priority=13)
+    public void VerifySearchIsNotEqualTo() throws Exception {
+        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\CallbackAnnouncementData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
+        CallbackAnnouncementDetails callbackAnnouncementDetails = new CallbackAnnouncementDetails(map);
+        CallbackAnnouncementPage callbackAnnouncementPage = PageFactory.createPageInstance(driver, CallbackAnnouncementPage.class);
+        Assert.assertTrue(callbackAnnouncementPage.verifySearchIsNotEqualTo(callbackAnnouncementDetails.getLanguage()));
     }
     
+    @Test(priority=14)
+    public void VerifySearchContains() throws Exception {
+        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\CallbackAnnouncementData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);
+        CallbackAnnouncementDetails callbackAnnouncementDetails = new CallbackAnnouncementDetails(map);
+        CallbackAnnouncementPage callbackAnnouncementPage = PageFactory.createPageInstance(driver, CallbackAnnouncementPage.class);
+        Assert.assertTrue(callbackAnnouncementPage.verifySearchContains(callbackAnnouncementDetails.getLanguage()));
+    }
     
-    @Test(priority=13)//,dependsOnMethods = "AddDuplicateAdhocOptionEnhancementRecord")
+    @Test(priority=15)
+    public void VerifySearchDoesNotContains() throws Exception {
+        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\CallbackAnnouncementData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);
+        CallbackAnnouncementDetails callbackAnnouncementDetails = new CallbackAnnouncementDetails(map);
+        CallbackAnnouncementPage callbackAnnouncementPage = PageFactory.createPageInstance(driver, CallbackAnnouncementPage.class);
+        Assert.assertTrue(callbackAnnouncementPage.verifySearchDoesNotContains(callbackAnnouncementDetails.getLanguage()));
+    }
+    @Test(priority=16)
+    public void VerifySearchStartsWith() throws Exception {
+        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\CallbackAnnouncementData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);
+        CallbackAnnouncementDetails callbackAnnouncementDetails = new CallbackAnnouncementDetails(map);
+        CallbackAnnouncementPage callbackAnnouncementPage = PageFactory.createPageInstance(driver, CallbackAnnouncementPage.class);
+        Assert.assertTrue(callbackAnnouncementPage.verifySearchStartsWith(callbackAnnouncementDetails.getLanguage()));
+    }
+    
+    @Test(priority=17)
+    public void VerifySearchEndsWith() throws Exception {
+        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\CallbackAnnouncementData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(2);
+        CallbackAnnouncementDetails callbackAnnouncementDetails = new CallbackAnnouncementDetails(map);
+        CallbackAnnouncementPage callbackAnnouncementPage = PageFactory.createPageInstance(driver, CallbackAnnouncementPage.class);
+        Assert.assertTrue(callbackAnnouncementPage.verifySearchEndsWith(callbackAnnouncementDetails.getLanguage()));
+    }
+    
+    /*@Test(priority=13)//,dependsOnMethods = "AddDuplicateAdhocOptionEnhancementRecord")
     public void EditCallBackAnnouncementRecord() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\CallbackAnnouncementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
@@ -358,7 +401,7 @@ public class CallBackAnnouncementTest extends BaseTest {
         CallbackAnnouncementPage callbackAnnouncementPage = PageFactory.createPageInstance(driver, CallbackAnnouncementPage.class);
         CallbackAnnouncementDetails callbackAnnouncementDetails = new CallbackAnnouncementDetails(map);
     	Assert.assertTrue(callbackAnnouncementPage.verifyDatabase(callbackAnnouncementDetails.getQuery()));
-    }
+    }*/
     
     @AfterMethod
     public void afterEachMethod(Method method){

@@ -3,33 +3,21 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.tetherfi.test.reports.OCMThresholdReport">
+      <class name="com.tetherfi.test.CEPEventMappingTest">
         <methods>
-          <include name="ExportPageForOcmThresholdReport"/>
-          <include name="ExportOcmThresholdReport"/>
-          <include name="SortingByDescending"/>
-          <include name="ShowOCMThresholdReport"/>
-          <include name="VerifyTotalNumberOfItemsPerPageDetails"/>
-          <include name="SortingByAscending"/>
-          <include name="ViewDownloadedOcmThresholdReportInReportsDownloadPageDateRange"/>
-          <include name="VerifyArrowMoveForPreviousAndNextPage"/>
-          <include name="ViewDownloadedOcmThresholdReportInReportsDownloadPage"/>
-          <include name="ShowOcmThresholdReportInNewTab"/>
-          <include name="endTestCase"/>
-          <include name="VerifyArrowMoveForFirstAndLastPage"/>
-          <include name="tearDown"/>
-          <include name="ExportOcmThresholdReportDateRange"/>
-          <include name="afterEachMethod"/>
-          <include name="NavigateToOcmReportsPage"/>
-          <include name="ShowOcmThresholdReportInNewTabDateRange"/>
-          <include name="ViewDownloadedAuditTrailReportInNotificationPanDateRange"/>
           <include name="startTestCase"/>
+          <include name="afterEachMethod"/>
           <include name="openApplication"/>
-          <include name="VerifyNumberOfItemsPerPageSelection"/>
-          <include name="ViewDownloadedOcmThresholdReportInNotificationPan"/>
-          <include name="ShowOcmThresholdReportForDateRange"/>
+          <include name="VerifySearchContains"/>
+          <include name="VerifySearchDoesNotContains"/>
+          <include name="VerifySearchEndsWith"/>
+          <include name="endTestCase"/>
+          <include name="tearDown"/>
+          <include name="VerifySearchIsNotEqualTo"/>
+          <include name="VerifySearchStartsWith"/>
+          <include name="NavigateToCepEventMappingPage"/>
         </methods>
-      </class> <!-- com.tetherfi.test.reports.OCMThresholdReport -->
+      </class> <!-- com.tetherfi.test.CEPEventMappingTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -1,16 +1,5 @@
 package com.tetherfi.pages;
 
-import com.tetherfi.model.ivr.FaxApplicationFormDetails;
-import com.tetherfi.model.ivr.IvrConfigDetails;
-import com.tetherfi.model.ivr.VipListManagementDetails;
-import com.tetherfi.model.sms.SmsResponseTemplateDetails;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -19,13 +8,20 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class IvrConfigPage extends BasePage {
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
-    public IvrConfigPage(WebDriver driver) {
-        super(driver);
-    }
+import com.tetherfi.model.ivr.IvrConfigDetails;
 
-    @FindBy(css = ".fa-search")
+public class IvrConfigPageWMC extends BasePage{
+
+	public IvrConfigPageWMC(WebDriver driver) {
+		super(driver);}
+	
+	@FindBy(css = ".fa-search")
     private List<WebElement> searchBtn;
 
     @FindBy(css = ".modal-body .form-inline .form-group .k-select")
@@ -199,8 +195,11 @@ public class IvrConfigPage extends BasePage {
 	@FindBy(xpath="//div[@class='k-grid-content k-auto-scrollable']/table/tbody/tr")
 	private List<WebElement> tablerecord;
 		   
+	/*@FindBy(xpath="//span[@class='k-pager-info k-label']")
+	private List<WebElement> items;*/
+	
 	@FindBy(xpath="//span[@class='k-pager-info k-label']")
-	private List<WebElement> items;
+	private WebElement items;
 		    
 	@FindBy(id="navbarheader")
 	private WebElement header;
@@ -304,8 +303,6 @@ public class IvrConfigPage extends BasePage {
         return ivrConfig.isEnabled();
     }
     public void addNewIvrConfigRecord(IvrConfigDetails details) {
-    	selectWebElement(ivrConfigTab.get(1));
-    	selectWebElement(makeIVRConfigChanges); 
         selectWebElement(addNewRecordBtn);
         waitForJqueryLoad(driver);
         try {
@@ -340,12 +337,8 @@ public class IvrConfigPage extends BasePage {
         waitUntilWebElementIsVisible(gridContent);
     }
     
-    public void editIvrConfigRecord1(IvrConfigDetails details) throws Exception {
-    	selectWebElement(ivrConfigTab.get(1));
-    	Thread.sleep(1000);
-    	selectWebElement(makeIVRConfigChanges);
-    	Thread.sleep(1000);
-        searchIvrConfigRecord(details.getParameter());
+    public void editEmptyIvrConfigRecord(IvrConfigDetails details) throws Exception {
+        searchIvrConfigRecord(details.getSearchValue());
         selectWebElement(editButton);
         try {
 			Thread.sleep(2000);
@@ -375,28 +368,16 @@ public class IvrConfigPage extends BasePage {
     }
     
     public void editIvrConfigRecord(IvrConfigDetails details) throws Exception {
-    	selectWebElement(ivrConfigTab.get(1));
-    	Thread.sleep(1000);
-    	selectWebElement(makeIVRConfigChanges);
-    	Thread.sleep(1000);
     	searchIvrConfigRecord(details.getParameter());
     	selectWebElement(editButton);
     	waitForJqueryLoad(driver);		
 		Thread.sleep(1000);
-		selectWebElement(parameterDropdown);
-		selectDropdownFromVisibleText(parameterListBox,details.getUpdatedParameter());
 		selectWebElement(ModifyReasonTextBox);
         enterValueToTxtFieldWithoutClear(ModifyReasonTextBox,details.getModifyReason());
         selectWebElement(saveButton);
     }
-    
-    
-   
+     
     public void deleteIvrConfigRecord(IvrConfigDetails details) throws Exception {
-    	selectWebElement(ivrConfigTab.get(1));
-    	Thread.sleep(1000);
-    	selectWebElement(makeIVRConfigChanges);
-    	Thread.sleep(1000);
         searchIvrConfigRecord(details.getParameter());
         selectWebElement(deleteButton);
         enterValueToTxtFieldWithoutClear(deleteReasonTextBox,details.getDeleteReason());
@@ -416,8 +397,8 @@ public class IvrConfigPage extends BasePage {
     }
 
     public void clickOnCancelBtn(){
-        if(isElementExist(cancelBtn)){selectWebElement(cancelBtn);}
-    }
+      selectWebElement(cancelBtn);}
+    
     public void clickOnAddRecord(){
         selectWebElement(addNewIVRConfigRcrdBtn);
     }
@@ -437,10 +418,12 @@ public class IvrConfigPage extends BasePage {
         }
         return isElementExist(deleteContainer);
     }
-    public void clickOnEditButton(){
+    public void clickOnEditButton(IvrConfigDetails details) throws Exception{
+    	searchIvrConfigRecord(details.getParameter());
         selectWebElement(editButton);
     }
-    public void clickOnDeleteButton(){
+    public void clickOnDeleteButton(IvrConfigDetails details) throws Exception{
+    	searchIvrConfigRecord(details.getParameter());	
         selectWebElement(deleteButton);
     }
     public void clickOnDeleteCancelBtn(){
@@ -529,7 +512,7 @@ public class IvrConfigPage extends BasePage {
 		return false;
 	}
 	
-	private List<Map<String,String>> getdata(){
+	private List<Map<String,String>> getdata(){	
 		int item=Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
         int pagersize=Integer.valueOf(pagerSize.getText());
         int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
@@ -579,7 +562,6 @@ public class IvrConfigPage extends BasePage {
         int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
 		List<Map<String,String>> arr=new ArrayList<Map<String,String>>();
 		for(int k=0;k<=pages;k++){
-
 		waitUntilWebElementIsVisible(auditGridContent);
 		List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
 		List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
@@ -606,6 +588,7 @@ public class IvrConfigPage extends BasePage {
 		}
 			return arr;
 	}
+	
 	public boolean ExporttoExcelWithoutData(IvrConfigDetails ivrConfigDetails) throws Exception {
 		searchIvrConfigRecord(ivrConfigDetails.getParameter());
 		waitForJqueryLoad(driver);
@@ -700,6 +683,7 @@ public class IvrConfigPage extends BasePage {
         String item = items.getText();
         return item.matches("(\\d.*) - (\\d.*) of (\\d.*) items");
     }
+    
     public boolean verifyDropDownOfAllHeaders() {
         boolean status = false;
         try {for (WebElement ele : headersDropdown) {
@@ -828,7 +812,7 @@ public class IvrConfigPage extends BasePage {
 			return false;		
 	}
 	public boolean clearAll(IvrConfigDetails details) throws Exception {
-		selectWebElement(searchBtn.get(1));
+		selectWebElement(searchBtn.get(0));
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Parameter");
         selectWebElement(selectSearchCol.get(1));
@@ -847,115 +831,8 @@ public class IvrConfigPage extends BasePage {
 		else
 		return false;
 	}
-	
-	public boolean verifySearchIsNotEqualTo(String parameter) throws Exception {
-		Boolean Status=false;
-		Map<String, String> map=new HashMap<String,String>() ;
-		map.put("Parameter", parameter);
-		selectWebElement(searchBtn.get(0));
-        selectWebElement(selectSearchCol.get(0));
-        selectDropdownFromVisibleText(columnNameList,"Parameter");
-        selectWebElement(selectSearchCol.get(1));
-        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is not equal to");
-        enterValueToTxtField(searchTextBox,parameter);		
-        selectWebElement(searchSearchBtn);
-        waitUntilWebElementIsVisible(gridContent);
-        List<Map<String,String>> UI=gettable(); 
-        for (Map<String,String> map1: UI)
-        {   	
-			if(map1.equals(map))
-        	Status= false;
-        	else 
-        		Status= true;
-	}
-        return Status;
-	
-	}
-	
-	public boolean verifySearchContains(String parameter) throws Exception {
-		Boolean Status=false;
-		selectWebElement(searchBtn);
-        selectWebElement(selectSearchCol.get(0));
-        selectDropdownFromVisibleText(columnNameList,"Parameter");
-        selectWebElement(selectSearchCol.get(1));
-        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Contains");
-        enterValueToTxtField(searchTextBox,parameter);		
-        selectWebElement(searchSearchBtn);
-        waitUntilWebElementIsVisible(gridContent);
-        List<Map<String,String>> UI=gettable(); 
-        for (Map<String,String> map1: UI)
-        {   	
-			if(map1.get("Parameter").toUpperCase().contains(parameter.toUpperCase()))
-        	Status= true;
-        	else 
-        		Status= false;
-	}
-        return Status;
-	}
-	public boolean verifySearchDoesNotContains(String parameter) throws Exception {
-		Boolean Status=false;
-		selectWebElement(searchBtn);
-        selectWebElement(selectSearchCol.get(0));
-        selectDropdownFromVisibleText(columnNameList,"Parameter");
-        selectWebElement(selectSearchCol.get(1));
-        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Does not contain");
-        enterValueToTxtField(searchTextBox,parameter);		
-        selectWebElement(searchSearchBtn);
-        waitUntilWebElementIsVisible(gridContent);
-        List<Map<String,String>> UI=gettable(); 
-        for (Map<String,String> map1: UI)
-        {   	
-			if(!map1.get("Parameter").toLowerCase().contains(parameter.toLowerCase()))
-        	Status= true;
-        	else 
-        		Status= false;
-	}
-        return Status;
-	}
-	
-	public boolean verifySearchStartsWith(String parameter) throws Exception {
-		Boolean Status=false;
-		selectWebElement(searchBtn);
-        selectWebElement(selectSearchCol.get(0));
-        selectDropdownFromVisibleText(columnNameList,"Parameter");
-        selectWebElement(selectSearchCol.get(1));
-        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Starts with");
-        enterValueToTxtField(searchTextBox,parameter);		
-        selectWebElement(searchSearchBtn);
-        waitUntilWebElementIsVisible(gridContent);
-        List<Map<String,String>> UI=gettable(); 
-        for (Map<String,String> map1: UI)
-        {   	
-			if(map1.get("Parameter").toLowerCase().startsWith(parameter.toLowerCase()))
-        	Status= true;
-        	else 
-        		Status= false;
-	}
-        return Status;
-	}
-	
-	public boolean verifySearchEndsWith(String parameter) throws Exception {
-		Boolean Status=false;
-		selectWebElement(searchBtn);
-        selectWebElement(selectSearchCol.get(0));
-        selectDropdownFromVisibleText(columnNameList,"Parameter");
-        selectWebElement(selectSearchCol.get(1));
-        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Ends with");
-        enterValueToTxtField(searchTextBox,parameter);		
-        selectWebElement(searchSearchBtn);
-        waitUntilWebElementIsVisible(gridContent);
-        List<Map<String,String>> UI=gettable(); 
-        for (Map<String,String> map1: UI)
-        {   	
-			if(map1.get("Parameter").toUpperCase().endsWith(parameter.toUpperCase()))
-        	Status= true;
-        	else 
-        		Status= false;
-	}
-        return Status;
-	}
 	public void searchwithoutextsearch() {
-		selectWebElement(searchBtn);
+		selectWebElement(searchBtn.get(0));
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Parameter");
         selectWebElement(selectSearchCol.get(1));
@@ -1216,7 +1093,6 @@ public class IvrConfigPage extends BasePage {
         selectWebElement(selectSearchColumn.get(1));
         selectDropdownFromVisibleText(searchTypeList,"Is equal to");
         enterValueToTxtField(searchText.get(0),parameter);
-//        waitUntilWebElementIsVisible(searchBtn);
         selectInvisibleWebElement(searchSearchBtn);
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(approvedgridcontent);		
@@ -1254,10 +1130,6 @@ public class IvrConfigPage extends BasePage {
 	}
 	
 	public void DeleteRecordWithoutModifyReason(IvrConfigDetails details) throws Exception {
-		selectWebElement(ivrConfigTab.get(1));
-		Thread.sleep(1000);
-		selectWebElement(makeIVRConfigChanges);
-		Thread.sleep(1000);	
 		searchIvrConfigRecord(details.getParameter());
 		Thread.sleep(1000);
 		selectWebElement(deleteButton);
@@ -1378,18 +1250,68 @@ private Map<String, String> getSecondRowDatafromTable() {
     }
     Map<String,String> secondRowData=getSecondRowDatafromTable();
     return secondRowData.get("Status").equals(status);
-}	
+}
     
-}	
-
-
-
-
-
-
-
-
-
+	public void addEmptyConfigRecord(IvrConfigDetails details) {
+	        selectWebElement(addNewRecordBtn);
+	        waitForJqueryLoad(driver);
+	        try {
+	            Thread.sleep(3000);
+	        } catch (InterruptedException e) {
+	            e.printStackTrace();
+	        }
+	        selectWebElement(parameterDropdown);
+	        selectDropdownFromVisibleText(parameterListBox,details.getParameter());
+	        parameterDropdown.sendKeys(Keys.TAB);
+	        selectWebElement(valueDropdown);
+	        selectDropdownFromVisibleText(valueListBox,details.getValue());
+	        valueDropdown.sendKeys(Keys.TAB);
+	        selectWebElement(saveButton);
+	        try {
+	        	selectWebElement(cancelBtn);
+	        }
+	        catch(Exception e)
+	        {
+	        	e.printStackTrace();
+	        }
+	    }		
+    
+	public void ModifyIvrConfigRecord(IvrConfigDetails details) throws Exception {
+		searchIvrConfigRecord(details.getSearchValue());
+        selectWebElement(editButton);
+        try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+        selectWebElement(parameterDropdown);
+        if(details.getParameter().equals("Select Parameter"))
+        {selectDropdownFromVisibleText(selectParameter,details.getParameter());}
+        else{selectDropdownFromVisibleText(parameterListBox,details.getParameter());}
+        parameterDropdown.sendKeys(Keys.TAB);
+        selectWebElement(valueDropdown);
+        if(details.getValue().equals("Select Value"))
+        {selectDropdownFromVisibleText(selectValue,details.getValue());}
+        else{selectDropdownFromVisibleText(valueListBox,details.getUpdatedValue());}
+        valueDropdown.sendKeys(Keys.TAB);
+        selectWebElement(ModifyReasonTextBox);
+        enterValueToTxtField(ModifyReasonTextBox,details.getModifyReason());
+        selectWebElement(saveButton);
+        try {
+        	selectWebElement(cancelBtn);
+        }
+        catch(Exception e)
+        {
+        	e.printStackTrace();
+        }
+		
+	}
 	
 	
-
+	
+	
+	
+	
+	
+	
+}

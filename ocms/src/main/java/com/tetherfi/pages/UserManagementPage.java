@@ -249,6 +249,21 @@ public class UserManagementPage extends BasePage {
 	@FindBy(xpath="//span[text()='Other Applications']")
 	private WebElement navigatetootherapplication;
 	
+	@FindBy(css = ".modal-body .form-inline .form-group .k-select")
+	private List<WebElement> selectSearchCol;
+	
+	@FindBy(css="ul[id='1001sCriteria_listbox'] li")
+	private List<WebElement> searchCriteriaDropDwn;
+	
+	@FindBy(id = "1001sTextToSearch")
+	private WebElement searchTextBox;
+    
+    @FindBy(css = ".modal-footer .button-theme")
+	private WebElement searchSearchBtn;
+    
+    @FindBy(css=".k-grid-content")
+	private WebElement gridContent;
+	
     public boolean isUserManagementPageDisplayed() throws InterruptedException {
         waitForLoad(driver);
         waitForJqueryLoad(driver);
@@ -330,6 +345,113 @@ public class UserManagementPage extends BasePage {
         selectWebElement(searchBtn);
         waitForJqueryLoad(driver);
     }
+    
+    public boolean verifySearchIsNotEqualTo(String userid) throws Exception {
+		Boolean Status=false;
+		Map<String, String> map=new HashMap<String,String>() ;
+		map.put("User Id", userid);
+		selectWebElement(searchBtn);
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"User Id");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is not equal to");
+        enterValueToTxtField(searchTextBox,userid);		
+        selectWebElement(searchSearchBtn);
+        waitUntilWebElementIsVisible(gridContent);
+        List<Map<String,String>> UI=gettable(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(map1.equals(map))
+        	Status= false;
+        	else 
+        		Status= true;
+	}
+        return Status;
+	
+	}
+    
+    public boolean verifySearchContains(String userid) throws Exception {
+		Boolean Status=false;
+		selectWebElement(searchBtn);
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"User Id");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Contains");
+        enterValueToTxtField(searchTextBox,userid);		
+        selectWebElement(searchSearchBtn);
+        waitUntilWebElementIsVisible(gridContent);
+        List<Map<String,String>> UI=gettable(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(map1.get("User Id").toUpperCase().contains(userid.toUpperCase()))
+        	Status= true;
+        	else 
+        		Status= false;
+	}
+        return Status;
+	}
+	public boolean verifySearchDoesNotContains(String userid) throws Exception {
+		Boolean Status=false;
+		selectWebElement(searchBtn);
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"User Id");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Does not contain");
+        enterValueToTxtField(searchTextBox,userid);		
+        selectWebElement(searchSearchBtn);
+        waitUntilWebElementIsVisible(gridContent);
+        List<Map<String,String>> UI=gettable(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(!map1.get("User Id").toLowerCase().contains(userid.toLowerCase()))
+        	Status= true;
+        	else 
+        		Status= false;
+	}
+        return Status;
+	}
+	
+	public boolean verifySearchStartsWith(String userid) throws Exception {
+		Boolean Status=false;
+		selectWebElement(searchBtn);
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"User Id");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Starts with");
+        enterValueToTxtField(searchTextBox,userid);		
+        selectWebElement(searchSearchBtn);
+        waitUntilWebElementIsVisible(gridContent);
+        List<Map<String,String>> UI=gettable(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(map1.get("User Id").toLowerCase().startsWith(userid.toLowerCase()))
+        	Status= true;
+        	else 
+        		Status= false;
+	}
+        return Status;
+	}
+	
+	public boolean verifySearchEndsWith(String userid) throws Exception {
+		Boolean Status=false;
+		selectWebElement(searchBtn);
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"User Id");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Ends with");
+        enterValueToTxtField(searchTextBox,userid);		
+        selectWebElement(searchSearchBtn);
+        waitUntilWebElementIsVisible(gridContent);
+        List<Map<String,String>> UI=gettable(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(map1.get("User Id").toUpperCase().endsWith(userid.toUpperCase()))
+        	Status= true;
+        	else 
+        		Status= false;
+	}
+        return Status;
+	}
     public void deleteUserManagementRecord(String username, String reason) throws Exception {
         searchUserManagementRecord(username);
         selectWebElement(deleteBtn);

@@ -36,7 +36,7 @@ public class TmacTransferListTest extends BaseTest {
         Assert.assertTrue(tmacTransferListPage.isTmacTransferListPageDisplayed(),"Agent Team  management assertion failed");
     }
     
-    @Test (priority=0)
+    /*@Test (priority=0)
     public void VerifyTmacTransferListModuleDisplay() {
     	TmacTransferListPage tmacTransferListPage=PageFactory.createPageInstance(driver,TmacTransferListPage.class);
         Assert.assertEquals(tmacTransferListPage.getHeaderText(), "TMAC Transfer List", "Tmac Transfer List Module text assertion failed");
@@ -250,9 +250,54 @@ public class TmacTransferListTest extends BaseTest {
         tmacTransferListPage.navigateToTab("TMAC Consult Transfer");
         tmacTransferListPage.editTmacConsultTransferList(tmacTransferListDetails);
         Assert.assertEquals(tmacTransferListPage.VerifySuccessMsg(),"Record Updated Successfully","Edit record assertion failed");
-    }
+    }*/
     
     @Test (priority=19)
+    public void VerifySearchIsNotEqualTo() throws Exception {
+        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\TmacTransferListData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "ConsulCreate").getTestData().get(3);
+        TmacTransferListDetails tmacTransferListDetails=new TmacTransferListDetails(map);
+        TmacTransferListPage tmacTransferListPage=PageFactory.createPageInstance(driver,TmacTransferListPage.class);
+        Assert.assertTrue(tmacTransferListPage.verifySearchIsNotEqualTo(tmacTransferListDetails.getName()));
+    }
+    
+    @Test (priority=20)
+    public void VerifySearchContains() throws Exception {
+        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\TmacTransferListData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "ConsulCreate").getTestData().get(7);
+        TmacTransferListDetails tmacTransferListDetails=new TmacTransferListDetails(map);
+        TmacTransferListPage tmacTransferListPage=PageFactory.createPageInstance(driver,TmacTransferListPage.class);
+        Assert.assertTrue(tmacTransferListPage.verifySearchContains(tmacTransferListDetails.getName()));
+    }
+    
+    @Test (priority=21)
+    public void VerifySearchDoesNotContains() throws Exception {
+        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\TmacTransferListData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "ConsulCreate").getTestData().get(7);
+        TmacTransferListDetails tmacTransferListDetails=new TmacTransferListDetails(map);
+        TmacTransferListPage tmacTransferListPage=PageFactory.createPageInstance(driver,TmacTransferListPage.class);
+        Assert.assertTrue(tmacTransferListPage.verifySearchDoesNotContains(tmacTransferListDetails.getName()));
+    }
+    
+    @Test (priority=22)
+    public void VerifySearchStartsWith() throws Exception {
+        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\TmacTransferListData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "ConsulCreate").getTestData().get(8);
+        TmacTransferListDetails tmacTransferListDetails=new TmacTransferListDetails(map);
+        TmacTransferListPage tmacTransferListPage=PageFactory.createPageInstance(driver,TmacTransferListPage.class);
+        Assert.assertTrue(tmacTransferListPage.verifySearchStartsWith(tmacTransferListDetails.getName()));
+    }
+    
+    @Test (priority=23)
+    public void VerifySearchEndsWith() throws Exception {
+        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\TmacTransferListData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "ConsulCreate").getTestData().get(9);
+        TmacTransferListDetails tmacTransferListDetails=new TmacTransferListDetails(map);
+        TmacTransferListPage tmacTransferListPage=PageFactory.createPageInstance(driver,TmacTransferListPage.class);
+        Assert.assertTrue(tmacTransferListPage.verifySearchEndsWith(tmacTransferListDetails.getName()));
+    }
+    
+   /* @Test (priority=19)
     public void ExportToExcel() throws Exception
     {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles";
@@ -621,7 +666,7 @@ public class TmacTransferListTest extends BaseTest {
     	Assert.assertTrue(tmacTransferListPage.ocmHeaderNotDisplayed(), "OCM Header not displayed assertion failed");
     	tmacTransferListPage.selectFullScreen();
     	Assert.assertTrue(tmacTransferListPage.ocmHeaderDisplayed(), "OCM Header displayed assertion failed");
-    }
+    }*/
     
     @AfterMethod
     public void afterEachMethod(Method method){

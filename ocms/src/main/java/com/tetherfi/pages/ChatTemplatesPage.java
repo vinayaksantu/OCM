@@ -451,6 +451,7 @@ public class ChatTemplatesPage extends BasePage {
     }
     public void editChatTemplatesRecord(ChatTemplateDetails details) throws Exception {
         searchChatTemplatesRecord(details.getName());
+        Thread.sleep(1000);
         selectWebElement(editBtn);
         waitForJqueryLoad(driver);
         try {
@@ -465,6 +466,7 @@ public class ChatTemplatesPage extends BasePage {
     }
     public void deleteChatTemplatesRecord(String name,String reason) throws Exception {
         searchChatTemplatesRecord(name);
+        Thread.sleep(1000);
         btnClick(deleteBtn);
         selectWebElement(deleteReasonTextBox);
         enterValueToTxtFieldWithoutClear(deleteReasonTextBox,reason);
@@ -479,14 +481,14 @@ public class ChatTemplatesPage extends BasePage {
     }
     public boolean verifyRecordDeleted(){
         waitForJqueryLoad(driver);
-        if(errorMsg.size()>0){return false;}
+        //if(errorMsg.size()>0){return false;}
         if(waitUntilTextToBePresentInWebElement(successmsg,"Record Deleted Successfully")){
             return true;
         }else{return false;}
     }
     public boolean verifyRecordUpdated(){
         waitForJqueryLoad(driver);
-        if(errorMsg.size()>0){return false;}
+        //if(errorMsg.size()>0){return false;}
         if(waitUntilTextToBePresentInWebElement(successmsg,"Record Updated Successfully"))
         {return true;}else{return false;}
     }
@@ -499,6 +501,7 @@ public class ChatTemplatesPage extends BasePage {
     }
     public void addNewDepartmentRecord(ChatTemplateDetails details) throws Exception {
         selectWebElement(addNewDepartmentRecordBtn);
+        Thread.sleep(1000);
         selectWebElement(channelDropdown);
         selectDropdownFromVisibleText(channelListbox,details.getChannel());
         selectWebElement(nameTextbox);
@@ -541,6 +544,7 @@ public class ChatTemplatesPage extends BasePage {
     }
     public void deleteDepartmentRecord(String name,String reason) throws Exception {
         searchDepartmentRecord(name);
+        Thread.sleep(1000);
         btnClick(deleteBtn);
         selectWebElement(deleteReasonTextBox);
         enterValueToTxtFieldWithoutClear(deleteReasonTextBox,reason);
@@ -663,6 +667,7 @@ public class ChatTemplatesPage extends BasePage {
 	public void addRecordWithoutEnabled(ChatTemplateDetails details) throws Exception {
 		selectWebElement(addNewDepartmentRecordBtn);
 		waitForJqueryLoad(driver);
+		Thread.sleep(1000);
 		selectWebElement(channelDropdown);
         selectDropdownFromVisibleText(channelListbox,details.getChannel());
         selectWebElement(nameTextbox);

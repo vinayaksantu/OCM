@@ -45,7 +45,7 @@ public class IntentMappingTest extends BaseTest {
     	screenshot.captureScreen("IntentMappingTest","IntentMappingPage");
     }
 	
-	@Test(priority=1)
+	/*@Test(priority=1)
 	public void IntentMappingPage() {
         IntentMappingPage IntentMappingPage = PageFactory.createPageInstance(driver, IntentMappingPage.class);
         Assert.assertTrue(IntentMappingPage.VerifyLogo(),"Logo assertion failed");
@@ -219,9 +219,54 @@ public class IntentMappingTest extends BaseTest {
         IntentMappingPage.clickOnEditButton();
         IntentMappingPage.clickOnCancelBtn();
         Assert.assertFalse(IntentMappingPage.verifyEditFormContainer(), "Cancel Btn at Edit record assertion failed");
-    }
+    }*/
+	
+	 @Test(priority=19)
+	 public void VerifySearchIsNotEqualTo() throws Exception {
+        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntentMappingData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
+        IntentMappingDetails IntentMappingDetails = new IntentMappingDetails(map);
+        IntentMappingPage IntentMappingPage = PageFactory.createPageInstance(driver, IntentMappingPage.class);
+        Assert.assertTrue(IntentMappingPage.verifySearchIsNotEqualTo(IntentMappingDetails.getIntentTalent()));
+	}
+	
+	@Test(priority=20)
+	 public void VerifySearchContains() throws Exception {
+       String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntentMappingData.xlsx";
+       Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(1);
+       IntentMappingDetails IntentMappingDetails = new IntentMappingDetails(map);
+       IntentMappingPage IntentMappingPage = PageFactory.createPageInstance(driver, IntentMappingPage.class);
+       Assert.assertTrue(IntentMappingPage.verifySearchContains(IntentMappingDetails.getIntentTalent()));
+	}
     
-    @Test(priority=19)
+	@Test(priority=21)
+	 public void VerifySearchDoesNotContains() throws Exception {
+      String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntentMappingData.xlsx";
+      Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(1);
+      IntentMappingDetails IntentMappingDetails = new IntentMappingDetails(map);
+      IntentMappingPage IntentMappingPage = PageFactory.createPageInstance(driver, IntentMappingPage.class);
+      Assert.assertTrue(IntentMappingPage.verifySearchDoesNotContains(IntentMappingDetails.getIntentTalent()));
+	}
+	
+	@Test(priority=22)
+	 public void VerifySearchStartsWith() throws Exception {
+     String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntentMappingData.xlsx";
+     Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(2);
+     IntentMappingDetails IntentMappingDetails = new IntentMappingDetails(map);
+     IntentMappingPage IntentMappingPage = PageFactory.createPageInstance(driver, IntentMappingPage.class);
+     Assert.assertTrue(IntentMappingPage.verifySearchStartsWith(IntentMappingDetails.getIntentTalent()));
+	}
+	
+	@Test(priority=23)
+	 public void  VerifySearchEndsWith() throws Exception {
+    String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntentMappingData.xlsx";
+    Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(3);
+    IntentMappingDetails IntentMappingDetails = new IntentMappingDetails(map);
+    IntentMappingPage IntentMappingPage = PageFactory.createPageInstance(driver, IntentMappingPage.class);
+    Assert.assertTrue(IntentMappingPage.verifySearchEndsWith(IntentMappingDetails.getIntentTalent()));
+	}
+	
+    /*@Test(priority=19)
     public void searchPage() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntentMappingData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -380,7 +425,7 @@ public class IntentMappingTest extends BaseTest {
         IntentMappingPage IntentMappingPage = PageFactory.createPageInstance(driver, IntentMappingPage.class);
         IntentMappingDetails IntentMappingDetails = new IntentMappingDetails(map);
     	Assert.assertTrue(IntentMappingPage.verifyDatabase(IntentMappingDetails.getQuery()));
-    }
+    }*/
 	
 	 @AfterMethod
 	    public void afterEachMethod(Method method) throws InterruptedException {

@@ -123,7 +123,7 @@ public class SkillConfigurationTest extends BaseTest{
         skillConfigurationPage.addNewRecordWithoutSkillID(skillConfigurationDetails);
         Assert.assertFalse(skillConfigurationPage.verifyMessage(),"Duplicate record assertion failed");
     }
-    */
+    
     @Test(priority=10)
     public void AddRecordWithoutSkillName() throws Exception {
    	 	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillConfigurationData.xlsx";
@@ -162,9 +162,57 @@ public class SkillConfigurationTest extends BaseTest{
     	SkillConfigurationPage skillConfigurationPage=PageFactory.createPageInstance(driver,SkillConfigurationPage.class);
         skillConfigurationPage.addNewRecordWithoutEnabled(skillConfigurationDetails);
         Assert.assertFalse(skillConfigurationPage.verifyMessage(),"Duplicate record assertion failed");
-    }
+    }*/
     
     @Test(priority=14)
+    public void VerifySearchIsNotEqualTo() throws Exception {
+   	 	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillConfigurationData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
+        SkillConfigurationDetails skillConfigurationDetails = new SkillConfigurationDetails(map);
+    	SkillConfigurationPage skillConfigurationPage=PageFactory.createPageInstance(driver,SkillConfigurationPage.class);
+    	Assert.assertTrue(skillConfigurationPage.verifySearchIsNotEqualTo(skillConfigurationDetails.getSkillName()));
+    }
+    
+   
+    
+    @Test(priority=15)
+    public void VerifySearchContains() throws Exception {
+   	 	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillConfigurationData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);
+        SkillConfigurationDetails skillConfigurationDetails = new SkillConfigurationDetails(map);
+    	SkillConfigurationPage skillConfigurationPage=PageFactory.createPageInstance(driver,SkillConfigurationPage.class);
+    	Assert.assertTrue(skillConfigurationPage.verifySearchContains(skillConfigurationDetails.getSkillName()));
+    }
+    
+    @Test(priority=16)
+    public void VerifySearchDoesNotContains() throws Exception {
+   	 	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillConfigurationData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);
+        SkillConfigurationDetails skillConfigurationDetails = new SkillConfigurationDetails(map);
+    	SkillConfigurationPage skillConfigurationPage=PageFactory.createPageInstance(driver,SkillConfigurationPage.class);
+    	Assert.assertTrue(skillConfigurationPage.verifySearchDoesNotContains(skillConfigurationDetails.getSkillName()));
+    }
+    
+    @Test(priority=17)
+    public void VerifySearchStartsWith() throws Exception {
+   	 	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillConfigurationData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(2);
+        SkillConfigurationDetails skillConfigurationDetails = new SkillConfigurationDetails(map);
+    	SkillConfigurationPage skillConfigurationPage=PageFactory.createPageInstance(driver,SkillConfigurationPage.class);
+    	Assert.assertTrue(skillConfigurationPage.verifySearchStartsWith(skillConfigurationDetails.getSkillName()));
+    }
+    
+    @Test(priority=18)
+    public void VerifySearchEndsWith() throws Exception {
+   	 	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillConfigurationData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(3);
+        SkillConfigurationDetails skillConfigurationDetails = new SkillConfigurationDetails(map);
+    	SkillConfigurationPage skillConfigurationPage=PageFactory.createPageInstance(driver,SkillConfigurationPage.class);
+    	Assert.assertTrue(skillConfigurationPage.verifySearchEndsWith(skillConfigurationDetails.getSkillName()));
+    }
+    
+    
+   /*@Test(priority=14)
     public void EditCancelSkillConfigurationRecord() throws Exception {
    	 	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillConfigurationData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
@@ -381,7 +429,7 @@ public class SkillConfigurationTest extends BaseTest{
         SkillConfigurationDetails skillConfigurationDetails = new SkillConfigurationDetails(map);
         Assert.assertTrue(skillConfigurationPage.verifyDatabase(skillConfigurationDetails.getQuery()));
    
-    }
+    }*/
     
     @AfterMethod
     public void afterEachMethod(Method method) throws InterruptedException {

@@ -45,7 +45,7 @@ public class AgentTransferTest extends BaseTest{
         Assert.assertTrue(agentTransferPage.isAgentTransferPageDisplayed(), "Holiday List page assertion failed");
     }
 	
-	@Test(priority=1)
+	/*@Test(priority=1)
 	public void AgentTransferPage() {
         AgentTransferPage agentTransferPage = PageFactory.createPageInstance(driver, AgentTransferPage.class);
     	Assert.assertTrue(agentTransferPage.verifylogo(),"Agent transfer logo assertion failed");
@@ -266,9 +266,54 @@ public class AgentTransferTest extends BaseTest{
         screenshot.captureScreen("AgentTransferTest", "clearall");
         Assert.assertTrue(agentTransferPage.verifyclose());
         screenshot.captureScreen("AgentTransferTest", "SearchClose");
-    }
+    }*/
+	
+	@Test(priority=24)
+	public void VerifySearchIsNotEqualTo() throws Exception {
+		AgentTransferPage agentTransferPage = PageFactory.createPageInstance(driver, AgentTransferPage.class);
+		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentTransferData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
+        AgentTransferDetails agentTransferDetails=new AgentTransferDetails (map);
+        Assert.assertTrue(agentTransferPage.verifySearchIsNotEqualTo(agentTransferDetails.getVdnDescription()));
+	}
+	
+	@Test(priority=25)
+	public void VerifySearchContains() throws Exception {
+		AgentTransferPage agentTransferPage = PageFactory.createPageInstance(driver, AgentTransferPage.class);
+		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentTransferData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(1);
+        AgentTransferDetails agentTransferDetails=new AgentTransferDetails (map);
+        Assert.assertTrue(agentTransferPage.verifySearchContains(agentTransferDetails.getVdnDescription()));
+	}
+	
+	@Test(priority=26)
+	public void VerifySearchDoesNotContains() throws Exception {
+		AgentTransferPage agentTransferPage = PageFactory.createPageInstance(driver, AgentTransferPage.class);
+		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentTransferData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(1);
+        AgentTransferDetails agentTransferDetails=new AgentTransferDetails (map);
+        Assert.assertTrue(agentTransferPage.verifySearchDoesNotContains(agentTransferDetails.getVdnDescription()));
+	}
+	
+	@Test(priority=27)
+	public void VerifySearchStartsWith() throws Exception {
+		AgentTransferPage agentTransferPage = PageFactory.createPageInstance(driver, AgentTransferPage.class);
+		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentTransferData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(2);
+        AgentTransferDetails agentTransferDetails=new AgentTransferDetails (map);
+        Assert.assertTrue(agentTransferPage.verifySearchStartsWith(agentTransferDetails.getVdnDescription()));
+	}
+	
+	@Test(priority=28)
+	public void VerifySearchEndsWith() throws Exception {
+		AgentTransferPage agentTransferPage = PageFactory.createPageInstance(driver, AgentTransferPage.class);
+		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentTransferData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(3);
+        AgentTransferDetails agentTransferDetails=new AgentTransferDetails (map);
+        Assert.assertTrue(agentTransferPage.verifySearchEndsWith(agentTransferDetails.getVdnDescription()));
+	}
     
-	@Test(priority=24)//,dependsOnMethods = ("editHolidayListRecord"))
+	/*@Test(priority=24)//,dependsOnMethods = ("editHolidayListRecord"))
     public void DeleteCancelAgentTransferRecord() throws Exception {
 		AgentTransferPage agentTransferPage = PageFactory.createPageInstance(driver, AgentTransferPage.class);
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentTransferData.xlsx";
@@ -350,7 +395,7 @@ public class AgentTransferTest extends BaseTest{
     public void VerifyNumberOfItemsPerPageSelection() {
         AgentTransferPage agentTransferPage = PageFactory.createPageInstance(driver, AgentTransferPage.class);
         Assert.assertTrue(agentTransferPage.verifyNumberOfItemsPerPage(),"item per page assertion failed");
-    }
+    }*/
     
     @AfterMethod
     public void afterEachMethod(Method method){

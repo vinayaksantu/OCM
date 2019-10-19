@@ -45,7 +45,7 @@ public class VBEnrollmentFlagTest extends BaseTest {
     	screenshot.captureScreen("VBEnrollmentFlagTest","VbEnrollmentFlagPage");
     }
 	
-	@Test(priority=1)
+	/*@Test(priority=1)
 	public void VbEnrollmentFlagPage() {
         VbEnrollmentFlagPage VbEnrollmentFlagPage = PageFactory.createPageInstance(driver, VbEnrollmentFlagPage.class);
         Assert.assertTrue(VbEnrollmentFlagPage.VerifyLogo(),"Logo assertion failed");
@@ -154,9 +154,54 @@ public class VBEnrollmentFlagTest extends BaseTest {
         VbEnrollmentFlagPage.clickOnAddRecord();
         VbEnrollmentFlagPage.clickOnCancelBtn();
         Assert.assertFalse(VbEnrollmentFlagPage.verifyEditFormContainer(), "Cancel Btn at Add record assertion failed");
+	}*/
+	
+	@Test(priority=13)
+	public void VerifySearchIsNotEqualTo() throws Exception {
+        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\VBEnrollmentFlagData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
+        VBEnrollmentFlagDetails VBEnrollmentFlagDetails = new VBEnrollmentFlagDetails(map);
+        VbEnrollmentFlagPage VbEnrollmentFlagPage = PageFactory.createPageInstance(driver, VbEnrollmentFlagPage.class);
+        Assert.assertTrue(VbEnrollmentFlagPage.verifySearchIsNotEqualTo(VBEnrollmentFlagDetails.getHotLineName()));
 	}
 	
-    @Test(priority=13)
+	@Test(priority=14)
+	public void VerifySearchContains() throws Exception {
+        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\VBEnrollmentFlagData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);
+        VBEnrollmentFlagDetails VBEnrollmentFlagDetails = new VBEnrollmentFlagDetails(map);
+        VbEnrollmentFlagPage VbEnrollmentFlagPage = PageFactory.createPageInstance(driver, VbEnrollmentFlagPage.class);
+        Assert.assertTrue(VbEnrollmentFlagPage.verifySearchContains(VBEnrollmentFlagDetails.getHotLineName()));
+	}
+	
+	@Test(priority=15)
+	public void VerifySearchDoesNotContains() throws Exception {
+        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\VBEnrollmentFlagData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);
+        VBEnrollmentFlagDetails VBEnrollmentFlagDetails = new VBEnrollmentFlagDetails(map);
+        VbEnrollmentFlagPage VbEnrollmentFlagPage = PageFactory.createPageInstance(driver, VbEnrollmentFlagPage.class);
+        Assert.assertTrue(VbEnrollmentFlagPage.verifySearchDoesNotContains(VBEnrollmentFlagDetails.getHotLineName()));
+	}
+	
+	@Test(priority=16)
+	public void VerifySearchStartsWith() throws Exception {
+        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\VBEnrollmentFlagData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(2);
+        VBEnrollmentFlagDetails VBEnrollmentFlagDetails = new VBEnrollmentFlagDetails(map);
+        VbEnrollmentFlagPage VbEnrollmentFlagPage = PageFactory.createPageInstance(driver, VbEnrollmentFlagPage.class);
+        Assert.assertTrue(VbEnrollmentFlagPage.verifySearchStartsWith(VBEnrollmentFlagDetails.getHotLineName()));
+	}
+	
+	@Test(priority=17)
+	public void VerifySearchEndsWith() throws Exception {
+        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\VBEnrollmentFlagData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(3);
+        VBEnrollmentFlagDetails VBEnrollmentFlagDetails = new VBEnrollmentFlagDetails(map);
+        VbEnrollmentFlagPage VbEnrollmentFlagPage = PageFactory.createPageInstance(driver, VbEnrollmentFlagPage.class);
+        Assert.assertTrue(VbEnrollmentFlagPage.verifySearchEndsWith(VBEnrollmentFlagDetails.getHotLineName()));
+	}
+	
+    /*@Test(priority=13)
     public void EditVBEnrollmentFlagRecord() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\VBEnrollmentFlagData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
@@ -360,7 +405,7 @@ public class VBEnrollmentFlagTest extends BaseTest {
         VBEnrollmentFlagDetails VBEnrollmentFlagDetails = new VBEnrollmentFlagDetails(map);
         VbEnrollmentFlagPage VbEnrollmentFlagPage = PageFactory.createPageInstance(driver, VbEnrollmentFlagPage.class);
         Assert.assertTrue(VbEnrollmentFlagPage.ExporttoExcelWithoutData(VBEnrollmentFlagDetails));
-    }
+    }*/
   
     
 	

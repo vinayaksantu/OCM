@@ -66,7 +66,7 @@ public class WorkCodeListTest extends BaseTest{
         Assert.assertTrue(workCodeListPage.isWorkCodeListPageDisplayed(), "WorkCodeList page assertion failed");
     }
     
-    @Test(priority=1)
+    /*@Test(priority=1)
     public void WorkCodeListPage()
     {
         WorkCodeListPage workCodeListPage  = PageFactory.createPageInstance(driver, WorkCodeListPage.class);
@@ -213,9 +213,56 @@ public class WorkCodeListTest extends BaseTest{
         screenshot.captureScreen("WorkCodeListTest", "clearall");
         Assert.assertTrue(workCodeListPage.verifyclose());
         screenshot.captureScreen("WorkCodeListTest", "SearchClose");
-    }
+    }*/
     
     @Test(priority=14)
+    public void VerifySearchIsNotEqualTo() throws Exception {
+    	WorkCodeListPage workCodeListPage  = PageFactory.createPageInstance(driver, WorkCodeListPage.class);
+    	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\WorkCodeListData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
+        WorkCodeListDetails workcodeListDetails=new WorkCodeListDetails (map);
+        Assert.assertTrue(workCodeListPage.verifySearchIsNotEqualTo(workcodeListDetails.getName()));
+    }
+    
+    @Test(priority=15)
+    public void VerifySearchContains() throws Exception {
+    	WorkCodeListPage workCodeListPage  = PageFactory.createPageInstance(driver, WorkCodeListPage.class);
+    	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\WorkCodeListData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(4);
+        WorkCodeListDetails workcodeListDetails=new WorkCodeListDetails (map);
+        Assert.assertTrue(workCodeListPage.verifySearchContains(workcodeListDetails.getName()));
+    }
+    
+    @Test(priority=16)
+    public void VerifySearchDoesNotContains() throws Exception {
+    	WorkCodeListPage workCodeListPage  = PageFactory.createPageInstance(driver, WorkCodeListPage.class);
+    	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\WorkCodeListData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(4);
+        WorkCodeListDetails workcodeListDetails=new WorkCodeListDetails (map);
+        Assert.assertTrue(workCodeListPage.verifySearchDoesNotContains(workcodeListDetails.getName()));
+    }
+    
+    @Test(priority=17)
+    public void VerifySearchStartsWith() throws Exception {
+    	WorkCodeListPage workCodeListPage  = PageFactory.createPageInstance(driver, WorkCodeListPage.class);
+    	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\WorkCodeListData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(4);
+        WorkCodeListDetails workcodeListDetails=new WorkCodeListDetails (map);
+        Assert.assertTrue(workCodeListPage.verifySearchStartsWith(workcodeListDetails.getName()));
+    }
+    
+    @Test(priority=18)
+    public void VerifySearchEndsWith() throws Exception {
+    	WorkCodeListPage workCodeListPage  = PageFactory.createPageInstance(driver, WorkCodeListPage.class);
+    	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\WorkCodeListData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(5);
+        WorkCodeListDetails workcodeListDetails=new WorkCodeListDetails (map);
+        Assert.assertTrue(workCodeListPage.verifySearchEndsWith(workcodeListDetails.getName()));
+    }
+    
+   
+    
+   /* @Test(priority=14)
     public void SearchClearSearch() throws Exception
     {
     	WorkCodeListPage workCodeListPage  = PageFactory.createPageInstance(driver, WorkCodeListPage.class);
@@ -359,7 +406,7 @@ public class WorkCodeListTest extends BaseTest{
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(1);
         WorkCodeListDetails workcodeListDetails=new WorkCodeListDetails (map);	
         Assert.assertTrue(workCodeListPage.ExporttoExcelWithoutData(workcodeListDetails));
-    }
+    }*/
         
     @AfterMethod
     public void afterEachMethod(Method method){

@@ -36,7 +36,7 @@ public class OperatingHoursTest extends BaseTest {
         Assert.assertTrue(operatingHoursPage.isOperatingHoursPageDisplayed(), "Operating hours page assertion failed");
         screenshot.captureScreen("OperatingHoursTest","Operating Hours Page");
     }
-    @Test(priority=1)
+    /*@Test(priority=1)
     public void OperatingHoursPage() {
         OperatingHoursPage operatingHoursPage = PageFactory.createPageInstance(driver, OperatingHoursPage.class);
     	Assert.assertTrue( operatingHoursPage.verifylogo(),"Operating Hours logo assertion failed");
@@ -233,9 +233,54 @@ public class OperatingHoursTest extends BaseTest {
         screenshot.captureScreen(driver, "clearall","OperatingHoursTest");
         Assert.assertTrue(operatingHoursPage.verifyclose());
         screenshot.captureScreen(driver, "SearchClose","OperatingHoursTest");
-    }
+    }*/
     
     @Test(priority=19)
+    public void VerifySearchIsNotEqualTo() throws Exception {
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OperatingHoursData.xlsx";
+    	Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(4);
+    	OperatingHoursDetails operatingHoursDetails=new OperatingHoursDetails(map);
+    	OperatingHoursPage operatingHoursPage=PageFactory.createPageInstance(driver,OperatingHoursPage.class);
+    	Assert.assertTrue(operatingHoursPage.verifySearchIsNotEqualTo(operatingHoursDetails.getWeekDay()));
+    }
+    
+    @Test(priority=20)
+    public void VerifySearchContains() throws Exception {
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OperatingHoursData.xlsx";
+    	Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(5);
+    	OperatingHoursDetails operatingHoursDetails=new OperatingHoursDetails(map);
+    	OperatingHoursPage operatingHoursPage=PageFactory.createPageInstance(driver,OperatingHoursPage.class);
+    	Assert.assertTrue(operatingHoursPage.verifySearchContains(operatingHoursDetails.getWeekDay()));
+    }
+    
+    @Test(priority=21)
+    public void VerifySearchDoesNotContains() throws Exception {
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OperatingHoursData.xlsx";
+    	Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(5);
+    	OperatingHoursDetails operatingHoursDetails=new OperatingHoursDetails(map);
+    	OperatingHoursPage operatingHoursPage=PageFactory.createPageInstance(driver,OperatingHoursPage.class);
+    	Assert.assertTrue(operatingHoursPage.verifySearchDoesNotContains(operatingHoursDetails.getWeekDay()));
+    }
+    
+    @Test(priority=22)
+    public void VerifySearchStartsWith() throws Exception {
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OperatingHoursData.xlsx";
+    	Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(6);
+    	OperatingHoursDetails operatingHoursDetails=new OperatingHoursDetails(map);
+    	OperatingHoursPage operatingHoursPage=PageFactory.createPageInstance(driver,OperatingHoursPage.class);
+    	Assert.assertTrue(operatingHoursPage.verifySearchStartsWith(operatingHoursDetails.getWeekDay()));
+    }
+    
+    @Test(priority=23)
+    public void VerifySearchEndsWith() throws Exception {
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OperatingHoursData.xlsx";
+    	Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(7);
+    	OperatingHoursDetails operatingHoursDetails=new OperatingHoursDetails(map);
+    	OperatingHoursPage operatingHoursPage=PageFactory.createPageInstance(driver,OperatingHoursPage.class);
+    	Assert.assertTrue(operatingHoursPage.verifySearchEndsWith(operatingHoursDetails.getWeekDay()));
+    }
+    
+   /* @Test(priority=19)
     public void SearchClearSearch() throws Exception
     {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OperatingHoursData.xlsx";
@@ -373,7 +418,7 @@ public class OperatingHoursTest extends BaseTest {
         Map<String, String> map = new ExcelReader(filePath, "Queries").getTestData().get(0);
         OperatingHoursDetails operatingHoursDetails = new OperatingHoursDetails(map);
         Assert.assertTrue(operatingHoursPage.verifyDatabase(operatingHoursDetails.getQuery()));
-    }
+    }*/
     
     @AfterMethod
     public void afterEachMethod(ITestResult result, Method method) throws InterruptedException {

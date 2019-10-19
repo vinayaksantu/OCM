@@ -46,7 +46,7 @@ public class MenuDescriptionMappingTest extends BaseTest {
     	screenshot.captureScreen(driver,"MenuDescriptionMappingTest","MenuDescriptionMappingPage");
     }
 	
-	@Test(priority=1)
+	/*@Test(priority=1)
 	public void MenuDescriptionMappingPage() {
         MenuDescriptionMappingPage menuDescriptionMappingPage = PageFactory.createPageInstance(driver, MenuDescriptionMappingPage.class);
         Assert.assertTrue(menuDescriptionMappingPage.VerifyLogo(),"Logo assertion failed");
@@ -210,9 +210,54 @@ public class MenuDescriptionMappingTest extends BaseTest {
         Assert.assertFalse(menuDescriptionMappingPage .clearAll(MenuDescriptionMappingDetails),"ClearAll Assertion Failed");
         screenshot.captureScreen(driver,"MenuDescriptionMappingTest", "clearall");
         Assert.assertTrue(menuDescriptionMappingPage.verifyclose());
-    }
+    }*/
     
     @Test(priority=18)
+    public void VerifySearchIsNotEqualTo() throws Exception {
+        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\MenuDescriptionMappingData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
+        MenuDescriptionMappingDetails MenuDescriptionMappingDetails = new MenuDescriptionMappingDetails(map);
+        MenuDescriptionMappingPage menuDescriptionMappingPage = PageFactory.createPageInstance(driver, MenuDescriptionMappingPage.class);
+        Assert.assertTrue(menuDescriptionMappingPage.verifySearchIsNotEqualTo(MenuDescriptionMappingDetails.getMenuName()));
+    }
+    
+    @Test(priority=19)
+    public void VerifySearchContains() throws Exception {
+        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\MenuDescriptionMappingData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(1);
+        MenuDescriptionMappingDetails MenuDescriptionMappingDetails = new MenuDescriptionMappingDetails(map);
+        MenuDescriptionMappingPage menuDescriptionMappingPage = PageFactory.createPageInstance(driver, MenuDescriptionMappingPage.class);
+        Assert.assertTrue(menuDescriptionMappingPage.verifySearchContains(MenuDescriptionMappingDetails.getMenuName()));
+    }
+    
+    @Test(priority=20)
+    public void VerifySearchDoesNotContains() throws Exception {
+        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\MenuDescriptionMappingData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(2);
+        MenuDescriptionMappingDetails MenuDescriptionMappingDetails = new MenuDescriptionMappingDetails(map);
+        MenuDescriptionMappingPage menuDescriptionMappingPage = PageFactory.createPageInstance(driver, MenuDescriptionMappingPage.class);
+        Assert.assertTrue(menuDescriptionMappingPage.verifySearchDoesNotContains(MenuDescriptionMappingDetails.getMenuName()));
+    }
+    
+    @Test(priority=21)
+    public void VerifySearchStartsWith() throws Exception {
+        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\MenuDescriptionMappingData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(2);
+        MenuDescriptionMappingDetails MenuDescriptionMappingDetails = new MenuDescriptionMappingDetails(map);
+        MenuDescriptionMappingPage menuDescriptionMappingPage = PageFactory.createPageInstance(driver, MenuDescriptionMappingPage.class);
+        Assert.assertTrue(menuDescriptionMappingPage.verifySearchStartsWith(MenuDescriptionMappingDetails.getMenuName()));
+    }
+    
+    @Test(priority=22)
+    public void VerifySearchEndsWith() throws Exception {
+        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\MenuDescriptionMappingData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(3);
+        MenuDescriptionMappingDetails MenuDescriptionMappingDetails = new MenuDescriptionMappingDetails(map);
+        MenuDescriptionMappingPage menuDescriptionMappingPage = PageFactory.createPageInstance(driver, MenuDescriptionMappingPage.class);
+        Assert.assertTrue(menuDescriptionMappingPage.verifySearchEndsWith(MenuDescriptionMappingDetails.getMenuName()));
+    }
+    
+   /* @Test(priority=18)
     public void searchwithoutSearchTextbox() throws IOException {
         MenuDescriptionMappingPage menuDescriptionMappingPage = PageFactory.createPageInstance(driver, MenuDescriptionMappingPage.class);
         menuDescriptionMappingPage.searchwithoutextsearch();
@@ -359,7 +404,7 @@ public class MenuDescriptionMappingTest extends BaseTest {
         MenuDescriptionMappingPage menuDescriptionMappingPage = PageFactory.createPageInstance(driver, MenuDescriptionMappingPage.class);
         MenuDescriptionMappingDetails MenuDescriptionMappingDetails = new MenuDescriptionMappingDetails(map);
     	Assert.assertTrue(menuDescriptionMappingPage.verifyDatabase(MenuDescriptionMappingDetails.getQuery()));
-    }
+    }*/
 	
 	 @AfterMethod
 	    public void afterEachMethod(Method method) throws InterruptedException {

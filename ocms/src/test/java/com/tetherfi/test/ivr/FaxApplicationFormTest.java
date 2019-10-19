@@ -45,7 +45,7 @@ public class FaxApplicationFormTest extends BaseTest {
     	screenshot.captureScreen(driver,"FaxApplicationForm Page","FaxApplicationFormTest");
     }
     
-    @Test(priority=1)
+    /*@Test(priority=1)
     public void FaxApplicationFormPage() {
         FaxApplicationFormPage faxApplicationFormPage = PageFactory.createPageInstance(driver, FaxApplicationFormPage.class);
     	Assert.assertTrue(faxApplicationFormPage.verifylogo(),"CallBackAnnouncement logo assertion failed");
@@ -286,7 +286,7 @@ public class FaxApplicationFormTest extends BaseTest {
     	Assert.assertTrue(faxApplicationFormPage.verifyexportToExcelSheet(maplist));	
     } 
 
-    @Test(priority=24)
+    @Test(priority=25)
     public void SearchClearSearch() throws Exception
     {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxApplicationFormData.xlsx";
@@ -296,9 +296,55 @@ public class FaxApplicationFormTest extends BaseTest {
     	Assert.assertTrue(faxApplicationFormPage.verifyinvalidsearchwithwrongdata(faxApplicationFormDetails),"invalidsearchwithwrongdata");
         screenshot.captureScreen("FaxApplicationFormTest","Invalid Search with wrong data");
         Assert.assertTrue(faxApplicationFormPage.verifyclearsearch(), "Clear All Assertion Failed");
+    }*/
+    
+
+    @Test(priority=25)
+    public void VerifySearchIsNotEqualTo() throws Exception {
+        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxApplicationFormData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
+        FaxApplicationFormDetails faxApplicationFormDetails = new FaxApplicationFormDetails(map);
+        FaxApplicationFormPage faxApplicationFormPage = PageFactory.createPageInstance(driver, FaxApplicationFormPage.class);
+        Assert.assertTrue(faxApplicationFormPage.verifySearchIsNotEqualTo(faxApplicationFormDetails.getFunctionality()));
     }
     
-    @Test(priority=25)
+    @Test(priority=26)
+    public void VerifySearchContains() throws Exception {
+        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxApplicationFormData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(2);
+        FaxApplicationFormDetails faxApplicationFormDetails = new FaxApplicationFormDetails(map);
+        FaxApplicationFormPage faxApplicationFormPage = PageFactory.createPageInstance(driver, FaxApplicationFormPage.class);
+        Assert.assertTrue(faxApplicationFormPage.verifySearchContains(faxApplicationFormDetails.getFunctionality()));
+    }
+    
+    @Test(priority=27)
+    public void VerifySearchDoesNotContains() throws Exception {
+        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxApplicationFormData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(3);
+        FaxApplicationFormDetails faxApplicationFormDetails = new FaxApplicationFormDetails(map);
+        FaxApplicationFormPage faxApplicationFormPage = PageFactory.createPageInstance(driver, FaxApplicationFormPage.class);
+        Assert.assertTrue(faxApplicationFormPage.verifySearchDoesNotContains(faxApplicationFormDetails.getFunctionality()));
+    }
+    
+    @Test(priority=28)
+    public void VerifySearchStartsWith() throws Exception {
+        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxApplicationFormData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(4);
+        FaxApplicationFormDetails faxApplicationFormDetails = new FaxApplicationFormDetails(map);
+        FaxApplicationFormPage faxApplicationFormPage = PageFactory.createPageInstance(driver, FaxApplicationFormPage.class);
+        Assert.assertTrue(faxApplicationFormPage.verifySearchStartsWith(faxApplicationFormDetails.getFunctionality()));
+    }
+    
+    @Test(priority=29)
+    public void VerifySearchEndsWith() throws Exception {
+        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxApplicationFormData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(5);
+        FaxApplicationFormDetails faxApplicationFormDetails = new FaxApplicationFormDetails(map);
+        FaxApplicationFormPage faxApplicationFormPage = PageFactory.createPageInstance(driver, FaxApplicationFormPage.class);
+        Assert.assertTrue(faxApplicationFormPage.verifySearchEndsWith(faxApplicationFormDetails.getFunctionality()));
+    }
+    
+    /*@Test(priority=25)
     public void ExporttoExcelWithoutData() throws Exception
     {
         FaxApplicationFormPage faxApplicationFormPage = PageFactory.createPageInstance(driver, FaxApplicationFormPage.class);
@@ -367,7 +413,7 @@ public class FaxApplicationFormTest extends BaseTest {
         FaxApplicationFormPage faxApplicationFormPage = PageFactory.createPageInstance(driver, FaxApplicationFormPage.class);
         FaxApplicationFormDetails faxApplicationFormDetails = new FaxApplicationFormDetails(map);
     	Assert.assertTrue(faxApplicationFormPage.verifyDatabase(faxApplicationFormDetails.getQuery()));
-    }
+    }*/
     
     @AfterMethod
     public void afterEachMethod(Method method) throws InterruptedException {

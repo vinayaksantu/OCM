@@ -305,9 +305,54 @@ public class IvrConfigTest extends BaseTest {
         ocmReportsPage.showReport(reportDetails);
         Assert.assertTrue(ocmReportsPage.verifyIvrConfigdelete(IvrConfigDetails,"Delete"));
         screenshot.captureScreen(driver,"VerifyAuditTrialReportForUpdate","IvrConfigTest");
-    }
+    }*/
     
     @Test(priority=27)
+    public void VerifySearchIsNotEqualTo() throws Exception {
+        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IvrConfigData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
+        IvrConfigDetails ivrConfigDetails = new IvrConfigDetails(map);
+        IvrConfigPage ivrConfigPage = PageFactory.createPageInstance(driver, IvrConfigPage.class);
+        Assert.assertTrue(ivrConfigPage.verifySearchIsNotEqualTo(ivrConfigDetails.getParameter()));
+    }
+    
+    @Test(priority=28)
+    public void VerifySearchContains() throws Exception {
+        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IvrConfigData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(1);
+        IvrConfigDetails ivrConfigDetails = new IvrConfigDetails(map);
+        IvrConfigPage ivrConfigPage = PageFactory.createPageInstance(driver, IvrConfigPage.class);
+        Assert.assertTrue(ivrConfigPage.verifySearchContains(ivrConfigDetails.getParameter()));
+    }
+    
+    @Test(priority=29)
+    public void VerifySearchDoesNotContains() throws Exception {
+        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IvrConfigData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(1);
+        IvrConfigDetails ivrConfigDetails = new IvrConfigDetails(map);
+        IvrConfigPage ivrConfigPage = PageFactory.createPageInstance(driver, IvrConfigPage.class);
+        Assert.assertTrue(ivrConfigPage.verifySearchDoesNotContains(ivrConfigDetails.getParameter()));
+    }
+    
+    @Test(priority=30)
+    public void VerifySearchStartsWith() throws Exception {
+        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IvrConfigData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(2);
+        IvrConfigDetails ivrConfigDetails = new IvrConfigDetails(map);
+        IvrConfigPage ivrConfigPage = PageFactory.createPageInstance(driver, IvrConfigPage.class);
+        Assert.assertTrue(ivrConfigPage.verifySearchStartsWith(ivrConfigDetails.getParameter()));
+    }
+    
+    @Test(priority=31)
+    public void VerifySearchEndsWith() throws Exception {
+        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IvrConfigData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(3);
+        IvrConfigDetails ivrConfigDetails = new IvrConfigDetails(map);
+        IvrConfigPage ivrConfigPage = PageFactory.createPageInstance(driver, IvrConfigPage.class);
+        Assert.assertTrue(ivrConfigPage.verifySearchEndsWith(ivrConfigDetails.getParameter()));
+    }
+    
+    /*@Test(priority=27)
     public void SearchClearSearch() throws Exception
     {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IvrConfigData.xlsx";
@@ -382,7 +427,7 @@ public class IvrConfigTest extends BaseTest {
         IvrConfigPage ivrConfigPage= PageFactory.createPageInstance(driver,IvrConfigPage.class);
         Assert.assertTrue(ivrConfigPage.verifyNumberOfItemsPerPage(),"item per page assertion failed");
     }
-    */
+    
     
     @Test(priority=36)
     public void database() throws Exception {
@@ -391,7 +436,7 @@ public class IvrConfigTest extends BaseTest {
         IvrConfigPage ivrConfigPage= PageFactory.createPageInstance(driver,IvrConfigPage.class);
         IvrConfigDetails IvrConfigDetails=new IvrConfigDetails(map);
     	Assert.assertTrue(ivrConfigPage.verifyDatabase(IvrConfigDetails.getQuery()));
-    }
+    }*/
    
     @AfterMethod
     public void afterEachMethod(ITestResult result, Method method) throws InterruptedException {

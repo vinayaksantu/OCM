@@ -34,7 +34,7 @@ public class UserManagementTest extends BaseTest{
         UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
         Assert.assertTrue(userManagementPage.isUserManagementPageDisplayed(),"User management assertion failed");
     }
-  @Test(priority=1)
+ /* @Test(priority=1)
     public void UserManagementPage(){
         UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
     	Assert.assertTrue(userManagementPage.verifylogo(),"User Management logo assertion failed");
@@ -133,8 +133,53 @@ public class UserManagementTest extends BaseTest{
         screenshot.captureScreen(driver, "clearall","UserManagementTest");
         Assert.assertTrue(userManagementPage.verifyclose());
         screenshot.captureScreen(driver, "SearchClose","UserManagementTest");
-    }
+    }*/
+    
     @Test(priority=7)
+    public void VerifySearchIsNotEqualTo() throws Exception {
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\UserManagementData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
+        UserDetails userDetails=new UserDetails(map);	
+        UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
+        Assert.assertTrue(userManagementPage.verifySearchIsNotEqualTo(userDetails.getUserId()));
+    }
+     
+     @Test(priority=8)
+     public void VerifySearchContains() throws Exception {
+     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\UserManagementData.xlsx";
+         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);
+         UserDetails userDetails=new UserDetails(map);	
+         UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
+         Assert.assertTrue(userManagementPage.verifySearchContains(userDetails.getUserId()));
+     }
+     
+     @Test(priority=9)
+     public void VerifySearchDoesNotContains() throws Exception {
+     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\UserManagementData.xlsx";
+         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);
+         UserDetails userDetails=new UserDetails(map);	
+         UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
+         Assert.assertTrue(userManagementPage.verifySearchDoesNotContains(userDetails.getUserId()));
+     }
+     
+     @Test(priority=10)
+     public void VerifySearchStartsWith() throws Exception {
+     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\UserManagementData.xlsx";
+         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(2);
+         UserDetails userDetails=new UserDetails(map);	
+         UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
+         Assert.assertTrue(userManagementPage.verifySearchStartsWith(userDetails.getUserId()));
+     }
+     
+     @Test(priority=11)
+     public void VerifySearchEndsWith() throws Exception {
+     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\UserManagementData.xlsx";
+         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(4);
+         UserDetails userDetails=new UserDetails(map);	
+         UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
+         Assert.assertTrue(userManagementPage.verifySearchEndsWith(userDetails.getUserId()));
+     }
+    /*@Test(priority=7)
     public void ClearSearch() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\UserManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
@@ -407,7 +452,7 @@ public class UserManagementTest extends BaseTest{
         Assert.assertTrue(userManagementPage.verifyotherapplicationunsuccessfullsavechanges());
         screenshot.captureScreen(driver,"Verifyunsuccefullchanges", "UserManagementTest");
         Assert.assertTrue(userManagementPage.verifyclosebutton());
-    }
+    }*/
     @AfterMethod
     public void afterEachMethod(ITestResult result,Method method){
       	 if(ITestResult.FAILURE==result.getStatus()){
