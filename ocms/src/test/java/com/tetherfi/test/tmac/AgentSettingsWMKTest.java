@@ -36,7 +36,7 @@ public class AgentSettingsWMKTest extends BaseTest {
     
     @Test
     public void AddNewSupervisorRecord() throws Exception {
-    	for(int i=0;i<300;i++) {
+    	for(int i=0;i<200;i++) {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentSettingsData (1).xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(i);
         AgentSettingsDetails agentSettingsDetails = new AgentSettingsDetails(map);

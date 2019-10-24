@@ -59,7 +59,6 @@ public class TmacBroadCastMsgTest extends BaseTest {
     {
         TmacBroadCastMsgPage tmacBroadCastMsgPage  = PageFactory.createPageInstance(driver, TmacBroadCastMsgPage.class);
     	Assert.assertTrue(tmacBroadCastMsgPage.verifylogo(),"Tmac Broadcast Message logo assertion failed");
-        Assert.assertTrue(tmacBroadCastMsgPage.verifygridcontent(),"grid container assertion failed");
     	Assert.assertTrue(tmacBroadCastMsgPage.maximizewindow(),"Fullscreen Assertion Failed"); 
     	screenshot.captureScreen("TmacBroadCastMsgTest", "maximize window");
     	Assert.assertTrue(tmacBroadCastMsgPage.minimizewindow(), "Restored Assertion Failed");

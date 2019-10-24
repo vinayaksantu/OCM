@@ -528,9 +528,9 @@ public class AgentSettingsNewDesignPage extends BasePage {
     }
 //    ----Add from here---
     public void addNewAgentSettingsRecord(AgentSettingsDetails details) throws Exception {
-        //selectWebElement(agentSettingsTabs.get(1));
-        //selectWebElement(makeAgentSettingsChanges);
-        //waitForJqueryLoad(driver);
+        selectWebElement(agentSettingsTabs.get(1));
+        selectWebElement(makeAgentSettingsChanges);
+        waitForJqueryLoad(driver);
         try {Thread.sleep(5000);
         selectWebElement(addNewAgentSettingsRecordBtn);
         waitUntilWebElementIsVisible(popupContent);
@@ -559,8 +559,8 @@ public class AgentSettingsNewDesignPage extends BasePage {
         selectProfile(details.getProfile(),details.getSupervisor());
         selectWebElement(accessroleDropdown);
         selectDropdownFromVisibleText(accessroleListBox,details.getAccessRole());
-       /* selectWebElement(crmnameDropdown);
-        selectDropdownFromVisibleText(crmnameListBox,details.getCrmName());
+        //selectWebElement(crmnameDropdown);
+        //selectDropdownFromVisibleText(crmnameListBox,details.getCrmName());
 //        selectWebElement(texttemplatenameDropdown);
 //        selectDropdownFromVisibleText(texttemplatenameListBox,details.getTextTemplateName());
         navigateToTab("Channel Count & Features");
@@ -576,23 +576,21 @@ public class AgentSettingsNewDesignPage extends BasePage {
         selectWebElement(numericTextbox.get(5));
         enterValueToTxtFieldWithoutClear(totalFaxTabsAllowedTextBox.get(1),String.valueOf(details.getTotalFaxTabs()));
         selectWebElement(numericTextbox.get(6));
-        enterValueToTxtFieldWithoutClear(totalEmailTabsAllowedTextBox.get(1),String.valueOf(details.getTotalEmailTabs()));
-        selectWebElement(numericTextbox.get(7));
+        //enterValueToTxtFieldWithoutClear(totalEmailTabsAllowedTextBox.get(1),String.valueOf(details.getTotalEmailTabs()));
+        //selectWebElement(numericTextbox.get(7));
         enterValueToTxtFieldWithoutClear(totalSMSTabsAllowedTextBox.get(1),String.valueOf(details.getTotalSMSTabs()));																								
        // selectWebElement(featuresDropdown);
         //selectDropdownFromVisibleText(featuresListBox,details.getFeatures());
         selectCheckBox(autoAnswerAllAcdCallsCheckbox,details.isAutoanswerallACDcalls());
         selectCheckBox(goToAcwAfterEachAcdCallsCheckbox,details.isGotoACWaftereachACDcalls());
         selectCheckBox(goToAcwAfterAnyCallsCheckbox,details.isGotoACWafteranycalls());
-        selectCheckBox(crmEnabledCheckbox,details.iscRMEnabled());
+        //selectCheckBox(crmEnabledCheckbox,details.iscRMEnabled());
         selectCheckBox(holdVoiceCallOnChatCallCheckbox,details.isHoldVoiceCallOnChatCall());
-        selectCheckBox(secondTextChatAutoAnswerCheckbox,details.isSecondTextChatAutoAnswer());
-        selectCheckBox(textChatAutoACWCheckbox,details.isTextChatAutoACWEnabled());
-        selectCheckBox(textChatAutoAnswerCheckbox,details.isTextChatAutoAnswer());
+        //selectCheckBox(secondTextChatAutoAnswerCheckbox,details.isSecondTextChatAutoAnswer());
+        //selectCheckBox(textChatAutoACWCheckbox,details.isTextChatAutoACWEnabled());
+        //selectCheckBox(textChatAutoAnswerCheckbox,details.isTextChatAutoAnswer());
 //        selectCheckBox(manualInCheckbox,details.isManualIn());
 //        selectCheckBox(smsOutCheckbox,details.isSMSOut());
- * 
- */
         selectWebElement(saveBtn);
     }
     private void ChooseTeamHeirarchy(String team){
@@ -607,7 +605,7 @@ public class AgentSettingsNewDesignPage extends BasePage {
     }
     public boolean verifyNewRecordCreated(){
         //waitForJqueryLoad(driver);
-        if(errorMsg.size()>0){return false;}
+        //if(errorMsg.size()>0){return false;}
         return(waitUntilTextToBePresentInWebElement(successmsg,"Record Created Successfully"));
     }
     public void selectFeaturesToBeSelected(String[] features){
@@ -671,7 +669,7 @@ public class AgentSettingsNewDesignPage extends BasePage {
         try{selectWebElement(agentSettingsTabs.get(1));
         selectWebElement(makeAgentSettingsChanges);
         searchAgentSettingsRecord(details.getUsername());
-        waitUntilWebElementIsVisible(editBtn);
+        Thread.sleep(1000);
         selectWebElement(editBtn);
         selectWebElement(firstnameTextBox);
         enterValueToTxtField(firstnameTextBox,details.getUpdatedFirstname());      
@@ -1480,12 +1478,10 @@ return status;
 	}
 	public boolean EditCancel(AgentSettingsDetails details) throws Exception {
 		selectWebElement(agentSettingsTabs.get(1));
-		Thread.sleep(1000);
-		selectWebElement(makeAgentSettingsChanges);
-		Thread.sleep(1000);
-		searchAgentSettingsRecord(details.getUsername());
-		Thread.sleep(1000);
-		selectWebElement(editBtn);
+        selectWebElement(makeAgentSettingsChanges);
+        searchAgentSettingsRecord(details.getUsername());
+        Thread.sleep(1000);
+        selectWebElement(editBtn);
 		waitForJqueryLoad(driver);
 		selectWebElement(cancelBtn);
 		if(editrowdata.get(4).getText().equals(details.getFirstname()))

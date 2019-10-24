@@ -46,7 +46,7 @@ public class MenuDescriptionMappingTest extends BaseTest {
     	screenshot.captureScreen(driver,"MenuDescriptionMappingTest","MenuDescriptionMappingPage");
     }
 	
-	/*@Test(priority=1)
+	@Test(priority=1)
 	public void MenuDescriptionMappingPage() {
         MenuDescriptionMappingPage menuDescriptionMappingPage = PageFactory.createPageInstance(driver, MenuDescriptionMappingPage.class);
         Assert.assertTrue(menuDescriptionMappingPage.VerifyLogo(),"Logo assertion failed");
@@ -210,7 +210,7 @@ public class MenuDescriptionMappingTest extends BaseTest {
         Assert.assertFalse(menuDescriptionMappingPage .clearAll(MenuDescriptionMappingDetails),"ClearAll Assertion Failed");
         screenshot.captureScreen(driver,"MenuDescriptionMappingTest", "clearall");
         Assert.assertTrue(menuDescriptionMappingPage.verifyclose());
-    }*/
+    }
     
     @Test(priority=18)
     public void VerifySearchIsNotEqualTo() throws Exception {
@@ -257,14 +257,14 @@ public class MenuDescriptionMappingTest extends BaseTest {
         Assert.assertTrue(menuDescriptionMappingPage.verifySearchEndsWith(MenuDescriptionMappingDetails.getMenuName()));
     }
     
-   /* @Test(priority=18)
+    @Test(priority=23)
     public void searchwithoutSearchTextbox() throws IOException {
         MenuDescriptionMappingPage menuDescriptionMappingPage = PageFactory.createPageInstance(driver, MenuDescriptionMappingPage.class);
         menuDescriptionMappingPage.searchwithoutextsearch();
         Assert.assertEquals(menuDescriptionMappingPage.verifySuccessMessage(),"Please enter the text to search or remove the filter", "Add invalid record assertion failed");
     }
     
-    @Test(priority=19)
+    @Test(priority=24)
     public void ExportToExcel() throws Exception
     {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles";
@@ -272,7 +272,7 @@ public class MenuDescriptionMappingTest extends BaseTest {
         Assert.assertTrue(menuDescriptionMappingPage.verifyExportToExcel(filePath));
     }
     
-    @Test(priority=20,dependsOnMethods="ExportToExcel")
+    @Test(priority=25,dependsOnMethods="ExportToExcel")
     public void ExportToExcelData() throws Exception
     {	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Menu Description Mapping.xlsx";
     	List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
@@ -280,7 +280,7 @@ public class MenuDescriptionMappingTest extends BaseTest {
     	Assert.assertTrue(menuDescriptionMappingPage.verifyexportToExcelSheet(maplist));	
     } 
     
-    @Test(priority=21)
+    @Test(priority=26)
     public void DeleteWithoutDeleteReasonRecord() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\MenuDescriptionMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
@@ -289,7 +289,7 @@ public class MenuDescriptionMappingTest extends BaseTest {
         menuDescriptionMappingPage.deleteMenuDescriptionMappingWithoutDeleteReasonRecord(MenuDescriptionMappingDetails);
         Assert.assertEquals(menuDescriptionMappingPage.verifySuccessMessage(),"Please enter the delete reason","empty delete reason record assertion failed");
     }
-    @Test(priority=22)
+    @Test(priority=27)
     public void VerifyCancelBtnAtDeleteMenuDescriptionMappingRecord() throws Exception{
         MenuDescriptionMappingPage menuDescriptionMappingPage = PageFactory.createPageInstance(driver, MenuDescriptionMappingPage.class);
         menuDescriptionMappingPage.searchMenuDescriptionMappingRecord("4");
@@ -297,7 +297,7 @@ public class MenuDescriptionMappingTest extends BaseTest {
         menuDescriptionMappingPage.clickOnDeleteCancelBtn();
         Assert.assertFalse(menuDescriptionMappingPage.verifyDeleteContainer(), "Cancel Btn at Delete record assertion failed");
     }
-    @Test(priority=23)
+    @Test(priority=28)
     public void DeleteMenuDescriptionMappingRecord() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\MenuDescriptionMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
@@ -307,7 +307,7 @@ public class MenuDescriptionMappingTest extends BaseTest {
         Assert.assertEquals(menuDescriptionMappingPage.verifySuccessMessage(),"Record Deleted Successfully","delete record assertion failed");
     }
     
-    @Test(priority=24,dependsOnMethods= {"DeleteMenuDescriptionMappingRecord"})
+    @Test(priority=29,dependsOnMethods= {"DeleteMenuDescriptionMappingRecord"})
     public void VerifyAuditTrialReportForDelete() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\MenuDescriptionMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(0);	
@@ -322,7 +322,7 @@ public class MenuDescriptionMappingTest extends BaseTest {
         Assert.assertTrue(ocmReportsPage.verifyMenuDescriptionMappingdelete(MenuDescriptionMappingDetails,"Delete"));
     }
     
-    @Test(priority=24)
+    @Test(priority=30)
     public void SearchClearSearch() throws Exception
     {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\MenuDescriptionMappingData.xlsx";
@@ -334,7 +334,7 @@ public class MenuDescriptionMappingTest extends BaseTest {
         Assert.assertTrue(menuDescriptionMappingPage.verifyclearsearch(), "Clear All Assertion Failed");
     }
     
-    @Test(priority=25)
+    @Test(priority=31)
     public void ExporttoExcelWithoutData() throws Exception
     {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\MenuDescriptionMappingData.xlsx";
@@ -344,7 +344,7 @@ public class MenuDescriptionMappingTest extends BaseTest {
         Assert.assertTrue(menuDescriptionMappingPage.ExporttoExcelWithoutData(MenuDescriptionMappingDetails));
     }
   
-    @Test(priority=26)
+    @Test(priority=32)
     public void SortingByAscending() throws IOException {
         MenuDescriptionMappingPage menuDescriptionMappingPage = PageFactory.createPageInstance(driver, MenuDescriptionMappingPage.class);
         menuDescriptionMappingPage.SortByAscending();
@@ -353,7 +353,7 @@ public class MenuDescriptionMappingTest extends BaseTest {
         Assert.assertTrue(menuDescriptionMappingPage.verifyexportToExcelSheet(maplist));
     }
     
-    @Test(priority=27)
+    @Test(priority=33)
     public void SortingByDescending() throws IOException {
         MenuDescriptionMappingPage menuDescriptionMappingPage = PageFactory.createPageInstance(driver, MenuDescriptionMappingPage.class);
         menuDescriptionMappingPage.SortByDescending();
@@ -362,7 +362,7 @@ public class MenuDescriptionMappingTest extends BaseTest {
         Assert.assertTrue(menuDescriptionMappingPage.verifyexportToExcelSheet(maplist));
     }
     
-    @Test(priority=28)
+    @Test(priority=34)
     public void GroupBy()
     {
         MenuDescriptionMappingPage menuDescriptionMappingPage = PageFactory.createPageInstance(driver, MenuDescriptionMappingPage.class);
@@ -372,39 +372,39 @@ public class MenuDescriptionMappingTest extends BaseTest {
         screenshot.captureScreen("MenuDescriptionMappingTest", "AlreadyGroupBy");
     }
     
-    @Test(priority=29)
+    @Test(priority=35)
     public void VerifyArrowMoveForPreviousAndNextPage() {
         MenuDescriptionMappingPage menuDescriptionMappingPage = PageFactory.createPageInstance(driver, MenuDescriptionMappingPage.class);
     	Assert.assertTrue(menuDescriptionMappingPage.verifyArrowMoveForPreviousAndNextPage(),"arrow move for previous and next page assertion failed");
     }
     
-    @Test(priority=30)
+    @Test(priority=36)
     public void VerifyArrowMoveForFirstAndLastPage() {
         MenuDescriptionMappingPage menuDescriptionMappingPage = PageFactory.createPageInstance(driver, MenuDescriptionMappingPage.class);
         Assert.assertTrue(menuDescriptionMappingPage.verifyArrowMoveForFirstAndLastPage(),"arrow move for first and last page assertion failed");
     }
     
-    @Test(priority=31)
+    @Test(priority=37)
     public void VerifyTotalNumberOfItemsPerPageDetails() {
         MenuDescriptionMappingPage menuDescriptionMappingPage = PageFactory.createPageInstance(driver, MenuDescriptionMappingPage.class);
         Assert.assertTrue(menuDescriptionMappingPage.verifyTotalNumberOfItemsPerPageDetails(),"item per page assertion failed");
     }
     
-    @Test(priority=32)
+    @Test(priority=38)
     public void VerifyNumberOfItemsPerPageSelection() {
         MenuDescriptionMappingPage menuDescriptionMappingPage = PageFactory.createPageInstance(driver, MenuDescriptionMappingPage.class);
         Assert.assertTrue(menuDescriptionMappingPage.verifyNumberOfItemsPerPage(),"item per page assertion failed");
     }
     
     
-    @Test(priority=33)
+    @Test(priority=39)
     public void database() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\MenuDescriptionMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(0);
         MenuDescriptionMappingPage menuDescriptionMappingPage = PageFactory.createPageInstance(driver, MenuDescriptionMappingPage.class);
         MenuDescriptionMappingDetails MenuDescriptionMappingDetails = new MenuDescriptionMappingDetails(map);
     	Assert.assertTrue(menuDescriptionMappingPage.verifyDatabase(MenuDescriptionMappingDetails.getQuery()));
-    }*/
+    }
 	
 	 @AfterMethod
 	    public void afterEachMethod(Method method) throws InterruptedException {

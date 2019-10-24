@@ -726,7 +726,7 @@ public class ChatTemplatesTest {
         tmacPopupPage.clickOnChatTemplate();
         Assert.assertTrue(tmacPopupPage.ChatTemplate(ChatTemplatesDetails));
         tmacPopupPage.disconnectchat();
-	}
+	}*/
 	
     
     @Test(priority=70,groups= {"OCM"})//,dependsOnMethods = "AddNewChatTemplatesRecord")
@@ -987,7 +987,7 @@ public class ChatTemplatesTest {
         ChatTemplatesPage chatTemplatesPage = PageFactory.createPageInstance(driver,ChatTemplatesPage.class);
         chatTemplatesPage.deleteChatTemplatesRecord(chatTemplateDetails.getName(),chatTemplateDetails.getDeleteReason());
         Assert.assertTrue(chatTemplatesPage.verifyRecordDeleted(),"Delete record assertion failed");
-    }*/
+    }
     
     @Test(priority=95,groups= {"OCM"})//,dependsOnMethods= {"DeleteChatTemplatesRecord"})
     public void VerifyAuditTrialReportForDelete() throws Exception {

@@ -3,22 +3,23 @@
 <suite name="Failed suite [Failed suite [Failed suite [Failed suite [Failed suite [Default suite]]]]]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)(failed)(failed)(failed)(failed)">
     <classes>
-      <class name="com.tetherfi.test.TdmThresholdConfigTest">
+      <class name="com.tetherfi.test.ivr.VBEnrollmentFlagTest">
         <methods>
-          <include name="DeleteNewRow"/>
-          <include name="VerifyAuditTrailReportForUpdate"/>
+          <include name="SortingByAscending"/>
+          <include name="SortingByDescending"/>
+          <include name="database"/>
+          <include name="endTestCase"/>
+          <include name="afterEachMethod"/>
+          <include name="tearDown"/>
+          <include name="DeleteVBEnrollmentFlagRecord"/>
+          <include name="NavigateToVbEnrollmentFlagPage"/>
+          <include name="ExportToExcelData"/>
           <include name="startTestCase"/>
           <include name="openApplication"/>
-          <include name="addNewRow"/>
-          <include name="VerifyAuditTrailReportForCreate"/>
-          <include name="endTestCase"/>
-          <include name="UpdateNewRow"/>
-          <include name="tearDown"/>
-          <include name="NavigatetoTdmThresholdConfigPage"/>
-          <include name="VerifyAuditTrailReportForDelete"/>
-          <include name="afterEachMethod"/>
+          <include name="VerifyCancelBtnAtDeleteVBEnrollmentFlagRecord"/>
+          <include name="VerifyAuditTrialReportForDelete"/>
         </methods>
-      </class> <!-- com.tetherfi.test.TdmThresholdConfigTest -->
+      </class> <!-- com.tetherfi.test.ivr.VBEnrollmentFlagTest -->
     </classes>
   </test> <!-- Default test(failed)(failed)(failed)(failed)(failed) -->
 </suite> <!-- Failed suite [Failed suite [Failed suite [Failed suite [Failed suite [Default suite]]]]] -->

@@ -3,21 +3,16 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.tetherfi.test.CEPEventMappingTest">
+      <class name="com.tetherfi.test.tmac.AgentSettingsWMKTest">
         <methods>
           <include name="startTestCase"/>
-          <include name="afterEachMethod"/>
           <include name="openApplication"/>
-          <include name="VerifySearchContains"/>
-          <include name="VerifySearchDoesNotContains"/>
-          <include name="VerifySearchEndsWith"/>
+          <include name="AddNewSupervisorRecord"/>
           <include name="endTestCase"/>
           <include name="tearDown"/>
-          <include name="VerifySearchIsNotEqualTo"/>
-          <include name="VerifySearchStartsWith"/>
-          <include name="NavigateToCepEventMappingPage"/>
+          <include name="NavigateToAgentSettingsPage"/>
         </methods>
-      </class> <!-- com.tetherfi.test.CEPEventMappingTest -->
+      </class> <!-- com.tetherfi.test.tmac.AgentSettingsWMKTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

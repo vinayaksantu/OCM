@@ -265,7 +265,7 @@ public class WaitTimeColorConfigPage extends BasePage {
 		Boolean Status=false;
 		Map<String, String> map=new HashMap<String,String>() ;
 		map.put("Color Code", colorcode);
-		selectWebElement(searchBtn);
+		selectWebElement(searchLink);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Color Code");
         selectWebElement(selectSearchCol.get(1));
@@ -287,7 +287,7 @@ public class WaitTimeColorConfigPage extends BasePage {
     
     public boolean verifySearchContains(String colorcode) throws Exception {
 		Boolean Status=false;
-		selectWebElement(searchBtn);
+		selectWebElement(searchLink);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Color Code");
         selectWebElement(selectSearchCol.get(1));
@@ -307,7 +307,7 @@ public class WaitTimeColorConfigPage extends BasePage {
 	}
 	public boolean verifySearchDoesNotContains(String colorcode) throws Exception {
 		Boolean Status=false;
-		selectWebElement(searchBtn);
+		selectWebElement(searchLink);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Color Code");
         selectWebElement(selectSearchCol.get(1));
@@ -328,7 +328,7 @@ public class WaitTimeColorConfigPage extends BasePage {
 	
 	public boolean verifySearchStartsWith(String colorcode) throws Exception {
 		Boolean Status=false;
-		selectWebElement(searchBtn);
+		selectWebElement(searchLink);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Color Code");
         selectWebElement(selectSearchCol.get(1));
@@ -349,7 +349,7 @@ public class WaitTimeColorConfigPage extends BasePage {
 	
 	public boolean verifySearchEndsWith(String colorcode) throws Exception {
 		Boolean Status=false;
-		selectWebElement(searchBtn);
+		selectWebElement(searchLink);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Color Code");
         selectWebElement(selectSearchCol.get(1));

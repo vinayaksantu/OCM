@@ -183,7 +183,7 @@ public class IvrConfigUITest extends BaseTest{
         Assert.assertTrue(ivrConfigPage.verifyexportToExcelSheet(maplist));			
 	}
 	
-	/*@Test(priority=17)
+	@Test(priority=17)
 	public void VerifyDragAndDrop() {
 		IvrConfigPage ivrConfigPage=PageFactory.createPageInstance(driver, IvrConfigPage.class);
 		ivrConfigPage.selectIvrConfigAuditTrailTab();
@@ -205,7 +205,7 @@ public class IvrConfigUITest extends BaseTest{
 		IvrConfigPage ivrConfigPage=PageFactory.createPageInstance(driver, IvrConfigPage.class);
 		IvrConfigDetails IvrConfigDetails=new IvrConfigDetails(map);
 		Assert.assertTrue(ivrConfigPage.verifyDatabase(IvrConfigDetails.getQuery()));				
-	}*/
+	}
 	
 	@Test(priority=20)
 	public void SearchPage() throws Exception {

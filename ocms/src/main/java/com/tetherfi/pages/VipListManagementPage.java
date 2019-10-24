@@ -29,7 +29,10 @@ public class VipListManagementPage extends BasePage{
 	@FindBy(css = ".k-grid-CustomDelete")
     private WebElement deleteButton;
 	
-	@FindBy(css = ".k-grid-edit")
+	//@FindBy(css = ".k-grid-edit")
+    //private WebElement editButton;
+	
+	@FindBy(css = ".k-button k-button-icontext k-grid-edit")
     private WebElement editButton;
 	
 	@FindBy(xpath="//button[@class='k-button k-button-icontext k-grid-excel']")
@@ -669,7 +672,7 @@ public class VipListManagementPage extends BasePage{
 	public void addNewVipListManagementRecord(VipListManagementDetails details) throws Exception {
 		selectWebElement(addNewVipListRecordBtn);
 		waitForLoad(driver);
-		selectWebElement(callerID);
+		selectWebElement(callerIDTextBox);
 		enterValueToTxtField(callerIDTextBox,details.getCallerID());
 		selectWebElement(emailIDTextBox);
 		enterValueToTxtField(emailIDTextBox,details.getEmailID());
@@ -733,7 +736,7 @@ public class VipListManagementPage extends BasePage{
 	public void addRecordWithoutEmailId(VipListManagementDetails details) throws Exception {
 		selectWebElement(addNewVipListRecordBtn);
 		waitForLoad(driver);
-		selectWebElement(callerID);
+		selectWebElement(callerIDTextBox);
 		enterValueToTxtField(callerIDTextBox,details.getCallerID());
 		selectWebElement(fbHandleTextBox);
 		enterValueToTxtField(fbHandleTextBox,details.getFBHandle());
@@ -756,7 +759,7 @@ public class VipListManagementPage extends BasePage{
 	public void addRecordWithoutFBHandle(VipListManagementDetails details) throws Exception {
 		selectWebElement(addNewVipListRecordBtn);
 		waitForLoad(driver);
-		selectWebElement(callerID);
+		selectWebElement(callerIDTextBox);
 		enterValueToTxtField(callerIDTextBox,details.getCallerID());
 		selectWebElement(emailIDTextBox);
 		enterValueToTxtField(emailIDTextBox,details.getEmailID());
@@ -778,7 +781,7 @@ public class VipListManagementPage extends BasePage{
 	public void addRecordWithoutMessengerID(VipListManagementDetails details) throws Exception {
 		selectWebElement(addNewVipListRecordBtn);
 		waitForLoad(driver);
-		selectWebElement(callerID);
+		selectWebElement(callerIDTextBox);
 		enterValueToTxtField(callerIDTextBox,details.getCallerID());
 		selectWebElement(emailIDTextBox);
 		enterValueToTxtField(emailIDTextBox,details.getEmailID());
@@ -801,7 +804,7 @@ public class VipListManagementPage extends BasePage{
 	public void addRecordWithoutCustomerIDType(VipListManagementDetails details) throws Exception {
 		selectWebElement(addNewVipListRecordBtn);
 		waitForLoad(driver);
-		selectWebElement(callerID);
+		selectWebElement(callerIDTextBox);
 		enterValueToTxtField(callerIDTextBox,details.getCallerID());
 		selectWebElement(emailIDTextBox);
 		enterValueToTxtField(emailIDTextBox,details.getEmailID());
@@ -824,7 +827,7 @@ public class VipListManagementPage extends BasePage{
 	public void addRecordWithoutCustomerIDNo(VipListManagementDetails details) throws Exception {
 		selectWebElement(addNewVipListRecordBtn);
 		waitForLoad(driver);
-		selectWebElement(callerID);
+		selectWebElement(callerIDTextBox);
 		enterValueToTxtField(callerIDTextBox,details.getCallerID());
 		selectWebElement(emailIDTextBox);
 		enterValueToTxtField(emailIDTextBox,details.getEmailID());
@@ -848,7 +851,7 @@ public class VipListManagementPage extends BasePage{
 	public void addRecordWithoutCountry(VipListManagementDetails details) throws Exception {
 		selectWebElement(addNewVipListRecordBtn);
 		waitForLoad(driver);
-		selectWebElement(callerID);
+		selectWebElement(callerIDTextBox);
 		enterValueToTxtField(callerIDTextBox,details.getCallerID());
 		selectWebElement(emailIDTextBox);
 		enterValueToTxtField(emailIDTextBox,details.getEmailID());
@@ -872,7 +875,7 @@ public class VipListManagementPage extends BasePage{
 	public void addRecordWithoutContactType(VipListManagementDetails details) throws Exception {
 		selectWebElement(addNewVipListRecordBtn);
 		waitForLoad(driver);
-		selectWebElement(callerID);
+		selectWebElement(callerIDTextBox);
 		enterValueToTxtField(callerIDTextBox,details.getCallerID());
 		selectWebElement(emailIDTextBox);
 		enterValueToTxtField(emailIDTextBox,details.getEmailID());
@@ -895,7 +898,7 @@ public class VipListManagementPage extends BasePage{
 	public void addRecordWithoutInclusionFlag(VipListManagementDetails details) throws Exception {
 		selectWebElement(addNewVipListRecordBtn);
 		waitForLoad(driver);
-		selectWebElement(callerID);
+		selectWebElement(callerIDTextBox);
 		enterValueToTxtField(callerIDTextBox,details.getCallerID());
 		selectWebElement(emailIDTextBox);
 		enterValueToTxtField(emailIDTextBox,details.getEmailID());
@@ -918,7 +921,7 @@ public class VipListManagementPage extends BasePage{
 	public void addRecordWithoutExclusionFlag(VipListManagementDetails details) throws Exception {
 		selectWebElement(addNewVipListRecordBtn);
 		waitForLoad(driver);
-		selectWebElement(callerID);
+		selectWebElement(callerIDTextBox);
 		enterValueToTxtField(callerIDTextBox,details.getCallerID());
 		selectWebElement(emailIDTextBox);
 		enterValueToTxtField(emailIDTextBox,details.getEmailID());
@@ -941,7 +944,7 @@ public class VipListManagementPage extends BasePage{
 	public void addRecordWithoutOtherData(VipListManagementDetails details) throws Exception {
 		selectWebElement(addNewVipListRecordBtn);
 		waitForLoad(driver);
-		selectWebElement(callerID);
+		selectWebElement(callerIDTextBox);
 		enterValueToTxtField(callerIDTextBox,details.getCallerID());
 		selectWebElement(emailIDTextBox);
 		enterValueToTxtField(emailIDTextBox,details.getEmailID());

@@ -61,7 +61,7 @@ public class AgentSettingsCreateTest {
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
     } 
     
-  @Test(groups = { "Maker" },priority=1)
+    @Test(groups = { "Maker" },priority=1)
     public void AddRevertNewSupervisorRecord() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentSettingsData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -71,7 +71,7 @@ public class AgentSettingsCreateTest {
         Assert.assertTrue(agentSettingsPage.verifyNewRecordCreated(), "Add New record assertion failed");
     }
     
-    @Test(groups = { "Maker" },priority=2,dependsOnMethods="AddRevertNewSupervisorRecord")
+    @Test(groups = { "Maker" },priority=2)//,dependsOnMethods="AddRevertNewSupervisorRecord")
     public void VerifyRevertForAddNewRecord() throws Exception {
     	AgentSettingsNewDesignPage agentSettingsPage = PageFactory.createPageInstance(driver, AgentSettingsNewDesignPage.class);
     	agentSettingsPage.selectAgentSettingsAuditTrailTab();
@@ -240,7 +240,7 @@ public class AgentSettingsCreateTest {
         Assert.assertEquals(agentSettingsPage.verifySuccessMessage(),"×\nDuplicate Avaya Login ID", "Add Duplicate record assertion failed");
     }
     
-    @Test(groups = { "Maker" },priority=17,dependsOnMethods = "ApproveforAddNewSupervisorRecord")
+    @Test(groups = { "Maker" },priority=17)//,dependsOnMethods = "ApproveforAddNewSupervisorRecord")
     public void VerifyAddAgentsDetailsInDatabase() throws IOException {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentSettingsData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -249,7 +249,7 @@ public class AgentSettingsCreateTest {
         Assert.assertTrue(agentSettingsPage.verifyDatabaseDetails(agentSettingsDetails),"database insertion failed");
     }
     
-    @Test(groups = { "Maker" },priority=18,dependsOnMethods = {"ApproveforAddNewSupervisorRecord"})
+    @Test(groups = { "Maker" },priority=18)//,dependsOnMethods = {"ApproveforAddNewAgentSettingRecord"})
     public void AddNewAgentSettingsRecord() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentSettingsData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(1);
@@ -273,7 +273,7 @@ public class AgentSettingsCreateTest {
     public void ApproveforAddNewAgentRecord() throws Exception{
         AgentSettingsNewDesignPage agentSettingsPage=PageFactory.createPageInstance(driver,AgentSettingsNewDesignPage.class);
         agentSettingsPage.clickonApprove("Approve Create");
-        Assert.assertEquals(agentSettingsPage.verifySuccessMessage(),"All the data has been approved successfully!","approve record assertion failed");
+        Assert.assertTrue(agentSettingsPage.verifyMessage());
         Assert.assertTrue(agentSettingsPage.verifyReviewAuditTrail("Approved","Approve Create"));
     }
       

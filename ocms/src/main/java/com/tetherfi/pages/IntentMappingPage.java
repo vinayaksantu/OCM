@@ -645,11 +645,13 @@ public class IntentMappingPage extends BasePage{
 	}
 
 	public String verifySuccessMessage() {
-		 if(errorMsg.size()>0){return errorMsg.get(0).getText();}
-	       else{waitUntilWebElementIsVisible(successmsg);return successmsg.getText();}
+		 //if(errorMsg.size()>0){return errorMsg.get(0).getText();}
+	       //else
+	       {waitUntilWebElementIsVisible(successmsg);return successmsg.getText();}
 	}
 	public void addNewIntentMappingRecord(IntentMappingDetails details) throws Exception {
 		selectWebElement(addNewIntentMappingRecordBtn);
+		Thread.sleep(1000);
 		selectWebElement(ProductDropdown);
         selectDropdownFromVisibleText(ProductListbox,details.getProduct());
         selectWebElement(SegmentDropdown);
@@ -858,6 +860,7 @@ public class IntentMappingPage extends BasePage{
 	}
 	public void addRecordWithoutProduct(IntentMappingDetails details) throws Exception {
 		selectWebElement(addNewIntentMappingRecordBtn);
+		Thread.sleep(1000);
         selectWebElement(SegmentDropdown);
         selectDropdownFromVisibleText(SegmentListbox,details.getSegment());
         selectWebElement(LanguageDropdown);
@@ -871,6 +874,7 @@ public class IntentMappingPage extends BasePage{
 	}
 	public void addRecordWithoutSegment(IntentMappingDetails details) throws Exception {
 		selectWebElement(addNewIntentMappingRecordBtn);
+		Thread.sleep(1000);
 		selectWebElement(ProductDropdown);
         selectDropdownFromVisibleText(ProductListbox,details.getProduct());
         selectWebElement(LanguageDropdown);
@@ -884,6 +888,7 @@ public class IntentMappingPage extends BasePage{
 	}
 	public void addRecordWithoutLanguage(IntentMappingDetails details) throws Exception {
 		selectWebElement(addNewIntentMappingRecordBtn);
+		Thread.sleep(1000);
 		selectWebElement(ProductDropdown);
         selectDropdownFromVisibleText(ProductListbox,details.getProduct());
         selectWebElement(SegmentDropdown);
@@ -897,6 +902,7 @@ public class IntentMappingPage extends BasePage{
 	}
 	public void addRecordWithoutIntentTalent(IntentMappingDetails details) throws Exception {
 		selectWebElement(addNewIntentMappingRecordBtn);
+		Thread.sleep(1000);
 		selectWebElement(ProductDropdown);
         selectDropdownFromVisibleText(ProductListbox,details.getProduct());
         selectWebElement(SegmentDropdown);
@@ -908,8 +914,9 @@ public class IntentMappingPage extends BasePage{
 		selectWebElement(saveButton);
 		selectWebElement(cancelBtn);		
 	}
-	public void addRecordWithoutVDN(IntentMappingDetails details) {
+	public void addRecordWithoutVDN(IntentMappingDetails details) throws Exception {
 		selectWebElement(addNewIntentMappingRecordBtn);
+		Thread.sleep(1000);
 		selectWebElement(ProductDropdown);
         selectDropdownFromVisibleText(ProductListbox,details.getProduct());
         selectWebElement(SegmentDropdown);

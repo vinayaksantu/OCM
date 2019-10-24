@@ -77,7 +77,7 @@ public class AgentSettingsDeleteTest {
         AgentSettingsDetails agentSettingsDetails = new AgentSettingsDetails(map);
         AgentSettingsNewDesignPage agentSettingsPage = PageFactory.createPageInstance(driver, AgentSettingsNewDesignPage.class);
         agentSettingsPage.deleteAgentSettingsRecord(agentSettingsDetails.getUsername(), agentSettingsDetails.getDeleteReason());
-        Assert.assertTrue(agentSettingsPage.verifyRecordDeleted(), "delete record assertion failed");
+	    Assert.assertEquals(agentSettingsPage.getSuccessMessage(), "Record Deleted Successfully");
     }     
     
     @Test(groups = { "Maker" },priority=3,dependsOnMethods="DeleteRevertAgentSettingsRecord")
@@ -97,7 +97,7 @@ public class AgentSettingsDeleteTest {
         HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
         homePage.navigateToOCMReportsPage();
         OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver, OCMReportsPage.class);
-        String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentSettingsData.xlsx";
+        String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AuditTrailReportData.xlsx";
         Map<String, String> map1 = new ExcelReader(filePath1,"Show").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map1);
         ocmReportsPage.showReport(reportDetails);
@@ -139,7 +139,7 @@ public class AgentSettingsDeleteTest {
 	    HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
 	    homePage.navigateToOCMReportsPage();
 	    OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver, OCMReportsPage.class);
-	    String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentSettingsData.xlsx";
+        String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AuditTrailReportData.xlsx";
 	    Map<String, String> map1 = new ExcelReader(filePath1,"Show").getTestData().get(0);
 	    ReportDetails reportDetails= new ReportDetails(map1);
 	    ocmReportsPage.showReport(reportDetails);
@@ -164,7 +164,7 @@ public class AgentSettingsDeleteTest {
         HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
         homePage.navigateToOCMReportsPage();
         OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver, OCMReportsPage.class);
-        String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentSettingsData.xlsx";
+        String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AuditTrailReportData.xlsx";
         Map<String, String> map1 = new ExcelReader(filePath1,"Show").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map1);
         ocmReportsPage.showReport(reportDetails);
@@ -198,7 +198,7 @@ public class AgentSettingsDeleteTest {
 	     HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
 	     homePage.navigateToOCMReportsPage();
 	     OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver, OCMReportsPage.class);
-	     String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentSettingsData.xlsx";
+	     String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AuditTrailReportData.xlsx";
 	     Map<String, String> map1 = new ExcelReader(filePath1,"Show").getTestData().get(0);
 	     ReportDetails reportDetails= new ReportDetails(map1);
 	     ocmReportsPage.showReport(reportDetails);
@@ -222,7 +222,7 @@ public class AgentSettingsDeleteTest {
 	     HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
 	     homePage.navigateToOCMReportsPage();
 	     OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver, OCMReportsPage.class);
-	     String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentSettingsData.xlsx";
+	        String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AuditTrailReportData.xlsx";
 	     Map<String, String> map1 = new ExcelReader(filePath1,"Show").getTestData().get(0);
 	     ReportDetails reportDetails= new ReportDetails(map1);
 	     ocmReportsPage.showReport(reportDetails);

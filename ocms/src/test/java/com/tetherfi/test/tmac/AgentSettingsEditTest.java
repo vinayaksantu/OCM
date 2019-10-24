@@ -238,7 +238,7 @@ public class AgentSettingsEditTest {
 	    }	 
 	    
 
-    @Test(groups = { "Maker" },priority=17)//,dependsOnMethods = "EditAgentSettingsRecord")
+    //@Test(groups = { "Maker" },priority=17)//,dependsOnMethods = "EditAgentSettingsRecord")
     public void VerifyProfileSelectionAgentAtTeamLevel() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentSettingsData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(1);
@@ -250,7 +250,7 @@ public class AgentSettingsEditTest {
         agentSettingsPage.clickonTopmostEditButton();
         Assert.assertTrue(agentSettingsPage.verifyProfileSelection(), "profile selection assertion failed");
     }
-    @Test(groups = { "Maker" },priority=18)//,dependsOnMethods = "EditAgentSettingsRecord")
+    //@Test(groups = { "Maker" },priority=18)//,dependsOnMethods = "EditAgentSettingsRecord")
     public void VerifyProfileSelectionAgentAtCountryDivisionDepartmentLevel() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentSettingsData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(1);

@@ -71,7 +71,7 @@ public class IntentMappingTest extends BaseTest {
     public void VerifyColumnsHeaderDisable() {
         IntentMappingPage IntentMappingPage = PageFactory.createPageInstance(driver, IntentMappingPage.class);
         Assert.assertFalse(IntentMappingPage.verifycolumnsHeaderDisabled(),"columns disabled assertion failed");
-    }
+    }*/
     
    @Test(priority=5)
     public void AddNewIntentMappingRecord() throws Exception {
@@ -108,7 +108,7 @@ public class IntentMappingTest extends BaseTest {
         Assert.assertTrue(ocmReportsPage.verifyIntentMappingCreate(IntentMappingDetails,"Create"));
     }
     
-    @Test(priority=8)
+   /* @Test(priority=8)
     public void AddEmptyRecord() throws IOException {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntentMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -159,7 +159,7 @@ public class IntentMappingTest extends BaseTest {
     }
     
     @Test(priority=13)
-    public void AddRecordWithoutVDN() throws IOException {
+    public void AddRecordWithoutVDN() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntentMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         IntentMappingDetails IntentMappingDetails = new IntentMappingDetails(map);
@@ -176,7 +176,7 @@ public class IntentMappingTest extends BaseTest {
         Assert.assertFalse(IntentMappingPage.verifyEditFormContainer(), "Cancel Btn at Add record assertion failed");
 	}
 	
-    @Test(priority=15)
+   /* @Test(priority=15)
     public void EditIntentMappingRecord() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntentMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
@@ -219,7 +219,7 @@ public class IntentMappingTest extends BaseTest {
         IntentMappingPage.clickOnEditButton();
         IntentMappingPage.clickOnCancelBtn();
         Assert.assertFalse(IntentMappingPage.verifyEditFormContainer(), "Cancel Btn at Edit record assertion failed");
-    }*/
+    }
 	
 	 @Test(priority=19)
 	 public void VerifySearchIsNotEqualTo() throws Exception {
@@ -266,7 +266,7 @@ public class IntentMappingTest extends BaseTest {
     Assert.assertTrue(IntentMappingPage.verifySearchEndsWith(IntentMappingDetails.getIntentTalent()));
 	}
 	
-    /*@Test(priority=19)
+    @Test(priority=24)
     public void searchPage() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntentMappingData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -277,14 +277,14 @@ public class IntentMappingTest extends BaseTest {
         Assert.assertTrue(IntentMappingPage.verifyclose());
     }
     
-    @Test(priority=20)
+    @Test(priority=25)
     public void searchwithoutSearchTextbox() throws IOException {
         IntentMappingPage IntentMappingPage = PageFactory.createPageInstance(driver, IntentMappingPage.class);
         IntentMappingPage.searchwithoutextsearch();
         Assert.assertEquals(IntentMappingPage.verifySuccessMessage(),"Please enter the text to search or remove the filter", "Add invalid record assertion failed");
     }
     
-    @Test(priority=21)
+    @Test(priority=26)
     public void ExportToExcel() throws Exception
     {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles";
@@ -292,7 +292,7 @@ public class IntentMappingTest extends BaseTest {
         Assert.assertTrue(IntentMappingPage.verifyExportToExcel(filePath));
     }
     
-    @Test(priority=22)
+    @Test(priority=27)
     public void ExportToExcelData() throws Exception
     {	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Intent Mapping.xlsx";
     	List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
@@ -300,7 +300,7 @@ public class IntentMappingTest extends BaseTest {
     	Assert.assertTrue(IntentMappingPage.verifyexportToExcelSheet(maplist));	
     } 
     
-    @Test(priority=23)
+    @Test(priority=28)
     public void DeleteWithoutDeleteReasonRecord() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntentMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
@@ -309,7 +309,7 @@ public class IntentMappingTest extends BaseTest {
         IntentMappingPage.deleteIntentMapingWithoutDeleteReasonRecord(IntentMappingDetails);
         Assert.assertEquals(IntentMappingPage.verifySuccessMessage(),"Please enter the delete reason","empty delete reason record assertion failed");
     }
-    @Test(priority=24)
+    @Test(priority=29)
     public void VerifyCancelBtnAtDeleteIntentMappingRecord() throws Exception{
         IntentMappingPage IntentMappingPage = PageFactory.createPageInstance(driver, IntentMappingPage.class);
         IntentMappingPage.searchIntentMappingRecord("40000");
@@ -318,7 +318,7 @@ public class IntentMappingTest extends BaseTest {
         IntentMappingPage.clickOnDeleteCancelBtn();
         Assert.assertFalse(IntentMappingPage.verifyDeleteContainer(), "Cancel Btn at Delete record assertion failed");
     }
-    @Test(priority=25,dependsOnMethods = "VerifyCancelBtnAtDeleteIntentMappingRecord")
+    @Test(priority=30,dependsOnMethods = "VerifyCancelBtnAtDeleteIntentMappingRecord")
     public void DeleteIntentMappingRecord() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntentMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
@@ -328,7 +328,7 @@ public class IntentMappingTest extends BaseTest {
         Assert.assertEquals(IntentMappingPage.verifySuccessMessage(),"Record Deleted Successfully","delete record assertion failed");
     }
     
-    @Test(priority=26,dependsOnMethods= {"DeleteIntentMappingRecord"})
+    @Test(priority=31,dependsOnMethods= {"DeleteIntentMappingRecord"})
     public void VerifyAuditTrialReportForDelete() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntentMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(0);	
@@ -343,7 +343,7 @@ public class IntentMappingTest extends BaseTest {
         Assert.assertTrue(ocmReportsPage.verifyIntentMappingdelete(IntentMappingDetails,"Delete"));
     }
     
-    @Test(priority=27)
+    @Test(priority=32)
     public void SearchClearSearch() throws Exception
     {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntentMappingData.xlsx";
@@ -355,7 +355,7 @@ public class IntentMappingTest extends BaseTest {
         Assert.assertTrue(IntentMappingPage.verifyclearsearch(), "Clear All Assertion Failed");
     }
     
-    @Test(priority=28)
+    @Test(priority=33)
     public void ExporttoExcelWithoutData() throws Exception
     {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntentMappingData.xlsx";
@@ -365,7 +365,7 @@ public class IntentMappingTest extends BaseTest {
         Assert.assertTrue(IntentMappingPage.ExporttoExcelWithoutData(IntentMappingDetails));
     }
   
-    @Test(priority=29)
+    @Test(priority=34)
     public void SortingByAscending() throws IOException {
         IntentMappingPage IntentMappingPage = PageFactory.createPageInstance(driver, IntentMappingPage.class);
         IntentMappingPage.SortByAscending();
@@ -374,7 +374,7 @@ public class IntentMappingTest extends BaseTest {
         Assert.assertTrue(IntentMappingPage.verifyexportToExcelSheet(maplist));
     }
     
-    @Test(priority=30)
+    @Test(priority=35)
     public void SortingByDescending() throws IOException {
         IntentMappingPage IntentMappingPage = PageFactory.createPageInstance(driver, IntentMappingPage.class);
         IntentMappingPage.SortByDescending();
@@ -383,7 +383,7 @@ public class IntentMappingTest extends BaseTest {
         Assert.assertTrue(IntentMappingPage.verifyexportToExcelSheet(maplist));
     }
     
-    @Test(priority=31)
+    @Test(priority=36)
     public void GroupBy()
     {
         IntentMappingPage IntentMappingPage = PageFactory.createPageInstance(driver, IntentMappingPage.class);
@@ -393,32 +393,32 @@ public class IntentMappingTest extends BaseTest {
         screenshot.captureScreen("IntentMappingTest", "AlreadyGroupBy");
     }
     
-    @Test(priority=32)
+    @Test(priority=37)
     public void VerifyArrowMoveForPreviousAndNextPage() {
         IntentMappingPage IntentMappingPage = PageFactory.createPageInstance(driver, IntentMappingPage.class);
     	Assert.assertTrue(IntentMappingPage.verifyArrowMoveForPreviousAndNextPage(),"arrow move for previous and next page assertion failed");
     }
     
-    @Test(priority=33)
+    @Test(priority=38)
     public void VerifyArrowMoveForFirstAndLastPage() {
         IntentMappingPage IntentMappingPage = PageFactory.createPageInstance(driver, IntentMappingPage.class);
         Assert.assertTrue(IntentMappingPage.verifyArrowMoveForFirstAndLastPage(),"arrow move for first and last page assertion failed");
     }
     
-    @Test(priority=34)
+    @Test(priority=39)
     public void VerifyTotalNumberOfItemsPerPageDetails() {
         IntentMappingPage IntentMappingPage = PageFactory.createPageInstance(driver, IntentMappingPage.class);
         Assert.assertTrue(IntentMappingPage.verifyTotalNumberOfItemsPerPageDetails(),"item per page assertion failed");
     }
     
-    @Test(priority=35)
+    @Test(priority=40)
     public void VerifyNumberOfItemsPerPageSelection() {
         IntentMappingPage IntentMappingPage = PageFactory.createPageInstance(driver, IntentMappingPage.class);
         Assert.assertTrue(IntentMappingPage.verifyNumberOfItemsPerPage(),"item per page assertion failed");
     }
     
     
-    @Test(priority=36)
+    @Test(priority=41)
     public void database() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntentMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(0);

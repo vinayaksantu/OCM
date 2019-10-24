@@ -42,7 +42,7 @@ public class BranchManagementDeleteTest {
         Test t = method.getAnnotation(Test.class);
         Map<String, String> map;
         if(t.groups()[0].equalsIgnoreCase("Checker"))
-            map= new ExcelReader(filePath,"Login").getTestData().get(2);
+            map= new ExcelReader(filePath,"Login").getTestData().get(1);
         else
             map= new ExcelReader(filePath,"Login").getTestData().get(0);
         try{driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);}catch (TimeoutException e){e.printStackTrace();driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);}
@@ -64,7 +64,7 @@ public class BranchManagementDeleteTest {
         Assert.assertTrue(branchManagementPage.isBranchManagementPageDisplayed(), "Branch Management page assertion failed");
     }
 	
-	@Test(groups= {"Maker"})
+	/*@Test(groups= {"Maker"},priority=1)
 	public void DeleteCancelBranchManagementRecord() throws Exception {
 		 String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\BranchManagementData.xlsx";
 	     Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(0);
@@ -73,7 +73,7 @@ public class BranchManagementDeleteTest {
 	     Assert.assertTrue(branchManagementPage.DeleteCancel(branchManagementDetails), "Delete Cancel assertion Failed");
 	}
 	
-	@Test(groups = { "Maker" })
+	@Test(groups = { "Maker" },priority=2)
     public void DeleteRecordWithoutDeleteReason() throws Exception {
 		 String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\BranchManagementData.xlsx";
 		 Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(1);
@@ -91,10 +91,10 @@ public class BranchManagementDeleteTest {
 	     BranchManagementDetails BranchManagementDetails = new BranchManagementDetails(map);
 	     BranchManagementPage BranchManagementPage = PageFactory.createPageInstance(driver, BranchManagementPage.class);
 	     BranchManagementPage.DeleteBranchManagementRecord(BranchManagementDetails);
-        Assert.assertEquals(BranchManagementPage.getSuccessMessage(), "Record deleted successfully");
+        Assert.assertEquals(BranchManagementPage.getSuccessMessage(), "Record Deleted Successfully");
      }
         
-	@Test(groups = { "Maker" },priority=4,dependsOnMethods="DeleteRecord")
+	@Test(groups = { "Maker" },priority=4)//,dependsOnMethods="DeleteRecord")
     public void VerifyRevertForDeleteRecord() throws Exception {
        	BranchManagementPage BranchManagementPage = PageFactory.createPageInstance(driver, BranchManagementPage.class);
        	BranchManagementPage.selectBranchManagementAuditTrailTab();
@@ -125,7 +125,7 @@ public class BranchManagementDeleteTest {
 	     BranchManagementDetails BranchManagementDetails = new BranchManagementDetails(map);
 	     BranchManagementPage BranchManagementPage = PageFactory.createPageInstance(driver, BranchManagementPage.class);
 	     BranchManagementPage.DeleteBranchManagementRecord(BranchManagementDetails);
-        Assert.assertEquals(BranchManagementPage.getSuccessMessage(), "Record deleted successfully");
+        Assert.assertEquals(BranchManagementPage.getSuccessMessage(), "Record Deleted Successfully");
      }
 	
 	@Test(groups = { "Maker" },priority=7,dependsOnMethods="RejectDeleteRecord")
@@ -167,7 +167,7 @@ public class BranchManagementDeleteTest {
 	     BranchManagementDetails BranchManagementDetails = new BranchManagementDetails(map);
 	     BranchManagementPage BranchManagementPage = PageFactory.createPageInstance(driver, BranchManagementPage.class);
 	     BranchManagementPage.DeleteBranchManagementRecord(BranchManagementDetails);
-	     Assert.assertEquals(BranchManagementPage.getSuccessMessage(), "Record deleted successfully");
+        Assert.assertEquals(BranchManagementPage.getSuccessMessage(), "Record Deleted Successfully");
 	}
 	
 	@Test(priority=11,groups= {"Maker"},dependsOnMethods="DeleteBranchManagementRecord")
@@ -183,9 +183,9 @@ public class BranchManagementDeleteTest {
         ReportDetails reportDetails= new ReportDetails(map1);
         ocmReportsPage.showReport(reportDetails);
         Assert.assertTrue(ocmReportsPage.verifyBranchManagementDelete(BranchManagementDetails,"MakerDelete"));
-    }
+    }*/
 	
-	@Test(priority=12,groups = { "Maker" },dependsOnMethods="DeleteBranchManagementRecord")
+	@Test(priority=12,groups = { "Maker" })//,dependsOnMethods="DeleteBranchManagementRecord")
     public void VerifyAuditTrailDataForDeleteBranchManagementRecord() throws Exception {
 		 String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\BranchManagementData.xlsx";
 		 Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(0);
@@ -196,7 +196,7 @@ public class BranchManagementDeleteTest {
     }
 
 	@Test(groups = { "Maker" },priority=13,dependsOnMethods="VerifyAuditTrailDataForDeleteBranchManagementRecord")
-    public void VerifySendForApprovalForDeleteRecord() throws Exception {
+    public void VerifySendForApprovalForDaeleteRecord() throws Exception {
        	BranchManagementPage BranchManagementPage = PageFactory.createPageInstance(driver, BranchManagementPage.class);
        	BranchManagementPage.selectBranchManagementAuditTrailTab();
        	BranchManagementPage.selectRecord();
@@ -204,7 +204,7 @@ public class BranchManagementDeleteTest {
         Assert.assertTrue(BranchManagementPage.verifyStatus("Approval Pending"),"approal status details failed");
     }
 	
-	@Test(priority=14,groups = { "Maker" },dependsOnMethods = "ApproveforDeleteBranchManagementRecord")
+	@Test(priority=14,groups = { "Maker" },dependsOnMethods = "VerifySendForApprovalForDeleteRecord")
     public void VerifyAuditTrailReportForSendForApprove() throws Exception {
 		 String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\BranchManagementData.xlsx";
 		 Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);

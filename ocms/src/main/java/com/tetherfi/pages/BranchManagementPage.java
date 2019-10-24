@@ -15,7 +15,6 @@ import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
-import com.tetherfi.model.fax.FaxTemplateDetails;
 import com.tetherfi.model.ivr.BranchManagementDetails;
 import com.tetherfi.utility.FileUploader;
 
@@ -907,7 +906,7 @@ public class BranchManagementPage extends BasePage {
         Map<String,String> firstRowData=getFirstRowDatafromTable();
         if(firstRowData.get("Transaction").equalsIgnoreCase(Transaction)){
             if(firstRowData.get("Status").equalsIgnoreCase(Status)){
-                if(firstRowData.get("Function").equalsIgnoreCase("IvrBranchManagement")){
+                if(firstRowData.get("Function").equalsIgnoreCase("Branch Management")){
                        if(Transaction.equals("MakerCreate")){
                            Map<String,String> newvalues=new HashMap<>();
                             String[] d=firstRowData.get("New Values").split("\n");
@@ -921,7 +920,7 @@ public class BranchManagementPage extends BasePage {
                             stat=false;
                        }
                        else{System.out.println("Data mismatch");}
-                }else{System.out.println("Data mismatch:"+firstRowData.get("Function")+"\t"+"RoleManagement");}
+                }else{System.out.println("Data mismatch:"+firstRowData.get("Function")+"\t"+"Branch Management");}
             }else{System.out.println("Data mismatch:"+firstRowData.get("Status")+"\t"+Status);}
         }else{System.out.println("Data mismatch:"+firstRowData.get("Transaction")+"\t"+Transaction);}
         return stat;
@@ -1031,6 +1030,7 @@ public class BranchManagementPage extends BasePage {
 	        } catch (InterruptedException e) {
 	            e.printStackTrace();
 	        }
+	        selectRecord();
 	        clickOn(approveBtn);
 	        selectWebElement(checkerReason);
 	        enterValueToTxtField(checkerReason,comment);
@@ -1308,6 +1308,7 @@ public class BranchManagementPage extends BasePage {
 	        } catch (InterruptedException e) {
 	            e.printStackTrace();
 	        }
+	        selectRecord();
 	        clickOn(rejectBtn);
 	        selectWebElement(checkerReason);
 	        enterValueToTxtField(checkerReason,comment);
@@ -1368,7 +1369,7 @@ public class BranchManagementPage extends BasePage {
 	    selectWebElement(statusDropDown);
         selectDropdownFromVisibleText(statusListbox, branchManagementDetails.getUpdatedStatus());
         selectWebElement(modifyReasonTextbox);
-        enterValueToTxtField(modifyReasonTextbox,branchManagementDetails.getModifyReason());
+        enterValueToTxtFieldWithoutClear(modifyReasonTextbox,branchManagementDetails.getModifyReason());
         selectWebElement(saveBtn);	
 	}
 
@@ -1485,7 +1486,7 @@ public class BranchManagementPage extends BasePage {
 		selectWebElement(deleteButton);
 		Thread.sleep(1000);
         selectWebElement(deleteReasonTextBox);
-        enterValueToTxtField(deleteReasonTextBox,branchManagementDetails.getDeleteReason());
+        enterValueToTxtFieldWithoutClear(deleteReasonTextBox,branchManagementDetails.getDeleteReason());
         selectWebElement(yesBtn);		
 	}
 

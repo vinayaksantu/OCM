@@ -791,7 +791,7 @@ public class AgentTransferPage extends BasePage{
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-			enterValueToTxtField(deletereasontextbox,details.getDeleteReason());
+			enterValueToTxtFieldWithoutClear(deletereasontextbox,details.getDeleteReason());
 			selectWebElement(yesbtn);				
 		}
 		

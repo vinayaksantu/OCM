@@ -39,7 +39,7 @@ public class CallBackAnnouncementTest extends BaseTest {
         Assert.assertTrue(callbackAnnouncementPage.isCallbackAnnouncementPageDisplayed(), "CallBack Announcement page assertion failed");
     }
   
- /* @Test(priority=1)
+    @Test(priority=1)
     public void CallbackAnnouncementPage() {
         CallbackAnnouncementPage callbackAnnouncementPage = PageFactory.createPageInstance(driver, CallbackAnnouncementPage.class);
     	Assert.assertTrue(callbackAnnouncementPage.verifylogo(),"CallBackAnnouncement logo assertion failed");
@@ -148,7 +148,7 @@ public class CallBackAnnouncementTest extends BaseTest {
         CallbackAnnouncementPage callbackAnnouncementPage = PageFactory.createPageInstance(driver, CallbackAnnouncementPage.class);
         callbackAnnouncementPage.addNewCallbackAnnouncementWithoutLanguageRecord(callbackAnnouncementDetails);
         Assert.assertTrue(callbackAnnouncementPage.verifyErrorMessage(), "Add New record assertion failed");
-    }*/
+    }
     
     @Test(priority=13)
     public void VerifySearchIsNotEqualTo() throws Exception {
@@ -194,7 +194,7 @@ public class CallBackAnnouncementTest extends BaseTest {
         Assert.assertTrue(callbackAnnouncementPage.verifySearchEndsWith(callbackAnnouncementDetails.getLanguage()));
     }
     
-    /*@Test(priority=13)//,dependsOnMethods = "AddDuplicateAdhocOptionEnhancementRecord")
+    @Test(priority=18)//,dependsOnMethods = "AddDuplicateAdhocOptionEnhancementRecord")
     public void EditCallBackAnnouncementRecord() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\CallbackAnnouncementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
@@ -204,7 +204,7 @@ public class CallBackAnnouncementTest extends BaseTest {
         Assert.assertEquals(callbackAnnouncementPage.verifySuccessMessage(),"Record Updated Successfully","Edit record assertion failed");
     }
     
-    @Test(priority=14)//,dependsOnMethods="EditCallBackAnnouncementRecord")
+    @Test(priority=19)//,dependsOnMethods="EditCallBackAnnouncementRecord")
     public void VerifyAuditTrialReportForUpdate() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\CallbackAnnouncementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(0);	
@@ -219,7 +219,7 @@ public class CallBackAnnouncementTest extends BaseTest {
         Assert.assertTrue(ocmReportsPage.verifyCallBackAnnouncementUpdate(callbackAnnouncementDetails,"Update"));
     }
     
-    @Test(priority=15)
+    @Test(priority=20)
     public void EditWithoutModifyReasonCallbackannouncementRecord() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\CallbackAnnouncementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
@@ -229,7 +229,7 @@ public class CallBackAnnouncementTest extends BaseTest {
         Assert.assertTrue(callbackAnnouncementPage.verifyErrorMessage(), "Edit assertion failed");
     }
     
-    @Test(priority=16)
+    @Test(priority=21)
     public void VerifyCancelButtonAtEditCallbackAnnouncementRecord() throws Exception {
         CallbackAnnouncementPage callbackAnnouncementPage = PageFactory.createPageInstance(driver, CallbackAnnouncementPage.class);
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\CallbackAnnouncementData.xlsx";
@@ -238,7 +238,7 @@ public class CallBackAnnouncementTest extends BaseTest {
         Assert.assertTrue(callbackAnnouncementPage.editcancel(callbackAnnouncementDetails));
     }
     
-    @Test(priority=17)
+    @Test(priority=22)
     public void searchPage() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\CallbackAnnouncementData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -249,7 +249,7 @@ public class CallBackAnnouncementTest extends BaseTest {
         Assert.assertTrue(callbackAnnouncementPage .verifyclose());
         screenshot.captureScreen("CallBackAnnouncementTest", "SearchClose");
     }
-    @Test(priority=18)
+    @Test(priority=23)
     public void searchwithoutSearchTextbox() throws IOException {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\CallbackAnnouncementData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -259,7 +259,7 @@ public class CallBackAnnouncementTest extends BaseTest {
     	Assert.assertTrue(callbackAnnouncementPage.verifyErrorMessage());
     }
     
-    @Test(priority=19)
+    @Test(priority=24)
     public void DeleteWithoutDeleteReasonRecord() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\CallbackAnnouncementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
@@ -269,7 +269,7 @@ public class CallBackAnnouncementTest extends BaseTest {
         Assert.assertTrue(callbackAnnouncementPage.verifyErrorMessage(), "Delete assertion failed");
     }
     
-    @Test(priority=20,dependsOnMethods = {"DeleteWithoutDeleteReasonRecord"})
+    @Test(priority=25,dependsOnMethods = {"DeleteWithoutDeleteReasonRecord"})
     public void VerifyCancelButtonDeleteRecord() throws Exception {
     	 String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\CallbackAnnouncementData.xlsx";
          Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
@@ -278,7 +278,7 @@ public class CallBackAnnouncementTest extends BaseTest {
          Assert.assertTrue(callbackAnnouncementPage.Canceldelete(callbackAnnouncementDetails), "Cancel Btn at Delete record assertion failed");
     }
     
-    @Test(dependsOnMethods = {"VerifyCancelButtonDeleteRecord"},priority=21)
+    @Test(dependsOnMethods = {"VerifyCancelButtonDeleteRecord"},priority=26)
     public void DeleteCallbackAnnouncementRecord() throws Exception {
    	 	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\CallbackAnnouncementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
@@ -288,7 +288,7 @@ public class CallBackAnnouncementTest extends BaseTest {
         Assert.assertEquals(callbackAnnouncementPage.verifySuccessMessage(),"Record Deleted Successfully","delete record assertion failed");
     }
     
-    @Test(dependsOnMethods= {"DeleteCallbackAnnouncementRecord"},priority=22)
+    @Test(dependsOnMethods= {"DeleteCallbackAnnouncementRecord"},priority=27)
     public void VerifyAuditTrialReportForDelete() throws Exception {
    	 	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\CallbackAnnouncementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(0);	
@@ -303,7 +303,7 @@ public class CallBackAnnouncementTest extends BaseTest {
         Assert.assertTrue(ocmReportsPage.verifyCallbackAnnouncemnetdelete(callbackAnnouncementDetails,"Delete"));
     }
     
-    @Test(priority=23)
+    @Test(priority=28)
     public void ExportToExcel() throws Exception
     {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles";
@@ -311,7 +311,7 @@ public class CallBackAnnouncementTest extends BaseTest {
         Assert.assertTrue(callbackAnnouncementPage.verifyExportToExcel(filePath));
     }
     
-    @Test(priority=24)
+    @Test(priority=29)
     public void ExportToExcelData() throws Exception
     {	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Callback Announcement.xlsx";
     	List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
@@ -319,7 +319,7 @@ public class CallBackAnnouncementTest extends BaseTest {
     	Assert.assertTrue(callbackAnnouncementPage.verifyexportToExcelSheet(maplist));	
     } 
 
-    @Test(priority=25)
+    @Test(priority=30)
     public void SearchClearSearch() throws Exception
     {
    	 	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\CallbackAnnouncementData.xlsx";
@@ -331,7 +331,7 @@ public class CallBackAnnouncementTest extends BaseTest {
         Assert.assertTrue(callbackAnnouncementPage.verifyclearsearch(), "Clear All Assertion Failed");
     }
     
-    @Test(priority=26)
+    @Test(priority=31)
     public void ExporttoExcelWithoutData() throws Exception
     {
         CallbackAnnouncementPage callbackAnnouncementPage = PageFactory.createPageInstance(driver, CallbackAnnouncementPage.class);
@@ -341,7 +341,7 @@ public class CallBackAnnouncementTest extends BaseTest {
         Assert.assertTrue(callbackAnnouncementPage.ExporttoExcelWithoutData(callbackAnnouncementDetails));
     }
   
-    @Test(priority=27)
+    @Test(priority=32)
     public void SortingByAscending() throws IOException {
         CallbackAnnouncementPage callbackAnnouncementPage = PageFactory.createPageInstance(driver, CallbackAnnouncementPage.class);
         callbackAnnouncementPage.SortByAscending();
@@ -350,7 +350,7 @@ public class CallBackAnnouncementTest extends BaseTest {
         Assert.assertTrue(callbackAnnouncementPage.verifyexportToExcelSheet(maplist));
     }
     
-    @Test(priority=28)
+    @Test(priority=33)
     public void SortingByDescending() throws IOException {
         CallbackAnnouncementPage callbackAnnouncementPage = PageFactory.createPageInstance(driver, CallbackAnnouncementPage.class);
         callbackAnnouncementPage.SortByDescending();
@@ -359,7 +359,7 @@ public class CallBackAnnouncementTest extends BaseTest {
         Assert.assertTrue(callbackAnnouncementPage.verifyexportToExcelSheet(maplist));
     }
     
-    @Test(priority=29)
+    @Test(priority=34)
     public void GroupBy()
     {
         CallbackAnnouncementPage callbackAnnouncementPage = PageFactory.createPageInstance(driver, CallbackAnnouncementPage.class);
@@ -369,39 +369,39 @@ public class CallBackAnnouncementTest extends BaseTest {
         screenshot.captureScreen("CallBackAnnouncementTest", "AlreadyGroupBy");
     }
     
-    @Test(priority=30)
+    @Test(priority=35)
     public void VerifyArrowMoveForPreviousAndNextPage() {
         CallbackAnnouncementPage callbackAnnouncementPage = PageFactory.createPageInstance(driver, CallbackAnnouncementPage.class);
     	Assert.assertTrue(callbackAnnouncementPage.verifyArrowMoveForPreviousAndNextPage(),"arrow move for previous and next page assertion failed");
     }
     
-    @Test(priority=31)
+    @Test(priority=36)
     public void VerifyArrowMoveForFirstAndLastPage() {
         CallbackAnnouncementPage callbackAnnouncementPage = PageFactory.createPageInstance(driver, CallbackAnnouncementPage.class);
         Assert.assertTrue(callbackAnnouncementPage.verifyArrowMoveForFirstAndLastPage(),"arrow move for first and last page assertion failed");
     }
     
-    @Test(priority=32)
+    @Test(priority=37)
     public void VerifyTotalNumberOfItemsPerPageDetails() {
         CallbackAnnouncementPage callbackAnnouncementPage = PageFactory.createPageInstance(driver, CallbackAnnouncementPage.class);
         Assert.assertTrue(callbackAnnouncementPage.verifyTotalNumberOfItemsPerPageDetails(),"item per page assertion failed");
     }
     
-    @Test(priority=33)
+    @Test(priority=38)
     public void VerifyNumberOfItemsPerPageSelection() {
         CallbackAnnouncementPage callbackAnnouncementPage = PageFactory.createPageInstance(driver, CallbackAnnouncementPage.class);
         Assert.assertTrue(callbackAnnouncementPage.verifyNumberOfItemsPerPage(),"item per page assertion failed");
     }
     
    
-    @Test(priority=34)
+    @Test(priority=39)
     public void database() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\CallbackAnnouncementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(0);
         CallbackAnnouncementPage callbackAnnouncementPage = PageFactory.createPageInstance(driver, CallbackAnnouncementPage.class);
         CallbackAnnouncementDetails callbackAnnouncementDetails = new CallbackAnnouncementDetails(map);
     	Assert.assertTrue(callbackAnnouncementPage.verifyDatabase(callbackAnnouncementDetails.getQuery()));
-    }*/
+    }
     
     @AfterMethod
     public void afterEachMethod(Method method){

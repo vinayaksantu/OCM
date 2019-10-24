@@ -48,7 +48,7 @@ public class VIPListManagementTest extends BaseTest{
         Assert.assertTrue(vipListMangementPage.isVipListManagementPageDisplayed(), "VIP List Management page assertion failed");
     }
 	
-	/*@Test(priority=1)
+	@Test(priority=1)
 	public void VIPListManagementPage() {
         VipListManagementPage vipListMangementPage = PageFactory.createPageInstance(driver, VipListManagementPage.class);
         Assert.assertTrue(vipListMangementPage.VerifyLogo(),"Logo assertion failed");
@@ -229,7 +229,7 @@ public class VIPListManagementTest extends BaseTest{
         VipListManagementPage vipListMangementPage = PageFactory.createPageInstance(driver, VipListManagementPage.class);
         vipListMangementPage.addRecordWithoutOtherData(vipListManagementDetails);
         Assert.assertFalse(vipListMangementPage.verifyErrorMsg());
-     }*/
+     }
     
     @Test(priority=20)
     public void VerifySearchIsNotEqualTo() throws Exception {
@@ -274,7 +274,7 @@ public class VIPListManagementTest extends BaseTest{
         Assert.assertTrue(vipListMangementPage.verifySearchEndsWith(vipListManagementDetails.getEmailID()));
     }
     
-   /* @Test(priority=20)
+    @Test(priority=25)
     public void VerifyCancelBtnAtAddRecord(){
         VipListManagementPage vipListMangementPage = PageFactory.createPageInstance(driver, VipListManagementPage.class);
         vipListMangementPage.clickOnAddRecord();
@@ -282,7 +282,7 @@ public class VIPListManagementTest extends BaseTest{
         Assert.assertFalse(vipListMangementPage.verifyEditFormContainer(), "Cancel Btn at Add record assertion failed");
 	}
 	
-    @Test(priority=21)
+    @Test(priority=26)
     public void EditVIPListRecord() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\VIPListManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
@@ -292,7 +292,7 @@ public class VIPListManagementTest extends BaseTest{
         Assert.assertEquals(vipListMangementPage.verifySuccessMessage(),"Record Updated Successfully","Edit record assertion failed");
     }
     
-    @Test(priority=22,dependsOnMethods="EditVIPListRecord")
+    @Test(priority=27,dependsOnMethods="EditVIPListRecord")
     public void VerifyAuditTrialReportForUpdate() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\VIPListManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(0);	
@@ -307,7 +307,7 @@ public class VIPListManagementTest extends BaseTest{
         Assert.assertTrue(ocmReportsPage.verifyVIPListManagementUpdate(vipListManagementDetails,"Update"));
     }
     
-    @Test(priority=23,dependsOnMethods = "EditVIPListRecord")
+    @Test(priority=28,dependsOnMethods = "EditVIPListRecord")
     public void EditWithoutModifyReasonRecord() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\VIPListManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(0);
@@ -317,7 +317,7 @@ public class VIPListManagementTest extends BaseTest{
         Assert.assertEquals(vipListMangementPage.verifySuccessMessage(),"Please enter the modify reason", "empty modify reason record assertion failed");
     }
     
-    @Test(priority=24,dependsOnMethods = "EditWithoutModifyReasonRecord")
+    @Test(priority=29,dependsOnMethods = "EditWithoutModifyReasonRecord")
     public void VerifyCancelBtnAtEditConfigRecord() throws Exception{
         VipListManagementPage vipListMangementPage = PageFactory.createPageInstance(driver, VipListManagementPage.class);
         vipListMangementPage.searchVipListManagementRecord("12");
@@ -326,7 +326,7 @@ public class VIPListManagementTest extends BaseTest{
         Assert.assertFalse(vipListMangementPage.verifyEditFormContainer(), "Cancel Btn at Edit record assertion failed");
     }
     
-    @Test(priority=25)
+    @Test(priority=30)
     public void searchPage() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\VIPListManagementData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -337,14 +337,14 @@ public class VIPListManagementTest extends BaseTest{
         Assert.assertTrue(vipListMangementPage.verifyclose());
     }
     
-    @Test(priority=26)
+    @Test(priority=31)
     public void searchwithoutSearchTextbox() throws IOException {
         VipListManagementPage vipListMangementPage = PageFactory.createPageInstance(driver, VipListManagementPage.class);
         vipListMangementPage.searchwithoutextsearch();
         Assert.assertFalse(vipListMangementPage.verifyErrorMsg());
     }
     
-    @Test(priority=27)
+    @Test(priority=32)
     public void ExportToExcel() throws Exception
     {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles";
@@ -352,7 +352,7 @@ public class VIPListManagementTest extends BaseTest{
         Assert.assertTrue(vipListMangementPage.verifyExportToExcel(filePath));
     }
     
-    //@Test(priority=28)
+    //@Test(priority=33)
     public void ExportToExcelData() throws Exception
     {	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\VIP List Management.xlsx";
     	List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
@@ -360,7 +360,7 @@ public class VIPListManagementTest extends BaseTest{
     	Assert.assertTrue(vipListMangementPage.verifyexportToExcelSheet(maplist));	
     } 
     
-    @Test(priority=29)
+    @Test(priority=34)
     public void DeleteWithoutDeleteReasonRecord() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\VIPListManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
@@ -369,7 +369,7 @@ public class VIPListManagementTest extends BaseTest{
         vipListMangementPage.deleteVIPListWithoutDeleteReasonRecord(vipListManagementDetails);
         Assert.assertFalse(vipListMangementPage.verifyErrorMsg());
     }
-    @Test(priority=30)
+    @Test(priority=35)
     public void VerifyCancelBtnAtDeleteVIPListRecord() throws Exception{
         VipListManagementPage vipListMangementPage = PageFactory.createPageInstance(driver, VipListManagementPage.class);
         vipListMangementPage.searchVipListManagementRecord("2");
@@ -377,7 +377,7 @@ public class VIPListManagementTest extends BaseTest{
         vipListMangementPage.clickOnDeleteCancelBtn();
         Assert.assertFalse(vipListMangementPage.verifyDeleteContainer(), "Cancel Btn at Delete record assertion failed");
     }
-    @Test(priority=31,dependsOnMethods = "VerifyCancelBtnAtDeleteVIPListRecord")
+    @Test(priority=36,dependsOnMethods = "VerifyCancelBtnAtDeleteVIPListRecord")
     public void DeleteVIPListRecord() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\VIPListManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
@@ -387,7 +387,7 @@ public class VIPListManagementTest extends BaseTest{
         Assert.assertEquals(vipListMangementPage.verifySuccessMessage(),"Record Deleted Successfully","delete record assertion failed");
     }
     
-    @Test(priority=32,dependsOnMethods= {"DeleteVIPListRecord"})
+    @Test(priority=37,dependsOnMethods= {"DeleteVIPListRecord"})
     public void VerifyAuditTrialReportForDelete() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\VIPListManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(0);	
@@ -402,7 +402,7 @@ public class VIPListManagementTest extends BaseTest{
         Assert.assertTrue(ocmReportsPage.verifyVIPListManagementdelete(vipListManagementDetails,"Delete"));
     }
     
-    @Test(priority=33)
+    @Test(priority=38)
     public void SearchClearSearch() throws Exception
     {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\VIPListManagementData.xlsx";
@@ -414,7 +414,7 @@ public class VIPListManagementTest extends BaseTest{
         Assert.assertTrue(vipListMangementPage.verifyclearsearch(), "Clear All Assertion Failed");
     }
     
-    @Test(priority=34)
+    @Test(priority=39)
     public void ExporttoExcelWithoutData() throws Exception
     {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\VIPListManagementData.xlsx";
@@ -424,7 +424,7 @@ public class VIPListManagementTest extends BaseTest{
         Assert.assertTrue(vipListMangementPage.ExporttoExcelWithoutData(vipListManagementDetails));
     }
   
-    @Test(priority=35)
+    @Test(priority=40)
     public void SortingByAscending() throws IOException {
         VipListManagementPage vipListMangementPage = PageFactory.createPageInstance(driver, VipListManagementPage.class);
         vipListMangementPage.SortByAscending();
@@ -433,7 +433,7 @@ public class VIPListManagementTest extends BaseTest{
         Assert.assertTrue(vipListMangementPage.verifyexportToExcelSheet(maplist));
     }
     
-    @Test(priority=36)
+    @Test(priority=41)
     public void SortingByDescending() throws IOException {
         VipListManagementPage vipListMangementPage = PageFactory.createPageInstance(driver, VipListManagementPage.class);
         vipListMangementPage.SortByDescending();
@@ -442,7 +442,7 @@ public class VIPListManagementTest extends BaseTest{
         Assert.assertTrue(vipListMangementPage.verifyexportToExcelSheet(maplist));
     }
     
-    @Test(priority=37)
+    @Test(priority=42)
     public void GroupBy()
     {
         VipListManagementPage vipListMangementPage = PageFactory.createPageInstance(driver, VipListManagementPage.class);
@@ -452,39 +452,39 @@ public class VIPListManagementTest extends BaseTest{
         screenshot.captureScreen("VIPListManagementTest", "AlreadyGroupBy");
     }
     
-    @Test(priority=38)
+    @Test(priority=43)
     public void VerifyArrowMoveForPreviousAndNextPage() {
         VipListManagementPage vipListMangementPage = PageFactory.createPageInstance(driver, VipListManagementPage.class);
     	Assert.assertTrue(vipListMangementPage.verifyArrowMoveForPreviousAndNextPage(),"arrow move for previous and next page assertion failed");
     }
     
-    @Test(priority=39)
+    @Test(priority=44)
     public void VerifyArrowMoveForFirstAndLastPage() {
         VipListManagementPage vipListMangementPage = PageFactory.createPageInstance(driver, VipListManagementPage.class);
         Assert.assertTrue(vipListMangementPage.verifyArrowMoveForFirstAndLastPage(),"arrow move for first and last page assertion failed");
     }
     
-    @Test(priority=40)
+    @Test(priority=45)
     public void VerifyTotalNumberOfItemsPerPageDetails() {
         VipListManagementPage vipListMangementPage = PageFactory.createPageInstance(driver, VipListManagementPage.class);
         Assert.assertTrue(vipListMangementPage.verifyTotalNumberOfItemsPerPageDetails(),"item per page assertion failed");
     }
     
-    @Test(priority=41)
+    @Test(priority=46)
     public void VerifyNumberOfItemsPerPageSelection() {
         VipListManagementPage vipListMangementPage = PageFactory.createPageInstance(driver, VipListManagementPage.class);
         Assert.assertTrue(vipListMangementPage.verifyNumberOfItemsPerPage(),"item per page assertion failed");
     }
     
     
-    @Test(priority=42)
+    @Test(priority=47)
     public void database() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\VIPListManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(0);
         VipListManagementPage vipListMangementPage = PageFactory.createPageInstance(driver, VipListManagementPage.class);
         VipListManagementDetails vipListManagementDetails = new VipListManagementDetails(map);
     	Assert.assertTrue(vipListMangementPage.verifyDatabase(vipListManagementDetails.getQuery()));
-    }*/
+    }
 	
 	 @AfterMethod
 	    public void afterEachMethod(Method method) throws InterruptedException {

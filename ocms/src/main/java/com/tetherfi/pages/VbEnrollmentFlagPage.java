@@ -799,7 +799,7 @@ public class VbEnrollmentFlagPage extends BasePage {
 		selectWebElement(HotLineNameTextBox);
 		enterValueToTxtField(HotLineNameTextBox,details.getUpdatedHotLineName());
 		selectWebElement(ModifyReasonTextBox);
-		enterValueToTxtField(ModifyReasonTextBox,details.getModifyReason());
+		enterValueToTxtFieldWithoutClear(ModifyReasonTextBox,details.getModifyReason());
 		selectWebElement(saveButton);
 		
 	}
@@ -849,7 +849,7 @@ public class VbEnrollmentFlagPage extends BasePage {
 		Thread.sleep(1000);
         selectWebElement(deleteButton);
         waitForJqueryLoad(driver);
-        enterValueToTxtField(deleteReasonTextBox,details.getDeleteReason());
+        enterValueToTxtFieldWithoutClear(deleteReasonTextBox,details.getDeleteReason());
         selectWebElement(deleteYesBtn);	
 	}
 

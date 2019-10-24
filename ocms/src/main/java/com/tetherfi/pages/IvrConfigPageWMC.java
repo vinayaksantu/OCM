@@ -92,12 +92,6 @@ public class IvrConfigPageWMC extends BasePage{
 
     @FindBy(css = "#toast-container .toast-error .toast-message")
     private List<WebElement> errorMsg;
-    
-    @FindBy(xpath="//div[text()='Please Provide Parameter,Value']")
-    private List<WebElement> errorMsg1;
-    
-    @FindBy(xpath="//div[@class='toast-message']")
-    private List<WebElement> errorMsg2;
 
     @FindBy(css = ".modal-footer .button-theme")
     private WebElement searchSearchBtn;
@@ -302,6 +296,7 @@ public class IvrConfigPageWMC extends BasePage{
         waitForJqueryLoad(driver);
         return ivrConfig.isEnabled();
     }
+    
     public void addNewIvrConfigRecord(IvrConfigDetails details) {
         selectWebElement(addNewRecordBtn);
         waitForJqueryLoad(driver);
@@ -325,6 +320,7 @@ public class IvrConfigPageWMC extends BasePage{
         	e.printStackTrace();
         }
     }
+    
     public void searchIvrConfigRecord(String Parameter) throws Exception {
         selectWebElement(searchBtn.get(0));
         selectWebElement(selectSearchCol.get(0));
@@ -372,6 +368,8 @@ public class IvrConfigPageWMC extends BasePage{
     	selectWebElement(editButton);
     	waitForJqueryLoad(driver);		
 		Thread.sleep(1000);
+		selectWebElement(parameterDropdown);
+        selectDropdownFromVisibleText(parameterListBox,details.getUpdatedParameter());
 		selectWebElement(ModifyReasonTextBox);
         enterValueToTxtFieldWithoutClear(ModifyReasonTextBox,details.getModifyReason());
         selectWebElement(saveButton);
@@ -402,6 +400,7 @@ public class IvrConfigPageWMC extends BasePage{
     public void clickOnAddRecord(){
         selectWebElement(addNewIVRConfigRcrdBtn);
     }
+    
     public boolean verifyEditFormContainer(){
         try {
             Thread.sleep(3000);
@@ -410,6 +409,7 @@ public class IvrConfigPageWMC extends BasePage{
         }
         return isElementExist(editFormContainer);
     }
+    
     public boolean verifyDeleteContainer(){
         try {
             Thread.sleep(3000);
@@ -418,17 +418,21 @@ public class IvrConfigPageWMC extends BasePage{
         }
         return isElementExist(deleteContainer);
     }
+    
     public void clickOnEditButton(IvrConfigDetails details) throws Exception{
     	searchIvrConfigRecord(details.getParameter());
         selectWebElement(editButton);
     }
+    
     public void clickOnDeleteButton(IvrConfigDetails details) throws Exception{
     	searchIvrConfigRecord(details.getParameter());	
         selectWebElement(deleteButton);
     }
+    
     public void clickOnDeleteCancelBtn(){
         selectWebElement(deleteNoBtn);
     }
+    
     public boolean isAddBtnDisplayed() {
     	return addNewIVRConfigRcrdBtn.isDisplayed() && addNewIVRConfigRcrdBtn.isEnabled();
     }
@@ -465,7 +469,8 @@ public class IvrConfigPageWMC extends BasePage{
 		else
 		return false;
 	}
-	public boolean maximizewindow() {
+	
+    public boolean maximizewindow() {
 		selectWebElement(maximize);
 		waitForJqueryLoad(driver);
 		if(fullscreen.isEnabled())
@@ -473,7 +478,8 @@ public class IvrConfigPageWMC extends BasePage{
 		else 
 		{return false;}
 	}
-	public boolean minimizewindow() {
+	
+    public boolean minimizewindow() {
 		selectWebElement(minimize);
 		waitForJqueryLoad(driver);
 		if(header.isDisplayed())
@@ -511,8 +517,9 @@ public class IvrConfigPageWMC extends BasePage{
 		else
 		return false;
 	}
+		
 	
-	private List<Map<String,String>> getdata(){	
+	private List<Map<String,String>> getdata(){
 		int item=Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
         int pagersize=Integer.valueOf(pagerSize.getText());
         int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
@@ -527,11 +534,6 @@ public class IvrConfigPageWMC extends BasePage{
 			List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
 			for(int j=1;j<headers.size();j++) {
 				scrollToElement(headers.get(j));
-				System.out.println(headers.get(j).getText());
-				if(headers.get(j).getText().equals("Last Changed On")){
-				col=cols.get(j).getText().substring(0,10);
-				}
-				else
 					col=cols.get(j).getText();
 				map.put(headers.get(j).getText(),col);
 			}
@@ -545,6 +547,7 @@ public class IvrConfigPageWMC extends BasePage{
 		}
 			return arr;
 	}
+		
 	public boolean verifyDatabase(String query) {
 		List<Map<String,String>> database=database(query);
 		System.out.println(database);
@@ -635,6 +638,7 @@ public class IvrConfigPageWMC extends BasePage{
         }
         return status;
 	}
+	
 	public boolean verifyArrowMoveForFirstAndLastPage(){
         boolean status=false;
         if(!lastPageIcon.getAttribute("class").contains("k-state-disabled")){
@@ -649,6 +653,7 @@ public class IvrConfigPageWMC extends BasePage{
         }
         return status;
     }
+	
 	public boolean verifyNumberOfItemsPerPage() {
         boolean status = false;
         try {
@@ -679,6 +684,7 @@ public class IvrConfigPageWMC extends BasePage{
             e.printStackTrace();
         } return status;
     }
+	
     public boolean verifyTotalNumberOfItemsPerPageDetails(){
         String item = items.getText();
         return item.matches("(\\d.*) - (\\d.*) of (\\d.*) items");
@@ -710,6 +716,7 @@ public class IvrConfigPageWMC extends BasePage{
         }
         return status;
     }
+    
     public boolean verifycolumnsHeaderDisabled() {
         boolean status = false;
         try{for(WebElement ele:headersDropdown) {
@@ -754,6 +761,7 @@ public class IvrConfigPageWMC extends BasePage{
         }
  	        return status;
     }
+    
     public boolean verifycolumnsHeaderEnabled(){
         boolean status=false;
         try{
@@ -811,7 +819,8 @@ public class IvrConfigPageWMC extends BasePage{
 		else
 			return false;		
 	}
-	public boolean clearAll(IvrConfigDetails details) throws Exception {
+	
+    public boolean clearAll(IvrConfigDetails details) throws Exception {
 		selectWebElement(searchBtn.get(0));
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Parameter");
@@ -824,14 +833,16 @@ public class IvrConfigPageWMC extends BasePage{
         else
 		return false;
 	}
-	public boolean verifyclose() {
+	
+    public boolean verifyclose() {
 		selectWebElement(searchClose);
 		if(gridContent.isDisplayed())
 			return true;
 		else
 		return false;
 	}
-	public void searchwithoutextsearch() {
+	
+    public void searchwithoutextsearch() {
 		selectWebElement(searchBtn.get(0));
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Parameter");
@@ -840,14 +851,16 @@ public class IvrConfigPageWMC extends BasePage{
         selectWebElement(searchSearchBtn);	
 		selectWebElement(searchClose);		
 	}
-	public boolean verifyinvalidsearchwithwrongdata(IvrConfigDetails ivrConfigDetails) throws Exception {
+	
+    public boolean verifyinvalidsearchwithwrongdata(IvrConfigDetails ivrConfigDetails) throws Exception {
 		searchIvrConfigRecord(ivrConfigDetails.getParameter());
 		if(norecords.isDisplayed())
 			return true; 
 			else
 				return false;
 	}
-	public boolean verifyclearsearch() {
+	
+    public boolean verifyclearsearch() {
 		selectWebElement(clearsearch);
 		if(gridContent.isDisplayed())
 			return true;
@@ -872,6 +885,7 @@ public class IvrConfigPageWMC extends BasePage{
 		Collections.sort(Actual);
 		return Actual.equals(Expected);		
 	}
+	
 	public void selectIvrConfigAuditTrailTab() {
 		selectWebElement(ivrConfigTab1);
 		selectWebElement(ivrConfigTab.get(1));
@@ -891,6 +905,7 @@ public class IvrConfigPageWMC extends BasePage{
 	Collections.sort(Expected);	
 	return Actual.equals(Expected);
 	}
+	
 	public void selectMakeIvrConfigChanges() {
 			selectWebElement(makeIVRConfigChanges);
 			try {
@@ -899,6 +914,7 @@ public class IvrConfigPageWMC extends BasePage{
 	            e.printStackTrace();
 	        }
 		}
+	
 	public boolean verifyAddNewIvrConfigRecordButton() {
 		return addNewRecordBtn.isEnabled();
 	}
@@ -910,6 +926,7 @@ public class IvrConfigPageWMC extends BasePage{
 	public boolean verifyExportToExcelButton() {
 		return exportToExcelBtn.isDisplayed();
 	}
+	
 	public boolean verifyMakerDataTableHeaders() {
 	ArrayList<String> Expected=new ArrayList<String>(Arrays.asList("Parameter","Value"));
 	ArrayList Actual=getHeadersfromTable(makerTableHeaders);
@@ -927,53 +944,21 @@ public class IvrConfigPageWMC extends BasePage{
 		else
 			return true;
 	}
+	
 	public boolean VerifyApprovedSectionData(IvrConfigDetails ivrConfigDetails) {
-//		searchSmsResponseTemplateRecordApprovedData(details.());
 		if(norecords.isDisplayed())
 			return true; 
 			else
 				return false;
 	}
-	
-	
-	public boolean addCancelButton(IvrConfigDetails ivrConfigDetails) {
-	selectWebElement(ivrConfigTab.get(1));
-	selectWebElement(makeIVRConfigChanges);
-	String actualitems=items.get(2).getText();
-	selectWebElement(addNewRecordBtn);
-	waitForJqueryLoad(driver);
-    selectWebElement(cancelBtn);
-    if(actualitems.equals(items.get(2).getText()))
-    	return true;
-    else
-	return false;	
-}
-	public void addRecordWithoutParameter(IvrConfigDetails details) {
-		selectWebElement(ivrConfigTab.get(1));
-		selectWebElement(makeIVRConfigChanges);
-		selectWebElement(addNewRecordBtn);
-		waitForJqueryLoad(driver);
-		selectWebElement(valueDropdown);
-		selectDropdownFromVisibleText(selectValue,details.getValue());
-		selectWebElement(saveButton);
-		selectWebElement(cancelBtn);		
-	}
-	public void addRecordWithoutValue(IvrConfigDetails details) {
-		selectWebElement(ivrConfigTab.get(1));
-		selectWebElement(makeIVRConfigChanges);
-		selectWebElement(addNewRecordBtn);
-		waitForJqueryLoad(driver);
-		selectWebElement(parameterDropdown);
-		selectDropdownFromVisibleText(selectParameter,details.getParameter());
-		selectWebElement(saveButton);
-		selectWebElement(cancelBtn);	
-	}
+				
 	public String getSuccessMessage() {
-//		waitForJqueryLoad(driver);
+		//		waitForJqueryLoad(driver);
 		if(successmsg.isDisplayed())
 			return successmsg.getText();
 		else{return errorMsg.get(0).getText();}	
 	}
+	
 	public void selectRecord() {
 		Map<String,String> map = new HashMap<>();
 		waitUntilWebElementIsVisible(auditGridContent);
@@ -987,30 +972,30 @@ public class IvrConfigPageWMC extends BasePage{
 		enterValueToTxtField(revertMakerComments,comments);
 		selectWebElement(revertSubmitMakerComments);				
 	}
-	
+
 	public boolean verifyStatus(String status) {
 		try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        Map<String,String> firstRowData=getFirstRowDatafromTable();
-        return firstRowData.get("Status").equals(status);
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		Map<String,String> firstRowData=getFirstRowDatafromTable();
+		return firstRowData.get("Status").equals(status);
 	}
-	
+
 	private Map<String, String> getFirstRowDatafromTable() {
 		Map<String,String> map = new HashMap<>();
-        waitUntilWebElementIsVisible(auditGridContent);
-        List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
-        List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
-        List<WebElement> cols=rows.get(1).findElements(By.tagName("td"));
-        for(int j=0;j<headers.size();j++){
-            scrollToElement(headers.get(j));
-            for(int i=0;i<3;i++) {													
-                try{map.put(headers.get(j).getText(), cols.get(j).getText());break;}catch (Exception e){e.printStackTrace();}
-            }
-        }
-        return map;
+		waitUntilWebElementIsVisible(auditGridContent);
+		List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
+		List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
+		List<WebElement> cols=rows.get(1).findElements(By.tagName("td"));
+		for(int j=0;j<headers.size();j++){
+			scrollToElement(headers.get(j));
+			for(int i=0;i<3;i++) {													
+				try{map.put(headers.get(j).getText(), cols.get(j).getText());break;}catch (Exception e){e.printStackTrace();}
+			}
+		}
+		return map;
 	}
 	
 	public void sendForAprroval(String comments) throws Exception {
@@ -1020,62 +1005,62 @@ public class IvrConfigPageWMC extends BasePage{
 	}
 		
 	public void clickOnReject(String comment) throws Exception {
-		 selectWebElement(ivrConfigTab.get(1));
-	        try {
-	            Thread.sleep(3000);
-	        } catch (InterruptedException e) {
-	            e.printStackTrace();
-	        }
-	        selectRecord();
-	        clickOn(rejectBtn);
-	        selectWebElement(checkerReason);
-	        enterValueToTxtField(checkerReason,comment);
-	        try {
-	            Thread.sleep(3000);
-	        } catch (InterruptedException e) {
-	            e.printStackTrace();
-	        }
-	        clickOn(approveYesBtn);				
+		selectWebElement(ivrConfigTab.get(1));
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		selectRecord();
+		clickOn(rejectBtn);
+		selectWebElement(checkerReason);
+		enterValueToTxtField(checkerReason,comment);
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		clickOn(approveYesBtn);				
 	}
 	
 	public boolean verifyMessage() {
-        return(getSuccessMessage().contains("Record approved successfully. Request ID :"));
+		return(getSuccessMessage().contains("Record approved successfully. Request ID :"));
 	}	
-	
+
 	public boolean verifyReviewAuditTrail(String status, String comment) {
-		 try {
-	            Thread.sleep(3000);
-	        } catch (InterruptedException e) {
-	            e.printStackTrace();
-	        }
-	        boolean stat=false;
-	        Map<String,String> firstRowData=getFirstRowDatafromTable();
-	        if(firstRowData.get("Status").equals(status)){
-	            if(firstRowData.get("Checker Comments").equals(comment)){
-	            	stat=true;
-	            	}
-	            else{System.out.println("Data mismatch:"+firstRowData.get("Review Comments")+"\t"+comment);}
-	        }else{System.out.println("Data mismatch:"+firstRowData.get("Status")+"\t"+status);}
-	        return stat;
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		boolean stat=false;
+		Map<String,String> firstRowData=getFirstRowDatafromTable();
+		if(firstRowData.get("Status").equals(status)){
+			if(firstRowData.get("Checker Comments").equals(comment)){
+				stat=true;
+			}
+			else{System.out.println("Data mismatch:"+firstRowData.get("Review Comments")+"\t"+comment);}
+		}else{System.out.println("Data mismatch:"+firstRowData.get("Status")+"\t"+status);}
+		return stat;
 	}
 	
 	public void clickOnApprove(String comment) throws Exception {
 		selectWebElement(ivrConfigTab.get(1));
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        selectRecord();
-        clickOn(approveBtn);
-        selectWebElement(checkerReason);
-        enterValueToTxtField(checkerReason,comment);
-        try {
-            Thread.sleep(4000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        clickOn(approveYesBtn);		
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		selectRecord();
+		clickOn(approveBtn);
+		selectWebElement(checkerReason);
+		enterValueToTxtField(checkerReason,comment);
+		try {
+			Thread.sleep(4000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		clickOn(approveYesBtn);		
 	}
 
 	public boolean verifyApprovedSectionDataafterapproval(IvrConfigDetails IvrConfigDetails) throws Exception {
@@ -1083,21 +1068,21 @@ public class IvrConfigPageWMC extends BasePage{
 		if(rowdata.getText().equals(IvrConfigDetails.getParameter()))
 			return true;
 		else
-		return false;
+			return false;
 	}
 	
 	private void searchIvrConfigRecordApprovedData(String parameter) throws Exception {
 		selectWebElement(gridsearchLink);
-        selectWebElement(selectSearchColumn.get(0));
-        selectDropdownFromVisibleText(columnNameList,"Parameter");
-        selectWebElement(selectSearchColumn.get(1));
-        selectDropdownFromVisibleText(searchTypeList,"Is equal to");
-        enterValueToTxtField(searchText.get(0),parameter);
-        selectInvisibleWebElement(searchSearchBtn);
-        waitForJqueryLoad(driver);
-        waitUntilWebElementIsVisible(approvedgridcontent);		
+		selectWebElement(selectSearchColumn.get(0));
+		selectDropdownFromVisibleText(columnNameList,"Parameter");
+		selectWebElement(selectSearchColumn.get(1));
+		selectDropdownFromVisibleText(searchTypeList,"Is equal to");
+		enterValueToTxtField(searchText.get(0),parameter);
+		selectInvisibleWebElement(searchSearchBtn);
+		waitForJqueryLoad(driver);
+		waitUntilWebElementIsVisible(approvedgridcontent);		
 	}
-	
+
 
 	public boolean EditCancel(IvrConfigDetails details) throws Exception {
 		selectWebElement(ivrConfigTab.get(1));
@@ -1109,22 +1094,22 @@ public class IvrConfigPageWMC extends BasePage{
 		waitForJqueryLoad(driver);
 		selectWebElement(cancelBtn);
 		if(editrowdata.get(1).getText().equals(details.getParameter()))	
-		return true;
+			return true;
 		else
 			return false;
 	}
 	
 	public boolean DeleteCancel(IvrConfigDetails details) throws Exception {
-	selectWebElement(ivrConfigTab.get(1));
-	Thread.sleep(1000);
-	selectWebElement(makeIVRConfigChanges);
-	Thread.sleep(1000);
-	searchIvrConfigRecord(details.getParameter());
-	selectWebElement(deleteButton);
-	waitForJqueryLoad(driver);
-	selectWebElement(noBtn);
-	if(editrowdata.get(1).getText().equals(details.getParameter()))	
-		return true;
+		selectWebElement(ivrConfigTab.get(1));
+		Thread.sleep(1000);
+		selectWebElement(makeIVRConfigChanges);
+		Thread.sleep(1000);
+		searchIvrConfigRecord(details.getParameter());
+		selectWebElement(deleteButton);
+		waitForJqueryLoad(driver);
+		selectWebElement(noBtn);
+		if(editrowdata.get(1).getText().equals(details.getParameter()))	
+			return true;
 		else
 			return false;	
 	}
@@ -1138,6 +1123,7 @@ public class IvrConfigPageWMC extends BasePage{
 		selectWebElement(yesBtn);
 		selectWebElement(noBtn);
 	}
+
 	public boolean verifyAuditTrail(IvrConfigDetails ivrConfigDetails, String Transaction, String Status) {
 		boolean stat=false;
 		Map<String,String> firstRowData=getFirstRowDatafromTable();
@@ -1146,20 +1132,20 @@ public class IvrConfigPageWMC extends BasePage{
 				if(firstRowData.get("Function").equalsIgnoreCase("IVR Config")){
 					if(Transaction.equals("MakerCreate")){
 						Map<String,String> newvalues=new HashMap<>();
-                        String[] d=firstRowData.get("New Values").split("\n");
-                        for(String e:d){
-                            String[]f=e.split(":",2);
-                            if(f.length>1){newvalues.put(f[0],f[1]);}
-                        }
-                        if(verifyNewValues(ivrConfigDetails,newvalues)){
-                            stat=true;}
-                        else 
-                        stat=false;
-                   }
+						String[] d=firstRowData.get("New Values").split("\n");
+						for(String e:d){
+							String[]f=e.split(":",2);
+							if(f.length>1){newvalues.put(f[0],f[1]);}
+						}
+						if(verifyNewValues(ivrConfigDetails,newvalues)){
+							stat=true;}
+						else 
+							stat=false;
+					}
 					else{System.out.println("Data mismatch");}                            
-					}else{System.out.println("Data mismatch:"+firstRowData.get("Function")+"\t"+"IVR Config");}				
-				}else{System.out.println("Data mismatch:"+firstRowData.get("Status")+"\t"+Status);}		
-			}else{System.out.println("Data mismatch:"+firstRowData.get("Transaction")+"\t"+Transaction);}		
+				}else{System.out.println("Data mismatch:"+firstRowData.get("Function")+"\t"+"IVR Config");}				
+			}else{System.out.println("Data mismatch:"+firstRowData.get("Status")+"\t"+Status);}		
+		}else{System.out.println("Data mismatch:"+firstRowData.get("Transaction")+"\t"+Transaction);}		
 		return stat;
 	}
 	
@@ -1172,34 +1158,33 @@ public class IvrConfigPageWMC extends BasePage{
 			else {System.out.println("Parameter Data Mismatch");}
 		}
 		else {System.out.println("Value Data Mismatch");}			
-	return status;
+		return status;
 	}
 			
 	public boolean verifyAuditTrailUpdate(IvrConfigDetails details, String Transaction,String Status) {
 		boolean stat=false;
-        Map<String,String> firstRowData=getFirstRowDatafromTable();
-        if(firstRowData.get("Transaction").equalsIgnoreCase(Transaction)){
-            if(firstRowData.get("Status").equalsIgnoreCase(Status)){
-                if(firstRowData.get("Function").equalsIgnoreCase("IVR Config")){
-                       if(Transaction.equals("MakerUpdate")){
-                           Map<String,String> newvalues=new HashMap<>();
-                            String[] d=firstRowData.get("New Values").split("\n");
-                            for(String e:d){
-                                String[]f=e.split(":",2);
-                                if(f.length>1){newvalues.put(f[0],f[1]);}
-                            }
-                            if(verifyUpdatedNewValues(details,newvalues)){
-                                stat=true;}
-                            else 
-                            stat=false;
-                       }
-                       else{System.out.println("Data mismatch");}
-                }else{System.out.println("Data mismatch:"+firstRowData.get("Function")+"\t"+"IVR Config");}
-            }else{System.out.println("Data mismatch:"+firstRowData.get("Status")+"\t"+Status);}
-        }else{System.out.println("Data mismatch:"+firstRowData.get("Transaction")+"\t"+Transaction);}
-        return stat;
+		Map<String,String> firstRowData=getFirstRowDatafromTable();
+		if(firstRowData.get("Transaction").equalsIgnoreCase(Transaction)){
+			if(firstRowData.get("Status").equalsIgnoreCase(Status)){
+				if(firstRowData.get("Function").equalsIgnoreCase("IVR Config")){
+					if(Transaction.equals("MakerUpdate")){
+						Map<String,String> newvalues=new HashMap<>();
+						String[] d=firstRowData.get("New Values").split("\n");
+						for(String e:d){
+							String[]f=e.split(":",2);
+							if(f.length>1){newvalues.put(f[0],f[1]);}
+						}
+						if(verifyUpdatedNewValues(details,newvalues)){
+							stat=true;}
+						else 
+							stat=false;
+					}
+					else{System.out.println("Data mismatch");}
+				}else{System.out.println("Data mismatch:"+firstRowData.get("Function")+"\t"+"IVR Config");}
+			}else{System.out.println("Data mismatch:"+firstRowData.get("Status")+"\t"+Status);}
+		}else{System.out.println("Data mismatch:"+firstRowData.get("Transaction")+"\t"+Transaction);}
+		return stat;
 	}
-	
 	
 	private boolean verifyUpdatedNewValues(IvrConfigDetails details, Map<String, String> newvalues) {
 		boolean status=false;
@@ -1210,108 +1195,196 @@ public class IvrConfigPageWMC extends BasePage{
 			else {System.out.println("Parameter Data Mismatch");}
 		}
 		else {System.out.println("Value Data Mismatch");}			
-	return status;		
+		return status;		
 	}
 	
-	public void EditRecordWithoutModifyReason(IvrConfigDetails details) throws Exception {
-	 selectWebElement(ivrConfigTab.get(1));
-	 Thread.sleep(1000);
-	 selectWebElement(makeIVRConfigChanges);
-	 Thread.sleep(1000);
-//	 searchIvrConfigRecord(details.getParameter());
-	 selectWebElement(editButton);
-	 waitForJqueryLoad(driver);		
-     Thread.sleep(1000);
-     enterValueToTxtField(ModifyReasonTextBox, details.getModifyReason());	
-     selectWebElement(saveButton);	
-     selectWebElement(cancelBtn);
-	}				
-
-private Map<String, String> getSecondRowDatafromTable() {
+	private Map<String, String> getSecondRowDatafromTable() {
 		Map<String,String> map = new HashMap<>();
-        waitUntilWebElementIsVisible(auditGridContent);
-        List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
-        List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
-        List<WebElement> cols=rows.get(2).findElements(By.tagName("td"));
-        for(int j=0;j<headers.size();j++){
-            scrollToElement(headers.get(j));
-            for(int i=0;i<3;i++) {													
-                try{map.put(headers.get(j).getText(), cols.get(j).getText());break;}catch (Exception e){e.printStackTrace();}
-            }
-        }
-        return map;
+		waitUntilWebElementIsVisible(auditGridContent);
+		List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
+		List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
+		List<WebElement> cols=rows.get(2).findElements(By.tagName("td"));
+		for(int j=0;j<headers.size();j++){
+			scrollToElement(headers.get(j));
+			for(int i=0;i<3;i++) {													
+				try{map.put(headers.get(j).getText(), cols.get(j).getText());break;}catch (Exception e){e.printStackTrace();}
+			}
+		}
+		return map;
 	}
 	
-    public boolean verifyStatus1(String status) {
+public boolean verifyStatus1(String status) {
 	try {
-        Thread.sleep(3000);
-    } catch (InterruptedException e) {
-        e.printStackTrace();
-    }
-    Map<String,String> secondRowData=getSecondRowDatafromTable();
-    return secondRowData.get("Status").equals(status);
+		Thread.sleep(3000);
+	} catch (InterruptedException e) {
+		e.printStackTrace();
+	}
+	Map<String,String> secondRowData=getSecondRowDatafromTable();
+	return secondRowData.get("Status").equals(status);
 }
+
+    public void addEmptyConfigRecord(IvrConfigDetails details) {
+    	selectWebElement(addNewRecordBtn);
+    	waitForJqueryLoad(driver);
+    	try {
+    		Thread.sleep(3000);
+    	} catch (InterruptedException e) {
+    		e.printStackTrace();
+    	}
+    	selectWebElement(parameterDropdown);
+    	selectDropdownFromVisibleText(parameterListBox,details.getParameter());
+    	parameterDropdown.sendKeys(Keys.TAB);
+    	selectWebElement(valueDropdown);
+    	selectDropdownFromVisibleText(valueListBox,details.getValue());
+    	valueDropdown.sendKeys(Keys.TAB);
+    	selectWebElement(saveButton);
+    	try {
+    		selectWebElement(cancelBtn);
+    	}
+    	catch(Exception e)
+    	{
+    		e.printStackTrace();
+    	}
+    }		
     
-	public void addEmptyConfigRecord(IvrConfigDetails details) {
-	        selectWebElement(addNewRecordBtn);
-	        waitForJqueryLoad(driver);
-	        try {
-	            Thread.sleep(3000);
-	        } catch (InterruptedException e) {
-	            e.printStackTrace();
-	        }
-	        selectWebElement(parameterDropdown);
-	        selectDropdownFromVisibleText(parameterListBox,details.getParameter());
-	        parameterDropdown.sendKeys(Keys.TAB);
-	        selectWebElement(valueDropdown);
-	        selectDropdownFromVisibleText(valueListBox,details.getValue());
-	        valueDropdown.sendKeys(Keys.TAB);
-	        selectWebElement(saveButton);
-	        try {
-	        	selectWebElement(cancelBtn);
-	        }
-	        catch(Exception e)
-	        {
-	        	e.printStackTrace();
-	        }
-	    }		
-    
-	public void ModifyIvrConfigRecord(IvrConfigDetails details) throws Exception {
+	public void EditIvrConfigRecordWithoutModifyReason(IvrConfigDetails details) throws Exception {
 		searchIvrConfigRecord(details.getSearchValue());
-        selectWebElement(editButton);
-        try {
+		selectWebElement(editButton);
+		try {
 			Thread.sleep(2000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-        selectWebElement(parameterDropdown);
-        if(details.getParameter().equals("Select Parameter"))
-        {selectDropdownFromVisibleText(selectParameter,details.getParameter());}
-        else{selectDropdownFromVisibleText(parameterListBox,details.getParameter());}
-        parameterDropdown.sendKeys(Keys.TAB);
-        selectWebElement(valueDropdown);
-        if(details.getValue().equals("Select Value"))
-        {selectDropdownFromVisibleText(selectValue,details.getValue());}
-        else{selectDropdownFromVisibleText(valueListBox,details.getUpdatedValue());}
-        valueDropdown.sendKeys(Keys.TAB);
-        selectWebElement(ModifyReasonTextBox);
-        enterValueToTxtField(ModifyReasonTextBox,details.getModifyReason());
-        selectWebElement(saveButton);
-        try {
-        	selectWebElement(cancelBtn);
-        }
-        catch(Exception e)
-        {
-        	e.printStackTrace();
-        }
-		
+		selectWebElement(parameterDropdown);
+		if(details.getParameter().equals("Select Parameter"))
+		{selectDropdownFromVisibleText(selectParameter,details.getParameter());}
+		else{selectDropdownFromVisibleText(parameterListBox,details.getParameter());}
+		parameterDropdown.sendKeys(Keys.TAB);
+		selectWebElement(valueDropdown);
+		if(details.getValue().equals("Select Value"))
+		{selectDropdownFromVisibleText(selectValue,details.getValue());}
+		else{selectDropdownFromVisibleText(valueListBox,details.getUpdatedValue());}
+		valueDropdown.sendKeys(Keys.TAB);
+		selectWebElement(ModifyReasonTextBox);
+		enterValueToTxtField(ModifyReasonTextBox,details.getModifyReason());
+		selectWebElement(saveButton);
+		try {
+			selectWebElement(cancelBtn);
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+	}
+
+	public boolean verifySearchIsNotEqualTo(String parameter) throws Exception {
+		Boolean Status=false;
+		Map<String, String> map=new HashMap<String,String>() ;
+		map.put("Parameter", parameter);
+		selectWebElement(searchBtn.get(0));
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Parameter");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is not equal to");
+        enterValueToTxtField(searchTextBox,parameter);		
+        selectWebElement(searchSearchBtn);
+        waitUntilWebElementIsVisible(gridContent);
+        List<Map<String,String>> UI=gettable(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(map1.equals(map))
+        	Status= false;
+        	else 
+        		Status= true;
+	}
+        return Status;
+	
+	}
+	
+	public boolean verifySearchContains(String parameter) throws Exception {
+		Boolean Status=false;
+		selectWebElement(searchBtn.get(0));
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Parameter");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Contains");
+        enterValueToTxtField(searchTextBox,parameter);		
+        selectWebElement(searchSearchBtn);
+        waitUntilWebElementIsVisible(gridContent);
+        List<Map<String,String>> UI=gettable(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(map1.get("Parameter").toUpperCase().contains(parameter.toUpperCase()))
+        	Status= true;
+        	else 
+        		Status= false;
+	}
+        return Status;
+	}	
+	
+	public boolean verifySearchDoesNotContains(String parameter) throws Exception {
+		Boolean Status=false;
+		selectWebElement(searchBtn.get(0));
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Parameter");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Does not contain");
+        enterValueToTxtField(searchTextBox,parameter);		
+        selectWebElement(searchSearchBtn);
+        waitUntilWebElementIsVisible(gridContent);
+        List<Map<String,String>> UI=gettable(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(!map1.get("Parameter").toLowerCase().contains(parameter.toLowerCase()))
+        	Status= true;
+        	else 
+        		Status= false;
+	}
+        return Status;
+	}
+	
+	public boolean verifySearchStartsWith(String parameter) throws Exception {
+		Boolean Status=false;
+		selectWebElement(searchBtn.get(0));
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Parameter");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Starts with");
+        enterValueToTxtField(searchTextBox,parameter);		
+        selectWebElement(searchSearchBtn);
+        waitUntilWebElementIsVisible(gridContent);
+        List<Map<String,String>> UI=gettable(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(map1.get("Parameter").toLowerCase().startsWith(parameter.toLowerCase()))
+        	Status= true;
+        	else 
+        		Status= false;
+	}
+        return Status;
+	}
+	
+	public boolean verifySearchEndsWith(String parameter) throws Exception {
+		Boolean Status=false;
+		selectWebElement(searchBtn.get(0));
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Parameter");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Ends with");
+        enterValueToTxtField(searchTextBox,parameter);		
+        selectWebElement(searchSearchBtn);
+        waitUntilWebElementIsVisible(gridContent);
+        List<Map<String,String>> UI=gettable(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(map1.get("Parameter").toUpperCase().endsWith(parameter.toUpperCase()))
+        	Status= true;
+        	else 
+        		Status= false;
+	}
+        return Status;
 	}
 	
 	
-	
-	
-	
-	
-	
-	
+		
 }

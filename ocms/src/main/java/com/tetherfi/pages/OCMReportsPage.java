@@ -3966,9 +3966,35 @@ return status;
 		return Status;
 	}
 
-	public boolean verifyIntentMappingCreate(IntentMappingDetails intentMappingDetails, String string) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean verifyIntentMappingCreate(IntentMappingDetails details, String Transaction) throws Exception {
+		booleansearchold(details.getVDN(),Transaction);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+		Map<String,String> newvalues=new HashMap<>();
+		String[]d=firstRowData.get("New Values").split("\n");
+		for(String e:d) {
+			String f[]=e.split(":",2);
+			if(f.length>1)
+				newvalues.put(f[0], f[1]);
+		}
+			if(newvalues.get("VDN").equals(details.getVDN()))
+			{
+				if(newvalues.get("Product").equals(details.getProduct()))
+				{
+					if(newvalues.get("Segment").equals(details.getSegment()))
+					{
+						Status= true;
+						
+					}
+					else {System.out.println("Segment data mismatch");}
+				}
+				else {System.out.println("Product data mismatch");}
+			}
+			else {System.out.println("VDN mismatch");}
+			
+			
+		return Status;
+		
 	}
 
 	public boolean verifyIntentMappingUpdate(IntentMappingDetails intentMappingDetails, String string) {

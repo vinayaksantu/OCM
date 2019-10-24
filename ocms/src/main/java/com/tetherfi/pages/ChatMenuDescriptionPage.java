@@ -62,7 +62,10 @@ public class ChatMenuDescriptionPage extends BasePage{
     @FindBy(css=".modal-body .form-inline .form-group .k-textbox")
     private List<WebElement> searchText;
 
-    @FindBy(css=".modal-footer .k-primary")
+    //@FindBy(css=".modal-footer .k-primary")
+    //private WebElement searchBtn;
+    
+    @FindBy(xpath="//i[@class='fas fa-search']")
     private WebElement searchBtn;
 
     @FindBy(css="#tGrid .k-grid-content")
@@ -570,7 +573,7 @@ public class ChatMenuDescriptionPage extends BasePage{
         selectDropdownFromVisibleText(columnNameList,"Menu Id");
         selectWebElement(selectSearchColumn.get(1));
         selectDropdownFromVisibleText(searchTypeList,"Is equal to");
-        selectWebElement(searchBtn);	
+        selectWebElement(searchSearchBtn);	
 		selectWebElement(searchClose);		
 	}
 	public boolean verifyinvalidsearchwithwrongdata(ChatMenuDescriptionDetails details) throws Exception {
@@ -593,7 +596,7 @@ public class ChatMenuDescriptionPage extends BasePage{
         selectWebElement(selectSearchColumn.get(1));
         selectDropdownFromVisibleText(searchTypeList,"Is equal to");
         enterValueToTxtField(searchText.get(0),menuId);
-        selectWebElement(searchBtn);		
+        selectWebElement(searchSearchBtn);		
 	}
 
 	public boolean verifyclearsearch() {
@@ -818,6 +821,8 @@ public class ChatMenuDescriptionPage extends BasePage{
 		searchChatMenuDescriptionRecord(details.getMenuId());
 		waitForJqueryLoad(driver);
 		selectWebElement(editBtn);
+		waitForJqueryLoad(driver);
+		Thread.sleep(3000);
 		enterValueToTxtField(MenuNameTextbox,details.getUpdatedMenuName());
 		enterValueToTxtFieldWithoutClear(modifyReasonTextBox,details.getModifyReason());
 		selectWebElement(saveBtn);

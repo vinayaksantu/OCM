@@ -85,7 +85,7 @@ public class CallbackAnnouncementPage extends BasePage{
     @FindBy(css="ul[id='1001sCriteria_listbox'] li")
     private List<WebElement> searchCriteriaDropDwn;
 
-    @FindBy(id = "1001sMaskedTextToSearch")
+    @FindBy(id = "1001sTextToSearch")
     private WebElement searchTextBox;
 
     @FindBy(id="1001sAddButton")
