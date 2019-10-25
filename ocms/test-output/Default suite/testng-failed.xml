@@ -3,16 +3,29 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.tetherfi.test.tmac.AgentSettingsWMKTest">
+      <class name="com.tetherfi.test.sms.SmsResponseTemplateUITest">
         <methods>
-          <include name="startTestCase"/>
-          <include name="openApplication"/>
-          <include name="AddNewSupervisorRecord"/>
+          <include name="SortingByAscending"/>
+          <include name="VerifyArrowMoveForPreviousAndNextPage"/>
+          <include name="VerifyTotalNumberOfItemsPerPageDetails"/>
+          <include name="SortingByDescending"/>
+          <include name="database"/>
           <include name="endTestCase"/>
           <include name="tearDown"/>
-          <include name="NavigateToAgentSettingsPage"/>
+          <include name="VerifyColumnsHeaderDisable"/>
+          <include name="afterEachMethod"/>
+          <include name="VerifyArrowMoveForFirstAndLastPage"/>
+          <include name="VerifyExportToExcelWithoutData"/>
+          <include name="startTestCase"/>
+          <include name="openApplication"/>
+          <include name="VerifyDropdownForAllTheColumns"/>
+          <include name="VerifyNumberOfItemsPerPageSelection"/>
+          <include name="ExportToExcelData"/>
+          <include name="NavigateToSmsResponseTemplatePage"/>
+          <include name="SearchClearSearch"/>
+          <include name="VerifyColumnsHeaderEnable"/>
         </methods>
-      </class> <!-- com.tetherfi.test.tmac.AgentSettingsWMKTest -->
+      </class> <!-- com.tetherfi.test.sms.SmsResponseTemplateUITest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
