@@ -74,7 +74,7 @@ public class ChatMenuDescriptionTest extends BaseTest {
         ChatMenuDescriptionDetails chatMenuDescriptionDetails=new ChatMenuDescriptionDetails(map);
         ChatMenuDescriptionPage chatMenuDescriptionMappingPage = PageFactory.createPageInstance(driver,ChatMenuDescriptionPage.class);
         chatMenuDescriptionMappingPage.addNewChatMenuDescriptionRecord(chatMenuDescriptionDetails);
-        Assert.assertEquals(chatMenuDescriptionMappingPage.getMessage(),"Record Created Successfully","Add New record assertion failed");
+        Assert.assertEquals(chatMenuDescriptionMappingPage.getSuccessMessage(),"Record Created Successfully","Add New record assertion failed");
     }
     
     @Test(priority=6,dependsOnMethods = "AddNewChatMenuDescriptionRecord")
@@ -84,7 +84,7 @@ public class ChatMenuDescriptionTest extends BaseTest {
         ChatMenuDescriptionDetails ChatMenuDescriptionDetails = new ChatMenuDescriptionDetails(map);
         ChatMenuDescriptionPage ChatMenuDescriptionPage = PageFactory.createPageInstance(driver, ChatMenuDescriptionPage.class);
         ChatMenuDescriptionPage.addNewChatMenuDescriptionRecord(ChatMenuDescriptionDetails);
-        Assert.assertEquals(ChatMenuDescriptionPage.getMessage(),"×\nDuplicate MenuId");
+        Assert.assertEquals(ChatMenuDescriptionPage.getMessage(),"Duplicate MenuId");
     }
     
     @Test(priority=7,dependsOnMethods ="AddNewChatMenuDescriptionRecord")
@@ -109,7 +109,7 @@ public class ChatMenuDescriptionTest extends BaseTest {
         ChatMenuDescriptionDetails ChatMenuDescriptionDetails = new ChatMenuDescriptionDetails(map);
         ChatMenuDescriptionPage ChatMenuDescriptionPage = PageFactory.createPageInstance(driver, ChatMenuDescriptionPage.class);
         ChatMenuDescriptionPage.addNewEmptyRecord(ChatMenuDescriptionDetails);
-        Assert.assertEquals(ChatMenuDescriptionPage.getMessage(),"×\nPlease Provide MenuId, MenuName, Intent", "Add invalid record assertion failed");
+        Assert.assertEquals(ChatMenuDescriptionPage.getMessage(),"Please Provide MenuId, MenuName, Intent", "Add invalid record assertion failed");
     }
     
     @Test(priority=9)
@@ -119,7 +119,7 @@ public class ChatMenuDescriptionTest extends BaseTest {
         ChatMenuDescriptionDetails ChatMenuDescriptionDetails = new ChatMenuDescriptionDetails(map);
         ChatMenuDescriptionPage ChatMenuDescriptionPage = PageFactory.createPageInstance(driver, ChatMenuDescriptionPage.class);
         ChatMenuDescriptionPage.addRecordWithoutMenuID(ChatMenuDescriptionDetails);
-        Assert.assertEquals(ChatMenuDescriptionPage.getMessage(),"×\nPlease Provide MenuId", "Add invalid record assertion failed");
+        Assert.assertEquals(ChatMenuDescriptionPage.getMessage(),"Please Provide MenuId", "Add invalid record assertion failed");
     }
     
     @Test(priority=10)
@@ -129,7 +129,7 @@ public class ChatMenuDescriptionTest extends BaseTest {
         ChatMenuDescriptionDetails ChatMenuDescriptionDetails = new ChatMenuDescriptionDetails(map);
         ChatMenuDescriptionPage ChatMenuDescriptionPage = PageFactory.createPageInstance(driver, ChatMenuDescriptionPage.class);
         ChatMenuDescriptionPage.addRecordWithoutIntent(ChatMenuDescriptionDetails);
-        Assert.assertEquals(ChatMenuDescriptionPage.getMessage(),"×\nPlease Provide Intent", "Add invalid record assertion failed");
+        Assert.assertEquals(ChatMenuDescriptionPage.getMessage(),"Please Provide Intent", "Add invalid record assertion failed");
     }
     
     @Test(priority=11)
@@ -139,7 +139,7 @@ public class ChatMenuDescriptionTest extends BaseTest {
         ChatMenuDescriptionDetails ChatMenuDescriptionDetails = new ChatMenuDescriptionDetails(map);
         ChatMenuDescriptionPage ChatMenuDescriptionPage = PageFactory.createPageInstance(driver, ChatMenuDescriptionPage.class);
         ChatMenuDescriptionPage.addRecordWithoutMenuName(ChatMenuDescriptionDetails);
-        Assert.assertEquals(ChatMenuDescriptionPage.getMessage(),"×\nPlease Provide MenuName", "Add invalid record assertion failed");
+        Assert.assertEquals(ChatMenuDescriptionPage.getMessage(),"Please Provide MenuName", "Add invalid record assertion failed");
     }
     
     @Test(priority=12)
@@ -150,17 +150,62 @@ public class ChatMenuDescriptionTest extends BaseTest {
         Assert.assertFalse(ChatMenuDescriptionPage.verifyEditFormContainer(), "Cancel Btn at Add record assertion failed");
 	}
     
-    @Test(priority=13)//,dependsOnMethods = "AddNewChatMenuDescriptionRecord")
+    @Test(priority=13)
+    public void VerifySearchIsNotEqualTo() throws Exception {
+        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatMenuDescriptionData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
+        ChatMenuDescriptionDetails chatMenuDescriptionDetails=new ChatMenuDescriptionDetails(map);
+        ChatMenuDescriptionPage chatMenuDescriptionPage = PageFactory.createPageInstance(driver,ChatMenuDescriptionPage.class);
+        Assert.assertTrue(chatMenuDescriptionPage.verifySearchIsNotEqualTo(chatMenuDescriptionDetails.getMenuName()));
+    }
+    
+    @Test(priority=14)
+    public void VerifySearchContains() throws Exception {
+        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatMenuDescriptionData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);
+        ChatMenuDescriptionDetails chatMenuDescriptionDetails=new ChatMenuDescriptionDetails(map);
+        ChatMenuDescriptionPage chatMenuDescriptionPage = PageFactory.createPageInstance(driver,ChatMenuDescriptionPage.class);
+        Assert.assertTrue(chatMenuDescriptionPage.verifySearchContains(chatMenuDescriptionDetails.getMenuName()));
+    }
+    
+    @Test(priority=15)
+    public void VerifySearchDoesNotContains() throws Exception {
+        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatMenuDescriptionData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);
+        ChatMenuDescriptionDetails chatMenuDescriptionDetails=new ChatMenuDescriptionDetails(map);
+        ChatMenuDescriptionPage chatMenuDescriptionPage = PageFactory.createPageInstance(driver,ChatMenuDescriptionPage.class);
+        Assert.assertTrue(chatMenuDescriptionPage.verifySearchDoesNotContains(chatMenuDescriptionDetails.getMenuName()));
+    }
+    
+    @Test(priority=16)
+    public void VerifySearchStartsWith() throws Exception {
+        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatMenuDescriptionData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(2);
+        ChatMenuDescriptionDetails chatMenuDescriptionDetails=new ChatMenuDescriptionDetails(map);
+        ChatMenuDescriptionPage chatMenuDescriptionPage = PageFactory.createPageInstance(driver,ChatMenuDescriptionPage.class);
+        Assert.assertTrue(chatMenuDescriptionPage.verifySearchStartsWith(chatMenuDescriptionDetails.getMenuName()));
+    }
+    
+    @Test(priority=17)
+    public void VerifySearchEndsWith() throws Exception {
+        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatMenuDescriptionData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);
+        ChatMenuDescriptionDetails chatMenuDescriptionDetails=new ChatMenuDescriptionDetails(map);
+        ChatMenuDescriptionPage chatMenuDescriptionPage = PageFactory.createPageInstance(driver,ChatMenuDescriptionPage.class);
+        Assert.assertTrue(chatMenuDescriptionPage.verifySearchEndsWith(chatMenuDescriptionDetails.getMenuName()));
+    }
+    
+    @Test(priority=18)//,dependsOnMethods = "AddNewChatMenuDescriptionRecord")
     public void EditChatMenuDescriptionRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatMenuDescriptionData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
         ChatMenuDescriptionDetails chatMenuDescriptionDetails=new ChatMenuDescriptionDetails(map);
         ChatMenuDescriptionPage chatMenuDescriptionPage = PageFactory.createPageInstance(driver,ChatMenuDescriptionPage.class);
         chatMenuDescriptionPage.editchatMenuDescriptionRecord(chatMenuDescriptionDetails);
-        Assert.assertEquals(chatMenuDescriptionPage.getMessage(),"Record Updated Successfully","Edit record assertion failed");
+        Assert.assertEquals(chatMenuDescriptionPage.getSuccessMessage(),"Record Updated Successfully","Edit record assertion failed");
     }
     
-    @Test(priority=14,dependsOnMethods="EditChatMenuDescriptionRecord")
+    @Test(priority=19,dependsOnMethods="EditChatMenuDescriptionRecord")
     public void VerifyAuditTrialReportForUpdate() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\ChatMenuDescriptionData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(0);	
@@ -175,27 +220,27 @@ public class ChatMenuDescriptionTest extends BaseTest {
         Assert.assertTrue(ocmReportsPage.verifyChatMenuDescriptionUpdate(ChatMenuDescriptionDetails,"Update"));
     }
        
-    @Test(priority=15)
+    @Test(priority=20)
     public void EditWithoutModifyReasonRecord() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\ChatMenuDescriptionData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(0);
         ChatMenuDescriptionDetails ChatMenuDescriptionDetails = new ChatMenuDescriptionDetails(map);
         ChatMenuDescriptionPage ChatMenuDescriptionPage = PageFactory.createPageInstance(driver, ChatMenuDescriptionPage.class);
         ChatMenuDescriptionPage.editChatMenuDescriptionWithoutModifyReason(ChatMenuDescriptionDetails);
-        Assert.assertEquals(ChatMenuDescriptionPage.getMessage(),"×\nPlease enter the modify reason", "empty modify reason record assertion failed");
+        Assert.assertEquals(ChatMenuDescriptionPage.getMessage(),"Please enter the modify reason", "empty modify reason record assertion failed");
     }
     
-    @Test(priority=16)
+    @Test(priority=21)
     public void VerifyCancelBtnAtEditRecord() throws Exception{
         ChatMenuDescriptionPage ChatMenuDescriptionPage = PageFactory.createPageInstance(driver, ChatMenuDescriptionPage.class);
-        ChatMenuDescriptionPage.searchChatMenuDescriptionRecord("15");
+        ChatMenuDescriptionPage.searchChatMenuDescriptionRecord("24");
         Thread.sleep(1000);
         ChatMenuDescriptionPage.clickOnEditButton();
         ChatMenuDescriptionPage.clickOnCancelBtn();
         Assert.assertFalse(ChatMenuDescriptionPage.verifyEditFormContainer(), "Cancel Btn at Edit record assertion failed");
     }
     
-    @Test(priority=17)
+    @Test(priority=22)
     public void searchPage() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\ChatMenuDescriptionData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -206,14 +251,14 @@ public class ChatMenuDescriptionTest extends BaseTest {
         Assert.assertTrue(ChatMenuDescriptionPage.verifyclose());
     }
     
-    @Test(priority=18)
+    @Test(priority=23)
     public void searchwithoutSearchTextbox() throws IOException {
         ChatMenuDescriptionPage ChatMenuDescriptionPage = PageFactory.createPageInstance(driver, ChatMenuDescriptionPage.class);
         ChatMenuDescriptionPage.searchwithoutextsearch();
-        Assert.assertEquals(ChatMenuDescriptionPage.getMessage(),"×\nPlease enter the text to search or remove the filter", "Add invalid record assertion failed");
+        Assert.assertEquals(ChatMenuDescriptionPage.getMessage(),"Please enter the text to search or remove the filter", "Add invalid record assertion failed");
     }
     
-    @Test(priority=19)
+    @Test(priority=24)
     public void ExportToExcel() throws Exception
     {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles";
@@ -221,7 +266,7 @@ public class ChatMenuDescriptionTest extends BaseTest {
         Assert.assertTrue(ChatMenuDescriptionPage.verifyExportToExcel(filePath));
     }
     
-    @Test(priority=20)
+    @Test(priority=25)
     public void ExportToExcelData() throws Exception
     {	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Chat Menu Description.xlsx";
     	List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
@@ -229,36 +274,36 @@ public class ChatMenuDescriptionTest extends BaseTest {
     	Assert.assertTrue(ChatMenuDescriptionPage.verifyexportToExcelSheet(maplist));	
     } 
     
-    @Test(priority=21)
+    @Test(priority=26)
     public void DeleteWithoutDeleteReasonRecord() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\ChatMenuDescriptionData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
         ChatMenuDescriptionDetails ChatMenuDescriptionDetails = new ChatMenuDescriptionDetails(map);
         ChatMenuDescriptionPage ChatMenuDescriptionPage = PageFactory.createPageInstance(driver, ChatMenuDescriptionPage.class);
         ChatMenuDescriptionPage.deleteWithoutDeleteReasonRecord(ChatMenuDescriptionDetails);
-        Assert.assertEquals(ChatMenuDescriptionPage.getMessage(),"×\nPlease enter the delete reason","empty delete reason record assertion failed");
+        Assert.assertEquals(ChatMenuDescriptionPage.getMessage(),"Please enter the delete reason","empty delete reason record assertion failed");
     }
-    @Test(priority=22)
+    @Test(priority=27)
     public void VerifyCancelBtnAtDeleteChatMenuDescriptionRecord() throws Exception{
         ChatMenuDescriptionPage ChatMenuDescriptionPage = PageFactory.createPageInstance(driver, ChatMenuDescriptionPage.class);
-        ChatMenuDescriptionPage.searchChatMenuDescriptionRecord("15");
+        ChatMenuDescriptionPage.searchChatMenuDescriptionRecord("24");
         Thread.sleep(1000);
         ChatMenuDescriptionPage.clickOnDeleteButton();
         ChatMenuDescriptionPage.clickOnDeleteCancelBtn();
         Assert.assertFalse(ChatMenuDescriptionPage.verifyDeleteContainer(), "Cancel Btn at Delete record assertion failed");
     }
     
-    @Test(priority=23,dependsOnMethods = "EditChatMenuDescriptionRecord")
+    @Test(priority=28)//,dependsOnMethods = "EditChatMenuDescriptionRecord")
     public void DeleteChatMenuDescriptionRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatMenuDescriptionData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
         ChatMenuDescriptionDetails chatMenuDescriptionDetails=new ChatMenuDescriptionDetails(map);
         ChatMenuDescriptionPage chatMenuDescriptionPage = PageFactory.createPageInstance(driver,ChatMenuDescriptionPage.class);
         chatMenuDescriptionPage.deletechatMenuDescriptionRecord(chatMenuDescriptionDetails);
-        Assert.assertEquals(chatMenuDescriptionPage.getMessage(),"Record Deleted Successfully","Delete record assertion failed");
+        Assert.assertEquals(chatMenuDescriptionPage.getSuccessMessage(),"Record Deleted Successfully","Delete record assertion failed");
     }
     
-    @Test(priority=24,dependsOnMethods= {"DeleteChatMenuDescriptionRecord"})
+    @Test(priority=29,dependsOnMethods= {"DeleteChatMenuDescriptionRecord"})
     public void VerifyAuditTrialReportForDelete() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\ChatMenuDescriptionData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(0);	
@@ -273,7 +318,7 @@ public class ChatMenuDescriptionTest extends BaseTest {
         Assert.assertTrue(ocmReportsPage.verifyChatMenuDescriptiondelete(chatMenuDescriptionDetails,"Delete"));
     }
     
-    @Test(priority=25)
+    @Test(priority=30)
     public void SearchClearSearch() throws Exception
     {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\ChatMenuDescriptionData.xlsx";
@@ -285,7 +330,7 @@ public class ChatMenuDescriptionTest extends BaseTest {
         Assert.assertTrue(ChatMenuDescriptionPage.verifyclearsearch(), "Clear All Assertion Failed");
     }
     
-    @Test(priority=26)
+    @Test(priority=31)
     public void ExporttoExcelWithoutData() throws Exception
     {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\ChatMenuDescriptionData.xlsx";
@@ -295,7 +340,7 @@ public class ChatMenuDescriptionTest extends BaseTest {
         Assert.assertTrue(ChatMenuDescriptionPage.ExporttoExcelWithoutData(ChatMenuDescriptionDetails));
     }
   
-    @Test(priority=27)
+    @Test(priority=32)
     public void SortingByAscending() throws IOException {
         ChatMenuDescriptionPage ChatMenuDescriptionPage = PageFactory.createPageInstance(driver, ChatMenuDescriptionPage.class);
         ChatMenuDescriptionPage.SortByAscending();
@@ -304,7 +349,7 @@ public class ChatMenuDescriptionTest extends BaseTest {
         Assert.assertTrue(ChatMenuDescriptionPage.verifyexportToExcelSheet(maplist));
     }
     
-    @Test(priority=29)
+    @Test(priority=33)
     public void SortingByDescending() throws IOException {
         ChatMenuDescriptionPage ChatMenuDescriptionPage = PageFactory.createPageInstance(driver, ChatMenuDescriptionPage.class);
         ChatMenuDescriptionPage.SortByDescending();
@@ -313,7 +358,7 @@ public class ChatMenuDescriptionTest extends BaseTest {
         Assert.assertTrue(ChatMenuDescriptionPage.verifyexportToExcelSheet(maplist));
     }
     
-    @Test(priority=30)
+    @Test(priority=34)
     public void GroupBy()
     {
         ChatMenuDescriptionPage ChatMenuDescriptionPage = PageFactory.createPageInstance(driver, ChatMenuDescriptionPage.class);
@@ -323,31 +368,31 @@ public class ChatMenuDescriptionTest extends BaseTest {
         screenshot.captureScreen("ChatMenuDescriptionTest", "AlreadyGroupBy");
     }
     
-    @Test(priority=31)
+    @Test(priority=35)
     public void VerifyArrowMoveForPreviousAndNextPage() {
         ChatMenuDescriptionPage ChatMenuDescriptionPage = PageFactory.createPageInstance(driver, ChatMenuDescriptionPage.class);
     	Assert.assertTrue(ChatMenuDescriptionPage.verifyArrowMoveForPreviousAndNextPage(),"arrow move for previous and next page assertion failed");
     }
     
-    @Test(priority=32)
+    @Test(priority=36)
     public void VerifyArrowMoveForFirstAndLastPage() {
         ChatMenuDescriptionPage ChatMenuDescriptionPage = PageFactory.createPageInstance(driver, ChatMenuDescriptionPage.class);
         Assert.assertTrue(ChatMenuDescriptionPage.verifyArrowMoveForFirstAndLastPage(),"arrow move for first and last page assertion failed");
     }
     
-    @Test(priority=33)
+    @Test(priority=37)
     public void VerifyTotalNumberOfItemsPerPageDetails() {
         ChatMenuDescriptionPage ChatMenuDescriptionPage = PageFactory.createPageInstance(driver, ChatMenuDescriptionPage.class);
         Assert.assertTrue(ChatMenuDescriptionPage.verifyTotalNumberOfItemsPerPageDetails(),"item per page assertion failed");
     }
     
-    @Test(priority=34)
+    @Test(priority=38)
     public void VerifyNumberOfItemsPerPageSelection() {
         ChatMenuDescriptionPage ChatMenuDescriptionPage = PageFactory.createPageInstance(driver, ChatMenuDescriptionPage.class);
         Assert.assertTrue(ChatMenuDescriptionPage.verifyNumberOfItemsPerPage(),"item per page assertion failed");
     }
     
-    @Test(priority=35)
+    @Test(priority=39)
     public void database() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\ChatMenuDescriptionData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(0);

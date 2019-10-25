@@ -503,6 +503,113 @@ public class AgentTransferPage extends BasePage{
 			selectWebElement(savebtn);
 			selectWebElement(cancelbtn);			
 		}
+		
+		public boolean verifySearchIsNotEqualTo(String vdndescription) throws Exception {
+			Boolean Status=false;
+			Map<String, String> map=new HashMap<String,String>() ;
+			map.put("VDN Description", vdndescription);
+			selectWebElement(searchBtn);
+	        selectWebElement(selectSearchCol.get(0));
+	        selectDropdownFromVisibleText(columnNameList,"VDN Description");
+	        selectWebElement(selectSearchCol.get(1));
+	        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is not equal to");
+	        enterValueToTxtField(searchTextBox,vdndescription);		
+	        selectWebElement(searchSearchBtn);
+	        waitUntilWebElementIsVisible(gridContent);
+	        List<Map<String,String>> UI=gettable(); 
+	        for (Map<String,String> map1: UI)
+	        {   	
+				if(map1.equals(map))
+	        	Status= false;
+	        	else 
+	        		Status= true;
+		}
+	        return Status;
+		
+		}
+		
+		public boolean verifySearchContains(String vdndescription) throws Exception {
+			Boolean Status=false;
+			selectWebElement(searchBtn);
+	        selectWebElement(selectSearchCol.get(0));
+	        selectDropdownFromVisibleText(columnNameList,"VDN Description");
+	        selectWebElement(selectSearchCol.get(1));
+	        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Contains");
+	        enterValueToTxtField(searchTextBox,vdndescription);		
+	        selectWebElement(searchSearchBtn);
+	        waitUntilWebElementIsVisible(gridContent);
+	        List<Map<String,String>> UI=gettable(); 
+	        for (Map<String,String> map1: UI)
+	        {   	
+				if(map1.get("VDN Description").toUpperCase().contains(vdndescription.toUpperCase()))
+	        	Status= true;
+	        	else 
+	        		Status= false;
+		}
+	        return Status;
+		}
+		public boolean verifySearchDoesNotContains(String vdndescription) throws Exception {
+			Boolean Status=false;
+			selectWebElement(searchBtn);
+	        selectWebElement(selectSearchCol.get(0));
+	        selectDropdownFromVisibleText(columnNameList,"VDN Description");
+	        selectWebElement(selectSearchCol.get(1));
+	        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Does not contain");
+	        enterValueToTxtField(searchTextBox,vdndescription);		
+	        selectWebElement(searchSearchBtn);
+	        waitUntilWebElementIsVisible(gridContent);
+	        List<Map<String,String>> UI=gettable(); 
+	        for (Map<String,String> map1: UI)
+	        {   	
+				if(!map1.get("VDN Description").toLowerCase().contains(vdndescription.toLowerCase()))
+	        	Status= true;
+	        	else 
+	        		Status= false;
+		}
+	        return Status;
+		}
+		
+		public boolean verifySearchStartsWith(String vdndescription) throws Exception {
+			Boolean Status=false;
+			selectWebElement(searchBtn);
+	        selectWebElement(selectSearchCol.get(0));
+	        selectDropdownFromVisibleText(columnNameList,"VDN Description");
+	        selectWebElement(selectSearchCol.get(1));
+	        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Starts with");
+	        enterValueToTxtField(searchTextBox,vdndescription);		
+	        selectWebElement(searchSearchBtn);
+	        waitUntilWebElementIsVisible(gridContent);
+	        List<Map<String,String>> UI=gettable(); 
+	        for (Map<String,String> map1: UI)
+	        {   	
+				if(map1.get("VDN Description").toLowerCase().startsWith(vdndescription.toLowerCase()))
+	        	Status= true;
+	        	else 
+	        		Status= false;
+		}
+	        return Status;
+		}
+		
+		public boolean verifySearchEndsWith(String vdndescription) throws Exception {
+			Boolean Status=false;
+			selectWebElement(searchBtn);
+	        selectWebElement(selectSearchCol.get(0));
+	        selectDropdownFromVisibleText(columnNameList,"VDN Description");
+	        selectWebElement(selectSearchCol.get(1));
+	        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Ends with");
+	        enterValueToTxtField(searchTextBox,vdndescription);		
+	        selectWebElement(searchSearchBtn);
+	        waitUntilWebElementIsVisible(gridContent);
+	        List<Map<String,String>> UI=gettable(); 
+	        for (Map<String,String> map1: UI)
+	        {   	
+				if(map1.get("VDN Description").toUpperCase().endsWith(vdndescription.toUpperCase()))
+	        	Status= true;
+	        	else 
+	        		Status= false;
+		}
+	        return Status;
+		}
 
 		public boolean editCancelbtn(AgentTransferDetails details) throws Exception {
 			searchAgentTransfer(details.getVdnDescription());
@@ -684,7 +791,7 @@ public class AgentTransferPage extends BasePage{
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-			enterValueToTxtField(deletereasontextbox,details.getDeleteReason());
+			enterValueToTxtFieldWithoutClear(deletereasontextbox,details.getDeleteReason());
 			selectWebElement(yesbtn);				
 		}
 		

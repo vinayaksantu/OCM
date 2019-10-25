@@ -181,6 +181,9 @@ public class TdmThresholdConfigPage extends BasePage{
 	@FindBy(id="IsStatusChange")
 	private WebElement statusChange;
 	
+	@FindBy(id="IsDeleted")
+	private WebElement deleteChange;
+	
 	@FindBy(id="AllowNotification")
 	private WebElement allowNotification;
 
@@ -721,6 +724,27 @@ public class TdmThresholdConfigPage extends BasePage{
 			statusChange.click();
 			driver.findElement(By.xpath("//*[@id='gridDetails']/div[3]/table/tbody/tr/td[8]")).click();
 			allowNotification.click();
+			selectWebElement(popupSaveBtn);
+	        enterValueToTxtFieldWithoutClear(modifyReasonTextBox,details.getModifyReason());
+	        selectWebElement(saveBtn.get(1));
+		}
+		
+		
+		public void updateNewRow(TdmThresholdConfigDetails details) throws Exception {
+			Thread.sleep(2000);
+			driver.findElement(By.xpath("//*[@id='gridDetails']/div[3]/table/tbody/tr/td[7]")).click();
+			statusChange.click();
+			driver.findElement(By.xpath("//*[@id='gridDetails']/div[3]/table/tbody/tr/td[8]")).click();
+			allowNotification.click();
+			selectWebElement(popupSaveBtn);
+	        enterValueToTxtFieldWithoutClear(modifyReasonTextBox,details.getModifyReason());
+	        selectWebElement(saveBtn.get(1));
+		}
+		
+		public void deleteNewRow(TdmThresholdConfigDetails details) throws Exception {
+			Thread.sleep(2000);
+			driver.findElement(By.xpath("//*[@id='gridDetails']/div[3]/table/tbody/tr/td[6]")).click();
+			deleteChange.click();
 			selectWebElement(popupSaveBtn);
 	        enterValueToTxtFieldWithoutClear(modifyReasonTextBox,details.getModifyReason());
 	        selectWebElement(saveBtn.get(1));

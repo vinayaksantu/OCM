@@ -44,7 +44,7 @@ public class ChatMenuDescriptionPage extends BasePage{
     @FindBy(css=".toast-message")
     private WebElement successmsg;
 
-    @FindBy(css="#toast-container .toast-error")
+    @FindBy(css="#toast-container .toast-error .toast-message")
     private List<WebElement> errorMsg;
 
     @FindBy(css=".search-link")
@@ -62,7 +62,10 @@ public class ChatMenuDescriptionPage extends BasePage{
     @FindBy(css=".modal-body .form-inline .form-group .k-textbox")
     private List<WebElement> searchText;
 
-    @FindBy(css=".modal-footer .k-primary")
+    //@FindBy(css=".modal-footer .k-primary")
+    //private WebElement searchBtn;
+    
+    @FindBy(xpath="//i[@class='fas fa-search']")
     private WebElement searchBtn;
 
     @FindBy(css="#tGrid .k-grid-content")
@@ -134,7 +137,7 @@ public class ChatMenuDescriptionPage extends BasePage{
 	@FindBy(xpath="//button[text()='Close']")
 	private WebElement searchClose;
 		    
-	@FindBy(xpath="//div[text()='No records to display']")
+	@FindBy(xpath="//div[text()='No Records to Display']")
 	private WebElement norecords;
 		    
 	@FindBy(xpath="//i[@class='fas fa-sync']")
@@ -196,6 +199,18 @@ public class ChatMenuDescriptionPage extends BasePage{
 	
 	@FindBy(xpath="//a[text()='Intent']")
 	private WebElement Intent;
+	
+	@FindBy(css = ".modal-body .form-inline .form-group .k-select")
+	private List<WebElement> selectSearchCol;
+	
+	@FindBy(css="ul[id='1001sCriteria_listbox'] li")
+	private List<WebElement> searchCriteriaDropDwn;
+	
+	@FindBy(id = "1001sTextToSearch")
+	private WebElement searchTextBox;
+    
+    @FindBy(css = ".modal-footer .button-theme")
+	private WebElement searchSearchBtn;
 	
 	
 	public boolean isChatMenuDescriptionPageDisplayed() {
@@ -304,10 +319,10 @@ public class ChatMenuDescriptionPage extends BasePage{
 			for(int j=1;j<headers.size();j++) {
 				scrollToElement(headers.get(j));
 				System.out.println(headers.get(j).getText());
-				if(headers.get(j).getText().equals("Last Changed On")){
+				/*if(headers.get(j).getText().equals("Last Changed On")){
 				col=cols.get(j).getText().substring(0,10);
 				}
-				else
+				else*/
 					col=cols.get(j).getText();
 				map.put(headers.get(j).getText(),col);
 			}
@@ -558,7 +573,7 @@ public class ChatMenuDescriptionPage extends BasePage{
         selectDropdownFromVisibleText(columnNameList,"Menu Id");
         selectWebElement(selectSearchColumn.get(1));
         selectDropdownFromVisibleText(searchTypeList,"Is equal to");
-        selectWebElement(searchBtn);	
+        selectWebElement(searchSearchBtn);	
 		selectWebElement(searchClose);		
 	}
 	public boolean verifyinvalidsearchwithwrongdata(ChatMenuDescriptionDetails details) throws Exception {
@@ -581,7 +596,7 @@ public class ChatMenuDescriptionPage extends BasePage{
         selectWebElement(selectSearchColumn.get(1));
         selectDropdownFromVisibleText(searchTypeList,"Is equal to");
         enterValueToTxtField(searchText.get(0),menuId);
-        selectWebElement(searchBtn);		
+        selectWebElement(searchSearchBtn);		
 	}
 
 	public boolean verifyclearsearch() {
@@ -626,9 +641,9 @@ public class ChatMenuDescriptionPage extends BasePage{
 	public void addNewChatMenuDescriptionRecord(ChatMenuDescriptionDetails details) throws Exception {
 		selectWebElement(addNewChatMenuDescriptionBtn);
 		waitForJqueryLoad(driver);
-		enterValueToTxtFieldWithoutClear(MenuIdTextbox,details.getMenuId());
-		enterValueToTxtFieldWithoutClear(MenuNameTextbox,details.getMenuName());
-		enterValueToTxtFieldWithoutClear(IntentTextbox,details.getIntent());
+		enterValueToTxtField(MenuIdTextbox,details.getMenuId());
+		enterValueToTxtField(MenuNameTextbox,details.getMenuName());
+		enterValueToTxtField(IntentTextbox,details.getIntent());
 		selectWebElement(saveBtn);
 		try {
 			selectWebElement(cancelBtn);
@@ -638,6 +653,112 @@ public class ChatMenuDescriptionPage extends BasePage{
 			e.printStackTrace();
 		}
 
+	}
+	
+	public boolean verifySearchIsNotEqualTo(String menuname) throws Exception {
+		Boolean Status=false;
+		Map<String, String> map=new HashMap<String,String>() ;
+		map.put("Menu Name", menuname);
+		selectWebElement(searchBtn);
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Menu Name");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is not equal to");
+        enterValueToTxtField(searchTextBox,menuname);		
+        selectWebElement(searchSearchBtn);
+        waitUntilWebElementIsVisible(gridContent);
+        List<Map<String,String>> UI=gettable(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(map1.equals(map))
+        	Status= false;
+        	else 
+        		Status= true;
+	}
+        return Status;
+	
+	}
+	public boolean verifySearchContains(String menuname) throws Exception {
+		Boolean Status=false;
+		selectWebElement(searchBtn);
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Menu Name");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Contains");
+        enterValueToTxtField(searchTextBox,menuname);		
+        selectWebElement(searchSearchBtn);
+        waitUntilWebElementIsVisible(gridContent);
+        List<Map<String,String>> UI=gettable(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(map1.get("Menu Name").toUpperCase().contains(menuname.toUpperCase()))
+        	Status= true;
+        	else 
+        		Status= false;
+	}
+        return Status;
+	}
+	public boolean verifySearchDoesNotContains(String menuname) throws Exception {
+		Boolean Status=false;
+		selectWebElement(searchBtn);
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Menu Name");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Does not contain");
+        enterValueToTxtField(searchTextBox,menuname);		
+        selectWebElement(searchSearchBtn);
+        waitUntilWebElementIsVisible(gridContent);
+        List<Map<String,String>> UI=gettable(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(!map1.get("Menu Name").toLowerCase().contains(menuname.toLowerCase()))
+        	Status= true;
+        	else 
+        		Status= false;
+	}
+        return Status;
+	}
+	
+	public boolean verifySearchStartsWith(String menuname) throws Exception {
+		Boolean Status=false;
+		selectWebElement(searchBtn);
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Menu Name");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Starts with");
+        enterValueToTxtField(searchTextBox,menuname);		
+        selectWebElement(searchSearchBtn);
+        waitUntilWebElementIsVisible(gridContent);
+        List<Map<String,String>> UI=gettable(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(map1.get("Menu Name").toLowerCase().startsWith(menuname.toLowerCase()))
+        	Status= true;
+        	else 
+        		Status= false;
+	}
+        return Status;
+	}
+	
+	public boolean verifySearchEndsWith(String menuname) throws Exception {
+		Boolean Status=false;
+		selectWebElement(searchBtn);
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Menu Name");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Ends with");
+        enterValueToTxtField(searchTextBox,menuname);		
+        selectWebElement(searchSearchBtn);
+        waitUntilWebElementIsVisible(gridContent);
+        List<Map<String,String>> UI=gettable(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(map1.get("Menu Name").toUpperCase().endsWith(menuname.toUpperCase()))
+        	Status= true;
+        	else 
+        		Status= false;
+	}
+        return Status;
 	}
 
 	public String getMessage() {
@@ -700,6 +821,8 @@ public class ChatMenuDescriptionPage extends BasePage{
 		searchChatMenuDescriptionRecord(details.getMenuId());
 		waitForJqueryLoad(driver);
 		selectWebElement(editBtn);
+		waitForJqueryLoad(driver);
+		Thread.sleep(3000);
 		enterValueToTxtField(MenuNameTextbox,details.getUpdatedMenuName());
 		enterValueToTxtFieldWithoutClear(modifyReasonTextBox,details.getModifyReason());
 		selectWebElement(saveBtn);
@@ -749,5 +872,9 @@ public class ChatMenuDescriptionPage extends BasePage{
 		waitForJqueryLoad(driver);
 		enterValueToTxtFieldWithoutClear(deleteReasonTextBox,details.getDeleteReason());
 		selectWebElement(yesBtn);	
+	}
+
+	public String getSuccessMessage() {
+		return successmsg.getText();
 	}
 }

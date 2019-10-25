@@ -1,7 +1,6 @@
 package com.tetherfi.pages;
 
 import com.tetherfi.model.chat.ChatIntentSkillMappingDetails;
-import com.tetherfi.model.ivr.IntentMappingDetails;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -78,7 +77,7 @@ public class ChatIntentSkillMappingPage extends BasePage {
     @FindBy(css=".toast-message")
     private WebElement successmsg;
 
-    @FindBy(css="#toast-container .toast-error")
+    @FindBy(css="#toast-container .toast-error .toast-message")
     private List<WebElement> errorMsg;
 
     @FindBy(css=".search-link")
@@ -221,6 +220,18 @@ public class ChatIntentSkillMappingPage extends BasePage {
 	
 	@FindBy(xpath="//a[text()='Intent']")
 	private WebElement Intent;
+	
+	@FindBy(css = ".modal-body .form-inline .form-group .k-select")
+	private List<WebElement> selectSearchCol;
+	
+	@FindBy(css="ul[id='1001sCriteria_listbox'] li")
+	private List<WebElement> searchCriteriaDropDwn;
+	
+	@FindBy(id = "1001sTextToSearch")
+	private WebElement searchTextBox;
+    
+    @FindBy(css = ".modal-footer .button-theme")
+	private WebElement searchSearchBtn;
 
     public boolean isChatIntentSkillMappingPageDisplayed() {
         waitForLoad(driver);
@@ -298,10 +309,6 @@ public class ChatIntentSkillMappingPage extends BasePage {
 			for(int j=1;j<headers.size();j++) {
 				scrollToElement(headers.get(j));
 				System.out.println(headers.get(j).getText());
-				if(headers.get(j).getText().equals("Insert Date Time")){
-				col=cols.get(j).getText().substring(0,10);
-				}
-				else
 					col=cols.get(j).getText();
 				map.put(headers.get(j).getText(),col);
 			}
@@ -613,6 +620,7 @@ public class ChatIntentSkillMappingPage extends BasePage {
         selectWebElement(addNewIntentSkillMappingRecordBtn);
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(popupContent);
+        Thread.sleep(1000);
         selectWebElement(skillDropdown);
         selectDropdownFromVisibleText(skillListBox,details.getSkill());
         selectWebElement(intent);
@@ -640,6 +648,113 @@ public class ChatIntentSkillMappingPage extends BasePage {
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(gridContent);
     }
+    
+    public boolean verifySearchIsNotEqualTo(String intent) throws Exception {
+		Boolean Status=false;
+		Map<String, String> map=new HashMap<String,String>() ;
+		map.put("Intent", intent);
+		selectWebElement(searchLink);
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Intent");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is not equal to");
+        enterValueToTxtField(searchTextBox,intent);		
+        selectWebElement(searchSearchBtn);
+        waitUntilWebElementIsVisible(gridContent);
+        List<Map<String,String>> UI=gettable(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(map1.equals(map))
+        	Status= false;
+        	else 
+        		Status= true;
+	}
+        return Status;
+	
+	}
+    
+    public boolean verifySearchContains(String intent) throws Exception {
+		Boolean Status=false;
+		selectWebElement(searchLink);
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Intent");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Contains");
+        enterValueToTxtField(searchTextBox,intent);		
+        selectWebElement(searchSearchBtn);
+        waitUntilWebElementIsVisible(gridContent);
+        List<Map<String,String>> UI=gettable(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(map1.get("Intent").toUpperCase().contains(intent.toUpperCase()))
+        	Status= true;
+        	else 
+        		Status= false;
+	}
+        return Status;
+	}
+	public boolean verifySearchDoesNotContains(String intent) throws Exception {
+		Boolean Status=false;
+		selectWebElement(searchLink);
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Intent");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Does not contain");
+        enterValueToTxtField(searchTextBox,intent);		
+        selectWebElement(searchSearchBtn);
+        waitUntilWebElementIsVisible(gridContent);
+        List<Map<String,String>> UI=gettable(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(!map1.get("Intent").toLowerCase().contains(intent.toLowerCase()))
+        	Status= true;
+        	else 
+        		Status= false;
+	}
+        return Status;
+	}
+	
+	public boolean verifySearchStartsWith(String intent) throws Exception {
+		Boolean Status=false;
+		selectWebElement(searchLink);
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Intent");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Starts with");
+        enterValueToTxtField(searchTextBox,intent);		
+        selectWebElement(searchSearchBtn);
+        waitUntilWebElementIsVisible(gridContent);
+        List<Map<String,String>> UI=gettable(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(map1.get("Intent").toLowerCase().startsWith(intent.toLowerCase()))
+        	Status= true;
+        	else 
+        		Status= false;
+	}
+        return Status;
+	}
+	
+	public boolean verifySearchEndsWith(String intent) throws Exception {
+		Boolean Status=false;
+		selectWebElement(searchLink);
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Intent");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Ends with");
+        enterValueToTxtField(searchTextBox,intent);		
+        selectWebElement(searchSearchBtn);
+        waitUntilWebElementIsVisible(gridContent);
+        List<Map<String,String>> UI=gettable(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(map1.get("Intent").toUpperCase().endsWith(intent.toUpperCase()))
+        	Status= true;
+        	else 
+        		Status= false;
+	}
+        return Status;
+	}
     public void editIntentSkillMappingRecord(ChatIntentSkillMappingDetails details) throws Exception {
         searchChatIntentSkillMappingRecord(details.getSegment());
         selectWebElement(editBtn);
@@ -648,21 +763,22 @@ public class ChatIntentSkillMappingPage extends BasePage {
         enterValueToTxtField(segment,details.getUpdatedSegment());
         selectWebElement(subSegmnent);
         enterValueToTxtField(subSegmnent,details.getUpdatedSubSegment());
-        enterValueToTxtField(modifyReasonTextBox,details.getModifyReason());
+        enterValueToTxtFieldWithoutClear(modifyReasonTextBox,details.getModifyReason());
         btnClick(saveBtn);
     }
     public void deleteIntentSkillMappingRecord(String segment, String reason) throws Exception {
         searchChatIntentSkillMappingRecord(segment);
         btnClick(deleteBtn);
         selectWebElement(deleteReasonTextBox);
-        enterValueToTxtField(deleteReasonTextBox,reason);
+        enterValueToTxtFieldWithoutClear(deleteReasonTextBox,reason);
         selectWebElement(yesBtn);
     }
 
     public String getMessage(){
         waitForJqueryLoad(driver);
-        if(errorMsg.size()>0){return errorMsg.get(0).getText();}
-        else {return successmsg.getText();}
+       // if(errorMsg.size()>0){return errorMsg.get(0).getText();}
+       // else 
+        {return successmsg.getText();}
     }
     public boolean isAddBtnDisplayed() {
     	return addNewIntentSkillMappingRecordBtn.isDisplayed() && addNewIntentSkillMappingRecordBtn.isEnabled();
@@ -698,6 +814,7 @@ public class ChatIntentSkillMappingPage extends BasePage {
 		selectWebElement(addNewIntentSkillMappingRecordBtn);
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(popupContent);
+        Thread.sleep(1000);
         selectWebElement(skillDropdown);
         selectDropdownFromVisibleText(skillListBox,details.getSkill());
         selectWebElement(intent);
@@ -738,6 +855,7 @@ public class ChatIntentSkillMappingPage extends BasePage {
 		selectWebElement(addNewIntentSkillMappingRecordBtn);
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(popupContent);
+        Thread.sleep(1000);
         selectWebElement(skillDropdown);
         selectDropdownFromVisibleText(skillListBox,details.getSkill());
         selectWebElement(languageDropdown);
@@ -758,6 +876,7 @@ public class ChatIntentSkillMappingPage extends BasePage {
 		selectWebElement(addNewIntentSkillMappingRecordBtn);
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(popupContent);
+        Thread.sleep(1000);
         selectWebElement(skillDropdown);
         selectDropdownFromVisibleText(skillListBox,details.getSkill());
         selectWebElement(intent);
@@ -799,7 +918,7 @@ public class ChatIntentSkillMappingPage extends BasePage {
 	}
 
 	public void editChatIntentSkillMappingWithoutModifyReason(ChatIntentSkillMappingDetails details) throws Exception {
-		searchChatIntentSkillMappingRecord(details.getUpdatedSegment());
+		searchChatIntentSkillMappingRecord(details.getSegment());
         waitForJqueryLoad(driver);
         selectWebElement(editBtn);
         waitForJqueryLoad(driver);

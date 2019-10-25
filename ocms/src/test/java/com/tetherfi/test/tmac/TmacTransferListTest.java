@@ -253,6 +253,51 @@ public class TmacTransferListTest extends BaseTest {
     }
     
     @Test (priority=19)
+    public void VerifySearchIsNotEqualTo() throws Exception {
+        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\TmacTransferListData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "ConsulCreate").getTestData().get(3);
+        TmacTransferListDetails tmacTransferListDetails=new TmacTransferListDetails(map);
+        TmacTransferListPage tmacTransferListPage=PageFactory.createPageInstance(driver,TmacTransferListPage.class);
+        Assert.assertTrue(tmacTransferListPage.verifySearchIsNotEqualTo(tmacTransferListDetails.getName()));
+    }
+    
+    @Test (priority=20)
+    public void VerifySearchContains() throws Exception {
+        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\TmacTransferListData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "ConsulCreate").getTestData().get(7);
+        TmacTransferListDetails tmacTransferListDetails=new TmacTransferListDetails(map);
+        TmacTransferListPage tmacTransferListPage=PageFactory.createPageInstance(driver,TmacTransferListPage.class);
+        Assert.assertTrue(tmacTransferListPage.verifySearchContains(tmacTransferListDetails.getName()));
+    }
+    
+    @Test (priority=21)
+    public void VerifySearchDoesNotContains() throws Exception {
+        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\TmacTransferListData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "ConsulCreate").getTestData().get(7);
+        TmacTransferListDetails tmacTransferListDetails=new TmacTransferListDetails(map);
+        TmacTransferListPage tmacTransferListPage=PageFactory.createPageInstance(driver,TmacTransferListPage.class);
+        Assert.assertTrue(tmacTransferListPage.verifySearchDoesNotContains(tmacTransferListDetails.getName()));
+    }
+    
+    @Test (priority=22)
+    public void VerifySearchStartsWith() throws Exception {
+        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\TmacTransferListData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "ConsulCreate").getTestData().get(8);
+        TmacTransferListDetails tmacTransferListDetails=new TmacTransferListDetails(map);
+        TmacTransferListPage tmacTransferListPage=PageFactory.createPageInstance(driver,TmacTransferListPage.class);
+        Assert.assertTrue(tmacTransferListPage.verifySearchStartsWith(tmacTransferListDetails.getName()));
+    }
+    
+    @Test (priority=23)
+    public void VerifySearchEndsWith() throws Exception {
+        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\TmacTransferListData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "ConsulCreate").getTestData().get(9);
+        TmacTransferListDetails tmacTransferListDetails=new TmacTransferListDetails(map);
+        TmacTransferListPage tmacTransferListPage=PageFactory.createPageInstance(driver,TmacTransferListPage.class);
+        Assert.assertTrue(tmacTransferListPage.verifySearchEndsWith(tmacTransferListDetails.getName()));
+    }
+    
+    @Test (priority=24)
     public void ExportToExcel() throws Exception
     {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles";
@@ -260,7 +305,7 @@ public class TmacTransferListTest extends BaseTest {
         Assert.assertTrue(tmacTransferListPage.verifyExportToExcelConsul(filePath));
     }
     
-    @Test (priority=20)
+    @Test (priority=25)
     public void ExportToExcelData() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\TMACConsultTransfer.xlsx";
     	List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
@@ -268,7 +313,7 @@ public class TmacTransferListTest extends BaseTest {
     	Assert.assertTrue(tmacTransferListPage.verifyexportToExcelSheet(maplist)); 	
     }
     
-    @Test (priority=21)
+    @Test (priority=26)
     public void database() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacTransferListData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(0);
@@ -277,7 +322,7 @@ public class TmacTransferListTest extends BaseTest {
     	Assert.assertTrue(tmacTransferListPage.verifyDatabase(tmacTransferListDetails.getQuery()));
     }
     
-    @Test (priority=22)
+    @Test (priority=27)
     public void GroupBy()
     {
     	TmacTransferListPage tmacTransferListPage=PageFactory.createPageInstance(driver,TmacTransferListPage.class);
@@ -285,7 +330,7 @@ public class TmacTransferListTest extends BaseTest {
     	
     }
     
-    @Test (priority=23, dependsOnMethods = {"EditAllOnTmacConsultTransferRecord"})
+    @Test (priority=28, dependsOnMethods = {"EditAllOnTmacConsultTransferRecord"})
     public void DeleteNoReasonErrMsgTmacConsultTransferRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacTransferListData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ConsulDelete").getTestData().get(0);
@@ -297,7 +342,7 @@ public class TmacTransferListTest extends BaseTest {
         Assert.assertEquals(tmacTransferListPage.verifyMessage(),tmacTransferListDetails.getExpErrMsg());
     }
     
-    @Test (priority=24, dependsOnMethods = {"EditAllOnTmacConsultTransferRecord"})
+    @Test (priority=29, dependsOnMethods = {"EditAllOnTmacConsultTransferRecord"})
     public void DeleteNoReasonNoBtnTmacConsultTransferRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacTransferListData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ConsulDelete").getTestData().get(1);
@@ -309,7 +354,7 @@ public class TmacTransferListTest extends BaseTest {
         Assert.assertTrue(tmacTransferListPage.deletePopUpNotDisplayed(), "Delete Pop up displayed not expected");
     }
     
-    @Test (priority=25, dependsOnMethods = {"EditAllOnTmacConsultTransferRecord"})
+    @Test (priority=30, dependsOnMethods = {"EditAllOnTmacConsultTransferRecord"})
     public void DeleteTmacConsultTransferRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacTransferListData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ConsulDelete").getTestData().get(2);
@@ -320,7 +365,7 @@ public class TmacTransferListTest extends BaseTest {
         Assert.assertEquals(tmacTransferListPage.VerifySuccessMsg(),"Record Deleted Successfully","Delete record assertion failed");
     }
     
-    @Test (priority=26, dependsOnMethods = {"EditAllOnTmacConsultTransferRecord"})
+    @Test (priority=31, dependsOnMethods = {"EditAllOnTmacConsultTransferRecord"})
     public void DeleteTmacConsultTransferRecord2() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacTransferListData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ConsulDelete").getTestData().get(3);
@@ -331,7 +376,7 @@ public class TmacTransferListTest extends BaseTest {
         Assert.assertEquals(tmacTransferListPage.VerifySuccessMsg(),"Record Deleted Successfully","Delete record assertion failed");
     }
     
-    @Test (priority=27)
+    @Test (priority=32)
     public void fullScreenAndRestore() throws InterruptedException
     {
     	TmacTransferListPage tmacTransferListPage=PageFactory.createPageInstance(driver,TmacTransferListPage.class);
@@ -341,14 +386,14 @@ public class TmacTransferListTest extends BaseTest {
     	Assert.assertTrue(tmacTransferListPage.ocmHeaderDisplayed(), "OCM Header displayed assertion failed");
     }
     
-   @Test (priority=28)
+    @Test (priority=33)
     public void VerifyTmacBlindTransferTableHeaders() {
     	TmacTransferListPage tmacTransferListPage=PageFactory.createPageInstance(driver,TmacTransferListPage.class);
     	tmacTransferListPage.navigateToTab("TMAC Blind Transfer");
     	Assert.assertTrue(tmacTransferListPage.verifyTmacBlindTransferDataTableHeaders(), "Tmac Blind Transfer table headers assertion failed");
     }
     
-    @Test (priority=29)
+    @Test (priority=34)
     public void VerifyAddNewBlindTransferButton() {
     	TmacTransferListPage tmacTransferListPage=PageFactory.createPageInstance(driver,TmacTransferListPage.class);
     	tmacTransferListPage.navigateToTab("TMAC Blind Transfer");
@@ -356,7 +401,7 @@ public class TmacTransferListTest extends BaseTest {
     	Assert.assertTrue(tmacTransferListPage.verifyExportToExcelButtonBlindTrans(), "export to excel button assertion failed");
     }
     
-    @Test (priority=30)
+    @Test (priority=35)
     public void VerifyAddBlindTransferPopUpContentDisplayed() throws InterruptedException {
     	TmacTransferListPage tmacTransferListPage=PageFactory.createPageInstance(driver,TmacTransferListPage.class);
     	tmacTransferListPage.navigateToTab("TMAC Blind Transfer");
@@ -365,7 +410,7 @@ public class TmacTransferListTest extends BaseTest {
     	tmacTransferListPage.selectCancelOnAddNewBlindTransPopUp();
     }
     
-    @Test (priority=31)
+    @Test (priority=36)
     public void VerifyErrMsgNoData() throws IOException, InterruptedException {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\TmacTransferListData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "BlindCreate").getTestData().get(0);
@@ -378,7 +423,7 @@ public class TmacTransferListTest extends BaseTest {
     	Assert.assertEquals(tmacTransferListPage.verifyMessage(),tmacTransferListDetails.getExpErrMsg());
     }
     
-    @Test (priority=32)
+    @Test (priority=37)
     public void VerifyErrMsgVDNBlank() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\TmacTransferListData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "BlindCreate").getTestData().get(1);
@@ -389,7 +434,7 @@ public class TmacTransferListTest extends BaseTest {
     	Assert.assertEquals(tmacTransferListPage.verifyMessage(),tmacTransferListDetails.getExpErrMsg());
     }
     
-    @Test (priority=33)
+    @Test (priority=38)
     public void VerifyErrMsgSkillNameNotSelected() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\TmacTransferListData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "BlindCreate").getTestData().get(2);
@@ -400,7 +445,7 @@ public class TmacTransferListTest extends BaseTest {
     	Assert.assertEquals(tmacTransferListPage.verifyMessage(),tmacTransferListDetails.getExpErrMsg());
     }
     
-    @Test (priority=34)
+    @Test (priority=39)
     public void VerifyErrMsgChannelNotSelected() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\TmacTransferListData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "BlindCreate").getTestData().get(3);
@@ -414,7 +459,7 @@ public class TmacTransferListTest extends BaseTest {
     	Assert.assertEquals(tmacTransferListPage.verifyMessage(),tmacTransferListDetails.getExpErrMsg());
     }
     
-    @Test (priority=35)
+    @Test (priority=40)
     public void VerifyCancelonNewBlindTransfer() throws IOException, InterruptedException {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\TmacTransferListData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "BlindCreate").getTestData().get(3);
@@ -424,7 +469,7 @@ public class TmacTransferListTest extends BaseTest {
     	Assert.assertTrue(tmacTransferListPage.addNewCancelBlindTrans(tmacTransferListDetails), "Add New cancel assertion failed");
     }
     
-    @Test (priority=36)
+    @Test (priority=41)
     public void AddNewTmacBlindTransferRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacTransferListData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"BlindCreate").getTestData().get(3);
@@ -435,7 +480,7 @@ public class TmacTransferListTest extends BaseTest {
         Assert.assertEquals(tmacTransferListPage.VerifySuccessMsg(),"Record Created Successfully","Add New record assertion failed");
     }
     
-    @Test (priority=37, dependsOnMethods = ("AddNewTmacBlindTransferRecord"))
+    @Test (priority=42, dependsOnMethods = ("AddNewTmacBlindTransferRecord"))
     public void VerifyErrMsgDupSkillIdNameVdn() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\TmacTransferListData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "BlindCreate").getTestData().get(4);
@@ -448,7 +493,7 @@ public class TmacTransferListTest extends BaseTest {
     	Assert.assertEquals(tmacTransferListPage.verifyMessage(),tmacTransferListDetails.getExpErrMsg());
     }
     
-    @Test (priority=38, dependsOnMethods = ("AddNewTmacBlindTransferRecord"))
+    @Test (priority=43, dependsOnMethods = ("AddNewTmacBlindTransferRecord"))
     public void VerifyErrMsgDupSkillIdName() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\TmacTransferListData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "BlindCreate").getTestData().get(5);
@@ -461,7 +506,7 @@ public class TmacTransferListTest extends BaseTest {
     	Assert.assertEquals(tmacTransferListPage.verifyMessage(),tmacTransferListDetails.getExpErrMsg());
     }
     
-    @Test (priority=39, dependsOnMethods = ("AddNewTmacBlindTransferRecord"))
+    @Test (priority=44, dependsOnMethods = ("AddNewTmacBlindTransferRecord"))
     public void VerifyRecdBlindTransDupVDN() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacTransferListData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"BlindCreate").getTestData().get(6);
@@ -472,7 +517,7 @@ public class TmacTransferListTest extends BaseTest {
         Assert.assertEquals(tmacTransferListPage.VerifySuccessMsg(),"Record Created Successfully","Add New record assertion failed");
     }
     
-    @Test (priority=40, dependsOnMethods = ("AddNewTmacBlindTransferRecord"))
+    @Test (priority=45, dependsOnMethods = ("AddNewTmacBlindTransferRecord"))
     public void VerifyRecdBlindTransDiffVDN() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacTransferListData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"BlindCreate").getTestData().get(7);
@@ -483,7 +528,7 @@ public class TmacTransferListTest extends BaseTest {
         Assert.assertEquals(tmacTransferListPage.VerifySuccessMsg(),"Record Created Successfully","Add New record assertion failed");
     }
     
-    @Test (priority=41)
+    @Test (priority=46)
     public void VerifyDupErrMsgEditTmacBlindTransferRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacTransferListData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"BlindEdit").getTestData().get(0);
@@ -495,7 +540,7 @@ public class TmacTransferListTest extends BaseTest {
         Assert.assertEquals(tmacTransferListPage.verifyMessage2(),tmacTransferListDetails.getExpErrMsg2());
     }
     
-    @Test (priority=42)
+    @Test (priority=47)
     public void VerifyErrMsgNoModReasonEditTmacBlindTransferRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacTransferListData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"BlindEdit").getTestData().get(1);
@@ -506,7 +551,7 @@ public class TmacTransferListTest extends BaseTest {
         Assert.assertEquals(tmacTransferListPage.verifyMessage(),tmacTransferListDetails.getExpErrMsg());
     }
     
-    @Test (priority=43)
+    @Test (priority=48)
     public void EditTmacBlindTransferRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacTransferListData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"BlindEdit").getTestData().get(2);
@@ -517,7 +562,7 @@ public class TmacTransferListTest extends BaseTest {
         Assert.assertEquals(tmacTransferListPage.VerifySuccessMsg(),"Record Updated Successfully","Edit record assertion failed");
     }
     
-    @Test (priority=44)
+    @Test (priority=49)
     public void ExportToExcelBlindTrans() throws Exception
     {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles";
@@ -526,7 +571,7 @@ public class TmacTransferListTest extends BaseTest {
     	Assert.assertTrue(tmacTransferListPage.verifyExportToExcelBlind(filePath));
     }
     
-    @Test (priority=45)
+    @Test (priority=50)
     public void ExportToExcelDataBlindTrans() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\TMACBlindTransfer.xlsx";
     	List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
@@ -535,7 +580,7 @@ public class TmacTransferListTest extends BaseTest {
     	Assert.assertTrue(tmacTransferListPage.verifyexportToExcelSheetBlindTrans(maplist));
     }
     
-    @Test (priority=46)
+    @Test (priority=51)
     public void databaseBlindTrans() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacTransferListData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(1);
@@ -545,7 +590,7 @@ public class TmacTransferListTest extends BaseTest {
     	Assert.assertTrue(tmacTransferListPage.verifyDatabaseBlindTrans(tmacTransferListDetails.getQuery()));
     }
     
-    @Test (priority=47)
+    @Test (priority=52)
     public void GroupByBlindTrans()
     {
     	TmacTransferListPage tmacTransferListPage=PageFactory.createPageInstance(driver,TmacTransferListPage.class);
@@ -554,7 +599,7 @@ public class TmacTransferListTest extends BaseTest {
     	
     }
     
-    @Test (priority=48, dependsOnMethods = {"EditTmacBlindTransferRecord"})
+    @Test (priority=53, dependsOnMethods = {"EditTmacBlindTransferRecord"})
     public void DeleteNoReasonErrMsgTmacBlindTransferRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacTransferListData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"BlindDelete").getTestData().get(0);
@@ -566,7 +611,7 @@ public class TmacTransferListTest extends BaseTest {
         Assert.assertEquals(tmacTransferListPage.verifyMessage(),tmacTransferListDetails.getExpErrMsg());
     }
     
-    @Test (priority=49, dependsOnMethods = {"EditTmacBlindTransferRecord"})
+    @Test (priority=54, dependsOnMethods = {"EditTmacBlindTransferRecord"})
     public void DeleteNoReasonNoBtnTmacBlindTransferRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacTransferListData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"BlindDelete").getTestData().get(0);
@@ -578,7 +623,7 @@ public class TmacTransferListTest extends BaseTest {
         Assert.assertTrue(tmacTransferListPage.deletePopUpNotDisplayed(), "Delete Pop up displayed not expected");
     }
     
-    @Test (priority=50, dependsOnMethods = {"EditTmacBlindTransferRecord"})
+    @Test (priority=55)//, dependsOnMethods = {"EditTmacBlindTransferRecord"})
     public void DeleteTmacBlindTransferRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacTransferListData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"BlindDelete").getTestData().get(1);
@@ -589,7 +634,7 @@ public class TmacTransferListTest extends BaseTest {
         Assert.assertEquals(tmacTransferListPage.VerifySuccessMsg(),"Record Deleted Successfully","Delete record assertion failed");
     }
     
-    @Test (priority=51, dependsOnMethods = {"EditTmacBlindTransferRecord"})
+    @Test (priority=56)//, dependsOnMethods = {"EditTmacBlindTransferRecord"})
     public void DeleteTmacBlindTransferRecord2() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacTransferListData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"BlindDelete").getTestData().get(2);
@@ -600,7 +645,7 @@ public class TmacTransferListTest extends BaseTest {
         Assert.assertEquals(tmacTransferListPage.VerifySuccessMsg(),"Record Deleted Successfully","Delete record assertion failed");
     }
     
-    @Test (priority=52, dependsOnMethods = {"EditTmacBlindTransferRecord"})
+    @Test (priority=57, dependsOnMethods = {"EditTmacBlindTransferRecord"})
     public void DeleteTmacBlindTransferRecord3() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacTransferListData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"BlindDelete").getTestData().get(3);
@@ -612,7 +657,7 @@ public class TmacTransferListTest extends BaseTest {
     }
     
 
-    @Test (priority=53)
+    @Test (priority=58)
     public void fullScreenAndRestoreBlindTrans() throws InterruptedException
     {
     	TmacTransferListPage tmacTransferListPage=PageFactory.createPageInstance(driver,TmacTransferListPage.class);

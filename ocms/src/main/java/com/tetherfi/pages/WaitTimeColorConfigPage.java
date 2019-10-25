@@ -223,6 +223,18 @@ public class WaitTimeColorConfigPage extends BasePage {
     @FindBy(css="th a[class='k-link']")
     private List<WebElement> headersText;
     
+    @FindBy(css = ".modal-body .form-inline .form-group .k-select")
+	private List<WebElement> selectSearchCol;
+	
+	@FindBy(css="ul[id='1001sCriteria_listbox'] li")
+	private List<WebElement> searchCriteriaDropDwn;
+	
+	@FindBy(id = "1001sTextToSearch")
+	private WebElement searchTextBox;
+    
+    @FindBy(css = ".modal-footer .button-theme")
+	private WebElement searchSearchBtn;
+    
 
     public boolean isWaitTimeColorConfigPageDisplayed() {
         waitForLoad(driver);
@@ -248,6 +260,113 @@ public class WaitTimeColorConfigPage extends BasePage {
         selectWebElement(applyBtn);
         selectWebElement(saveBtn);
     }
+    
+    public boolean verifySearchIsNotEqualTo(String colorcode) throws Exception {
+		Boolean Status=false;
+		Map<String, String> map=new HashMap<String,String>() ;
+		map.put("Color Code", colorcode);
+		selectWebElement(searchLink);
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Color Code");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is not equal to");
+        enterValueToTxtField(searchTextBox,colorcode);		
+        selectWebElement(searchSearchBtn);
+        waitUntilWebElementIsVisible(gridContent);
+        List<Map<String,String>> UI=gettable(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(map1.equals(map))
+        	Status= false;
+        	else 
+        		Status= true;
+	}
+        return Status;
+	
+	}
+    
+    public boolean verifySearchContains(String colorcode) throws Exception {
+		Boolean Status=false;
+		selectWebElement(searchLink);
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Color Code");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Contains");
+        enterValueToTxtField(searchTextBox,colorcode);		
+        selectWebElement(searchSearchBtn);
+        waitUntilWebElementIsVisible(gridContent);
+        List<Map<String,String>> UI=gettable(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(map1.get("Color Code").toUpperCase().contains(colorcode.toUpperCase()))
+        	Status= true;
+        	else 
+        		Status= false;
+	}
+        return Status;
+	}
+	public boolean verifySearchDoesNotContains(String colorcode) throws Exception {
+		Boolean Status=false;
+		selectWebElement(searchLink);
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Color Code");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Does not contain");
+        enterValueToTxtField(searchTextBox,colorcode);		
+        selectWebElement(searchSearchBtn);
+        waitUntilWebElementIsVisible(gridContent);
+        List<Map<String,String>> UI=gettable(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(!map1.get("Color Code").toLowerCase().contains(colorcode.toLowerCase()))
+        	Status= true;
+        	else 
+        		Status= false;
+	}
+        return Status;
+	}
+	
+	public boolean verifySearchStartsWith(String colorcode) throws Exception {
+		Boolean Status=false;
+		selectWebElement(searchLink);
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Color Code");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Starts with");
+        enterValueToTxtField(searchTextBox,colorcode);		
+        selectWebElement(searchSearchBtn);
+        waitUntilWebElementIsVisible(gridContent);
+        List<Map<String,String>> UI=gettable(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(map1.get("Color Code").toLowerCase().startsWith(colorcode.toLowerCase()))
+        	Status= true;
+        	else 
+        		Status= false;
+	}
+        return Status;
+	}
+	
+	public boolean verifySearchEndsWith(String colorcode) throws Exception {
+		Boolean Status=false;
+		selectWebElement(searchLink);
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Color Code");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Ends with");
+        enterValueToTxtField(searchTextBox,colorcode);		
+        selectWebElement(searchSearchBtn);
+        waitUntilWebElementIsVisible(gridContent);
+        List<Map<String,String>> UI=gettable(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(map1.get("Color Code").toUpperCase().endsWith(colorcode.toUpperCase()))
+        	Status= true;
+        	else 
+        		Status= false;
+	}
+        return Status;
+	}
     public void searchWaitTimeColorConfigRecord(String StartTime) throws Exception  {
         selectWebElement(searchLink);
         selectWebElement(selectSearchColumn.get(0));
@@ -301,7 +420,7 @@ public class WaitTimeColorConfigPage extends BasePage {
 		searchWaitTimeColorConfigRecord(Starttime);
         btnClick(deleteBtn);
         selectWebElement(deleteReasonTextBox);
-        enterValueToTxtField(deleteReasonTextBox,reason);
+        enterValueToTxtFieldWithoutClear(deleteReasonTextBox,reason);
         selectWebElement(noBtn);
         if(rowdata.getText().equals(Starttime))
         {return true;}
@@ -512,10 +631,6 @@ public class WaitTimeColorConfigPage extends BasePage {
 			Map<String,String> map = new HashMap<String,String>();
 			List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
 			for(int j=1;j<headers.size();j++) {
-				if(headers.get(j).getText().equals("Last Changed On")){
-					col=cols.get(j).getText().substring(0,10);
-					}
-				else
 					col=cols.get(j).getText();
 				map.put(headers.get(j).getText(),col);
 			}
@@ -544,23 +659,6 @@ public class WaitTimeColorConfigPage extends BasePage {
 			List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
 			String col="";
 			for(int j=1;j<headers.size();j++){
-				if(headers.get(j).getText().equals("Last Changed On")){
-					col=cols.get(j).getText().substring(11);
-					}
-				else if(headers.get(j).getText().equals("Start Duration")) {
-					String str[]=cols.get(j).getText().split(":");
-					for(int x=0;x<str.length;x++)
-					{
-					col=col+str[x];
-				}}
-				else if(headers.get(j).getText().equals("End Duration")) {
-					String str1[]=cols.get(j).getText().split(":");
-					col="";
-					for(int y=0;y<str1.length;y++)
-					{
-					col=col+str1[y];
-					}}
-				else
 					col=cols.get(j).getText();
 				map.put(headers.get(j).getText(),col);
 			}
@@ -577,6 +675,8 @@ public class WaitTimeColorConfigPage extends BasePage {
 	
 	public boolean verifyexportToExcelSheet(List<Map<String, String>> maplist) {
 		List<Map<String,String>> UI=getdata(); 
+		System.out.println(UI);
+		System.out.println(maplist);
 		if(UI.equals(maplist))
 		return true;
 		else

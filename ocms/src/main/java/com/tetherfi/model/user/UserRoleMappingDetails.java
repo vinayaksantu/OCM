@@ -15,6 +15,9 @@ public class UserRoleMappingDetails {
     private String role;
     private String modifyReason;
     private String deleteReason;
+    private String UpdatedFirstName;
+    private String OrgUnit;
+    private String query;
 
     public UserRoleMappingDetails(Map<String,String> map){
         firstname=readFirstName(map);
@@ -27,9 +30,27 @@ public class UserRoleMappingDetails {
         supervisor=readSupervisor(map);
         modifyReason=readModifyReason(map);
         deleteReason=readDeleteReason(map);
+        UpdatedFirstName=readUpdatedFirstName(map);
+        OrgUnit=readOrgUnit(map);
+        query=readQuery(map);
     }
 
-    private String readRole(Map<String, String> map) {
+    private String readQuery(Map<String, String> map) {
+    	String value=map.get("Query");
+        return value;
+	}
+
+	private String readOrgUnit(Map<String, String> map) {
+    	String value=map.get("OrgUnit");
+        return value;
+	}
+
+	private String readUpdatedFirstName(Map<String, String> map) {
+    	String value=map.get("Updated First Name");
+        return value;
+	}
+
+	private String readRole(Map<String, String> map) {
         String value=map.get("Role");
         if(value==null||value.equalsIgnoreCase("random.str")){
             value= RandomStringUtils.randomAlphabetic(10);
@@ -51,7 +72,7 @@ public class UserRoleMappingDetails {
         return value;
     }
     public String readBankUserName(Map<String,String> map){
-        String value=map.get("Bank User Name");
+        String value=map.get("User Name");
         if(value==null||value.equalsIgnoreCase("random.str")){
             value= RandomStringUtils.randomAlphabetic(10);
         }
@@ -141,5 +162,17 @@ public class UserRoleMappingDetails {
 	public String getDepartment() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	public String getUpdatedFirstname() {
+	return UpdatedFirstName;
+	}
+
+	public String getOrgUnit() {
+		return OrgUnit;
+	}
+
+	public String getQuery() {
+		return query;
 	}
 }

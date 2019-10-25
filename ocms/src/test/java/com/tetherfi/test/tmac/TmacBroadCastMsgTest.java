@@ -19,7 +19,7 @@ import java.util.Map;
 
 public class TmacBroadCastMsgTest extends BaseTest {
 	Screenshot screenshot=new Screenshot(driver);
-    //@BeforeClass
+    @BeforeClass
     public void AddNewAgentTeamManagementRecord() throws Exception {
         HomePage homePage= PageFactory.createPageInstance(driver,HomePage.class);
         homePage.navigateToOCMPage();
@@ -54,12 +54,11 @@ public class TmacBroadCastMsgTest extends BaseTest {
         Assert.assertTrue(tmacBroadCastMsgPage.isTmacBroadcastMsgPageDisplayed(), "TMAC Broadcast page assertion failed");
     }
    
-    /*@Test(priority=1)
+    @Test(priority=1)
     public void TmacBroadCastMsgPage()
     {
         TmacBroadCastMsgPage tmacBroadCastMsgPage  = PageFactory.createPageInstance(driver, TmacBroadCastMsgPage.class);
     	Assert.assertTrue(tmacBroadCastMsgPage.verifylogo(),"Tmac Broadcast Message logo assertion failed");
-        Assert.assertTrue(tmacBroadCastMsgPage.verifygridcontent(),"grid container assertion failed");
     	Assert.assertTrue(tmacBroadCastMsgPage.maximizewindow(),"Fullscreen Assertion Failed"); 
     	screenshot.captureScreen("TmacBroadCastMsgTest", "maximize window");
     	Assert.assertTrue(tmacBroadCastMsgPage.minimizewindow(), "Restored Assertion Failed");
@@ -179,13 +178,13 @@ public class TmacBroadCastMsgTest extends BaseTest {
         screenshot.captureScreen("TmacBroadCastMsgTest", "clearall");
         Assert.assertTrue(tmacBroadCastMsgPage.verifyclose());
         screenshot.captureScreen("TmacBroadCastMsgTest", "SearchClose");	
-    }*/
+    }
     
     @Test(priority=13)
     public void SearchClearSearch() throws Exception
     {
     String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacBroadcastMsgData.xlsx";
-    Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
+    Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(1);
     TmacBroadCastMsgDetails tmacBroadCastMsgDetails=new TmacBroadCastMsgDetails(map);
     TmacBroadCastMsgPage tmacBroadCastMsgPage  = PageFactory.createPageInstance(driver, TmacBroadCastMsgPage.class);
     Assert.assertTrue(tmacBroadCastMsgPage.verifyinvalidsearch(tmacBroadCastMsgDetails), "InvalidSearchAssertionFailed");

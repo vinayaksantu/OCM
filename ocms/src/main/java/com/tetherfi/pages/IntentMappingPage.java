@@ -206,6 +206,9 @@ public class IntentMappingPage extends BasePage{
 	@FindBy(id="VDN")
 	private WebElement VDNTextbox;
 	
+	@FindBy(css=".k-edit-form-container .k-formatted-value")
+	private WebElement VDNText;
+	
 	public boolean isIntentMappingPageDisplayed() {
 		waitForLoad(driver);
         waitForJqueryLoad(driver);
@@ -642,11 +645,13 @@ public class IntentMappingPage extends BasePage{
 	}
 
 	public String verifySuccessMessage() {
-		 if(errorMsg.size()>0){return errorMsg.get(0).getText();}
-	       else{waitUntilWebElementIsVisible(successmsg);return successmsg.getText();}
+		 //if(errorMsg.size()>0){return errorMsg.get(0).getText();}
+	       //else
+	       {waitUntilWebElementIsVisible(successmsg);return successmsg.getText();}
 	}
 	public void addNewIntentMappingRecord(IntentMappingDetails details) throws Exception {
 		selectWebElement(addNewIntentMappingRecordBtn);
+		Thread.sleep(1000);
 		selectWebElement(ProductDropdown);
         selectDropdownFromVisibleText(ProductListbox,details.getProduct());
         selectWebElement(SegmentDropdown);
@@ -655,8 +660,8 @@ public class IntentMappingPage extends BasePage{
         selectDropdownFromVisibleText(LanguageListbox,details.getLanguage());
         selectWebElement(IntentTalentDropdown);
         selectDropdownFromVisibleText(IntentTalentListbox,details.getIntentTalent());
-		selectWebElement(VDNTextbox);
-		enterValueToTxtField(VDNTextbox,details.getVDN());
+		selectWebElement(VDNText);
+		enterValueToTxtFieldWithoutClear(VDNTextbox,details.getVDN());
 		selectWebElement(saveButton);	
 		try {
 			selectWebElement(cancelBtn);
@@ -665,6 +670,110 @@ public class IntentMappingPage extends BasePage{
 		{
 			e.printStackTrace();
 		}
+	}
+	
+	public boolean verifySearchIsNotEqualTo(String intenttalent) throws Exception {
+		Boolean Status=false;
+		Map<String, String> map=new HashMap<String,String>() ;
+		map.put("Intent Talent", intenttalent);
+		selectWebElement(searchBtn);
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Intent Talent");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is not equal to");
+        enterValueToTxtField(searchTextBox,intenttalent);		
+        selectWebElement(searchSearchBtn);
+        waitUntilWebElementIsVisible(gridContent);
+        List<Map<String,String>> UI=gettable(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(map1.equals(map))
+        	Status= false;
+        	else 
+        		Status= true;
+	}
+        return Status;
+	
+	}
+	public boolean verifySearchContains(String intenttalent) throws Exception {
+		Boolean Status=false;
+		selectWebElement(searchBtn);
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Intent Talent");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Contains");
+        enterValueToTxtField(searchTextBox,intenttalent);		
+        selectWebElement(searchSearchBtn);
+        waitUntilWebElementIsVisible(gridContent);
+        List<Map<String,String>> UI=gettable(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(map1.get("Intent Talent").toUpperCase().contains(intenttalent.toUpperCase()))
+        	Status= true;
+        	else 
+        		Status= false;
+	}
+        return Status;
+	}
+	public boolean verifySearchDoesNotContains(String intenttalent) throws Exception {
+		Boolean Status=false;
+		selectWebElement(searchBtn);
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Intent Talent");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Does not contain");
+        enterValueToTxtField(searchTextBox,intenttalent);		
+        selectWebElement(searchSearchBtn);
+        waitUntilWebElementIsVisible(gridContent);
+        List<Map<String,String>> UI=gettable(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(!map1.get("Intent Talent").toLowerCase().contains(intenttalent.toLowerCase()))
+        	Status= true;
+        	else 
+        		Status= false;
+	}
+        return Status;
+	}
+	public boolean verifySearchStartsWith(String intenttalent) throws Exception {
+		Boolean Status=false;
+		selectWebElement(searchBtn);
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Intent Talent");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Starts with");
+        enterValueToTxtField(searchTextBox,intenttalent);		
+        selectWebElement(searchSearchBtn);
+        waitUntilWebElementIsVisible(gridContent);
+        List<Map<String,String>> UI=gettable(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(map1.get("Intent Talent").toLowerCase().startsWith(intenttalent.toLowerCase()))
+        	Status= true;
+        	else 
+        		Status= false;
+	}
+        return Status;
+	}
+	public boolean verifySearchEndsWith(String intenttalent) throws Exception {
+		Boolean Status=false;
+		selectWebElement(searchBtn);
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Intent Talent");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Ends with");
+        enterValueToTxtField(searchTextBox,intenttalent);		
+        selectWebElement(searchSearchBtn);
+        waitUntilWebElementIsVisible(gridContent);
+        List<Map<String,String>> UI=gettable(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(map1.get("Intent Talent").toUpperCase().endsWith(intenttalent.toUpperCase()))
+        	Status= true;
+        	else 
+        		Status= false;
+	}
+        return Status;
 	}
 	
 	
@@ -751,58 +860,63 @@ public class IntentMappingPage extends BasePage{
 	}
 	public void addRecordWithoutProduct(IntentMappingDetails details) throws Exception {
 		selectWebElement(addNewIntentMappingRecordBtn);
+		Thread.sleep(1000);
         selectWebElement(SegmentDropdown);
         selectDropdownFromVisibleText(SegmentListbox,details.getSegment());
         selectWebElement(LanguageDropdown);
         selectDropdownFromVisibleText(LanguageListbox,details.getLanguage());
         selectWebElement(IntentTalentDropdown);
         selectDropdownFromVisibleText(IntentTalentListbox,details.getIntentTalent());
-		selectWebElement(VDNTextbox);
-		enterValueToTxtField(VDNTextbox,details.getVDN());
+		selectWebElement(VDNText);
+		enterValueToTxtFieldWithoutClear(VDNTextbox,details.getVDN());
 		selectWebElement(saveButton);
 		selectWebElement(cancelBtn);
 	}
 	public void addRecordWithoutSegment(IntentMappingDetails details) throws Exception {
 		selectWebElement(addNewIntentMappingRecordBtn);
+		Thread.sleep(1000);
 		selectWebElement(ProductDropdown);
         selectDropdownFromVisibleText(ProductListbox,details.getProduct());
         selectWebElement(LanguageDropdown);
         selectDropdownFromVisibleText(LanguageListbox,details.getLanguage());
         selectWebElement(IntentTalentDropdown);
         selectDropdownFromVisibleText(IntentTalentListbox,details.getIntentTalent());
-		selectWebElement(VDNTextbox);
-		enterValueToTxtField(VDNTextbox,details.getVDN());
+		selectWebElement(VDNText);
+		enterValueToTxtFieldWithoutClear(VDNTextbox,details.getVDN());
 		selectWebElement(saveButton);
 		selectWebElement(cancelBtn);
 	}
 	public void addRecordWithoutLanguage(IntentMappingDetails details) throws Exception {
 		selectWebElement(addNewIntentMappingRecordBtn);
+		Thread.sleep(1000);
 		selectWebElement(ProductDropdown);
         selectDropdownFromVisibleText(ProductListbox,details.getProduct());
         selectWebElement(SegmentDropdown);
         selectDropdownFromVisibleText(SegmentListbox,details.getSegment());
         selectWebElement(IntentTalentDropdown);
         selectDropdownFromVisibleText(IntentTalentListbox,details.getIntentTalent());
-		selectWebElement(VDNTextbox);
-		enterValueToTxtField(VDNTextbox,details.getVDN());
+		selectWebElement(VDNText);
+		enterValueToTxtFieldWithoutClear(VDNTextbox,details.getVDN());
 		selectWebElement(saveButton);
 		selectWebElement(cancelBtn);		
 	}
 	public void addRecordWithoutIntentTalent(IntentMappingDetails details) throws Exception {
 		selectWebElement(addNewIntentMappingRecordBtn);
+		Thread.sleep(1000);
 		selectWebElement(ProductDropdown);
         selectDropdownFromVisibleText(ProductListbox,details.getProduct());
         selectWebElement(SegmentDropdown);
         selectDropdownFromVisibleText(SegmentListbox,details.getSegment());
         selectWebElement(LanguageDropdown);
         selectDropdownFromVisibleText(LanguageListbox,details.getLanguage());
-		selectWebElement(VDNTextbox);
-		enterValueToTxtField(VDNTextbox,details.getVDN());
+		selectWebElement(VDNText);
+		enterValueToTxtFieldWithoutClear(VDNTextbox,details.getVDN());
 		selectWebElement(saveButton);
 		selectWebElement(cancelBtn);		
 	}
-	public void addRecordWithoutVDN(IntentMappingDetails details) {
+	public void addRecordWithoutVDN(IntentMappingDetails details) throws Exception {
 		selectWebElement(addNewIntentMappingRecordBtn);
+		Thread.sleep(1000);
 		selectWebElement(ProductDropdown);
         selectDropdownFromVisibleText(ProductListbox,details.getProduct());
         selectWebElement(SegmentDropdown);

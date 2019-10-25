@@ -79,7 +79,7 @@ Screenshot screenshot=new Screenshot(driver);
        }
      
     @Test(priority=6)
-    public void VerifyColumnsHeaderEnable() {
+    public void VerifyColumnsHeaderEnable() throws InterruptedException {
     	IntroMessageAnnouncementPage IntroMessageAnnouncementPage = PageFactory.createPageInstance(driver, IntroMessageAnnouncementPage.class);
         IntroMessageAnnouncementPage.selectIntroMessageAnnouncementAuditTrailTab();
         IntroMessageAnnouncementPage.selectMakeIntroMessageAnnouncementChanges();

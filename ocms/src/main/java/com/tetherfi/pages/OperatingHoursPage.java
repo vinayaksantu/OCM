@@ -49,6 +49,7 @@ public class OperatingHoursPage extends BasePage {
 
     @FindBy(css=".toast-message")
     private WebElement successmsg;
+    
 
     @FindBy(css=".ibox-title h5")
     private WebElement operatingHours;
@@ -292,6 +293,114 @@ public class OperatingHoursPage extends BasePage {
         waitUntilWebElementIsVisible(gridContent);
     }
     
+    public boolean verifySearchIsNotEqualTo(String weekday) throws Exception {
+		Boolean Status=false;
+		Map<String, String> map=new HashMap<String,String>() ;
+		map.put("Week Day", weekday);
+		selectWebElement(searchBtn);
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Week Day");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is not equal to");
+        enterValueToTxtField(searchTextBox,weekday);		
+        selectWebElement(searchSearchBtn);
+        waitUntilWebElementIsVisible(gridContent);
+        List<Map<String,String>> UI=gettable(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(map1.equals(map))
+        	Status= false;
+        	else 
+        		Status= true;
+	}
+        return Status;
+	
+	}
+    
+    public boolean verifySearchContains(String weekday) throws Exception {
+		Boolean Status=false;
+		selectWebElement(searchBtn);
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Week Day");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Contains");
+        enterValueToTxtField(searchTextBox,weekday);		
+        selectWebElement(searchSearchBtn);
+        waitUntilWebElementIsVisible(gridContent);
+        List<Map<String,String>> UI=gettable(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(map1.get("Week Day").toUpperCase().contains(weekday.toUpperCase()))
+        	Status= true;
+        	else 
+        		Status= false;
+	}
+        return Status;
+	}
+    
+    public boolean verifySearchDoesNotContains(String weekday) throws Exception {
+		Boolean Status=false;
+		selectWebElement(searchBtn);
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Week Day");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Does not contain");
+        enterValueToTxtField(searchTextBox,weekday);		
+        selectWebElement(searchSearchBtn);
+        waitUntilWebElementIsVisible(gridContent);
+        List<Map<String,String>> UI=gettable(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(!map1.get("Week Day").toLowerCase().contains(weekday.toLowerCase()))
+        	Status= true;
+        	else 
+        		Status= false;
+	}
+        return Status;
+	}
+	
+	public boolean verifySearchStartsWith(String weekday) throws Exception {
+		Boolean Status=false;
+		selectWebElement(searchBtn);
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Week Day");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Starts with");
+        enterValueToTxtField(searchTextBox,weekday);		
+        selectWebElement(searchSearchBtn);
+        waitUntilWebElementIsVisible(gridContent);
+        List<Map<String,String>> UI=gettable(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(map1.get("Week Day").toLowerCase().startsWith(weekday.toLowerCase()))
+        	Status= true;
+        	else 
+        		Status= false;
+	}
+        return Status;
+	}
+	
+	public boolean verifySearchEndsWith(String weekday) throws Exception {
+		Boolean Status=false;
+		selectWebElement(searchBtn);
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Week Day");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Ends with");
+        enterValueToTxtField(searchTextBox,weekday);		
+        selectWebElement(searchSearchBtn);
+        waitUntilWebElementIsVisible(gridContent);
+        List<Map<String,String>> UI=gettable(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(map1.get("Week Day").toUpperCase().endsWith(weekday.toUpperCase()))
+        	Status= true;
+        	else 
+        		Status= false;
+	}
+        return Status;
+	}
+    
     public void BooleansearchOperatingHoursRecord(String vdn, String weekday) throws Exception {
         selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
@@ -321,7 +430,8 @@ public class OperatingHoursPage extends BasePage {
         selectWebElement(EndTimeTextBox);
         enterValueToTxtField(EndTimeTextBox,operatingHoursDetails.getEndTime());
         selectWebElement(ModifyReasonTextBox);
-        enterValueToTxtField(ModifyReasonTextBox,operatingHoursDetails.getModifyReason());
+        waitForJqueryLoad(driver);
+        enterValueToTxtFieldWithoutClear(ModifyReasonTextBox,operatingHoursDetails.getModifyReason());
         selectWebElement(SaveButton);
     }
     
@@ -359,26 +469,33 @@ public class OperatingHoursPage extends BasePage {
 	}
     public void deleteOperatingHoursRecord(OperatingHoursDetails operatingHoursDetails) throws Exception {
         searchOperatingHoursRecord(operatingHoursDetails.getVdnName());
+        Thread.sleep(1000);
         selectWebElement(deleteButton);
-        enterValueToTxtField(deleteReasonTextBox,operatingHoursDetails.getDeleteReason());
+        enterValueToTxtFieldWithoutClear(deleteReasonTextBox,operatingHoursDetails.getDeleteReason());
         selectWebElement(deleteYesBtn);
     }
 
     public boolean verifyNewRecordCreated(){
        //waitForJqueryLoad(driver);
-        if(errorMsg.size()>0){return false;}
+        //if(errorMsg.size()>0){return false;}
         if(waitUntilTextToBePresentInWebElement(successmsg,"Record Created Successfully"))
         {return true;}else{return false;}
     }
+    
+    public boolean verifyErrorMsg() {
+    	if(errorMsg.size()>0){return false;}
+    	else 
+    		return true;
+    }
     public boolean verifyRecordUpdated(){
         waitForJqueryLoad(driver);
-        if(errorMsg.size()>0){return false;}
+        //if(errorMsg.size()>0){return false;}
         if(waitUntilTextToBePresentInWebElement(successmsg,"Record Updated Successfully"))
         {return true;}else{return false;}
     }
     public boolean verifyRecordDeleted(){
           waitForJqueryLoad(driver);
-        if(errorMsg.size()>0){return false;}
+       // if(errorMsg.size()>0){return false;}
         if(waitUntilTextToBePresentInWebElement(successmsg,"Record Deleted Successfully"))
         {return true;}else{return false;}
     }
@@ -475,10 +592,7 @@ public class OperatingHoursPage extends BasePage {
 			Map<String,String> map = new HashMap<String,String>();
 			List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
 			for(int j=1;j<headers.size();j++) {
-				if(headers.get(j).getText().equals("Last Changed On")){
-					col=cols.get(j).getText().substring(0,10);
-					}
-				else
+				
 					col=cols.get(j).getText();
 				map.put(headers.get(j).getText(),col);
 			}
@@ -737,7 +851,8 @@ public class OperatingHoursPage extends BasePage {
 	}
     
     public boolean verifydeleteNo(OperatingHoursDetails details) throws Exception {
-    	searchOperatingHoursRecord(details.getVdnName());		
+    	searchOperatingHoursRecord(details.getVdnName());	
+    	Thread.sleep(1000);
     	selectWebElement(deleteButton);
 		try {
 			Thread.sleep(3000);

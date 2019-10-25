@@ -239,6 +239,12 @@ public class ChatTemplatesPage extends BasePage {
     @FindBy(css="#drillGrid .k-grouping-header")
     private WebElement dragColumnDestination;
     
+    @FindBy(css="span[aria-owns='Channel_listbox']")
+    private WebElement channelDropdown;
+    
+    @FindBy(css="ul[id='Channel_listbox'] li")
+    private List<WebElement> channelListbox;
+    
    
 
     public boolean isChatTemplatePageDisplayed() {
@@ -445,6 +451,7 @@ public class ChatTemplatesPage extends BasePage {
     }
     public void editChatTemplatesRecord(ChatTemplateDetails details) throws Exception {
         searchChatTemplatesRecord(details.getName());
+        Thread.sleep(1000);
         selectWebElement(editBtn);
         waitForJqueryLoad(driver);
         try {
@@ -454,33 +461,34 @@ public class ChatTemplatesPage extends BasePage {
         }
         selectWebElement(enableDropdown);
         selectDropdownFromVisibleText(enableListbox,details.getUpdatedEnabled());
-        enterValueToTxtField(modifyReasonTextBox,details.getModifyReason());
+        enterValueToTxtFieldWithoutClear(modifyReasonTextBox,details.getModifyReason());
         selectWebElement(saveBtn);
     }
     public void deleteChatTemplatesRecord(String name,String reason) throws Exception {
         searchChatTemplatesRecord(name);
+        Thread.sleep(1000);
         btnClick(deleteBtn);
         selectWebElement(deleteReasonTextBox);
-        enterValueToTxtField(deleteReasonTextBox,reason);
+        enterValueToTxtFieldWithoutClear(deleteReasonTextBox,reason);
         Thread.sleep(2000);
         selectWebElement(yesBtn);
     }
     public boolean verifyNewRecordCreated(){
         waitForJqueryLoad(driver);
-        if(errorMsg.size()>0){return false;}
+       // if(errorMsg.size()>0){return false;}
         if(waitUntilTextToBePresentInWebElement(successmsg,"Record Created Successfully"))
         {return true;}else{return false;}
     }
     public boolean verifyRecordDeleted(){
         waitForJqueryLoad(driver);
-        if(errorMsg.size()>0){return false;}
+        //if(errorMsg.size()>0){return false;}
         if(waitUntilTextToBePresentInWebElement(successmsg,"Record Deleted Successfully")){
             return true;
         }else{return false;}
     }
     public boolean verifyRecordUpdated(){
         waitForJqueryLoad(driver);
-        if(errorMsg.size()>0){return false;}
+        //if(errorMsg.size()>0){return false;}
         if(waitUntilTextToBePresentInWebElement(successmsg,"Record Updated Successfully"))
         {return true;}else{return false;}
     }
@@ -493,6 +501,9 @@ public class ChatTemplatesPage extends BasePage {
     }
     public void addNewDepartmentRecord(ChatTemplateDetails details) throws Exception {
         selectWebElement(addNewDepartmentRecordBtn);
+        Thread.sleep(1000);
+        selectWebElement(channelDropdown);
+        selectDropdownFromVisibleText(channelListbox,details.getChannel());
         selectWebElement(nameTextbox);
         enterValueToTxtField(nameTextbox,details.getDepartmentName());
         selectWebElement(enableDropdown);
@@ -528,14 +539,15 @@ public class ChatTemplatesPage extends BasePage {
         }
         selectWebElement(enableDropdown);
         selectDropdownFromVisibleText(enableListbox,details.getUpdatedDeptEnabled());
-        enterValueToTxtField(modifyReasonTextBox,details.getModifyReason());
+        enterValueToTxtFieldWithoutClear(modifyReasonTextBox,details.getModifyReason());
         selectWebElement(saveBtn);
     }
     public void deleteDepartmentRecord(String name,String reason) throws Exception {
         searchDepartmentRecord(name);
+        Thread.sleep(1000);
         btnClick(deleteBtn);
         selectWebElement(deleteReasonTextBox);
-        enterValueToTxtField(deleteReasonTextBox,reason);
+        enterValueToTxtFieldWithoutClear(deleteReasonTextBox,reason);
         Thread.sleep(2000);
         selectWebElement(yesBtn);
     }
@@ -586,7 +598,7 @@ public class ChatTemplatesPage extends BasePage {
         }
         selectWebElement(enableDropdown);
         selectDropdownFromVisibleText(enableListbox,details.getUpdatedGroupEnabled());
-        enterValueToTxtField(modifyReasonTextBox,details.getModifyReason());
+        enterValueToTxtFieldWithoutClear(modifyReasonTextBox,details.getModifyReason());
         selectWebElement(saveBtn);
     }
     public void deleteGroupRecord(String name,String reason) throws Exception {
@@ -598,7 +610,7 @@ public class ChatTemplatesPage extends BasePage {
         }
         btnClick(deleteBtn);
         selectWebElement(deleteReasonTextBox);
-        enterValueToTxtField(deleteReasonTextBox,reason);
+        enterValueToTxtFieldWithoutClear(deleteReasonTextBox,reason);
         Thread.sleep(2000);
         selectWebElement(yesBtn);
     }
@@ -655,6 +667,9 @@ public class ChatTemplatesPage extends BasePage {
 	public void addRecordWithoutEnabled(ChatTemplateDetails details) throws Exception {
 		selectWebElement(addNewDepartmentRecordBtn);
 		waitForJqueryLoad(driver);
+		Thread.sleep(1000);
+		selectWebElement(channelDropdown);
+        selectDropdownFromVisibleText(channelListbox,details.getChannel());
         selectWebElement(nameTextbox);
         enterValueToTxtField(nameTextbox,details.getDepartmentName());
         selectWebElement(saveBtn);		
@@ -664,6 +679,8 @@ public class ChatTemplatesPage extends BasePage {
 		selectWebElement(addNewDepartmentRecordBtn);
 		waitForJqueryLoad(driver);
 		Thread.sleep(1000);
+		selectWebElement(channelDropdown);
+        selectDropdownFromVisibleText(channelListbox,details.getChannel());
         selectWebElement(enableDropdown);
         selectDropdownFromVisibleText(enableListbox,details.getDeptEnabled());
         selectWebElement(saveBtn);	
@@ -675,6 +692,19 @@ public class ChatTemplatesPage extends BasePage {
         selectWebElement(saveBtn);	
         selectWebElement(cancelBtn);
 	}
+	
+	public void addRecordWithoutChannel(ChatTemplateDetails details) throws Exception {
+		selectWebElement(addNewDepartmentRecordBtn);
+		waitForJqueryLoad(driver);
+        selectWebElement(nameTextbox);
+        enterValueToTxtField(nameTextbox,details.getDepartmentName());
+        selectWebElement(enableDropdown);
+        selectDropdownFromVisibleText(enableListbox,details.getDeptEnabled());
+        selectWebElement(saveBtn);	
+        selectWebElement(saveBtn);		
+        selectWebElement(cancelBtn);
+	}		
+	
 	public void addRecordWithoutDepartmentName(ChatTemplateDetails details) throws Exception {
 		selectWebElement(addNewGroupRecordBtn);
         waitForJqueryLoad(driver);
@@ -991,15 +1021,15 @@ public class ChatTemplatesPage extends BasePage {
 		}
 		
 		private List<Map<String,String>> getDepartmentData(){
-			System.out.println(items.get(1).getText());
+			System.out.println(items.get(0).getText());
 			try {
 				Thread.sleep(2000);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			int item=Integer.valueOf(items.get(1).getText().split("of ")[1].split(" items")[0]);
-	        int pagersize=Integer.valueOf(pagerSize.get(1).getText());
+			int item=Integer.valueOf(items.get(0).getText().split("of ")[1].split(" items")[0]);
+	        int pagersize=Integer.valueOf(pagerSize.get(0).getText());
 	        int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
 			List<Map<String,String>> arr=new ArrayList<Map<String,String>>();
 			for(int k=0;k<=pages;k++){
@@ -1011,10 +1041,10 @@ public class ChatTemplatesPage extends BasePage {
 				Map<String,String> map = new HashMap<String,String>();
 				List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
 				for(int j=1;j<headers.size();j++) {
-					if(headers.get(j).getText().equals("Last Changed On")){
-						col=cols.get(j).getText().substring(0,10);
-						}
-					else
+					//if(headers.get(j).getText().equals("Last Changed On")){
+					//	col=cols.get(j).getText().substring(0,10);
+						//}
+					//else
 						col=cols.get(j).getText();
 					map.put(headers.get(j).getText(),col);
 				}
@@ -1023,16 +1053,16 @@ public class ChatTemplatesPage extends BasePage {
 			}
 			if(k!=pages)
 			{
-				nextPageIcon.get(1).click();
+				nextPageIcon.get(0).click();
 				waitForJqueryLoad(driver);}
 			}
 				return arr;
 		}
 		
 		private List<Map<String,String>> getGroupsData(){
-			System.out.println(items.get(2).getText());
-			int item=Integer.valueOf(items.get(2).getText().split("of ")[1].split(" items")[0]);
-	        int pagersize=Integer.valueOf(pagerSize.get(2).getText());
+			System.out.println(items.get(1).getText());
+			int item=Integer.valueOf(items.get(1).getText().split("of ")[1].split(" items")[0]);
+	        int pagersize=Integer.valueOf(pagerSize.get(1).getText());
 	        int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
 			List<Map<String,String>> arr=new ArrayList<Map<String,String>>();
 			for(int k=0;k<=pages;k++){
@@ -1044,10 +1074,10 @@ public class ChatTemplatesPage extends BasePage {
 				Map<String,String> map = new HashMap<String,String>();
 				List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
 				for(int j=1;j<headers.size();j++) {
-					if(headers.get(j).getText().equals("Last Changed On")){
-						col=cols.get(j).getText().substring(0,10);
-						}
-					else
+					//if(headers.get(j).getText().equals("Last Changed On")){
+					//	col=cols.get(j).getText().substring(0,10);
+					//	}
+					//else
 						col=cols.get(j).getText();
 					map.put(headers.get(j).getText(),col);
 				}
@@ -1056,7 +1086,7 @@ public class ChatTemplatesPage extends BasePage {
 			}
 			if(k!=pages)
 			{
-				nextPageIcon.get(2).click();
+				nextPageIcon.get(1).click();
 				waitForJqueryLoad(driver);}
 			}
 				return arr;
@@ -1092,9 +1122,9 @@ public class ChatTemplatesPage extends BasePage {
 		
 		
 		private List<Map<String,String>> getData(){
-			System.out.println(items.get(3).getText());
-			int item=Integer.valueOf(items.get(3).getText().split("of ")[1].split(" items")[0]);
-	        int pagersize=Integer.valueOf(pagerSize.get(3).getText());
+			System.out.println(items.get(2).getText());
+			int item=Integer.valueOf(items.get(2).getText().split("of ")[1].split(" items")[0]);
+	        int pagersize=Integer.valueOf(pagerSize.get(2).getText());
 	        int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
 			List<Map<String,String>> arr=new ArrayList<Map<String,String>>();
 			for(int k=0;k<=pages;k++){
@@ -1106,10 +1136,10 @@ public class ChatTemplatesPage extends BasePage {
 				Map<String,String> map = new HashMap<String,String>();
 				List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
 				for(int j=1;j<headers.size();j++) {
-					if(headers.get(j).getText().equals("Last Changed On")){
-						col=cols.get(j).getText().substring(0,10);
-						}
-					else
+					//if(headers.get(j).getText().equals("Last Changed On")){
+						//col=cols.get(j).getText().substring(0,10);
+						//}
+					//else
 						col=cols.get(j).getText();
 					map.put(headers.get(j).getText(),col);
 				}
@@ -1118,7 +1148,7 @@ public class ChatTemplatesPage extends BasePage {
 			}
 			if(k!=pages)
 			{
-				nextPageIcon.get(3).click();
+				nextPageIcon.get(2).click();
 				waitForJqueryLoad(driver);}
 			}
 				return arr;
@@ -1691,5 +1721,6 @@ public class ChatTemplatesPage extends BasePage {
 				}
 					return arr;
 			}
+			
 		    
 }

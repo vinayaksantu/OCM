@@ -42,7 +42,7 @@ public class SmsResponseTemplateUpdateTest {
         Test t = method.getAnnotation(Test.class);
         Map<String, String> map;
         if(t.groups()[0].equalsIgnoreCase("Checker"))
-            map= new ExcelReader(filePath,"Login").getTestData().get(2);
+            map= new ExcelReader(filePath,"Login").getTestData().get(1);
         else
             map= new ExcelReader(filePath,"Login").getTestData().get(0);
         try{driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);}catch (TimeoutException e){e.printStackTrace();driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);}
@@ -61,11 +61,11 @@ public class SmsResponseTemplateUpdateTest {
         Assert.assertTrue(smsPage.isSMSPageDisplayed(), "IVR page assertion failed");
         smsPage.navigateToSMSResponseTemplatePage();
         SmsResponseTemplatePage SmsResponseTemplatePage = PageFactory.createPageInstance(driver, SmsResponseTemplatePage.class);
-        Assert.assertTrue(SmsResponseTemplatePage.isSMSResponseTemplatePageDisplayed(), "Branch Management page assertion failed");
+        Assert.assertTrue(SmsResponseTemplatePage.isSMSResponseTemplatePageDisplayed(), "SMS Response Template page assertion failed");
         driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 	}
 	
-	@Test(groups= {"Maker"})
+	@Test(groups= {"Maker"},priority=1)
 	public void EditCancelSmsResponseTemplateRecord() throws Exception {
 	    String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\SmsResponseTemplateData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(0);
@@ -74,8 +74,8 @@ public class SmsResponseTemplateUpdateTest {
         Assert.assertTrue(SmsResponseTemplatePage.EditCancel(SmsResponseTemplateDetails), "Edit Cancel assertion Failed");
 	}
 	
-	@Test(groups= {"Maker"})
-	public void EditSmsResponseTemplateRecord() throws Exception {
+	@Test(groups= {"Maker"},priority=2)
+	public void EditRevertSmsResponseTemplateRecord() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\SmsResponseTemplateData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(0);
 	    SmsResponseTemplateDetails SmsResponseTemplateDetails = new SmsResponseTemplateDetails(map);
@@ -84,8 +84,17 @@ public class SmsResponseTemplateUpdateTest {
         Assert.assertEquals(SmsResponseTemplatePage.getSuccessMessage(), "Record updated successfully");
 	}
 	
-	@Test(groups= {"Maker"})//,dependsOnMethods="EditSmsResponseTemplateRecord")
-    public void VerifyAuditTrialReportForUpdate() throws Exception {
+	@Test(groups = { "Maker" },priority=3,dependsOnMethods="EditRevertSmsResponseTemplateRecord")
+    public void VerifyRevertForEditRecord() throws Exception {
+       	SmsResponseTemplatePage SmsResponseTemplatePage = PageFactory.createPageInstance(driver, SmsResponseTemplatePage.class);
+       	SmsResponseTemplatePage.selectSmsResponseTemplateAuditTrailTab();
+       	SmsResponseTemplatePage.selectRecord();
+       	SmsResponseTemplatePage.Revert("revert");
+        Assert.assertTrue(SmsResponseTemplatePage.verifyStatus("Reverted"),"approval status details failed");
+    }
+	
+	@Test(groups= {"Maker"},priority=4,dependsOnMethods="VerifyRevertForEditRecord")
+    public void VerifyAuditTrialReportForRevertUpdate() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\SmsResponseTemplateData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(0);	
 	    SmsResponseTemplateDetails SmsResponseTemplateDetails = new SmsResponseTemplateDetails(map);
@@ -96,39 +105,37 @@ public class SmsResponseTemplateUpdateTest {
         Map<String, String> map1 = new ExcelReader(filePath1,"Show").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map1);
         ocmReportsPage.showReport(reportDetails);
-        Assert.assertTrue(ocmReportsPage.verifySmsResponseTemplateUpdate(SmsResponseTemplateDetails,"MakerUpdate"));
+        Assert.assertTrue(ocmReportsPage.verifySmsResponseTemplateUpdate(SmsResponseTemplateDetails,"MakerReverted"));
     }
 	
-	@Test(groups = { "Maker" })//,dependsOnMethods="EditSmsResponseTemplateRecord")
-    public void VerifyAuditTrailDataForEditSmsResponseTemplateRecord() throws Exception {
+	@Test(groups= {"Maker"},priority=5)
+	public void EditRejectRecord() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\SmsResponseTemplateData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(0);
 	    SmsResponseTemplateDetails SmsResponseTemplateDetails = new SmsResponseTemplateDetails(map);
         SmsResponseTemplatePage SmsResponseTemplatePage = PageFactory.createPageInstance(driver, SmsResponseTemplatePage.class);
-        SmsResponseTemplatePage.selectSmsResponseTemplateAuditTrailTab();
-        Assert.assertTrue(SmsResponseTemplatePage.verifyAuditTrailUpdate(SmsResponseTemplateDetails, "MakerUpdate", "New"), "Audit trail details failed");
-        SmsResponseTemplatePage.selectMakeSmsResponseTemplateChanges();
-        Assert.assertTrue(SmsResponseTemplatePage.verifyTaskCompleteEnabled(), "Task complete button not enabled");
-    }
+        SmsResponseTemplatePage.EditSmsResponseTemplateRecord(SmsResponseTemplateDetails);
+        Assert.assertEquals(SmsResponseTemplatePage.getSuccessMessage(), "Record updated successfully");
+	}
 	
-	@Test(groups = { "Maker" },dependsOnMethods="VerifyAuditTrailDataForEditSmsResponseTemplateRecord")
-    public void VerifyTaskCompleteActionForEditSmsResponseTemplateRecord() throws Exception {
-        SmsResponseTemplatePage SmsResponseTemplatePage = PageFactory.createPageInstance(driver, SmsResponseTemplatePage.class);
-        SmsResponseTemplatePage.selectSmsResponseTemplateAuditTrailTab();
-        SmsResponseTemplatePage.taskCompleteAction("Task Complete for Edit");
-        Assert.assertTrue(SmsResponseTemplatePage.verifyTaskCompleteSuccessMessage(),"Task Complete record assertion failed");
+	@Test(groups = { "Maker" },priority=6,dependsOnMethods="EditRejectRecord")
+    public void VerifySendForApprovalForEditRejectRecord() throws Exception {
+       	SmsResponseTemplatePage SmsResponseTemplatePage = PageFactory.createPageInstance(driver, SmsResponseTemplatePage.class);
+       	SmsResponseTemplatePage.selectSmsResponseTemplateAuditTrailTab();
+       	SmsResponseTemplatePage.selectRecord();
+       	SmsResponseTemplatePage.sendForAprroval("sent");
         Assert.assertTrue(SmsResponseTemplatePage.verifyStatus("Approval Pending"),"approal status details failed");
     }
-	
-	@Test(groups = { "Checker" })//,dependsOnMethods="VerifyTaskCompleteActionForEditSmsResponseTemplateRecord")
+
+	@Test(groups = { "Checker" },priority=7,dependsOnMethods="VerifySendForApprovalForEditRejectRecord")
     public void RejectforEditSmsResponseTemplateRecord() throws Exception{
         SmsResponseTemplatePage SmsResponseTemplatePage = PageFactory.createPageInstance(driver, SmsResponseTemplatePage.class);
         SmsResponseTemplatePage.clickonReject("Reject Updated");
-        Assert.assertFalse(SmsResponseTemplatePage.getErrorMsg(),"Reject record assertion failed");
+        Assert.assertFalse(SmsResponseTemplatePage.verifyMessage(),"Reject record assertion failed");
         Assert.assertTrue(SmsResponseTemplatePage.verifyReviewAuditTrail("Rejected","Reject Updated"));
     }
     
-    @Test(groups = { "Checker" },dependsOnMethods = "RejectforEditSmsResponseTemplateRecord")
+    @Test(groups = { "Checker" },priority=8,dependsOnMethods = "RejectforEditSmsResponseTemplateRecord")
     public void VerifyAuditTrailReportForReject() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\SmsResponseTemplateData.xlsx";
 	    Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
@@ -142,35 +149,76 @@ public class SmsResponseTemplateUpdateTest {
 	    ocmReportsPage.showReport(reportDetails);
         Assert.assertTrue(ocmReportsPage.verifySmsResponseTemplateUpdate(SmsResponseTemplateDetails, "CheckerReject"),"Audit Trail report assertion failed");
     }
-	
     
-	@Test(groups = { "Maker" })//,dependsOnMethods="VerifyAuditTrailReportForReject")
-    public void EditRecord() throws Exception {
+	@Test(groups= {"Maker"},priority=9)
+	public void EditSmsResponseTemplateRecord() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\SmsResponseTemplateData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(0);
 	    SmsResponseTemplateDetails SmsResponseTemplateDetails = new SmsResponseTemplateDetails(map);
         SmsResponseTemplatePage SmsResponseTemplatePage = PageFactory.createPageInstance(driver, SmsResponseTemplatePage.class);
         SmsResponseTemplatePage.EditSmsResponseTemplateRecord(SmsResponseTemplateDetails);
         Assert.assertEquals(SmsResponseTemplatePage.getSuccessMessage(), "Record updated successfully");
-    }
-    
-    @Test(groups = { "Maker" },dependsOnMethods="EditRecord")
-    public void VerifyMakeSmsResponseTemplateButtonafterTaskComplete() throws Exception {
+	}
+	
+	@Test(groups = { "Maker" },priority=10,dependsOnMethods="EditSmsResponseTemplateRecord")
+    public void VerifyAuditTrailDataForEditSmsResponseTemplateRecord() throws Exception {
+		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\SmsResponseTemplateData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(0);
+	    SmsResponseTemplateDetails SmsResponseTemplateDetails = new SmsResponseTemplateDetails(map);
         SmsResponseTemplatePage SmsResponseTemplatePage = PageFactory.createPageInstance(driver, SmsResponseTemplatePage.class);
         SmsResponseTemplatePage.selectSmsResponseTemplateAuditTrailTab();
-        SmsResponseTemplatePage.taskCompleteAction("Task Complete for Update");
-        Assert.assertFalse(SmsResponseTemplatePage.VerifyMakeSmsResponseTemplateChangeButton());
+        Assert.assertTrue(SmsResponseTemplatePage.verifyAuditTrailUpdate(SmsResponseTemplateDetails, "MakerUpdate", "New"), "Audit trail details failed");
+    }
+	
+
+	@Test(groups= {"Maker"},priority=11,dependsOnMethods="EditSmsResponseTemplateRecord")
+    public void VerifyAuditTrialReportForUpdate() throws Exception {
+		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\SmsResponseTemplateData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(0);	
+	    SmsResponseTemplateDetails SmsResponseTemplateDetails = new SmsResponseTemplateDetails(map);
+        HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
+        homePage.navigateToOCMReportsPage();
+        OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver, OCMReportsPage.class);
+        String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AuditTrailReportData.xlsx";
+        Map<String, String> map1 = new ExcelReader(filePath1,"Show").getTestData().get(0);
+        ReportDetails reportDetails= new ReportDetails(map1);
+        ocmReportsPage.showReport(reportDetails);
+        Assert.assertTrue(ocmReportsPage.verifySmsResponseTemplateUpdate(SmsResponseTemplateDetails,"MakerUpdate"));
     }
     
-    @Test(groups = { "Checker" },dependsOnMethods="VerifyMakeSmsResponseTemplateButtonafterTaskComplete")
+	@Test(groups = { "Maker" },priority=12,dependsOnMethods="VerifyAuditTrialReportForUpdate")
+    public void VerifySendForApprovalForRejectRecord() throws Exception {
+       	SmsResponseTemplatePage SmsResponseTemplatePage = PageFactory.createPageInstance(driver, SmsResponseTemplatePage.class);
+       	SmsResponseTemplatePage.selectSmsResponseTemplateAuditTrailTab();
+       	SmsResponseTemplatePage.selectRecord();
+       	SmsResponseTemplatePage.sendForAprroval("sent");
+        Assert.assertTrue(SmsResponseTemplatePage.verifyStatus("Approval Pending"),"approal status details failed");
+    }
+	
+	@Test(groups= {"Maker"},priority=13,dependsOnMethods="VerifySendForApprovalForRejectRecord")
+    public void VerifyAuditTrialReportForSendForApprovalUpdate() throws Exception {
+		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\SmsResponseTemplateData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(0);	
+	    SmsResponseTemplateDetails SmsResponseTemplateDetails = new SmsResponseTemplateDetails(map);
+        HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
+        homePage.navigateToOCMReportsPage();
+        OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver, OCMReportsPage.class);
+        String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AuditTrailReportData.xlsx";
+        Map<String, String> map1 = new ExcelReader(filePath1,"Show").getTestData().get(0);
+        ReportDetails reportDetails= new ReportDetails(map1);
+        ocmReportsPage.showReport(reportDetails);
+        Assert.assertTrue(ocmReportsPage.verifySmsResponseTemplateUpdate(SmsResponseTemplateDetails,"MakerSendToApproval"));
+    }
+    
+    @Test(groups = { "Checker" },priority=14,dependsOnMethods="VerifyAuditTrialReportForSendForApprovalUpdate")
     public void ApproveforEditSmsResponseTemplateRecord() throws Exception{
         SmsResponseTemplatePage SmsResponseTemplatePage = PageFactory.createPageInstance(driver, SmsResponseTemplatePage.class);
         SmsResponseTemplatePage.clickonApprove("Approve Edited");
-        Assert.assertEquals(SmsResponseTemplatePage.getSuccessMessage(),"All the data has been approved successfully!","Approve record assertion failed");
+        Assert.assertTrue(SmsResponseTemplatePage.verifyMessage());
         Assert.assertTrue(SmsResponseTemplatePage.verifyReviewAuditTrail("Approved","Approve Edited"));
     }
 	
-	@Test(groups = { "Checker" },dependsOnMethods = "ApproveforEditSmsResponseTemplateRecord")
+	@Test(groups = { "Checker" },priority=15,dependsOnMethods = "ApproveforEditSmsResponseTemplateRecord")
     public void VerifyAuditTrailReportForApprove() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\SmsResponseTemplateData.xlsx";
 	    Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
@@ -179,13 +227,13 @@ public class SmsResponseTemplateUpdateTest {
 	    homePage.navigateToOCMReportsPage();
 	    OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver, OCMReportsPage.class);
 	    String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AuditTrailReportData.xlsx";
-	    Map<String, String> map1 = new ExcelReader(filePath1,"Show").getTestData().get(0);
+	    Map<String, String> map1 = new ExcelReader(filePath1,"Show").getTestData().get(0);	    
 	    ReportDetails reportDetails= new ReportDetails(map1);
 	    ocmReportsPage.showReport(reportDetails);
         Assert.assertTrue(ocmReportsPage.verifySmsResponseTemplateUpdate(SmsResponseTemplateDetails, "CheckerApprove"),"Audit Trail report assertion failed");
     }
     
-    @Test(groups = { "Maker" })
+    @Test(groups = { "Maker" },priority=16)
     public void EditRecordWithoutModifyReason() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\SmsResponseTemplateData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(0);

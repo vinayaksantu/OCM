@@ -123,7 +123,7 @@ public class HolidayListTest extends BaseTest {
         Map<String, String> map5 = new ExcelReader(filePath, "Create").getTestData().get(6);
         HolidayListDetails holidayListDetails5=new HolidayListDetails (map5);
         holidaylistPage.addNewHolidayList(holidayListDetails5);
-        Assert.assertFalse(holidaylistPage.verifymessage(), "HolidayList Record creation assertion failed" );
+        Assert.assertTrue(holidaylistPage.verifyErrormessage(), "HolidayList Record creation assertion failed" );
 	}
 	
 	@Test(priority=10,dependsOnMethods = ("addNewHolidayListRecord"))
@@ -133,7 +133,7 @@ public class HolidayListTest extends BaseTest {
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         HolidayListDetails holidayListDetails=new HolidayListDetails (map);	
         holidaylistPage.addDuplicateRecord(holidayListDetails);
-        Assert.assertFalse(holidaylistPage.verifymessage(), "HolidayList Duplicate Record assertion failed" );
+        Assert.assertTrue(holidaylistPage.verifyErrormessage(), "HolidayList Duplicate Record assertion failed" );
   	}
 	
 	@Test(priority=11)
@@ -143,7 +143,7 @@ public class HolidayListTest extends BaseTest {
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         HolidayListDetails holidayListDetails=new HolidayListDetails (map);	
         holidaylistPage.LeavingAllFieldsBlank(holidayListDetails);
-        Assert.assertFalse(holidaylistPage.verifymessage());
+        Assert.assertTrue(holidaylistPage.verifyErrormessage());
 	}
         
 	@Test(priority=12)
@@ -153,7 +153,7 @@ public class HolidayListTest extends BaseTest {
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         HolidayListDetails holidayListDetails=new HolidayListDetails (map);	    	
         holidaylistPage.LeavingAnnouncedHolidayBlank(holidayListDetails);
-        Assert.assertFalse(holidaylistPage.verifymessage());
+        Assert.assertTrue(holidaylistPage.verifyErrormessage());
 	}
 	@Test(priority=13)
 	public void AddWithoutStartDate() throws Exception {
@@ -162,7 +162,7 @@ public class HolidayListTest extends BaseTest {
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         HolidayListDetails holidayListDetails=new HolidayListDetails (map);	
         holidaylistPage.LeavingStartDateBlank(holidayListDetails);
-        Assert.assertFalse(holidaylistPage.verifymessage());
+        Assert.assertTrue(holidaylistPage.verifyErrormessage());
 	}
 	
 	@Test(priority=14)
@@ -172,7 +172,7 @@ public class HolidayListTest extends BaseTest {
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         HolidayListDetails holidayListDetails=new HolidayListDetails (map);	
         holidaylistPage.LeavingStartTimeBlank(holidayListDetails);
-        Assert.assertFalse(holidaylistPage.verifymessage());
+        Assert.assertTrue(holidaylistPage.verifyErrormessage());
 	}
 	
 	@Test(priority=15)
@@ -182,7 +182,7 @@ public class HolidayListTest extends BaseTest {
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         HolidayListDetails holidayListDetails=new HolidayListDetails (map);	
         holidaylistPage.LeavingEndDateBlank(holidayListDetails);
-        Assert.assertFalse(holidaylistPage.verifymessage());
+        Assert.assertTrue(holidaylistPage.verifyErrormessage());
 	}
 	
 	@Test(priority=16)
@@ -192,17 +192,17 @@ public class HolidayListTest extends BaseTest {
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         HolidayListDetails holidayListDetails=new HolidayListDetails (map);	
         holidaylistPage.LeavingEndTimeBlank(holidayListDetails);
-        Assert.assertFalse(holidaylistPage.verifymessage());
+        Assert.assertTrue(holidaylistPage.verifyErrormessage());
 	}
 	
-	@Test(priority=17)
+@Test(priority=17)
 	public void AddWithoutVDN() throws Exception {
 		HolidayListPage holidaylistPage = PageFactory.createPageInstance(driver, HolidayListPage.class);
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\HolidayListData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         HolidayListDetails holidayListDetails=new HolidayListDetails (map);	
         holidaylistPage.LeavingVDNBlank(holidayListDetails);
-        Assert.assertFalse(holidaylistPage.verifymessage());
+        Assert.assertTrue(holidaylistPage.verifyErrormessage());
 	}
 	
 	@Test(priority=18)
@@ -243,13 +243,13 @@ public class HolidayListTest extends BaseTest {
         Assert.assertTrue(holidaylistPage.verifyArrowMoveForFirstAndLastPage(),"arrow move for first and last page assertion failed");
     }
     
-    @Test(priority=23)
+    //@Test(priority=23)
     public void VerifyTotalNumberOfItemsPerPageDetails() {
         HolidayListPage holidaylistPage = PageFactory.createPageInstance(driver, HolidayListPage.class);
         Assert.assertTrue(holidaylistPage.verifyTotalNumberOfItemsPerPageDetails(),"item per page assertion failed");
     }
     
-    @Test(priority=24)
+   // @Test(priority=24)
     public void VerifyNumberOfItemsPerPageSelection() {
         HolidayListPage holidaylistPage = PageFactory.createPageInstance(driver, HolidayListPage.class);
         Assert.assertTrue(holidaylistPage.verifyNumberOfItemsPerPage(),"item per page assertion failed");
@@ -325,7 +325,7 @@ public class HolidayListTest extends BaseTest {
         Assert.assertTrue(holidaylistPage.verifymessage(),"delete record assertion failed");
         }
     
-    @Test(priority=33)
+    //@Test(priority=33)
     public void ExporttoExcelWithoutData() throws Exception
     {
         HolidayListPage holidaylistPage = PageFactory.createPageInstance(driver, HolidayListPage.class);
@@ -375,6 +375,7 @@ public class HolidayListTest extends BaseTest {
 		Screenshot screenshot=new Screenshot(driver);
         screenshot.captureScreen("HolidayListTest",method.getName());
         driver.navigate().refresh();
+
 	}
 }
 	

@@ -237,6 +237,9 @@ public class TmacTransferListPage extends BasePage {
 	
 	@FindBy(xpath="//*[@id='Value']/..//span//span[@aria-label='Increase value']/span")
 	private WebElement AgtExtIncrease;
+	
+	@FindBy(css=".k-grid-content")
+	private WebElement gridContent1;
    
     public boolean isTmacTransferListPageDisplayed() {
         waitForLoad(driver);
@@ -368,6 +371,113 @@ public class TmacTransferListPage extends BasePage {
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(gridContent.get(index));
     }
+    
+    public boolean verifySearchIsNotEqualTo(String name) throws Exception {
+		Boolean Status=false;
+		Map<String, String> map=new HashMap<String,String>() ;
+		map.put("Name", name);
+		selectWebElement(searchBtn);
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Name");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is not equal to");
+        enterValueToTxtField(searchTextBox,name);		
+        selectWebElement(searchSearchBtn);
+        waitUntilWebElementIsVisible(gridContent1);
+        List<Map<String,String>> UI=gettable(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(map1.equals(map))
+        	Status= false;
+        	else 
+        		Status= true;
+	}
+        return Status;
+	
+	}
+    
+    public boolean verifySearchContains(String name) throws Exception {
+		Boolean Status=false;
+		selectWebElement(searchBtn);
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Name");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Contains");
+        enterValueToTxtField(searchTextBox,name);		
+        selectWebElement(searchSearchBtn);
+        waitUntilWebElementIsVisible(gridContent1);
+        List<Map<String,String>> UI=gettable(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(map1.get("Name").toUpperCase().contains(name.toUpperCase()))
+        	Status= true;
+        	else 
+        		Status= false;
+	}
+        return Status;
+	}
+	public boolean verifySearchDoesNotContains(String name) throws Exception {
+		Boolean Status=false;
+		selectWebElement(searchBtn);
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Name");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Does not contain");
+        enterValueToTxtField(searchTextBox,name);		
+        selectWebElement(searchSearchBtn);
+        waitUntilWebElementIsVisible(gridContent1);
+        List<Map<String,String>> UI=gettable(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(!map1.get("Name").toLowerCase().contains(name.toLowerCase()))
+        	Status= true;
+        	else 
+        		Status= false;
+	}
+        return Status;
+	}
+	
+	public boolean verifySearchStartsWith(String name) throws Exception {
+		Boolean Status=false;
+		selectWebElement(searchBtn);
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Name");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Starts with");
+        enterValueToTxtField(searchTextBox,name);		
+        selectWebElement(searchSearchBtn);
+        waitUntilWebElementIsVisible(gridContent1);
+        List<Map<String,String>> UI=gettable(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(map1.get("Name").toLowerCase().startsWith(name.toLowerCase()))
+        	Status= true;
+        	else 
+        		Status= false;
+	}
+        return Status;
+	}
+	
+	public boolean verifySearchEndsWith(String name) throws Exception {
+		Boolean Status=false;
+		selectWebElement(searchBtn);
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Name");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Ends with");
+        enterValueToTxtField(searchTextBox,name);		
+        selectWebElement(searchSearchBtn);
+        waitUntilWebElementIsVisible(gridContent1);
+        List<Map<String,String>> UI=gettable(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(map1.get("Name").toUpperCase().endsWith(name.toUpperCase()))
+        	Status= true;
+        	else 
+        		Status= false;
+	}
+        return Status;
+	}
     public void editTmacConsultTransferList(TmacTransferListDetails tmacTransferListDetails) throws Exception {
         searchTmacTransferRecord(tmacTransferListDetails.getName(),"Name",0);
         selectWebElement(editButton);
@@ -649,10 +759,10 @@ public class TmacTransferListPage extends BasePage {
 			Map<String,String> map = new HashMap<String,String>();
 			List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
 			for(int j=1;j<headers.size();j++) {
-				if(headers.get(j).getText().equals("Last Changed On")){
+				/*if(headers.get(j).getText().equals("Last Changed On")){
 					col=cols.get(j).getText().substring(0,10);
 					}
-				else
+				else*/
 					col=cols.get(j).getText();
 				map.put(headers.get(j).getText(),col);
 			}

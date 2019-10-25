@@ -9,9 +9,7 @@ import java.util.HashMap;
 import  java.util.List;
 import java.util.Map;
 
-import com.tetherfi.model.chat.CallBackManagementDetails;
 import com.tetherfi.model.ivr.MenuDescriptionMappingDetails;
-import com.tetherfi.model.ivr.VipListManagementDetails;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -300,12 +298,6 @@ public class MenuDescriptionMappingPage extends BasePage {
 			Map<String,String> map = new HashMap<String,String>();
 			List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
 			for(int j=1;j<headers.size();j++) {
-				scrollToElement(headers.get(j));
-				System.out.println(headers.get(j).getText());
-				if(headers.get(j).getText().equals("Last Changed On")){
-				col=cols.get(j).getText().substring(0,10);
-				}
-				else
 					col=cols.get(j).getText();
 				map.put(headers.get(j).getText(),col);
 			}
@@ -431,7 +423,7 @@ public class MenuDescriptionMappingPage extends BasePage {
     }
     public boolean verifyTotalNumberOfItemsPerPageDetails(){
         String item = items.getText();
-        return item.matches("(\\d.*) - (\\d.*) of (\\d.*) items");
+        return item.matches("(\\d.) - (\\d.) of (\\d.*) items");
     }
     public boolean verifyDropDownOfAllHeaders() {
         boolean status = false;
@@ -614,10 +606,19 @@ public class MenuDescriptionMappingPage extends BasePage {
 	}
 
 	public String verifySuccessMessage() {
-		 if(errorMsg.size()>0){return errorMsg.get(0).getText();}
-	       else{waitUntilWebElementIsVisible(successmsg);return successmsg.getText();}
+		// if(errorMsg.size()>0){return errorMsg.get(0).getText();}
+	       waitUntilWebElementIsVisible(successmsg);return successmsg.getText();
 	}
 
+	
+	public boolean verifyErrorMsg() {
+		
+		if(errorMsg.size()>0)
+		{return false;}
+		else
+			return true;
+		}
+	
 	public void addNewEmptyRecord(MenuDescriptionMappingDetails details) {
 		selectWebElement(addMenuDescMappingRecdBtn);
 		waitForLoad(driver);
@@ -682,7 +683,7 @@ public class MenuDescriptionMappingPage extends BasePage {
 		selectWebElement(menuNameTextbox);
 		enterValueToTxtField(menuNameTextbox,details.getUpdatedMenuName());
 		selectWebElement(ModifyReasonTextBox);
-		enterValueToTxtField(ModifyReasonTextBox,details.getModifyReason());
+		enterValueToTxtFieldWithoutClear(ModifyReasonTextBox,details.getModifyReason());
 		selectWebElement(saveButton);		
 	}
 
@@ -707,6 +708,113 @@ public class MenuDescriptionMappingPage extends BasePage {
         selectWebElement(searchSearchBtn);
 	}
 	
+	public boolean verifySearchIsNotEqualTo(String menuname) throws Exception {
+		Boolean Status=false;
+		Map<String, String> map=new HashMap<String,String>() ;
+		map.put("Menu Name", menuname);
+		selectWebElement(searchBtn);
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Menu Name");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is not equal to");
+        enterValueToTxtField(searchTextBox,menuname);		
+        selectWebElement(searchSearchBtn);
+        waitUntilWebElementIsVisible(gridContent);
+        List<Map<String,String>> UI=gettable(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(map1.equals(map))
+        	Status= false;
+        	else 
+        		Status= true;
+	}
+        return Status;
+	
+	}
+	
+	public boolean verifySearchContains(String menuname) throws Exception {
+		Boolean Status=false;
+		selectWebElement(searchBtn);
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Menu Name");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Contains");
+        enterValueToTxtField(searchTextBox,menuname);		
+        selectWebElement(searchSearchBtn);
+        waitUntilWebElementIsVisible(gridContent);
+        List<Map<String,String>> UI=gettable(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(map1.get("Menu Name").toUpperCase().contains(menuname.toUpperCase()))
+        	Status= true;
+        	else 
+        		Status= false;
+	}
+        return Status;
+	}
+	public boolean verifySearchDoesNotContains(String menuname) throws Exception {
+		Boolean Status=false;
+		selectWebElement(searchBtn);
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Menu Name");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Does not contain");
+        enterValueToTxtField(searchTextBox,menuname);		
+        selectWebElement(searchSearchBtn);
+        waitUntilWebElementIsVisible(gridContent);
+        List<Map<String,String>> UI=gettable(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(!map1.get("Menu Name").toLowerCase().contains(menuname.toLowerCase()))
+        	Status= true;
+        	else 
+        		Status= false;
+	}
+        return Status;
+	}
+	
+	public boolean verifySearchStartsWith(String menuname) throws Exception {
+		Boolean Status=false;
+		selectWebElement(searchBtn);
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Menu Name");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Starts with");
+        enterValueToTxtField(searchTextBox,menuname);		
+        selectWebElement(searchSearchBtn);
+        waitUntilWebElementIsVisible(gridContent);
+        List<Map<String,String>> UI=gettable(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(map1.get("Menu Name").toLowerCase().startsWith(menuname.toLowerCase()))
+        	Status= true;
+        	else 
+        		Status= false;
+	}
+        return Status;
+	}
+	
+	public boolean verifySearchEndsWith(String menuname) throws Exception {
+		Boolean Status=false;
+		selectWebElement(searchBtn);
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Menu Name");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Ends with");
+        enterValueToTxtField(searchTextBox,menuname);		
+        selectWebElement(searchSearchBtn);
+        waitUntilWebElementIsVisible(gridContent);
+        List<Map<String,String>> UI=gettable(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(map1.get("Menu Name").toUpperCase().endsWith(menuname.toUpperCase()))
+        	Status= true;
+        	else 
+        		Status= false;
+	}
+        return Status;
+	}
+	
 	public void SortByAscending() {
 		selectWebElement(MenuName);
 		selectWebElement(exporttoexcel);
@@ -728,6 +836,7 @@ public class MenuDescriptionMappingPage extends BasePage {
 		}
 	}
 	public void clickOnEditButton() {
+		waitUntilWebElementIsVisible(editBtn);
 		selectWebElement(editBtn);
 	}
 
@@ -740,6 +849,7 @@ public class MenuDescriptionMappingPage extends BasePage {
        }
 
 	public void clickOnDeleteButton() {
+		waitUntilWebElementIsVisible(deleteBtn);
         selectWebElement(deleteBtn);		
 	}
 
@@ -760,7 +870,7 @@ public class MenuDescriptionMappingPage extends BasePage {
 		searchMenuDescriptionMappingRecord(details.getMenuID());
 		Thread.sleep(2000);
         selectWebElement(deleteBtn);
-        enterValueToTxtField(deleteReasonTextBox,details.getDeleteReason());
+        enterValueToTxtFieldWithoutClear(deleteReasonTextBox,details.getDeleteReason());
         selectWebElement(deleteYesBtn);		
 	}
 

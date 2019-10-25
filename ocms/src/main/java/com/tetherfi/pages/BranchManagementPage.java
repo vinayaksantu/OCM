@@ -15,7 +15,6 @@ import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
-import com.tetherfi.model.fax.FaxTemplateDetails;
 import com.tetherfi.model.ivr.BranchManagementDetails;
 import com.tetherfi.utility.FileUploader;
 
@@ -274,6 +273,21 @@ public class BranchManagementPage extends BasePage {
     @FindBy(id="tabstripfaxtemplateMakerChecker")
     private List<WebElement> makerCheckerTab;
     
+    @FindBy(id="sendForApproval")
+    private WebElement sendForApprovalBtn;
+    
+    @FindBy(id="undoChanges")
+    private WebElement revertBtn;
+    
+    @FindBy(id="undoChangesMakerComments")
+    private WebElement revertMakerComments;
+    
+    @FindBy(id="submitMakerComment")
+    private WebElement submitMakerComments;
+    
+    @FindBy(id="submitUndoChangesMakerComment")
+    private WebElement revertSubmitMakerComments;
+    
 	public boolean isBranchManagementPageDisplayed() {
 		waitForLoad(driver);
         waitForJqueryLoad(driver);
@@ -386,7 +400,7 @@ public class BranchManagementPage extends BasePage {
 	}
 
 	public boolean verifyAuditTrailDataTableHeaders() {
-		ArrayList<String> Expected=new ArrayList<String>(Arrays.asList("Request Id", "Transaction", "Function", "Status", "User Id", "Submission DateTime", "Maker Comments", "Old Values", "New Values", "Reviewed By","Review DateTime", "Checker Comments"));
+		ArrayList<String> Expected=new ArrayList<String>(Arrays.asList(" ","Request Id", "Transaction", "Function", "Status", "User Id", "Submission DateTime", "Maker Comments", "Old Values", "New Values", "Reviewed By","Review DateTime", "Checker Comments"));
         ArrayList Actual = getHeadersfromTable(auditTrailTableHeaders);
         System.out.println(Actual);
         Collections.sort(Expected);Collections.sort(Actual);
@@ -626,10 +640,6 @@ public class BranchManagementPage extends BasePage {
 			List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
 			for(int j=1;j<headers.size();j++) {
 				scrollToElement(headers.get(j));
-				if(headers.get(j).getText().equals("Last Changed On")){
-					col=cols.get(j).getText().substring(0,10);
-					}
-				else
 					col=cols.get(j).getText();
 				map.put(headers.get(j).getText(),col);
 			}
@@ -805,8 +815,6 @@ public class BranchManagementPage extends BasePage {
 	}
 	
 	public String getSuccessMessage() {
-		waitForJqueryLoad(driver);
-        if(errorMsg.size()>0){return errorMsg.get(0).getText();}
         waitUntilWebElementIsVisible(successmsg);
         return successmsg.getText();
 	}
@@ -898,7 +906,7 @@ public class BranchManagementPage extends BasePage {
         Map<String,String> firstRowData=getFirstRowDatafromTable();
         if(firstRowData.get("Transaction").equalsIgnoreCase(Transaction)){
             if(firstRowData.get("Status").equalsIgnoreCase(Status)){
-                if(firstRowData.get("Function").equalsIgnoreCase("IvrBranchManagement")){
+                if(firstRowData.get("Function").equalsIgnoreCase("Branch Management")){
                        if(Transaction.equals("MakerCreate")){
                            Map<String,String> newvalues=new HashMap<>();
                             String[] d=firstRowData.get("New Values").split("\n");
@@ -912,7 +920,7 @@ public class BranchManagementPage extends BasePage {
                             stat=false;
                        }
                        else{System.out.println("Data mismatch");}
-                }else{System.out.println("Data mismatch:"+firstRowData.get("Function")+"\t"+"RoleManagement");}
+                }else{System.out.println("Data mismatch:"+firstRowData.get("Function")+"\t"+"Branch Management");}
             }else{System.out.println("Data mismatch:"+firstRowData.get("Status")+"\t"+Status);}
         }else{System.out.println("Data mismatch:"+firstRowData.get("Transaction")+"\t"+Transaction);}
         return stat;
@@ -1022,6 +1030,7 @@ public class BranchManagementPage extends BasePage {
 	        } catch (InterruptedException e) {
 	            e.printStackTrace();
 	        }
+	        selectRecord();
 	        clickOn(approveBtn);
 	        selectWebElement(checkerReason);
 	        enterValueToTxtField(checkerReason,comment);
@@ -1299,6 +1308,7 @@ public class BranchManagementPage extends BasePage {
 	        } catch (InterruptedException e) {
 	            e.printStackTrace();
 	        }
+	        selectRecord();
 	        clickOn(rejectBtn);
 	        selectWebElement(checkerReason);
 	        enterValueToTxtField(checkerReason,comment);
@@ -1359,7 +1369,7 @@ public class BranchManagementPage extends BasePage {
 	    selectWebElement(statusDropDown);
         selectDropdownFromVisibleText(statusListbox, branchManagementDetails.getUpdatedStatus());
         selectWebElement(modifyReasonTextbox);
-        enterValueToTxtField(modifyReasonTextbox,branchManagementDetails.getModifyReason());
+        enterValueToTxtFieldWithoutClear(modifyReasonTextbox,branchManagementDetails.getModifyReason());
         selectWebElement(saveBtn);	
 	}
 
@@ -1476,7 +1486,7 @@ public class BranchManagementPage extends BasePage {
 		selectWebElement(deleteButton);
 		Thread.sleep(1000);
         selectWebElement(deleteReasonTextBox);
-        enterValueToTxtField(deleteReasonTextBox,branchManagementDetails.getDeleteReason());
+        enterValueToTxtFieldWithoutClear(deleteReasonTextBox,branchManagementDetails.getDeleteReason());
         selectWebElement(yesBtn);		
 	}
 
@@ -1576,6 +1586,32 @@ public class BranchManagementPage extends BasePage {
 	        }
 	        return status;
 	    }
+	    
+	    
+	    public void selectRecord() {
+			Map<String,String> map = new HashMap<>();
+			waitUntilWebElementIsVisible(auditGridContent);
+			List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
+			List<WebElement> cols=rows.get(1).findElements(By.tagName("td"));
+			selectWebElement(cols.get(0).findElement(By.id("isEnabled")));
+	    }
+		
+		public void sendForAprroval(String comments) throws Exception {
+			selectWebElement(sendForApprovalBtn);
+			enterValueToTxtField(makerComments, comments);
+			selectWebElement(submitMakerComments);		
+		}
+		
+		public void Revert(String comments) throws Exception {
+			selectWebElement(revertBtn);
+			enterValueToTxtField(revertMakerComments,comments);
+			selectWebElement(revertSubmitMakerComments);				
+		}
+		
+		public boolean verifyMessage() {
+	        return(getSuccessMessage().contains("Record approved successfully. Request ID :"));
+
+		}
 
 		
 

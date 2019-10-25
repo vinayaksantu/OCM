@@ -137,7 +137,7 @@ public class HolidayListPage extends BasePage{
     @FindBy(id="EndTime")
     private WebElement endTimeTextbox; 
     
-    @FindBy(xpath="//input[@placeholder='Enter Value']")
+    @FindBy(xpath="//input[@placeholder='Enter Value'and@id='VDN']")
     private WebElement vdnTextbox;
     
     @FindBy(css="#toast-container .toast-error .toast-message")
@@ -462,10 +462,6 @@ public class HolidayListPage extends BasePage{
 			Map<String,String> map = new HashMap<String,String>();
 			List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
 			for(int j=1;j<headers.size();j++) {
-				if(headers.get(j).getText().equals("Last Changed On")){
-					col=cols.get(j).getText().substring(0,10);
-					}
-				else
 					col=cols.get(j).getText();
 				map.put(headers.get(j).getText(),col);
 			}
@@ -519,6 +515,7 @@ public class HolidayListPage extends BasePage{
 	public void addNewHolidayList(HolidayListDetails details) throws Exception {
 		selectWebElement(addNewHolidayListRecordBtn);
 		waitForJqueryLoad(driver);
+		waitUntilWebElementIsVisible(announcedHolidayTextbox);
 		enterValueToTxtField(announcedHolidayTextbox,details.getAnnouncedHoliday());
 		enterValueToTxtField(startDateTextbox,details.getStartDate());
 		enterValueToTxtField(startTimeTextbox,details.getStartTime());
@@ -529,13 +526,13 @@ public class HolidayListPage extends BasePage{
 		
 	}
 	public boolean verifymessage() {
-		if (errorMsg.size()>0)
-			return false;
+			waitUntilWebElementIsVisible(successmsg);
 			waitUntilWebElementIsVisible(successmsg);
 	    	if(successmsg.getText().contains("Successfully"))
 			return true;
 			else
-			{return false;}
+			{return false;
+			}
 	}
 
 	public boolean ExporttoExcelWithoutData(HolidayListDetails details) throws Exception {
@@ -715,7 +712,7 @@ public class HolidayListPage extends BasePage{
 		enterValueToTxtField(startDateTextbox,details.getStartDate());
 		enterValueToTxtField(startTimeTextbox,details.getStartTime());
 		enterValueToTxtField(endDateTextbox,details.getEndDate());
-		enterValueToTxtField(vdnTextbox,details.getVdn());
+		//enterValueToTxtField(vdnTextbox,details.getVdn());
 		selectWebElement(savebtn);
 		selectWebElement(cancelbtn);			
 	}
@@ -776,5 +773,11 @@ public class HolidayListPage extends BasePage{
 			return true;
 		else
 		return false;
+	}
+	public boolean verifyErrormessage() {
+		if(errorMsg.size()>0)
+			return true;
+		else
+			return false;
 	}
 }

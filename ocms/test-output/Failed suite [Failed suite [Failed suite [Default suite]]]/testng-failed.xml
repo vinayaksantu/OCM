@@ -3,25 +3,23 @@
 <suite name="Failed suite [Failed suite [Failed suite [Failed suite [Default suite]]]]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)(failed)(failed)(failed)">
     <classes>
-      <class name="com.tetherfi.test.tmac.TmacBroadCastMsgTest">
+      <class name="com.tetherfi.test.ivr.VBEnrollmentFlagTest">
         <methods>
-          <include name="database"/>
-          <include name="afterEachMethod"/>
-          <include name="VerifyAuditTrailReportForUpdate"/>
-          <include name="endTestCase"/>
-          <include name="tearDown"/>
           <include name="SortingByAscending"/>
           <include name="SortingByDescending"/>
-          <include name="NavigateToTmacBroadcastMsgPage"/>
-          <include name="ExporttoExcelWithoutData"/>
+          <include name="database"/>
+          <include name="endTestCase"/>
+          <include name="afterEachMethod"/>
+          <include name="tearDown"/>
+          <include name="DeleteVBEnrollmentFlagRecord"/>
+          <include name="NavigateToVbEnrollmentFlagPage"/>
+          <include name="ExportToExcelData"/>
           <include name="startTestCase"/>
           <include name="openApplication"/>
-          <include name="SearchClearSearch"/>
-          <include name="EditTmacBroadCastMsg"/>
-          <include name="EditTmacBroadCastMsgCancel"/>
-          <include name="Afterclass"/>
+          <include name="VerifyCancelBtnAtDeleteVBEnrollmentFlagRecord"/>
+          <include name="VerifyAuditTrialReportForDelete"/>
         </methods>
-      </class> <!-- com.tetherfi.test.tmac.TmacBroadCastMsgTest -->
+      </class> <!-- com.tetherfi.test.ivr.VBEnrollmentFlagTest -->
     </classes>
   </test> <!-- Default test(failed)(failed)(failed)(failed) -->
 </suite> <!-- Failed suite [Failed suite [Failed suite [Failed suite [Default suite]]]] -->

@@ -6,9 +6,9 @@ public class Constants {
     public static final String password="P@ssw0rd123";
     public static final String winAuthUrl="http://"+Constants.username+":"+Constants.password+"@"+applicationUrl.split("//")[1];
    */
-	public static final String host="jdbc:sqlserver://172.16.2.11:14330";
+	public static final String host="jdbc:sqlserver://172.16.2.25:1433";
     public static final String db_user="sa";
-    public static final String db_pass="P@ssw0rd";
+    public static final String db_pass="Tetherfi@123";
     public static final String db_name="Product_OCM";
     
     /*public static final String host="jdbc:sqlserver://10.133.146.18:14330";

@@ -167,6 +167,9 @@ public class VipListManagementPage extends BasePage{
 	
 	@FindBy(id = "ModifyReason1")
     private WebElement deleteReasonTextBox;
+	
+	@FindBy(xpath="//a[@class='k-button k-button-icontext k-grid-CustomDelete']")
+	private WebElement deletebtn;
 
     @FindBy(id = "yesButton")
     private WebElement deleteYesBtn;
@@ -177,9 +180,12 @@ public class VipListManagementPage extends BasePage{
     @FindBy(css = "#toast-container .toast-error .toast-message")
     private List<WebElement> errorMsg;
     
-    @FindBy(xpath="//input[@placeholder='Enter Value']")
-    private WebElement callerIDTextBox;
+    @FindBy(xpath="//input[@class='k-formatted-value k-input' and @placeholder='Enter Value']")
+    private WebElement callerID;
     
+    @FindBy(id="CallerID")
+    private WebElement callerIDTextBox;
+
     @FindBy(xpath="//input[@placeholder='Enter EmailID']")
     private WebElement emailIDTextBox;
     
@@ -227,6 +233,9 @@ public class VipListManagementPage extends BasePage{
     
     @FindBy(xpath="//a[text()='Email ID']")
     private WebElement EmailID;
+    
+    @FindBy(xpath="//a[@class='k-button k-button-icontext k-primary k-grid-update']")
+    private WebElement savebtn;
     
 	
 	public boolean isVipListManagementPageDisplayed() {
@@ -334,10 +343,10 @@ public class VipListManagementPage extends BasePage{
 			for(int j=1;j<headers.size();j++) {
 				scrollToElement(headers.get(j));
 				System.out.println(headers.get(j).getText());
-				if(headers.get(j).getText().equals("Last Changed On")){
+				/*if(headers.get(j).getText().equals("Last Changed On")){
 				col=cols.get(j).getText().substring(0,10);
 				}
-				else
+				else*/
 					col=cols.get(j).getText();
 				map.put(headers.get(j).getText(),col);
 			}
@@ -595,7 +604,7 @@ public class VipListManagementPage extends BasePage{
 	public void searchwithoutextsearch() {
 		selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
-        selectDropdownFromVisibleText(columnNameList,"Parameter");
+        selectDropdownFromVisibleText(columnNameList,"Caller ID");
         selectWebElement(selectSearchCol.get(1));
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is equal to");
         selectWebElement(searchSearchBtn);	
@@ -680,13 +689,20 @@ public class VipListManagementPage extends BasePage{
         selectWebElement(exclusionFlagDropdown);
         selectDropdownFromVisibleText(exclusionFlagListbox,details.getExclusionFlag());
 		enterValueToTxtField(otherDataTextBox,details.getOtherData());
-		selectWebElement(saveButton);	
+		selectWebElement(savebtn);
+		
 	}
 	
 	   public String verifySuccessMessage(){
-	        if(errorMsg.size()>0){return errorMsg.get(0).getText();}
-	       else{waitUntilWebElementIsVisible(successmsg);return successmsg.getText();}
+	        //if(errorMsg.size()>0){return errorMsg.get(0).getText();}
+	       //else
+	       {waitUntilWebElementIsVisible(successmsg);return successmsg.getText();}
 	    }
+	   public boolean verifyErrorMsg() {
+	    	if(errorMsg.size()>0){return false;}
+	    	else 
+	    		return true;
+	   }
 	public void addNewEmptyRecord(VipListManagementDetails details) {
 		selectWebElement(addNewVipListRecordBtn);
 		selectWebElement(saveButton);
@@ -758,8 +774,7 @@ public class VipListManagementPage extends BasePage{
         selectWebElement(exclusionFlagDropdown);
         selectDropdownFromVisibleText(exclusionFlagListbox,details.getExclusionFlag());
 		enterValueToTxtField(otherDataTextBox,details.getOtherData());
-		selectWebElement(saveButton);
-		selectWebElement(cancelBtn);		
+		selectWebElement(saveButton);		
 	}
 	public void addRecordWithoutMessengerID(VipListManagementDetails details) throws Exception {
 		selectWebElement(addNewVipListRecordBtn);
@@ -948,6 +963,112 @@ public class VipListManagementPage extends BasePage{
 		selectWebElement(saveButton);
 		selectWebElement(cancelBtn);		
 	}
+	public boolean verifySearchIsNotEqualTo(String emailid) throws Exception {
+		Boolean Status=false;
+		Map<String, String> map=new HashMap<String,String>() ;
+		map.put("Email ID", emailid);
+		selectWebElement(searchBtn);
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Email ID");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is not equal to");
+        enterValueToTxtField(searchTextBox,emailid);		
+        selectWebElement(searchSearchBtn);
+        waitUntilWebElementIsVisible(gridContent);
+        List<Map<String,String>> UI=gettable(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(map1.equals(map))
+        	Status= false;
+        	else 
+        		Status= true;
+	}
+        return Status;
+	
+	}
+
+	public boolean verifySearchContains(String emailid) throws Exception {
+		Boolean Status=false;
+		selectWebElement(searchBtn);
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Email ID");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Contains");
+        enterValueToTxtField(searchTextBox,emailid);		
+        selectWebElement(searchSearchBtn);
+        waitUntilWebElementIsVisible(gridContent);
+        List<Map<String,String>> UI=gettable(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(map1.get("Email ID").toUpperCase().contains(emailid.toUpperCase()))
+        	Status= true;
+        	else 
+        		Status= false;
+	}
+        return Status;
+	}
+	public boolean verifySearchDoesNotContains(String emailid) throws Exception {
+		Boolean Status=false;
+		selectWebElement(searchBtn);
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Email ID");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Does not contain");
+        enterValueToTxtField(searchTextBox,emailid);		
+        selectWebElement(searchSearchBtn);
+        waitUntilWebElementIsVisible(gridContent);
+        List<Map<String,String>> UI=gettable(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(!map1.get("Email ID").toLowerCase().contains(emailid.toLowerCase()))
+        	Status= true;
+        	else 
+        		Status= false;
+	}
+        return Status;
+	}
+	
+	public boolean verifySearchStartsWith(String emailid) throws Exception {
+		Boolean Status=false;
+		selectWebElement(searchBtn);
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Email ID");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Starts with");
+        enterValueToTxtField(searchTextBox,emailid);		
+        selectWebElement(searchSearchBtn);
+        waitUntilWebElementIsVisible(gridContent);
+        List<Map<String,String>> UI=gettable(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(map1.get("Email ID").toLowerCase().startsWith(emailid.toLowerCase()))
+        	Status= true;
+        	else 
+        		Status= false;
+	}
+        return Status;
+	}
+	
+	public boolean verifySearchEndsWith(String emailid) throws Exception {
+		Boolean Status=false;
+		selectWebElement(searchBtn);
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Email ID");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Ends with");
+        enterValueToTxtField(searchTextBox,emailid);		
+        selectWebElement(searchSearchBtn);
+        waitUntilWebElementIsVisible(gridContent);
+        List<Map<String,String>> UI=gettable(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(map1.get("Email ID").toUpperCase().endsWith(emailid.toUpperCase()))
+        	Status= true;
+        	else 
+        		Status= false;
+	}
+        return Status;
+	}
 
 	public void clickOnCancelBtn(){
 	        if(isElementExist(cancelBtn)){selectWebElement(cancelBtn);}
@@ -972,7 +1093,7 @@ public class VipListManagementPage extends BasePage{
 		selectWebElement(fbHandleTextBox);
 		enterValueToTxtField(fbHandleTextBox,details.getUpdatedFBHandle());
 		selectWebElement(ModifyReasonTextBox);
-		enterValueToTxtField(ModifyReasonTextBox,details.getModifyReason());
+		enterValueToTxtFieldWithoutClear(ModifyReasonTextBox,details.getModifyReason());
 		selectWebElement(saveButton);
 		
 	}
@@ -992,11 +1113,11 @@ public class VipListManagementPage extends BasePage{
 	public void deleteVIPListManagementRecord(VipListManagementDetails details) throws Exception {
 		 searchVipListManagementRecord(details.getCallerID());
 	        selectWebElement(deleteButton);
-	        enterValueToTxtField(deleteReasonTextBox,details.getDeleteReason());
+	        enterValueToTxtFieldWithoutClear(deleteReasonTextBox,details.getDeleteReason());
 	        selectWebElement(deleteYesBtn);		
 	}
 	public void clickOnDeleteButton() {
-		selectWebElement(deleteButton);
+		selectWebElement(deletebtn);
     }
 	
     public void clickOnDeleteCancelBtn(){
@@ -1014,6 +1135,7 @@ public class VipListManagementPage extends BasePage{
 	
 	public void deleteVIPListWithoutDeleteReasonRecord(VipListManagementDetails details) throws Exception {
 		 searchVipListManagementRecord(details.getCallerID());
+		 selectWebElement(deletebtn);
 		 selectWebElement(deleteYesBtn);
 		 selectWebElement(deleteNoBtn);
 	}

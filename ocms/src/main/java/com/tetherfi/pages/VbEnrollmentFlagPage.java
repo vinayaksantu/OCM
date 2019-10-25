@@ -296,10 +296,10 @@ public class VbEnrollmentFlagPage extends BasePage {
 			for(int j=1;j<headers.size();j++) {
 				scrollToElement(headers.get(j));
 				System.out.println(headers.get(j).getText());
-				if(headers.get(j).getText().equals("Last Changed On")){
+				/*if(headers.get(j).getText().equals("Last Changed On")){
 				col=cols.get(j).getText().substring(0,10);
 				}
-				else
+				else*/
 					col=cols.get(j).getText();
 				map.put(headers.get(j).getText(),col);
 			}
@@ -627,8 +627,15 @@ public class VbEnrollmentFlagPage extends BasePage {
 	}
 
 	public String verifySuccessMessage() {
-		 if(errorMsg.size()>0){return errorMsg.get(0).getText();}
-	       else{waitUntilWebElementIsVisible(successmsg);return successmsg.getText();}
+		 //if(errorMsg.size()>0){return errorMsg.get(0).getText();}
+	       //else{
+	    	   waitUntilWebElementIsVisible(successmsg);return successmsg.getText();
+	}
+	
+	public String verifyErrorMessage() {
+		 return errorMsg.get(0).getText();
+	       //else{
+	    	   //waitUntilWebElementIsVisible(successmsg);return successmsg.getText();
 	}
 	public void addNewVBEnrollmentFlagRecord(VBEnrollmentFlagDetails details) throws Exception {
 		selectWebElement(addNewVbEnrollmentFlagRecordBtn);
@@ -678,6 +685,110 @@ public class VbEnrollmentFlagPage extends BasePage {
 	public void clickOnCancelBtn() {
 		selectWebElement(cancelBtn);
 	}
+	
+	public boolean verifySearchIsNotEqualTo(String hotlinename) throws Exception {
+		Boolean Status=false;
+		Map<String, String> map=new HashMap<String,String>() ;
+		map.put("Hot Line Name", hotlinename);
+		selectWebElement(searchBtn);
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Hot Line Name");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is not equal to");
+        enterValueToTxtField(searchTextBox,hotlinename);		
+        selectWebElement(searchSearchBtn);
+        waitUntilWebElementIsVisible(gridContent);
+        List<Map<String,String>> UI=gettable(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(map1.equals(map))
+        	Status= false;
+        	else 
+        		Status= true;
+	}
+        return Status;
+	
+	}
+	public boolean verifySearchContains(String hotlinename) throws Exception {
+		Boolean Status=false;
+		selectWebElement(searchBtn);
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Hot Line Name");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Contains");
+        enterValueToTxtField(searchTextBox,hotlinename);		
+        selectWebElement(searchSearchBtn);
+        waitUntilWebElementIsVisible(gridContent);
+        List<Map<String,String>> UI=gettable(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(map1.get("Hot Line Name").toUpperCase().contains(hotlinename.toUpperCase()))
+        	Status= true;
+        	else 
+        		Status= false;
+	}
+        return Status;
+	}
+	public boolean verifySearchDoesNotContains(String hotlinename) throws Exception {
+		Boolean Status=false;
+		selectWebElement(searchBtn);
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Hot Line Name");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Does not contain");
+        enterValueToTxtField(searchTextBox,hotlinename);		
+        selectWebElement(searchSearchBtn);
+        waitUntilWebElementIsVisible(gridContent);
+        List<Map<String,String>> UI=gettable(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(!map1.get("Hot Line Name").toLowerCase().contains(hotlinename.toLowerCase()))
+        	Status= true;
+        	else 
+        		Status= false;
+	}
+        return Status;
+	}
+	public boolean verifySearchStartsWith(String hotlinename) throws Exception {
+		Boolean Status=false;
+		selectWebElement(searchBtn);
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Hot Line Name");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Starts with");
+        enterValueToTxtField(searchTextBox,hotlinename);		
+        selectWebElement(searchSearchBtn);
+        waitUntilWebElementIsVisible(gridContent);
+        List<Map<String,String>> UI=gettable(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(map1.get("Hot Line Name").toLowerCase().startsWith(hotlinename.toLowerCase()))
+        	Status= true;
+        	else 
+        		Status= false;
+	}
+        return Status;
+	}
+	public boolean verifySearchEndsWith(String hotlinename) throws Exception {
+		Boolean Status=false;
+		selectWebElement(searchBtn);
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Hot Line Name");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Ends with");
+        enterValueToTxtField(searchTextBox,hotlinename);		
+        selectWebElement(searchSearchBtn);
+        waitUntilWebElementIsVisible(gridContent);
+        List<Map<String,String>> UI=gettable(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(map1.get("Hot Line Name").toUpperCase().endsWith(hotlinename.toUpperCase()))
+        	Status= true;
+        	else 
+        		Status= false;
+	}
+        return Status;
+	}
 	public boolean verifyEditFormContainer() {
 		  try {
 	            Thread.sleep(3000);
@@ -695,7 +806,7 @@ public class VbEnrollmentFlagPage extends BasePage {
 		selectWebElement(HotLineNameTextBox);
 		enterValueToTxtField(HotLineNameTextBox,details.getUpdatedHotLineName());
 		selectWebElement(ModifyReasonTextBox);
-		enterValueToTxtField(ModifyReasonTextBox,details.getModifyReason());
+		enterValueToTxtFieldWithoutClear(ModifyReasonTextBox,details.getModifyReason());
 		selectWebElement(saveButton);
 		
 	}
@@ -745,7 +856,7 @@ public class VbEnrollmentFlagPage extends BasePage {
 		Thread.sleep(1000);
         selectWebElement(deleteButton);
         waitForJqueryLoad(driver);
-        enterValueToTxtField(deleteReasonTextBox,details.getDeleteReason());
+        enterValueToTxtFieldWithoutClear(deleteReasonTextBox,details.getDeleteReason());
         selectWebElement(deleteYesBtn);	
 	}
 

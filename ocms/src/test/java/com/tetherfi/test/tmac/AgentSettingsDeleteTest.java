@@ -17,6 +17,7 @@ import org.testng.annotations.Test;
 import java.io.IOException;
 import java.lang.reflect.Method;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 public class AgentSettingsDeleteTest {
     protected WebDriver driver;
@@ -57,93 +58,178 @@ public class AgentSettingsDeleteTest {
         tmacPage.navigateToAgentSettingsPage();
         AgentSettingsNewDesignPage agentSettingsPage=PageFactory.createPageInstance(driver,AgentSettingsNewDesignPage.class);
         Assert.assertTrue(agentSettingsPage.isAgentSettingsPageDisplayed(),"Agent Settings page assertion failed");
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
     }
-    @Test(groups = { "Maker" },dependsOnMethods = "com.tetherfi.test.tmac.AgentSettingsTmac1Test.VerifyAutoInDropdownSelected")
-    public void DeleteAgentSettingsRecord() throws IOException {
+    
+    @Test(groups = { "Maker" },priority=1)
+    public void DeleteCancelAgentSettingsRecord() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentSettingsData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(1);
         AgentSettingsDetails agentSettingsDetails = new AgentSettingsDetails(map);
-
+        AgentSettingsNewDesignPage agentSettingsPage = PageFactory.createPageInstance(driver, AgentSettingsNewDesignPage.class);
+        Assert.assertTrue(agentSettingsPage.deleteCancel(agentSettingsDetails), "delete record assertion failed");
+    }
+    
+    @Test(groups = { "Maker" },priority=2)
+    public void DeleteRevertAgentSettingsRecord() throws IOException {
+        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentSettingsData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(1);
+        AgentSettingsDetails agentSettingsDetails = new AgentSettingsDetails(map);
         AgentSettingsNewDesignPage agentSettingsPage = PageFactory.createPageInstance(driver, AgentSettingsNewDesignPage.class);
         agentSettingsPage.deleteAgentSettingsRecord(agentSettingsDetails.getUsername(), agentSettingsDetails.getDeleteReason());
-        Assert.assertTrue(agentSettingsPage.verifyRecordDeleted(), "delete record assertion failed");
+	    Assert.assertEquals(agentSettingsPage.getSuccessMessage(), "Record Deleted Successfully");
+    }     
+    
+    @Test(groups = { "Maker" },priority=3,dependsOnMethods="DeleteRevertAgentSettingsRecord")
+    public void VerifyRevertForDeleteRecord() throws Exception {
+    	AgentSettingsNewDesignPage agentSettingsPage = PageFactory.createPageInstance(driver, AgentSettingsNewDesignPage.class);
+    	agentSettingsPage.selectAgentSettingsAuditTrailTab();
+    	agentSettingsPage.selectRecord();
+    	agentSettingsPage.Revert("revert");
+        Assert.assertTrue(agentSettingsPage.verifyStatus("Reverted"),"approval status details failed");
     }
-    @Test(groups = { "Maker" },dependsOnMethods = {"DeleteAgentSettingsRecord"})
-    public void VerifyAuditTrailDataForDeleteAgentSettingsRecord() throws IOException {
-        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentSettingsData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(1);
+    
+    @Test(groups= {"Maker"},priority=4,dependsOnMethods="VerifyRevertForDeleteRecord")
+    public void VerifyAuditTrialReportForRevertDelete() throws Exception {
+		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentSettingsData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(1);	
         AgentSettingsDetails agentSettingsDetails = new AgentSettingsDetails(map);
-
-        AgentSettingsNewDesignPage agentSettingsPage = PageFactory.createPageInstance(driver, AgentSettingsNewDesignPage.class);
-        agentSettingsPage.selectAgentSettingsAuditTrailTab();
-        Assert.assertTrue(agentSettingsPage.verifyAuditTrail(agentSettingsDetails, "MakerDelete", "New"), "Audit trail details failed");
-        agentSettingsPage.selectMakeAgentSettingsChanges();
-        Assert.assertTrue(agentSettingsPage.verifyTaskCompleteEnabled(), "Task complete button not enabled");
-    }
-    @Test(groups = { "Maker" },dependsOnMethods="VerifyAuditTrailDataForDeleteAgentSettingsRecord")
-    public void VerifyTaskCompleteActionForDeleteAgentSettingsRecord() throws Exception {
-        AgentSettingsNewDesignPage agentSettingsPage = PageFactory.createPageInstance(driver, AgentSettingsNewDesignPage.class);
-        agentSettingsPage.selectAgentSettingsAuditTrailTab();
-        agentSettingsPage.taskCompleteAction("Task Complete for Delete");
-        Assert.assertTrue(agentSettingsPage.verifyTaskCompleteSuccessMessage(),"Task Complete record assertion failed");
-        Assert.assertTrue(agentSettingsPage.verifyStatus("Approval Pending"),"approal status details failed");
-    }
-    @Test(groups = { "Checker" },dependsOnMethods="VerifyTaskCompleteActionForDeleteAgentSettingsRecord")
-    public void ApproveforDeleteAgentRecord() throws Exception{
-        AgentSettingsNewDesignPage agentSettingsPage=PageFactory.createPageInstance(driver,AgentSettingsNewDesignPage.class);
-        agentSettingsPage.clickonApprove("Approve Delete");
-        Assert.assertEquals(agentSettingsPage.verifySuccessMessage(),"All the data has been approved successfully!","Approve record assertion failed");
-        Assert.assertTrue(agentSettingsPage.verifyReviewAuditTrail("Approved","Approve Delete"));
-    }
-    @Test(groups = { "Maker" },dependsOnMethods = {"ApproveforDeleteAgentRecord"})
-    public void DeleteSupervisorRecord() throws IOException {
-        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentSettingsData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(0);
-        AgentSettingsDetails agentSettingsDetails = new AgentSettingsDetails(map);
-
-        AgentSettingsNewDesignPage agentSettingsPage = PageFactory.createPageInstance(driver, AgentSettingsNewDesignPage.class);
-        agentSettingsPage.deleteAgentSettingsRecord(agentSettingsDetails.getUsername(), agentSettingsDetails.getDeleteReason());
-        Assert.assertTrue(agentSettingsPage.verifyRecordDeleted(), "delete record assertion failed");
-    }
-    @Test(groups = { "Maker" },dependsOnMethods = "DeleteSupervisorRecord")
-    public void VerifyAuditTrailReportForDelete() throws Exception {
-        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentSettingsData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath,"Report").getTestData().get(0);
-        ReportDetails reportDetails= new ReportDetails(map);
-
         HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
         homePage.navigateToOCMReportsPage();
-        OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
+        OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver, OCMReportsPage.class);
+        String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AuditTrailReportData.xlsx";
+        Map<String, String> map1 = new ExcelReader(filePath1,"Show").getTestData().get(0);
+        ReportDetails reportDetails= new ReportDetails(map1);
         ocmReportsPage.showReport(reportDetails);
-        Assert.assertTrue(ocmReportsPage.verifyAuditTrailReportDisplayed("MakerDelete","AgentSetting"),"Audit Trail report assertion failed");
+        Assert.assertTrue(ocmReportsPage.verifyAgentSettingsDelete(agentSettingsDetails,"MakerReverted"));
     }
-    @Test(groups = { "Maker" },dependsOnMethods = {"DeleteSupervisorRecord"})
-    public void VerifyAuditTrailDataForDeleteSupervisorRecord() throws IOException {
-        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentSettingsData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(0);
-        AgentSettingsDetails agentSettingsDetails = new AgentSettingsDetails(map);
+   
+    @Test(groups = { "Maker" },priority=5)
+    public void RejectDeleteRecord() throws Exception {
+		 String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentSettingsData.xlsx";
+		 Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(1);
+	     AgentSettingsDetails agentSettingsDetails = new AgentSettingsDetails (map);
+	     AgentSettingsNewDesignPage agentSettingsPage = PageFactory.createPageInstance(driver, AgentSettingsNewDesignPage.class);
+	     agentSettingsPage.deleteAgentSettingsRecord(agentSettingsDetails.getUsername(), agentSettingsDetails.getDeleteReason());
+        Assert.assertEquals(agentSettingsPage.getSuccessMessage(), "Record Deleted Successfully");
+     }
+    
+    @Test(groups = { "Maker" },priority=6,dependsOnMethods="RejectDeleteRecord")
+    public void VerifySendForApprovalForDeleteNewRecord() throws Exception {
+    	AgentSettingsNewDesignPage agentSettingsPage = PageFactory.createPageInstance(driver, AgentSettingsNewDesignPage.class);
+    	agentSettingsPage.selectAgentSettingsAuditTrailTab();
+    	agentSettingsPage.selectRecord();
+    	agentSettingsPage.sendForAprroval("sent");
+        Assert.assertTrue(agentSettingsPage.verifyStatus("Approval Pending"),"approval status details failed");
+    }
+    
+    @Test(priority=7,groups = { "Checker" },dependsOnMethods="VerifySendForApprovalForDeleteNewRecord")
+    public void RejectforDeleteAgentSettingsRecord() throws Exception{
+    	AgentSettingsNewDesignPage agentSettingsPage = PageFactory.createPageInstance(driver, AgentSettingsNewDesignPage.class);
+    	agentSettingsPage.clickonReject("Reject Deleted");
+        Assert.assertFalse(agentSettingsPage.verifyMessage(),"Reject record assertion failed");
+        Assert.assertTrue(agentSettingsPage.verifyReviewAuditTrail("Rejected","Reject Deleted"));
+    }
+        
+    @Test(priority=8,groups = { "Checker" },dependsOnMethods = "RejectforDeleteAgentSettingsRecord")
+    public void VerifyAuditTrailReportForReject() throws Exception {
+		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentSettingsData.xlsx";
+	    Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(1);
+	    AgentSettingsDetails agentSettingsDetails = new AgentSettingsDetails (map);
+	    HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
+	    homePage.navigateToOCMReportsPage();
+	    OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver, OCMReportsPage.class);
+        String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AuditTrailReportData.xlsx";
+	    Map<String, String> map1 = new ExcelReader(filePath1,"Show").getTestData().get(0);
+	    ReportDetails reportDetails= new ReportDetails(map1);
+	    ocmReportsPage.showReport(reportDetails);
+        Assert.assertTrue(ocmReportsPage.verifyAgentSettingsDelete(agentSettingsDetails, "CheckerReject"),"Audit Trail report assertion failed");
+    }
+    
+    @Test(groups= {"Maker"},priority=9)
+	public void DeleteAgentSettingsRecord() throws Exception {
+		 String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentSettingsData.xlsx";
+		 Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(1);
+		 AgentSettingsDetails agentSettingsDetails = new AgentSettingsDetails (map);
+		 AgentSettingsNewDesignPage agentSettingsPage = PageFactory.createPageInstance(driver, AgentSettingsNewDesignPage.class);
+	     agentSettingsPage.deleteAgentSettingsRecord(agentSettingsDetails.getUsername(), agentSettingsDetails.getDeleteReason());
+	     Assert.assertEquals(agentSettingsPage.getSuccessMessage(), "Record Deleted Successfully");
+	}
+    
+    @Test(priority=10,groups= {"Maker"},dependsOnMethods="DeleteAgentSettingsRecord")
+    public void VerifyAuditTrialReportForDelete() throws Exception {
+		 String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentSettingsData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(1);	
+        AgentSettingsDetails agentSettingsDetails = new AgentSettingsDetails (map);
+        HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
+        homePage.navigateToOCMReportsPage();
+        OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver, OCMReportsPage.class);
+        String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AuditTrailReportData.xlsx";
+        Map<String, String> map1 = new ExcelReader(filePath1,"Show").getTestData().get(0);
+        ReportDetails reportDetails= new ReportDetails(map1);
+        ocmReportsPage.showReport(reportDetails);
+        Assert.assertTrue(ocmReportsPage.verifyAgentSettingsDelete(agentSettingsDetails,"MakerDelete"));
+    }
+    
+    @Test(priority=11,groups = { "Maker" },dependsOnMethods="DeleteAgentSettingsRecord")
+    public void VerifyAuditTrailDataForDeleteAgentSettingsRecord() throws Exception {
+		 String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentSettingsData.xlsx";
+		 Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(1);
+		 AgentSettingsDetails agentSettingsDetails = new AgentSettingsDetails (map);
+		 AgentSettingsNewDesignPage agentSettingsPage = PageFactory.createPageInstance(driver, AgentSettingsNewDesignPage.class);
+		 agentSettingsPage.selectAgentSettingsAuditTrailTab();
+		 Assert.assertTrue(agentSettingsPage.verifyAuditTrail(agentSettingsDetails, "MakerDelete", "New"), "Audit trail details failed");
+    }
+    
+    @Test(groups = { "Maker" },priority=12)//,dependsOnMethods="VerifyAuditTrailDataForDeleteAgentSettingsRecord")
+    public void VerifySendForApprovalForDeleteRecord() throws Exception {
+    	AgentSettingsNewDesignPage agentSettingsPage = PageFactory.createPageInstance(driver, AgentSettingsNewDesignPage.class);
+    	agentSettingsPage.selectAgentSettingsAuditTrailTab();
+    	agentSettingsPage.selectRecord();
+    	agentSettingsPage.sendForAprroval("sent");
+        Assert.assertTrue(agentSettingsPage.verifyStatus("Approval Pending"),"approval status details failed");
+    }
+    
+	@Test(priority=13,groups = { "Maker" },dependsOnMethods = "VerifySendForApprovalForDeleteRecord")
+    public void VerifyAuditTrailReportForSendForApprove() throws Exception {
+		 String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentSettingsData.xlsx";
+		 Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(1);
+		 AgentSettingsDetails agentSettingsDetails = new AgentSettingsDetails (map);
+	     HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
+	     homePage.navigateToOCMReportsPage();
+	     OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver, OCMReportsPage.class);
+	     String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AuditTrailReportData.xlsx";
+	     Map<String, String> map1 = new ExcelReader(filePath1,"Show").getTestData().get(0);
+	     ReportDetails reportDetails= new ReportDetails(map1);
+	     ocmReportsPage.showReport(reportDetails);
+	     Assert.assertTrue(ocmReportsPage.verifyAgentSettingsDelete(agentSettingsDetails, "MakerSendToApproval"),"Audit Trail report assertion failed");
+    }
+    
+    
+	@Test(priority=14,groups = { "Checker" })//,dependsOnMethods="VerifyAuditTrailReportForSendForApprove")
+    public void ApproveforDeleteAgentSettingsRecord() throws Exception{
+		 AgentSettingsNewDesignPage agentSettingsPage = PageFactory.createPageInstance(driver, AgentSettingsNewDesignPage.class);
+		 agentSettingsPage.clickonApprove("Approve Deleted");
+	     Assert.assertTrue(agentSettingsPage.verifyMessage(),"Approve record assertion failed");
+	     Assert.assertTrue(agentSettingsPage.verifyReviewAuditTrail("Approved","Approve Deleted"));
+    }
+	
+	@Test(priority=15,groups = { "Checker" },dependsOnMethods = "ApproveforDeleteAgentSettingsRecord")
+    public void VerifyAuditTrailReportForApprove() throws Exception {
+		 String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentSettingsData.xlsx";
+		 Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(1);
+		 AgentSettingsDetails agentSettingsDetails = new AgentSettingsDetails(map);
+	     HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
+	     homePage.navigateToOCMReportsPage();
+	     OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver, OCMReportsPage.class);
+	        String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AuditTrailReportData.xlsx";
+	     Map<String, String> map1 = new ExcelReader(filePath1,"Show").getTestData().get(0);
+	     ReportDetails reportDetails= new ReportDetails(map1);
+	     ocmReportsPage.showReport(reportDetails);
+	     Assert.assertTrue(ocmReportsPage.verifyAgentSettingsDelete(agentSettingsDetails, "CheckerApprove"),"Audit Trail report assertion failed");
+    }
+    
 
-        AgentSettingsNewDesignPage agentSettingsPage = PageFactory.createPageInstance(driver, AgentSettingsNewDesignPage.class);
-        agentSettingsPage.selectAgentSettingsAuditTrailTab();
-        Assert.assertTrue(agentSettingsPage.verifyAuditTrail(agentSettingsDetails, "MakerDelete", "New"), "Audit trail details failed");
-        agentSettingsPage.selectMakeAgentSettingsChanges();
-        Assert.assertTrue(agentSettingsPage.verifyTaskCompleteEnabled(), "Task complete button not enabled");
-    }
-    @Test(groups = { "Maker" },dependsOnMethods="VerifyAuditTrailDataForDeleteSupervisorRecord")
-    public void VerifyTaskCompleteActionForDeleteSupervisorRecord() throws Exception {
-        AgentSettingsNewDesignPage agentSettingsPage = PageFactory.createPageInstance(driver, AgentSettingsNewDesignPage.class);
-        agentSettingsPage.selectAgentSettingsAuditTrailTab();
-        agentSettingsPage.taskCompleteAction("Task Complete for Delete");
-        Assert.assertTrue(agentSettingsPage.verifyTaskCompleteSuccessMessage(),"Task Complete record assertion failed");
-        Assert.assertTrue(agentSettingsPage.verifyStatus("Approval Pending"),"approal status details failed");
-    }
-    @Test(groups = { "Checker" },dependsOnMethods="VerifyTaskCompleteActionForDeleteSupervisorRecord")
-    public void ApproveforDeleteSupervisorRecord() throws Exception{
-        AgentSettingsNewDesignPage agentSettingsPage=PageFactory.createPageInstance(driver,AgentSettingsNewDesignPage.class);
-        agentSettingsPage.clickonApprove("Approve Delete");
-        Assert.assertEquals(agentSettingsPage.verifySuccessMessage(),"All the data has been approved successfully!","Approve record assertion failed");
-        Assert.assertTrue(agentSettingsPage.verifyReviewAuditTrail("Approved","Approve Delete"));
-    }
     @AfterMethod
     public void afterEachMethod(Method method){
         Screenshot screenshot=new Screenshot(driver);
