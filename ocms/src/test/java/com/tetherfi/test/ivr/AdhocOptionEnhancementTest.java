@@ -84,7 +84,7 @@ public class AdhocOptionEnhancementTest extends BaseTest {
         AdhocOptionEnhancementDetails adhocOptionEnhancementDetails = new AdhocOptionEnhancementDetails(map);
         AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);
         adhocOptionEnhancementPage.addNewAdhocOptionEnhancementRecord(adhocOptionEnhancementDetails);
-        Assert.assertEquals(adhocOptionEnhancementPage.verifySuccessMessage(),"Record Creation Failed, Already Exist", "Duplicate record assertion failed");
+        Assert.assertEquals(adhocOptionEnhancementPage.verifyErrorMessage(),"Duplicate Record", "Duplicate record assertion failed");
     }
     
     @Test(dependsOnMethods = "AddDuplicateAdhocOptionEnhancementRecord",priority=5)

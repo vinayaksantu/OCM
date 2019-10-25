@@ -213,13 +213,13 @@ public class IntroMessageAnnouncementPage extends BasePage {
     @FindBy(css=".k-animation-container ul li")
     private List<WebElement> pageSizeListBox;
     
-    @FindBy(css="#drillGrid th a[title='Column Settings']")
+    @FindBy(css="th a[class='k-header-column-menu']")
     private List<WebElement> headersDropdown;
-    
+
     @FindBy(css="div[style*='overflow: visible'] span[class^='k-link']")
     private List<WebElement> headersColumns;
     
-    @FindBy(css="#drillGrid th a[class='k-link']")
+    @FindBy(css="th a[class='k-link']")
     private List<WebElement> headersText;		
     
     @FindBy(xpath="//div[@class='k-grid-content k-auto-scrollable']/table/tbody/tr")
@@ -694,9 +694,11 @@ public class IntroMessageAnnouncementPage extends BasePage {
         }
         return status;
     }
-    public boolean verifycolumnsHeaderEnabled(){
+    public boolean verifycolumnsHeaderEnabled() throws InterruptedException{
         boolean status=false;
-        WebElement ele= headersDropdown.get(0);
+        try {for (WebElement ele : headersDropdown) {
+        scrollToElement(ele);
+        Thread.sleep(2000);
             if(ele.isDisplayed()){
                 try {
                     selectWebElement(ele);
@@ -725,11 +727,18 @@ public class IntroMessageAnnouncementPage extends BasePage {
                     }
                 }
             }
+            break;
+        }
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
         return status;
     }
     public boolean verifycolumnsHeaderDisbaled() {
         boolean status = false;
-        WebElement ele = headersDropdown.get(0);
+        try {for (WebElement ele : headersDropdown) {
+        scrollToElement(ele);
             if (ele.isDisplayed()) {
                 try {
                     selectWebElement(ele);
@@ -760,6 +769,12 @@ public class IntroMessageAnnouncementPage extends BasePage {
                 }
 
             }
+        break;
+        }
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
         return status;
     }
     

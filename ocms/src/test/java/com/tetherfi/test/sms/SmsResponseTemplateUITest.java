@@ -46,6 +46,7 @@ Screenshot screenshot=new Screenshot(driver);
     	Assert.assertTrue(SmsResponseTemplatePage.minimizewindow(), "Restored Assertion Failed");
     	screenshot.captureScreen("SmsResponseTemplateUITest","minimize window");
     }
+	
 	@Test(priority=2)
 	public void VerifySmsResponseTemplateApprovedDataPage() {
         SmsResponseTemplatePage SmsResponseTemplatePage = PageFactory.createPageInstance(driver, SmsResponseTemplatePage.class);
@@ -60,23 +61,23 @@ Screenshot screenshot=new Screenshot(driver);
        }
 	
 	@Test(priority=4)
-    public void VerifyMakeSmsResponseTemplateChangeButton() {
+	public void VerifyMakeSmsResponseTemplateChangeButton() {
 		SmsResponseTemplatePage SmsResponseTemplatePage = PageFactory.createPageInstance(driver, SmsResponseTemplatePage.class);
 		SmsResponseTemplatePage.selectSmsResponseTemplateAuditTrailTab();
 		SmsResponseTemplatePage.selectMakeSmsResponseTemplateChanges();
 		Assert.assertTrue(SmsResponseTemplatePage.verifyAddNewSmsResponseTemplateRecordButton(), "add new Agent Settings record button assertion failed");
-        Assert.assertTrue(SmsResponseTemplatePage.verifyGoBackButton(), "Go back button assertion failed");
-        Assert.assertTrue(SmsResponseTemplatePage.verifyExportToExcelButton(), "export to excel button assertion failed");
-        Assert.assertTrue(SmsResponseTemplatePage.verifyMakerDataTableHeaders(), "maker table headers assertion failed");
-       }
+		Assert.assertTrue(SmsResponseTemplatePage.verifyGoBackButton(), "Go back button assertion failed");
+		Assert.assertTrue(SmsResponseTemplatePage.verifyExportToExcelButton(), "export to excel button assertion failed");
+		Assert.assertTrue(SmsResponseTemplatePage.verifyMakerDataTableHeaders(), "maker table headers assertion failed");
+	}
        
-    @Test(priority=5)
-    public void VerifyDropdownForAllTheColumns() {
+	@Test(priority=5)
+	public void VerifyDropdownForAllTheColumns() {
 		SmsResponseTemplatePage SmsResponseTemplatePage = PageFactory.createPageInstance(driver, SmsResponseTemplatePage.class);
 		SmsResponseTemplatePage.selectSmsResponseTemplateAuditTrailTab();
-        SmsResponseTemplatePage.selectMakeSmsResponseTemplateChanges();
-        Assert.assertTrue(SmsResponseTemplatePage.verifyDropDownOfAllHeaders(), "Columns dropdown assertion failed");
-       }
+		SmsResponseTemplatePage.selectMakeSmsResponseTemplateChanges();
+		Assert.assertTrue(SmsResponseTemplatePage.verifyDropDownOfAllHeaders(), "Columns dropdown assertion failed");
+	}
      
     @Test(priority=6)
     public void VerifyColumnsHeaderEnable() {
@@ -101,6 +102,7 @@ Screenshot screenshot=new Screenshot(driver);
         SmsResponseTemplatePage.selectMakeSmsResponseTemplateChanges();
         Assert.assertTrue(SmsResponseTemplatePage.verifyArrowMoveForPreviousAndNextPage(2),"arrow move for previous and next page assertion failed");
     }
+    
     @Test(priority=9)
     public void VerifyArrowMoveForFirstAndLastPage() {
     	SmsResponseTemplatePage SmsResponseTemplatePage = PageFactory.createPageInstance(driver, SmsResponseTemplatePage.class);

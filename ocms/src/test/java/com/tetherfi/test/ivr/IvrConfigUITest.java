@@ -40,7 +40,7 @@ public class IvrConfigUITest extends BaseTest{
     	screenshot.captureScreen(driver,"IvrConfigPage","IvrConfigTest");
 		}
 	
-	@Test(priority=1)
+	/*@Test(priority=1)
 	public void IvrConfigPage() {
 		IvrConfigPage ivrConfigPage = PageFactory.createPageInstance(driver, IvrConfigPage.class);
 		Assert.assertTrue(ivrConfigPage.verifylogo(),"CallBackAnnouncement logo assertion failed");
@@ -188,7 +188,7 @@ public class IvrConfigUITest extends BaseTest{
 		IvrConfigPage ivrConfigPage=PageFactory.createPageInstance(driver, IvrConfigPage.class);
 		ivrConfigPage.selectIvrConfigAuditTrailTab();
 		ivrConfigPage.selectMakeIvrConfigChanges();
-		ivrConfigPage.
+		//ivrConfigPage.
 	}
 	
 	@Test(priority=18)
@@ -238,7 +238,7 @@ public class IvrConfigUITest extends BaseTest{
         Assert.assertTrue(ivrConfigPage.VerifyApprovedSectionData(IvrConfigDetails ),"invalidsearchwithwrongdata");
         screenshot.captureScreen("IvrConfigUITest","Invalid Search with wrong data");
         Assert.assertTrue(ivrConfigPage.verifyclearsearch(), "Clear All Assertion Failed");
-    }
+    }*/
 	
     @AfterMethod
     public void afterEachMethod(Method method) throws InterruptedException {

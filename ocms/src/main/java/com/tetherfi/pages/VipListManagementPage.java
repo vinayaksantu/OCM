@@ -11,6 +11,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import com.tetherfi.model.ivr.IvrConfigDetails;
 import com.tetherfi.model.ivr.VipListManagementDetails;
 
 public class VipListManagementPage extends BasePage{
@@ -29,10 +30,7 @@ public class VipListManagementPage extends BasePage{
 	@FindBy(css = ".k-grid-CustomDelete")
     private WebElement deleteButton;
 	
-	//@FindBy(css = ".k-grid-edit")
-    //private WebElement editButton;
-	
-	@FindBy(css = ".k-button k-button-icontext k-grid-edit")
+	@FindBy(css = ".k-grid-edit")
     private WebElement editButton;
 	
 	@FindBy(xpath="//button[@class='k-button k-button-icontext k-grid-excel']")
@@ -345,10 +343,10 @@ public class VipListManagementPage extends BasePage{
 			for(int j=1;j<headers.size();j++) {
 				scrollToElement(headers.get(j));
 				System.out.println(headers.get(j).getText());
-				if(headers.get(j).getText().equals("Last Changed On")){
+				/*if(headers.get(j).getText().equals("Last Changed On")){
 				col=cols.get(j).getText().substring(0,10);
 				}
-				else
+				else*/
 					col=cols.get(j).getText();
 				map.put(headers.get(j).getText(),col);
 			}
@@ -965,7 +963,6 @@ public class VipListManagementPage extends BasePage{
 		selectWebElement(saveButton);
 		selectWebElement(cancelBtn);		
 	}
-	
 	public boolean verifySearchIsNotEqualTo(String emailid) throws Exception {
 		Boolean Status=false;
 		Map<String, String> map=new HashMap<String,String>() ;

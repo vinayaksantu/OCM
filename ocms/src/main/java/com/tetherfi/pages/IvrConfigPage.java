@@ -519,7 +519,7 @@ public class IvrConfigPage extends BasePage {
 		return Status;
 	}
 	
-	public boolean verifyexportToExcelSheet(List<Map<String, String>> maplist) {
+	/*public boolean verifyexportToExcelSheet(List<Map<String, String>> maplist) {
 		List<Map<String,String>> UI=getdata(); 
 		System.out.println(UI);
 		System.out.println(maplist);
@@ -855,7 +855,7 @@ public class IvrConfigPage extends BasePage {
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is equal to");
         selectWebElement(searchSearchBtn);	
 		selectWebElement(searchClose);		
-	}
+	}*/
 	public boolean verifyinvalidsearchwithwrongdata(IvrConfigDetails ivrConfigDetails) throws Exception {
 		searchIvrConfigRecord(ivrConfigDetails.getParameter());
 		if(norecords.isDisplayed())

@@ -77,7 +77,7 @@ public class ChatIntentSkillMappingPage extends BasePage {
     @FindBy(css=".toast-message")
     private WebElement successmsg;
 
-    @FindBy(css="#toast-container .toast-error")
+    @FindBy(css="#toast-container .toast-error .toast-message")
     private List<WebElement> errorMsg;
 
     @FindBy(css=".search-link")
@@ -620,6 +620,7 @@ public class ChatIntentSkillMappingPage extends BasePage {
         selectWebElement(addNewIntentSkillMappingRecordBtn);
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(popupContent);
+        Thread.sleep(1000);
         selectWebElement(skillDropdown);
         selectDropdownFromVisibleText(skillListBox,details.getSkill());
         selectWebElement(intent);
@@ -652,7 +653,7 @@ public class ChatIntentSkillMappingPage extends BasePage {
 		Boolean Status=false;
 		Map<String, String> map=new HashMap<String,String>() ;
 		map.put("Intent", intent);
-		selectWebElement(searchBtn);
+		selectWebElement(searchLink);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Intent");
         selectWebElement(selectSearchCol.get(1));
@@ -674,7 +675,7 @@ public class ChatIntentSkillMappingPage extends BasePage {
     
     public boolean verifySearchContains(String intent) throws Exception {
 		Boolean Status=false;
-		selectWebElement(searchBtn);
+		selectWebElement(searchLink);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Intent");
         selectWebElement(selectSearchCol.get(1));
@@ -694,7 +695,7 @@ public class ChatIntentSkillMappingPage extends BasePage {
 	}
 	public boolean verifySearchDoesNotContains(String intent) throws Exception {
 		Boolean Status=false;
-		selectWebElement(searchBtn);
+		selectWebElement(searchLink);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Intent");
         selectWebElement(selectSearchCol.get(1));
@@ -715,7 +716,7 @@ public class ChatIntentSkillMappingPage extends BasePage {
 	
 	public boolean verifySearchStartsWith(String intent) throws Exception {
 		Boolean Status=false;
-		selectWebElement(searchBtn);
+		selectWebElement(searchLink);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Intent");
         selectWebElement(selectSearchCol.get(1));
@@ -736,7 +737,7 @@ public class ChatIntentSkillMappingPage extends BasePage {
 	
 	public boolean verifySearchEndsWith(String intent) throws Exception {
 		Boolean Status=false;
-		selectWebElement(searchBtn);
+		selectWebElement(searchLink);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Intent");
         selectWebElement(selectSearchCol.get(1));
@@ -762,14 +763,14 @@ public class ChatIntentSkillMappingPage extends BasePage {
         enterValueToTxtField(segment,details.getUpdatedSegment());
         selectWebElement(subSegmnent);
         enterValueToTxtField(subSegmnent,details.getUpdatedSubSegment());
-        enterValueToTxtField(modifyReasonTextBox,details.getModifyReason());
+        enterValueToTxtFieldWithoutClear(modifyReasonTextBox,details.getModifyReason());
         btnClick(saveBtn);
     }
     public void deleteIntentSkillMappingRecord(String segment, String reason) throws Exception {
         searchChatIntentSkillMappingRecord(segment);
         btnClick(deleteBtn);
         selectWebElement(deleteReasonTextBox);
-        enterValueToTxtField(deleteReasonTextBox,reason);
+        enterValueToTxtFieldWithoutClear(deleteReasonTextBox,reason);
         selectWebElement(yesBtn);
     }
 
@@ -813,6 +814,7 @@ public class ChatIntentSkillMappingPage extends BasePage {
 		selectWebElement(addNewIntentSkillMappingRecordBtn);
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(popupContent);
+        Thread.sleep(1000);
         selectWebElement(skillDropdown);
         selectDropdownFromVisibleText(skillListBox,details.getSkill());
         selectWebElement(intent);
@@ -853,6 +855,7 @@ public class ChatIntentSkillMappingPage extends BasePage {
 		selectWebElement(addNewIntentSkillMappingRecordBtn);
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(popupContent);
+        Thread.sleep(1000);
         selectWebElement(skillDropdown);
         selectDropdownFromVisibleText(skillListBox,details.getSkill());
         selectWebElement(languageDropdown);
@@ -873,6 +876,7 @@ public class ChatIntentSkillMappingPage extends BasePage {
 		selectWebElement(addNewIntentSkillMappingRecordBtn);
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(popupContent);
+        Thread.sleep(1000);
         selectWebElement(skillDropdown);
         selectDropdownFromVisibleText(skillListBox,details.getSkill());
         selectWebElement(intent);
@@ -914,7 +918,7 @@ public class ChatIntentSkillMappingPage extends BasePage {
 	}
 
 	public void editChatIntentSkillMappingWithoutModifyReason(ChatIntentSkillMappingDetails details) throws Exception {
-		searchChatIntentSkillMappingRecord(details.getUpdatedSegment());
+		searchChatIntentSkillMappingRecord(details.getSegment());
         waitForJqueryLoad(driver);
         selectWebElement(editBtn);
         waitForJqueryLoad(driver);

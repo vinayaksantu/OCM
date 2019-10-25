@@ -101,7 +101,7 @@ public class SmsResponseTemplatePage extends BasePage {
     @FindBy(css=".k-animation-container ul li")
     private List<WebElement> pageSizeListBox;
     
-    @FindBy(css="#drillGrid th a[title='Column Settings']")
+    @FindBy(css="#drillGrid th a[title='Edit Column Settings']")
     private List<WebElement> headersDropdown;
     
     @FindBy(css="div[style*='overflow: visible'] span[class^='k-link']")
@@ -463,7 +463,8 @@ public class SmsResponseTemplatePage extends BasePage {
         }
         return status;
     }
-    public boolean verifycolumnsHeaderEnabled(){
+		
+	public boolean verifycolumnsHeaderEnabled(){
         boolean status=false;
         WebElement ele= headersDropdown.get(0);
             if(ele.isDisplayed()){
@@ -496,6 +497,7 @@ public class SmsResponseTemplatePage extends BasePage {
             }
         return status;
     }
+    	
     public boolean verifycolumnsHeaderDisbaled() {
         boolean status = false;
         WebElement ele = headersDropdown.get(0);

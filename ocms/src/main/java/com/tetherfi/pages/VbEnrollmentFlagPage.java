@@ -296,10 +296,10 @@ public class VbEnrollmentFlagPage extends BasePage {
 			for(int j=1;j<headers.size();j++) {
 				scrollToElement(headers.get(j));
 				System.out.println(headers.get(j).getText());
-				if(headers.get(j).getText().equals("Last Changed On")){
+				/*if(headers.get(j).getText().equals("Last Changed On")){
 				col=cols.get(j).getText().substring(0,10);
 				}
-				else
+				else*/
 					col=cols.get(j).getText();
 				map.put(headers.get(j).getText(),col);
 			}
@@ -627,8 +627,15 @@ public class VbEnrollmentFlagPage extends BasePage {
 	}
 
 	public String verifySuccessMessage() {
-		 if(errorMsg.size()>0){return errorMsg.get(0).getText();}
-	       else{waitUntilWebElementIsVisible(successmsg);return successmsg.getText();}
+		 //if(errorMsg.size()>0){return errorMsg.get(0).getText();}
+	       //else{
+	    	   waitUntilWebElementIsVisible(successmsg);return successmsg.getText();
+	}
+	
+	public String verifyErrorMessage() {
+		 return errorMsg.get(0).getText();
+	       //else{
+	    	   //waitUntilWebElementIsVisible(successmsg);return successmsg.getText();
 	}
 	public void addNewVBEnrollmentFlagRecord(VBEnrollmentFlagDetails details) throws Exception {
 		selectWebElement(addNewVbEnrollmentFlagRecordBtn);

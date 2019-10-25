@@ -386,7 +386,7 @@ public class TmacTransferListTest extends BaseTest {
     	Assert.assertTrue(tmacTransferListPage.ocmHeaderDisplayed(), "OCM Header displayed assertion failed");
     }
     
-   @Test (priority=33)
+    @Test (priority=33)
     public void VerifyTmacBlindTransferTableHeaders() {
     	TmacTransferListPage tmacTransferListPage=PageFactory.createPageInstance(driver,TmacTransferListPage.class);
     	tmacTransferListPage.navigateToTab("TMAC Blind Transfer");
@@ -623,7 +623,7 @@ public class TmacTransferListTest extends BaseTest {
         Assert.assertTrue(tmacTransferListPage.deletePopUpNotDisplayed(), "Delete Pop up displayed not expected");
     }
     
-    @Test (priority=55, dependsOnMethods = {"EditTmacBlindTransferRecord"})
+    @Test (priority=55)//, dependsOnMethods = {"EditTmacBlindTransferRecord"})
     public void DeleteTmacBlindTransferRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacTransferListData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"BlindDelete").getTestData().get(1);
@@ -634,7 +634,7 @@ public class TmacTransferListTest extends BaseTest {
         Assert.assertEquals(tmacTransferListPage.VerifySuccessMsg(),"Record Deleted Successfully","Delete record assertion failed");
     }
     
-    @Test (priority=56, dependsOnMethods = {"EditTmacBlindTransferRecord"})
+    @Test (priority=56)//, dependsOnMethods = {"EditTmacBlindTransferRecord"})
     public void DeleteTmacBlindTransferRecord2() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacTransferListData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"BlindDelete").getTestData().get(2);

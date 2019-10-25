@@ -44,7 +44,7 @@ public class ChatMenuDescriptionPage extends BasePage{
     @FindBy(css=".toast-message")
     private WebElement successmsg;
 
-    @FindBy(css="#toast-container .toast-error")
+    @FindBy(css="#toast-container .toast-error .toast-message")
     private List<WebElement> errorMsg;
 
     @FindBy(css=".search-link")
@@ -137,7 +137,7 @@ public class ChatMenuDescriptionPage extends BasePage{
 	@FindBy(xpath="//button[text()='Close']")
 	private WebElement searchClose;
 		    
-	@FindBy(xpath="//div[text()='No records to display']")
+	@FindBy(xpath="//div[text()='No Records to Display']")
 	private WebElement norecords;
 		    
 	@FindBy(xpath="//i[@class='fas fa-sync']")
@@ -319,10 +319,10 @@ public class ChatMenuDescriptionPage extends BasePage{
 			for(int j=1;j<headers.size();j++) {
 				scrollToElement(headers.get(j));
 				System.out.println(headers.get(j).getText());
-				if(headers.get(j).getText().equals("Last Changed On")){
+				/*if(headers.get(j).getText().equals("Last Changed On")){
 				col=cols.get(j).getText().substring(0,10);
 				}
-				else
+				else*/
 					col=cols.get(j).getText();
 				map.put(headers.get(j).getText(),col);
 			}
@@ -641,9 +641,9 @@ public class ChatMenuDescriptionPage extends BasePage{
 	public void addNewChatMenuDescriptionRecord(ChatMenuDescriptionDetails details) throws Exception {
 		selectWebElement(addNewChatMenuDescriptionBtn);
 		waitForJqueryLoad(driver);
-		enterValueToTxtFieldWithoutClear(MenuIdTextbox,details.getMenuId());
-		enterValueToTxtFieldWithoutClear(MenuNameTextbox,details.getMenuName());
-		enterValueToTxtFieldWithoutClear(IntentTextbox,details.getIntent());
+		enterValueToTxtField(MenuIdTextbox,details.getMenuId());
+		enterValueToTxtField(MenuNameTextbox,details.getMenuName());
+		enterValueToTxtField(IntentTextbox,details.getIntent());
 		selectWebElement(saveBtn);
 		try {
 			selectWebElement(cancelBtn);
@@ -872,5 +872,9 @@ public class ChatMenuDescriptionPage extends BasePage{
 		waitForJqueryLoad(driver);
 		enterValueToTxtFieldWithoutClear(deleteReasonTextBox,details.getDeleteReason());
 		selectWebElement(yesBtn);	
+	}
+
+	public String getSuccessMessage() {
+		return successmsg.getText();
 	}
 }

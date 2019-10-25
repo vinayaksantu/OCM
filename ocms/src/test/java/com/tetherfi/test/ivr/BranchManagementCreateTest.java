@@ -67,7 +67,7 @@ public class BranchManagementCreateTest {
         Assert.assertTrue(branchManagementPage.isBranchManagementPageDisplayed(), "Branch Management page assertion failed");
     }
 	
-	/*@Test(groups= {"Maker"})
+	@Test(groups= {"Maker"},priority=1)
     public void VerifyAddCancelButton() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\BranchManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -76,7 +76,7 @@ public class BranchManagementCreateTest {
         Assert.assertTrue(branchManagementPage.addCancelButton(branchManagementDetails), "Add cancel button assertion failed");
     }	
     
-    @Test(groups = { "Maker" })
+    @Test(groups = { "Maker" },priority=2)
     public void VerifyAddRecordwithoutMainLines() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\BranchManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -86,7 +86,7 @@ public class BranchManagementCreateTest {
         Assert.assertFalse(branchManagementPage.getErrorMsg());
     }
     
-    @Test(groups = { "Maker" })
+    @Test(groups = { "Maker" },priority=3)
     public void VerifyAddRecordWithoutSubLines() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\BranchManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -96,7 +96,7 @@ public class BranchManagementCreateTest {
         Assert.assertFalse(branchManagementPage.getErrorMsg());
     }
     
-    @Test(groups = { "Maker" })
+    @Test(groups = { "Maker" },priority=4)
     public void VerifyAddRecordWithoutLocation() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\BranchManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -106,7 +106,7 @@ public class BranchManagementCreateTest {
         Assert.assertFalse(branchManagementPage.getErrorMsg());
     }
     
-    @Test(groups = { "Maker" })
+    @Test(groups = { "Maker" },priority=5)
     public void VerifyAddRecordWithoutBranchType() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\BranchManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -116,7 +116,7 @@ public class BranchManagementCreateTest {
         Assert.assertFalse(branchManagementPage.getErrorMsg());
     }
     
-    @Test(groups = { "Maker" })
+    @Test(groups = { "Maker" },priority=6)
     public void VerifyAddRecordWithoutBranchName() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\BranchManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -126,7 +126,7 @@ public class BranchManagementCreateTest {
         Assert.assertFalse(branchManagementPage.getErrorMsg());
     }
     
-    @Test(groups = { "Maker" })
+    @Test(groups = { "Maker" },priority=7)
     public void VerifyAddRecordWithoutAddress() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\BranchManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -136,7 +136,7 @@ public class BranchManagementCreateTest {
         Assert.assertFalse(branchManagementPage.getErrorMsg());
     }
     
-    @Test(groups = { "Maker" })
+    @Test(groups = { "Maker" },priority=8)
     public void VerifyAddRecordWithoutLineOrder() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\BranchManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -146,7 +146,7 @@ public class BranchManagementCreateTest {
         Assert.assertFalse(branchManagementPage.getErrorMsg());
     }
     
-    @Test(groups = { "Maker" })
+    @Test(groups = { "Maker" },priority=9)
     public void VerifyAddRecordWithoutStatus() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\BranchManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -156,7 +156,7 @@ public class BranchManagementCreateTest {
         Assert.assertFalse(branchManagementPage.getErrorMsg());
     }
     
-    @Test(groups = { "Maker" })
+    @Test(groups = { "Maker" },priority=10)
     public void VerifyAddRecordWithoutLanguage() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\BranchManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -167,7 +167,7 @@ public class BranchManagementCreateTest {
     }
     
     
-    @Test(groups = { "Maker" },priority=6)
+    @Test(groups = { "Maker" },priority=11)
     public void AddRevertRecord() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\BranchManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -177,7 +177,7 @@ public class BranchManagementCreateTest {
         Assert.assertEquals(BranchManagementPage.getSuccessMessage(), "Record Created Successfully");
        }
 	
-	@Test(groups = { "Maker" },priority=7,dependsOnMethods="AddRevertRecord")
+	@Test(groups = { "Maker" },priority=12,dependsOnMethods="AddRevertRecord")
     public void VerifyRevertForAddNewRecord() throws Exception {
        	BranchManagementPage BranchManagementPage = PageFactory.createPageInstance(driver, BranchManagementPage.class);
        	BranchManagementPage.selectBranchManagementAuditTrailTab();
@@ -186,7 +186,7 @@ public class BranchManagementCreateTest {
         Assert.assertTrue(BranchManagementPage.verifyStatus("Reverted"),"approal status details failed");
     }
 	
-	@Test(groups= {"Maker"},priority=8,dependsOnMethods="VerifyRevertForAddNewRecord")
+	@Test(groups= {"Maker"},priority=13,dependsOnMethods="VerifyRevertForAddNewRecord")
 	public void VerifyApprovedDataSectionWithoutApproval() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\BranchManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -195,7 +195,7 @@ public class BranchManagementCreateTest {
         Assert.assertTrue(BranchManagementPage.verifyApprovedSectionData(BranchManagementDetails));
 	}
 	
-	@Test(groups = { "Maker" },priority=9,dependsOnMethods = "VerifyApprovedDataSectionWithoutApproval")
+	@Test(groups = { "Maker" },priority=14,dependsOnMethods = "VerifyApprovedDataSectionWithoutApproval")
     public void VerifyAuditTrailReportForRevert() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\BranchManagementData.xlsx";
 	    Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -209,7 +209,7 @@ public class BranchManagementCreateTest {
 	    ocmReportsPage.showReport(reportDetails);
         Assert.assertTrue(ocmReportsPage.verifyBranchManagementCreate(BranchManagementDetails, "MakerReverted"),"Audit Trail report assertion failed");
     }
-	@Test(groups = { "Maker" },priority=10)
+	@Test(groups = { "Maker" },priority=15)
     public void AddRejectRecord() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\BranchManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -219,7 +219,7 @@ public class BranchManagementCreateTest {
         Assert.assertEquals(BranchManagementPage.getSuccessMessage(), "Record Created Successfully");
        }
 	
-	@Test(groups = { "Maker" },priority=11,dependsOnMethods="AddRejectRecord")
+	@Test(groups = { "Maker" },priority=16,dependsOnMethods="AddRejectRecord")
     public void VerifySendForApprovalForAddNewRecord() throws Exception {
        	BranchManagementPage BranchManagementPage = PageFactory.createPageInstance(driver, BranchManagementPage.class);
        	BranchManagementPage.selectBranchManagementAuditTrailTab();
@@ -228,7 +228,7 @@ public class BranchManagementCreateTest {
         Assert.assertTrue(BranchManagementPage.verifyStatus("Approval Pending"),"approal status details failed");
     }
     
-    @Test(groups = { "Checker" },priority=12)//,dependsOnMethods="VerifySendForApprovalForAddNewRecord")
+    @Test(groups = { "Checker" },priority=17,dependsOnMethods="VerifySendForApprovalForAddNewRecord")
     public void RejectforAddNewBranchManagementRecord() throws Exception{
         BranchManagementPage BranchManagementPage = PageFactory.createPageInstance(driver, BranchManagementPage.class);
         BranchManagementPage.clickonReject("Reject Created");
@@ -236,7 +236,7 @@ public class BranchManagementCreateTest {
         Assert.assertTrue(BranchManagementPage.verifyReviewAuditTrail("Rejected","Reject Created"));
     }
     
-    @Test(groups = { "Checker" },priority=13,dependsOnMethods = "RejectforAddNewBranchManagementRecord")
+    @Test(groups = { "Checker" },priority=18,dependsOnMethods = "RejectforAddNewBranchManagementRecord")
     public void VerifyAuditTrailReportForReject() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\BranchManagementData.xlsx";
 	    Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -251,7 +251,7 @@ public class BranchManagementCreateTest {
         Assert.assertTrue(ocmReportsPage.verifyBranchManagementCreate(BranchManagementDetails, "CheckerReject"),"Audit Trail report assertion failed");
     }
     
-    @Test(groups= {"Maker"},priority=14,dependsOnMethods="VerifyAuditTrailReportForReject")
+    @Test(groups= {"Maker"},priority=19,dependsOnMethods="VerifyAuditTrailReportForReject")
     public void VerifyRecordAfterRejection() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\BranchManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -259,7 +259,7 @@ public class BranchManagementCreateTest {
         BranchManagementPage BranchManagementPage = PageFactory.createPageInstance(driver, BranchManagementPage.class);
         Assert.assertTrue(BranchManagementPage.verifyApprovedSectionData(BranchManagementDetails));
     }
-	@Test(groups = { "Maker" },priority=15)
+	@Test(groups = { "Maker" },priority=20)
     public void AddNewBranchManagementRecord() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\BranchManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -269,7 +269,7 @@ public class BranchManagementCreateTest {
         Assert.assertEquals(BranchManagementPage.getSuccessMessage(), "Record Created Successfully");
     }
 	
-	@Test(groups = { "Maker" },priority=16,dependsOnMethods = "AddNewBranchManagementRecord")
+	@Test(groups = { "Maker" },priority=21,dependsOnMethods = "AddNewBranchManagementRecord")
     public void VerifyAuditTrailReportForCreate() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\BranchManagementData.xlsx";
 	    Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -284,7 +284,7 @@ public class BranchManagementCreateTest {
         Assert.assertTrue(ocmReportsPage.verifyBranchManagementCreate(BranchManagementDetails, "MakerCreate"),"Audit Trail report assertion failed");
     }
     
-    @Test(groups = { "Maker" },priority=17,dependsOnMethods="AddNewBranchManagementRecord")
+    @Test(groups = { "Maker" },priority=22,dependsOnMethods="AddNewBranchManagementRecord")
     public void VerifyAuditTrailDataForAddNewBranchManagementRecord() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\BranchManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -294,7 +294,7 @@ public class BranchManagementCreateTest {
         Assert.assertTrue(BranchManagementPage.verifyAuditTrail(BranchManagementDetails, "MakerCreate", "New"), "Audit trail details failed");
     }
     
-    @Test(groups = { "Maker" },priority=18,dependsOnMethods="VerifyAuditTrailDataForAddNewBranchManagementRecord")
+    @Test(groups = { "Maker" },priority=23,dependsOnMethods="VerifyAuditTrailDataForAddNewBranchManagementRecord")
     public void VerifySendForApprovalForAddNewBranchManagementRecord() throws Exception {
        	BranchManagementPage BranchManagementPage = PageFactory.createPageInstance(driver, BranchManagementPage.class);
        	BranchManagementPage.selectBranchManagementAuditTrailTab();
@@ -303,7 +303,7 @@ public class BranchManagementCreateTest {
         Assert.assertTrue(BranchManagementPage.verifyStatus("Approval Pending"),"approal status details failed");
     }
     
-    @Test(groups = { "Maker" },priority=19,dependsOnMethods = "VerifySendForApprovalForAddNewBranchManagementRecord")
+    @Test(groups = { "Maker" },priority=24,dependsOnMethods = "VerifySendForApprovalForAddNewBranchManagementRecord")
     public void VerifyAuditTrailReportForSendForApproval() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\BranchManagementData.xlsx";
 	    Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -318,7 +318,7 @@ public class BranchManagementCreateTest {
         Assert.assertTrue(ocmReportsPage.verifyBranchManagementCreate(BranchManagementDetails, "MakerSendToApproval"),"Audit Trail report assertion failed");
     }
     
-	@Test(groups = { "Checker" },priority=20)//,dependsOnMethods="VerifyAuditTrailReportForSendForApproval")
+	@Test(groups = { "Checker" },priority=25,dependsOnMethods="VerifyAuditTrailReportForSendForApproval")
 
     public void ApproveforAddNewBranchManagementRecord() throws Exception{
        	BranchManagementPage BranchManagementPage = PageFactory.createPageInstance(driver, BranchManagementPage.class);
@@ -327,7 +327,7 @@ public class BranchManagementCreateTest {
         Assert.assertTrue(BranchManagementPage.verifyReviewAuditTrail("Approved","Approve Create"));
     }
     
-    @Test(groups = { "Checker" },priority=21,dependsOnMethods = "ApproveforAddNewBranchManagementRecord")
+    @Test(groups = { "Checker" },priority=26,dependsOnMethods = "ApproveforAddNewBranchManagementRecord")
     public void VerifyAuditTrailReportForApprove() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\BranchManagementData.xlsx";
 	    Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -342,16 +342,16 @@ public class BranchManagementCreateTest {
         Assert.assertTrue(ocmReportsPage.verifyBranchManagementCreate(BranchManagementDetails, "CheckerApprove"),"Audit Trail report assertion failed");
     }
     
-    @Test(groups= {"Checker"},priority=22,dependsOnMethods="ApproveforAddNewBranchManagementRecord")
+    @Test(groups= {"Checker"},priority=27,dependsOnMethods="ApproveforAddNewBranchManagementRecord")
     public void VerifyRecordApprovedDataSectionafterApproval()throws Exception{
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\BranchManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
 	    BranchManagementDetails BranchManagementDetails = new BranchManagementDetails(map);
         BranchManagementPage BranchManagementPage = PageFactory.createPageInstance(driver, BranchManagementPage.class);
         Assert.assertTrue(BranchManagementPage.verifyApprovedSectionDataafterapproval(BranchManagementDetails));
-    }*/
+    }
     
-    @Test(groups = { "Maker" },priority=23)//,dependsOnMethods="AddNewBranchManagementRecord")
+    @Test(groups = { "Maker" },priority=28,dependsOnMethods="AddNewBranchManagementRecord")
     public void AddDuplicateRecord() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\BranchManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -364,7 +364,7 @@ public class BranchManagementCreateTest {
     @AfterMethod
     public void afterEachMethod(Method method){
         Screenshot screenshot=new Screenshot(driver);
-        screenshot.captureScreen("FaxTemplateTest",method.getName());
+        screenshot.captureScreen("BranchManagementCreateTest",method.getName());
         driver.navigate().refresh();
         HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
         homePage.userLogout();

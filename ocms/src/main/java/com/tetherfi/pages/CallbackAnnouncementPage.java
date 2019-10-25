@@ -84,9 +84,12 @@ public class CallbackAnnouncementPage extends BasePage{
 
     @FindBy(css="ul[id='1001sCriteria_listbox'] li")
     private List<WebElement> searchCriteriaDropDwn;
+    
+    @FindBy(id = "1001sMaskedTextToSearch")
+    private WebElement searchTextBox;
 
     @FindBy(id = "1001sTextToSearch")
-    private WebElement searchTextBox;
+    private WebElement searchTextBox1;
 
     @FindBy(id="1001sAddButton")
     private WebElement searchAddCriteriaBtn;
@@ -383,7 +386,7 @@ public class CallbackAnnouncementPage extends BasePage{
         selectDropdownFromVisibleText(columnNameList,"Start Time");
         selectWebElement(selectSearchCol.get(1));
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is equal to");
-        enterValueToTxtField(searchTextBox,startTime);
+        enterValueToTxtFieldWithoutClear(searchTextBox,startTime);
         selectWebElement(searchSearchBtn);
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(gridContent);		
@@ -722,7 +725,7 @@ public class CallbackAnnouncementPage extends BasePage{
         selectDropdownFromVisibleText(columnNameList,"Language");
         selectWebElement(selectSearchCol.get(1));
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is not equal to");
-        enterValueToTxtField(searchTextBox,language);		
+        enterValueToTxtField(searchTextBox1,language);		
         selectWebElement(searchSearchBtn);
         waitUntilWebElementIsVisible(gridContent);
         List<Map<String,String>> UI=gettable(); 
@@ -743,7 +746,7 @@ public class CallbackAnnouncementPage extends BasePage{
         selectDropdownFromVisibleText(columnNameList,"Language");
         selectWebElement(selectSearchCol.get(1));
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Contains");
-        enterValueToTxtField(searchTextBox,language);		
+        enterValueToTxtField(searchTextBox1,language);		
         selectWebElement(searchSearchBtn);
         waitUntilWebElementIsVisible(gridContent);
         List<Map<String,String>> UI=gettable(); 
@@ -763,7 +766,7 @@ public class CallbackAnnouncementPage extends BasePage{
         selectDropdownFromVisibleText(columnNameList,"Language");
         selectWebElement(selectSearchCol.get(1));
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Does not contain");
-        enterValueToTxtField(searchTextBox,language);		
+        enterValueToTxtField(searchTextBox1,language);		
         selectWebElement(searchSearchBtn);
         waitUntilWebElementIsVisible(gridContent);
         List<Map<String,String>> UI=gettable(); 
@@ -783,7 +786,7 @@ public class CallbackAnnouncementPage extends BasePage{
         selectDropdownFromVisibleText(columnNameList,"Language");
         selectWebElement(selectSearchCol.get(1));
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Starts with");
-        enterValueToTxtField(searchTextBox,language);		
+        enterValueToTxtField(searchTextBox1,language);		
         selectWebElement(searchSearchBtn);
         waitUntilWebElementIsVisible(gridContent);
         List<Map<String,String>> UI=gettable(); 
@@ -803,7 +806,7 @@ public class CallbackAnnouncementPage extends BasePage{
         selectDropdownFromVisibleText(columnNameList,"Language");
         selectWebElement(selectSearchCol.get(1));
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Ends with");
-        enterValueToTxtField(searchTextBox,language);		
+        enterValueToTxtField(searchTextBox1,language);		
         selectWebElement(searchSearchBtn);
         waitUntilWebElementIsVisible(gridContent);
         List<Map<String,String>> UI=gettable(); 

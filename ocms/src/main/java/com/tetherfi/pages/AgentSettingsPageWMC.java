@@ -935,7 +935,7 @@ return status;
     public boolean verifyTaskCompleteEnabled(){
         return taskCompleteBtn.isEnabled();
     }
-    private List<Map<String, String>> getAllDatafromTable(int uitable){
+    /*private List<Map<String, String>> getAllDatafromTable(int uitable){
         int items=Integer.valueOf(pagerInfo.get(uitable).getText().split("of ")[1].split(" items")[0]);
         int pagersize=Integer.valueOf(pagerSize.get(uitable).getText());
         int pages=(items%pagersize==0)?items/pagersize-1:items/pagersize;
@@ -967,7 +967,7 @@ return status;
         if(e.equals("Lan ID")&&map.get(e).equals(val)){status=true;break;}
     }if(!status){break;}}
     return status;
-    }
+    }*/
     public boolean verifyClearAllFunctionality() throws Exception{
         boolean clear=false;
         selectWebElement(searchLink);

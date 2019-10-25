@@ -469,6 +469,7 @@ public class OperatingHoursPage extends BasePage {
 	}
     public void deleteOperatingHoursRecord(OperatingHoursDetails operatingHoursDetails) throws Exception {
         searchOperatingHoursRecord(operatingHoursDetails.getVdnName());
+        Thread.sleep(1000);
         selectWebElement(deleteButton);
         enterValueToTxtFieldWithoutClear(deleteReasonTextBox,operatingHoursDetails.getDeleteReason());
         selectWebElement(deleteYesBtn);
@@ -850,7 +851,8 @@ public class OperatingHoursPage extends BasePage {
 	}
     
     public boolean verifydeleteNo(OperatingHoursDetails details) throws Exception {
-    	searchOperatingHoursRecord(details.getVdnName());		
+    	searchOperatingHoursRecord(details.getVdnName());	
+    	Thread.sleep(1000);
     	selectWebElement(deleteButton);
 		try {
 			Thread.sleep(3000);

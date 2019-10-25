@@ -711,7 +711,7 @@ public class ChatTemplatesTest {
         Assert.assertTrue(chatTemplatesPage.verifyDragColumntoGroup("Enabled",2),"drag and drop assertion failed");
     }
     
-    @Test(groups= {"TMAC"},priority=69)
+    //@Test(groups= {"TMAC"},priority=69)
     public void VerifyChatTemplateInTMAC() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -726,8 +726,8 @@ public class ChatTemplatesTest {
         tmacPopupPage.clickOnChatTemplate();
         Assert.assertTrue(tmacPopupPage.ChatTemplate(ChatTemplatesDetails));
         tmacPopupPage.disconnectchat();
-	}*/
-	
+	}
+	*/
     
     @Test(priority=70,groups= {"OCM"})//,dependsOnMethods = "AddNewChatTemplatesRecord")
     public void EditChatTemplatesRecord() throws Exception {

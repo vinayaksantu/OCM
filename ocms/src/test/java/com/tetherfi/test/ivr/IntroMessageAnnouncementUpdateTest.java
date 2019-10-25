@@ -66,7 +66,7 @@ public class IntroMessageAnnouncementUpdateTest {
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 	}
 	
-	/*@Test(groups= {"Maker"},priority=1)
+	@Test(groups= {"Maker"},priority=1)
 	public void EditCancelIntroMessageAnnouncementRecord() throws Exception {
 	    String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntroMessageAnnouncementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(0);
@@ -139,7 +139,7 @@ public class IntroMessageAnnouncementUpdateTest {
         Assert.assertTrue(IntroMessageAnnouncementPage.verifyStatus("Approval Pending"),"approal status details failed");
     }
 
-	@Test(groups = { "Checker" },priority=8)//,dependsOnMethods="VerifySendForApprovalForEditRejectRecord")
+	@Test(groups = { "Checker" },priority=8,dependsOnMethods="VerifySendForApprovalForEditRejectRecord")
     public void RejectforEditIntroMessageAnnouncementRecord() throws Exception{
         IntroMessageAnnouncementPage IntroMessageAnnouncementPage = PageFactory.createPageInstance(driver, IntroMessageAnnouncementPage.class);
         IntroMessageAnnouncementPage.clickonReject("Reject Updated");
@@ -160,7 +160,7 @@ public class IntroMessageAnnouncementUpdateTest {
 	    ReportDetails reportDetails= new ReportDetails(map1);
 	    ocmReportsPage.showReport(reportDetails);
         Assert.assertTrue(ocmReportsPage.verifyIntroMessageAnnouncementUpdate(IntroMessageAnnouncementDetails, "CheckerReject"),"Audit Trail report assertion failed");
-    }*/
+    }
     
 	@Test(groups= {"Maker"},priority=10)
 	public void EditIntroMessageAnnouncementRecord() throws Exception {
@@ -230,7 +230,7 @@ public class IntroMessageAnnouncementUpdateTest {
         Assert.assertTrue(IntroMessageAnnouncementPage.verifyReviewAuditTrail("Approved","Approve Edited"));
     }
 	
-	@Test(groups = { "Checker" },priority=16)//,dependsOnMethods = "ApproveforEditIntroMessageAnnouncementRecord")
+	@Test(groups = { "Checker" },priority=16,dependsOnMethods = "ApproveforEditIntroMessageAnnouncementRecord")
     public void VerifyAuditTrailReportForApprove() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntroMessageAnnouncementData.xlsx";
 	    Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);

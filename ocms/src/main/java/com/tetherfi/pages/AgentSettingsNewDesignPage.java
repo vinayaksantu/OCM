@@ -431,9 +431,12 @@ public class AgentSettingsNewDesignPage extends BasePage {
     public void clickOnCancel(){
         selectWebElement(cancelBtn);
     }
+      
     public void clickOnCancelAtDelete(){
-        selectWebElement(retagSupervisorPopupNoButton);
-    }
+//      selectWebElement(retagSupervisorPopupNoButton);
+  	selectWebElement(noBtn);
+  }
+        
     public void clickOnTopmostDeleteButton(){
         selectWebElement(deleteBtnList.get(0));
         try {
@@ -458,21 +461,34 @@ public class AgentSettingsNewDesignPage extends BasePage {
         }
         if(retagSupervisorPopupNoButton.isDisplayed()){return false;}else{return true;}
     }						  
+    
     public boolean verifyApprovedDataTableHeaders() {
-        ArrayList<String> Expected=new ArrayList<String>(Arrays.asList("Lan ID","Avaya Login ID","First Name","Last Name","Profile","Supervisor Name","Org. Unit","Access Role","CRM Name","Text Chat Greeting Template Name","Last Changed By","Last Changed On"));
+        ArrayList<String> Expected=new ArrayList<String>(Arrays.asList("Lan ID","Avaya Login ID","First Name","Last Name","Profile","Supervisor Name","Org. Unit","Access Role","Last Changed By","Last Changed On"));
         ArrayList Actual = getHeadersfromTable(approvedDataTableHeaders);
-        Collections.sort(Expected);Collections.sort(Actual);
+        System.out.println(Actual);
+        System.out.println("*******");
+        System.out.println(Expected);
+        Collections.sort(Expected);
+        Collections.sort(Actual);
         return Actual.equals(Expected);
     }
+   
+    
     public boolean verifyAgentSettingsTabsDisplayed(){
         return agentSettingsTabs.get(0).isDisplayed()&&agentSettingsTabs.get(1).isDisplayed();
     }
+    
     public boolean verifyAuditTrailDataTableHeaders() {
         ArrayList<String> Expected=new ArrayList<String>(Arrays.asList(" ","Request Id", "Transaction", "Function", "Status", "User Id", "Submission DateTime", "Maker Comments", "Old Values", "New Values","Reviewed By","Review DateTime", "Checker Comments"));
         ArrayList Actual = getHeadersfromTable(auditTrailTableHeaders);
-        Collections.sort(Expected);Collections.sort(Actual);
+        Collections.sort(Expected);
+        Collections.sort(Actual);
+        System.out.println(Actual);
+        System.out.println(Expected);
         return Actual.equals(Expected);
     }
+    
+    
     public boolean verifyAddNewAgentSettingsRecordButton(){
         return addNewAgentSettingsRecordBtn.isEnabled();
     }
@@ -1093,7 +1109,8 @@ return status;
             }
         return status;
     }
-    public boolean verifycolumnsHeaderDisbaled() {
+    
+    public boolean verifycolumnsHeaderDisabled() {
         boolean status = false;
         WebElement ele = headersDropdown.get(0);
             if (ele.isDisplayed()) {
@@ -1128,6 +1145,8 @@ return status;
             }
         return status;
     }
+    
+    
     public boolean verifyArrowMoveForPreviousAndNextPage(int i){
         boolean status=false;
         if(!nextPageIcon.get(i).getAttribute("class").contains("k-state-disabled")){

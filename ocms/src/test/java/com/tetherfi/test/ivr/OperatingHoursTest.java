@@ -36,7 +36,8 @@ public class OperatingHoursTest extends BaseTest {
         Assert.assertTrue(operatingHoursPage.isOperatingHoursPageDisplayed(), "Operating hours page assertion failed");
         screenshot.captureScreen("OperatingHoursTest","Operating Hours Page");
     }
-   /* @Test(priority=1)
+    
+    @Test(priority=1)
     public void OperatingHoursPage() {
         OperatingHoursPage operatingHoursPage = PageFactory.createPageInstance(driver, OperatingHoursPage.class);
     	Assert.assertTrue( operatingHoursPage.verifylogo(),"Operating Hours logo assertion failed");
@@ -68,7 +69,7 @@ public class OperatingHoursTest extends BaseTest {
         operatingHoursPage.addNewAllDaysOperatingHoursRecord(operatingHoursDetails);
         Assert.assertTrue(operatingHoursPage.verifyNewRecordCreated(), "Add New record assertion failed");
         screenshot.captureScreen(driver,"Multiple record Created","OperatingHoursTest");
-    }*/
+    }
     
     @Test(priority=4)
 	public void AddLeavingFieldsBlank() throws Exception {

@@ -194,7 +194,7 @@ public class CallBackAnnouncementTest extends BaseTest {
         Assert.assertTrue(callbackAnnouncementPage.verifySearchEndsWith(callbackAnnouncementDetails.getLanguage()));
     }
     
-    @Test(priority=18)//,dependsOnMethods = "AddDuplicateAdhocOptionEnhancementRecord")
+    @Test(priority=18)//,dependsOnMethods = "AddDuplicateCallBackAnnouncementRecord")
     public void EditCallBackAnnouncementRecord() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\CallbackAnnouncementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
