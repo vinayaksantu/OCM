@@ -81,7 +81,7 @@ public class AgentSkillAssignmentTest extends BaseTest{
     	screenshot.captureScreen("Export Excel Sheet", "SAgentSkillAssignmentTest");
     }
     
-    //@Test(priority=8)
+    @Test(priority=8)
     public void ExporttoExcelWithoutData() throws Exception
     {
         AgentSkillAssignmentPage agentSkillAssignmentPage=PageFactory.createPageInstance(driver,AgentSkillAssignmentPage.class);
@@ -91,7 +91,7 @@ public class AgentSkillAssignmentTest extends BaseTest{
         Assert.assertTrue(agentSkillAssignmentPage.ExporttoExcelWithoutData(agentSkillAssignmentDetails));
     }
   
-    //@Test(priority=9)
+    @Test(priority=9)
     public void SortingByAscending() throws IOException {
         AgentSkillAssignmentPage agentSkillAssignmentPage=PageFactory.createPageInstance(driver,AgentSkillAssignmentPage.class);
         agentSkillAssignmentPage.SortByAscending();
@@ -99,7 +99,8 @@ public class AgentSkillAssignmentTest extends BaseTest{
         List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
         Assert.assertTrue(agentSkillAssignmentPage.verifyexportToExcelSheet(maplist));
     }
-    //@Test(priority=10)
+    
+    @Test(priority=10)
     public void SortingByDescending() throws IOException {
         AgentSkillAssignmentPage agentSkillAssignmentPage=PageFactory.createPageInstance(driver,AgentSkillAssignmentPage.class);
         agentSkillAssignmentPage.SortByDescending();
@@ -108,7 +109,7 @@ public class AgentSkillAssignmentTest extends BaseTest{
         Assert.assertTrue(agentSkillAssignmentPage.verifyexportToExcelSheet(maplist));
     }
     
-    //@Test(priority=11)
+    @Test(priority=11)
     public void GroupBy()
     {
         AgentSkillAssignmentPage agentSkillAssignmentPage=PageFactory.createPageInstance(driver,AgentSkillAssignmentPage.class);
@@ -118,42 +119,43 @@ public class AgentSkillAssignmentTest extends BaseTest{
         screenshot.captureScreen(driver, "AlreadyGroupBy","AgentSkillAssignmentTest");
     }
     
-    //@Test(priority=12)
+    @Test(priority=12)
     public void VerifyArrowMoveForPreviousAndNextPage() {
         AgentSkillAssignmentPage agentSkillAssignmentPage=PageFactory.createPageInstance(driver,AgentSkillAssignmentPage.class);
     	Assert.assertTrue(agentSkillAssignmentPage.verifyArrowMoveForPreviousAndNextPage(),"arrow move for previous and next page assertion failed");
     }
     
-    //@Test(priority=13)
+    @Test(priority=13)
     public void VerifyArrowMoveForFirstAndLastPage() {
         AgentSkillAssignmentPage agentSkillAssignmentPage=PageFactory.createPageInstance(driver,AgentSkillAssignmentPage.class);
         Assert.assertTrue(agentSkillAssignmentPage.verifyArrowMoveForFirstAndLastPage(),"arrow move for first and last page assertion failed");
     }
-    //@Test(priority=14)
+    
+    @Test(priority=14)
     public void VerifyTotalNumberOfItemsPerPageDetails() {
         AgentSkillAssignmentPage agentSkillAssignmentPage=PageFactory.createPageInstance(driver,AgentSkillAssignmentPage.class);
         Assert.assertTrue(agentSkillAssignmentPage.verifyTotalNumberOfItemsPerPageDetails(),"item per page assertion failed");
     }
     
-    //@Test(priority=15)
+    @Test(priority=15)
     public void VerifyNumberOfItemsPerPageSelection() {
         AgentSkillAssignmentPage agentSkillAssignmentPage=PageFactory.createPageInstance(driver,AgentSkillAssignmentPage.class);
         Assert.assertTrue(agentSkillAssignmentPage.verifyNumberOfItemsPerPage(),"item per page assertion failed");
     }
     
-    //@Test(priority=16)
+    @Test(priority=16)
     public void VerifyDropdownForAllTheColumns() {
         AgentSkillAssignmentPage agentSkillAssignmentPage=PageFactory.createPageInstance(driver,AgentSkillAssignmentPage.class);
         Assert.assertTrue(agentSkillAssignmentPage.verifyDropDownOfAllHeaders(), "Columns dropdown assertion failed");
     }
     
-    //@Test(priority=17)
+    @Test(priority=17)
     public void VerifyColumnsHeaderEnable() {
         AgentSkillAssignmentPage agentSkillAssignmentPage=PageFactory.createPageInstance(driver,AgentSkillAssignmentPage.class);
         Assert.assertTrue(agentSkillAssignmentPage.verifycolumnsHeaderEnabled(),"columns enabled assertion failed");
     }
     
-    //@Test(priority=18)
+    @Test(priority=18)
     public void VerifyColumnsHeaderDisable() {
         AgentSkillAssignmentPage agentSkillAssignmentPage=PageFactory.createPageInstance(driver,AgentSkillAssignmentPage.class);
         Assert.assertFalse(agentSkillAssignmentPage.verifycolumnsHeaderDisabled(),"columns disabled assertion failed");
@@ -164,12 +166,13 @@ public class AgentSkillAssignmentTest extends BaseTest{
     	public void afterEachMethod(ITestResult result, Method method) throws InterruptedException {
        	 if(ITestResult.FAILURE==result.getStatus()){
           		 try{
-          			 screenshot.captureScreen(method.getName(),"SkillConfigurationTest");
+          			 screenshot.captureScreen(method.getName(),"AgentSkillAssignmentTest");
           		 }
           		catch (Exception e){
           		 System.out.println("Exception while taking screenshot "+e.getMessage());
           		 } 
           		 driver.navigate().refresh();
-          		 }    }
+          		 }    
+       	 }
 
 }

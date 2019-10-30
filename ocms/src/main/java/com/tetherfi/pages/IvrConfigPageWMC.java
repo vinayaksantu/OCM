@@ -1384,7 +1384,5 @@ public boolean verifyStatus1(String status) {
 	}
         return Status;
 	}
-	
-	
-		
+			
 }

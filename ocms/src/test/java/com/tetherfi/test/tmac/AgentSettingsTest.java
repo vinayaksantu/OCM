@@ -39,7 +39,7 @@ public class AgentSettingsTest extends BaseTest{
 		Assert.assertTrue(agentSettingsPagewmc.isAgentSettingsPageDisplayed(),"Agent Settings page assertion failed");	
 	}
 
-	/*@Test(priority=1)
+	@Test(priority=1)
 	public void VerifyAgentSettingsPage() {
 		AgentSettingsPageWMC agentSettingsPagewmc=PageFactory.createPageInstance(driver,AgentSettingsPageWMC.class);
 		Assert.assertTrue(agentSettingsPagewmc.VerifyLogo(), "Agent Settings logo assertion failed");

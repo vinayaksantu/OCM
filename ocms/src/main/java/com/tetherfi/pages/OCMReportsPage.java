@@ -3967,7 +3967,7 @@ return status;
 	}
 
 	public boolean verifyIntentMappingCreate(IntentMappingDetails details, String Transaction) throws Exception {
-		booleansearchold(details.getVDN(),Transaction);
+		booleansearchnew(details.getVDN(),Transaction);
 		Boolean Status=false;
         Map<String,String> firstRowData=getFirstRowDatafromTable1();
 		Map<String,String> newvalues=new HashMap<>();
@@ -3983,23 +3983,75 @@ return status;
 				{
 					if(newvalues.get("Segment").equals(details.getSegment()))
 					{
+						if(newvalues.get("Language").equals(details.getLanguage()))
 						Status= true;
-						
+						else {System.out.println("Language data mismatch");}
 					}
 					else {System.out.println("Segment data mismatch");}
 				}
 				else {System.out.println("Product data mismatch");}
 			}
-			else {System.out.println("VDN mismatch");}
-			
-			
+			else {System.out.println("VDN data mismatch");}					
 		return Status;
 		
 	}
 
-	public boolean verifyIntentMappingUpdate(IntentMappingDetails intentMappingDetails, String string) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean verifyIntentMappingUpdate(IntentMappingDetails details, String Transaction) throws Exception {
+		booleansearchnew(details.getUpdatedVDN(),Transaction);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+        if(firstRowData.containsKey("Old Values")) {
+        	Map<String,String> oldvalues=new HashMap<>();
+    		String[]d=firstRowData.get("Old Values").split("\n");
+    		for(String e:d) {
+    			System.out.println(e);
+    			String f[]=e.split(":",2);
+    			if(f.length>1)
+    				oldvalues.put(f[0], f[1]);
+    		}
+    		if(oldvalues.get("VDN").equals(details.getVDN())){
+    			if(oldvalues.get("Product").equals(details.getProduct())) {
+        			if(oldvalues.get("Segment").equals(details.getSegment())) {
+            			if(oldvalues.get("Language").equals(details.getSegment())) {
+        				if(firstRowData.containsKey("New Values")) {
+        					Map<String,String> newvalues=new HashMap<>();
+        					String[]d1=firstRowData.get("New Values").split("\n");
+        					for(String e:d1) {
+        						String f[]=e.split(":",2);
+        						if(f.length>1)
+        							newvalues.put(f[0], f[1]);
+        					}
+        					if(newvalues.get("VDN").equals(details.getUpdatedVDN())) {
+        						if(newvalues.get("Product").equals(details.getProduct())) {
+            						if(newvalues.get("Segment").equals(details.getSegment())) {
+                						if(newvalues.get("Language").equals(details.getLanguage())) {
+                							if(newvalues.get("ModifyReason").equals(details.getModifyReason())) {
+                								if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getModifyReason()))
+                									Status=true;
+                								else System.out.println("Change reason data mismatch");
+                							}
+                							else System.out.println("Modify reason data mismatch");
+                						}
+            							else System.out.println("Language data mismatch");                						
+            						}
+    								else System.out.println("Segment data mismatch");
+        						}
+								else System.out.println("Product data mismatch");
+    						}
+            				else {System.out.println("VDN data mismatch");}
+						}    					
+    					else {System.out.println("New Values data mismatch");}
+    				}
+    				else {System.out.println("Language data mismatch");}
+    			}
+    			else {System.out.println("Segment data mismatch");	}	
+    			}
+    			else {System.out.println("Product data mismatch");	}	
+    		}
+    		else System.out.println("DNIS data mismatch");
+        }
+    	else {System.out.println("Old values data mismatch");}
+    return Status;
 	}
 
 	public boolean verifyIntentMappingdelete(IntentMappingDetails details, String Transaction) throws Exception {
@@ -4019,18 +4071,22 @@ return status;
 				{
 					if(oldvalues.get("Segment").equals(details.getSegment()))
 					{
-						if(oldvalues.get("ModifyReason").equals(details.getDeleteReason())) {
-							if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getDeleteReason()))
+						if(oldvalues.get("Language").equals(details.getSegment()))
+						{
+							if(oldvalues.get("ModifyReason").equals(details.getDeleteReason())) {
+								if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getDeleteReason()))
 								Status=true;
-							else System.out.println("Change reason data mismatch");
+								else System.out.println("Change reason data mismatch");
 							}
-						else System.out.println("Modify reason data mismatch");
+							else System.out.println("Modify reason data mismatch");
+						}
+						else System.out.println("Language data mismatch");							
 					}
-					else {System.out.println("Intent data mismatch");}
+					else {System.out.println("Segment data mismatch");}
 				}
-				else {System.out.println("Menu Name mismatch");}
+				else {System.out.println("Product mismatch");}
 			}
-			else {System.out.println("Intent data mismatch");}
+			else {System.out.println("VDN data mismatch");}
 		return Status;
 	}
 

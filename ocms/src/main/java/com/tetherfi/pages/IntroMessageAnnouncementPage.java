@@ -695,11 +695,14 @@ public class IntroMessageAnnouncementPage extends BasePage {
         return status;
     }
     public boolean verifycolumnsHeaderEnabled() throws InterruptedException{
-        boolean status=false;
-        try {for (WebElement ele : headersDropdown) {
-        scrollToElement(ele);
-        Thread.sleep(2000);
-            if(ele.isDisplayed()){
+    	boolean status=false;
+        try{
+        	for(WebElement ele:headersDropdown) {
+        	scrollToElement(ele);
+        	 if (!ele.isDisplayed()) {
+	                continue;
+        	 }
+        	 else {
                 try {
                     selectWebElement(ele);
                     Thread.sleep(1000);
@@ -735,9 +738,10 @@ public class IntroMessageAnnouncementPage extends BasePage {
         }
         return status;
     }
+        
     public boolean verifycolumnsHeaderDisbaled() {
         boolean status = false;
-        try {for (WebElement ele : headersDropdown) {
+        try {for(WebElement ele : headersDropdown) {
         scrollToElement(ele);
             if (ele.isDisplayed()) {
                 try {
@@ -1050,15 +1054,14 @@ public class IntroMessageAnnouncementPage extends BasePage {
 			String col=null;
 			for(int j=0;j<headers.size();j++){
 				scrollToElement(headers.get(j));
-				if(headers.get(j).getText().equals("Last Changed On")){
+				/*if(headers.get(j).getText().equals("Last Changed On")){
 					col=cols.get(j).getText().substring(11);
 					}
-				else
+				else*/
 					col=cols.get(j).getText();
 				map.put(headers.get(j).getText(),col);
 			}
 			map.remove("");
-			map.remove("Preview");
 			arr.add(map);
 		}
 		if(k!=pages)
