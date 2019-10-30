@@ -45,7 +45,7 @@ public class VBEnrollmentFlagTest extends BaseTest {
     	screenshot.captureScreen("VBEnrollmentFlagTest","VbEnrollmentFlagPage");
     }
 	
-	@Test(priority=1)
+	/*@Test(priority=1)
 	public void VbEnrollmentFlagPage() {
         VbEnrollmentFlagPage VbEnrollmentFlagPage = PageFactory.createPageInstance(driver, VbEnrollmentFlagPage.class);
         Assert.assertTrue(VbEnrollmentFlagPage.VerifyLogo(),"Logo assertion failed");
@@ -330,7 +330,7 @@ public class VBEnrollmentFlagTest extends BaseTest {
     public void VerifyNumberOfItemsPerPageSelection() {
         VbEnrollmentFlagPage VbEnrollmentFlagPage = PageFactory.createPageInstance(driver, VbEnrollmentFlagPage.class);
         Assert.assertTrue(VbEnrollmentFlagPage.verifyNumberOfItemsPerPage(),"item per page assertion failed");
-    }
+    }*/
     
     
     @Test(priority=33)
@@ -342,7 +342,7 @@ public class VBEnrollmentFlagTest extends BaseTest {
     	Assert.assertTrue(VbEnrollmentFlagPage.verifyDatabase(VBEnrollmentFlagDetails.getQuery()));
     }
     
-    @Test(priority=34)
+    /*@Test(priority=34)
     public void DeleteWithoutDeleteReasonRecord() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\VBEnrollmentFlagData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
@@ -405,7 +405,8 @@ public class VBEnrollmentFlagTest extends BaseTest {
         VBEnrollmentFlagDetails VBEnrollmentFlagDetails = new VBEnrollmentFlagDetails(map);
         VbEnrollmentFlagPage VbEnrollmentFlagPage = PageFactory.createPageInstance(driver, VbEnrollmentFlagPage.class);
         Assert.assertTrue(VbEnrollmentFlagPage.ExporttoExcelWithoutData(VBEnrollmentFlagDetails));
-    }
+    }*/
+    
   
     
 	

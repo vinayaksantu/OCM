@@ -42,10 +42,9 @@ public class IntentMappingTest extends BaseTest {
         ivrPage.navigateToIntentMappingPage();
         IntentMappingPage IntentMappingPage = PageFactory.createPageInstance(driver, IntentMappingPage.class);
         Assert.assertTrue(IntentMappingPage.isIntentMappingPageDisplayed(), "IntentMapping page assertion failed");
-    	screenshot.captureScreen("IntentMappingTest","IntentMappingPage");
     }
 	
-	/*@Test(priority=1)
+	@Test(priority=1)
 	public void IntentMappingPage() {
         IntentMappingPage IntentMappingPage = PageFactory.createPageInstance(driver, IntentMappingPage.class);
         Assert.assertTrue(IntentMappingPage.VerifyLogo(),"Logo assertion failed");
@@ -71,7 +70,7 @@ public class IntentMappingTest extends BaseTest {
     public void VerifyColumnsHeaderDisable() {
         IntentMappingPage IntentMappingPage = PageFactory.createPageInstance(driver, IntentMappingPage.class);
         Assert.assertFalse(IntentMappingPage.verifycolumnsHeaderDisabled(),"columns disabled assertion failed");
-    }*/
+    }
     
    @Test(priority=5)
     public void AddNewIntentMappingRecord() throws Exception {
@@ -108,7 +107,7 @@ public class IntentMappingTest extends BaseTest {
         Assert.assertTrue(ocmReportsPage.verifyIntentMappingCreate(IntentMappingDetails,"Create"));
     }
     
-   /* @Test(priority=8)
+    @Test(priority=8)
     public void AddEmptyRecord() throws IOException {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntentMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -176,7 +175,27 @@ public class IntentMappingTest extends BaseTest {
         Assert.assertFalse(IntentMappingPage.verifyEditFormContainer(), "Cancel Btn at Add record assertion failed");
 	}
 	
-   /* @Test(priority=15)
+	@Test(priority=15)
+    public void EditWithoutModifyReasonRecord() throws Exception {
+        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntentMappingData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(0);
+        IntentMappingDetails IntentMappingDetails = new IntentMappingDetails(map);
+        IntentMappingPage IntentMappingPage = PageFactory.createPageInstance(driver, IntentMappingPage.class);
+        IntentMappingPage.editIntentMappingWithoutModifyReason(IntentMappingDetails);
+        Assert.assertEquals(IntentMappingPage.verifySuccessMessage(),"Please enter the modify reason", "empty modify reason record assertion failed");
+    }
+    
+    @Test(priority=16)
+    public void VerifyCancelBtnAtEditRecord() throws Exception{
+        IntentMappingPage IntentMappingPage = PageFactory.createPageInstance(driver, IntentMappingPage.class);
+        IntentMappingPage.searchIntentMappingRecord("40004");
+        Thread.sleep(1000);
+        IntentMappingPage.clickOnEditButton();
+        IntentMappingPage.clickOnCancelBtn();
+        Assert.assertFalse(IntentMappingPage.verifyEditFormContainer(), "Cancel Btn at Edit record assertion failed");
+    }
+	
+    @Test(priority=17)
     public void EditIntentMappingRecord() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntentMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
@@ -186,7 +205,7 @@ public class IntentMappingTest extends BaseTest {
         Assert.assertEquals(IntentMappingPage.verifySuccessMessage(),"Record Updated Successfully","Edit record assertion failed");
     }
     
-    @Test(priority=16,dependsOnMethods="EditIntentMappingRecord")
+    @Test(priority=18,dependsOnMethods="EditIntentMappingRecord")
     public void VerifyAuditTrialReportForUpdate() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntentMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(0);	
@@ -201,25 +220,7 @@ public class IntentMappingTest extends BaseTest {
         Assert.assertTrue(ocmReportsPage.verifyIntentMappingUpdate(IntentMappingDetails,"Update"));
     }
     
-    @Test(priority=17,dependsOnMethods = "EditIntentMappingRecord")
-    public void EditWithoutModifyReasonRecord() throws Exception {
-        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntentMappingData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(0);
-        IntentMappingDetails IntentMappingDetails = new IntentMappingDetails(map);
-        IntentMappingPage IntentMappingPage = PageFactory.createPageInstance(driver, IntentMappingPage.class);
-        IntentMappingPage.editIntentMappingWithoutModifyReason(IntentMappingDetails);
-        Assert.assertEquals(IntentMappingPage.verifySuccessMessage(),"Please enter the modify reason", "empty modify reason record assertion failed");
-    }
     
-    @Test(priority=18,dependsOnMethods = "EditWithoutModifyReasonRecord")
-    public void VerifyCancelBtnAtEditRecord() throws Exception{
-        IntentMappingPage IntentMappingPage = PageFactory.createPageInstance(driver, IntentMappingPage.class);
-        IntentMappingPage.searchIntentMappingRecord("40000");
-        Thread.sleep(1000);
-        IntentMappingPage.clickOnEditButton();
-        IntentMappingPage.clickOnCancelBtn();
-        Assert.assertFalse(IntentMappingPage.verifyEditFormContainer(), "Cancel Btn at Edit record assertion failed");
-    }
 	
 	 @Test(priority=19)
 	 public void VerifySearchIsNotEqualTo() throws Exception {
@@ -312,7 +313,7 @@ public class IntentMappingTest extends BaseTest {
     @Test(priority=29)
     public void VerifyCancelBtnAtDeleteIntentMappingRecord() throws Exception{
         IntentMappingPage IntentMappingPage = PageFactory.createPageInstance(driver, IntentMappingPage.class);
-        IntentMappingPage.searchIntentMappingRecord("40000");
+        IntentMappingPage.searchIntentMappingRecord("40007");
         Thread.sleep(1000);
         IntentMappingPage.clickOnDeleteButton();
         IntentMappingPage.clickOnDeleteCancelBtn();
@@ -425,7 +426,7 @@ public class IntentMappingTest extends BaseTest {
         IntentMappingPage IntentMappingPage = PageFactory.createPageInstance(driver, IntentMappingPage.class);
         IntentMappingDetails IntentMappingDetails = new IntentMappingDetails(map);
     	Assert.assertTrue(IntentMappingPage.verifyDatabase(IntentMappingDetails.getQuery()));
-    }*/
+    }
 	
 	 @AfterMethod
 	    public void afterEachMethod(Method method) throws InterruptedException {

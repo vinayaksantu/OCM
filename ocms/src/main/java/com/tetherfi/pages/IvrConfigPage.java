@@ -298,6 +298,8 @@ public class IvrConfigPage extends BasePage {
 	 @FindBy(id="yesButton")
 	 private WebElement yesBtn;
 	 
+	 
+	 
     public boolean isIvrConfigPageDisplayed() {
         waitForLoad(driver);
         waitForJqueryLoad(driver);
@@ -337,7 +339,7 @@ public class IvrConfigPage extends BasePage {
         enterValueToTxtField(searchTextBox,Parameter);
         selectWebElement(searchSearchBtn);
         waitForJqueryLoad(driver);
-        waitUntilWebElementIsVisible(gridContent);
+        waitUntilWebElementIsVisible(approvedgridcontent);
     }
     
     public void editIvrConfigRecord1(IvrConfigDetails details) throws Exception {
@@ -519,7 +521,7 @@ public class IvrConfigPage extends BasePage {
 		return Status;
 	}
 	
-	/*public boolean verifyexportToExcelSheet(List<Map<String, String>> maplist) {
+	public boolean verifyexportToExcelSheet(List<Map<String, String>> maplist) {
 		List<Map<String,String>> UI=getdata(); 
 		System.out.println(UI);
 		System.out.println(maplist);
@@ -562,6 +564,7 @@ public class IvrConfigPage extends BasePage {
 		}
 			return arr;
 	}
+	
 	public boolean verifyDatabase(String query) {
 		List<Map<String,String>> database=database(query);
 		System.out.println(database);
@@ -606,6 +609,7 @@ public class IvrConfigPage extends BasePage {
 		}
 			return arr;
 	}
+	
 	public boolean ExporttoExcelWithoutData(IvrConfigDetails ivrConfigDetails) throws Exception {
 		searchIvrConfigRecord(ivrConfigDetails.getParameter());
 		waitForJqueryLoad(driver);
@@ -696,11 +700,13 @@ public class IvrConfigPage extends BasePage {
             e.printStackTrace();
         } return status;
     }
-    public boolean verifyTotalNumberOfItemsPerPageDetails(){
+    
+	public boolean verifyTotalNumberOfItemsPerPageDetails(){
         String item = items.getText();
         return item.matches("(\\d.*) - (\\d.*) of (\\d.*) items");
     }
-    public boolean verifyDropDownOfAllHeaders() {
+    
+	public boolean verifyDropDownOfAllHeaders() {
         boolean status = false;
         try {for (WebElement ele : headersDropdown) {
             scrollToElement(ele);
@@ -726,7 +732,8 @@ public class IvrConfigPage extends BasePage {
         }
         return status;
     }
-    public boolean verifycolumnsHeaderDisabled() {
+    
+	public boolean verifycolumnsHeaderDisabled() {
         boolean status = false;
         try{for(WebElement ele:headersDropdown) {
         	scrollToElement(ele);
@@ -770,7 +777,8 @@ public class IvrConfigPage extends BasePage {
         }
  	        return status;
     }
-    public boolean verifycolumnsHeaderEnabled(){
+    
+	public boolean verifycolumnsHeaderEnabled(){
         boolean status=false;
         try{
         	for(WebElement ele:headersDropdown) {
@@ -828,34 +836,35 @@ public class IvrConfigPage extends BasePage {
 			return false;		
 	}
 	public boolean clearAll(IvrConfigDetails details) throws Exception {
-		selectWebElement(searchBtn.get(1));
+		selectWebElement(gridsearchLink);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Parameter");
         selectWebElement(selectSearchCol.get(1));
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is equal to");
         enterValueToTxtField(searchTextBox,details.getParameter());
         selectWebElement(clearall);
-		if(searchTextBox.isEnabled())
+		if(searchText.get(0).isEnabled())
         	return true;
         else
 		return false;
 	}
 	public boolean verifyclose() {
 		selectWebElement(searchClose);
-		if(gridContent.isDisplayed())
+		if(approvedgridcontent.isDisplayed())
 			return true;
 		else
 		return false;
 	}
 	public void searchwithoutextsearch() {
-		selectWebElement(searchBtn);
+		selectWebElement(gridsearchLink);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Parameter");
         selectWebElement(selectSearchCol.get(1));
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is equal to");
         selectWebElement(searchSearchBtn);	
 		selectWebElement(searchClose);		
-	}*/
+	}
+	
 	public boolean verifyinvalidsearchwithwrongdata(IvrConfigDetails ivrConfigDetails) throws Exception {
 		searchIvrConfigRecord(ivrConfigDetails.getParameter());
 		if(norecords.isDisplayed())
@@ -865,7 +874,7 @@ public class IvrConfigPage extends BasePage {
 	}
 	public boolean verifyclearsearch() {
 		selectWebElement(clearsearch);
-		if(gridContent.isDisplayed())
+		if(approvedgridcontent.isDisplayed())
 			return true;
 		else
 		return false;
@@ -943,8 +952,8 @@ public class IvrConfigPage extends BasePage {
 		else
 			return true;
 	}
-	public boolean VerifyApprovedSectionData(IvrConfigDetails ivrConfigDetails) {
-//		searchSmsResponseTemplateRecordApprovedData(details.());
+	public boolean VerifyApprovedSectionData(IvrConfigDetails details) throws Exception {
+		searchIvrConfigRecord(details.getParameter());
 		if(norecords.isDisplayed())
 			return true; 
 			else

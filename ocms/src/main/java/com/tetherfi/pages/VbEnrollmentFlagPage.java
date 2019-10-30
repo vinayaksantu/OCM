@@ -340,10 +340,10 @@ public class VbEnrollmentFlagPage extends BasePage {
 			String col=null;
 			for(int j=1;j<headers.size();j++){
 				scrollToElement(headers.get(j));
-				if(headers.get(j).getText().equals("Last Changed On")){
+				/*if(headers.get(j).getText().equals("Last Changed On")){
 					col=cols.get(j).getText().substring(11);
 					}
-				else if(headers.get(j).getText().equals("Inclusion Flag")||headers.get(j).getText().equals("Exclusion Flag")){
+				else */if(headers.get(j).getText().equals("Enrollment Flag")){
 					col=cols.get(j).getText();
 					if(col.equals("Yes"))
 						col="Y";

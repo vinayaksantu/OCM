@@ -166,6 +166,13 @@ public class BasePage {
         webElement.get(1).sendKeys(value);
     }
     
+    public void enterValueToTxtBox1(WebElement webElement, String value) {
+        waitUntilWebElementIsVisible(webElement);
+        waitUntilWebElementIsClickable(webElement);
+        webElement.sendKeys(Keys.CONTROL + "a");
+        webElement.sendKeys(value);
+    }
+    
     
     public void setclipboard(String value) {
 	StringSelection stringSelection = new StringSelection(value);

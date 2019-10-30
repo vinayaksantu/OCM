@@ -108,7 +108,7 @@ public class IntentMappingPage extends BasePage{
 	private WebElement groupbyVDN;
 		
 	@FindBy(xpath="//a[text()='VDN']")
-	private WebElement VDN;
+	private WebElement VDN;	
 		    
 	@FindBy(xpath="//button[text()='Clear All']")
 	private WebElement clearall;
@@ -797,10 +797,10 @@ public class IntentMappingPage extends BasePage{
 		Thread.sleep(1000);
 		selectWebElement(editButton);
 		waitForLoad(driver);
-		selectWebElement(VDNTextbox);
-		enterValueToTxtField(VDNTextbox,details.getUpdatedVDN());
+		selectWebElement(VDNText);
+		enterValueToTxtBox1(VDNTextbox,details.getUpdatedVDN());
 		selectWebElement(ModifyReasonTextBox);
-		enterValueToTxtField(ModifyReasonTextBox,details.getModifyReason());
+		enterValueToTxtFieldWithoutClear(ModifyReasonTextBox,details.getModifyReason());
 		selectWebElement(saveButton);
 		
 	}
@@ -809,8 +809,6 @@ public class IntentMappingPage extends BasePage{
 		Thread.sleep(1000);
 		selectWebElement(editButton);
 		waitForLoad(driver);
-		selectWebElement(VDNTextbox);
-		enterValueToTxtField(VDNTextbox,details.getUpdatedVDN());
 		selectWebElement(saveButton);	
 		selectWebElement(cancelBtn);
 	}
@@ -850,7 +848,7 @@ public class IntentMappingPage extends BasePage{
 		Thread.sleep(1000);
         selectWebElement(deleteButton);
         waitForJqueryLoad(driver);
-        enterValueToTxtField(deleteReasonTextBox,details.getDeleteReason());
+        enterValueToTxtFieldWithoutClear(deleteReasonTextBox,details.getDeleteReason());
         selectWebElement(deleteYesBtn);	
 	}
 	public void addNewEmptyRecord(IntentMappingDetails intentMappingDetails) {
