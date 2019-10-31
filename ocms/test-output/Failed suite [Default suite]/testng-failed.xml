@@ -3,17 +3,13 @@
 <suite name="Failed suite [Failed suite [Default suite]]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)(failed)">
     <classes>
-      <class name="com.tetherfi.test.ivr.OperatingHoursTest">
+      <class name="com.tetherfi.test.chat.ChatTemplatesTest">
         <methods>
-          <include name="startTestCase"/>
-          <include name="openApplication"/>
-          <include name="DeleteNoRecord"/>
-          <include name="endTestCase"/>
-          <include name="tearDown"/>
-          <include name="afterEachMethod"/>
-          <include name="NavigateToOperatingHoursPage"/>
+          <include name="NavigateToChatTemplatesPage"/>
+          <include name="VerifyAuditTrialReportForDepartmentUpdate"/>
+          <include name="close"/>
         </methods>
-      </class> <!-- com.tetherfi.test.ivr.OperatingHoursTest -->
+      </class> <!-- com.tetherfi.test.chat.ChatTemplatesTest -->
     </classes>
   </test> <!-- Default test(failed)(failed) -->
 </suite> <!-- Failed suite [Failed suite [Default suite]] -->

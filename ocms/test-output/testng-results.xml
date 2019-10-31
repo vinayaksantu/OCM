@@ -1,1121 +1,110 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="22" passed="14" failed="8" skipped="0">
+<testng-results ignored="0" total="6" passed="3" failed="3" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2019-10-30T12:52:34 IST" name="Default suite" finished-at="2019-10-30T12:59:54 IST" duration-ms="439893">
+  <suite started-at="2019-10-30T18:28:00 IST" name="Default suite" finished-at="2019-10-30T18:33:23 IST" duration-ms="322949">
     <groups>
+      <group name="OCM">
+        <method signature="ChatTemplatesTest.DeleteChatTemplatesRecord()[pri:94, instance:com.tetherfi.test.chat.ChatTemplatesTest@65a9ea3c]" name="DeleteChatTemplatesRecord" class="com.tetherfi.test.chat.ChatTemplatesTest"/>
+        <method signature="ChatTemplatesTest.DeleteGroupWithoutDeleteReasonRecord()[pri:96, instance:com.tetherfi.test.chat.ChatTemplatesTest@65a9ea3c]" name="DeleteGroupWithoutDeleteReasonRecord" class="com.tetherfi.test.chat.ChatTemplatesTest"/>
+        <method signature="ChatTemplatesTest.DeleteWithoutDeleteReasonRecord()[pri:92, instance:com.tetherfi.test.chat.ChatTemplatesTest@65a9ea3c]" name="DeleteWithoutDeleteReasonRecord" class="com.tetherfi.test.chat.ChatTemplatesTest"/>
+        <method signature="ChatTemplatesTest.VerifyAuditTrialReportForDelete()[pri:95, instance:com.tetherfi.test.chat.ChatTemplatesTest@65a9ea3c]" name="VerifyAuditTrialReportForDelete" class="com.tetherfi.test.chat.ChatTemplatesTest"/>
+        <method signature="ChatTemplatesTest.VerifyCancelBtnAtDeleteChatTemplateRecord()[pri:93, instance:com.tetherfi.test.chat.ChatTemplatesTest@65a9ea3c]" name="VerifyCancelBtnAtDeleteChatTemplateRecord" class="com.tetherfi.test.chat.ChatTemplatesTest"/>
+        <method signature="ChatTemplatesTest.VerifyCancelBtnAtDeleteGroupRecord()[pri:97, instance:com.tetherfi.test.chat.ChatTemplatesTest@65a9ea3c]" name="VerifyCancelBtnAtDeleteGroupRecord" class="com.tetherfi.test.chat.ChatTemplatesTest"/>
+      </group> <!-- OCM -->
     </groups>
-    <test started-at="2019-10-30T12:52:34 IST" name="Default test" finished-at="2019-10-30T12:59:54 IST" duration-ms="439893">
-      <class name="com.tetherfi.test.ivr.IvrConfigUITest">
-        <test-method is-config="true" signature="openApplication()[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:52:34 IST" name="openApplication" finished-at="2019-10-30T12:52:58 IST" duration-ms="23486" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- openApplication -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:52:58 IST" name="startTestCase" finished-at="2019-10-30T12:52:58 IST" duration-ms="8" status="PASS">
+    <test started-at="2019-10-30T18:28:00 IST" name="Default test" finished-at="2019-10-30T18:33:23 IST" duration-ms="322949">
+      <class name="com.tetherfi.test.chat.ChatTemplatesTest">
+        <test-method is-config="true" signature="NavigateToChatTemplatesPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.chat.ChatTemplatesTest@65a9ea3c]" started-at="2019-10-30T18:28:01 IST" name="NavigateToChatTemplatesPage" finished-at="2019-10-30T18:28:27 IST" duration-ms="26395" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IvrConfigUITest.IvrConfigPage()]]>
+                <![CDATA[public void com.tetherfi.test.chat.ChatTemplatesTest.DeleteWithoutDeleteReasonRecord() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigateToIvrConfigPage()[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:52:58 IST" name="NavigateToIvrConfigPage" finished-at="2019-10-30T12:53:04 IST" duration-ms="6856" status="PASS">
+        </test-method> <!-- NavigateToChatTemplatesPage -->
+        <test-method signature="DeleteWithoutDeleteReasonRecord()[pri:92, instance:com.tetherfi.test.chat.ChatTemplatesTest@65a9ea3c]" started-at="2019-10-30T18:28:27 IST" name="DeleteWithoutDeleteReasonRecord" finished-at="2019-10-30T18:28:31 IST" duration-ms="4021" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- NavigateToIvrConfigPage -->
-        <test-method signature="IvrConfigPage()[pri:1, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:53:04 IST" name="IvrConfigPage" finished-at="2019-10-30T12:53:06 IST" duration-ms="1441" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- IvrConfigPage -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:53:06 IST" name="afterEachMethod" finished-at="2019-10-30T12:53:07 IST" duration-ms="1379" status="PASS">
+        </test-method> <!-- DeleteWithoutDeleteReasonRecord -->
+        <test-method is-config="true" signature="close(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.chat.ChatTemplatesTest@65a9ea3c]" started-at="2019-10-30T18:28:31 IST" name="close" finished-at="2019-10-30T18:28:31 IST" duration-ms="386" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IvrConfigUITest.IvrConfigPage()]]>
+                <![CDATA[public void com.tetherfi.test.chat.ChatTemplatesTest.DeleteWithoutDeleteReasonRecord() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:53:07 IST" name="endTestCase" finished-at="2019-10-30T12:53:07 IST" duration-ms="0" status="PASS">
+        </test-method> <!-- close -->
+        <test-method is-config="true" signature="NavigateToChatTemplatesPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.chat.ChatTemplatesTest@65a9ea3c]" started-at="2019-10-30T18:28:31 IST" name="NavigateToChatTemplatesPage" finished-at="2019-10-30T18:28:53 IST" duration-ms="21706" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IvrConfigUITest.IvrConfigPage()]]>
+                <![CDATA[public void com.tetherfi.test.chat.ChatTemplatesTest.VerifyCancelBtnAtDeleteChatTemplateRecord() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:53:07 IST" name="startTestCase" finished-at="2019-10-30T12:53:07 IST" duration-ms="1" status="PASS">
+        </test-method> <!-- NavigateToChatTemplatesPage -->
+        <test-method signature="VerifyCancelBtnAtDeleteChatTemplateRecord()[pri:93, instance:com.tetherfi.test.chat.ChatTemplatesTest@65a9ea3c]" started-at="2019-10-30T18:28:53 IST" name="VerifyCancelBtnAtDeleteChatTemplateRecord" finished-at="2019-10-30T18:29:21 IST" duration-ms="27701" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyCancelBtnAtDeleteChatTemplateRecord -->
+        <test-method is-config="true" signature="close(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.chat.ChatTemplatesTest@65a9ea3c]" started-at="2019-10-30T18:29:21 IST" name="close" finished-at="2019-10-30T18:29:22 IST" duration-ms="1190" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IvrConfigUITest.VerifyIvrConfigApprovedDataPage()]]>
+                <![CDATA[public void com.tetherfi.test.chat.ChatTemplatesTest.VerifyCancelBtnAtDeleteChatTemplateRecord() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigateToIvrConfigPage()[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:53:07 IST" name="NavigateToIvrConfigPage" finished-at="2019-10-30T12:53:12 IST" duration-ms="4956" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToIvrConfigPage -->
-        <test-method signature="VerifyIvrConfigApprovedDataPage()[pri:2, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:53:12 IST" name="VerifyIvrConfigApprovedDataPage" finished-at="2019-10-30T12:53:13 IST" duration-ms="286" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- VerifyIvrConfigApprovedDataPage -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:53:13 IST" name="afterEachMethod" finished-at="2019-10-30T12:53:14 IST" duration-ms="1373" status="PASS">
+        </test-method> <!-- close -->
+        <test-method is-config="true" signature="NavigateToChatTemplatesPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.chat.ChatTemplatesTest@65a9ea3c]" started-at="2019-10-30T18:29:22 IST" name="NavigateToChatTemplatesPage" finished-at="2019-10-30T18:29:43 IST" duration-ms="20958" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IvrConfigUITest.VerifyIvrConfigApprovedDataPage()]]>
+                <![CDATA[public void com.tetherfi.test.chat.ChatTemplatesTest.DeleteChatTemplatesRecord() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:53:14 IST" name="endTestCase" finished-at="2019-10-30T12:53:14 IST" duration-ms="0" status="PASS">
+        </test-method> <!-- NavigateToChatTemplatesPage -->
+        <test-method signature="DeleteChatTemplatesRecord()[pri:94, instance:com.tetherfi.test.chat.ChatTemplatesTest@65a9ea3c]" started-at="2019-10-30T18:29:43 IST" name="DeleteChatTemplatesRecord" finished-at="2019-10-30T18:29:51 IST" duration-ms="7758" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- DeleteChatTemplatesRecord -->
+        <test-method is-config="true" signature="close(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.chat.ChatTemplatesTest@65a9ea3c]" started-at="2019-10-30T18:29:51 IST" name="close" finished-at="2019-10-30T18:29:56 IST" duration-ms="5129" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IvrConfigUITest.VerifyIvrConfigApprovedDataPage()]]>
+                <![CDATA[public void com.tetherfi.test.chat.ChatTemplatesTest.DeleteChatTemplatesRecord() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:53:14 IST" name="startTestCase" finished-at="2019-10-30T12:53:14 IST" duration-ms="1" status="PASS">
+        </test-method> <!-- close -->
+        <test-method is-config="true" signature="NavigateToChatTemplatesPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.chat.ChatTemplatesTest@65a9ea3c]" started-at="2019-10-30T18:29:56 IST" name="NavigateToChatTemplatesPage" finished-at="2019-10-30T18:30:17 IST" duration-ms="21169" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IvrConfigUITest.VerifyIvrConfigAuditTrailPage()]]>
+                <![CDATA[public void com.tetherfi.test.chat.ChatTemplatesTest.VerifyAuditTrialReportForDelete() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigateToIvrConfigPage()[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:53:14 IST" name="NavigateToIvrConfigPage" finished-at="2019-10-30T12:53:18 IST" duration-ms="4423" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToIvrConfigPage -->
-        <test-method signature="VerifyIvrConfigAuditTrailPage()[pri:3, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:53:18 IST" name="VerifyIvrConfigAuditTrailPage" finished-at="2019-10-30T12:53:26 IST" duration-ms="7291" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- VerifyIvrConfigAuditTrailPage -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:53:26 IST" name="afterEachMethod" finished-at="2019-10-30T12:53:27 IST" duration-ms="1396" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IvrConfigUITest.VerifyIvrConfigAuditTrailPage()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:53:27 IST" name="endTestCase" finished-at="2019-10-30T12:53:27 IST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IvrConfigUITest.VerifyIvrConfigAuditTrailPage()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:53:27 IST" name="startTestCase" finished-at="2019-10-30T12:53:27 IST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IvrConfigUITest.VerifyMakeIvrConfigChangesButton()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigateToIvrConfigPage()[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:53:27 IST" name="NavigateToIvrConfigPage" finished-at="2019-10-30T12:53:31 IST" duration-ms="4281" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToIvrConfigPage -->
-        <test-method signature="VerifyMakeIvrConfigChangesButton()[pri:4, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:53:31 IST" name="VerifyMakeIvrConfigChangesButton" finished-at="2019-10-30T12:53:43 IST" duration-ms="12104" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- VerifyMakeIvrConfigChangesButton -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:53:43 IST" name="afterEachMethod" finished-at="2019-10-30T12:53:45 IST" duration-ms="1327" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IvrConfigUITest.VerifyMakeIvrConfigChangesButton()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:53:45 IST" name="endTestCase" finished-at="2019-10-30T12:53:45 IST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IvrConfigUITest.VerifyMakeIvrConfigChangesButton()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:53:45 IST" name="startTestCase" finished-at="2019-10-30T12:53:45 IST" duration-ms="1" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IvrConfigUITest.VerifyDropDownForAllColumns()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigateToIvrConfigPage()[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:53:45 IST" name="NavigateToIvrConfigPage" finished-at="2019-10-30T12:53:50 IST" duration-ms="4890" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToIvrConfigPage -->
-        <test-method signature="VerifyDropDownForAllColumns()[pri:5, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:53:50 IST" name="VerifyDropDownForAllColumns" finished-at="2019-10-30T12:54:05 IST" duration-ms="15462" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- VerifyDropDownForAllColumns -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:54:05 IST" name="afterEachMethod" finished-at="2019-10-30T12:54:06 IST" duration-ms="1397" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IvrConfigUITest.VerifyDropDownForAllColumns()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:54:06 IST" name="endTestCase" finished-at="2019-10-30T12:54:06 IST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IvrConfigUITest.VerifyDropDownForAllColumns()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:54:06 IST" name="startTestCase" finished-at="2019-10-30T12:54:06 IST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IvrConfigUITest.VerifyColumnsHeaderEnable()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigateToIvrConfigPage()[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:54:06 IST" name="NavigateToIvrConfigPage" finished-at="2019-10-30T12:54:12 IST" duration-ms="5097" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToIvrConfigPage -->
-        <test-method signature="VerifyColumnsHeaderEnable()[pri:6, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:54:12 IST" name="VerifyColumnsHeaderEnable" finished-at="2019-10-30T12:54:29 IST" duration-ms="17544" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- VerifyColumnsHeaderEnable -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:54:29 IST" name="afterEachMethod" finished-at="2019-10-30T12:54:31 IST" duration-ms="1490" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IvrConfigUITest.VerifyColumnsHeaderEnable()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:54:31 IST" name="endTestCase" finished-at="2019-10-30T12:54:31 IST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IvrConfigUITest.VerifyColumnsHeaderEnable()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:54:31 IST" name="startTestCase" finished-at="2019-10-30T12:54:31 IST" duration-ms="1" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IvrConfigUITest.VerifyColumnsHeaderDisable()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigateToIvrConfigPage()[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:54:31 IST" name="NavigateToIvrConfigPage" finished-at="2019-10-30T12:54:35 IST" duration-ms="4842" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToIvrConfigPage -->
-        <test-method signature="VerifyColumnsHeaderDisable()[pri:7, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:54:35 IST" name="VerifyColumnsHeaderDisable" finished-at="2019-10-30T12:54:54 IST" duration-ms="18913" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- VerifyColumnsHeaderDisable -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:54:54 IST" name="afterEachMethod" finished-at="2019-10-30T12:54:55 IST" duration-ms="404" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IvrConfigUITest.VerifyColumnsHeaderDisable()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:54:55 IST" name="endTestCase" finished-at="2019-10-30T12:54:55 IST" duration-ms="1" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IvrConfigUITest.VerifyColumnsHeaderDisable()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:54:55 IST" name="startTestCase" finished-at="2019-10-30T12:54:55 IST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IvrConfigUITest.VerfiyArrowMoveForPreviousAndNextPage()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigateToIvrConfigPage()[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:54:55 IST" name="NavigateToIvrConfigPage" finished-at="2019-10-30T12:55:01 IST" duration-ms="5889" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToIvrConfigPage -->
-        <test-method signature="VerfiyArrowMoveForPreviousAndNextPage()[pri:8, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:55:01 IST" name="VerfiyArrowMoveForPreviousAndNextPage" finished-at="2019-10-30T12:55:12 IST" duration-ms="11247" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- VerfiyArrowMoveForPreviousAndNextPage -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:55:12 IST" name="afterEachMethod" finished-at="2019-10-30T12:55:13 IST" duration-ms="1145" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IvrConfigUITest.VerfiyArrowMoveForPreviousAndNextPage()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:55:13 IST" name="endTestCase" finished-at="2019-10-30T12:55:13 IST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IvrConfigUITest.VerfiyArrowMoveForPreviousAndNextPage()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:55:13 IST" name="startTestCase" finished-at="2019-10-30T12:55:13 IST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IvrConfigUITest.VerifyArrowMoveForFirstAndLastPage()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigateToIvrConfigPage()[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:55:13 IST" name="NavigateToIvrConfigPage" finished-at="2019-10-30T12:55:18 IST" duration-ms="4788" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToIvrConfigPage -->
-        <test-method signature="VerifyArrowMoveForFirstAndLastPage()[pri:9, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:55:18 IST" name="VerifyArrowMoveForFirstAndLastPage" finished-at="2019-10-30T12:55:29 IST" duration-ms="10915" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- VerifyArrowMoveForFirstAndLastPage -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:55:29 IST" name="afterEachMethod" finished-at="2019-10-30T12:55:30 IST" duration-ms="1247" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IvrConfigUITest.VerifyArrowMoveForFirstAndLastPage()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:55:30 IST" name="endTestCase" finished-at="2019-10-30T12:55:30 IST" duration-ms="1" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IvrConfigUITest.VerifyArrowMoveForFirstAndLastPage()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:55:30 IST" name="startTestCase" finished-at="2019-10-30T12:55:30 IST" duration-ms="1" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IvrConfigUITest.VerifyNumberOfItemsPerPage()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigateToIvrConfigPage()[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:55:30 IST" name="NavigateToIvrConfigPage" finished-at="2019-10-30T12:55:35 IST" duration-ms="4808" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToIvrConfigPage -->
-        <test-method signature="VerifyNumberOfItemsPerPage()[pri:10, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:55:35 IST" name="VerifyNumberOfItemsPerPage" finished-at="2019-10-30T12:55:46 IST" duration-ms="11108" status="FAIL">
-          <exception class="java.lang.Error">
-            <message>
-              <![CDATA[Unresolved compilation problems: 
-The method getText() is undefined for the type List<WebElement>
-The method getText() is undefined for the type List<WebElement>
-]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.Error: Unresolved compilation problems: 
-The method getText() is undefined for the type List<WebElement>
-The method getText() is undefined for the type List<WebElement>
-
-at com.tetherfi.pages.IvrConfigPage.verifyNumberOfItemsPerPage(IvrConfigPage.java:677)
-at com.tetherfi.test.ivr.IvrConfigUITest.VerifyNumberOfItemsPerPage(IvrConfigUITest.java:122)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(Unknown Source)
-at org.testng.TestRunner.privateRun(TestRunner.java:770)
-at org.testng.TestRunner.run(TestRunner.java:591)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-at org.testng.TestNG.runSuites(TestNG.java:1032)
-at org.testng.TestNG.run(TestNG.java:1000)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.Error -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- VerifyNumberOfItemsPerPage -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:55:46 IST" name="afterEachMethod" finished-at="2019-10-30T12:55:47 IST" duration-ms="1235" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IvrConfigUITest.VerifyNumberOfItemsPerPage()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:55:47 IST" name="endTestCase" finished-at="2019-10-30T12:55:47 IST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IvrConfigUITest.VerifyNumberOfItemsPerPage()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:55:47 IST" name="startTestCase" finished-at="2019-10-30T12:55:47 IST" duration-ms="1" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IvrConfigUITest.VerifyTotalNumberOfItemsPerPage()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigateToIvrConfigPage()[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:55:47 IST" name="NavigateToIvrConfigPage" finished-at="2019-10-30T12:55:52 IST" duration-ms="4733" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToIvrConfigPage -->
-        <test-method signature="VerifyTotalNumberOfItemsPerPage()[pri:11, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:55:52 IST" name="VerifyTotalNumberOfItemsPerPage" finished-at="2019-10-30T12:56:03 IST" duration-ms="10817" status="FAIL">
-          <exception class="java.lang.Error">
-            <message>
-              <![CDATA[Unresolved compilation problem: 
-The method getText() is undefined for the type List<WebElement>
-]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.Error: Unresolved compilation problem: 
-The method getText() is undefined for the type List<WebElement>
-
-at com.tetherfi.pages.IvrConfigPage.verifyTotalNumberOfItemsPerPageDetails(IvrConfigPage.java:705)
-at com.tetherfi.test.ivr.IvrConfigUITest.VerifyTotalNumberOfItemsPerPage(IvrConfigUITest.java:130)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(Unknown Source)
-at org.testng.TestRunner.privateRun(TestRunner.java:770)
-at org.testng.TestRunner.run(TestRunner.java:591)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-at org.testng.TestNG.runSuites(TestNG.java:1032)
-at org.testng.TestNG.run(TestNG.java:1000)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.Error -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- VerifyTotalNumberOfItemsPerPage -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:56:03 IST" name="afterEachMethod" finished-at="2019-10-30T12:56:04 IST" duration-ms="1243" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IvrConfigUITest.VerifyTotalNumberOfItemsPerPage()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:56:04 IST" name="endTestCase" finished-at="2019-10-30T12:56:04 IST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IvrConfigUITest.VerifyTotalNumberOfItemsPerPage()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:56:04 IST" name="startTestCase" finished-at="2019-10-30T12:56:04 IST" duration-ms="1" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IvrConfigUITest.VerifyExportToExcel() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigateToIvrConfigPage()[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:56:04 IST" name="NavigateToIvrConfigPage" finished-at="2019-10-30T12:56:09 IST" duration-ms="4945" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToIvrConfigPage -->
-        <test-method signature="VerifyExportToExcel()[pri:12, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:56:09 IST" name="VerifyExportToExcel" finished-at="2019-10-30T12:56:23 IST" duration-ms="13846" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- VerifyExportToExcel -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:56:23 IST" name="afterEachMethod" finished-at="2019-10-30T12:56:24 IST" duration-ms="1233" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IvrConfigUITest.VerifyExportToExcel() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:56:24 IST" name="endTestCase" finished-at="2019-10-30T12:56:24 IST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IvrConfigUITest.VerifyExportToExcel() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="NavigateToIvrConfigPage()[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:56:24 IST" name="NavigateToIvrConfigPage" finished-at="2019-10-30T12:56:29 IST" duration-ms="4922" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToIvrConfigPage -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:56:24 IST" name="startTestCase" finished-at="2019-10-30T12:56:24 IST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IvrConfigUITest.VerifyExportToExcelData() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method signature="VerifyExportToExcelData()[pri:13, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:56:29 IST" name="VerifyExportToExcelData" finished-at="2019-10-30T12:56:40 IST" duration-ms="11228" status="FAIL">
-          <exception class="java.lang.Error">
-            <message>
-              <![CDATA[Unresolved compilation problem: 
-The method getText() is undefined for the type List<WebElement>
-]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.Error: Unresolved compilation problem: 
-The method getText() is undefined for the type List<WebElement>
-
-at com.tetherfi.pages.IvrConfigPage.getdata(IvrConfigPage.java:535)
-at com.tetherfi.pages.IvrConfigPage.verifyexportToExcelSheet(IvrConfigPage.java:525)
-at com.tetherfi.test.ivr.IvrConfigUITest.VerifyExportToExcelData(IvrConfigUITest.java:149)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(Unknown Source)
-at org.testng.TestRunner.privateRun(TestRunner.java:770)
-at org.testng.TestRunner.run(TestRunner.java:591)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-at org.testng.TestNG.runSuites(TestNG.java:1032)
-at org.testng.TestNG.run(TestNG.java:1000)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.Error -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- VerifyExportToExcelData -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:56:40 IST" name="afterEachMethod" finished-at="2019-10-30T12:56:41 IST" duration-ms="1228" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IvrConfigUITest.VerifyExportToExcelData() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:56:41 IST" name="endTestCase" finished-at="2019-10-30T12:56:41 IST" duration-ms="1" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IvrConfigUITest.VerifyExportToExcelData() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:56:41 IST" name="startTestCase" finished-at="2019-10-30T12:56:41 IST" duration-ms="1" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IvrConfigUITest.VerifyExportToExcelWithoutData() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigateToIvrConfigPage()[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:56:41 IST" name="NavigateToIvrConfigPage" finished-at="2019-10-30T12:56:46 IST" duration-ms="4730" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToIvrConfigPage -->
-        <test-method signature="VerifyExportToExcelWithoutData()[pri:14, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:56:46 IST" name="VerifyExportToExcelWithoutData" finished-at="2019-10-30T12:56:57 IST" duration-ms="10935" status="FAIL">
-          <exception class="java.lang.NullPointerException">
-            <full-stacktrace>
-              <![CDATA[java.lang.NullPointerException
-at com.tetherfi.utility.ExcelReader.getTestData(ExcelReader.java:99)
-at com.tetherfi.test.ivr.IvrConfigUITest.VerifyExportToExcelWithoutData(IvrConfigUITest.java:158)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(Unknown Source)
-at org.testng.TestRunner.privateRun(TestRunner.java:770)
-at org.testng.TestRunner.run(TestRunner.java:591)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-at org.testng.TestNG.runSuites(TestNG.java:1032)
-at org.testng.TestNG.run(TestNG.java:1000)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.NullPointerException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- VerifyExportToExcelWithoutData -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:56:57 IST" name="afterEachMethod" finished-at="2019-10-30T12:56:58 IST" duration-ms="1214" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IvrConfigUITest.VerifyExportToExcelWithoutData() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:56:58 IST" name="endTestCase" finished-at="2019-10-30T12:56:58 IST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IvrConfigUITest.VerifyExportToExcelWithoutData() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:56:58 IST" name="startTestCase" finished-at="2019-10-30T12:56:58 IST" duration-ms="1" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IvrConfigUITest.VerifySortByAscending() throws java.io.IOException]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigateToIvrConfigPage()[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:56:58 IST" name="NavigateToIvrConfigPage" finished-at="2019-10-30T12:57:03 IST" duration-ms="4705" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToIvrConfigPage -->
-        <test-method signature="VerifySortByAscending()[pri:15, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:57:03 IST" name="VerifySortByAscending" finished-at="2019-10-30T12:57:45 IST" duration-ms="41551" status="FAIL">
-          <exception class="org.openqa.selenium.TimeoutException">
-            <message>
-              <![CDATA[Expected condition failed: waiting for visibility of [[ChromeDriver: chrome on XP (e251e26095632bf1c53c66c4d45bd634)] -> xpath: //a[text()='Parameter']] (tried for 30 second(s) with 500 milliseconds interval)
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'DESKTOP-O6A5C2O', ip: '10.0.75.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '9.0.4'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.70, chrome: {chromedriverVersion: 78.0.3904.70 (edb9c9f3de024..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:53132}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: e251e26095632bf1c53c66c4d45bd634]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of [[ChromeDriver: chrome on XP (e251e26095632bf1c53c66c4d45bd634)] -> xpath: //a[text()='Parameter']] (tried for 30 second(s) with 500 milliseconds interval)
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'DESKTOP-O6A5C2O', ip: '10.0.75.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '9.0.4'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.70, chrome: {chromedriverVersion: 78.0.3904.70 (edb9c9f3de024..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:53132}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: e251e26095632bf1c53c66c4d45bd634
-at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
-at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
-at com.tetherfi.pages.BasePage.waitUntilWebElementIsVisible(BasePage.java:127)
-at com.tetherfi.pages.BasePage.selectWebElement(BasePage.java:191)
-at com.tetherfi.pages.IvrConfigPage.SortByAscending(IvrConfigPage.java:625)
-at com.tetherfi.test.ivr.IvrConfigUITest.VerifySortByAscending(IvrConfigUITest.java:168)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(Unknown Source)
-at org.testng.TestRunner.privateRun(TestRunner.java:770)
-at org.testng.TestRunner.run(TestRunner.java:591)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-at org.testng.TestNG.runSuites(TestNG.java:1032)
-at org.testng.TestNG.run(TestNG.java:1000)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.TimeoutException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- VerifySortByAscending -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:57:45 IST" name="afterEachMethod" finished-at="2019-10-30T12:57:46 IST" duration-ms="1544" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IvrConfigUITest.VerifySortByAscending() throws java.io.IOException]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:57:46 IST" name="endTestCase" finished-at="2019-10-30T12:57:46 IST" duration-ms="1" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IvrConfigUITest.VerifySortByAscending() throws java.io.IOException]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:57:46 IST" name="startTestCase" finished-at="2019-10-30T12:57:46 IST" duration-ms="1" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IvrConfigUITest.VerifySortByDescending() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigateToIvrConfigPage()[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:57:46 IST" name="NavigateToIvrConfigPage" finished-at="2019-10-30T12:57:51 IST" duration-ms="4537" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToIvrConfigPage -->
-        <test-method signature="VerifySortByDescending()[pri:16, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:57:51 IST" name="VerifySortByDescending" finished-at="2019-10-30T12:58:32 IST" duration-ms="41513" status="FAIL">
-          <exception class="org.openqa.selenium.TimeoutException">
-            <message>
-              <![CDATA[Expected condition failed: waiting for visibility of [[ChromeDriver: chrome on XP (e251e26095632bf1c53c66c4d45bd634)] -> xpath: //a[text()='Parameter']] (tried for 30 second(s) with 500 milliseconds interval)
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'DESKTOP-O6A5C2O', ip: '10.0.75.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '9.0.4'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.70, chrome: {chromedriverVersion: 78.0.3904.70 (edb9c9f3de024..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:53132}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: e251e26095632bf1c53c66c4d45bd634]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of [[ChromeDriver: chrome on XP (e251e26095632bf1c53c66c4d45bd634)] -> xpath: //a[text()='Parameter']] (tried for 30 second(s) with 500 milliseconds interval)
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'DESKTOP-O6A5C2O', ip: '10.0.75.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '9.0.4'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.70, chrome: {chromedriverVersion: 78.0.3904.70 (edb9c9f3de024..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:53132}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: e251e26095632bf1c53c66c4d45bd634
-at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
-at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
-at com.tetherfi.pages.BasePage.waitUntilWebElementIsVisible(BasePage.java:127)
-at com.tetherfi.pages.BasePage.selectWebElement(BasePage.java:191)
-at com.tetherfi.pages.IvrConfigPage.SortByDescending(IvrConfigPage.java:635)
-at com.tetherfi.test.ivr.IvrConfigUITest.VerifySortByDescending(IvrConfigUITest.java:179)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(Unknown Source)
-at org.testng.TestRunner.privateRun(TestRunner.java:770)
-at org.testng.TestRunner.run(TestRunner.java:591)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-at org.testng.TestNG.runSuites(TestNG.java:1032)
-at org.testng.TestNG.run(TestNG.java:1000)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.TimeoutException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- VerifySortByDescending -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:58:32 IST" name="afterEachMethod" finished-at="2019-10-30T12:58:36 IST" duration-ms="4037" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IvrConfigUITest.VerifySortByDescending() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:58:36 IST" name="endTestCase" finished-at="2019-10-30T12:58:36 IST" duration-ms="1" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IvrConfigUITest.VerifySortByDescending() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="NavigateToIvrConfigPage()[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:58:36 IST" name="NavigateToIvrConfigPage" finished-at="2019-10-30T12:58:41 IST" duration-ms="4494" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToIvrConfigPage -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:58:36 IST" name="startTestCase" finished-at="2019-10-30T12:58:36 IST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IvrConfigUITest.VerifyDragAndDrop()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method signature="VerifyDragAndDrop()[pri:17, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:58:41 IST" name="VerifyDragAndDrop" finished-at="2019-10-30T12:58:52 IST" duration-ms="11089" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- VerifyDragAndDrop -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:58:52 IST" name="afterEachMethod" finished-at="2019-10-30T12:58:53 IST" duration-ms="1212" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IvrConfigUITest.VerifyDragAndDrop()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:58:53 IST" name="endTestCase" finished-at="2019-10-30T12:58:53 IST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IvrConfigUITest.VerifyDragAndDrop()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="NavigateToIvrConfigPage()[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:58:53 IST" name="NavigateToIvrConfigPage" finished-at="2019-10-30T12:58:58 IST" duration-ms="5099" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToIvrConfigPage -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:58:53 IST" name="startTestCase" finished-at="2019-10-30T12:58:53 IST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IvrConfigUITest.VerifyDragAndDropOfAlreadyGroupedHeader()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method signature="VerifyDragAndDropOfAlreadyGroupedHeader()[pri:18, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:58:58 IST" name="VerifyDragAndDropOfAlreadyGroupedHeader" finished-at="2019-10-30T12:59:09 IST" duration-ms="11293" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- VerifyDragAndDropOfAlreadyGroupedHeader -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:59:09 IST" name="afterEachMethod" finished-at="2019-10-30T12:59:11 IST" duration-ms="1549" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IvrConfigUITest.VerifyDragAndDropOfAlreadyGroupedHeader()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:59:11 IST" name="endTestCase" finished-at="2019-10-30T12:59:11 IST" duration-ms="1" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IvrConfigUITest.VerifyDragAndDropOfAlreadyGroupedHeader()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="NavigateToIvrConfigPage()[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:59:11 IST" name="NavigateToIvrConfigPage" finished-at="2019-10-30T12:59:16 IST" duration-ms="5387" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToIvrConfigPage -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:59:11 IST" name="startTestCase" finished-at="2019-10-30T12:59:11 IST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IvrConfigUITest.dataBase() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method signature="dataBase()[pri:19, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:59:16 IST" name="dataBase" finished-at="2019-10-30T12:59:16 IST" duration-ms="1" status="FAIL">
-          <exception class="java.lang.NullPointerException">
-            <full-stacktrace>
-              <![CDATA[java.lang.NullPointerException
-at com.tetherfi.utility.ExcelReader.getTestData(ExcelReader.java:99)
-at com.tetherfi.test.ivr.IvrConfigUITest.dataBase(IvrConfigUITest.java:204)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(Unknown Source)
-at org.testng.TestRunner.privateRun(TestRunner.java:770)
-at org.testng.TestRunner.run(TestRunner.java:591)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-at org.testng.TestNG.runSuites(TestNG.java:1032)
-at org.testng.TestNG.run(TestNG.java:1000)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.NullPointerException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- dataBase -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:59:16 IST" name="afterEachMethod" finished-at="2019-10-30T12:59:18 IST" duration-ms="1233" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IvrConfigUITest.dataBase() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:59:18 IST" name="endTestCase" finished-at="2019-10-30T12:59:18 IST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IvrConfigUITest.dataBase() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:59:18 IST" name="startTestCase" finished-at="2019-10-30T12:59:18 IST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IvrConfigUITest.SearchPage() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigateToIvrConfigPage()[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:59:18 IST" name="NavigateToIvrConfigPage" finished-at="2019-10-30T12:59:23 IST" duration-ms="5154" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToIvrConfigPage -->
-        <test-method signature="SearchPage()[pri:20, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:59:23 IST" name="SearchPage" finished-at="2019-10-30T12:59:26 IST" duration-ms="3685" status="FAIL">
+        </test-method> <!-- NavigateToChatTemplatesPage -->
+        <test-method signature="VerifyAuditTrialReportForDelete()[pri:95, instance:com.tetherfi.test.chat.ChatTemplatesTest@65a9ea3c]" started-at="2019-10-30T18:30:17 IST" name="VerifyAuditTrialReportForDelete" finished-at="2019-10-30T18:30:38 IST" duration-ms="21407" status="FAIL">
           <exception class="java.lang.AssertionError">
             <message>
               <![CDATA[did not expect to find [true] but found [false]]]>
@@ -1126,7 +115,7 @@ at org.testng.Assert.fail(Assert.java:97)
 at org.testng.Assert.failNotEquals(Assert.java:969)
 at org.testng.Assert.assertTrue(Assert.java:43)
 at org.testng.Assert.assertTrue(Assert.java:53)
-at com.tetherfi.test.ivr.IvrConfigUITest.SearchPage(IvrConfigUITest.java:218)
+at com.tetherfi.test.chat.ChatTemplatesTest.VerifyAuditTrialReportForDelete(ChatTemplatesTest.java:1004)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -1160,116 +149,219 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
           </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- SearchPage -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:59:26 IST" name="afterEachMethod" finished-at="2019-10-30T12:59:28 IST" duration-ms="1240" status="PASS">
+        </test-method> <!-- VerifyAuditTrialReportForDelete -->
+        <test-method is-config="true" signature="close(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.chat.ChatTemplatesTest@65a9ea3c]" started-at="2019-10-30T18:30:38 IST" name="close" finished-at="2019-10-30T18:30:39 IST" duration-ms="1130" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IvrConfigUITest.SearchPage() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.chat.ChatTemplatesTest.VerifyAuditTrialReportForDelete() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:59:28 IST" name="endTestCase" finished-at="2019-10-30T12:59:28 IST" duration-ms="1" status="PASS">
+        </test-method> <!-- close -->
+        <test-method is-config="true" signature="NavigateToChatTemplatesPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.chat.ChatTemplatesTest@65a9ea3c]" started-at="2019-10-30T18:30:39 IST" name="NavigateToChatTemplatesPage" finished-at="2019-10-30T18:31:01 IST" duration-ms="21390" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IvrConfigUITest.SearchPage() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.chat.ChatTemplatesTest.DeleteGroupWithoutDeleteReasonRecord() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:59:28 IST" name="startTestCase" finished-at="2019-10-30T12:59:28 IST" duration-ms="0" status="PASS">
+        </test-method> <!-- NavigateToChatTemplatesPage -->
+        <test-method signature="DeleteGroupWithoutDeleteReasonRecord()[pri:96, instance:com.tetherfi.test.chat.ChatTemplatesTest@65a9ea3c]" started-at="2019-10-30T18:31:01 IST" name="DeleteGroupWithoutDeleteReasonRecord" finished-at="2019-10-30T18:31:44 IST" duration-ms="43395" status="FAIL">
+          <exception class="org.openqa.selenium.NoSuchElementException">
+            <message>
+              <![CDATA[no such element: Unable to locate element: {"method":"css selector","selector":".k-grid-CustomDelete"}
+  (Session info: chrome=78.0.3904.70)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-O6A5C2O', ip: '10.0.75.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '9.0.4'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.70, chrome: {chromedriverVersion: 78.0.3904.70 (edb9c9f3de024..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:58224}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 28ae28346da399049e1df7ce32ffeeea
+*** Element info: {Using=css selector, value=.k-grid-CustomDelete}]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"css selector","selector":".k-grid-CustomDelete"}
+  (Session info: chrome=78.0.3904.70)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-O6A5C2O', ip: '10.0.75.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '9.0.4'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.70, chrome: {chromedriverVersion: 78.0.3904.70 (edb9c9f3de024..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:58224}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 28ae28346da399049e1df7ce32ffeeea
+*** Element info: {Using=css selector, value=.k-grid-CustomDelete}
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+at java.base/java.lang.reflect.Constructor.newInstance(Unknown Source)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:420)
+at org.openqa.selenium.By$ByCssSelector.findElement(By.java:431)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+at com.sun.proxy.$Proxy14.click(Unknown Source)
+at com.tetherfi.pages.BasePage.btnClick(BasePage.java:220)
+at com.tetherfi.pages.ChatTemplatesPage.deleteGroupsWithoutDeleteReasonRecord(ChatTemplatesPage.java:1505)
+at com.tetherfi.test.chat.ChatTemplatesTest.DeleteGroupWithoutDeleteReasonRecord(ChatTemplatesTest.java:1014)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- DeleteGroupWithoutDeleteReasonRecord -->
+        <test-method is-config="true" signature="close(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.chat.ChatTemplatesTest@65a9ea3c]" started-at="2019-10-30T18:31:44 IST" name="close" finished-at="2019-10-30T18:31:56 IST" duration-ms="11556" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IvrConfigUITest.SearchWithoutSearchTextBox() throws java.io.IOException]]>
+                <![CDATA[public void com.tetherfi.test.chat.ChatTemplatesTest.DeleteGroupWithoutDeleteReasonRecord() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigateToIvrConfigPage()[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:59:28 IST" name="NavigateToIvrConfigPage" finished-at="2019-10-30T12:59:33 IST" duration-ms="5134" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToIvrConfigPage -->
-        <test-method signature="SearchWithoutSearchTextBox()[pri:21, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:59:33 IST" name="SearchWithoutSearchTextBox" finished-at="2019-10-30T12:59:37 IST" duration-ms="3753" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- SearchWithoutSearchTextBox -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:59:37 IST" name="afterEachMethod" finished-at="2019-10-30T12:59:37 IST" duration-ms="482" status="PASS">
+        </test-method> <!-- close -->
+        <test-method is-config="true" signature="NavigateToChatTemplatesPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.chat.ChatTemplatesTest@65a9ea3c]" started-at="2019-10-30T18:31:56 IST" name="NavigateToChatTemplatesPage" finished-at="2019-10-30T18:32:17 IST" duration-ms="21018" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IvrConfigUITest.SearchWithoutSearchTextBox() throws java.io.IOException]]>
+                <![CDATA[public void com.tetherfi.test.chat.ChatTemplatesTest.VerifyCancelBtnAtDeleteGroupRecord() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:59:37 IST" name="endTestCase" finished-at="2019-10-30T12:59:37 IST" duration-ms="1" status="PASS">
+        </test-method> <!-- NavigateToChatTemplatesPage -->
+        <test-method signature="VerifyCancelBtnAtDeleteGroupRecord()[pri:97, instance:com.tetherfi.test.chat.ChatTemplatesTest@65a9ea3c]" started-at="2019-10-30T18:32:17 IST" name="VerifyCancelBtnAtDeleteGroupRecord" finished-at="2019-10-30T18:33:22 IST" duration-ms="65283" status="FAIL">
+          <exception class="org.openqa.selenium.TimeoutException">
+            <message>
+              <![CDATA[Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.cssSelector: .k-grid-CustomDelete' (tried for 30 second(s) with 500 milliseconds interval)]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.cssSelector: .k-grid-CustomDelete' (tried for 30 second(s) with 500 milliseconds interval)
+at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
+at com.tetherfi.pages.BasePage.waitUntilWebElementIsVisible(BasePage.java:127)
+at com.tetherfi.pages.BasePage.selectWebElement(BasePage.java:198)
+at com.tetherfi.pages.ChatTemplatesPage.clickOnDeleteButton(ChatTemplatesPage.java:1484)
+at com.tetherfi.test.chat.ChatTemplatesTest.VerifyCancelBtnAtDeleteGroupRecord(ChatTemplatesTest.java:1023)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"css selector","selector":".k-grid-CustomDelete"}
+  (Session info: chrome=78.0.3904.70)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-O6A5C2O', ip: '10.0.75.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '9.0.4'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.70, chrome: {chromedriverVersion: 78.0.3904.70 (edb9c9f3de024..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:58248}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: df73c5fd213ba7ee85f88020897542a4
+*** Element info: {Using=css selector, value=.k-grid-CustomDelete}
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+at java.base/java.lang.reflect.Constructor.newInstance(Unknown Source)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:420)
+at org.openqa.selenium.By$ByCssSelector.findElement(By.java:431)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+at com.sun.proxy.$Proxy14.isDisplayed(Unknown Source)
+at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:314)
+at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:43)
+at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:300)
+at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:297)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
+... 32 more
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.TimeoutException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyCancelBtnAtDeleteGroupRecord -->
+        <test-method is-config="true" signature="close(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.chat.ChatTemplatesTest@65a9ea3c]" started-at="2019-10-30T18:33:22 IST" name="close" finished-at="2019-10-30T18:33:23 IST" duration-ms="1241" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IvrConfigUITest.SearchWithoutSearchTextBox() throws java.io.IOException]]>
+                <![CDATA[public void com.tetherfi.test.chat.ChatTemplatesTest.VerifyCancelBtnAtDeleteGroupRecord() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:59:37 IST" name="startTestCase" finished-at="2019-10-30T12:59:37 IST" duration-ms="1" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IvrConfigUITest.SearchClearSearch() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigateToIvrConfigPage()[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:59:37 IST" name="NavigateToIvrConfigPage" finished-at="2019-10-30T12:59:43 IST" duration-ms="5589" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToIvrConfigPage -->
-        <test-method signature="SearchClearSearch()[pri:22, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:59:43 IST" name="SearchClearSearch" finished-at="2019-10-30T12:59:47 IST" duration-ms="4341" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- SearchClearSearch -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:59:47 IST" name="afterEachMethod" finished-at="2019-10-30T12:59:48 IST" duration-ms="1209" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IvrConfigUITest.SearchClearSearch() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:59:48 IST" name="endTestCase" finished-at="2019-10-30T12:59:48 IST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IvrConfigUITest.SearchClearSearch() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.tetherfi.test.ivr.IvrConfigUITest@7a3b7122]" started-at="2019-10-30T12:59:48 IST" name="tearDown" finished-at="2019-10-30T12:59:54 IST" duration-ms="5713" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- com.tetherfi.test.ivr.IvrConfigUITest -->
+        </test-method> <!-- close -->
+      </class> <!-- com.tetherfi.test.chat.ChatTemplatesTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

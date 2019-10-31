@@ -3,24 +3,15 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.tetherfi.test.ivr.IvrConfigUITest">
+      <class name="com.tetherfi.test.chat.ChatTemplatesTest">
         <methods>
-          <include name="VerifyNumberOfItemsPerPage"/>
-          <include name="VerifyTotalNumberOfItemsPerPage"/>
-          <include name="NavigateToIvrConfigPage"/>
-          <include name="endTestCase"/>
-          <include name="tearDown"/>
-          <include name="VerifySortByAscending"/>
-          <include name="SearchPage"/>
-          <include name="VerifySortByDescending"/>
-          <include name="VerifyExportToExcelData"/>
-          <include name="VerifyExportToExcelWithoutData"/>
-          <include name="startTestCase"/>
-          <include name="openApplication"/>
-          <include name="dataBase"/>
-          <include name="afterEachMethod"/>
+          <include name="NavigateToChatTemplatesPage"/>
+          <include name="VerifyCancelBtnAtDeleteGroupRecord"/>
+          <include name="DeleteGroupWithoutDeleteReasonRecord"/>
+          <include name="close"/>
+          <include name="VerifyAuditTrialReportForDelete"/>
         </methods>
-      </class> <!-- com.tetherfi.test.ivr.IvrConfigUITest -->
+      </class> <!-- com.tetherfi.test.chat.ChatTemplatesTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

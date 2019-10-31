@@ -4423,7 +4423,7 @@ return status;
 		{
 			if(newvalues.get("Name").equals(details.getGroupName()))
 			{
-				if(newvalues.get("Enabled").equals(details.getDeptEnabled()))
+				if(newvalues.get("Enabled").equals(details.getGroupEnabled()))
 				{
 					Status= true;
 				}
@@ -4477,7 +4477,7 @@ return status;
 	}
 
 	public boolean verifyChatTemplateDepartmentUpdate(ChatTemplateDetails details, String Transaction) throws Exception {
-		booleansearchnew(details.getDepartmentName(),Transaction);
+		booleansearchnew(details.getModifyReason(),Transaction);
 		Boolean Status=false;
         Map<String,String> firstRowData=getFirstRowDatafromTable1();
         if(firstRowData.containsKey("Old Values")) {
@@ -4538,10 +4538,10 @@ return status;
     		if(oldvalues.get("Name").equals(details.getName())){
     			if(oldvalues.get("Text").equals(details.getText())){
     				if(oldvalues.get("Enabled").equals(details.getEnabled())) {
-    					if(oldvalues.get("GroupName").equals(details.getGroupName())){
-        					if(oldvalues.get("DepartmentName").equals(details.getDepartmentName())){
-            					if(oldvalues.get("StartTime").equals(details.getStartTime())){
-                					if(oldvalues.get("EndTime").equals(details.getEndTime())){
+    					if(oldvalues.get("Group Name").equals(details.getGroupName())){
+        					if(oldvalues.get("Department Name").equals(details.getDepartmentName())){
+            					if(oldvalues.get("Start Time").equals(details.getStartTime())){
+                					if(oldvalues.get("End Time").equals(details.getEndTime())){
                 						if(firstRowData.containsKey("New Values")) {
                 							Map<String,String> newvalues=new HashMap<>();
                 							String[]d1=firstRowData.get("New Values").split("\n");
@@ -4553,10 +4553,10 @@ return status;
                 							if(newvalues.get("Name").equals(details.getName())) {
                 								if(newvalues.get("Text").equals(details.getText())){
                 									if(newvalues.get("Enabled").equals(details.getUpdatedEnabled())){
-                										if(newvalues.get("GroupName").equals(details.getGroupName())){
-                											if(newvalues.get("DepartmentName").equals(details.getDepartmentName())){
-                												if(newvalues.get("StartTime").equals(details.getStartTime())) {	
-                    												if(newvalues.get("EndTime").equals(details.getEndTime())) {	
+                										if(newvalues.get("Group Name").equals(details.getGroupName())){
+                											if(newvalues.get("Department Name").equals(details.getDepartmentName())){
+                												if(newvalues.get("Start Time").equals(details.getStartTime())) {	
+                    												if(newvalues.get("End Time").equals(details.getEndTime())) {	
                     													if(newvalues.get("ModifyReason").equals(details.getModifyReason())){ 
                 															if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getModifyReason()))
                 																Status=true;
@@ -4599,7 +4599,7 @@ return status;
 	}
 
 	public boolean verifyChatTemplateGroupUpdate(ChatTemplateDetails details, String Transaction) throws Exception {
-		booleansearchnew(details.getGroupName(),Transaction);
+		booleansearchnew(details.getModifyReason(),Transaction);
 		Boolean Status=false;
         Map<String,String> firstRowData=getFirstRowDatafromTable1();
         if(firstRowData.containsKey("Old Values")) {
@@ -4612,7 +4612,7 @@ return status;
     				oldvalues.put(f[0], f[1]);
     		}
     		if(oldvalues.get("Name").equals(details.getGroupName())){
-    			if(oldvalues.get("Enabled").equals(details.getEnabled())) {
+    			if(oldvalues.get("Enabled").equals(details.getGroupEnabled())) {
     				if(oldvalues.get("DepartmentName").equals(details.getDepartmentName())){
     					if(firstRowData.containsKey("New Values")) {
                 			Map<String,String> newvalues=new HashMap<>();
@@ -4623,7 +4623,7 @@ return status;
                 					newvalues.put(f[0], f[1]);
                 			}
                 			if(newvalues.get("Name").equals(details.getGroupName())) {
-                				if(newvalues.get("Enabled").equals(details.getUpdatedEnabled())){
+                				if(newvalues.get("Enabled").equals(details.getUpdatedGroupEnabled())){
                 					if(newvalues.get("DepartmentName").equals(details.getDepartmentName())){
                 						if(newvalues.get("ModifyReason").equals(details.getModifyReason())){ 
                 							if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getModifyReason()))
