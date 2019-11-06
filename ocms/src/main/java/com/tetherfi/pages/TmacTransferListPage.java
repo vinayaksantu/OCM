@@ -237,9 +237,14 @@ public class TmacTransferListPage extends BasePage {
 	
 	@FindBy(xpath="//*[@id='Value']/..//span//span[@aria-label='Increase value']/span")
 	private WebElement AgtExtIncrease;
-	
+
 	@FindBy(css=".k-grid-content")
 	private WebElement gridContent1;
+	
+	@FindBy(css="#tdrillgrid .k-grid-content")
+	private WebElement gridContent2;
+	
+	
    
     public boolean isTmacTransferListPageDisplayed() {
         waitForLoad(driver);
@@ -293,7 +298,8 @@ public class TmacTransferListPage extends BasePage {
     public boolean verifyTmacBlindTransferDataTableHeaders() {
         ArrayList<String> Expected=new ArrayList<String>(Arrays.asList("Channel","Skill Name","Skill Id","VDN","Last Changed By","Last Changed On"));
         ArrayList Actual = getHeadersfromTable(TmacTransferListTableHeaders);
-        Collections.sort(Expected);Collections.sort(Actual);
+        Collections.sort(Expected);
+        Collections.sort(Actual);
         return Actual.equals(Expected);
     }
     
@@ -472,6 +478,113 @@ public class TmacTransferListPage extends BasePage {
         for (Map<String,String> map1: UI)
         {   	
 			if(map1.get("Name").toUpperCase().endsWith(name.toUpperCase()))
+        	Status= true;
+        	else 
+        		Status= false;
+	}
+        return Status;
+	}
+	
+	public boolean verifyTmacBlindSearchIsNotEqualTo(String skillname) throws Exception {
+		Boolean Status=false;
+		Map<String, String> map=new HashMap<String,String>() ;
+		map.put("Skill Name", skillname);
+		selectWebElement(searchBtn);
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Skill Name");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is not equal to");
+        enterValueToTxtField(searchTextBox,skillname);		
+        selectWebElement(searchSearchBtn);
+        waitUntilWebElementIsVisible(gridContent2);
+        List<Map<String,String>> UI=gettableBlindTrans(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(map1.equals(map))
+        	Status= false;
+        	else 
+        		Status= true;
+	}
+        return Status;
+	
+	}
+    
+    public boolean verifyTmacBlindSearchContains(String skillname) throws Exception {
+		Boolean Status=false;
+		selectWebElement(searchBtn);
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Skill Name");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Contains");
+        enterValueToTxtField(searchTextBox,skillname);		
+        selectWebElement(searchSearchBtn);
+        waitUntilWebElementIsVisible(gridContent2);
+        List<Map<String,String>> UI=gettableBlindTrans(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(map1.get("Skill Name").toUpperCase().contains(skillname.toUpperCase()))
+        	Status= true;
+        	else 
+        		Status= false;
+	}
+        return Status;
+	}
+	public boolean verifyTmacBlindSearchDoesNotContains(String skillname) throws Exception {
+		Boolean Status=false;
+		selectWebElement(searchBtn);
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Skill Name");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Does not contain");
+        enterValueToTxtField(searchTextBox,skillname);		
+        selectWebElement(searchSearchBtn);
+        waitUntilWebElementIsVisible(gridContent2);
+        List<Map<String,String>> UI=gettableBlindTrans(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(!map1.get("Skill Name").toLowerCase().contains(skillname.toLowerCase()))
+        	Status= true;
+        	else 
+        		Status= false;
+	}
+        return Status;
+	}
+	
+	public boolean verifyTmacBlindSearchStartsWith(String skillname) throws Exception {
+		Boolean Status=false;
+		selectWebElement(searchBtn);
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Skill Name");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Starts with");
+        enterValueToTxtField(searchTextBox,skillname);		
+        selectWebElement(searchSearchBtn);
+        waitUntilWebElementIsVisible(gridContent2);
+        List<Map<String,String>> UI=gettableBlindTrans(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(map1.get("Skill Name").toLowerCase().startsWith(skillname.toLowerCase()))
+        	Status= true;
+        	else 
+        		Status= false;
+	}
+        return Status;
+	}
+	
+	public boolean verifyTmacBlindSearchEndsWith(String skillname) throws Exception {
+		Boolean Status=false;
+		selectWebElement(searchBtn);
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Skill Name");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Ends with");
+        enterValueToTxtField(searchTextBox,skillname);		
+        selectWebElement(searchSearchBtn);
+        waitUntilWebElementIsVisible(gridContent2);
+        List<Map<String,String>> UI=gettableBlindTrans(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(map1.get("Skill Name").toUpperCase().endsWith(skillname.toUpperCase()))
         	Status= true;
         	else 
         		Status= false;

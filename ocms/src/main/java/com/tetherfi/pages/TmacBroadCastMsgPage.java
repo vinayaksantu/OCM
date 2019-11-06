@@ -227,6 +227,113 @@ public class TmacBroadCastMsgPage extends BasePage {
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(gridContent);
     }
+    
+    public boolean verifySearchIsNotEqualTo(String message) throws Exception {
+		Boolean Status=false;
+		Map<String, String> map=new HashMap<String,String>() ;
+		map.put("Message", message);
+		selectWebElement(searchBtn);
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Message");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is not equal to");
+        enterValueToTxtField(searchTextBox,message);		
+        selectWebElement(searchSearchBtn);
+        waitUntilWebElementIsVisible(gridContent);
+        List<Map<String,String>> UI=gettable(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(map1.equals(map))
+        	Status= false;
+        	else 
+        		Status= true;
+	}
+        return Status;
+	
+	}
+    
+    public boolean verifySearchContains(String message) throws Exception {
+		Boolean Status=false;
+		selectWebElement(searchBtn);
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Message");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Contains");
+        enterValueToTxtField(searchTextBox,message);		
+        selectWebElement(searchSearchBtn);
+        waitUntilWebElementIsVisible(gridContent);
+        List<Map<String,String>> UI=gettable(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(map1.get("Message").toUpperCase().contains(message.toUpperCase()))
+        	Status= true;
+        	else 
+        		Status= false;
+	}
+        return Status;
+	}
+	public boolean verifySearchDoesNotContains(String message) throws Exception {
+		Boolean Status=false;
+		selectWebElement(searchBtn);
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Message");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Does not contain");
+        enterValueToTxtField(searchTextBox,message);		
+        selectWebElement(searchSearchBtn);
+        waitUntilWebElementIsVisible(gridContent);
+        List<Map<String,String>> UI=gettable(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(!map1.get("Message").toLowerCase().contains(message.toLowerCase()))
+        	Status= true;
+        	else 
+        		Status= false;
+	}
+        return Status;
+	}
+	
+	public boolean verifySearchStartsWith(String message) throws Exception {
+		Boolean Status=false;
+		selectWebElement(searchBtn);
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Message");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Starts with");
+        enterValueToTxtField(searchTextBox,message);		
+        selectWebElement(searchSearchBtn);
+        waitUntilWebElementIsVisible(gridContent);
+        List<Map<String,String>> UI=gettable(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(map1.get("Message").toLowerCase().startsWith(message.toLowerCase()))
+        	Status= true;
+        	else 
+        		Status= false;
+	}
+        return Status;
+	}
+	
+	public boolean verifySearchEndsWith(String message) throws Exception {
+		Boolean Status=false;
+		selectWebElement(searchBtn);
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Message");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Ends with");
+        enterValueToTxtField(searchTextBox,message);		
+        selectWebElement(searchSearchBtn);
+        waitUntilWebElementIsVisible(gridContent);
+        List<Map<String,String>> UI=gettable(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(map1.get("Message").toUpperCase().endsWith(message.toUpperCase()))
+        	Status= true;
+        	else 
+        		Status= false;
+	}
+        return Status;
+	}
     public void addTmacBroadcastMsg(TmacBroadCastMsgDetails tmacBroadCastMsgDetails) throws Exception {
         selectWebElement(addnewTmacBroadcastMessage);
         selectWebElement(TeamNameDropDown);
@@ -589,10 +696,10 @@ public class TmacBroadCastMsgPage extends BasePage {
 			List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
 			String col=null;
 			for(int j=1;j<headers.size();j++){
-				if(headers.get(j).getText().equals("Last Changed On")){
+				/*if(headers.get(j).getText().equals("Last Changed On")){
 					col=cols.get(j).getText().substring(10);
 					}
-				else
+				else*/
 					col=cols.get(j).getText();
 				map.put(headers.get(j).getText(),col);
 			}
@@ -620,10 +727,10 @@ public class TmacBroadCastMsgPage extends BasePage {
 			Map<String,String> map = new HashMap<String,String>();
 			List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
 			for(int j=1;j<headers.size();j++) {
-				if(headers.get(j).getText().equals("Last Changed On")){
+				/*if(headers.get(j).getText().equals("Last Changed On")){
 					col=cols.get(j).getText().substring(0,10);
 					}
-				else
+				else*/
 					col=cols.get(j).getText();
 				map.put(headers.get(j).getText(),col);
 			}
@@ -675,9 +782,9 @@ public class TmacBroadCastMsgPage extends BasePage {
         boolean status=false;
         if(!nextPageIcon.getAttribute("class").contains("k-state-disabled")){
         int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber));
-        selectWebElement(nextPageIcon);
+        selectInvisibleWebElement(nextPageIcon);
         int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
-        selectWebElement(previousPageIcon);
+        selectInvisibleWebElement(previousPageIcon);
         int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
         if(nextnumber==(pagenumber+1) && pagenumber==previousnumber){status=true;}
         }else{
@@ -689,9 +796,9 @@ public class TmacBroadCastMsgPage extends BasePage {
         boolean status=false;
         if(!lastPageIcon.getAttribute("class").contains("k-state-disabled")){
             int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber));
-            selectWebElement(lastPageIcon);
+            selectInvisibleWebElement(lastPageIcon);
             int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
-            selectWebElement(firstPageIcon);
+            selectInvisibleWebElement(firstPageIcon);
             int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
             if(nextnumber>pagenumber && pagenumber==previousnumber){status=true;}
         }else{

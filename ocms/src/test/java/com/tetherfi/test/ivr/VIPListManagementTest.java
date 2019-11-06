@@ -48,7 +48,7 @@ public class VIPListManagementTest extends BaseTest{
         Assert.assertTrue(vipListMangementPage.isVipListManagementPageDisplayed(), "VIP List Management page assertion failed");
     }
 	
-	@Test(priority=1)
+	/*@Test(priority=1)
 	public void VIPListManagementPage() {
         VipListManagementPage vipListMangementPage = PageFactory.createPageInstance(driver, VipListManagementPage.class);
         Assert.assertTrue(vipListMangementPage.VerifyLogo(),"Logo assertion failed");
@@ -74,7 +74,7 @@ public class VIPListManagementTest extends BaseTest{
     public void VerifyColumnsHeaderDisable() {
         VipListManagementPage vipListMangementPage = PageFactory.createPageInstance(driver, VipListManagementPage.class);
         Assert.assertFalse(vipListMangementPage.verifycolumnsHeaderDisabled(),"columns disabled assertion failed");
-    }
+    }*/
     
     @Test(priority=5)
     public void AddNewVIPListRecord() throws Exception {
@@ -86,7 +86,7 @@ public class VIPListManagementTest extends BaseTest{
         Assert.assertEquals(vipListMangementPage.verifySuccessMessage(),"Record Created Successfully", "Add New record assertion failed");
     }
     
-    @Test(priority=6,dependsOnMethods = "AddNewVIPListRecord")
+   // @Test(priority=6,dependsOnMethods = "AddNewVIPListRecord")
     public void AddDuplicateVIPListRecord() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\VIPListManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -111,7 +111,7 @@ public class VIPListManagementTest extends BaseTest{
         Assert.assertTrue(ocmReportsPage.verifyVIPListManagementCreate(vipListManagementDetails,"Create"));
     }
     
-    @Test(priority=8)
+   /* @Test(priority=8)
     public void AddEmptyRecord() throws IOException {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\VIPListManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -483,7 +483,7 @@ public class VIPListManagementTest extends BaseTest{
         VipListManagementPage vipListMangementPage = PageFactory.createPageInstance(driver, VipListManagementPage.class);
         VipListManagementDetails vipListManagementDetails = new VipListManagementDetails(map);
     	Assert.assertTrue(vipListMangementPage.verifyDatabase(vipListManagementDetails.getQuery()));
-    }
+    }*/
 	
 	 @AfterMethod
 	    public void afterEachMethod(Method method) throws InterruptedException {

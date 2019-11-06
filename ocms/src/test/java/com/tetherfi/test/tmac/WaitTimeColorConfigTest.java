@@ -119,7 +119,7 @@ public class WaitTimeColorConfigTest extends BaseTest {
    @Test(priority=8)
    public void VerifySearchIsNotEqualTo() throws Exception {
        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\WaitTimeColorConfigData.xlsx";
-       Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
+       Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);
        WaitTimeColorConfigDetails waitTimeColorConfigDetails = new WaitTimeColorConfigDetails(map);
        WaitTimeColorConfigPage waitTimeColorConfigPage=PageFactory.createPageInstance(driver,WaitTimeColorConfigPage.class);
        Assert.assertTrue(waitTimeColorConfigPage.verifySearchIsNotEqualTo(waitTimeColorConfigDetails.getColorcode()));
@@ -128,7 +128,7 @@ public class WaitTimeColorConfigTest extends BaseTest {
    @Test(priority=9)
    public void VerifySearchContains() throws Exception {
        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\WaitTimeColorConfigData.xlsx";
-       Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);
+       Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(2);
        WaitTimeColorConfigDetails waitTimeColorConfigDetails = new WaitTimeColorConfigDetails(map);
        WaitTimeColorConfigPage waitTimeColorConfigPage=PageFactory.createPageInstance(driver,WaitTimeColorConfigPage.class);
        Assert.assertTrue(waitTimeColorConfigPage.verifySearchContains(waitTimeColorConfigDetails.getColorcode()));
@@ -137,7 +137,7 @@ public class WaitTimeColorConfigTest extends BaseTest {
    @Test(priority=10)
    public void VerifySearchDoesNotContains() throws Exception {
        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\WaitTimeColorConfigData.xlsx";
-       Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);
+       Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(2);
        WaitTimeColorConfigDetails waitTimeColorConfigDetails = new WaitTimeColorConfigDetails(map);
        WaitTimeColorConfigPage waitTimeColorConfigPage=PageFactory.createPageInstance(driver,WaitTimeColorConfigPage.class);
        Assert.assertTrue(waitTimeColorConfigPage.verifySearchDoesNotContains(waitTimeColorConfigDetails.getColorcode()));
@@ -146,7 +146,7 @@ public class WaitTimeColorConfigTest extends BaseTest {
    @Test(priority=11)
    public void VerifySearchStartsWith() throws Exception {
        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\WaitTimeColorConfigData.xlsx";
-       Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(2);
+       Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(3);
        WaitTimeColorConfigDetails waitTimeColorConfigDetails = new WaitTimeColorConfigDetails(map);
        WaitTimeColorConfigPage waitTimeColorConfigPage=PageFactory.createPageInstance(driver,WaitTimeColorConfigPage.class);
        Assert.assertTrue(waitTimeColorConfigPage.verifySearchStartsWith(waitTimeColorConfigDetails.getColorcode()));
@@ -155,7 +155,7 @@ public class WaitTimeColorConfigTest extends BaseTest {
    @Test(priority=12)
    public void VerifySearchEndsWith() throws Exception {
        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\WaitTimeColorConfigData.xlsx";
-       Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(3);
+       Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(4);
        WaitTimeColorConfigDetails waitTimeColorConfigDetails = new WaitTimeColorConfigDetails(map);
        WaitTimeColorConfigPage waitTimeColorConfigPage=PageFactory.createPageInstance(driver,WaitTimeColorConfigPage.class);
        Assert.assertTrue(waitTimeColorConfigPage.verifySearchEndsWith(waitTimeColorConfigDetails.getColorcode()));
@@ -171,8 +171,8 @@ public class WaitTimeColorConfigTest extends BaseTest {
         Assert.assertTrue(waitTimeColorConfigPage.editcancel(waitTimeColorConfigDetails));
    	}
    	
-   	@Test(priority=14)
-        public void EditWaitTimeColorConfigRecord() throws Exception {
+    @Test(priority=14)
+    public void EditWaitTimeColorConfigRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\WaitTimeColorConfigData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
         WaitTimeColorConfigDetails waitTimeColorConfigDetails = new WaitTimeColorConfigDetails(map);

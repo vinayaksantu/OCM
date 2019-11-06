@@ -151,7 +151,7 @@ public class AdhocOptionEnhancementTest extends BaseTest {
         AdhocOptionEnhancementDetails adhocOptionEnhancementDetails = new AdhocOptionEnhancementDetails(map);
         AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);
     	adhocOptionEnhancementPage.addNewRecordwithoutpromotionnamewavfile(adhocOptionEnhancementDetails);
-        Assert.assertEquals(adhocOptionEnhancementPage.verifyErrorMessage(),"Please Provide Promotion Name WaveFile");
+        Assert.assertEquals(adhocOptionEnhancementPage.verifyErrorMessage(),"Please upload only wav file!");
     }
     @Test(priority=12)
     public void AddAdhocOptionEnhancementRecordWithoutPromotionDetailsWavfile() throws IOException, Exception {
@@ -160,7 +160,7 @@ public class AdhocOptionEnhancementTest extends BaseTest {
         AdhocOptionEnhancementDetails adhocOptionEnhancementDetails = new AdhocOptionEnhancementDetails(map);
         AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);       
     	adhocOptionEnhancementPage.addNewRecordwithoutpromotiondetailswavfile(adhocOptionEnhancementDetails);
-        Assert.assertEquals(adhocOptionEnhancementPage.verifyErrorMessage(),"Please Provide Promotional Details Wavefile");
+        Assert.assertEquals(adhocOptionEnhancementPage.verifyErrorMessage(),"Please upload only wav file!");
     }
     @Test(priority=13)
     public void AddEmptyAdhocOptionEnhancementRecordWithoutIntent() throws IOException, Exception {

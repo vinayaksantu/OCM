@@ -1202,7 +1202,9 @@ return status;
 				if(newvalues.get("Message").equals(details.getMessage()))
 				{
 					if(newvalues.get("Status").equals(details.getStatus()))
+						{
 						Status= true;
+						}
 					else {System.out.println("Status data mismatch");}
 				}
 				else {System.out.println("Message data mismatch");}

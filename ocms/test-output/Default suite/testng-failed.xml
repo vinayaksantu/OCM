@@ -3,15 +3,40 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.tetherfi.test.chat.ChatTemplatesTest">
+      <class name="com.tetherfi.test.tmac.TmacTransferListTest">
         <methods>
-          <include name="NavigateToChatTemplatesPage"/>
-          <include name="VerifyCancelBtnAtDeleteGroupRecord"/>
-          <include name="DeleteGroupWithoutDeleteReasonRecord"/>
-          <include name="close"/>
-          <include name="VerifyAuditTrialReportForDelete"/>
+          <include name="ExportToExcelData"/>
+          <include name="VerifyErrMsgDupSkillIdName"/>
+          <include name="NavigatetoTmacTransferListPage"/>
+          <include name="AddNewTmacConsultTransferRecord"/>
+          <include name="VerifyDupNameErrMsgOnEditConsulRecd"/>
+          <include name="EditTmacBlindTransferRecord"/>
+          <include name="VerifyDupErrMsgEditTmacBlindTransferRecord"/>
+          <include name="DeleteNoReasonErrMsgTmacBlindTransferRecord"/>
+          <include name="startTestCase"/>
+          <include name="openApplication"/>
+          <include name="afterEachMethod"/>
+          <include name="VerifyErrMsgVDNBlank"/>
+          <include name="VerifyDupValueErrMsgOnEditConsulRecd"/>
+          <include name="AddNewTmacBlindTransferRecord"/>
+          <include name="VerifyErrMsgNoModReasonEditTmacBlindTransferRecord"/>
+          <include name="DeleteNoReasonNoBtnTmacBlindTransferRecord"/>
+          <include name="DeleteTmacBlindTransferRecord"/>
+          <include name="endTestCase"/>
+          <include name="VerifyTmacBlindTransferTableHeaders"/>
+          <include name="tearDown"/>
+          <include name="VerifyRecdBlindTransDupVDN"/>
+          <include name="VerifyErrMsgDupSkillIdNameVdn"/>
+          <include name="AddNewTmacConsultTransferRecord2"/>
+          <include name="VerifyNoModReasonErrMsgOnEditConsulRecd"/>
+          <include name="databaseBlindTrans"/>
+          <include name="DeleteTmacBlindTransferRecord3"/>
+          <include name="VerifyRecdBlindTransDiffVDN"/>
+          <include name="VerifyErrMsgDuplicateName"/>
+          <include name="VerifyErrMsgDuplicateValue"/>
+          <include name="database"/>
         </methods>
-      </class> <!-- com.tetherfi.test.chat.ChatTemplatesTest -->
+      </class> <!-- com.tetherfi.test.tmac.TmacTransferListTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

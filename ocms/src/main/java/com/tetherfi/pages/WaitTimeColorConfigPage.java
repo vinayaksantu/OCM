@@ -245,10 +245,11 @@ public class WaitTimeColorConfigPage extends BasePage {
         selectWebElement(addNewWaitTimeColorConfigRecordBtn);
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(popupContent);
+        Thread.sleep(1000);
         selectWebElement(startTime);
-        enterValueToTxtField(startTime, details.getStartTime());
+        enterValueToTxtFieldWithoutClear(startTime, details.getStartTime());
         selectWebElement(endTime);
-        enterValueToTxtField(endTime, details.getEndTime());
+        enterValueToTxtFieldWithoutClear(endTime, details.getEndTime());
         try {
 			Thread.sleep(500);
 		} catch (InterruptedException e) {
@@ -373,7 +374,7 @@ public class WaitTimeColorConfigPage extends BasePage {
         selectDropdownFromVisibleText(columnNameList,"Start Duration");
         selectWebElement(selectSearchColumn.get(1));
         selectDropdownFromVisibleText(searchTypeList,"Is equal to");
-        enterValueToTxtField(searchText.get(0),StartTime);
+        enterValueToTxtFieldWithoutClear(searchText.get(0),StartTime);
         selectWebElement(searchBtn);
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(gridContent);
