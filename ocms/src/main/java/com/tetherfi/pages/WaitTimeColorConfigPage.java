@@ -374,7 +374,7 @@ public class WaitTimeColorConfigPage extends BasePage {
         selectDropdownFromVisibleText(columnNameList,"Start Duration");
         selectWebElement(selectSearchColumn.get(1));
         selectDropdownFromVisibleText(searchTypeList,"Is equal to");
-        enterValueToTxtFieldWithoutClear(searchText.get(0),StartTime);
+        enterValueToTxtBox1(searchText.get(0),StartTime);
         selectWebElement(searchBtn);
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(gridContent);

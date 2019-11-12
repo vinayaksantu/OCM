@@ -3,40 +3,22 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.tetherfi.test.tmac.TmacTransferListTest">
+      <class name="com.tetherfi.test.ivr.VIPListManagementTest">
         <methods>
-          <include name="ExportToExcelData"/>
-          <include name="VerifyErrMsgDupSkillIdName"/>
-          <include name="NavigatetoTmacTransferListPage"/>
-          <include name="AddNewTmacConsultTransferRecord"/>
-          <include name="VerifyDupNameErrMsgOnEditConsulRecd"/>
-          <include name="EditTmacBlindTransferRecord"/>
-          <include name="VerifyDupErrMsgEditTmacBlindTransferRecord"/>
-          <include name="DeleteNoReasonErrMsgTmacBlindTransferRecord"/>
+          <include name="AddNewVIPListRecord"/>
           <include name="startTestCase"/>
-          <include name="openApplication"/>
           <include name="afterEachMethod"/>
-          <include name="VerifyErrMsgVDNBlank"/>
-          <include name="VerifyDupValueErrMsgOnEditConsulRecd"/>
-          <include name="AddNewTmacBlindTransferRecord"/>
-          <include name="VerifyErrMsgNoModReasonEditTmacBlindTransferRecord"/>
-          <include name="DeleteNoReasonNoBtnTmacBlindTransferRecord"/>
-          <include name="DeleteTmacBlindTransferRecord"/>
-          <include name="endTestCase"/>
-          <include name="VerifyTmacBlindTransferTableHeaders"/>
-          <include name="tearDown"/>
-          <include name="VerifyRecdBlindTransDupVDN"/>
-          <include name="VerifyErrMsgDupSkillIdNameVdn"/>
-          <include name="AddNewTmacConsultTransferRecord2"/>
-          <include name="VerifyNoModReasonErrMsgOnEditConsulRecd"/>
-          <include name="databaseBlindTrans"/>
-          <include name="DeleteTmacBlindTransferRecord3"/>
-          <include name="VerifyRecdBlindTransDiffVDN"/>
-          <include name="VerifyErrMsgDuplicateName"/>
-          <include name="VerifyErrMsgDuplicateValue"/>
+          <include name="openApplication"/>
           <include name="database"/>
+          <include name="VerifyAuditTrialReportForCreate"/>
+          <include name="SearchClearSearch"/>
+          <include name="endTestCase"/>
+          <include name="tearDown"/>
+          <include name="EditVIPListRecord"/>
+          <include name="VerifyAuditTrialReportForUpdate"/>
+          <include name="NavigateToVIPListManagementPage"/>
         </methods>
-      </class> <!-- com.tetherfi.test.tmac.TmacTransferListTest -->
+      </class> <!-- com.tetherfi.test.ivr.VIPListManagementTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -46,7 +46,7 @@ public class MenuDescriptionMappingTest extends BaseTest {
     	screenshot.captureScreen(driver,"MenuDescriptionMappingTest","MenuDescriptionMappingPage");
     }
 	
-	@Test(priority=1)
+	/*@Test(priority=1)
 	public void MenuDescriptionMappingPage() {
         MenuDescriptionMappingPage menuDescriptionMappingPage = PageFactory.createPageInstance(driver, MenuDescriptionMappingPage.class);
         Assert.assertTrue(menuDescriptionMappingPage.VerifyLogo(),"Logo assertion failed");
@@ -82,9 +82,9 @@ public class MenuDescriptionMappingTest extends BaseTest {
         MenuDescriptionMappingPage menuDescriptionMappingPage = PageFactory.createPageInstance(driver, MenuDescriptionMappingPage.class);
         menuDescriptionMappingPage.addNewMenuDescriptionMappingRecord(MenuDescriptionMappingDetails);
         Assert.assertEquals(menuDescriptionMappingPage.verifySuccessMessage(),"Record Created Successfully", "Add New record assertion failed");
-    }
+    }*/
     
-    @Test(priority=6,dependsOnMethods = "AddNewMenuDescriptionMappingRecord")
+    @Test(priority=6)//,dependsOnMethods = "AddNewMenuDescriptionMappingRecord")
     public void AddDuplicateMenuDescriptionMappingRecord() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\MenuDescriptionMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -94,7 +94,7 @@ public class MenuDescriptionMappingTest extends BaseTest {
         Assert.assertEquals(menuDescriptionMappingPage.verifySuccessMessage(),"Duplicate MenuId");
     }
     
-    @Test(priority=7,dependsOnMethods ="AddNewMenuDescriptionMappingRecord")
+    /*@Test(priority=7,dependsOnMethods ="AddNewMenuDescriptionMappingRecord")
     public void VerifyAuditTrialReportForCreate() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\MenuDescriptionMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -116,7 +116,7 @@ public class MenuDescriptionMappingTest extends BaseTest {
         MenuDescriptionMappingDetails MenuDescriptionMappingDetails = new MenuDescriptionMappingDetails(map);
         MenuDescriptionMappingPage menuDescriptionMappingPage = PageFactory.createPageInstance(driver, MenuDescriptionMappingPage.class);
         menuDescriptionMappingPage.addNewEmptyRecord(MenuDescriptionMappingDetails);
-        Assert.assertEquals(menuDescriptionMappingPage.verifySuccessMessage(),"Please Provide MenuId, MenuName, Intent", "Add invalid record assertion failed");
+        Assert.assertEquals(menuDescriptionMappingPage.verifySuccessMessage(),"Please Provide Menu Id, Menu Name, Intent", "Add invalid record assertion failed");
     }
     
     @Test(priority=9)
@@ -126,7 +126,7 @@ public class MenuDescriptionMappingTest extends BaseTest {
         MenuDescriptionMappingDetails MenuDescriptionMappingDetails = new MenuDescriptionMappingDetails(map);
         MenuDescriptionMappingPage menuDescriptionMappingPage = PageFactory.createPageInstance(driver, MenuDescriptionMappingPage.class);
         menuDescriptionMappingPage.addRecordWithoutMenuID(MenuDescriptionMappingDetails);
-        Assert.assertEquals(menuDescriptionMappingPage.verifySuccessMessage(),"Please Provide MenuId", "Add invalid record assertion failed");
+        Assert.assertEquals(menuDescriptionMappingPage.verifySuccessMessage(),"Please Provide Menu Id", "Add invalid record assertion failed");
     }
     
     @Test(priority=10)
@@ -136,7 +136,7 @@ public class MenuDescriptionMappingTest extends BaseTest {
         MenuDescriptionMappingDetails MenuDescriptionMappingDetails = new MenuDescriptionMappingDetails(map);
         MenuDescriptionMappingPage menuDescriptionMappingPage = PageFactory.createPageInstance(driver, MenuDescriptionMappingPage.class);
         menuDescriptionMappingPage.addRecordWithoutMenuName(MenuDescriptionMappingDetails);
-        Assert.assertEquals(menuDescriptionMappingPage.verifySuccessMessage(),"Please Provide MenuName", "Add invalid record assertion failed");
+        Assert.assertEquals(menuDescriptionMappingPage.verifySuccessMessage(),"Please Provide Menu Name", "Add invalid record assertion failed");
     }
     
     @Test(priority=11)
@@ -404,7 +404,7 @@ public class MenuDescriptionMappingTest extends BaseTest {
         MenuDescriptionMappingPage menuDescriptionMappingPage = PageFactory.createPageInstance(driver, MenuDescriptionMappingPage.class);
         MenuDescriptionMappingDetails MenuDescriptionMappingDetails = new MenuDescriptionMappingDetails(map);
     	Assert.assertTrue(menuDescriptionMappingPage.verifyDatabase(MenuDescriptionMappingDetails.getQuery()));
-    }
+    }*/
 	
 	 @AfterMethod
 	    public void afterEachMethod(Method method) throws InterruptedException {

@@ -1241,7 +1241,7 @@ return status;
     		        		if(newvalues.get("TeamName").equals(details.getTeamName())){
     		        			if(newvalues.get("Message").equals(details.getUpdatedMessage())){
     		        				if(newvalues.get("Status").equals(details.getUpdatedStatus())) {
-    		        					if(newvalues.get("Modify Reason").equals(details.getModifyReason())) {
+    		        					if(newvalues.get("ModifyReason").equals(details.getModifyReason())) {
     		        						if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getModifyReason()))
     		        		        			Status=true;
     		        		        		else System.out.println("Change reason data mismatch");

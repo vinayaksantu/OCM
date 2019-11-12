@@ -3,18 +3,16 @@
 <suite name="Failed suite [Failed suite [Default suite]]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)(failed)">
     <classes>
-      <class name="com.tetherfi.test.tmac.AgentTeamMgmtTest">
+      <class name="com.tetherfi.test.ivr.IntroMessageAnnouncementCreateTest">
         <methods>
-          <include name="startTestCase"/>
-          <include name="NavigateToAgentTeamManagementPage"/>
-          <include name="openApplication"/>
-          <include name="AddDuplicateRecord"/>
+          <include name="NavigateToIntroMessageAnnouncementPage"/>
           <include name="afterEachMethod"/>
-          <include name="endTestCase"/>
-          <include name="database"/>
-          <include name="tearDown"/>
+          <include name="VerifySendForApprovalForAddNewIntroMessageAnnouncementRecord"/>
+          <include name="VerifyAuditTrailReportForSendForApproval"/>
+          <include name="VerifyAuditTrailDataForAddNewIntroMessageAnnouncementRecord"/>
+          <include name="AddNewIntroMessageAnnouncementRecord"/>
         </methods>
-      </class> <!-- com.tetherfi.test.tmac.AgentTeamMgmtTest -->
+      </class> <!-- com.tetherfi.test.ivr.IntroMessageAnnouncementCreateTest -->
     </classes>
   </test> <!-- Default test(failed)(failed) -->
 </suite> <!-- Failed suite [Failed suite [Default suite]] -->

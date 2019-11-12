@@ -406,7 +406,7 @@ public class ChatIntentSkillMappingTest extends BaseTest {
     	Assert.assertTrue(ChatIntentSkillMappingPage.verifyDatabase(ChatIntentSkillMappingDetails.getQuery()));
     }
     
-    @Test(priority=41)
+    /*@Test(priority=41)
     public void AddRecordWithoutSegment() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntentSkillMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -433,7 +433,7 @@ public class ChatIntentSkillMappingTest extends BaseTest {
         ChatIntentSkillMappingPage ChatIntentSkillMappingPage = PageFactory.createPageInstance(driver, ChatIntentSkillMappingPage.class);
         ChatIntentSkillMappingPage.addRecordWithoutCustomEntType(ChatIntentSkillMappingDetails);
         Assert.assertEquals(ChatIntentSkillMappingPage.getMessage(),"Record Created Successfully", "Add invalid record assertion failed");
-    }
+    }*/
     
 	 @AfterMethod
 	    public void afterEachMethod(Method method) throws InterruptedException {

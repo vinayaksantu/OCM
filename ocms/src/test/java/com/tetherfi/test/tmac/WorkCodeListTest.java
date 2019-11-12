@@ -32,7 +32,7 @@ import com.tetherfi.utility.Screenshot;
 public class WorkCodeListTest extends BaseTest{
 	Screenshot screenshot=new Screenshot(driver);
 	
-	@BeforeClass
+	//@BeforeClass
     public void AddNewAgentTeamManagementRecord() throws Exception {
         HomePage homePage= PageFactory.createPageInstance(driver,HomePage.class);
         homePage.navigateToOCMPage();
@@ -66,7 +66,7 @@ public class WorkCodeListTest extends BaseTest{
         Assert.assertTrue(workCodeListPage.isWorkCodeListPageDisplayed(), "WorkCodeList page assertion failed");
     }
     
-    @Test(priority=1)
+    /*@Test(priority=1)
     public void WorkCodeListPage()
     {
         WorkCodeListPage workCodeListPage  = PageFactory.createPageInstance(driver, WorkCodeListPage.class);
@@ -396,14 +396,15 @@ public class WorkCodeListTest extends BaseTest{
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\WorkCode List (2).xlsx";
         List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
         Assert.assertTrue(workCodeListPage.verifyexportToExcelSheet(maplist));
-    }
+    }*/
     @Test(priority=37)
     public void ExporttoExcelWithoutData() throws Exception
     {
     	WorkCodeListPage workCodeListPage  = PageFactory.createPageInstance(driver, WorkCodeListPage.class);
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\WorkCodeListData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(1);
+        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         WorkCodeListDetails workcodeListDetails=new WorkCodeListDetails (map);	
+        workCodeListPage.deleteWorkGroupRecord(workcodeListDetails);
         Assert.assertTrue(workCodeListPage.ExporttoExcelWithoutData(workcodeListDetails));
     }
         

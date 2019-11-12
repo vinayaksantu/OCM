@@ -45,7 +45,7 @@ public class VBEnrollmentFlagTest extends BaseTest {
     	screenshot.captureScreen("VBEnrollmentFlagTest","VbEnrollmentFlagPage");
     }
 	
-	@Test(priority=1)
+	/*@Test(priority=1)
 	public void VbEnrollmentFlagPage() {
         VbEnrollmentFlagPage VbEnrollmentFlagPage = PageFactory.createPageInstance(driver, VbEnrollmentFlagPage.class);
         Assert.assertTrue(VbEnrollmentFlagPage.VerifyLogo(),"Logo assertion failed");
@@ -136,7 +136,7 @@ public class VBEnrollmentFlagTest extends BaseTest {
         VbEnrollmentFlagPage VbEnrollmentFlagPage = PageFactory.createPageInstance(driver, VbEnrollmentFlagPage.class);
         VbEnrollmentFlagPage.addRecordWithoutHotLineName(VBEnrollmentFlagDetails);
         Assert.assertEquals(VbEnrollmentFlagPage.verifyErrorMessage(),"Please Provide Hotline Name", "Add invalid record assertion failed");
-    }
+    }*/
     
     @Test(priority=11)
     public void AddRecordWithoutEnrollmentFlag() throws Exception {
@@ -148,7 +148,7 @@ public class VBEnrollmentFlagTest extends BaseTest {
         Assert.assertEquals(VbEnrollmentFlagPage.verifyErrorMessage(),"Please Provide Enrollment Flag", "Add invalid record assertion failed");
     }
     
-    @Test(priority=12)
+    /*@Test(priority=12)
     public void VerifyCancelBtnAtAddRecord(){
         VbEnrollmentFlagPage VbEnrollmentFlagPage = PageFactory.createPageInstance(driver, VbEnrollmentFlagPage.class);
         VbEnrollmentFlagPage.clickOnAddRecord();
@@ -405,7 +405,7 @@ public class VBEnrollmentFlagTest extends BaseTest {
         VBEnrollmentFlagDetails VBEnrollmentFlagDetails = new VBEnrollmentFlagDetails(map);
         VbEnrollmentFlagPage VbEnrollmentFlagPage = PageFactory.createPageInstance(driver, VbEnrollmentFlagPage.class);
         Assert.assertTrue(VbEnrollmentFlagPage.ExporttoExcelWithoutData(VBEnrollmentFlagDetails));
-    }
+    }*/
     
   
     

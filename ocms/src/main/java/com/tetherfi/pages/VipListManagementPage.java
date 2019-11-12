@@ -360,6 +360,7 @@ public class VipListManagementPage extends BasePage{
 		}
 			return arr;
 	}
+	
 	public boolean verifyDatabase(String query) {
 		List<Map<String,String>> database=database(query);
 		System.out.println(database);

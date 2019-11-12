@@ -479,8 +479,8 @@ public class AgentTeamManagementPage extends BasePage {
 	public void editAgentTeamManagementRecord(String oldteamname, String newteamname, String reason) throws Exception {
 		searchAgentTeamManagementRecord(oldteamname);
 		selectWebElement(editButton);
-		selectWebElement(editTeamNameTextBox);
-		enterValueToTxtField(editTeamNameTextBox,newteamname);
+		//selectWebElement(editTeamNameTextBox);
+		enterValueToTxtBox1(editTeamNameTextBox,newteamname);
 		enterValueToTxtFieldWithoutClear(editModifyReasonTextBox,reason);
 		selectWebElement(editTeamNameSaveButton);
 	}

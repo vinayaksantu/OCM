@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Tetherfi Test Automation]" guice-stage="DEVELOPMENT">
+  <listeners>
+    <listener class-name="com.tetherfi.listeners.ReportListener"/>
+  </listeners>
+  <test thread-count="5" name="IVR OperatingHoursTest(failed)">
+    <classes>
+      <class name="com.tetherfi.test.ivr.OperatingHoursTest">
+        <methods>
+          <include name="VerifyDropdownForAllTheColumns"/>
+          <include name="ExporttoExcelWithoutData"/>
+          <include name="VerifyArrowMoveForPreviousAndNextPage"/>
+          <include name="ExportToExcelData"/>
+          <include name="VerifySearchContains"/>
+          <include name="AddInvalidStartTimeRecord"/>
+          <include name="EditOperatingHoursRecord"/>
+          <include name="VerifyNumberOfItemsPerPageSelection"/>
+          <include name="VerifySearchIsNotEqualTo"/>
+          <include name="VerifySearchStartsWith"/>
+          <include name="AddInvalidVDNRecord"/>
+          <include name="ExportToExcel"/>
+          <include name="searchPage"/>
+          <include name="startTestCase"/>
+          <include name="openApplication"/>
+          <include name="VerifyColumnsHeaderDisable"/>
+          <include name="AddLeavingBypassPublicHolidayFieldsBlank"/>
+          <include name="DeleteNoRecord"/>
+          <include name="DeleteAgentTeamManagementRecord"/>
+          <include name="VerifySearchDoesNotContains"/>
+          <include name="VerifyTotalNumberOfItemsPerPageDetails"/>
+          <include name="EditOperatingHoursCancelRecord"/>
+          <include name="afterEachMethod"/>
+          <include name="AddNewOperatingHoursRecord"/>
+          <include name="GroupBy"/>
+          <include name="SearchClearSearch"/>
+          <include name="VerifyColumnsHeaderEnable"/>
+          <include name="endTestCase"/>
+          <include name="tearDown"/>
+          <include name="AddDuplicateRecord"/>
+          <include name="AddInvalidStartAndEndTimeRecord"/>
+          <include name="NavigateToOperatingHoursPage"/>
+          <include name="database"/>
+          <include name="AddAlldaysOperatingHoursRecord"/>
+          <include name="AddLeavingStartTimeFieldsBlank"/>
+          <include name="EditInvalidRecord"/>
+          <include name="EditRecordWithoutReason"/>
+          <include name="AddLeavingFieldsBlank"/>
+          <include name="VerifyArrowMoveForFirstAndLastPage"/>
+          <include name="AddLeavingEndTimeFieldsBlank"/>
+          <include name="AddLeavingWeekDayFieldsBlank"/>
+          <include name="SortingByAscending"/>
+          <include name="SortingByDescending"/>
+          <include name="VerifySearchEndsWith"/>
+        </methods>
+      </class> <!-- com.tetherfi.test.ivr.OperatingHoursTest -->
+    </classes>
+  </test> <!-- IVR OperatingHoursTest(failed) -->
+  <test thread-count="5" name="IVR VBEnrollmentFlagTest(failed)">
+    <classes>
+      <class name="com.tetherfi.test.ivr.VBEnrollmentFlagTest">
+        <methods>
+          <include name="startTestCase"/>
+          <include name="openApplication"/>
+          <include name="AddRecordWithoutEnrollmentFlag"/>
+          <include name="endTestCase"/>
+          <include name="afterEachMethod"/>
+          <include name="tearDown"/>
+          <include name="NavigateToVbEnrollmentFlagPage"/>
+        </methods>
+      </class> <!-- com.tetherfi.test.ivr.VBEnrollmentFlagTest -->
+    </classes>
+  </test> <!-- IVR VBEnrollmentFlagTest(failed) -->
+  <test thread-count="5" name="IVR VIPListManagementTest(failed)">
+    <classes>
+      <class name="com.tetherfi.test.ivr.VIPListManagementTest">
+        <methods>
+          <include name="AddNewVIPListRecord"/>
+          <include name="EditWithoutModifyReasonRecord"/>
+          <include name="afterEachMethod"/>
+          <include name="database"/>
+          <include name="VerifyCancelBtnAtAddRecord"/>
+          <include name="VerifyAuditTrialReportForCreate"/>
+          <include name="endTestCase"/>
+          <include name="tearDown"/>
+          <include name="AddRecordWithoutFBHandle"/>
+          <include name="VerifyCancelBtnAtEditConfigRecord"/>
+          <include name="AddEmptyRecord"/>
+          <include name="startTestCase"/>
+          <include name="openApplication"/>
+          <include name="VerifySearchContains"/>
+          <include name="EditVIPListRecord"/>
+          <include name="VerifyAuditTrialReportForUpdate"/>
+          <include name="DeleteWithoutDeleteReasonRecord"/>
+          <include name="NavigateToVIPListManagementPage"/>
+          <include name="VerifySearchIsNotEqualTo"/>
+        </methods>
+      </class> <!-- com.tetherfi.test.ivr.VIPListManagementTest -->
+    </classes>
+  </test> <!-- IVR VIPListManagementTest(failed) -->
+  <test thread-count="5" name="IVR MenuDescriptionMappingTest(failed)">
+    <classes>
+      <class name="com.tetherfi.test.ivr.MenuDescriptionMappingTest">
+        <methods>
+          <include name="VerifyTotalNumberOfItemsPerPageDetails"/>
+          <include name="startTestCase"/>
+          <include name="openApplication"/>
+          <include name="afterEachMethod"/>
+          <include name="NavigateToMenuDescriptionMappingPage"/>
+          <include name="AddDuplicateMenuDescriptionMappingRecord"/>
+          <include name="endTestCase"/>
+          <include name="AddNewMenuDescriptionMappingRecord"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.tetherfi.test.ivr.MenuDescriptionMappingTest -->
+    </classes>
+  </test> <!-- IVR MenuDescriptionMappingTest(failed) -->
+</suite> <!-- Failed suite [Tetherfi Test Automation] -->

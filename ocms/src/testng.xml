@@ -1,16 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="Tetherfi Test Automation" parallel="tests">
+<suite name="Tetherfi Test Automation" parallel="false">
     <listeners>
         <listener class-name="com.tetherfi.listeners.ReportListener"/>
     </listeners>
-
-    <test name="OCMS Portal" parallel="false">
-      <classes>
-
-           <class name="com.tetherfi.test.fax.FaxLineConfigTest"/> 
-           
-      </classes>
-    </test>
-
+    
+     <test name="IVR OperatingHoursTest" parallel="false">
+      <classes>  
+           <class name="com.tetherfi.test.ivr.OperatingHoursTest"/> 
+            </classes>
+     </test>
+    
+     <test name="IVR VBEnrollmentFlagTest" parallel="false">
+      <classes>     
+           <class name="com.tetherfi.test.ivr.VBEnrollmentFlagTest"/> 
+            </classes>
+     </test>
+    
+    <test name="IVR VIPListManagementTest" parallel="false">
+      <classes>     
+           <class name="com.tetherfi.test.ivr.VIPListManagementTest"/> 
+            </classes>
+     </test>
+    
+    <test name="IVR MenuDescriptionMappingTest" parallel="false">
+      <classes>     
+           <class name="com.tetherfi.test.ivr.MenuDescriptionMappingTest"/> 
+            </classes>
+     </test>
+    
 </suite>

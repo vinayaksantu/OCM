@@ -91,7 +91,7 @@ public class ChatTemplatesTest {
 	    driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
       }
     
-    /*@Test(priority=1,groups= {"OCM"})
+    @Test(priority=1,groups= {"OCM"})
 	public void ChatTemplatePage() {
         ChatTemplatesPage ChatTemplatePage = PageFactory.createPageInstance(driver, ChatTemplatesPage.class);
         Assert.assertTrue(ChatTemplatePage.VerifyLogo(),"Logo assertion failed");
@@ -1166,7 +1166,7 @@ public class ChatTemplatesTest {
        Assert.assertTrue(chatTemplatesPage.verifyinvalidsearchwithwrongdata(chatTemplateDetails),"invalidsearchwithwrongdata");
        screenshot.captureScreen("ChatTemplateTest","Invalid Search with wrong data");
        Assert.assertTrue(chatTemplatesPage.verifyclearsearch(), "Clear All Assertion Failed");
-   }*/
+   }
    
    @Test(priority=110,groups= {"OCM"})
    public void DepartmentDatabase() throws Exception {

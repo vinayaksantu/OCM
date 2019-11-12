@@ -10,6 +10,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -746,6 +747,12 @@ public class TmacBroadCastMsgPage extends BasePage {
 	}
 
 	public boolean verifyExportToExcel(String filepath) {
+		final File folder = new File(filepath);
+		for (final File f : folder.listFiles()) {
+		    if (f.getName().startsWith("TMAC Broadcast Message")) {
+		        f.delete();
+		    }
+		}
 		selectWebElement(exporttoexcel);
 		waitForJqueryLoad(driver);
 		try {
