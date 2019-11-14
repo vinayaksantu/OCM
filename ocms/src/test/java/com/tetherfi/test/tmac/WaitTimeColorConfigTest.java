@@ -280,8 +280,7 @@ public class WaitTimeColorConfigTest extends BaseTest {
    }
    
    @Test(priority=24)
-   public void GroupBy()
-   {
+   public void GroupBy(){
        	WaitTimeColorConfigPage waitTimeColorConfigPage=PageFactory.createPageInstance(driver,WaitTimeColorConfigPage.class);
    		Assert.assertTrue(waitTimeColorConfigPage.groupby());
    }

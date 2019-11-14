@@ -5,28 +5,16 @@
         <listener class-name="com.tetherfi.listeners.ReportListener"/>
     </listeners>
     
-     <test name="IVR OperatingHoursTest" parallel="false">
+     <test name="IVR IVR Config Test" parallel="false">
       <classes>  
-           <class name="com.tetherfi.test.ivr.OperatingHoursTest"/> 
+           <class name="com.tetherfi.test.ivr.IvrConfigTest"/> 
             </classes>
      </test>
     
      <test name="IVR VBEnrollmentFlagTest" parallel="false">
       <classes>     
-           <class name="com.tetherfi.test.ivr.VBEnrollmentFlagTest"/> 
+           <class name="com.tetherfi.test.ivr.HolidayListTest"/> 
             </classes>
      </test>
-    
-    <test name="IVR VIPListManagementTest" parallel="false">
-      <classes>     
-           <class name="com.tetherfi.test.ivr.VIPListManagementTest"/> 
-            </classes>
-     </test>
-    
-    <test name="IVR MenuDescriptionMappingTest" parallel="false">
-      <classes>     
-           <class name="com.tetherfi.test.ivr.MenuDescriptionMappingTest"/> 
-            </classes>
-     </test>
-    
+        
 </suite>

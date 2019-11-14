@@ -222,8 +222,7 @@ public class HolidayListTest extends BaseTest {
     }	 
 	
     @Test(priority=20)
-    public void GroupBy()
-    {
+    public void GroupBy(){
         HolidayListPage holidaylistPage = PageFactory.createPageInstance(driver, HolidayListPage.class);
     	Assert.assertTrue(holidaylistPage.groupby());
         screenshot.captureScreen("HolidayListTest", "GroupBy");
@@ -304,7 +303,7 @@ public class HolidayListTest extends BaseTest {
   	}
   	
   	@Test(priority=31)
-  	public void editLeavingFielsBlank() throws Exception {
+  	public void editLeavingFieldsBlank() throws Exception {
   		HolidayListPage holidaylistPage = PageFactory.createPageInstance(driver, HolidayListPage.class);
   		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\HolidayListData.xlsx";
   		Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(0);
@@ -326,8 +325,7 @@ public class HolidayListTest extends BaseTest {
         }
     
     @Test(priority=33)
-    public void ExporttoExcelWithoutData() throws Exception
-    {
+    public void ExporttoExcelWithoutData() throws Exception{
         HolidayListPage holidaylistPage = PageFactory.createPageInstance(driver, HolidayListPage.class);
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\HolidayListData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(1);
@@ -359,8 +357,7 @@ public class HolidayListTest extends BaseTest {
     }
     
     @Test(priority=36)
-    public void SearchClearSearch() throws Exception
-    {
+    public void SearchClearSearch() throws Exception{
     	HolidayListPage holidaylistPage = PageFactory.createPageInstance(driver, HolidayListPage.class);
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Holiday List.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);

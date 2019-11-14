@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Default test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>43/4/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>0/2/0</td>
 </tr><tr>
-<td>Started on:</td><td>Tue Nov 12 10:28:31 IST 2019</td>
+<td>Started on:</td><td>Thu Nov 14 12:13:02 IST 2019</td>
 </tr>
-<tr><td>Total time:</td><td>821 seconds (821236 ms)</td>
+<tr><td>Total time:</td><td>66 seconds (66814 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -75,15 +75,101 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.tetherfi.test.ivr.VIPListManagementTest.SearchClearSearch()'><b>SearchClearSearch</b><br>Test class: com.tetherfi.test.ivr.VIPListManagementTest</td>
+<td title='com.tetherfi.test.DashboardColorCodeConfigTest.AddnewCancel()'><b>AddnewCancel</b><br>Test class: com.tetherfi.test.DashboardColorCodeConfigTest</td>
+<td><div><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of [[ChromeDriver: chrome on XP (8fd9dbcf4dc646c21a26319a75f9dd18)] -&gt; css selector: ul[id=&apos;DashboardName_listbox&apos;] li] (tried for 20 second(s) with 500 milliseconds interval)
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;DESKTOP-O6A5C2O&apos;, ip: &apos;10.0.75.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;9.0.4&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.97, chrome: {chromedriverVersion: 78.0.3904.70 (edb9c9f3de024..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:52417}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 8fd9dbcf4dc646c21a26319a75f9dd18
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
+	at com.tetherfi.pages.BasePage.waitUntilWebElementListIsVisible(BasePage.java:139)
+	at com.tetherfi.pages.BasePage.selectDropdownFromVisibleText(BasePage.java:335)
+	at com.tetherfi.pages.DashboardColorCodeConfigPage.VerifyCancelBtnAddNewRecord(DashboardColorCodeConfigPage.java:455)
+	at com.tetherfi.test.DashboardColorCodeConfigTest.AddnewCancel(DashboardColorCodeConfigTest.java:62)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+	at org.testng.TestRunner.privateRun(TestRunner.java:770)
+	at org.testng.TestRunner.run(TestRunner.java:591)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+	at org.testng.TestNG.runSuites(TestNG.java:1032)
+	at org.testng.TestNG.run(TestNG.java:1000)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1674364716", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1674364716'><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of [[ChromeDriver: chrome on XP (8fd9dbcf4dc646c21a26319a75f9dd18)] -&gt; css selector: ul[id=&apos;DashboardName_listbox&apos;] li] (tried for 20 second(s) with 500 milliseconds interval)
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;DESKTOP-O6A5C2O&apos;, ip: &apos;10.0.75.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;9.0.4&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.97, chrome: {chromedriverVersion: 78.0.3904.70 (edb9c9f3de024..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:52417}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 8fd9dbcf4dc646c21a26319a75f9dd18
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
+	at com.tetherfi.pages.BasePage.waitUntilWebElementListIsVisible(BasePage.java:139)
+	at com.tetherfi.pages.BasePage.selectDropdownFromVisibleText(BasePage.java:335)
+	at com.tetherfi.pages.DashboardColorCodeConfigPage.VerifyCancelBtnAddNewRecord(DashboardColorCodeConfigPage.java:455)
+	at com.tetherfi.test.DashboardColorCodeConfigTest.AddnewCancel(DashboardColorCodeConfigTest.java:62)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+	at org.testng.TestRunner.privateRun(TestRunner.java:770)
+	at org.testng.TestRunner.run(TestRunner.java:591)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+	at org.testng.TestNG.runSuites(TestNG.java:1032)
+	at org.testng.TestNG.run(TestNG.java:1000)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>21</td>
+<td>com.tetherfi.test.DashboardColorCodeConfigTest@2f14b0f6</td></tr>
+<tr>
+<td title='com.tetherfi.test.DashboardColorCodeConfigTest.EditDashboardColorConfigCancelRecord()'><b>EditDashboardColorConfigCancelRecord</b><br>Test class: com.tetherfi.test.DashboardColorCodeConfigTest</td>
 <td><div><pre>org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
   (Session info: chrome=78.0.3904.97)
 For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
 Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
 System info: host: &apos;DESKTOP-O6A5C2O&apos;, ip: &apos;10.0.75.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;9.0.4&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.97, chrome: {chromedriverVersion: 78.0.3904.70 (edb9c9f3de024..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:64319}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: efb82c0ff4bd828973e9396243930f5d
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.97, chrome: {chromedriverVersion: 78.0.3904.70 (edb9c9f3de024..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:52417}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 8fd9dbcf4dc646c21a26319a75f9dd18
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
@@ -96,13 +182,16 @@ Session ID: efb82c0ff4bd828973e9396243930f5d
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
 	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
 	at org.openqa.selenium.remote.RemoteWebElement.isDisplayed(RemoteWebElement.java:326)
-	at jdk.internal.reflect.GeneratedMethodAccessor1.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
-	at com.sun.proxy.$Proxy16.isDisplayed(Unknown Source)
-	at com.tetherfi.pages.VipListManagementPage.verifyinvalidsearchwithwrongdata(VipListManagementPage.java:615)
-	at com.tetherfi.test.ivr.VIPListManagementTest.SearchClearSearch(VIPListManagementTest.java:415)
+	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:314)
+	at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:43)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:300)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:297)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
+	at com.tetherfi.pages.BasePage.waitUntilWebElementListIsVisible(BasePage.java:139)
+	at com.tetherfi.pages.BasePage.selectDropdownFromVisibleText(BasePage.java:335)
+	at com.tetherfi.pages.DashboardColorCodeConfigPage.searchDashboardColorConfigRecord(DashboardColorCodeConfigPage.java:285)
+	at com.tetherfi.pages.DashboardColorCodeConfigPage.editcancel(DashboardColorCodeConfigPage.java:475)
+	at com.tetherfi.test.DashboardColorCodeConfigTest.EditDashboardColorConfigCancelRecord(DashboardColorCodeConfigTest.java:117)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -131,15 +220,15 @@ Session ID: efb82c0ff4bd828973e9396243930f5d
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace1742177861", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1742177861'><pre>org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
+</pre></div><a href='#' onClick='toggleBox("stack-trace321589752", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace321589752'><pre>org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
   (Session info: chrome=78.0.3904.97)
 For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
 Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
 System info: host: &apos;DESKTOP-O6A5C2O&apos;, ip: &apos;10.0.75.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;9.0.4&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.97, chrome: {chromedriverVersion: 78.0.3904.70 (edb9c9f3de024..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:64319}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: efb82c0ff4bd828973e9396243930f5d
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.97, chrome: {chromedriverVersion: 78.0.3904.70 (edb9c9f3de024..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:52417}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 8fd9dbcf4dc646c21a26319a75f9dd18
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
@@ -152,13 +241,16 @@ Session ID: efb82c0ff4bd828973e9396243930f5d
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
 	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
 	at org.openqa.selenium.remote.RemoteWebElement.isDisplayed(RemoteWebElement.java:326)
-	at jdk.internal.reflect.GeneratedMethodAccessor1.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
-	at com.sun.proxy.$Proxy16.isDisplayed(Unknown Source)
-	at com.tetherfi.pages.VipListManagementPage.verifyinvalidsearchwithwrongdata(VipListManagementPage.java:615)
-	at com.tetherfi.test.ivr.VIPListManagementTest.SearchClearSearch(VIPListManagementTest.java:415)
+	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:314)
+	at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:43)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:300)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:297)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
+	at com.tetherfi.pages.BasePage.waitUntilWebElementListIsVisible(BasePage.java:139)
+	at com.tetherfi.pages.BasePage.selectDropdownFromVisibleText(BasePage.java:335)
+	at com.tetherfi.pages.DashboardColorCodeConfigPage.searchDashboardColorConfigRecord(DashboardColorCodeConfigPage.java:285)
+	at com.tetherfi.pages.DashboardColorCodeConfigPage.editcancel(DashboardColorCodeConfigPage.java:475)
+	at com.tetherfi.test.DashboardColorCodeConfigTest.EditDashboardColorConfigCancelRecord(DashboardColorCodeConfigTest.java:117)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -188,447 +280,8 @@ Session ID: efb82c0ff4bd828973e9396243930f5d
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
-<td>4</td>
-<td>com.tetherfi.test.ivr.VIPListManagementTest@4a44cfc0</td></tr>
-<tr>
-<td title='com.tetherfi.test.ivr.VIPListManagementTest.VerifyAuditTrialReportForCreate()'><b>VerifyAuditTrialReportForCreate</b><br>Test class: com.tetherfi.test.ivr.VIPListManagementTest</td>
-<td><div><pre>java.lang.AssertionError: did not expect to find [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:97)
-	at org.testng.Assert.failNotEquals(Assert.java:969)
-	at org.testng.Assert.assertTrue(Assert.java:43)
-	at org.testng.Assert.assertTrue(Assert.java:53)
-	at com.tetherfi.test.ivr.VIPListManagementTest.VerifyAuditTrialReportForCreate(VIPListManagementTest.java:111)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-	at org.testng.TestRunner.privateRun(TestRunner.java:770)
-	at org.testng.TestRunner.run(TestRunner.java:591)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-	at org.testng.TestNG.runSuites(TestNG.java:1032)
-	at org.testng.TestNG.run(TestNG.java:1000)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace1380794224", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1380794224'><pre>java.lang.AssertionError: did not expect to find [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:97)
-	at org.testng.Assert.failNotEquals(Assert.java:969)
-	at org.testng.Assert.assertTrue(Assert.java:43)
-	at org.testng.Assert.assertTrue(Assert.java:53)
-	at com.tetherfi.test.ivr.VIPListManagementTest.VerifyAuditTrialReportForCreate(VIPListManagementTest.java:111)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-	at org.testng.TestRunner.privateRun(TestRunner.java:770)
-	at org.testng.TestRunner.run(TestRunner.java:591)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-	at org.testng.TestNG.runSuites(TestNG.java:1032)
-	at org.testng.TestNG.run(TestNG.java:1000)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div></td>
-<td>27</td>
-<td>com.tetherfi.test.ivr.VIPListManagementTest@4a44cfc0</td></tr>
-<tr>
-<td title='com.tetherfi.test.ivr.VIPListManagementTest.VerifyAuditTrialReportForUpdate()'><b>VerifyAuditTrialReportForUpdate</b><br>Test class: com.tetherfi.test.ivr.VIPListManagementTest</td>
-<td><div><pre>java.lang.NullPointerException
-	at com.tetherfi.pages.OCMReportsPage.verifyVIPListManagementUpdate(OCMReportsPage.java:3423)
-	at com.tetherfi.test.ivr.VIPListManagementTest.VerifyAuditTrialReportForUpdate(VIPListManagementTest.java:309)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-	at org.testng.TestRunner.privateRun(TestRunner.java:770)
-	at org.testng.TestRunner.run(TestRunner.java:591)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-	at org.testng.TestNG.runSuites(TestNG.java:1032)
-	at org.testng.TestNG.run(TestNG.java:1000)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace481528030", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace481528030'><pre>java.lang.NullPointerException
-	at com.tetherfi.pages.OCMReportsPage.verifyVIPListManagementUpdate(OCMReportsPage.java:3423)
-	at com.tetherfi.test.ivr.VIPListManagementTest.VerifyAuditTrialReportForUpdate(VIPListManagementTest.java:309)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-	at org.testng.TestRunner.privateRun(TestRunner.java:770)
-	at org.testng.TestRunner.run(TestRunner.java:591)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-	at org.testng.TestNG.runSuites(TestNG.java:1032)
-	at org.testng.TestNG.run(TestNG.java:1000)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div></td>
-<td>26</td>
-<td>com.tetherfi.test.ivr.VIPListManagementTest@4a44cfc0</td></tr>
-<tr>
-<td title='com.tetherfi.test.ivr.VIPListManagementTest.database()'><b>database</b><br>Test class: com.tetherfi.test.ivr.VIPListManagementTest</td>
-<td><div><pre>java.lang.AssertionError: did not expect to find [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:97)
-	at org.testng.Assert.failNotEquals(Assert.java:969)
-	at org.testng.Assert.assertTrue(Assert.java:43)
-	at org.testng.Assert.assertTrue(Assert.java:53)
-	at com.tetherfi.test.ivr.VIPListManagementTest.database(VIPListManagementTest.java:488)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-	at org.testng.TestRunner.privateRun(TestRunner.java:770)
-	at org.testng.TestRunner.run(TestRunner.java:591)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-	at org.testng.TestNG.runSuites(TestNG.java:1032)
-	at org.testng.TestNG.run(TestNG.java:1000)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace143137870", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace143137870'><pre>java.lang.AssertionError: did not expect to find [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:97)
-	at org.testng.Assert.failNotEquals(Assert.java:969)
-	at org.testng.Assert.assertTrue(Assert.java:43)
-	at org.testng.Assert.assertTrue(Assert.java:53)
-	at com.tetherfi.test.ivr.VIPListManagementTest.database(VIPListManagementTest.java:488)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-	at org.testng.TestRunner.privateRun(TestRunner.java:770)
-	at org.testng.TestRunner.run(TestRunner.java:591)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-	at org.testng.TestNG.runSuites(TestNG.java:1032)
-	at org.testng.TestNG.run(TestNG.java:1000)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div></td>
-<td>7</td>
-<td>com.tetherfi.test.ivr.VIPListManagementTest@4a44cfc0</td></tr>
-</table><p>
-<table width='100%' border='1' class='invocation-passed'>
-<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
-<tr><td><b>Test method</b></td>
-<td width="30%"><b>Exception</b></td>
-<td width="10%"><b>Time (seconds)</b></td>
-<td><b>Instance</b></td>
-</tr>
-<tr>
-<td title='com.tetherfi.test.ivr.VIPListManagementTest.AddDuplicateVIPListRecord()'><b>AddDuplicateVIPListRecord</b><br>Test class: com.tetherfi.test.ivr.VIPListManagementTest</td>
-<td></td>
-<td>8</td>
-<td>com.tetherfi.test.ivr.VIPListManagementTest@4a44cfc0</td></tr>
-<tr>
-<td title='com.tetherfi.test.ivr.VIPListManagementTest.AddEmptyRecord()'><b>AddEmptyRecord</b><br>Test class: com.tetherfi.test.ivr.VIPListManagementTest</td>
-<td></td>
-<td>1</td>
-<td>com.tetherfi.test.ivr.VIPListManagementTest@4a44cfc0</td></tr>
-<tr>
-<td title='com.tetherfi.test.ivr.VIPListManagementTest.AddNewVIPListRecord()'><b>AddNewVIPListRecord</b><br>Test class: com.tetherfi.test.ivr.VIPListManagementTest</td>
-<td></td>
-<td>9</td>
-<td>com.tetherfi.test.ivr.VIPListManagementTest@4a44cfc0</td></tr>
-<tr>
-<td title='com.tetherfi.test.ivr.VIPListManagementTest.AddRecordWithoutCallerID()'><b>AddRecordWithoutCallerID</b><br>Test class: com.tetherfi.test.ivr.VIPListManagementTest</td>
-<td></td>
-<td>8</td>
-<td>com.tetherfi.test.ivr.VIPListManagementTest@4a44cfc0</td></tr>
-<tr>
-<td title='com.tetherfi.test.ivr.VIPListManagementTest.AddRecordWithoutContactType()'><b>AddRecordWithoutContactType</b><br>Test class: com.tetherfi.test.ivr.VIPListManagementTest</td>
-<td></td>
-<td>7</td>
-<td>com.tetherfi.test.ivr.VIPListManagementTest@4a44cfc0</td></tr>
-<tr>
-<td title='com.tetherfi.test.ivr.VIPListManagementTest.AddRecordWithoutCountry()'><b>AddRecordWithoutCountry</b><br>Test class: com.tetherfi.test.ivr.VIPListManagementTest</td>
-<td></td>
-<td>8</td>
-<td>com.tetherfi.test.ivr.VIPListManagementTest@4a44cfc0</td></tr>
-<tr>
-<td title='com.tetherfi.test.ivr.VIPListManagementTest.AddRecordWithoutCustomerIDNo()'><b>AddRecordWithoutCustomerIDNo</b><br>Test class: com.tetherfi.test.ivr.VIPListManagementTest</td>
-<td></td>
-<td>8</td>
-<td>com.tetherfi.test.ivr.VIPListManagementTest@4a44cfc0</td></tr>
-<tr>
-<td title='com.tetherfi.test.ivr.VIPListManagementTest.AddRecordWithoutCustomerIDType()'><b>AddRecordWithoutCustomerIDType</b><br>Test class: com.tetherfi.test.ivr.VIPListManagementTest</td>
-<td></td>
-<td>8</td>
-<td>com.tetherfi.test.ivr.VIPListManagementTest@4a44cfc0</td></tr>
-<tr>
-<td title='com.tetherfi.test.ivr.VIPListManagementTest.AddRecordWithoutEmailId()'><b>AddRecordWithoutEmailId</b><br>Test class: com.tetherfi.test.ivr.VIPListManagementTest</td>
-<td></td>
-<td>8</td>
-<td>com.tetherfi.test.ivr.VIPListManagementTest@4a44cfc0</td></tr>
-<tr>
-<td title='com.tetherfi.test.ivr.VIPListManagementTest.AddRecordWithoutExclusionFlag()'><b>AddRecordWithoutExclusionFlag</b><br>Test class: com.tetherfi.test.ivr.VIPListManagementTest</td>
-<td></td>
-<td>7</td>
-<td>com.tetherfi.test.ivr.VIPListManagementTest@4a44cfc0</td></tr>
-<tr>
-<td title='com.tetherfi.test.ivr.VIPListManagementTest.AddRecordWithoutFBHandle()'><b>AddRecordWithoutFBHandle</b><br>Test class: com.tetherfi.test.ivr.VIPListManagementTest</td>
-<td></td>
-<td>8</td>
-<td>com.tetherfi.test.ivr.VIPListManagementTest@4a44cfc0</td></tr>
-<tr>
-<td title='com.tetherfi.test.ivr.VIPListManagementTest.AddRecordWithoutInclusionFlag()'><b>AddRecordWithoutInclusionFlag</b><br>Test class: com.tetherfi.test.ivr.VIPListManagementTest</td>
-<td></td>
-<td>7</td>
-<td>com.tetherfi.test.ivr.VIPListManagementTest@4a44cfc0</td></tr>
-<tr>
-<td title='com.tetherfi.test.ivr.VIPListManagementTest.AddRecordWithoutMessengerID()'><b>AddRecordWithoutMessengerID</b><br>Test class: com.tetherfi.test.ivr.VIPListManagementTest</td>
-<td></td>
-<td>7</td>
-<td>com.tetherfi.test.ivr.VIPListManagementTest@4a44cfc0</td></tr>
-<tr>
-<td title='com.tetherfi.test.ivr.VIPListManagementTest.AddRecordWithoutOtherData()'><b>AddRecordWithoutOtherData</b><br>Test class: com.tetherfi.test.ivr.VIPListManagementTest</td>
-<td></td>
-<td>8</td>
-<td>com.tetherfi.test.ivr.VIPListManagementTest@4a44cfc0</td></tr>
-<tr>
-<td title='com.tetherfi.test.ivr.VIPListManagementTest.DeleteVIPListRecord()'><b>DeleteVIPListRecord</b><br>Test class: com.tetherfi.test.ivr.VIPListManagementTest</td>
-<td></td>
-<td>5</td>
-<td>com.tetherfi.test.ivr.VIPListManagementTest@4a44cfc0</td></tr>
-<tr>
-<td title='com.tetherfi.test.ivr.VIPListManagementTest.DeleteWithoutDeleteReasonRecord()'><b>DeleteWithoutDeleteReasonRecord</b><br>Test class: com.tetherfi.test.ivr.VIPListManagementTest</td>
-<td></td>
-<td>5</td>
-<td>com.tetherfi.test.ivr.VIPListManagementTest@4a44cfc0</td></tr>
-<tr>
-<td title='com.tetherfi.test.ivr.VIPListManagementTest.EditVIPListRecord()'><b>EditVIPListRecord</b><br>Test class: com.tetherfi.test.ivr.VIPListManagementTest</td>
-<td></td>
-<td>7</td>
-<td>com.tetherfi.test.ivr.VIPListManagementTest@4a44cfc0</td></tr>
-<tr>
-<td title='com.tetherfi.test.ivr.VIPListManagementTest.EditWithoutModifyReasonRecord()'><b>EditWithoutModifyReasonRecord</b><br>Test class: com.tetherfi.test.ivr.VIPListManagementTest</td>
-<td></td>
-<td>6</td>
-<td>com.tetherfi.test.ivr.VIPListManagementTest@4a44cfc0</td></tr>
-<tr>
-<td title='com.tetherfi.test.ivr.VIPListManagementTest.ExportToExcel()'><b>ExportToExcel</b><br>Test class: com.tetherfi.test.ivr.VIPListManagementTest</td>
-<td></td>
-<td>2</td>
-<td>com.tetherfi.test.ivr.VIPListManagementTest@4a44cfc0</td></tr>
-<tr>
-<td title='com.tetherfi.test.ivr.VIPListManagementTest.ExportToExcelData()'><b>ExportToExcelData</b><br>Test class: com.tetherfi.test.ivr.VIPListManagementTest</td>
-<td></td>
-<td>4</td>
-<td>com.tetherfi.test.ivr.VIPListManagementTest@4a44cfc0</td></tr>
-<tr>
-<td title='com.tetherfi.test.ivr.VIPListManagementTest.ExporttoExcelWithoutData()'><b>ExporttoExcelWithoutData</b><br>Test class: com.tetherfi.test.ivr.VIPListManagementTest</td>
-<td></td>
-<td>5</td>
-<td>com.tetherfi.test.ivr.VIPListManagementTest@4a44cfc0</td></tr>
-<tr>
-<td title='com.tetherfi.test.ivr.VIPListManagementTest.GroupBy()'><b>GroupBy</b><br>Test class: com.tetherfi.test.ivr.VIPListManagementTest</td>
-<td></td>
 <td>3</td>
-<td>com.tetherfi.test.ivr.VIPListManagementTest@4a44cfc0</td></tr>
-<tr>
-<td title='com.tetherfi.test.ivr.VIPListManagementTest.SortingByAscending()'><b>SortingByAscending</b><br>Test class: com.tetherfi.test.ivr.VIPListManagementTest</td>
-<td></td>
-<td>7</td>
-<td>com.tetherfi.test.ivr.VIPListManagementTest@4a44cfc0</td></tr>
-<tr>
-<td title='com.tetherfi.test.ivr.VIPListManagementTest.SortingByDescending()'><b>SortingByDescending</b><br>Test class: com.tetherfi.test.ivr.VIPListManagementTest</td>
-<td></td>
-<td>7</td>
-<td>com.tetherfi.test.ivr.VIPListManagementTest@4a44cfc0</td></tr>
-<tr>
-<td title='com.tetherfi.test.ivr.VIPListManagementTest.VIPListManagementPage()'><b>VIPListManagementPage</b><br>Test class: com.tetherfi.test.ivr.VIPListManagementTest</td>
-<td></td>
-<td>1</td>
-<td>com.tetherfi.test.ivr.VIPListManagementTest@4a44cfc0</td></tr>
-<tr>
-<td title='com.tetherfi.test.ivr.VIPListManagementTest.VerifyArrowMoveForFirstAndLastPage()'><b>VerifyArrowMoveForFirstAndLastPage</b><br>Test class: com.tetherfi.test.ivr.VIPListManagementTest</td>
-<td></td>
-<td>0</td>
-<td>com.tetherfi.test.ivr.VIPListManagementTest@4a44cfc0</td></tr>
-<tr>
-<td title='com.tetherfi.test.ivr.VIPListManagementTest.VerifyArrowMoveForPreviousAndNextPage()'><b>VerifyArrowMoveForPreviousAndNextPage</b><br>Test class: com.tetherfi.test.ivr.VIPListManagementTest</td>
-<td></td>
-<td>0</td>
-<td>com.tetherfi.test.ivr.VIPListManagementTest@4a44cfc0</td></tr>
-<tr>
-<td title='com.tetherfi.test.ivr.VIPListManagementTest.VerifyAuditTrialReportForDelete()'><b>VerifyAuditTrialReportForDelete</b><br>Test class: com.tetherfi.test.ivr.VIPListManagementTest</td>
-<td></td>
-<td>26</td>
-<td>com.tetherfi.test.ivr.VIPListManagementTest@4a44cfc0</td></tr>
-<tr>
-<td title='com.tetherfi.test.ivr.VIPListManagementTest.VerifyCancelBtnAtAddRecord()'><b>VerifyCancelBtnAtAddRecord</b><br>Test class: com.tetherfi.test.ivr.VIPListManagementTest</td>
-<td></td>
-<td>43</td>
-<td>com.tetherfi.test.ivr.VIPListManagementTest@4a44cfc0</td></tr>
-<tr>
-<td title='com.tetherfi.test.ivr.VIPListManagementTest.VerifyCancelBtnAtDeleteVIPListRecord()'><b>VerifyCancelBtnAtDeleteVIPListRecord</b><br>Test class: com.tetherfi.test.ivr.VIPListManagementTest</td>
-<td></td>
-<td>47</td>
-<td>com.tetherfi.test.ivr.VIPListManagementTest@4a44cfc0</td></tr>
-<tr>
-<td title='com.tetherfi.test.ivr.VIPListManagementTest.VerifyCancelBtnAtEditConfigRecord()'><b>VerifyCancelBtnAtEditConfigRecord</b><br>Test class: com.tetherfi.test.ivr.VIPListManagementTest</td>
-<td></td>
-<td>49</td>
-<td>com.tetherfi.test.ivr.VIPListManagementTest@4a44cfc0</td></tr>
-<tr>
-<td title='com.tetherfi.test.ivr.VIPListManagementTest.VerifyColumnsHeaderDisable()'><b>VerifyColumnsHeaderDisable</b><br>Test class: com.tetherfi.test.ivr.VIPListManagementTest</td>
-<td></td>
-<td>12</td>
-<td>com.tetherfi.test.ivr.VIPListManagementTest@4a44cfc0</td></tr>
-<tr>
-<td title='com.tetherfi.test.ivr.VIPListManagementTest.VerifyColumnsHeaderEnable()'><b>VerifyColumnsHeaderEnable</b><br>Test class: com.tetherfi.test.ivr.VIPListManagementTest</td>
-<td></td>
-<td>9</td>
-<td>com.tetherfi.test.ivr.VIPListManagementTest@4a44cfc0</td></tr>
-<tr>
-<td title='com.tetherfi.test.ivr.VIPListManagementTest.VerifyDropdownForAllTheColumns()'><b>VerifyDropdownForAllTheColumns</b><br>Test class: com.tetherfi.test.ivr.VIPListManagementTest</td>
-<td></td>
-<td>20</td>
-<td>com.tetherfi.test.ivr.VIPListManagementTest@4a44cfc0</td></tr>
-<tr>
-<td title='com.tetherfi.test.ivr.VIPListManagementTest.VerifyNumberOfItemsPerPageSelection()'><b>VerifyNumberOfItemsPerPageSelection</b><br>Test class: com.tetherfi.test.ivr.VIPListManagementTest</td>
-<td></td>
-<td>5</td>
-<td>com.tetherfi.test.ivr.VIPListManagementTest@4a44cfc0</td></tr>
-<tr>
-<td title='com.tetherfi.test.ivr.VIPListManagementTest.VerifySearchContains()'><b>VerifySearchContains</b><br>Test class: com.tetherfi.test.ivr.VIPListManagementTest</td>
-<td></td>
-<td>5</td>
-<td>com.tetherfi.test.ivr.VIPListManagementTest@4a44cfc0</td></tr>
-<tr>
-<td title='com.tetherfi.test.ivr.VIPListManagementTest.VerifySearchDoesNotContains()'><b>VerifySearchDoesNotContains</b><br>Test class: com.tetherfi.test.ivr.VIPListManagementTest</td>
-<td></td>
-<td>11</td>
-<td>com.tetherfi.test.ivr.VIPListManagementTest@4a44cfc0</td></tr>
-<tr>
-<td title='com.tetherfi.test.ivr.VIPListManagementTest.VerifySearchEndsWith()'><b>VerifySearchEndsWith</b><br>Test class: com.tetherfi.test.ivr.VIPListManagementTest</td>
-<td></td>
-<td>12</td>
-<td>com.tetherfi.test.ivr.VIPListManagementTest@4a44cfc0</td></tr>
-<tr>
-<td title='com.tetherfi.test.ivr.VIPListManagementTest.VerifySearchIsNotEqualTo()'><b>VerifySearchIsNotEqualTo</b><br>Test class: com.tetherfi.test.ivr.VIPListManagementTest</td>
-<td></td>
-<td>10</td>
-<td>com.tetherfi.test.ivr.VIPListManagementTest@4a44cfc0</td></tr>
-<tr>
-<td title='com.tetherfi.test.ivr.VIPListManagementTest.VerifySearchStartsWith()'><b>VerifySearchStartsWith</b><br>Test class: com.tetherfi.test.ivr.VIPListManagementTest</td>
-<td></td>
-<td>5</td>
-<td>com.tetherfi.test.ivr.VIPListManagementTest@4a44cfc0</td></tr>
-<tr>
-<td title='com.tetherfi.test.ivr.VIPListManagementTest.VerifyTotalNumberOfItemsPerPageDetails()'><b>VerifyTotalNumberOfItemsPerPageDetails</b><br>Test class: com.tetherfi.test.ivr.VIPListManagementTest</td>
-<td></td>
-<td>0</td>
-<td>com.tetherfi.test.ivr.VIPListManagementTest@4a44cfc0</td></tr>
-<tr>
-<td title='com.tetherfi.test.ivr.VIPListManagementTest.searchPage()'><b>searchPage</b><br>Test class: com.tetherfi.test.ivr.VIPListManagementTest</td>
-<td></td>
-<td>4</td>
-<td>com.tetherfi.test.ivr.VIPListManagementTest@4a44cfc0</td></tr>
-<tr>
-<td title='com.tetherfi.test.ivr.VIPListManagementTest.searchwithoutSearchTextbox()'><b>searchwithoutSearchTextbox</b><br>Test class: com.tetherfi.test.ivr.VIPListManagementTest</td>
-<td></td>
-<td>4</td>
-<td>com.tetherfi.test.ivr.VIPListManagementTest@4a44cfc0</td></tr>
+<td>com.tetherfi.test.DashboardColorCodeConfigTest@2f14b0f6</td></tr>
 </table><p>
 </body>
 </html>
