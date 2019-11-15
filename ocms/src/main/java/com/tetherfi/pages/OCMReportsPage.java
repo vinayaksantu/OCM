@@ -2921,9 +2921,7 @@ return status;
                                 																	{	
                                 																		if(newvalues.get("ModifyReason").equals(details.getModifyReason())) 
                                 																		{
-                                																			if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getModifyReason()))
                                 																				Status=true;
-                                																			else System.out.println("Change reason data mismatch");
                                 																		}
                                 																		else System.out.println("Modify reason data mismatch");	
                                 																	}
@@ -3000,9 +2998,7 @@ return status;
                         					if(oldvalues.get("Status").equals(details.getStatus())){
                             					if(oldvalues.get("Language").equals(details.getLanguage())){
                             						if(oldvalues.get("ModifyReason").equals(details.getDeleteReason())) {
-                            							if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getDeleteReason()))
                             								Status=true;
-                            							else System.out.println("Change reason data mismatch");
                             						}
                             						else {System.out.println("Modify Reason  data mismatch");}
                             					}

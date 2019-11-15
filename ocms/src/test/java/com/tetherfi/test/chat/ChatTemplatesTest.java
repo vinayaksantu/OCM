@@ -1028,7 +1028,7 @@ public class ChatTemplatesTest {
     @Test(priority=98,groups= {"OCM"})//dependsOnMethods = {"EditGroupRecord","DeleteChatTemplatesRecord"})
     public void DeleteGroupRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
+        Map<String, String> map = new ExcelReader(filePath,"DeleteGroup").getTestData().get(0);
         ChatTemplateDetails chatTemplateDetails= new ChatTemplateDetails(map);
         ChatTemplatesPage chatTemplatesPage = PageFactory.createPageInstance(driver,ChatTemplatesPage.class);
         chatTemplatesPage.navigateToTab("Groups");
@@ -1040,7 +1040,7 @@ public class ChatTemplatesTest {
     @Test(priority=99,groups= {"OCM"})//,dependsOnMethods= {"DeleteGroupRecord"})
     public void VerifyAuditTrialReportForGroupDelete() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
+        Map<String, String> map = new ExcelReader(filePath,"DeleteGroup").getTestData().get(0);
         ChatTemplateDetails chatTemplateDetails= new ChatTemplateDetails(map);
         HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
         homePage.navigateToOCMReportsPage();
@@ -1086,7 +1086,7 @@ public class ChatTemplatesTest {
    @Test(priority=103,groups= {"OCM"})//dependsOnMethods = {"EditDepartmentRecord","DeleteGroupRecord","DeleteChatTemplatesRecord"})
     public void DeleteDepartmentRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
+        Map<String, String> map = new ExcelReader(filePath,"DeleteDepartment").getTestData().get(0);
         ChatTemplateDetails chatTemplateDetails= new ChatTemplateDetails(map);
         ChatTemplatesPage chatTemplatesPage = PageFactory.createPageInstance(driver,ChatTemplatesPage.class);
         chatTemplatesPage.navigateToTab("Departments");
@@ -1097,7 +1097,7 @@ public class ChatTemplatesTest {
    @Test(priority=104,groups= {"OCM"},dependsOnMethods= {"DeleteDepartmentRecord"})
    public void VerifyAuditTrialReportForDepartmentDelete() throws Exception {
    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
-       Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
+       Map<String, String> map = new ExcelReader(filePath,"DeleteDepartment").getTestData().get(0);
        ChatTemplateDetails chatTemplateDetails= new ChatTemplateDetails(map);
        HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
        homePage.navigateToOCMReportsPage();

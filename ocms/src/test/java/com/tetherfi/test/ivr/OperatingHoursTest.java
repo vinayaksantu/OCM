@@ -340,8 +340,7 @@ public class OperatingHoursTest extends BaseTest {
     }
     
     @Test(priority=30)
-    public void GroupBy()
-    {
+    public void GroupBy(){
         OperatingHoursPage operatingHoursPage=PageFactory.createPageInstance(driver,OperatingHoursPage.class);
     	Assert.assertTrue(operatingHoursPage.groupby());
         screenshot.captureScreen(driver, "GroupBy","HolidayListTest");
@@ -412,8 +411,7 @@ public class OperatingHoursTest extends BaseTest {
     }
     
     @Test(priority=40)
-    public void database() throws Exception
-    {
+    public void database() throws Exception   {
         OperatingHoursPage operatingHoursPage=PageFactory.createPageInstance(driver,OperatingHoursPage.class);
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\OperatingHoursData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Queries").getTestData().get(0);
@@ -433,7 +431,5 @@ public class OperatingHoursTest extends BaseTest {
        		 driver.navigate().refresh();
        		 }    
        		 }
-
-
 }
 

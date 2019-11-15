@@ -102,14 +102,14 @@ public class BranchManagementPage extends BasePage {
     @FindBy(css=".k-animation-container ul li")
     private List<WebElement> pageSizeListBox;
     
-    @FindBy(css="#drillGrid th a[title='Column Settings']")
+    @FindBy(css="th a[class='k-header-column-menu']")
     private List<WebElement> headersDropdown;
-    
+
     @FindBy(css="div[style*='overflow: visible'] span[class^='k-link']")
     private List<WebElement> headersColumns;
     
-    @FindBy(css="#drillGrid th a[class='k-link']")
-    private List<WebElement> headersText;		
+    @FindBy(css="th a[class='k-link']")
+    private List<WebElement> headersText;
     
     @FindBy(xpath="//div[@class='k-grid-content k-auto-scrollable']/table/tbody/tr")
     private List<WebElement> tablerecord;
@@ -465,10 +465,15 @@ public class BranchManagementPage extends BasePage {
         }
         return status;
     }
-    public boolean verifycolumnsHeaderEnabled(){
-        boolean status=false;
-        WebElement ele= headersDropdown.get(0);
-            if(ele.isDisplayed()){
+    public boolean verifycolumnsHeaderEnabled() throws InterruptedException{
+    	boolean status=false;
+        try{
+        	for(WebElement ele:headersDropdown) {
+        	scrollToElement(ele);
+        	 if (!ele.isDisplayed()) {
+	                continue;
+        	 }
+        	 else {
                 try {
                     selectWebElement(ele);
                     Thread.sleep(1000);
@@ -496,11 +501,19 @@ public class BranchManagementPage extends BasePage {
                     }
                 }
             }
+            break;
+        }
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
         return status;
     }
+        
     public boolean verifycolumnsHeaderDisbaled() {
         boolean status = false;
-        WebElement ele = headersDropdown.get(0);
+        try {for(WebElement ele : headersDropdown) {
+        scrollToElement(ele);
             if (ele.isDisplayed()) {
                 try {
                     selectWebElement(ele);
@@ -531,6 +544,12 @@ public class BranchManagementPage extends BasePage {
                 }
 
             }
+        break;
+        }
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
         return status;
     }
     
@@ -615,7 +634,7 @@ public class BranchManagementPage extends BasePage {
 		return Status;
 	}
     
-    public boolean verifyexportToExcelSheet(List<Map<String, String>> maplist) {
+    public boolean verifyexportToExcelSheet(List<Map<String, String>> maplist) throws Exception {
 		List<Map<String,String>> UI=getdata(); 
 		System.out.println(UI);
 		System.out.println(maplist);
@@ -625,7 +644,7 @@ public class BranchManagementPage extends BasePage {
 		return false;
 	}
 	
-	private List<Map<String,String>> getdata(){
+	private List<Map<String,String>> getdata() throws Exception{
 		int item=Integer.valueOf(items.get(2).getText().split("of ")[1].split(" items")[0]);
         int pagersize=Integer.valueOf(pagerSize.get(2).getText());
         int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
@@ -640,6 +659,7 @@ public class BranchManagementPage extends BasePage {
 			List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
 			for(int j=1;j<headers.size();j++) {
 				scrollToElement(headers.get(j));
+				Thread.sleep(1000);
 					col=cols.get(j).getText();
 				map.put(headers.get(j).getText(),col);
 			}
@@ -729,7 +749,7 @@ public class BranchManagementPage extends BasePage {
         return (dragColumnDestination.getText().equals(colname));
     }
 
-	public boolean verifyDatabase(String query) {
+	public boolean verifyDatabase(String query) throws Exception {
 		List<Map<String,String>> database=database(query);
 		System.out.println(database);
 		List<Map<String,String>> UI=gettable(); 
@@ -740,7 +760,7 @@ public class BranchManagementPage extends BasePage {
 			return false;
 	}
 	
-	public List<Map<String, String>> gettable() {
+	public List<Map<String, String>> gettable() throws Exception {
 		int item=Integer.valueOf(items.get(0).getText().split("of ")[1].split(" items")[0]);
         int pagersize=Integer.valueOf(pagerSize.get(0).getText());
         int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
@@ -755,16 +775,18 @@ public class BranchManagementPage extends BasePage {
 			List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
 			String col=null;
 			for(int j=0;j<headers.size();j++){
+				//waitUntilWebElementIsVisible(headers.get(j));
 				scrollToElement(headers.get(j));
-				if(headers.get(j).getText().equals("Last Changed On")){
+				Thread.sleep(1000);
+				/*if(headers.get(j).getText().equals("Last Changed On")){
 					col=cols.get(j).getText().substring(11);
 					}
-				else
+				else*/
 					col=cols.get(j).getText();
 				map.put(headers.get(j).getText(),col);
 			}
 			map.remove("");
-			map.remove("Preview");
+			//map.remove("Preview");
 			arr.add(map);
 		}
 		if(k!=pages)
@@ -841,26 +863,8 @@ public class BranchManagementPage extends BasePage {
 		String actualitems=items.get(2).getText();
 		selectWebElement(addNewBranchManageRecordBtn);
 		waitForJqueryLoad(driver);
-		selectWebElement(mainLinesDropDown);
-        selectDropdownFromVisibleText(mainLinesListbox, branchManagementDetails.getMainLines());
-        selectWebElement(subLinesDropDown);
-        selectDropdownFromVisibleText(subLinesListbox, branchManagementDetails.getSubLines());
-        enterValueToTxtField(LocationTextbox,branchManagementDetails.getLocation());
-        selectWebElement(branchTypeDropDown);
-        selectDropdownFromVisibleText(branchTypeListbox, branchManagementDetails.getBranchType());
-        selectWebElement(selectFiles.get(0));
-        FileUploader fileUploader=new FileUploader();
-        fileUploader.uploadFile(System.getProperty("user.dir") + "\\src\\test\\resources\\FileUpload\\" + branchManagementDetails.getBranchWave());
-        Thread.sleep(1000);
-        selectWebElement(selectFiles.get(0));
-        fileUploader.uploadFile(System.getProperty("user.dir") + "\\src\\test\\resources\\FileUpload\\" + branchManagementDetails.getAddressWave());
-        enterValueToTxtField(lineEstateOrder,branchManagementDetails.getLineEstateOrder());
-        selectWebElement(statusDropDown);
-        selectDropdownFromVisibleText(statusListbox, branchManagementDetails.getStatus());
-        selectWebElement(languageDropDown);
-        selectDropdownFromVisibleText(languageListbox, branchManagementDetails.getLanguage());
         selectWebElement(cancelBtn);
-        System.out.println(items.get(2).getText());
+        waitForJqueryLoad(driver);
         if(actualitems.equals(items.get(2).getText()))
         	return true;
         else
@@ -1378,7 +1382,7 @@ public class BranchManagementPage extends BasePage {
         Map<String,String> firstRowData=getFirstRowDatafromTable();
         if(firstRowData.get("Transaction").equalsIgnoreCase(Transaction)){
             if(firstRowData.get("Status").equalsIgnoreCase(Status)){
-                if(firstRowData.get("Function").equalsIgnoreCase("IvrBranchManagement")){
+                if(firstRowData.get("Function").equalsIgnoreCase("Branch Management")){
                        if(Transaction.equals("MakerUpdate")){
                            Map<String,String> newvalues=new HashMap<>();
                             String[] d=firstRowData.get("New Values").split("\n");
@@ -1495,7 +1499,7 @@ public class BranchManagementPage extends BasePage {
         Map<String,String> firstRowData=getFirstRowDatafromTable();
         if(firstRowData.get("Transaction").equalsIgnoreCase(Transaction)){
             if(firstRowData.get("Status").equalsIgnoreCase(Status)){
-                if(firstRowData.get("Function").equalsIgnoreCase("IvrBranchManagement")){
+                if(firstRowData.get("Function").equalsIgnoreCase("Branch Management")){
                        stat=true;
                 }else{System.out.println("Data mismatch:"+firstRowData.get("Function")+"\t"+"RoleManagement");}
             }else{System.out.println("Data mismatch:"+firstRowData.get("Status")+"\t"+Status);}

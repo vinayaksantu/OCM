@@ -64,10 +64,10 @@ public class BranchManagementDeleteTest {
         Assert.assertTrue(branchManagementPage.isBranchManagementPageDisplayed(), "Branch Management page assertion failed");
     }
 	
-	/*@Test(groups= {"Maker"},priority=1)
+	@Test(groups= {"Maker"},priority=1)
 	public void DeleteCancelBranchManagementRecord() throws Exception {
 		 String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\BranchManagementData.xlsx";
-	     Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(0);
+	     Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(0);
 	     BranchManagementDetails branchManagementDetails = new BranchManagementDetails(map);
 	     BranchManagementPage branchManagementPage = PageFactory.createPageInstance(driver, BranchManagementPage.class);
 	     Assert.assertTrue(branchManagementPage.DeleteCancel(branchManagementDetails), "Delete Cancel assertion Failed");
@@ -76,7 +76,7 @@ public class BranchManagementDeleteTest {
 	@Test(groups = { "Maker" },priority=2)
     public void DeleteRecordWithoutDeleteReason() throws Exception {
 		 String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\BranchManagementData.xlsx";
-		 Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(1);
+		 Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(0);
 	     BranchManagementDetails branchManagementDetails = new BranchManagementDetails(map);
 	     BranchManagementPage branchManagementPage = PageFactory.createPageInstance(driver, BranchManagementPage.class);
 	     branchManagementPage.DeleteRecordWithoutDeleteReason(branchManagementDetails);
@@ -94,7 +94,7 @@ public class BranchManagementDeleteTest {
         Assert.assertEquals(BranchManagementPage.getSuccessMessage(), "Record Deleted Successfully");
      }
         
-	@Test(groups = { "Maker" },priority=4)//,dependsOnMethods="DeleteRecord")
+	@Test(groups = { "Maker" },priority=4,dependsOnMethods="DeleteRecord")
     public void VerifyRevertForDeleteRecord() throws Exception {
        	BranchManagementPage BranchManagementPage = PageFactory.createPageInstance(driver, BranchManagementPage.class);
        	BranchManagementPage.selectBranchManagementAuditTrailTab();
@@ -183,7 +183,7 @@ public class BranchManagementDeleteTest {
         ReportDetails reportDetails= new ReportDetails(map1);
         ocmReportsPage.showReport(reportDetails);
         Assert.assertTrue(ocmReportsPage.verifyBranchManagementDelete(BranchManagementDetails,"MakerDelete"));
-    }*/
+    }
 	
 	@Test(priority=12,groups = { "Maker" })//,dependsOnMethods="DeleteBranchManagementRecord")
     public void VerifyAuditTrailDataForDeleteBranchManagementRecord() throws Exception {
@@ -196,7 +196,7 @@ public class BranchManagementDeleteTest {
     }
 
 	@Test(groups = { "Maker" },priority=13,dependsOnMethods="VerifyAuditTrailDataForDeleteBranchManagementRecord")
-    public void VerifySendForApprovalForDaeleteRecord() throws Exception {
+    public void VerifySendForApprovalForDeleteRecord() throws Exception {
        	BranchManagementPage BranchManagementPage = PageFactory.createPageInstance(driver, BranchManagementPage.class);
        	BranchManagementPage.selectBranchManagementAuditTrailTab();
        	BranchManagementPage.selectRecord();
@@ -219,7 +219,7 @@ public class BranchManagementDeleteTest {
 	     Assert.assertTrue(ocmReportsPage.verifyBranchManagementDelete(BranchManagementDetails, "MakerSendToApproval"),"Audit Trail report assertion failed");
     }
 	
-	@Test(priority=15,groups = { "Checker" },dependsOnMethods="VerifyAuditTrailReportForSendForApprove")
+	@Test(priority=15,groups = { "Checker" })
     public void ApproveforDeleteBranchManagementRecord() throws Exception{
 	     BranchManagementPage BranchManagementPage = PageFactory.createPageInstance(driver, BranchManagementPage.class);
 	     BranchManagementPage.clickonApprove("Approve Deleted");
@@ -247,7 +247,7 @@ public class BranchManagementDeleteTest {
 	@AfterMethod
     public void afterEachMethod(Method method){
         Screenshot screenshot=new Screenshot(driver);
-        screenshot.captureScreen("FaxTemplateTest",method.getName());
+        screenshot.captureScreen("BranchManagementTest",method.getName());
         driver.navigate().refresh();
         HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
         homePage.userLogout();

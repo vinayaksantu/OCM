@@ -12,7 +12,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import com.tetherfi.model.ivr.HolidayListDetails;
-import com.tetherfi.model.ivr.OperatingHoursDetails;
 
 public class HolidayListPage extends BasePage{
 

@@ -103,7 +103,9 @@ public class DashboardColorCodeConfigPage extends BasePage {
     @FindBy(css= "ul[id='DashboardName_listbox'] li")
     private List<WebElement> DashListbox;
     
-   //@FindBy(css=".k-widget k-dropdown k-state-border-up")
+   /*@FindBy(xpath="//ul[@id='DashboardName_listbox']")
+   private List<WebElement> DashListbox;*/
+    
     @FindBy(css = "span[aria-owns='ColumnName_listbox']")
     private WebElement ColumnName;
     
@@ -315,6 +317,7 @@ public class DashboardColorCodeConfigPage extends BasePage {
         enterValueToTxtFieldWithoutClear(modifyReasonTextBox,details.getModifyReason());
         btnClick(saveBtn);
     }
+    
     public void deleteDashboardColorConfigRecord(String Starttime, String reason) throws Exception {
         searchDashboardColorConfigRecord(Starttime);
         btnClick(deleteBtn);
@@ -474,13 +477,11 @@ public boolean VerifyCancelBtnAddNewRecord(DashboardColorCodeConfigDetails detai
 	public boolean editcancel(DashboardColorCodeConfigDetails details) throws Exception {
 		searchDashboardColorConfigRecord(details.getStartRange());
         selectWebElement(editBtn);
-        waitForJqueryLoad(driver);
-        
+        waitForJqueryLoad(driver); 
         selectWebElement(rangetext.get(0));     
         enterValueToTxtFieldWithoutClear(rangetext.get(0), details.getUpdatedStartRange());
         selectWebElement(rangetext.get(1));
         enterValueToTxtFieldWithoutClear(rangetext.get(1), details.getUpdatedEndRange());    
-        
         selectWebElement(colorPicker);
         selectWebElement(colorValue);
         enterValueToTxtField(colorValue,details.getUpdatedColorCode());
@@ -492,6 +493,7 @@ public boolean VerifyCancelBtnAddNewRecord(DashboardColorCodeConfigDetails detai
         else
         	return false;
 	}
+	
 	public boolean clearAll(DashboardColorCodeConfigDetails details) throws Exception {
 		selectWebElement(searchLink);
         selectWebElement(selectSearchColumn.get(0));

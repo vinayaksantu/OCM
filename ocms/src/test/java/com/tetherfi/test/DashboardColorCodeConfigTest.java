@@ -32,7 +32,7 @@ public class DashboardColorCodeConfigTest extends BaseTest {
         Assert.assertTrue(dshccpage.isDashboardColorConfigPageDisplayed(),("Dashboard Color Code Config page assertion failed"));
     }
 
-    /*@Test (priority=1)
+    @Test (priority=1)
     public void DashboardColorCodeConfigPage()    {
     	DashboardColorCodeConfigPage dshccpage=PageFactory.createPageInstance(driver,DashboardColorCodeConfigPage.class);
     	Assert.assertTrue(dshccpage.verifylogo(),"Dashboard Color Config logo assertion failed");
@@ -51,7 +51,7 @@ public class DashboardColorCodeConfigTest extends BaseTest {
         DashboardColorCodeConfigPage dshccpage=PageFactory.createPageInstance(driver,DashboardColorCodeConfigPage.class);
         dshccpage.addNewDashboardColorConfigRecord(dashColorConfigDetails);
         Assert.assertEquals(dshccpage.getSuccessMessage(),"Record Created Successfully","Add New record assertion failed");
-    }*/
+    }
    
    @Test(priority=3)
    public void AddnewCancel() throws Exception{
@@ -117,7 +117,7 @@ public class DashboardColorCodeConfigTest extends BaseTest {
         Assert.assertTrue(dshccpage.editcancel(dashColorConfigDetails));
    	}
    	
-   	/*@Test(priority=8)
+   	@Test(priority=8)
         public void EditDashboardColorConfigRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\DashboardColourConfig.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
@@ -126,8 +126,9 @@ public class DashboardColorCodeConfigTest extends BaseTest {
         dshccpage.editDashboardColorConfigRecord(dashColorConfigDetails);
         Assert.assertEquals(dshccpage.getSuccessMessage(),"Record updated successfully","Edit record assertion failed");
     }
-   /*	
-   	@Test(priority=9)
+    
+   	
+   	/*@Test(priority=9)
     public void VerifyAuditTrialReportForUpdate() throws Exception {
  	   String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\DashboardColourConfig.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
@@ -142,7 +143,7 @@ public class DashboardColorCodeConfigTest extends BaseTest {
         Assert.assertTrue(ocmReportsPage.verifydshColorConfigUpdate(dshColorConfigDetails,"Update"));
     }*/
    
-   /*@Test(priority=10)
+   @Test(priority=10)
    public void searchPage() throws Exception{
 	   String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\DashboardColourConfig.xlsx";
        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -199,8 +200,7 @@ public class DashboardColorCodeConfigTest extends BaseTest {
        Assert.assertEquals(dshccpage.getSuccessMessage(),"Record deleted successfully","Delete record assertion failed");
    }
    
-  /*
-   @Test(priority=16)
+   /*@Test(priority=16)
    public void VerifyAuditTrialReportForDelete() throws Exception {
 	   String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\DashboardColourConfig.xlsx";
        Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
@@ -222,7 +222,7 @@ public class DashboardColorCodeConfigTest extends BaseTest {
    		DashboardColorConfigDetails dshColorConfigDetails = new DashboardColorConfigDetails(map);
    		DashboardColorCodeConfigPage dshccpage=PageFactory.createPageInstance(driver,DashboardColorCodeConfigPage.class);
    		Assert.assertTrue(dshccpage.verifyDatabase(dshColorConfigDetails.getQuery()));
-   }
+   }*/
      
    @Test(priority=18)
    public void GroupBy(){
@@ -295,7 +295,7 @@ public class DashboardColorCodeConfigTest extends BaseTest {
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
         DashboardColorCodeConfigDetails dashColorConfigDetails = new DashboardColorCodeConfigDetails(map);
        Assert.assertTrue(dshccpage.ExporttoExcelWithoutData(dashColorConfigDetails));
-   }*/
+   }
 
     @AfterMethod
     	public void afterEachMethod(Method method) throws InterruptedException {

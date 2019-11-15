@@ -34,7 +34,7 @@ public class ChatIntentSkillMappingTest extends BaseTest {
         Assert.assertTrue(intentSkillMappingPage.isChatIntentSkillMappingPageDisplayed(),"Intent skill mapping page assertion failed");
     }
     
-    @Test(priority=1)
+    /*@Test(priority=1)
 	public void ChatIntentSkillMappingPage() {
         ChatIntentSkillMappingPage ChatIntentSkillMappingPage = PageFactory.createPageInstance(driver, ChatIntentSkillMappingPage.class);
         Assert.assertTrue(ChatIntentSkillMappingPage.VerifyLogo(),"Logo assertion failed");
@@ -163,19 +163,19 @@ public class ChatIntentSkillMappingTest extends BaseTest {
         ChatIntentSkillMappingPage ChatIntentSkillMappingPage = PageFactory.createPageInstance(driver, ChatIntentSkillMappingPage.class);
         ChatIntentSkillMappingPage.editChatIntentSkillMappingWithoutModifyReason(ChatIntentSkillMappingDetails);
         Assert.assertEquals(ChatIntentSkillMappingPage.getMessage(),"Please enter the modify reason", "empty modify reason record assertion failed");
-    }
+    }*/
     
    @Test(priority=15)
     public void VerifyCancelBtnAtEditRecord() throws Exception{
         ChatIntentSkillMappingPage ChatIntentSkillMappingPage = PageFactory.createPageInstance(driver, ChatIntentSkillMappingPage.class);
-        ChatIntentSkillMappingPage.searchChatIntentSkillMappingRecord("L3");
+        ChatIntentSkillMappingPage.searchChatIntentSkillMappingRecord("L1");
         Thread.sleep(1000);
         ChatIntentSkillMappingPage.clickOnEditButton();
         ChatIntentSkillMappingPage.clickOnCancelBtn();
         Assert.assertFalse(ChatIntentSkillMappingPage.verifyEditFormContainer(), "Cancel Btn at Edit record assertion failed");
     }
     
-    @Test(priority=16)//,dependsOnMethods = "AddNewChatIntentSkillMappingRecord")
+    /*@Test(priority=16)//,dependsOnMethods = "AddNewChatIntentSkillMappingRecord")
     public void EditChatIntentSkillMappingRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IntentSkillMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);

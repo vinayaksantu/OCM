@@ -322,6 +322,7 @@ public class ChatIntentSkillMappingPage extends BasePage {
 		}
 			return arr;
 	}
+	
 	public boolean verifyDatabase(String query) {
 		List<Map<String,String>> database=database(query);
 		System.out.println(database);
@@ -930,10 +931,10 @@ public class ChatIntentSkillMappingPage extends BasePage {
         selectWebElement(cancelBtn);
 	}
 
-	public void clickOnEditButton() {
+	public void clickOnEditButton() throws Exception {
+		Thread.sleep(1000);
         selectWebElement(editBtn);
-		
-	}
+		}
 
 	public void deleteIntentMapingWithoutDeleteReasonRecord(ChatIntentSkillMappingDetails chatIntentSkillMappingDetails) throws Exception {
 		searchChatIntentSkillMappingRecord(chatIntentSkillMappingDetails.getSegment());

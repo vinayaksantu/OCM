@@ -284,7 +284,7 @@ public class BranchManagementCreateTest {
         Assert.assertTrue(ocmReportsPage.verifyBranchManagementCreate(BranchManagementDetails, "MakerCreate"),"Audit Trail report assertion failed");
     }
     
-    @Test(groups = { "Maker" },priority=22,dependsOnMethods="AddNewBranchManagementRecord")
+    @Test(groups = { "Maker" },priority=22)//,dependsOnMethods="AddNewBranchManagementRecord")
     public void VerifyAuditTrailDataForAddNewBranchManagementRecord() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\BranchManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -358,7 +358,7 @@ public class BranchManagementCreateTest {
 	    BranchManagementDetails BranchManagementDetails = new BranchManagementDetails(map);
         BranchManagementPage BranchManagementPage = PageFactory.createPageInstance(driver, BranchManagementPage.class);
         BranchManagementPage.addNewBranchManagementRecord(BranchManagementDetails);
-        Assert.assertFalse(BranchManagementPage.getErrorMsg(),"Duplicate assetion failed");
+        Assert.assertFalse(BranchManagementPage.getErrorMsg(),"Duplicate assetion failed");   
     }
     
     @AfterMethod

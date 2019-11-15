@@ -5,16 +5,26 @@
         <listener class-name="com.tetherfi.listeners.ReportListener"/>
     </listeners>
     
-     <test name="IVR IVR Config Test" parallel="false">
+     <test name="Branch Management UI" parallel="false">
       <classes>  
-           <class name="com.tetherfi.test.ivr.IvrConfigTest"/> 
+           <class name="com.tetherfi.test.ivr.BranchManagementUITest"/> 
+            </classes>
+     </test>
+     <test name="Branch ManagementCreate" parallel="false">
+      <classes>  
+           <class name="com.tetherfi.test.ivr.BranchManagementCreateTest"/> 
+            </classes>
+     </test>
+     <test name="Branch ManagementEDit" parallel="false">
+      <classes>  
+           <class name="com.tetherfi.test.ivr.BranchManagementEditTest"/> 
+            </classes>
+     </test>
+     <test name="Branch ManagementDelete" parallel="false">
+      <classes>  
+           <class name="com.tetherfi.test.ivr.BranchManagementDeleteTest"/> 
             </classes>
      </test>
     
-     <test name="IVR VBEnrollmentFlagTest" parallel="false">
-      <classes>     
-           <class name="com.tetherfi.test.ivr.HolidayListTest"/> 
-            </classes>
-     </test>
-        
+    
 </suite>

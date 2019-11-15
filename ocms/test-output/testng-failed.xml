@@ -1,20 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
-  <test thread-count="5" name="Default test(failed)">
+<suite name="Failed suite [Tetherfi Test Automation]" guice-stage="DEVELOPMENT">
+  <listeners>
+    <listener class-name="com.tetherfi.listeners.ReportListener"/>
+  </listeners>
+  <test thread-count="5" name="Branch Management UI(failed)">
     <classes>
-      <class name="com.tetherfi.test.DashboardColorCodeConfigTest">
+      <class name="com.tetherfi.test.ivr.BranchManagementUITest">
         <methods>
-          <include name="AddnewCancel"/>
           <include name="startTestCase"/>
           <include name="openApplication"/>
-          <include name="EditDashboardColorConfigCancelRecord"/>
+          <include name="afterEachMethod"/>
+          <include name="NavigateToBranchManagementPage"/>
           <include name="endTestCase"/>
-          <include name="NavigateToDashboardColorCodeConfigPage"/>
           <include name="tearDown"/>
+          <include name="VerifyNumberOfItemsPerPageSelection"/>
+        </methods>
+      </class> <!-- com.tetherfi.test.ivr.BranchManagementUITest -->
+    </classes>
+  </test> <!-- Branch Management UI(failed) -->
+  <test thread-count="5" name="Branch ManagementEDit(failed)">
+    <classes>
+      <class name="com.tetherfi.test.ivr.BranchManagementEditTest">
+        <methods>
+          <include name="VerifyAuditTrialReportForUpdate"/>
+          <include name="EditBranchManagementRecord"/>
+          <include name="VerifySendForApprovalForRejectRecord"/>
+          <include name="RejectforEditBranchManagementRecord"/>
+          <include name="EditRevertBranchManagementRecord"/>
+          <include name="VerifyAuditTrailReportForReject"/>
+          <include name="VerifyRevertForEditRecord"/>
+          <include name="VerifyAuditTrialReportForSendForApprovalUpdate"/>
+          <include name="NavigateBranchManagementPage"/>
+          <include name="VerifyAuditTrailReportForApprove"/>
+          <include name="ApproveforEditBranchManagementRecord"/>
+          <include name="VerifyAuditTrialReportForRevertUpdate"/>
           <include name="afterEachMethod"/>
         </methods>
-      </class> <!-- com.tetherfi.test.DashboardColorCodeConfigTest -->
+      </class> <!-- com.tetherfi.test.ivr.BranchManagementEditTest -->
     </classes>
-  </test> <!-- Default test(failed) -->
-</suite> <!-- Failed suite [Default suite] -->
+  </test> <!-- Branch ManagementEDit(failed) -->
+  <test thread-count="5" name="Branch ManagementDelete(failed)">
+    <classes>
+      <class name="com.tetherfi.test.ivr.BranchManagementDeleteTest">
+        <methods>
+          <include name="DeleteRecord"/>
+          <include name="RejectforDeleteBranchManagementRecord"/>
+          <include name="ApproveforDeleteBranchManagementRecord"/>
+          <include name="VerifyAuditTrailReportForReject"/>
+          <include name="VerifyAuditTrailDataForDeleteBranchManagementRecord"/>
+          <include name="VerifyRevertForDeleteRecord"/>
+          <include name="VerifyAuditTrailReportForApprove"/>
+          <include name="VerifyAuditTrialReportForRevertDelete"/>
+          <include name="NavigateToBranchManagementPage"/>
+          <include name="RejectDeleteRecord"/>
+          <include name="afterEachMethod"/>
+          <include name="VerifySendForApprovalForDeleteNewRecord"/>
+          <include name="VerifyAuditTrailReportForSendForApprove"/>
+          <include name="VerifySendForApprovalForDeleteRecord"/>
+        </methods>
+      </class> <!-- com.tetherfi.test.ivr.BranchManagementDeleteTest -->
+    </classes>
+  </test> <!-- Branch ManagementDelete(failed) -->
+</suite> <!-- Failed suite [Tetherfi Test Automation] -->
