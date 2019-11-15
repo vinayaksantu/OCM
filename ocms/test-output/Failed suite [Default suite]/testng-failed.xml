@@ -3,16 +3,30 @@
 <suite name="Failed suite [Failed suite [Default suite]]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)(failed)">
     <classes>
-      <class name="com.tetherfi.test.ivr.IntroMessageAnnouncementCreateTest">
+      <class name="com.tetherfi.test.chat.ChatTemplatesTest">
         <methods>
-          <include name="NavigateToIntroMessageAnnouncementPage"/>
-          <include name="afterEachMethod"/>
-          <include name="VerifySendForApprovalForAddNewIntroMessageAnnouncementRecord"/>
-          <include name="VerifyAuditTrailReportForSendForApproval"/>
-          <include name="VerifyAuditTrailDataForAddNewIntroMessageAnnouncementRecord"/>
-          <include name="AddNewIntroMessageAnnouncementRecord"/>
+          <include name="NavigateToChatTemplatesPage"/>
+          <include name="VerifyDepartmentTotalNumberOfItemsPerPageDetails"/>
+          <include name="VerifyNumberOfItemsPerPageSelection"/>
+          <include name="VerifyAuditTrialReportForDepartmentDelete"/>
+          <include name="VerifyDeleteGroupRecordInMain"/>
+          <include name="VerifyAuditTrialReportForGroupDelete"/>
+          <include name="VerifyGroupsTotalNumberOfItemsPerPageDetails"/>
+          <include name="VerifyAuditTrialReportForDelete"/>
+          <include name="Database"/>
+          <include name="VerifyGroupsNumberOfItemsPerPageSelection"/>
+          <include name="AddRecordWithoutChatEnabled"/>
+          <include name="VerifyDepartmentNumberOfItemsPerPageSelection"/>
+          <include name="GroupsSortingByDescending"/>
+          <include name="close"/>
+          <include name="DeleteDepartmentRecord"/>
+          <include name="EditWithoutModifyReasonRecord"/>
+          <include name="GroupsExportToExcelData"/>
+          <include name="GroupDatabase"/>
+          <include name="AddNewChatTemplatesRecord"/>
+          <include name="GroupsSortingByAscending"/>
         </methods>
-      </class> <!-- com.tetherfi.test.ivr.IntroMessageAnnouncementCreateTest -->
+      </class> <!-- com.tetherfi.test.chat.ChatTemplatesTest -->
     </classes>
   </test> <!-- Default test(failed)(failed) -->
 </suite> <!-- Failed suite [Failed suite [Default suite]] -->

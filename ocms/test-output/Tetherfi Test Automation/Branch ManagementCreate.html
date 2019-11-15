@@ -1,0 +1,824 @@
+<html>
+<head>
+<title>TestNG:  Branch ManagementCreate</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>Branch ManagementCreate</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>28/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Fri Nov 15 13:13:39 IST 2019</td>
+</tr>
+<tr><td>Total time:</td><td>1281 seconds (1281026 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.tetherfi.test.ivr.BranchManagementUITest.VerifyNumberOfItemsPerPageSelection()'><b>VerifyNumberOfItemsPerPageSelection</b><br>Test class: com.tetherfi.test.ivr.BranchManagementUITest<br/>
+<a href="#Output-82862370" onClick='toggleBox("Output-82862370", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-82862370" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-82862370">
+Test Case <b style="color:red;" "font-size:25px;">FAILED</b>
+<br/>
+<img src="Screenshot\VerifyNumberOfItemsPerPageSelection.jpg" alt="Image Not Found"/><br /><br/>
+</div>
+</td>
+<td><div><pre>java.lang.AssertionError: item per page assertion failed did not expect to find [true] but found [false]
+	at com.tetherfi.test.ivr.BranchManagementUITest.VerifyNumberOfItemsPerPageSelection(BranchManagementUITest.java:128)
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+... Removed 30 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace82862370", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace82862370'><pre>java.lang.AssertionError: item per page assertion failed did not expect to find [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:97)
+	at org.testng.Assert.failNotEquals(Assert.java:969)
+	at org.testng.Assert.assertTrue(Assert.java:43)
+	at com.tetherfi.test.ivr.BranchManagementUITest.VerifyNumberOfItemsPerPageSelection(BranchManagementUITest.java:128)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+	at org.testng.TestRunner.privateRun(TestRunner.java:770)
+	at org.testng.TestRunner.run(TestRunner.java:591)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+	at org.testng.TestNG.runSuites(TestNG.java:1032)
+	at org.testng.TestNG.run(TestNG.java:1000)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>12</td>
+<td>com.tetherfi.test.ivr.BranchManagementUITest@66a53104</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.tetherfi.test.ivr.BranchManagementCreateTest.AddDuplicateRecord()'><b>AddDuplicateRecord</b><br>Test class: com.tetherfi.test.ivr.BranchManagementCreateTest<br/>
+<a href="#Output-154010002" onClick='toggleBox("Output-154010002", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-154010002" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-154010002">
+Test Case <b style="color:green;" "font-size:25px;">Passed</b>
+<br/>
+<img src="Screenshot\AddDuplicateRecord.jpg" alt="Image Not Found"/><br /><br/>
+</div>
+</td>
+<td></td>
+<td>19</td>
+<td>com.tetherfi.test.ivr.BranchManagementCreateTest@2251b3bc</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.BranchManagementCreateTest.AddNewBranchManagementRecord()'><b>AddNewBranchManagementRecord</b><br>Test class: com.tetherfi.test.ivr.BranchManagementCreateTest<br/>
+<a href="#Output-928095853" onClick='toggleBox("Output-928095853", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-928095853" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-928095853">
+Test Case <b style="color:green;" "font-size:25px;">Passed</b>
+<br/>
+<img src="Screenshot\AddNewBranchManagementRecord.jpg" alt="Image Not Found"/><br /><br/>
+</div>
+</td>
+<td></td>
+<td>19</td>
+<td>com.tetherfi.test.ivr.BranchManagementCreateTest@2251b3bc</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.BranchManagementCreateTest.AddRejectRecord()'><b>AddRejectRecord</b><br>Test class: com.tetherfi.test.ivr.BranchManagementCreateTest<br/>
+<a href="#Output-1173329904" onClick='toggleBox("Output-1173329904", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1173329904" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1173329904">
+Test Case <b style="color:green;" "font-size:25px;">Passed</b>
+<br/>
+<img src="Screenshot\AddRejectRecord.jpg" alt="Image Not Found"/><br /><br/>
+</div>
+</td>
+<td></td>
+<td>20</td>
+<td>com.tetherfi.test.ivr.BranchManagementCreateTest@2251b3bc</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.BranchManagementCreateTest.AddRevertRecord()'><b>AddRevertRecord</b><br>Test class: com.tetherfi.test.ivr.BranchManagementCreateTest<br/>
+<a href="#Output-1204139017" onClick='toggleBox("Output-1204139017", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1204139017" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1204139017">
+Test Case <b style="color:green;" "font-size:25px;">Passed</b>
+<br/>
+<img src="Screenshot\AddRevertRecord.jpg" alt="Image Not Found"/><br /><br/>
+</div>
+</td>
+<td></td>
+<td>22</td>
+<td>com.tetherfi.test.ivr.BranchManagementCreateTest@2251b3bc</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.BranchManagementCreateTest.ApproveforAddNewBranchManagementRecord()'><b>ApproveforAddNewBranchManagementRecord</b><br>Test class: com.tetherfi.test.ivr.BranchManagementCreateTest<br/>
+<a href="#Output-43109419" onClick='toggleBox("Output-43109419", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-43109419" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-43109419">
+Test Case <b style="color:green;" "font-size:25px;">Passed</b>
+<br/>
+<img src="Screenshot\ApproveforAddNewBranchManagementRecord.jpg" alt="Image Not Found"/><br /><br/>
+</div>
+</td>
+<td></td>
+<td>25</td>
+<td>com.tetherfi.test.ivr.BranchManagementCreateTest@2251b3bc</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.BranchManagementUITest.BranchManagementPage()'><b>BranchManagementPage</b><br>Test class: com.tetherfi.test.ivr.BranchManagementUITest<br/>
+<a href="#Output-1216486972" onClick='toggleBox("Output-1216486972", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1216486972" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1216486972">
+Test Case <b style="color:green;" "font-size:25px;">Passed</b>
+<br/>
+<img src="Screenshot\BranchManagementPage.jpg" alt="Image Not Found"/><br /><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>com.tetherfi.test.ivr.BranchManagementUITest@66a53104</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.BranchManagementUITest.ExportToExcel()'><b>ExportToExcel</b><br>Test class: com.tetherfi.test.ivr.BranchManagementUITest<br/>
+<a href="#Output-318871129" onClick='toggleBox("Output-318871129", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-318871129" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-318871129">
+Test Case <b style="color:green;" "font-size:25px;">Passed</b>
+<br/>
+<img src="Screenshot\ExportToExcel.jpg" alt="Image Not Found"/><br /><br/>
+</div>
+</td>
+<td></td>
+<td>12</td>
+<td>com.tetherfi.test.ivr.BranchManagementUITest@66a53104</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.BranchManagementUITest.ExportToExcelData()'><b>ExportToExcelData</b><br>Test class: com.tetherfi.test.ivr.BranchManagementUITest<br/>
+<a href="#Output-1018563934" onClick='toggleBox("Output-1018563934", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1018563934" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1018563934">
+Test Case <b style="color:green;" "font-size:25px;">Passed</b>
+<br/>
+<img src="Screenshot\ExportToExcelData.jpg" alt="Image Not Found"/><br /><br/>
+</div>
+</td>
+<td></td>
+<td>52</td>
+<td>com.tetherfi.test.ivr.BranchManagementUITest@66a53104</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.BranchManagementCreateTest.RejectforAddNewBranchManagementRecord()'><b>RejectforAddNewBranchManagementRecord</b><br>Test class: com.tetherfi.test.ivr.BranchManagementCreateTest<br/>
+<a href="#Output-1868495715" onClick='toggleBox("Output-1868495715", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1868495715" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1868495715">
+Test Case <b style="color:green;" "font-size:25px;">Passed</b>
+<br/>
+<img src="Screenshot\RejectforAddNewBranchManagementRecord.jpg" alt="Image Not Found"/><br /><br/>
+</div>
+</td>
+<td></td>
+<td>9</td>
+<td>com.tetherfi.test.ivr.BranchManagementCreateTest@2251b3bc</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.BranchManagementUITest.SearchClearSearch()'><b>SearchClearSearch</b><br>Test class: com.tetherfi.test.ivr.BranchManagementUITest<br/>
+<a href="#Output-1660543528" onClick='toggleBox("Output-1660543528", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1660543528" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1660543528">
+Test Case <b style="color:green;" "font-size:25px;">Passed</b>
+<br/>
+<img src="Screenshot\SearchClearSearch.jpg" alt="Image Not Found"/><br /><br/>
+</div>
+</td>
+<td></td>
+<td>5</td>
+<td>com.tetherfi.test.ivr.BranchManagementUITest@66a53104</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.BranchManagementUITest.SortingByAscending()'><b>SortingByAscending</b><br>Test class: com.tetherfi.test.ivr.BranchManagementUITest<br/>
+<a href="#Output-1419939393" onClick='toggleBox("Output-1419939393", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1419939393" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1419939393">
+Test Case <b style="color:green;" "font-size:25px;">Passed</b>
+<br/>
+<img src="Screenshot\SortingByAscending.jpg" alt="Image Not Found"/><br /><br/>
+</div>
+</td>
+<td></td>
+<td>55</td>
+<td>com.tetherfi.test.ivr.BranchManagementUITest@66a53104</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.BranchManagementUITest.SortingByDescending()'><b>SortingByDescending</b><br>Test class: com.tetherfi.test.ivr.BranchManagementUITest<br/>
+<a href="#Output-1648243565" onClick='toggleBox("Output-1648243565", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1648243565" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1648243565">
+Test Case <b style="color:green;" "font-size:25px;">Passed</b>
+<br/>
+<img src="Screenshot\SortingByDescending.jpg" alt="Image Not Found"/><br /><br/>
+</div>
+</td>
+<td></td>
+<td>55</td>
+<td>com.tetherfi.test.ivr.BranchManagementUITest@66a53104</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.BranchManagementCreateTest.VerifyAddCancelButton()'><b>VerifyAddCancelButton</b><br>Test class: com.tetherfi.test.ivr.BranchManagementCreateTest<br/>
+<a href="#Output-1224977025" onClick='toggleBox("Output-1224977025", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1224977025" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1224977025">
+Test Case <b style="color:green;" "font-size:25px;">Passed</b>
+<br/>
+<img src="Screenshot\VerifyAddCancelButton.jpg" alt="Image Not Found"/><br /><br/>
+</div>
+</td>
+<td></td>
+<td>3</td>
+<td>com.tetherfi.test.ivr.BranchManagementCreateTest@2251b3bc</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.BranchManagementCreateTest.VerifyAddRecordWithoutAddress()'><b>VerifyAddRecordWithoutAddress</b><br>Test class: com.tetherfi.test.ivr.BranchManagementCreateTest<br/>
+<a href="#Output-1681274680" onClick='toggleBox("Output-1681274680", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1681274680" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1681274680">
+Test Case <b style="color:green;" "font-size:25px;">Passed</b>
+<br/>
+<img src="Screenshot\VerifyAddRecordWithoutAddress.jpg" alt="Image Not Found"/><br /><br/>
+</div>
+</td>
+<td></td>
+<td>15</td>
+<td>com.tetherfi.test.ivr.BranchManagementCreateTest@2251b3bc</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.BranchManagementCreateTest.VerifyAddRecordWithoutBranchName()'><b>VerifyAddRecordWithoutBranchName</b><br>Test class: com.tetherfi.test.ivr.BranchManagementCreateTest<br/>
+<a href="#Output-1295870175" onClick='toggleBox("Output-1295870175", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1295870175" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1295870175">
+Test Case <b style="color:green;" "font-size:25px;">Passed</b>
+<br/>
+<img src="Screenshot\VerifyAddRecordWithoutBranchName.jpg" alt="Image Not Found"/><br /><br/>
+</div>
+</td>
+<td></td>
+<td>14</td>
+<td>com.tetherfi.test.ivr.BranchManagementCreateTest@2251b3bc</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.BranchManagementCreateTest.VerifyAddRecordWithoutBranchType()'><b>VerifyAddRecordWithoutBranchType</b><br>Test class: com.tetherfi.test.ivr.BranchManagementCreateTest<br/>
+<a href="#Output-2015251775" onClick='toggleBox("Output-2015251775", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2015251775" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2015251775">
+Test Case <b style="color:green;" "font-size:25px;">Passed</b>
+<br/>
+<img src="Screenshot\VerifyAddRecordWithoutBranchType.jpg" alt="Image Not Found"/><br /><br/>
+</div>
+</td>
+<td></td>
+<td>18</td>
+<td>com.tetherfi.test.ivr.BranchManagementCreateTest@2251b3bc</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.BranchManagementCreateTest.VerifyAddRecordWithoutLanguage()'><b>VerifyAddRecordWithoutLanguage</b><br>Test class: com.tetherfi.test.ivr.BranchManagementCreateTest<br/>
+<a href="#Output-364890735" onClick='toggleBox("Output-364890735", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-364890735" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-364890735">
+Test Case <b style="color:green;" "font-size:25px;">Passed</b>
+<br/>
+<img src="Screenshot\VerifyAddRecordWithoutLanguage.jpg" alt="Image Not Found"/><br /><br/>
+</div>
+</td>
+<td></td>
+<td>18</td>
+<td>com.tetherfi.test.ivr.BranchManagementCreateTest@2251b3bc</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.BranchManagementCreateTest.VerifyAddRecordWithoutLineOrder()'><b>VerifyAddRecordWithoutLineOrder</b><br>Test class: com.tetherfi.test.ivr.BranchManagementCreateTest<br/>
+<a href="#Output-1868696370" onClick='toggleBox("Output-1868696370", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1868696370" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1868696370">
+Test Case <b style="color:green;" "font-size:25px;">Passed</b>
+<br/>
+<img src="Screenshot\VerifyAddRecordWithoutLineOrder.jpg" alt="Image Not Found"/><br /><br/>
+</div>
+</td>
+<td></td>
+<td>19</td>
+<td>com.tetherfi.test.ivr.BranchManagementCreateTest@2251b3bc</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.BranchManagementCreateTest.VerifyAddRecordWithoutLocation()'><b>VerifyAddRecordWithoutLocation</b><br>Test class: com.tetherfi.test.ivr.BranchManagementCreateTest<br/>
+<a href="#Output-2106901403" onClick='toggleBox("Output-2106901403", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2106901403" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2106901403">
+Test Case <b style="color:green;" "font-size:25px;">Passed</b>
+<br/>
+<img src="Screenshot\VerifyAddRecordWithoutLocation.jpg" alt="Image Not Found"/><br /><br/>
+</div>
+</td>
+<td></td>
+<td>19</td>
+<td>com.tetherfi.test.ivr.BranchManagementCreateTest@2251b3bc</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.BranchManagementCreateTest.VerifyAddRecordWithoutStatus()'><b>VerifyAddRecordWithoutStatus</b><br>Test class: com.tetherfi.test.ivr.BranchManagementCreateTest<br/>
+<a href="#Output-1197080138" onClick='toggleBox("Output-1197080138", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1197080138" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1197080138">
+Test Case <b style="color:green;" "font-size:25px;">Passed</b>
+<br/>
+<img src="Screenshot\VerifyAddRecordWithoutStatus.jpg" alt="Image Not Found"/><br /><br/>
+</div>
+</td>
+<td></td>
+<td>17</td>
+<td>com.tetherfi.test.ivr.BranchManagementCreateTest@2251b3bc</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.BranchManagementCreateTest.VerifyAddRecordWithoutSubLines()'><b>VerifyAddRecordWithoutSubLines</b><br>Test class: com.tetherfi.test.ivr.BranchManagementCreateTest<br/>
+<a href="#Output-1974803959" onClick='toggleBox("Output-1974803959", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1974803959" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1974803959">
+Test Case <b style="color:green;" "font-size:25px;">Passed</b>
+<br/>
+<img src="Screenshot\VerifyAddRecordWithoutSubLines.jpg" alt="Image Not Found"/><br /><br/>
+</div>
+</td>
+<td></td>
+<td>18</td>
+<td>com.tetherfi.test.ivr.BranchManagementCreateTest@2251b3bc</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.BranchManagementCreateTest.VerifyAddRecordwithoutMainLines()'><b>VerifyAddRecordwithoutMainLines</b><br>Test class: com.tetherfi.test.ivr.BranchManagementCreateTest<br/>
+<a href="#Output-1332555348" onClick='toggleBox("Output-1332555348", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1332555348" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1332555348">
+Test Case <b style="color:green;" "font-size:25px;">Passed</b>
+<br/>
+<img src="Screenshot\VerifyAddRecordwithoutMainLines.jpg" alt="Image Not Found"/><br /><br/>
+</div>
+</td>
+<td></td>
+<td>17</td>
+<td>com.tetherfi.test.ivr.BranchManagementCreateTest@2251b3bc</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.BranchManagementCreateTest.VerifyApprovedDataSectionWithoutApproval()'><b>VerifyApprovedDataSectionWithoutApproval</b><br>Test class: com.tetherfi.test.ivr.BranchManagementCreateTest<br/>
+<a href="#Output-775447221" onClick='toggleBox("Output-775447221", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-775447221" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-775447221">
+Test Case <b style="color:green;" "font-size:25px;">Passed</b>
+<br/>
+<img src="Screenshot\VerifyApprovedDataSectionWithoutApproval.jpg" alt="Image Not Found"/><br /><br/>
+</div>
+</td>
+<td></td>
+<td>3</td>
+<td>com.tetherfi.test.ivr.BranchManagementCreateTest@2251b3bc</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.BranchManagementUITest.VerifyArrowMoveForFirstAndLastPage()'><b>VerifyArrowMoveForFirstAndLastPage</b><br>Test class: com.tetherfi.test.ivr.BranchManagementUITest<br/>
+<a href="#Output-783154166" onClick='toggleBox("Output-783154166", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-783154166" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-783154166">
+Test Case <b style="color:green;" "font-size:25px;">Passed</b>
+<br/>
+<img src="Screenshot\VerifyArrowMoveForFirstAndLastPage.jpg" alt="Image Not Found"/><br /><br/>
+</div>
+</td>
+<td></td>
+<td>10</td>
+<td>com.tetherfi.test.ivr.BranchManagementUITest@66a53104</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.BranchManagementUITest.VerifyArrowMoveForPreviousAndNextPage()'><b>VerifyArrowMoveForPreviousAndNextPage</b><br>Test class: com.tetherfi.test.ivr.BranchManagementUITest<br/>
+<a href="#Output-49643713" onClick='toggleBox("Output-49643713", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-49643713" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-49643713">
+Test Case <b style="color:green;" "font-size:25px;">Passed</b>
+<br/>
+<img src="Screenshot\VerifyArrowMoveForPreviousAndNextPage.jpg" alt="Image Not Found"/><br /><br/>
+</div>
+</td>
+<td></td>
+<td>10</td>
+<td>com.tetherfi.test.ivr.BranchManagementUITest@66a53104</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.BranchManagementCreateTest.VerifyAuditTrailDataForAddNewBranchManagementRecord()'><b>VerifyAuditTrailDataForAddNewBranchManagementRecord</b><br>Test class: com.tetherfi.test.ivr.BranchManagementCreateTest<br/>
+<a href="#Output-1447167856" onClick='toggleBox("Output-1447167856", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1447167856" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1447167856">
+Test Case <b style="color:green;" "font-size:25px;">Passed</b>
+<br/>
+<img src="Screenshot\VerifyAuditTrailDataForAddNewBranchManagementRecord.jpg" alt="Image Not Found"/><br /><br/>
+</div>
+</td>
+<td></td>
+<td>5</td>
+<td>com.tetherfi.test.ivr.BranchManagementCreateTest@2251b3bc</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.BranchManagementCreateTest.VerifyAuditTrailReportForApprove()'><b>VerifyAuditTrailReportForApprove</b><br>Test class: com.tetherfi.test.ivr.BranchManagementCreateTest<br/>
+<a href="#Output-1876832713" onClick='toggleBox("Output-1876832713", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1876832713" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1876832713">
+Test Case <b style="color:green;" "font-size:25px;">Passed</b>
+<br/>
+<img src="Screenshot\VerifyAuditTrailReportForApprove.jpg" alt="Image Not Found"/><br /><br/>
+</div>
+</td>
+<td></td>
+<td>21</td>
+<td>com.tetherfi.test.ivr.BranchManagementCreateTest@2251b3bc</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.BranchManagementCreateTest.VerifyAuditTrailReportForCreate()'><b>VerifyAuditTrailReportForCreate</b><br>Test class: com.tetherfi.test.ivr.BranchManagementCreateTest<br/>
+<a href="#Output-1728469114" onClick='toggleBox("Output-1728469114", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1728469114" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1728469114">
+Test Case <b style="color:green;" "font-size:25px;">Passed</b>
+<br/>
+<img src="Screenshot\VerifyAuditTrailReportForCreate.jpg" alt="Image Not Found"/><br /><br/>
+</div>
+</td>
+<td></td>
+<td>21</td>
+<td>com.tetherfi.test.ivr.BranchManagementCreateTest@2251b3bc</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.BranchManagementCreateTest.VerifyAuditTrailReportForReject()'><b>VerifyAuditTrailReportForReject</b><br>Test class: com.tetherfi.test.ivr.BranchManagementCreateTest<br/>
+<a href="#Output-1758256364" onClick='toggleBox("Output-1758256364", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1758256364" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1758256364">
+Test Case <b style="color:green;" "font-size:25px;">Passed</b>
+<br/>
+<img src="Screenshot\VerifyAuditTrailReportForReject.jpg" alt="Image Not Found"/><br /><br/>
+</div>
+</td>
+<td></td>
+<td>21</td>
+<td>com.tetherfi.test.ivr.BranchManagementCreateTest@2251b3bc</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.BranchManagementCreateTest.VerifyAuditTrailReportForRevert()'><b>VerifyAuditTrailReportForRevert</b><br>Test class: com.tetherfi.test.ivr.BranchManagementCreateTest<br/>
+<a href="#Output-575546294" onClick='toggleBox("Output-575546294", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-575546294" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-575546294">
+Test Case <b style="color:green;" "font-size:25px;">Passed</b>
+<br/>
+<img src="Screenshot\VerifyAuditTrailReportForRevert.jpg" alt="Image Not Found"/><br /><br/>
+</div>
+</td>
+<td></td>
+<td>20</td>
+<td>com.tetherfi.test.ivr.BranchManagementCreateTest@2251b3bc</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.BranchManagementCreateTest.VerifyAuditTrailReportForSendForApproval()'><b>VerifyAuditTrailReportForSendForApproval</b><br>Test class: com.tetherfi.test.ivr.BranchManagementCreateTest<br/>
+<a href="#Output-1950042998" onClick='toggleBox("Output-1950042998", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1950042998" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1950042998">
+Test Case <b style="color:green;" "font-size:25px;">Passed</b>
+<br/>
+<img src="Screenshot\VerifyAuditTrailReportForSendForApproval.jpg" alt="Image Not Found"/><br /><br/>
+</div>
+</td>
+<td></td>
+<td>21</td>
+<td>com.tetherfi.test.ivr.BranchManagementCreateTest@2251b3bc</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.BranchManagementUITest.VerifyBranchManagementApprovedDataPage()'><b>VerifyBranchManagementApprovedDataPage</b><br>Test class: com.tetherfi.test.ivr.BranchManagementUITest<br/>
+<a href="#Output-1648266888" onClick='toggleBox("Output-1648266888", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1648266888" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1648266888">
+Test Case <b style="color:green;" "font-size:25px;">Passed</b>
+<br/>
+<img src="Screenshot\VerifyBranchManagementApprovedDataPage.jpg" alt="Image Not Found"/><br /><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>com.tetherfi.test.ivr.BranchManagementUITest@66a53104</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.BranchManagementUITest.VerifyBranchManagementAuditTrailDataPage()'><b>VerifyBranchManagementAuditTrailDataPage</b><br>Test class: com.tetherfi.test.ivr.BranchManagementUITest<br/>
+<a href="#Output-341832285" onClick='toggleBox("Output-341832285", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-341832285" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-341832285">
+Test Case <b style="color:green;" "font-size:25px;">Passed</b>
+<br/>
+<img src="Screenshot\VerifyBranchManagementAuditTrailDataPage.jpg" alt="Image Not Found"/><br /><br/>
+</div>
+</td>
+<td></td>
+<td>7</td>
+<td>com.tetherfi.test.ivr.BranchManagementUITest@66a53104</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.BranchManagementUITest.VerifyColumnsHeaderDisable()'><b>VerifyColumnsHeaderDisable</b><br>Test class: com.tetherfi.test.ivr.BranchManagementUITest<br/>
+<a href="#Output-1947118497" onClick='toggleBox("Output-1947118497", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1947118497" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1947118497">
+Test Case <b style="color:green;" "font-size:25px;">Passed</b>
+<br/>
+<img src="Screenshot\VerifyColumnsHeaderDisable.jpg" alt="Image Not Found"/><br /><br/>
+</div>
+</td>
+<td></td>
+<td>10</td>
+<td>com.tetherfi.test.ivr.BranchManagementUITest@66a53104</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.BranchManagementUITest.VerifyColumnsHeaderEnable()'><b>VerifyColumnsHeaderEnable</b><br>Test class: com.tetherfi.test.ivr.BranchManagementUITest<br/>
+<a href="#Output-1058328657" onClick='toggleBox("Output-1058328657", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1058328657" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1058328657">
+Test Case <b style="color:green;" "font-size:25px;">Passed</b>
+<br/>
+<img src="Screenshot\VerifyColumnsHeaderEnable.jpg" alt="Image Not Found"/><br /><br/>
+</div>
+</td>
+<td></td>
+<td>29</td>
+<td>com.tetherfi.test.ivr.BranchManagementUITest@66a53104</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.BranchManagementUITest.VerifyDragAndDrop()'><b>VerifyDragAndDrop</b><br>Test class: com.tetherfi.test.ivr.BranchManagementUITest<br/>
+<a href="#Output-2122218592" onClick='toggleBox("Output-2122218592", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2122218592" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2122218592">
+Test Case <b style="color:green;" "font-size:25px;">Passed</b>
+<br/>
+<img src="Screenshot\VerifyDragAndDrop.jpg" alt="Image Not Found"/><br /><br/>
+</div>
+</td>
+<td></td>
+<td>11</td>
+<td>com.tetherfi.test.ivr.BranchManagementUITest@66a53104</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.BranchManagementUITest.VerifyDragAndDropofAlreadyGroupedHeader()'><b>VerifyDragAndDropofAlreadyGroupedHeader</b><br>Test class: com.tetherfi.test.ivr.BranchManagementUITest<br/>
+<a href="#Output-905895598" onClick='toggleBox("Output-905895598", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-905895598" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-905895598">
+Test Case <b style="color:green;" "font-size:25px;">Passed</b>
+<br/>
+<img src="Screenshot\VerifyDragAndDropofAlreadyGroupedHeader.jpg" alt="Image Not Found"/><br /><br/>
+</div>
+</td>
+<td></td>
+<td>12</td>
+<td>com.tetherfi.test.ivr.BranchManagementUITest@66a53104</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.BranchManagementUITest.VerifyDropdownForAllTheColumns()'><b>VerifyDropdownForAllTheColumns</b><br>Test class: com.tetherfi.test.ivr.BranchManagementUITest<br/>
+<a href="#Output-962707871" onClick='toggleBox("Output-962707871", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-962707871" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-962707871">
+Test Case <b style="color:green;" "font-size:25px;">Passed</b>
+<br/>
+<img src="Screenshot\VerifyDropdownForAllTheColumns.jpg" alt="Image Not Found"/><br /><br/>
+</div>
+</td>
+<td></td>
+<td>30</td>
+<td>com.tetherfi.test.ivr.BranchManagementUITest@66a53104</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.BranchManagementUITest.VerifyExportToExcelWithoutData()'><b>VerifyExportToExcelWithoutData</b><br>Test class: com.tetherfi.test.ivr.BranchManagementUITest<br/>
+<a href="#Output-1953733927" onClick='toggleBox("Output-1953733927", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1953733927" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1953733927">
+Test Case <b style="color:green;" "font-size:25px;">Passed</b>
+<br/>
+<img src="Screenshot\VerifyExportToExcelWithoutData.jpg" alt="Image Not Found"/><br /><br/>
+</div>
+</td>
+<td></td>
+<td>15</td>
+<td>com.tetherfi.test.ivr.BranchManagementUITest@66a53104</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.BranchManagementUITest.VerifyMakeBranchManagementChangeButton()'><b>VerifyMakeBranchManagementChangeButton</b><br>Test class: com.tetherfi.test.ivr.BranchManagementUITest<br/>
+<a href="#Output-374632122" onClick='toggleBox("Output-374632122", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-374632122" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-374632122">
+Test Case <b style="color:green;" "font-size:25px;">Passed</b>
+<br/>
+<img src="Screenshot\VerifyMakeBranchManagementChangeButton.jpg" alt="Image Not Found"/><br /><br/>
+</div>
+</td>
+<td></td>
+<td>11</td>
+<td>com.tetherfi.test.ivr.BranchManagementUITest@66a53104</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.BranchManagementCreateTest.VerifyRecordAfterRejection()'><b>VerifyRecordAfterRejection</b><br>Test class: com.tetherfi.test.ivr.BranchManagementCreateTest<br/>
+<a href="#Output-1996754694" onClick='toggleBox("Output-1996754694", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1996754694" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1996754694">
+Test Case <b style="color:green;" "font-size:25px;">Passed</b>
+<br/>
+<img src="Screenshot\VerifyRecordAfterRejection.jpg" alt="Image Not Found"/><br /><br/>
+</div>
+</td>
+<td></td>
+<td>4</td>
+<td>com.tetherfi.test.ivr.BranchManagementCreateTest@2251b3bc</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.BranchManagementCreateTest.VerifyRecordApprovedDataSectionafterApproval()'><b>VerifyRecordApprovedDataSectionafterApproval</b><br>Test class: com.tetherfi.test.ivr.BranchManagementCreateTest<br/>
+<a href="#Output-1436479676" onClick='toggleBox("Output-1436479676", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1436479676" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1436479676">
+Test Case <b style="color:green;" "font-size:25px;">Passed</b>
+<br/>
+<img src="Screenshot\VerifyRecordApprovedDataSectionafterApproval.jpg" alt="Image Not Found"/><br /><br/>
+</div>
+</td>
+<td></td>
+<td>3</td>
+<td>com.tetherfi.test.ivr.BranchManagementCreateTest@2251b3bc</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.BranchManagementCreateTest.VerifyRevertForAddNewRecord()'><b>VerifyRevertForAddNewRecord</b><br>Test class: com.tetherfi.test.ivr.BranchManagementCreateTest<br/>
+<a href="#Output-1105513533" onClick='toggleBox("Output-1105513533", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1105513533" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1105513533">
+Test Case <b style="color:green;" "font-size:25px;">Passed</b>
+<br/>
+<img src="Screenshot\VerifyRevertForAddNewRecord.jpg" alt="Image Not Found"/><br /><br/>
+</div>
+</td>
+<td></td>
+<td>9</td>
+<td>com.tetherfi.test.ivr.BranchManagementCreateTest@2251b3bc</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.BranchManagementCreateTest.VerifySendForApprovalForAddNewBranchManagementRecord()'><b>VerifySendForApprovalForAddNewBranchManagementRecord</b><br>Test class: com.tetherfi.test.ivr.BranchManagementCreateTest<br/>
+<a href="#Output-781157348" onClick='toggleBox("Output-781157348", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-781157348" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-781157348">
+Test Case <b style="color:green;" "font-size:25px;">Passed</b>
+<br/>
+<img src="Screenshot\VerifySendForApprovalForAddNewBranchManagementRecord.jpg" alt="Image Not Found"/><br /><br/>
+</div>
+</td>
+<td></td>
+<td>10</td>
+<td>com.tetherfi.test.ivr.BranchManagementCreateTest@2251b3bc</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.BranchManagementCreateTest.VerifySendForApprovalForAddNewRecord()'><b>VerifySendForApprovalForAddNewRecord</b><br>Test class: com.tetherfi.test.ivr.BranchManagementCreateTest<br/>
+<a href="#Output-1865146506" onClick='toggleBox("Output-1865146506", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1865146506" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1865146506">
+Test Case <b style="color:green;" "font-size:25px;">Passed</b>
+<br/>
+<img src="Screenshot\VerifySendForApprovalForAddNewRecord.jpg" alt="Image Not Found"/><br /><br/>
+</div>
+</td>
+<td></td>
+<td>9</td>
+<td>com.tetherfi.test.ivr.BranchManagementCreateTest@2251b3bc</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.BranchManagementUITest.VerifyTotalNumberOfItemsPerPageDetails()'><b>VerifyTotalNumberOfItemsPerPageDetails</b><br>Test class: com.tetherfi.test.ivr.BranchManagementUITest<br/>
+<a href="#Output-983125774" onClick='toggleBox("Output-983125774", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-983125774" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-983125774">
+Test Case <b style="color:green;" "font-size:25px;">Passed</b>
+<br/>
+<img src="Screenshot\VerifyTotalNumberOfItemsPerPageDetails.jpg" alt="Image Not Found"/><br /><br/>
+</div>
+</td>
+<td></td>
+<td>10</td>
+<td>com.tetherfi.test.ivr.BranchManagementUITest@66a53104</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.BranchManagementUITest.database()'><b>database</b><br>Test class: com.tetherfi.test.ivr.BranchManagementUITest<br/>
+<a href="#Output-754529084" onClick='toggleBox("Output-754529084", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-754529084" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-754529084">
+Test Case <b style="color:green;" "font-size:25px;">Passed</b>
+<br/>
+<img src="Screenshot\database.jpg" alt="Image Not Found"/><br /><br/>
+</div>
+</td>
+<td></td>
+<td>42</td>
+<td>com.tetherfi.test.ivr.BranchManagementUITest@66a53104</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.BranchManagementUITest.searchPage()'><b>searchPage</b><br>Test class: com.tetherfi.test.ivr.BranchManagementUITest<br/>
+<a href="#Output-727672583" onClick='toggleBox("Output-727672583", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-727672583" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-727672583">
+Test Case <b style="color:green;" "font-size:25px;">Passed</b>
+<br/>
+<img src="Screenshot\searchPage.jpg" alt="Image Not Found"/><br /><br/>
+</div>
+</td>
+<td></td>
+<td>4</td>
+<td>com.tetherfi.test.ivr.BranchManagementUITest@66a53104</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.BranchManagementUITest.searchwithoutSearchTextbox()'><b>searchwithoutSearchTextbox</b><br>Test class: com.tetherfi.test.ivr.BranchManagementUITest<br/>
+<a href="#Output-1386520914" onClick='toggleBox("Output-1386520914", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1386520914" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1386520914">
+Test Case <b style="color:green;" "font-size:25px;">Passed</b>
+<br/>
+<img src="Screenshot\searchwithoutSearchTextbox.jpg" alt="Image Not Found"/><br /><br/>
+</div>
+</td>
+<td></td>
+<td>3</td>
+<td>com.tetherfi.test.ivr.BranchManagementUITest@66a53104</td></tr>
+</table><p>
+</body>
+</html>

@@ -4,58 +4,62 @@
   <listeners>
     <listener class-name="com.tetherfi.listeners.ReportListener"/>
   </listeners>
-  <test thread-count="5" name="IVR IVR Config Test(failed)">
+  <test thread-count="5" name="Branch Management UI(failed)">
     <classes>
-      <class name="com.tetherfi.test.ivr.IvrConfigTest">
+      <class name="com.tetherfi.test.ivr.BranchManagementUITest">
         <methods>
-          <include name="VerifyAuditTrialReportForDelete"/>
+          <include name="startTestCase"/>
+          <include name="openApplication"/>
+          <include name="afterEachMethod"/>
+          <include name="NavigateToBranchManagementPage"/>
+          <include name="endTestCase"/>
+          <include name="tearDown"/>
           <include name="VerifyNumberOfItemsPerPageSelection"/>
-          <include name="endTestCase"/>
-          <include name="tearDown"/>
-          <include name="VerifyAuditTrialReportForUpdate"/>
-          <include name="NavigateToIvrConfigPage"/>
-          <include name="database"/>
-          <include name="startTestCase"/>
-          <include name="openApplication"/>
-          <include name="afterEachMethod"/>
-          <include name="DeleteIvrConfigRecord"/>
-          <include name="SortingByDescending"/>
-          <include name="EditIvrConfigRecord"/>
         </methods>
-      </class> <!-- com.tetherfi.test.ivr.IvrConfigTest -->
+      </class> <!-- com.tetherfi.test.ivr.BranchManagementUITest -->
     </classes>
-  </test> <!-- IVR IVR Config Test(failed) -->
-  <test thread-count="5" name="IVR VBEnrollmentFlagTest(failed)">
+  </test> <!-- Branch Management UI(failed) -->
+  <test thread-count="5" name="Branch ManagementEDit(failed)">
     <classes>
-      <class name="com.tetherfi.test.ivr.HolidayListTest">
+      <class name="com.tetherfi.test.ivr.BranchManagementEditTest">
         <methods>
+          <include name="VerifyAuditTrialReportForUpdate"/>
+          <include name="EditBranchManagementRecord"/>
+          <include name="VerifySendForApprovalForRejectRecord"/>
+          <include name="RejectforEditBranchManagementRecord"/>
+          <include name="EditRevertBranchManagementRecord"/>
+          <include name="VerifyAuditTrailReportForReject"/>
+          <include name="VerifyRevertForEditRecord"/>
+          <include name="VerifyAuditTrialReportForSendForApprovalUpdate"/>
+          <include name="NavigateBranchManagementPage"/>
+          <include name="VerifyAuditTrailReportForApprove"/>
+          <include name="ApproveforEditBranchManagementRecord"/>
+          <include name="VerifyAuditTrialReportForRevertUpdate"/>
           <include name="afterEachMethod"/>
-          <include name="searchPage"/>
-          <include name="AddDifferentDatesSameTimeSameVDN"/>
-          <include name="GroupBy"/>
-          <include name="startTestCase"/>
-          <include name="openApplication"/>
-          <include name="ExporttoExcelWithoutData"/>
-          <include name="VerifyArrowMoveForPreviousAndNextPage"/>
-          <include name="editHolidayListRecord"/>
-          <include name="ExportToExcelData"/>
-          <include name="VerifyArrowMoveForFirstAndLastPage"/>
-          <include name="database"/>
-          <include name="endTestCase"/>
-          <include name="SortingByAscending"/>
-          <include name="tearDown"/>
-          <include name="SortingByDescending"/>
-          <include name="AddSameHolidaySameVDNdifferentDate"/>
-          <include name="AddDifferentAnnouncedHolidayWithSameVDN"/>
-          <include name="SearchClearSearch"/>
-          <include name="DeleteHolidayListRecord"/>
-          <include name="editLeavingFieldsBlank"/>
-          <include name="NavigateToHolidayListPage"/>
-          <include name="addNewHolidayListRecord"/>
-          <include name="AddDuplicateRecord"/>
-          <include name="AddDifferntVDNWithSameHoliday"/>
         </methods>
-      </class> <!-- com.tetherfi.test.ivr.HolidayListTest -->
+      </class> <!-- com.tetherfi.test.ivr.BranchManagementEditTest -->
     </classes>
-  </test> <!-- IVR VBEnrollmentFlagTest(failed) -->
+  </test> <!-- Branch ManagementEDit(failed) -->
+  <test thread-count="5" name="Branch ManagementDelete(failed)">
+    <classes>
+      <class name="com.tetherfi.test.ivr.BranchManagementDeleteTest">
+        <methods>
+          <include name="DeleteRecord"/>
+          <include name="RejectforDeleteBranchManagementRecord"/>
+          <include name="ApproveforDeleteBranchManagementRecord"/>
+          <include name="VerifyAuditTrailReportForReject"/>
+          <include name="VerifyAuditTrailDataForDeleteBranchManagementRecord"/>
+          <include name="VerifyRevertForDeleteRecord"/>
+          <include name="VerifyAuditTrailReportForApprove"/>
+          <include name="VerifyAuditTrialReportForRevertDelete"/>
+          <include name="NavigateToBranchManagementPage"/>
+          <include name="RejectDeleteRecord"/>
+          <include name="afterEachMethod"/>
+          <include name="VerifySendForApprovalForDeleteNewRecord"/>
+          <include name="VerifyAuditTrailReportForSendForApprove"/>
+          <include name="VerifySendForApprovalForDeleteRecord"/>
+        </methods>
+      </class> <!-- com.tetherfi.test.ivr.BranchManagementDeleteTest -->
+    </classes>
+  </test> <!-- Branch ManagementDelete(failed) -->
 </suite> <!-- Failed suite [Tetherfi Test Automation] -->
