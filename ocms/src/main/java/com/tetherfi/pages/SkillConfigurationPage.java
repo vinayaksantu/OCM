@@ -177,6 +177,9 @@ public class SkillConfigurationPage extends BasePage {
     @FindBy(css="input[placeholder='Enter Skill Extension']")
     private List<WebElement> skillExtensionTextbox;
     
+    @FindBy(id="SkillExtension")
+    private WebElement skillExtensionTextbox1;
+    
     @FindBy(css="span[aria-owns='Prioritylevel_listbox']")
     private WebElement skillPriorityDropDown;
     
@@ -201,7 +204,7 @@ public class SkillConfigurationPage extends BasePage {
     @FindBy(css=".k-grid-cancel")
     private WebElement cancelBtn;
     
-    @FindBy(css=".toast-message")
+    @FindBy(css="#toast-container .toast-message")
     private WebElement successmsg;
     
     @FindBy(css=".k-edit-form-container #ModifyReason")
@@ -670,6 +673,7 @@ public class SkillConfigurationPage extends BasePage {
         waitForJqueryLoad(driver);
         enterValueToTxtField(skillIdTextbox, details.getSkillID());
         enterValueToTxtField(skillNameTextbox, details.getSkillName());
+        //selectWebElement(skillExtensionTextbox.get(0));
         enterValueToTxtFieldWithoutClear(skillExtensionTextbox.get(1), details.getSkillExtension());
         selectWebElement(skillPriorityDropDown);
         selectDropdownFromVisibleText(skillPriorityList,details.getSkillPriority());
@@ -689,7 +693,8 @@ public class SkillConfigurationPage extends BasePage {
         waitForJqueryLoad(driver);
         enterValueToTxtField(skillIdTextbox, details.getSkillID());
         enterValueToTxtField(skillNameTextbox, details.getSkillName());
-        enterValueToTxtFieldWithoutClear(skillExtensionTextbox.get(1), details.getSkillExtension());
+        //selectWebElement(skillExtensionTextbox);
+        enterValueToTxtBox1(skillExtensionTextbox.get(1), details.getSkillExtension());
         selectWebElement(skillPriorityDropDown);
         selectDropdownFromVisibleText(skillPriorityList,details.getSkillPriority());
         enterValueToTxtField(skillTimeout, details.getTimeout());
@@ -725,7 +730,8 @@ public class SkillConfigurationPage extends BasePage {
 		selectWebElement(addNewRecordBtn);
         waitForJqueryLoad(driver);
         enterValueToTxtField(skillNameTextbox, details.getSkillName());
-        enterValueToTxtField(skillExtensionTextbox.get(1), details.getSkillExtension());
+        selectWebElement(skillExtensionTextbox.get(0));
+        enterValueToTxtBox1(skillExtensionTextbox1, details.getSkillExtension());
         selectWebElement(skillPriorityDropDown);
         selectDropdownFromVisibleText(skillPriorityList,details.getSkillPriority());
         enterValueToTxtField(skillTimeout, details.getTimeout());
@@ -740,7 +746,8 @@ public class SkillConfigurationPage extends BasePage {
 		selectWebElement(addNewRecordBtn);
         waitForJqueryLoad(driver);
         enterValueToTxtField(skillIdTextbox, details.getSkillID());
-        enterValueToTxtFieldWithoutClear(skillExtensionTextbox.get(1), details.getSkillExtension());
+        selectWebElement(skillExtensionTextbox.get(0));
+        enterValueToTxtBox1(skillExtensionTextbox1, details.getSkillExtension());
         selectWebElement(skillPriorityDropDown);
         selectDropdownFromVisibleText(skillPriorityList,details.getSkillPriority());
         enterValueToTxtField(skillTimeout, details.getTimeout());
@@ -771,7 +778,8 @@ public class SkillConfigurationPage extends BasePage {
         waitForJqueryLoad(driver);
         enterValueToTxtField(skillIdTextbox, details.getSkillID());
         enterValueToTxtField(skillNameTextbox, details.getSkillName());
-        enterValueToTxtField(skillExtensionTextbox.get(1), details.getSkillExtension());
+        selectWebElement(skillExtensionTextbox.get(0));
+        enterValueToTxtField(skillExtensionTextbox1, details.getSkillExtension());
         enterValueToTxtField(skillTimeout, details.getTimeout());
         enterValueToTxtField(acceptedSla, details.getAcceptedSL());
         selectWebElement(enabledDropDown);
@@ -785,7 +793,8 @@ public class SkillConfigurationPage extends BasePage {
         waitForJqueryLoad(driver);
         enterValueToTxtField(skillIdTextbox, details.getSkillID());
         enterValueToTxtField(skillNameTextbox, details.getSkillName());
-        enterValueToTxtField(skillExtensionTextbox.get(1), details.getSkillExtension());
+        selectWebElement(skillExtensionTextbox.get(0));
+        enterValueToTxtField(skillExtensionTextbox1, details.getSkillExtension());
         selectWebElement(skillPriorityDropDown);
         selectDropdownFromVisibleText(skillPriorityList,details.getSkillPriority());
         enterValueToTxtField(skillTimeout, details.getTimeout());
@@ -893,7 +902,7 @@ public class SkillConfigurationPage extends BasePage {
         List<Map<String,String>> UI=gettable(); 
         for (Map<String,String> map1: UI)
         {   	
-			if(map1.get("Skill Namez").toUpperCase().endsWith(skillname.toUpperCase()))
+			if(map1.get("Skill Name").toUpperCase().endsWith(skillname.toUpperCase()))
         	Status= true;
         	else 
         		Status= false;
@@ -937,7 +946,7 @@ public class SkillConfigurationPage extends BasePage {
         enterValueToTxtField(skillNameTextbox, details.getUpdatedSkillName());
         selectWebElement(enabledDropDown);
         selectDropdownFromVisibleText(enabledList,details.getUpdatedEnabled());	
-        enterValueToTxtField(modifyReasonTextBox, details.getModifyReason());
+        enterValueToTxtFieldWithoutClear(modifyReasonTextBox, details.getModifyReason());
         selectWebElement(saveBtn);
 	}
 

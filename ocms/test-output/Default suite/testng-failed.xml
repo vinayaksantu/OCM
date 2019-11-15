@@ -3,30 +3,20 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.tetherfi.test.chat.ChatTemplatesTest">
+      <class name="com.tetherfi.test.ivr.HolidayListTest">
         <methods>
-          <include name="NavigateToChatTemplatesPage"/>
-          <include name="VerifyDepartmentTotalNumberOfItemsPerPageDetails"/>
+          <include name="VerifyArrowMoveForFirstAndLastPage"/>
+          <include name="startTestCase"/>
+          <include name="afterEachMethod"/>
+          <include name="openApplication"/>
+          <include name="VerifyArrowMoveForPreviousAndNextPage"/>
+          <include name="endTestCase"/>
+          <include name="AddWithoutEndTime"/>
+          <include name="tearDown"/>
+          <include name="NavigateToHolidayListPage"/>
           <include name="VerifyNumberOfItemsPerPageSelection"/>
-          <include name="VerifyAuditTrialReportForDepartmentDelete"/>
-          <include name="VerifyDeleteGroupRecordInMain"/>
-          <include name="VerifyAuditTrialReportForGroupDelete"/>
-          <include name="VerifyGroupsTotalNumberOfItemsPerPageDetails"/>
-          <include name="VerifyAuditTrialReportForDelete"/>
-          <include name="Database"/>
-          <include name="VerifyGroupsNumberOfItemsPerPageSelection"/>
-          <include name="AddRecordWithoutChatEnabled"/>
-          <include name="VerifyDepartmentNumberOfItemsPerPageSelection"/>
-          <include name="GroupsSortingByDescending"/>
-          <include name="close"/>
-          <include name="DeleteDepartmentRecord"/>
-          <include name="EditWithoutModifyReasonRecord"/>
-          <include name="GroupsExportToExcelData"/>
-          <include name="GroupDatabase"/>
-          <include name="AddNewChatTemplatesRecord"/>
-          <include name="GroupsSortingByAscending"/>
         </methods>
-      </class> <!-- com.tetherfi.test.chat.ChatTemplatesTest -->
+      </class> <!-- com.tetherfi.test.ivr.HolidayListTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

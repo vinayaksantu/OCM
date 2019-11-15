@@ -3,28 +3,16 @@
 <suite name="Tetherfi Test Automation" parallel="false">
     <listeners>
         <listener class-name="com.tetherfi.listeners.ReportListener"/>
-    </listeners>
-    
-     <test name="Branch Management UI" parallel="false">
+    </listeners>    
+     <test name="IntroMessage Announcement Update" parallel="false">
       <classes>  
-           <class name="com.tetherfi.test.ivr.BranchManagementUITest"/> 
-            </classes>
-     </test>
-     <test name="Branch ManagementCreate" parallel="false">
-      <classes>  
-           <class name="com.tetherfi.test.ivr.BranchManagementCreateTest"/> 
-            </classes>
-     </test>
-     <test name="Branch ManagementEDit" parallel="false">
-      <classes>  
-           <class name="com.tetherfi.test.ivr.BranchManagementEditTest"/> 
-            </classes>
-     </test>
-     <test name="Branch ManagementDelete" parallel="false">
-      <classes>  
-           <class name="com.tetherfi.test.ivr.BranchManagementDeleteTest"/> 
+           <class name="com.tetherfi.test.ivr.IntroMessageAnnouncementUpdateTest"/> 
             </classes>
      </test>
     
-    
+     <test name="IntroMessage Announcement Delete" parallel="false">
+      <classes>  
+           <class name="com.tetherfi.test.ivr.IntroMessageAnnouncementDeleteTest"/> 
+            </classes>
+     </test>        
 </suite>

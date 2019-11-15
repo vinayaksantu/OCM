@@ -75,7 +75,7 @@ public class SkillConfigurationTest extends BaseTest{
         Assert.assertEquals(skillConfigurationPage.getMessage(),"Record Created Successfully","Add New record assertion failed");
     }
     
-    @Test(priority=6)
+   @Test(priority=6)
     public void VerifyAuditTrialReportForCreate() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillConfigurationData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);

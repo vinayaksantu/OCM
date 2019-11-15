@@ -4,62 +4,46 @@
   <listeners>
     <listener class-name="com.tetherfi.listeners.ReportListener"/>
   </listeners>
-  <test thread-count="5" name="Branch Management UI(failed)">
+  <test thread-count="5" name="IntroMessage Announcement Update(failed)">
     <classes>
-      <class name="com.tetherfi.test.ivr.BranchManagementUITest">
+      <class name="com.tetherfi.test.ivr.IntroMessageAnnouncementUpdateTest">
         <methods>
-          <include name="startTestCase"/>
-          <include name="openApplication"/>
+          <include name="NavigateIntroMessageAnnouncementPage"/>
+          <include name="EditRevertIntroMessageAnnouncementRecord"/>
           <include name="afterEachMethod"/>
-          <include name="NavigateToBranchManagementPage"/>
-          <include name="endTestCase"/>
-          <include name="tearDown"/>
-          <include name="VerifyNumberOfItemsPerPageSelection"/>
-        </methods>
-      </class> <!-- com.tetherfi.test.ivr.BranchManagementUITest -->
-    </classes>
-  </test> <!-- Branch Management UI(failed) -->
-  <test thread-count="5" name="Branch ManagementEDit(failed)">
-    <classes>
-      <class name="com.tetherfi.test.ivr.BranchManagementEditTest">
-        <methods>
-          <include name="VerifyAuditTrialReportForUpdate"/>
-          <include name="EditBranchManagementRecord"/>
-          <include name="VerifySendForApprovalForRejectRecord"/>
-          <include name="RejectforEditBranchManagementRecord"/>
-          <include name="EditRevertBranchManagementRecord"/>
-          <include name="VerifyAuditTrailReportForReject"/>
-          <include name="VerifyRevertForEditRecord"/>
-          <include name="VerifyAuditTrialReportForSendForApprovalUpdate"/>
-          <include name="NavigateBranchManagementPage"/>
-          <include name="VerifyAuditTrailReportForApprove"/>
-          <include name="ApproveforEditBranchManagementRecord"/>
           <include name="VerifyAuditTrialReportForRevertUpdate"/>
-          <include name="afterEachMethod"/>
-        </methods>
-      </class> <!-- com.tetherfi.test.ivr.BranchManagementEditTest -->
-    </classes>
-  </test> <!-- Branch ManagementEDit(failed) -->
-  <test thread-count="5" name="Branch ManagementDelete(failed)">
-    <classes>
-      <class name="com.tetherfi.test.ivr.BranchManagementDeleteTest">
-        <methods>
-          <include name="DeleteRecord"/>
-          <include name="RejectforDeleteBranchManagementRecord"/>
-          <include name="ApproveforDeleteBranchManagementRecord"/>
+          <include name="VerifySendForApprovalForEditRejectRecord"/>
+          <include name="EditRejectRecord"/>
+          <include name="RejectforEditIntroMessageAnnouncementRecord"/>
+          <include name="EditCancelIntroMessageAnnouncementRecord"/>
+          <include name="VerifyRevertForEditRecord"/>
           <include name="VerifyAuditTrailReportForReject"/>
-          <include name="VerifyAuditTrailDataForDeleteBranchManagementRecord"/>
+        </methods>
+      </class> <!-- com.tetherfi.test.ivr.IntroMessageAnnouncementUpdateTest -->
+    </classes>
+  </test> <!-- IntroMessage Announcement Update(failed) -->
+  <test thread-count="5" name="IntroMessage Announcement Delete(failed)">
+    <classes>
+      <class name="com.tetherfi.test.ivr.IntroMessageAnnouncementDeleteTest">
+        <methods>
           <include name="VerifyRevertForDeleteRecord"/>
+          <include name="DeleteIntroMessageAnnouncementRecord"/>
+          <include name="VerifyAuditTrailReportForReject"/>
+          <include name="NavigateToIntroMessageAnnouncementPage"/>
           <include name="VerifyAuditTrailReportForApprove"/>
-          <include name="VerifyAuditTrialReportForRevertDelete"/>
-          <include name="NavigateToBranchManagementPage"/>
           <include name="RejectDeleteRecord"/>
+          <include name="RejectforDeleteIntroMessageAnnouncementRecord"/>
+          <include name="VerifyAuditTrailDataForDeleteIntroMessageAnnouncementRecord"/>
           <include name="afterEachMethod"/>
+          <include name="DeleteRecord"/>
+          <include name="VerifyAuditTrialReportForRevertDelete"/>
           <include name="VerifySendForApprovalForDeleteNewRecord"/>
           <include name="VerifyAuditTrailReportForSendForApprove"/>
           <include name="VerifySendForApprovalForDeleteRecord"/>
+          <include name="VerifyAuditTrialReportForDelete"/>
+          <include name="ApproveforDeleteIntroMessageAnnouncementRecord"/>
         </methods>
-      </class> <!-- com.tetherfi.test.ivr.BranchManagementDeleteTest -->
+      </class> <!-- com.tetherfi.test.ivr.IntroMessageAnnouncementDeleteTest -->
     </classes>
-  </test> <!-- Branch ManagementDelete(failed) -->
+  </test> <!-- IntroMessage Announcement Delete(failed) -->
 </suite> <!-- Failed suite [Tetherfi Test Automation] -->
