@@ -79,7 +79,7 @@ public class IntentMappingTest extends BaseTest {
         IntentMappingDetails IntentMappingDetails = new IntentMappingDetails(map);
         IntentMappingPage IntentMappingPage = PageFactory.createPageInstance(driver, IntentMappingPage.class);
         IntentMappingPage.addNewIntentMappingRecord(IntentMappingDetails);
-        Assert.assertEquals(IntentMappingPage.verifySuccessMessage(),"Record Created Successfully", "Add New record assertion failed");
+        Assert.assertEquals(IntentMappingPage.getSuccessMessage(),"Record Created Successfully", "Add New record assertion failed");
     }
     
     @Test(priority=6,dependsOnMethods = "AddNewIntentMappingRecord")
@@ -308,7 +308,7 @@ public class IntentMappingTest extends BaseTest {
         IntentMappingDetails IntentMappingDetails = new IntentMappingDetails(map);
         IntentMappingPage IntentMappingPage = PageFactory.createPageInstance(driver, IntentMappingPage.class);
         IntentMappingPage.deleteIntentMapingWithoutDeleteReasonRecord(IntentMappingDetails);
-        Assert.assertEquals(IntentMappingPage.verifySuccessMessage(),"Please enter the delete reason","empty delete reason record assertion failed");
+        Assert.assertEquals(IntentMappingPage.getSuccessMessage(),"Please enter the delete reason","empty delete reason record assertion failed");
     }
     @Test(priority=29)
     public void VerifyCancelBtnAtDeleteIntentMappingRecord() throws Exception{

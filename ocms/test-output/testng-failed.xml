@@ -1,49 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Tetherfi Test Automation]" guice-stage="DEVELOPMENT">
-  <listeners>
-    <listener class-name="com.tetherfi.listeners.ReportListener"/>
-  </listeners>
-  <test thread-count="5" name="IntroMessage Announcement Update(failed)">
+<suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.tetherfi.test.ivr.IntroMessageAnnouncementUpdateTest">
+      <class name="com.tetherfi.test.ivr.IntentMappingTest">
         <methods>
-          <include name="NavigateIntroMessageAnnouncementPage"/>
-          <include name="EditRevertIntroMessageAnnouncementRecord"/>
-          <include name="afterEachMethod"/>
-          <include name="VerifyAuditTrialReportForRevertUpdate"/>
-          <include name="VerifySendForApprovalForEditRejectRecord"/>
-          <include name="EditRejectRecord"/>
-          <include name="RejectforEditIntroMessageAnnouncementRecord"/>
-          <include name="EditCancelIntroMessageAnnouncementRecord"/>
-          <include name="VerifyRevertForEditRecord"/>
-          <include name="VerifyAuditTrailReportForReject"/>
-        </methods>
-      </class> <!-- com.tetherfi.test.ivr.IntroMessageAnnouncementUpdateTest -->
-    </classes>
-  </test> <!-- IntroMessage Announcement Update(failed) -->
-  <test thread-count="5" name="IntroMessage Announcement Delete(failed)">
-    <classes>
-      <class name="com.tetherfi.test.ivr.IntroMessageAnnouncementDeleteTest">
-        <methods>
-          <include name="VerifyRevertForDeleteRecord"/>
-          <include name="DeleteIntroMessageAnnouncementRecord"/>
-          <include name="VerifyAuditTrailReportForReject"/>
-          <include name="NavigateToIntroMessageAnnouncementPage"/>
-          <include name="VerifyAuditTrailReportForApprove"/>
-          <include name="RejectDeleteRecord"/>
-          <include name="RejectforDeleteIntroMessageAnnouncementRecord"/>
-          <include name="VerifyAuditTrailDataForDeleteIntroMessageAnnouncementRecord"/>
-          <include name="afterEachMethod"/>
-          <include name="DeleteRecord"/>
-          <include name="VerifyAuditTrialReportForRevertDelete"/>
-          <include name="VerifySendForApprovalForDeleteNewRecord"/>
-          <include name="VerifyAuditTrailReportForSendForApprove"/>
-          <include name="VerifySendForApprovalForDeleteRecord"/>
           <include name="VerifyAuditTrialReportForDelete"/>
-          <include name="ApproveforDeleteIntroMessageAnnouncementRecord"/>
+          <include name="ExportToExcelData"/>
+          <include name="DeleteWithoutDeleteReasonRecord"/>
+          <include name="VerifyAuditTrialReportForUpdate"/>
+          <include name="endTestCase"/>
+          <include name="tearDown"/>
+          <include name="ExporttoExcelWithoutData"/>
+          <include name="SortingByAscending"/>
+          <include name="startTestCase"/>
+          <include name="openApplication"/>
+          <include name="EditIntentMappingRecord"/>
+          <include name="SortingByDescending"/>
+          <include name="DeleteIntentMappingRecord"/>
+          <include name="afterEachMethod"/>
+          <include name="VerifyCancelBtnAtDeleteIntentMappingRecord"/>
+          <include name="NavigateToIntentMappingPage"/>
         </methods>
-      </class> <!-- com.tetherfi.test.ivr.IntroMessageAnnouncementDeleteTest -->
+      </class> <!-- com.tetherfi.test.ivr.IntentMappingTest -->
     </classes>
-  </test> <!-- IntroMessage Announcement Delete(failed) -->
-</suite> <!-- Failed suite [Tetherfi Test Automation] -->
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->

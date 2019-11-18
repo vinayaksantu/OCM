@@ -649,6 +649,14 @@ public class IntentMappingPage extends BasePage{
 	       //else
 	       {waitUntilWebElementIsVisible(successmsg);return successmsg.getText();}
 	}
+	
+	public String getSuccessMessage() {
+		//		waitForJqueryLoad(driver);
+		if(successmsg.isDisplayed())
+			return successmsg.getText();
+		else{return errorMsg.get(0).getText();}	
+	}
+	
 	public void addNewIntentMappingRecord(IntentMappingDetails details) throws Exception {
 		selectWebElement(addNewIntentMappingRecordBtn);
 		Thread.sleep(1000);

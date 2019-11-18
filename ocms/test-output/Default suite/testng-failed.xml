@@ -3,20 +3,26 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.tetherfi.test.ivr.HolidayListTest">
+      <class name="com.tetherfi.test.ivr.IntentMappingTest">
         <methods>
-          <include name="VerifyArrowMoveForFirstAndLastPage"/>
-          <include name="startTestCase"/>
-          <include name="afterEachMethod"/>
-          <include name="openApplication"/>
-          <include name="VerifyArrowMoveForPreviousAndNextPage"/>
+          <include name="VerifyAuditTrialReportForDelete"/>
+          <include name="ExportToExcelData"/>
+          <include name="DeleteWithoutDeleteReasonRecord"/>
+          <include name="VerifyAuditTrialReportForUpdate"/>
           <include name="endTestCase"/>
-          <include name="AddWithoutEndTime"/>
           <include name="tearDown"/>
-          <include name="NavigateToHolidayListPage"/>
-          <include name="VerifyNumberOfItemsPerPageSelection"/>
+          <include name="ExporttoExcelWithoutData"/>
+          <include name="SortingByAscending"/>
+          <include name="startTestCase"/>
+          <include name="openApplication"/>
+          <include name="EditIntentMappingRecord"/>
+          <include name="SortingByDescending"/>
+          <include name="DeleteIntentMappingRecord"/>
+          <include name="afterEachMethod"/>
+          <include name="VerifyCancelBtnAtDeleteIntentMappingRecord"/>
+          <include name="NavigateToIntentMappingPage"/>
         </methods>
-      </class> <!-- com.tetherfi.test.ivr.HolidayListTest -->
+      </class> <!-- com.tetherfi.test.ivr.IntentMappingTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
