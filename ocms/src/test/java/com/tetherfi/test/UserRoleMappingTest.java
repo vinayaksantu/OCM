@@ -33,6 +33,7 @@ public class UserRoleMappingTest extends BaseTest {
         driver.navigate().refresh();
         homePage.navigateToOcmIconImg();
     }
+    
     @BeforeMethod
     public void NavigateToUserRoleMappingPage() throws InterruptedException {
         HomePage homePage= PageFactory.createPageInstance(driver,HomePage.class);
@@ -44,6 +45,7 @@ public class UserRoleMappingTest extends BaseTest {
         UserRoleMappingPage userRoleMappingPage=PageFactory.createPageInstance(driver,UserRoleMappingPage.class);
         Assert.assertTrue(userRoleMappingPage.isUserRoleMappingPageDisplayed(),"User role mapping page is displayed");
             }
+    
     @Test
     public void AddNewUserRoleMappingRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\UserRoleMappingData.xlsx";
@@ -80,6 +82,7 @@ public class UserRoleMappingTest extends BaseTest {
         screenshot.captureScreen(driver,method.getName(),"UserRoleMappingTest");
         driver.navigate().refresh();
     }
+    
     @AfterClass
     public void DeleteAgentTeamManagementRecord() throws Exception {
         HomePage homePage= PageFactory.createPageInstance(driver,HomePage.class);

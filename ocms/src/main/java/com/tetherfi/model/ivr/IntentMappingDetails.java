@@ -105,5 +105,4 @@ public class IntentMappingDetails {
 	public String getIntentTalent() {
 		return IntentTalent;
 	}
-
 }

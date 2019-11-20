@@ -4,46 +4,87 @@
   <listeners>
     <listener class-name="com.tetherfi.listeners.ReportListener"/>
   </listeners>
-  <test thread-count="5" name="IntroMessage Announcement Update(failed)">
+  <test thread-count="5" name="User Role Mapping Create Test(failed)">
     <classes>
-      <class name="com.tetherfi.test.ivr.IntroMessageAnnouncementUpdateTest">
+      <class name="com.tetherfi.test.UserRoleMappingCreateTest">
         <methods>
-          <include name="NavigateIntroMessageAnnouncementPage"/>
-          <include name="EditRevertIntroMessageAnnouncementRecord"/>
+          <include name="VerifyRevertForAddNewRecord"/>
+          <include name="VerifyApprovedDataSectionWithoutApproval"/>
+          <include name="VerifyAuditTrailReportForReject"/>
+          <include name="ApproveforAddNewNewUserRoleMappingRecord"/>
+          <include name="VerifyAddRecordWithoutSupervisor"/>
+          <include name="VerifySendForApprovalForAddNewNewUserRoleMappingRecord"/>
+          <include name="VerifyAuditTrailReportForSendForApproval"/>
+          <include name="NavigateToNewUserRoleMappingPage"/>
+          <include name="afterEachMethod"/>
+          <include name="AddRejectRecord"/>
+          <include name="AddRevertRecord"/>
+          <include name="VerifyRecordAfterRejection"/>
+          <include name="VerifyRecordApprovedDataSectionafterApproval"/>
+          <include name="RejectforAddNewNewUserRoleMappingRecord"/>
+          <include name="VerifyAuditTrailReportForApprove"/>
+          <include name="VerifyAuditTrailDataForAddNewNewUserRoleMappingRecord"/>
+          <include name="AddDuplicateRecord"/>
+          <include name="VerifyAddRecordWithoutOrgUnit"/>
+          <include name="VerifySendForApprovalForAddNewRecord"/>
+          <include name="VerifyAuditTrailReportForRevert"/>
+          <include name="VerifyAddRecordWithoutLoginID"/>
+          <include name="AddNewNewUserRoleMappingRecord"/>
+          <include name="VerifyAuditTrailReportForCreate"/>
+          <include name="VerifyAddRecordWithoutRole"/>
+        </methods>
+      </class> <!-- com.tetherfi.test.UserRoleMappingCreateTest -->
+    </classes>
+  </test> <!-- User Role Mapping Create Test(failed) -->
+  <test thread-count="5" name="User Role Mapping Update Test(failed)">
+    <classes>
+      <class name="com.tetherfi.test.UserRoleMappingUpdateTest">
+        <methods>
+          <include name="EditUserRoleMappingRecord"/>
+          <include name="EditRecordWithoutModifyReason"/>
+          <include name="EditRevertUserRoleMappingRecord"/>
+          <include name="VerifyAuditTrialReportForUpdate"/>
+          <include name="VerifySendForApprovalForEditRecord"/>
+          <include name="RejectforEditUserRoleMappingRecord"/>
+          <include name="VerifyRevertForEditRecord"/>
+          <include name="EditRejectRecord"/>
+          <include name="VerifyAuditTrailDataForEditUserRoleMappingRecord"/>
+          <include name="EditCancelUserRoleMappingRecord"/>
+          <include name="VerifyAuditTrailReportForApprove"/>
+          <include name="VerifyAuditTrialReportForSendForApprovalUpdate"/>
+          <include name="VerifyAuditTrailReportForReject"/>
           <include name="afterEachMethod"/>
           <include name="VerifyAuditTrialReportForRevertUpdate"/>
           <include name="VerifySendForApprovalForEditRejectRecord"/>
-          <include name="EditRejectRecord"/>
-          <include name="RejectforEditIntroMessageAnnouncementRecord"/>
-          <include name="EditCancelIntroMessageAnnouncementRecord"/>
-          <include name="VerifyRevertForEditRecord"/>
-          <include name="VerifyAuditTrailReportForReject"/>
+          <include name="NavigateNewUserRoleMappingPage"/>
+          <include name="ApproveforEditUserRoleMappingRecord"/>
         </methods>
-      </class> <!-- com.tetherfi.test.ivr.IntroMessageAnnouncementUpdateTest -->
+      </class> <!-- com.tetherfi.test.UserRoleMappingUpdateTest -->
     </classes>
-  </test> <!-- IntroMessage Announcement Update(failed) -->
-  <test thread-count="5" name="IntroMessage Announcement Delete(failed)">
+  </test> <!-- User Role Mapping Update Test(failed) -->
+  <test thread-count="5" name="User Role Mapping Delete Test(failed)">
     <classes>
-      <class name="com.tetherfi.test.ivr.IntroMessageAnnouncementDeleteTest">
+      <class name="com.tetherfi.test.UserRoleMappingDeleteTest">
         <methods>
-          <include name="VerifyRevertForDeleteRecord"/>
-          <include name="DeleteIntroMessageAnnouncementRecord"/>
-          <include name="VerifyAuditTrailReportForReject"/>
-          <include name="NavigateToIntroMessageAnnouncementPage"/>
           <include name="VerifyAuditTrailReportForApprove"/>
+          <include name="VerifyAuditTrailDataForDeleteUserRoleMappingRecord"/>
+          <include name="VerifyRevertForDeleteRecord"/>
+          <include name="DeleteUserRoleMappingRecord"/>
+          <include name="VerifyAuditTrailReportForReject"/>
           <include name="RejectDeleteRecord"/>
-          <include name="RejectforDeleteIntroMessageAnnouncementRecord"/>
-          <include name="VerifyAuditTrailDataForDeleteIntroMessageAnnouncementRecord"/>
           <include name="afterEachMethod"/>
+          <include name="RejectforDeleteUserRoleMappingRecord"/>
+          <include name="DeleteCancelUserRoleMappingRecord"/>
           <include name="DeleteRecord"/>
           <include name="VerifyAuditTrialReportForRevertDelete"/>
+          <include name="NavigateToNewUserRoleMappingPage"/>
           <include name="VerifySendForApprovalForDeleteNewRecord"/>
-          <include name="VerifyAuditTrailReportForSendForApprove"/>
-          <include name="VerifySendForApprovalForDeleteRecord"/>
+          <include name="VerifySendForApprovalForRejectDeleteNewRecord"/>
           <include name="VerifyAuditTrialReportForDelete"/>
-          <include name="ApproveforDeleteIntroMessageAnnouncementRecord"/>
+          <include name="DeleteWithoutModifyReasonRecord"/>
+          <include name="ApproveforDeleteUserRoleMappingRecord"/>
         </methods>
-      </class> <!-- com.tetherfi.test.ivr.IntroMessageAnnouncementDeleteTest -->
+      </class> <!-- com.tetherfi.test.UserRoleMappingDeleteTest -->
     </classes>
-  </test> <!-- IntroMessage Announcement Delete(failed) -->
+  </test> <!-- User Role Mapping Delete Test(failed) -->
 </suite> <!-- Failed suite [Tetherfi Test Automation] -->

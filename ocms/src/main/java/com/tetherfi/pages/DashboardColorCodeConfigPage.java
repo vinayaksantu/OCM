@@ -32,19 +32,18 @@ public class DashboardColorCodeConfigPage extends BasePage {
     @FindBy(xpath="//span[@class='k-icon k-i-arrow-60-right k-menu-expand-arrow']")
 	private WebElement coloumnarrow;
     
-   // @FindBy(xpath="//span[@class='k-picker-wrap k-state-default k-state-hover']")
-   @FindBy(css=".k-widget .k-picker-wrap .k-selected-color")
+    @FindBy(css=".k-widget .k-picker-wrap .k-selected-color")
     private List<WebElement> colordropdown;
-    
-    @FindBy(xpath="//input[@data-field='EndTime']")
-    private WebElement enddurationcheckbox;
-    
-    @FindBy(xpath="//input[@data-field='Color']")
-    private WebElement colorcheckbox;
-    
-    @FindBy(xpath="//input[@data-field='ColorCode']")
-    private WebElement colorcodecheckbox;
-    
+   
+   @FindBy(xpath="//button[text()='Close']")
+	private WebElement searchClose;
+   
+   @FindBy(id = "yesButton")
+	private WebElement deleteYesBtn;
+
+	@FindBy(id = "noButton")
+	private WebElement deleteNoBtn;
+	
     @FindBy(xpath="//input[@data-field='LastChangedBy']")
     private WebElement lastChangedBycheckbox;
     
@@ -103,9 +102,7 @@ public class DashboardColorCodeConfigPage extends BasePage {
     @FindBy(css= "ul[id='DashboardName_listbox'] li")
     private List<WebElement> DashListbox;
     
-   /*@FindBy(xpath="//ul[@id='DashboardName_listbox']")
-   private List<WebElement> DashListbox;*/
-    
+   //@FindBy(css=".k-widget k-dropdown k-state-border-up")
     @FindBy(css = "span[aria-owns='ColumnName_listbox']")
     private WebElement ColumnName;
     
@@ -128,13 +125,10 @@ public class DashboardColorCodeConfigPage extends BasePage {
     //private WebElement endTime;
 
     @FindBy(css=".k-colorpicker .k-select")
-    private WebElement colorPicker;
+    private List<WebElement> colorPicker;
 
     @FindBy(css=".k-color-value")
-    private WebElement colorValue;
-
-    @FindBy(css=".apply")
-    private WebElement applyBtn;
+    private List<WebElement> colorValue;
 
     @FindBy(css=".k-edit-form-container .k-grid-update")
     private WebElement saveBtn;
@@ -171,7 +165,7 @@ public class DashboardColorCodeConfigPage extends BasePage {
 
     @FindBy(css="#tGrid .k-grid-content")
     private WebElement gridContent;
-
+    
     @FindBy(css=".k-grid-CustomDelete")
     private WebElement deleteBtn;
 
@@ -190,7 +184,7 @@ public class DashboardColorCodeConfigPage extends BasePage {
     @FindBy(id="noButton")
     private WebElement noBtn;
     
-    @FindBy(xpath="//tbody/tr/td[5]")
+    @FindBy(xpath="//tbody/tr/td[7]")
 	private WebElement tabledata;
     
     @FindBy(xpath="//button[text()='Clear All']")
@@ -208,13 +202,13 @@ public class DashboardColorCodeConfigPage extends BasePage {
     @FindBy(id="tGrid")
     private WebElement auditGridContent;
     
-    @FindBy(xpath="//tbody/tr/td[2]")
+    @FindBy(xpath="//tbody/tr/td[5]")
     private WebElement rowdata;
     
     @FindBy(xpath="//p[@class='k-reset']")
     private WebElement groupby;
     
-    @FindBy(xpath="//tbody/tr/td/p[@class='k-reset']/../../following-sibling::tr/td[5]/div")
+    @FindBy(xpath="//tbody/tr/td/p[@class='k-reset']/../../following-sibling::tr/td[8]/div")
 	private WebElement groupbycolor;
     
     @FindBy(xpath="//div[@data-role='droptarget']")
@@ -244,14 +238,23 @@ public class DashboardColorCodeConfigPage extends BasePage {
     @FindBy(xpath="//span[@class='k-input']")
     private WebElement pagerSize;
     
-    @FindBy(css="th a[class='k-header-column-menu']")
+    /*@FindBy(css="th a[class='k-header-column-menu']")
+    private List<WebElement> headersDropdown;*/
+    
+    /*@FindBy(css="#drillGrid th a[title='Edit Column Settings']")
+    private List<WebElement> headersDropdown;*/
+    
+    @FindBy(xpath="//a[@title='Edit Column Settings']")
     private List<WebElement> headersDropdown;
     
     @FindBy(css="div[style*='overflow: visible'] span[class^='k-link']")
     private List<WebElement> headersColumns;
-    
+          
     @FindBy(css="th a[class='k-link']")
     private List<WebElement> headersText;
+    
+    @FindBy(xpath="//button[text()='Apply']")
+    private List<WebElement> applyBtn;
     
 
     public boolean isDashboardColorConfigPageDisplayed() {
@@ -272,21 +275,55 @@ public class DashboardColorCodeConfigPage extends BasePage {
         enterValueToTxtFieldWithoutClear(startRangeTxtbox, details.getStartRange());
         selectWebElement(rangetext.get(1));
         enterValueToTxtFieldWithoutClear(endRangeTxtbox, details.getEndRange());
-        selectWebElement(colorPicker);
-        selectWebElement(colorValue);
-        enterValueToTxtField(colorValue,details.getColorcode());
-        selectWebElement(applyBtn);
+        selectWebElement(colorPicker.get(0));
+        selectWebElement(colorValue.get(0));
+        enterValueToTxtField(colorValue.get(0),details.getColorcode());
+        selectWebElement(applyBtn.get(0));
+        Thread.sleep(1000);
+        selectWebElement(colorPicker.get(1));
+        selectWebElement(colorValue.get(1));
+        enterValueToTxtField(colorValue.get(1),details.getFontcolor());
+        selectWebElement(applyBtn.get(1));
         selectWebElement(saveBtn);
     }
-
+    
+    public boolean addNewCancel(DashboardColorCodeConfigDetails details) throws Exception {
+		String actualitems=items.getText();
+    	selectWebElement(addNewDashboardColorConfigRecordBtn);
+        waitForJqueryLoad(driver);
+        waitUntilWebElementIsVisible(popupContent);
+        selectWebElement(dashboardName);
+        selectDropdownFromVisibleText(DashListbox,details.getdashboardName());
+        selectWebElement(ColumnName);
+       selectDropdownFromVisibleText(columnListbox,details.getcolumnName());
+        selectWebElement(rangetext.get(0));
+        enterValueToTxtFieldWithoutClear(startRangeTxtbox, details.getStartRange());
+        selectWebElement(rangetext.get(1));
+        enterValueToTxtFieldWithoutClear(endRangeTxtbox, details.getEndRange());
+        selectWebElement(colorPicker.get(0));
+        selectWebElement(colorValue.get(0));
+        enterValueToTxtField(colorValue.get(0),details.getColorcode());
+        selectWebElement(applyBtn.get(0));
+        Thread.sleep(1000);
+        selectWebElement(colorPicker.get(1));
+        selectWebElement(colorValue.get(1));
+        enterValueToTxtField(colorValue.get(1),details.getFontcolor());
+        selectWebElement(applyBtn.get(1));
+        selectWebElement(cancelBtn);
+        Thread.sleep(1000);
+        if(actualitems.equals(items.getText()))
+        	return true;
+        else
+		return false;
+        
+    }
+      
     public void searchDashboardColorConfigRecord(String StartTime) throws Exception  {
         selectWebElement(searchLink);
         selectWebElement(selectSearchColumn.get(0));
         selectDropdownFromVisibleText(columnNameList,"Start Range");
         selectWebElement(selectSearchColumn.get(1));
         selectDropdownFromVisibleText(searchTypeList,"Is equal to");
-        
-        //enterValueToTxtField(searchText.get(0),StartTime);//textTosearch range ==3
         enterValueToTxtField(textTosearch,StartTime);
         selectWebElement(searchBtn);
         waitForJqueryLoad(driver);
@@ -294,30 +331,35 @@ public class DashboardColorCodeConfigPage extends BasePage {
     }
     public void editDashboardColorConfigRecord(DashboardColorCodeConfigDetails details) throws Exception {
         searchDashboardColorConfigRecord(details.getStartRange());
-        try {
-			Thread.sleep(500);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+        Thread.sleep(1000);
         selectWebElement(editBtn);
         waitForJqueryLoad(driver);
-        /*waitUntilWebElementIsVisible(popupContent);
-        selectWebElement(dashboardName);
-        selectDropdownFromVisibleText(DashListbox,details.getdashboardName());
-        selectWebElement(ColumnName);
-       selectDropdownFromVisibleText(columnListbox,details.getcolumnName());*/
+        Thread.sleep(1000);
         selectWebElement(rangetext.get(0));
-        enterValueToTxtFieldWithoutClear(startRangeTxtbox, details.getUpdatedStartRange());
+        enterValueToTxtBox1(startRangeTxtbox, details.getUpdatedStartRange());
         selectWebElement(rangetext.get(1));
-        enterValueToTxtFieldWithoutClear(endRangeTxtbox, details.getUpdatedEndRange());                   
-        selectWebElement(colorPicker);
-        selectWebElement(colorValue);
-        enterValueToTxtField(colorValue,details.getUpdatedColorCode());
-        selectWebElement(applyBtn);
+        enterValueToTxtBox1(endRangeTxtbox, details.getUpdatedEndRange());                   
+        selectWebElement(colorPicker.get(0));
+        selectWebElement(colorValue.get(0));      
+        enterValueToTxtBox1(colorValue.get(0),details.getUpdatedColorCode());
+        selectWebElement(applyBtn.get(0));      
         enterValueToTxtFieldWithoutClear(modifyReasonTextBox,details.getModifyReason());
+        waitForJqueryLoad(driver);
         btnClick(saveBtn);
     }
     
+    public void editRecordWithoutModifyReason(DashboardColorCodeConfigDetails details) throws Exception {
+		searchDashboardColorConfigRecord(details.getStartRange());
+		//waitUntilWebElementIsClickable(editButton);
+		selectWebElement(editBtn);
+		waitForJqueryLoad(driver);
+		selectWebElement(rangetext.get(0));
+		enterValueToTxtFieldWithoutClear(startRangeTxtbox, details.getUpdatedStartRange());
+		selectWebElement(rangetext.get(1));
+		enterValueToTxtFieldWithoutClear(endRangeTxtbox, details.getUpdatedEndRange());
+		selectWebElement(saveBtn);		
+	}
+
     public void deleteDashboardColorConfigRecord(String Starttime, String reason) throws Exception {
         searchDashboardColorConfigRecord(Starttime);
         btnClick(deleteBtn);
@@ -340,20 +382,15 @@ public class DashboardColorCodeConfigPage extends BasePage {
 		searchDashboardColorConfigRecord(Starttime);
         btnClick(deleteBtn);
         selectWebElement(deleteReasonTextBox);
-        enterValueToTxtField(deleteReasonTextBox,reason);
+        enterValueToTxtFieldWithoutClear(deleteReasonTextBox,reason);
         selectWebElement(noBtn);
-        if(rowdata.getText().equals(Starttime))
+       if(rowdata.getText().equals(Starttime))
         {return true;}
         else
         	return false;
 		
 	}
 
-    public String getMessage(){
-        if(errorMsg.size()>0){return errorMsg.get(0).getText();}
-        else {
-         return successmsg.getText();}
-    }
 	public boolean verifylogo() {
 		if(isElementExist(dshCCImg))
 		{return true;}
@@ -361,75 +398,7 @@ public class DashboardColorCodeConfigPage extends BasePage {
 		return false;
 	}
 	
-	/*public boolean verifyStartRangeLabel() {
-		selectWebElement(headerColumn);
-		moveToElement(coloumnarrow);
-//		Boolean Status=startdurationcheckbox.isSelected();
-		if(Status.equals(startRange.isDisplayed()))
-		{return true;}
-		else
-			return false;
-	}*/
-
-	/*public boolean verifyEndRangeLabel() {
-		selectWebElement(headerColumn);
-		moveToElement(coloumnarrow);
-		Boolean Status=enddurationcheckbox.isSelected();
-		if(Status.equals(endRange.isDisplayed()))
-		{return true;}
-		else
-			return false;
-	}*/
 	
-	/*public boolean verifyColorCodeLabel() {
-		selectWebElement(headerColumn);
-		moveToElement(coloumnarrow);
-		Boolean Status=colorcodecheckbox.isSelected();
-		if(Status.equals(colorCode.isDisplayed()))
-		{return true;}
-		else
-			return false;
-	}
-	
-	public boolean verifyColorLabel() {
-		selectWebElement(headerColumn);
-		moveToElement(coloumnarrow);
-		Boolean Status=colorcheckbox.isSelected();
-		if(Status.equals(color.isDisplayed()))
-		{return true;}
-		else
-			return false;
-	}*/
-	
-	public boolean verifygridcontent() {
-		int size=tablerecord.size();
-		System.out.println(+size);
-		String item[]=(items.getText()).split("\\s+");
-		int itemno=Integer.parseInt(item[2]);
-		System.out.println(itemno);
-		if(itemno==size)
-			return true;
-		else 
-			return false;
-	}
-	public boolean verifyLastChangedByLabel() {
-		selectWebElement(headerColumn);
-		moveToElement(coloumnarrow);
-		Boolean Status=lastChangedBycheckbox.isSelected();
-		if(Status.equals(lastChangedBy.isDisplayed()))
-		{return true;}
-		else
-			return false;
-	}
-	public boolean verifyLastChangedOnLabel() {
-		selectWebElement(headerColumn);
-		moveToElement(coloumnarrow);
-		Boolean Status=lastChangedOncheckbox.isSelected();
-		if(Status.equals(lastChangedOn.isDisplayed()))
-		{return true;}
-		else
-			return false;
-	}
 	public boolean maximizewindow() {
 		selectWebElement(maximize);
 		waitForJqueryLoad(driver);
@@ -449,43 +418,19 @@ public class DashboardColorCodeConfigPage extends BasePage {
 			return false;
 	}
 
-public boolean VerifyCancelBtnAddNewRecord(DashboardColorCodeConfigDetails details) throws Exception {
-	String actualitems=items.getText();
-        selectWebElement(addNewDashboardColorConfigRecordBtn);
-        waitForJqueryLoad(driver);
-        waitUntilWebElementIsVisible(popupContent);
-        selectWebElement(dashboardName);
-        selectDropdownFromVisibleText(DashListbox,details.getdashboardName());
-        selectWebElement(ColumnName);
-       selectDropdownFromVisibleText(columnListbox,details.getcolumnName());
-        selectWebElement(rangetext.get(0));
-        enterValueToTxtFieldWithoutClear(startRangeTxtbox, details.getStartRange());
-        selectWebElement(rangetext.get(1));
-        enterValueToTxtFieldWithoutClear(endRangeTxtbox, details.getEndRange());
-        selectWebElement(colorPicker);
-        selectWebElement(colorValue);
-        enterValueToTxtField(colorValue,details.getColorcode());
-        selectWebElement(applyBtn);
-        selectWebElement(cancelBtn);
-        if(actualitems.equals(items.getText()))
-        	return true;
-        else
-		return false;
-    }
-	
 	
 	public boolean editcancel(DashboardColorCodeConfigDetails details) throws Exception {
 		searchDashboardColorConfigRecord(details.getStartRange());
         selectWebElement(editBtn);
-        waitForJqueryLoad(driver); 
+        waitForJqueryLoad(driver);        
         selectWebElement(rangetext.get(0));     
-        enterValueToTxtFieldWithoutClear(rangetext.get(0), details.getUpdatedStartRange());
+        enterValueToTxtFieldWithoutClear(startRangeTxtbox, details.getUpdatedStartRange());
         selectWebElement(rangetext.get(1));
-        enterValueToTxtFieldWithoutClear(rangetext.get(1), details.getUpdatedEndRange());    
-        selectWebElement(colorPicker);
-        selectWebElement(colorValue);
-        enterValueToTxtField(colorValue,details.getUpdatedColorCode());
-        selectWebElement(applyBtn);
+        enterValueToTxtFieldWithoutClear(endRangeTxtbox, details.getUpdatedEndRange());            
+        selectWebElement(colorPicker.get(0));
+        selectWebElement(colorValue.get(0));
+        enterValueToTxtField(colorValue.get(0),details.getUpdatedColorCode());
+        selectWebElement(applyBtn.get(0));
         enterValueToTxtField(modifyReasonTextBox,details.getModifyReason());
         selectWebElement(cancelBtn);
         if(tabledata.getText().equals(details.getColorcode()))
@@ -534,7 +479,7 @@ public boolean VerifyCancelBtnAddNewRecord(DashboardColorCodeConfigDetails detai
 	public boolean verifyExportToExcel(String filePath) {
 		final File folder = new File(filePath);
 		for (final File f : folder.listFiles()) {
-		    if (f.getName().startsWith("Dashboard")) {
+		    if (f.getName().startsWith("Dashboard Color Code Config")) {
 		        f.delete();
 		    }
 		}
@@ -553,8 +498,8 @@ public boolean VerifyCancelBtnAddNewRecord(DashboardColorCodeConfigDetails detai
         int pagersize=Integer.valueOf(pagerSize.getText());
         int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
 		List<Map<String,String>> arr=new ArrayList<Map<String,String>>();
-		waitUntilWebElementIsVisible(auditGridContent);
 		for(int k=0;k<=pages;k++){
+		waitUntilWebElementIsVisible(auditGridContent);
 		List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
 		List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
 		String col=null;
@@ -562,10 +507,7 @@ public boolean VerifyCancelBtnAddNewRecord(DashboardColorCodeConfigDetails detai
 			Map<String,String> map = new HashMap<String,String>();
 			List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
 			for(int j=1;j<headers.size();j++) {
-				if(headers.get(j).getText().equals("Last Changed On")){
-					col=cols.get(j).getText().substring(0,10);
-					}
-				else
+				scrollToElement(headers.get(j));
 					col=cols.get(j).getText();
 				map.put(headers.get(j).getText(),col);
 			}
@@ -626,7 +568,7 @@ public boolean VerifyCancelBtnAddNewRecord(DashboardColorCodeConfigDetails detai
 	}
 	
 	public boolean verifyexportToExcelSheet(List<Map<String, String>> maplist) {
-		List<Map<String,String>> UI=getdata(); 
+		List<Map<String,String>> UI=getdata(); //getdata
 		if(UI.equals(maplist))
 		return true;
 		else
@@ -654,6 +596,8 @@ public boolean VerifyCancelBtnAddNewRecord(DashboardColorCodeConfigDetails detai
 		else
 			return false;	
 	}
+	
+	
 	public boolean verifyArrowMoveForPreviousAndNextPage(){
         boolean status=false;
         if(!nextPageIcon.getAttribute("class").contains("k-state-disabled")){
@@ -723,41 +667,41 @@ public boolean VerifyCancelBtnAddNewRecord(DashboardColorCodeConfigDetails detai
 	public void addRecordWithoutStartTime(DashboardColorCodeConfigDetails details) throws Exception {
 		selectWebElement(addNewDashboardColorConfigRecordBtn);
         waitForJqueryLoad(driver);
-        waitUntilWebElementIsVisible(popupContent);
         selectWebElement(dashboardName);
         selectDropdownFromVisibleText(DashListbox,details.getdashboardName());
         selectWebElement(ColumnName);
        selectDropdownFromVisibleText(columnListbox,details.getcolumnName());
         selectWebElement(rangetext.get(1));
-        enterValueToTxtFieldWithoutClear(endRangeTxtbox, details.getEndRange());     
-        selectWebElement(colorPicker);
-        selectWebElement(colorValue);
-        enterValueToTxtField(colorValue,details.getColorcode());
-        selectWebElement(applyBtn);
+        enterValueToTxtFieldWithoutClear(endRangeTxtbox, details.getEndRange());
+        selectWebElement(colorPicker.get(0));
+        selectWebElement(colorValue.get(0));
+        enterValueToTxtField(colorValue.get(0),details.getColorcode());
+        selectWebElement(applyBtn.get(0));
+        Thread.sleep(1000);
+        selectWebElement(colorPicker.get(1));
+        selectWebElement(colorValue.get(1));
+        enterValueToTxtField(colorValue.get(1),details.getFontcolor());
+        selectWebElement(applyBtn.get(1));
         selectWebElement(saveBtn);
         selectWebElement(cancelBtn);
 	}
-	public boolean verifymessage() {
+	
+	public String verifymessage() {
 		waitUntilWebElementListIsVisible(errorMsg);									 
-		if(errorMsg.size()>0)
-		return false;
-		else 
-			return true;
+		return errorMsg.get(0).getText();
 	}
+	
+	
 	public void addRecordWithoutEndTime(DashboardColorCodeConfigDetails details) throws Exception {
 		selectWebElement(addNewDashboardColorConfigRecordBtn);
         waitForJqueryLoad(driver);
-        waitUntilWebElementIsVisible(popupContent);
+        //waitUntilWebElementIsVisible(popupContent);
         selectWebElement(dashboardName);
         selectDropdownFromVisibleText(DashListbox,details.getdashboardName());
         selectWebElement(ColumnName);
        selectDropdownFromVisibleText(columnListbox,details.getcolumnName());
         selectWebElement(rangetext.get(0));
         enterValueToTxtFieldWithoutClear(startRangeTxtbox, details.getStartRange());               
-        selectWebElement(colorPicker);
-        selectWebElement(colorValue);
-        enterValueToTxtField(colorValue,details.getColorcode());
-        selectWebElement(applyBtn);
         selectWebElement(saveBtn);
         selectWebElement(cancelBtn);	
 	}
@@ -789,7 +733,7 @@ public boolean VerifyCancelBtnAddNewRecord(DashboardColorCodeConfigDetails detai
         return status;
     }
     public boolean verifycolumnsHeaderDisabled() {
-        boolean status = false;
+    	boolean status = false;
         WebElement ele = headersDropdown.get(0);
             if (ele.isDisplayed()) {
                 try {
@@ -824,37 +768,37 @@ public boolean VerifyCancelBtnAddNewRecord(DashboardColorCodeConfigDetails detai
         return status;
     }
     public boolean verifycolumnsHeaderEnabled(){
-        boolean status=false;
-        WebElement ele= headersDropdown.get(0);
-            if(ele.isDisplayed()){
-                try {
-                    selectWebElement(ele);
-                    Thread.sleep(1000);
-                    selectWebElement(headersColumns.get(2));
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                for (int i = 3; i <headersColumns.size(); i++) {
-                    WebElement checkbox = headersColumns.get(i).findElement(By.tagName("input"));
-                    checkbox.click();
-                    if (checkbox.isSelected()) {
-                    } else {
-                        checkbox.click();
-                    }
-                    for (WebElement ele1 : headersText) {
-                        if (ele1.getText().equals(headersColumns.get(i).getText())) {
-                            status = true;
-                            break;
-                        }
-                    }
-                    if (status) {
-                    } else {
-                        break;
-                    }
-                }
-            }
-        return status;
+    	 boolean status=false;
+         WebElement ele= headersDropdown.get(1);
+             if(ele.isDisplayed()){
+                 try {
+                     selectWebElement(ele);
+                     Thread.sleep(1000);
+                     selectWebElement(headersColumns.get(2));
+                     Thread.sleep(1000);
+                 } catch (InterruptedException e) {
+                     e.printStackTrace();
+                 }
+                 for (int i = 3; i <headersColumns.size(); i++) {
+                     WebElement checkbox = headersColumns.get(i).findElement(By.tagName("input"));
+                     checkbox.click();
+                     if (checkbox.isSelected()) {
+                     } else {
+                         checkbox.click();
+                     }
+                     for (WebElement ele1 : headersText) {
+                         if (ele1.getText().equals(headersColumns.get(i).getText())) {
+                             status = true;
+                             break;
+                         }
+                     }
+                     if (status) {
+                     } else {
+                         break;
+                     }
+                 }
+             }
+         return status;
     }
 		
 	private void waitforElementIsClickable(WebElement ele){
@@ -902,8 +846,8 @@ public boolean VerifyCancelBtnAddNewRecord(DashboardColorCodeConfigDetails detai
 		}
 	}
 	public void SortByDescending() {
-		selectWebElement(endRange);
-		selectWebElement(endRange);
+		selectWebElement(startRange);
+		selectWebElement(startRange);
 		selectWebElement(exporttoexcel);
 		try {
 			Thread.sleep(2000);
@@ -926,4 +870,186 @@ public boolean VerifyCancelBtnAddNewRecord(DashboardColorCodeConfigDetails detai
         else {
          return errorMsg.get(0).getText();}
 	}	
+	 
+	 public boolean verifySearchIsNotEqualTo(String description) throws Exception {
+			Boolean Status=false;
+			Map<String, String> map=new HashMap<String,String>() ;                                                     
+			map.put("Dashboard Name", description);
+			selectWebElement(searchLink);
+	        selectWebElement(selectSearchColumn.get(0));
+	        selectDropdownFromVisibleText(columnNameList,"Dashboard Name");
+	        selectWebElement(selectSearchColumn.get(1));
+	        selectDropdownFromVisibleText(searchTypeList,"Is not equal to");	        
+	        enterValueToTxtField(textTosearch,description);
+	        selectWebElement(searchBtn);
+	        waitForJqueryLoad(driver);			
+	        waitUntilWebElementIsVisible(gridContent);
+	        List<Map<String,String>> UI=gettable(); 
+	        for (Map<String,String> map1: UI)
+	        {   	
+				if(map1.equals(map))
+	        	Status= false;
+	        	else 
+	        		Status= true;
+		}
+	        return Status;
+		
+		}
+		public boolean verifySearchContains(String description) throws Exception {
+			Boolean Status=false;
+			selectWebElement(searchLink);
+	        selectWebElement(selectSearchColumn.get(0));
+	        selectDropdownFromVisibleText(columnNameList,"Dashboard Name");
+	        selectWebElement(selectSearchColumn.get(1));
+	        selectDropdownFromVisibleText(searchTypeList,"Contains");	        
+	        enterValueToTxtField(textTosearch,description);
+	        selectWebElement(searchBtn);
+	        waitUntilWebElementIsVisible(gridContent);
+	        List<Map<String,String>> UI=gettable(); 
+	        for (Map<String,String> map1: UI)
+	        {   	
+				if(map1.get("Dashboard Name").toUpperCase().contains(description.toUpperCase()))
+	        	Status= true;
+	        	else 
+	        		Status= false;
+		}
+	        return Status;
+		}
+		public boolean verifySearchDoesNotContains(String description) throws Exception {
+			Boolean Status=false;
+		selectWebElement(searchLink);
+        selectWebElement(selectSearchColumn.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Dashboard Name");
+        selectWebElement(selectSearchColumn.get(1));
+        selectDropdownFromVisibleText(searchTypeList,"Does not contain");	        
+        enterValueToTxtField(textTosearch,description);
+        selectWebElement(searchBtn);
+	        waitUntilWebElementIsVisible(gridContent);
+	        List<Map<String,String>> UI=gettable(); 
+	        for (Map<String,String> map1: UI)
+	        {   	
+				if(!map1.get("Dashboard Name").toLowerCase().contains(description.toLowerCase()))
+	        	Status= true;
+	        	else 
+	        		Status= false;
+		}
+	        return Status;
+		}
+		
+		public boolean verifySearchStartsWith(String description) throws Exception {
+			Boolean Status=false;
+		selectWebElement(searchLink);
+        selectWebElement(selectSearchColumn.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Dashboard Name");
+        selectWebElement(selectSearchColumn.get(1));
+        selectDropdownFromVisibleText(searchTypeList,"Starts with");	        
+        enterValueToTxtField(textTosearch,description);
+        selectWebElement(searchBtn);
+	        waitUntilWebElementIsVisible(gridContent);
+	        List<Map<String,String>> UI=gettable(); 
+	        for (Map<String,String> map1: UI)
+	        {   	
+				if(map1.get("Dashboard Name").toLowerCase().startsWith(description.toLowerCase()))
+	        	Status= true;
+	        	else 
+	        		Status= false;
+		}
+	        return Status;
+		}
+		
+		public boolean verifySearchEndsWith(String description) throws Exception {
+			Boolean Status=false;
+		selectWebElement(searchLink);
+        selectWebElement(selectSearchColumn.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Dashboard Name");
+        selectWebElement(selectSearchColumn.get(1));
+        selectDropdownFromVisibleText(searchTypeList,"Ends with");	        
+        enterValueToTxtField(textTosearch,description);
+        selectWebElement(searchBtn);
+	        waitUntilWebElementIsVisible(gridContent);
+	        List<Map<String,String>> UI=gettable(); 
+	        for (Map<String,String> map1: UI)
+	        {   	
+				if(map1.get("Dashboard Name").toUpperCase().endsWith(description.toUpperCase()))
+	        	Status= true;
+	        	else 
+	        		Status= false;
+		}
+	        return Status;
+		}
+		public void deleteWithoutDeleteReasonRecord(DashboardColorCodeConfigDetails details) throws Exception {
+			searchDashboardColorConfigRecord(details.getStartRange());
+			Thread.sleep(2000);
+			//waitUntilWebElementIsClickable(deleteButton);
+	        selectWebElement(deleteBtn);
+	        Thread.sleep(1000);
+	        selectWebElement(deleteYesBtn);	
+	        selectWebElement(deleteNoBtn);			
+		}
+
+		public void addRecordWithoutDashBoardName(DashboardColorCodeConfigDetails details) throws Exception {
+			selectWebElement(addNewDashboardColorConfigRecordBtn);
+			Thread.sleep(1000);
+	        selectWebElement(rangetext.get(0));
+	        enterValueToTxtFieldWithoutClear(startRangeTxtbox, details.getStartRange());
+	        selectWebElement(rangetext.get(1));
+	        enterValueToTxtFieldWithoutClear(endRangeTxtbox, details.getEndRange());
+	        selectWebElement(colorPicker.get(0));
+	        selectWebElement(colorValue.get(0));
+	        enterValueToTxtField(colorValue.get(0),details.getColorcode());
+	        selectWebElement(applyBtn.get(0));
+	        Thread.sleep(1000);
+	        selectWebElement(colorPicker.get(1));
+	        selectWebElement(colorValue.get(1));
+	        enterValueToTxtField(colorValue.get(1),details.getFontcolor());
+	        selectWebElement(applyBtn.get(1));
+	        selectWebElement(saveBtn);
+	        selectWebElement(cancelBtn);
+	        
+		}
+
+		public void addRecordWithoutColumnName(DashboardColorCodeConfigDetails details) throws Exception {
+			selectWebElement(addNewDashboardColorConfigRecordBtn);
+	        waitForJqueryLoad(driver);
+	        waitUntilWebElementIsVisible(popupContent);
+	        selectWebElement(dashboardName);
+	        selectDropdownFromVisibleText(DashListbox,details.getdashboardName());
+	        selectWebElement(rangetext.get(0));
+	        enterValueToTxtFieldWithoutClear(startRangeTxtbox, details.getStartRange());
+	        selectWebElement(rangetext.get(1));
+	        enterValueToTxtFieldWithoutClear(endRangeTxtbox, details.getEndRange());
+	        selectWebElement(colorPicker.get(0));
+	        selectWebElement(colorValue.get(0));
+	        enterValueToTxtField(colorValue.get(0),details.getColorcode());
+	        selectWebElement(applyBtn.get(0));
+	        Thread.sleep(1000);
+	        selectWebElement(colorPicker.get(1));
+	        selectWebElement(colorValue.get(1));
+	        enterValueToTxtField(colorValue.get(1),details.getFontcolor());
+	        selectWebElement(applyBtn.get(1));
+	        selectWebElement(saveBtn);
+			selectWebElement(cancelBtn);
+		}
+
+		public void searchwithoutextsearch() {
+			selectWebElement(searchLink);
+	        selectWebElement(selectSearchColumn.get(0));
+	        selectDropdownFromVisibleText(columnNameList,"Start Range");
+	        selectWebElement(selectSearchColumn.get(1));
+	        selectDropdownFromVisibleText(searchTypeList,"Is equal to");
+	        selectWebElement(searchBtn);
+			selectWebElement(searchClose);	
+			
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 }

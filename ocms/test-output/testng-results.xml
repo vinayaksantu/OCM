@@ -1,1346 +1,160 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="41" passed="31" failed="7" skipped="3">
+<testng-results ignored="0" total="6" passed="5" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2019-11-15T17:25:56 IST" name="Default suite" finished-at="2019-11-15T17:37:18 IST" duration-ms="682428">
+  <suite started-at="2019-11-20T14:49:30 IST" name="Default suite" finished-at="2019-11-20T14:51:12 IST" duration-ms="102475">
     <groups>
     </groups>
-    <test started-at="2019-11-15T17:25:56 IST" name="Default test" finished-at="2019-11-15T17:37:18 IST" duration-ms="682428">
-      <class name="com.tetherfi.test.ivr.IntentMappingTest">
-        <test-method is-config="true" signature="openApplication()[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:25:56 IST" name="openApplication" finished-at="2019-11-15T17:26:20 IST" duration-ms="24473" status="PASS">
+    <test started-at="2019-11-20T14:49:30 IST" name="Default test" finished-at="2019-11-20T14:51:12 IST" duration-ms="102475">
+      <class name="com.tetherfi.test.DashboardColorCodeConfigTest">
+        <test-method is-config="true" signature="openApplication()[pri:0, instance:com.tetherfi.test.DashboardColorCodeConfigTest@7f4701b1]" started-at="2019-11-20T14:49:30 IST" name="openApplication" finished-at="2019-11-20T14:49:53 IST" duration-ms="23086" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- openApplication -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:26:20 IST" name="startTestCase" finished-at="2019-11-15T17:26:20 IST" duration-ms="3" status="PASS">
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.DashboardColorCodeConfigTest@7f4701b1]" started-at="2019-11-20T14:49:53 IST" name="startTestCase" finished-at="2019-11-20T14:49:53 IST" duration-ms="5" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.IntentMappingPage()]]>
+                <![CDATA[public void com.tetherfi.test.DashboardColorCodeConfigTest.DeleteCancelRecord() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigateToIntentMappingPage()[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:26:20 IST" name="NavigateToIntentMappingPage" finished-at="2019-11-15T17:26:25 IST" duration-ms="5054" status="PASS">
+        <test-method is-config="true" signature="NavigateToDashboardColorCodeConfigPage()[pri:0, instance:com.tetherfi.test.DashboardColorCodeConfigTest@7f4701b1]" started-at="2019-11-20T14:49:53 IST" name="NavigateToDashboardColorCodeConfigPage" finished-at="2019-11-20T14:49:56 IST" duration-ms="3334" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- NavigateToIntentMappingPage -->
-        <test-method signature="IntentMappingPage()[pri:1, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:26:25 IST" name="IntentMappingPage" finished-at="2019-11-15T17:26:26 IST" duration-ms="620" status="PASS">
+        </test-method> <!-- NavigateToDashboardColorCodeConfigPage -->
+        <test-method signature="DeleteCancelRecord()[pri:32, instance:com.tetherfi.test.DashboardColorCodeConfigTest@7f4701b1]" started-at="2019-11-20T14:49:56 IST" name="DeleteCancelRecord" finished-at="2019-11-20T14:50:00 IST" duration-ms="4217" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- IntentMappingPage -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:26:26 IST" name="afterEachMethod" finished-at="2019-11-15T17:26:27 IST" duration-ms="1207" status="PASS">
+        </test-method> <!-- DeleteCancelRecord -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.DashboardColorCodeConfigTest@7f4701b1]" started-at="2019-11-20T14:50:00 IST" name="afterEachMethod" finished-at="2019-11-20T14:50:02 IST" duration-ms="1331" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.IntentMappingPage()]]>
+                <![CDATA[public void com.tetherfi.test.DashboardColorCodeConfigTest.DeleteCancelRecord() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:26:27 IST" name="endTestCase" finished-at="2019-11-15T17:26:27 IST" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.DashboardColorCodeConfigTest@7f4701b1]" started-at="2019-11-20T14:50:02 IST" name="endTestCase" finished-at="2019-11-20T14:50:02 IST" duration-ms="0" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.IntentMappingPage()]]>
+                <![CDATA[public void com.tetherfi.test.DashboardColorCodeConfigTest.DeleteCancelRecord() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="NavigateToIntentMappingPage()[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:26:27 IST" name="NavigateToIntentMappingPage" finished-at="2019-11-15T17:26:31 IST" duration-ms="4045" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToIntentMappingPage -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:26:27 IST" name="startTestCase" finished-at="2019-11-15T17:26:27 IST" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.DashboardColorCodeConfigTest@7f4701b1]" started-at="2019-11-20T14:50:02 IST" name="startTestCase" finished-at="2019-11-20T14:50:02 IST" duration-ms="0" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.VerifyDropdownForAllTheColumns()]]>
+                <![CDATA[public void com.tetherfi.test.DashboardColorCodeConfigTest.DeleteWithoutDeleteReasonRecord() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startTestCase -->
-        <test-method signature="VerifyDropdownForAllTheColumns()[pri:2, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:26:31 IST" name="VerifyDropdownForAllTheColumns" finished-at="2019-11-15T17:26:37 IST" duration-ms="6013" status="PASS">
+        <test-method is-config="true" signature="NavigateToDashboardColorCodeConfigPage()[pri:0, instance:com.tetherfi.test.DashboardColorCodeConfigTest@7f4701b1]" started-at="2019-11-20T14:50:02 IST" name="NavigateToDashboardColorCodeConfigPage" finished-at="2019-11-20T14:50:05 IST" duration-ms="2971" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- VerifyDropdownForAllTheColumns -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:26:37 IST" name="afterEachMethod" finished-at="2019-11-15T17:26:39 IST" duration-ms="1261" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.VerifyDropdownForAllTheColumns()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:26:39 IST" name="endTestCase" finished-at="2019-11-15T17:26:39 IST" duration-ms="1" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.VerifyDropdownForAllTheColumns()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:26:39 IST" name="startTestCase" finished-at="2019-11-15T17:26:39 IST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.VerifyColumnsHeaderEnable()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigateToIntentMappingPage()[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:26:39 IST" name="NavigateToIntentMappingPage" finished-at="2019-11-15T17:26:42 IST" duration-ms="3797" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToIntentMappingPage -->
-        <test-method signature="VerifyColumnsHeaderEnable()[pri:3, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:26:42 IST" name="VerifyColumnsHeaderEnable" finished-at="2019-11-15T17:26:46 IST" duration-ms="3891" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- VerifyColumnsHeaderEnable -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:26:46 IST" name="afterEachMethod" finished-at="2019-11-15T17:26:47 IST" duration-ms="1065" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.VerifyColumnsHeaderEnable()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:26:47 IST" name="endTestCase" finished-at="2019-11-15T17:26:47 IST" duration-ms="1" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.VerifyColumnsHeaderEnable()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:26:47 IST" name="startTestCase" finished-at="2019-11-15T17:26:47 IST" duration-ms="1" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.VerifyColumnsHeaderDisable()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigateToIntentMappingPage()[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:26:47 IST" name="NavigateToIntentMappingPage" finished-at="2019-11-15T17:26:52 IST" duration-ms="4347" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToIntentMappingPage -->
-        <test-method signature="VerifyColumnsHeaderDisable()[pri:4, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:26:52 IST" name="VerifyColumnsHeaderDisable" finished-at="2019-11-15T17:26:56 IST" duration-ms="3911" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- VerifyColumnsHeaderDisable -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:26:56 IST" name="afterEachMethod" finished-at="2019-11-15T17:26:57 IST" duration-ms="1084" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.VerifyColumnsHeaderDisable()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:26:57 IST" name="endTestCase" finished-at="2019-11-15T17:26:57 IST" duration-ms="1" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.VerifyColumnsHeaderDisable()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:26:57 IST" name="startTestCase" finished-at="2019-11-15T17:26:57 IST" duration-ms="1" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.AddNewIntentMappingRecord() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigateToIntentMappingPage()[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:26:57 IST" name="NavigateToIntentMappingPage" finished-at="2019-11-15T17:27:01 IST" duration-ms="4011" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToIntentMappingPage -->
-        <test-method signature="AddNewIntentMappingRecord()[pri:5, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:27:01 IST" name="AddNewIntentMappingRecord" finished-at="2019-11-15T17:27:08 IST" duration-ms="7441" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- AddNewIntentMappingRecord -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:27:08 IST" name="afterEachMethod" finished-at="2019-11-15T17:27:09 IST" duration-ms="1196" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.AddNewIntentMappingRecord() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:27:09 IST" name="endTestCase" finished-at="2019-11-15T17:27:09 IST" duration-ms="1" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.AddNewIntentMappingRecord() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:27:09 IST" name="startTestCase" finished-at="2019-11-15T17:27:09 IST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.AddDuplicateIntentMappingRecord() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigateToIntentMappingPage()[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:27:09 IST" name="NavigateToIntentMappingPage" finished-at="2019-11-15T17:27:13 IST" duration-ms="3897" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToIntentMappingPage -->
-        <test-method signature="AddDuplicateIntentMappingRecord()[pri:6, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:27:13 IST" name="AddDuplicateIntentMappingRecord" finished-at="2019-11-15T17:27:21 IST" depends-on-methods="com.tetherfi.test.ivr.IntentMappingTest.AddNewIntentMappingRecord" duration-ms="7356" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- AddDuplicateIntentMappingRecord -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:27:21 IST" name="afterEachMethod" finished-at="2019-11-15T17:27:22 IST" duration-ms="1099" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.AddDuplicateIntentMappingRecord() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:27:22 IST" name="endTestCase" finished-at="2019-11-15T17:27:22 IST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.AddDuplicateIntentMappingRecord() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:27:22 IST" name="startTestCase" finished-at="2019-11-15T17:27:22 IST" duration-ms="1" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.VerifyAuditTrialReportForCreate() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigateToIntentMappingPage()[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:27:22 IST" name="NavigateToIntentMappingPage" finished-at="2019-11-15T17:27:26 IST" duration-ms="3972" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToIntentMappingPage -->
-        <test-method signature="VerifyAuditTrialReportForCreate()[pri:7, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:27:26 IST" name="VerifyAuditTrialReportForCreate" finished-at="2019-11-15T17:27:47 IST" depends-on-methods="com.tetherfi.test.ivr.IntentMappingTest.AddNewIntentMappingRecord" duration-ms="21763" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- VerifyAuditTrialReportForCreate -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:27:47 IST" name="afterEachMethod" finished-at="2019-11-15T17:27:49 IST" duration-ms="1195" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.VerifyAuditTrialReportForCreate() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:27:49 IST" name="endTestCase" finished-at="2019-11-15T17:27:49 IST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.VerifyAuditTrialReportForCreate() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:27:49 IST" name="startTestCase" finished-at="2019-11-15T17:27:49 IST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.AddEmptyRecord() throws java.io.IOException]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigateToIntentMappingPage()[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:27:49 IST" name="NavigateToIntentMappingPage" finished-at="2019-11-15T17:27:53 IST" duration-ms="4418" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToIntentMappingPage -->
-        <test-method signature="AddEmptyRecord()[pri:8, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:27:53 IST" name="AddEmptyRecord" finished-at="2019-11-15T17:27:54 IST" duration-ms="1259" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- AddEmptyRecord -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:27:54 IST" name="afterEachMethod" finished-at="2019-11-15T17:27:56 IST" duration-ms="1249" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.AddEmptyRecord() throws java.io.IOException]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:27:56 IST" name="endTestCase" finished-at="2019-11-15T17:27:56 IST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.AddEmptyRecord() throws java.io.IOException]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:27:56 IST" name="startTestCase" finished-at="2019-11-15T17:27:56 IST" duration-ms="1" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.AddRecordWithoutProduct() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigateToIntentMappingPage()[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:27:56 IST" name="NavigateToIntentMappingPage" finished-at="2019-11-15T17:27:59 IST" duration-ms="3679" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToIntentMappingPage -->
-        <test-method signature="AddRecordWithoutProduct()[pri:9, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:27:59 IST" name="AddRecordWithoutProduct" finished-at="2019-11-15T17:28:06 IST" duration-ms="6367" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- AddRecordWithoutProduct -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:28:06 IST" name="afterEachMethod" finished-at="2019-11-15T17:28:06 IST" duration-ms="394" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.AddRecordWithoutProduct() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:28:06 IST" name="endTestCase" finished-at="2019-11-15T17:28:06 IST" duration-ms="1" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.AddRecordWithoutProduct() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="NavigateToIntentMappingPage()[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:28:06 IST" name="NavigateToIntentMappingPage" finished-at="2019-11-15T17:28:10 IST" duration-ms="4274" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToIntentMappingPage -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:28:06 IST" name="startTestCase" finished-at="2019-11-15T17:28:06 IST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.AddRecordWithoutSegment() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method signature="AddRecordWithoutSegment()[pri:10, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:28:10 IST" name="AddRecordWithoutSegment" finished-at="2019-11-15T17:28:17 IST" duration-ms="6297" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- AddRecordWithoutSegment -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:28:17 IST" name="afterEachMethod" finished-at="2019-11-15T17:28:18 IST" duration-ms="1255" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.AddRecordWithoutSegment() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:28:18 IST" name="endTestCase" finished-at="2019-11-15T17:28:18 IST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.AddRecordWithoutSegment() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:28:18 IST" name="startTestCase" finished-at="2019-11-15T17:28:18 IST" duration-ms="1" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.AddRecordWithoutLanguage() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigateToIntentMappingPage()[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:28:18 IST" name="NavigateToIntentMappingPage" finished-at="2019-11-15T17:28:22 IST" duration-ms="3786" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToIntentMappingPage -->
-        <test-method signature="AddRecordWithoutLanguage()[pri:11, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:28:22 IST" name="AddRecordWithoutLanguage" finished-at="2019-11-15T17:28:28 IST" duration-ms="6362" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- AddRecordWithoutLanguage -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:28:28 IST" name="afterEachMethod" finished-at="2019-11-15T17:28:28 IST" duration-ms="381" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.AddRecordWithoutLanguage() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:28:28 IST" name="endTestCase" finished-at="2019-11-15T17:28:28 IST" duration-ms="1" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.AddRecordWithoutLanguage() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="NavigateToIntentMappingPage()[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:28:28 IST" name="NavigateToIntentMappingPage" finished-at="2019-11-15T17:28:33 IST" duration-ms="4538" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToIntentMappingPage -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:28:28 IST" name="startTestCase" finished-at="2019-11-15T17:28:28 IST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.AddRecordWithoutIntentTalent() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method signature="AddRecordWithoutIntentTalent()[pri:12, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:28:33 IST" name="AddRecordWithoutIntentTalent" finished-at="2019-11-15T17:28:39 IST" duration-ms="5598" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- AddRecordWithoutIntentTalent -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:28:39 IST" name="afterEachMethod" finished-at="2019-11-15T17:28:39 IST" duration-ms="395" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.AddRecordWithoutIntentTalent() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:28:39 IST" name="endTestCase" finished-at="2019-11-15T17:28:39 IST" duration-ms="1" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.AddRecordWithoutIntentTalent() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:28:39 IST" name="startTestCase" finished-at="2019-11-15T17:28:39 IST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.AddRecordWithoutVDN() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigateToIntentMappingPage()[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:28:39 IST" name="NavigateToIntentMappingPage" finished-at="2019-11-15T17:28:43 IST" duration-ms="4541" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToIntentMappingPage -->
-        <test-method signature="AddRecordWithoutVDN()[pri:13, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:28:43 IST" name="AddRecordWithoutVDN" finished-at="2019-11-15T17:28:50 IST" duration-ms="6785" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- AddRecordWithoutVDN -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:28:50 IST" name="afterEachMethod" finished-at="2019-11-15T17:28:51 IST" duration-ms="1113" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.AddRecordWithoutVDN() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:28:51 IST" name="endTestCase" finished-at="2019-11-15T17:28:51 IST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.AddRecordWithoutVDN() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="NavigateToIntentMappingPage()[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:28:51 IST" name="NavigateToIntentMappingPage" finished-at="2019-11-15T17:28:56 IST" duration-ms="4522" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToIntentMappingPage -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:28:51 IST" name="startTestCase" finished-at="2019-11-15T17:28:51 IST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.VerifyCancelBtnAtAddRecord()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method signature="VerifyCancelBtnAtAddRecord()[pri:14, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:28:56 IST" name="VerifyCancelBtnAtAddRecord" finished-at="2019-11-15T17:29:40 IST" duration-ms="43770" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- VerifyCancelBtnAtAddRecord -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:29:40 IST" name="afterEachMethod" finished-at="2019-11-15T17:29:41 IST" duration-ms="1246" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.VerifyCancelBtnAtAddRecord()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:29:41 IST" name="endTestCase" finished-at="2019-11-15T17:29:41 IST" duration-ms="1" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.VerifyCancelBtnAtAddRecord()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:29:41 IST" name="startTestCase" finished-at="2019-11-15T17:29:41 IST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.EditWithoutModifyReasonRecord() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigateToIntentMappingPage()[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:29:41 IST" name="NavigateToIntentMappingPage" finished-at="2019-11-15T17:29:45 IST" duration-ms="3722" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToIntentMappingPage -->
-        <test-method signature="EditWithoutModifyReasonRecord()[pri:15, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:29:45 IST" name="EditWithoutModifyReasonRecord" finished-at="2019-11-15T17:29:50 IST" duration-ms="4889" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- EditWithoutModifyReasonRecord -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:29:50 IST" name="afterEachMethod" finished-at="2019-11-15T17:29:51 IST" duration-ms="1200" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.EditWithoutModifyReasonRecord() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:29:51 IST" name="endTestCase" finished-at="2019-11-15T17:29:51 IST" duration-ms="1" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.EditWithoutModifyReasonRecord() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:29:51 IST" name="startTestCase" finished-at="2019-11-15T17:29:51 IST" duration-ms="1" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.VerifyCancelBtnAtEditRecord() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigateToIntentMappingPage()[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:29:51 IST" name="NavigateToIntentMappingPage" finished-at="2019-11-15T17:29:55 IST" duration-ms="3859" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToIntentMappingPage -->
-        <test-method signature="VerifyCancelBtnAtEditRecord()[pri:16, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:29:55 IST" name="VerifyCancelBtnAtEditRecord" finished-at="2019-11-15T17:30:43 IST" duration-ms="48401" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- VerifyCancelBtnAtEditRecord -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:30:43 IST" name="afterEachMethod" finished-at="2019-11-15T17:30:44 IST" duration-ms="1235" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.VerifyCancelBtnAtEditRecord() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:30:44 IST" name="endTestCase" finished-at="2019-11-15T17:30:44 IST" duration-ms="1" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.VerifyCancelBtnAtEditRecord() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:30:44 IST" name="startTestCase" finished-at="2019-11-15T17:30:44 IST" duration-ms="1" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.EditIntentMappingRecord() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigateToIntentMappingPage()[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:30:44 IST" name="NavigateToIntentMappingPage" finished-at="2019-11-15T17:30:49 IST" duration-ms="4337" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToIntentMappingPage -->
-        <test-method signature="EditIntentMappingRecord()[pri:17, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:30:49 IST" name="EditIntentMappingRecord" finished-at="2019-11-15T17:30:53 IST" duration-ms="4786" status="FAIL">
-          <exception class="java.lang.IllegalArgumentException">
-            <message>
-              <![CDATA[Keys to send should be a not null CharSequence]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.IllegalArgumentException: Keys to send should be a not null CharSequence
-at org.openqa.selenium.remote.RemoteWebElement.sendKeys(RemoteWebElement.java:97)
-at jdk.internal.reflect.GeneratedMethodAccessor10.invoke(Unknown Source)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
-at com.sun.proxy.$Proxy16.sendKeys(Unknown Source)
-at com.tetherfi.pages.BasePage.enterValueToTxtBox1(BasePage.java:173)
-at com.tetherfi.pages.IntentMappingPage.editIntentMappingRecord(IntentMappingPage.java:809)
-at com.tetherfi.test.ivr.IntentMappingTest.EditIntentMappingRecord(IntentMappingTest.java:204)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(Unknown Source)
-at org.testng.TestRunner.privateRun(TestRunner.java:770)
-at org.testng.TestRunner.run(TestRunner.java:591)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-at org.testng.TestNG.runSuites(TestNG.java:1032)
-at org.testng.TestNG.run(TestNG.java:1000)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.IllegalArgumentException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- EditIntentMappingRecord -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:30:53 IST" name="afterEachMethod" finished-at="2019-11-15T17:30:55 IST" duration-ms="1147" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.EditIntentMappingRecord() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:30:55 IST" name="endTestCase" finished-at="2019-11-15T17:30:55 IST" duration-ms="1" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.EditIntentMappingRecord() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method signature="VerifyAuditTrialReportForUpdate()[pri:18, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:30:55 IST" name="VerifyAuditTrialReportForUpdate" finished-at="2019-11-15T17:30:55 IST" depends-on-methods="com.tetherfi.test.ivr.IntentMappingTest.EditIntentMappingRecord" duration-ms="0" status="SKIP">
-          <exception class="java.lang.Throwable">
-            <message>
-              <![CDATA[Method IntentMappingTest.VerifyAuditTrialReportForUpdate()[pri:18, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320] depends on not successfully finished methods]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.Throwable: Method IntentMappingTest.VerifyAuditTrialReportForUpdate()[pri:18, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320] depends on not successfully finished methods
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:99)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(Unknown Source)
-at org.testng.TestRunner.privateRun(TestRunner.java:770)
-at org.testng.TestRunner.run(TestRunner.java:591)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-at org.testng.TestNG.runSuites(TestNG.java:1032)
-at org.testng.TestNG.run(TestNG.java:1000)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.Throwable -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- VerifyAuditTrialReportForUpdate -->
-        <test-method is-config="true" signature="NavigateToIntentMappingPage()[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:30:55 IST" name="NavigateToIntentMappingPage" finished-at="2019-11-15T17:30:59 IST" duration-ms="4002" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToIntentMappingPage -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:30:55 IST" name="startTestCase" finished-at="2019-11-15T17:30:55 IST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.VerifySearchIsNotEqualTo() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method signature="VerifySearchIsNotEqualTo()[pri:19, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:30:59 IST" name="VerifySearchIsNotEqualTo" finished-at="2019-11-15T17:31:04 IST" duration-ms="5115" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- VerifySearchIsNotEqualTo -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:31:04 IST" name="afterEachMethod" finished-at="2019-11-15T17:31:05 IST" duration-ms="1218" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.VerifySearchIsNotEqualTo() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:31:05 IST" name="endTestCase" finished-at="2019-11-15T17:31:05 IST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.VerifySearchIsNotEqualTo() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:31:05 IST" name="startTestCase" finished-at="2019-11-15T17:31:05 IST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.VerifySearchContains() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigateToIntentMappingPage()[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:31:05 IST" name="NavigateToIntentMappingPage" finished-at="2019-11-15T17:31:09 IST" duration-ms="3857" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToIntentMappingPage -->
-        <test-method signature="VerifySearchContains()[pri:20, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:31:09 IST" name="VerifySearchContains" finished-at="2019-11-15T17:31:13 IST" duration-ms="4362" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- VerifySearchContains -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:31:13 IST" name="afterEachMethod" finished-at="2019-11-15T17:31:14 IST" duration-ms="1057" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.VerifySearchContains() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:31:14 IST" name="endTestCase" finished-at="2019-11-15T17:31:14 IST" duration-ms="1" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.VerifySearchContains() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="NavigateToIntentMappingPage()[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:31:14 IST" name="NavigateToIntentMappingPage" finished-at="2019-11-15T17:31:18 IST" duration-ms="3787" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToIntentMappingPage -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:31:14 IST" name="startTestCase" finished-at="2019-11-15T17:31:14 IST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.VerifySearchDoesNotContains() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method signature="VerifySearchDoesNotContains()[pri:21, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:31:18 IST" name="VerifySearchDoesNotContains" finished-at="2019-11-15T17:31:22 IST" duration-ms="3855" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- VerifySearchDoesNotContains -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:31:22 IST" name="afterEachMethod" finished-at="2019-11-15T17:31:23 IST" duration-ms="1087" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.VerifySearchDoesNotContains() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:31:23 IST" name="endTestCase" finished-at="2019-11-15T17:31:23 IST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.VerifySearchDoesNotContains() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:31:23 IST" name="startTestCase" finished-at="2019-11-15T17:31:23 IST" duration-ms="1" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.VerifySearchStartsWith() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigateToIntentMappingPage()[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:31:23 IST" name="NavigateToIntentMappingPage" finished-at="2019-11-15T17:31:27 IST" duration-ms="4244" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToIntentMappingPage -->
-        <test-method signature="VerifySearchStartsWith()[pri:22, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:31:27 IST" name="VerifySearchStartsWith" finished-at="2019-11-15T17:31:31 IST" duration-ms="3971" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- VerifySearchStartsWith -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:31:31 IST" name="afterEachMethod" finished-at="2019-11-15T17:31:32 IST" duration-ms="1126" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.VerifySearchStartsWith() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:31:32 IST" name="endTestCase" finished-at="2019-11-15T17:31:32 IST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.VerifySearchStartsWith() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:31:32 IST" name="startTestCase" finished-at="2019-11-15T17:31:32 IST" duration-ms="1" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.VerifySearchEndsWith() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigateToIntentMappingPage()[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:31:32 IST" name="NavigateToIntentMappingPage" finished-at="2019-11-15T17:31:36 IST" duration-ms="3812" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToIntentMappingPage -->
-        <test-method signature="VerifySearchEndsWith()[pri:23, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:31:36 IST" name="VerifySearchEndsWith" finished-at="2019-11-15T17:31:40 IST" duration-ms="3834" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- VerifySearchEndsWith -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:31:40 IST" name="afterEachMethod" finished-at="2019-11-15T17:31:41 IST" duration-ms="1158" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.VerifySearchEndsWith() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:31:41 IST" name="endTestCase" finished-at="2019-11-15T17:31:41 IST" duration-ms="1" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.VerifySearchEndsWith() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:31:41 IST" name="startTestCase" finished-at="2019-11-15T17:31:41 IST" duration-ms="1" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.searchPage() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigateToIntentMappingPage()[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:31:41 IST" name="NavigateToIntentMappingPage" finished-at="2019-11-15T17:31:45 IST" duration-ms="3899" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToIntentMappingPage -->
-        <test-method signature="searchPage()[pri:24, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:31:45 IST" name="searchPage" finished-at="2019-11-15T17:31:48 IST" duration-ms="3197" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- searchPage -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:31:48 IST" name="afterEachMethod" finished-at="2019-11-15T17:31:49 IST" duration-ms="1087" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.searchPage() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:31:49 IST" name="endTestCase" finished-at="2019-11-15T17:31:49 IST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.searchPage() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:31:49 IST" name="startTestCase" finished-at="2019-11-15T17:31:49 IST" duration-ms="1" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.searchwithoutSearchTextbox() throws java.io.IOException]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigateToIntentMappingPage()[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:31:49 IST" name="NavigateToIntentMappingPage" finished-at="2019-11-15T17:31:53 IST" duration-ms="3841" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToIntentMappingPage -->
-        <test-method signature="searchwithoutSearchTextbox()[pri:25, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:31:53 IST" name="searchwithoutSearchTextbox" finished-at="2019-11-15T17:31:56 IST" duration-ms="2952" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- searchwithoutSearchTextbox -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:31:56 IST" name="afterEachMethod" finished-at="2019-11-15T17:31:57 IST" duration-ms="1159" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.searchwithoutSearchTextbox() throws java.io.IOException]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:31:57 IST" name="endTestCase" finished-at="2019-11-15T17:31:57 IST" duration-ms="1" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.searchwithoutSearchTextbox() throws java.io.IOException]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:31:57 IST" name="startTestCase" finished-at="2019-11-15T17:31:57 IST" duration-ms="1" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.ExportToExcel() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigateToIntentMappingPage()[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:31:57 IST" name="NavigateToIntentMappingPage" finished-at="2019-11-15T17:32:01 IST" duration-ms="3693" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToIntentMappingPage -->
-        <test-method signature="ExportToExcel()[pri:26, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:32:01 IST" name="ExportToExcel" finished-at="2019-11-15T17:32:03 IST" duration-ms="2546" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- ExportToExcel -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:32:03 IST" name="afterEachMethod" finished-at="2019-11-15T17:32:05 IST" duration-ms="1295" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.ExportToExcel() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:32:05 IST" name="endTestCase" finished-at="2019-11-15T17:32:05 IST" duration-ms="1" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.ExportToExcel() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:32:05 IST" name="startTestCase" finished-at="2019-11-15T17:32:05 IST" duration-ms="1" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.ExportToExcelData() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigateToIntentMappingPage()[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:32:05 IST" name="NavigateToIntentMappingPage" finished-at="2019-11-15T17:32:09 IST" duration-ms="4380" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToIntentMappingPage -->
-        <test-method signature="ExportToExcelData()[pri:27, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:32:09 IST" name="ExportToExcelData" finished-at="2019-11-15T17:32:11 IST" duration-ms="2104" status="FAIL">
-          <exception class="java.lang.AssertionError">
-            <message>
-              <![CDATA[did not expect to find [true] but found [false]]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: did not expect to find [true] but found [false]
-at org.testng.Assert.fail(Assert.java:97)
-at org.testng.Assert.failNotEquals(Assert.java:969)
-at org.testng.Assert.assertTrue(Assert.java:43)
-at org.testng.Assert.assertTrue(Assert.java:53)
-at com.tetherfi.test.ivr.IntentMappingTest.ExportToExcelData(IntentMappingTest.java:301)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(Unknown Source)
-at org.testng.TestRunner.privateRun(TestRunner.java:770)
-at org.testng.TestRunner.run(TestRunner.java:591)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-at org.testng.TestNG.runSuites(TestNG.java:1032)
-at org.testng.TestNG.run(TestNG.java:1000)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- ExportToExcelData -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:32:11 IST" name="afterEachMethod" finished-at="2019-11-15T17:32:12 IST" duration-ms="1258" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.ExportToExcelData() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:32:12 IST" name="endTestCase" finished-at="2019-11-15T17:32:12 IST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.ExportToExcelData() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:32:12 IST" name="startTestCase" finished-at="2019-11-15T17:32:12 IST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.DeleteWithoutDeleteReasonRecord() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigateToIntentMappingPage()[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:32:12 IST" name="NavigateToIntentMappingPage" finished-at="2019-11-15T17:32:16 IST" duration-ms="3884" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToIntentMappingPage -->
-        <test-method signature="DeleteWithoutDeleteReasonRecord()[pri:28, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:32:16 IST" name="DeleteWithoutDeleteReasonRecord" finished-at="2019-11-15T17:33:40 IST" duration-ms="83947" status="FAIL">
-          <exception class="org.openqa.selenium.TimeoutException">
-            <message>
-              <![CDATA[Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.cssSelector: .k-grid-CustomDelete' (tried for 30 second(s) with 500 milliseconds interval)]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.cssSelector: .k-grid-CustomDelete' (tried for 30 second(s) with 500 milliseconds interval)
-at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
-at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
-at com.tetherfi.pages.BasePage.waitUntilWebElementIsVisible(BasePage.java:127)
-at com.tetherfi.pages.BasePage.selectWebElement(BasePage.java:198)
-at com.tetherfi.pages.IntentMappingPage.deleteIntentMapingWithoutDeleteReasonRecord(IntentMappingPage.java:831)
-at com.tetherfi.test.ivr.IntentMappingTest.DeleteWithoutDeleteReasonRecord(IntentMappingTest.java:310)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(Unknown Source)
-at org.testng.TestRunner.privateRun(TestRunner.java:770)
-at org.testng.TestRunner.run(TestRunner.java:591)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-at org.testng.TestNG.runSuites(TestNG.java:1032)
-at org.testng.TestNG.run(TestNG.java:1000)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"css selector","selector":".k-grid-CustomDelete"}
-  (Session info: chrome=78.0.3904.97)
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'DESKTOP-O6A5C2O', ip: '10.0.75.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '9.0.4'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.97, chrome: {chromedriverVersion: 78.0.3904.70 (edb9c9f3de024..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:53494}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 35e42521269d179838979316e3341f06
-*** Element info: {Using=css selector, value=.k-grid-CustomDelete}
-at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
-at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-at java.base/java.lang.reflect.Constructor.newInstance(Unknown Source)
-at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
-at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:420)
-at org.openqa.selenium.By$ByCssSelector.findElement(By.java:431)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
-at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
-at com.sun.proxy.$Proxy16.isDisplayed(Unknown Source)
-at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:314)
-at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:43)
-at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:300)
-at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:297)
-at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
-... 32 more
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.TimeoutException -->
+        </test-method> <!-- NavigateToDashboardColorCodeConfigPage -->
+        <test-method signature="DeleteWithoutDeleteReasonRecord()[pri:33, instance:com.tetherfi.test.DashboardColorCodeConfigTest@7f4701b1]" started-at="2019-11-20T14:50:05 IST" name="DeleteWithoutDeleteReasonRecord" finished-at="2019-11-20T14:50:13 IST" duration-ms="7868" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- DeleteWithoutDeleteReasonRecord -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:33:40 IST" name="afterEachMethod" finished-at="2019-11-15T17:33:42 IST" duration-ms="1202" status="PASS">
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.DashboardColorCodeConfigTest@7f4701b1]" started-at="2019-11-20T14:50:13 IST" name="afterEachMethod" finished-at="2019-11-20T14:50:13 IST" duration-ms="375" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.DeleteWithoutDeleteReasonRecord() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.DashboardColorCodeConfigTest.DeleteWithoutDeleteReasonRecord() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:33:42 IST" name="endTestCase" finished-at="2019-11-15T17:33:42 IST" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.DashboardColorCodeConfigTest@7f4701b1]" started-at="2019-11-20T14:50:13 IST" name="endTestCase" finished-at="2019-11-20T14:50:13 IST" duration-ms="0" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.DeleteWithoutDeleteReasonRecord() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.DashboardColorCodeConfigTest.DeleteWithoutDeleteReasonRecord() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:33:42 IST" name="startTestCase" finished-at="2019-11-15T17:33:42 IST" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="NavigateToDashboardColorCodeConfigPage()[pri:0, instance:com.tetherfi.test.DashboardColorCodeConfigTest@7f4701b1]" started-at="2019-11-20T14:50:13 IST" name="NavigateToDashboardColorCodeConfigPage" finished-at="2019-11-20T14:50:17 IST" duration-ms="4017" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToDashboardColorCodeConfigPage -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.DashboardColorCodeConfigTest@7f4701b1]" started-at="2019-11-20T14:50:13 IST" name="startTestCase" finished-at="2019-11-20T14:50:13 IST" duration-ms="0" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.VerifyCancelBtnAtDeleteIntentMappingRecord() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.DashboardColorCodeConfigTest.DeleteRecord() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigateToIntentMappingPage()[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:33:42 IST" name="NavigateToIntentMappingPage" finished-at="2019-11-15T17:33:45 IST" duration-ms="3909" status="PASS">
+        <test-method signature="DeleteRecord()[pri:34, instance:com.tetherfi.test.DashboardColorCodeConfigTest@7f4701b1]" started-at="2019-11-20T14:50:17 IST" name="DeleteRecord" finished-at="2019-11-20T14:50:22 IST" duration-ms="5583" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- NavigateToIntentMappingPage -->
-        <test-method signature="VerifyCancelBtnAtDeleteIntentMappingRecord()[pri:29, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:33:45 IST" name="VerifyCancelBtnAtDeleteIntentMappingRecord" finished-at="2019-11-15T17:35:09 IST" duration-ms="83989" status="FAIL">
-          <exception class="org.openqa.selenium.TimeoutException">
-            <message>
-              <![CDATA[Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.cssSelector: .k-grid-CustomDelete' (tried for 30 second(s) with 500 milliseconds interval)]]>
-            </message>
+        </test-method> <!-- DeleteRecord -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.DashboardColorCodeConfigTest@7f4701b1]" started-at="2019-11-20T14:50:23 IST" name="afterEachMethod" finished-at="2019-11-20T14:50:24 IST" duration-ms="1433" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.DashboardColorCodeConfigTest.DeleteRecord() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.DashboardColorCodeConfigTest@7f4701b1]" started-at="2019-11-20T14:50:24 IST" name="endTestCase" finished-at="2019-11-20T14:50:24 IST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.DashboardColorCodeConfigTest.DeleteRecord() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.DashboardColorCodeConfigTest@7f4701b1]" started-at="2019-11-20T14:50:24 IST" name="startTestCase" finished-at="2019-11-20T14:50:24 IST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.DashboardColorCodeConfigTest.VerifyAuditTrialReportForDelete() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method is-config="true" signature="NavigateToDashboardColorCodeConfigPage()[pri:0, instance:com.tetherfi.test.DashboardColorCodeConfigTest@7f4701b1]" started-at="2019-11-20T14:50:24 IST" name="NavigateToDashboardColorCodeConfigPage" finished-at="2019-11-20T14:50:27 IST" duration-ms="2962" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToDashboardColorCodeConfigPage -->
+        <test-method signature="VerifyAuditTrialReportForDelete()[pri:35, instance:com.tetherfi.test.DashboardColorCodeConfigTest@7f4701b1]" started-at="2019-11-20T14:50:27 IST" name="VerifyAuditTrialReportForDelete" finished-at="2019-11-20T14:50:49 IST" duration-ms="22224" status="FAIL">
+          <exception class="java.lang.NullPointerException">
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.cssSelector: .k-grid-CustomDelete' (tried for 30 second(s) with 500 milliseconds interval)
-at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
-at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
-at com.tetherfi.pages.BasePage.waitUntilWebElementIsVisible(BasePage.java:127)
-at com.tetherfi.pages.BasePage.selectWebElement(BasePage.java:198)
-at com.tetherfi.pages.IntentMappingPage.clickOnDeleteButton(IntentMappingPage.java:837)
-at com.tetherfi.test.ivr.IntentMappingTest.VerifyCancelBtnAtDeleteIntentMappingRecord(IntentMappingTest.java:318)
+              <![CDATA[java.lang.NullPointerException
+at com.tetherfi.pages.OCMReportsPage.verifyDashboardColorConfigdelete(OCMReportsPage.java:6025)
+at com.tetherfi.test.DashboardColorCodeConfigTest.VerifyAuditTrialReportForDelete(DashboardColorCodeConfigTest.java:361)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -1369,678 +183,121 @@ at org.testng.TestNG.run(TestNG.java:1000)
 at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"css selector","selector":".k-grid-CustomDelete"}
-  (Session info: chrome=78.0.3904.97)
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'DESKTOP-O6A5C2O', ip: '10.0.75.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '9.0.4'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.97, chrome: {chromedriverVersion: 78.0.3904.70 (edb9c9f3de024..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:53494}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 35e42521269d179838979316e3341f06
-*** Element info: {Using=css selector, value=.k-grid-CustomDelete}
-at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
-at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-at java.base/java.lang.reflect.Constructor.newInstance(Unknown Source)
-at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
-at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:420)
-at org.openqa.selenium.By$ByCssSelector.findElement(By.java:431)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
-at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
-at com.sun.proxy.$Proxy16.isDisplayed(Unknown Source)
-at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:314)
-at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:43)
-at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:300)
-at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:297)
-at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
-... 32 more
 ]]>
             </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.TimeoutException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- VerifyCancelBtnAtDeleteIntentMappingRecord -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:35:09 IST" name="afterEachMethod" finished-at="2019-11-15T17:35:11 IST" duration-ms="1254" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.VerifyCancelBtnAtDeleteIntentMappingRecord() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:35:11 IST" name="endTestCase" finished-at="2019-11-15T17:35:11 IST" duration-ms="2" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.VerifyCancelBtnAtDeleteIntentMappingRecord() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method signature="DeleteIntentMappingRecord()[pri:30, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:35:11 IST" name="DeleteIntentMappingRecord" finished-at="2019-11-15T17:35:11 IST" depends-on-methods="com.tetherfi.test.ivr.IntentMappingTest.VerifyCancelBtnAtDeleteIntentMappingRecord" duration-ms="0" status="SKIP">
-          <exception class="java.lang.Throwable">
-            <message>
-              <![CDATA[Method IntentMappingTest.DeleteIntentMappingRecord()[pri:30, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320] depends on not successfully finished methods]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.Throwable: Method IntentMappingTest.DeleteIntentMappingRecord()[pri:30, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320] depends on not successfully finished methods
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:99)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(Unknown Source)
-at org.testng.TestRunner.privateRun(TestRunner.java:770)
-at org.testng.TestRunner.run(TestRunner.java:591)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-at org.testng.TestNG.runSuites(TestNG.java:1032)
-at org.testng.TestNG.run(TestNG.java:1000)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.Throwable -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- DeleteIntentMappingRecord -->
-        <test-method signature="VerifyAuditTrialReportForDelete()[pri:31, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:35:11 IST" name="VerifyAuditTrialReportForDelete" finished-at="2019-11-15T17:35:11 IST" depends-on-methods="com.tetherfi.test.ivr.IntentMappingTest.DeleteIntentMappingRecord" duration-ms="0" status="SKIP">
-          <exception class="java.lang.Throwable">
-            <message>
-              <![CDATA[Method IntentMappingTest.VerifyAuditTrialReportForDelete()[pri:31, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320] depends on not successfully finished methods]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.Throwable: Method IntentMappingTest.VerifyAuditTrialReportForDelete()[pri:31, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320] depends on not successfully finished methods
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:99)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(Unknown Source)
-at org.testng.TestRunner.privateRun(TestRunner.java:770)
-at org.testng.TestRunner.run(TestRunner.java:591)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-at org.testng.TestNG.runSuites(TestNG.java:1032)
-at org.testng.TestNG.run(TestNG.java:1000)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.Throwable -->
+          </exception> <!-- java.lang.NullPointerException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- VerifyAuditTrialReportForDelete -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:35:11 IST" name="startTestCase" finished-at="2019-11-15T17:35:11 IST" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.DashboardColorCodeConfigTest@7f4701b1]" started-at="2019-11-20T14:50:49 IST" name="afterEachMethod" finished-at="2019-11-20T14:50:51 IST" duration-ms="1651" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.SearchClearSearch() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.DashboardColorCodeConfigTest.VerifyAuditTrialReportForDelete() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.DashboardColorCodeConfigTest@7f4701b1]" started-at="2019-11-20T14:50:51 IST" name="endTestCase" finished-at="2019-11-20T14:50:51 IST" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.DashboardColorCodeConfigTest.VerifyAuditTrialReportForDelete() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.DashboardColorCodeConfigTest@7f4701b1]" started-at="2019-11-20T14:50:51 IST" name="startTestCase" finished-at="2019-11-20T14:50:51 IST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.DashboardColorCodeConfigTest.SearchClearSearch() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigateToIntentMappingPage()[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:35:11 IST" name="NavigateToIntentMappingPage" finished-at="2019-11-15T17:35:15 IST" duration-ms="3885" status="PASS">
+        <test-method is-config="true" signature="NavigateToDashboardColorCodeConfigPage()[pri:0, instance:com.tetherfi.test.DashboardColorCodeConfigTest@7f4701b1]" started-at="2019-11-20T14:50:51 IST" name="NavigateToDashboardColorCodeConfigPage" finished-at="2019-11-20T14:50:54 IST" duration-ms="2823" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- NavigateToIntentMappingPage -->
-        <test-method signature="SearchClearSearch()[pri:32, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:35:15 IST" name="SearchClearSearch" finished-at="2019-11-15T17:35:19 IST" duration-ms="4223" status="PASS">
+        </test-method> <!-- NavigateToDashboardColorCodeConfigPage -->
+        <test-method signature="SearchClearSearch()[pri:38, instance:com.tetherfi.test.DashboardColorCodeConfigTest@7f4701b1]" started-at="2019-11-20T14:50:54 IST" name="SearchClearSearch" finished-at="2019-11-20T14:50:58 IST" duration-ms="4219" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- SearchClearSearch -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:35:19 IST" name="afterEachMethod" finished-at="2019-11-15T17:35:20 IST" duration-ms="1073" status="PASS">
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.DashboardColorCodeConfigTest@7f4701b1]" started-at="2019-11-20T14:50:58 IST" name="afterEachMethod" finished-at="2019-11-20T14:50:59 IST" duration-ms="1309" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.SearchClearSearch() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.DashboardColorCodeConfigTest.SearchClearSearch() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:35:20 IST" name="endTestCase" finished-at="2019-11-15T17:35:20 IST" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.DashboardColorCodeConfigTest@7f4701b1]" started-at="2019-11-20T14:50:59 IST" name="endTestCase" finished-at="2019-11-20T14:50:59 IST" duration-ms="1" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.SearchClearSearch() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.DashboardColorCodeConfigTest.SearchClearSearch() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:35:20 IST" name="startTestCase" finished-at="2019-11-15T17:35:20 IST" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.DashboardColorCodeConfigTest@7f4701b1]" started-at="2019-11-20T14:50:59 IST" name="startTestCase" finished-at="2019-11-20T14:50:59 IST" duration-ms="0" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.ExporttoExcelWithoutData() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.DashboardColorCodeConfigTest.searchwithoutSearchTextbox() throws java.io.IOException]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigateToIntentMappingPage()[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:35:20 IST" name="NavigateToIntentMappingPage" finished-at="2019-11-15T17:35:24 IST" duration-ms="3711" status="PASS">
+        <test-method is-config="true" signature="NavigateToDashboardColorCodeConfigPage()[pri:0, instance:com.tetherfi.test.DashboardColorCodeConfigTest@7f4701b1]" started-at="2019-11-20T14:50:59 IST" name="NavigateToDashboardColorCodeConfigPage" finished-at="2019-11-20T14:51:02 IST" duration-ms="3050" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- NavigateToIntentMappingPage -->
-        <test-method signature="ExporttoExcelWithoutData()[pri:33, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:35:24 IST" name="ExporttoExcelWithoutData" finished-at="2019-11-15T17:36:08 IST" duration-ms="44214" status="FAIL">
-          <exception class="java.lang.IndexOutOfBoundsException">
-            <message>
-              <![CDATA[Index 0 out-of-bounds for length 0]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.IndexOutOfBoundsException: Index 0 out-of-bounds for length 0
-at java.base/jdk.internal.util.Preconditions.outOfBounds(Unknown Source)
-at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Unknown Source)
-at java.base/jdk.internal.util.Preconditions.checkIndex(Unknown Source)
-at java.base/java.util.Objects.checkIndex(Unknown Source)
-at java.base/java.util.ArrayList.get(Unknown Source)
-at java.base/jdk.internal.reflect.GeneratedMethodAccessor4.invoke(Unknown Source)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-at org.openqa.selenium.support.pagefactory.internal.LocatingElementListHandler.invoke(LocatingElementListHandler.java:39)
-at com.sun.proxy.$Proxy17.get(Unknown Source)
-at com.tetherfi.pages.IntentMappingPage.ExporttoExcelWithoutData(IntentMappingPage.java:620)
-at com.tetherfi.test.ivr.IntentMappingTest.ExporttoExcelWithoutData(IntentMappingTest.java:366)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(Unknown Source)
-at org.testng.TestRunner.privateRun(TestRunner.java:770)
-at org.testng.TestRunner.run(TestRunner.java:591)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-at org.testng.TestNG.runSuites(TestNG.java:1032)
-at org.testng.TestNG.run(TestNG.java:1000)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.IndexOutOfBoundsException -->
+        </test-method> <!-- NavigateToDashboardColorCodeConfigPage -->
+        <test-method signature="searchwithoutSearchTextbox()[pri:39, instance:com.tetherfi.test.DashboardColorCodeConfigTest@7f4701b1]" started-at="2019-11-20T14:51:02 IST" name="searchwithoutSearchTextbox" finished-at="2019-11-20T14:51:05 IST" duration-ms="3151" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- ExporttoExcelWithoutData -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:36:08 IST" name="afterEachMethod" finished-at="2019-11-15T17:36:09 IST" duration-ms="1358" status="PASS">
+        </test-method> <!-- searchwithoutSearchTextbox -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.DashboardColorCodeConfigTest@7f4701b1]" started-at="2019-11-20T14:51:05 IST" name="afterEachMethod" finished-at="2019-11-20T14:51:07 IST" duration-ms="1274" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.ExporttoExcelWithoutData() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.DashboardColorCodeConfigTest.searchwithoutSearchTextbox() throws java.io.IOException]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:36:09 IST" name="endTestCase" finished-at="2019-11-15T17:36:09 IST" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.DashboardColorCodeConfigTest@7f4701b1]" started-at="2019-11-20T14:51:07 IST" name="endTestCase" finished-at="2019-11-20T14:51:07 IST" duration-ms="0" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.ExporttoExcelWithoutData() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.DashboardColorCodeConfigTest.searchwithoutSearchTextbox() throws java.io.IOException]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="NavigateToIntentMappingPage()[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:36:09 IST" name="NavigateToIntentMappingPage" finished-at="2019-11-15T17:36:13 IST" duration-ms="3656" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToIntentMappingPage -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:36:09 IST" name="startTestCase" finished-at="2019-11-15T17:36:09 IST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.SortingByAscending() throws java.io.IOException]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method signature="SortingByAscending()[pri:34, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:36:13 IST" name="SortingByAscending" finished-at="2019-11-15T17:36:20 IST" duration-ms="6719" status="FAIL">
-          <exception class="java.lang.AssertionError">
-            <message>
-              <![CDATA[did not expect to find [true] but found [false]]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: did not expect to find [true] but found [false]
-at org.testng.Assert.fail(Assert.java:97)
-at org.testng.Assert.failNotEquals(Assert.java:969)
-at org.testng.Assert.assertTrue(Assert.java:43)
-at org.testng.Assert.assertTrue(Assert.java:53)
-at com.tetherfi.test.ivr.IntentMappingTest.SortingByAscending(IntentMappingTest.java:375)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(Unknown Source)
-at org.testng.TestRunner.privateRun(TestRunner.java:770)
-at org.testng.TestRunner.run(TestRunner.java:591)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-at org.testng.TestNG.runSuites(TestNG.java:1032)
-at org.testng.TestNG.run(TestNG.java:1000)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- SortingByAscending -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:36:20 IST" name="afterEachMethod" finished-at="2019-11-15T17:36:21 IST" duration-ms="1121" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.SortingByAscending() throws java.io.IOException]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:36:21 IST" name="endTestCase" finished-at="2019-11-15T17:36:21 IST" duration-ms="1" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.SortingByAscending() throws java.io.IOException]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:36:21 IST" name="startTestCase" finished-at="2019-11-15T17:36:21 IST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.SortingByDescending() throws java.io.IOException]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigateToIntentMappingPage()[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:36:21 IST" name="NavigateToIntentMappingPage" finished-at="2019-11-15T17:36:24 IST" duration-ms="3815" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToIntentMappingPage -->
-        <test-method signature="SortingByDescending()[pri:35, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:36:24 IST" name="SortingByDescending" finished-at="2019-11-15T17:36:30 IST" duration-ms="5624" status="FAIL">
-          <exception class="java.lang.AssertionError">
-            <message>
-              <![CDATA[did not expect to find [true] but found [false]]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: did not expect to find [true] but found [false]
-at org.testng.Assert.fail(Assert.java:97)
-at org.testng.Assert.failNotEquals(Assert.java:969)
-at org.testng.Assert.assertTrue(Assert.java:43)
-at org.testng.Assert.assertTrue(Assert.java:53)
-at com.tetherfi.test.ivr.IntentMappingTest.SortingByDescending(IntentMappingTest.java:384)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(Unknown Source)
-at org.testng.TestRunner.privateRun(TestRunner.java:770)
-at org.testng.TestRunner.run(TestRunner.java:591)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-at org.testng.TestNG.runSuites(TestNG.java:1032)
-at org.testng.TestNG.run(TestNG.java:1000)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- SortingByDescending -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:36:30 IST" name="afterEachMethod" finished-at="2019-11-15T17:36:31 IST" duration-ms="1085" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.SortingByDescending() throws java.io.IOException]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:36:31 IST" name="endTestCase" finished-at="2019-11-15T17:36:31 IST" duration-ms="1" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.SortingByDescending() throws java.io.IOException]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="NavigateToIntentMappingPage()[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:36:31 IST" name="NavigateToIntentMappingPage" finished-at="2019-11-15T17:36:35 IST" duration-ms="3944" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToIntentMappingPage -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:36:31 IST" name="startTestCase" finished-at="2019-11-15T17:36:31 IST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.GroupBy()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method signature="GroupBy()[pri:36, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:36:35 IST" name="GroupBy" finished-at="2019-11-15T17:36:38 IST" duration-ms="2852" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- GroupBy -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:36:38 IST" name="afterEachMethod" finished-at="2019-11-15T17:36:39 IST" duration-ms="1147" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.GroupBy()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:36:39 IST" name="endTestCase" finished-at="2019-11-15T17:36:39 IST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.GroupBy()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:36:39 IST" name="startTestCase" finished-at="2019-11-15T17:36:39 IST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.VerifyArrowMoveForPreviousAndNextPage()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigateToIntentMappingPage()[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:36:39 IST" name="NavigateToIntentMappingPage" finished-at="2019-11-15T17:36:43 IST" duration-ms="3768" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToIntentMappingPage -->
-        <test-method signature="VerifyArrowMoveForPreviousAndNextPage()[pri:37, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:36:43 IST" name="VerifyArrowMoveForPreviousAndNextPage" finished-at="2019-11-15T17:36:43 IST" duration-ms="30" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- VerifyArrowMoveForPreviousAndNextPage -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:36:43 IST" name="afterEachMethod" finished-at="2019-11-15T17:36:44 IST" duration-ms="1299" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.VerifyArrowMoveForPreviousAndNextPage()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:36:44 IST" name="endTestCase" finished-at="2019-11-15T17:36:44 IST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.VerifyArrowMoveForPreviousAndNextPage()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:36:44 IST" name="startTestCase" finished-at="2019-11-15T17:36:44 IST" duration-ms="1" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.VerifyArrowMoveForFirstAndLastPage()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigateToIntentMappingPage()[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:36:44 IST" name="NavigateToIntentMappingPage" finished-at="2019-11-15T17:36:48 IST" duration-ms="3825" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToIntentMappingPage -->
-        <test-method signature="VerifyArrowMoveForFirstAndLastPage()[pri:38, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:36:48 IST" name="VerifyArrowMoveForFirstAndLastPage" finished-at="2019-11-15T17:36:48 IST" duration-ms="69" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- VerifyArrowMoveForFirstAndLastPage -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:36:48 IST" name="afterEachMethod" finished-at="2019-11-15T17:36:49 IST" duration-ms="1166" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.VerifyArrowMoveForFirstAndLastPage()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:36:49 IST" name="endTestCase" finished-at="2019-11-15T17:36:49 IST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.VerifyArrowMoveForFirstAndLastPage()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:36:49 IST" name="startTestCase" finished-at="2019-11-15T17:36:49 IST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.VerifyTotalNumberOfItemsPerPageDetails()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigateToIntentMappingPage()[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:36:49 IST" name="NavigateToIntentMappingPage" finished-at="2019-11-15T17:36:53 IST" duration-ms="3926" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToIntentMappingPage -->
-        <test-method signature="VerifyTotalNumberOfItemsPerPageDetails()[pri:39, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:36:53 IST" name="VerifyTotalNumberOfItemsPerPageDetails" finished-at="2019-11-15T17:36:53 IST" duration-ms="51" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- VerifyTotalNumberOfItemsPerPageDetails -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:36:53 IST" name="afterEachMethod" finished-at="2019-11-15T17:36:54 IST" duration-ms="1139" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.VerifyTotalNumberOfItemsPerPageDetails()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:36:54 IST" name="endTestCase" finished-at="2019-11-15T17:36:54 IST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.VerifyTotalNumberOfItemsPerPageDetails()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="NavigateToIntentMappingPage()[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:36:54 IST" name="NavigateToIntentMappingPage" finished-at="2019-11-15T17:36:58 IST" duration-ms="3918" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToIntentMappingPage -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:36:54 IST" name="startTestCase" finished-at="2019-11-15T17:36:54 IST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.VerifyNumberOfItemsPerPageSelection()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method signature="VerifyNumberOfItemsPerPageSelection()[pri:40, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:36:58 IST" name="VerifyNumberOfItemsPerPageSelection" finished-at="2019-11-15T17:37:03 IST" duration-ms="5166" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- VerifyNumberOfItemsPerPageSelection -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:37:03 IST" name="afterEachMethod" finished-at="2019-11-15T17:37:05 IST" duration-ms="1082" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.VerifyNumberOfItemsPerPageSelection()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:37:05 IST" name="endTestCase" finished-at="2019-11-15T17:37:05 IST" duration-ms="1" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.VerifyNumberOfItemsPerPageSelection()]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:37:05 IST" name="startTestCase" finished-at="2019-11-15T17:37:05 IST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.database() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigateToIntentMappingPage()[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:37:05 IST" name="NavigateToIntentMappingPage" finished-at="2019-11-15T17:37:09 IST" duration-ms="4287" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToIntentMappingPage -->
-        <test-method signature="database()[pri:41, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:37:09 IST" name="database" finished-at="2019-11-15T17:37:12 IST" duration-ms="2852" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- database -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:37:12 IST" name="afterEachMethod" finished-at="2019-11-15T17:37:13 IST" duration-ms="1265" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.database() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:37:13 IST" name="endTestCase" finished-at="2019-11-15T17:37:13 IST" duration-ms="1" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.database() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@e784320]" started-at="2019-11-15T17:37:13 IST" name="tearDown" finished-at="2019-11-15T17:37:18 IST" duration-ms="5292" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.tetherfi.test.DashboardColorCodeConfigTest@7f4701b1]" started-at="2019-11-20T14:51:07 IST" name="tearDown" finished-at="2019-11-20T14:51:12 IST" duration-ms="5466" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.tetherfi.test.ivr.IntentMappingTest -->
+      </class> <!-- com.tetherfi.test.DashboardColorCodeConfigTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

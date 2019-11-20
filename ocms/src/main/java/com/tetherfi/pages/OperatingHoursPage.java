@@ -102,9 +102,12 @@ public class OperatingHoursPage extends BasePage {
     @FindBy(id="noButton")
     private WebElement nobtn;
 
-    @FindBy(css = "#toast-container .toast-error")
-    private List<WebElement> errorMsg;
+    /*@FindBy(css = "#toast-container .toast-error")
+    private List<WebElement> errorMsg;*/
 
+    @FindBy(css="#toast-container .toast-error .toast-message")
+    private List<WebElement> errorMsg;
+    
     @FindBy(id="SelAllBut")
     private WebElement selectallbtn;
     
@@ -159,14 +162,23 @@ public class OperatingHoursPage extends BasePage {
     @FindBy(css=".k-animation-container ul li")
     private List<WebElement> pageSizeListBox;
     
-    @FindBy(css="th a[class='k-header-column-menu']")
+    /*@FindBy(css="th a[class='k-header-column-menu']")
+    private List<WebElement> headersDropdown;*/
+    
+    @FindBy(xpath="//a[@title='Edit Column Settings']")
     private List<WebElement> headersDropdown;
+    
+    /*@FindBy(css="#drillGrid th a[title='Edit Column Settings']")
+    private List<WebElement> headersDropdown;*/
     
     @FindBy(css="div[style*='overflow: visible'] span[class^='k-link']")
     private List<WebElement> headersColumns;
-    
+     
     @FindBy(css="th a[class='k-link']")
     private List<WebElement> headersText;
+    
+    /*@FindBy(css="#drillGrid th a[class='k-link']")
+    private List<WebElement> headersText;*/
     
     @FindBy(xpath="//div[@class='k-grid-content k-auto-scrollable']/table/tbody/tr")
     private List<WebElement> tablerecord;
@@ -475,6 +487,13 @@ public class OperatingHoursPage extends BasePage {
         selectWebElement(deleteYesBtn);
     }
 
+    public String getSuccessMessage() {
+		//		waitForJqueryLoad(driver);
+		if(successmsg.isDisplayed())
+			return successmsg.getText();
+		else{return errorMsg.get(0).getText();}	
+	}
+       
     public boolean verifyNewRecordCreated(){
        //waitForJqueryLoad(driver);
         //if(errorMsg.size()>0){return false;}
@@ -578,7 +597,7 @@ public class OperatingHoursPage extends BasePage {
 		return false;
 	}
 	
-	private List<Map<String,String>> getdata(){
+	/*private List<Map<String,String>> getdata(){
 		int item=Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
         int pagersize=Integer.valueOf(pagerSize.getText());
         int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
@@ -591,8 +610,43 @@ public class OperatingHoursPage extends BasePage {
 		for(int i=1;i<rows.size();i++) {
 			Map<String,String> map = new HashMap<String,String>();
 			List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
+			for(int j=1;j<headers.size();j++) {				
+					col=cols.get(j).getText();
+				map.put(headers.get(j).getText(),col);
+			}
+			map.remove("");
+			arr.add(map);
+		}
+		if(k!=pages)
+		{
+			nextPageIcon.click();
+			waitForJqueryLoad(driver);}
+		}
+			return arr;
+	}*/
+	
+	private List<Map<String,String>> getdata(){
+		int item=Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
+        int pagersize=Integer.valueOf(pagerSize.getText());
+        int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
+		List<Map<String,String>> arr=new ArrayList<Map<String,String>>();
+		for(int k=0;k<=pages;k++){
+		waitUntilWebElementIsVisible(auditGridContent);
+		List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
+		List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));		
+		String col=null;
+		for(int i=1;i<rows.size();i++) {		
+		Map<String,String> map = new HashMap<String,String>();
+			List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));			
 			for(int j=1;j<headers.size();j++) {
-				
+			
+			scrollToElement(headers.get(j));
+			
+				System.out.println(headers.get(j).getText());
+				if(headers.get(j).getText().equals("Insert Date Time")){
+				col=cols.get(j).getText().substring(0,10);
+				}
+				else
 					col=cols.get(j).getText();
 				map.put(headers.get(j).getText(),col);
 			}
@@ -606,6 +660,8 @@ public class OperatingHoursPage extends BasePage {
 		}
 			return arr;
 	}
+	
+	
 	public boolean verifyDatabase(String query) {
 		List<Map<String,String>> database=database(query);
 		System.out.println(database);
@@ -658,6 +714,7 @@ public class OperatingHoursPage extends BasePage {
 		else
 		return false;
 	}
+	
 	public void SortByAscending() {
 		selectWebElement(vdn);
 		
@@ -742,6 +799,7 @@ public class OperatingHoursPage extends BasePage {
         String item = items.getText();
         return item.matches("(\\d.*) - (\\d.*) of (\\d.*) items");
     }
+        
     public boolean verifyDropDownOfAllHeaders() {
         boolean status = false;
         try {for (WebElement ele : headersDropdown) {
@@ -768,7 +826,8 @@ public class OperatingHoursPage extends BasePage {
         }
         return status;
     }
-    public boolean verifycolumnsHeaderDisabled() {
+       
+    /*public boolean verifycolumnsHeaderDisabled() {
         boolean status = false;
         WebElement ele = headersDropdown.get(0);
             if (ele.isDisplayed()) {
@@ -802,7 +861,44 @@ public class OperatingHoursPage extends BasePage {
 
             }
         return status;
+    }*/
+    
+    public boolean verifycolumnsHeaderDisabled() {
+        boolean status = false;
+        WebElement ele = headersDropdown.get(0);
+        scrollToElement(ele);
+            if (ele.isDisplayed()) {
+                try {
+                    selectWebElement(ele);
+                    Thread.sleep(1000);
+                    selectWebElement(headersColumns.get(2));
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                for (int i = 3; i < headersColumns.size(); i++) {
+                    System.out.println(headersColumns.get(i).getText());
+                    WebElement checkbox = headersColumns.get(i).findElement(By.tagName("input"));
+                    if (checkbox.isSelected()) {
+                        checkbox.click();
+                    } else {
+                    }
+                    for (WebElement ele1 : headersText) {
+                        if (ele1.getText().equals(headersColumns.get(i).getText())) {
+                            status = true;
+                            break;
+                        }
+                    }
+                    if (!status) {
+                        checkbox.click();
+                    } else {
+                        break;
+                    }
+                }
+            }
+        return status;
     }
+    
     public boolean verifycolumnsHeaderEnabled(){
         boolean status=false;
         WebElement ele= headersDropdown.get(0);
@@ -1054,11 +1150,6 @@ public class OperatingHoursPage extends BasePage {
         selectWebElement(addBypassPublicHolidayDropdown);
         selectDropdownFromVisibleText(addBypassPublicHolidayListBox,details.getBypassPublicHoliday());
         selectWebElement(SaveButton);
-        selectWebElement(CancelButton);
-		
-	}
-
-	
-	
-	
+        selectWebElement(CancelButton);	
+	}	
 }

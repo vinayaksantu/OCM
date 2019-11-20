@@ -17,6 +17,10 @@ public class DashboardColorCodeConfigDetails {
     private String query;
     private String updatedStartRange;
     private String updatedEndrange;
+    private String errorMsg1;
+    private String errorMsg2;
+    private String errorMsg3;
+    private String errorMsg4;
 
     public DashboardColorCodeConfigDetails(Map<String,String> map){
        dashboardName=readdashboardName(map);
@@ -30,11 +34,34 @@ public class DashboardColorCodeConfigDetails {
         updatedColor=readUpdatedColorCode(map);
         updatedStartRange=readUpdatedStartRange(map);
         updatedEndrange=readUpdatedEndRange(map);
-        
+        errorMsg1=readErrorMsg1(map);
+        errorMsg2=readErrorMsg2(map);
+        errorMsg3=readErrorMsg3(map);
+        errorMsg4=readErrorMsg4(map);
         query=readQuery(map);
     }
 
-    private String readColumnName(Map<String, String> map) {
+    private String readErrorMsg4(Map<String, String> map) {
+    	String value=map.get("ErrorMsg4");
+		return value;
+	}
+
+	private String readErrorMsg3(Map<String, String> map) {
+		String value=map.get("ErrorMsg3");
+		return value;
+	}
+
+	private String readErrorMsg2(Map<String, String> map) {
+		String value=map.get("ErrorMsg2");
+		return value;
+	}
+
+	private String readErrorMsg1(Map<String, String> map) {
+		String value=map.get("ErrorMsg1");
+		return value;
+	}
+
+	private String readColumnName(Map<String, String> map) {
     	String value=map.get("Column Name");
 		return value;
 	}
@@ -70,7 +97,7 @@ public class DashboardColorCodeConfigDetails {
 	}
 
 	private String readUpdatedColorCode(Map<String, String> map) {
-        String value=map.get("Updated Background Color ");
+        String value=map.get("Updated Background Color");
         return value;
     }
     
@@ -149,4 +176,24 @@ public class DashboardColorCodeConfigDetails {
 	public String getcolumnName() {
 		return columnName;		
 	}
+	 public String getFontcolor() {
+	        return fontcolor;
+	    }
+
+	public String getErrorMsg1() {
+		return errorMsg1;
+	}
+
+	public String getErrorMsg2() {
+		return errorMsg2;
+	}
+
+	public String getErrorMsg3() {
+		return errorMsg3;
+	}
+
+	public String getErrorMsg4() {
+		return errorMsg4;
+	}
+
 }

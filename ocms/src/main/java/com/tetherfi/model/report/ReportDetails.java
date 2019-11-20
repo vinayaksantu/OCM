@@ -22,10 +22,13 @@ public class ReportDetails {
     private String colname;
     private String coltype;
     private String searchStr;
+    private String reportName1;
+    
 
     public ReportDetails(Map<String, String> map){
         reportChannel=readReportChannel(map);
         reportName=readReportname(map);
+        reportName1=readReportName1(map);
         reportType=readReportType(map);
         reportDate=readReportDate(map);
         try {
@@ -44,7 +47,14 @@ public class ReportDetails {
         coltype=readColType(map);
         searchStr=readSearchStr(map);
     }
-    private String readSearchStr(Map<String, String> map) {
+    private String readReportName1(Map<String, String> map) {
+    	String value=map.get("Report Name1");
+        if(value==null||value.equalsIgnoreCase("random.str")){
+            value=RandomStringUtils.randomAlphabetic(10);
+        }
+        return value;
+	}
+	private String readSearchStr(Map<String, String> map) {
         String value=map.get("Search String");
         if(value==null||value.equalsIgnoreCase("random.str")){
             value="Null";
@@ -177,4 +187,7 @@ public class ReportDetails {
     public String getSearchStr() {
         return searchStr;
     }
+	public String getReportName1() {
+		return reportName1;
+	}
 }

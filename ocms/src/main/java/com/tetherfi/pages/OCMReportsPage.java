@@ -31,6 +31,7 @@ import com.tetherfi.model.tmac.TmacBroadCastMsgDetails;
 import com.tetherfi.model.tmac.WaitTimeColorConfigDetails;
 import com.tetherfi.model.tmac.WorkCodeListDetails;
 import com.tetherfi.model.user.CepEventMappingDetails;
+import com.tetherfi.model.user.DashboardColorCodeConfigDetails;
 import com.tetherfi.model.user.SkillConfigurationDetails;
 import com.tetherfi.model.user.TdmThresholdConfigDetails;
 import com.tetherfi.model.user.UserRoleMappingDetails;
@@ -280,6 +281,9 @@ public class OCMReportsPage extends BasePage {
     
     @FindBy(id="1002sTextToSearch")
     private WebElement searchTextBoxtwo;
+    
+    @FindBy(xpath="//button[@id='clearAllSearch']")
+	private WebElement ClearAll; 
     
     public boolean isShowButtonsDisplayed() {
     	return showReportBtn.get(0).isDisplayed() && showReportBtn.get(1).isDisplayed() && showReportBtn.get(0).isEnabled() && showReportBtn.get(1).isEnabled();    	
@@ -5903,7 +5907,162 @@ return status;
     	return Status;
 	}
 
-	
+	public boolean verifyDashboardColorConfigCreate(DashboardColorCodeConfigDetails details, String Transaction) throws Exception {
+		booleansearchnew(details.getColorcode(),Transaction);
+		Boolean Status=false;
+	    Map<String,String> firstRowData=getFirstRowDatafromTable1();
+		Map<String,String> newvalues=new HashMap<>();
+		String[]d=firstRowData.get("New Values").split("\n");
+		for(String e:d) {
+			String f[]=e.split(":",2);
+			if(f.length>1)
+			newvalues.put(f[0], f[1]);
+		}
+			if(newvalues.get("DashboardName").equals(details.getdashboardName()))
+			{
+				if(newvalues.get("ColumnName").equals(details.getcolumnName()))
+				{
+						if(newvalues.get("EndRange").equals(details.getEndRange()))
+						{
+							if(newvalues.get("BackgroundColor").equals(details.getColorcode()))
+							
+							{   if(newvalues.get("FontColor").equals(details.getFontcolor()))
+									{
+								if(newvalues.get("StartRange").equals(details.getStartRange()))
+									Status= true;
+								else {System.out.println("StartRange data mismatch");}
+							}
+							else {System.out.println("FontColor data mismatch");}
+						}
+						else {System.out.println("BackgroundColor data mismatch");}
+					}
+					else {System.out.println("EndRange data mismatch");}
+				}
+				else {System.out.println("ColumnName data mismatch");}
+			}
+			else {System.out.println("DashboardName data mismatch");	}
+		return Status;
+	}
+
+	public boolean verifyDashboardColorCodeConfigUpdate(DashboardColorCodeConfigDetails details, String Transaction) throws Exception {
+			booleansearchnew(details.getUpdatedStartRange(),Transaction);
+			Boolean Status=false;
+	        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+	        if(firstRowData.containsKey("Old Values")) {
+	        	Map<String,String> oldvalues=new HashMap<>();
+	    		String[]d=firstRowData.get("Old Values").split("\n");
+	    		for(String e:d) {
+	    			System.out.println(e);
+	    			String f[]=e.split(":",2);
+	    			if(f.length>1)
+	    				oldvalues.put(f[0], f[1]);
+	    		}
+	    		if(oldvalues.get("DashboardName").equals(details.getdashboardName())){
+	    			if(oldvalues.get("ColumnName").equals(details.getcolumnName())){
+	    				if(oldvalues.get("EndRange").equals(details.getEndRange())) {
+	    					if(oldvalues.get("BackgroundColor").equals(details.getColorcode())){
+	        					if(oldvalues.get("FontColor").equals(details.getFontcolor())){
+	            					if(oldvalues.get("StartRange").equals(details.getStartRange())){
+	                					if(firstRowData.containsKey("New Values")) {
+	                						Map<String,String> newvalues=new HashMap<>();
+	                						String[]d1=firstRowData.get("New Values").split("\n");
+	                						for(String e:d1) {
+	                							String f[]=e.split(":",2);
+	                							if(f.length>1)
+	                								newvalues.put(f[0], f[1]);
+	                						}
+	                						if(newvalues.get("DashboardName").equals(details.getdashboardName())) {
+	                							if(newvalues.get("ColumnName").equals(details.getcolumnName())){
+	                								if(newvalues.get("StartRange").equals(details.getStartRange())){
+	                									if(newvalues.get("EndRange").equals(details.getEndRange())){
+	                										if(newvalues.get("BackgroundColor").equals(details.getColorcode())){
+	                    										if(newvalues.get("FontColor").equals(details.getFontcolor())) {	
+	                    											if(newvalues.get("ModifyReason").equals(details.getModifyReason())){ 
+	                													if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getModifyReason()))
+	                														Status=true;
+	                													else System.out.println("Change reason data mismatch");
+	                    											}
+	                    											else System.out.println("Modify reason data mismatch");
+	                    										}
+	    	                									else System.out.println("FontColor data mismatch");
+	                										}
+	                										else System.out.println("BackgroundColor Status data mismatch");
+	                									}
+	                									else System.out.println("EndRange data mismatch");
+	                								}
+	                								else System.out.println("StartRange data mismatch");
+	                							}
+	                							else {System.out.println("ColumnName Type data mismatch");}
+	                						}
+	                						else {System.out.println("DashboardName data mismatch");}
+	                					}
+	                					else System.out.println("New Values data mismatch");
+	            					}
+	            					else System.out.println("StartRange data mismatch");
+	        					}
+	        					else System.out.println("FontColor data mismatch");
+	    					}
+	    					else System.out.println("BackgroundColor mismatch");
+	    				}
+	    				else System.out.println("EndRange mismatch");
+	    			}
+	    			else {System.out.println("ColumnName data mismatch");}
+	    		}
+				else {System.out.println("DashboardName data mismatch");}
+	    	}
+	        else {System.out.println("Old values data mismatch");}
+	 return Status;
+	}
+		
+		public boolean verifyDashboardColorConfigdelete(DashboardColorCodeConfigDetails details, String Transaction) throws Exception {
+			booleansearchold(details.getStartRange(),Transaction);
+			Boolean Status=false;
+	        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+			Map<String,String> oldvalues=new HashMap<>();
+			String[]d=firstRowData.get("Old Values").split("\n");
+			for(String e:d) {
+				String f[]=e.split(":",2);
+				if(f.length>1)
+				oldvalues.put(f[0], f[1]);
+			}
+				if(oldvalues.get("DashboardName").equals(details.getdashboardName()))
+				{
+					if(oldvalues.get("ColumnName").equals(details.getcolumnName()))
+					{
+						if(oldvalues.get("EndRange").equals(details.getEndRange()))
+						{
+							if(oldvalues.get("BackgroundColor").equals(details.getColorcode()))
+							{
+								if(oldvalues.get("FontColor").equals(details.getFontcolor()))
+								{
+									if(oldvalues.get("StartRange").equals(details.getStartRange()))
+									{
+										if(oldvalues.get("ModifyReason").equals(details.getDeleteReason())) {
+											if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getDeleteReason()))
+												Status=true;
+											else System.out.println("Change reason data mismatch");
+										}
+										else System.out.println("Modify reason data mismatch");
+									}
+									else {System.out.println("StartRange data mismatch");}
+								}
+								else {System.out.println("FontColor data mismatch");}
+						}
+						else {System.out.println("BackgroundColor data mismatch");}
+					}
+					else {System.out.println("EndRange data mismatch");}
+				}
+				else {System.out.println("ColumnName Type data mismatch");}
+			}
+			else {System.out.println("DashboardName data mismatch");}
+			return Status;	
+		}
+		public void ClearHomepgDrpDown(ReportDetails details) throws Exception {
+			chooseReport(details);
+			waitUntilWebElementIsClickable(ClearAll);
+			selectWebElement(ClearAll);
+			}
+
 
 	
 

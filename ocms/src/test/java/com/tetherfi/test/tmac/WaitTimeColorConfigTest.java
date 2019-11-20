@@ -343,6 +343,7 @@ public class WaitTimeColorConfigTest extends BaseTest {
 	   List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
 	   Assert.assertTrue(waitTimeColorConfigPage.verifyexportToExcelSheet(maplist));
    }
+   
    @Test(priority=34)
    public void ExporttoExcelWithoutData() throws Exception
    {

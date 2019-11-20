@@ -297,7 +297,7 @@ public class IntentMappingPage extends BasePage{
 		else
 		return false;
 	}
-	
+		
 	private List<Map<String,String>> getdata(){
 		int item=Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
         int pagersize=Integer.valueOf(pagerSize.getText());
@@ -314,10 +314,10 @@ public class IntentMappingPage extends BasePage{
 			for(int j=1;j<headers.size();j++) {
 				scrollToElement(headers.get(j));
 				System.out.println(headers.get(j).getText());
-				if(headers.get(j).getText().equals("Last Changed On")){
+				/*if(headers.get(j).getText().equals("Insert Date Time")){
 				col=cols.get(j).getText().substring(0,10);
 				}
-				else
+				else*/
 					col=cols.get(j).getText();
 				map.put(headers.get(j).getText(),col);
 			}
@@ -331,6 +331,7 @@ public class IntentMappingPage extends BasePage{
 		}
 			return arr;
 	}
+		
 	public boolean verifyDatabase(String query) {
 		List<Map<String,String>> database=database(query);
 		System.out.println(database);
@@ -586,7 +587,6 @@ public class IntentMappingPage extends BasePage{
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		if(norecords.isDisplayed())
@@ -797,21 +797,23 @@ public class IntentMappingPage extends BasePage{
 	        } catch (InterruptedException e) {
 	            e.printStackTrace();
 	        }
-	        return isElementExist(editFormContainer);
-	    
+	        return isElementExist(editFormContainer);    
 	}
+	
 	public void editIntentMappingRecord(IntentMappingDetails details) throws Exception {
 		searchIntentMappingRecord(details.getVDN());
 		Thread.sleep(1000);
 		selectWebElement(editButton);
 		waitForLoad(driver);
 		selectWebElement(VDNText);
-		enterValueToTxtBox1(VDNTextbox,details.getUpdatedVDN());
+		Thread.sleep(1000);
+//		enterValueToTxtField(VDNTextbox,details.getUpdatedVDN());
+		enterValueToDropdownText(VDNTextbox, details.getUpdatedVDN());
 		selectWebElement(ModifyReasonTextBox);
 		enterValueToTxtFieldWithoutClear(ModifyReasonTextBox,details.getModifyReason());
 		selectWebElement(saveButton);
-		
 	}
+	
 	public void editIntentMappingWithoutModifyReason(IntentMappingDetails details) throws Exception {
 		searchIntentMappingRecord(details.getVDN());
 		Thread.sleep(1000);
@@ -820,11 +822,13 @@ public class IntentMappingPage extends BasePage{
 		selectWebElement(saveButton);	
 		selectWebElement(cancelBtn);
 	}
+	
 	public void clickOnEditButton() throws InterruptedException {
 		selectWebElement(editButton);
 		Thread.sleep(1000);
 		
 	}
+	
 	public void deleteIntentMapingWithoutDeleteReasonRecord(IntentMappingDetails details) throws Exception {
 		searchIntentMappingRecord(details.getVDN());
 		Thread.sleep(1000);
@@ -833,15 +837,15 @@ public class IntentMappingPage extends BasePage{
         selectWebElement(deleteNoBtn);			
 
 	}
+	
 	public void clickOnDeleteButton() {
         selectWebElement(deleteButton);
-		
-	}
-	public void clickOnDeleteCancelBtn() {
-        selectWebElement(deleteNoBtn);			
-		
-	}
+		}
 	
+	public void clickOnDeleteCancelBtn() {
+		selectWebElement(deleteNoBtn);			
+	}
+
 	public boolean verifyDeleteContainer() {
 		 try {
 	            Thread.sleep(3000);
@@ -920,6 +924,7 @@ public class IntentMappingPage extends BasePage{
 		selectWebElement(saveButton);
 		selectWebElement(cancelBtn);		
 	}
+	
 	public void addRecordWithoutVDN(IntentMappingDetails details) throws Exception {
 		selectWebElement(addNewIntentMappingRecordBtn);
 		Thread.sleep(1000);

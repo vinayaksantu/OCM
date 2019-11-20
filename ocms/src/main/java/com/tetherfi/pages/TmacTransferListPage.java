@@ -61,7 +61,7 @@ public class TmacTransferListPage extends BasePage {
 
     @FindBy(css = "#tgrid .k-grid-edit")
     private WebElement editButton;
-
+    
     @FindBy(css = "#drillgrid .k-grid-edit")
     private WebElement editButton1;
 
@@ -342,6 +342,7 @@ public class TmacTransferListPage extends BasePage {
     }
     
     public void selectCancelOnAddNewConsulTransPopUp() throws InterruptedException{
+    	Thread.sleep(2000);
         selectWebElement(CancelButton);
         Thread.sleep(2000);
     }
@@ -591,7 +592,8 @@ public class TmacTransferListPage extends BasePage {
 	}
         return Status;
 	}
-    public void editTmacConsultTransferList(TmacTransferListDetails tmacTransferListDetails) throws Exception {
+    
+	public void editTmacConsultTransferList(TmacTransferListDetails tmacTransferListDetails) throws Exception {
         searchTmacTransferRecord(tmacTransferListDetails.getName(),"Name",0);
         selectWebElement(editButton);
         selectWebElement(tmacTransferListNameTextBox);
@@ -607,6 +609,7 @@ public class TmacTransferListPage extends BasePage {
         enterValueToTxtFieldWithoutClear(editModifyReasonTextBox,tmacTransferListDetails.getModReason());
         selectWebElement(SaveButton);
     }
+    
     public void deleteTmacConsultTransferList(TmacTransferListDetails tmacTransferListDetails) throws Exception {
         searchTmacTransferRecord(tmacTransferListDetails.getName(),"Name",0);
         selectWebElement(deleteButton);
@@ -643,6 +646,7 @@ public class TmacTransferListPage extends BasePage {
         enterValueToTxtField(skillIdVdnList.get(1),tmacTransferListDetails.getVdn());
         selectWebElement(SaveButton);
     }
+    
     public void editTmacBlindTransferList(TmacTransferListDetails tmacTransferListDetails) throws Exception {
     	searchTmacTransferRecord(tmacTransferListDetails.getSkillName(),"Skill Name",1);
     	waitUntilWebElementIsVisible(editButton1);
@@ -664,9 +668,7 @@ public class TmacTransferListPage extends BasePage {
         enterValueToTxtFieldWithoutClear(deleteReasonTextBox,tmacTransferListDetails.getDeleteReason());
         selectWebElement(deleteYesBtn);
     }
-    
-    
-    
+      
     public String verifyMessage() {
     	if(errorMsg.size()>0){
     		return errorMsg.get(0).getText();

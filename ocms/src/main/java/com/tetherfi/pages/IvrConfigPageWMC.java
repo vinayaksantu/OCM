@@ -368,8 +368,8 @@ public class IvrConfigPageWMC extends BasePage{
     	selectWebElement(editButton);
     	waitForJqueryLoad(driver);		
 		Thread.sleep(1000);
-		selectWebElement(parameterDropdown);
-        selectDropdownFromVisibleText(parameterListBox,details.getUpdatedParameter());
+		selectWebElement(valueDropdown);
+        selectDropdownFromVisibleText(valueListBox,details.getUpdatedValue());
 		selectWebElement(ModifyReasonTextBox);
         enterValueToTxtFieldWithoutClear(ModifyReasonTextBox,details.getModifyReason());
         selectWebElement(saveButton);
@@ -1384,7 +1384,4 @@ public boolean verifyStatus1(String status) {
 	}
         return Status;
 	}
-	
-	
-		
 }

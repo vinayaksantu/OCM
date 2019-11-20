@@ -80,6 +80,9 @@ Screenshot screenshot=new Screenshot(driver);
 	}
      
     @Test(priority=6)
+    
+    
+    
     public void VerifyColumnsHeaderEnable() {
     	SmsResponseTemplatePage SmsResponseTemplatePage = PageFactory.createPageInstance(driver, SmsResponseTemplatePage.class);
         SmsResponseTemplatePage.selectSmsResponseTemplateAuditTrailTab();
