@@ -82,7 +82,7 @@ public class BranchManagementUITest extends BaseTest{
        }
      
     @Test(priority=6)
-    public void VerifyColumnsHeaderEnable() {
+    public void VerifyColumnsHeaderEnable() throws InterruptedException {
     	BranchManagementPage branchManagementPage = PageFactory.createPageInstance(driver, BranchManagementPage.class);
     	branchManagementPage.selectBranchManagementAuditTrailTab();
     	branchManagementPage.selectMakeBranchManagementChanges();
@@ -138,7 +138,7 @@ public class BranchManagementUITest extends BaseTest{
         Assert.assertTrue(branchManagementPage.verifyExportToExcel(filePath));
     }
     
-    @Test(priority=13)
+    @Test(priority=13, dependsOnMethods= {"ExportToExcel"})
     public void ExportToExcelData() throws Exception
     {	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Branch Management.xlsx";
     	List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
@@ -161,7 +161,7 @@ public class BranchManagementUITest extends BaseTest{
        }
     
     @Test(priority=15)
-    public void SortingByAscending() throws IOException {
+    public void SortingByAscending() throws Exception {
     	BranchManagementPage branchManagementPage = PageFactory.createPageInstance(driver, BranchManagementPage.class);
     	branchManagementPage.selectBranchManagementAuditTrailTab();
     	branchManagementPage.selectMakeBranchManagementChanges();
@@ -172,7 +172,7 @@ public class BranchManagementUITest extends BaseTest{
     }
     
     @Test(priority=16)
-    public void SortingByDescending() throws IOException {
+    public void SortingByDescending() throws Exception {
     	BranchManagementPage branchManagementPage = PageFactory.createPageInstance(driver, BranchManagementPage.class);
     	branchManagementPage.selectBranchManagementAuditTrailTab();
     	branchManagementPage.selectMakeBranchManagementChanges();
@@ -203,7 +203,7 @@ public class BranchManagementUITest extends BaseTest{
     
     @Test(priority=19)
     public void database() throws Exception {
-    	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxTemplateData.xlsx";
+    	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\BranchManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(0);
         BranchManagementPage branchManagementPage = PageFactory.createPageInstance(driver, BranchManagementPage.class);
         BranchManagementDetails branchManagementDetails = new BranchManagementDetails(map);
@@ -246,7 +246,6 @@ public class BranchManagementUITest extends BaseTest{
         screenshot.captureScreen( driver,"Clear Search", "BranchManagementTest");
     }
     
-       
     
     
     @AfterMethod

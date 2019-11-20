@@ -645,6 +645,7 @@ public class SmsResponseTemplatePageWMC extends BasePage{
 		Boolean Status=verifyExportPageFileDownload(filePath, "SMS Response Template");
 		return Status;
 	}
+      
 	public boolean verifyexportToExcelSheet(List<Map<String, String>> maplist) {
 		List<Map<String,String>> UI=getdata(); 
 		System.out.println(UI);
@@ -655,7 +656,7 @@ public class SmsResponseTemplatePageWMC extends BasePage{
 		return false;
 	}
 	
-	private List<Map<String,String>> getdata(){
+	/*private List<Map<String,String>> getdata(){
 		int item=Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
         int pagersize=Integer.valueOf(pagerSize.getText());
         int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
@@ -687,7 +688,42 @@ public class SmsResponseTemplatePageWMC extends BasePage{
 			}
 		}
 			return arr;
-	}	
+	}*/	
+	
+	private List<Map<String,String>> getdata(){
+		int item=Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
+        int pagersize=Integer.valueOf(pagerSize.getText());
+        int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
+		List<Map<String,String>> arr=new ArrayList<Map<String,String>>();
+		for(int k=0;k<=pages;k++){
+		waitUntilWebElementIsVisible(auditGridContent);
+		List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
+		List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
+		String col=null;
+		for(int i=1;i<rows.size();i++) {
+			Map<String,String> map = new HashMap<String,String>();
+			List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
+			for(int j=1;j<headers.size();j++) {
+				scrollToElement(headers.get(j));
+				System.out.println(headers.get(j).getText());
+				/*if(headers.get(j).getText().equals("Insert Date Time")){
+				col=cols.get(j).getText().substring(0,10);
+				}
+				else*/
+					col=cols.get(j).getText();
+				map.put(headers.get(j).getText(),col);
+			}
+			map.remove("");
+			arr.add(map);
+		}
+		if(k!=pages)
+		{
+			nextPageIcon.click();
+			waitForJqueryLoad(driver);}
+		}
+			return arr;
+	}
+	
 	
 	public void dragColumntoGroup(String columnname) {
         List<WebElement> rows = grid.findElements(By.tagName("tr"));
@@ -1262,14 +1298,14 @@ public class SmsResponseTemplatePageWMC extends BasePage{
         public void clickOnCancelBtn() throws Exception {
 //        	Thread.sleep(2000);
      	waitUntilWebElementIsVisible(cancelBtn);
-//        	selectWebElement(cancelBtn);
+        	selectWebElement(cancelBtn);
         }
         
         public void clickOnEditButton(SmsResponseTemplateDetails details) throws Exception {
         	searchSmsResponseTemplateRecord(details.getiCOMTemplateID());
         	Thread.sleep(1000);
         	waitUntilWebElementIsVisible(editButton);
-//        	selectWebElement(editButton);
+       	selectWebElement(editButton);
         }
         
         public boolean verifyEditFormContainer(){
@@ -1407,23 +1443,6 @@ public boolean groupby() {
 	else	
 	return false;
 }
-
-/*public void SearchIsNotEqualTo1(String Enable) throws Exception {
-	selectWebElement(searchBtn.get(0));
-    selectWebElement(selectSearchColumn.get(0));
-    selectDropdownFromVisibleText(columnNameList,"Enable");
-    selectWebElement(selectSearchColumn.get(1));
-    selectDropdownFromVisibleText(searchTypeList,"Is not equal to");
-    enterValueToTxtField(searchText.get(0),Enable);
-    selectWebElement(searchSearchBtn);
-    waitForJqueryLoad(driver);
-    waitUntilWebElementIsVisible(gridContent);		
-}
-
-public boolean verifySearchIsNotEqualTo(SmsResponseTemplateDetails details) throws Exception {
-	SearchIsNotEqualTo1(details.getEnable());	
-	return false;		
-}*/
 
 public boolean verifySearchIsNotEqualTo(String Enable) throws Exception {
 	Boolean Status=false;

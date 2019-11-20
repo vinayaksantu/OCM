@@ -73,7 +73,7 @@ public class IvrConfigTest extends BaseTest {
 		IvrConfigDetails ivrConfigDetails = new IvrConfigDetails(map);
 		IvrConfigPageWMC ivrConfigPageWMC = PageFactory.createPageInstance(driver, IvrConfigPageWMC.class);
 		ivrConfigPageWMC.addNewIvrConfigRecord(ivrConfigDetails);
-		Assert.assertEquals(ivrConfigPageWMC.getSuccessMessage(),"Record Created Successfully");//, "Add New record assertion failed");
+		Assert.assertEquals(ivrConfigPageWMC.getSuccessMessage(),"Record Created Successfully", "Add New record assertion failed");
 	}
 
 	@Test(priority=6)
@@ -210,8 +210,8 @@ public class IvrConfigTest extends BaseTest {
 	}
 
 	@Test(priority=19)
-	public void ExportToExcelData() throws Exception
-	{	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\IVR Config.xlsx";
+	public void ExportToExcelData() throws Exception{	
+    String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\IVR Config.xlsx";
 	List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
 	IvrConfigPageWMC ivrConfigPageWMC=PageFactory.createPageInstance(driver, IvrConfigPageWMC.class);
 	Assert.assertTrue(ivrConfigPageWMC.verifyexportToExcelSheet(maplist));	
@@ -384,7 +384,6 @@ public class IvrConfigTest extends BaseTest {
         Assert.assertTrue(ivrConfigPageWMC.verifySearchEndsWith(ivrConfigDetails.getParameter()), "Search Assertion Failed");
     }
 	
-    
 	@AfterMethod
 	public void afterEachMethod(Method method) throws InterruptedException {
 		Screenshot screenshot=new Screenshot(driver);

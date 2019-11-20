@@ -102,6 +102,9 @@ public class OCMHomePage extends BasePage {
     
     // @FindBy(xpath="//a[@onclick='setLastTabClickedName(Ivr)']")
     // private WebElement IVR;
+    
+    @FindBy(css="a[href$='/DashboardColorCodeConfig/Index'] div")
+    private WebElement DashboardColorConfig;
 
     public boolean isOCMHomePageIsDisplayed() {
         waitForLoad(driver);
@@ -199,9 +202,13 @@ public class OCMHomePage extends BasePage {
 	}
 
 	public void navigateToTdmThresholdConfigPage() {
-		selectWebElement(deskManager);
-		
+		selectWebElement(deskManager);	
 	}
 
-
+	public void navigateToDashboardColorConfigPage(){
+        selectWebElement(DashboardColorConfig);
+    }
+	
+	
+	
 }

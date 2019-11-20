@@ -305,7 +305,7 @@ public class IntroMessageAnnouncementCreateTest {
         Assert.assertTrue(ocmReportsPage.verifyIntroMessageAnnouncementCreate(IntroMessageAnnouncementDetails, "MakerSendToApproval"),"Audit Trail report assertion failed");
     }
     
-	@Test(groups = { "Checker" },priority=24,dependsOnMethods="VerifyAuditTrailReportForSendForApproval")
+	@Test(groups = { "Checker" },priority=24)//,dependsOnMethods="VerifyAuditTrailReportForSendForApproval")
     public void ApproveforAddNewIntroMessageAnnouncementRecord() throws Exception{
        	IntroMessageAnnouncementPage IntroMessageAnnouncementPage = PageFactory.createPageInstance(driver, IntroMessageAnnouncementPage.class);
        	IntroMessageAnnouncementPage.clickonApprove("Approve Create");

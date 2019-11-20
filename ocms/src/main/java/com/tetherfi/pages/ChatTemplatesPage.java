@@ -1584,8 +1584,8 @@ public class ChatTemplatesPage extends BasePage {
 					return false;
 			}
 			private List<Map<String, String>> getDepartmenttable() {
-				int item=Integer.valueOf(items.get(1).getText().split("of ")[1].split(" items")[0]);
-		        int pagersize=Integer.valueOf(pagerSize.get(1).getText());
+				int item=Integer.valueOf(items.get(0).getText().split("of ")[1].split(" items")[0]);
+		        int pagersize=Integer.valueOf(pagerSize.get(0).getText());
 		        int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
 				List<Map<String,String>> arr=new ArrayList<Map<String,String>>();
 				for(int k=0;k<=pages;k++){
@@ -1601,7 +1601,7 @@ public class ChatTemplatesPage extends BasePage {
 						scrollToElement(headers.get(j));
 						if(headers.get(j).getText().equals("Last Changed On")){
 							col=cols.get(j).getText().substring(11);
-							}
+						}
 						else if(headers.get(j).getText().equals("Enabled")) {
 							if(cols.get(j).getText().equals("Yes"))
 								col="1";
@@ -1617,7 +1617,7 @@ public class ChatTemplatesPage extends BasePage {
 				}
 				if(k!=pages)
 				{
-					nextPageIcon.get(1).click();
+					nextPageIcon.get(0).click();
 					waitForJqueryLoad(driver);}
 				}
 					return arr;
@@ -1633,8 +1633,8 @@ public class ChatTemplatesPage extends BasePage {
 					return false;
 			}
 			private List<Map<String, String>> getGrouptable() {
-				int item=Integer.valueOf(items.get(2).getText().split("of ")[1].split(" items")[0]);
-		        int pagersize=Integer.valueOf(pagerSize.get(3).getText());
+				int item=Integer.valueOf(items.get(1).getText().split("of ")[1].split(" items")[0]);
+		        int pagersize=Integer.valueOf(pagerSize.get(1).getText());
 		        int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
 				List<Map<String,String>> arr=new ArrayList<Map<String,String>>();
 				for(int k=0;k<=pages;k++){
@@ -1666,7 +1666,7 @@ public class ChatTemplatesPage extends BasePage {
 				}
 				if(k!=pages)
 				{
-					nextPageIcon.get(2).click();
+					nextPageIcon.get(1).click();
 					waitForJqueryLoad(driver);}
 				}
 					return arr;
@@ -1683,8 +1683,8 @@ public class ChatTemplatesPage extends BasePage {
 			}
 			
 			public List<Map<String, String>> gettable() {
-				int item=Integer.valueOf(items.get(3).getText().split("of ")[1].split(" items")[0]);
-		        int pagersize=Integer.valueOf(pagerSize.get(3).getText());
+				int item=Integer.valueOf(items.get(2).getText().split("of ")[1].split(" items")[0]);
+		        int pagersize=Integer.valueOf(pagerSize.get(2).getText());
 		        int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
 				List<Map<String,String>> arr=new ArrayList<Map<String,String>>();
 				for(int k=0;k<=pages;k++){
@@ -1716,7 +1716,7 @@ public class ChatTemplatesPage extends BasePage {
 				}
 				if(k!=pages)
 				{
-					nextPageIcon.get(3).click();
+					nextPageIcon.get(2).click();
 					waitForJqueryLoad(driver);}
 				}
 					return arr;

@@ -45,7 +45,7 @@ public class FaxApplicationFormTest extends BaseTest {
     	screenshot.captureScreen(driver,"FaxApplicationForm Page","FaxApplicationFormTest");
     }
     
-    /*@Test(priority=1)
+    @Test(priority=1)
     public void FaxApplicationFormPage() {
         FaxApplicationFormPage faxApplicationFormPage = PageFactory.createPageInstance(driver, FaxApplicationFormPage.class);
     	Assert.assertTrue(faxApplicationFormPage.verifylogo(),"CallBackAnnouncement logo assertion failed");
@@ -296,7 +296,7 @@ public class FaxApplicationFormTest extends BaseTest {
     	Assert.assertTrue(faxApplicationFormPage.verifyinvalidsearchwithwrongdata(faxApplicationFormDetails),"invalidsearchwithwrongdata");
         screenshot.captureScreen("FaxApplicationFormTest","Invalid Search with wrong data");
         Assert.assertTrue(faxApplicationFormPage.verifyclearsearch(), "Clear All Assertion Failed");
-    }*/
+    }
     
 
     @Test(priority=25)
@@ -344,7 +344,7 @@ public class FaxApplicationFormTest extends BaseTest {
         Assert.assertTrue(faxApplicationFormPage.verifySearchEndsWith(faxApplicationFormDetails.getFunctionality()));
     }
     
-    /*@Test(priority=25)
+    @Test(priority=25)
     public void ExporttoExcelWithoutData() throws Exception
     {
         FaxApplicationFormPage faxApplicationFormPage = PageFactory.createPageInstance(driver, FaxApplicationFormPage.class);
@@ -413,7 +413,7 @@ public class FaxApplicationFormTest extends BaseTest {
         FaxApplicationFormPage faxApplicationFormPage = PageFactory.createPageInstance(driver, FaxApplicationFormPage.class);
         FaxApplicationFormDetails faxApplicationFormDetails = new FaxApplicationFormDetails(map);
     	Assert.assertTrue(faxApplicationFormPage.verifyDatabase(faxApplicationFormDetails.getQuery()));
-    }*/
+    }
     
     @AfterMethod
     public void afterEachMethod(Method method) throws InterruptedException {

@@ -113,7 +113,7 @@ public class HolidayListPage extends BasePage{
     @FindBy(xpath="//div[@data-role='droptarget']")
     private WebElement droptarget;
     
-    @FindBy(xpath="//tbody/tr/td/p[@class='k-reset']/../../following-sibling::tr/td[4]")
+    @FindBy(xpath="//tbody/tr/td/p[@class='k-reset']/../../following-sibling::tr/td[3]")
     private WebElement groupbyAnnouncedHoliday;
     
     @FindBy(css=".k-grid-content")
@@ -137,13 +137,16 @@ public class HolidayListPage extends BasePage{
     @FindBy(id="EndTime")
     private WebElement endTimeTextbox; 
     
-    @FindBy(xpath="//input[@placeholder='Enter Value'and@id='VDN']")
+    /*@FindBy(xpath="//input[@placeholder='Enter Value']")
+    private WebElement vdnTextbox;*/
+    
+    @FindBy(id="VDN")
     private WebElement vdnTextbox;
     
     @FindBy(css="#toast-container .toast-error .toast-message")
     private List<WebElement> errorMsg;
     
-    @FindBy(className="toast-message")
+    @FindBy(css="#toast-container .toast-message")
     private WebElement successmsg;
     
     @FindBy(css = ".fa-search")
@@ -442,12 +445,14 @@ public class HolidayListPage extends BasePage{
 		
 	public boolean verifyexportToExcelSheet(List<Map<String, String>> maplist) {
 		List<Map<String,String>> UI=getdata(); 
+		System.out.println(UI);
+		System.out.println(maplist);
 		if(UI.equals(maplist))
 		return true;
 		else
 		return false;
 	}
-	
+		
 	private List<Map<String,String>> getdata(){
 		int item=Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
         int pagersize=Integer.valueOf(pagerSize.getText());
@@ -462,6 +467,8 @@ public class HolidayListPage extends BasePage{
 			Map<String,String> map = new HashMap<String,String>();
 			List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
 			for(int j=1;j<headers.size();j++) {
+				scrollToElement(headers.get(j));
+				System.out.println(headers.get(j).getText());
 					col=cols.get(j).getText();
 				map.put(headers.get(j).getText(),col);
 			}
@@ -475,6 +482,7 @@ public class HolidayListPage extends BasePage{
 		}
 			return arr;
 	}
+	
 	
 	public void SortByAscending() {
 		selectWebElement(AnnouncedHoliday);
@@ -515,7 +523,6 @@ public class HolidayListPage extends BasePage{
 	public void addNewHolidayList(HolidayListDetails details) throws Exception {
 		selectWebElement(addNewHolidayListRecordBtn);
 		waitForJqueryLoad(driver);
-		waitUntilWebElementIsVisible(announcedHolidayTextbox);
 		enterValueToTxtField(announcedHolidayTextbox,details.getAnnouncedHoliday());
 		enterValueToTxtField(startDateTextbox,details.getStartDate());
 		enterValueToTxtField(startTimeTextbox,details.getStartTime());
@@ -526,15 +533,22 @@ public class HolidayListPage extends BasePage{
 		
 	}
 	public boolean verifymessage() {
-			waitUntilWebElementIsVisible(successmsg);
+		if (errorMsg.size()>0)
+			return false;
 			waitUntilWebElementIsVisible(successmsg);
 	    	if(successmsg.getText().contains("Successfully"))
 			return true;
 			else
-			{return false;
-			}
+			{return false;}
 	}
-
+	
+	public String getSuccessMessage() {
+		//		waitForJqueryLoad(driver);
+		if(successmsg.isDisplayed())
+			return successmsg.getText();
+		else{return errorMsg.get(0).getText();}	
+	}
+	
 	public boolean ExporttoExcelWithoutData(HolidayListDetails details) throws Exception {
 		searchHolidayList(details.getStartDate());
 		waitForJqueryLoad(driver);
@@ -655,7 +669,7 @@ public class HolidayListPage extends BasePage{
 		enterValueToTxtField(deletereasontextbox,details.getDeleteReason());
 		selectWebElement(yesbtn);		
 	}
-	public void LeavingAllFieldsBlank(HolidayListDetails details) {
+	public void AddEmptyRecord(HolidayListDetails details) {
 		selectWebElement(addNewHolidayListRecordBtn);
 		selectWebElement(savebtn);
 		selectWebElement(cancelbtn);
@@ -705,6 +719,7 @@ public class HolidayListPage extends BasePage{
 		selectWebElement(savebtn);
 		selectWebElement(cancelbtn);			
 	}
+	
 	public void LeavingEndTimeBlank(HolidayListDetails details) throws Exception {
 		Thread.sleep(2000);
 		selectWebElement(addNewHolidayListRecordBtn);
@@ -712,10 +727,11 @@ public class HolidayListPage extends BasePage{
 		enterValueToTxtField(startDateTextbox,details.getStartDate());
 		enterValueToTxtField(startTimeTextbox,details.getStartTime());
 		enterValueToTxtField(endDateTextbox,details.getEndDate());
-		//enterValueToTxtField(vdnTextbox,details.getVdn());
+		enterValueToTxtField(vdnTextbox,details.getVdn());
 		selectWebElement(savebtn);
 		selectWebElement(cancelbtn);			
 	}
+	
 	public void LeavingVDNBlank(HolidayListDetails details) throws Exception {
 		Thread.sleep(2000);
 		selectWebElement(addNewHolidayListRecordBtn);
@@ -773,11 +789,5 @@ public class HolidayListPage extends BasePage{
 			return true;
 		else
 		return false;
-	}
-	public boolean verifyErrormessage() {
-		if(errorMsg.size()>0)
-			return true;
-		else
-			return false;
 	}
 }

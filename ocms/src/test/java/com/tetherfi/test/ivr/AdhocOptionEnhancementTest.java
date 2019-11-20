@@ -43,7 +43,7 @@ public class AdhocOptionEnhancementTest extends BaseTest {
         Assert.assertTrue(adhocOptionEnhancementPage.isAdhocOptionEnhancementPageDisplayed(), "adhoc option enhancement page assertion failed");
     }
     
-    @Test(priority=1)
+    /*@Test(priority=1)
     public void AdhocOptionEnhancementPage() {
         AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);
     	Assert.assertTrue(adhocOptionEnhancementPage.verifylogo(),"AdhocOptionEnhancement logo assertion failed");
@@ -151,7 +151,7 @@ public class AdhocOptionEnhancementTest extends BaseTest {
         AdhocOptionEnhancementDetails adhocOptionEnhancementDetails = new AdhocOptionEnhancementDetails(map);
         AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);
     	adhocOptionEnhancementPage.addNewRecordwithoutpromotionnamewavfile(adhocOptionEnhancementDetails);
-        Assert.assertEquals(adhocOptionEnhancementPage.verifyErrorMessage(),"Please Provide Promotion Name WaveFile");
+        Assert.assertEquals(adhocOptionEnhancementPage.verifyErrorMessage(),"Please upload only wav file!");
     }
     @Test(priority=12)
     public void AddAdhocOptionEnhancementRecordWithoutPromotionDetailsWavfile() throws IOException, Exception {
@@ -160,7 +160,7 @@ public class AdhocOptionEnhancementTest extends BaseTest {
         AdhocOptionEnhancementDetails adhocOptionEnhancementDetails = new AdhocOptionEnhancementDetails(map);
         AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);       
     	adhocOptionEnhancementPage.addNewRecordwithoutpromotiondetailswavfile(adhocOptionEnhancementDetails);
-        Assert.assertEquals(adhocOptionEnhancementPage.verifyErrorMessage(),"Please Provide Promotional Details Wavefile");
+        Assert.assertEquals(adhocOptionEnhancementPage.verifyErrorMessage(),"Please upload only wav file!");
     }
     @Test(priority=13)
     public void AddEmptyAdhocOptionEnhancementRecordWithoutIntent() throws IOException, Exception {
@@ -284,7 +284,7 @@ public class AdhocOptionEnhancementTest extends BaseTest {
         adhocOptionEnhancementPage.clickOnEditButton();
         adhocOptionEnhancementPage.clickOnCancelBtn();
         Assert.assertFalse(adhocOptionEnhancementPage.verifyEditFormContainer(), "Cancel Btn at Edit record assertion failed");
-    }
+    }*/
     
     @Test(priority=26)
     public void ExportToExcel() throws Exception
@@ -320,7 +320,7 @@ public class AdhocOptionEnhancementTest extends BaseTest {
         Assert.assertTrue(adhocOptionEnhancementPage.verifyexportToExcelSheet(maplist));
     }
     
-    @Test(priority=30)
+    /*@Test(priority=30)
     public void GroupBy()
     {
         AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);
@@ -505,7 +505,7 @@ public class AdhocOptionEnhancementTest extends BaseTest {
         Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(0);
         AdhocOptionEnhancementDetails adhocOptionEnhancementDetails=new AdhocOptionEnhancementDetails(map);
         Assert.assertTrue(adhocOptionEnhancementPage.ExporttoExcelWithoutData(adhocOptionEnhancementDetails));
-    }   
+    }*/   
     
     @AfterMethod
     public void afterEachMethod(Method method) throws InterruptedException {

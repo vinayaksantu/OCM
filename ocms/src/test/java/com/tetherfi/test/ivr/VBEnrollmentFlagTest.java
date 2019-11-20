@@ -136,7 +136,7 @@ public class VBEnrollmentFlagTest extends BaseTest {
         VbEnrollmentFlagPage VbEnrollmentFlagPage = PageFactory.createPageInstance(driver, VbEnrollmentFlagPage.class);
         VbEnrollmentFlagPage.addRecordWithoutHotLineName(VBEnrollmentFlagDetails);
         Assert.assertEquals(VbEnrollmentFlagPage.verifyErrorMessage(),"Please Provide Hotline Name", "Add invalid record assertion failed");
-    }
+    }*/
     
     @Test(priority=11)
     public void AddRecordWithoutEnrollmentFlag() throws Exception {
@@ -148,7 +148,7 @@ public class VBEnrollmentFlagTest extends BaseTest {
         Assert.assertEquals(VbEnrollmentFlagPage.verifyErrorMessage(),"Please Provide Enrollment Flag", "Add invalid record assertion failed");
     }
     
-    @Test(priority=12)
+    /*@Test(priority=12)
     public void VerifyCancelBtnAtAddRecord(){
         VbEnrollmentFlagPage VbEnrollmentFlagPage = PageFactory.createPageInstance(driver, VbEnrollmentFlagPage.class);
         VbEnrollmentFlagPage.clickOnAddRecord();
@@ -330,7 +330,7 @@ public class VBEnrollmentFlagTest extends BaseTest {
     public void VerifyNumberOfItemsPerPageSelection() {
         VbEnrollmentFlagPage VbEnrollmentFlagPage = PageFactory.createPageInstance(driver, VbEnrollmentFlagPage.class);
         Assert.assertTrue(VbEnrollmentFlagPage.verifyNumberOfItemsPerPage(),"item per page assertion failed");
-    }*/
+    }
     
     
     @Test(priority=33)
@@ -342,7 +342,7 @@ public class VBEnrollmentFlagTest extends BaseTest {
     	Assert.assertTrue(VbEnrollmentFlagPage.verifyDatabase(VBEnrollmentFlagDetails.getQuery()));
     }
     
-    /*@Test(priority=34)
+    @Test(priority=34)
     public void DeleteWithoutDeleteReasonRecord() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\VBEnrollmentFlagData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);

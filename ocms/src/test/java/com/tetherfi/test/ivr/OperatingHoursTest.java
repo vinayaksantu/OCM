@@ -1,7 +1,5 @@
 package com.tetherfi.test.ivr;
 
-
-
 import com.tetherfi.model.ivr.OperatingHoursDetails;
 import com.tetherfi.pages.*;
 import com.tetherfi.test.BaseTest;
@@ -67,7 +65,7 @@ public class OperatingHoursTest extends BaseTest {
         OperatingHoursDetails operatingHoursDetails = new OperatingHoursDetails(map);
         OperatingHoursPage operatingHoursPage = PageFactory.createPageInstance(driver, OperatingHoursPage.class);
         operatingHoursPage.addNewAllDaysOperatingHoursRecord(operatingHoursDetails);
-        Assert.assertTrue(operatingHoursPage.verifyNewRecordCreated(), "Add New record assertion failed");
+        Assert.assertEquals(operatingHoursPage.getSuccessMessage(),"Record Created Successfully", "Add New record assertion failed");
         screenshot.captureScreen(driver,"Multiple record Created","OperatingHoursTest");
     }
     
@@ -101,6 +99,7 @@ public class OperatingHoursTest extends BaseTest {
         Assert.assertFalse(operatingHoursPage.verifyErrorMsg());
     	screenshot.captureScreen(driver,"LeavingWeekdayBlank","OperatingHoursTest");
     }
+    
     @Test(priority=7)
    	public void AddLeavingStartTimeFieldsBlank() throws Exception {
        	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\OperatingHoursData.xlsx";
@@ -111,6 +110,7 @@ public class OperatingHoursTest extends BaseTest {
         Assert.assertFalse(operatingHoursPage.verifyErrorMsg());
     	screenshot.captureScreen(driver,"LeavingStartTimeBlank","OperatingHoursTest");
     }
+    
     @Test(priority=8)
    	public void AddLeavingEndTimeFieldsBlank() throws Exception {
        	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\OperatingHoursData.xlsx";
@@ -121,6 +121,7 @@ public class OperatingHoursTest extends BaseTest {
         Assert.assertFalse(operatingHoursPage.verifyErrorMsg());
     	screenshot.captureScreen(driver,"LeavingEndTimeBlank","OperatingHoursTest");
     }
+    
     @Test(priority=9)
    	public void AddLeavingBypassPublicHolidayFieldsBlank() throws Exception {
        	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\OperatingHoursData.xlsx";
@@ -164,6 +165,7 @@ public class OperatingHoursTest extends BaseTest {
         Assert.assertFalse(operatingHoursPage.verifyErrorMsg(), "Add New record assertion failed");
         screenshot.captureScreen(driver,"addStarttimegreaterthanEndtime","OperatingHoursTest");
 	}
+	
 	@Test(priority=13)
 	public void AddInvalidStartAndEndTimeRecord() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\OperatingHoursData.xlsx";
@@ -239,7 +241,7 @@ public class OperatingHoursTest extends BaseTest {
     @Test(priority=19)
     public void VerifySearchIsNotEqualTo() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OperatingHoursData.xlsx";
-    	Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(4);
+    	Map<String, String> map = new ExcelReader(filePath,"Invalid").getTestData().get(0);
     	OperatingHoursDetails operatingHoursDetails=new OperatingHoursDetails(map);
     	OperatingHoursPage operatingHoursPage=PageFactory.createPageInstance(driver,OperatingHoursPage.class);
     	Assert.assertTrue(operatingHoursPage.verifySearchIsNotEqualTo(operatingHoursDetails.getWeekDay()));
@@ -248,7 +250,7 @@ public class OperatingHoursTest extends BaseTest {
     @Test(priority=20)
     public void VerifySearchContains() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OperatingHoursData.xlsx";
-    	Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(5);
+    	Map<String, String> map = new ExcelReader(filePath,"Invalid").getTestData().get(1);
     	OperatingHoursDetails operatingHoursDetails=new OperatingHoursDetails(map);
     	OperatingHoursPage operatingHoursPage=PageFactory.createPageInstance(driver,OperatingHoursPage.class);
     	Assert.assertTrue(operatingHoursPage.verifySearchContains(operatingHoursDetails.getWeekDay()));
@@ -257,7 +259,7 @@ public class OperatingHoursTest extends BaseTest {
     @Test(priority=21)
     public void VerifySearchDoesNotContains() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OperatingHoursData.xlsx";
-    	Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(5);
+    	Map<String, String> map = new ExcelReader(filePath,"Invalid").getTestData().get(2);
     	OperatingHoursDetails operatingHoursDetails=new OperatingHoursDetails(map);
     	OperatingHoursPage operatingHoursPage=PageFactory.createPageInstance(driver,OperatingHoursPage.class);
     	Assert.assertTrue(operatingHoursPage.verifySearchDoesNotContains(operatingHoursDetails.getWeekDay()));
@@ -266,7 +268,7 @@ public class OperatingHoursTest extends BaseTest {
     @Test(priority=22)
     public void VerifySearchStartsWith() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OperatingHoursData.xlsx";
-    	Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(6);
+    	Map<String, String> map = new ExcelReader(filePath,"Invalid").getTestData().get(3);
     	OperatingHoursDetails operatingHoursDetails=new OperatingHoursDetails(map);
     	OperatingHoursPage operatingHoursPage=PageFactory.createPageInstance(driver,OperatingHoursPage.class);
     	Assert.assertTrue(operatingHoursPage.verifySearchStartsWith(operatingHoursDetails.getWeekDay()));
@@ -275,15 +277,14 @@ public class OperatingHoursTest extends BaseTest {
     @Test(priority=23)
     public void VerifySearchEndsWith() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OperatingHoursData.xlsx";
-    	Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(7);
+    	Map<String, String> map = new ExcelReader(filePath,"Invalid").getTestData().get(4);
     	OperatingHoursDetails operatingHoursDetails=new OperatingHoursDetails(map);
     	OperatingHoursPage operatingHoursPage=PageFactory.createPageInstance(driver,OperatingHoursPage.class);
     	Assert.assertTrue(operatingHoursPage.verifySearchEndsWith(operatingHoursDetails.getWeekDay()));
     }
     
    @Test(priority=24)
-    public void SearchClearSearch() throws Exception
-    {
+    public void SearchClearSearch() throws Exception{
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OperatingHoursData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
     	OperatingHoursDetails operatingHoursDetails=new OperatingHoursDetails(map);
@@ -295,33 +296,31 @@ public class OperatingHoursTest extends BaseTest {
     }
     
     @Test(priority=25)
-    public void ExportToExcel() throws Exception
-    {
+    public void ExportToExcel() throws Exception{
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles";
-        OperatingHoursPage operatingHoursPage=PageFactory.createPageInstance(driver,OperatingHoursPage.class);
-        Assert.assertTrue(operatingHoursPage.verifyExportToExcel(filePath));
-        screenshot.captureScreen(driver,"Export Excel", "OperatingHoursTest");
+    	OperatingHoursPage operatingHoursPage=PageFactory.createPageInstance(driver,OperatingHoursPage.class);
+    	Assert.assertTrue(operatingHoursPage.verifyExportToExcel(filePath));
+    	screenshot.captureScreen(driver,"Export Excel", "OperatingHoursTest");
     }
-    
+           
     @Test(priority=26)
     public void ExportToExcelData() throws Exception{
-    String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Operating Hours.xlsx";
-    List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
-    OperatingHoursPage operatingHoursPage=PageFactory.createPageInstance(driver,OperatingHoursPage.class);
-    Assert.assertTrue(operatingHoursPage.verifyexportToExcelSheet(maplist));	
-    screenshot.captureScreen(driver,"Export Excel Sheet", "OperatingHoursTest");
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Operating Hours.xlsx";
+    	List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
+    	OperatingHoursPage operatingHoursPage=PageFactory.createPageInstance(driver,OperatingHoursPage.class);
+    	Assert.assertTrue(operatingHoursPage.verifyexportToExcelSheet(maplist));	
+    	screenshot.captureScreen(driver,"Export Excel Sheet", "OperatingHoursTest");
     }
     
     @Test(priority=27)
-    public void ExporttoExcelWithoutData() throws Exception
-    {
-        OperatingHoursPage operatingHoursPage=PageFactory.createPageInstance(driver,OperatingHoursPage.class);
+    public void ExporttoExcelWithoutData() throws Exception{
+    	OperatingHoursPage operatingHoursPage=PageFactory.createPageInstance(driver,OperatingHoursPage.class);
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\OperatingHoursData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(1);
-        OperatingHoursDetails operatingHoursDetails = new OperatingHoursDetails(map);
-        Assert.assertTrue(operatingHoursPage.ExporttoExcelWithoutData(operatingHoursDetails));
+    	Map<String, String> map = new ExcelReader(filePath, "Invalid").getTestData().get(1);
+    	OperatingHoursDetails operatingHoursDetails = new OperatingHoursDetails(map);
+    	Assert.assertTrue(operatingHoursPage.ExporttoExcelWithoutData(operatingHoursDetails));
     }
-  
+   
     @Test(priority=28)
     public void SortingByAscending() throws IOException {
         OperatingHoursPage operatingHoursPage=PageFactory.createPageInstance(driver,OperatingHoursPage.class);
@@ -330,6 +329,7 @@ public class OperatingHoursTest extends BaseTest {
         List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
         Assert.assertTrue(operatingHoursPage.verifyexportToExcelSheet(maplist));
     }
+    
     @Test(priority=29)
     public void SortingByDescending() throws IOException {
         OperatingHoursPage operatingHoursPage=PageFactory.createPageInstance(driver,OperatingHoursPage.class);
@@ -340,8 +340,7 @@ public class OperatingHoursTest extends BaseTest {
     }
     
     @Test(priority=30)
-    public void GroupBy()
-    {
+    public void GroupBy(){
         OperatingHoursPage operatingHoursPage=PageFactory.createPageInstance(driver,OperatingHoursPage.class);
     	Assert.assertTrue(operatingHoursPage.groupby());
         screenshot.captureScreen(driver, "GroupBy","HolidayListTest");
@@ -360,6 +359,7 @@ public class OperatingHoursTest extends BaseTest {
         OperatingHoursPage operatingHoursPage=PageFactory.createPageInstance(driver,OperatingHoursPage.class);
         Assert.assertTrue(operatingHoursPage.verifyArrowMoveForFirstAndLastPage(),"arrow move for first and last page assertion failed");
     }
+    
     @Test(priority=33)
     public void VerifyTotalNumberOfItemsPerPageDetails() {
         OperatingHoursPage operatingHoursPage=PageFactory.createPageInstance(driver,OperatingHoursPage.class);
@@ -401,7 +401,7 @@ public class OperatingHoursTest extends BaseTest {
     }
     
     @Test(priority=39)
-    public void DeleteAgentTeamManagementRecord() throws Exception {
+    public void DeleteOperatinghoursRecord() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OperatingHoursData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
     	OperatingHoursDetails operatingHoursDetails=new OperatingHoursDetails(map);
@@ -410,10 +410,9 @@ public class OperatingHoursTest extends BaseTest {
         Assert.assertTrue(operatingHoursPage.verifyRecordDeleted(),"delete record assertion failed");
         screenshot.captureScreen(driver,"Record Deleted", "OperatingHoursTest");
     }
-    
+     
     @Test(priority=40)
-    public void database() throws Exception
-    {
+    public void database() throws Exception{
         OperatingHoursPage operatingHoursPage=PageFactory.createPageInstance(driver,OperatingHoursPage.class);
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\OperatingHoursData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Queries").getTestData().get(0);
@@ -421,19 +420,12 @@ public class OperatingHoursTest extends BaseTest {
         Assert.assertTrue(operatingHoursPage.verifyDatabase(operatingHoursDetails.getQuery()));
     }
     
+    
     @AfterMethod
-    public void afterEachMethod(ITestResult result, Method method) throws InterruptedException {
-    	 if(ITestResult.FAILURE==result.getStatus()){
-       		 try{
-       			 screenshot.captureScreen(method.getName(),"HolidayListTest");
-       		 }
-       		catch (Exception e){
-       		 System.out.println("Exception while taking screenshot "+e.getMessage());
-       		 } 
-       		 driver.navigate().refresh();
-       		 }    
-       		 }
-
-
+    public void afterEachMethod(Method method){
+		Screenshot screenshot=new Screenshot(driver);
+        screenshot.captureScreen("HolidayListTest",method.getName());
+        driver.navigate().refresh();
+	}   
 }
 

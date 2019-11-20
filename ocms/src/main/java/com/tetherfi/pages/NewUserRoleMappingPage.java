@@ -229,13 +229,13 @@ public class NewUserRoleMappingPage extends BasePage {
     @FindBy(css=".k-animation-container ul li")
     private List<WebElement> pageSizeListBox;
     
-    @FindBy(css="#drillGrid th a[title='Column Settings']")
+    @FindBy(css="th a[class='k-header-column-menu']")
     private List<WebElement> headersDropdown;
-    
+
     @FindBy(css="div[style*='overflow: visible'] span[class^='k-link']")
     private List<WebElement> headersColumns;
     
-    @FindBy(css="#drillGrid th a[class='k-link']")
+    @FindBy(css="th a[class='k-link']")
     private List<WebElement> headersText;		
     
     @FindBy(xpath="//div[@class='k-grid-content k-auto-scrollable']/table/tbody/tr")
@@ -348,6 +348,7 @@ public class NewUserRoleMappingPage extends BasePage {
         enterValueToTxtFieldWithoutClear(usernameTextBox,details.getBankUserName());
         enterValueToTxtFieldWithoutClear(editAvayaLoginIDTextbox,details.getAvayaLoginID());
         selectWebElement(TeamNameDropDown);
+        Thread.sleep(1000);
         ChooseTeamHeirarchy(details.getTeamName());
         editProfile(details.getProfile(),details.getSupervisor());        
         selectWebElement(RoleDropDown);
@@ -361,11 +362,11 @@ public class NewUserRoleMappingPage extends BasePage {
             for(WebElement e: teamList){
                 if(e.getText().equals(hrcy[i]))
                     if(e.findElements(By.className("k-icon")).size()>0)
-                    {selectWebElement(e.findElement(By.className("k-icon")));
-                    break;}
+                    {selectWebElement(e.findElement(By.className("k-icon")));break;}
                     else
                     {selectWebElement(e.findElement(By.className("k-in")));break;}   }}
     }
+    
     
     public void addwithoutFirstName(UserRoleMappingDetails details) throws Exception {
     	selectWebElement(UserRoleMappingTabs.get(1));
@@ -376,9 +377,15 @@ public class NewUserRoleMappingPage extends BasePage {
         selectWebElement(usernameTextBox);
         enterValueToTxtFieldWithoutClear(usernameTextBox,details.getBankUserName());
         enterValueToTxtFieldWithoutClear(editAvayaLoginIDTextbox,details.getAvayaLoginID());
-        editProfile(details.getProfile(),details.getSupervisor());
         selectWebElement(TeamNameDropDown);
+        try {
+        	Thread.sleep(1000);
+        }
+        catch (Exception e) {
+        	e.printStackTrace();
+        }
         ChooseTeamHeirarchy(details.getTeamName());
+        editProfile(details.getProfile(),details.getSupervisor());
         selectWebElement(RoleDropDown);
         selectDropdownFromVisibleText(RoleListBox,details.getRole());
         btnClick(editFormSaveBtn);
@@ -395,6 +402,12 @@ public class NewUserRoleMappingPage extends BasePage {
         enterValueToTxtFieldWithoutClear(editAvayaLoginIDTextbox,details.getAvayaLoginID());
         editProfile(details.getProfile(),details.getSupervisor());
         selectWebElement(TeamNameDropDown);
+        try {
+        	Thread.sleep(1000);
+        }
+        catch (Exception e) {
+        	e.printStackTrace();
+        }
         ChooseTeamHeirarchy(details.getTeamName());
         selectWebElement(RoleDropDown);
         selectDropdownFromVisibleText(RoleListBox,details.getRole());
@@ -412,6 +425,12 @@ public class NewUserRoleMappingPage extends BasePage {
         enterValueToTxtFieldWithoutClear(editAvayaLoginIDTextbox,details.getAvayaLoginID());
         editProfile(details.getProfile(),details.getSupervisor());
         selectWebElement(TeamNameDropDown);
+        try {
+        	Thread.sleep(1000);
+        }
+        catch (Exception e) {
+        	e.printStackTrace();
+        }
         ChooseTeamHeirarchy(details.getTeamName());
         selectWebElement(RoleDropDown);
         selectDropdownFromVisibleText(RoleListBox,details.getRole());
@@ -430,6 +449,12 @@ public class NewUserRoleMappingPage extends BasePage {
         enterValueToTxtFieldWithoutClear(usernameTextBox,details.getBankUserName());
         editProfile(details.getProfile(),details.getSupervisor());
         selectWebElement(TeamNameDropDown);
+        try {
+        	Thread.sleep(1000);
+        }
+        catch (Exception e) {
+        	e.printStackTrace();
+        }
         ChooseTeamHeirarchy(details.getTeamName());
         selectWebElement(RoleDropDown);
         selectDropdownFromVisibleText(RoleListBox,details.getRole());
@@ -448,6 +473,12 @@ public class NewUserRoleMappingPage extends BasePage {
         enterValueToTxtFieldWithoutClear(usernameTextBox,details.getBankUserName());
         enterValueToTxtFieldWithoutClear(editAvayaLoginIDTextbox,details.getAvayaLoginID());
         selectWebElement(TeamNameDropDown);
+        try {
+        	Thread.sleep(1000);
+        }
+        catch (Exception e) {
+        	e.printStackTrace();
+        }
         ChooseTeamHeirarchy(details.getTeamName());
         selectWebElement(RoleDropDown);
         selectDropdownFromVisibleText(RoleListBox,details.getRole());
@@ -468,6 +499,12 @@ public class NewUserRoleMappingPage extends BasePage {
         selectWebElement(profilesDropdown);
         selectDropdownFromVisibleText(profilesListBox,details.getProfile());
         selectWebElement(TeamNameDropDown);
+        try {
+        	Thread.sleep(1000);
+        }
+        catch (Exception e) {
+        	e.printStackTrace();
+        }
         ChooseTeamHeirarchy(details.getTeamName());
         selectWebElement(RoleDropDown);
         selectDropdownFromVisibleText(RoleListBox,details.getRole());
@@ -487,6 +524,12 @@ public class NewUserRoleMappingPage extends BasePage {
         enterValueToTxtFieldWithoutClear(editAvayaLoginIDTextbox,details.getAvayaLoginID());
         editProfile(details.getProfile(),details.getSupervisor());
         selectWebElement(TeamNameDropDown);
+        try {
+        	Thread.sleep(1000);
+        }
+        catch (Exception e) {
+        	e.printStackTrace();
+        }
         ChooseTeamHeirarchy(details.getTeamName());
         btnClick(editFormSaveBtn);
         selectWebElement(cancelBtn);		
@@ -784,10 +827,15 @@ public class NewUserRoleMappingPage extends BasePage {
         }
         return status;
     }
-    public boolean verifycolumnsHeaderEnabled(){
-        boolean status=false;
-        WebElement ele= headersDropdown.get(0);
-            if(ele.isDisplayed()){
+    public boolean verifycolumnsHeaderEnabled() throws InterruptedException{
+    	boolean status=false;
+        try{
+        	for(WebElement ele:headersDropdown) {
+        	scrollToElement(ele);
+        	 if (!ele.isDisplayed()) {
+	                continue;
+        	 }
+        	 else {
                 try {
                     selectWebElement(ele);
                     Thread.sleep(1000);
@@ -815,11 +863,19 @@ public class NewUserRoleMappingPage extends BasePage {
                     }
                 }
             }
+            break;
+        }
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
         return status;
     }
+        
     public boolean verifycolumnsHeaderDisbaled() {
         boolean status = false;
-        WebElement ele = headersDropdown.get(0);
+        try {for(WebElement ele : headersDropdown) {
+        scrollToElement(ele);
             if (ele.isDisplayed()) {
                 try {
                     selectWebElement(ele);
@@ -850,8 +906,15 @@ public class NewUserRoleMappingPage extends BasePage {
                 }
 
             }
+        break;
+        }
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
         return status;
     }
+    
     
     public boolean verifyArrowMoveForPreviousAndNextPage(int i){
         boolean status=false;

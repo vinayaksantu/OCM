@@ -856,8 +856,10 @@ public class CepEventMappingPage extends BasePage {
 	}
 	public void deleteCEPEventWithoutDeleteReasonRecord(CepEventMappingDetails details) throws Exception {
 		searchCepEventMapping(details.getCepEvent());
-		waitUntilWebElementIsClickable(deleteButton);
+		Thread.sleep(2000);
+		//waitUntilWebElementIsClickable(deleteButton);
         selectWebElement(deleteButton);
+        Thread.sleep(1000);
         selectWebElement(deleteYesBtn);	
         selectWebElement(deleteNoBtn);			
 	}

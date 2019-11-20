@@ -37,7 +37,7 @@ Screenshot screenshot=new Screenshot(driver);
         Assert.assertTrue(SmsResponseTemplatePage.isSMSResponseTemplatePageDisplayed(), "SMS Response Template Page assertion failed");
     }
 	
-	@Test(priority=1)
+	/*@Test(priority=1)
     public void SmsResponseTemplatePage() {
         SmsResponseTemplatePage SmsResponseTemplatePage = PageFactory.createPageInstance(driver, SmsResponseTemplatePage.class);
     	Assert.assertTrue(SmsResponseTemplatePage.verifylogo(),"Host Value Mapping logo assertion failed");
@@ -80,6 +80,9 @@ Screenshot screenshot=new Screenshot(driver);
 	}
      
     @Test(priority=6)
+    
+    
+    
     public void VerifyColumnsHeaderEnable() {
     	SmsResponseTemplatePage SmsResponseTemplatePage = PageFactory.createPageInstance(driver, SmsResponseTemplatePage.class);
         SmsResponseTemplatePage.selectSmsResponseTemplateAuditTrailTab();
@@ -124,7 +127,7 @@ Screenshot screenshot=new Screenshot(driver);
         SmsResponseTemplatePage.selectSmsResponseTemplateAuditTrailTab();
         SmsResponseTemplatePage.selectMakeSmsResponseTemplateChanges();
         Assert.assertTrue(SmsResponseTemplatePage.verifyNumberOfItemsPerPage(2),"item per page assertion failed");
-    }
+    }*/
     
     @Test(priority=12)
     public void ExportToExcel() throws Exception
@@ -146,7 +149,7 @@ Screenshot screenshot=new Screenshot(driver);
         Assert.assertTrue(SmsResponseTemplatePage.verifyexportToExcelSheet(maplist));	
     }
     
-    @Test(priority=14)
+    /*@Test(priority=14)
     public void VerifyExportToExcelWithoutData() throws Exception {
     	SmsResponseTemplatePage SmsResponseTemplatePage = PageFactory.createPageInstance(driver, SmsResponseTemplatePage.class);
         SmsResponseTemplatePage.selectSmsResponseTemplateAuditTrailTab();
@@ -232,13 +235,63 @@ Screenshot screenshot=new Screenshot(driver);
     public void SearchClearSearch() throws Exception
     {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\SmsResponseTemplateData.xlsx";
-    	Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
+    	Map<String, String> map = new ExcelReader(filePath,"Invalid").getTestData().get(1);
 	    SmsResponseTemplateDetails SmsResponseTemplateDetails = new SmsResponseTemplateDetails(map);
     	SmsResponseTemplatePage SmsResponseTemplatePage = PageFactory.createPageInstance(driver, SmsResponseTemplatePage.class);
         Assert.assertTrue(SmsResponseTemplatePage.verifyApprovedSectionData(SmsResponseTemplateDetails ),"invalidsearchwithwrongdata");
         screenshot.captureScreen("SmsResponseTemplateUITest","Invalid Search with wrong data");
         Assert.assertTrue(SmsResponseTemplatePage.verifyclearsearch(), "Clear All Assertion Failed");
     }
+    
+    @Test(priority=23)
+    public void VerifySearchIsNotEqualTo() throws Exception
+    {
+    	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\SmsResponseTemplateData.xlsx";
+    	Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(2);
+	    SmsResponseTemplateDetails SmsResponseTemplateDetails = new SmsResponseTemplateDetails(map);
+    	SmsResponseTemplatePage SmsResponseTemplatePage = PageFactory.createPageInstance(driver, SmsResponseTemplatePage.class);
+    	Assert.assertTrue(SmsResponseTemplatePage.verifySearchIsNotEqualTo(SmsResponseTemplateDetails.getIntent()));
+    }
+    
+    @Test(priority=24)
+    public void VerifySearchContains() throws Exception
+    {
+    	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\SmsResponseTemplateData.xlsx";
+    	Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(3);
+	    SmsResponseTemplateDetails SmsResponseTemplateDetails = new SmsResponseTemplateDetails(map);
+    	SmsResponseTemplatePage SmsResponseTemplatePage = PageFactory.createPageInstance(driver, SmsResponseTemplatePage.class);
+    	Assert.assertTrue(SmsResponseTemplatePage.verifySearchContains(SmsResponseTemplateDetails.getIntent()));
+    }
+    
+    @Test(priority=25)
+    public void VerifySearchDoesNotContains() throws Exception
+    {
+    	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\SmsResponseTemplateData.xlsx";
+    	Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(3);
+	    SmsResponseTemplateDetails SmsResponseTemplateDetails = new SmsResponseTemplateDetails(map);
+    	SmsResponseTemplatePage SmsResponseTemplatePage = PageFactory.createPageInstance(driver, SmsResponseTemplatePage.class);
+    	Assert.assertTrue(SmsResponseTemplatePage.verifySearchDoesNotContains(SmsResponseTemplateDetails.getIntent()));
+    }
+    
+    @Test(priority=26)
+    public void VerifySearchStartsWith() throws Exception
+    {
+    	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\SmsResponseTemplateData.xlsx";
+    	Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(4);
+	    SmsResponseTemplateDetails SmsResponseTemplateDetails = new SmsResponseTemplateDetails(map);
+    	SmsResponseTemplatePage SmsResponseTemplatePage = PageFactory.createPageInstance(driver, SmsResponseTemplatePage.class);
+    	Assert.assertTrue(SmsResponseTemplatePage.verifySearchStartsWith(SmsResponseTemplateDetails.getIntent()));
+    }
+    
+    @Test(priority=27)
+    public void VerifySearchEndsWith() throws Exception
+    {
+    	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\SmsResponseTemplateData.xlsx";
+    	Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(5);
+	    SmsResponseTemplateDetails SmsResponseTemplateDetails = new SmsResponseTemplateDetails(map);
+    	SmsResponseTemplatePage SmsResponseTemplatePage = PageFactory.createPageInstance(driver, SmsResponseTemplatePage.class);
+    	Assert.assertTrue(SmsResponseTemplatePage.verifySearchEndsWith(SmsResponseTemplateDetails.getIntent()));
+    }*/
     
     @AfterMethod
     public void afterEachMethod(Method method) throws InterruptedException {

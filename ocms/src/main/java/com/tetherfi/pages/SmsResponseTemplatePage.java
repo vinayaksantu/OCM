@@ -269,6 +269,21 @@ public class SmsResponseTemplatePage extends BasePage {
     @FindBy(id="ICOMTemplateID")
     private WebElement IcomTemplateIdTextbox;
     
+    @FindBy(css = ".modal-body .form-inline .form-group .k-select")
+	private List<WebElement> selectSearchCol;
+    
+    @FindBy(css="ul[id='1001sCriteria_listbox'] li")
+	private List<WebElement> searchCriteriaDropDwn;
+    
+	@FindBy(id = "1001sTextToSearch")
+	private WebElement searchTextBox;
+	
+	@FindBy(css = ".modal-footer .button-theme")
+	private WebElement searchSearchBtn;
+	
+	@FindBy(css = ".fa-search")
+	private WebElement searchBtn1;
+    
     
     
     
@@ -780,6 +795,113 @@ public class SmsResponseTemplatePage extends BasePage {
 			return true; 
 			else
 				return false;
+	}
+	
+	public boolean verifySearchIsNotEqualTo(String intent) throws Exception {
+		Boolean Status=false;
+		Map<String, String> map=new HashMap<String,String>() ;
+		map.put("Intent", intent);
+		selectWebElement(searchBtn1);
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Intent");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is not equal to");
+        enterValueToTxtField(searchTextBox,intent);		
+        selectWebElement(searchSearchBtn);
+        waitUntilWebElementIsVisible(checkerGrid);
+        List<Map<String,String>> UI=gettable(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(map1.equals(map))
+        	Status= false;
+        	else 
+        		Status= true;
+	}
+        return Status;
+	
+	}
+	
+	public boolean verifySearchContains(String intent) throws Exception {
+		Boolean Status=false;
+		selectWebElement(searchBtn1);
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Intent");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Contains");
+        enterValueToTxtField(searchTextBox,intent);		
+        selectWebElement(searchSearchBtn);
+        waitUntilWebElementIsVisible(checkerGrid);
+        List<Map<String,String>> UI=gettable(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(map1.get("Intent").toUpperCase().contains(intent.toUpperCase()))
+        	Status= true;
+        	else 
+        		Status= false;
+	}
+        return Status;
+	}
+	public boolean verifySearchDoesNotContains(String intent) throws Exception {
+		Boolean Status=false;
+		selectWebElement(searchBtn1);
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Intent");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Does not contain");
+        enterValueToTxtField(searchTextBox,intent);		
+        selectWebElement(searchSearchBtn);
+        waitUntilWebElementIsVisible(checkerGrid);
+        List<Map<String,String>> UI=gettable(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(!map1.get("Intent").toLowerCase().contains(intent.toLowerCase()))
+        	Status= true;
+        	else 
+        		Status= false;
+	}
+        return Status;
+	}
+	
+	public boolean verifySearchStartsWith(String intent) throws Exception {
+		Boolean Status=false;
+		selectWebElement(searchBtn1);
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Intent");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Starts with");
+        enterValueToTxtField(searchTextBox,intent);		
+        selectWebElement(searchSearchBtn);
+        waitUntilWebElementIsVisible(checkerGrid);
+        List<Map<String,String>> UI=gettable(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(map1.get("Intent").toLowerCase().startsWith(intent.toLowerCase()))
+        	Status= true;
+        	else 
+        		Status= false;
+	}
+        return Status;
+	}
+	
+	public boolean verifySearchEndsWith(String intent) throws Exception {
+		Boolean Status=false;
+		selectWebElement(searchBtn1);
+        selectWebElement(selectSearchCol.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Intent");
+        selectWebElement(selectSearchCol.get(1));
+        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Ends with");
+        enterValueToTxtField(searchTextBox,intent);		
+        selectWebElement(searchSearchBtn);
+        waitUntilWebElementIsVisible(checkerGrid);
+        List<Map<String,String>> UI=gettable(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(map1.get("Intent").toUpperCase().endsWith(intent.toUpperCase()))
+        	Status= true;
+        	else 
+        		Status= false;
+	}
+        return Status;
 	}
 
 	private void searchSmsResponseTemplateRecordApprovedData(String icomTemplateId) throws Exception {

@@ -3,23 +3,17 @@
 <suite name="Failed suite [Failed suite [Failed suite [Failed suite [Failed suite [Default suite]]]]]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)(failed)(failed)(failed)(failed)">
     <classes>
-      <class name="com.tetherfi.test.ivr.VBEnrollmentFlagTest">
+      <class name="com.tetherfi.test.ivr.MenuDescriptionMappingTest">
         <methods>
-          <include name="SortingByAscending"/>
-          <include name="SortingByDescending"/>
-          <include name="database"/>
-          <include name="endTestCase"/>
-          <include name="afterEachMethod"/>
-          <include name="tearDown"/>
-          <include name="DeleteVBEnrollmentFlagRecord"/>
-          <include name="NavigateToVbEnrollmentFlagPage"/>
-          <include name="ExportToExcelData"/>
+          <include name="VerifyTotalNumberOfItemsPerPageDetails"/>
           <include name="startTestCase"/>
           <include name="openApplication"/>
-          <include name="VerifyCancelBtnAtDeleteVBEnrollmentFlagRecord"/>
-          <include name="VerifyAuditTrialReportForDelete"/>
+          <include name="afterEachMethod"/>
+          <include name="NavigateToMenuDescriptionMappingPage"/>
+          <include name="endTestCase"/>
+          <include name="tearDown"/>
         </methods>
-      </class> <!-- com.tetherfi.test.ivr.VBEnrollmentFlagTest -->
+      </class> <!-- com.tetherfi.test.ivr.MenuDescriptionMappingTest -->
     </classes>
   </test> <!-- Default test(failed)(failed)(failed)(failed)(failed) -->
 </suite> <!-- Failed suite [Failed suite [Failed suite [Failed suite [Failed suite [Default suite]]]]] -->

@@ -75,7 +75,7 @@ Screenshot screenshot=new Screenshot(driver);
        }
      
     @Test(priority=6)
-    public void VerifyColumnsHeaderEnable() {
+    public void VerifyColumnsHeaderEnable() throws InterruptedException {
     	NewUserRoleMappingPage NewUserRoleMappingPage = PageFactory.createPageInstance(driver, NewUserRoleMappingPage.class);
         NewUserRoleMappingPage.selectUserRoleMappingAuditTrailTab();
         NewUserRoleMappingPage.selectMakeUserRoleMappingChanges();

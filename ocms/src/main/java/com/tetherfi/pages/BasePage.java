@@ -168,7 +168,7 @@ public class BasePage {
     
     public void enterValueToTxtBox1(WebElement webElement, String value) {
         waitUntilWebElementIsVisible(webElement);
-        waitUntilWebElementIsClickable(webElement);
+        //waitUntilWebElementIsClickable(webElement);
         webElement.sendKeys(Keys.CONTROL + "a");
         webElement.sendKeys(value);
     }

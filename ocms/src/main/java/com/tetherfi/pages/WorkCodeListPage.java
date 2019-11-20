@@ -1053,5 +1053,22 @@ public class WorkCodeListPage extends BasePage{
     public boolean isExportBtnDisplayed() {
     	return exporttoexcel.isDisplayed() && exporttoexcel.isEnabled();
     }
+
+	public void deleteWorkGroupRecord(WorkCodeListDetails workcodeListDetails) throws Exception {
+		searchWorkcodeList(workcodeListDetails.getName());
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		selectWebElement(deletebtn);
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		enterValueToTxtFieldWithoutClear(deletereasontextbox,workcodeListDetails.getDeleteReason());
+		selectWebElement(yesbtn);		
+	}
 }
 

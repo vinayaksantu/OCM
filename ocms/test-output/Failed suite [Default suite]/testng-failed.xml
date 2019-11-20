@@ -3,17 +3,18 @@
 <suite name="Failed suite [Failed suite [Default suite]]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)(failed)">
     <classes>
-      <class name="com.tetherfi.test.ivr.OperatingHoursTest">
+      <class name="com.tetherfi.test.DashboardColorCodeConfigTest">
         <methods>
           <include name="startTestCase"/>
           <include name="openApplication"/>
-          <include name="DeleteNoRecord"/>
+          <include name="EditDashboardColorConfigCancelRecord"/>
           <include name="endTestCase"/>
+          <include name="NavigateToDashboardColorCodeConfigPage"/>
           <include name="tearDown"/>
+          <include name="VerifyColumnsHeaderEnable"/>
           <include name="afterEachMethod"/>
-          <include name="NavigateToOperatingHoursPage"/>
         </methods>
-      </class> <!-- com.tetherfi.test.ivr.OperatingHoursTest -->
+      </class> <!-- com.tetherfi.test.DashboardColorCodeConfigTest -->
     </classes>
   </test> <!-- Default test(failed)(failed) -->
 </suite> <!-- Failed suite [Failed suite [Default suite]] -->

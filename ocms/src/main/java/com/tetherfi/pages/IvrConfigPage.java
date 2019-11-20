@@ -532,7 +532,7 @@ public class IvrConfigPage extends BasePage {
 	}
 	
 	private List<Map<String,String>> getdata(){
-		int item=Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
+		int item=Integer.valueOf(items.get(0).getText().split("of ")[1].split(" items")[0]);
         int pagersize=Integer.valueOf(pagerSize.getText());
         int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
 		List<Map<String,String>> arr=new ArrayList<Map<String,String>>();
@@ -577,7 +577,7 @@ public class IvrConfigPage extends BasePage {
 	}
 	
 	public List<Map<String, String>> gettable() {
-		int item=Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
+		int item=Integer.valueOf(items.get(0).getText().split("of ")[1].split(" items")[0]);
         int pagersize=Integer.valueOf(pagerSize.getText());
         int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
 		List<Map<String,String>> arr=new ArrayList<Map<String,String>>();
@@ -674,14 +674,14 @@ public class IvrConfigPage extends BasePage {
         boolean status = false;
         try {
           //  if (norecords.size() <= 0) {
-                int item = Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
+                int item = Integer.valueOf(items.get(0).getText().split("of ")[1].split(" items")[0]);
                 selectWebElement(pagerDropdown);
                 Thread.sleep(1500);
                 for (int i = 0; i < pageSizeListBox.size(); i++) {
                     if(Integer.valueOf(pageSizeListBox.get(i).getText())>item){continue;}
                     selectDropdownFromVisibleText(pageSizeListBox, pageSizeListBox.get(i).getText());
                     waitForJqueryLoad(driver);
-                    int totalItems = Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
+                    int totalItems = Integer.valueOf(items.get(0).getText().split("of ")[1].split(" items")[0]);
                     int pagersize = Integer.valueOf(pagerSize.getText());
                     int pages = (totalItems % pagersize == 0) ? item / pagersize : item / pagersize+1;
                     int totalRows=(gridContent.findElements(By.tagName("tr")).size());
@@ -702,7 +702,7 @@ public class IvrConfigPage extends BasePage {
     }
     
 	public boolean verifyTotalNumberOfItemsPerPageDetails(){
-        String item = items.getText();
+        String item = items.get(0).getText();
         return item.matches("(\\d.*) - (\\d.*) of (\\d.*) items");
     }
     

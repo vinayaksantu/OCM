@@ -59,7 +59,7 @@ public class UserRoleMappingCreateTest {
         ocmHomePage.navigateToUserRoleMappingPage();
         NewUserRoleMappingPage NewUserRoleMappingPage = PageFactory.createPageInstance(driver, NewUserRoleMappingPage.class);
         Assert.assertTrue(NewUserRoleMappingPage.isUserRoleMappingPageDisplayed(), "User Role Mapping page assertion failed");
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 	}
 	
 	@Test(groups= {"Maker"},priority=1)

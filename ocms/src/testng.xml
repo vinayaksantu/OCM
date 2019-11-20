@@ -1,16 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="Tetherfi Test Automation" parallel="tests">
+<suite name="Tetherfi Test Automation" parallel="false">
     <listeners>
         <listener class-name="com.tetherfi.listeners.ReportListener"/>
-    </listeners>
-
-    <test name="OCMS Portal" parallel="false">
-      <classes>
-
-           <class name="com.tetherfi.test.fax.FaxLineConfigTest"/> 
-           
-      </classes>
-    </test>
-
+    </listeners>    
+     <test name="User Role Mapping Create Test" parallel="false">
+      <classes>  
+           <class name="com.tetherfi.test.UserRoleMappingCreateTest"/> 
+            </classes>
+     </test>
+    
+     <test name="User Role Mapping Update Test" parallel="false">
+      <classes>  
+           <class name="com.tetherfi.test.UserRoleMappingUpdateTest"/> 
+            </classes>
+     </test>        
+     
+     <test name="User Role Mapping Delete Test" parallel="false">
+      <classes>  
+           <class name="com.tetherfi.test.UserRoleMappingDeleteTest"/> 
+            </classes>
+     </test>   
+          
 </suite>

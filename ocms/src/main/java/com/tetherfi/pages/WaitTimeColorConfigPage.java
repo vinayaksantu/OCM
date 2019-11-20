@@ -245,10 +245,11 @@ public class WaitTimeColorConfigPage extends BasePage {
         selectWebElement(addNewWaitTimeColorConfigRecordBtn);
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(popupContent);
+        Thread.sleep(1000);
         selectWebElement(startTime);
-        enterValueToTxtField(startTime, details.getStartTime());
+        enterValueToTxtFieldWithoutClear(startTime, details.getStartTime());
         selectWebElement(endTime);
-        enterValueToTxtField(endTime, details.getEndTime());
+        enterValueToTxtFieldWithoutClear(endTime, details.getEndTime());
         try {
 			Thread.sleep(500);
 		} catch (InterruptedException e) {
@@ -373,7 +374,7 @@ public class WaitTimeColorConfigPage extends BasePage {
         selectDropdownFromVisibleText(columnNameList,"Start Duration");
         selectWebElement(selectSearchColumn.get(1));
         selectDropdownFromVisibleText(searchTypeList,"Is equal to");
-        enterValueToTxtField(searchText.get(0),StartTime);
+        enterValueToTxtBox1(searchText.get(0),StartTime);
         selectWebElement(searchBtn);
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(gridContent);
@@ -388,9 +389,9 @@ public class WaitTimeColorConfigPage extends BasePage {
         selectWebElement(editBtn);
         waitForJqueryLoad(driver);
         selectWebElement(startTime);
-        enterValueToTxtField(startTime, details.getUpdatedStartTime());
+        enterValueToTxtBox1(startTime, details.getUpdatedStartTime());
         selectWebElement(endTime);
-        enterValueToTxtField(endTime, details.getEndTime());
+        enterValueToTxtBox1(endTime, details.getEndTime());
         selectWebElement(colorPicker);
         selectWebElement(colorValue);
         enterValueToTxtField(colorValue,details.getUpdatedColorCode());
@@ -398,6 +399,7 @@ public class WaitTimeColorConfigPage extends BasePage {
         enterValueToTxtFieldWithoutClear(modifyReasonTextBox,details.getModifyReason());
         btnClick(saveBtn);
     }
+    
     public void deleteWaitTimeColorConfigRecord(String Starttime, String reason) throws Exception {
         searchWaitTimeColorConfigRecord(Starttime);
         btnClick(deleteBtn);

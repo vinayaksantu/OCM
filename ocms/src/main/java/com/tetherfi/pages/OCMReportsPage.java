@@ -31,6 +31,7 @@ import com.tetherfi.model.tmac.TmacBroadCastMsgDetails;
 import com.tetherfi.model.tmac.WaitTimeColorConfigDetails;
 import com.tetherfi.model.tmac.WorkCodeListDetails;
 import com.tetherfi.model.user.CepEventMappingDetails;
+import com.tetherfi.model.user.DashboardColorCodeConfigDetails;
 import com.tetherfi.model.user.SkillConfigurationDetails;
 import com.tetherfi.model.user.TdmThresholdConfigDetails;
 import com.tetherfi.model.user.UserRoleMappingDetails;
@@ -280,6 +281,9 @@ public class OCMReportsPage extends BasePage {
     
     @FindBy(id="1002sTextToSearch")
     private WebElement searchTextBoxtwo;
+    
+    @FindBy(xpath="//button[@id='clearAllSearch']")
+	private WebElement ClearAll; 
     
     public boolean isShowButtonsDisplayed() {
     	return showReportBtn.get(0).isDisplayed() && showReportBtn.get(1).isDisplayed() && showReportBtn.get(0).isEnabled() && showReportBtn.get(1).isEnabled();    	
@@ -1202,7 +1206,9 @@ return status;
 				if(newvalues.get("Message").equals(details.getMessage()))
 				{
 					if(newvalues.get("Status").equals(details.getStatus()))
+						{
 						Status= true;
+						}
 					else {System.out.println("Status data mismatch");}
 				}
 				else {System.out.println("Message data mismatch");}
@@ -1239,7 +1245,7 @@ return status;
     		        		if(newvalues.get("TeamName").equals(details.getTeamName())){
     		        			if(newvalues.get("Message").equals(details.getUpdatedMessage())){
     		        				if(newvalues.get("Status").equals(details.getUpdatedStatus())) {
-    		        					if(newvalues.get("Modify Reason").equals(details.getModifyReason())) {
+    		        					if(newvalues.get("ModifyReason").equals(details.getModifyReason())) {
     		        						if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getModifyReason()))
     		        		        			Status=true;
     		        		        		else System.out.println("Change reason data mismatch");
@@ -2919,9 +2925,7 @@ return status;
                                 																	{	
                                 																		if(newvalues.get("ModifyReason").equals(details.getModifyReason())) 
                                 																		{
-                                																			if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getModifyReason()))
                                 																				Status=true;
-                                																			else System.out.println("Change reason data mismatch");
                                 																		}
                                 																		else System.out.println("Modify reason data mismatch");	
                                 																	}
@@ -2998,9 +3002,7 @@ return status;
                         					if(oldvalues.get("Status").equals(details.getStatus())){
                             					if(oldvalues.get("Language").equals(details.getLanguage())){
                             						if(oldvalues.get("ModifyReason").equals(details.getDeleteReason())) {
-                            							if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getDeleteReason()))
                             								Status=true;
-                            							else System.out.println("Change reason data mismatch");
                             						}
                             						else {System.out.println("Modify Reason  data mismatch");}
                             					}
@@ -4162,9 +4164,7 @@ return status;
                 											if(newvalues.get("Status").equals(details.getStatus())){
                 												if(newvalues.get("WaveFile").equals(details.getWavFile())) {	
                     												if(newvalues.get("ModifyReason").equals(details.getModifyReason())){ 
-                														if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getModifyReason()))
                 															Status=true;
-                														else System.out.println("Change reason data mismatch");
                     													}
                     												else System.out.println("Modify reason data mismatch");
                     											}
@@ -4222,9 +4222,7 @@ return status;
 								if(oldvalues.get("WaveFile").equals(details.getWavFile()))
 								{
 									if(oldvalues.get("ModifyReason").equals(details.getDeleteReason())) {
-										if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getDeleteReason()))
 											Status=true;
-										else System.out.println("Change reason data mismatch");
 										}
 									else System.out.println("Modify reason data mismatch");
 								}
@@ -4423,7 +4421,7 @@ return status;
 		{
 			if(newvalues.get("Name").equals(details.getGroupName()))
 			{
-				if(newvalues.get("Enabled").equals(details.getDeptEnabled()))
+				if(newvalues.get("Enabled").equals(details.getGroupEnabled()))
 				{
 					Status= true;
 				}
@@ -4477,7 +4475,7 @@ return status;
 	}
 
 	public boolean verifyChatTemplateDepartmentUpdate(ChatTemplateDetails details, String Transaction) throws Exception {
-		booleansearchnew(details.getDepartmentName(),Transaction);
+		booleansearchnew(details.getModifyReason(),Transaction);
 		Boolean Status=false;
         Map<String,String> firstRowData=getFirstRowDatafromTable1();
         if(firstRowData.containsKey("Old Values")) {
@@ -4538,10 +4536,10 @@ return status;
     		if(oldvalues.get("Name").equals(details.getName())){
     			if(oldvalues.get("Text").equals(details.getText())){
     				if(oldvalues.get("Enabled").equals(details.getEnabled())) {
-    					if(oldvalues.get("GroupName").equals(details.getGroupName())){
-        					if(oldvalues.get("DepartmentName").equals(details.getDepartmentName())){
-            					if(oldvalues.get("StartTime").equals(details.getStartTime())){
-                					if(oldvalues.get("EndTime").equals(details.getEndTime())){
+    					if(oldvalues.get("Group Name").equals(details.getGroupName())){
+        					if(oldvalues.get("Department Name").equals(details.getDepartmentName())){
+            					if(oldvalues.get("Start Time").equals(details.getStartTime())){
+                					if(oldvalues.get("End Time").equals(details.getEndTime())){
                 						if(firstRowData.containsKey("New Values")) {
                 							Map<String,String> newvalues=new HashMap<>();
                 							String[]d1=firstRowData.get("New Values").split("\n");
@@ -4553,10 +4551,10 @@ return status;
                 							if(newvalues.get("Name").equals(details.getName())) {
                 								if(newvalues.get("Text").equals(details.getText())){
                 									if(newvalues.get("Enabled").equals(details.getUpdatedEnabled())){
-                										if(newvalues.get("GroupName").equals(details.getGroupName())){
-                											if(newvalues.get("DepartmentName").equals(details.getDepartmentName())){
-                												if(newvalues.get("StartTime").equals(details.getStartTime())) {	
-                    												if(newvalues.get("EndTime").equals(details.getEndTime())) {	
+                										if(newvalues.get("Group Name").equals(details.getGroupName())){
+                											if(newvalues.get("Department Name").equals(details.getDepartmentName())){
+                												if(newvalues.get("Start Time").equals(details.getStartTime())) {	
+                    												if(newvalues.get("End Time").equals(details.getEndTime())) {	
                     													if(newvalues.get("ModifyReason").equals(details.getModifyReason())){ 
                 															if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getModifyReason()))
                 																Status=true;
@@ -4599,7 +4597,7 @@ return status;
 	}
 
 	public boolean verifyChatTemplateGroupUpdate(ChatTemplateDetails details, String Transaction) throws Exception {
-		booleansearchnew(details.getGroupName(),Transaction);
+		booleansearchnew(details.getModifyReason(),Transaction);
 		Boolean Status=false;
         Map<String,String> firstRowData=getFirstRowDatafromTable1();
         if(firstRowData.containsKey("Old Values")) {
@@ -4612,7 +4610,7 @@ return status;
     				oldvalues.put(f[0], f[1]);
     		}
     		if(oldvalues.get("Name").equals(details.getGroupName())){
-    			if(oldvalues.get("Enabled").equals(details.getEnabled())) {
+    			if(oldvalues.get("Enabled").equals(details.getGroupEnabled())) {
     				if(oldvalues.get("DepartmentName").equals(details.getDepartmentName())){
     					if(firstRowData.containsKey("New Values")) {
                 			Map<String,String> newvalues=new HashMap<>();
@@ -4623,7 +4621,7 @@ return status;
                 					newvalues.put(f[0], f[1]);
                 			}
                 			if(newvalues.get("Name").equals(details.getGroupName())) {
-                				if(newvalues.get("Enabled").equals(details.getUpdatedEnabled())){
+                				if(newvalues.get("Enabled").equals(details.getUpdatedGroupEnabled())){
                 					if(newvalues.get("DepartmentName").equals(details.getDepartmentName())){
                 						if(newvalues.get("ModifyReason").equals(details.getModifyReason())){ 
                 							if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getModifyReason()))
@@ -5909,7 +5907,162 @@ return status;
     	return Status;
 	}
 
-	
+	public boolean verifyDashboardColorConfigCreate(DashboardColorCodeConfigDetails details, String Transaction) throws Exception {
+		booleansearchnew(details.getColorcode(),Transaction);
+		Boolean Status=false;
+	    Map<String,String> firstRowData=getFirstRowDatafromTable1();
+		Map<String,String> newvalues=new HashMap<>();
+		String[]d=firstRowData.get("New Values").split("\n");
+		for(String e:d) {
+			String f[]=e.split(":",2);
+			if(f.length>1)
+			newvalues.put(f[0], f[1]);
+		}
+			if(newvalues.get("DashboardName").equals(details.getdashboardName()))
+			{
+				if(newvalues.get("ColumnName").equals(details.getcolumnName()))
+				{
+						if(newvalues.get("EndRange").equals(details.getEndRange()))
+						{
+							if(newvalues.get("BackgroundColor").equals(details.getColorcode()))
+							
+							{   if(newvalues.get("FontColor").equals(details.getFontcolor()))
+									{
+								if(newvalues.get("StartRange").equals(details.getStartRange()))
+									Status= true;
+								else {System.out.println("StartRange data mismatch");}
+							}
+							else {System.out.println("FontColor data mismatch");}
+						}
+						else {System.out.println("BackgroundColor data mismatch");}
+					}
+					else {System.out.println("EndRange data mismatch");}
+				}
+				else {System.out.println("ColumnName data mismatch");}
+			}
+			else {System.out.println("DashboardName data mismatch");	}
+		return Status;
+	}
+
+	public boolean verifyDashboardColorCodeConfigUpdate(DashboardColorCodeConfigDetails details, String Transaction) throws Exception {
+			booleansearchnew(details.getUpdatedStartRange(),Transaction);
+			Boolean Status=false;
+	        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+	        if(firstRowData.containsKey("Old Values")) {
+	        	Map<String,String> oldvalues=new HashMap<>();
+	    		String[]d=firstRowData.get("Old Values").split("\n");
+	    		for(String e:d) {
+	    			System.out.println(e);
+	    			String f[]=e.split(":",2);
+	    			if(f.length>1)
+	    				oldvalues.put(f[0], f[1]);
+	    		}
+	    		if(oldvalues.get("DashboardName").equals(details.getdashboardName())){
+	    			if(oldvalues.get("ColumnName").equals(details.getcolumnName())){
+	    				if(oldvalues.get("EndRange").equals(details.getEndRange())) {
+	    					if(oldvalues.get("BackgroundColor").equals(details.getColorcode())){
+	        					if(oldvalues.get("FontColor").equals(details.getFontcolor())){
+	            					if(oldvalues.get("StartRange").equals(details.getStartRange())){
+	                					if(firstRowData.containsKey("New Values")) {
+	                						Map<String,String> newvalues=new HashMap<>();
+	                						String[]d1=firstRowData.get("New Values").split("\n");
+	                						for(String e:d1) {
+	                							String f[]=e.split(":",2);
+	                							if(f.length>1)
+	                								newvalues.put(f[0], f[1]);
+	                						}
+	                						if(newvalues.get("DashboardName").equals(details.getdashboardName())) {
+	                							if(newvalues.get("ColumnName").equals(details.getcolumnName())){
+	                								if(newvalues.get("StartRange").equals(details.getStartRange())){
+	                									if(newvalues.get("EndRange").equals(details.getEndRange())){
+	                										if(newvalues.get("BackgroundColor").equals(details.getColorcode())){
+	                    										if(newvalues.get("FontColor").equals(details.getFontcolor())) {	
+	                    											if(newvalues.get("ModifyReason").equals(details.getModifyReason())){ 
+	                													if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getModifyReason()))
+	                														Status=true;
+	                													else System.out.println("Change reason data mismatch");
+	                    											}
+	                    											else System.out.println("Modify reason data mismatch");
+	                    										}
+	    	                									else System.out.println("FontColor data mismatch");
+	                										}
+	                										else System.out.println("BackgroundColor Status data mismatch");
+	                									}
+	                									else System.out.println("EndRange data mismatch");
+	                								}
+	                								else System.out.println("StartRange data mismatch");
+	                							}
+	                							else {System.out.println("ColumnName Type data mismatch");}
+	                						}
+	                						else {System.out.println("DashboardName data mismatch");}
+	                					}
+	                					else System.out.println("New Values data mismatch");
+	            					}
+	            					else System.out.println("StartRange data mismatch");
+	        					}
+	        					else System.out.println("FontColor data mismatch");
+	    					}
+	    					else System.out.println("BackgroundColor mismatch");
+	    				}
+	    				else System.out.println("EndRange mismatch");
+	    			}
+	    			else {System.out.println("ColumnName data mismatch");}
+	    		}
+				else {System.out.println("DashboardName data mismatch");}
+	    	}
+	        else {System.out.println("Old values data mismatch");}
+	 return Status;
+	}
+		
+		public boolean verifyDashboardColorConfigdelete(DashboardColorCodeConfigDetails details, String Transaction) throws Exception {
+			booleansearchold(details.getStartRange(),Transaction);
+			Boolean Status=false;
+	        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+			Map<String,String> oldvalues=new HashMap<>();
+			String[]d=firstRowData.get("Old Values").split("\n");
+			for(String e:d) {
+				String f[]=e.split(":",2);
+				if(f.length>1)
+				oldvalues.put(f[0], f[1]);
+			}
+				if(oldvalues.get("DashboardName").equals(details.getdashboardName()))
+				{
+					if(oldvalues.get("ColumnName").equals(details.getcolumnName()))
+					{
+						if(oldvalues.get("EndRange").equals(details.getEndRange()))
+						{
+							if(oldvalues.get("BackgroundColor").equals(details.getColorcode()))
+							{
+								if(oldvalues.get("FontColor").equals(details.getFontcolor()))
+								{
+									if(oldvalues.get("StartRange").equals(details.getStartRange()))
+									{
+										if(oldvalues.get("ModifyReason").equals(details.getDeleteReason())) {
+											if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getDeleteReason()))
+												Status=true;
+											else System.out.println("Change reason data mismatch");
+										}
+										else System.out.println("Modify reason data mismatch");
+									}
+									else {System.out.println("StartRange data mismatch");}
+								}
+								else {System.out.println("FontColor data mismatch");}
+						}
+						else {System.out.println("BackgroundColor data mismatch");}
+					}
+					else {System.out.println("EndRange data mismatch");}
+				}
+				else {System.out.println("ColumnName Type data mismatch");}
+			}
+			else {System.out.println("DashboardName data mismatch");}
+			return Status;	
+		}
+		public void ClearHomepgDrpDown(ReportDetails details) throws Exception {
+			chooseReport(details);
+			waitUntilWebElementIsClickable(ClearAll);
+			selectWebElement(ClearAll);
+			}
+
 
 	
 
