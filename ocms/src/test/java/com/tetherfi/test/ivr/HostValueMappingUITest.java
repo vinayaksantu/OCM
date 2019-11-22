@@ -223,7 +223,7 @@ public class HostValueMappingUITest extends BaseTest{
 	    HostValueMappingDetails hostValueMappingDetails = new HostValueMappingDetails(map);
     	HostValueMappingPage hostValueMappingPage = PageFactory.createPageInstance(driver, HostValueMappingPage.class);
     	hostValueMappingPage.searchwithoutextsearch(hostValueMappingDetails);
-    	Assert.assertFalse(hostValueMappingPage.getErrorMsg());
+    	Assert.assertEquals(hostValueMappingPage.getErrorMsg(),"Please enter the text to search or remove the filter");
     }
     
     @Test(priority=22)

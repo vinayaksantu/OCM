@@ -32,6 +32,7 @@ import com.tetherfi.model.tmac.WaitTimeColorConfigDetails;
 import com.tetherfi.model.tmac.WorkCodeListDetails;
 import com.tetherfi.model.user.CepEventMappingDetails;
 import com.tetherfi.model.user.DashboardColorCodeConfigDetails;
+import com.tetherfi.model.user.ExportSchedulerDetails;
 import com.tetherfi.model.user.SkillConfigurationDetails;
 import com.tetherfi.model.user.TdmThresholdConfigDetails;
 import com.tetherfi.model.user.UserRoleMappingDetails;
@@ -3664,9 +3665,7 @@ return status;
                                 						if(newvalues.get("Description").equals(details.getUpdatedDescription())){
                                 							if(newvalues.get("WaveFile").equals(details.getWaveFile())) {	
                                 								if(newvalues.get("ModifyReason").equals(details.getModifyReason())){ 
-                                									if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getModifyReason()))
                                             	                       	Status=true;
-                                            	                    else System.out.println("Change reason data mismatch");
                                             	                 }
                                             	                 else System.out.println("Modify reason data mismatch");	
             				            					}
@@ -3724,9 +3723,7 @@ return status;
 								if(oldvalues.get("Status").equals(details.getStatus()))
 								{
 									if(oldvalues.get("ModifyReason").equals(details.getDeleteReason())) {
-										if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getDeleteReason()))
 											Status=true;
-										else System.out.println("Change reason data mismatch");
 									}
 									else System.out.println("Modify reason data mismatch");
 								}
@@ -6063,9 +6060,249 @@ return status;
 			selectWebElement(ClearAll);
 			}
 
+		public boolean verifyExportSchedulerCreate(ExportSchedulerDetails details, String Transaction) throws Exception {
+			booleansearchnew(details.getName(),Transaction);
+			Boolean Status=false;
+	        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+			Map<String,String> newvalues=new HashMap<>();
+			String[]d=firstRowData.get("New Values").split("\n");
+			for(String e:d) {
+				String f[]=e.split(":",2);
+				if(f.length>1)
+				newvalues.put(f[0], f[1]);
+			}
+			if(newvalues.get("Name").equals(details.getName()))
+			{
+				if(newvalues.get("Address").equals(details.getEmail()))
+				{
+					if(newvalues.get("Frequency").equals(details.getFrequency()))
+					{
+						if(newvalues.get("Time").equals(details.getTime()))
+							Status=true;
+						else {System.out.println("Time data mismatch");}
+					}
+						else {System.out.println("Frequency data mismatch");}
+					}
+					else {System.out.println("Address data mismatch");}
+				}
+				else {System.out.println("Name data mismatch");}
+			return Status;
+		}
+
+		public boolean verifyExportSchedulerWeeklyCreate(ExportSchedulerDetails details, String Transaction) throws Exception {
+			booleansearchnew(details.getName(),Transaction);
+			Boolean Status=false;
+	        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+			Map<String,String> newvalues=new HashMap<>();
+			String[]d=firstRowData.get("New Values").split("\n");
+			for(String e:d) {
+				String f[]=e.split(":",2);
+				if(f.length>1)
+				newvalues.put(f[0], f[1]);
+			}
+			if(newvalues.get("Name").equals(details.getName()))
+			{
+				if(newvalues.get("Address").equals(details.getEmail()))
+				{
+					if(newvalues.get("Frequency").equals(details.getFrequency()))
+					{
+						if(newvalues.get("Time").equals(details.getTime()))
+						{
+							if(newvalues.get("Day").equals(details.getDay()))
+							{
+								if(newvalues.get("ReportTitle").equals(details.getReportList()))
+									Status=true;
+								else {System.out.println("Report List data mismatch");
+								}
+							}
+							else {System.out.println("Day data mismatch");}
+						}
+						else {System.out.println("Time data mismatch");}
+					}
+					else {System.out.println("Frequency data mismatch");}
+					}
+				else {System.out.println("Address data mismatch");}
+				}
+			else {System.out.println("Name data mismatch");}
+			return Status;
+		}
+
+		public boolean verifyExportSchedulerMonthlyCreate(ExportSchedulerDetails details, String Transaction) throws Exception {
+			booleansearchnew(details.getName(),Transaction);
+			Boolean Status=false;
+	        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+			Map<String,String> newvalues=new HashMap<>();
+			String[]d=firstRowData.get("New Values").split("\n");
+			for(String e:d) {
+				String f[]=e.split(":",2);
+				if(f.length>1)
+				newvalues.put(f[0], f[1]);
+			}
+			if(newvalues.get("Name").equals(details.getName()))
+			{
+				if(newvalues.get("Address").equals(details.getEmail()))
+				{
+					if(newvalues.get("Frequency").equals(details.getFrequency()))
+					{
+						if(newvalues.get("Time").equals(details.getTime()))
+						{
+							if(newvalues.get("Date").equals(details.getDate()))
+							{
+								if(newvalues.get("ReportTitle").equals(details.getReportList()))
+									Status=true;
+								else {System.out.println("Report List data mismatch");}
+							}
+							else {System.out.println("Date data mismatch");}
+						}
+						else {System.out.println("Time data mismatch");}
+					}
+					else {System.out.println("Frequency data mismatch");}
+					}
+				else {System.out.println("Address data mismatch");}
+				}
+			else {System.out.println("Name data mismatch");}
+			return Status;
+		}
+
+		public boolean verifyExportSchedulerCustomDailyCreate(ExportSchedulerDetails details,String Transaction) throws Exception {
+			booleansearchnew(details.getName(),Transaction);
+			Boolean Status=false;
+	        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+			Map<String,String> newvalues=new HashMap<>();
+			String[]d=firstRowData.get("New Values").split("\n");
+			for(String e:d) {
+				String f[]=e.split(":",2);
+				if(f.length>1)
+				newvalues.put(f[0], f[1]);
+			}
+			if(newvalues.get("Name").equals(details.getName()))
+			{
+				if(newvalues.get("Address").equals(details.getEmail()))
+				{
+					if(newvalues.get("Frequency").equals(details.getFrequency()))
+					{
+						if(newvalues.get("Time").equals(details.getTime()))
+						{
+							if(newvalues.get("StartTime").equals(details.getStartTime()))
+							{
+								if(newvalues.get("ReportTitle").equals(details.getReportList()))
+									Status=true;
+								else {System.out.println("Report List data mismatch");
+								}
+							}
+
+							else {System.out.println("Date data mismatch");}
+						}
+						else {System.out.println("Time data mismatch");}
+					}
+					else {System.out.println("Frequency data mismatch");}
+					}
+				else {System.out.println("Address data mismatch");}
+				}
+			else {System.out.println("Name data mismatch");}
+			return Status;
+		}
+
+		public boolean verifyExportSchedulerUpdate(ExportSchedulerDetails details, String Transaction) throws Exception {
+			booleansearchnew(details.getName(),Transaction);
+			Boolean Status=false;
+	        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+	        if(firstRowData.containsKey("Old Values")) {
+	        	Map<String,String> oldvalues=new HashMap<>();
+	    		String[]d=firstRowData.get("Old Values").split("\n");
+	    		for(String e:d) {
+	    			System.out.println(e);
+	    			String f[]=e.split(":",2);
+	    			if(f.length>1)
+	    				oldvalues.put(f[0], f[1]);
+	    		}
+	    		if(oldvalues.get("Name").equals(details.getName())){
+	    			if(oldvalues.get("Address").equals(details.getEmail())){
+	    				if(oldvalues.get("Frequency").equals(details.getFrequency())) {
+	    					if(oldvalues.get("Time").equals(details.getTime())){
+	        					if(oldvalues.get("ReportTitle").equals(details.getReportList())){
+	            					if(firstRowData.containsKey("New Values")) {
+	                							Map<String,String> newvalues=new HashMap<>();
+	                							String[]d1=firstRowData.get("New Values").split("\n");
+	                							for(String e:d1) {
+	                								String f[]=e.split(":",2);
+	                								if(f.length>1)
+	                									newvalues.put(f[0], f[1]);
+	                							}
+	                							if(newvalues.get("Name").equals(details.getName())){
+	                				    			if(newvalues.get("Address").equals(details.getEmail())){
+	                				    				if(newvalues.get("Frequency").equals(details.getFrequency())) {
+	                				    					if(newvalues.get("ReportTitle").equals(details.getReportList()+","+details.getUpdatedReportList())){
+	                				        					if(newvalues.get("Time").equals(details.getUpdatedTime())){
+	                				                				if(newvalues.get("ModifyReason").equals(details.getModifyReason())) {
+	                				                					if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getModifyReason()))
+	                				                						Status=true;
+	                				                					else System.out.println("Change reason data mismatch");
+	                				                				}
+	                				                				else System.out.println("Modify reason data mismatch");	
+	            				            					}
+	            				            					else System.out.println("Time data mismatch");
+	            				        					}
+	            				        					else System.out.println("ReportTitle data mismatch");
+	            				    					}
+	        				        					else System.out.println("Frequency data mismatch");
+	            				    				}
+	        										else System.out.println("Address data mismatch");
+	    										}
+	    										else System.out.println("Name data mismatch");
+	            							}
+	            		        			else {System.out.println("New values data mismatch");}
+	    		        				}
+	                					else {System.out.println("Report Title data mismatch");}
+	    		        			}
+	            					else System.out.println("Time data mismatch");
+	    		        		}
+	        					else System.out.println("Frequency data mismatch");
+	    					}
+	    					else System.out.println("Address data mismatch");
+	    				}
+	    				else System.out.println("Name data mismatch");
+	        }   		
+	        else {System.out.println("Old values data mismatch");}
+	 return Status;
+		}
+
+		public boolean verifyExportSchedulerdelete(ExportSchedulerDetails details, String Transaction) throws Exception {
+			booleansearchold(details.getName(),Transaction);
+			Boolean Status=false;
+	        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+			Map<String,String> oldvalues=new HashMap<>();
+			String[]d=firstRowData.get("Old Values").split("\n");
+			for(String e:d) {
+				String f[]=e.split(":",2);
+				if(f.length>1)
+				oldvalues.put(f[0], f[1]);
+			}
+			if(oldvalues.get("Name").equals(details.getName()))
+			{
+				if(oldvalues.get("Frequency").equals(details.getFrequency()))
+				{
+					if(oldvalues.get("Address").equals(details.getEmail()))
+					{
+						if(oldvalues.get("ReportTitle").equals(details.getReportList()))
+						{
+							if(oldvalues.get("Time").equals(details.getTime()))
+							{
+								if(oldvalues.get("ModifyReason").equals(details.getDeleteReason()))
+											Status=true;
+								else{System.out.println("Reason data mismatch");}
+							}									
+							else {System.out.println("Time data mismatch");}
+						}	
+						else {System.out.println("Report Title data mismatch");}
+					}
+					else {System.out.println("Address data mismatch");}
+				}
+				else {System.out.println("Frequency data mismatch");}
+			}
+			else {System.out.println("Name data mismatch");}
+			return Status;
+		}
+	}
 
 	
-
-
-	
-}

@@ -1,6 +1,5 @@
 package com.tetherfi.test.ivr;
 
-import java.io.IOException;
 import java.lang.reflect.Method;
 import java.util.Map;
 
@@ -42,7 +41,7 @@ public class HostValueMappingDeleteTest {
         Test t = method.getAnnotation(Test.class);
         Map<String, String> map;
         if(t.groups()[0].equalsIgnoreCase("Checker"))
-            map= new ExcelReader(filePath,"Login").getTestData().get(2);
+            map= new ExcelReader(filePath,"Login").getTestData().get(1);
         else
             map= new ExcelReader(filePath,"Login").getTestData().get(0);
         try{driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);}catch (TimeoutException e){e.printStackTrace();driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);}
@@ -80,7 +79,7 @@ public class HostValueMappingDeleteTest {
 	     HostValueMappingDetails HostValueMappingDetails = new HostValueMappingDetails(map);
 	     HostValueMappingPage HostValueMappingPage = PageFactory.createPageInstance(driver, HostValueMappingPage.class);
 	     HostValueMappingPage.DeleteRecordWithoutModifyReason(HostValueMappingDetails);
-	     Assert.assertFalse(HostValueMappingPage.getErrorMsg(),"Invalid Record Assertion failed");
+	     Assert.assertEquals(HostValueMappingPage.getErrorMsg(),"Please enter the delete reason","Invalid Record Assertion failed");
     }
 	
 	
@@ -148,7 +147,7 @@ public class HostValueMappingDeleteTest {
     @Test(priority=9,groups = { "Checker" },dependsOnMethods = "RejectforDeleteHostValueMappingRecord")
     public void VerifyAuditTrailReportForReject() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\HostValueMappingData.xlsx";
-	    Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(1);
+	    Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
 	    HostValueMappingDetails HostValueMappingDetails = new HostValueMappingDetails(map);
 	    HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
 	    homePage.navigateToOCMReportsPage();
@@ -195,7 +194,7 @@ public class HostValueMappingDeleteTest {
 	     Assert.assertTrue(HostValueMappingPage.verifyAuditTrailDelete(HostValueMappingDetails, "MakerDelete", "New"), "Audit trail details failed");
     }
 
-	@Test(groups = { "Maker" },priority=13,dependsOnMethods="VerifyAuditTrailDataForDeleteHostValueMappingRecord")
+	@Test(groups = { "Maker" },priority=13)
     public void VerifySendForApprovalForDeleteRecord() throws Exception {
        	HostValueMappingPage HostValueMappingPage = PageFactory.createPageInstance(driver, HostValueMappingPage.class);
        	HostValueMappingPage.selectHostValueMappingAuditTrailTab();
@@ -204,7 +203,7 @@ public class HostValueMappingDeleteTest {
         Assert.assertTrue(HostValueMappingPage.verifyStatus("Approval Pending"),"approal status details failed");
     }
 	
-	@Test(priority=14,groups = { "Maker" },dependsOnMethods = "ApproveforDeleteHostValueMappingRecord")
+	@Test(priority=14,groups = { "Maker" },dependsOnMethods = "VerifySendForApprovalForDeleteRecord")
     public void VerifyAuditTrailReportForSendForApprove() throws Exception {
 		 String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\HostValueMappingData.xlsx";
 		 Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);

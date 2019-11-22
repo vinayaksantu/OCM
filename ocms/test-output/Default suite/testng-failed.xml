@@ -3,17 +3,14 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.tetherfi.test.DashboardColorCodeConfigTest">
+      <class name="com.tetherfi.test.ivr.HostValueMappingCreateTest">
         <methods>
-          <include name="startTestCase"/>
-          <include name="openApplication"/>
-          <include name="endTestCase"/>
-          <include name="NavigateToDashboardColorCodeConfigPage"/>
-          <include name="tearDown"/>
+          <include name="VerifyAddRecordWithoutDescription"/>
+          <include name="VerifyAddRecordWithoutHostData"/>
+          <include name="NavigateToHostValueMappingPage"/>
           <include name="afterEachMethod"/>
-          <include name="VerifyAuditTrialReportForDelete"/>
         </methods>
-      </class> <!-- com.tetherfi.test.DashboardColorCodeConfigTest -->
+      </class> <!-- com.tetherfi.test.ivr.HostValueMappingCreateTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

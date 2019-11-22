@@ -13,6 +13,13 @@ public class HostValueMappingDetails {
 	private String UpdatedDescription;
 	private String ModifyReason;
 	private String DeleteReason;
+	private String errorMsg1;
+	private String errorMsg2;
+	private String errorMsg3;
+	private String errorMsg4;
+	private String errorMsg5;
+	private String errorMsg6;
+	private String errorMsg7;
 	
 	public HostValueMappingDetails(Map<String, String> map) {
 		query=readQuery(map);
@@ -25,6 +32,51 @@ public class HostValueMappingDetails {
 		UpdatedDescription=readUpdatedDescription(map);
 		ModifyReason=readModifyReason(map);
 		DeleteReason=readDeleteReason(map);
+		errorMsg1=readErrorMsg1(map);
+		errorMsg2=readErrorMsg2(map);
+		errorMsg3=readErrorMsg3(map);
+		errorMsg4=readErrorMsg4(map);
+		errorMsg5=readErrorMsg5(map);
+		errorMsg6=readErrorMsg6(map);
+		errorMsg7=readErrorMsg7(map);
+
+		
+		
+	}
+
+	private String readErrorMsg7(Map<String, String> map) {
+		String value=map.get("ErrorMsg7");
+		return value;
+	}
+
+	private String readErrorMsg6(Map<String, String> map) {
+		String value=map.get("ErrorMsg6");
+		return value;
+	}
+
+	private String readErrorMsg5(Map<String, String> map) {
+		String value=map.get("ErrorMsg5");
+		return value;
+	}
+
+	private String readErrorMsg4(Map<String, String> map) {
+		String value=map.get("ErrorMsg4");
+		return value;
+	}
+
+	private String readErrorMsg3(Map<String, String> map) {
+		String value=map.get("ErrorMsg3");
+		return value;
+	}
+
+	private String readErrorMsg2(Map<String, String> map) {
+		String value=map.get("ErrorMsg2");
+		return value;
+	}
+
+	private String readErrorMsg1(Map<String, String> map) {
+		String value=map.get("ErrorMsg1");
+		return value;
 	}
 
 	private String readDeleteReason(Map<String, String> map) {
@@ -115,6 +167,35 @@ public class HostValueMappingDetails {
 
 	public String getDeleteReason() {
 		return DeleteReason;
+	}
+
+	public String getErrorMsg6() {
+		return errorMsg6;
+
+	}
+
+	public String getErrorMsg1() {
+		return errorMsg1;
+	}
+
+	public String getErrorMsg2() {
+		return errorMsg2;
+	}
+
+	public String getErrorMsg3() {
+		return errorMsg3;
+	}
+
+	public String getErrorMsg4() {
+		return errorMsg4;
+	}
+
+	public String getErrorMsg5() {
+		return errorMsg5;
+	}
+
+	public String getErrorMsg7() {
+		return errorMsg7;
 	}
 
 }

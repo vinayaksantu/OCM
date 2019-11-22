@@ -1,160 +1,153 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="6" passed="5" failed="1" skipped="0">
+<testng-results ignored="0" total="25" passed="23" failed="2" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2019-11-20T14:49:30 IST" name="Default suite" finished-at="2019-11-20T14:51:12 IST" duration-ms="102475">
+  <suite started-at="2019-11-22T15:06:15 IST" name="Default suite" finished-at="2019-11-22T15:33:33 IST" duration-ms="1638401">
     <groups>
+      <group name="Checker">
+        <method signature="HostValueMappingCreateTest.ApproveforAddNewHostValueMappingRecord()[pri:22, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" name="ApproveforAddNewHostValueMappingRecord" class="com.tetherfi.test.ivr.HostValueMappingCreateTest"/>
+        <method signature="HostValueMappingCreateTest.VerifyAuditTrailReportForApprove()[pri:23, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" name="VerifyAuditTrailReportForApprove" class="com.tetherfi.test.ivr.HostValueMappingCreateTest"/>
+        <method signature="HostValueMappingCreateTest.VerifyRecordApprovedDataSectionafterApproval()[pri:24, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" name="VerifyRecordApprovedDataSectionafterApproval" class="com.tetherfi.test.ivr.HostValueMappingCreateTest"/>
+        <method signature="HostValueMappingCreateTest.RejectforAddNewHostValueMappingRecord()[pri:14, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" name="RejectforAddNewHostValueMappingRecord" class="com.tetherfi.test.ivr.HostValueMappingCreateTest"/>
+        <method signature="HostValueMappingCreateTest.VerifyAuditTrailReportForReject()[pri:15, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" name="VerifyAuditTrailReportForReject" class="com.tetherfi.test.ivr.HostValueMappingCreateTest"/>
+      </group> <!-- Checker -->
+      <group name="Maker">
+        <method signature="HostValueMappingCreateTest.AddNewHostValueMappingRecord()[pri:17, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" name="AddNewHostValueMappingRecord" class="com.tetherfi.test.ivr.HostValueMappingCreateTest"/>
+        <method signature="HostValueMappingCreateTest.AddDuplicateRecord()[pri:25, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" name="AddDuplicateRecord" class="com.tetherfi.test.ivr.HostValueMappingCreateTest"/>
+        <method signature="HostValueMappingCreateTest.AddRejectRecord()[pri:12, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" name="AddRejectRecord" class="com.tetherfi.test.ivr.HostValueMappingCreateTest"/>
+        <method signature="HostValueMappingCreateTest.AddRevertRecord()[pri:8, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" name="AddRevertRecord" class="com.tetherfi.test.ivr.HostValueMappingCreateTest"/>
+        <method signature="HostValueMappingCreateTest.VerifyAddCancelButton()[pri:1, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" name="VerifyAddCancelButton" class="com.tetherfi.test.ivr.HostValueMappingCreateTest"/>
+        <method signature="HostValueMappingCreateTest.VerifyAddRecordWithoutDescription()[pri:6, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" name="VerifyAddRecordWithoutDescription" class="com.tetherfi.test.ivr.HostValueMappingCreateTest"/>
+        <method signature="HostValueMappingCreateTest.VerifyAddRecordWithoutHostData()[pri:4, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" name="VerifyAddRecordWithoutHostData" class="com.tetherfi.test.ivr.HostValueMappingCreateTest"/>
+        <method signature="HostValueMappingCreateTest.VerifyAddRecordWithoutLanguage()[pri:3, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" name="VerifyAddRecordWithoutLanguage" class="com.tetherfi.test.ivr.HostValueMappingCreateTest"/>
+        <method signature="HostValueMappingCreateTest.VerifyAddRecordWithoutStatus()[pri:5, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" name="VerifyAddRecordWithoutStatus" class="com.tetherfi.test.ivr.HostValueMappingCreateTest"/>
+        <method signature="HostValueMappingCreateTest.VerifyAddRecordwithoutFunctionality()[pri:2, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" name="VerifyAddRecordwithoutFunctionality" class="com.tetherfi.test.ivr.HostValueMappingCreateTest"/>
+        <method signature="HostValueMappingCreateTest.VerifyAuditTrailDataForAddNewHostValueMappingRecord()[pri:19, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" name="VerifyAuditTrailDataForAddNewHostValueMappingRecord" class="com.tetherfi.test.ivr.HostValueMappingCreateTest"/>
+        <method signature="HostValueMappingCreateTest.VerifyAuditTrailReportForCreate()[pri:18, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" name="VerifyAuditTrailReportForCreate" class="com.tetherfi.test.ivr.HostValueMappingCreateTest"/>
+        <method signature="HostValueMappingCreateTest.VerifyRevertForAddNewRecord()[pri:9, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" name="VerifyRevertForAddNewRecord" class="com.tetherfi.test.ivr.HostValueMappingCreateTest"/>
+        <method signature="HostValueMappingCreateTest.VerifyApprovedDataSectionWithoutApproval()[pri:10, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" name="VerifyApprovedDataSectionWithoutApproval" class="com.tetherfi.test.ivr.HostValueMappingCreateTest"/>
+        <method signature="HostValueMappingCreateTest.VerifyAuditTrailReportForRevert()[pri:11, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" name="VerifyAuditTrailReportForRevert" class="com.tetherfi.test.ivr.HostValueMappingCreateTest"/>
+        <method signature="HostValueMappingCreateTest.VerifySendForApprovalForAddNewHostValueMappingRecord()[pri:20, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" name="VerifySendForApprovalForAddNewHostValueMappingRecord" class="com.tetherfi.test.ivr.HostValueMappingCreateTest"/>
+        <method signature="HostValueMappingCreateTest.VerifyAuditTrailReportForSendForApproval()[pri:21, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" name="VerifyAuditTrailReportForSendForApproval" class="com.tetherfi.test.ivr.HostValueMappingCreateTest"/>
+        <method signature="HostValueMappingCreateTest.VerifySendForApprovalForAddNewRecord()[pri:13, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" name="VerifySendForApprovalForAddNewRecord" class="com.tetherfi.test.ivr.HostValueMappingCreateTest"/>
+        <method signature="HostValueMappingCreateTest.VerifyRecordAfterRejection()[pri:16, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" name="VerifyRecordAfterRejection" class="com.tetherfi.test.ivr.HostValueMappingCreateTest"/>
+        <method signature="HostValueMappingCreateTest.VerifyAddRecordWithoutWaveFile()[pri:7, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" name="VerifyAddRecordWithoutWaveFile" class="com.tetherfi.test.ivr.HostValueMappingCreateTest"/>
+      </group> <!-- Maker -->
     </groups>
-    <test started-at="2019-11-20T14:49:30 IST" name="Default test" finished-at="2019-11-20T14:51:12 IST" duration-ms="102475">
-      <class name="com.tetherfi.test.DashboardColorCodeConfigTest">
-        <test-method is-config="true" signature="openApplication()[pri:0, instance:com.tetherfi.test.DashboardColorCodeConfigTest@7f4701b1]" started-at="2019-11-20T14:49:30 IST" name="openApplication" finished-at="2019-11-20T14:49:53 IST" duration-ms="23086" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- openApplication -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.DashboardColorCodeConfigTest@7f4701b1]" started-at="2019-11-20T14:49:53 IST" name="startTestCase" finished-at="2019-11-20T14:49:53 IST" duration-ms="5" status="PASS">
+    <test started-at="2019-11-22T15:06:15 IST" name="Default test" finished-at="2019-11-22T15:33:33 IST" duration-ms="1638401">
+      <class name="com.tetherfi.test.ivr.HostValueMappingCreateTest">
+        <test-method is-config="true" signature="NavigateToHostValueMappingPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" started-at="2019-11-22T15:06:15 IST" name="NavigateToHostValueMappingPage" finished-at="2019-11-22T15:06:45 IST" duration-ms="29384" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.DashboardColorCodeConfigTest.DeleteCancelRecord() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.ivr.HostValueMappingCreateTest.VerifyAddCancelButton() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigateToDashboardColorCodeConfigPage()[pri:0, instance:com.tetherfi.test.DashboardColorCodeConfigTest@7f4701b1]" started-at="2019-11-20T14:49:53 IST" name="NavigateToDashboardColorCodeConfigPage" finished-at="2019-11-20T14:49:56 IST" duration-ms="3334" status="PASS">
+        </test-method> <!-- NavigateToHostValueMappingPage -->
+        <test-method signature="VerifyAddCancelButton()[pri:1, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" started-at="2019-11-22T15:06:45 IST" name="VerifyAddCancelButton" finished-at="2019-11-22T15:06:48 IST" duration-ms="3737" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- NavigateToDashboardColorCodeConfigPage -->
-        <test-method signature="DeleteCancelRecord()[pri:32, instance:com.tetherfi.test.DashboardColorCodeConfigTest@7f4701b1]" started-at="2019-11-20T14:49:56 IST" name="DeleteCancelRecord" finished-at="2019-11-20T14:50:00 IST" duration-ms="4217" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- DeleteCancelRecord -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.DashboardColorCodeConfigTest@7f4701b1]" started-at="2019-11-20T14:50:00 IST" name="afterEachMethod" finished-at="2019-11-20T14:50:02 IST" duration-ms="1331" status="PASS">
+        </test-method> <!-- VerifyAddCancelButton -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" started-at="2019-11-22T15:06:48 IST" name="afterEachMethod" finished-at="2019-11-22T15:06:55 IST" duration-ms="6882" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.DashboardColorCodeConfigTest.DeleteCancelRecord() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.ivr.HostValueMappingCreateTest.VerifyAddCancelButton() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.DashboardColorCodeConfigTest@7f4701b1]" started-at="2019-11-20T14:50:02 IST" name="endTestCase" finished-at="2019-11-20T14:50:02 IST" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="NavigateToHostValueMappingPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" started-at="2019-11-22T15:06:55 IST" name="NavigateToHostValueMappingPage" finished-at="2019-11-22T15:07:20 IST" duration-ms="25206" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.DashboardColorCodeConfigTest.DeleteCancelRecord() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.ivr.HostValueMappingCreateTest.VerifyAddRecordwithoutFunctionality() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.DashboardColorCodeConfigTest@7f4701b1]" started-at="2019-11-20T14:50:02 IST" name="startTestCase" finished-at="2019-11-20T14:50:02 IST" duration-ms="0" status="PASS">
+        </test-method> <!-- NavigateToHostValueMappingPage -->
+        <test-method signature="VerifyAddRecordwithoutFunctionality()[pri:2, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" started-at="2019-11-22T15:07:20 IST" name="VerifyAddRecordwithoutFunctionality" finished-at="2019-11-22T15:07:34 IST" duration-ms="13456" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyAddRecordwithoutFunctionality -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" started-at="2019-11-22T15:07:34 IST" name="afterEachMethod" finished-at="2019-11-22T15:07:39 IST" duration-ms="4814" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.DashboardColorCodeConfigTest.DeleteWithoutDeleteReasonRecord() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigateToDashboardColorCodeConfigPage()[pri:0, instance:com.tetherfi.test.DashboardColorCodeConfigTest@7f4701b1]" started-at="2019-11-20T14:50:02 IST" name="NavigateToDashboardColorCodeConfigPage" finished-at="2019-11-20T14:50:05 IST" duration-ms="2971" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToDashboardColorCodeConfigPage -->
-        <test-method signature="DeleteWithoutDeleteReasonRecord()[pri:33, instance:com.tetherfi.test.DashboardColorCodeConfigTest@7f4701b1]" started-at="2019-11-20T14:50:05 IST" name="DeleteWithoutDeleteReasonRecord" finished-at="2019-11-20T14:50:13 IST" duration-ms="7868" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- DeleteWithoutDeleteReasonRecord -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.DashboardColorCodeConfigTest@7f4701b1]" started-at="2019-11-20T14:50:13 IST" name="afterEachMethod" finished-at="2019-11-20T14:50:13 IST" duration-ms="375" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.DashboardColorCodeConfigTest.DeleteWithoutDeleteReasonRecord() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.ivr.HostValueMappingCreateTest.VerifyAddRecordwithoutFunctionality() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.DashboardColorCodeConfigTest@7f4701b1]" started-at="2019-11-20T14:50:13 IST" name="endTestCase" finished-at="2019-11-20T14:50:13 IST" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="NavigateToHostValueMappingPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" started-at="2019-11-22T15:07:39 IST" name="NavigateToHostValueMappingPage" finished-at="2019-11-22T15:08:09 IST" duration-ms="30737" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.DashboardColorCodeConfigTest.DeleteWithoutDeleteReasonRecord() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.ivr.HostValueMappingCreateTest.VerifyAddRecordWithoutLanguage() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="NavigateToDashboardColorCodeConfigPage()[pri:0, instance:com.tetherfi.test.DashboardColorCodeConfigTest@7f4701b1]" started-at="2019-11-20T14:50:13 IST" name="NavigateToDashboardColorCodeConfigPage" finished-at="2019-11-20T14:50:17 IST" duration-ms="4017" status="PASS">
+        </test-method> <!-- NavigateToHostValueMappingPage -->
+        <test-method signature="VerifyAddRecordWithoutLanguage()[pri:3, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" started-at="2019-11-22T15:08:09 IST" name="VerifyAddRecordWithoutLanguage" finished-at="2019-11-22T15:08:22 IST" duration-ms="12539" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- NavigateToDashboardColorCodeConfigPage -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.DashboardColorCodeConfigTest@7f4701b1]" started-at="2019-11-20T14:50:13 IST" name="startTestCase" finished-at="2019-11-20T14:50:13 IST" duration-ms="0" status="PASS">
+        </test-method> <!-- VerifyAddRecordWithoutLanguage -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" started-at="2019-11-22T15:08:22 IST" name="afterEachMethod" finished-at="2019-11-22T15:08:29 IST" duration-ms="6921" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.DashboardColorCodeConfigTest.DeleteRecord() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method signature="DeleteRecord()[pri:34, instance:com.tetherfi.test.DashboardColorCodeConfigTest@7f4701b1]" started-at="2019-11-20T14:50:17 IST" name="DeleteRecord" finished-at="2019-11-20T14:50:22 IST" duration-ms="5583" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- DeleteRecord -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.DashboardColorCodeConfigTest@7f4701b1]" started-at="2019-11-20T14:50:23 IST" name="afterEachMethod" finished-at="2019-11-20T14:50:24 IST" duration-ms="1433" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.DashboardColorCodeConfigTest.DeleteRecord() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.ivr.HostValueMappingCreateTest.VerifyAddRecordWithoutLanguage() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.DashboardColorCodeConfigTest@7f4701b1]" started-at="2019-11-20T14:50:24 IST" name="endTestCase" finished-at="2019-11-20T14:50:24 IST" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="NavigateToHostValueMappingPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" started-at="2019-11-22T15:08:29 IST" name="NavigateToHostValueMappingPage" finished-at="2019-11-22T15:08:55 IST" duration-ms="26163" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.DashboardColorCodeConfigTest.DeleteRecord() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.ivr.HostValueMappingCreateTest.VerifyAddRecordWithoutHostData() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.DashboardColorCodeConfigTest@7f4701b1]" started-at="2019-11-20T14:50:24 IST" name="startTestCase" finished-at="2019-11-20T14:50:24 IST" duration-ms="1" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.DashboardColorCodeConfigTest.VerifyAuditTrialReportForDelete() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigateToDashboardColorCodeConfigPage()[pri:0, instance:com.tetherfi.test.DashboardColorCodeConfigTest@7f4701b1]" started-at="2019-11-20T14:50:24 IST" name="NavigateToDashboardColorCodeConfigPage" finished-at="2019-11-20T14:50:27 IST" duration-ms="2962" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToDashboardColorCodeConfigPage -->
-        <test-method signature="VerifyAuditTrialReportForDelete()[pri:35, instance:com.tetherfi.test.DashboardColorCodeConfigTest@7f4701b1]" started-at="2019-11-20T14:50:27 IST" name="VerifyAuditTrialReportForDelete" finished-at="2019-11-20T14:50:49 IST" duration-ms="22224" status="FAIL">
-          <exception class="java.lang.NullPointerException">
+        </test-method> <!-- NavigateToHostValueMappingPage -->
+        <test-method signature="VerifyAddRecordWithoutHostData()[pri:4, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" started-at="2019-11-22T15:08:55 IST" name="VerifyAddRecordWithoutHostData" finished-at="2019-11-22T15:09:19 IST" duration-ms="23774" status="FAIL">
+          <exception class="org.openqa.selenium.TimeoutException">
+            <message>
+              <![CDATA[Expected condition failed: waiting for visibility of [[ChromeDriver: chrome on XP (175baed351e050d97eb4530948ae1879)] -> css selector: ul[id='Functionality_listbox'] li] (tried for 20 second(s) with 500 milliseconds interval)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-O6A5C2O', ip: '10.0.75.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '9.0.4'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.108, chrome: {chromedriverVersion: 78.0.3904.70 (edb9c9f3de024..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:62505}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 175baed351e050d97eb4530948ae1879]]>
+            </message>
             <full-stacktrace>
-              <![CDATA[java.lang.NullPointerException
-at com.tetherfi.pages.OCMReportsPage.verifyDashboardColorConfigdelete(OCMReportsPage.java:6025)
-at com.tetherfi.test.DashboardColorCodeConfigTest.VerifyAuditTrialReportForDelete(DashboardColorCodeConfigTest.java:361)
+              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of [[ChromeDriver: chrome on XP (175baed351e050d97eb4530948ae1879)] -> css selector: ul[id='Functionality_listbox'] li] (tried for 20 second(s) with 500 milliseconds interval)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-O6A5C2O', ip: '10.0.75.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '9.0.4'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.108, chrome: {chromedriverVersion: 78.0.3904.70 (edb9c9f3de024..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:62505}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 175baed351e050d97eb4530948ae1879
+at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
+at com.tetherfi.pages.BasePage.waitUntilWebElementListIsVisible(BasePage.java:139)
+at com.tetherfi.pages.BasePage.selectDropdownFromVisibleText(BasePage.java:335)
+at com.tetherfi.pages.HostValueMappingPage.addwithoutHostData(HostValueMappingPage.java:1070)
+at com.tetherfi.test.ivr.HostValueMappingCreateTest.VerifyAddRecordWithoutHostData(HostValueMappingCreateTest.java:102)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -185,119 +178,621 @@ at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 ]]>
             </full-stacktrace>
-          </exception> <!-- java.lang.NullPointerException -->
+          </exception> <!-- org.openqa.selenium.TimeoutException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- VerifyAuditTrialReportForDelete -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.DashboardColorCodeConfigTest@7f4701b1]" started-at="2019-11-20T14:50:49 IST" name="afterEachMethod" finished-at="2019-11-20T14:50:51 IST" duration-ms="1651" status="PASS">
+        </test-method> <!-- VerifyAddRecordWithoutHostData -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" started-at="2019-11-22T15:09:19 IST" name="afterEachMethod" finished-at="2019-11-22T15:09:38 IST" duration-ms="19402" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.DashboardColorCodeConfigTest.VerifyAuditTrialReportForDelete() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.ivr.HostValueMappingCreateTest.VerifyAddRecordWithoutHostData() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.DashboardColorCodeConfigTest@7f4701b1]" started-at="2019-11-20T14:50:51 IST" name="endTestCase" finished-at="2019-11-20T14:50:51 IST" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="NavigateToHostValueMappingPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" started-at="2019-11-22T15:09:38 IST" name="NavigateToHostValueMappingPage" finished-at="2019-11-22T15:10:27 IST" duration-ms="49215" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.DashboardColorCodeConfigTest.VerifyAuditTrialReportForDelete() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.ivr.HostValueMappingCreateTest.VerifyAddRecordWithoutStatus() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.DashboardColorCodeConfigTest@7f4701b1]" started-at="2019-11-20T14:50:51 IST" name="startTestCase" finished-at="2019-11-20T14:50:51 IST" duration-ms="1" status="PASS">
+        </test-method> <!-- NavigateToHostValueMappingPage -->
+        <test-method signature="VerifyAddRecordWithoutStatus()[pri:5, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" started-at="2019-11-22T15:10:27 IST" name="VerifyAddRecordWithoutStatus" finished-at="2019-11-22T15:10:38 IST" duration-ms="10981" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyAddRecordWithoutStatus -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" started-at="2019-11-22T15:10:38 IST" name="afterEachMethod" finished-at="2019-11-22T15:10:56 IST" duration-ms="17224" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.DashboardColorCodeConfigTest.SearchClearSearch() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigateToDashboardColorCodeConfigPage()[pri:0, instance:com.tetherfi.test.DashboardColorCodeConfigTest@7f4701b1]" started-at="2019-11-20T14:50:51 IST" name="NavigateToDashboardColorCodeConfigPage" finished-at="2019-11-20T14:50:54 IST" duration-ms="2823" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToDashboardColorCodeConfigPage -->
-        <test-method signature="SearchClearSearch()[pri:38, instance:com.tetherfi.test.DashboardColorCodeConfigTest@7f4701b1]" started-at="2019-11-20T14:50:54 IST" name="SearchClearSearch" finished-at="2019-11-20T14:50:58 IST" duration-ms="4219" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- SearchClearSearch -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.DashboardColorCodeConfigTest@7f4701b1]" started-at="2019-11-20T14:50:58 IST" name="afterEachMethod" finished-at="2019-11-20T14:50:59 IST" duration-ms="1309" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.DashboardColorCodeConfigTest.SearchClearSearch() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.ivr.HostValueMappingCreateTest.VerifyAddRecordWithoutStatus() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.DashboardColorCodeConfigTest@7f4701b1]" started-at="2019-11-20T14:50:59 IST" name="endTestCase" finished-at="2019-11-20T14:50:59 IST" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="NavigateToHostValueMappingPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" started-at="2019-11-22T15:10:56 IST" name="NavigateToHostValueMappingPage" finished-at="2019-11-22T15:11:21 IST" duration-ms="25506" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.DashboardColorCodeConfigTest.SearchClearSearch() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.ivr.HostValueMappingCreateTest.VerifyAddRecordWithoutDescription() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.DashboardColorCodeConfigTest@7f4701b1]" started-at="2019-11-20T14:50:59 IST" name="startTestCase" finished-at="2019-11-20T14:50:59 IST" duration-ms="0" status="PASS">
+        </test-method> <!-- NavigateToHostValueMappingPage -->
+        <test-method signature="VerifyAddRecordWithoutDescription()[pri:6, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" started-at="2019-11-22T15:11:21 IST" name="VerifyAddRecordWithoutDescription" finished-at="2019-11-22T15:11:44 IST" duration-ms="22916" status="FAIL">
+          <exception class="org.openqa.selenium.TimeoutException">
+            <message>
+              <![CDATA[Expected condition failed: waiting for visibility of [[ChromeDriver: chrome on XP (bce42c57f1e1c35c93e37e554242193f)] -> css selector: ul[id='Functionality_listbox'] li] (tried for 20 second(s) with 500 milliseconds interval)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-O6A5C2O', ip: '10.0.75.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '9.0.4'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.108, chrome: {chromedriverVersion: 78.0.3904.70 (edb9c9f3de024..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:62586}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: bce42c57f1e1c35c93e37e554242193f]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of [[ChromeDriver: chrome on XP (bce42c57f1e1c35c93e37e554242193f)] -> css selector: ul[id='Functionality_listbox'] li] (tried for 20 second(s) with 500 milliseconds interval)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-O6A5C2O', ip: '10.0.75.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '9.0.4'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.108, chrome: {chromedriverVersion: 78.0.3904.70 (edb9c9f3de024..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:62586}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: bce42c57f1e1c35c93e37e554242193f
+at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
+at com.tetherfi.pages.BasePage.waitUntilWebElementListIsVisible(BasePage.java:139)
+at com.tetherfi.pages.BasePage.selectDropdownFromVisibleText(BasePage.java:335)
+at com.tetherfi.pages.HostValueMappingPage.addwithoutDescription(HostValueMappingPage.java:1108)
+at com.tetherfi.test.ivr.HostValueMappingCreateTest.VerifyAddRecordWithoutDescription(HostValueMappingCreateTest.java:122)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.TimeoutException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyAddRecordWithoutDescription -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" started-at="2019-11-22T15:11:44 IST" name="afterEachMethod" finished-at="2019-11-22T15:11:52 IST" duration-ms="8406" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.DashboardColorCodeConfigTest.searchwithoutSearchTextbox() throws java.io.IOException]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigateToDashboardColorCodeConfigPage()[pri:0, instance:com.tetherfi.test.DashboardColorCodeConfigTest@7f4701b1]" started-at="2019-11-20T14:50:59 IST" name="NavigateToDashboardColorCodeConfigPage" finished-at="2019-11-20T14:51:02 IST" duration-ms="3050" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToDashboardColorCodeConfigPage -->
-        <test-method signature="searchwithoutSearchTextbox()[pri:39, instance:com.tetherfi.test.DashboardColorCodeConfigTest@7f4701b1]" started-at="2019-11-20T14:51:02 IST" name="searchwithoutSearchTextbox" finished-at="2019-11-20T14:51:05 IST" duration-ms="3151" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- searchwithoutSearchTextbox -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.DashboardColorCodeConfigTest@7f4701b1]" started-at="2019-11-20T14:51:05 IST" name="afterEachMethod" finished-at="2019-11-20T14:51:07 IST" duration-ms="1274" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.DashboardColorCodeConfigTest.searchwithoutSearchTextbox() throws java.io.IOException]]>
+                <![CDATA[public void com.tetherfi.test.ivr.HostValueMappingCreateTest.VerifyAddRecordWithoutDescription() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.DashboardColorCodeConfigTest@7f4701b1]" started-at="2019-11-20T14:51:07 IST" name="endTestCase" finished-at="2019-11-20T14:51:07 IST" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="NavigateToHostValueMappingPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" started-at="2019-11-22T15:11:52 IST" name="NavigateToHostValueMappingPage" finished-at="2019-11-22T15:12:36 IST" duration-ms="43747" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.DashboardColorCodeConfigTest.searchwithoutSearchTextbox() throws java.io.IOException]]>
+                <![CDATA[public void com.tetherfi.test.ivr.HostValueMappingCreateTest.VerifyAddRecordWithoutWaveFile() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.tetherfi.test.DashboardColorCodeConfigTest@7f4701b1]" started-at="2019-11-20T14:51:07 IST" name="tearDown" finished-at="2019-11-20T14:51:12 IST" duration-ms="5466" status="PASS">
+        </test-method> <!-- NavigateToHostValueMappingPage -->
+        <test-method signature="VerifyAddRecordWithoutWaveFile()[pri:7, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" started-at="2019-11-22T15:12:36 IST" name="VerifyAddRecordWithoutWaveFile" finished-at="2019-11-22T15:12:44 IST" duration-ms="8241" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- com.tetherfi.test.DashboardColorCodeConfigTest -->
+        </test-method> <!-- VerifyAddRecordWithoutWaveFile -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" started-at="2019-11-22T15:12:44 IST" name="afterEachMethod" finished-at="2019-11-22T15:13:09 IST" duration-ms="24681" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.HostValueMappingCreateTest.VerifyAddRecordWithoutWaveFile() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="NavigateToHostValueMappingPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" started-at="2019-11-22T15:13:09 IST" name="NavigateToHostValueMappingPage" finished-at="2019-11-22T15:15:01 IST" duration-ms="112072" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.HostValueMappingCreateTest.AddRevertRecord() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToHostValueMappingPage -->
+        <test-method signature="AddRevertRecord()[pri:8, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" started-at="2019-11-22T15:15:01 IST" name="AddRevertRecord" finished-at="2019-11-22T15:15:16 IST" duration-ms="14477" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AddRevertRecord -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" started-at="2019-11-22T15:15:16 IST" name="afterEachMethod" finished-at="2019-11-22T15:15:23 IST" duration-ms="7161" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.HostValueMappingCreateTest.AddRevertRecord() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="NavigateToHostValueMappingPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" started-at="2019-11-22T15:15:23 IST" name="NavigateToHostValueMappingPage" finished-at="2019-11-22T15:16:24 IST" duration-ms="61504" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.HostValueMappingCreateTest.VerifyRevertForAddNewRecord() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToHostValueMappingPage -->
+        <test-method signature="VerifyRevertForAddNewRecord()[pri:9, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" started-at="2019-11-22T15:16:24 IST" name="VerifyRevertForAddNewRecord" finished-at="2019-11-22T15:16:34 IST" depends-on-methods="com.tetherfi.test.ivr.HostValueMappingCreateTest.AddRevertRecord" duration-ms="10107" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyRevertForAddNewRecord -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" started-at="2019-11-22T15:16:34 IST" name="afterEachMethod" finished-at="2019-11-22T15:16:41 IST" duration-ms="7012" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.HostValueMappingCreateTest.VerifyRevertForAddNewRecord() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="NavigateToHostValueMappingPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" started-at="2019-11-22T15:16:41 IST" name="NavigateToHostValueMappingPage" finished-at="2019-11-22T15:17:17 IST" duration-ms="35763" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.HostValueMappingCreateTest.VerifyApprovedDataSectionWithoutApproval() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToHostValueMappingPage -->
+        <test-method signature="VerifyApprovedDataSectionWithoutApproval()[pri:10, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" started-at="2019-11-22T15:17:17 IST" name="VerifyApprovedDataSectionWithoutApproval" finished-at="2019-11-22T15:17:20 IST" depends-on-methods="com.tetherfi.test.ivr.HostValueMappingCreateTest.VerifyRevertForAddNewRecord" duration-ms="2671" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyApprovedDataSectionWithoutApproval -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" started-at="2019-11-22T15:17:20 IST" name="afterEachMethod" finished-at="2019-11-22T15:17:29 IST" duration-ms="9053" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.HostValueMappingCreateTest.VerifyApprovedDataSectionWithoutApproval() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="NavigateToHostValueMappingPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" started-at="2019-11-22T15:17:29 IST" name="NavigateToHostValueMappingPage" finished-at="2019-11-22T15:18:32 IST" duration-ms="62910" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.HostValueMappingCreateTest.VerifyAuditTrailReportForRevert() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToHostValueMappingPage -->
+        <test-method signature="VerifyAuditTrailReportForRevert()[pri:11, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" started-at="2019-11-22T15:18:32 IST" name="VerifyAuditTrailReportForRevert" finished-at="2019-11-22T15:18:55 IST" depends-on-methods="com.tetherfi.test.ivr.HostValueMappingCreateTest.VerifyApprovedDataSectionWithoutApproval" duration-ms="22724" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyAuditTrailReportForRevert -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" started-at="2019-11-22T15:18:55 IST" name="afterEachMethod" finished-at="2019-11-22T15:19:02 IST" duration-ms="7203" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.HostValueMappingCreateTest.VerifyAuditTrailReportForRevert() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="NavigateToHostValueMappingPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" started-at="2019-11-22T15:19:02 IST" name="NavigateToHostValueMappingPage" finished-at="2019-11-22T15:19:30 IST" duration-ms="27945" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.HostValueMappingCreateTest.AddRejectRecord() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToHostValueMappingPage -->
+        <test-method signature="AddRejectRecord()[pri:12, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" started-at="2019-11-22T15:19:30 IST" name="AddRejectRecord" finished-at="2019-11-22T15:19:45 IST" duration-ms="15089" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AddRejectRecord -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" started-at="2019-11-22T15:19:45 IST" name="afterEachMethod" finished-at="2019-11-22T15:19:52 IST" duration-ms="6988" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.HostValueMappingCreateTest.AddRejectRecord() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="NavigateToHostValueMappingPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" started-at="2019-11-22T15:19:52 IST" name="NavigateToHostValueMappingPage" finished-at="2019-11-22T15:20:25 IST" duration-ms="32692" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.HostValueMappingCreateTest.VerifySendForApprovalForAddNewRecord() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToHostValueMappingPage -->
+        <test-method signature="VerifySendForApprovalForAddNewRecord()[pri:13, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" started-at="2019-11-22T15:20:25 IST" name="VerifySendForApprovalForAddNewRecord" finished-at="2019-11-22T15:20:35 IST" depends-on-methods="com.tetherfi.test.ivr.HostValueMappingCreateTest.AddRejectRecord" duration-ms="9973" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifySendForApprovalForAddNewRecord -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" started-at="2019-11-22T15:20:35 IST" name="afterEachMethod" finished-at="2019-11-22T15:20:41 IST" duration-ms="6930" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.HostValueMappingCreateTest.VerifySendForApprovalForAddNewRecord() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="NavigateToHostValueMappingPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" started-at="2019-11-22T15:20:41 IST" name="NavigateToHostValueMappingPage" finished-at="2019-11-22T15:21:12 IST" duration-ms="30830" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.HostValueMappingCreateTest.RejectforAddNewHostValueMappingRecord() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToHostValueMappingPage -->
+        <test-method signature="RejectforAddNewHostValueMappingRecord()[pri:14, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" started-at="2019-11-22T15:21:12 IST" name="RejectforAddNewHostValueMappingRecord" finished-at="2019-11-22T15:21:24 IST" depends-on-methods="com.tetherfi.test.ivr.HostValueMappingCreateTest.VerifySendForApprovalForAddNewRecord" duration-ms="11365" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- RejectforAddNewHostValueMappingRecord -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" started-at="2019-11-22T15:21:24 IST" name="afterEachMethod" finished-at="2019-11-22T15:21:32 IST" duration-ms="8151" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.HostValueMappingCreateTest.RejectforAddNewHostValueMappingRecord() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="NavigateToHostValueMappingPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" started-at="2019-11-22T15:21:32 IST" name="NavigateToHostValueMappingPage" finished-at="2019-11-22T15:21:58 IST" duration-ms="26496" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.HostValueMappingCreateTest.VerifyAuditTrailReportForReject() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToHostValueMappingPage -->
+        <test-method signature="VerifyAuditTrailReportForReject()[pri:15, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" started-at="2019-11-22T15:21:58 IST" name="VerifyAuditTrailReportForReject" finished-at="2019-11-22T15:22:21 IST" depends-on-methods="com.tetherfi.test.ivr.HostValueMappingCreateTest.RejectforAddNewHostValueMappingRecord" duration-ms="22898" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyAuditTrailReportForReject -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" started-at="2019-11-22T15:22:21 IST" name="afterEachMethod" finished-at="2019-11-22T15:22:28 IST" duration-ms="7032" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.HostValueMappingCreateTest.VerifyAuditTrailReportForReject() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="NavigateToHostValueMappingPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" started-at="2019-11-22T15:22:28 IST" name="NavigateToHostValueMappingPage" finished-at="2019-11-22T15:22:53 IST" duration-ms="24717" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.HostValueMappingCreateTest.VerifyRecordAfterRejection() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToHostValueMappingPage -->
+        <test-method signature="VerifyRecordAfterRejection()[pri:16, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" started-at="2019-11-22T15:22:53 IST" name="VerifyRecordAfterRejection" finished-at="2019-11-22T15:22:56 IST" depends-on-methods="com.tetherfi.test.ivr.HostValueMappingCreateTest.VerifyAuditTrailReportForReject" duration-ms="3547" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyRecordAfterRejection -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" started-at="2019-11-22T15:22:56 IST" name="afterEachMethod" finished-at="2019-11-22T15:23:04 IST" duration-ms="7155" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.HostValueMappingCreateTest.VerifyRecordAfterRejection() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="NavigateToHostValueMappingPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" started-at="2019-11-22T15:23:04 IST" name="NavigateToHostValueMappingPage" finished-at="2019-11-22T15:23:30 IST" duration-ms="26276" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.HostValueMappingCreateTest.AddNewHostValueMappingRecord() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToHostValueMappingPage -->
+        <test-method signature="AddNewHostValueMappingRecord()[pri:17, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" started-at="2019-11-22T15:23:30 IST" name="AddNewHostValueMappingRecord" finished-at="2019-11-22T15:23:45 IST" duration-ms="15072" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AddNewHostValueMappingRecord -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" started-at="2019-11-22T15:23:45 IST" name="afterEachMethod" finished-at="2019-11-22T15:23:54 IST" duration-ms="9291" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.HostValueMappingCreateTest.AddNewHostValueMappingRecord() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="NavigateToHostValueMappingPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" started-at="2019-11-22T15:23:54 IST" name="NavigateToHostValueMappingPage" finished-at="2019-11-22T15:25:35 IST" duration-ms="100549" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.HostValueMappingCreateTest.VerifyAuditTrailReportForCreate() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToHostValueMappingPage -->
+        <test-method signature="VerifyAuditTrailReportForCreate()[pri:18, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" started-at="2019-11-22T15:25:35 IST" name="VerifyAuditTrailReportForCreate" finished-at="2019-11-22T15:26:02 IST" depends-on-methods="com.tetherfi.test.ivr.HostValueMappingCreateTest.AddNewHostValueMappingRecord" duration-ms="26968" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyAuditTrailReportForCreate -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" started-at="2019-11-22T15:26:02 IST" name="afterEachMethod" finished-at="2019-11-22T15:26:11 IST" duration-ms="9429" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.HostValueMappingCreateTest.VerifyAuditTrailReportForCreate() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="NavigateToHostValueMappingPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" started-at="2019-11-22T15:26:11 IST" name="NavigateToHostValueMappingPage" finished-at="2019-11-22T15:26:39 IST" duration-ms="27439" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.HostValueMappingCreateTest.VerifyAuditTrailDataForAddNewHostValueMappingRecord() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToHostValueMappingPage -->
+        <test-method signature="VerifyAuditTrailDataForAddNewHostValueMappingRecord()[pri:19, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" started-at="2019-11-22T15:26:39 IST" name="VerifyAuditTrailDataForAddNewHostValueMappingRecord" finished-at="2019-11-22T15:26:45 IST" depends-on-methods="com.tetherfi.test.ivr.HostValueMappingCreateTest.AddNewHostValueMappingRecord" duration-ms="5957" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyAuditTrailDataForAddNewHostValueMappingRecord -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" started-at="2019-11-22T15:26:45 IST" name="afterEachMethod" finished-at="2019-11-22T15:26:52 IST" duration-ms="7212" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.HostValueMappingCreateTest.VerifyAuditTrailDataForAddNewHostValueMappingRecord() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="NavigateToHostValueMappingPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" started-at="2019-11-22T15:26:52 IST" name="NavigateToHostValueMappingPage" finished-at="2019-11-22T15:27:56 IST" duration-ms="64289" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.HostValueMappingCreateTest.VerifySendForApprovalForAddNewHostValueMappingRecord() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToHostValueMappingPage -->
+        <test-method signature="VerifySendForApprovalForAddNewHostValueMappingRecord()[pri:20, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" started-at="2019-11-22T15:27:56 IST" name="VerifySendForApprovalForAddNewHostValueMappingRecord" finished-at="2019-11-22T15:28:06 IST" depends-on-methods="com.tetherfi.test.ivr.HostValueMappingCreateTest.VerifyAuditTrailDataForAddNewHostValueMappingRecord" duration-ms="10005" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifySendForApprovalForAddNewHostValueMappingRecord -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" started-at="2019-11-22T15:28:06 IST" name="afterEachMethod" finished-at="2019-11-22T15:28:13 IST" duration-ms="7103" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.HostValueMappingCreateTest.VerifySendForApprovalForAddNewHostValueMappingRecord() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="NavigateToHostValueMappingPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" started-at="2019-11-22T15:28:13 IST" name="NavigateToHostValueMappingPage" finished-at="2019-11-22T15:28:52 IST" duration-ms="39099" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.HostValueMappingCreateTest.VerifyAuditTrailReportForSendForApproval() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToHostValueMappingPage -->
+        <test-method signature="VerifyAuditTrailReportForSendForApproval()[pri:21, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" started-at="2019-11-22T15:28:52 IST" name="VerifyAuditTrailReportForSendForApproval" finished-at="2019-11-22T15:29:15 IST" depends-on-methods="com.tetherfi.test.ivr.HostValueMappingCreateTest.VerifySendForApprovalForAddNewHostValueMappingRecord" duration-ms="22363" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyAuditTrailReportForSendForApproval -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" started-at="2019-11-22T15:29:15 IST" name="afterEachMethod" finished-at="2019-11-22T15:29:22 IST" duration-ms="6868" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.HostValueMappingCreateTest.VerifyAuditTrailReportForSendForApproval() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="NavigateToHostValueMappingPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" started-at="2019-11-22T15:29:22 IST" name="NavigateToHostValueMappingPage" finished-at="2019-11-22T15:29:51 IST" duration-ms="29019" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.HostValueMappingCreateTest.ApproveforAddNewHostValueMappingRecord() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToHostValueMappingPage -->
+        <test-method signature="ApproveforAddNewHostValueMappingRecord()[pri:22, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" started-at="2019-11-22T15:29:51 IST" name="ApproveforAddNewHostValueMappingRecord" finished-at="2019-11-22T15:30:07 IST" depends-on-methods="com.tetherfi.test.ivr.HostValueMappingCreateTest.VerifyAuditTrailReportForSendForApproval" duration-ms="16746" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ApproveforAddNewHostValueMappingRecord -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" started-at="2019-11-22T15:30:07 IST" name="afterEachMethod" finished-at="2019-11-22T15:30:14 IST" duration-ms="6945" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.HostValueMappingCreateTest.ApproveforAddNewHostValueMappingRecord() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="NavigateToHostValueMappingPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" started-at="2019-11-22T15:30:14 IST" name="NavigateToHostValueMappingPage" finished-at="2019-11-22T15:30:45 IST" duration-ms="30948" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.HostValueMappingCreateTest.VerifyAuditTrailReportForApprove() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToHostValueMappingPage -->
+        <test-method signature="VerifyAuditTrailReportForApprove()[pri:23, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" started-at="2019-11-22T15:30:45 IST" name="VerifyAuditTrailReportForApprove" finished-at="2019-11-22T15:31:09 IST" depends-on-methods="com.tetherfi.test.ivr.HostValueMappingCreateTest.ApproveforAddNewHostValueMappingRecord" duration-ms="23345" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyAuditTrailReportForApprove -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" started-at="2019-11-22T15:31:09 IST" name="afterEachMethod" finished-at="2019-11-22T15:31:16 IST" duration-ms="7093" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.HostValueMappingCreateTest.VerifyAuditTrailReportForApprove() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="NavigateToHostValueMappingPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" started-at="2019-11-22T15:31:16 IST" name="NavigateToHostValueMappingPage" finished-at="2019-11-22T15:32:12 IST" duration-ms="56135" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.HostValueMappingCreateTest.VerifyRecordApprovedDataSectionafterApproval() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToHostValueMappingPage -->
+        <test-method signature="VerifyRecordApprovedDataSectionafterApproval()[pri:24, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" started-at="2019-11-22T15:32:12 IST" name="VerifyRecordApprovedDataSectionafterApproval" finished-at="2019-11-22T15:32:16 IST" depends-on-methods="com.tetherfi.test.ivr.HostValueMappingCreateTest.ApproveforAddNewHostValueMappingRecord" duration-ms="3768" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyRecordApprovedDataSectionafterApproval -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" started-at="2019-11-22T15:32:16 IST" name="afterEachMethod" finished-at="2019-11-22T15:32:23 IST" duration-ms="7659" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.HostValueMappingCreateTest.VerifyRecordApprovedDataSectionafterApproval() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="NavigateToHostValueMappingPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" started-at="2019-11-22T15:32:23 IST" name="NavigateToHostValueMappingPage" finished-at="2019-11-22T15:33:05 IST" duration-ms="41803" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.HostValueMappingCreateTest.AddDuplicateRecord() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToHostValueMappingPage -->
+        <test-method signature="AddDuplicateRecord()[pri:25, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" started-at="2019-11-22T15:33:05 IST" name="AddDuplicateRecord" finished-at="2019-11-22T15:33:20 IST" depends-on-methods="com.tetherfi.test.ivr.HostValueMappingCreateTest.AddNewHostValueMappingRecord" duration-ms="14900" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AddDuplicateRecord -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.HostValueMappingCreateTest@77f991c]" started-at="2019-11-22T15:33:20 IST" name="afterEachMethod" finished-at="2019-11-22T15:33:33 IST" duration-ms="13459" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.HostValueMappingCreateTest.AddDuplicateRecord() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+      </class> <!-- com.tetherfi.test.ivr.HostValueMappingCreateTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
