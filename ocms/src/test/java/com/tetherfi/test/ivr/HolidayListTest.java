@@ -188,7 +188,7 @@ public class HolidayListTest extends BaseTest {
         Assert.assertFalse(holidaylistPage.verifymessage());
 	}
 	
-	@Test(priority=16)
+	//@Test(priority=16)
 	public void AddWithoutEndTime() throws Exception {
 		HolidayListPage holidaylistPage = PageFactory.createPageInstance(driver, HolidayListPage.class);
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\HolidayListData.xlsx";
@@ -293,7 +293,7 @@ public class HolidayListTest extends BaseTest {
         Assert.assertTrue(holidaylistPage.verifyexportToExcelSheet(maplist));
     }
   
-    /*@Test(priority=30,dependsOnMethods = ("addNewHolidayListRecord"))
+   /* @Test(priority=30)//,dependsOnMethods = ("addNewHolidayListRecord"))
   	public void editHolidayListRecord() throws Exception {
   		HolidayListPage holidaylistPage = PageFactory.createPageInstance(driver, HolidayListPage.class);
   		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\HolidayListData.xlsx";
@@ -305,7 +305,7 @@ public class HolidayListTest extends BaseTest {
         Assert.assertTrue(holidaylistPage.verifymessage(), "HolidayList Record updation assertion failed" );
   	}
   	
-  	@Test(priority=31)
+  	/*@Test(priority=31)
   	public void editLeavingFielsBlank() throws Exception {
   		HolidayListPage holidaylistPage = PageFactory.createPageInstance(driver, HolidayListPage.class);
   		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\HolidayListData.xlsx";

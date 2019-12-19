@@ -806,9 +806,8 @@ public class IntentMappingPage extends BasePage{
 		selectWebElement(editButton);
 		waitForLoad(driver);
 		selectWebElement(VDNText);
-		Thread.sleep(1000);
-//		enterValueToTxtField(VDNTextbox,details.getUpdatedVDN());
-		enterValueToDropdownText(VDNTextbox, details.getUpdatedVDN());
+     	enterValueToTxtField(VDNTextbox,details.getUpdatedVDN());
+		//enterValueToDropdownText(VDNTextbox, details.getUpdatedVDN());
 		selectWebElement(ModifyReasonTextBox);
 		enterValueToTxtFieldWithoutClear(ModifyReasonTextBox,details.getModifyReason());
 		selectWebElement(saveButton);

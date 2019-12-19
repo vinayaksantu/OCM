@@ -863,9 +863,11 @@ public class CepEventMappingPage extends BasePage {
         selectWebElement(deleteYesBtn);	
         selectWebElement(deleteNoBtn);			
 	}
+	
 	public void deleteCEPEventMappingRecord(CepEventMappingDetails details) throws Exception {
 		searchCepEventMapping(details.getCepEvent());
 		waitUntilWebElementIsClickable(deleteButton);
+		Thread.sleep(1000);
         selectWebElement(deleteButton);
 		Thread.sleep(2000);
 		enterValueToTxtFieldWithoutClear(deleteReasonTextBox,details.getDeleteReason());

@@ -39,7 +39,7 @@ public class WaitTimeColorConfigTest extends BaseTest {
         Assert.assertTrue(waitTimeColorConfigPage.isWaitTimeColorConfigPageDisplayed(),"Wait time color config page assertion failed");
     }
    
-    @Test (priority=1)
+   /* @Test (priority=1)
     public void WaitTimeColorConfigPage()
     {
     	WaitTimeColorConfigPage waitTimeColorConfigPage=PageFactory.createPageInstance(driver,WaitTimeColorConfigPage.class);
@@ -169,7 +169,7 @@ public class WaitTimeColorConfigTest extends BaseTest {
         WaitTimeColorConfigDetails waitTimeColorConfigDetails = new WaitTimeColorConfigDetails(map);
         WaitTimeColorConfigPage waitTimeColorConfigPage=PageFactory.createPageInstance(driver,WaitTimeColorConfigPage.class);
         Assert.assertTrue(waitTimeColorConfigPage.editcancel(waitTimeColorConfigDetails));
-   	}
+   	}*/
    	
     @Test(priority=14)
     public void EditWaitTimeColorConfigRecord() throws Exception {

@@ -3,18 +3,25 @@
 <suite name="Failed suite [Failed suite [Default suite]]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)(failed)">
     <classes>
-      <class name="com.tetherfi.test.DashboardColorCodeConfigTest">
+      <class name="com.tetherfi.test.chat.ChatTemplatesTest">
         <methods>
-          <include name="startTestCase"/>
-          <include name="openApplication"/>
-          <include name="EditDashboardColorConfigCancelRecord"/>
-          <include name="endTestCase"/>
-          <include name="NavigateToDashboardColorCodeConfigPage"/>
-          <include name="tearDown"/>
-          <include name="VerifyColumnsHeaderEnable"/>
-          <include name="afterEachMethod"/>
+          <include name="NavigateToChatTemplatesPage"/>
+          <include name="VerifyDepartmentTotalNumberOfItemsPerPageDetails"/>
+          <include name="VerifyNumberOfItemsPerPageSelection"/>
+          <include name="VerifyAuditTrialReportForDepartmentDelete"/>
+          <include name="VerifyDeleteGroupRecordInMain"/>
+          <include name="VerifyAuditTrialReportForGroupDelete"/>
+          <include name="VerifyGroupsTotalNumberOfItemsPerPageDetails"/>
+          <include name="VerifyGroupsNumberOfItemsPerPageSelection"/>
+          <include name="VerifyDepartmentNumberOfItemsPerPageSelection"/>
+          <include name="AddNewGroupsRecord"/>
+          <include name="close"/>
+          <include name="DeleteDepartmentRecord"/>
+          <include name="GroupsExportToExcelData"/>
+          <include name="GroupDatabase"/>
+          <include name="AddNewChatTemplatesRecord"/>
         </methods>
-      </class> <!-- com.tetherfi.test.DashboardColorCodeConfigTest -->
+      </class> <!-- com.tetherfi.test.chat.ChatTemplatesTest -->
     </classes>
   </test> <!-- Default test(failed)(failed) -->
 </suite> <!-- Failed suite [Failed suite [Default suite]] -->

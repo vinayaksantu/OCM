@@ -170,7 +170,7 @@ Screenshot screenshot=new Screenshot(driver);
 	   Assert.assertEquals(SmsResponseTemplatePageWMC.getSuccessMessage(), "Record updated successfully","Edit record assertion failed");;
    }
    
-   @Test(priority=15, dependsOnMethods="EditSmsResponseTemplateRecord")
+   @Test(priority=15)//, dependsOnMethods="EditSmsResponseTemplateRecord")
    public void VerifyAuditTrialReportForUpdate() throws Exception {
 	   String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\SmsResponseTemplateData.xlsx";
 	   Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(0);	
@@ -223,14 +223,14 @@ Screenshot screenshot=new Screenshot(driver);
 	   Assert.assertEquals(SmsResponseTemplatePageWMC.verifySuccessMessage(),"Please enter the text to search or remove the filter", "Add invalid record assertion failed");	 
    }
  
-   @Test(priority=20)
+   //@Test(priority=20)
    public void ExportToExcel() {
 	   String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles";
 	   SmsResponseTemplatePageWMC SmsResponseTemplatePageWMC=PageFactory.createPageInstance(driver, SmsResponseTemplatePageWMC.class);
 	   Assert.assertTrue(SmsResponseTemplatePageWMC.verifyExportToExcel(filePath));	 
    }
  
-   @Test(priority=21)
+   //@Test(priority=21)
    public void ExportToExcelData() throws Exception {
 	   String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\SMS Response Template.xlsx";
 	   List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();

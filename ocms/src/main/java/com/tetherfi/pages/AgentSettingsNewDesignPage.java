@@ -399,6 +399,9 @@ public class AgentSettingsNewDesignPage extends BasePage {
 
     @FindBy(css="#drillGrid th a[class='k-link']")
     private List<WebElement> headersText;
+    
+    @FindBy(xpath="//span[@class='k-pager-info k-label']")
+   	private List<WebElement> items;
 
     public boolean isAgentSettingsPageDisplayed() throws InterruptedException {
         waitForLoad(driver);
@@ -451,7 +454,11 @@ public class AgentSettingsNewDesignPage extends BasePage {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        if(driver.findElements(By.cssSelector(".k-edit-form-container")).size()>0){return false;}else{return true;}
+        String actualitems=items.get(2).getText();
+        if(actualitems.equals(items.get(2).getText()))
+			return true;
+		else
+			return false;
     }
     public boolean verifyCancelButtonAtDelete(){
         try {
@@ -459,11 +466,15 @@ public class AgentSettingsNewDesignPage extends BasePage {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        if(retagSupervisorPopupNoButton.isDisplayed()){return false;}else{return true;}
+        String actualitems=items.get(2).getText();
+        if(actualitems.equals(items.get(2).getText()))
+			return true;
+		else
+			return false;
     }						  
     
     public boolean verifyApprovedDataTableHeaders() {
-        ArrayList<String> Expected=new ArrayList<String>(Arrays.asList("Lan ID","Avaya Login ID","First Name","Last Name","Profile","Supervisor Name","Org. Unit","Access Role","Last Changed By","Last Changed On"));
+        ArrayList<String> Expected=new ArrayList<String>(Arrays.asList("Lan ID","Avaya Login ID","First Name","Last Name","Profile","Supervisor Name","Org. Unit","Access Role","CRM Name","Text Chat Greeting Template Name","Last Changed By","Last Changed On"));
         ArrayList Actual = getHeadersfromTable(approvedDataTableHeaders);
         System.out.println(Actual);
         System.out.println("*******");
@@ -575,10 +586,10 @@ public class AgentSettingsNewDesignPage extends BasePage {
         selectProfile(details.getProfile(),details.getSupervisor());
         selectWebElement(accessroleDropdown);
         selectDropdownFromVisibleText(accessroleListBox,details.getAccessRole());
-        //selectWebElement(crmnameDropdown);
-        //selectDropdownFromVisibleText(crmnameListBox,details.getCrmName());
-//        selectWebElement(texttemplatenameDropdown);
-//        selectDropdownFromVisibleText(texttemplatenameListBox,details.getTextTemplateName());
+        selectWebElement(crmnameDropdown);
+        selectDropdownFromVisibleText(crmnameListBox,details.getCrmName());
+        selectWebElement(texttemplatenameDropdown);
+        selectDropdownFromVisibleText(texttemplatenameListBox,details.getTextTemplateName());
         navigateToTab("Channel Count & Features");
         selectFeaturesToBeSelected(details.getFeaturestobeSeleted());
         selectWebElement(numericTextbox.get(1));
@@ -592,8 +603,8 @@ public class AgentSettingsNewDesignPage extends BasePage {
         selectWebElement(numericTextbox.get(5));
         enterValueToTxtFieldWithoutClear(totalFaxTabsAllowedTextBox.get(1),String.valueOf(details.getTotalFaxTabs()));
         selectWebElement(numericTextbox.get(6));
-        //enterValueToTxtFieldWithoutClear(totalEmailTabsAllowedTextBox.get(1),String.valueOf(details.getTotalEmailTabs()));
-        //selectWebElement(numericTextbox.get(7));
+        enterValueToTxtFieldWithoutClear(totalEmailTabsAllowedTextBox.get(1),String.valueOf(details.getTotalEmailTabs()));
+        selectWebElement(numericTextbox.get(7));
         enterValueToTxtFieldWithoutClear(totalSMSTabsAllowedTextBox.get(1),String.valueOf(details.getTotalSMSTabs()));																								
        // selectWebElement(featuresDropdown);
         //selectDropdownFromVisibleText(featuresListBox,details.getFeatures());

@@ -958,7 +958,7 @@ public class SkillConfigurationPage extends BasePage {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		enterValueToTxtField(deleteReasonTextBox,details.getDeleteReason());
+		enterValueToTxtFieldWithoutClear(deleteReasonTextBox,details.getDeleteReason());
 		selectWebElement(yesBtn);		
 	}
 

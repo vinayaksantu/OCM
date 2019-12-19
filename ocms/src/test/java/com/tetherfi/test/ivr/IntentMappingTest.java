@@ -414,14 +414,14 @@ public class IntentMappingTest extends BaseTest {
         Assert.assertTrue(IntentMappingPage.verifyNumberOfItemsPerPage(),"item per page assertion failed");
     }
         
-    /*@Test(priority=41)
+    @Test(priority=41)
     public void database() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntentMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(0);
         IntentMappingPage IntentMappingPage = PageFactory.createPageInstance(driver, IntentMappingPage.class);
         IntentMappingDetails IntentMappingDetails = new IntentMappingDetails(map);
     	Assert.assertTrue(IntentMappingPage.verifyDatabase(IntentMappingDetails.getQuery()));
-    }*/
+    }
 	
 	 @AfterMethod
 	    public void afterEachMethod(Method method) throws InterruptedException {

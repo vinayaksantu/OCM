@@ -245,7 +245,61 @@ public class BranchManagementUITest extends BaseTest{
         Assert.assertTrue(branchManagementPage.verifyclearsearch(), "Clear All Assertion Failed");
         screenshot.captureScreen( driver,"Clear Search", "BranchManagementTest");
     }
+	
+	@Test(priority=23)
+    public void VerifySearchIsNotEqualTo() throws Exception
+    {	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\BranchManagementData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Invalid").getTestData().get(0);
+    	BranchManagementPage branchManagementPage = PageFactory.createPageInstance(driver, BranchManagementPage.class);
+    	BranchManagementDetails branchManagementDetails = new BranchManagementDetails(map);
+    	branchManagementPage.selectBranchManagementAuditTrailTab();
+    	branchManagementPage.selectMakeBranchManagementChanges();
+    	Assert.assertTrue(branchManagementPage.verifySearchIsNotEqualTo(branchManagementDetails.getSubLines()));
+    }
     
+	@Test(priority=24)
+    public void VerifySearchContains() throws Exception
+    {	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\BranchManagementData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Invalid").getTestData().get(1);
+    	BranchManagementPage branchManagementPage = PageFactory.createPageInstance(driver, BranchManagementPage.class);
+    	BranchManagementDetails branchManagementDetails = new BranchManagementDetails(map);
+    	branchManagementPage.selectBranchManagementAuditTrailTab();
+    	branchManagementPage.selectMakeBranchManagementChanges();
+    	Assert.assertTrue(branchManagementPage.verifySearchContains(branchManagementDetails.getSubLines()));
+    }
+	
+	@Test(priority=25)
+    public void VerifySearchDoesNotContains() throws Exception
+    {	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\BranchManagementData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Invalid").getTestData().get(2);
+    	BranchManagementPage branchManagementPage = PageFactory.createPageInstance(driver, BranchManagementPage.class);
+    	BranchManagementDetails branchManagementDetails = new BranchManagementDetails(map);
+    	branchManagementPage.selectBranchManagementAuditTrailTab();
+    	branchManagementPage.selectMakeBranchManagementChanges();
+    	Assert.assertTrue(branchManagementPage.verifySearchDoesNotContains(branchManagementDetails.getSubLines()));
+    }
+	
+	@Test(priority=26)
+    public void VerifySearchStartsWith() throws Exception
+    {	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\BranchManagementData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Invalid").getTestData().get(3);
+    	BranchManagementPage branchManagementPage = PageFactory.createPageInstance(driver, BranchManagementPage.class);
+    	BranchManagementDetails branchManagementDetails = new BranchManagementDetails(map);
+    	branchManagementPage.selectBranchManagementAuditTrailTab();
+    	branchManagementPage.selectMakeBranchManagementChanges();
+    	Assert.assertTrue(branchManagementPage.verifySearchStartsWith(branchManagementDetails.getSubLines()));
+    }
+	
+	@Test(priority=27)
+    public void VerifySearchEndsWith() throws Exception
+    {	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\BranchManagementData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Invalid").getTestData().get(4);
+    	BranchManagementPage branchManagementPage = PageFactory.createPageInstance(driver, BranchManagementPage.class);
+    	BranchManagementDetails branchManagementDetails = new BranchManagementDetails(map);
+    	branchManagementPage.selectBranchManagementAuditTrailTab();
+    	branchManagementPage.selectMakeBranchManagementChanges();
+    	Assert.assertTrue(branchManagementPage.verifySearchEndsWith(branchManagementDetails.getSubLines()));
+    }
     
     
     @AfterMethod

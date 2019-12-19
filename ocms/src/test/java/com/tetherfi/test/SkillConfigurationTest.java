@@ -35,7 +35,7 @@ public class SkillConfigurationTest extends BaseTest{
          Assert.assertTrue(skillConfigurationPage.isSkillConfigurationPageDisplayed(),"Skill Configuration assertion failed");
     }     
      
-    @Test(priority=1)
+    /*@Test(priority=1)
     public void SkillConfigurationPage() {
         SkillConfigurationPage skillConfigurationPage=PageFactory.createPageInstance(driver,SkillConfigurationPage.class);
     	Assert.assertTrue(skillConfigurationPage.verifylogo(),"Skill Configuration logo assertion failed");
@@ -301,7 +301,7 @@ public class SkillConfigurationTest extends BaseTest{
      	 SkillConfigurationPage skillConfigurationPage=PageFactory.createPageInstance(driver,SkillConfigurationPage.class);
          Assert.assertTrue(skillConfigurationPage.verifydeleteNo(skillConfigurationDetails));
          screenshot.captureScreen(driver, "Delete No","SkillConfigurationTest");
-    }
+    }*/
     
     
     @Test(priority=27)
@@ -315,7 +315,7 @@ public class SkillConfigurationTest extends BaseTest{
          screenshot.captureScreen(driver, "Deleted Successfully","SkillConfigurationTest");  
     }
     
-    @Test(priority=28)
+    /*@Test(priority=28)
     public void VerifyAuditTrialReportForDelete() throws Exception {
  	 	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillConfigurationData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
@@ -430,7 +430,7 @@ public class SkillConfigurationTest extends BaseTest{
         SkillConfigurationDetails skillConfigurationDetails = new SkillConfigurationDetails(map);
         Assert.assertTrue(skillConfigurationPage.verifyDatabase(skillConfigurationDetails.getQuery()));
    
-    }
+    }*/
     
     @AfterMethod
     public void afterEachMethod(Method method) throws InterruptedException {

@@ -718,7 +718,7 @@ public class VbEnrollmentFlagPage extends BasePage {
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Contains");
         enterValueToTxtField(searchTextBox,hotlinename);		
         selectWebElement(searchSearchBtn);
-        waitUntilWebElementIsVisible(gridContent);
+        waitUntilWebElementIsVisible(gridContent);        
         List<Map<String,String>> UI=gettable(); 
         for (Map<String,String> map1: UI)
         {   	

@@ -330,6 +330,21 @@ public class NewUserRoleMappingPage extends BasePage {
     
     @FindBy(xpath="//a[text()='First Name']")
     private List<WebElement> FirstName;
+    
+    @FindBy(css = ".modal-body .form-inline .form-group .k-select")
+	private List<WebElement> selectSearchCol;
+    
+    @FindBy(css="ul[id='1001sCriteria_listbox'] li")
+	private List<WebElement> searchCriteriaDropDwn;
+    
+    @FindBy(id = "1001sTextToSearch")
+	private WebElement searchTextBox;
+    
+    @FindBy(xpath="//button[text()='Search']")
+    private WebElement searchSearchBtn;
+    
+    @FindBy(css="#userGrid")
+    private WebElement auditGrid;
 
     public boolean isUserRoleMappingPageDisplayed() throws InterruptedException {
         waitForLoad(driver);
@@ -348,7 +363,7 @@ public class NewUserRoleMappingPage extends BasePage {
         enterValueToTxtFieldWithoutClear(usernameTextBox,details.getBankUserName());
         enterValueToTxtFieldWithoutClear(editAvayaLoginIDTextbox,details.getAvayaLoginID());
         selectWebElement(TeamNameDropDown);
-        Thread.sleep(1000);
+        Thread.sleep(5000);
         ChooseTeamHeirarchy(details.getTeamName());
         editProfile(details.getProfile(),details.getSupervisor());        
         selectWebElement(RoleDropDown);
@@ -1582,5 +1597,145 @@ public class NewUserRoleMappingPage extends BasePage {
 	        selectWebElement(firstnameTextBox);
 	        enterValueToTxtField(firstnameTextBox,details.getUpdatedFirstname());
 	        btnClick(editFormSaveBtn);			
+		}
+		
+		public List<Map<String, String>> gettable1() {
+			int item=Integer.valueOf(items.get(2).getText().split("of ")[1].split(" items")[0]);
+	        int pagersize=Integer.valueOf(pagerSize.get(2).getText());
+	        int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
+			List<Map<String,String>> arr=new ArrayList<Map<String,String>>();
+			for(int k=0;k<=pages;k++){
+
+			waitUntilWebElementIsVisible(auditGrid);
+			List<WebElement> rows=auditGrid.findElements(By.tagName("tr"));
+			List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
+			for(int i=1;i<rows.size();i++) {
+				Map<String,String> map = new HashMap<String,String>();
+				List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
+				String col=null;
+				for(int j=1;j<headers.size();j++){
+					scrollToElement(headers.get(j));
+					if(headers.get(j).getText().equals("Last Changed On")){
+						col=cols.get(j).getText().substring(11);
+						}
+					else
+						col=cols.get(j).getText();
+					map.put(headers.get(j).getText(),col);
+				}
+				map.remove("");
+				arr.add(map);
+			}
+			if(k!=pages)
+			{
+				nextPageIcon.get(2).click();
+				waitForJqueryLoad(driver);}
+			}
+				return arr;
+		}
+		public boolean verifySearchIsNotEqualTo(String firstname) throws Exception {
+			Boolean Status=false;
+			Map<String, String> map=new HashMap<String,String>() ;
+			map.put("First Name", firstname);
+			selectWebElement(searchLink);
+	        selectWebElement(selectSearchCol.get(0));
+	        selectDropdownFromVisibleText(columnNameList,"First Name");
+	        selectWebElement(selectSearchCol.get(1));
+	        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is not equal to");
+	        enterValueToTxtField(searchTextBox,firstname);		
+	        selectWebElement(searchSearchBtn);
+	        waitUntilWebElementIsVisible(gridContent);
+	        List<Map<String,String>> UI=gettable1(); 
+	        for (Map<String,String> map1: UI)
+	        {   	
+				if(map1.equals(map))
+	        	Status= false;
+	        	else 
+	        		Status= true;
+		}
+	        return Status;
+		
+		}
+		
+		public boolean verifySearchContains(String firstname) throws Exception {
+			Boolean Status=false;
+			selectWebElement(searchLink);
+	        selectWebElement(selectSearchCol.get(0));
+	        selectDropdownFromVisibleText(columnNameList,"First Name");
+	        selectWebElement(selectSearchCol.get(1));
+	        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Contains");
+	        enterValueToTxtField(searchTextBox,firstname);		
+	        selectWebElement(searchSearchBtn);
+	        waitUntilWebElementIsVisible(gridContent);
+	        List<Map<String,String>> UI=gettable1(); 
+	        for (Map<String,String> map1: UI)
+	        {   	
+				if(map1.get("First Name").toUpperCase().contains(firstname.toUpperCase()))
+	        	Status= true;
+	        	else 
+	        		Status= false;
+		}
+	        return Status;
+		}
+		public boolean verifySearchDoesNotContains(String firstname) throws Exception {
+			Boolean Status=false;
+			selectWebElement(searchLink);
+	        selectWebElement(selectSearchCol.get(0));
+	        selectDropdownFromVisibleText(columnNameList,"First Name");
+	        selectWebElement(selectSearchCol.get(1));
+	        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Does not contain");
+	        enterValueToTxtField(searchTextBox,firstname);		
+	        selectWebElement(searchSearchBtn);
+	        waitUntilWebElementIsVisible(gridContent);
+	        List<Map<String,String>> UI=gettable1(); 
+	        for (Map<String,String> map1: UI)
+	        {   	
+				if(!map1.get("First Name").toLowerCase().contains(firstname.toLowerCase()))
+	        	Status= true;
+	        	else 
+	        		Status= false;
+		}
+	        return Status;
+		}
+		
+		public boolean verifySearchStartsWith(String firstname) throws Exception {
+			Boolean Status=false;
+			selectWebElement(searchLink);
+	        selectWebElement(selectSearchCol.get(0));
+	        selectDropdownFromVisibleText(columnNameList,"First Name");
+	        selectWebElement(selectSearchCol.get(1));
+	        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Starts with");
+	        enterValueToTxtField(searchTextBox,firstname);		
+	        selectWebElement(searchSearchBtn);
+	        waitUntilWebElementIsVisible(gridContent);
+	        List<Map<String,String>> UI=gettable1(); 
+	        for (Map<String,String> map1: UI)
+	        {   	
+				if(map1.get("First Name").toLowerCase().startsWith(firstname.toLowerCase()))
+	        	Status= true;
+	        	else 
+	        		Status= false;
+		}
+	        return Status;
+		}
+		
+		public boolean verifySearchEndsWith(String firstname) throws Exception {
+			Boolean Status=false;
+			selectWebElement(searchLink);
+	        selectWebElement(selectSearchCol.get(0));
+	        selectDropdownFromVisibleText(columnNameList,"First Name");
+	        selectWebElement(selectSearchCol.get(1));
+	        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Ends with");
+	        enterValueToTxtField(searchTextBox,firstname);		
+	        selectWebElement(searchSearchBtn);
+	        waitUntilWebElementIsVisible(gridContent);
+	        List<Map<String,String>> UI=gettable1(); 
+	        for (Map<String,String> map1: UI)
+	        {   	
+				if(map1.get("First Name").toUpperCase().endsWith(firstname.toUpperCase()))
+	        	Status= true;
+	        	else 
+	        		Status= false;
+		}
+	        return Status;
 		}
 }

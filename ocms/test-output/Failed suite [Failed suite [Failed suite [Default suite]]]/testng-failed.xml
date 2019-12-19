@@ -3,17 +3,21 @@
 <suite name="Failed suite [Failed suite [Failed suite [Failed suite [Default suite]]]]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)(failed)(failed)(failed)">
     <classes>
-      <class name="com.tetherfi.test.ivr.MenuDescriptionMappingTest">
+      <class name="com.tetherfi.test.ivr.HostValueMappingUITest">
         <methods>
-          <include name="VerifyTotalNumberOfItemsPerPageDetails"/>
+          <include name="VerifyColumnsHeaderDisable"/>
+          <include name="afterEachMethod"/>
           <include name="startTestCase"/>
           <include name="openApplication"/>
-          <include name="afterEachMethod"/>
-          <include name="NavigateToMenuDescriptionMappingPage"/>
+          <include name="VerifyColumnsHeaderEnable"/>
+          <include name="VerifyNumberOfItemsPerPageSelection"/>
           <include name="endTestCase"/>
           <include name="tearDown"/>
+          <include name="database"/>
+          <include name="NavigateToHostValueMappingPage"/>
+          <include name="VerifyDropdownForAllTheColumns"/>
         </methods>
-      </class> <!-- com.tetherfi.test.ivr.MenuDescriptionMappingTest -->
+      </class> <!-- com.tetherfi.test.ivr.HostValueMappingUITest -->
     </classes>
   </test> <!-- Default test(failed)(failed)(failed)(failed) -->
 </suite> <!-- Failed suite [Failed suite [Failed suite [Failed suite [Default suite]]]] -->

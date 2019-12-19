@@ -306,7 +306,7 @@ public class SmsResponseTemplateCreateTest {
         SmsResponseTemplatePage SmsResponseTemplatePage = PageFactory.createPageInstance(driver, SmsResponseTemplatePage.class);
         SmsResponseTemplatePage.addNewSmsResponseTemplateRecord(SmsResponseTemplateDetails);
         Assert.assertFalse(SmsResponseTemplatePage.getErrorMsg(),"Duplicate assetion failed");
-    }
+    }	
     
     @AfterMethod
     public void afterEachMethod(Method method){

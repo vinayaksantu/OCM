@@ -480,7 +480,7 @@ public class AgentTeamManagementPage extends BasePage {
 		searchAgentTeamManagementRecord(oldteamname);
 		selectWebElement(editButton);
 		//selectWebElement(editTeamNameTextBox);
-		enterValueToTxtBox1(editTeamNameTextBox,newteamname);
+		enterValueToTxtField(editTeamNameTextBox,newteamname);
 		enterValueToTxtFieldWithoutClear(editModifyReasonTextBox,reason);
 		selectWebElement(editTeamNameSaveButton);
 	}

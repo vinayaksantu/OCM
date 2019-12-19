@@ -162,7 +162,7 @@ public class IntroMessageAnnouncementUpdateTest {
         Assert.assertTrue(ocmReportsPage.verifyIntroMessageAnnouncementUpdate(IntroMessageAnnouncementDetails, "CheckerReject"),"Audit Trail report assertion failed");
     }
     
-	/*@Test(groups= {"Maker"},priority=10)
+	@Test(groups= {"Maker"},priority=10)
 	public void EditIntroMessageAnnouncementRecord() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntroMessageAnnouncementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(0);
@@ -243,7 +243,7 @@ public class IntroMessageAnnouncementUpdateTest {
 	    ReportDetails reportDetails= new ReportDetails(map1);
 	    ocmReportsPage.showReport(reportDetails);
         Assert.assertTrue(ocmReportsPage.verifyIntroMessageAnnouncementUpdate(IntroMessageAnnouncementDetails, "CheckerApprove"),"Audit Trail report assertion failed");
-    }*/
+    }
    
     @AfterMethod
 	    public void afterEachMethod(Method method){

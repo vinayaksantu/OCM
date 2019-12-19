@@ -172,7 +172,7 @@ public class AgentSettingsUITest extends BaseTest {
         AgentSettingsNewDesignPage agentSettingsPage = PageFactory.createPageInstance(driver, AgentSettingsNewDesignPage.class);
         agentSettingsPage.selectAgentSettingsAuditTrailTab();
         agentSettingsPage.selectMakeAgentSettingsChanges();
-        Assert.assertTrue(agentSettingsPage.verifyTotalNumberOfItemsPerPageDetails(3),"item per page assertion failed");
+        Assert.assertTrue(agentSettingsPage.verifyTotalNumberOfItemsPerPageDetails(2),"item per page assertion failed");
     }
     
     @Test(priority=17)
@@ -180,7 +180,7 @@ public class AgentSettingsUITest extends BaseTest {
         AgentSettingsNewDesignPage agentSettingsPage = PageFactory.createPageInstance(driver, AgentSettingsNewDesignPage.class);
         agentSettingsPage.selectAgentSettingsAuditTrailTab();
         agentSettingsPage.selectMakeAgentSettingsChanges();
-        Assert.assertTrue(agentSettingsPage.verifyNumberOfItemsPerPage(3),"item per page assertion failed");
+        Assert.assertTrue(agentSettingsPage.verifyNumberOfItemsPerPage(2),"item per page assertion failed");
     }
     
     @Test(priority=18)

@@ -72,9 +72,9 @@ public class MenuDescriptionMappingTest extends BaseTest {
     public void VerifyColumnsHeaderDisable() {
         MenuDescriptionMappingPage menuDescriptionMappingPage = PageFactory.createPageInstance(driver, MenuDescriptionMappingPage.class);
         Assert.assertFalse(menuDescriptionMappingPage.verifycolumnsHeaderDisabled(),"columns disabled assertion failed");
-    }
+    }*/
     
-   @Test(priority=5)
+   //@Test(priority=5)
     public void AddNewMenuDescriptionMappingRecord() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\MenuDescriptionMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -82,7 +82,7 @@ public class MenuDescriptionMappingTest extends BaseTest {
         MenuDescriptionMappingPage menuDescriptionMappingPage = PageFactory.createPageInstance(driver, MenuDescriptionMappingPage.class);
         menuDescriptionMappingPage.addNewMenuDescriptionMappingRecord(MenuDescriptionMappingDetails);
         Assert.assertEquals(menuDescriptionMappingPage.verifySuccessMessage(),"Record Created Successfully", "Add New record assertion failed");
-    }*/
+    }
     
     @Test(priority=6)//,dependsOnMethods = "AddNewMenuDescriptionMappingRecord")
     public void AddDuplicateMenuDescriptionMappingRecord() throws Exception {
@@ -91,10 +91,10 @@ public class MenuDescriptionMappingTest extends BaseTest {
         MenuDescriptionMappingDetails MenuDescriptionMappingDetails = new MenuDescriptionMappingDetails(map);
         MenuDescriptionMappingPage menuDescriptionMappingPage = PageFactory.createPageInstance(driver, MenuDescriptionMappingPage.class);
         menuDescriptionMappingPage.addNewMenuDescriptionMappingRecord(MenuDescriptionMappingDetails);
-        Assert.assertEquals(menuDescriptionMappingPage.verifySuccessMessage(),"Duplicate MenuId");
+        Assert.assertEquals(menuDescriptionMappingPage.verifySuccessMessage(),"Duplicate MenuName");
     }
     
-    /*@Test(priority=7,dependsOnMethods ="AddNewMenuDescriptionMappingRecord")
+   /* @Test(priority=7,dependsOnMethods ="AddNewMenuDescriptionMappingRecord")
     public void VerifyAuditTrialReportForCreate() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\MenuDescriptionMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);

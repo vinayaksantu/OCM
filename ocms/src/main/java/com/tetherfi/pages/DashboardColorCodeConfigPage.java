@@ -268,6 +268,7 @@ public class DashboardColorCodeConfigPage extends BasePage {
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(popupContent);
         selectWebElement(dashboardName);
+        Thread.sleep(1000);
         selectDropdownFromVisibleText(DashListbox,details.getdashboardName());
         selectWebElement(ColumnName);
        selectDropdownFromVisibleText(columnListbox,details.getcolumnName());
@@ -696,7 +697,10 @@ public class DashboardColorCodeConfigPage extends BasePage {
 		selectWebElement(addNewDashboardColorConfigRecordBtn);
         waitForJqueryLoad(driver);
         //waitUntilWebElementIsVisible(popupContent);
+        Thread.sleep(1000);
         selectWebElement(dashboardName);
+        waitUntilWebElementListIsVisible(DashListbox);
+        Thread.sleep(1000);
         selectDropdownFromVisibleText(DashListbox,details.getdashboardName());
         selectWebElement(ColumnName);
        selectDropdownFromVisibleText(columnListbox,details.getcolumnName());

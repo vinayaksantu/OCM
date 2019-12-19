@@ -16,6 +16,8 @@ import com.tetherfi.model.ivr.OperatingHoursDetails;
 
 public class HolidayListPage extends BasePage{
 
+	
+
 	public HolidayListPage(WebDriver driver) {
 		super(driver);
 	}
@@ -161,7 +163,7 @@ public class HolidayListPage extends BasePage{
     @FindBy(css="ul[id='1001sCriteria_listbox'] li")
     private List<WebElement> searchCriteriaDropDwn;
 
-    @FindBy(id = "1001sTextToSearch")
+    @FindBy(id = "1001sMaskedTextToSearch")
     private WebElement searchTextBox;
 
     @FindBy(css = "#1001sAddButton .k-i-add")
@@ -727,6 +729,7 @@ public class HolidayListPage extends BasePage{
 		enterValueToTxtField(startDateTextbox,details.getStartDate());
 		enterValueToTxtField(startTimeTextbox,details.getStartTime());
 		enterValueToTxtField(endDateTextbox,details.getEndDate());
+		waitUntilWebElementIsClickable(vdnTextbox);
 		enterValueToTxtField(vdnTextbox,details.getVdn());
 		selectWebElement(savebtn);
 		selectWebElement(cancelbtn);			

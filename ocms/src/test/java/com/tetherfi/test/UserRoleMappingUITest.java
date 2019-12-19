@@ -233,7 +233,63 @@ Screenshot screenshot=new Screenshot(driver);
         screenshot.captureScreen("UserRoleMappingUITest","Invalid Search with wrong data");
         Assert.assertTrue(NewUserRoleMappingPage.verifyclearsearch(), "Clear All Assertion Failed");
     }
+	
+	@Test(priority=23)
+	public void VerifySearchIsNotEqualTo() throws Exception {
+		String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\UserRoleMappingData.xlsx";
+		Map<String,String>map=new ExcelReader(filePath,"Invalid").getTestData().get(0);
+		UserRoleMappingDetails UserRoleMappingDetails=new UserRoleMappingDetails(map);
+		NewUserRoleMappingPage NewUserRoleMappingPage=PageFactory.createPageInstance(driver, NewUserRoleMappingPage.class);
+		NewUserRoleMappingPage.selectUserRoleMappingAuditTrailTab();
+		NewUserRoleMappingPage.selectMakeUserRoleMappingChanges();
+		Assert.assertTrue(NewUserRoleMappingPage.verifySearchIsNotEqualTo(UserRoleMappingDetails.getFirstname()));
+	}
+	
+	@Test(priority=24)
+	public void VerifySearchContains() throws Exception {
+		String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\UserRoleMappingData.xlsx";
+		Map<String,String>map=new ExcelReader(filePath,"Invalid").getTestData().get(1);
+		UserRoleMappingDetails UserRoleMappingDetails=new UserRoleMappingDetails(map);
+		NewUserRoleMappingPage NewUserRoleMappingPage=PageFactory.createPageInstance(driver, NewUserRoleMappingPage.class);
+		NewUserRoleMappingPage.selectUserRoleMappingAuditTrailTab();
+		NewUserRoleMappingPage.selectMakeUserRoleMappingChanges();
+		Assert.assertTrue(NewUserRoleMappingPage.verifySearchContains(UserRoleMappingDetails.getFirstname()));
+	}
+	
+	@Test(priority=25)
+	public void VerifySearchDoesNotContains() throws Exception {
+		String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\UserRoleMappingData.xlsx";
+		Map<String,String>map=new ExcelReader(filePath,"Invalid").getTestData().get(1);
+		UserRoleMappingDetails UserRoleMappingDetails=new UserRoleMappingDetails(map);
+		NewUserRoleMappingPage NewUserRoleMappingPage=PageFactory.createPageInstance(driver, NewUserRoleMappingPage.class);
+		NewUserRoleMappingPage.selectUserRoleMappingAuditTrailTab();
+		NewUserRoleMappingPage.selectMakeUserRoleMappingChanges();
+		Assert.assertTrue(NewUserRoleMappingPage.verifySearchDoesNotContains(UserRoleMappingDetails.getFirstname()));
+	}
     
+	@Test(priority=26)
+	public void VerifySearchStartsWith() throws Exception {
+		String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\UserRoleMappingData.xlsx";
+		Map<String,String>map=new ExcelReader(filePath,"Invalid").getTestData().get(2);
+		UserRoleMappingDetails UserRoleMappingDetails=new UserRoleMappingDetails(map);
+		NewUserRoleMappingPage NewUserRoleMappingPage=PageFactory.createPageInstance(driver, NewUserRoleMappingPage.class);
+		NewUserRoleMappingPage.selectUserRoleMappingAuditTrailTab();
+		NewUserRoleMappingPage.selectMakeUserRoleMappingChanges();
+		Assert.assertTrue(NewUserRoleMappingPage.verifySearchStartsWith(UserRoleMappingDetails.getFirstname()));
+	}
+	
+	@Test(priority=27)
+	public void VerifySearchEndsWith() throws Exception {
+		String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\UserRoleMappingData.xlsx";
+		Map<String,String>map=new ExcelReader(filePath,"Invalid").getTestData().get(3);
+		UserRoleMappingDetails UserRoleMappingDetails=new UserRoleMappingDetails(map);
+		NewUserRoleMappingPage NewUserRoleMappingPage=PageFactory.createPageInstance(driver, NewUserRoleMappingPage.class);
+		NewUserRoleMappingPage.selectUserRoleMappingAuditTrailTab();
+		NewUserRoleMappingPage.selectMakeUserRoleMappingChanges();
+		Assert.assertTrue(NewUserRoleMappingPage.verifySearchEndsWith(UserRoleMappingDetails.getFirstname()));
+	
+	}
+	
     @AfterMethod
     public void afterEachMethod(Method method) throws InterruptedException {
     	Screenshot screenshot=new Screenshot(driver);

@@ -161,7 +161,7 @@ public class AgentTeamMgmtTest extends BaseTest {
        AgentTeamManagementPage agentTeamManagementPage=PageFactory.createPageInstance(driver,AgentTeamManagementPage.class);          
        agentTeamManagementPage.duplicateRecord(agentTeamMgmtDetails.getLevel(),agentTeamMgmtDetails.getCountry(),agentTeamMgmtDetails.getDivision(),agentTeamMgmtDetails.getDepartment(),agentTeamMgmtDetails.getTeamName());
        Assert.assertTrue(agentTeamManagementPage.errorMessage());
-       }   
+       }
   
     @Test(priority=13)
     public void EditAgentTeamManagementCancelRecord() throws Exception {

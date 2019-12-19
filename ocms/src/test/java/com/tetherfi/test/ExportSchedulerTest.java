@@ -68,7 +68,7 @@ public class ExportSchedulerTest extends BaseTest {
         ExportSchedulerDetails ExportSchedulerDetails = new ExportSchedulerDetails(map);
     	ExportSchedulerPage ExportSchedulerPage=PageFactory.createPageInstance(driver,ExportSchedulerPage.class);
         ExportSchedulerPage.addNewExportSchedulerRecordDaily(ExportSchedulerDetails);
-        Assert.assertEquals(ExportSchedulerPage.getSuccessMessage(),"Record Created Successfully","Add New record assertion failed");
+        Assert.assertEquals(ExportSchedulerPage.getSuccessMessage(),"Record successfully created","Add New record assertion failed");
     }
     
     @Test(priority=6)
@@ -93,7 +93,7 @@ public class ExportSchedulerTest extends BaseTest {
          ExportSchedulerDetails ExportSchedulerDetails = new ExportSchedulerDetails(map);
      	 ExportSchedulerPage ExportSchedulerPage=PageFactory.createPageInstance(driver,ExportSchedulerPage.class);
          ExportSchedulerPage.addNewExportSchedulerRecordDaily(ExportSchedulerDetails);
-         Assert.assertEquals(ExportSchedulerPage.getMessage(),"Report Scheduler already exists","Duplicate record assertion failed");
+         Assert.assertEquals(ExportSchedulerPage.getMessage(),"Record already exists","Duplicate record assertion failed");
     }
     
     @Test(priority=8)
@@ -103,7 +103,7 @@ public class ExportSchedulerTest extends BaseTest {
         ExportSchedulerDetails ExportSchedulerDetails = new ExportSchedulerDetails(map);
     	ExportSchedulerPage ExportSchedulerPage=PageFactory.createPageInstance(driver,ExportSchedulerPage.class);
         ExportSchedulerPage.addNewExportSchedulerRecordWeekly(ExportSchedulerDetails);
-        Assert.assertEquals(ExportSchedulerPage.getSuccessMessage(),"Record Created Successfully","Add New record assertion failed");
+        Assert.assertEquals(ExportSchedulerPage.getSuccessMessage(),"Record successfully created","Add New record assertion failed");
     }
     
     @Test(priority=9)
@@ -128,7 +128,7 @@ public class ExportSchedulerTest extends BaseTest {
         ExportSchedulerDetails ExportSchedulerDetails = new ExportSchedulerDetails(map);
     	ExportSchedulerPage ExportSchedulerPage=PageFactory.createPageInstance(driver,ExportSchedulerPage.class);
         ExportSchedulerPage.addNewExportSchedulerRecordMonthly(ExportSchedulerDetails);
-        Assert.assertEquals(ExportSchedulerPage.getSuccessMessage(),"Record Created Successfully","Add New record assertion failed");
+        Assert.assertEquals(ExportSchedulerPage.getSuccessMessage(),"Record successfully created","Add New record assertion failed");
     }
     
     @Test(priority=11)
@@ -153,7 +153,7 @@ public class ExportSchedulerTest extends BaseTest {
         ExportSchedulerDetails ExportSchedulerDetails = new ExportSchedulerDetails(map);
     	ExportSchedulerPage ExportSchedulerPage=PageFactory.createPageInstance(driver,ExportSchedulerPage.class);
         ExportSchedulerPage.addNewExportSchedulerRecordCustomDaily(ExportSchedulerDetails);
-        Assert.assertEquals(ExportSchedulerPage.getSuccessMessage(),"Record Created Successfully","Add New record assertion failed");
+        Assert.assertEquals(ExportSchedulerPage.getSuccessMessage(),"Record successfully created","Add New record assertion failed");
     }
     
     @Test(priority=13)
@@ -309,7 +309,7 @@ public class ExportSchedulerTest extends BaseTest {
         ExportSchedulerDetails ExportSchedulerDetails = new ExportSchedulerDetails(map);
     	ExportSchedulerPage ExportSchedulerPage=PageFactory.createPageInstance(driver,ExportSchedulerPage.class);
     	ExportSchedulerPage.editexportSchedulerRecord(ExportSchedulerDetails);
-        Assert.assertEquals(ExportSchedulerPage.getSuccessMessage(),"Record Updated Successfully","Edit record assertion failed");
+        Assert.assertEquals(ExportSchedulerPage.getSuccessMessage(),"Record updated successfully","Edit record assertion failed");
     }
     
    	@Test(priority=28)

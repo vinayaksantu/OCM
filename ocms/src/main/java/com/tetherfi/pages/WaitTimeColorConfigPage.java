@@ -403,6 +403,7 @@ public class WaitTimeColorConfigPage extends BasePage {
     public void deleteWaitTimeColorConfigRecord(String Starttime, String reason) throws Exception {
         searchWaitTimeColorConfigRecord(Starttime);
         btnClick(deleteBtn);
+        Thread.sleep(1000);
         selectWebElement(deleteReasonTextBox);
         try {
 			Thread.sleep(500);
@@ -420,6 +421,7 @@ public class WaitTimeColorConfigPage extends BasePage {
     
     public boolean deleteNo(String Starttime, String reason) throws Exception {
 		searchWaitTimeColorConfigRecord(Starttime);
+		Thread.sleep(1000);
         btnClick(deleteBtn);
         selectWebElement(deleteReasonTextBox);
         enterValueToTxtFieldWithoutClear(deleteReasonTextBox,reason);

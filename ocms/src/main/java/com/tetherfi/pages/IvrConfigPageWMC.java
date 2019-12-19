@@ -21,7 +21,7 @@ public class IvrConfigPageWMC extends BasePage{
 	public IvrConfigPageWMC(WebDriver driver) {
 		super(driver);}
 	
-	@FindBy(css = ".fa-search")
+    @FindBy(css = ".fa-search")
     private List<WebElement> searchBtn;
 
     @FindBy(css = ".modal-body .form-inline .form-group .k-select")
@@ -334,7 +334,7 @@ public class IvrConfigPageWMC extends BasePage{
     }
     
     public void editEmptyIvrConfigRecord(IvrConfigDetails details) throws Exception {
-        searchIvrConfigRecord(details.getSearchValue());
+    	searchIvrConfigRecord(details.getSearchValue());
         selectWebElement(editButton);
         try {
 			Thread.sleep(2000);
@@ -1255,11 +1255,11 @@ public boolean verifyStatus1(String status) {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		selectWebElement(parameterDropdown);
-		if(details.getParameter().equals("Select Parameter"))
-		{selectDropdownFromVisibleText(selectParameter,details.getParameter());}
-		else{selectDropdownFromVisibleText(parameterListBox,details.getParameter());}
-		parameterDropdown.sendKeys(Keys.TAB);
+//		selectWebElement(parameterDropdown);
+//		if(details.getParameter().equals("Select Parameter"))
+//		{selectDropdownFromVisibleText(selectParameter,details.getParameter());}
+//		else{selectDropdownFromVisibleText(parameterListBox,details.getParameter());}
+//		parameterDropdown.sendKeys(Keys.TAB);
 		selectWebElement(valueDropdown);
 		if(details.getValue().equals("Select Value"))
 		{selectDropdownFromVisibleText(selectValue,details.getValue());}
