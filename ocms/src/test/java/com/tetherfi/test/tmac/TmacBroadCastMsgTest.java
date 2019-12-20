@@ -19,7 +19,7 @@ import java.util.Map;
 
 public class TmacBroadCastMsgTest extends BaseTest {
 	Screenshot screenshot=new Screenshot(driver);
-    @BeforeClass
+    //@BeforeClass
     public void AddNewAgentTeamManagementRecord() throws Exception {
         HomePage homePage= PageFactory.createPageInstance(driver,HomePage.class);
         homePage.navigateToOCMPage();
@@ -135,7 +135,7 @@ public class TmacBroadCastMsgTest extends BaseTest {
        	tmacBroadCastMsgPage.addInvalidRecord2(tmacBroadCastMsgDetails);
         Assert.assertTrue(tmacBroadCastMsgPage.verifyErrorMessage(),"Invalid Record Assertion failed");
     }
-    @Test(priority=9)
+   /* @Test(priority=9)
     public void EditTmacBroadCastMsgCancel() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacBroadcastMsgData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
@@ -168,7 +168,7 @@ public class TmacBroadCastMsgTest extends BaseTest {
         Assert.assertTrue(ocmReportsPage.verifyTmacBroadcastMsgUpdate(tmacBroadCastMsgDetails,"Update"));
     }
     
-    @Test(priority=12)
+   /* @Test(priority=12)
     public void VerifySearchIsNotEqualTo() throws Exception{
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacBroadcastMsgData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(3);
@@ -251,7 +251,7 @@ public class TmacBroadCastMsgTest extends BaseTest {
     List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
     TmacBroadCastMsgPage tmacBroadCastMsgPage  = PageFactory.createPageInstance(driver, TmacBroadCastMsgPage.class);
     Assert.assertTrue(tmacBroadCastMsgPage.verifyexportToExcelSheet(maplist));	
-    }
+    }*/
     
     @Test(priority=21)
     public void database() throws Exception {
@@ -326,7 +326,7 @@ public class TmacBroadCastMsgTest extends BaseTest {
         Assert.assertTrue(tmacBroadCastMsgPage.verifyexportToExcelSheet(maplist));	
         }
     
-    @Test(priority=32)
+  //  @Test(priority=32)
     public void ExporttoExcelWithoutData() throws Exception
     {
         TmacBroadCastMsgPage tmacBroadCastMsgPage  = PageFactory.createPageInstance(driver, TmacBroadCastMsgPage.class);
@@ -346,7 +346,7 @@ public class TmacBroadCastMsgTest extends BaseTest {
          driver.navigate().refresh();
      
     }
-    @AfterClass
+    //@AfterClass
     public void Afterclass() throws Exception
     {
     	HomePage homePage= PageFactory.createPageInstance(driver,HomePage.class);

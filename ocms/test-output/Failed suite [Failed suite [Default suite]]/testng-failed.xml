@@ -3,25 +3,20 @@
 <suite name="Failed suite [Failed suite [Failed suite [Default suite]]]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)(failed)(failed)">
     <classes>
-      <class name="com.tetherfi.test.ExportSchedulerTest">
+      <class name="com.tetherfi.test.tmac.TmacTransferListTest">
         <methods>
-          <include name="EditExportSchedulerRecord"/>
-          <include name="NavigateToExportSchedulerPage"/>
-          <include name="EditWithoutModifyReasonRecord"/>
-          <include name="AddRecordWithoutName"/>
-          <include name="afterEachMethod"/>
-          <include name="endTestCase"/>
-          <include name="tearDown"/>
+          <include name="databaseBlindTrans"/>
           <include name="startTestCase"/>
           <include name="openApplication"/>
-          <include name="AddExportSchedulerDailyRecord"/>
-          <include name="VerifyAuditTrialReportForDelete"/>
-          <include name="ExporttoExcelWithoutData"/>
-          <include name="AddExportSchedulerWeeklyRecord"/>
-          <include name="DuplicateRecord"/>
-          <include name="VerifyAuditTrialReportForUpdate"/>
+          <include name="afterEachMethod"/>
+          <include name="NavigatetoTmacTransferListPage"/>
+          <include name="endTestCase"/>
+          <include name="database"/>
+          <include name="tearDown"/>
+          <include name="ExportToExcelDataBlindTrans"/>
+          <include name="VerifyDupErrMsgEditTmacBlindTransferRecord"/>
         </methods>
-      </class> <!-- com.tetherfi.test.ExportSchedulerTest -->
+      </class> <!-- com.tetherfi.test.tmac.TmacTransferListTest -->
     </classes>
   </test> <!-- Default test(failed)(failed)(failed) -->
 </suite> <!-- Failed suite [Failed suite [Failed suite [Default suite]]] -->

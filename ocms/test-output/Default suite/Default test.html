@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Default test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>1/4/1</td>
+<td>Tests passed/Failed/Skipped:</td><td>20/2/0</td>
 </tr><tr>
-<td>Started on:</td><td>Thu Dec 19 12:24:37 IST 2019</td>
+<td>Started on:</td><td>Fri Dec 20 18:00:20 IST 2019</td>
 </tr>
-<tr><td>Total time:</td><td>152 seconds (152673 ms)</td>
+<tr><td>Total time:</td><td>483 seconds (483028 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -75,13 +75,12 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.tetherfi.test.ivr.IntentMappingTest.AddNewIntentMappingRecord()'><b>AddNewIntentMappingRecord</b><br>Test class: com.tetherfi.test.ivr.IntentMappingTest</td>
-<td><div><pre>java.lang.AssertionError: Add New record assertion failed expected [Record Created Successfully] but found [Duplicate Record]
+<td title='com.tetherfi.test.tmac.AgentSettingsUITest.VerifyColumnsHeaderDisable()'><b>VerifyColumnsHeaderDisable</b><br>Test class: com.tetherfi.test.tmac.AgentSettingsUITest</td>
+<td><div><pre>java.lang.AssertionError: columns disabled assertion failed did not expect to find [false] but found [true]
 	at org.testng.Assert.fail(Assert.java:97)
-	at org.testng.Assert.assertEqualsImpl(Assert.java:136)
-	at org.testng.Assert.assertEquals(Assert.java:118)
-	at org.testng.Assert.assertEquals(Assert.java:575)
-	at com.tetherfi.test.ivr.IntentMappingTest.AddNewIntentMappingRecord(IntentMappingTest.java:82)
+	at org.testng.Assert.failNotEquals(Assert.java:969)
+	at org.testng.Assert.assertFalse(Assert.java:65)
+	at com.tetherfi.test.tmac.AgentSettingsUITest.VerifyColumnsHeaderDisable(AgentSettingsUITest.java:151)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -110,13 +109,12 @@ function toggleAllBoxes() {
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace940600260", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace940600260'><pre>java.lang.AssertionError: Add New record assertion failed expected [Record Created Successfully] but found [Duplicate Record]
+</pre></div><a href='#' onClick='toggleBox("stack-trace1232596432", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1232596432'><pre>java.lang.AssertionError: columns disabled assertion failed did not expect to find [false] but found [true]
 	at org.testng.Assert.fail(Assert.java:97)
-	at org.testng.Assert.assertEqualsImpl(Assert.java:136)
-	at org.testng.Assert.assertEquals(Assert.java:118)
-	at org.testng.Assert.assertEquals(Assert.java:575)
-	at com.tetherfi.test.ivr.IntentMappingTest.AddNewIntentMappingRecord(IntentMappingTest.java:82)
+	at org.testng.Assert.failNotEquals(Assert.java:969)
+	at org.testng.Assert.assertFalse(Assert.java:65)
+	at com.tetherfi.test.tmac.AgentSettingsUITest.VerifyColumnsHeaderDisable(AgentSettingsUITest.java:151)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -146,100 +144,15 @@ function toggleAllBoxes() {
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
-<td>7</td>
-<td>com.tetherfi.test.ivr.IntentMappingTest@3a6045c6</td></tr>
+<td>16</td>
+<td>com.tetherfi.test.tmac.AgentSettingsUITest@2dd8ff1d</td></tr>
 <tr>
-<td title='com.tetherfi.test.ivr.IntentMappingTest.EditIntentMappingRecord()'><b>EditIntentMappingRecord</b><br>Test class: com.tetherfi.test.ivr.IntentMappingTest</td>
-<td><div><pre>java.lang.IllegalArgumentException: Keys to send should be a not null CharSequence
-	at org.openqa.selenium.remote.RemoteWebElement.sendKeys(RemoteWebElement.java:97)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
-	at com.sun.proxy.$Proxy16.sendKeys(Unknown Source)
-	at com.tetherfi.pages.BasePage.enterValueToTxtFieldWithoutClear(BasePage.java:186)
-	at com.tetherfi.pages.IntentMappingPage.editIntentMappingRecord(IntentMappingPage.java:812)
-	at com.tetherfi.test.ivr.IntentMappingTest.EditIntentMappingRecord(IntentMappingTest.java:204)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-	at org.testng.TestRunner.privateRun(TestRunner.java:770)
-	at org.testng.TestRunner.run(TestRunner.java:591)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-	at org.testng.TestNG.runSuites(TestNG.java:1032)
-	at org.testng.TestNG.run(TestNG.java:1000)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace1201199367", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1201199367'><pre>java.lang.IllegalArgumentException: Keys to send should be a not null CharSequence
-	at org.openqa.selenium.remote.RemoteWebElement.sendKeys(RemoteWebElement.java:97)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
-	at com.sun.proxy.$Proxy16.sendKeys(Unknown Source)
-	at com.tetherfi.pages.BasePage.enterValueToTxtFieldWithoutClear(BasePage.java:186)
-	at com.tetherfi.pages.IntentMappingPage.editIntentMappingRecord(IntentMappingPage.java:812)
-	at com.tetherfi.test.ivr.IntentMappingTest.EditIntentMappingRecord(IntentMappingTest.java:204)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-	at org.testng.TestRunner.privateRun(TestRunner.java:770)
-	at org.testng.TestRunner.run(TestRunner.java:591)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-	at org.testng.TestNG.runSuites(TestNG.java:1032)
-	at org.testng.TestNG.run(TestNG.java:1000)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div></td>
-<td>24</td>
-<td>com.tetherfi.test.ivr.IntentMappingTest@3a6045c6</td></tr>
-<tr>
-<td title='com.tetherfi.test.ivr.IntentMappingTest.VerifyAuditTrialReportForDelete()'><b>VerifyAuditTrialReportForDelete</b><br>Test class: com.tetherfi.test.ivr.IntentMappingTest</td>
-<td><div><pre>java.lang.AssertionError: did not expect to find [true] but found [false]
+<td title='com.tetherfi.test.tmac.AgentSettingsUITest.VerifyExportToExcel()'><b>VerifyExportToExcel</b><br>Test class: com.tetherfi.test.tmac.AgentSettingsUITest</td>
+<td><div><pre>java.lang.AssertionError: export to excel assertion failed did not expect to find [true] but found [false]
 	at org.testng.Assert.fail(Assert.java:97)
 	at org.testng.Assert.failNotEquals(Assert.java:969)
 	at org.testng.Assert.assertTrue(Assert.java:43)
-	at org.testng.Assert.assertTrue(Assert.java:53)
-	at com.tetherfi.test.ivr.IntentMappingTest.VerifyAuditTrialReportForDelete(IntentMappingTest.java:343)
+	at com.tetherfi.test.tmac.AgentSettingsUITest.VerifyExportToExcel(AgentSettingsUITest.java:98)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -268,13 +181,12 @@ function toggleAllBoxes() {
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace170706494", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace170706494'><pre>java.lang.AssertionError: did not expect to find [true] but found [false]
+</pre></div><a href='#' onClick='toggleBox("stack-trace841084536", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace841084536'><pre>java.lang.AssertionError: export to excel assertion failed did not expect to find [true] but found [false]
 	at org.testng.Assert.fail(Assert.java:97)
 	at org.testng.Assert.failNotEquals(Assert.java:969)
 	at org.testng.Assert.assertTrue(Assert.java:43)
-	at org.testng.Assert.assertTrue(Assert.java:53)
-	at com.tetherfi.test.ivr.IntentMappingTest.VerifyAuditTrialReportForDelete(IntentMappingTest.java:343)
+	at com.tetherfi.test.tmac.AgentSettingsUITest.VerifyExportToExcel(AgentSettingsUITest.java:98)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -304,94 +216,8 @@ function toggleAllBoxes() {
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
-<td>21</td>
-<td>com.tetherfi.test.ivr.IntentMappingTest@3a6045c6</td></tr>
-<tr>
-<td title='com.tetherfi.test.ivr.IntentMappingTest.VerifyAuditTrialReportForUpdate()'><b>VerifyAuditTrialReportForUpdate</b><br>Test class: com.tetherfi.test.ivr.IntentMappingTest</td>
-<td><div><pre>java.lang.IllegalArgumentException: Keys to send should be a not null CharSequence
-	at org.openqa.selenium.remote.RemoteWebElement.sendKeys(RemoteWebElement.java:97)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
-	at com.sun.proxy.$Proxy16.sendKeys(Unknown Source)
-	at com.tetherfi.pages.BasePage.enterValueToTxtFieldWithoutClear(BasePage.java:186)
-	at com.tetherfi.pages.OCMReportsPage.booleansearchnew(OCMReportsPage.java:1165)
-	at com.tetherfi.pages.OCMReportsPage.verifyIntentMappingUpdate(OCMReportsPage.java:4000)
-	at com.tetherfi.test.ivr.IntentMappingTest.VerifyAuditTrialReportForUpdate(IntentMappingTest.java:220)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-	at org.testng.TestRunner.privateRun(TestRunner.java:770)
-	at org.testng.TestRunner.run(TestRunner.java:591)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-	at org.testng.TestNG.runSuites(TestNG.java:1032)
-	at org.testng.TestNG.run(TestNG.java:1000)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace415812477", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace415812477'><pre>java.lang.IllegalArgumentException: Keys to send should be a not null CharSequence
-	at org.openqa.selenium.remote.RemoteWebElement.sendKeys(RemoteWebElement.java:97)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
-	at com.sun.proxy.$Proxy16.sendKeys(Unknown Source)
-	at com.tetherfi.pages.BasePage.enterValueToTxtFieldWithoutClear(BasePage.java:186)
-	at com.tetherfi.pages.OCMReportsPage.booleansearchnew(OCMReportsPage.java:1165)
-	at com.tetherfi.pages.OCMReportsPage.verifyIntentMappingUpdate(OCMReportsPage.java:4000)
-	at com.tetherfi.test.ivr.IntentMappingTest.VerifyAuditTrialReportForUpdate(IntentMappingTest.java:220)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-	at org.testng.TestRunner.privateRun(TestRunner.java:770)
-	at org.testng.TestRunner.run(TestRunner.java:591)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-	at org.testng.TestNG.runSuites(TestNG.java:1032)
-	at org.testng.TestNG.run(TestNG.java:1000)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div></td>
-<td>24</td>
-<td>com.tetherfi.test.ivr.IntentMappingTest@3a6045c6</td></tr>
+<td>18</td>
+<td>com.tetherfi.test.tmac.AgentSettingsUITest@2dd8ff1d</td></tr>
 </table><p>
 <table width='100%' border='1' class='invocation-passed'>
 <tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
@@ -401,64 +227,105 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.tetherfi.test.ivr.IntentMappingTest.DeleteIntentMappingRecord()'><b>DeleteIntentMappingRecord</b><br>Test class: com.tetherfi.test.ivr.IntentMappingTest</td>
+<td title='com.tetherfi.test.tmac.AgentSettingsUITest.VerifyAddNewAgentSettingsButton()'><b>VerifyAddNewAgentSettingsButton</b><br>Test class: com.tetherfi.test.tmac.AgentSettingsUITest</td>
 <td></td>
-<td>5</td>
-<td>com.tetherfi.test.ivr.IntentMappingTest@3a6045c6</td></tr>
-</table><p>
-<table width='100%' border='1' class='invocation-skipped'>
-<tr><td colspan='4' align='center'><b>SKIPPED TESTS</b></td></tr>
-<tr><td><b>Test method</b></td>
-<td width="30%"><b>Exception</b></td>
-<td width="10%"><b>Time (seconds)</b></td>
-<td><b>Instance</b></td>
-</tr>
+<td>11</td>
+<td>com.tetherfi.test.tmac.AgentSettingsUITest@2dd8ff1d</td></tr>
 <tr>
-<td title='com.tetherfi.test.ivr.IntentMappingTest.VerifyAuditTrialReportForCreate()'><b>VerifyAuditTrialReportForCreate</b><br>Test class: com.tetherfi.test.ivr.IntentMappingTest</td>
-<td><div><pre>java.lang.Throwable: Method IntentMappingTest.VerifyAuditTrialReportForCreate()[pri:7, instance:com.tetherfi.test.ivr.IntentMappingTest@3a6045c6] depends on not successfully finished methods
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:99)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-	at org.testng.TestRunner.privateRun(TestRunner.java:770)
-	at org.testng.TestRunner.run(TestRunner.java:591)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-	at org.testng.TestNG.runSuites(TestNG.java:1032)
-	at org.testng.TestNG.run(TestNG.java:1000)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace1993598722", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1993598722'><pre>java.lang.Throwable: Method IntentMappingTest.VerifyAuditTrialReportForCreate()[pri:7, instance:com.tetherfi.test.ivr.IntentMappingTest@3a6045c6] depends on not successfully finished methods
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:99)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-	at org.testng.TestRunner.privateRun(TestRunner.java:770)
-	at org.testng.TestRunner.run(TestRunner.java:591)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-	at org.testng.TestNG.runSuites(TestNG.java:1032)
-	at org.testng.TestNG.run(TestNG.java:1000)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div></td>
+<td title='com.tetherfi.test.tmac.AgentSettingsUITest.VerifyAgentSettingsApprovedDataPage()'><b>VerifyAgentSettingsApprovedDataPage</b><br>Test class: com.tetherfi.test.tmac.AgentSettingsUITest</td>
+<td></td>
+<td>1</td>
+<td>com.tetherfi.test.tmac.AgentSettingsUITest@2dd8ff1d</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentSettingsUITest.VerifyAgentSettingsAuditTrailDataPage()'><b>VerifyAgentSettingsAuditTrailDataPage</b><br>Test class: com.tetherfi.test.tmac.AgentSettingsUITest</td>
+<td></td>
+<td>7</td>
+<td>com.tetherfi.test.tmac.AgentSettingsUITest@2dd8ff1d</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentSettingsUITest.VerifyAgentSettingsModuleDisplay()'><b>VerifyAgentSettingsModuleDisplay</b><br>Test class: com.tetherfi.test.tmac.AgentSettingsUITest</td>
+<td></td>
 <td>0</td>
-<td>com.tetherfi.test.ivr.IntentMappingTest@3a6045c6</td></tr>
+<td>com.tetherfi.test.tmac.AgentSettingsUITest@2dd8ff1d</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentSettingsUITest.VerifyArrowMoveForFirstAndLastPage()'><b>VerifyArrowMoveForFirstAndLastPage</b><br>Test class: com.tetherfi.test.tmac.AgentSettingsUITest</td>
+<td></td>
+<td>12</td>
+<td>com.tetherfi.test.tmac.AgentSettingsUITest@2dd8ff1d</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentSettingsUITest.VerifyArrowMoveForPreviousAndNextPage()'><b>VerifyArrowMoveForPreviousAndNextPage</b><br>Test class: com.tetherfi.test.tmac.AgentSettingsUITest</td>
+<td></td>
+<td>10</td>
+<td>com.tetherfi.test.tmac.AgentSettingsUITest@2dd8ff1d</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentSettingsUITest.VerifyCancelButtonAtRecordCreation()'><b>VerifyCancelButtonAtRecordCreation</b><br>Test class: com.tetherfi.test.tmac.AgentSettingsUITest</td>
+<td></td>
+<td>16</td>
+<td>com.tetherfi.test.tmac.AgentSettingsUITest@2dd8ff1d</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentSettingsUITest.VerifyCancelButtonAtRecordDelete()'><b>VerifyCancelButtonAtRecordDelete</b><br>Test class: com.tetherfi.test.tmac.AgentSettingsUITest</td>
+<td></td>
+<td>21</td>
+<td>com.tetherfi.test.tmac.AgentSettingsUITest@2dd8ff1d</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentSettingsUITest.VerifyCancelButtonAtRecordEdit()'><b>VerifyCancelButtonAtRecordEdit</b><br>Test class: com.tetherfi.test.tmac.AgentSettingsUITest</td>
+<td></td>
+<td>21</td>
+<td>com.tetherfi.test.tmac.AgentSettingsUITest@2dd8ff1d</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentSettingsUITest.VerifyClearAllAtSearchRecord()'><b>VerifyClearAllAtSearchRecord</b><br>Test class: com.tetherfi.test.tmac.AgentSettingsUITest</td>
+<td></td>
+<td>13</td>
+<td>com.tetherfi.test.tmac.AgentSettingsUITest@2dd8ff1d</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentSettingsUITest.VerifyColumnsHeaderEnable()'><b>VerifyColumnsHeaderEnable</b><br>Test class: com.tetherfi.test.tmac.AgentSettingsUITest</td>
+<td></td>
+<td>20</td>
+<td>com.tetherfi.test.tmac.AgentSettingsUITest@2dd8ff1d</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentSettingsUITest.VerifyDragAndDrop()'><b>VerifyDragAndDrop</b><br>Test class: com.tetherfi.test.tmac.AgentSettingsUITest</td>
+<td></td>
+<td>11</td>
+<td>com.tetherfi.test.tmac.AgentSettingsUITest@2dd8ff1d</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentSettingsUITest.VerifyDragAndDropofAlreadyGroupedHeader()'><b>VerifyDragAndDropofAlreadyGroupedHeader</b><br>Test class: com.tetherfi.test.tmac.AgentSettingsUITest</td>
+<td></td>
+<td>12</td>
+<td>com.tetherfi.test.tmac.AgentSettingsUITest@2dd8ff1d</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentSettingsUITest.VerifyDropdownForAllTheColumns()'><b>VerifyDropdownForAllTheColumns</b><br>Test class: com.tetherfi.test.tmac.AgentSettingsUITest</td>
+<td></td>
+<td>28</td>
+<td>com.tetherfi.test.tmac.AgentSettingsUITest@2dd8ff1d</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentSettingsUITest.VerifyExportToExcelWithoutData()'><b>VerifyExportToExcelWithoutData</b><br>Test class: com.tetherfi.test.tmac.AgentSettingsUITest</td>
+<td></td>
+<td>19</td>
+<td>com.tetherfi.test.tmac.AgentSettingsUITest@2dd8ff1d</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentSettingsUITest.VerifyFullScreenButton()'><b>VerifyFullScreenButton</b><br>Test class: com.tetherfi.test.tmac.AgentSettingsUITest</td>
+<td></td>
+<td>11</td>
+<td>com.tetherfi.test.tmac.AgentSettingsUITest@2dd8ff1d</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentSettingsUITest.VerifyMakeAgentSettingsChangeButton()'><b>VerifyMakeAgentSettingsChangeButton</b><br>Test class: com.tetherfi.test.tmac.AgentSettingsUITest</td>
+<td></td>
+<td>10</td>
+<td>com.tetherfi.test.tmac.AgentSettingsUITest@2dd8ff1d</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentSettingsUITest.VerifyMandatoryFieldWarningMessage()'><b>VerifyMandatoryFieldWarningMessage</b><br>Test class: com.tetherfi.test.tmac.AgentSettingsUITest</td>
+<td></td>
+<td>11</td>
+<td>com.tetherfi.test.tmac.AgentSettingsUITest@2dd8ff1d</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentSettingsUITest.VerifyNumberOfItemsPerPageSelection()'><b>VerifyNumberOfItemsPerPageSelection</b><br>Test class: com.tetherfi.test.tmac.AgentSettingsUITest</td>
+<td></td>
+<td>17</td>
+<td>com.tetherfi.test.tmac.AgentSettingsUITest@2dd8ff1d</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentSettingsUITest.VerifyTotalNumberOfItemsPerPageDetails()'><b>VerifyTotalNumberOfItemsPerPageDetails</b><br>Test class: com.tetherfi.test.tmac.AgentSettingsUITest</td>
+<td></td>
+<td>10</td>
+<td>com.tetherfi.test.tmac.AgentSettingsUITest@2dd8ff1d</td></tr>
 </table><p>
 </body>
 </html>

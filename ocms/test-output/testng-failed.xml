@@ -3,22 +3,18 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.tetherfi.test.ivr.IntentMappingTest">
+      <class name="com.tetherfi.test.tmac.AgentSettingsUITest">
         <methods>
+          <include name="VerifyExportToExcel"/>
+          <include name="afterEachMethod"/>
           <include name="startTestCase"/>
           <include name="openApplication"/>
-          <include name="VerifyAuditTrialReportForDelete"/>
-          <include name="EditIntentMappingRecord"/>
-          <include name="DeleteIntentMappingRecord"/>
-          <include name="VerifyAuditTrialReportForUpdate"/>
+          <include name="VerifyColumnsHeaderDisable"/>
           <include name="endTestCase"/>
-          <include name="afterEachMethod"/>
           <include name="tearDown"/>
-          <include name="AddNewIntentMappingRecord"/>
-          <include name="VerifyAuditTrialReportForCreate"/>
-          <include name="NavigateToIntentMappingPage"/>
+          <include name="NavigateToAgentSettingsPage"/>
         </methods>
-      </class> <!-- com.tetherfi.test.ivr.IntentMappingTest -->
+      </class> <!-- com.tetherfi.test.tmac.AgentSettingsUITest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

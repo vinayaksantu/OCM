@@ -43,7 +43,7 @@ public class ChatTemplatesTest {
 	    Map<String, String> map;
 	    if(t.groups()[0].equalsIgnoreCase("OCM")){	
 	    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\LoginData.xlsx";
-	        map= new ExcelReader(filePath,"Login").getTestData().get(0);
+	        map= new ExcelReader(filePath,"Login").getTestData().get(14);
 	        try{
 	        	driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 	        }

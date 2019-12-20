@@ -3,21 +3,21 @@
 <suite name="Failed suite [Failed suite [Failed suite [Failed suite [Default suite]]]]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)(failed)(failed)(failed)">
     <classes>
-      <class name="com.tetherfi.test.ivr.HostValueMappingUITest">
+      <class name="com.tetherfi.test.ivr.OperatingHoursTest">
         <methods>
-          <include name="VerifyColumnsHeaderDisable"/>
-          <include name="afterEachMethod"/>
           <include name="startTestCase"/>
           <include name="openApplication"/>
-          <include name="VerifyColumnsHeaderEnable"/>
-          <include name="VerifyNumberOfItemsPerPageSelection"/>
+          <include name="EditInvalidRecord"/>
+          <include name="SearchClearSearch"/>
+          <include name="EditRecordWithoutReason"/>
           <include name="endTestCase"/>
           <include name="tearDown"/>
-          <include name="database"/>
-          <include name="NavigateToHostValueMappingPage"/>
-          <include name="VerifyDropdownForAllTheColumns"/>
+          <include name="EditOperatingHoursRecord"/>
+          <include name="EditOperatingHoursCancelRecord"/>
+          <include name="afterEachMethod"/>
+          <include name="NavigateToOperatingHoursPage"/>
         </methods>
-      </class> <!-- com.tetherfi.test.ivr.HostValueMappingUITest -->
+      </class> <!-- com.tetherfi.test.ivr.OperatingHoursTest -->
     </classes>
   </test> <!-- Default test(failed)(failed)(failed)(failed) -->
 </suite> <!-- Failed suite [Failed suite [Failed suite [Failed suite [Default suite]]]] -->
