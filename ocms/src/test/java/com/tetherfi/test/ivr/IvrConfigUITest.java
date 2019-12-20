@@ -103,7 +103,7 @@ public class IvrConfigUITest extends BaseTest{
 		IvrConfigPage ivrConfigPage =PageFactory.createPageInstance(driver, IvrConfigPage.class);
 		ivrConfigPage.selectIvrConfigAuditTrailTab();
 		ivrConfigPage.selectMakeIvrConfigChanges();
-		Assert.assertTrue(ivrConfigPage.verifyArrowMoveForPreviousAndNextPage(1),"Arrow move for Previous and next page assertion failed");
+		Assert.assertTrue(ivrConfigPage.verifyArrowMoveForPreviousAndNextPage(),"Arrow move for Previous and next page assertion failed");
 	}
 	
 	@Test(priority=9)
@@ -111,7 +111,7 @@ public class IvrConfigUITest extends BaseTest{
 		IvrConfigPage ivrConfigPage =PageFactory.createPageInstance(driver, IvrConfigPage.class);
 		ivrConfigPage.selectIvrConfigAuditTrailTab();
 		ivrConfigPage.selectMakeIvrConfigChanges();
-		Assert.assertTrue(ivrConfigPage.verifyArrowMoveForFirstAndLastPage(1), "Arrow move for first and last page assertion failed");	
+		Assert.assertTrue(ivrConfigPage.verifyArrowMoveForFirstAndLastPage(), "Arrow move for first and last page assertion failed");	
 	}
 	
 	@Test(priority=10)
@@ -119,7 +119,7 @@ public class IvrConfigUITest extends BaseTest{
 		IvrConfigPage ivrConfigPage=PageFactory.createPageInstance(driver, IvrConfigPage.class);
 		ivrConfigPage.selectIvrConfigAuditTrailTab();
 		ivrConfigPage.selectMakeIvrConfigChanges();
-		Assert.assertTrue(ivrConfigPage.verifyNumberOfItemsPerPage(1), "Number of Items per page details assertion failed");		
+		Assert.assertTrue(ivrConfigPage.verifyNumberOfItemsPerPage(), "Number of Items per page details assertion failed");		
 	}
 	
 	@Test(priority=11)
@@ -127,7 +127,7 @@ public class IvrConfigUITest extends BaseTest{
 		IvrConfigPage ivrConfigPage=PageFactory.createPageInstance(driver, IvrConfigPage.class);
 		ivrConfigPage.selectIvrConfigAuditTrailTab();
 		ivrConfigPage.selectMakeIvrConfigChanges();
-		Assert.assertTrue(ivrConfigPage.verifyTotalNumberOfItemsPerPageDetails(1),"Total number of items per page assertion failes");
+		Assert.assertTrue(ivrConfigPage.verifyTotalNumberOfItemsPerPageDetails(),"Total number of items per page assertion failes");
 	}
 	
 	@Test(priority=12)
