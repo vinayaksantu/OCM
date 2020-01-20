@@ -156,7 +156,7 @@ public class IvrConfigCreateTest {
 		 Assert.assertEquals(ivrConfigpage.getSuccessMessage(), "Record Created Successfully");		 
 	}
     
-	@Test(groups = { "Maker" })//,priority=9,dependsOnMethods="AddRejectRecord")
+	@Test(groups = { "Maker" },priority=9)//,dependsOnMethods="AddRejectRecord")
     public void VerifySendForApprovalForAddNewRecord() throws Exception {
 		IvrConfigPage ivrConfigpage=PageFactory.createPageInstance(driver, IvrConfigPage.class);
        	ivrConfigpage.selectIvrConfigAuditTrailTab();
@@ -165,7 +165,7 @@ public class IvrConfigCreateTest {
         Assert.assertTrue(ivrConfigpage.verifyStatus("Approval Pending"),"approval status details failed");
     }
 
-	@Test(groups = { "Checker" })//,priority=10,dependsOnMethods="VerifySendForApprovalForAddNewRecord")
+	@Test(groups = { "Checker" },priority=10)//,dependsOnMethods="VerifySendForApprovalForAddNewRecord")
     public void RejectforAddNewIvrConfigRecord() throws Exception{
 		IvrConfigPage ivrConfigpage=PageFactory.createPageInstance(driver, IvrConfigPage.class);
 		ivrConfigpage.clickOnReject("Reject Created");
@@ -173,7 +173,7 @@ public class IvrConfigCreateTest {
         Assert.assertTrue(ivrConfigpage.verifyReviewAuditTrail("Rejected","Reject Created"));
     }
 	
-	@Test(groups = { "Checker" })//,priority=11,dependsOnMethods = "RejectforAddNewIvrConfigRecord")
+	@Test(groups = { "Checker" },priority=11)//,dependsOnMethods = "RejectforAddNewIvrConfigRecord")
     public void VerifyAuditTrailReportForReject() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IvrConfigData.xlsx";
 	    Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -188,7 +188,7 @@ public class IvrConfigCreateTest {
         Assert.assertTrue(ocmReportsPage.verifyIvrConfigCreate(IvrConfigDetails, "CheckerReject"),"Audit Trail report assertion failed");
     }
 	
-	@Test(groups= {"Maker"})//,priority=12,dependsOnMethods="VerifyAuditTrailReportForReject")
+	@Test(groups= {"Maker"},priority=12)//,dependsOnMethods="VerifyAuditTrailReportForReject")
     public void VerifyRecordAfterRejection() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IvrConfigData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -197,7 +197,7 @@ public class IvrConfigCreateTest {
         Assert.assertTrue(ivrConfigpage.VerifyApprovedSectionData(IvrConfigDetails));
     }
 	
-	@Test(groups = { "Maker" })//,priority=13)
+	@Test(groups = { "Maker" },priority=13)
     public void AddNewIvrConfigRecord() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IvrConfigData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -207,7 +207,7 @@ public class IvrConfigCreateTest {
         Assert.assertEquals(ivrConfigpage.getSuccessMessage(), "Record Created Successfully");
     }
 	
-	@Test(groups = { "Maker" })//,priority=14,dependsOnMethods = "AddNewIvrConfigRecord")
+	@Test(groups = { "Maker" },priority=14)//,dependsOnMethods = "AddNewIvrConfigRecord")
     public void VerifyAuditTrailReportForCreate() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IvrConfigData.xlsx";
 	    Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -222,7 +222,7 @@ public class IvrConfigCreateTest {
         Assert.assertTrue(ocmReportsPage.verifyIvrConfigCreate(IvrConfigDetails, "MakerCreate"),"Audit Trail report assertion failed");
     }
 	
-	@Test(groups = { "Maker" })//,priority=15,dependsOnMethods="AddNewIvrConfigRecord")
+	@Test(groups = { "Maker" },priority=15)//,dependsOnMethods="AddNewIvrConfigRecord")
     public void VerifyAuditTrailDataForAddNewIvrConfigRecord() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IvrConfigData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -232,7 +232,7 @@ public class IvrConfigCreateTest {
         Assert.assertTrue(ivrConfigpage.verifyAuditTrail(IvrConfigDetails, "MakerCreate", "New"), "Audit trail details failed");
     }
 	
-	@Test(groups = { "Maker" })//,priority=16,dependsOnMethods="VerifyAuditTrailDataForAddNewIvrConfigRecord")
+	@Test(groups = { "Maker" },priority=16)//,dependsOnMethods="VerifyAuditTrailDataForAddNewIvrConfigRecord")
     public void VerifySendForApprovalForAddIvrConfigRecord() throws Exception {
 		  IvrConfigPage ivrConfigpage=PageFactory.createPageInstance(driver, IvrConfigPage.class);
        	ivrConfigpage.selectIvrConfigAuditTrailTab();
@@ -241,7 +241,7 @@ public class IvrConfigCreateTest {
         Assert.assertTrue(ivrConfigpage.verifyStatus("Approval Pending"),"approal status details failed");
     }
     
-	@Test(groups = { "Maker" })//,priority=17,dependsOnMethods = "VerifySendForApprovalForAddIvrConfigRecord")
+	@Test(groups = { "Maker" },priority=17)//,dependsOnMethods = "VerifySendForApprovalForAddIvrConfigRecord")
     public void VerifyAuditTrailReportForSendForApproval() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IvrConfigData.xlsx";
 	    Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -256,7 +256,7 @@ public class IvrConfigCreateTest {
         Assert.assertTrue(ocmReportsPage.verifyIvrConfigCreate(IvrConfigDetails, "MakerSendToApproval"),"Audit Trail report assertion failed");
     }
 	
-	@Test(groups = { "Checker" })//,priority=18,dependsOnMethods="VerifyAuditTrailReportForSendForApproval")
+	@Test(groups = { "Checker" },priority=18)//,dependsOnMethods="VerifyAuditTrailReportForSendForApproval")
     public void ApproveforAddNewIvrConfigRecord() throws Exception{
        	IvrConfigPage ivrConfigpage=PageFactory.createPageInstance(driver, IvrConfigPage.class);
        	ivrConfigpage.clickOnApprove("Approve Create");
@@ -264,7 +264,7 @@ public class IvrConfigCreateTest {
         Assert.assertTrue(ivrConfigpage.verifyReviewAuditTrail("Approved","Approve Create"));
     }
 	
-	@Test(groups = { "Checker" })//,priority=19,dependsOnMethods = "ApproveforAddNewIvrConfigRecord")
+	@Test(groups = { "Checker" },priority=19)//,dependsOnMethods = "ApproveforAddNewIvrConfigRecord")
     public void VerifyAuditTrailReportForApprove() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IvrConfigData.xlsx";
 	    Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -279,7 +279,7 @@ public class IvrConfigCreateTest {
         Assert.assertTrue(ocmReportsPage.verifyIvrConfigCreate(IvrConfigDetails, "CheckerApprove"),"Audit Trail report assertion failed");
     }
 	
-	@Test(groups= {"Checker"})//,priority=20,dependsOnMethods="ApproveforAddNewIvrConfigRecord")
+	@Test(groups= {"Checker"},priority=20)//,dependsOnMethods="ApproveforAddNewIvrConfigRecord")
     public void VerifyRecordApprovedDataSectionafterApproval()throws Exception{
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IvrConfigData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -288,7 +288,7 @@ public class IvrConfigCreateTest {
         Assert.assertTrue(ivrConfigpage.verifyApprovedSectionDataafterapproval(IvrConfigDetails));
     }
 	
-    @Test(groups = { "Maker" })//,priority=21,dependsOnMethods="AddNewIvrConfigRecord")
+    @Test(groups = { "Maker" },priority=21)//,dependsOnMethods="AddNewIvrConfigRecord")
     public void AddDuplicateRecord() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IvrConfigData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);

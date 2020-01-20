@@ -95,7 +95,7 @@ public class AgentSettingsCreateTest {
         Assert.assertTrue(ocmReportsPage.verifyAuditTrailReportDisplayed(agentSettingsDetails, "MakerReverted"),"Audit Trail report assertion failed");
     }
     
-    /*@Test(groups = { "Maker" },priority=4)
+    @Test(groups = { "Maker" },priority=4)
     public void AddRejectRecord() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentSettingsData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -138,7 +138,7 @@ public class AgentSettingsCreateTest {
     }
     
     @Test(groups = { "Maker" },priority=8)
-     public void AddNewSupervisorRecord() throws Exception {
+      public void AddNewSupervisorRecord() throws Exception {
          String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentSettingsData.xlsx";
          Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
          AgentSettingsDetails agentSettingsDetails = new AgentSettingsDetails(map);
@@ -275,7 +275,7 @@ public class AgentSettingsCreateTest {
         agentSettingsPage.clickonApprove("Approve Create");
         Assert.assertTrue(agentSettingsPage.verifyMessage());
         Assert.assertTrue(agentSettingsPage.verifyReviewAuditTrail("Approved","Approve Create"));
-    }*/
+    }
       
    @AfterMethod
     public void afterEachMethod(Method method){

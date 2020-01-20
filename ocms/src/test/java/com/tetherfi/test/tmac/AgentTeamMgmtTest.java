@@ -41,7 +41,7 @@ public class AgentTeamMgmtTest extends BaseTest {
         Assert.assertTrue(agentTeamManagementPage.isAgentTeamManagementPageDisplayed(),"Agent Team Management Page assertion failed");
     }
     
-    /*@Test(priority=1)
+    @Test(priority=1)
     public void AgentTeamManagementPage()
     {
     	AgentTeamManagementPage agentTeamManagementPage=PageFactory.createPageInstance(driver,AgentTeamManagementPage.class);
@@ -233,7 +233,7 @@ public class AgentTeamMgmtTest extends BaseTest {
         AgentTeamMgmtDetails agentTeamMgmtDetails=new AgentTeamMgmtDetails(map);
         AgentTeamManagementPage agentTeamManagementPage=PageFactory.createPageInstance(driver,AgentTeamManagementPage.class);
         Assert.assertTrue(agentTeamManagementPage.verifySearchDoesNotContains(agentTeamMgmtDetails.getCountry()));
-    }*/
+    }
     
     @Test(priority=20)
     public void VerifySearchStartsWith() throws Exception{
@@ -253,7 +253,7 @@ public class AgentTeamMgmtTest extends BaseTest {
         Assert.assertTrue(agentTeamManagementPage.verifySearchEndsWith(agentTeamMgmtDetails.getCountry()));
     }
     
-    /*@Test(priority=22)
+    @Test(priority=22)
     public void DeleteAgentTeamManagementCancelRecord() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentTeamManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
@@ -393,7 +393,7 @@ public class AgentTeamMgmtTest extends BaseTest {
     	Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         AgentTeamMgmtDetails agentTeamMgmtDetails=new AgentTeamMgmtDetails(map);
         Assert.assertTrue(agentTeamManagementPage.ExporttoExcelWithoutData(agentTeamMgmtDetails));
-    }*/
+    }
     
     @AfterMethod
     public void afterEachMethod(Method method){

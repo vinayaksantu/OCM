@@ -181,7 +181,7 @@ public class IvrConfigUpdateTest {
 	  Assert.assertTrue(ivrConfigPage.verifyAuditTrailUpdate(IvrConfigDetails, "MakerUpdate", "New"),"Audit Trail Details Failed");			  
 	  }
 	  
-	  @Test(groups= {"Maker"})//,priority=11,dependsOnMethods="EditIvrConfigRecord")
+	  @Test(groups= {"Maker"},priority=11)//,dependsOnMethods="EditIvrConfigRecord")
 	  public void VerifyAuditTrialReportForUpdate() throws Exception {
 	  String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IvrConfigData.xlsx";	  
 	  Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(0);
@@ -259,5 +259,9 @@ public class IvrConfigUpdateTest {
 	    	Screenshot screenshot=new Screenshot(driver);
 	        screenshot.captureScreen("TMACTransferListTest",method.getName());
 	        driver.navigate().refresh();
+	        HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
+	        homePage.userLogout();
+	        driver.close();
+	        System.out.println("Completed Executing : "+method.getName());
 	    }	 
 }

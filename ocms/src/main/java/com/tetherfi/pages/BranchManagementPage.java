@@ -815,6 +815,7 @@ public class BranchManagementPage extends BasePage {
 		selectWebElement(gridsearchLink);
         selectWebElement(selectSearchColumn.get(0));
         selectDropdownFromVisibleText(columnNameList,"Branch Name");
+        Thread.sleep(1000);
         selectWebElement(selectSearchColumn.get(1));
         selectDropdownFromVisibleText(searchTypeList,"Is equal to");
         enterValueToTxtField(searchText.get(0),branchManagementDetails.getBranchName());
@@ -878,6 +879,7 @@ public class BranchManagementPage extends BasePage {
 		String actualitems=items.get(2).getText();
 		selectWebElement(addNewBranchManageRecordBtn);
 		waitForJqueryLoad(driver);
+		Thread.sleep(2000);
         selectWebElement(cancelBtn);
         waitForJqueryLoad(driver);
         if(actualitems.equals(items.get(2).getText()))
@@ -891,7 +893,7 @@ public class BranchManagementPage extends BasePage {
 		selectWebElement(makeBranchManagementChanges);
 		selectWebElement(addNewBranchManageRecordBtn);
 		waitForJqueryLoad(driver);
-		Thread.sleep(1000);
+		Thread.sleep(3000);
 		selectWebElement(mainLinesDropDown);
         selectDropdownFromVisibleText(mainLinesListbox, branchManagementDetails.getMainLines());
         selectWebElement(subLinesDropDown);
@@ -1115,7 +1117,7 @@ public class BranchManagementPage extends BasePage {
 		selectWebElement(makeBranchManagementChanges);
 		selectWebElement(addNewBranchManageRecordBtn);
 		waitForJqueryLoad(driver);
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		selectWebElement(mainLinesDropDown);
         selectDropdownFromVisibleText(mainLinesListbox, branchManagementDetails.getMainLines());
         enterValueToTxtField(LocationTextbox,branchManagementDetails.getLocation());
@@ -1141,7 +1143,7 @@ public class BranchManagementPage extends BasePage {
 		selectWebElement(makeBranchManagementChanges);
 		selectWebElement(addNewBranchManageRecordBtn);
 		waitForJqueryLoad(driver);
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		selectWebElement(mainLinesDropDown);
         selectDropdownFromVisibleText(mainLinesListbox, branchManagementDetails.getMainLines());
         selectWebElement(subLinesDropDown);
@@ -1219,7 +1221,7 @@ public class BranchManagementPage extends BasePage {
 		selectWebElement(makeBranchManagementChanges);
 		selectWebElement(addNewBranchManageRecordBtn);
 		waitForJqueryLoad(driver);
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		selectWebElement(mainLinesDropDown);
         selectDropdownFromVisibleText(mainLinesListbox, branchManagementDetails.getMainLines());
         selectWebElement(subLinesDropDown);
@@ -1299,7 +1301,7 @@ public class BranchManagementPage extends BasePage {
 		selectWebElement(makeBranchManagementChanges);
 		selectWebElement(addNewBranchManageRecordBtn);
 		waitForJqueryLoad(driver);
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		selectWebElement(mainLinesDropDown);
         selectDropdownFromVisibleText(mainLinesListbox, branchManagementDetails.getMainLines());
         selectWebElement(subLinesDropDown);

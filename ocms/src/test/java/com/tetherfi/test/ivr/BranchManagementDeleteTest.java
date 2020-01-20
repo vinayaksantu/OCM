@@ -103,7 +103,7 @@ public class BranchManagementDeleteTest {
         Assert.assertTrue(BranchManagementPage.verifyStatus("Reverted"),"approval status details failed");
     }
     
-	@Test(groups= {"Maker"},priority=5,dependsOnMethods="VerifyRevertForDeleteRecord")
+	@Test(groups= {"Maker"},priority=5)//,dependsOnMethods="VerifyRevertForDeleteRecord")
     public void VerifyAuditTrialReportForRevertDelete() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\BranchManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(0);	
@@ -145,10 +145,10 @@ public class BranchManagementDeleteTest {
         Assert.assertTrue(BranchManagementPage.verifyReviewAuditTrail("Rejected","Reject Deleted"));
     }
     
-    @Test(priority=9,groups = { "Checker" },dependsOnMethods = "RejectforDeleteBranchManagementRecord")
+    @Test(priority=9,groups = { "Checker" })//,dependsOnMethods = "RejectforDeleteBranchManagementRecord")
     public void VerifyAuditTrailReportForReject() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\BranchManagementData.xlsx";
-	    Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(1);
+	    Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
 	    BranchManagementDetails BranchManagementDetails = new BranchManagementDetails(map);
 	    HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
 	    homePage.navigateToOCMReportsPage();
@@ -204,7 +204,7 @@ public class BranchManagementDeleteTest {
         Assert.assertTrue(BranchManagementPage.verifyStatus("Approval Pending"),"approal status details failed");
     }
 	
-	@Test(priority=14,groups = { "Maker" },dependsOnMethods = "VerifySendForApprovalForDeleteRecord")
+	@Test(priority=14,groups = { "Maker" })//,dependsOnMethods = "VerifySendForApprovalForDeleteRecord")
     public void VerifyAuditTrailReportForSendForApprove() throws Exception {
 		 String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\BranchManagementData.xlsx";
 		 Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);

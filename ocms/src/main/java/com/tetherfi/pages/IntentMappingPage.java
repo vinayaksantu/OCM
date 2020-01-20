@@ -671,13 +671,13 @@ public class IntentMappingPage extends BasePage{
 		selectWebElement(VDNText);
 		enterValueToTxtFieldWithoutClear(VDNTextbox,details.getVDN());
 		selectWebElement(saveButton);	
-		try {
+		/*try {
 			selectWebElement(cancelBtn);
 		}
 		catch(Exception e)
 		{
 			e.printStackTrace();
-		}
+		}*/
 	}
 	
 	public boolean verifySearchIsNotEqualTo(String intenttalent) throws Exception {
@@ -806,7 +806,7 @@ public class IntentMappingPage extends BasePage{
 		selectWebElement(editButton);
 		waitForLoad(driver);
 		selectWebElement(VDNText);
-     	enterValueToTxtField(VDNTextbox,details.getUpdatedVDN());
+		enterValueToTxtFieldWithoutClear(VDNTextbox,details.getUpdatedVDN());
 		//enterValueToDropdownText(VDNTextbox, details.getUpdatedVDN());
 		selectWebElement(ModifyReasonTextBox);
 		enterValueToTxtFieldWithoutClear(ModifyReasonTextBox,details.getModifyReason());

@@ -66,7 +66,7 @@ public class HostValueMappingDeleteTest {
 	@Test(groups= {"Maker"}, priority=1)
 	public void DeleteCancelHostValueMappingRecord() throws Exception {
 		 String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\HostValueMappingData.xlsx";
-	     Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(0);
+	     Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(0);
 	     HostValueMappingDetails HostValueMappingDetails = new HostValueMappingDetails(map);
 	     HostValueMappingPage HostValueMappingPage = PageFactory.createPageInstance(driver, HostValueMappingPage.class);
 	     Assert.assertTrue(HostValueMappingPage.DeleteCancel(HostValueMappingDetails), "Delete Cancel assertion Failed");

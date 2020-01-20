@@ -35,6 +35,7 @@ import com.tetherfi.model.user.DashboardColorCodeConfigDetails;
 import com.tetherfi.model.user.ExportSchedulerDetails;
 import com.tetherfi.model.user.SkillConfigurationDetails;
 import com.tetherfi.model.user.TdmThresholdConfigDetails;
+import com.tetherfi.model.user.UserDetails;
 import com.tetherfi.model.user.UserRoleMappingDetails;
 
 import org.apache.commons.lang3.StringUtils;
@@ -6302,6 +6303,82 @@ return status;
 				else {System.out.println("Frequency data mismatch");}
 			}
 			else {System.out.println("Name data mismatch");}
+			return Status;
+		}
+		public boolean verifyRoleBasedAccessManagementCreate(UserDetails details, String Transaction) throws Exception {
+			booleansearchnew(details.getRoleName(),Transaction);
+			Boolean Status=false;
+	        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+			Map<String,String> newvalues=new HashMap<>();
+			String[]d=firstRowData.get("New Values").split("\n");
+			for(String e:d) {
+				String f[]=e.split(":",2);
+				if(f.length>1)
+				newvalues.put(f[0], f[1]);
+			}
+				if(newvalues.get("RoleName").equals(details.getRoleName())) {
+									Status=true;
+				}
+				else {System.out.println("Name data mismatch");}
+			return Status;
+		}
+
+		public boolean verifyRoleBasedAccessManagementUpdate(UserDetails details, String Transaction) throws Exception {
+			booleansearchnew(details.getUpdateRoleName(),Transaction);
+			Boolean Status=false;
+	        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+	        if(firstRowData.containsKey("Old Values")) {
+	        	Map<String,String> oldvalues=new HashMap<>();
+	    		String[]d=firstRowData.get("Old Values").split("\n");
+	    		for(String e:d) {
+	    			System.out.println(e);
+	    			String f[]=e.split(":",2);
+	    			if(f.length>1)
+	    				oldvalues.put(f[0], f[1]);
+	    		}
+	    		if(oldvalues.get("RoleName").equals(details.getRoleName())){
+	    			if(firstRowData.containsKey("New Values")) {
+	                	Map<String,String> newvalues=new HashMap<>();
+	                	String[]d1=firstRowData.get("New Values").split("\n");
+	                	for(String e:d1) {
+	                		String f[]=e.split(":",2);
+	                		if(f.length>1)
+	                		newvalues.put(f[0], f[1]);
+	                	}
+	                	if(newvalues.get("RoleName").equals(details.getUpdateRoleName())) {
+	                		if(newvalues.get("ModifyReason").equals(details.getModifyReason())){ 
+	                			Status=true;
+	                    }
+	                		else System.out.println("Modify reason data mismatch");
+	                    }
+	    	            else System.out.println("RoleName data mismatch");
+	                }
+	    			else System.out.println("New Values data mismatch");
+	    		}
+	            else System.out.println("RoleName data mismatch");
+	    	}
+	        else {System.out.println("Old values data mismatch");}
+	 return Status;
+		}
+
+		public boolean verifyRoleBasedAccessManagementDelete(UserDetails details, String Transaction) throws Exception {
+			booleansearchold(details.getRoleName(),Transaction);
+			Boolean Status=false;
+	        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+			Map<String,String> oldvalues=new HashMap<>();
+			String[]d=firstRowData.get("Old Values").split("\n");
+			for(String e:d) {
+				String f[]=e.split(":",2);
+				if(f.length>1)
+				oldvalues.put(f[0], f[1]);
+			}
+			if(oldvalues.get("RoleName").equals(details.getRoleName())){
+				if(oldvalues.get("ModifyReason").equals(details.getDeleteReason())) {
+	    		        			Status=true;
+				}
+				else System.out.println("Modify reason data mismatch");
+			}
+			else {System.out.println("Status data mismatch");}
 			return Status;
 		}
 	}

@@ -62,7 +62,7 @@ public class UserRoleMappingCreateTest {
         driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 	}
 	
-	/*@Test(groups= {"Maker"},priority=1)
+	@Test(groups= {"Maker"},priority=1)
     public void VerifyAddCancelButton() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserRoleMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -149,7 +149,7 @@ public class UserRoleMappingCreateTest {
         NewUserRoleMappingPage NewUserRoleMappingPage = PageFactory.createPageInstance(driver, NewUserRoleMappingPage.class);
         NewUserRoleMappingPage.addwithoutRole(UserRoleMappingDetails);
         Assert.assertFalse(NewUserRoleMappingPage.getErrorMsg());
-    }  */ 
+    }   
     
 	@Test(groups = { "Maker" },priority=10)
     public void AddRevertRecord() throws Exception {

@@ -3,21 +3,22 @@
 <suite name="Failed suite [Failed suite [Failed suite [Failed suite [Default suite]]]]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)(failed)(failed)(failed)">
     <classes>
-      <class name="com.tetherfi.test.ivr.OperatingHoursTest">
+      <class name="com.tetherfi.test.tmac.TmacBroadCastMsgTest">
         <methods>
           <include name="startTestCase"/>
           <include name="openApplication"/>
-          <include name="EditInvalidRecord"/>
-          <include name="SearchClearSearch"/>
-          <include name="EditRecordWithoutReason"/>
+          <include name="VerifyColumnsHeaderEnable"/>
+          <include name="afterEachMethod"/>
+          <include name="VerifyAuditTrailReportForUpdate"/>
+          <include name="VerifySearchStartsWith"/>
           <include name="endTestCase"/>
           <include name="tearDown"/>
-          <include name="EditOperatingHoursRecord"/>
-          <include name="EditOperatingHoursCancelRecord"/>
-          <include name="afterEachMethod"/>
-          <include name="NavigateToOperatingHoursPage"/>
+          <include name="EditTmacBroadCastMsg"/>
+          <include name="SortingByAscending"/>
+          <include name="SortingByDescending"/>
+          <include name="NavigateToTmacBroadcastMsgPage"/>
         </methods>
-      </class> <!-- com.tetherfi.test.ivr.OperatingHoursTest -->
+      </class> <!-- com.tetherfi.test.tmac.TmacBroadCastMsgTest -->
     </classes>
   </test> <!-- Default test(failed)(failed)(failed)(failed) -->
 </suite> <!-- Failed suite [Failed suite [Failed suite [Failed suite [Default suite]]]] -->

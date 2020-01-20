@@ -32,7 +32,7 @@ public class RoleBasedAccessManagementTest extends BaseTest {
         Assert.assertTrue(roleBasedAccessManagementPage.isRoleBasedAccessManagementPageDisplayed(),"Role Based access management assertion failed");
     }
     
-    @Test(priority=1)
+    /*@Test(priority=1)
     public void RoleBasedAccessManagementPage(){
         RoleBasedAccessManagementPage roleBasedAccessManagementPage=PageFactory.createPageInstance(driver,RoleBasedAccessManagementPage.class);
     	Assert.assertTrue(roleBasedAccessManagementPage.verifylogo(),"Role Based Access Management logo assertion failed");
@@ -391,7 +391,7 @@ public class RoleBasedAccessManagementTest extends BaseTest {
         Assert.assertTrue(roleBasedAccessManagementPage.verifyotherapplicationunsuccessfullsavechanges());
         screenshot.captureScreen(driver,"Verifyunsuccefullchanges", "RoleBasedAccessManagementTest");
         Assert.assertTrue(roleBasedAccessManagementPage.verifyclosebutton());
-    }
+    }*/
     
     @AfterMethod
     public void afterEachMethod(ITestResult result, Method method) throws Exception {

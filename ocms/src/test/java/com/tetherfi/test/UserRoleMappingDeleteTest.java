@@ -130,7 +130,7 @@ public class UserRoleMappingDeleteTest {
         Assert.assertTrue(NewUserRoleMappingPage.verifyStatus("Approval Pending"),"approal status details failed");
     }
 		
-    @Test(priority=8,groups = { "Checker" },dependsOnMethods="VerifySendForApprovalForDeleteNewRecord")
+    @Test(priority=8,groups = { "Checker" })//,dependsOnMethods="VerifySendForApprovalForDeleteNewRecord")
     public void RejectforDeleteUserRoleMappingRecord() throws Exception{
 	     NewUserRoleMappingPage NewUserRoleMappingPage = PageFactory.createPageInstance(driver, NewUserRoleMappingPage.class);
 	     NewUserRoleMappingPage.clickonReject("Reject Deleted");
@@ -138,7 +138,7 @@ public class UserRoleMappingDeleteTest {
         Assert.assertTrue(NewUserRoleMappingPage.verifyReviewAuditTrail("Rejected","Reject Deleted"));
     }
     
-    @Test(priority=9,groups = { "Checker" },dependsOnMethods = "RejectforDeleteUserRoleMappingRecord")
+    @Test(priority=9,groups = { "Checker" })//,dependsOnMethods = "RejectforDeleteUserRoleMappingRecord")
     public void VerifyAuditTrailReportForReject() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserRoleMappingData.xlsx";
 	    Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);

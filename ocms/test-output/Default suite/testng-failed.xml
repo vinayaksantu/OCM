@@ -3,18 +3,22 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.tetherfi.test.tmac.AgentSettingsUITest">
+      <class name="com.tetherfi.test.tmac.TmacBroadCastMsgTest">
         <methods>
-          <include name="VerifyExportToExcel"/>
-          <include name="afterEachMethod"/>
           <include name="startTestCase"/>
           <include name="openApplication"/>
-          <include name="VerifyColumnsHeaderDisable"/>
+          <include name="afterEachMethod"/>
+          <include name="VerifySearchIsNotEqualTo"/>
+          <include name="VerifyAuditTrailReportForUpdate"/>
           <include name="endTestCase"/>
           <include name="tearDown"/>
-          <include name="NavigateToAgentSettingsPage"/>
+          <include name="EditTmacBroadCastMsg"/>
+          <include name="SortingByAscending"/>
+          <include name="EditTmacBroadCastMsgCancel"/>
+          <include name="SortingByDescending"/>
+          <include name="NavigateToTmacBroadcastMsgPage"/>
         </methods>
-      </class> <!-- com.tetherfi.test.tmac.AgentSettingsUITest -->
+      </class> <!-- com.tetherfi.test.tmac.TmacBroadCastMsgTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

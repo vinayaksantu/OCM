@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
-  <test thread-count="5" name="Default test(failed)">
+<suite name="Failed suite [Failed suite [Failed suite [Default suite]]]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Default test(failed)(failed)(failed)">
     <classes>
-      <class name="com.tetherfi.test.tmac.AgentSettingsUITest">
+      <class name="com.tetherfi.test.tmac.TmacBroadCastMsgTest">
         <methods>
-          <include name="VerifyExportToExcel"/>
-          <include name="afterEachMethod"/>
           <include name="startTestCase"/>
           <include name="openApplication"/>
-          <include name="VerifyColumnsHeaderDisable"/>
+          <include name="afterEachMethod"/>
+          <include name="VerifyAuditTrailReportForUpdate"/>
           <include name="endTestCase"/>
           <include name="tearDown"/>
-          <include name="NavigateToAgentSettingsPage"/>
+          <include name="EditTmacBroadCastMsg"/>
+          <include name="EditTmacBroadCastMsgCancel"/>
+          <include name="NavigateToTmacBroadcastMsgPage"/>
         </methods>
-      </class> <!-- com.tetherfi.test.tmac.AgentSettingsUITest -->
+      </class> <!-- com.tetherfi.test.tmac.TmacBroadCastMsgTest -->
     </classes>
-  </test> <!-- Default test(failed) -->
-</suite> <!-- Failed suite [Default suite] -->
+  </test> <!-- Default test(failed)(failed)(failed) -->
+</suite> <!-- Failed suite [Failed suite [Failed suite [Default suite]]] -->

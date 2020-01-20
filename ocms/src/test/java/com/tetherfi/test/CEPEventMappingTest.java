@@ -242,7 +242,7 @@ public class CEPEventMappingTest extends BaseTest {
     	Assert.assertTrue(CepEventMappingPage.verifySearchEndsWith(CepEventMappingDetails.getDescription()));
     }
     
-    @Test(priority=23)
+   /* @Test(priority=23)
     public void searchPage() throws Exception{
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\CepEventMappingData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -287,7 +287,7 @@ public class CEPEventMappingTest extends BaseTest {
     	CepEventMappingPage.clickOnDeleteButton();
     	CepEventMappingPage.clickOnDeleteCancelBtn();
     	Assert.assertFalse(CepEventMappingPage.verifyDeleteContainer(), "Cancel Btn at Delete record assertion failed");
-    }
+    }*/
 
     @Test(priority=28)
     public void DeleteRecord() throws Exception {

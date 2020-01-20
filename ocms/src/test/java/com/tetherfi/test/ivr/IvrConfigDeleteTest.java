@@ -44,9 +44,9 @@ public class IvrConfigDeleteTest {
         Test t = method.getAnnotation(Test.class);
         Map<String, String> map;
         if(t.groups()[0].equalsIgnoreCase("Checker"))
-            map= new ExcelReader(filePath,"Login").getTestData().get(1);
+            map= new ExcelReader(filePath,"Login").getTestData().get(15);
         else
-            map= new ExcelReader(filePath,"Login").getTestData().get(0);
+            map= new ExcelReader(filePath,"Login").getTestData().get(14);
         try{driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);}
         catch (TimeoutException e)
         
@@ -221,6 +221,10 @@ public class IvrConfigDeleteTest {
     	Screenshot screenshot=new Screenshot(driver);
         screenshot.captureScreen("IVRConfig",method.getName());
         driver.navigate().refresh();
+        HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
+        homePage.userLogout();
+        driver.close();
+        System.out.println("Completed Executing : "+method.getName());
     }
 	
 }

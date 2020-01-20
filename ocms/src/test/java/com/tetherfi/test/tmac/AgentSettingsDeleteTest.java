@@ -222,7 +222,7 @@ public class AgentSettingsDeleteTest {
 	     HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
 	     homePage.navigateToOCMReportsPage();
 	     OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver, OCMReportsPage.class);
-	        String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AuditTrailReportData.xlsx";
+	     String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AuditTrailReportData.xlsx";
 	     Map<String, String> map1 = new ExcelReader(filePath1,"Show").getTestData().get(0);
 	     ReportDetails reportDetails= new ReportDetails(map1);
 	     ocmReportsPage.showReport(reportDetails);

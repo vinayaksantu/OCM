@@ -312,13 +312,13 @@ public class IvrConfigPageWMC extends BasePage{
         selectDropdownFromVisibleText(valueListBox,details.getValue());
         valueDropdown.sendKeys(Keys.TAB);
         selectWebElement(saveButton);
-        try {
+       /* try {
         	selectWebElement(cancelBtn);
         }
         catch(Exception e)
         {
         	e.printStackTrace();
-        }
+        }*/
     }
     
     public void searchIvrConfigRecord(String Parameter) throws Exception {

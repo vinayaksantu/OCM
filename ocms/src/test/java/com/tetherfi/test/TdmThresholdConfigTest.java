@@ -39,7 +39,7 @@ Screenshot screenshot=new Screenshot(driver);
 	     Assert.assertTrue(tdmThresholdConfigPage.isTdmThresholdConfigPageDisplayed(), "TDM Threshold Config page assertion failed");
 	}
 	
-	@Test(priority=1)
+	/*@Test(priority=1)
     public void TdmThresholdConfigPage() {
 		TdmThresholdConfigPage TdmThresholdConfigPage = PageFactory.createPageInstance(driver, TdmThresholdConfigPage.class);
     	Assert.assertTrue(TdmThresholdConfigPage.verifylogo(),"FaxSenderslogo assertion failed");
@@ -226,7 +226,7 @@ Screenshot screenshot=new Screenshot(driver);
         Assert.assertTrue(TdmThresholdConfigPage.verifyaddNewRowButton());
         Assert.assertTrue(TdmThresholdConfigPage.verifysaveButton());
         Assert.assertTrue(TdmThresholdConfigPage.verifycancelbutton());
-	}
+	}*/
     
 	@Test(priority=24)
 	public void VerifyTdmThresholdConfigLabelsEnabled() throws Exception {

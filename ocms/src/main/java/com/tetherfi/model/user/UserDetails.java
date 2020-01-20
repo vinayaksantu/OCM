@@ -12,6 +12,7 @@ public class UserDetails {
     private String deleteReason;
     private String updatedUserId;
     private String query;
+    private String errorMsg1;
 
     public UserDetails(Map<String,String> map){
         userId=readUserId(map);
@@ -21,8 +22,13 @@ public class UserDetails {
         deleteReason=readDeleteReason(map);
         updatedUserId=readUpdatedUserId(map);
         query=readquery(map);
+        errorMsg1=readErrorMsg1(map);
     }
-    private String readquery(Map<String, String> map) {
+    private String readErrorMsg1(Map<String, String> map) {
+    	String value=map.get("ErrorMsg1");
+		return value;
+	}
+	private String readquery(Map<String, String> map) {
 		String value=map.get("Query");
 		return value;
 	}
@@ -57,5 +63,8 @@ public class UserDetails {
     public String getDeleteReason(){return deleteReason;}
 	public String getUpdatedUserId(){return updatedUserId;}
 	public String getQuery() { return query;
+	}
+	public String getErrorMsg1() {
+		return errorMsg1;
 	}
 }

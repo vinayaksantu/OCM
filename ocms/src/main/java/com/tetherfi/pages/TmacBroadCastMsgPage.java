@@ -55,7 +55,7 @@ public class TmacBroadCastMsgPage extends BasePage {
     @FindBy(xpath="//a[text()='Message']")
     private WebElement message;
    
-    @FindBy(xpath="//a[text()='TeamName']")
+    @FindBy(xpath="//a[text()='Org. Unit']")
     private WebElement teamName;
    
     @FindBy(xpath="//a[text()='Status']")

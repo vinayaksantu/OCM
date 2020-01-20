@@ -399,9 +399,6 @@ public class AgentSettingsNewDesignPage extends BasePage {
 
     @FindBy(css="#drillGrid th a[class='k-link']")
     private List<WebElement> headersText;
-    
-    @FindBy(xpath="//span[@class='k-pager-info k-label']")
-   	private List<WebElement> items;
 
     public boolean isAgentSettingsPageDisplayed() throws InterruptedException {
         waitForLoad(driver);
@@ -454,11 +451,7 @@ public class AgentSettingsNewDesignPage extends BasePage {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        String actualitems=items.get(2).getText();
-        if(actualitems.equals(items.get(2).getText()))
-			return true;
-		else
-			return false;
+        if(driver.findElements(By.cssSelector(".k-edit-form-container")).size()>0){return false;}else{return true;}
     }
     public boolean verifyCancelButtonAtDelete(){
         try {
@@ -466,15 +459,11 @@ public class AgentSettingsNewDesignPage extends BasePage {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        String actualitems=items.get(2).getText();
-        if(actualitems.equals(items.get(2).getText()))
-			return true;
-		else
-			return false;
+        if(retagSupervisorPopupNoButton.isDisplayed()){return false;}else{return true;}
     }						  
     
     public boolean verifyApprovedDataTableHeaders() {
-        ArrayList<String> Expected=new ArrayList<String>(Arrays.asList("Lan ID","Avaya Login ID","First Name","Last Name","Profile","Supervisor Name","Org. Unit","Access Role","CRM Name","Text Chat Greeting Template Name","Last Changed By","Last Changed On"));
+        ArrayList<String> Expected=new ArrayList<String>(Arrays.asList("Lan ID","Avaya Login ID","First Name","Last Name","Profile","Supervisor Name","Org. Unit","Access Role","Last Changed By","Last Changed On"));
         ArrayList Actual = getHeadersfromTable(approvedDataTableHeaders);
         System.out.println(Actual);
         System.out.println("*******");
@@ -584,12 +573,13 @@ public class AgentSettingsNewDesignPage extends BasePage {
         //selectDropdownFromVisibleText(teamNameListBox,details.getTeamName());
         ChooseTeamHeirarchy(details.getTeamName());
         selectProfile(details.getProfile(),details.getSupervisor());
+        Thread.sleep(1000);
         selectWebElement(accessroleDropdown);
         selectDropdownFromVisibleText(accessroleListBox,details.getAccessRole());
-        selectWebElement(crmnameDropdown);
-        selectDropdownFromVisibleText(crmnameListBox,details.getCrmName());
-        selectWebElement(texttemplatenameDropdown);
-        selectDropdownFromVisibleText(texttemplatenameListBox,details.getTextTemplateName());
+        //selectWebElement(crmnameDropdown);
+        //selectDropdownFromVisibleText(crmnameListBox,details.getCrmName());
+//        selectWebElement(texttemplatenameDropdown);
+//        selectDropdownFromVisibleText(texttemplatenameListBox,details.getTextTemplateName());
         navigateToTab("Channel Count & Features");
         selectFeaturesToBeSelected(details.getFeaturestobeSeleted());
         selectWebElement(numericTextbox.get(1));
@@ -678,6 +668,7 @@ public class AgentSettingsNewDesignPage extends BasePage {
         selectWebElement(selectSearchColumn.get(0));
         selectDropdownFromVisibleText(columnNameList,"Lan ID");
         selectWebElement(selectSearchColumn.get(1));
+        Thread.sleep(1000);
         selectDropdownFromVisibleText(searchTypeList,"Is equal to");
         enterValueToTxtField(searchText.get(0),name);
         selectWebElement(searchBtn);
@@ -721,7 +712,7 @@ public class AgentSettingsNewDesignPage extends BasePage {
         selectWebElement(agentSettingsTabs.get(1));
         selectWebElement(makeAgentSettingsChanges);
         searchAgentSettingsRecord(username);
-        btnClick(deleteBtn);
+        selectWebElement(deleteBtn);
     }
     public boolean verifyRecordDeleted(){
         //waitForJqueryLoad(driver);
@@ -1514,6 +1505,7 @@ return status;
         selectWebElement(editBtn);
 		waitForJqueryLoad(driver);
 		selectWebElement(cancelBtn);
+		waitUntilWebElementIsVisible(editrowdata.get(4));
 		if(editrowdata.get(4).getText().equals(details.getFirstname()))
 			return true;
 		else
