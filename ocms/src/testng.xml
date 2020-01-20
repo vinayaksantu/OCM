@@ -1,25 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="Tetherfi Test Automation" parallel="false">
+    
     <listeners>
         <listener class-name="com.tetherfi.listeners.ReportListener"/>
     </listeners>    
-     <test name="User Role Mapping Create Test" parallel="false">
+    
+    <listeners>
+		<listener
+			class-name="com.tetherfi.ExtentReportListener.ExtentReporterNG" />
+	</listeners>
+     
+     <test name="IVR Config Test" parallel="false">
       <classes>  
-           <class name="com.tetherfi.test.UserRoleMappingCreateTest"/> 
+           <class name="com.tetherfi.test.ivr.IvrConfigTest"/> 
             </classes>
      </test>
-    
-     <test name="User Role Mapping Update Test" parallel="false">
-      <classes>  
-           <class name="com.tetherfi.test.UserRoleMappingUpdateTest"/> 
-            </classes>
-     </test>        
-     
-     <test name="User Role Mapping Delete Test" parallel="false">
-      <classes>  
-           <class name="com.tetherfi.test.UserRoleMappingDeleteTest"/> 
-            </classes>
-     </test>   
-          
+              
 </suite>
