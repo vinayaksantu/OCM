@@ -31,7 +31,7 @@ public class HostValueMappingPage extends BasePage {
 	@FindBy(xpath = "//div[@id='tabstripHostMapMakerChecker']/ul/li")
     private List<WebElement> navTabs;
 	
-	@FindBy(css="#create")
+	@FindBy(css=".k-grid-add#create")
 	private WebElement addNewHostValueMappingRecordBtn;
 	
 	@FindBy(css = ".k-grid-CustomDelete")
@@ -383,7 +383,7 @@ public class HostValueMappingPage extends BasePage {
 	public void selectHostValueMappingAuditTrailTab() {
 		selectWebElement(HostValueMappingTabs.get(1));
         try {
-            Thread.sleep(5000);
+            Thread.sleep(6000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -780,6 +780,7 @@ public class HostValueMappingPage extends BasePage {
 		selectWebElement(gridsearchLink);
         selectWebElement(selectSearchColumn.get(0));
         selectDropdownFromVisibleText(columnNameList,"Host Data");
+        Thread.sleep(500);
         selectWebElement(selectSearchColumn.get(1));
         selectDropdownFromVisibleText(searchTypeList,"Is equal to");
         enterValueToTxtField(searchText.get(0),hostData);
@@ -850,14 +851,10 @@ public class HostValueMappingPage extends BasePage {
 	public void addNewHostValueMappingRecord(HostValueMappingDetails hostValueMappingDetails) throws Exception {
 		selectWebElement(HostValueMappingTabs.get(1));
 		selectWebElement(makeHostValueMappingChanges);
+		Thread.sleep(1000);
 		selectWebElement(addNewHostValueMappingRecordBtn);
 		waitForJqueryLoad(driver);	
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		Thread.sleep(1000);
 		selectWebElement(functionalityDropdown);
         selectDropdownFromVisibleText(functionalityListbox, hostValueMappingDetails.getFunctionality());
         selectWebElement(languageDropdown);
@@ -916,7 +913,9 @@ public class HostValueMappingPage extends BasePage {
 					{
 						if(newvalues.get("Description").equals(details.getDescription()))
 						{
-							if(newvalues.get("WaveFile").equals(details.getWaveFile()))
+							/*if(newvalues.get("WaveFile").equals(details.getWaveFile()))*/
+							String []wavefileSplit=details.getWaveFile().split("\\.");
+							if(newvalues.get("WaveFile").contains(wavefileSplit[0]))
 							{
 								Status=true;
 							}
@@ -1024,9 +1023,9 @@ public class HostValueMappingPage extends BasePage {
 	public void addwithoutFunctionality(HostValueMappingDetails hostValueMappingDetails) throws Exception {
 		selectWebElement(HostValueMappingTabs.get(1));
 		selectWebElement(makeHostValueMappingChanges);
+		Thread.sleep(1000);
 		selectWebElement(addNewHostValueMappingRecordBtn);
 		waitForJqueryLoad(driver);	
-		Thread.sleep(1000);
 		selectWebElement(languageDropdown);
         selectDropdownFromVisibleText(languageListbox, hostValueMappingDetails.getLanguage());
         selectWebElement(hostDataDropdown);
@@ -1044,8 +1043,9 @@ public class HostValueMappingPage extends BasePage {
 	public void addwithoutLanguage(HostValueMappingDetails hostValueMappingDetails) throws Exception {
 		selectWebElement(HostValueMappingTabs.get(1));
 		selectWebElement(makeHostValueMappingChanges);
+		Thread.sleep(1000);
 		selectWebElement(addNewHostValueMappingRecordBtn);
-		waitForJqueryLoad(driver);	
+		waitForJqueryLoad(driver);
 		Thread.sleep(1000);
 		selectWebElement(functionalityDropdown);
         selectDropdownFromVisibleText(functionalityListbox, hostValueMappingDetails.getFunctionality());
@@ -1064,8 +1064,10 @@ public class HostValueMappingPage extends BasePage {
 	public void addwithoutHostData(HostValueMappingDetails hostValueMappingDetails) throws Exception {
 		selectWebElement(HostValueMappingTabs.get(1));
 		selectWebElement(makeHostValueMappingChanges);
+		Thread.sleep(1000);
 		selectWebElement(addNewHostValueMappingRecordBtn);
-		waitForJqueryLoad(driver);		
+		waitForJqueryLoad(driver);
+		Thread.sleep(1000);
 		selectWebElement(functionalityDropdown);
         selectDropdownFromVisibleText(functionalityListbox, hostValueMappingDetails.getFunctionality());
         selectWebElement(languageDropdown);
@@ -1083,8 +1085,10 @@ public class HostValueMappingPage extends BasePage {
 	public void addwithoutStatus(HostValueMappingDetails hostValueMappingDetails) throws Exception {
 		selectWebElement(HostValueMappingTabs.get(1));
 		selectWebElement(makeHostValueMappingChanges);
+		Thread.sleep(1000);
 		selectWebElement(addNewHostValueMappingRecordBtn);
-		waitForJqueryLoad(driver);		
+		waitForJqueryLoad(driver);	
+		Thread.sleep(1000);
 		selectWebElement(functionalityDropdown);
         selectDropdownFromVisibleText(functionalityListbox, hostValueMappingDetails.getFunctionality());
         selectWebElement(languageDropdown);
@@ -1102,8 +1106,10 @@ public class HostValueMappingPage extends BasePage {
 	public void addwithoutDescription(HostValueMappingDetails hostValueMappingDetails) throws Exception {
 		selectWebElement(HostValueMappingTabs.get(1));
 		selectWebElement(makeHostValueMappingChanges);
+		Thread.sleep(1000);
 		selectWebElement(addNewHostValueMappingRecordBtn);
-		waitForJqueryLoad(driver);		
+		waitForJqueryLoad(driver);	
+		Thread.sleep(1000);
 		selectWebElement(functionalityDropdown);
         selectDropdownFromVisibleText(functionalityListbox, hostValueMappingDetails.getFunctionality());
         selectWebElement(languageDropdown);
@@ -1122,8 +1128,10 @@ public class HostValueMappingPage extends BasePage {
 	public void addwithoutWaveFile(HostValueMappingDetails hostValueMappingDetails) throws Exception {
 		selectWebElement(HostValueMappingTabs.get(1));
 		selectWebElement(makeHostValueMappingChanges);
+		Thread.sleep(1000);
 		selectWebElement(addNewHostValueMappingRecordBtn);
-		waitForJqueryLoad(driver);		
+		waitForJqueryLoad(driver);
+		Thread.sleep(1000);
 		selectWebElement(functionalityDropdown);
         selectDropdownFromVisibleText(functionalityListbox, hostValueMappingDetails.getFunctionality());
         selectWebElement(languageDropdown);
@@ -1224,7 +1232,9 @@ public class HostValueMappingPage extends BasePage {
 				if(newvalues.get("HostData").equals(details.getHostData())){
 					if(newvalues.get("Status").equals(details.getStatus())){
 						if(newvalues.get("Description").equals(details.getUpdatedDescription())){
-							if(newvalues.get("WaveFile").equals(details.getWaveFile())) {	
+							/*if(newvalues.get("WaveFile").equals(details.getWaveFile()))*/ 
+							String []wavefileSplit=details.getWaveFile().split("\\.");
+							if(newvalues.get("WaveFile").contains(wavefileSplit[0])){	
 								Status=true;
         					}
         					else System.out.println("WaveFile data mismatch");

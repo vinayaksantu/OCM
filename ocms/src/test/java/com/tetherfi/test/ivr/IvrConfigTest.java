@@ -40,7 +40,7 @@ public class IvrConfigTest extends BaseTest {
 		screenshot.captureScreen(driver,"IvrConfigPageWMC","IvrConfigTest");
 	}
 
-	@Test(priority=1)
+	/*@Test(priority=1)
 	public void IvrConfigPage() {
 		IvrConfigPageWMC ivrConfigPageWMC = PageFactory.createPageInstance(driver, IvrConfigPageWMC.class);
 		Assert.assertTrue(ivrConfigPageWMC.verifylogo(),"CallBackAnnouncement logo assertion failed");
@@ -64,7 +64,7 @@ public class IvrConfigTest extends BaseTest {
 	public void VerifyColumnsHeaderDisable() {
 		IvrConfigPageWMC ivrConfigPageWMC = PageFactory.createPageInstance(driver, IvrConfigPageWMC.class);
 		Assert.assertFalse(ivrConfigPageWMC.verifycolumnsHeaderDisabled(),"columns disabled assertion failed");
-	}
+	}*/
 
 	@Test(priority=5)
 	public void AddNewIvrConfigRecord() throws IOException {
@@ -76,7 +76,7 @@ public class IvrConfigTest extends BaseTest {
 		Assert.assertEquals(ivrConfigPageWMC.getSuccessMessage(),"Record Created Successfully", "Add New record assertion failed");
 	}
 
-	@Test(priority=6)
+	/*@Test(priority=6)
 	public void AddDuplicateIvrConfigRecord() throws IOException {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IvrConfigData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -137,7 +137,7 @@ public class IvrConfigTest extends BaseTest {
 		ivrConfigPageWMC.clickOnAddRecord();
 		ivrConfigPageWMC.clickOnCancelBtn();
 		Assert.assertFalse(ivrConfigPageWMC.verifyEditFormContainer(), "Cancel Btn at Add record assertion failed");
-	}
+	}*/
 
 	@Test(priority=12)
 	public void EditIvrConfigRecord() throws Exception {
@@ -174,7 +174,7 @@ public class IvrConfigTest extends BaseTest {
 		Assert.assertEquals(ivrConfigPageWMC.getSuccessMessage(),"Please enter the modify reason", "empty modify reason record assertion failed");
 	}
 
-	@Test(priority=15)
+	/*@Test(priority=15)
 	public void VerifyCancelBtnAtEditConfigRecord() throws Exception{
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IvrConfigData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(0);	
@@ -215,7 +215,7 @@ public class IvrConfigTest extends BaseTest {
 	List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
 	IvrConfigPageWMC ivrConfigPageWMC=PageFactory.createPageInstance(driver, IvrConfigPageWMC.class);
 	Assert.assertTrue(ivrConfigPageWMC.verifyexportToExcelSheet(maplist));	
-	}
+	}*/
 
 	@Test(priority=20)
 	public void DeleteWithoutDeleteReasonIvrConfigRecord() throws Exception {
@@ -263,7 +263,7 @@ public class IvrConfigTest extends BaseTest {
 		Assert.assertTrue(ocmReportsPage.verifyIvrConfigdelete(IvrConfigDetails,"Delete"));
 	}
 
-	@Test(priority=24)
+	/*@Test(priority=24)
 	public void SearchClearSearch() throws Exception{
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IvrConfigData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Invalid").getTestData().get(0);
@@ -328,7 +328,7 @@ public class IvrConfigTest extends BaseTest {
 	public void VerifyNumberOfItemsPerPageSelection() {
 		IvrConfigPageWMC ivrConfigPageWMC=PageFactory.createPageInstance(driver, IvrConfigPageWMC.class);
 		Assert.assertTrue(ivrConfigPageWMC.verifyNumberOfItemsPerPage(),"item per page assertion failed");
-	}
+	}*/
 
 	@Test(priority=33)
 	public void database() throws Exception {

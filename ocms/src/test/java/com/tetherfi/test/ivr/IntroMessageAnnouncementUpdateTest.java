@@ -66,7 +66,7 @@ public class IntroMessageAnnouncementUpdateTest {
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 	}
 	
-	//@Test(groups= {"Maker"},priority=1)
+	@Test(groups= {"Maker"},priority=1)
 	public void EditCancelIntroMessageAnnouncementRecord() throws Exception {
 	    String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntroMessageAnnouncementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(0);
@@ -207,7 +207,7 @@ public class IntroMessageAnnouncementUpdateTest {
         Assert.assertTrue(IntroMessageAnnouncementPage.verifyStatus("Approval Pending"),"approal status details failed");
     }
 	
-	@Test(groups= {"Maker"},priority=14,dependsOnMethods="VerifySendForApprovalForRecord")
+	@Test(groups= {"Maker"},priority=14)//,dependsOnMethods="VerifySendForApprovalForRecord")
     public void VerifyAuditTrialReportForSendForApprovalUpdate() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntroMessageAnnouncementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(0);	

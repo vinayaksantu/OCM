@@ -11,9 +11,9 @@
 			class-name="com.tetherfi.ExtentReportListener.ExtentReporterNG" />
 	</listeners>
      
-     <test name="IVR Config Test" parallel="false">
+     <test name="ChatTemplatesTest" parallel="false">
       <classes>  
-           <class name="com.tetherfi.test.ivr.IvrConfigTest"/> 
+           <class name="com.tetherfi.test.chat.ChatTemplatesTest"/> 
             </classes>
      </test>
               

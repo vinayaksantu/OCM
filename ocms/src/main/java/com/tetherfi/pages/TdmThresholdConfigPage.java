@@ -726,7 +726,7 @@ public class TdmThresholdConfigPage extends BasePage{
 			allowNotification.click();
 			selectWebElement(popupSaveBtn);
 	        enterValueToTxtFieldWithoutClear(modifyReasonTextBox,details.getModifyReason());
-	        selectWebElement(saveBtn.get(1));
+	        selectWebElement(saveBtn.get(2));
 		}
 		
 		
@@ -738,7 +738,7 @@ public class TdmThresholdConfigPage extends BasePage{
 			allowNotification.click();
 			selectWebElement(popupSaveBtn);
 	        enterValueToTxtFieldWithoutClear(modifyReasonTextBox,details.getModifyReason());
-	        selectWebElement(saveBtn.get(1));
+	        selectWebElement(saveBtn.get(2));
 		}
 		
 		public void deleteNewRow(TdmThresholdConfigDetails details) throws Exception {
@@ -747,7 +747,7 @@ public class TdmThresholdConfigPage extends BasePage{
 			deleteChange.click();
 			selectWebElement(popupSaveBtn);
 	        enterValueToTxtFieldWithoutClear(modifyReasonTextBox,details.getModifyReason());
-	        selectWebElement(saveBtn.get(1));
+	        selectWebElement(saveBtn.get(2));
 		}
 
 		public boolean verifyDatabase(String query) {

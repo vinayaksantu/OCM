@@ -326,7 +326,7 @@ public class FaxAutoACKConfigurationPage extends BasePage {
 			List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
 			for(int j=1;j<headers.size();j++) {
 				if(headers.get(j).getText().equals("Last Changed On")){
-				col=cols.get(j).getText().substring(0,10);
+				col=cols.get(j).getText().substring(0,19);
 				}
 				else
 					col=cols.get(j).getText();
@@ -370,7 +370,13 @@ public class FaxAutoACKConfigurationPage extends BasePage {
 			for(int j=1;j<headers.size();j++){
 				scrollToElement(headers.get(j));
 				if(headers.get(j).getText().equals("Last Changed On")){
-					col=cols.get(j).getText().substring(11);
+					String value=cols.get(j).getText().substring(11, 13);
+					int time = Integer.parseInt(value);
+					if(time>12) {
+					      time=time-12;
+					}
+					String col1=Integer.toString(time);
+					col=col1+cols.get(j).getText().substring(13);
 					}
 				else if (headers.get(j).getText().equals("Status")) {
 					if(cols.get(j).getText().equals("Disabled"))
@@ -626,7 +632,7 @@ public class FaxAutoACKConfigurationPage extends BasePage {
 
 	public String getSuccessMessage() {
 		waitForJqueryLoad(driver);
-        if(errorMsg.size()>0){return errorMsg.get(0).getText();}
+        //if(errorMsg.size()>0){return errorMsg.get(0).getText();}
         waitUntilWebElementIsVisible(successmsg);
         return successmsg.getText();
 	}

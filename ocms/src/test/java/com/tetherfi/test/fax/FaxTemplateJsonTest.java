@@ -38,7 +38,7 @@ public class FaxTemplateJsonTest extends BaseTest{
 	        ftp.transferFileFromRemote(remoteFilePath,destinationFilePath);
 	    }
 	    
-	    @Test
+	   /* @Test
 	    public void VerifyJsonDataForMakerAndChecker(){
 	        FaxTemplatePage faxTemplatePage=PageFactory.createPageInstance(driver,FaxTemplatePage.class);
 	        JSONReader json= new JSONReader(destinationFilePath);
@@ -79,5 +79,5 @@ public class FaxTemplateJsonTest extends BaseTest{
 	        Screenshot screenshot=new Screenshot(driver);
 	        screenshot.captureScreen( "FaxTemplateJsonTest",method.getName());
 	        driver.navigate().refresh();
-	}
+	}*/
 }

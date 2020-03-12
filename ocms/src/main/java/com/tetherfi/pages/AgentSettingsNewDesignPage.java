@@ -221,7 +221,7 @@ public class AgentSettingsNewDesignPage extends BasePage {
     private WebElement makerComments;
     
     @FindBy(css=".k-grid-cancel")
-    private WebElement cancelBtn;
+    private List<WebElement> cancelBtn;
 
     @FindBy(css=".toast-message")
     private WebElement successmsg;
@@ -429,7 +429,7 @@ public class AgentSettingsNewDesignPage extends BasePage {
         selectWebElement(saveBtn);
     }
     public void clickOnCancel(){
-        selectWebElement(cancelBtn);
+        selectWebElement(cancelBtn.get(1));
     }
       
     public void clickOnCancelAtDelete(){
@@ -508,7 +508,7 @@ public class AgentSettingsNewDesignPage extends BasePage {
     selectWebElement(addNewAgentSettingsRecordBtn);
     }
     public boolean verifyAddNewPopupContents(){
-        return popupContent.isDisplayed()&&saveBtn.isEnabled()&&cancelBtn.isEnabled();
+        return popupContent.isDisplayed()&&saveBtn.isEnabled()&&cancelBtn.get(1).isEnabled();
     }
     public void navigateToTab(String tabname){
         waitUntilWebElementListIsVisible(tabList);
@@ -518,7 +518,7 @@ public class AgentSettingsNewDesignPage extends BasePage {
         }
     }
     public void closePopUpIfOpen(){
-        if(popupContent.isEnabled()){clickOn(cancelBtn);
+        if(popupContent.isEnabled()){clickOn(cancelBtn.get(1));
             try {
                 Thread.sleep(3000);
             } catch (InterruptedException e) {
@@ -529,7 +529,7 @@ public class AgentSettingsNewDesignPage extends BasePage {
     public void selectAgentSettingsAuditTrailTab(){
         selectWebElement(agentSettingsTabs.get(1));
         try {
-            Thread.sleep(5000);
+            Thread.sleep(6000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -872,7 +872,7 @@ return status;
     public void clickonApprove(String comment) throws Exception{
         selectWebElement(agentSettingsTabs.get(1));
         try {
-            Thread.sleep(3000);
+            Thread.sleep(5000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -885,7 +885,7 @@ return status;
 	public void clickonReject(String comment) throws Exception{
         selectWebElement(agentSettingsTabs.get(1));
         try {
-            Thread.sleep(3000);
+            Thread.sleep(5000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -1457,7 +1457,7 @@ return status;
         selectWebElement(saveBtn);
 	}
 	
-	public void selectRecord() {
+	public void selectRecord() throws Exception {
 		Map<String,String> map = new HashMap<>();
 		waitUntilWebElementIsVisible(auditGridContent);
 		List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
@@ -1504,7 +1504,7 @@ return status;
         Thread.sleep(1000);
         selectWebElement(editBtn);
 		waitForJqueryLoad(driver);
-		selectWebElement(cancelBtn);
+		selectWebElement(cancelBtn.get(1));
 		waitUntilWebElementIsVisible(editrowdata.get(4));
 		if(editrowdata.get(4).getText().equals(details.getFirstname()))
 			return true;

@@ -291,7 +291,7 @@ public class FaxLineConfigPage extends BasePage{
         selectWebElement(receiveStatusDropdown);
         selectDropdownFromVisibleText(receiveStatusListBox,faxLineConfigDetails.getUpdatedReceiveStatus());
         selectWebElement(modifyReasonTextBox);
-       enterValueToTxtField(modifyReasonTextBox,faxLineConfigDetails.getModifyReason());
+        enterValueToTxtFieldWithoutClear(modifyReasonTextBox,faxLineConfigDetails.getModifyReason());
        selectWebElement(faxLineSaveButton);
     }
     public boolean editcancel(FaxLineConfigDetails faxLineConfigDetails) throws Exception {
@@ -306,7 +306,7 @@ public class FaxLineConfigPage extends BasePage{
         selectWebElement(receiveStatusDropdown);
         selectDropdownFromVisibleText(receiveStatusListBox,faxLineConfigDetails.getReceiveStatus());
         selectWebElement(modifyReasonTextBox);
-        enterValueToTxtField(modifyReasonTextBox,faxLineConfigDetails.getModifyReason());
+        enterValueToTxtFieldWithoutClear(modifyReasonTextBox,faxLineConfigDetails.getModifyReason());
         selectWebElement(cancelBtn);
         if(rowdata.getText().equals(faxLineConfigDetails.getFaxLine()))
         	return true;

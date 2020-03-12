@@ -1,0 +1,470 @@
+<html>
+<head>
+<title>TestNG:  AdhocOptionEnhancementTest</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>AdhocOptionEnhancementTest</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>48/1/1</td>
+</tr><tr>
+<td>Started on:</td><td>Tue Mar 10 11:44:07 IST 2020</td>
+</tr>
+<tr><td>Total time:</td><td>1270 seconds (1270120 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.tetherfi.test.ivr.AdhocOptionEnhancementTest.DeleteAdhocOptionEnhancementRecord()'><b>DeleteAdhocOptionEnhancementRecord</b><br>Test class: com.tetherfi.test.ivr.AdhocOptionEnhancementTest</td>
+<td><div><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator &apos;By.cssSelector: #toast-container .toast-message&apos; (tried for 30 second(s) with 500 milliseconds interval)
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
+	at com.tetherfi.pages.BasePage.waitUntilWebElementIsVisible(BasePage.java:127)
+	at com.tetherfi.pages.AdhocOptionEnhancementPage.verifySuccessMessage(AdhocOptionEnhancementPage.java:561)
+	at com.tetherfi.test.ivr.AdhocOptionEnhancementTest.DeleteAdhocOptionEnhancementRecord(AdhocOptionEnhancementTest.java:411)
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;#toast-container .toast-message&quot;}
+  (Session info: chrome=78.0.3904.70)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;DESKTOP-O6A5C2O&apos;, ip: &apos;10.0.75.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;9.0.4&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.70, chrome: {chromedriverVersion: 78.0.3904.105 (60e2d8774a81..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:59186}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: f98c9227a7e9c284480cdbdac761af6c
+*** Element info: {Using=css selector, value=#toast-container .toast-message}
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:420)
+	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:431)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at com.sun.proxy.$Proxy16.isDisplayed(Unknown Source)
+	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:314)
+	at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:43)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:300)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:297)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
+	... 31 more
+... Removed 31 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1891863286", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1891863286'><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator &apos;By.cssSelector: #toast-container .toast-message&apos; (tried for 30 second(s) with 500 milliseconds interval)
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
+	at com.tetherfi.pages.BasePage.waitUntilWebElementIsVisible(BasePage.java:127)
+	at com.tetherfi.pages.AdhocOptionEnhancementPage.verifySuccessMessage(AdhocOptionEnhancementPage.java:561)
+	at com.tetherfi.test.ivr.AdhocOptionEnhancementTest.DeleteAdhocOptionEnhancementRecord(AdhocOptionEnhancementTest.java:411)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+	at org.testng.TestRunner.privateRun(TestRunner.java:770)
+	at org.testng.TestRunner.run(TestRunner.java:591)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+	at org.testng.TestNG.runSuites(TestNG.java:1032)
+	at org.testng.TestNG.run(TestNG.java:1000)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;#toast-container .toast-message&quot;}
+  (Session info: chrome=78.0.3904.70)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;DESKTOP-O6A5C2O&apos;, ip: &apos;10.0.75.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;9.0.4&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.70, chrome: {chromedriverVersion: 78.0.3904.105 (60e2d8774a81..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:59186}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: f98c9227a7e9c284480cdbdac761af6c
+*** Element info: {Using=css selector, value=#toast-container .toast-message}
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.base/java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:420)
+	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:431)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at com.sun.proxy.$Proxy16.isDisplayed(Unknown Source)
+	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:314)
+	at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:43)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:300)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:297)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
+	... 31 more
+</pre></div></td>
+<td>126</td>
+<td>com.tetherfi.test.ivr.AdhocOptionEnhancementTest@3ddb774f</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.tetherfi.test.ivr.AdhocOptionEnhancementTest.AddAdhocOptionEnhancementRecordWithoutDirectTransfer()'><b>AddAdhocOptionEnhancementRecordWithoutDirectTransfer</b><br>Test class: com.tetherfi.test.ivr.AdhocOptionEnhancementTest</td>
+<td></td>
+<td>19</td>
+<td>com.tetherfi.test.ivr.AdhocOptionEnhancementTest@3ddb774f</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.AdhocOptionEnhancementTest.AddAdhocOptionEnhancementRecordWithoutLanguage()'><b>AddAdhocOptionEnhancementRecordWithoutLanguage</b><br>Test class: com.tetherfi.test.ivr.AdhocOptionEnhancementTest</td>
+<td></td>
+<td>19</td>
+<td>com.tetherfi.test.ivr.AdhocOptionEnhancementTest@3ddb774f</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.AdhocOptionEnhancementTest.AddAdhocOptionEnhancementRecordWithoutPromotionDetailsWavfile()'><b>AddAdhocOptionEnhancementRecordWithoutPromotionDetailsWavfile</b><br>Test class: com.tetherfi.test.ivr.AdhocOptionEnhancementTest</td>
+<td></td>
+<td>15</td>
+<td>com.tetherfi.test.ivr.AdhocOptionEnhancementTest@3ddb774f</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.AdhocOptionEnhancementTest.AddAdhocOptionEnhancementRecordWithoutPromotionNameWavfile()'><b>AddAdhocOptionEnhancementRecordWithoutPromotionNameWavfile</b><br>Test class: com.tetherfi.test.ivr.AdhocOptionEnhancementTest</td>
+<td></td>
+<td>15</td>
+<td>com.tetherfi.test.ivr.AdhocOptionEnhancementTest@3ddb774f</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.AdhocOptionEnhancementTest.AddAdhocOptionEnhancementRecordWithoutPromotionalDescription()'><b>AddAdhocOptionEnhancementRecordWithoutPromotionalDescription</b><br>Test class: com.tetherfi.test.ivr.AdhocOptionEnhancementTest</td>
+<td></td>
+<td>19</td>
+<td>com.tetherfi.test.ivr.AdhocOptionEnhancementTest@3ddb774f</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.AdhocOptionEnhancementTest.AddAdhocOptionEnhancementRecordWithoutPromotionalNumber()'><b>AddAdhocOptionEnhancementRecordWithoutPromotionalNumber</b><br>Test class: com.tetherfi.test.ivr.AdhocOptionEnhancementTest</td>
+<td></td>
+<td>20</td>
+<td>com.tetherfi.test.ivr.AdhocOptionEnhancementTest@3ddb774f</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.AdhocOptionEnhancementTest.AddAdhocOptionEnhancementRecordWithoutStatus()'><b>AddAdhocOptionEnhancementRecordWithoutStatus</b><br>Test class: com.tetherfi.test.ivr.AdhocOptionEnhancementTest</td>
+<td></td>
+<td>19</td>
+<td>com.tetherfi.test.ivr.AdhocOptionEnhancementTest@3ddb774f</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.AdhocOptionEnhancementTest.AddDuplicateAdhocOptionEnhancementRecord()'><b>AddDuplicateAdhocOptionEnhancementRecord</b><br>Test class: com.tetherfi.test.ivr.AdhocOptionEnhancementTest</td>
+<td></td>
+<td>19</td>
+<td>com.tetherfi.test.ivr.AdhocOptionEnhancementTest@3ddb774f</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.AdhocOptionEnhancementTest.AddEmptyAdhocOptionEnhancementRecord()'><b>AddEmptyAdhocOptionEnhancementRecord</b><br>Test class: com.tetherfi.test.ivr.AdhocOptionEnhancementTest</td>
+<td></td>
+<td>1</td>
+<td>com.tetherfi.test.ivr.AdhocOptionEnhancementTest@3ddb774f</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.AdhocOptionEnhancementTest.AddEmptyAdhocOptionEnhancementRecordWithoutIntent()'><b>AddEmptyAdhocOptionEnhancementRecordWithoutIntent</b><br>Test class: com.tetherfi.test.ivr.AdhocOptionEnhancementTest</td>
+<td></td>
+<td>19</td>
+<td>com.tetherfi.test.ivr.AdhocOptionEnhancementTest@3ddb774f</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.AdhocOptionEnhancementTest.AddNewAdhocOptionEnhancementRecord()'><b>AddNewAdhocOptionEnhancementRecord</b><br>Test class: com.tetherfi.test.ivr.AdhocOptionEnhancementTest</td>
+<td></td>
+<td>20</td>
+<td>com.tetherfi.test.ivr.AdhocOptionEnhancementTest@3ddb774f</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.AdhocOptionEnhancementTest.AddNewAdhocOptionEnhancementwithdifferentLangvageRecord()'><b>AddNewAdhocOptionEnhancementwithdifferentLangvageRecord</b><br>Test class: com.tetherfi.test.ivr.AdhocOptionEnhancementTest</td>
+<td></td>
+<td>20</td>
+<td>com.tetherfi.test.ivr.AdhocOptionEnhancementTest@3ddb774f</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.AdhocOptionEnhancementTest.AdhocOptionEnhancementPage()'><b>AdhocOptionEnhancementPage</b><br>Test class: com.tetherfi.test.ivr.AdhocOptionEnhancementTest</td>
+<td></td>
+<td>0</td>
+<td>com.tetherfi.test.ivr.AdhocOptionEnhancementTest@3ddb774f</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.AdhocOptionEnhancementTest.DeleteWithoutDeleteReasonInAdhocOptionEnhancementRecord()'><b>DeleteWithoutDeleteReasonInAdhocOptionEnhancementRecord</b><br>Test class: com.tetherfi.test.ivr.AdhocOptionEnhancementTest</td>
+<td></td>
+<td>6</td>
+<td>com.tetherfi.test.ivr.AdhocOptionEnhancementTest@3ddb774f</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.AdhocOptionEnhancementTest.EditAdhocOptionEnhancementRecord()'><b>EditAdhocOptionEnhancementRecord</b><br>Test class: com.tetherfi.test.ivr.AdhocOptionEnhancementTest</td>
+<td></td>
+<td>23</td>
+<td>com.tetherfi.test.ivr.AdhocOptionEnhancementTest@3ddb774f</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.AdhocOptionEnhancementTest.EditEmptyAdhocOptionEnhancementRecord()'><b>EditEmptyAdhocOptionEnhancementRecord</b><br>Test class: com.tetherfi.test.ivr.AdhocOptionEnhancementTest</td>
+<td></td>
+<td>11</td>
+<td>com.tetherfi.test.ivr.AdhocOptionEnhancementTest@3ddb774f</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.AdhocOptionEnhancementTest.EditWithoutModifyReasonAdhocOptionEnhancementRecord()'><b>EditWithoutModifyReasonAdhocOptionEnhancementRecord</b><br>Test class: com.tetherfi.test.ivr.AdhocOptionEnhancementTest</td>
+<td></td>
+<td>5</td>
+<td>com.tetherfi.test.ivr.AdhocOptionEnhancementTest@3ddb774f</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.AdhocOptionEnhancementTest.ExportToExcel()'><b>ExportToExcel</b><br>Test class: com.tetherfi.test.ivr.AdhocOptionEnhancementTest</td>
+<td></td>
+<td>2</td>
+<td>com.tetherfi.test.ivr.AdhocOptionEnhancementTest@3ddb774f</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.AdhocOptionEnhancementTest.ExportToExcelData()'><b>ExportToExcelData</b><br>Test class: com.tetherfi.test.ivr.AdhocOptionEnhancementTest</td>
+<td></td>
+<td>9</td>
+<td>com.tetherfi.test.ivr.AdhocOptionEnhancementTest@3ddb774f</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.AdhocOptionEnhancementTest.ExporttoExcelWithoutData()'><b>ExporttoExcelWithoutData</b><br>Test class: com.tetherfi.test.ivr.AdhocOptionEnhancementTest</td>
+<td></td>
+<td>6</td>
+<td>com.tetherfi.test.ivr.AdhocOptionEnhancementTest@3ddb774f</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.AdhocOptionEnhancementTest.GroupBy()'><b>GroupBy</b><br>Test class: com.tetherfi.test.ivr.AdhocOptionEnhancementTest</td>
+<td></td>
+<td>3</td>
+<td>com.tetherfi.test.ivr.AdhocOptionEnhancementTest@3ddb774f</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.AdhocOptionEnhancementTest.InvalidBooleanSearchwithoutSearchTextbox()'><b>InvalidBooleanSearchwithoutSearchTextbox</b><br>Test class: com.tetherfi.test.ivr.AdhocOptionEnhancementTest</td>
+<td></td>
+<td>12</td>
+<td>com.tetherfi.test.ivr.AdhocOptionEnhancementTest@3ddb774f</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.AdhocOptionEnhancementTest.InvalidBooleanSearchwithoutSearchTextbox1()'><b>InvalidBooleanSearchwithoutSearchTextbox1</b><br>Test class: com.tetherfi.test.ivr.AdhocOptionEnhancementTest</td>
+<td></td>
+<td>11</td>
+<td>com.tetherfi.test.ivr.AdhocOptionEnhancementTest@3ddb774f</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.AdhocOptionEnhancementTest.SearchClearSearch()'><b>SearchClearSearch</b><br>Test class: com.tetherfi.test.ivr.AdhocOptionEnhancementTest</td>
+<td></td>
+<td>52</td>
+<td>com.tetherfi.test.ivr.AdhocOptionEnhancementTest@3ddb774f</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.AdhocOptionEnhancementTest.SortingByAscending()'><b>SortingByAscending</b><br>Test class: com.tetherfi.test.ivr.AdhocOptionEnhancementTest</td>
+<td></td>
+<td>10</td>
+<td>com.tetherfi.test.ivr.AdhocOptionEnhancementTest@3ddb774f</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.AdhocOptionEnhancementTest.SortingByDescending()'><b>SortingByDescending</b><br>Test class: com.tetherfi.test.ivr.AdhocOptionEnhancementTest</td>
+<td></td>
+<td>11</td>
+<td>com.tetherfi.test.ivr.AdhocOptionEnhancementTest@3ddb774f</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.AdhocOptionEnhancementTest.ValiORBooleanSearch()'><b>ValiORBooleanSearch</b><br>Test class: com.tetherfi.test.ivr.AdhocOptionEnhancementTest</td>
+<td></td>
+<td>12</td>
+<td>com.tetherfi.test.ivr.AdhocOptionEnhancementTest@3ddb774f</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.AdhocOptionEnhancementTest.ValidANDBooleanSearch()'><b>ValidANDBooleanSearch</b><br>Test class: com.tetherfi.test.ivr.AdhocOptionEnhancementTest</td>
+<td></td>
+<td>12</td>
+<td>com.tetherfi.test.ivr.AdhocOptionEnhancementTest@3ddb774f</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.AdhocOptionEnhancementTest.VerifyArrowMoveForFirstAndLastPage()'><b>VerifyArrowMoveForFirstAndLastPage</b><br>Test class: com.tetherfi.test.ivr.AdhocOptionEnhancementTest</td>
+<td></td>
+<td>0</td>
+<td>com.tetherfi.test.ivr.AdhocOptionEnhancementTest@3ddb774f</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.AdhocOptionEnhancementTest.VerifyArrowMoveForPreviousAndNextPage()'><b>VerifyArrowMoveForPreviousAndNextPage</b><br>Test class: com.tetherfi.test.ivr.AdhocOptionEnhancementTest</td>
+<td></td>
+<td>0</td>
+<td>com.tetherfi.test.ivr.AdhocOptionEnhancementTest@3ddb774f</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.AdhocOptionEnhancementTest.VerifyAuditTrialReportForCreate()'><b>VerifyAuditTrialReportForCreate</b><br>Test class: com.tetherfi.test.ivr.AdhocOptionEnhancementTest</td>
+<td></td>
+<td>28</td>
+<td>com.tetherfi.test.ivr.AdhocOptionEnhancementTest@3ddb774f</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.AdhocOptionEnhancementTest.VerifyAuditTrialReportForUpdate()'><b>VerifyAuditTrialReportForUpdate</b><br>Test class: com.tetherfi.test.ivr.AdhocOptionEnhancementTest</td>
+<td></td>
+<td>30</td>
+<td>com.tetherfi.test.ivr.AdhocOptionEnhancementTest@3ddb774f</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.AdhocOptionEnhancementTest.VerifyCancelButtonAtAddAdhocOptionEnhancementRecord()'><b>VerifyCancelButtonAtAddAdhocOptionEnhancementRecord</b><br>Test class: com.tetherfi.test.ivr.AdhocOptionEnhancementTest</td>
+<td></td>
+<td>44</td>
+<td>com.tetherfi.test.ivr.AdhocOptionEnhancementTest@3ddb774f</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.AdhocOptionEnhancementTest.VerifyCancelButtonAtEditAdhocOptionEnhancementRecord()'><b>VerifyCancelButtonAtEditAdhocOptionEnhancementRecord</b><br>Test class: com.tetherfi.test.ivr.AdhocOptionEnhancementTest</td>
+<td></td>
+<td>50</td>
+<td>com.tetherfi.test.ivr.AdhocOptionEnhancementTest@3ddb774f</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.AdhocOptionEnhancementTest.VerifyCancelButtonInDeleteAdhocOptionEnhancementRecord()'><b>VerifyCancelButtonInDeleteAdhocOptionEnhancementRecord</b><br>Test class: com.tetherfi.test.ivr.AdhocOptionEnhancementTest</td>
+<td></td>
+<td>50</td>
+<td>com.tetherfi.test.ivr.AdhocOptionEnhancementTest@3ddb774f</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.AdhocOptionEnhancementTest.VerifyColumnsHeaderDisable()'><b>VerifyColumnsHeaderDisable</b><br>Test class: com.tetherfi.test.ivr.AdhocOptionEnhancementTest</td>
+<td></td>
+<td>12</td>
+<td>com.tetherfi.test.ivr.AdhocOptionEnhancementTest@3ddb774f</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.AdhocOptionEnhancementTest.VerifyColumnsHeaderEnable()'><b>VerifyColumnsHeaderEnable</b><br>Test class: com.tetherfi.test.ivr.AdhocOptionEnhancementTest</td>
+<td></td>
+<td>10</td>
+<td>com.tetherfi.test.ivr.AdhocOptionEnhancementTest@3ddb774f</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.AdhocOptionEnhancementTest.VerifyDropdownForAllTheColumns()'><b>VerifyDropdownForAllTheColumns</b><br>Test class: com.tetherfi.test.ivr.AdhocOptionEnhancementTest</td>
+<td></td>
+<td>19</td>
+<td>com.tetherfi.test.ivr.AdhocOptionEnhancementTest@3ddb774f</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.AdhocOptionEnhancementTest.VerifyNumberOfItemsPerPageSelection()'><b>VerifyNumberOfItemsPerPageSelection</b><br>Test class: com.tetherfi.test.ivr.AdhocOptionEnhancementTest</td>
+<td></td>
+<td>8</td>
+<td>com.tetherfi.test.ivr.AdhocOptionEnhancementTest@3ddb774f</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.AdhocOptionEnhancementTest.VerifySearchContains()'><b>VerifySearchContains</b><br>Test class: com.tetherfi.test.ivr.AdhocOptionEnhancementTest</td>
+<td></td>
+<td>6</td>
+<td>com.tetherfi.test.ivr.AdhocOptionEnhancementTest@3ddb774f</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.AdhocOptionEnhancementTest.VerifySearchDoesNotContains()'><b>VerifySearchDoesNotContains</b><br>Test class: com.tetherfi.test.ivr.AdhocOptionEnhancementTest</td>
+<td></td>
+<td>12</td>
+<td>com.tetherfi.test.ivr.AdhocOptionEnhancementTest@3ddb774f</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.AdhocOptionEnhancementTest.VerifySearchEndsWith()'><b>VerifySearchEndsWith</b><br>Test class: com.tetherfi.test.ivr.AdhocOptionEnhancementTest</td>
+<td></td>
+<td>6</td>
+<td>com.tetherfi.test.ivr.AdhocOptionEnhancementTest@3ddb774f</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.AdhocOptionEnhancementTest.VerifySearchIsNotEqualTo()'><b>VerifySearchIsNotEqualTo</b><br>Test class: com.tetherfi.test.ivr.AdhocOptionEnhancementTest</td>
+<td></td>
+<td>11</td>
+<td>com.tetherfi.test.ivr.AdhocOptionEnhancementTest@3ddb774f</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.AdhocOptionEnhancementTest.VerifySearchStartsWith()'><b>VerifySearchStartsWith</b><br>Test class: com.tetherfi.test.ivr.AdhocOptionEnhancementTest</td>
+<td></td>
+<td>7</td>
+<td>com.tetherfi.test.ivr.AdhocOptionEnhancementTest@3ddb774f</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.AdhocOptionEnhancementTest.VerifyTotalNumberOfItemsPerPageDetails()'><b>VerifyTotalNumberOfItemsPerPageDetails</b><br>Test class: com.tetherfi.test.ivr.AdhocOptionEnhancementTest</td>
+<td></td>
+<td>0</td>
+<td>com.tetherfi.test.ivr.AdhocOptionEnhancementTest@3ddb774f</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.AdhocOptionEnhancementTest.database()'><b>database</b><br>Test class: com.tetherfi.test.ivr.AdhocOptionEnhancementTest</td>
+<td></td>
+<td>11</td>
+<td>com.tetherfi.test.ivr.AdhocOptionEnhancementTest@3ddb774f</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.AdhocOptionEnhancementTest.searchPage()'><b>searchPage</b><br>Test class: com.tetherfi.test.ivr.AdhocOptionEnhancementTest</td>
+<td></td>
+<td>5</td>
+<td>com.tetherfi.test.ivr.AdhocOptionEnhancementTest@3ddb774f</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.AdhocOptionEnhancementTest.searchwithoutSearchTextbox()'><b>searchwithoutSearchTextbox</b><br>Test class: com.tetherfi.test.ivr.AdhocOptionEnhancementTest</td>
+<td></td>
+<td>4</td>
+<td>com.tetherfi.test.ivr.AdhocOptionEnhancementTest@3ddb774f</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-skipped'>
+<tr><td colspan='4' align='center'><b>SKIPPED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.tetherfi.test.ivr.AdhocOptionEnhancementTest.VerifyAuditTrialReportForDelete()'><b>VerifyAuditTrialReportForDelete</b><br>Test class: com.tetherfi.test.ivr.AdhocOptionEnhancementTest</td>
+<td><div><pre>java.lang.Throwable: Method AdhocOptionEnhancementTest.VerifyAuditTrialReportForDelete()[pri:42, instance:com.tetherfi.test.ivr.AdhocOptionEnhancementTest@3ddb774f] depends on not successfully finished methods
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+... Removed 18 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace2000340287", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace2000340287'><pre>java.lang.Throwable: Method AdhocOptionEnhancementTest.VerifyAuditTrialReportForDelete()[pri:42, instance:com.tetherfi.test.ivr.AdhocOptionEnhancementTest@3ddb774f] depends on not successfully finished methods
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:99)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+	at org.testng.TestRunner.privateRun(TestRunner.java:770)
+	at org.testng.TestRunner.run(TestRunner.java:591)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+	at org.testng.TestNG.runSuites(TestNG.java:1032)
+	at org.testng.TestNG.run(TestNG.java:1000)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>com.tetherfi.test.ivr.AdhocOptionEnhancementTest@3ddb774f</td></tr>
+</table><p>
+</body>
+</html>

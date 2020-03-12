@@ -1510,7 +1510,7 @@ public class NewUserRoleMappingPage extends BasePage {
 		selectWebElement(deleteBtn);
 		waitForJqueryLoad(driver);
 		selectWebElement(noBtn);
-		if(editrowdata.get(4).getText().equals(details.getBankUserName()))
+		if(editrowdata.get(3).getText().equals(details.getBankUserName()))
 			return true;
 		else
 		return false;

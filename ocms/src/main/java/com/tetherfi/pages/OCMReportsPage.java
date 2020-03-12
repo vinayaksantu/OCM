@@ -27,6 +27,7 @@ import com.tetherfi.model.report.ReportDetails;
 import com.tetherfi.model.sms.SmsResponseTemplateDetails;
 import com.tetherfi.model.tmac.AgentSettingsDetails;
 import com.tetherfi.model.tmac.AgentTeamMgmtDetails;
+import com.tetherfi.model.tmac.TmacAuxCodesDetails;
 import com.tetherfi.model.tmac.TmacBroadCastMsgDetails;
 import com.tetherfi.model.tmac.WaitTimeColorConfigDetails;
 import com.tetherfi.model.tmac.WorkCodeListDetails;
@@ -1204,7 +1205,7 @@ return status;
 			if(f.length>1)
 			newvalues.put(f[0], f[1]);
 		}
-			if(newvalues.get("TeamName").equals(details.getTeamName()))
+			if(newvalues.get("OrgUnit").equals(details.getTeamName()))
 			{
 				if(newvalues.get("Message").equals(details.getMessage()))
 				{
@@ -1233,7 +1234,7 @@ return status;
     			if(f.length>1)
     				oldvalues.put(f[0], f[1]);
     		}
-    		if(oldvalues.get("TeamName").equals(details.getTeamName())){
+    		if(oldvalues.get("OrgUnit").equals(details.getTeamName())){
     			if(oldvalues.get("Message").equals(details.getMessage())){
     				if(oldvalues.get("Status").equals(details.getStatus()))
     					if(firstRowData.containsKey("New Values")) {
@@ -1245,7 +1246,7 @@ return status;
     		        			if(f.length>1)
     		        				newvalues.put(f[0], f[1]);
     		        		}
-    		        		if(newvalues.get("TeamName").equals(details.getTeamName())){
+    		        		if(newvalues.get("OrgUnit").equals(details.getTeamName())){
     		        			if(newvalues.get("Message").equals(details.getUpdatedMessage())){
     		        				if(newvalues.get("Status").equals(details.getUpdatedStatus())) {
     		        					if(newvalues.get("ModifyReason").equals(details.getModifyReason())) {
@@ -1259,7 +1260,7 @@ return status;
     		        			}
     		        			else {System.out.println("Message data mismatch");}
     		        			}
-    		        		else {System.out.println("TeamName data mismatch");	}
+    		        		else {System.out.println("OrgUnit data mismatch");	}
     		        		
     		    		}
     		    		else {System.out.println("New values data mismatch");}
@@ -1267,7 +1268,7 @@ return status;
     			}
     			else {System.out.println("Message data mismatch");}
     			}
-    		else {System.out.println("TeamName data mismatch");	}
+    		else {System.out.println("OrgUnit data mismatch");	}
     		
     	}
         else {System.out.println("Old values data mismatch");}
@@ -1815,7 +1816,7 @@ return status;
 			if(f.length>1)
 			newvalues.put(f[0], f[1]);
 		}
-			if(newvalues.get("DNIS").equals(details.getFaxLine()))
+			if(newvalues.get("FaxLine").equals(details.getFaxLine()))
 			{
 				if(newvalues.get("FaxLineName").equals(details.getFaxLineName()))
 				{
@@ -1839,7 +1840,7 @@ return status;
 				}
 				else {System.out.println("FaxLineName data mismatch");}
 			}
-			else {System.out.println("DNIS data mismatch");	}
+			else {System.out.println("FaxLine data mismatch");	}
 			return Status;
 	}
 
@@ -1856,7 +1857,7 @@ return status;
     			if(f.length>1)
     				oldvalues.put(f[0], f[1]);
     		}
-    		if(oldvalues.get("DNIS").equals(details.getFaxLine())){
+    		if(oldvalues.get("FaxLine").equals(details.getFaxLine())){
     			if(oldvalues.get("Description").equals(details.getDescription())){
     				if(oldvalues.get("FaxLineName").equals(details.getFaxLineName())) {
     					if(oldvalues.get("Enabled").equals(details.getStatus())){
@@ -1870,7 +1871,7 @@ return status;
             								if(f.length>1)
             									newvalues.put(f[0], f[1]);
             							}
-            							if(newvalues.get("DNIS").equals(details.getFaxLine())){
+            							if(newvalues.get("FaxLine").equals(details.getFaxLine())){
             								if(newvalues.get("FaxLineName").equals(details.getFaxLineName())){
             									if(newvalues.get("Description").equals(details.getUpdatedDescription())) {
             										if(newvalues.get("Enabled").equals(details.getUpdatedStatus())){
@@ -1893,7 +1894,7 @@ return status;
             								}
             								else {System.out.println("FaxLineName data mismatch");}
             							}
-            							else {System.out.println("DNIS data mismatch");	}	
+            							else {System.out.println("FaxLine data mismatch");	}	
             						}
             						else {System.out.println("New values data mismatch");}
             					}
@@ -1907,14 +1908,14 @@ return status;
     			}
     			else System.out.println("Description data mismatch");
     		}
-    		else System.out.println("DNIS Data Mismatch");
+    		else System.out.println("FaxLine Data Mismatch");
         }
         else {System.out.println("Old values data mismatch");}
     return Status;
 	}
 
 	public boolean verifyFaxLineConfigdelete(FaxLineConfigDetails details, String Transaction) throws Exception {
-		booleansearchold(details.getFaxLine(),Transaction);
+		booleansearchold(details.getStatus(),Transaction);
 		System.out.println(workcode);
 		Boolean Status=false;
         Map<String,String> firstRowData=getFirstRowDatafromTable1();
@@ -1925,14 +1926,14 @@ return status;
 			if(f.length>1)
 			oldvalues.put(f[0], f[1]);
 		}
-			if(oldvalues.get("DNIS").equals(details.getFaxLine()))
+			if(oldvalues.get("FaxLine").equals(details.getFaxLine()))
 			{
 				if(oldvalues.get("FaxLineName").equals(details.getFaxLineName()))
 				{
-					if(oldvalues.get("Description").equals(details.getUpdatedDescription()))
+					if(oldvalues.get("Description").equals(details.getDescription()))
 					{
 						if(oldvalues.get("Enabled").equals(details.getStatus())){
-							if(oldvalues.get("Send Enabled").equals(details.getSendStatus())) {
+							if(oldvalues.get("SendEnabled").equals(details.getSendStatus())) {
 								if(oldvalues.get("ReceiveEnabled").equals(details.getReceiveStatus())) {
 									if(oldvalues.get("ModifyReason").equals(details.getDeleteReason()))
 									{
@@ -1944,7 +1945,7 @@ return status;
 								}
 								else {System.out.println("Receive Enabled data mismatch");}
 							}
-							else {System.out.println("Send Enabled data mismatch");}
+							else {System.out.println("SendEnabled data mismatch");}
 						}
 						else {System.out.println("Enabled data mismatch");}
 					}
@@ -1952,7 +1953,7 @@ return status;
 				}
 				else {System.out.println("FaxLine Name data mismatch");}
 			}
-			else {System.out.println("DNIS data mismatch");}
+			else {System.out.println("FaxLine data mismatch");}
 			return Status;
 	}
 
@@ -2245,7 +2246,7 @@ return status;
 			return Status;
 	}
 	
-	public boolean verifyFaxTemplateCreate(FaxTemplateDetails details, String Transaction) throws Exception {
+	public boolean verifyFaxTemplateCreate1(FaxTemplateDetails details, String Transaction) throws Exception {
 		booleansearchnew(details.getTemplateName(),Transaction);
 		Boolean Status=false;
         Map<String,String> firstRowData=getFirstRowDatafromTable1();
@@ -2287,7 +2288,7 @@ return status;
 			return Status;
 	}
 
-	public boolean verifyFaxTemplateUpdate(FaxTemplateDetails details, String Transaction) throws Exception {
+	public boolean verifyFaxTemplateUpdate1(FaxTemplateDetails details, String Transaction) throws Exception {
 		booleansearchnew(details.getUpdatedFilename(),Transaction);
 		Boolean Status=false;
         Map<String,String> firstRowData=getFirstRowDatafromTable1();
@@ -2363,7 +2364,7 @@ return status;
     return Status;
 	}
 
-	public boolean verifyFaxTemplateDelete(FaxTemplateDetails details, String Transaction) throws Exception {
+	public boolean verifyFaxTemplateDelete1(FaxTemplateDetails details, String Transaction) throws Exception {
 		booleansearchold(details.getDeleteReason(),Transaction);	
 		Boolean Status=false;
         Map<String,String> firstRowData=getFirstRowDatafromTable1();
@@ -2402,6 +2403,113 @@ return status;
 					else {System.out.println("Custom data mismatch");}
 				}
 				else {System.out.println("TemplateHtml data mismatch");}
+			}
+			else {System.out.println("TemplateName data mismatch");}
+			return Status;
+	}
+	
+	public boolean verifyFaxTemplateCreate(FaxTemplateDetails details, String Transaction) throws Exception {
+		booleansearchnew(details.getTemplateName(),Transaction);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+		Map<String,String> newvalues=new HashMap<>();
+		String[]d=firstRowData.get("New Values").split("\n");
+		for(String e:d) {
+			System.out.println(e);
+			String f[]=e.split(":",2);
+			if(f.length>1)
+			newvalues.put(f[0], f[1]);
+		}
+			if(newvalues.get("TemplateName").equals(details.getTemplateName()))
+			{
+				if(newvalues.get("TemplateType").equals(details.getTemplatetype()))
+				{
+					if(newvalues.get("FileName").equals(details.getFilename()))
+										Status= true;
+					else {System.out.println("FileName data mismatch");}
+				}
+				else {System.out.println("TemplateType data mismatch");}
+			}
+			else {System.out.println("TemplateName data mismatch");}
+			return Status;			
+	}
+
+	public boolean verifyFaxTemplateUpdate(FaxTemplateDetails details, String Transaction) throws Exception {
+		booleansearchold(details.getTemplateName(),Transaction);
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+        if(firstRowData.containsKey("Old Values")) {
+        	Map<String,String> oldvalues=new HashMap<>();
+    		String[]d=firstRowData.get("Old Values").split("\n");
+    		for(String e:d) {
+    			System.out.println(e);
+    			String f[]=e.split(":",2);
+    			if(f.length>1)
+    				oldvalues.put(f[0], f[1]);
+    		}
+    		if(oldvalues.get("TemplateName").equals(details.getTemplateName()))
+    		{
+    			if(oldvalues.get("TemplateType").equals(details.getTemplatetype()))
+    			{
+    				if(oldvalues.get("FileName").equals(details.getFilename()))
+    				{
+                						if(firstRowData.containsKey("New Values"))
+                						{
+                							Map<String,String> newvalues=new HashMap<>();
+                							String[]d1=firstRowData.get("New Values").split("\n");
+                							for(String e:d1) {
+                								String f[]=e.split(":",2);
+                								if(f.length>1)
+                									newvalues.put(f[0], f[1]);
+                						}
+                							if(newvalues.get("TemplateName").equals(details.getTemplateName()))
+                							{
+                								if(newvalues.get("TemplateType").equals(details.getTemplatetype()))
+                								{
+                									if(newvalues.get("FileName").equals(details.getFilename())) 
+                									{
+                																Status=true;
+                    								}
+            										else System.out.println("FileName data mismatch");
+            									}
+        										else System.out.println("TemplateType data mismatch");
+            								}
+            								else {System.out.println("TemplateName data mismatch");}
+            	                       }
+            	                       else {System.out.println("New value data mismatch");	}	
+            	    }
+    		        else System.out.println("FileName data mismatch");
+    		    }
+    	        else System.out.println("TemplateType data mismatch");
+    	    }
+            else System.out.println("TemplateName Data Mismatch");
+        }
+     else {System.out.println("Old values data mismatch");}
+                            return Status;
+	}
+
+	public boolean verifyFaxTemplateDelete(FaxTemplateDetails details, String Transaction) throws Exception {
+		booleansearchold(details.getTemplateName(),Transaction);	
+		Boolean Status=false;
+        Map<String,String> firstRowData=getFirstRowDatafromTable1();
+		Map<String,String> oldvalues=new HashMap<>();
+		String[]d=firstRowData.get("Old Values").split("\n");
+		for(String e:d) {
+			String f[]=e.split(":",2);
+			if(f.length>1)
+			oldvalues.put(f[0], f[1]);
+		}
+			if(oldvalues.get("TemplateName").equals(details.getTemplateName()))
+			{
+				if(oldvalues.get("TemplateType").equals(details.getTemplatetype()))
+				{
+					if(oldvalues.get("FileName").equals(details.getFilename()))
+					{
+							Status=true;			
+					}
+					else {System.out.println("FileName data mismatch");}
+				}
+				else {System.out.println("TemplateType data mismatch");}
 			}
 			else {System.out.println("TemplateName data mismatch");}
 			return Status;
@@ -2983,7 +3091,7 @@ return status;
 	}
 
 	public boolean verifyBranchManagementDelete(BranchManagementDetails details, String Transaction) throws Exception {
-		booleansearchold(details.getBranchName(),Transaction);	
+		booleansearchold(details.getSubLines(),Transaction);	
 		Boolean Status=false;
         Map<String,String> firstRowData=getFirstRowDatafromTable1();
 		Map<String,String> oldvalues=new HashMap<>();
@@ -3034,7 +3142,9 @@ return status;
 	}
 
 	public boolean verifyCallbackAnnouncementCreate(CallbackAnnouncementDetails details,String Transaction) throws Exception {
-		booleansearchnew(details.getWavFile(),Transaction);
+		String []wavfileSplit=details.getWavFile().split("\\.");
+		//booleansearchnew(details.getWavFile(),Transaction);
+		booleansearchnew(wavfileSplit[0],Transaction);
 		Boolean Status=false;
         Map<String,String> firstRowData=getFirstRowDatafromTable1();
 		Map<String,String> newvalues=new HashMap<>();
@@ -3044,7 +3154,9 @@ return status;
 			if(f.length>1)
 			newvalues.put(f[0], f[1]);
 		}
-			if(newvalues.get("WaveFile").equals(details.getWavFile()))
+		
+			//if(newvalues.get("WaveFile").equals(details.getWavFile()))
+			if(newvalues.get("WaveFile").contains(wavfileSplit[0]))
 			{
 				if(newvalues.get("StartTime").equals(details.getStartTime()))
 				{
@@ -3063,7 +3175,9 @@ return status;
 	}
 
 	public boolean verifyCallBackAnnouncementUpdate(CallbackAnnouncementDetails details,String Transaction) throws Exception {
-		booleansearchnew(details.getWavFile(),Transaction);
+		String []wavfileSplit=details.getWavFile().split("\\.");
+		//booleansearchnew(details.getWavFile(),Transaction);
+		booleansearchnew(wavfileSplit[0],Transaction);
 		Boolean Status=false;
         Map<String,String> firstRowData=getFirstRowDatafromTable1();
         if(firstRowData.containsKey("Old Values")) {
@@ -3075,7 +3189,8 @@ return status;
     			if(f.length>1)
     				oldvalues.put(f[0], f[1]);
     		}
-    		if(oldvalues.get("WaveFile").equals(details.getWavFile())){
+    		/*if(oldvalues.get("WaveFile").equals(details.getWavFile()))*/
+    		if(oldvalues.get("WaveFile").contains(wavfileSplit[0])){
     			if(oldvalues.get("StartTime").equals(details.getStartTime())) {
     				if(oldvalues.get("EndTime").equals(details.getEndTime())){
         				if(oldvalues.get("Language").equals(details.getLanguage())){
@@ -3087,7 +3202,8 @@ return status;
     								if(f.length>1)
     		        				newvalues.put(f[0], f[1]);
     							}
-    							if(newvalues.get("WaveFile").equals(details.getWavFile())){
+    							/*if(newvalues.get("WaveFile").equals(details.getWavFile()))*/
+    							if(newvalues.get("WaveFile").contains(wavfileSplit[0])){
     								if(newvalues.get("StartTime").equals(details.getUpdatedStartTime())) {
     									if(newvalues.get("EndTime").equals(details.getUpdatedEndTime())){
     	    								if(newvalues.get("Language").equals(details.getLanguage())){
@@ -3122,7 +3238,9 @@ return status;
 
 	public boolean verifyCallbackAnnouncemnetdelete(CallbackAnnouncementDetails details,
 			String Transaction) throws Exception {
-		booleansearchold(details.getWavFile(),Transaction);
+		String []wavfileSplit=details.getWavFile().split("\\.");
+		//booleansearchold(details.getWavFile(),Transaction);
+		booleansearchold(wavfileSplit[0],Transaction);
 		Boolean Status=false;
         Map<String,String> firstRowData=getFirstRowDatafromTable1();
 		Map<String,String> oldvalues=new HashMap<>();
@@ -3132,7 +3250,8 @@ return status;
 			if(f.length>1)
 			oldvalues.put(f[0], f[1]);
 		}
-			if(oldvalues.get("WaveFile").equals(details.getWavFile()))
+			/*if(oldvalues.get("WaveFile").equals(details.getWavFile()))*/
+		if(oldvalues.get("WaveFile").contains(wavfileSplit[0]))
 			{
 				if(oldvalues.get("StartTime").equals(details.getStartTime()))
 				{
@@ -3605,6 +3724,7 @@ return status;
 			if(f.length>1)
 			newvalues.put(f[0], f[1]);
 		}
+		
 			if(newvalues.get("Functionality").equals(details.getFunctionality()))
 			{
 				if(newvalues.get("Language").equals(details.getLanguage()))
@@ -3615,7 +3735,9 @@ return status;
 						{
 							if(newvalues.get("Description").equals(details.getDescription()))
 							{
-								if(newvalues.get("WaveFile").equals(details.getWaveFile()))
+								/*if(newvalues.get("WaveFile").equals(details.getWaveFile()))*/
+								String []wavefileSplit=details.getWaveFile().split("\\.");
+								if(newvalues.get("WaveFile").contains(wavefileSplit[0]))
 								{
 									Status=true;
 								}
@@ -3651,7 +3773,9 @@ return status;
     				if(oldvalues.get("Language").equals(details.getLanguage())) {
     					if(oldvalues.get("Status").equals(details.getStatus())){
         					if(oldvalues.get("Description").equals(details.getDescription())){
-            					if(oldvalues.get("WaveFile").equals(details.getWaveFile())){
+            					/*if(oldvalues.get("WaveFile").equals(details.getWaveFile()))*/
+        						String []wavefileSplit=details.getWaveFile().split("\\.");
+        						if(oldvalues.get("WaveFile").contains(wavefileSplit[0])){
             						if(firstRowData.containsKey("New Values")) {
                                 		Map<String,String> newvalues=new HashMap<>();
                                 		String[]d1=firstRowData.get("New Values").split("\n");
@@ -3665,7 +3789,8 @@ return status;
                                 				if(newvalues.get("HostData").equals(details.getHostData())){
                                 					if(newvalues.get("Status").equals(details.getStatus())){
                                 						if(newvalues.get("Description").equals(details.getUpdatedDescription())){
-                                							if(newvalues.get("WaveFile").equals(details.getWaveFile())) {	
+                                							/*if(newvalues.get("WaveFile").equals(details.getWaveFile()))*/
+                                							  if(newvalues.get("WaveFile").contains(wavefileSplit[0])){	
                                 								if(newvalues.get("ModifyReason").equals(details.getModifyReason())){ 
                                             	                       	Status=true;
                                             	                 }
@@ -3720,7 +3845,9 @@ return status;
 					{
 						if(oldvalues.get("Description").equals(details.getDescription()))
 						{
-							if(oldvalues.get("WaveFile").equals(details.getWaveFile()))
+							/*if(oldvalues.get("WaveFile").equals(details.getWaveFile()))*/
+							String []wavefileSplit=details.getWaveFile().split("\\.");
+							if(oldvalues.get("WaveFile").contains(wavefileSplit[0]))
 							{
 								if(oldvalues.get("Status").equals(details.getStatus()))
 								{
@@ -3980,17 +4107,17 @@ return status;
 		}
 			if(newvalues.get("VDN").equals(details.getVDN()))
 			{
-				if(newvalues.get("Product").equals(details.getProduct()))
+				/*if(newvalues.get("Product").equals(details.getProduct()))
 				{
 					if(newvalues.get("Segment").equals(details.getSegment()))
 					{
-						if(newvalues.get("Language").equals(details.getLanguage()))
+						if(newvalues.get("Language").equals(details.getLanguage()))*/
 						Status= true;
-						else {System.out.println("Language data mismatch");}
+						/*else {System.out.println("Language data mismatch");}
 					}
 					else {System.out.println("Segment data mismatch");}
 				}
-				else {System.out.println("Product data mismatch");}
+				else {System.out.println("Product data mismatch");}*/
 			}
 			else {System.out.println("VDN data mismatch");}					
 		return Status;
@@ -4011,9 +4138,9 @@ return status;
     				oldvalues.put(f[0], f[1]);
     		}
     		if(oldvalues.get("VDN").equals(details.getVDN())){
-    			if(oldvalues.get("Product").equals(details.getProduct())) {
+    			/*if(oldvalues.get("Product").equals(details.getProduct())) {
         			if(oldvalues.get("Segment").equals(details.getSegment())) {
-            			if(oldvalues.get("Language").equals(details.getSegment())) {
+            			if(oldvalues.get("Language").equals(details.getSegment()))*/ {
         				if(firstRowData.containsKey("New Values")) {
         					Map<String,String> newvalues=new HashMap<>();
         					String[]d1=firstRowData.get("New Values").split("\n");
@@ -4023,13 +4150,14 @@ return status;
         							newvalues.put(f[0], f[1]);
         					}
         					if(newvalues.get("VDN").equals(details.getUpdatedVDN())) {
-        						if(newvalues.get("Product").equals(details.getProduct())) {
+        						/*if(newvalues.get("Product").equals(details.getProduct())) {
             						if(newvalues.get("Segment").equals(details.getSegment())) {
                 						if(newvalues.get("Language").equals(details.getLanguage())) {
                 							if(newvalues.get("ModifyReason").equals(details.getModifyReason())) {
-                								if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getModifyReason()))
+                								if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getModifyReason()))*/
                 									Status=true;
-                								else System.out.println("Change reason data mismatch");
+        					}
+                								/*else System.out.println("Change reason data mismatch");
                 							}
                 							else System.out.println("Modify reason data mismatch");
                 						}
@@ -4037,10 +4165,10 @@ return status;
             						}
     								else System.out.println("Segment data mismatch");
         						}
-								else System.out.println("Product data mismatch");
+								else System.out.println("Product data mismatch");*/
     						}
             				else {System.out.println("VDN data mismatch");}
-						}    					
+						/*}    					
     					else {System.out.println("New Values data mismatch");}
     				}
     				else {System.out.println("Language data mismatch");}
@@ -4051,9 +4179,17 @@ return status;
     		}
     		else System.out.println("DNIS data mismatch");
         }
-    	else {System.out.println("Old values data mismatch");}
-    return Status;
+    	else {System.out.println("Old values data mismatch");}*/
+    
+	          }
+    		}
+    		 
+          }
+        return Status;
 	}
+          
+            			
+   
 
 	public boolean verifyIntentMappingdelete(IntentMappingDetails details, String Transaction) throws Exception {
 		booleansearchold(details.getVDN(),Transaction);
@@ -4068,16 +4204,17 @@ return status;
 		}
 			if(oldvalues.get("VDN").equals(details.getVDN()))
 			{
-				if(oldvalues.get("Product").equals(details.getProduct()))
+				/*if(oldvalues.get("Product").equals(details.getProduct()))
 				{
 					if(oldvalues.get("Segment").equals(details.getSegment()))
 					{
 						if(oldvalues.get("Language").equals(details.getSegment()))
 						{
 							if(oldvalues.get("ModifyReason").equals(details.getDeleteReason())) {
-								if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getDeleteReason()))
+								if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getDeleteReason()))*/
 								Status=true;
-								else System.out.println("Change reason data mismatch");
+			}
+								/*else System.out.println("Change reason data mismatch");
 							}
 							else System.out.println("Modify reason data mismatch");
 						}
@@ -4086,7 +4223,7 @@ return status;
 					else {System.out.println("Segment data mismatch");}
 				}
 				else {System.out.println("Product mismatch");}
-			}
+			}*/
 			else {System.out.println("VDN data mismatch");}
 		return Status;
 	}
@@ -4112,7 +4249,9 @@ return status;
 						{
 							if(newvalues.get("Status").equals(details.getStatus()))
 							{
-								if(newvalues.get("WaveFile").equals(details.getWavFile()))
+								/*if(newvalues.get("WaveFile").equals(details.getWavFile()))*/
+								String []wavefileSplit=details.getWavFile().split("\\.");
+								if(newvalues.get("WaveFile").contains(wavefileSplit[0]))
 									Status= true;
 								else {System.out.println("WaveFile data mismatch");}
 							}
@@ -4130,7 +4269,7 @@ return status;
 
 	public boolean verifyIntroMessageAnnouncementUpdate(IntroMessageAnnouncementDetails details,
 			String Transaction) throws Exception {
-		booleansearchnew(details.getWavFile(),Transaction);
+		booleansearchnew(details.getUpdatedInterrupt(),Transaction);
 		Boolean Status=false;
         Map<String,String> firstRowData=getFirstRowDatafromTable1();
         if(firstRowData.containsKey("Old Values")) {
@@ -4147,7 +4286,9 @@ return status;
     				if(oldvalues.get("Language").equals(details.getLanguage())) {
     					if(oldvalues.get("Interrupt").equals(details.getInterrupt())){
         					if(oldvalues.get("Status").equals(details.getStatus())){
-            					if(oldvalues.get("WaveFile").equals(details.getWavFile())){
+            					/*if(oldvalues.get("WaveFile").equals(details.getWavFile()))*/
+        						String []wavefileSplit=details.getWavFile().split("\\.");
+								if(oldvalues.get("WaveFile").contains(wavefileSplit[0])){
                 					if(firstRowData.containsKey("New Values")) {
                 						Map<String,String> newvalues=new HashMap<>();
                 						String[]d1=firstRowData.get("New Values").split("\n");
@@ -4161,7 +4302,8 @@ return status;
                 									if(newvalues.get("Hotline").equals(details.getHotLine())){
                 										if(newvalues.get("Interrupt").equals(details.getUpdatedInterrupt())){
                 											if(newvalues.get("Status").equals(details.getStatus())){
-                												if(newvalues.get("WaveFile").equals(details.getWavFile())) {	
+                												/*if(newvalues.get("WaveFile").equals(details.getWavFile()))*/
+                												if(newvalues.get("WaveFile").contains(wavefileSplit[0])){	
                     												if(newvalues.get("ModifyReason").equals(details.getModifyReason())){ 
                 															Status=true;
                     													}
@@ -4198,7 +4340,7 @@ return status;
 }
 	public boolean verifyIntroMessageAnnouncementDelete(IntroMessageAnnouncementDetails details,
 			String Transaction) throws Exception {
-		booleansearchold(details.getHotLine(),Transaction);
+		booleansearchold(details.getInterrupt(),Transaction);
 		Boolean Status=false;
         Map<String,String> firstRowData=getFirstRowDatafromTable1();
 		Map<String,String> oldvalues=new HashMap<>();
@@ -4218,7 +4360,10 @@ return status;
 						{
 							if(oldvalues.get("Language").equals(details.getLanguage()))
 							{
-								if(oldvalues.get("WaveFile").equals(details.getWavFile()))
+								/*if(oldvalues.get("WaveFile").equals(details.getWavFile()))*/
+								String []wavefileSplit=details.getWavFile().split("\\.");
+								if(oldvalues.get("WaveFile").contains(wavefileSplit[0]))
+								
 								{
 									if(oldvalues.get("ModifyReason").equals(details.getDeleteReason())) {
 											Status=true;
@@ -5944,7 +6089,7 @@ return status;
 	}
 
 	public boolean verifyDashboardColorCodeConfigUpdate(DashboardColorCodeConfigDetails details, String Transaction) throws Exception {
-			booleansearchnew(details.getUpdatedStartRange(),Transaction);
+			booleansearchnew(details.getUpdatedEndRange(),Transaction);
 			Boolean Status=false;
 	        Map<String,String> firstRowData=getFirstRowDatafromTable1();
 	        if(firstRowData.containsKey("Old Values")) {
@@ -5972,9 +6117,9 @@ return status;
 	                						}
 	                						if(newvalues.get("DashboardName").equals(details.getdashboardName())) {
 	                							if(newvalues.get("ColumnName").equals(details.getcolumnName())){
-	                								if(newvalues.get("StartRange").equals(details.getStartRange())){
-	                									if(newvalues.get("EndRange").equals(details.getEndRange())){
-	                										if(newvalues.get("BackgroundColor").equals(details.getColorcode())){
+	                								if(newvalues.get("StartRange").equals(details.getUpdatedStartRange())){
+	                									if(newvalues.get("EndRange").equals(details.getUpdatedEndRange())){
+	                										if(newvalues.get("BackgroundColor").equals(details.getUpdatedBackGroundColor())){
 	                    										if(newvalues.get("FontColor").equals(details.getFontcolor())) {	
 	                    											if(newvalues.get("ModifyReason").equals(details.getModifyReason())){ 
 	                													if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getModifyReason()))
@@ -6381,6 +6526,132 @@ return status;
 			else {System.out.println("Status data mismatch");}
 			return Status;
 		}
+		
+		public boolean verifyTmacAuxCodesCreate(TmacAuxCodesDetails details,String Transaction) throws Exception {
+			booleansearchnew(details.getName(),Transaction);
+			Boolean Status=false;
+			Map<String,String> firstRowData= getFirstRowDatafromTable1();
+			Map<String,String> newvalues=new HashMap<>();
+			String[]d=firstRowData.get("New Values").split("\n");
+			for(String e:d) {
+				String f[]=e.split(":",2);
+				if(f.length>1)
+				newvalues.put(f[0], f[1]);
+			}
+			String [] splitValue=details.getValue().split("\\.");
+			if(newvalues.get("Value").equals(splitValue[0]))
+				{
+				   if(newvalues.get("Name").equals(details.getName()))
+				     {
+					      if(newvalues.get("Code").equals(details.getCode()))
+					       {
+						    if(newvalues.get("Display").equals(details.getStatus())) 
+						          {  
+							        Status=true;
+						          }
+							      else {System.out.println("Status Data Mismatch");}
+					       }
+						   else {System.out.println("Code Data Mismatch");}
+					  }
+					  else {System.out.println("Name Data Mismatch");}
+				  }
+				  else {System.out.println("Value Data Mismatch");}
+			
+			return Status;
+			
+			
+		}
+		
+		public boolean verifyTmacAuxCodesUpdate(TmacAuxCodesDetails details,String Transaction) throws Exception {
+			booleansearchnew(details.getUpdatedName(),Transaction);
+			boolean Status=false;
+			Map<String,String> firstRowData=getFirstRowDatafromTable1();
+			if(firstRowData.containsKey("Old Values")) {
+				Map<String,String> oldvalues=new HashMap<>();
+				String []d=firstRowData.get("Old Values").split("\n");
+				for(String e:d) {
+					System.out.println(e);
+					String f[]=e.split(":", 2);
+					if(f.length>1)
+						oldvalues.put(f[0], f[1]);
+				}
+				String []splitValue=details.getValue().split("\\.");
+				if(oldvalues.get("Value").equals(splitValue[0])) {
+					if(oldvalues.get("Name").equals(details.getName())) {
+						if(oldvalues.get("Code").equals(details.getCode())) {
+							if(oldvalues.get("Display").equals(details.getStatus())) {
+								if(firstRowData.containsKey("New Values")) {
+									Map<String,String>newvalues=new HashMap<>();
+									String []d1=firstRowData.get("New Values").split("\n");
+									for(String e:d1) {
+										System.out.println(e);
+										String f[]=e.split(":", 2);
+										if(f.length>1)
+											newvalues.put(f[0], f[1]);
+									}
+									if(newvalues.get("Value").equals(splitValue[0])) {
+										if(newvalues.get("Name").equals(details.getUpdatedName())) {
+											if(newvalues.get("Code").equals(details.getCode())) {
+												if(newvalues.get("Display").equals(details.getUpdatedStatus())) 
+												{
+													Status=true;
+												}
+													else {System.out.println("Disply Data Mismatch");}
+												}
+												else {System.out.println("Code Data Mismatch");}
+											}
+										  else {System.out.println("Name Data Mismatch");}
+										}
+									else {System.out.println("Value Data Mismatch");}
+									}
+								else {System.out.println("Display Data Mismatch");}
+								}
+							else {System.out.println("Code Data Mismatch");}
+							}
+						else {System.out.println("Name Data Mismatch");}
+						}
+					else {System.out.println("Value Data Mismatch");}
+					}
+				}
+				return Status;
+			}
+			
+		public boolean verifyTmacAuxCodesDelete(TmacAuxCodesDetails details,String Transaction) throws Exception {
+			booleansearchold(details.getName(),Transaction);
+			Boolean Status=false;
+			Map<String,String> firstRowData= getFirstRowDatafromTable1();
+			Map<String,String> oldvalues=new HashMap<>();
+			String[]d=firstRowData.get("Old Values").split("\n");
+			for(String e:d) {
+				String f[]=e.split(":",2);
+				if(f.length>1)
+					oldvalues.put(f[0], f[1]);
+			}
+			String [] splitValue=details.getValue().split("\\.");
+			if(oldvalues.get("Value").equals(splitValue[0]))
+				{
+				   if(oldvalues.get("Name").equals(details.getName()))
+				     {
+					      if(oldvalues.get("Code").equals(details.getCode()))
+					       {
+						    if(oldvalues.get("Display").equals(details.getStatus())) 
+						          {  
+							        Status=true;
+						          }
+							      else {System.out.println("Status Data Mismatch");}
+					       }
+						   else {System.out.println("Code Data Mismatch");}
+					  }
+					  else {System.out.println("Name Data Mismatch");}
+				  }
+				  else {System.out.println("Value Data Mismatch");}
+			
+			return Status;
+			
+			
+		}
+		
+		
 	}
 
 	

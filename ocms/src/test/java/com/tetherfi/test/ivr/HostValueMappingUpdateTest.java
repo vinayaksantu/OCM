@@ -77,7 +77,7 @@ public class HostValueMappingUpdateTest {
     @Test(groups = { "Maker" },priority=2)
     public void EditRecordWithoutModifyReason() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\HostValueMappingData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(1);
+        Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(0);
 	    HostValueMappingDetails HostValueMappingDetails = new HostValueMappingDetails(map);
         HostValueMappingPage HostValueMappingPage = PageFactory.createPageInstance(driver, HostValueMappingPage.class);
         HostValueMappingPage.EditRecordWithoutModifyReason(HostValueMappingDetails);

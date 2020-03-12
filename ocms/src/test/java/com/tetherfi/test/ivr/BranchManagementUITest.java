@@ -154,7 +154,7 @@ public class BranchManagementUITest extends BaseTest{
     	branchManagementPage.selectBranchManagementAuditTrailTab();
     	branchManagementPage.selectMakeBranchManagementChanges();
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\BranchManagementData.xlsx";
-    	Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
+    	Map<String, String> map = new ExcelReader(filePath,"Invalid").getTestData().get(5);
         BranchManagementDetails branchManagementDetails = new BranchManagementDetails(map);
         Assert.assertTrue(branchManagementPage.ExporttoExcelWithoutData(branchManagementDetails));
         screenshot.captureScreen( driver,"ExporttoExcelWithoutData", "BranchManagementTest");

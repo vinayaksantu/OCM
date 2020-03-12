@@ -153,7 +153,7 @@ public class TmacBroadCastMsgTest extends BaseTest {
         Assert.assertTrue(tmacBroadCastMsgPage.verifyRecordUpdated(),"Record Updated assertion failed");
     }
     
-     @Test(dependsOnMethods = {"EditTmacBroadCastMsg"}, priority=11)
+    @Test(dependsOnMethods = {"EditTmacBroadCastMsg"}, priority=11)
     	public void VerifyAuditTrailReportForUpdate() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacBroadcastMsgData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
@@ -171,7 +171,7 @@ public class TmacBroadCastMsgTest extends BaseTest {
     @Test(priority=12)
     public void VerifySearchIsNotEqualTo() throws Exception{
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacBroadcastMsgData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(3);
+        Map<String, String> map = new ExcelReader(filePath,"Invalid").getTestData().get(0);
         TmacBroadCastMsgDetails tmacBroadCastMsgDetails=new TmacBroadCastMsgDetails(map);
         TmacBroadCastMsgPage tmacBroadCastMsgPage  = PageFactory.createPageInstance(driver, TmacBroadCastMsgPage.class);
         Assert.assertTrue(tmacBroadCastMsgPage.verifySearchIsNotEqualTo(tmacBroadCastMsgDetails.getMessage()));
@@ -180,7 +180,7 @@ public class TmacBroadCastMsgTest extends BaseTest {
     @Test(priority=13)
     public void VerifySearchContains() throws Exception{
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacBroadcastMsgData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(4);
+        Map<String, String> map = new ExcelReader(filePath,"Invalid").getTestData().get(1);
         TmacBroadCastMsgDetails tmacBroadCastMsgDetails=new TmacBroadCastMsgDetails(map);
         TmacBroadCastMsgPage tmacBroadCastMsgPage  = PageFactory.createPageInstance(driver, TmacBroadCastMsgPage.class);
         Assert.assertTrue(tmacBroadCastMsgPage.verifySearchContains(tmacBroadCastMsgDetails.getMessage()));
@@ -189,7 +189,7 @@ public class TmacBroadCastMsgTest extends BaseTest {
     @Test(priority=14)
     public void VerifySearchDoesNotContains() throws Exception{
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacBroadcastMsgData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(4);
+        Map<String, String> map = new ExcelReader(filePath,"Invalid").getTestData().get(1);
         TmacBroadCastMsgDetails tmacBroadCastMsgDetails=new TmacBroadCastMsgDetails(map);
         TmacBroadCastMsgPage tmacBroadCastMsgPage  = PageFactory.createPageInstance(driver, TmacBroadCastMsgPage.class);
         Assert.assertTrue(tmacBroadCastMsgPage.verifySearchDoesNotContains(tmacBroadCastMsgDetails.getMessage()));
@@ -198,7 +198,7 @@ public class TmacBroadCastMsgTest extends BaseTest {
     @Test(priority=15)
     public void VerifySearchStartsWith() throws Exception{
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacBroadcastMsgData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(5);
+        Map<String, String> map = new ExcelReader(filePath,"Invalid").getTestData().get(2);
         TmacBroadCastMsgDetails tmacBroadCastMsgDetails=new TmacBroadCastMsgDetails(map);
         TmacBroadCastMsgPage tmacBroadCastMsgPage  = PageFactory.createPageInstance(driver, TmacBroadCastMsgPage.class);
         Assert.assertTrue(tmacBroadCastMsgPage.verifySearchStartsWith(tmacBroadCastMsgDetails.getMessage()));
@@ -207,7 +207,7 @@ public class TmacBroadCastMsgTest extends BaseTest {
     @Test(priority=16)
     public void VerifySearchEndsWith() throws Exception{
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacBroadcastMsgData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(6);
+        Map<String, String> map = new ExcelReader(filePath,"Invalid").getTestData().get(3);
         TmacBroadCastMsgDetails tmacBroadCastMsgDetails=new TmacBroadCastMsgDetails(map);
         TmacBroadCastMsgPage tmacBroadCastMsgPage  = PageFactory.createPageInstance(driver, TmacBroadCastMsgPage.class);
         Assert.assertTrue(tmacBroadCastMsgPage.verifySearchEndsWith(tmacBroadCastMsgDetails.getMessage()));
@@ -307,7 +307,7 @@ public class TmacBroadCastMsgTest extends BaseTest {
     @Test(priority=29)
     public void VerifyColumnsHeaderDisable() {
         TmacBroadCastMsgPage tmacBroadCastMsgPage  = PageFactory.createPageInstance(driver, TmacBroadCastMsgPage.class);
-        Assert.assertFalse(tmacBroadCastMsgPage.verifycolumnsHeaderDisabled(),"columns disabled assertion failed");
+        Assert.assertTrue(tmacBroadCastMsgPage.verifycolumnsHeaderDisabled(),"columns disabled assertion failed");
     }
     @Test(priority=30)
     public void SortingByAscending() throws Exception {

@@ -149,7 +149,7 @@ public class UserRoleMappingCreateTest {
         NewUserRoleMappingPage NewUserRoleMappingPage = PageFactory.createPageInstance(driver, NewUserRoleMappingPage.class);
         NewUserRoleMappingPage.addwithoutRole(UserRoleMappingDetails);
         Assert.assertFalse(NewUserRoleMappingPage.getErrorMsg());
-    }   
+    }  
     
 	@Test(groups = { "Maker" },priority=10)
     public void AddRevertRecord() throws Exception {

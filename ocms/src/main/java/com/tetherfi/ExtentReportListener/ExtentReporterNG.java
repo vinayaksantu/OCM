@@ -24,8 +24,11 @@ public class ExtentReporterNG implements IReporter{
 
 	public void generateReport(List<XmlSuite> xmlSuites, List<ISuite> suites,
 			String outputDirectory) {
-		extent = new ExtentReports(outputDirectory + File.separator
-				+ "ExtentReportTestResults.html", false);
+		/*extent = new ExtentReports(outputDirectory + File.separator
+				+ "ExtentReportTestResults.html", false);*/
+		
+		String extentReportFile = outputDirectory+"\\ExtentReports\\"+"ChatTemplatesTest.html";
+		extent=new ExtentReports(extentReportFile,false);
 
 		for (ISuite suite : suites) {
 			Map<String, ISuiteResult> result = suite.getResults();

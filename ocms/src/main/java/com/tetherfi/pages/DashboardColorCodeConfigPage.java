@@ -95,8 +95,7 @@ public class DashboardColorCodeConfigPage extends BasePage {
     @FindBy(css=".k-edit-form-container")
     private WebElement popupContent;
 
-   // @FindBy(xpath="//span[@class='k-dropdown-wrap k-state-default k-state-hover']")
-    @FindBy(css = "span[aria-owns='DashboardName_listbox']")
+    @FindBy(xpath="//span[@aria-owns='DashboardName_listbox']")
     private WebElement dashboardName;
     
     @FindBy(css= "ul[id='DashboardName_listbox'] li")
@@ -267,11 +266,11 @@ public class DashboardColorCodeConfigPage extends BasePage {
         selectWebElement(addNewDashboardColorConfigRecordBtn);
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(popupContent);
-        selectWebElement(dashboardName);
         Thread.sleep(1000);
+        selectWebElement(dashboardName);
         selectDropdownFromVisibleText(DashListbox,details.getdashboardName());
         selectWebElement(ColumnName);
-       selectDropdownFromVisibleText(columnListbox,details.getcolumnName());
+        selectDropdownFromVisibleText(columnListbox,details.getcolumnName());
         selectWebElement(rangetext.get(0));
         enterValueToTxtFieldWithoutClear(startRangeTxtbox, details.getStartRange());
         selectWebElement(rangetext.get(1));
@@ -280,11 +279,11 @@ public class DashboardColorCodeConfigPage extends BasePage {
         selectWebElement(colorValue.get(0));
         enterValueToTxtField(colorValue.get(0),details.getColorcode());
         selectWebElement(applyBtn.get(0));
-        Thread.sleep(1000);
         selectWebElement(colorPicker.get(1));
         selectWebElement(colorValue.get(1));
         enterValueToTxtField(colorValue.get(1),details.getFontcolor());
         selectWebElement(applyBtn.get(1));
+        Thread.sleep(1000);
         selectWebElement(saveBtn);
     }
     
@@ -293,6 +292,7 @@ public class DashboardColorCodeConfigPage extends BasePage {
     	selectWebElement(addNewDashboardColorConfigRecordBtn);
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(popupContent);
+        Thread.sleep(1000);
         selectWebElement(dashboardName);
         selectDropdownFromVisibleText(DashListbox,details.getdashboardName());
         selectWebElement(ColumnName);
@@ -668,6 +668,7 @@ public class DashboardColorCodeConfigPage extends BasePage {
 	public void addRecordWithoutStartTime(DashboardColorCodeConfigDetails details) throws Exception {
 		selectWebElement(addNewDashboardColorConfigRecordBtn);
         waitForJqueryLoad(driver);
+        Thread.sleep(1000);
         selectWebElement(dashboardName);
         selectDropdownFromVisibleText(DashListbox,details.getdashboardName());
         selectWebElement(ColumnName);
@@ -678,7 +679,6 @@ public class DashboardColorCodeConfigPage extends BasePage {
         selectWebElement(colorValue.get(0));
         enterValueToTxtField(colorValue.get(0),details.getColorcode());
         selectWebElement(applyBtn.get(0));
-        Thread.sleep(1000);
         selectWebElement(colorPicker.get(1));
         selectWebElement(colorValue.get(1));
         enterValueToTxtField(colorValue.get(1),details.getFontcolor());
@@ -1002,7 +1002,6 @@ public class DashboardColorCodeConfigPage extends BasePage {
 	        selectWebElement(colorValue.get(0));
 	        enterValueToTxtField(colorValue.get(0),details.getColorcode());
 	        selectWebElement(applyBtn.get(0));
-	        Thread.sleep(1000);
 	        selectWebElement(colorPicker.get(1));
 	        selectWebElement(colorValue.get(1));
 	        enterValueToTxtField(colorValue.get(1),details.getFontcolor());
@@ -1016,6 +1015,7 @@ public class DashboardColorCodeConfigPage extends BasePage {
 			selectWebElement(addNewDashboardColorConfigRecordBtn);
 	        waitForJqueryLoad(driver);
 	        waitUntilWebElementIsVisible(popupContent);
+	        Thread.sleep(1000);
 	        selectWebElement(dashboardName);
 	        selectDropdownFromVisibleText(DashListbox,details.getdashboardName());
 	        selectWebElement(rangetext.get(0));

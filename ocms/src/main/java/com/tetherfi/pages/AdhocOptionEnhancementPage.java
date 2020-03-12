@@ -550,12 +550,12 @@ public class AdhocOptionEnhancementPage extends BasePage {
         selectWebElement(deleteButton);
         enterValueToTxtFieldWithoutClear(deleteReasonTextBox,details.getDeleteReason());
         selectWebElement(deleteYesBtn);
-        try {
+        /*try {
         	selectWebElement(deleteNoBtn);
         }
         catch(Exception e){
         	e.printStackTrace();
-        }
+        }*/
     }
     public String verifySuccessMessage(){
         waitUntilWebElementIsVisible(successmsg);return successmsg.getText();

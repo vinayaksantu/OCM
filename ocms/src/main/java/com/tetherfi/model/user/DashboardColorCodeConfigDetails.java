@@ -17,6 +17,7 @@ public class DashboardColorCodeConfigDetails {
     private String query;
     private String updatedStartRange;
     private String updatedEndrange;
+    private String updatedbackgroundColor;
     private String errorMsg1;
     private String errorMsg2;
     private String errorMsg3;
@@ -34,6 +35,7 @@ public class DashboardColorCodeConfigDetails {
         updatedColor=readUpdatedColorCode(map);
         updatedStartRange=readUpdatedStartRange(map);
         updatedEndrange=readUpdatedEndRange(map);
+        updatedbackgroundColor=readUpdatedBackGroundColor(map);
         errorMsg1=readErrorMsg1(map);
         errorMsg2=readErrorMsg2(map);
         errorMsg3=readErrorMsg3(map);
@@ -91,6 +93,11 @@ public class DashboardColorCodeConfigDetails {
 		return value;
 	}
     
+     private String readUpdatedBackGroundColor(Map<String, String>map) {
+    	 String value=map.get("Updated Background Color");
+ 		return value;
+     }
+     
 	private String readQuery(Map<String, String> map) {
 		String value=map.get("Query");
 		return value;
@@ -167,6 +174,10 @@ public class DashboardColorCodeConfigDetails {
 	
 	public String getUpdatedEndRange() {
 		return updatedEndrange;
+	}
+	
+	public String getUpdatedBackGroundColor() {
+		return updatedbackgroundColor;
 	}
 
 	public String getdashboardName() {

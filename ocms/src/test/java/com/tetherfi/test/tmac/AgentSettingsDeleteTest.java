@@ -64,7 +64,7 @@ public class AgentSettingsDeleteTest {
     @Test(groups = { "Maker" },priority=1)
     public void DeleteCancelAgentSettingsRecord() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentSettingsData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(1);
+        Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(0);
         AgentSettingsDetails agentSettingsDetails = new AgentSettingsDetails(map);
         AgentSettingsNewDesignPage agentSettingsPage = PageFactory.createPageInstance(driver, AgentSettingsNewDesignPage.class);
         Assert.assertTrue(agentSettingsPage.deleteCancel(agentSettingsDetails), "delete record assertion failed");
@@ -73,7 +73,7 @@ public class AgentSettingsDeleteTest {
     @Test(groups = { "Maker" },priority=2)
     public void DeleteRevertAgentSettingsRecord() throws IOException {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentSettingsData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(1);
+        Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(0);
         AgentSettingsDetails agentSettingsDetails = new AgentSettingsDetails(map);
         AgentSettingsNewDesignPage agentSettingsPage = PageFactory.createPageInstance(driver, AgentSettingsNewDesignPage.class);
         agentSettingsPage.deleteAgentSettingsRecord(agentSettingsDetails.getUsername(), agentSettingsDetails.getDeleteReason());
@@ -92,7 +92,7 @@ public class AgentSettingsDeleteTest {
     @Test(groups= {"Maker"},priority=4,dependsOnMethods="VerifyRevertForDeleteRecord")
     public void VerifyAuditTrialReportForRevertDelete() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentSettingsData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(1);	
+        Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(0);	
         AgentSettingsDetails agentSettingsDetails = new AgentSettingsDetails(map);
         HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
         homePage.navigateToOCMReportsPage();
@@ -107,7 +107,7 @@ public class AgentSettingsDeleteTest {
     @Test(groups = { "Maker" },priority=5)
     public void RejectDeleteRecord() throws Exception {
 		 String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentSettingsData.xlsx";
-		 Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(1);
+		 Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(0);
 	     AgentSettingsDetails agentSettingsDetails = new AgentSettingsDetails (map);
 	     AgentSettingsNewDesignPage agentSettingsPage = PageFactory.createPageInstance(driver, AgentSettingsNewDesignPage.class);
 	     agentSettingsPage.deleteAgentSettingsRecord(agentSettingsDetails.getUsername(), agentSettingsDetails.getDeleteReason());
@@ -134,7 +134,7 @@ public class AgentSettingsDeleteTest {
     @Test(priority=8,groups = { "Checker" },dependsOnMethods = "RejectforDeleteAgentSettingsRecord")
     public void VerifyAuditTrailReportForReject() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentSettingsData.xlsx";
-	    Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(1);
+	    Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
 	    AgentSettingsDetails agentSettingsDetails = new AgentSettingsDetails (map);
 	    HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
 	    homePage.navigateToOCMReportsPage();
@@ -149,7 +149,7 @@ public class AgentSettingsDeleteTest {
     @Test(groups= {"Maker"},priority=9)
 	public void DeleteAgentSettingsRecord() throws Exception {
 		 String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentSettingsData.xlsx";
-		 Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(1);
+		 Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(0);
 		 AgentSettingsDetails agentSettingsDetails = new AgentSettingsDetails (map);
 		 AgentSettingsNewDesignPage agentSettingsPage = PageFactory.createPageInstance(driver, AgentSettingsNewDesignPage.class);
 	     agentSettingsPage.deleteAgentSettingsRecord(agentSettingsDetails.getUsername(), agentSettingsDetails.getDeleteReason());
@@ -159,7 +159,7 @@ public class AgentSettingsDeleteTest {
     @Test(priority=10,groups= {"Maker"},dependsOnMethods="DeleteAgentSettingsRecord")
     public void VerifyAuditTrialReportForDelete() throws Exception {
 		 String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentSettingsData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(1);	
+        Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(0);	
         AgentSettingsDetails agentSettingsDetails = new AgentSettingsDetails (map);
         HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
         homePage.navigateToOCMReportsPage();
@@ -174,7 +174,7 @@ public class AgentSettingsDeleteTest {
     @Test(priority=11,groups = { "Maker" },dependsOnMethods="DeleteAgentSettingsRecord")
     public void VerifyAuditTrailDataForDeleteAgentSettingsRecord() throws Exception {
 		 String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentSettingsData.xlsx";
-		 Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(1);
+		 Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(0);
 		 AgentSettingsDetails agentSettingsDetails = new AgentSettingsDetails (map);
 		 AgentSettingsNewDesignPage agentSettingsPage = PageFactory.createPageInstance(driver, AgentSettingsNewDesignPage.class);
 		 agentSettingsPage.selectAgentSettingsAuditTrailTab();
@@ -193,7 +193,7 @@ public class AgentSettingsDeleteTest {
 	@Test(priority=13,groups = { "Maker" },dependsOnMethods = "VerifySendForApprovalForDeleteRecord")
     public void VerifyAuditTrailReportForSendForApprove() throws Exception {
 		 String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentSettingsData.xlsx";
-		 Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(1);
+		 Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
 		 AgentSettingsDetails agentSettingsDetails = new AgentSettingsDetails (map);
 	     HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
 	     homePage.navigateToOCMReportsPage();
@@ -217,7 +217,7 @@ public class AgentSettingsDeleteTest {
 	@Test(priority=15,groups = { "Checker" },dependsOnMethods = "ApproveforDeleteAgentSettingsRecord")
     public void VerifyAuditTrailReportForApprove() throws Exception {
 		 String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentSettingsData.xlsx";
-		 Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(1);
+		 Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
 		 AgentSettingsDetails agentSettingsDetails = new AgentSettingsDetails(map);
 	     HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
 	     homePage.navigateToOCMReportsPage();

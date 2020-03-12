@@ -77,7 +77,7 @@ public class FaxLineConfigTest extends BaseTest {
         Assert.assertTrue(ocmReportsPage.verifyFaxLineConfigCreate(faxLineConfigDetails,"Create"));
     	}
     
-    @Test(priority=4)
+   @Test(priority=4)
     public void SendersLink() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxLineConfigData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(1);

@@ -234,7 +234,7 @@ public class RoleBasedAccessManagementUpdateTest {
         UserDetails userDetails=new UserDetails(map);
         RoleBasedAccessManagementPage RoleBasedAccessManagementPage = PageFactory.createPageInstance(driver, RoleBasedAccessManagementPage.class);
         RoleBasedAccessManagementPage.EditRecordWithoutModifyReason(userDetails);
-        Assert.assertEquals(RoleBasedAccessManagementPage.getErrorMsg(),"Invalid Record Assertion failed");
+        Assert.assertEquals(RoleBasedAccessManagementPage.getErrorMsg(),"Please enter the modify reason", "Invalid Assertion Failed");
     }
    
     @AfterMethod

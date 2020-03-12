@@ -5,8 +5,11 @@ import java.util.Map;
 
 public class FaxTemplateDetails {
     private String templateName;
+    private String templateType;
     private String custom;
     private String updatedFileName;
+    private String content;
+    private String updatedContent;
     private String Html;
     private String filename;
     private String body;
@@ -23,8 +26,11 @@ public class FaxTemplateDetails {
     
     public FaxTemplateDetails(Map<String,String> map) {
         templateName=readTemplateName(map);
+        templateType=readTemplateType(map);
         custom=readCustom(map);
         Html=readHtml(map);
+        content=readContent(map);
+        updatedContent=readUpdatedContent(map);
         filename=readFileName(map);
         body=readBody(map);
         deleteReason=readDeleteReason(map);
@@ -40,7 +46,24 @@ public class FaxTemplateDetails {
         query=readQuery(map);
     }
 
-    private String readQuery(Map<String, String> map) {
+    private String readTemplateType(Map<String, String> map) {
+		String value=map.get("Template Type");
+		if(value==null){
+            value= "santu";}
+		return value;
+	}
+
+	private String readContent(Map<String, String> map) {
+		String value=map.get("Content");
+		return value;
+	}
+	
+	private String readUpdatedContent(Map<String, String>map) {
+		String value=map.get("UpdatedContent");
+		return value;
+	}
+
+	private String readQuery(Map<String, String> map) {
 		String value=map.get("Query");
 		return value;
 	}
@@ -114,7 +137,7 @@ public class FaxTemplateDetails {
         return value;
     }
     public String readFileName(Map<String,String> map){
-        String value=map.get("Upload FileName");  
+        String value=map.get("FileName");  
         if(value==null){
             value= "";}
         return value;
@@ -144,6 +167,10 @@ public class FaxTemplateDetails {
     public String getModifyReason() {
         return modifyReason;
     }
+    
+    public String getTemplatetype() {
+    	return templateType;
+    }
 
     public String getDeleteReason() {
 
@@ -160,6 +187,14 @@ public class FaxTemplateDetails {
 
     public String getHtml() {
         return Html;
+    }
+    
+    public String getContent() {
+    	return content;
+    }
+    
+    public String getUpdatedContent() {
+    	return updatedContent;
     }
 
     public String getFilename() {

@@ -4,27 +4,16 @@
   <listeners>
     <listener class-name="com.tetherfi.ExtentReportListener.ExtentReporterNG"/>
   </listeners>
-  <test thread-count="5" name="IVR Config Test(failed)">
+  <test thread-count="5" name="SmsResponseTemplateDeleteTest(failed)">
     <classes>
-      <class name="com.tetherfi.test.ivr.IvrConfigTest">
+      <class name="com.tetherfi.test.sms.SmsResponseTemplateDeleteTest">
         <methods>
-          <include name="VerifyCancelBtnAtDeleteConfigRecord"/>
-          <include name="DeleteWithoutDeleteReasonIvrConfigRecord"/>
           <include name="VerifyAuditTrialReportForDelete"/>
-          <include name="VerifyNumberOfItemsPerPageSelection"/>
-          <include name="endTestCase"/>
-          <include name="tearDown"/>
-          <include name="VerifyAuditTrialReportForUpdate"/>
-          <include name="NavigateToIvrConfigPage"/>
-          <include name="VerifyAuditTrialReportForCreate"/>
-          <include name="database"/>
-          <include name="startTestCase"/>
-          <include name="openApplication"/>
           <include name="afterEachMethod"/>
-          <include name="EditIvrConfigRecordWithoutModifyReason"/>
-          <include name="VerifyCancelBtnAtEditConfigRecord"/>
+          <include name="NavigateToSmsResponseTemplatePage"/>
+          <include name="DeleteSmsResponseTemplateRecord"/>
         </methods>
-      </class> <!-- com.tetherfi.test.ivr.IvrConfigTest -->
+      </class> <!-- com.tetherfi.test.sms.SmsResponseTemplateDeleteTest -->
     </classes>
-  </test> <!-- IVR Config Test(failed) -->
+  </test> <!-- SmsResponseTemplateDeleteTest(failed) -->
 </suite> <!-- Failed suite [Tetherfi Test Automation] -->

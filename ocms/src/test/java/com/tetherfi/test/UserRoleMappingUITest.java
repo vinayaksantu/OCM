@@ -191,7 +191,7 @@ Screenshot screenshot=new Screenshot(driver);
         Assert.assertTrue(NewUserRoleMappingPage.verifyDragColumntoGroup("Last Name"),"drag and drop assertion failed");
     }
     
-    @Test(priority=19)
+    //@Test(priority=19)
     public void database() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserRoleMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(0);

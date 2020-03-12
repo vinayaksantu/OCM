@@ -309,6 +309,9 @@ public class IvrConfigPage extends BasePage {
 	 @FindBy(css = "#drillGrid .k-grouping-header")
 	 private WebElement dragColumnDestination;
 	 
+	 @FindBy(xpath="//a[text()='Value']")
+	 private List<WebElement> value;
+	 
     public boolean isIvrConfigPageDisplayed() {
         waitForLoad(driver);
         waitForJqueryLoad(driver);
@@ -627,7 +630,7 @@ public class IvrConfigPage extends BasePage {
 	}
 	
 	public void SortByAscending() {
-		selectWebElement(Value);
+		selectWebElement(value.get(1));
 		selectWebElement(exporttoexcel);
 		try {
 			Thread.sleep(2000);
@@ -637,7 +640,7 @@ public class IvrConfigPage extends BasePage {
 	}
 
 	public void SortByDescending() {
-		selectWebElement(parameter.get(0));
+		selectWebElement(parameter.get(1));
 		selectWebElement(parameter.get(1));
 		selectWebElement(exporttoexcel);
 		try {

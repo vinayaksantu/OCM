@@ -304,7 +304,7 @@ public class SkillConfigurationTest extends BaseTest{
     }
     
     
-    @Test(priority=27)
+    //@Test(priority=27)
     public void DeleteRecord() throws Exception {
   	 	 String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillConfigurationData.xlsx";
          Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(1);
@@ -315,7 +315,7 @@ public class SkillConfigurationTest extends BaseTest{
          screenshot.captureScreen(driver, "Deleted Successfully","SkillConfigurationTest");  
     }
     
-    @Test(priority=28)
+    //@Test(priority=28)
     public void VerifyAuditTrialReportForDelete() throws Exception {
  	 	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillConfigurationData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(1);
@@ -331,7 +331,7 @@ public class SkillConfigurationTest extends BaseTest{
         screenshot.captureScreen(driver, "VerifyAuditTrialReportForUpdate","SkillConfigurationTest");
     }
     
-    @Test(priority=29)
+   // @Test(priority=29)
     public void VerifyDeletedSkillInSkillAssignment() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillConfigurationData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(1);

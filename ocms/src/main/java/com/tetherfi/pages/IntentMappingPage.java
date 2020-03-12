@@ -209,6 +209,12 @@ public class IntentMappingPage extends BasePage{
 	@FindBy(css=".k-edit-form-container .k-formatted-value")
 	private WebElement VDNText;
 	
+	@FindBy(xpath="//span[@aria-controls='1001sColumnName_listbox']")
+    private WebElement selectSearchColumn;
+    
+    @FindBy(xpath="//span[@aria-owns='1001sCriteria_listbox']")
+    private WebElement condition;
+	
 	public boolean isIntentMappingPageDisplayed() {
 		waitForLoad(driver);
         waitForJqueryLoad(driver);
@@ -316,8 +322,14 @@ public class IntentMappingPage extends BasePage{
 				System.out.println(headers.get(j).getText());
 				/*if(headers.get(j).getText().equals("Insert Date Time")){
 				col=cols.get(j).getText().substring(0,10);
-				}
-				else*/
+				}*/
+				if(headers.get(j).getText().equals("VDN"))
+    				  {
+    					  col=cols.get(j).getText()+".0";
+    					  System.out.println(col);
+    					  map.put(headers.get(j).getText(),col);
+    				  }
+				else
 					col=cols.get(j).getText();
 				map.put(headers.get(j).getText(),col);
 			}
@@ -685,9 +697,9 @@ public class IntentMappingPage extends BasePage{
 		Map<String, String> map=new HashMap<String,String>() ;
 		map.put("Intent Talent", intenttalent);
 		selectWebElement(searchBtn);
-        selectWebElement(selectSearchCol.get(0));
+        selectWebElement(selectSearchColumn);
         selectDropdownFromVisibleText(columnNameList,"Intent Talent");
-        selectWebElement(selectSearchCol.get(1));
+        selectWebElement(condition);
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is not equal to");
         enterValueToTxtField(searchTextBox,intenttalent);		
         selectWebElement(searchSearchBtn);
@@ -706,9 +718,9 @@ public class IntentMappingPage extends BasePage{
 	public boolean verifySearchContains(String intenttalent) throws Exception {
 		Boolean Status=false;
 		selectWebElement(searchBtn);
-        selectWebElement(selectSearchCol.get(0));
+        selectWebElement(selectSearchColumn);
         selectDropdownFromVisibleText(columnNameList,"Intent Talent");
-        selectWebElement(selectSearchCol.get(1));
+        selectWebElement(condition);
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Contains");
         enterValueToTxtField(searchTextBox,intenttalent);		
         selectWebElement(searchSearchBtn);
@@ -726,9 +738,9 @@ public class IntentMappingPage extends BasePage{
 	public boolean verifySearchDoesNotContains(String intenttalent) throws Exception {
 		Boolean Status=false;
 		selectWebElement(searchBtn);
-        selectWebElement(selectSearchCol.get(0));
+        selectWebElement(selectSearchColumn);
         selectDropdownFromVisibleText(columnNameList,"Intent Talent");
-        selectWebElement(selectSearchCol.get(1));
+        selectWebElement(condition);
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Does not contain");
         enterValueToTxtField(searchTextBox,intenttalent);		
         selectWebElement(searchSearchBtn);
@@ -746,9 +758,9 @@ public class IntentMappingPage extends BasePage{
 	public boolean verifySearchStartsWith(String intenttalent) throws Exception {
 		Boolean Status=false;
 		selectWebElement(searchBtn);
-        selectWebElement(selectSearchCol.get(0));
+        selectWebElement(selectSearchColumn);
         selectDropdownFromVisibleText(columnNameList,"Intent Talent");
-        selectWebElement(selectSearchCol.get(1));
+        selectWebElement(condition);
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Starts with");
         enterValueToTxtField(searchTextBox,intenttalent);		
         selectWebElement(searchSearchBtn);
@@ -766,9 +778,9 @@ public class IntentMappingPage extends BasePage{
 	public boolean verifySearchEndsWith(String intenttalent) throws Exception {
 		Boolean Status=false;
 		selectWebElement(searchBtn);
-        selectWebElement(selectSearchCol.get(0));
+        selectWebElement(selectSearchColumn);
         selectDropdownFromVisibleText(columnNameList,"Intent Talent");
-        selectWebElement(selectSearchCol.get(1));
+        selectWebElement(condition);
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Ends with");
         enterValueToTxtField(searchTextBox,intenttalent);		
         selectWebElement(searchSearchBtn);
@@ -806,8 +818,9 @@ public class IntentMappingPage extends BasePage{
 		selectWebElement(editButton);
 		waitForLoad(driver);
 		selectWebElement(VDNText);
-		enterValueToTxtFieldWithoutClear(VDNTextbox,details.getUpdatedVDN());
-		//enterValueToDropdownText(VDNTextbox, details.getUpdatedVDN());
+		VDNTextbox.clear();
+		enterValueToTxtField(VDNTextbox,details.getUpdatedVDN());
+		enterValueToDropdownText(VDNTextbox, details.getUpdatedVDN());
 		selectWebElement(ModifyReasonTextBox);
 		enterValueToTxtFieldWithoutClear(ModifyReasonTextBox,details.getModifyReason());
 		selectWebElement(saveButton);

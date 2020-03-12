@@ -205,7 +205,7 @@ public class UserRoleMappingDeleteTest {
 	     Assert.assertTrue(NewUserRoleMappingPage.verifyReviewAuditTrail("Approved","Approve Deleted"));
     }
 	
-	@Test(priority=15,groups = { "Checker" },dependsOnMethods = "ApproveforDeleteUserRoleMappingRecord")
+	@Test(priority=15,groups = { "Checker" })//,dependsOnMethods = "ApproveforDeleteUserRoleMappingRecord")
     public void VerifyAuditTrailReportForApprove() throws Exception {
 		 String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserRoleMappingData.xlsx";
 		 Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);

@@ -26,6 +26,9 @@ public class TmacPage extends BasePage {
 
     @FindBy(css="a[href$='/WaitTimeColorConfig/Index']")
     private WebElement waitTimeColorConfig;
+    
+    @FindBy(css="a[href$='/AgentAuxCodes/Index']")
+    private WebElement tmacAuxCodes;
 
     
     @FindBy(css="a[href$='/WorkcodeList/Index']")
@@ -68,4 +71,9 @@ public class TmacPage extends BasePage {
 		waitUntilWebElementIsClickable(workCodeList);
         selectWebElement(workCodeList);		
 	}
+	
+	public void navigateToTmacAuxCodesPage(){
+        waitUntilWebElementIsClickable(tmacAuxCodes);
+        selectWebElement(tmacAuxCodes);
+    }
 }

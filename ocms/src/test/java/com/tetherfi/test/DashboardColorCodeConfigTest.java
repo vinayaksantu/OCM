@@ -40,8 +40,17 @@ public class DashboardColorCodeConfigTest extends BaseTest {
     	Assert.assertTrue(dshccpage.minimizewindow(), "Restored Assertion Failed");
     	screenshot.captureScreen("DashboardColorConfigTest", "Minimize Window");
     }
-   
+    
     @Test(priority=2)
+    public void AddnewCancel() throws Exception{
+ 	   String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\DashboardColourConfig.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
+        DashboardColorCodeConfigDetails dashColorConfigDetails = new DashboardColorCodeConfigDetails(map);
+        DashboardColorCodeConfigPage dshccpage=PageFactory.createPageInstance(driver,DashboardColorCodeConfigPage.class);
+        Assert.assertTrue(dshccpage.addNewCancel(dashColorConfigDetails));
+    }
+   
+    @Test(priority=3)
     public void AddNewDashboardColorConfigRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\DashboardColourConfig.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -50,15 +59,6 @@ public class DashboardColorCodeConfigTest extends BaseTest {
         dshccpage.addNewDashboardColorConfigRecord(dashColorConfigDetails);
         Assert.assertEquals(dshccpage.getSuccessMessage(),"Record Created Successfully","Add New record assertion failed");
     }
-   
-   @Test(priority=3)
-   public void AddnewCancel() throws Exception{
-	   String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\DashboardColourConfig.xlsx";
-       Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
-       DashboardColorCodeConfigDetails dashColorConfigDetails = new DashboardColorCodeConfigDetails(map);
-       DashboardColorCodeConfigPage dshccpage=PageFactory.createPageInstance(driver,DashboardColorCodeConfigPage.class);
-       Assert.assertTrue(dshccpage.addNewCancel(dashColorConfigDetails));
-   }
    
    @Test(priority=4)
    public void AddRecordWithoutDashboardName() throws Exception {
@@ -357,7 +357,7 @@ public class DashboardColorCodeConfigTest extends BaseTest {
       Assert.assertTrue(ocmReportsPage.verifyDashboardColorConfigdelete(dshColorConfigDetails,"Delete"));
   }
  
-  @Test(priority=36)
+ @Test(priority=36)
   public void ExporttoExcelWithoutData() throws Exception{
 	  DashboardColorCodeConfigPage dshccpage=PageFactory.createPageInstance(driver,DashboardColorCodeConfigPage.class);
 	  String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\DashboardColourConfig.xlsx";
