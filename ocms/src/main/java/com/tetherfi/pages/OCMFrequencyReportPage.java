@@ -1,198 +1,187 @@
 package com.tetherfi.pages;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+
 import com.tetherfi.model.report.ReportDetails;
 
-public class CallWorkReportPage extends BasePage  {
+public class OCMFrequencyReportPage extends BasePage  {
 	
-	  public CallWorkReportPage(WebDriver driver) {
+	  public OCMFrequencyReportPage(WebDriver driver) {
 	        super(driver);
 	    }
+		@FindBy(xpath="//i[@class='fas fa-file-export']")
+		private WebElement VEFImg;
 	  
-	  @FindBy(xpath="//i[@class='fas fa-file-export']")
-	  private WebElement VEFImg;
-  
-	  @FindBy(css=".ibox-title h5")
-	  private WebElement exportSchedulerTitle;
-  
-	  @FindBy(css="a[href$='/ExportScheduler/Index'] div")	
-	  private WebElement exportschedulerlinkonHomepg;
-	 
-	  @FindBy(xpath="//a[text()='Agent Name']")
-	  private WebElement AgentName;
-	
-	  @FindBy(css=".k-grid-excel")
-	  private WebElement exportPage;
-	
-	 @FindBy(xpath="//button[text()=' Scheduled Reports']")
-	 private WebElement schRptsinAgent;
-	 
-	 @FindBy(xpath="//button[text()=' View Downloaded Reports']")
-	  private WebElement viewDwnRptinAgntpg;
-	
-	@FindBy(css="button[onclick='onSelectExportAll()']")
-    private WebElement exportToCSV;
-	
-	@FindBy(css=".ibox-content")
-    private WebElement gridContent;
-	
-	@FindBy(css=".k-pager-info")
-    private WebElement pagerInfo;
-
-    @FindBy(css=".k-pager-sizes .k-input")
-    private WebElement pagerSize;
-
-    @FindBy(css=".k-i-more-vertical")
-    private List<WebElement> headersDropdown;
-
-    @FindBy(css=".k-sort-asc")
-    private List<WebElement> sortAscending;
-
-    @FindBy(css=".k-sort-desc")
-    private List<WebElement> sortDescending;
-    
-    @FindBy(css="a[aria-label='Go to the next page']")
-    private WebElement nextPageIcon;
-
-    @FindBy(css = ".k-pager-last")
-    private WebElement goToLastPage;
-
-    @FindBy(css = ".k-state-selected")
-    private WebElement pageNumber;
-
-     @FindBy(css=".k-pager-sizes .k-icon")
-    private WebElement pagerDropdown;
-
-    @FindBy(css=".k-animation-container ul li")
-    private List<WebElement> pageSizeListBox;
-    
-    @FindBy(css=".k-columns-item")
-    private List<WebElement> columns;
-
-    @FindBy(css=".fa-refresh")
-    private WebElement refreshBtn;
-    
-    @FindBy(css="div[style*='overflow: visible'] span[class^='k-link']")
-	private List<WebElement> headersColumns;
-	
-    @FindBy(css="th a[class='k-link']")
-   	private List<WebElement> headersText;
-    
-    @FindBy(css=".k-grid-pdf")
-    private WebElement exportToPDF;
-    
-    @FindBy(xpath="//div[@class='ibox float-e-margins fullscreen']")
-	private WebElement fullscreen;
-	
-	@FindBy(xpath="//i[@class='fas fa-expand']")
-	private WebElement maximize;
-	
-	@FindBy(xpath="//i[@class='fas fa-compress']")
-	private WebElement minimize;
-	
-	@FindBy(id="navbarheader")
-	private WebElement header;
-	
-	@FindBy(css=".k-grid-norecords-template")
-    private List<WebElement> norecords;
-	
-	   @FindBy(id="grid")
-	private WebElement auditGridContent;
-	
-	@FindBy(css=".toast-message")
-	private WebElement successmsg;
-	
-	@FindBy(css="#toast-container .toast-error")
-	private List<WebElement> errorMsg;
-	   
-	@FindBy(css="a[aria-label='Go to the last page']")
-	private WebElement lastPageIcon;
-	
-	@FindBy(css="a[aria-label='Go to the first page']")
-	private WebElement firstPageIcon;
-	
-	@FindBy(css="a[aria-label='Go to the previous page']")
-	private WebElement previousPageIcon;
-	
-	@FindBy(xpath="//span[@class='k-pager-info k-label']")
-	private WebElement items;
-	
-	@FindBy(xpath="//button[@class='k-button k-button-icontext k-grid-excel']")		
-	private WebElement exporttoexcel;
-	
-	//export to excel in ThresholdPage
-	@FindBy(xpath="//button[@id='exportAllToExcel']")
-	private WebElement exportToExcel;
-	
-	@FindBy(css = ".fa-search")
-	private WebElement searchBtn;
-	
-	@FindBy(css = "span[aria-controls='1001sColumnName_listbox']")  //input[aria-owns='1001sColumnName_listbox']
-	private WebElement searchColDropdown;
-	
-	@FindBy(css="ul[id='1001sColumnName_listbox'] li")
-	private List<WebElement> searchColListBox;
-	
-	@FindBy(css = "span[aria-owns='1001sCriteria_listbox']")
-	private WebElement searchCriteriaDropdown;
-	
-	@FindBy(css="ul[id='1001sCriteria_listbox'] li") 
-	private List<WebElement> searchCriteriaListbox;
-	
-	@FindBy(id = "1001sTextToSearch")
-	private WebElement searchTextBox;
-	
-	@FindBy(css = ".modal-footer .k-button")
-	private WebElement searchCloseBtn;
-	
-	@FindBy(css = ".modal-footer .button-danger-theme")
-	 private WebElement searchClearAllBtn;
-	
-	@FindBy(css = ".modal-footer .button-theme")
-	 private WebElement searchSearchBtn;
-	    
-	   // @FindBy(css = "span[aria-owns='autoCompleteTextbox_listbox']")
-	@FindBy(id="autoCompleteTextbox")
-	private WebElement searchbyfeatureTextBox;
-	 
-	@FindBy(css = "ul[id='autoCompleteTextbox_listbox'] li")
-	private List<WebElement> searchbyfeaturelistBox;
-	
-	@FindBy(css = "span[aria-owns='1001ColumnName_listbox']")  //input[aria-owns='1001sColumnName_listbox']
-	private WebElement searchColDropdownAdvsrch;
-	
-	@FindBy(css="ul[id='1001ColumnName_listbox'] li")
-	private List<WebElement> searchColListBoxAdvsrch;
-	
-	@FindBy(css = "span[aria-owns='1001Criteria_listbox']")
-	private WebElement searchCriteriaDropdownAdvSrch;
-	
-	@FindBy(css="ul[id='1001Criteria_listbox'] li") 
-	private List<WebElement> searchCriteriaListboxAdvSrch;
-	
-	@FindBy(id = "1001TextToSearch")
-	 private WebElement searchTextBoxAdvSrch;
-	    
-	   /* @FindBy(xpath="//p[@class='k-reset']")
-	private WebElement groupby;
-	
-	@FindBy(xpath="//tbody/tr/td/p[@class='k-reset']/../../following-sibling::tr/td[8]/div")
-	private WebElement groupbycolor;*/
-	
-	@FindBy(xpath="//div[@data-role='droptarget']")
-	private WebElement droptarget;
-	    	    
+	  	@FindBy(css=".ibox-title h5")
+	    private WebElement exportSchedulerTitle;
+	  
+	   @FindBy(css="a[href$='/ExportScheduler/Index'] div")
+	    private WebElement exportschedulerlinkonHomepg;
+		  
+		@FindBy(xpath="//a[text()='Agent Name']")
+		 private WebElement AgentName;
+		
+		@FindBy(css=".k-grid-excel")
+		private WebElement exportPage;
+		
+		@FindBy(xpath="//button[text()=' Scheduled Reports']")
+		private WebElement schRptsinAgent;
+		
+		@FindBy(xpath="//button[text()=' View Downloaded Reports']")
+		private WebElement viewDwnRptinAgntpg;
+		
+		@FindBy(css="button[onclick='onSelectExportAll()']")
+		private WebElement exportToCSV;
+		
+		@FindBy(css=".ibox-content")
+		private WebElement gridContent;
+		
+		@FindBy(css=".k-pager-info")
+		private WebElement pagerInfo;
+		
+		@FindBy(css=".k-pager-sizes .k-input")
+		private WebElement pagerSize;
+		
+		@FindBy(css=".k-i-more-vertical")
+		private List<WebElement> headersDropdown;
+		
+		@FindBy(css=".k-sort-asc")
+		private List<WebElement> sortAscending;
+		
+		@FindBy(css=".k-sort-desc")
+		private List<WebElement> sortDescending;
+		
+		@FindBy(css="a[aria-label='Go to the next page']")
+		private WebElement nextPageIcon;
+		
+		@FindBy(css = ".k-pager-last")
+		private WebElement goToLastPage;
+		
+		@FindBy(css = ".k-state-selected")
+		private WebElement pageNumber;
+		
+		 @FindBy(css=".k-pager-sizes .k-icon")
+		private WebElement pagerDropdown;
+		
+		@FindBy(css=".k-animation-container ul li")
+		private List<WebElement> pageSizeListBox;
+		
+		@FindBy(css=".k-columns-item")
+		private List<WebElement> columns;
+		
+		@FindBy(css=".fa-refresh")
+		private WebElement refreshBtn;
+		
+		@FindBy(css="div[style*='overflow: visible'] span[class^='k-link']")
+		private List<WebElement> headersColumns;
+		
+		@FindBy(css="th a[class='k-link']")
+		private List<WebElement> headersText;
+		
+		@FindBy(css=".k-grid-pdf")
+		private WebElement exportToPDF;
+		
+		@FindBy(xpath="//div[@class='ibox float-e-margins fullscreen']")
+		private WebElement fullscreen;
+		
+		@FindBy(xpath="//i[@class='fas fa-expand']")
+		private WebElement maximize;
+		
+		@FindBy(xpath="//i[@class='fas fa-compress']")
+		private WebElement minimize;
+		
+		@FindBy(id="navbarheader")
+		private WebElement header;
+		
+		@FindBy(css=".k-grid-norecords-template")
+		private List<WebElement> norecords;
+		
+		@FindBy(id="grid")
+		private WebElement auditGridContent;
+		
+		@FindBy(css=".toast-message")
+		private WebElement successmsg;
+		
+		@FindBy(css="#toast-container .toast-error")
+		private List<WebElement> errorMsg;
+		   
+		@FindBy(css="a[aria-label='Go to the last page']")
+		private WebElement lastPageIcon;
+		
+		@FindBy(css="a[aria-label='Go to the first page']")
+		private WebElement firstPageIcon;
+		
+		@FindBy(css="a[aria-label='Go to the previous page']")
+		private WebElement previousPageIcon;
+		
+		@FindBy(xpath="//span[@class='k-pager-info k-label']")
+		private WebElement items;
+		
+		@FindBy(xpath="//button[@class='k-button k-button-icontext k-grid-excel']")		
+		private WebElement exporttoexcel;
+		
+		//export to excel in AgentRptPage
+		@FindBy(xpath="//button[@id='exportAllToExcel']")
+		private WebElement exportToExcel;
+		
+		@FindBy(css = ".fa-search")
+		private WebElement searchBtn;
+		
+		@FindBy(css = "span[aria-controls='1001sColumnName_listbox']")  //input[aria-owns='1001sColumnName_listbox']
+		private WebElement searchColDropdown;
+		
+		@FindBy(css="ul[id='1001sColumnName_listbox'] li")
+		private List<WebElement> searchColListBox;
+		
+		@FindBy(css = "span[aria-owns='1001sCriteria_listbox']")
+		private WebElement searchCriteriaDropdown;
+		
+		@FindBy(css="ul[id='1001sCriteria_listbox'] li") 
+		private List<WebElement> searchCriteriaListbox;
+		
+		@FindBy(id = "1001sTextToSearch")
+		 private WebElement searchTextBox;
+		    
+		   // @FindBy(css = ".modal-footer .k-button")
+		@FindBy(xpath="//*[@id=\"searchModel\"]/div/div/div[3]/button[1]")
+		private WebElement searchCloseBtn;
+		
+		@FindBy(css = ".modal-footer .button-danger-theme")
+		 private WebElement searchClearAllBtn;
+		
+		@FindBy(css = ".modal-footer .button-theme")
+		private WebElement searchSearchBtn;
+		
+		@FindBy(id="autoCompleteTextbox")
+		private WebElement searchbyfeatureTextBox;
+		 
+		@FindBy(css = "ul[id='autoCompleteTextbox_listbox'] li")
+		private List<WebElement> searchbyfeaturelistBox;
+		
+		@FindBy(xpath="//a[text()='Team Name']")
+		private WebElement teamName;
+		
+		 @FindBy(xpath="//p[@class='k-reset']")
+		private WebElement groupby;
+		
+		@FindBy(xpath="//tbody/tr/td[4]")
+		 private WebElement groupbyTeamname;
+		 
+		@FindBy(xpath="//div[@data-role='droptarget']")
+		private WebElement droptarget;
+		
 		public void exportPage(){
 	        emptyDownloadsDirectory(System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles");
 	        selectWebElement(exportPage);
@@ -314,8 +303,7 @@ private String getProperHeadersInGrid(String cname){
         selectWebElement(columns.get(0).findElements(By.tagName("input")).get(0));
         selectWebElement(refreshBtn);
     }
-	
-	
+		
     public void dragandDropColumns(String col1, String col2)
     {
         List<WebElement> rows=gridContent.findElements(By.tagName("tr"));
@@ -539,8 +527,8 @@ private String getProperHeadersInGrid(String cname){
 	
 	private List<Map<String,String>> getdata(){
 		int item=Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
-        int pagersize=Integer.valueOf(pagerSize.getText());
-        int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
+	    int pagersize=Integer.valueOf(pagerSize.getText());
+	    int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
 		List<Map<String,String>> arr=new ArrayList<Map<String,String>>();
 		//for(int k=0;k<=pages;k++){
 		waitUntilWebElementIsVisible(auditGridContent);
@@ -569,9 +557,8 @@ private String getProperHeadersInGrid(String cname){
 			waitForJqueryLoad(driver);}
 		}*/
 			return arr;
-	
-	}
-	
+
+	}	
 	public boolean verifyArrowMoveForPreviousAndNextPage(){
         boolean status=false;
         if(!nextPageIcon.getAttribute("class").contains("k-state-disabled")){
@@ -587,6 +574,7 @@ private String getProperHeadersInGrid(String cname){
         return status;
 	}
 	
+	
 	public boolean verifyArrowMoveForFirstAndLastPage(){
         boolean status=false;
         if(!lastPageIcon.getAttribute("class").contains("k-state-disabled")){
@@ -601,7 +589,9 @@ private String getProperHeadersInGrid(String cname){
         }
         return status;
     }
-
+	
+	
+	
     public boolean verifyTotalNumberOfItemsPerPageDetails(){
         String item = items.getText();
         return item.matches("(\\d.*) - (\\d.*) of (\\d.*) items");
@@ -618,7 +608,7 @@ private String getProperHeadersInGrid(String cname){
 	}
 
 	public void SortByDescending() {
-		selectWebElement(AgentName);
+		//selectWebElement(AgentName);
 		selectWebElement(AgentName);
 		selectWebElement(exporttoexcel);
 		try {
@@ -631,7 +621,7 @@ private String getProperHeadersInGrid(String cname){
 	public boolean verifyExportToExcel(String filePath) {
 		final File folder = new File(filePath);
 		for (final File f : folder.listFiles()) {
-		    if (f.getName().startsWith("CallWorkReport")) {
+		    if (f.getName().startsWith("OCMFrequentlyHitThresholdReport")) {
 		        f.delete();
 		    }
 		}
@@ -642,7 +632,7 @@ private String getProperHeadersInGrid(String cname){
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		Boolean Status=verifyExportPageFileDownload(filePath,"CallWorkReport");
+		Boolean Status=verifyExportPageFileDownload(filePath, "OCMFrequentlyHitThresholdReport");
 		return Status;
 	}
 	 public boolean verifyExportPageFileDownloaded(String reportname){
@@ -655,10 +645,7 @@ private String getProperHeadersInGrid(String cname){
 		 {return errorMsg.get(0).getText();}
 		 else{waitUntilWebElementIsVisible(successmsg);return successmsg.getText();}
 }
-	/* public void scheduleReport(ReportDetails details) throws Exception{
-	        chooseReport(details);
-	        selectWebElement(schRptsinAgent);
-	    }*/
+	
 	 public boolean VerifyLogo() {
 	    	if(VEFImg.isDisplayed())
 	    		return true;
@@ -684,8 +671,7 @@ private String getProperHeadersInGrid(String cname){
 			return exportSchedulerTitle.isEnabled();
 		}
 	 
-	 public void navigateToExportSchedulerPage() {
-			
+	 public void navigateToExportSchedulerPage() {		
 			waitUntilWebElementIsClickable(schRptsinAgent);
 			selectWebElement(schRptsinAgent);			
 		}
@@ -921,7 +907,8 @@ private String getProperHeadersInGrid(String cname){
 				    selectWebElement(searchCriteriaDropdown);
 				    selectDropdownFromVisibleText(searchCriteriaListbox,details.getColtype());		   
 				    waitForJqueryLoad(driver);    
-				    selectWebElement(searchSearchBtn);	
+				    selectWebElement(searchSearchBtn);
+				    //waitForJqueryLoad(driver);
 				    selectWebElement(searchCloseBtn);		
 			}
 			
@@ -943,5 +930,21 @@ private String getProperHeadersInGrid(String cname){
 					return false;
 			}
 
+			public boolean groupby() {
+				DragandDrop(teamName,droptarget);
+				try {
+					Thread.sleep(1000);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+				if(groupby.getText().split(": ")[1].equals(groupbyTeamname.getText()))
+				{return true;}
+				else
+					return false;		
 			}
+
+}
+
+
+
 

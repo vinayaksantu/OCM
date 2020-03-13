@@ -1,24 +1,27 @@
+
 package com.tetherfi.test.reports;
 import java.io.IOException;
 import java.lang.reflect.Method;
 import java.util.List;
 import java.util.Map;
+
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
 import com.tetherfi.model.report.ReportDetails;
 import com.tetherfi.model.user.DashboardColorCodeConfigDetails;
 import com.tetherfi.pages.DashboardColorCodeConfigPage;
 import com.tetherfi.pages.HomePage;
 import com.tetherfi.pages.OCMReportsPage;
-import com.tetherfi.pages.AgentHistoricalReportPage;
+import com.tetherfi.pages.OCMAudioVideoReportPage;
 import com.tetherfi.test.BaseTest;
 import com.tetherfi.utility.ExcelReader;
 import com.tetherfi.utility.PageFactory;
 import com.tetherfi.utility.Screenshot;
 
-public class AgentHistoricalReportTest extends BaseTest {
+public class OCMAudioVideoReportTest extends BaseTest {
 	Screenshot screenshot=new Screenshot(driver);
     @BeforeMethod
     public void NavigateToOcmReportsPage() {
@@ -28,19 +31,19 @@ public class AgentHistoricalReportTest extends BaseTest {
         OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
         Assert.assertTrue(ocmReportsPage.isOCMReportPageIsDisplayed());
     }
-    
+ 
     @Test(priority=1)
-    public void ShowOCMAgentHistoricalReport() throws Exception {
-        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
+    public void ShowOCMAudioVideoReport() throws Exception {
+        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoReport.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
         OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
         ocmReportsPage.showReport(reportDetails);
         Assert.assertTrue(ocmReportsPage.verifyReportDisplayed(reportDetails),"Show report assertion failed");     
     }      
-    @Test(priority=2, dependsOnMethods ="ShowOCMAgentHistoricalReport")
-    public void ShowOcmAgentHistoricalReportInNewTab() throws Exception {
-        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
+    @Test(priority=2, dependsOnMethods ="ShowOCMAudioVideoReport")
+    public void ShowOcmAudioVideoReportInNewTab() throws Exception {
+        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoReport.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ShowInNewPage").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
         OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
@@ -49,26 +52,26 @@ public class AgentHistoricalReportTest extends BaseTest {
         ocmReportsPage.switchBackToParentWindow();
     }  
     @Test(priority=3)
-    public void ScheduleOCMAgentHistoricalReport() throws Exception {
-        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
+    public void ScheduleOCMAudioVideoReport() throws Exception {
+        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoReport.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ExportReport").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
         OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
         ocmReportsPage.scheduleReport(reportDetails);
         Assert.assertTrue(ocmReportsPage.verifyScheduleReport(),"Schedule report assertion failed");
     }   
-    @Test(priority=4,dependsOnMethods ="ShowOcmAgentHistoricalReportInNewTab")
-    public void ExportOcmAgentHistoricalReport() throws Exception {
-        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
+    @Test(priority=4,dependsOnMethods ="ShowOcmAudioVideoReportInNewTab")
+    public void ExportOcmAudioVideoReport() throws Exception {
+        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoReport.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ExportReport").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
         OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
         ocmReportsPage.exportReport(reportDetails);
         Assert.assertTrue(ocmReportsPage.verifyReportExported(),"export report assertion failed");
     }
-   @Test(priority=5,dependsOnMethods ="ExportOcmAgentHistoricalReport")
-    public void ViewDownloadedOcmAgentHistoricalReportInReportsDownloadPage() throws IOException {
-        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
+   @Test(priority=5,dependsOnMethods ="ExportOcmAudioVideoReport")
+    public void ViewDownloadedOcmAudioVideoReportInReportsDownloadPage() throws IOException {
+        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoReport.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ExportReport").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
         OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
@@ -76,17 +79,17 @@ public class AgentHistoricalReportTest extends BaseTest {
         Assert.assertTrue(ocmReportsPage.verifyDownloadedReportNameAndTimeInReportsDownloadPage(reportDetails.getReportName()),"Report not found in Reporter download page");
     }    
    @Test(priority=6)
-   public void ShowOcmAgentHistoricalReportForDateRange() throws Exception {
-       String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
+   public void ShowOcmAudioVideoReportForDateRange() throws Exception {
+       String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoReport.xlsx";
        Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
        ReportDetails reportDetails= new ReportDetails(map);
        OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
        ocmReportsPage.showReport(reportDetails);
        Assert.assertTrue(ocmReportsPage.verifyDateRangeReportDisplayed(reportDetails),"Show report assertion failed");
    } 
-   @Test(priority=7,dependsOnMethods ="ShowOcmAgentHistoricalReportForDateRange")
-   public void ShowOcmAgentHistoricalReportInNewTabDateRange() throws Exception {
-       String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
+   @Test(priority=7,dependsOnMethods ="ShowOcmAudioVideoReportForDateRange")
+   public void ShowOcmAudioVideoReportInNewTabDateRange() throws Exception {
+       String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoReport.xlsx";
        Map<String, String> map = new ExcelReader(filePath,"ShowInNewPageDateRange").getTestData().get(0);
        ReportDetails reportDetails= new ReportDetails(map);
        OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
@@ -94,18 +97,18 @@ public class AgentHistoricalReportTest extends BaseTest {
        Assert.assertTrue(ocmReportsPage.verifyDateRangeReportDisplayed(reportDetails),"show report in new tab assertion failed");
        ocmReportsPage.switchBackToParentWindow();
    }   
-    @Test(priority=8,dependsOnMethods ="ShowOcmAgentHistoricalReportInNewTabDateRange")
-    public void ExportOcmAgentHistoricalReportDateRange() throws Exception {
-        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
+    @Test(priority=8,dependsOnMethods ="ShowOcmAudioVideoReportInNewTabDateRange")
+    public void ExportOcmAudioVideoReportDateRange() throws Exception {
+        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoReport.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ExportReportDateRange").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
         OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
         ocmReportsPage.exportReport(reportDetails);
         Assert.assertTrue(ocmReportsPage.verifyReportExported(),"export report assertion failed");
     } 
-    @Test(priority=9,dependsOnMethods ="ExportOcmAgentHistoricalReportDateRange")
-    public void ViewDownloadedOcmAgentHistoricalReportInReportsDownloadPageDateRange() throws IOException {
-        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
+    @Test(priority=9,dependsOnMethods ="ExportOcmAudioVideoReportDateRange")
+    public void ViewDownloadedOcmAudioVideoReportInReportsDownloadPageDateRange() throws IOException {
+        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoReport.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ExportReportDateRange").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
         OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
@@ -113,8 +116,8 @@ public class AgentHistoricalReportTest extends BaseTest {
         Assert.assertTrue(ocmReportsPage.verifyDownloadedReportNameAndTimeInReportsDownloadPage(reportDetails.getReportName()),"Report not found in Reporter download page");
     }
     @Test(priority=10)
-    public void ScheduleOcmAgentHistoricalReportforDateRange() throws Exception {
-        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
+    public void ScheduleOcmAudioVideoReportforDateRange() throws Exception {
+        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoReport.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ExportReportDateRange").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
         OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
@@ -123,7 +126,7 @@ public class AgentHistoricalReportTest extends BaseTest {
     }
     @Test(priority=11)
     public void ClearAll() throws Exception {
-        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
+        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoReport.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
     	OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
@@ -131,266 +134,268 @@ public class AgentHistoricalReportTest extends BaseTest {
     }
        @Test(priority=12)
 	public void OCMWindow() throws Exception {	
-	    String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
+	    String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoReport.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
         OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
         ocmReportsPage.showReport(reportDetails);    
-        AgentHistoricalReportPage agnthistpg=PageFactory.createPageInstance(driver,AgentHistoricalReportPage.class);             
-        Assert.assertTrue(agnthistpg.maximizewindow(),"Fullscreen Assertion Failed"); 
-    	screenshot.captureScreen(driver,"OCMAgentHistoricalReport","Maximize");
-    	Assert.assertTrue(agnthistpg.minimizewindow(), "Restored Assertion Failed");
-    	screenshot.captureScreen(driver,"OCMAgentHistoricalReport","Minimize");	
+        OCMAudioVideoReportPage avpage=PageFactory.createPageInstance(driver,OCMAudioVideoReportPage.class);             
+        Assert.assertTrue(avpage.maximizewindow(),"Fullscreen Assertion Failed"); 
+    	screenshot.captureScreen(driver,"OCMAudioVideoReport","Maximize");
+    	Assert.assertTrue(avpage.minimizewindow(), "Restored Assertion Failed");
+    	screenshot.captureScreen(driver,"OCMAudioVideoReport","Minimize");	
     } 
 	@Test(priority=13)
     public void VerifyDropdownForAllTheColumns() throws Exception {		
-		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoReport.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);		
         OCMReportsPage ocmReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
 		ocmReportsPage.showReport(reportDetails);		
-		AgentHistoricalReportPage agnthistpg=PageFactory.createPageInstance(driver,AgentHistoricalReportPage.class);
-		Assert.assertTrue(agnthistpg.verifyDropDownOfAllHeaders(), "Columns dropdown assertion failed");
+		OCMAudioVideoReportPage avpage=PageFactory.createPageInstance(driver,OCMAudioVideoReportPage.class);
+		Assert.assertTrue(avpage.verifyDropDownOfAllHeaders(), "Columns dropdown assertion failed");
     }   
     @Test(priority=14)
     public void VerifyColumnsHeaderEnable() throws Exception {  	
-        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
+        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoReport.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);		
         OCMReportsPage ocmReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
 		ocmReportsPage.showReport(reportDetails);	
-		AgentHistoricalReportPage agnthistpg=PageFactory.createPageInstance(driver,AgentHistoricalReportPage.class);
-		Assert.assertTrue(agnthistpg.verifycolumnsHeaderEnabled(),"columns enabled assertion failed");
+		OCMAudioVideoReportPage avpage=PageFactory.createPageInstance(driver,OCMAudioVideoReportPage.class);
+		Assert.assertTrue(avpage.verifycolumnsHeaderEnabled(),"columns enabled assertion failed");
     }  
     @Test(priority=15)
     public void VerifyColumnsHeaderDisable() throws Exception {
-    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoReport.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
         OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
         ocmReportsPage.showReport(reportDetails);
-        AgentHistoricalReportPage agnthistpg=PageFactory.createPageInstance(driver,AgentHistoricalReportPage.class);
-        Assert.assertFalse(agnthistpg.verifycolumnsHeaderDisabled(),"columns disabled assertion failed");
+        OCMAudioVideoReportPage avpage=PageFactory.createPageInstance(driver,OCMAudioVideoReportPage.class);
+        Assert.assertFalse(avpage.verifycolumnsHeaderDisabled(),"columns disabled assertion failed");
     } 
-    @Test(priority=16)
+    @Test(priority=16)//has error
     public void VerifyArrowMoveForPreviousAndNextPage() throws Exception {
-        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
+        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoReport.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
         OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
         ocmReportsPage.showReport(reportDetails);
-        AgentHistoricalReportPage agnthistpg=PageFactory.createPageInstance(driver,AgentHistoricalReportPage.class);
-    	Assert.assertTrue(agnthistpg.verifyArrowMoveForPreviousAndNextPage(),"arrow move for previous and next page assertion failed");
+        OCMAudioVideoReportPage avpage=PageFactory.createPageInstance(driver,OCMAudioVideoReportPage.class);
+    	Assert.assertTrue(avpage.verifyArrowMoveForPreviousAndNextPage(),"arrow move for previous and next page assertion failed");
     }    
-    @Test(priority=17)
+    @Test(priority=17)//has error
     public void VerifyArrowMoveForFirstAndLastPage() throws Exception {
-        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
+        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoReport.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
         OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
         ocmReportsPage.showReport(reportDetails);
-        AgentHistoricalReportPage agnthistpg=PageFactory.createPageInstance(driver,AgentHistoricalReportPage.class);
-        Assert.assertTrue(agnthistpg.verifyArrowMoveForFirstAndLastPage(),"arrow move for first and last page assertion failed");
-    }  
+        OCMAudioVideoReportPage avpage=PageFactory.createPageInstance(driver,OCMAudioVideoReportPage.class);
+        Assert.assertTrue(avpage.verifyArrowMoveForFirstAndLastPage(),"arrow move for first and last page assertion failed");
+    }
+    
     @Test(priority=18)
     public void VerifyTotalNumberOfItemsPerPageDetails() throws Exception {
-        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
+        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoReport.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
         OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
         ocmReportsPage.showReport(reportDetails);
-        AgentHistoricalReportPage agnthistpg=PageFactory.createPageInstance(driver,AgentHistoricalReportPage.class);
-        Assert.assertTrue(agnthistpg.verifyTotalNumberOfItemsPerPageDetails(),"item per page assertion failed");
+        OCMAudioVideoReportPage avpage=PageFactory.createPageInstance(driver,OCMAudioVideoReportPage.class);
+        Assert.assertTrue(avpage.verifyTotalNumberOfItemsPerPageDetails(),"item per page assertion failed");
     }  
     @Test(priority=19)
     public void VerifyNumberOfItemsPerPageSelection() throws Exception {
-        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
+        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoReport.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
         OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
         ocmReportsPage.showReport(reportDetails);
-        AgentHistoricalReportPage agnthistpg=PageFactory.createPageInstance(driver,AgentHistoricalReportPage.class);
-        Assert.assertTrue(agnthistpg.verifyNumberOfItemsPerPage(),"item per page assertion failed");
+        OCMAudioVideoReportPage avpage=PageFactory.createPageInstance(driver,OCMAudioVideoReportPage.class);
+        Assert.assertTrue(avpage.verifyNumberOfItemsPerPage(),"item per page assertion failed");
     }  
     @Test(priority=20)
     public void ExportPage() throws Exception
     {
-    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoReport.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
         OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
         ocmReportsPage.showReport(reportDetails);    	
     	String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles";
-    	AgentHistoricalReportPage agnthistpg=PageFactory.createPageInstance(driver,AgentHistoricalReportPage.class);
-        Assert.assertTrue(agnthistpg.verifyExportToExcel(filePath1));
+    	OCMAudioVideoReportPage avpage=PageFactory.createPageInstance(driver,OCMAudioVideoReportPage.class);
+        Assert.assertTrue(avpage.verifyExportToExcel(filePath1));
     }
     @Test(priority=21)
     public void SortingByAscending() throws Exception {
-    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoReport.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
         OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
         ocmReportsPage.showReport(reportDetails);
-        AgentHistoricalReportPage agnthistpg=PageFactory.createPageInstance(driver,AgentHistoricalReportPage.class);
-        agnthistpg.SortByAscending();
-    	String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\OCMAgentHistoricalReport (1).xlsx";
+        OCMAudioVideoReportPage avpage=PageFactory.createPageInstance(driver,OCMAudioVideoReportPage.class);
+        avpage.SortByAscending();
+    	String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\OCMAudioVideoReport (1).xlsx";
         List<Map<String, String>> maplist = new ExcelReader(filePath1,"Sheet1").getTestData();
-        Assert.assertTrue(agnthistpg.verifyexportToExcelSheet(maplist));
+        Assert.assertTrue(avpage.verifyexportToExcelSheet(maplist));
     }    
     @Test(priority=22)
     public void SortingByDescending() throws Exception {
-    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoReport.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
         OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
         ocmReportsPage.showReport(reportDetails);        
-        AgentHistoricalReportPage agnthistpg=PageFactory.createPageInstance(driver,AgentHistoricalReportPage.class);
-        agnthistpg.SortByDescending();
-    	String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\OCMAgentHistoricalReport (2).xlsx";
+        OCMAudioVideoReportPage avpage=PageFactory.createPageInstance(driver,OCMAudioVideoReportPage.class);
+        avpage.SortByDescending();
+    	String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\OCMAudioVideoReport (2).xlsx";
         List<Map<String, String>> maplist = new ExcelReader(filePath1,"Sheet1").getTestData();
-        Assert.assertTrue(agnthistpg.verifyexportToExcelSheet(maplist));
+        Assert.assertTrue(avpage.verifyexportToExcelSheet(maplist));
     }
     @Test(priority=23)
-    public void Schedulereportinagnthistpg() throws Exception {
-    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
+    public void Schedulereportinavpage() throws Exception {
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoReport.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ExportReport").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
         OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
         ocmReportsPage.showReport(reportDetails);       
-        AgentHistoricalReportPage agnthistpg=PageFactory.createPageInstance(driver,AgentHistoricalReportPage.class);
-        agnthistpg.navigateToExportSchedulerPage();    
-        Assert.assertTrue(agnthistpg.isExportSchedulerPageDisplayed(), "ExportScheduler page assertion failed");
-    	screenshot.captureScreen("OCMAgentHistoricalReportTest","ExportSchedulerPage");    	 
+        OCMAudioVideoReportPage avpage=PageFactory.createPageInstance(driver,OCMAudioVideoReportPage.class);
+        avpage.navigateToExportSchedulerPage();    
+        Assert.assertTrue(avpage.isExportSchedulerPageDisplayed(), "ExportScheduler page assertion failed");
+    	screenshot.captureScreen("OCMAudioVideoReportTest","ExportSchedulerPage");    	 
     }
     @Test(priority=24)
-    public void ExportToExcelForAgentHistoricalReport() throws Exception {
-        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
+    public void ExportToExcelForAudioVideoReport() throws Exception {
+        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoReport.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
         OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
         ocmReportsPage.showReport(reportDetails);
         Assert.assertTrue(ocmReportsPage.verifyDateRangeReportDisplayed(reportDetails),"Show report assertion failed");
-        AgentHistoricalReportPage agntloginlogoutPage=PageFactory.createPageInstance(driver,AgentHistoricalReportPage.class);
+        OCMAudioVideoReportPage agntloginlogoutPage=PageFactory.createPageInstance(driver,OCMAudioVideoReportPage.class);
         agntloginlogoutPage.exportToExcel();
         Assert.assertTrue(agntloginlogoutPage.verifyReportExported(),"export report assertion failed");
     }   
-    @Test(priority=25,dependsOnMethods ="ExportToExcelForAgentHistoricalReport")
-    public void ViewDownloadedOcmAgentHistoricalReportInReportsDownloadPageinAgentHistoricalPg() throws Exception {
-        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
+    @Test(priority=25,dependsOnMethods ="ExportToExcelForAudioVideoReport")
+    public void ViewDownloadedOcmAudioVideoReportInReportsDownloadPageinAudioVideoPg() throws Exception {
+        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoReport.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ExportReport").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
         OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
         ocmReportsPage.showReport(reportDetails);  
-        AgentHistoricalReportPage agnthistpg=PageFactory.createPageInstance(driver,AgentHistoricalReportPage.class);
-        agnthistpg.viewDownloadedReportInReportsDownloadsPage();
+        OCMAudioVideoReportPage avpage=PageFactory.createPageInstance(driver,OCMAudioVideoReportPage.class);
+        avpage.viewDownloadedReportInReportsDownloadsPage();
         Assert.assertTrue(ocmReportsPage.verifyDownloadedReportNameAndTimeInReportsDownloadPage(reportDetails.getReportName()),"Report not found in Reporter download page");    
-    }       
-    @Test(priority=26)
-    public void VerifySearchByFeatureForAgentHistoricalReport() throws Exception {
-        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
+    }     
+   @Test(priority=26)
+    public void VerifySearchByFeatureForAudioVideoReport() throws Exception {
+        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoReport.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
         OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
         ocmReportsPage.showReport(reportDetails);
-        AgentHistoricalReportPage agnthistpg=PageFactory.createPageInstance(driver,AgentHistoricalReportPage.class);
+        OCMAudioVideoReportPage avpage=PageFactory.createPageInstance(driver,OCMAudioVideoReportPage.class);
         Assert.assertTrue(ocmReportsPage.verifyDateRangeReportDisplayed(reportDetails),"Show report assertion failed");     
-        Assert.assertTrue(agnthistpg.verifySearchByTextbox(reportDetails));
+        Assert.assertTrue(avpage.verifySearchByTextbox(reportDetails));
     }
       @Test(priority=27)
-    public void VerifySearchFeatureForThresoldReport() throws Exception {
-        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
+    public void VerifySearchFeatureForAudioVideoReport() throws Exception {
+        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoReport.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
         OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
         ocmReportsPage.showReport(reportDetails);
-        AgentHistoricalReportPage agnthistpg=PageFactory.createPageInstance(driver,AgentHistoricalReportPage.class);
+        OCMAudioVideoReportPage avpage=PageFactory.createPageInstance(driver,OCMAudioVideoReportPage.class);
         Assert.assertTrue(ocmReportsPage.verifyDateRangeReportDisplayed(reportDetails),"Show report assertion failed");
-        Assert.assertTrue(agnthistpg.verifySearchIsEqualTo(reportDetails.getSearchStr()));
-    }     
+        Assert.assertTrue(avpage.verifySearchIsEqualTo(reportDetails.getSearchStr()));
+    }    
     @Test(priority=28)
     public void searchwithoutSearchTextbox() throws Exception {
-    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoReport.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
       	OCMReportsPage ocmReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
       	ocmReportsPage.showReport(reportDetails);
-      	AgentHistoricalReportPage agnthistpg=PageFactory.createPageInstance(driver,AgentHistoricalReportPage.class);
-      	agnthistpg.searchwithoutextsearch(reportDetails);
-        Assert.assertEquals(agnthistpg.getSuccessMessage(),"Please enter the text to search or remove the filter", "Add invalid record assertion failed");
-    }  
-    @Test(priority=29)
+      	OCMAudioVideoReportPage avpage=PageFactory.createPageInstance(driver,OCMAudioVideoReportPage.class);
+      	avpage.searchwithoutextsearch(reportDetails);
+        Assert.assertEquals(avpage.getSuccessMessage(),"Please enter the text to search or remove the filter", "Add invalid record assertion failed");
+    }   
+  @Test(priority=29)
     public void VerifySearchIsNotEqualTo() throws Exception {
-    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoReport.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(1);
         ReportDetails reportDetails= new ReportDetails(map);
         OCMReportsPage ocmReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
       	ocmReportsPage.showReport(reportDetails);  
-        AgentHistoricalReportPage agnthistpg=PageFactory.createPageInstance(driver,AgentHistoricalReportPage.class);
-    	Assert.assertTrue(agnthistpg.verifySearchIsNotEqualTo(reportDetails.getSearchStr()));
+        OCMAudioVideoReportPage avpage=PageFactory.createPageInstance(driver,OCMAudioVideoReportPage.class);
+    	Assert.assertTrue(avpage.verifySearchIsNotEqualTo(reportDetails.getSearchStr()));
     }   
-   @Test(priority=30)
+   
+    @Test(priority=30)
     public void  VerifySearchContains() throws Exception {
-    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoReport.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(2);
         ReportDetails reportDetails= new ReportDetails(map);
         OCMReportsPage ocmReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
       	ocmReportsPage.showReport(reportDetails);  
-        AgentHistoricalReportPage agnthistpg=PageFactory.createPageInstance(driver,AgentHistoricalReportPage.class);
-    	Assert.assertTrue(agnthistpg.verifySearchContains(reportDetails.getSearchStr()));
+        OCMAudioVideoReportPage avpage=PageFactory.createPageInstance(driver,OCMAudioVideoReportPage.class);
+    	Assert.assertTrue(avpage.verifySearchContains(reportDetails.getSearchStr()));
     }   
     @Test(priority=31)
     public void  VerifySearchDoesNotContains() throws Exception {
-    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoReport.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(2);
         ReportDetails reportDetails= new ReportDetails(map);
         OCMReportsPage ocmReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
       	ocmReportsPage.showReport(reportDetails);  
-        AgentHistoricalReportPage agnthistpg=PageFactory.createPageInstance(driver,AgentHistoricalReportPage.class);
-    	Assert.assertTrue(agnthistpg.verifySearchDoesNotContains(reportDetails.getSearchStr())); 
+        OCMAudioVideoReportPage avpage=PageFactory.createPageInstance(driver,OCMAudioVideoReportPage.class);
+    	Assert.assertTrue(avpage.verifySearchDoesNotContains(reportDetails.getSearchStr())); 
     	}    
     @Test(priority=32)
     public void  VerifySearchStartsWith() throws Exception {
-    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoReport.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(3);
         ReportDetails reportDetails= new ReportDetails(map);
         OCMReportsPage ocmReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
       	ocmReportsPage.showReport(reportDetails);  
-        AgentHistoricalReportPage agnthistpg=PageFactory.createPageInstance(driver,AgentHistoricalReportPage.class);
-    	Assert.assertTrue(agnthistpg.verifySearchStartsWith(reportDetails.getSearchStr()));
+        OCMAudioVideoReportPage avpage=PageFactory.createPageInstance(driver,OCMAudioVideoReportPage.class);
+    	Assert.assertTrue(avpage.verifySearchStartsWith(reportDetails.getSearchStr()));
     }
   @Test(priority=33)
     public void  VerifySearchEndsWith() throws Exception {
-    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoReport.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(2);
         ReportDetails reportDetails= new ReportDetails(map);
         OCMReportsPage ocmReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
       	ocmReportsPage.showReport(reportDetails);  
-        AgentHistoricalReportPage agnthistpg=PageFactory.createPageInstance(driver,AgentHistoricalReportPage.class);
-    	Assert.assertTrue(agnthistpg.verifySearchEndsWith(reportDetails.getSearchStr()));
+        OCMAudioVideoReportPage avpage=PageFactory.createPageInstance(driver,OCMAudioVideoReportPage.class);
+    	Assert.assertTrue(avpage.verifySearchEndsWith(reportDetails.getSearchStr()));
     }
   @Test(priority=34)
   public void SearchClearSearch() throws Exception{
-  	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
+	  String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoReport.xlsx";
       Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(2);
       ReportDetails reportDetails= new ReportDetails(map);
       OCMReportsPage ocmReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
-    	ocmReportsPage.showReport(reportDetails);  
-      AgentHistoricalReportPage agnthistpg=PageFactory.createPageInstance(driver,AgentHistoricalReportPage.class);
-      agnthistpg.verifySearchClear(reportDetails);    	
+      ocmReportsPage.showReport(reportDetails);  
+      OCMAudioVideoReportPage avpage=PageFactory.createPageInstance(driver,OCMAudioVideoReportPage.class);
+      avpage.verifySearchClear(reportDetails);    	
   }
     @Test(priority=35)
     public void verifyAdvancedSearchinreportpage() throws Exception {
-    	 String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
+    	 String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoReport.xlsx";
          Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(0);
          ReportDetails reportDetails= new ReportDetails(map);
          OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);       
-         AgentHistoricalReportPage agnthistpg=PageFactory.createPageInstance(driver,AgentHistoricalReportPage.class);        
+         OCMAudioVideoReportPage avpage=PageFactory.createPageInstance(driver,OCMAudioVideoReportPage.class);        
          ocmReportsPage.showReport(reportDetails);
-         Assert.assertTrue(agnthistpg.verifyAdvanceSearch(reportDetails));            
+         Assert.assertTrue(avpage.verifyAdvanceSearch(reportDetails));            
     }
     @Test(priority=36)
     public void ClearfiltersAdvSrch() throws Exception{ 	
-    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoReport.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
         OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);                   
@@ -399,25 +404,25 @@ public class AgentHistoricalReportTest extends BaseTest {
     
    @Test(priority=37)
     public void GroupBy() throws Exception{
-	   String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
-	  Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
-	  ReportDetails reportDetails= new ReportDetails(map);
-	  OCMReportsPage ocmReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
-	  ocmReportsPage.showReport(reportDetails);
-	  AgentHistoricalReportPage agnthistpg=PageFactory.createPageInstance(driver,AgentHistoricalReportPage.class);
-  	  Assert.assertTrue(agnthistpg.groupby());
-  	  screenshot.captureScreen("OCMAgentHistoricalReport", "GroupBy");
-  	  Assert.assertTrue(agnthistpg.groupby());
-      screenshot.captureScreen("OCMAgentHistoricalReport", "AlreadyGroupBy");
+	   String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoReport.xlsx";
+       Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
+       ReportDetails reportDetails= new ReportDetails(map);
+       OCMReportsPage ocmReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
+     	ocmReportsPage.showReport(reportDetails);
+    	OCMAudioVideoReportPage avpage=PageFactory.createPageInstance(driver,OCMAudioVideoReportPage.class);
+  	  Assert.assertTrue(avpage.groupby());
+  	  screenshot.captureScreen("OCMAudioVideoReport", "GroupBy");
+  	  Assert.assertTrue(avpage.groupby());
+      screenshot.captureScreen("OCMAudioVideoReport", "AlreadyGroupBy");
     }
-    
-   /*@Test(priority=38)
+/*    
+    @Test(priority=38)
     public void database() throws Exception {
-   		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
+   		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoReport.xlsx";
    		Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(0);
    		ReportDetails reportDetails= new ReportDetails(map);
-   		AgentHistoricalReportPage agnthistpg=PageFactory.createPageInstance(driver,AgentHistoricalReportPage.class);
-   		Assert.assertTrue(agnthistpg.verifyDatabase(reportDetails.getQuery()));
+   		OCMAudioVideoReportPage avpage=PageFactory.createPageInstance(driver,OCMAudioVideoReportPage.class);
+   		Assert.assertTrue(avpage.verifyDatabase(reportDetails.getQuery()));
    }*/
 
     
