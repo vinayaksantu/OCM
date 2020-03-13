@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>TmacBroadCastMsgTest</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>30/2/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>31/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Fri Feb 28 17:15:23 IST 2020</td>
+<td>Started on:</td><td>Thu Mar 12 17:30:31 IST 2020</td>
 </tr>
-<tr><td>Total time:</td><td>678 seconds (678311 ms)</td>
+<tr><td>Total time:</td><td>639 seconds (639553 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -67,6 +67,67 @@ function toggleAllBoxes() {
 </tr>
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED CONFIGURATIONS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.tetherfi.test.tmac.TmacBroadCastMsgTest.Afterclass()'><b>Afterclass</b><br>Test class: com.tetherfi.test.tmac.TmacBroadCastMsgTest</td>
+<td><div><pre>java.lang.AssertionError: Add New record assertion failed did not expect to find [true] but found [false]
+	at com.tetherfi.test.tmac.TmacBroadCastMsgTest.Afterclass(TmacBroadCastMsgTest.java:366)
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+... Removed 28 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1468072871", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1468072871'><pre>java.lang.AssertionError: Add New record assertion failed did not expect to find [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:97)
+	at org.testng.Assert.failNotEquals(Assert.java:969)
+	at org.testng.Assert.assertTrue(Assert.java:43)
+	at com.tetherfi.test.tmac.TmacBroadCastMsgTest.Afterclass(TmacBroadCastMsgTest.java:366)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:62)
+	at org.testng.internal.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:340)
+	at org.testng.internal.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:294)
+	at org.testng.internal.TestMethodWorker.invokeAfterClassMethods(TestMethodWorker.java:217)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:130)
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+	at org.testng.TestRunner.privateRun(TestRunner.java:770)
+	at org.testng.TestRunner.run(TestRunner.java:591)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+	at org.testng.TestNG.runSuites(TestNG.java:1032)
+	at org.testng.TestNG.run(TestNG.java:1000)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>13</td>
+<td>com.tetherfi.test.tmac.TmacBroadCastMsgTest@7885776b</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-skipped'>
+<tr><td colspan='4' align='center'><b>SKIPPED CONFIGURATIONS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.tetherfi.test.tmac.TmacBroadCastMsgTest.tearDown()'><b>tearDown</b><br>Test class: com.tetherfi.test.tmac.TmacBroadCastMsgTest</td>
+<td></td>
+<td>-1584015071</td>
+<td>com.tetherfi.test.tmac.TmacBroadCastMsgTest@7885776b</td></tr>
+</table><p>
 <table width='100%' border='1' class='invocation-failed'>
 <tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
 <tr><td><b>Test method</b></td>
@@ -79,8 +140,8 @@ function toggleAllBoxes() {
 <td><div><pre>java.lang.AssertionError: did not expect to find [true] but found [false]
 	at com.tetherfi.test.tmac.TmacBroadCastMsgTest.VerifyAuditTrailReportForUpdate(TmacBroadCastMsgTest.java:168)
 	at java.base/java.util.ArrayList.forEach(Unknown Source)
-... Removed 31 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace220979586", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace220979586'><pre>java.lang.AssertionError: did not expect to find [true] but found [false]
+... Removed 31 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1669098666", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1669098666'><pre>java.lang.AssertionError: did not expect to find [true] but found [false]
 	at org.testng.Assert.fail(Assert.java:97)
 	at org.testng.Assert.failNotEquals(Assert.java:969)
 	at org.testng.Assert.assertTrue(Assert.java:43)
@@ -115,48 +176,7 @@ function toggleAllBoxes() {
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
-<td>27</td>
-<td>com.tetherfi.test.tmac.TmacBroadCastMsgTest@7885776b</td></tr>
-<tr>
-<td title='com.tetherfi.test.tmac.TmacBroadCastMsgTest.VerifyAuditTrialReportForCreate()'><b>VerifyAuditTrialReportForCreate</b><br>Test class: com.tetherfi.test.tmac.TmacBroadCastMsgTest</td>
-<td><div><pre>java.lang.NullPointerException
-	at com.tetherfi.pages.OCMReportsPage.verifyTmacBroadcastMsgCreate(OCMReportsPage.java:1207)
-	at com.tetherfi.test.tmac.TmacBroadCastMsgTest.VerifyAuditTrialReportForCreate(TmacBroadCastMsgTest.java:97)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-... Removed 27 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1302210876", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1302210876'><pre>java.lang.NullPointerException
-	at com.tetherfi.pages.OCMReportsPage.verifyTmacBroadcastMsgCreate(OCMReportsPage.java:1207)
-	at com.tetherfi.test.tmac.TmacBroadCastMsgTest.VerifyAuditTrialReportForCreate(TmacBroadCastMsgTest.java:97)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-	at org.testng.TestRunner.privateRun(TestRunner.java:770)
-	at org.testng.TestRunner.run(TestRunner.java:591)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-	at org.testng.TestNG.runSuites(TestNG.java:1032)
-	at org.testng.TestNG.run(TestNG.java:1000)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div></td>
-<td>26</td>
+<td>22</td>
 <td>com.tetherfi.test.tmac.TmacBroadCastMsgTest@7885776b</td></tr>
 </table><p>
 <table width='100%' border='1' class='invocation-passed'>
@@ -169,7 +189,7 @@ function toggleAllBoxes() {
 <tr>
 <td title='com.tetherfi.test.tmac.TmacBroadCastMsgTest.AddDuplicateRecord()'><b>AddDuplicateRecord</b><br>Test class: com.tetherfi.test.tmac.TmacBroadCastMsgTest</td>
 <td></td>
-<td>49</td>
+<td>47</td>
 <td>com.tetherfi.test.tmac.TmacBroadCastMsgTest@7885776b</td></tr>
 <tr>
 <td title='com.tetherfi.test.tmac.TmacBroadCastMsgTest.AddNewTmacBroadCastMsg()'><b>AddNewTmacBroadCastMsg</b><br>Test class: com.tetherfi.test.tmac.TmacBroadCastMsgTest</td>
@@ -179,27 +199,27 @@ function toggleAllBoxes() {
 <tr>
 <td title='com.tetherfi.test.tmac.TmacBroadCastMsgTest.AddNewTmacBroadCastMsgCancel()'><b>AddNewTmacBroadCastMsgCancel</b><br>Test class: com.tetherfi.test.tmac.TmacBroadCastMsgTest</td>
 <td></td>
-<td>51</td>
+<td>49</td>
 <td>com.tetherfi.test.tmac.TmacBroadCastMsgTest@7885776b</td></tr>
 <tr>
 <td title='com.tetherfi.test.tmac.TmacBroadCastMsgTest.AddRecordWithoutMesage()'><b>AddRecordWithoutMesage</b><br>Test class: com.tetherfi.test.tmac.TmacBroadCastMsgTest</td>
 <td></td>
-<td>45</td>
+<td>44</td>
 <td>com.tetherfi.test.tmac.TmacBroadCastMsgTest@7885776b</td></tr>
 <tr>
 <td title='com.tetherfi.test.tmac.TmacBroadCastMsgTest.AddRecordWithoutTeamName()'><b>AddRecordWithoutTeamName</b><br>Test class: com.tetherfi.test.tmac.TmacBroadCastMsgTest</td>
 <td></td>
-<td>2</td>
+<td>4</td>
 <td>com.tetherfi.test.tmac.TmacBroadCastMsgTest@7885776b</td></tr>
 <tr>
 <td title='com.tetherfi.test.tmac.TmacBroadCastMsgTest.AddRecordwithoutStatus()'><b>AddRecordwithoutStatus</b><br>Test class: com.tetherfi.test.tmac.TmacBroadCastMsgTest</td>
 <td></td>
-<td>44</td>
+<td>43</td>
 <td>com.tetherfi.test.tmac.TmacBroadCastMsgTest@7885776b</td></tr>
 <tr>
 <td title='com.tetherfi.test.tmac.TmacBroadCastMsgTest.EditTmacBroadCastMsg()'><b>EditTmacBroadCastMsg</b><br>Test class: com.tetherfi.test.tmac.TmacBroadCastMsgTest</td>
 <td></td>
-<td>8</td>
+<td>7</td>
 <td>com.tetherfi.test.tmac.TmacBroadCastMsgTest@7885776b</td></tr>
 <tr>
 <td title='com.tetherfi.test.tmac.TmacBroadCastMsgTest.EditTmacBroadCastMsgCancel()'><b>EditTmacBroadCastMsgCancel</b><br>Test class: com.tetherfi.test.tmac.TmacBroadCastMsgTest</td>
@@ -214,7 +234,7 @@ function toggleAllBoxes() {
 <tr>
 <td title='com.tetherfi.test.tmac.TmacBroadCastMsgTest.ExportToExcelData()'><b>ExportToExcelData</b><br>Test class: com.tetherfi.test.tmac.TmacBroadCastMsgTest</td>
 <td></td>
-<td>4</td>
+<td>3</td>
 <td>com.tetherfi.test.tmac.TmacBroadCastMsgTest@7885776b</td></tr>
 <tr>
 <td title='com.tetherfi.test.tmac.TmacBroadCastMsgTest.ExporttoExcelWithoutData()'><b>ExporttoExcelWithoutData</b><br>Test class: com.tetherfi.test.tmac.TmacBroadCastMsgTest</td>
@@ -224,12 +244,12 @@ function toggleAllBoxes() {
 <tr>
 <td title='com.tetherfi.test.tmac.TmacBroadCastMsgTest.GroupBy()'><b>GroupBy</b><br>Test class: com.tetherfi.test.tmac.TmacBroadCastMsgTest</td>
 <td></td>
-<td>4</td>
+<td>3</td>
 <td>com.tetherfi.test.tmac.TmacBroadCastMsgTest@7885776b</td></tr>
 <tr>
 <td title='com.tetherfi.test.tmac.TmacBroadCastMsgTest.SearchClearSearch()'><b>SearchClearSearch</b><br>Test class: com.tetherfi.test.tmac.TmacBroadCastMsgTest</td>
 <td></td>
-<td>5</td>
+<td>3</td>
 <td>com.tetherfi.test.tmac.TmacBroadCastMsgTest@7885776b</td></tr>
 <tr>
 <td title='com.tetherfi.test.tmac.TmacBroadCastMsgTest.SortingByAscending()'><b>SortingByAscending</b><br>Test class: com.tetherfi.test.tmac.TmacBroadCastMsgTest</td>
@@ -239,7 +259,7 @@ function toggleAllBoxes() {
 <tr>
 <td title='com.tetherfi.test.tmac.TmacBroadCastMsgTest.SortingByDescending()'><b>SortingByDescending</b><br>Test class: com.tetherfi.test.tmac.TmacBroadCastMsgTest</td>
 <td></td>
-<td>8</td>
+<td>7</td>
 <td>com.tetherfi.test.tmac.TmacBroadCastMsgTest@7885776b</td></tr>
 <tr>
 <td title='com.tetherfi.test.tmac.TmacBroadCastMsgTest.TmacBroadCastMsgPage()'><b>TmacBroadCastMsgPage</b><br>Test class: com.tetherfi.test.tmac.TmacBroadCastMsgTest</td>
@@ -257,6 +277,11 @@ function toggleAllBoxes() {
 <td>0</td>
 <td>com.tetherfi.test.tmac.TmacBroadCastMsgTest@7885776b</td></tr>
 <tr>
+<td title='com.tetherfi.test.tmac.TmacBroadCastMsgTest.VerifyAuditTrialReportForCreate()'><b>VerifyAuditTrialReportForCreate</b><br>Test class: com.tetherfi.test.tmac.TmacBroadCastMsgTest</td>
+<td></td>
+<td>23</td>
+<td>com.tetherfi.test.tmac.TmacBroadCastMsgTest@7885776b</td></tr>
+<tr>
 <td title='com.tetherfi.test.tmac.TmacBroadCastMsgTest.VerifyColumnsHeaderDisable()'><b>VerifyColumnsHeaderDisable</b><br>Test class: com.tetherfi.test.tmac.TmacBroadCastMsgTest</td>
 <td></td>
 <td>3</td>
@@ -264,12 +289,12 @@ function toggleAllBoxes() {
 <tr>
 <td title='com.tetherfi.test.tmac.TmacBroadCastMsgTest.VerifyColumnsHeaderEnable()'><b>VerifyColumnsHeaderEnable</b><br>Test class: com.tetherfi.test.tmac.TmacBroadCastMsgTest</td>
 <td></td>
-<td>5</td>
+<td>4</td>
 <td>com.tetherfi.test.tmac.TmacBroadCastMsgTest@7885776b</td></tr>
 <tr>
 <td title='com.tetherfi.test.tmac.TmacBroadCastMsgTest.VerifyDropdownForAllTheColumns()'><b>VerifyDropdownForAllTheColumns</b><br>Test class: com.tetherfi.test.tmac.TmacBroadCastMsgTest</td>
 <td></td>
-<td>5</td>
+<td>4</td>
 <td>com.tetherfi.test.tmac.TmacBroadCastMsgTest@7885776b</td></tr>
 <tr>
 <td title='com.tetherfi.test.tmac.TmacBroadCastMsgTest.VerifyNumberOfItemsPerPageSelection()'><b>VerifyNumberOfItemsPerPageSelection</b><br>Test class: com.tetherfi.test.tmac.TmacBroadCastMsgTest</td>
@@ -279,27 +304,27 @@ function toggleAllBoxes() {
 <tr>
 <td title='com.tetherfi.test.tmac.TmacBroadCastMsgTest.VerifySearchContains()'><b>VerifySearchContains</b><br>Test class: com.tetherfi.test.tmac.TmacBroadCastMsgTest</td>
 <td></td>
-<td>4</td>
+<td>3</td>
 <td>com.tetherfi.test.tmac.TmacBroadCastMsgTest@7885776b</td></tr>
 <tr>
 <td title='com.tetherfi.test.tmac.TmacBroadCastMsgTest.VerifySearchDoesNotContains()'><b>VerifySearchDoesNotContains</b><br>Test class: com.tetherfi.test.tmac.TmacBroadCastMsgTest</td>
 <td></td>
-<td>7</td>
+<td>6</td>
 <td>com.tetherfi.test.tmac.TmacBroadCastMsgTest@7885776b</td></tr>
 <tr>
 <td title='com.tetherfi.test.tmac.TmacBroadCastMsgTest.VerifySearchEndsWith()'><b>VerifySearchEndsWith</b><br>Test class: com.tetherfi.test.tmac.TmacBroadCastMsgTest</td>
 <td></td>
-<td>4</td>
+<td>3</td>
 <td>com.tetherfi.test.tmac.TmacBroadCastMsgTest@7885776b</td></tr>
 <tr>
 <td title='com.tetherfi.test.tmac.TmacBroadCastMsgTest.VerifySearchIsNotEqualTo()'><b>VerifySearchIsNotEqualTo</b><br>Test class: com.tetherfi.test.tmac.TmacBroadCastMsgTest</td>
 <td></td>
-<td>8</td>
+<td>6</td>
 <td>com.tetherfi.test.tmac.TmacBroadCastMsgTest@7885776b</td></tr>
 <tr>
 <td title='com.tetherfi.test.tmac.TmacBroadCastMsgTest.VerifySearchStartsWith()'><b>VerifySearchStartsWith</b><br>Test class: com.tetherfi.test.tmac.TmacBroadCastMsgTest</td>
 <td></td>
-<td>5</td>
+<td>4</td>
 <td>com.tetherfi.test.tmac.TmacBroadCastMsgTest@7885776b</td></tr>
 <tr>
 <td title='com.tetherfi.test.tmac.TmacBroadCastMsgTest.VerifyTotalNumberOfItemsPerPageDetails()'><b>VerifyTotalNumberOfItemsPerPageDetails</b><br>Test class: com.tetherfi.test.tmac.TmacBroadCastMsgTest</td>
@@ -309,7 +334,7 @@ function toggleAllBoxes() {
 <tr>
 <td title='com.tetherfi.test.tmac.TmacBroadCastMsgTest.database()'><b>database</b><br>Test class: com.tetherfi.test.tmac.TmacBroadCastMsgTest</td>
 <td></td>
-<td>5</td>
+<td>4</td>
 <td>com.tetherfi.test.tmac.TmacBroadCastMsgTest@7885776b</td></tr>
 <tr>
 <td title='com.tetherfi.test.tmac.TmacBroadCastMsgTest.searchPage()'><b>searchPage</b><br>Test class: com.tetherfi.test.tmac.TmacBroadCastMsgTest</td>

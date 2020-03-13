@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Default test(failed)</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>2/4/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>0/0/4</td>
 </tr><tr>
-<td>Started on:</td><td>Thu Jan 09 14:47:00 IST 2020</td>
+<td>Started on:</td><td>Thu Mar 12 14:17:27 IST 2020</td>
 </tr>
-<tr><td>Total time:</td><td>122 seconds (122175 ms)</td>
+<tr><td>Total time:</td><td>17 seconds (17362 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -68,35 +68,30 @@ function toggleAllBoxes() {
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
 <table width='100%' border='1' class='invocation-failed'>
-<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td colspan='4' align='center'><b>FAILED CONFIGURATIONS</b></td></tr>
 <tr><td><b>Test method</b></td>
 <td width="30%"><b>Exception</b></td>
 <td width="10%"><b>Time (seconds)</b></td>
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.tetherfi.test.tmac.TmacBroadCastMsgTest.EditTmacBroadCastMsgCancel()'><b>EditTmacBroadCastMsgCancel</b><br>Test class: com.tetherfi.test.tmac.TmacBroadCastMsgTest</td>
-<td><div><pre>java.lang.AssertionError: Cancel assertion failed did not expect to find [true] but found [false]
-	at com.tetherfi.test.tmac.TmacBroadCastMsgTest.EditTmacBroadCastMsgCancel(TmacBroadCastMsgTest.java:144)
+<td title='com.tetherfi.test.tmac.TmacAuxCodesTest.openApplication()'><b>openApplication</b><br>Test class: com.tetherfi.test.tmac.TmacAuxCodesTest</td>
+<td><div><pre>java.lang.NullPointerException
+	at com.tetherfi.test.BaseTest.openApplication(BaseTest.java:37)
 	at java.base/java.util.ArrayList.forEach(Unknown Source)
-... Removed 30 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace591761190", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace591761190'><pre>java.lang.AssertionError: Cancel assertion failed did not expect to find [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:97)
-	at org.testng.Assert.failNotEquals(Assert.java:969)
-	at org.testng.Assert.assertTrue(Assert.java:43)
-	at com.tetherfi.test.tmac.TmacBroadCastMsgTest.EditTmacBroadCastMsgCancel(TmacBroadCastMsgTest.java:144)
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1076406962", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1076406962'><pre>java.lang.NullPointerException
+	at com.tetherfi.test.BaseTest.openApplication(BaseTest.java:37)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
 	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:62)
+	at org.testng.internal.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:340)
+	at org.testng.internal.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:294)
+	at org.testng.internal.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:176)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:122)
 	at java.base/java.util.ArrayList.forEach(Unknown Source)
 	at org.testng.TestRunner.privateRun(TestRunner.java:770)
 	at org.testng.TestRunner.run(TestRunner.java:591)
@@ -114,155 +109,257 @@ function toggleAllBoxes() {
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
-<td>6</td>
-<td>com.tetherfi.test.tmac.TmacBroadCastMsgTest@a09303</td></tr>
-<tr>
-<td title='com.tetherfi.test.tmac.TmacBroadCastMsgTest.SortingByAscending()'><b>SortingByAscending</b><br>Test class: com.tetherfi.test.tmac.TmacBroadCastMsgTest</td>
-<td><div><pre>java.lang.AssertionError: did not expect to find [true] but found [false]
-	at com.tetherfi.test.tmac.TmacBroadCastMsgTest.SortingByAscending(TmacBroadCastMsgTest.java:318)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-... Removed 31 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1014881069", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1014881069'><pre>java.lang.AssertionError: did not expect to find [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:97)
-	at org.testng.Assert.failNotEquals(Assert.java:969)
-	at org.testng.Assert.assertTrue(Assert.java:43)
-	at org.testng.Assert.assertTrue(Assert.java:53)
-	at com.tetherfi.test.tmac.TmacBroadCastMsgTest.SortingByAscending(TmacBroadCastMsgTest.java:318)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-	at org.testng.TestRunner.privateRun(TestRunner.java:770)
-	at org.testng.TestRunner.run(TestRunner.java:591)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-	at org.testng.TestNG.runSuites(TestNG.java:1032)
-	at org.testng.TestNG.run(TestNG.java:1000)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div></td>
-<td>6</td>
-<td>com.tetherfi.test.tmac.TmacBroadCastMsgTest@a09303</td></tr>
-<tr>
-<td title='com.tetherfi.test.tmac.TmacBroadCastMsgTest.SortingByDescending()'><b>SortingByDescending</b><br>Test class: com.tetherfi.test.tmac.TmacBroadCastMsgTest</td>
-<td><div><pre>java.lang.AssertionError: did not expect to find [true] but found [false]
-	at com.tetherfi.test.tmac.TmacBroadCastMsgTest.SortingByDescending(TmacBroadCastMsgTest.java:326)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-... Removed 31 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace917687149", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace917687149'><pre>java.lang.AssertionError: did not expect to find [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:97)
-	at org.testng.Assert.failNotEquals(Assert.java:969)
-	at org.testng.Assert.assertTrue(Assert.java:43)
-	at org.testng.Assert.assertTrue(Assert.java:53)
-	at com.tetherfi.test.tmac.TmacBroadCastMsgTest.SortingByDescending(TmacBroadCastMsgTest.java:326)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-	at org.testng.TestRunner.privateRun(TestRunner.java:770)
-	at org.testng.TestRunner.run(TestRunner.java:591)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-	at org.testng.TestNG.runSuites(TestNG.java:1032)
-	at org.testng.TestNG.run(TestNG.java:1000)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div></td>
-<td>6</td>
-<td>com.tetherfi.test.tmac.TmacBroadCastMsgTest@a09303</td></tr>
-<tr>
-<td title='com.tetherfi.test.tmac.TmacBroadCastMsgTest.VerifyAuditTrailReportForUpdate()'><b>VerifyAuditTrailReportForUpdate</b><br>Test class: com.tetherfi.test.tmac.TmacBroadCastMsgTest</td>
-<td><div><pre>java.lang.AssertionError: did not expect to find [true] but found [false]
-	at com.tetherfi.test.tmac.TmacBroadCastMsgTest.VerifyAuditTrailReportForUpdate(TmacBroadCastMsgTest.java:168)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-... Removed 31 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace437328533", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace437328533'><pre>java.lang.AssertionError: did not expect to find [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:97)
-	at org.testng.Assert.failNotEquals(Assert.java:969)
-	at org.testng.Assert.assertTrue(Assert.java:43)
-	at org.testng.Assert.assertTrue(Assert.java:53)
-	at com.tetherfi.test.tmac.TmacBroadCastMsgTest.VerifyAuditTrailReportForUpdate(TmacBroadCastMsgTest.java:168)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-	at org.testng.TestRunner.privateRun(TestRunner.java:770)
-	at org.testng.TestRunner.run(TestRunner.java:591)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-	at org.testng.TestNG.runSuites(TestNG.java:1032)
-	at org.testng.TestNG.run(TestNG.java:1000)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div></td>
-<td>26</td>
-<td>com.tetherfi.test.tmac.TmacBroadCastMsgTest@a09303</td></tr>
+<td>17</td>
+<td>com.tetherfi.test.tmac.TmacAuxCodesTest@502a4156</td></tr>
 </table><p>
-<table width='100%' border='1' class='invocation-passed'>
-<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<table width='100%' border='1' class='invocation-skipped'>
+<tr><td colspan='4' align='center'><b>SKIPPED CONFIGURATIONS</b></td></tr>
 <tr><td><b>Test method</b></td>
 <td width="30%"><b>Exception</b></td>
 <td width="10%"><b>Time (seconds)</b></td>
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.tetherfi.test.tmac.TmacBroadCastMsgTest.EditTmacBroadCastMsg()'><b>EditTmacBroadCastMsg</b><br>Test class: com.tetherfi.test.tmac.TmacBroadCastMsgTest</td>
+<td title='com.tetherfi.test.tmac.TmacAuxCodesTest.startTestCase()'><b>startTestCase</b><br>Test class: com.tetherfi.test.tmac.TmacAuxCodesTest</td>
 <td></td>
-<td>6</td>
-<td>com.tetherfi.test.tmac.TmacBroadCastMsgTest@a09303</td></tr>
+<td>-1584002864</td>
+<td>com.tetherfi.test.tmac.TmacAuxCodesTest@502a4156</td></tr>
 <tr>
-<td title='com.tetherfi.test.tmac.TmacBroadCastMsgTest.VerifySearchIsNotEqualTo()'><b>VerifySearchIsNotEqualTo</b><br>Test class: com.tetherfi.test.tmac.TmacBroadCastMsgTest</td>
+<td title='com.tetherfi.test.tmac.TmacAuxCodesTest.NavigateToTmaxAuxCodesPage()'><b>NavigateToTmaxAuxCodesPage</b><br>Test class: com.tetherfi.test.tmac.TmacAuxCodesTest</td>
 <td></td>
-<td>5</td>
-<td>com.tetherfi.test.tmac.TmacBroadCastMsgTest@a09303</td></tr>
+<td>-1584002864</td>
+<td>com.tetherfi.test.tmac.TmacAuxCodesTest@502a4156</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.TmacAuxCodesTest.startTestCase()'><b>startTestCase</b><br>Test class: com.tetherfi.test.tmac.TmacAuxCodesTest</td>
+<td></td>
+<td>-1584002864</td>
+<td>com.tetherfi.test.tmac.TmacAuxCodesTest@502a4156</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.TmacAuxCodesTest.NavigateToTmaxAuxCodesPage()'><b>NavigateToTmaxAuxCodesPage</b><br>Test class: com.tetherfi.test.tmac.TmacAuxCodesTest</td>
+<td></td>
+<td>-1584002864</td>
+<td>com.tetherfi.test.tmac.TmacAuxCodesTest@502a4156</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.TmacAuxCodesTest.startTestCase()'><b>startTestCase</b><br>Test class: com.tetherfi.test.tmac.TmacAuxCodesTest</td>
+<td></td>
+<td>-1584002864</td>
+<td>com.tetherfi.test.tmac.TmacAuxCodesTest@502a4156</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.TmacAuxCodesTest.NavigateToTmaxAuxCodesPage()'><b>NavigateToTmaxAuxCodesPage</b><br>Test class: com.tetherfi.test.tmac.TmacAuxCodesTest</td>
+<td></td>
+<td>-1584002864</td>
+<td>com.tetherfi.test.tmac.TmacAuxCodesTest@502a4156</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.TmacAuxCodesTest.startTestCase()'><b>startTestCase</b><br>Test class: com.tetherfi.test.tmac.TmacAuxCodesTest</td>
+<td></td>
+<td>-1584002864</td>
+<td>com.tetherfi.test.tmac.TmacAuxCodesTest@502a4156</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.TmacAuxCodesTest.NavigateToTmaxAuxCodesPage()'><b>NavigateToTmaxAuxCodesPage</b><br>Test class: com.tetherfi.test.tmac.TmacAuxCodesTest</td>
+<td></td>
+<td>-1584002864</td>
+<td>com.tetherfi.test.tmac.TmacAuxCodesTest@502a4156</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.TmacAuxCodesTest.AfterEachMethod()'><b>AfterEachMethod</b><br>Test class: com.tetherfi.test.tmac.TmacAuxCodesTest</td>
+<td></td>
+<td>-1584002864</td>
+<td>com.tetherfi.test.tmac.TmacAuxCodesTest@502a4156</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.TmacAuxCodesTest.endTestCase()'><b>endTestCase</b><br>Test class: com.tetherfi.test.tmac.TmacAuxCodesTest</td>
+<td></td>
+<td>-1584002864</td>
+<td>com.tetherfi.test.tmac.TmacAuxCodesTest@502a4156</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.TmacAuxCodesTest.AfterEachMethod()'><b>AfterEachMethod</b><br>Test class: com.tetherfi.test.tmac.TmacAuxCodesTest</td>
+<td></td>
+<td>-1584002864</td>
+<td>com.tetherfi.test.tmac.TmacAuxCodesTest@502a4156</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.TmacAuxCodesTest.endTestCase()'><b>endTestCase</b><br>Test class: com.tetherfi.test.tmac.TmacAuxCodesTest</td>
+<td></td>
+<td>-1584002864</td>
+<td>com.tetherfi.test.tmac.TmacAuxCodesTest@502a4156</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.TmacAuxCodesTest.AfterEachMethod()'><b>AfterEachMethod</b><br>Test class: com.tetherfi.test.tmac.TmacAuxCodesTest</td>
+<td></td>
+<td>-1584002864</td>
+<td>com.tetherfi.test.tmac.TmacAuxCodesTest@502a4156</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.TmacAuxCodesTest.endTestCase()'><b>endTestCase</b><br>Test class: com.tetherfi.test.tmac.TmacAuxCodesTest</td>
+<td></td>
+<td>-1584002864</td>
+<td>com.tetherfi.test.tmac.TmacAuxCodesTest@502a4156</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.TmacAuxCodesTest.AfterEachMethod()'><b>AfterEachMethod</b><br>Test class: com.tetherfi.test.tmac.TmacAuxCodesTest</td>
+<td></td>
+<td>-1584002864</td>
+<td>com.tetherfi.test.tmac.TmacAuxCodesTest@502a4156</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.TmacAuxCodesTest.endTestCase()'><b>endTestCase</b><br>Test class: com.tetherfi.test.tmac.TmacAuxCodesTest</td>
+<td></td>
+<td>-1584002864</td>
+<td>com.tetherfi.test.tmac.TmacAuxCodesTest@502a4156</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.TmacAuxCodesTest.tearDown()'><b>tearDown</b><br>Test class: com.tetherfi.test.tmac.TmacAuxCodesTest</td>
+<td></td>
+<td>-1584002864</td>
+<td>com.tetherfi.test.tmac.TmacAuxCodesTest@502a4156</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-skipped'>
+<tr><td colspan='4' align='center'><b>SKIPPED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.tetherfi.test.tmac.TmacAuxCodesTest.AddRecordWithoutCode()'><b>AddRecordWithoutCode</b><br>Test class: com.tetherfi.test.tmac.TmacAuxCodesTest</td>
+<td><div><pre>java.lang.NullPointerException
+	at com.tetherfi.test.BaseTest.openApplication(BaseTest.java:37)
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace349629923", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace349629923'><pre>java.lang.NullPointerException
+	at com.tetherfi.test.BaseTest.openApplication(BaseTest.java:37)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:62)
+	at org.testng.internal.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:340)
+	at org.testng.internal.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:294)
+	at org.testng.internal.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:176)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:122)
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+	at org.testng.TestRunner.privateRun(TestRunner.java:770)
+	at org.testng.TestRunner.run(TestRunner.java:591)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+	at org.testng.TestNG.runSuites(TestNG.java:1032)
+	at org.testng.TestNG.run(TestNG.java:1000)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>com.tetherfi.test.tmac.TmacAuxCodesTest@502a4156</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.TmacAuxCodesTest.AddRecordWithoutName()'><b>AddRecordWithoutName</b><br>Test class: com.tetherfi.test.tmac.TmacAuxCodesTest</td>
+<td><div><pre>java.lang.NullPointerException
+	at com.tetherfi.test.BaseTest.openApplication(BaseTest.java:37)
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1938311278", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1938311278'><pre>java.lang.NullPointerException
+	at com.tetherfi.test.BaseTest.openApplication(BaseTest.java:37)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:62)
+	at org.testng.internal.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:340)
+	at org.testng.internal.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:294)
+	at org.testng.internal.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:176)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:122)
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+	at org.testng.TestRunner.privateRun(TestRunner.java:770)
+	at org.testng.TestRunner.run(TestRunner.java:591)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+	at org.testng.TestNG.runSuites(TestNG.java:1032)
+	at org.testng.TestNG.run(TestNG.java:1000)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>com.tetherfi.test.tmac.TmacAuxCodesTest@502a4156</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.TmacAuxCodesTest.DuplicateRecord()'><b>DuplicateRecord</b><br>Test class: com.tetherfi.test.tmac.TmacAuxCodesTest</td>
+<td><div><pre>java.lang.NullPointerException
+	at com.tetherfi.test.BaseTest.openApplication(BaseTest.java:37)
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1555478555", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1555478555'><pre>java.lang.NullPointerException
+	at com.tetherfi.test.BaseTest.openApplication(BaseTest.java:37)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:62)
+	at org.testng.internal.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:340)
+	at org.testng.internal.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:294)
+	at org.testng.internal.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:176)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:122)
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+	at org.testng.TestRunner.privateRun(TestRunner.java:770)
+	at org.testng.TestRunner.run(TestRunner.java:591)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+	at org.testng.TestNG.runSuites(TestNG.java:1032)
+	at org.testng.TestNG.run(TestNG.java:1000)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>com.tetherfi.test.tmac.TmacAuxCodesTest@502a4156</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.TmacAuxCodesTest.verifyAddNewTmacAuxCodesCancelButton()'><b>verifyAddNewTmacAuxCodesCancelButton</b><br>Test class: com.tetherfi.test.tmac.TmacAuxCodesTest</td>
+<td><div><pre>java.lang.NullPointerException
+	at com.tetherfi.test.BaseTest.openApplication(BaseTest.java:37)
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1393726189", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1393726189'><pre>java.lang.NullPointerException
+	at com.tetherfi.test.BaseTest.openApplication(BaseTest.java:37)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:62)
+	at org.testng.internal.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:340)
+	at org.testng.internal.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:294)
+	at org.testng.internal.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:176)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:122)
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+	at org.testng.TestRunner.privateRun(TestRunner.java:770)
+	at org.testng.TestRunner.run(TestRunner.java:591)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+	at org.testng.TestNG.runSuites(TestNG.java:1032)
+	at org.testng.TestNG.run(TestNG.java:1000)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>com.tetherfi.test.tmac.TmacAuxCodesTest@502a4156</td></tr>
 </table><p>
 </body>
 </html>

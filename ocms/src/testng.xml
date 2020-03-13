@@ -11,9 +11,9 @@
 			class-name="com.tetherfi.ExtentReportListener.ExtentReporterNG" />
 	</listeners>
      
-     <test name="ChatTemplatesTest" parallel="false">
+     <test name="WaitTimeColorConfigTest" parallel="false">
       <classes>  
-           <class name="com.tetherfi.test.chat.ChatTemplatesTest"/> 
+           <class name="com.tetherfi.test.tmac.WaitTimeColorConfigTest"/> 
             </classes>
      </test>
               

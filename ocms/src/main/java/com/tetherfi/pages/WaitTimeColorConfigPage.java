@@ -663,6 +663,16 @@ public class WaitTimeColorConfigPage extends BasePage {
 			List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
 			String col="";
 			for(int j=1;j<headers.size();j++){
+				if(headers.get(j).getText().equals("Last Changed On")){
+					col=cols.get(j).getText().substring(11);
+				}
+				else if(headers.get(j).getText().equals("Start Duration")) {
+					col=cols.get(j).getText().replaceAll(":", "");
+				}
+				else if(headers.get(j).getText().equals("End Duration")) {
+					col=cols.get(j).getText().replaceAll(":", "");
+				}
+				else
 					col=cols.get(j).getText();
 				map.put(headers.get(j).getText(),col);
 			}

@@ -19,7 +19,7 @@ import java.util.Map;
 
 public class TmacBroadCastMsgTest extends BaseTest {
 	Screenshot screenshot=new Screenshot(driver);
-   // @BeforeClass
+    @BeforeClass
     public void AddNewAgentTeamManagementRecord() throws Exception {
         HomePage homePage= PageFactory.createPageInstance(driver,HomePage.class);
         homePage.navigateToOCMPage();
@@ -346,7 +346,7 @@ public class TmacBroadCastMsgTest extends BaseTest {
          driver.navigate().refresh();
      
     }
-    //@AfterClass
+    @AfterClass
     public void Afterclass() throws Exception
     {
     	HomePage homePage= PageFactory.createPageInstance(driver,HomePage.class);

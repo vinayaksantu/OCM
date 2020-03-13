@@ -4,16 +4,38 @@
   <listeners>
     <listener class-name="com.tetherfi.ExtentReportListener.ExtentReporterNG"/>
   </listeners>
-  <test thread-count="5" name="SmsResponseTemplateDeleteTest(failed)">
+  <test thread-count="5" name="WaitTimeColorConfigTest(failed)">
     <classes>
-      <class name="com.tetherfi.test.sms.SmsResponseTemplateDeleteTest">
+      <class name="com.tetherfi.test.tmac.WaitTimeColorConfigTest">
         <methods>
+          <include name="SortingByAscending"/>
+          <include name="VerifyColumnsHeaderEnable"/>
+          <include name="DeleteCancelRecord"/>
+          <include name="DeleteRecord"/>
+          <include name="startTestCase"/>
+          <include name="openApplication"/>
+          <include name="database"/>
+          <include name="VerifyArrowMoveForFirstAndLastPage"/>
+          <include name="SortingByDescending"/>
+          <include name="GroupBy"/>
           <include name="VerifyAuditTrialReportForDelete"/>
+          <include name="ExporttoExcelWithoutData"/>
+          <include name="VerifyArrowMoveForPreviousAndNextPage"/>
+          <include name="NavigateToWaitTimeColorConfigPage"/>
+          <include name="endTestCase"/>
+          <include name="tearDown"/>
+          <include name="VerifyAuditTrialReportForUpdate"/>
+          <include name="VerifyDropdownForAllTheColumns"/>
+          <include name="ExportToExcelData"/>
+          <include name="VerifyNumberOfItemsPerPageSelection"/>
           <include name="afterEachMethod"/>
-          <include name="NavigateToSmsResponseTemplatePage"/>
-          <include name="DeleteSmsResponseTemplateRecord"/>
+          <include name="ExportToExcel"/>
+          <include name="searchPage"/>
+          <include name="VerifyColumnsHeaderDisable"/>
+          <include name="VerifyTotalNumberOfItemsPerPageDetails"/>
+          <include name="SearchClearSearch"/>
         </methods>
-      </class> <!-- com.tetherfi.test.sms.SmsResponseTemplateDeleteTest -->
+      </class> <!-- com.tetherfi.test.tmac.WaitTimeColorConfigTest -->
     </classes>
-  </test> <!-- SmsResponseTemplateDeleteTest(failed) -->
+  </test> <!-- WaitTimeColorConfigTest(failed) -->
 </suite> <!-- Failed suite [Tetherfi Test Automation] -->

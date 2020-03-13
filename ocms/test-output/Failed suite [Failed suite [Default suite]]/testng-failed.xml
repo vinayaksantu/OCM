@@ -3,19 +3,20 @@
 <suite name="Failed suite [Failed suite [Failed suite [Default suite]]]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)(failed)(failed)">
     <classes>
-      <class name="com.tetherfi.test.tmac.TmacBroadCastMsgTest">
+      <class name="com.tetherfi.test.tmac.TmacAuxCodesTest">
         <methods>
+          <include name="AddRecordWithoutCode"/>
           <include name="startTestCase"/>
           <include name="openApplication"/>
-          <include name="afterEachMethod"/>
-          <include name="VerifyAuditTrailReportForUpdate"/>
+          <include name="DuplicateRecord"/>
+          <include name="verifyAddNewTmacAuxCodesCancelButton"/>
+          <include name="AfterEachMethod"/>
           <include name="endTestCase"/>
           <include name="tearDown"/>
-          <include name="EditTmacBroadCastMsg"/>
-          <include name="EditTmacBroadCastMsgCancel"/>
-          <include name="NavigateToTmacBroadcastMsgPage"/>
+          <include name="AddRecordWithoutName"/>
+          <include name="NavigateToTmaxAuxCodesPage"/>
         </methods>
-      </class> <!-- com.tetherfi.test.tmac.TmacBroadCastMsgTest -->
+      </class> <!-- com.tetherfi.test.tmac.TmacAuxCodesTest -->
     </classes>
   </test> <!-- Default test(failed)(failed)(failed) -->
 </suite> <!-- Failed suite [Failed suite [Failed suite [Default suite]]] -->
