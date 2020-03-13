@@ -260,8 +260,8 @@ public class OCMAgentRatingReportTest extends BaseTest {
         OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
         ocmReportsPage.showReport(reportDetails);       
         OCMAgentRatingPage agntratingpg=PageFactory.createPageInstance(driver,OCMAgentRatingPage.class);
-        agntratingpg.navigateToExportSchedulerPage();    
-        Assert.assertTrue(agntratingpg.isExportSchedulerPageDisplayed(), "ExportScheduler page assertion failed");
+//        agntratingpg.navigateToExportSchedulerPage();    
+//        Assert.assertTrue(agntratingpg.isExportSchedulerPageDisplayed(), "ExportScheduler page assertion failed");
     	screenshot.captureScreen("OCMAgentRatingReportTest","ExportSchedulerPage");    	 
     }
     @Test(priority=24)

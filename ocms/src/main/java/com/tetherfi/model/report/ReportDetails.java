@@ -23,6 +23,8 @@ public class ReportDetails {
     private String coltype;
     private String searchStr;
     private String reportName1;
+    private String query;
+
     
 
     public ReportDetails(Map<String, String> map){
@@ -31,6 +33,7 @@ public class ReportDetails {
         reportName1=readReportName1(map);
         reportType=readReportType(map);
         reportDate=readReportDate(map);
+        query=readQuery(map);
         try {
             startDate=readStartDate(map);
         } catch (ParseException e) {
@@ -143,6 +146,10 @@ public class ReportDetails {
         }
         return value;
     }
+    private String readQuery(Map<String, String> map) {
+		String value=map.get("Query");
+		return value;
+	}
 
     public String getReportChannel() {
         return reportChannel;
@@ -189,5 +196,8 @@ public class ReportDetails {
     }
 	public String getReportName1() {
 		return reportName1;
+	}
+	public String getQuery() {
+		return query;
 	}
 }

@@ -8,6 +8,7 @@ import java.util.Scanner;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
+import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -73,4 +74,28 @@ public class JSONReader {
         }
         return map;
     }
+    public Map<String,String> getJsonGridColumnTitleKeyDataForReports(String key) {
+        Map<String,String> map=new HashMap<>();     
+        
+        try {
+            byte[] jsonData = Files.readAllBytes(Paths.get(filename));
+            System.out.println(jsonData);       
+            ObjectMapper objectMapper = new ObjectMapper();
+            objectMapper.enable(JsonParser.Feature.ALLOW_COMMENTS);
+            JsonNode rootNode = objectMapper.readTree(jsonData);
+            JsonNode gridColumnNode = rootNode.path("Grid");
+            gridColumnNode=gridColumnNode.get(0);
+            gridColumnNode=gridColumnNode.path("Columns");
+            Iterator<JsonNode> elements = gridColumnNode.elements();
+            while(elements.hasNext()) {
+                JsonNode column = elements.next();
+                map.put(column.path("Title").asText(),column.path(key).asText());
+            }
+           System.out.println(map);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return map;
+    }
+
 }

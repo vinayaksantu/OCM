@@ -20,7 +20,7 @@ import com.tetherfi.utility.ExcelReader;
 import com.tetherfi.utility.PageFactory;
 import com.tetherfi.utility.Screenshot;
 
-public class AgentSkillhistoricalReportTest extends BaseTest {
+public class SkillHistoricalReportTest extends BaseTest {
 	Screenshot screenshot=new Screenshot(driver);
     @BeforeMethod
     public void NavigateToOcmReportsPage() {
