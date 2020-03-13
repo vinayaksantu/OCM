@@ -24,7 +24,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -38,7 +38,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" panel-name="suite-Tetherfi_Test_Automation" class="navigator-link">
-              <span class="suite-name border-skipped">Tetherfi Test Automation</span>
+              <span class="suite-name border-failed">Tetherfi Test Automation</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -91,7 +91,21 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">34 methods,  20 skipped,  14 passed</span>
+                    <span class="method-stats">34 methods, 1 failed,  19 skipped,  14 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Tetherfi_Test_Automation" class="hide-methods failed suite-Tetherfi_Test_Automation"> (hide)</a> <!-- hide-methods failed suite-Tetherfi_Test_Automation -->
+                      <a href="#" panel-name="suite-Tetherfi_Test_Automation" class="show-methods failed suite-Tetherfi_Test_Automation"> (show)</a> <!-- show-methods failed suite-Tetherfi_Test_Automation -->
+                    </span>
+                    <div class="method-list-content failed suite-Tetherfi_Test_Automation">
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Tetherfi_Test_Automation" title="com.tetherfi.test.tmac.WaitTimeColorConfigTest" class="method navigator-link" hash-for-method="VerifyAuditTrialReportForUpdate">VerifyAuditTrialReportForUpdate</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-Tetherfi_Test_Automation -->
                   </li>
                   <li>
                     <span class="method-list-title skipped">Skipped methods</span>
@@ -158,11 +172,6 @@
                       <span>
                         <img src="skipped.png" width="3%"/>
                         <a href="#" panel-name="suite-Tetherfi_Test_Automation" title="com.tetherfi.test.tmac.WaitTimeColorConfigTest" class="method navigator-link" hash-for-method="VerifyAuditTrialReportForDelete">VerifyAuditTrialReportForDelete</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="skipped.png" width="3%"/>
-                        <a href="#" panel-name="suite-Tetherfi_Test_Automation" title="com.tetherfi.test.tmac.WaitTimeColorConfigTest" class="method navigator-link" hash-for-method="VerifyAuditTrialReportForUpdate">VerifyAuditTrialReportForUpdate</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
@@ -291,6 +300,31 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Tetherfi_Test_Automation" class="panel Tetherfi_Test_Automation">
+          <div class="suite-Tetherfi_Test_Automation-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">com.tetherfi.test.tmac.WaitTimeColorConfigTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="VerifyAuditTrialReportForUpdate">
+                  </a> <!-- VerifyAuditTrialReportForUpdate -->
+                  <span class="method-name">VerifyAuditTrialReportForUpdate</span>
+                  <div class="stack-trace">java.lang.IndexOutOfBoundsException: Index: 0
+	at java.base/java.util.Collections$EmptyList.get(Unknown Source)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementListHandler.invoke(LocatingElementListHandler.java:39)
+	at com.sun.proxy.$Proxy17.get(Unknown Source)
+	at com.tetherfi.pages.OCMReportsPage.booleansearchnew(OCMReportsPage.java:1153)
+	at com.tetherfi.pages.OCMReportsPage.verifywaitTimeColorConfigUpdate(OCMReportsPage.java:1321)
+	at com.tetherfi.test.tmac.WaitTimeColorConfigTest.VerifyAuditTrialReportForUpdate(WaitTimeColorConfigTest.java:196)
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+... Removed 30 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Tetherfi_Test_Automation-class-failed -->
           <div class="suite-Tetherfi_Test_Automation-class-skipped">
             <div class="main-panel-header rounded-window-top">
               <img src="skipped.png"/>
@@ -308,26 +342,19 @@ from unknown error: web view not found
 Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
 System info: host: &apos;DESKTOP-O6A5C2O&apos;, ip: &apos;10.0.75.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;9.0.4&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.70, chrome: {chromedriverVersion: 78.0.3904.105 (60e2d8774a81..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:55083}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 1af285f23d97a1ca7e73739770f247c6
-*** Element info: {Using=css selector, value=.ibox-title h5}
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.70, chrome: {chromedriverVersion: 78.0.3904.105 (60e2d8774a81..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:51153}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 61ff450e32ad448e4b9df9f7c7be1b3f
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
 	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:420)
-	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:431)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
-	at com.sun.proxy.$Proxy16.isEnabled(Unknown Source)
-	at com.tetherfi.pages.WaitTimeColorConfigPage.isWaitTimeColorConfigPageDisplayed(WaitTimeColorConfigPage.java:242)
-	at com.tetherfi.test.tmac.WaitTimeColorConfigTest.NavigateToWaitTimeColorConfigPage(WaitTimeColorConfigTest.java:39)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:609)
+	at org.openqa.selenium.remote.RemoteWebDriver$RemoteNavigation.refresh(RemoteWebDriver.java:865)
+	at com.tetherfi.test.tmac.WaitTimeColorConfigTest.afterEachMethod(WaitTimeColorConfigTest.java:361)
 	at java.base/java.util.ArrayList.forEach(Unknown Source)
-... Removed 34 stack frames
+... Removed 36 stack frames
 </div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
@@ -342,26 +369,19 @@ from unknown error: web view not found
 Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
 System info: host: &apos;DESKTOP-O6A5C2O&apos;, ip: &apos;10.0.75.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;9.0.4&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.70, chrome: {chromedriverVersion: 78.0.3904.105 (60e2d8774a81..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:55083}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 1af285f23d97a1ca7e73739770f247c6
-*** Element info: {Using=css selector, value=.ibox-title h5}
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.70, chrome: {chromedriverVersion: 78.0.3904.105 (60e2d8774a81..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:51153}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 61ff450e32ad448e4b9df9f7c7be1b3f
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
 	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:420)
-	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:431)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
-	at com.sun.proxy.$Proxy16.isEnabled(Unknown Source)
-	at com.tetherfi.pages.WaitTimeColorConfigPage.isWaitTimeColorConfigPageDisplayed(WaitTimeColorConfigPage.java:242)
-	at com.tetherfi.test.tmac.WaitTimeColorConfigTest.NavigateToWaitTimeColorConfigPage(WaitTimeColorConfigTest.java:39)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:609)
+	at org.openqa.selenium.remote.RemoteWebDriver$RemoteNavigation.refresh(RemoteWebDriver.java:865)
+	at com.tetherfi.test.tmac.WaitTimeColorConfigTest.afterEachMethod(WaitTimeColorConfigTest.java:361)
 	at java.base/java.util.ArrayList.forEach(Unknown Source)
-... Removed 34 stack frames
+... Removed 36 stack frames
 </div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
@@ -376,26 +396,19 @@ from unknown error: web view not found
 Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
 System info: host: &apos;DESKTOP-O6A5C2O&apos;, ip: &apos;10.0.75.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;9.0.4&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.70, chrome: {chromedriverVersion: 78.0.3904.105 (60e2d8774a81..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:55083}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 1af285f23d97a1ca7e73739770f247c6
-*** Element info: {Using=css selector, value=.ibox-title h5}
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.70, chrome: {chromedriverVersion: 78.0.3904.105 (60e2d8774a81..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:51153}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 61ff450e32ad448e4b9df9f7c7be1b3f
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
 	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:420)
-	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:431)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
-	at com.sun.proxy.$Proxy16.isEnabled(Unknown Source)
-	at com.tetherfi.pages.WaitTimeColorConfigPage.isWaitTimeColorConfigPageDisplayed(WaitTimeColorConfigPage.java:242)
-	at com.tetherfi.test.tmac.WaitTimeColorConfigTest.NavigateToWaitTimeColorConfigPage(WaitTimeColorConfigTest.java:39)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:609)
+	at org.openqa.selenium.remote.RemoteWebDriver$RemoteNavigation.refresh(RemoteWebDriver.java:865)
+	at com.tetherfi.test.tmac.WaitTimeColorConfigTest.afterEachMethod(WaitTimeColorConfigTest.java:361)
 	at java.base/java.util.ArrayList.forEach(Unknown Source)
-... Removed 34 stack frames
+... Removed 36 stack frames
 </div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
@@ -410,26 +423,19 @@ from unknown error: web view not found
 Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
 System info: host: &apos;DESKTOP-O6A5C2O&apos;, ip: &apos;10.0.75.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;9.0.4&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.70, chrome: {chromedriverVersion: 78.0.3904.105 (60e2d8774a81..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:55083}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 1af285f23d97a1ca7e73739770f247c6
-*** Element info: {Using=css selector, value=.ibox-title h5}
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.70, chrome: {chromedriverVersion: 78.0.3904.105 (60e2d8774a81..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:51153}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 61ff450e32ad448e4b9df9f7c7be1b3f
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
 	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:420)
-	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:431)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
-	at com.sun.proxy.$Proxy16.isEnabled(Unknown Source)
-	at com.tetherfi.pages.WaitTimeColorConfigPage.isWaitTimeColorConfigPageDisplayed(WaitTimeColorConfigPage.java:242)
-	at com.tetherfi.test.tmac.WaitTimeColorConfigTest.NavigateToWaitTimeColorConfigPage(WaitTimeColorConfigTest.java:39)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:609)
+	at org.openqa.selenium.remote.RemoteWebDriver$RemoteNavigation.refresh(RemoteWebDriver.java:865)
+	at com.tetherfi.test.tmac.WaitTimeColorConfigTest.afterEachMethod(WaitTimeColorConfigTest.java:361)
 	at java.base/java.util.ArrayList.forEach(Unknown Source)
-... Removed 34 stack frames
+... Removed 36 stack frames
 </div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
@@ -444,26 +450,19 @@ from unknown error: web view not found
 Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
 System info: host: &apos;DESKTOP-O6A5C2O&apos;, ip: &apos;10.0.75.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;9.0.4&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.70, chrome: {chromedriverVersion: 78.0.3904.105 (60e2d8774a81..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:55083}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 1af285f23d97a1ca7e73739770f247c6
-*** Element info: {Using=css selector, value=.ibox-title h5}
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.70, chrome: {chromedriverVersion: 78.0.3904.105 (60e2d8774a81..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:51153}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 61ff450e32ad448e4b9df9f7c7be1b3f
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
 	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:420)
-	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:431)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
-	at com.sun.proxy.$Proxy16.isEnabled(Unknown Source)
-	at com.tetherfi.pages.WaitTimeColorConfigPage.isWaitTimeColorConfigPageDisplayed(WaitTimeColorConfigPage.java:242)
-	at com.tetherfi.test.tmac.WaitTimeColorConfigTest.NavigateToWaitTimeColorConfigPage(WaitTimeColorConfigTest.java:39)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:609)
+	at org.openqa.selenium.remote.RemoteWebDriver$RemoteNavigation.refresh(RemoteWebDriver.java:865)
+	at com.tetherfi.test.tmac.WaitTimeColorConfigTest.afterEachMethod(WaitTimeColorConfigTest.java:361)
 	at java.base/java.util.ArrayList.forEach(Unknown Source)
-... Removed 34 stack frames
+... Removed 36 stack frames
 </div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
@@ -478,26 +477,19 @@ from unknown error: web view not found
 Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
 System info: host: &apos;DESKTOP-O6A5C2O&apos;, ip: &apos;10.0.75.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;9.0.4&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.70, chrome: {chromedriverVersion: 78.0.3904.105 (60e2d8774a81..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:55083}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 1af285f23d97a1ca7e73739770f247c6
-*** Element info: {Using=css selector, value=.ibox-title h5}
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.70, chrome: {chromedriverVersion: 78.0.3904.105 (60e2d8774a81..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:51153}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 61ff450e32ad448e4b9df9f7c7be1b3f
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
 	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:420)
-	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:431)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
-	at com.sun.proxy.$Proxy16.isEnabled(Unknown Source)
-	at com.tetherfi.pages.WaitTimeColorConfigPage.isWaitTimeColorConfigPageDisplayed(WaitTimeColorConfigPage.java:242)
-	at com.tetherfi.test.tmac.WaitTimeColorConfigTest.NavigateToWaitTimeColorConfigPage(WaitTimeColorConfigTest.java:39)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:609)
+	at org.openqa.selenium.remote.RemoteWebDriver$RemoteNavigation.refresh(RemoteWebDriver.java:865)
+	at com.tetherfi.test.tmac.WaitTimeColorConfigTest.afterEachMethod(WaitTimeColorConfigTest.java:361)
 	at java.base/java.util.ArrayList.forEach(Unknown Source)
-... Removed 34 stack frames
+... Removed 36 stack frames
 </div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
@@ -512,26 +504,19 @@ from unknown error: web view not found
 Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
 System info: host: &apos;DESKTOP-O6A5C2O&apos;, ip: &apos;10.0.75.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;9.0.4&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.70, chrome: {chromedriverVersion: 78.0.3904.105 (60e2d8774a81..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:55083}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 1af285f23d97a1ca7e73739770f247c6
-*** Element info: {Using=css selector, value=.ibox-title h5}
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.70, chrome: {chromedriverVersion: 78.0.3904.105 (60e2d8774a81..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:51153}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 61ff450e32ad448e4b9df9f7c7be1b3f
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
 	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:420)
-	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:431)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
-	at com.sun.proxy.$Proxy16.isEnabled(Unknown Source)
-	at com.tetherfi.pages.WaitTimeColorConfigPage.isWaitTimeColorConfigPageDisplayed(WaitTimeColorConfigPage.java:242)
-	at com.tetherfi.test.tmac.WaitTimeColorConfigTest.NavigateToWaitTimeColorConfigPage(WaitTimeColorConfigTest.java:39)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:609)
+	at org.openqa.selenium.remote.RemoteWebDriver$RemoteNavigation.refresh(RemoteWebDriver.java:865)
+	at com.tetherfi.test.tmac.WaitTimeColorConfigTest.afterEachMethod(WaitTimeColorConfigTest.java:361)
 	at java.base/java.util.ArrayList.forEach(Unknown Source)
-... Removed 34 stack frames
+... Removed 36 stack frames
 </div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
@@ -546,26 +531,19 @@ from unknown error: web view not found
 Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
 System info: host: &apos;DESKTOP-O6A5C2O&apos;, ip: &apos;10.0.75.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;9.0.4&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.70, chrome: {chromedriverVersion: 78.0.3904.105 (60e2d8774a81..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:55083}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 1af285f23d97a1ca7e73739770f247c6
-*** Element info: {Using=css selector, value=.ibox-title h5}
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.70, chrome: {chromedriverVersion: 78.0.3904.105 (60e2d8774a81..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:51153}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 61ff450e32ad448e4b9df9f7c7be1b3f
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
 	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:420)
-	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:431)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
-	at com.sun.proxy.$Proxy16.isEnabled(Unknown Source)
-	at com.tetherfi.pages.WaitTimeColorConfigPage.isWaitTimeColorConfigPageDisplayed(WaitTimeColorConfigPage.java:242)
-	at com.tetherfi.test.tmac.WaitTimeColorConfigTest.NavigateToWaitTimeColorConfigPage(WaitTimeColorConfigTest.java:39)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:609)
+	at org.openqa.selenium.remote.RemoteWebDriver$RemoteNavigation.refresh(RemoteWebDriver.java:865)
+	at com.tetherfi.test.tmac.WaitTimeColorConfigTest.afterEachMethod(WaitTimeColorConfigTest.java:361)
 	at java.base/java.util.ArrayList.forEach(Unknown Source)
-... Removed 34 stack frames
+... Removed 36 stack frames
 </div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
@@ -580,26 +558,19 @@ from unknown error: web view not found
 Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
 System info: host: &apos;DESKTOP-O6A5C2O&apos;, ip: &apos;10.0.75.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;9.0.4&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.70, chrome: {chromedriverVersion: 78.0.3904.105 (60e2d8774a81..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:55083}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 1af285f23d97a1ca7e73739770f247c6
-*** Element info: {Using=css selector, value=.ibox-title h5}
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.70, chrome: {chromedriverVersion: 78.0.3904.105 (60e2d8774a81..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:51153}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 61ff450e32ad448e4b9df9f7c7be1b3f
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
 	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:420)
-	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:431)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
-	at com.sun.proxy.$Proxy16.isEnabled(Unknown Source)
-	at com.tetherfi.pages.WaitTimeColorConfigPage.isWaitTimeColorConfigPageDisplayed(WaitTimeColorConfigPage.java:242)
-	at com.tetherfi.test.tmac.WaitTimeColorConfigTest.NavigateToWaitTimeColorConfigPage(WaitTimeColorConfigTest.java:39)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:609)
+	at org.openqa.selenium.remote.RemoteWebDriver$RemoteNavigation.refresh(RemoteWebDriver.java:865)
+	at com.tetherfi.test.tmac.WaitTimeColorConfigTest.afterEachMethod(WaitTimeColorConfigTest.java:361)
 	at java.base/java.util.ArrayList.forEach(Unknown Source)
-... Removed 34 stack frames
+... Removed 36 stack frames
 </div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
@@ -614,26 +585,19 @@ from unknown error: web view not found
 Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
 System info: host: &apos;DESKTOP-O6A5C2O&apos;, ip: &apos;10.0.75.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;9.0.4&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.70, chrome: {chromedriverVersion: 78.0.3904.105 (60e2d8774a81..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:55083}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 1af285f23d97a1ca7e73739770f247c6
-*** Element info: {Using=css selector, value=.ibox-title h5}
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.70, chrome: {chromedriverVersion: 78.0.3904.105 (60e2d8774a81..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:51153}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 61ff450e32ad448e4b9df9f7c7be1b3f
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
 	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:420)
-	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:431)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
-	at com.sun.proxy.$Proxy16.isEnabled(Unknown Source)
-	at com.tetherfi.pages.WaitTimeColorConfigPage.isWaitTimeColorConfigPageDisplayed(WaitTimeColorConfigPage.java:242)
-	at com.tetherfi.test.tmac.WaitTimeColorConfigTest.NavigateToWaitTimeColorConfigPage(WaitTimeColorConfigTest.java:39)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:609)
+	at org.openqa.selenium.remote.RemoteWebDriver$RemoteNavigation.refresh(RemoteWebDriver.java:865)
+	at com.tetherfi.test.tmac.WaitTimeColorConfigTest.afterEachMethod(WaitTimeColorConfigTest.java:361)
 	at java.base/java.util.ArrayList.forEach(Unknown Source)
-... Removed 34 stack frames
+... Removed 36 stack frames
 </div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
@@ -648,26 +612,19 @@ from unknown error: web view not found
 Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
 System info: host: &apos;DESKTOP-O6A5C2O&apos;, ip: &apos;10.0.75.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;9.0.4&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.70, chrome: {chromedriverVersion: 78.0.3904.105 (60e2d8774a81..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:55083}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 1af285f23d97a1ca7e73739770f247c6
-*** Element info: {Using=css selector, value=.ibox-title h5}
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.70, chrome: {chromedriverVersion: 78.0.3904.105 (60e2d8774a81..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:51153}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 61ff450e32ad448e4b9df9f7c7be1b3f
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
 	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:420)
-	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:431)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
-	at com.sun.proxy.$Proxy16.isEnabled(Unknown Source)
-	at com.tetherfi.pages.WaitTimeColorConfigPage.isWaitTimeColorConfigPageDisplayed(WaitTimeColorConfigPage.java:242)
-	at com.tetherfi.test.tmac.WaitTimeColorConfigTest.NavigateToWaitTimeColorConfigPage(WaitTimeColorConfigTest.java:39)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:609)
+	at org.openqa.selenium.remote.RemoteWebDriver$RemoteNavigation.refresh(RemoteWebDriver.java:865)
+	at com.tetherfi.test.tmac.WaitTimeColorConfigTest.afterEachMethod(WaitTimeColorConfigTest.java:361)
 	at java.base/java.util.ArrayList.forEach(Unknown Source)
-... Removed 34 stack frames
+... Removed 36 stack frames
 </div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
@@ -682,60 +639,19 @@ from unknown error: web view not found
 Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
 System info: host: &apos;DESKTOP-O6A5C2O&apos;, ip: &apos;10.0.75.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;9.0.4&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.70, chrome: {chromedriverVersion: 78.0.3904.105 (60e2d8774a81..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:55083}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 1af285f23d97a1ca7e73739770f247c6
-*** Element info: {Using=css selector, value=.ibox-title h5}
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.70, chrome: {chromedriverVersion: 78.0.3904.105 (60e2d8774a81..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:51153}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 61ff450e32ad448e4b9df9f7c7be1b3f
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
 	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:420)
-	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:431)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
-	at com.sun.proxy.$Proxy16.isEnabled(Unknown Source)
-	at com.tetherfi.pages.WaitTimeColorConfigPage.isWaitTimeColorConfigPageDisplayed(WaitTimeColorConfigPage.java:242)
-	at com.tetherfi.test.tmac.WaitTimeColorConfigTest.NavigateToWaitTimeColorConfigPage(WaitTimeColorConfigTest.java:39)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:609)
+	at org.openqa.selenium.remote.RemoteWebDriver$RemoteNavigation.refresh(RemoteWebDriver.java:865)
+	at com.tetherfi.test.tmac.WaitTimeColorConfigTest.afterEachMethod(WaitTimeColorConfigTest.java:361)
 	at java.base/java.util.ArrayList.forEach(Unknown Source)
-... Removed 34 stack frames
-</div> <!-- stack-trace -->
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="VerifyAuditTrialReportForUpdate">
-                  </a> <!-- VerifyAuditTrialReportForUpdate -->
-                  <span class="method-name">VerifyAuditTrialReportForUpdate</span>
-                  <div class="stack-trace">org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
-from unknown error: web view not found
-  (Session info: chrome=78.0.3904.70)
-Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
-System info: host: &apos;DESKTOP-O6A5C2O&apos;, ip: &apos;10.0.75.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;9.0.4&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.70, chrome: {chromedriverVersion: 78.0.3904.105 (60e2d8774a81..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:55083}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 1af285f23d97a1ca7e73739770f247c6
-*** Element info: {Using=css selector, value=.ibox-title h5}
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:420)
-	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:431)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
-	at com.sun.proxy.$Proxy16.isEnabled(Unknown Source)
-	at com.tetherfi.pages.WaitTimeColorConfigPage.isWaitTimeColorConfigPageDisplayed(WaitTimeColorConfigPage.java:242)
-	at com.tetherfi.test.tmac.WaitTimeColorConfigTest.NavigateToWaitTimeColorConfigPage(WaitTimeColorConfigTest.java:39)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-... Removed 34 stack frames
+... Removed 36 stack frames
 </div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
@@ -750,26 +666,19 @@ from unknown error: web view not found
 Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
 System info: host: &apos;DESKTOP-O6A5C2O&apos;, ip: &apos;10.0.75.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;9.0.4&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.70, chrome: {chromedriverVersion: 78.0.3904.105 (60e2d8774a81..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:55083}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 1af285f23d97a1ca7e73739770f247c6
-*** Element info: {Using=css selector, value=.ibox-title h5}
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.70, chrome: {chromedriverVersion: 78.0.3904.105 (60e2d8774a81..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:51153}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 61ff450e32ad448e4b9df9f7c7be1b3f
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
 	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:420)
-	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:431)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
-	at com.sun.proxy.$Proxy16.isEnabled(Unknown Source)
-	at com.tetherfi.pages.WaitTimeColorConfigPage.isWaitTimeColorConfigPageDisplayed(WaitTimeColorConfigPage.java:242)
-	at com.tetherfi.test.tmac.WaitTimeColorConfigTest.NavigateToWaitTimeColorConfigPage(WaitTimeColorConfigTest.java:39)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:609)
+	at org.openqa.selenium.remote.RemoteWebDriver$RemoteNavigation.refresh(RemoteWebDriver.java:865)
+	at com.tetherfi.test.tmac.WaitTimeColorConfigTest.afterEachMethod(WaitTimeColorConfigTest.java:361)
 	at java.base/java.util.ArrayList.forEach(Unknown Source)
-... Removed 34 stack frames
+... Removed 36 stack frames
 </div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
@@ -784,26 +693,19 @@ from unknown error: web view not found
 Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
 System info: host: &apos;DESKTOP-O6A5C2O&apos;, ip: &apos;10.0.75.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;9.0.4&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.70, chrome: {chromedriverVersion: 78.0.3904.105 (60e2d8774a81..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:55083}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 1af285f23d97a1ca7e73739770f247c6
-*** Element info: {Using=css selector, value=.ibox-title h5}
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.70, chrome: {chromedriverVersion: 78.0.3904.105 (60e2d8774a81..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:51153}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 61ff450e32ad448e4b9df9f7c7be1b3f
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
 	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:420)
-	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:431)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
-	at com.sun.proxy.$Proxy16.isEnabled(Unknown Source)
-	at com.tetherfi.pages.WaitTimeColorConfigPage.isWaitTimeColorConfigPageDisplayed(WaitTimeColorConfigPage.java:242)
-	at com.tetherfi.test.tmac.WaitTimeColorConfigTest.NavigateToWaitTimeColorConfigPage(WaitTimeColorConfigTest.java:39)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:609)
+	at org.openqa.selenium.remote.RemoteWebDriver$RemoteNavigation.refresh(RemoteWebDriver.java:865)
+	at com.tetherfi.test.tmac.WaitTimeColorConfigTest.afterEachMethod(WaitTimeColorConfigTest.java:361)
 	at java.base/java.util.ArrayList.forEach(Unknown Source)
-... Removed 34 stack frames
+... Removed 36 stack frames
 </div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
@@ -818,26 +720,19 @@ from unknown error: web view not found
 Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
 System info: host: &apos;DESKTOP-O6A5C2O&apos;, ip: &apos;10.0.75.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;9.0.4&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.70, chrome: {chromedriverVersion: 78.0.3904.105 (60e2d8774a81..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:55083}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 1af285f23d97a1ca7e73739770f247c6
-*** Element info: {Using=css selector, value=.ibox-title h5}
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.70, chrome: {chromedriverVersion: 78.0.3904.105 (60e2d8774a81..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:51153}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 61ff450e32ad448e4b9df9f7c7be1b3f
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
 	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:420)
-	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:431)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
-	at com.sun.proxy.$Proxy16.isEnabled(Unknown Source)
-	at com.tetherfi.pages.WaitTimeColorConfigPage.isWaitTimeColorConfigPageDisplayed(WaitTimeColorConfigPage.java:242)
-	at com.tetherfi.test.tmac.WaitTimeColorConfigTest.NavigateToWaitTimeColorConfigPage(WaitTimeColorConfigTest.java:39)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:609)
+	at org.openqa.selenium.remote.RemoteWebDriver$RemoteNavigation.refresh(RemoteWebDriver.java:865)
+	at com.tetherfi.test.tmac.WaitTimeColorConfigTest.afterEachMethod(WaitTimeColorConfigTest.java:361)
 	at java.base/java.util.ArrayList.forEach(Unknown Source)
-... Removed 34 stack frames
+... Removed 36 stack frames
 </div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
@@ -852,26 +747,19 @@ from unknown error: web view not found
 Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
 System info: host: &apos;DESKTOP-O6A5C2O&apos;, ip: &apos;10.0.75.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;9.0.4&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.70, chrome: {chromedriverVersion: 78.0.3904.105 (60e2d8774a81..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:55083}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 1af285f23d97a1ca7e73739770f247c6
-*** Element info: {Using=css selector, value=.ibox-title h5}
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.70, chrome: {chromedriverVersion: 78.0.3904.105 (60e2d8774a81..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:51153}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 61ff450e32ad448e4b9df9f7c7be1b3f
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
 	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:420)
-	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:431)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
-	at com.sun.proxy.$Proxy16.isEnabled(Unknown Source)
-	at com.tetherfi.pages.WaitTimeColorConfigPage.isWaitTimeColorConfigPageDisplayed(WaitTimeColorConfigPage.java:242)
-	at com.tetherfi.test.tmac.WaitTimeColorConfigTest.NavigateToWaitTimeColorConfigPage(WaitTimeColorConfigTest.java:39)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:609)
+	at org.openqa.selenium.remote.RemoteWebDriver$RemoteNavigation.refresh(RemoteWebDriver.java:865)
+	at com.tetherfi.test.tmac.WaitTimeColorConfigTest.afterEachMethod(WaitTimeColorConfigTest.java:361)
 	at java.base/java.util.ArrayList.forEach(Unknown Source)
-... Removed 34 stack frames
+... Removed 36 stack frames
 </div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
@@ -886,26 +774,19 @@ from unknown error: web view not found
 Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
 System info: host: &apos;DESKTOP-O6A5C2O&apos;, ip: &apos;10.0.75.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;9.0.4&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.70, chrome: {chromedriverVersion: 78.0.3904.105 (60e2d8774a81..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:55083}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 1af285f23d97a1ca7e73739770f247c6
-*** Element info: {Using=css selector, value=.ibox-title h5}
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.70, chrome: {chromedriverVersion: 78.0.3904.105 (60e2d8774a81..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:51153}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 61ff450e32ad448e4b9df9f7c7be1b3f
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
 	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:420)
-	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:431)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
-	at com.sun.proxy.$Proxy16.isEnabled(Unknown Source)
-	at com.tetherfi.pages.WaitTimeColorConfigPage.isWaitTimeColorConfigPageDisplayed(WaitTimeColorConfigPage.java:242)
-	at com.tetherfi.test.tmac.WaitTimeColorConfigTest.NavigateToWaitTimeColorConfigPage(WaitTimeColorConfigTest.java:39)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:609)
+	at org.openqa.selenium.remote.RemoteWebDriver$RemoteNavigation.refresh(RemoteWebDriver.java:865)
+	at com.tetherfi.test.tmac.WaitTimeColorConfigTest.afterEachMethod(WaitTimeColorConfigTest.java:361)
 	at java.base/java.util.ArrayList.forEach(Unknown Source)
-... Removed 34 stack frames
+... Removed 36 stack frames
 </div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
@@ -920,26 +801,19 @@ from unknown error: web view not found
 Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
 System info: host: &apos;DESKTOP-O6A5C2O&apos;, ip: &apos;10.0.75.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;9.0.4&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.70, chrome: {chromedriverVersion: 78.0.3904.105 (60e2d8774a81..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:55083}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 1af285f23d97a1ca7e73739770f247c6
-*** Element info: {Using=css selector, value=.ibox-title h5}
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.70, chrome: {chromedriverVersion: 78.0.3904.105 (60e2d8774a81..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:51153}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 61ff450e32ad448e4b9df9f7c7be1b3f
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
 	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:420)
-	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:431)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
-	at com.sun.proxy.$Proxy16.isEnabled(Unknown Source)
-	at com.tetherfi.pages.WaitTimeColorConfigPage.isWaitTimeColorConfigPageDisplayed(WaitTimeColorConfigPage.java:242)
-	at com.tetherfi.test.tmac.WaitTimeColorConfigTest.NavigateToWaitTimeColorConfigPage(WaitTimeColorConfigTest.java:39)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:609)
+	at org.openqa.selenium.remote.RemoteWebDriver$RemoteNavigation.refresh(RemoteWebDriver.java:865)
+	at com.tetherfi.test.tmac.WaitTimeColorConfigTest.afterEachMethod(WaitTimeColorConfigTest.java:361)
 	at java.base/java.util.ArrayList.forEach(Unknown Source)
-... Removed 34 stack frames
+... Removed 36 stack frames
 </div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
@@ -954,26 +828,19 @@ from unknown error: web view not found
 Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
 System info: host: &apos;DESKTOP-O6A5C2O&apos;, ip: &apos;10.0.75.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;9.0.4&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.70, chrome: {chromedriverVersion: 78.0.3904.105 (60e2d8774a81..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:55083}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 1af285f23d97a1ca7e73739770f247c6
-*** Element info: {Using=css selector, value=.ibox-title h5}
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.70, chrome: {chromedriverVersion: 78.0.3904.105 (60e2d8774a81..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:51153}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 61ff450e32ad448e4b9df9f7c7be1b3f
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
 	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:420)
-	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:431)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
-	at com.sun.proxy.$Proxy16.isEnabled(Unknown Source)
-	at com.tetherfi.pages.WaitTimeColorConfigPage.isWaitTimeColorConfigPageDisplayed(WaitTimeColorConfigPage.java:242)
-	at com.tetherfi.test.tmac.WaitTimeColorConfigTest.NavigateToWaitTimeColorConfigPage(WaitTimeColorConfigTest.java:39)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:609)
+	at org.openqa.selenium.remote.RemoteWebDriver$RemoteNavigation.refresh(RemoteWebDriver.java:865)
+	at com.tetherfi.test.tmac.WaitTimeColorConfigTest.afterEachMethod(WaitTimeColorConfigTest.java:361)
 	at java.base/java.util.ArrayList.forEach(Unknown Source)
-... Removed 34 stack frames
+... Removed 36 stack frames
 </div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
@@ -1144,137 +1011,137 @@ data.addRows(34);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'VerifyAuditTrialReportForCreate')
 data.setCell(0, 2, 'com.tetherfi.test.tmac.WaitTimeColorConfigTest')
-data.setCell(0, 3, 23929);
+data.setCell(0, 3, 23598);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'VerifySearchIsNotEqualTo')
+data.setCell(1, 1, 'VerifyAuditTrialReportForUpdate')
 data.setCell(1, 2, 'com.tetherfi.test.tmac.WaitTimeColorConfigTest')
-data.setCell(1, 3, 10173);
+data.setCell(1, 3, 12693);
 data.setCell(2, 0, 2)
-data.setCell(2, 1, 'EditWaitTimeColorConfigCancelRecord')
+data.setCell(2, 1, 'VerifySearchIsNotEqualTo')
 data.setCell(2, 2, 'com.tetherfi.test.tmac.WaitTimeColorConfigTest')
-data.setCell(2, 3, 8318);
+data.setCell(2, 3, 10113);
 data.setCell(3, 0, 3)
 data.setCell(3, 1, 'EditWaitTimeColorConfigRecord')
 data.setCell(3, 2, 'com.tetherfi.test.tmac.WaitTimeColorConfigTest')
-data.setCell(3, 3, 7519);
+data.setCell(3, 3, 8517);
 data.setCell(4, 0, 4)
-data.setCell(4, 1, 'VerifySearchDoesNotContains')
+data.setCell(4, 1, 'EditWaitTimeColorConfigCancelRecord')
 data.setCell(4, 2, 'com.tetherfi.test.tmac.WaitTimeColorConfigTest')
-data.setCell(4, 3, 7114);
+data.setCell(4, 3, 8273);
 data.setCell(5, 0, 5)
-data.setCell(5, 1, 'AddNewWaitTimeColorConfigRecord')
+data.setCell(5, 1, 'VerifySearchDoesNotContains')
 data.setCell(5, 2, 'com.tetherfi.test.tmac.WaitTimeColorConfigTest')
-data.setCell(5, 3, 6629);
+data.setCell(5, 3, 6613);
 data.setCell(6, 0, 6)
-data.setCell(6, 1, 'AddRecordWithoutDuplicate')
+data.setCell(6, 1, 'AddNewWaitTimeColorConfigRecord')
 data.setCell(6, 2, 'com.tetherfi.test.tmac.WaitTimeColorConfigTest')
-data.setCell(6, 3, 6580);
+data.setCell(6, 3, 5217);
 data.setCell(7, 0, 7)
-data.setCell(7, 1, 'VerifySearchEndsWith')
+data.setCell(7, 1, 'AddRecordWithoutDuplicate')
 data.setCell(7, 2, 'com.tetherfi.test.tmac.WaitTimeColorConfigTest')
-data.setCell(7, 3, 5423);
+data.setCell(7, 3, 5032);
 data.setCell(8, 0, 8)
 data.setCell(8, 1, 'VerifySearchContains')
 data.setCell(8, 2, 'com.tetherfi.test.tmac.WaitTimeColorConfigTest')
-data.setCell(8, 3, 4529);
+data.setCell(8, 3, 4262);
 data.setCell(9, 0, 9)
-data.setCell(9, 1, 'AddRecordWithoutStartTime')
+data.setCell(9, 1, 'VerifySearchStartsWith')
 data.setCell(9, 2, 'com.tetherfi.test.tmac.WaitTimeColorConfigTest')
-data.setCell(9, 3, 4336);
+data.setCell(9, 3, 3971);
 data.setCell(10, 0, 10)
-data.setCell(10, 1, 'VerifySearchStartsWith')
+data.setCell(10, 1, 'VerifySearchEndsWith')
 data.setCell(10, 2, 'com.tetherfi.test.tmac.WaitTimeColorConfigTest')
-data.setCell(10, 3, 4157);
+data.setCell(10, 3, 3716);
 data.setCell(11, 0, 11)
 data.setCell(11, 1, 'AddNewWaitTimeColorConfigCancelRecord')
 data.setCell(11, 2, 'com.tetherfi.test.tmac.WaitTimeColorConfigTest')
-data.setCell(11, 3, 3401);
+data.setCell(11, 3, 3536);
 data.setCell(12, 0, 12)
 data.setCell(12, 1, 'AddRecordWithoutEndTime')
 data.setCell(12, 2, 'com.tetherfi.test.tmac.WaitTimeColorConfigTest')
-data.setCell(12, 3, 3254);
+data.setCell(12, 3, 3012);
 data.setCell(13, 0, 13)
-data.setCell(13, 1, 'WaitTimeColorConfigPage')
+data.setCell(13, 1, 'AddRecordWithoutStartTime')
 data.setCell(13, 2, 'com.tetherfi.test.tmac.WaitTimeColorConfigTest')
-data.setCell(13, 3, 712);
+data.setCell(13, 3, 2980);
 data.setCell(14, 0, 14)
-data.setCell(14, 1, 'VerifyColumnsHeaderDisable')
+data.setCell(14, 1, 'WaitTimeColorConfigPage')
 data.setCell(14, 2, 'com.tetherfi.test.tmac.WaitTimeColorConfigTest')
-data.setCell(14, 3, 0);
+data.setCell(14, 3, 725);
 data.setCell(15, 0, 15)
-data.setCell(15, 1, 'VerifyArrowMoveForPreviousAndNextPage')
+data.setCell(15, 1, 'VerifyColumnsHeaderEnable')
 data.setCell(15, 2, 'com.tetherfi.test.tmac.WaitTimeColorConfigTest')
 data.setCell(15, 3, 0);
 data.setCell(16, 0, 16)
-data.setCell(16, 1, 'database')
+data.setCell(16, 1, 'VerifyTotalNumberOfItemsPerPageDetails')
 data.setCell(16, 2, 'com.tetherfi.test.tmac.WaitTimeColorConfigTest')
 data.setCell(16, 3, 0);
 data.setCell(17, 0, 17)
-data.setCell(17, 1, 'VerifyAuditTrialReportForUpdate')
+data.setCell(17, 1, 'ExporttoExcelWithoutData')
 data.setCell(17, 2, 'com.tetherfi.test.tmac.WaitTimeColorConfigTest')
 data.setCell(17, 3, 0);
 data.setCell(18, 0, 18)
-data.setCell(18, 1, 'GroupBy')
+data.setCell(18, 1, 'VerifyNumberOfItemsPerPageSelection')
 data.setCell(18, 2, 'com.tetherfi.test.tmac.WaitTimeColorConfigTest')
 data.setCell(18, 3, 0);
 data.setCell(19, 0, 19)
-data.setCell(19, 1, 'SortingByDescending')
+data.setCell(19, 1, 'ExportToExcel')
 data.setCell(19, 2, 'com.tetherfi.test.tmac.WaitTimeColorConfigTest')
 data.setCell(19, 3, 0);
 data.setCell(20, 0, 20)
-data.setCell(20, 1, 'searchPage')
+data.setCell(20, 1, 'VerifyAuditTrialReportForDelete')
 data.setCell(20, 2, 'com.tetherfi.test.tmac.WaitTimeColorConfigTest')
 data.setCell(20, 3, 0);
 data.setCell(21, 0, 21)
-data.setCell(21, 1, 'SortingByAscending')
+data.setCell(21, 1, 'VerifyArrowMoveForFirstAndLastPage')
 data.setCell(21, 2, 'com.tetherfi.test.tmac.WaitTimeColorConfigTest')
 data.setCell(21, 3, 0);
 data.setCell(22, 0, 22)
-data.setCell(22, 1, 'DeleteCancelRecord')
+data.setCell(22, 1, 'SortingByAscending')
 data.setCell(22, 2, 'com.tetherfi.test.tmac.WaitTimeColorConfigTest')
 data.setCell(22, 3, 0);
 data.setCell(23, 0, 23)
-data.setCell(23, 1, 'VerifyColumnsHeaderEnable')
+data.setCell(23, 1, 'VerifyColumnsHeaderDisable')
 data.setCell(23, 2, 'com.tetherfi.test.tmac.WaitTimeColorConfigTest')
 data.setCell(23, 3, 0);
 data.setCell(24, 0, 24)
-data.setCell(24, 1, 'VerifyArrowMoveForFirstAndLastPage')
+data.setCell(24, 1, 'VerifyDropdownForAllTheColumns')
 data.setCell(24, 2, 'com.tetherfi.test.tmac.WaitTimeColorConfigTest')
 data.setCell(24, 3, 0);
 data.setCell(25, 0, 25)
-data.setCell(25, 1, 'ExportToExcelData')
+data.setCell(25, 1, 'VerifyArrowMoveForPreviousAndNextPage')
 data.setCell(25, 2, 'com.tetherfi.test.tmac.WaitTimeColorConfigTest')
 data.setCell(25, 3, 0);
 data.setCell(26, 0, 26)
-data.setCell(26, 1, 'VerifyAuditTrialReportForDelete')
+data.setCell(26, 1, 'DeleteCancelRecord')
 data.setCell(26, 2, 'com.tetherfi.test.tmac.WaitTimeColorConfigTest')
 data.setCell(26, 3, 0);
 data.setCell(27, 0, 27)
-data.setCell(27, 1, 'ExporttoExcelWithoutData')
+data.setCell(27, 1, 'ExportToExcelData')
 data.setCell(27, 2, 'com.tetherfi.test.tmac.WaitTimeColorConfigTest')
 data.setCell(27, 3, 0);
 data.setCell(28, 0, 28)
-data.setCell(28, 1, 'SearchClearSearch')
+data.setCell(28, 1, 'GroupBy')
 data.setCell(28, 2, 'com.tetherfi.test.tmac.WaitTimeColorConfigTest')
 data.setCell(28, 3, 0);
 data.setCell(29, 0, 29)
-data.setCell(29, 1, 'VerifyNumberOfItemsPerPageSelection')
+data.setCell(29, 1, 'DeleteRecord')
 data.setCell(29, 2, 'com.tetherfi.test.tmac.WaitTimeColorConfigTest')
 data.setCell(29, 3, 0);
 data.setCell(30, 0, 30)
-data.setCell(30, 1, 'ExportToExcel')
+data.setCell(30, 1, 'SortingByDescending')
 data.setCell(30, 2, 'com.tetherfi.test.tmac.WaitTimeColorConfigTest')
 data.setCell(30, 3, 0);
 data.setCell(31, 0, 31)
-data.setCell(31, 1, 'VerifyTotalNumberOfItemsPerPageDetails')
+data.setCell(31, 1, 'searchPage')
 data.setCell(31, 2, 'com.tetherfi.test.tmac.WaitTimeColorConfigTest')
 data.setCell(31, 3, 0);
 data.setCell(32, 0, 32)
-data.setCell(32, 1, 'DeleteRecord')
+data.setCell(32, 1, 'database')
 data.setCell(32, 2, 'com.tetherfi.test.tmac.WaitTimeColorConfigTest')
 data.setCell(32, 3, 0);
 data.setCell(33, 0, 33)
-data.setCell(33, 1, 'VerifyDropdownForAllTheColumns')
+data.setCell(33, 1, 'SearchClearSearch')
 data.setCell(33, 2, 'com.tetherfi.test.tmac.WaitTimeColorConfigTest')
 data.setCell(33, 3, 0);
 window.suiteTableData['Tetherfi_Test_Automation']= { tableData: data, tableDiv: 'times-div-Tetherfi_Test_Automation'}
@@ -1314,689 +1181,691 @@ return data;
               </div> <!-- configuration-class before -->
               <div class="configuration-method before">
                 <span class="method-name">startTestCase(public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.WaitTimeColorConfigPage())</span>
-                <span class="method-start">26982 ms</span>
+                <span class="method-start">26472 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">NavigateToWaitTimeColorConfigPage</span>
-                <span class="method-start">26988 ms</span>
+                <span class="method-start">26476 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">WaitTimeColorConfigPage</span>
-                <span class="method-start">32048 ms</span>
+                <span class="method-start">31027 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">afterEachMethod(public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.WaitTimeColorConfigPage())</span>
-                <span class="method-start">32768 ms</span>
+                <span class="method-start">31758 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method after">
                 <span class="method-name">endTestCase(public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.WaitTimeColorConfigPage())</span>
-                <span class="method-start">34324 ms</span>
+                <span class="method-start">33284 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">startTestCase(public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.AddNewWaitTimeColorConfigCancelRecord() t...)</span>
-                <span class="method-start">34329 ms</span>
+                <span class="method-start">33289 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">NavigateToWaitTimeColorConfigPage</span>
-                <span class="method-start">34329 ms</span>
+                <span class="method-start">33290 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">AddNewWaitTimeColorConfigCancelRecord</span>
-                <span class="method-start">38854 ms</span>
+                <span class="method-start">37219 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">afterEachMethod(public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.AddNewWaitTimeColorConfigCancelRecord() t...)</span>
-                <span class="method-start">42257 ms</span>
+                <span class="method-start">40758 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method after">
                 <span class="method-name">endTestCase(public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.AddNewWaitTimeColorConfigCancelRecord() t...)</span>
-                <span class="method-start">43621 ms</span>
+                <span class="method-start">42092 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">startTestCase(public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.AddNewWaitTimeColorConfigRecord() throws ...)</span>
-                <span class="method-start">43623 ms</span>
+                <span class="method-start">42093 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">NavigateToWaitTimeColorConfigPage</span>
-                <span class="method-start">43623 ms</span>
+                <span class="method-start">42094 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">AddNewWaitTimeColorConfigRecord</span>
-                <span class="method-start">47641 ms</span>
+                <span class="method-start">45968 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">afterEachMethod(public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.AddNewWaitTimeColorConfigRecord() throws ...)</span>
-                <span class="method-start">54271 ms</span>
+                <span class="method-start">51186 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method after">
                 <span class="method-name">endTestCase(public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.AddNewWaitTimeColorConfigRecord() throws ...)</span>
-                <span class="method-start">54850 ms</span>
+                <span class="method-start">51686 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">startTestCase(public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.VerifyAuditTrialReportForCreate() throws ...)</span>
-                <span class="method-start">54852 ms</span>
+                <span class="method-start">51689 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">NavigateToWaitTimeColorConfigPage</span>
-                <span class="method-start">54853 ms</span>
+                <span class="method-start">51690 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">VerifyAuditTrialReportForCreate</span>
-                <span class="method-start">59708 ms</span>
+                <span class="method-start">56647 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">afterEachMethod(public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.VerifyAuditTrialReportForCreate() throws ...)</span>
-                <span class="method-start">83639 ms</span>
+                <span class="method-start">80247 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method after">
                 <span class="method-name">endTestCase(public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.VerifyAuditTrialReportForCreate() throws ...)</span>
-                <span class="method-start">84993 ms</span>
+                <span class="method-start">81809 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">startTestCase(public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.AddRecordWithoutStartTime() throws java.l...)</span>
-                <span class="method-start">84994 ms</span>
+                <span class="method-start">81812 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">NavigateToWaitTimeColorConfigPage</span>
-                <span class="method-start">84995 ms</span>
+                <span class="method-start">81813 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">AddRecordWithoutStartTime</span>
-                <span class="method-start">89535 ms</span>
+                <span class="method-start">86171 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">afterEachMethod(public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.AddRecordWithoutStartTime() throws java.l...)</span>
-                <span class="method-start">93873 ms</span>
+                <span class="method-start">89153 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method after">
                 <span class="method-name">endTestCase(public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.AddRecordWithoutStartTime() throws java.l...)</span>
-                <span class="method-start">95243 ms</span>
+                <span class="method-start">90406 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">startTestCase(public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.AddRecordWithoutEndTime() throws java.lan...)</span>
-                <span class="method-start">95245 ms</span>
+                <span class="method-start">90408 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">NavigateToWaitTimeColorConfigPage</span>
-                <span class="method-start">95245 ms</span>
+                <span class="method-start">90409 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">AddRecordWithoutEndTime</span>
-                <span class="method-start">99473 ms</span>
+                <span class="method-start">94758 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">afterEachMethod(public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.AddRecordWithoutEndTime() throws java.lan...)</span>
-                <span class="method-start">102732 ms</span>
+                <span class="method-start">97772 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method after">
                 <span class="method-name">endTestCase(public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.AddRecordWithoutEndTime() throws java.lan...)</span>
-                <span class="method-start">104154 ms</span>
+                <span class="method-start">98978 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">startTestCase(public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.AddRecordWithoutDuplicate() throws java.l...)</span>
-                <span class="method-start">104156 ms</span>
+                <span class="method-start">98979 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">NavigateToWaitTimeColorConfigPage</span>
-                <span class="method-start">104156 ms</span>
+                <span class="method-start">98979 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">AddRecordWithoutDuplicate</span>
-                <span class="method-start">108079 ms</span>
+                <span class="method-start">103270 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">afterEachMethod(public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.AddRecordWithoutDuplicate() throws java.l...)</span>
-                <span class="method-start">114663 ms</span>
+                <span class="method-start">108303 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method after">
                 <span class="method-name">endTestCase(public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.AddRecordWithoutDuplicate() throws java.l...)</span>
-                <span class="method-start">116134 ms</span>
+                <span class="method-start">109481 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">startTestCase(public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.VerifySearchIsNotEqualTo() throws java.la...)</span>
-                <span class="method-start">116135 ms</span>
+                <span class="method-start">109483 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">NavigateToWaitTimeColorConfigPage</span>
-                <span class="method-start">116136 ms</span>
+                <span class="method-start">109483 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">VerifySearchIsNotEqualTo</span>
-                <span class="method-start">120006 ms</span>
+                <span class="method-start">113516 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">afterEachMethod(public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.VerifySearchIsNotEqualTo() throws java.la...)</span>
-                <span class="method-start">130180 ms</span>
+                <span class="method-start">123630 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method after">
                 <span class="method-name">endTestCase(public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.VerifySearchIsNotEqualTo() throws java.la...)</span>
-                <span class="method-start">131463 ms</span>
+                <span class="method-start">124826 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">startTestCase(public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.VerifySearchContains() throws java.lang.E...)</span>
-                <span class="method-start">131464 ms</span>
+                <span class="method-start">124827 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">NavigateToWaitTimeColorConfigPage</span>
-                <span class="method-start">131464 ms</span>
+                <span class="method-start">124828 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">VerifySearchContains</span>
-                <span class="method-start">135567 ms</span>
+                <span class="method-start">129444 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">afterEachMethod(public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.VerifySearchContains() throws java.lang.E...)</span>
-                <span class="method-start">140097 ms</span>
+                <span class="method-start">133708 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method after">
                 <span class="method-name">endTestCase(public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.VerifySearchContains() throws java.lang.E...)</span>
-                <span class="method-start">141417 ms</span>
+                <span class="method-start">134997 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">startTestCase(public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.VerifySearchDoesNotContains() throws java...)</span>
-                <span class="method-start">141421 ms</span>
+                <span class="method-start">134999 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">NavigateToWaitTimeColorConfigPage</span>
-                <span class="method-start">141422 ms</span>
+                <span class="method-start">134999 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">VerifySearchDoesNotContains</span>
-                <span class="method-start">146411 ms</span>
+                <span class="method-start">138912 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">afterEachMethod(public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.VerifySearchDoesNotContains() throws java...)</span>
-                <span class="method-start">153526 ms</span>
+                <span class="method-start">145526 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method after">
                 <span class="method-name">endTestCase(public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.VerifySearchDoesNotContains() throws java...)</span>
-                <span class="method-start">154822 ms</span>
+                <span class="method-start">146687 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">startTestCase(public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.VerifySearchStartsWith() throws java.lang...)</span>
-                <span class="method-start">154823 ms</span>
+                <span class="method-start">146688 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">NavigateToWaitTimeColorConfigPage</span>
-                <span class="method-start">154824 ms</span>
+                <span class="method-start">146689 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">VerifySearchStartsWith</span>
-                <span class="method-start">158895 ms</span>
+                <span class="method-start">151522 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">afterEachMethod(public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.VerifySearchStartsWith() throws java.lang...)</span>
-                <span class="method-start">163053 ms</span>
+                <span class="method-start">155494 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method after">
                 <span class="method-name">endTestCase(public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.VerifySearchStartsWith() throws java.lang...)</span>
-                <span class="method-start">164384 ms</span>
+                <span class="method-start">156789 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">startTestCase(public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.VerifySearchEndsWith() throws java.lang.E...)</span>
-                <span class="method-start">164385 ms</span>
+                <span class="method-start">156792 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">NavigateToWaitTimeColorConfigPage</span>
-                <span class="method-start">164386 ms</span>
+                <span class="method-start">156793 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">VerifySearchEndsWith</span>
-                <span class="method-start">168225 ms</span>
+                <span class="method-start">160798 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">afterEachMethod(public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.VerifySearchEndsWith() throws java.lang.E...)</span>
-                <span class="method-start">173650 ms</span>
+                <span class="method-start">164515 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method after">
                 <span class="method-name">endTestCase(public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.VerifySearchEndsWith() throws java.lang.E...)</span>
-                <span class="method-start">175074 ms</span>
+                <span class="method-start">165770 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">startTestCase(public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.EditWaitTimeColorConfigCancelRecord() thr...)</span>
-                <span class="method-start">175075 ms</span>
+                <span class="method-start">165771 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">NavigateToWaitTimeColorConfigPage</span>
-                <span class="method-start">175077 ms</span>
+                <span class="method-start">165773 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">EditWaitTimeColorConfigCancelRecord</span>
-                <span class="method-start">178947 ms</span>
+                <span class="method-start">169720 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">afterEachMethod(public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.EditWaitTimeColorConfigCancelRecord() thr...)</span>
-                <span class="method-start">187268 ms</span>
+                <span class="method-start">177996 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method after">
                 <span class="method-name">endTestCase(public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.EditWaitTimeColorConfigCancelRecord() thr...)</span>
-                <span class="method-start">188570 ms</span>
+                <span class="method-start">179234 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">startTestCase(public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.EditWaitTimeColorConfigRecord() throws ja...)</span>
-                <span class="method-start">188571 ms</span>
+                <span class="method-start">179237 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">NavigateToWaitTimeColorConfigPage</span>
-                <span class="method-start">188572 ms</span>
+                <span class="method-start">179237 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">EditWaitTimeColorConfigRecord</span>
-                <span class="method-start">192771 ms</span>
+                <span class="method-start">183612 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">afterEachMethod(public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.EditWaitTimeColorConfigRecord() throws ja...)</span>
-                <span class="method-start">200292 ms</span>
+                <span class="method-start">192131 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method after">
                 <span class="method-name">endTestCase(public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.EditWaitTimeColorConfigRecord() throws ja...)</span>
-                <span class="method-start">200676 ms</span>
+                <span class="method-start">192524 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">startTestCase(public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.VerifyAuditTrialReportForUpdate() throws ...)</span>
-                <span class="method-start">200678 ms</span>
+                <span class="method-start">192526 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
-                <img src="failed.png">
-                </img>
                 <span class="method-name">NavigateToWaitTimeColorConfigPage</span>
-                <span class="method-start">200679 ms</span>
+                <span class="method-start">192527 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
+                <img src="failed.png">
+                </img>
                 <span class="method-name">VerifyAuditTrialReportForUpdate</span>
-                <span class="method-start">225203 ms</span>
+                <span class="method-start">197897 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">afterEachMethod</span>
-                <span class="method-start">225210 ms</span>
+                <img src="failed.png">
+                </img>
+                <span class="method-name">afterEachMethod(public void com.tetherfi.test.tmac.WaitTimeColorConfigTest.VerifyAuditTrialReportForUpdate() throws ...)</span>
+                <span class="method-start">210594 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method after">
                 <span class="method-name">endTestCase</span>
-                <span class="method-start">225212 ms</span>
+                <span class="method-start">210635 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">startTestCase</span>
-                <span class="method-start">225218 ms</span>
+                <span class="method-start">210639 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">NavigateToWaitTimeColorConfigPage</span>
-                <span class="method-start">225221 ms</span>
+                <span class="method-start">210642 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">searchPage</span>
-                <span class="method-start">225223 ms</span>
+                <span class="method-start">210649 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">afterEachMethod</span>
-                <span class="method-start">225233 ms</span>
+                <span class="method-start">210656 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method after">
                 <span class="method-name">endTestCase</span>
-                <span class="method-start">225234 ms</span>
+                <span class="method-start">210657 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">startTestCase</span>
-                <span class="method-start">225240 ms</span>
+                <span class="method-start">210659 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">NavigateToWaitTimeColorConfigPage</span>
-                <span class="method-start">225243 ms</span>
+                <span class="method-start">210660 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">SearchClearSearch</span>
-                <span class="method-start">225245 ms</span>
+                <span class="method-start">210664 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">afterEachMethod</span>
-                <span class="method-start">225254 ms</span>
+                <span class="method-start">210669 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method after">
                 <span class="method-name">endTestCase</span>
-                <span class="method-start">225256 ms</span>
+                <span class="method-start">210670 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">startTestCase</span>
-                <span class="method-start">225261 ms</span>
+                <span class="method-start">210672 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">NavigateToWaitTimeColorConfigPage</span>
-                <span class="method-start">225264 ms</span>
+                <span class="method-start">210673 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">ExportToExcel</span>
-                <span class="method-start">225265 ms</span>
+                <span class="method-start">210674 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">afterEachMethod</span>
-                <span class="method-start">225272 ms</span>
+                <span class="method-start">210680 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method after">
                 <span class="method-name">endTestCase</span>
-                <span class="method-start">225276 ms</span>
+                <span class="method-start">210752 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">startTestCase</span>
-                <span class="method-start">225279 ms</span>
+                <span class="method-start">210756 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">NavigateToWaitTimeColorConfigPage</span>
-                <span class="method-start">225281 ms</span>
+                <span class="method-start">210757 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">ExportToExcelData</span>
-                <span class="method-start">225284 ms</span>
+                <span class="method-start">210759 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">afterEachMethod</span>
-                <span class="method-start">225288 ms</span>
+                <span class="method-start">210769 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method after">
                 <span class="method-name">endTestCase</span>
-                <span class="method-start">225289 ms</span>
+                <span class="method-start">210772 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">startTestCase</span>
-                <span class="method-start">225291 ms</span>
+                <span class="method-start">210776 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">NavigateToWaitTimeColorConfigPage</span>
-                <span class="method-start">225292 ms</span>
+                <span class="method-start">210778 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">DeleteCancelRecord</span>
-                <span class="method-start">225292 ms</span>
+                <span class="method-start">210780 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">afterEachMethod</span>
-                <span class="method-start">225296 ms</span>
+                <span class="method-start">210788 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method after">
                 <span class="method-name">endTestCase</span>
-                <span class="method-start">225297 ms</span>
+                <span class="method-start">210790 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">startTestCase</span>
-                <span class="method-start">225299 ms</span>
+                <span class="method-start">210799 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">NavigateToWaitTimeColorConfigPage</span>
-                <span class="method-start">225300 ms</span>
+                <span class="method-start">210801 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">DeleteRecord</span>
-                <span class="method-start">225301 ms</span>
+                <span class="method-start">210807 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">afterEachMethod</span>
-                <span class="method-start">225304 ms</span>
+                <span class="method-start">210811 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method after">
                 <span class="method-name">endTestCase</span>
-                <span class="method-start">225305 ms</span>
+                <span class="method-start">210812 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">startTestCase</span>
-                <span class="method-start">225306 ms</span>
+                <span class="method-start">210815 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">NavigateToWaitTimeColorConfigPage</span>
-                <span class="method-start">225307 ms</span>
+                <span class="method-start">210823 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">VerifyAuditTrialReportForDelete</span>
-                <span class="method-start">225308 ms</span>
+                <span class="method-start">210824 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">afterEachMethod</span>
-                <span class="method-start">225318 ms</span>
+                <span class="method-start">210831 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method after">
                 <span class="method-name">endTestCase</span>
-                <span class="method-start">225324 ms</span>
+                <span class="method-start">210834 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">startTestCase</span>
-                <span class="method-start">225326 ms</span>
+                <span class="method-start">210836 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">NavigateToWaitTimeColorConfigPage</span>
-                <span class="method-start">225327 ms</span>
+                <span class="method-start">210841 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">database</span>
-                <span class="method-start">225328 ms</span>
+                <span class="method-start">210844 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">afterEachMethod</span>
-                <span class="method-start">225336 ms</span>
+                <span class="method-start">210848 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method after">
                 <span class="method-name">endTestCase</span>
-                <span class="method-start">225338 ms</span>
+                <span class="method-start">210849 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">startTestCase</span>
-                <span class="method-start">225342 ms</span>
+                <span class="method-start">210851 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">NavigateToWaitTimeColorConfigPage</span>
-                <span class="method-start">225344 ms</span>
+                <span class="method-start">210853 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">GroupBy</span>
-                <span class="method-start">225347 ms</span>
+                <span class="method-start">210855 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">afterEachMethod</span>
-                <span class="method-start">225353 ms</span>
+                <span class="method-start">210859 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method after">
                 <span class="method-name">endTestCase</span>
-                <span class="method-start">225355 ms</span>
+                <span class="method-start">210865 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">startTestCase</span>
-                <span class="method-start">225359 ms</span>
+                <span class="method-start">210870 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">NavigateToWaitTimeColorConfigPage</span>
-                <span class="method-start">225360 ms</span>
+                <span class="method-start">210872 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">VerifyArrowMoveForPreviousAndNextPage</span>
-                <span class="method-start">225362 ms</span>
+                <span class="method-start">210873 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">afterEachMethod</span>
-                <span class="method-start">225368 ms</span>
+                <span class="method-start">210879 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method after">
                 <span class="method-name">endTestCase</span>
-                <span class="method-start">225371 ms</span>
+                <span class="method-start">210887 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">startTestCase</span>
-                <span class="method-start">225376 ms</span>
+                <span class="method-start">210892 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">NavigateToWaitTimeColorConfigPage</span>
-                <span class="method-start">225378 ms</span>
+                <span class="method-start">210899 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">VerifyArrowMoveForFirstAndLastPage</span>
-                <span class="method-start">225384 ms</span>
+                <span class="method-start">210905 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">afterEachMethod</span>
-                <span class="method-start">225389 ms</span>
+                <span class="method-start">210915 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method after">
                 <span class="method-name">endTestCase</span>
-                <span class="method-start">225397 ms</span>
+                <span class="method-start">210919 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">startTestCase</span>
-                <span class="method-start">225399 ms</span>
+                <span class="method-start">210931 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">NavigateToWaitTimeColorConfigPage</span>
-                <span class="method-start">225400 ms</span>
+                <span class="method-start">210933 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">VerifyTotalNumberOfItemsPerPageDetails</span>
-                <span class="method-start">225401 ms</span>
+                <span class="method-start">210936 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">afterEachMethod</span>
-                <span class="method-start">225404 ms</span>
+                <span class="method-start">210950 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method after">
                 <span class="method-name">endTestCase</span>
-                <span class="method-start">225405 ms</span>
+                <span class="method-start">210954 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">startTestCase</span>
-                <span class="method-start">225406 ms</span>
+                <span class="method-start">210970 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">NavigateToWaitTimeColorConfigPage</span>
-                <span class="method-start">225407 ms</span>
+                <span class="method-start">210992 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">VerifyNumberOfItemsPerPageSelection</span>
-                <span class="method-start">225407 ms</span>
+                <span class="method-start">210997 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">afterEachMethod</span>
-                <span class="method-start">225410 ms</span>
+                <span class="method-start">211001 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method after">
                 <span class="method-name">endTestCase</span>
-                <span class="method-start">225410 ms</span>
+                <span class="method-start">211002 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">startTestCase</span>
-                <span class="method-start">225413 ms</span>
+                <span class="method-start">211007 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">NavigateToWaitTimeColorConfigPage</span>
-                <span class="method-start">225414 ms</span>
+                <span class="method-start">211019 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">SortingByAscending</span>
-                <span class="method-start">225415 ms</span>
+                <span class="method-start">211020 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">afterEachMethod</span>
-                <span class="method-start">225418 ms</span>
+                <span class="method-start">211024 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method after">
                 <span class="method-name">endTestCase</span>
-                <span class="method-start">225419 ms</span>
+                <span class="method-start">211025 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">startTestCase</span>
-                <span class="method-start">225420 ms</span>
+                <span class="method-start">211040 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">NavigateToWaitTimeColorConfigPage</span>
-                <span class="method-start">225421 ms</span>
+                <span class="method-start">211041 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">SortingByDescending</span>
-                <span class="method-start">225423 ms</span>
+                <span class="method-start">211042 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">afterEachMethod</span>
-                <span class="method-start">225431 ms</span>
+                <span class="method-start">211055 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method after">
                 <span class="method-name">endTestCase</span>
-                <span class="method-start">225433 ms</span>
+                <span class="method-start">211057 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">startTestCase</span>
-                <span class="method-start">225434 ms</span>
+                <span class="method-start">211066 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">NavigateToWaitTimeColorConfigPage</span>
-                <span class="method-start">225435 ms</span>
+                <span class="method-start">211068 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">ExporttoExcelWithoutData</span>
-                <span class="method-start">225436 ms</span>
+                <span class="method-start">211069 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">afterEachMethod</span>
-                <span class="method-start">225440 ms</span>
+                <span class="method-start">211076 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method after">
                 <span class="method-name">endTestCase</span>
-                <span class="method-start">225441 ms</span>
+                <span class="method-start">211083 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">startTestCase</span>
-                <span class="method-start">225444 ms</span>
+                <span class="method-start">211086 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">NavigateToWaitTimeColorConfigPage</span>
-                <span class="method-start">225445 ms</span>
+                <span class="method-start">211088 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">VerifyDropdownForAllTheColumns</span>
-                <span class="method-start">225449 ms</span>
+                <span class="method-start">211091 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">afterEachMethod</span>
-                <span class="method-start">225455 ms</span>
+                <span class="method-start">211103 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method after">
                 <span class="method-name">endTestCase</span>
-                <span class="method-start">225456 ms</span>
+                <span class="method-start">211106 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">startTestCase</span>
-                <span class="method-start">225458 ms</span>
+                <span class="method-start">211123 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">NavigateToWaitTimeColorConfigPage</span>
-                <span class="method-start">225459 ms</span>
+                <span class="method-start">211125 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">VerifyColumnsHeaderEnable</span>
-                <span class="method-start">225461 ms</span>
+                <span class="method-start">211126 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">afterEachMethod</span>
-                <span class="method-start">225464 ms</span>
+                <span class="method-start">211131 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method after">
                 <span class="method-name">endTestCase</span>
-                <span class="method-start">225465 ms</span>
+                <span class="method-start">211135 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">startTestCase</span>
-                <span class="method-start">225469 ms</span>
+                <span class="method-start">211138 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">NavigateToWaitTimeColorConfigPage</span>
-                <span class="method-start">225470 ms</span>
+                <span class="method-start">211139 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">VerifyColumnsHeaderDisable</span>
-                <span class="method-start">225471 ms</span>
+                <span class="method-start">211140 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">afterEachMethod</span>
-                <span class="method-start">225474 ms</span>
+                <span class="method-start">211144 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method after">
                 <span class="method-name">endTestCase</span>
-                <span class="method-start">225475 ms</span>
+                <span class="method-start">211146 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-class after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">225477 ms</span>
+                <span class="method-start">211147 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

@@ -288,6 +288,10 @@ public class OCMReportsPage extends BasePage {
     @FindBy(xpath="//button[@id='clearAllSearch']")
 	private WebElement ClearAll; 
     
+    @FindBy(xpath="//button[@id='clearAll']")
+	private WebElement ClearAllFiltersAdvSrch; 
+
+    
     public boolean isShowButtonsDisplayed() {
     	return showReportBtn.get(0).isDisplayed() && showReportBtn.get(1).isDisplayed() && showReportBtn.get(0).isEnabled() && showReportBtn.get(1).isEnabled();    	
     }
@@ -6650,7 +6654,12 @@ return status;
 			
 			
 		}
-		
+		public void ClearAdvFilters(ReportDetails details) throws Exception {
+			chooseReport(details);
+			chooseAdvancedSearch(details);
+			waitUntilWebElementIsClickable(ClearAllFiltersAdvSrch);
+			selectWebElement(ClearAllFiltersAdvSrch);		
+		}
 		
 	}
 

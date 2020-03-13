@@ -11,9 +11,9 @@
 			class-name="com.tetherfi.ExtentReportListener.ExtentReporterNG" />
 	</listeners>
      
-     <test name="WaitTimeColorConfigTest" parallel="false">
+     <test name="WorkCodeListTest" parallel="false">
       <classes>  
-           <class name="com.tetherfi.test.tmac.WaitTimeColorConfigTest"/> 
+           <class name="com.tetherfi.test.tmac.WorkCodeListTest"/> 
             </classes>
      </test>
               
