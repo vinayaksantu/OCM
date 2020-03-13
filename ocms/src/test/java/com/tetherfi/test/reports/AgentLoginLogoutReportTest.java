@@ -435,3 +435,4 @@ public class AgentLoginLogoutReportTest extends BaseTest {
     	screenshot.captureScreen(driver, "", method.getName());
     }
 }
+
