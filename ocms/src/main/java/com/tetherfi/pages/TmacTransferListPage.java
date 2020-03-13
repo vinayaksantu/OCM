@@ -932,7 +932,7 @@ public class TmacTransferListPage extends BasePage {
 					}
 				else*/
 				if(headers.get(j).getText().equals("Last Changed On"))
-					col=cols.get(j).getText().replaceAll("/", "-");
+					col=cols.get(j).getText().replaceAll("/", "/");
 				else
 					col=cols.get(j).getText();
 				map.put(headers.get(j).getText(),col);

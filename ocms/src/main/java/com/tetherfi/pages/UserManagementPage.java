@@ -58,7 +58,7 @@ public class UserManagementPage extends BasePage {
     @FindBy(css=".modal-body .form-inline .form-group .k-textbox")
     private List<WebElement> searchText;
 
-    @FindBy(css=".modal-footer .k-primary")
+    @FindBy(css=".fa-search")
     private WebElement searchBtn;
 
     @FindBy(css = ".k-grid-edit")
@@ -325,7 +325,7 @@ public class UserManagementPage extends BasePage {
 			e.printStackTrace();
 		}
         enterValueToTxtField(userIdTextBox,UserID);
-        enterValueToTxtField(editModifyReasonTextBox,reason);
+        enterValueToTxtFieldWithoutClear(editModifyReasonTextBox,reason);
         selectWebElement(saveBtn);
         try {
         selectWebElement(editcancel);
@@ -342,7 +342,7 @@ public class UserManagementPage extends BasePage {
         selectWebElement(selectSearchColumn.get(1));
         selectDropdownFromVisibleText(searchTypeList,"Is equal to");
         enterValueToTxtField(searchText.get(0),UserID);
-        selectWebElement(searchBtn);
+        selectWebElement(searchSearchBtn);
         waitForJqueryLoad(driver);
     }
     
@@ -459,25 +459,33 @@ public class UserManagementPage extends BasePage {
         selectWebElement(yesBtn);
     }
     public boolean verifyNewRecordCreated(){
-        if(errorMsg.size()>0){return false;}
+        //if(errorMsg.size()>0){return false;}
         if(waitUntilTextToBePresentInWebElement(successmsg,"Record Created Successfully"))
         {return true;}else{return false;}
     }
 
     public boolean verifyRecordUpdated(){
         waitForJqueryLoad(driver);
-        if(errorMsg.size()>0){return false;}
+        //if(errorMsg.size()>0){return false;}
         if(waitUntilTextToBePresentInWebElement(successmsg,"Record Updated Successfully"))
         {return true;}else{return false;}
     }
 
     public boolean verifyRecordDeleted(){
         waitForJqueryLoad(driver);
-        if(errorMsg.size()>0){return false;}
+        //if(errorMsg.size()>0){return false;}
         if(waitUntilTextToBePresentInWebElement(successmsg,"Record Deleted Successfully")){
             return true;
         }else{return false;}
     }
+    
+    public Boolean verifyErrorMessage() {
+		waitUntilWebElementListIsVisible(errorMsg);
+		if(errorMsg.size()>0){
+			return true;}
+			else 
+				return false;
+	}
 	public boolean isPageBasedUserAccessPageDisplayed() {
 		try {
 			Thread.sleep(500);

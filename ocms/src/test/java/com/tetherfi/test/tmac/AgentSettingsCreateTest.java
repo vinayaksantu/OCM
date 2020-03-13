@@ -114,7 +114,7 @@ public class AgentSettingsCreateTest {
         Assert.assertTrue(agentSettingsPage.verifyStatus("Approval Pending"),"approval status details failed");
     }
     
-    @Test(groups = { "Checker" },priority=6,dependsOnMethods="VerifySendForApprovalForAddNewAgentSettingsRecord")
+    @Test(groups = { "Checker" },priority=6)//,dependsOnMethods="VerifySendForApprovalForAddNewAgentSettingsRecord")
     public void RejectForAddNewAgentSettingsRecord() throws Exception{
     	 AgentSettingsNewDesignPage agentSettingsPage = PageFactory.createPageInstance(driver, AgentSettingsNewDesignPage.class);
     	 agentSettingsPage.clickonReject("Reject Created");
@@ -138,7 +138,7 @@ public class AgentSettingsCreateTest {
     }
     
     @Test(groups = { "Maker" },priority=8)
-     public void AddNewSupervisorRecord() throws Exception {
+      public void AddNewSupervisorRecord() throws Exception {
          String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentSettingsData.xlsx";
          Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
          AgentSettingsDetails agentSettingsDetails = new AgentSettingsDetails(map);
@@ -220,24 +220,24 @@ public class AgentSettingsCreateTest {
         Assert.assertTrue(ocmReportsPage.verifyAuditTrailReportDisplayed(agentSettingsDetails, "CheckerApprove"),"Audit Trail report assertion failed");
     }
    
-    @Test(groups = { "Maker" },priority=15,dependsOnMethods = "AddNewSupervisorRecord")
+    @Test(groups = { "Maker" },priority=15)//,dependsOnMethods = "AddNewSupervisorRecord")
     public void VerifyDuplicateLanIDCreation() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentSettingsData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
+        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(2);
         AgentSettingsDetails agentSettingsDetails = new AgentSettingsDetails(map);
         AgentSettingsNewDesignPage agentSettingsPage = PageFactory.createPageInstance(driver, AgentSettingsNewDesignPage.class);
         agentSettingsPage.addNewAgentSettingsRecord(agentSettingsDetails);
-        Assert.assertEquals(agentSettingsPage.verifySuccessMessage(),"×\nDuplicate Lan ID", "Add Duplicate record assertion failed");
+        Assert.assertEquals(agentSettingsPage.verifySuccessMessage(),"Duplicate Lan ID", "Add Duplicate record assertion failed");
     }
     
-    @Test(groups = { "Maker" },priority=16,dependsOnMethods = "AddNewSupervisorRecord")
+    @Test(groups = { "Maker" },priority=16)//,dependsOnMethods = "AddNewSupervisorRecord")
     public void VerifyDuplicateAvayaLoginIDCreation() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentSettingsData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
+        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(3);
         AgentSettingsDetails agentSettingsDetails = new AgentSettingsDetails(map);
         AgentSettingsNewDesignPage agentSettingsPage = PageFactory.createPageInstance(driver, AgentSettingsNewDesignPage.class);
         agentSettingsPage.addNewAgentSettingsRecord(agentSettingsDetails);
-        Assert.assertEquals(agentSettingsPage.verifySuccessMessage(),"×\nDuplicate Avaya Login ID", "Add Duplicate record assertion failed");
+        Assert.assertEquals(agentSettingsPage.verifySuccessMessage(),"Duplicate Avaya Login ID", "Add Duplicate record assertion failed");
     }
     
     @Test(groups = { "Maker" },priority=17)//,dependsOnMethods = "ApproveforAddNewSupervisorRecord")

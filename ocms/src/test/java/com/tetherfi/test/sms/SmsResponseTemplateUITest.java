@@ -37,7 +37,7 @@ Screenshot screenshot=new Screenshot(driver);
         Assert.assertTrue(SmsResponseTemplatePage.isSMSResponseTemplatePageDisplayed(), "SMS Response Template Page assertion failed");
     }
 	
-	/*@Test(priority=1)
+	@Test(priority=1)
     public void SmsResponseTemplatePage() {
         SmsResponseTemplatePage SmsResponseTemplatePage = PageFactory.createPageInstance(driver, SmsResponseTemplatePage.class);
     	Assert.assertTrue(SmsResponseTemplatePage.verifylogo(),"Host Value Mapping logo assertion failed");
@@ -80,9 +80,6 @@ Screenshot screenshot=new Screenshot(driver);
 	}
      
     @Test(priority=6)
-    
-    
-    
     public void VerifyColumnsHeaderEnable() {
     	SmsResponseTemplatePage SmsResponseTemplatePage = PageFactory.createPageInstance(driver, SmsResponseTemplatePage.class);
         SmsResponseTemplatePage.selectSmsResponseTemplateAuditTrailTab();
@@ -127,7 +124,7 @@ Screenshot screenshot=new Screenshot(driver);
         SmsResponseTemplatePage.selectSmsResponseTemplateAuditTrailTab();
         SmsResponseTemplatePage.selectMakeSmsResponseTemplateChanges();
         Assert.assertTrue(SmsResponseTemplatePage.verifyNumberOfItemsPerPage(2),"item per page assertion failed");
-    }*/
+    }
     
     @Test(priority=12)
     public void ExportToExcel() throws Exception
@@ -149,7 +146,7 @@ Screenshot screenshot=new Screenshot(driver);
         Assert.assertTrue(SmsResponseTemplatePage.verifyexportToExcelSheet(maplist));	
     }
     
-    /*@Test(priority=14)
+    @Test(priority=14)
     public void VerifyExportToExcelWithoutData() throws Exception {
     	SmsResponseTemplatePage SmsResponseTemplatePage = PageFactory.createPageInstance(driver, SmsResponseTemplatePage.class);
         SmsResponseTemplatePage.selectSmsResponseTemplateAuditTrailTab();
@@ -247,9 +244,11 @@ Screenshot screenshot=new Screenshot(driver);
     public void VerifySearchIsNotEqualTo() throws Exception
     {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\SmsResponseTemplateData.xlsx";
-    	Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(2);
+    	Map<String, String> map = new ExcelReader(filePath,"Invalid").getTestData().get(2);
 	    SmsResponseTemplateDetails SmsResponseTemplateDetails = new SmsResponseTemplateDetails(map);
     	SmsResponseTemplatePage SmsResponseTemplatePage = PageFactory.createPageInstance(driver, SmsResponseTemplatePage.class);
+    	SmsResponseTemplatePage.selectSmsResponseTemplateAuditTrailTab();
+        SmsResponseTemplatePage.selectMakeSmsResponseTemplateChanges();
     	Assert.assertTrue(SmsResponseTemplatePage.verifySearchIsNotEqualTo(SmsResponseTemplateDetails.getIntent()));
     }
     
@@ -257,9 +256,11 @@ Screenshot screenshot=new Screenshot(driver);
     public void VerifySearchContains() throws Exception
     {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\SmsResponseTemplateData.xlsx";
-    	Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(3);
+    	Map<String, String> map = new ExcelReader(filePath,"Invalid").getTestData().get(3);
 	    SmsResponseTemplateDetails SmsResponseTemplateDetails = new SmsResponseTemplateDetails(map);
     	SmsResponseTemplatePage SmsResponseTemplatePage = PageFactory.createPageInstance(driver, SmsResponseTemplatePage.class);
+    	SmsResponseTemplatePage.selectSmsResponseTemplateAuditTrailTab();
+        SmsResponseTemplatePage.selectMakeSmsResponseTemplateChanges();
     	Assert.assertTrue(SmsResponseTemplatePage.verifySearchContains(SmsResponseTemplateDetails.getIntent()));
     }
     
@@ -267,9 +268,11 @@ Screenshot screenshot=new Screenshot(driver);
     public void VerifySearchDoesNotContains() throws Exception
     {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\SmsResponseTemplateData.xlsx";
-    	Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(3);
+    	Map<String, String> map = new ExcelReader(filePath,"Invalid").getTestData().get(3);
 	    SmsResponseTemplateDetails SmsResponseTemplateDetails = new SmsResponseTemplateDetails(map);
     	SmsResponseTemplatePage SmsResponseTemplatePage = PageFactory.createPageInstance(driver, SmsResponseTemplatePage.class);
+    	SmsResponseTemplatePage.selectSmsResponseTemplateAuditTrailTab();
+        SmsResponseTemplatePage.selectMakeSmsResponseTemplateChanges();
     	Assert.assertTrue(SmsResponseTemplatePage.verifySearchDoesNotContains(SmsResponseTemplateDetails.getIntent()));
     }
     
@@ -277,9 +280,11 @@ Screenshot screenshot=new Screenshot(driver);
     public void VerifySearchStartsWith() throws Exception
     {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\SmsResponseTemplateData.xlsx";
-    	Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(4);
+    	Map<String, String> map = new ExcelReader(filePath,"Invalid").getTestData().get(4);
 	    SmsResponseTemplateDetails SmsResponseTemplateDetails = new SmsResponseTemplateDetails(map);
     	SmsResponseTemplatePage SmsResponseTemplatePage = PageFactory.createPageInstance(driver, SmsResponseTemplatePage.class);
+    	SmsResponseTemplatePage.selectSmsResponseTemplateAuditTrailTab();
+        SmsResponseTemplatePage.selectMakeSmsResponseTemplateChanges();
     	Assert.assertTrue(SmsResponseTemplatePage.verifySearchStartsWith(SmsResponseTemplateDetails.getIntent()));
     }
     
@@ -287,11 +292,13 @@ Screenshot screenshot=new Screenshot(driver);
     public void VerifySearchEndsWith() throws Exception
     {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\SmsResponseTemplateData.xlsx";
-    	Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(5);
+    	Map<String, String> map = new ExcelReader(filePath,"Invalid").getTestData().get(5);
 	    SmsResponseTemplateDetails SmsResponseTemplateDetails = new SmsResponseTemplateDetails(map);
     	SmsResponseTemplatePage SmsResponseTemplatePage = PageFactory.createPageInstance(driver, SmsResponseTemplatePage.class);
+    	SmsResponseTemplatePage.selectSmsResponseTemplateAuditTrailTab();
+        SmsResponseTemplatePage.selectMakeSmsResponseTemplateChanges();
     	Assert.assertTrue(SmsResponseTemplatePage.verifySearchEndsWith(SmsResponseTemplateDetails.getIntent()));
-    }*/
+    }
     
     @AfterMethod
     public void afterEachMethod(Method method) throws InterruptedException {

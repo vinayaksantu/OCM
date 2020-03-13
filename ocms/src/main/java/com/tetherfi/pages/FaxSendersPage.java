@@ -284,7 +284,7 @@ public class FaxSendersPage extends BasePage{
         selectWebElement(senderTypeDropdown);
         selectDropdownFromVisibleText(sendersTypeListBox,faxSendersDetails.getUpdatedSenderType());
         selectWebElement(modifyReasonTextBox);
-        enterValueToTxtField(modifyReasonTextBox,faxSendersDetails.getModifyReason());
+        enterValueToTxtFieldWithoutClear(modifyReasonTextBox,faxSendersDetails.getModifyReason());
         selectWebElement(faxSendersSaveButton);
     }
     
@@ -296,7 +296,7 @@ public class FaxSendersPage extends BasePage{
         selectWebElement(senderTypeDropdown);
         selectDropdownFromVisibleText(sendersTypeListBox,faxSendersDetails.getUpdatedSenderType());
         selectWebElement(modifyReasonTextBox);
-        enterValueToTxtField(modifyReasonTextBox,faxSendersDetails.getModifyReason());
+        enterValueToTxtFieldWithoutClear(modifyReasonTextBox,faxSendersDetails.getModifyReason());
         selectWebElement(cancelBtn);
         if(rowdata.getText().equals(faxSendersDetails.getFaxNumber()))
         		return true;
@@ -318,14 +318,14 @@ public class FaxSendersPage extends BasePage{
     public void deleteFaxSendersRecord(FaxSendersDetails faxSendersDetails) throws Exception {
         searchFaxSendersRecord(faxSendersDetails.getFaxLine());
         selectWebElement(deleteButton);
-        enterValueToTxtField(deleteReasonTextBox,faxSendersDetails.getDeleteReason());
+        enterValueToTxtFieldWithoutClear(deleteReasonTextBox,faxSendersDetails.getDeleteReason());
         selectWebElement(deleteYesBtn);
     }
     
     public boolean deleteFaxSendersCancelRecord(FaxSendersDetails faxSendersDetails) throws Exception {
     	searchFaxSendersRecord(faxSendersDetails.getFaxLine());
         selectWebElement(deleteButton);
-        enterValueToTxtField(deleteReasonTextBox,faxSendersDetails.getDeleteReason());
+        enterValueToTxtFieldWithoutClear(deleteReasonTextBox,faxSendersDetails.getDeleteReason());
         selectWebElement(deleteNoBtn);
         if(rowdata.getText().equals(faxSendersDetails.getFaxNumber()))
         	return true;
@@ -460,7 +460,7 @@ public class FaxSendersPage extends BasePage{
 			List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
 			for(int j=1;j<headers.size();j++) {
 				if(headers.get(j).getText().equals("Last Changed On")){
-				col=cols.get(j).getText().substring(0,10);
+				col=cols.get(j).getText().substring(0);
 				}
 				else
 					col=cols.get(j).getText();
@@ -479,6 +479,8 @@ public class FaxSendersPage extends BasePage{
 		}
 			return arr;
 	}
+	
+	
 	public boolean verifyDatabase(String query) {
 		List<Map<String,String>> database=database(query);
 		System.out.println(database);
@@ -507,7 +509,13 @@ public class FaxSendersPage extends BasePage{
 			for(int j=1;j<headers.size();j++){
 				scrollToElement(headers.get(j));
 				if(headers.get(j).getText().equals("Last Changed On")){
-					col=cols.get(j).getText().substring(11);
+					String value=cols.get(j).getText().substring(11, 13);
+					int time = Integer.parseInt(value);
+					if(time>12) {
+					      time=time-12;
+					}
+					String col1=Integer.toString(time);
+					col=col1+cols.get(j).getText().substring(13);
 					}
 				else
 					col=cols.get(j).getText();

@@ -75,6 +75,12 @@ public class CallbackAnnouncementPage extends BasePage{
 
     @FindBy(css = ".modal-body .form-inline .form-group .k-select")
     private List<WebElement> selectSearchCol;
+    
+    @FindBy(xpath="//span[@aria-controls='1001sColumnName_listbox']")
+    private WebElement selectSearchColumn;
+    
+    @FindBy(xpath="//span[@aria-owns='1001sCriteria_listbox']")
+    private WebElement condition;
 
     @FindBy(css="ul[id='1001sColumnName_listbox'] li")
     private List<WebElement> columnNameList;
@@ -382,9 +388,9 @@ public class CallbackAnnouncementPage extends BasePage{
 
 	private void searchCallbackAnnouncementRecord(String startTime) throws Exception {
 		selectWebElement(searchBtn);
-        selectWebElement(selectSearchCol.get(0));
+        selectWebElement(selectSearchColumn);
         selectDropdownFromVisibleText(columnNameList,"Start Time");
-        selectWebElement(selectSearchCol.get(1));
+        selectWebElement(condition);
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is equal to");
         enterValueToTxtBox1(searchTextBox,startTime);
         selectWebElement(searchSearchBtn);
@@ -721,9 +727,9 @@ public class CallbackAnnouncementPage extends BasePage{
 		Map<String, String> map=new HashMap<String,String>() ;
 		map.put("Language", language);
 		selectWebElement(searchBtn);
-        selectWebElement(selectSearchCol.get(0));
+		selectWebElement(selectSearchColumn);
         selectDropdownFromVisibleText(columnNameList,"Language");
-        selectWebElement(selectSearchCol.get(1));
+        selectWebElement(condition);
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is not equal to");
         enterValueToTxtField(searchTextBox1,language);		
         selectWebElement(searchSearchBtn);
@@ -742,9 +748,9 @@ public class CallbackAnnouncementPage extends BasePage{
 	public boolean verifySearchContains(String language) throws Exception {
 		Boolean Status=false;
 		selectWebElement(searchBtn);
-        selectWebElement(selectSearchCol.get(0));
+		selectWebElement(selectSearchColumn);
         selectDropdownFromVisibleText(columnNameList,"Language");
-        selectWebElement(selectSearchCol.get(1));
+        selectWebElement(condition);
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Contains");
         enterValueToTxtField(searchTextBox1,language);		
         selectWebElement(searchSearchBtn);
@@ -762,9 +768,9 @@ public class CallbackAnnouncementPage extends BasePage{
 	public boolean verifySearchDoesNotContains(String language) throws Exception {
 		Boolean Status=false;
 		selectWebElement(searchBtn);
-        selectWebElement(selectSearchCol.get(0));
+		selectWebElement(selectSearchColumn);
         selectDropdownFromVisibleText(columnNameList,"Language");
-        selectWebElement(selectSearchCol.get(1));
+        selectWebElement(condition);
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Does not contain");
         enterValueToTxtField(searchTextBox1,language);		
         selectWebElement(searchSearchBtn);
@@ -782,9 +788,9 @@ public class CallbackAnnouncementPage extends BasePage{
 	public boolean verifySearchStartsWith(String language) throws Exception {
 		Boolean Status=false;
 		selectWebElement(searchBtn);
-        selectWebElement(selectSearchCol.get(0));
+		selectWebElement(selectSearchColumn);
         selectDropdownFromVisibleText(columnNameList,"Language");
-        selectWebElement(selectSearchCol.get(1));
+        selectWebElement(condition);
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Starts with");
         enterValueToTxtField(searchTextBox1,language);		
         selectWebElement(searchSearchBtn);
@@ -802,9 +808,9 @@ public class CallbackAnnouncementPage extends BasePage{
 	public boolean verifySearchEndsWith(String language) throws Exception {
 		Boolean Status=false;
 		selectWebElement(searchBtn);
-        selectWebElement(selectSearchCol.get(0));
+		selectWebElement(selectSearchColumn);
         selectDropdownFromVisibleText(columnNameList,"Language");
-        selectWebElement(selectSearchCol.get(1));
+        selectWebElement(condition);
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Ends with");
         enterValueToTxtField(searchTextBox1,language);		
         selectWebElement(searchSearchBtn);
@@ -853,7 +859,8 @@ public class CallbackAnnouncementPage extends BasePage{
 	        selectWebElement(ModifyReasonTextBox);
 	        enterValueToTxtField(ModifyReasonTextBox,details.getModifyReason());
 	        selectWebElement(cancelBtn);
-	        if(rowdata.getText().equals(details.getWavFile()))
+	        String []wavfileSplit=details.getWavFile().split("\\.");
+	        if(rowdata.getText().contains(wavfileSplit[0]))
 	        	return true;
 	        else 
 	        	return false;	
@@ -895,9 +902,9 @@ public class CallbackAnnouncementPage extends BasePage{
 	}
 	public void searchwithoutextsearch(CallbackAnnouncementDetails callbackAnnouncementDetails) {
 		selectWebElement(searchBtn);
-        selectWebElement(selectSearchCol.get(0));
+        selectWebElement(selectSearchColumn);
         selectDropdownFromVisibleText(columnNameList,"Start Time");
-        selectWebElement(selectSearchCol.get(1));
+        selectWebElement(condition);
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is equal to");
         selectWebElement(searchSearchBtn);		
 	}
@@ -914,7 +921,8 @@ public class CallbackAnnouncementPage extends BasePage{
         Thread.sleep(2000);
         enterValueToTxtField(deleteReasonTextBox,details.getDeleteReason());
         selectWebElement(deleteNoBtn);
-        if(rowdata.getText().equals(details.getWavFile()))
+        String []wavfileSplit=details.getWavFile().split("\\.");
+        if(rowdata.getText().contains(wavfileSplit[0]))
         		return true;
         else
         	return false;
@@ -925,11 +933,11 @@ public class CallbackAnnouncementPage extends BasePage{
         Thread.sleep(2000);
         enterValueToTxtFieldWithoutClear(deleteReasonTextBox,details.getDeleteReason());
         selectWebElement(deleteYesBtn);
-        try {
+       /* try {
         	selectWebElement(deleteNoBtn);
         }
         catch(Exception e){
         	e.printStackTrace();
-        }		
+        }	*/	
 	}
 }

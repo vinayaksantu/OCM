@@ -34,7 +34,7 @@ public class UserManagementTest extends BaseTest{
         UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
         Assert.assertTrue(userManagementPage.isUserManagementPageDisplayed(),"User management assertion failed");
     }
-  @Test(priority=1)
+    @Test(priority=1)
     public void UserManagementPage(){
         UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
     	Assert.assertTrue(userManagementPage.verifylogo(),"User Management logo assertion failed");
@@ -64,20 +64,20 @@ public class UserManagementTest extends BaseTest{
         UserDetails userDetails=new UserDetails(map);
         UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
         userManagementPage.DuplicateRecord(userDetails.getUserId());
-        Assert.assertFalse(userManagementPage.verifyNewRecordCreated(), "Duplicate Record Creation assertion failed");
+        Assert.assertTrue(userManagementPage.verifyErrorMessage(), "Duplicate Record Creation assertion failed");
     	screenshot.captureScreen(driver, "Duplicate Record","UserManagementTest");
     	Map<String, String> map1 = new ExcelReader(filePath,"Create").getTestData().get(1);
         UserDetails userDetails1=new UserDetails(map1);
     	userManagementPage.addUserManagementRecord(userDetails1.getUserId());
-        Assert.assertFalse(userManagementPage.verifyNewRecordCreated(), "Invalid Record creation assertion failed");
+        Assert.assertTrue(userManagementPage.verifyErrorMessage(), "Invalid Record creation assertion failed");
     	screenshot.captureScreen(driver, "Invalid Record for domainID","UserManagementTest");
     	Map<String, String> map2 = new ExcelReader(filePath,"Create").getTestData().get(2);
         UserDetails userDetails2=new UserDetails(map2);
         userManagementPage.addUserManagementRecord(userDetails2.getUserId());
-        Assert.assertFalse(userManagementPage.verifyNewRecordCreated(), "Invalid Record creation assertion failed");
+        Assert.assertTrue(userManagementPage.verifyErrorMessage(), "Invalid Record creation assertion failed");
    		screenshot.captureScreen(driver, "Invalid Record for userid","UserManagementTest");
    		userManagementPage.addinvalidrecord();
-   		Assert.assertFalse(userManagementPage.verifyNewRecordCreated(), "Invalid Record Creation failed");
+   		Assert.assertTrue(userManagementPage.verifyErrorMessage(), "Invalid Record Creation failed");
    		screenshot.captureScreen(driver, "Invalid Record","UserManagementTest");
     }
     @Test(priority=4)
@@ -99,27 +99,27 @@ public class UserManagementTest extends BaseTest{
         UserDetails userDetails=new UserDetails(map);
         UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
         userManagementPage.editUserManagementRecord(userDetails.getUpdatedUserId(),userDetails.getModifyReason(),userDetails.getUserId());
-        Assert.assertFalse(userManagementPage.verifyRecordUpdated(),"Edit Invalid record assertion failed");
+        Assert.assertTrue(userManagementPage.verifyErrorMessage(),"Edit Invalid record assertion failed");
    		screenshot.captureScreen(driver, "Invalid Record","UserManagementTest");
    		Map<String, String> map1 = new ExcelReader(filePath,"Edit").getTestData().get(2);
         UserDetails userDetails1=new UserDetails(map1);
         userManagementPage.editUserManagementRecord(userDetails1.getUpdatedUserId(),userDetails1.getModifyReason(),userDetails1.getUserId());
-        Assert.assertFalse(userManagementPage.verifyRecordUpdated(),"Edit Invalid record assertion failed");
+        Assert.assertTrue(userManagementPage.verifyErrorMessage(),"Edit Invalid record assertion failed");
    		screenshot.captureScreen(driver, "Invalid Record2","UserManagementTest");
    		Map<String, String> map2 = new ExcelReader(filePath,"Edit").getTestData().get(3);
         UserDetails userDetails2=new UserDetails(map2);
         userManagementPage.editInvalidUserManagementRecord(userDetails2.getUpdatedUserId(),userDetails2.getUserId());
-        Assert.assertFalse(userManagementPage.verifyRecordUpdated(),"Edit Invalid record assertion failed");
+        Assert.assertTrue(userManagementPage.verifyErrorMessage(),"Edit Invalid record assertion failed");
    		screenshot.captureScreen(driver, "Invalid Record3","UserManagementTest");
         Map<String, String> map3 = new ExcelReader(filePath,"Edit").getTestData().get(3);
         UserDetails userDetails3=new UserDetails(map3);
         userManagementPage.editInvalidUserManagementRecord2(userDetails3.getModifyReason(),userDetails3.getUserId());
-        Assert.assertFalse(userManagementPage.verifyRecordUpdated(),"Edit Invalid record assertion failed");
+        Assert.assertTrue(userManagementPage.verifyErrorMessage(),"Edit Invalid record assertion failed");
    		screenshot.captureScreen(driver, "Invalid Record4","UserManagementTest");
    		Map<String, String> map4 = new ExcelReader(filePath,"Edit").getTestData().get(4);
         UserDetails userDetails4=new UserDetails(map4);
    		userManagementPage.editUserManagementRecord(userDetails4.getUpdatedUserId(),userDetails4.getModifyReason(),userDetails4.getUserId());
-        Assert.assertFalse(userManagementPage.verifyRecordUpdated(),"Duplicate assertion failed");
+        Assert.assertTrue(userManagementPage.verifyErrorMessage(),"Duplicate assertion failed");
    		screenshot.captureScreen(driver, "Duplicate Record","UserManagementTest");
     }
     

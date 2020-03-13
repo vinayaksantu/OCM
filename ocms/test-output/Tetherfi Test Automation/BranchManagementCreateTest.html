@@ -1,0 +1,487 @@
+<html>
+<head>
+<title>TestNG:  BranchManagementCreateTest</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>BranchManagementCreateTest</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>24/2/2</td>
+</tr><tr>
+<td>Started on:</td><td>Tue Feb 04 18:16:16 IST 2020</td>
+</tr>
+<tr><td>Total time:</td><td>1433 seconds (1433778 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.tetherfi.test.ivr.BranchManagementCreateTest.AddDuplicateRecord()'><b>AddDuplicateRecord</b><br>Test class: com.tetherfi.test.ivr.BranchManagementCreateTest</td>
+<td><div><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator &apos;By.cssSelector: span[aria-owns=&apos;MainLines_listbox&apos;]&apos; (tried for 30 second(s) with 500 milliseconds interval)
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
+	at com.tetherfi.pages.BasePage.waitUntilWebElementIsVisible(BasePage.java:127)
+	at com.tetherfi.pages.BasePage.selectWebElement(BasePage.java:198)
+	at com.tetherfi.pages.BranchManagementPage.addNewBranchManagementRecord(BranchManagementPage.java:897)
+	at com.tetherfi.test.ivr.BranchManagementCreateTest.AddDuplicateRecord(BranchManagementCreateTest.java:360)
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;span[aria-owns=&apos;MainLines_listbox&apos;]&quot;}
+  (Session info: chrome=79.0.3945.130)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;DESKTOP-O6A5C2O&apos;, ip: &apos;10.0.75.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;9.0.4&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 79.0.3945.130, chrome: {chromedriverVersion: 78.0.3904.70 (edb9c9f3de024..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:54064}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: cfcd2a9f4e70452cd008428fd8ac5e7f
+*** Element info: {Using=css selector, value=span[aria-owns=&apos;MainLines_listbox&apos;]}
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:420)
+	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:431)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at com.sun.proxy.$Proxy14.isDisplayed(Unknown Source)
+	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:314)
+	at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:43)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:300)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:297)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
+	... 32 more
+... Removed 30 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1310718956", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1310718956'><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator &apos;By.cssSelector: span[aria-owns=&apos;MainLines_listbox&apos;]&apos; (tried for 30 second(s) with 500 milliseconds interval)
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
+	at com.tetherfi.pages.BasePage.waitUntilWebElementIsVisible(BasePage.java:127)
+	at com.tetherfi.pages.BasePage.selectWebElement(BasePage.java:198)
+	at com.tetherfi.pages.BranchManagementPage.addNewBranchManagementRecord(BranchManagementPage.java:897)
+	at com.tetherfi.test.ivr.BranchManagementCreateTest.AddDuplicateRecord(BranchManagementCreateTest.java:360)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+	at org.testng.TestRunner.privateRun(TestRunner.java:770)
+	at org.testng.TestRunner.run(TestRunner.java:591)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+	at org.testng.TestNG.runSuites(TestNG.java:1032)
+	at org.testng.TestNG.run(TestNG.java:1000)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;span[aria-owns=&apos;MainLines_listbox&apos;]&quot;}
+  (Session info: chrome=79.0.3945.130)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;DESKTOP-O6A5C2O&apos;, ip: &apos;10.0.75.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;9.0.4&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 79.0.3945.130, chrome: {chromedriverVersion: 78.0.3904.70 (edb9c9f3de024..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:54064}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: cfcd2a9f4e70452cd008428fd8ac5e7f
+*** Element info: {Using=css selector, value=span[aria-owns=&apos;MainLines_listbox&apos;]}
+	at jdk.internal.reflect.GeneratedConstructorAccessor37.newInstance(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.base/java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:420)
+	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:431)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at com.sun.proxy.$Proxy14.isDisplayed(Unknown Source)
+	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:314)
+	at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:43)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:300)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:297)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
+	... 32 more
+</pre></div></td>
+<td>37</td>
+<td>com.tetherfi.test.ivr.BranchManagementCreateTest@687e6293</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.BranchManagementCreateTest.ApproveforAddNewBranchManagementRecord()'><b>ApproveforAddNewBranchManagementRecord</b><br>Test class: com.tetherfi.test.ivr.BranchManagementCreateTest</td>
+<td><div><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator &apos;By.cssSelector: .toast-message&apos; (tried for 30 second(s) with 500 milliseconds interval)
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
+	at com.tetherfi.pages.BasePage.waitUntilWebElementIsVisible(BasePage.java:127)
+	at com.tetherfi.pages.BranchManagementPage.getSuccessMessage(BranchManagementPage.java:856)
+	at com.tetherfi.pages.BranchManagementPage.verifyMessage(BranchManagementPage.java:1633)
+	at com.tetherfi.test.ivr.BranchManagementCreateTest.ApproveforAddNewBranchManagementRecord(BranchManagementCreateTest.java:326)
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;.toast-message&quot;}
+  (Session info: chrome=79.0.3945.130)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;DESKTOP-O6A5C2O&apos;, ip: &apos;10.0.75.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;9.0.4&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 79.0.3945.130, chrome: {chromedriverVersion: 78.0.3904.70 (edb9c9f3de024..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:54035}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 288b41d4e473adf88252ae22de1ed786
+*** Element info: {Using=css selector, value=.toast-message}
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:420)
+	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:431)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at com.sun.proxy.$Proxy14.isDisplayed(Unknown Source)
+	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:314)
+	at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:43)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:300)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:297)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
+	... 32 more
+... Removed 30 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1093509941", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1093509941'><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator &apos;By.cssSelector: .toast-message&apos; (tried for 30 second(s) with 500 milliseconds interval)
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
+	at com.tetherfi.pages.BasePage.waitUntilWebElementIsVisible(BasePage.java:127)
+	at com.tetherfi.pages.BranchManagementPage.getSuccessMessage(BranchManagementPage.java:856)
+	at com.tetherfi.pages.BranchManagementPage.verifyMessage(BranchManagementPage.java:1633)
+	at com.tetherfi.test.ivr.BranchManagementCreateTest.ApproveforAddNewBranchManagementRecord(BranchManagementCreateTest.java:326)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+	at org.testng.TestRunner.privateRun(TestRunner.java:770)
+	at org.testng.TestRunner.run(TestRunner.java:591)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+	at org.testng.TestNG.runSuites(TestNG.java:1032)
+	at org.testng.TestNG.run(TestNG.java:1000)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;.toast-message&quot;}
+  (Session info: chrome=79.0.3945.130)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;DESKTOP-O6A5C2O&apos;, ip: &apos;10.0.75.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;9.0.4&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 79.0.3945.130, chrome: {chromedriverVersion: 78.0.3904.70 (edb9c9f3de024..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:54035}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 288b41d4e473adf88252ae22de1ed786
+*** Element info: {Using=css selector, value=.toast-message}
+	at jdk.internal.reflect.GeneratedConstructorAccessor37.newInstance(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.base/java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:420)
+	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:431)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at com.sun.proxy.$Proxy14.isDisplayed(Unknown Source)
+	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:314)
+	at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:43)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:300)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:297)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
+	... 32 more
+</pre></div></td>
+<td>37</td>
+<td>com.tetherfi.test.ivr.BranchManagementCreateTest@687e6293</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.tetherfi.test.ivr.BranchManagementCreateTest.AddNewBranchManagementRecord()'><b>AddNewBranchManagementRecord</b><br>Test class: com.tetherfi.test.ivr.BranchManagementCreateTest</td>
+<td></td>
+<td>25</td>
+<td>com.tetherfi.test.ivr.BranchManagementCreateTest@687e6293</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.BranchManagementCreateTest.AddRejectRecord()'><b>AddRejectRecord</b><br>Test class: com.tetherfi.test.ivr.BranchManagementCreateTest</td>
+<td></td>
+<td>22</td>
+<td>com.tetherfi.test.ivr.BranchManagementCreateTest@687e6293</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.BranchManagementCreateTest.AddRevertRecord()'><b>AddRevertRecord</b><br>Test class: com.tetherfi.test.ivr.BranchManagementCreateTest</td>
+<td></td>
+<td>22</td>
+<td>com.tetherfi.test.ivr.BranchManagementCreateTest@687e6293</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.BranchManagementCreateTest.RejectforAddNewBranchManagementRecord()'><b>RejectforAddNewBranchManagementRecord</b><br>Test class: com.tetherfi.test.ivr.BranchManagementCreateTest</td>
+<td></td>
+<td>10</td>
+<td>com.tetherfi.test.ivr.BranchManagementCreateTest@687e6293</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.BranchManagementCreateTest.VerifyAddCancelButton()'><b>VerifyAddCancelButton</b><br>Test class: com.tetherfi.test.ivr.BranchManagementCreateTest</td>
+<td></td>
+<td>4</td>
+<td>com.tetherfi.test.ivr.BranchManagementCreateTest@687e6293</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.BranchManagementCreateTest.VerifyAddRecordWithoutAddress()'><b>VerifyAddRecordWithoutAddress</b><br>Test class: com.tetherfi.test.ivr.BranchManagementCreateTest</td>
+<td></td>
+<td>17</td>
+<td>com.tetherfi.test.ivr.BranchManagementCreateTest@687e6293</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.BranchManagementCreateTest.VerifyAddRecordWithoutBranchName()'><b>VerifyAddRecordWithoutBranchName</b><br>Test class: com.tetherfi.test.ivr.BranchManagementCreateTest</td>
+<td></td>
+<td>16</td>
+<td>com.tetherfi.test.ivr.BranchManagementCreateTest@687e6293</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.BranchManagementCreateTest.VerifyAddRecordWithoutBranchType()'><b>VerifyAddRecordWithoutBranchType</b><br>Test class: com.tetherfi.test.ivr.BranchManagementCreateTest</td>
+<td></td>
+<td>33</td>
+<td>com.tetherfi.test.ivr.BranchManagementCreateTest@687e6293</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.BranchManagementCreateTest.VerifyAddRecordWithoutLanguage()'><b>VerifyAddRecordWithoutLanguage</b><br>Test class: com.tetherfi.test.ivr.BranchManagementCreateTest</td>
+<td></td>
+<td>25</td>
+<td>com.tetherfi.test.ivr.BranchManagementCreateTest@687e6293</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.BranchManagementCreateTest.VerifyAddRecordWithoutLineOrder()'><b>VerifyAddRecordWithoutLineOrder</b><br>Test class: com.tetherfi.test.ivr.BranchManagementCreateTest</td>
+<td></td>
+<td>19</td>
+<td>com.tetherfi.test.ivr.BranchManagementCreateTest@687e6293</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.BranchManagementCreateTest.VerifyAddRecordWithoutLocation()'><b>VerifyAddRecordWithoutLocation</b><br>Test class: com.tetherfi.test.ivr.BranchManagementCreateTest</td>
+<td></td>
+<td>20</td>
+<td>com.tetherfi.test.ivr.BranchManagementCreateTest@687e6293</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.BranchManagementCreateTest.VerifyAddRecordWithoutStatus()'><b>VerifyAddRecordWithoutStatus</b><br>Test class: com.tetherfi.test.ivr.BranchManagementCreateTest</td>
+<td></td>
+<td>18</td>
+<td>com.tetherfi.test.ivr.BranchManagementCreateTest@687e6293</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.BranchManagementCreateTest.VerifyAddRecordWithoutSubLines()'><b>VerifyAddRecordWithoutSubLines</b><br>Test class: com.tetherfi.test.ivr.BranchManagementCreateTest</td>
+<td></td>
+<td>19</td>
+<td>com.tetherfi.test.ivr.BranchManagementCreateTest@687e6293</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.BranchManagementCreateTest.VerifyAddRecordwithoutMainLines()'><b>VerifyAddRecordwithoutMainLines</b><br>Test class: com.tetherfi.test.ivr.BranchManagementCreateTest</td>
+<td></td>
+<td>18</td>
+<td>com.tetherfi.test.ivr.BranchManagementCreateTest@687e6293</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.BranchManagementCreateTest.VerifyApprovedDataSectionWithoutApproval()'><b>VerifyApprovedDataSectionWithoutApproval</b><br>Test class: com.tetherfi.test.ivr.BranchManagementCreateTest</td>
+<td></td>
+<td>3</td>
+<td>com.tetherfi.test.ivr.BranchManagementCreateTest@687e6293</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.BranchManagementCreateTest.VerifyAuditTrailDataForAddNewBranchManagementRecord()'><b>VerifyAuditTrailDataForAddNewBranchManagementRecord</b><br>Test class: com.tetherfi.test.ivr.BranchManagementCreateTest</td>
+<td></td>
+<td>5</td>
+<td>com.tetherfi.test.ivr.BranchManagementCreateTest@687e6293</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.BranchManagementCreateTest.VerifyAuditTrailReportForCreate()'><b>VerifyAuditTrailReportForCreate</b><br>Test class: com.tetherfi.test.ivr.BranchManagementCreateTest</td>
+<td></td>
+<td>23</td>
+<td>com.tetherfi.test.ivr.BranchManagementCreateTest@687e6293</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.BranchManagementCreateTest.VerifyAuditTrailReportForReject()'><b>VerifyAuditTrailReportForReject</b><br>Test class: com.tetherfi.test.ivr.BranchManagementCreateTest</td>
+<td></td>
+<td>22</td>
+<td>com.tetherfi.test.ivr.BranchManagementCreateTest@687e6293</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.BranchManagementCreateTest.VerifyAuditTrailReportForRevert()'><b>VerifyAuditTrailReportForRevert</b><br>Test class: com.tetherfi.test.ivr.BranchManagementCreateTest</td>
+<td></td>
+<td>23</td>
+<td>com.tetherfi.test.ivr.BranchManagementCreateTest@687e6293</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.BranchManagementCreateTest.VerifyAuditTrailReportForSendForApproval()'><b>VerifyAuditTrailReportForSendForApproval</b><br>Test class: com.tetherfi.test.ivr.BranchManagementCreateTest</td>
+<td></td>
+<td>29</td>
+<td>com.tetherfi.test.ivr.BranchManagementCreateTest@687e6293</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.BranchManagementCreateTest.VerifyRecordAfterRejection()'><b>VerifyRecordAfterRejection</b><br>Test class: com.tetherfi.test.ivr.BranchManagementCreateTest</td>
+<td></td>
+<td>4</td>
+<td>com.tetherfi.test.ivr.BranchManagementCreateTest@687e6293</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.BranchManagementCreateTest.VerifyRevertForAddNewRecord()'><b>VerifyRevertForAddNewRecord</b><br>Test class: com.tetherfi.test.ivr.BranchManagementCreateTest</td>
+<td></td>
+<td>10</td>
+<td>com.tetherfi.test.ivr.BranchManagementCreateTest@687e6293</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.BranchManagementCreateTest.VerifySendForApprovalForAddNewBranchManagementRecord()'><b>VerifySendForApprovalForAddNewBranchManagementRecord</b><br>Test class: com.tetherfi.test.ivr.BranchManagementCreateTest</td>
+<td></td>
+<td>10</td>
+<td>com.tetherfi.test.ivr.BranchManagementCreateTest@687e6293</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.BranchManagementCreateTest.VerifySendForApprovalForAddNewRecord()'><b>VerifySendForApprovalForAddNewRecord</b><br>Test class: com.tetherfi.test.ivr.BranchManagementCreateTest</td>
+<td></td>
+<td>10</td>
+<td>com.tetherfi.test.ivr.BranchManagementCreateTest@687e6293</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-skipped'>
+<tr><td colspan='4' align='center'><b>SKIPPED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.tetherfi.test.ivr.BranchManagementCreateTest.VerifyAuditTrailReportForApprove()'><b>VerifyAuditTrailReportForApprove</b><br>Test class: com.tetherfi.test.ivr.BranchManagementCreateTest</td>
+<td><div><pre>java.lang.Throwable: Method BranchManagementCreateTest.VerifyAuditTrailReportForApprove()[pri:26, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@687e6293] depends on not successfully finished methods
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+... Removed 18 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace588396182", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace588396182'><pre>java.lang.Throwable: Method BranchManagementCreateTest.VerifyAuditTrailReportForApprove()[pri:26, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@687e6293] depends on not successfully finished methods
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:99)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+	at org.testng.TestRunner.privateRun(TestRunner.java:770)
+	at org.testng.TestRunner.run(TestRunner.java:591)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+	at org.testng.TestNG.runSuites(TestNG.java:1032)
+	at org.testng.TestNG.run(TestNG.java:1000)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>com.tetherfi.test.ivr.BranchManagementCreateTest@687e6293</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.BranchManagementCreateTest.VerifyRecordApprovedDataSectionafterApproval()'><b>VerifyRecordApprovedDataSectionafterApproval</b><br>Test class: com.tetherfi.test.ivr.BranchManagementCreateTest</td>
+<td><div><pre>java.lang.Throwable: Method BranchManagementCreateTest.VerifyRecordApprovedDataSectionafterApproval()[pri:27, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@687e6293] depends on not successfully finished methods
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+... Removed 18 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace285374924", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace285374924'><pre>java.lang.Throwable: Method BranchManagementCreateTest.VerifyRecordApprovedDataSectionafterApproval()[pri:27, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@687e6293] depends on not successfully finished methods
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:99)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+	at org.testng.TestRunner.privateRun(TestRunner.java:770)
+	at org.testng.TestRunner.run(TestRunner.java:591)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+	at org.testng.TestNG.runSuites(TestNG.java:1032)
+	at org.testng.TestNG.run(TestNG.java:1000)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>com.tetherfi.test.ivr.BranchManagementCreateTest@687e6293</td></tr>
+</table><p>
+</body>
+</html>

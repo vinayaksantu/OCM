@@ -3,6 +3,7 @@ package com.tetherfi.test.reports;
 import com.tetherfi.model.report.ReportDetails;
 import com.tetherfi.pages.HomePage;
 import com.tetherfi.pages.OCMReportsPage;
+import com.tetherfi.pages.OcmThresholdReportPage;
 import com.tetherfi.test.BaseTest;
 import com.tetherfi.utility.ExcelReader;
 import com.tetherfi.utility.PageFactory;
@@ -14,6 +15,7 @@ import org.testng.annotations.Test;
 
 import java.io.IOException;
 import java.lang.reflect.Method;
+import java.util.List;
 import java.util.Map;
 
 public class CallBackSlaReport extends BaseTest {
@@ -221,6 +223,173 @@ public class CallBackSlaReport extends BaseTest {
         ocmReportsPage.showReport(reportDetails);
         Assert.assertTrue(ocmReportsPage.verifyDateRangeReportDisplayed(reportDetails),"Show report assertion failed");
         Assert.assertTrue(ocmReportsPage.verifySearchContainsColumnValue());
+    }
+    
+    @Test(priority=11)
+	public void OCMWindow() throws Exception {
+	
+	    String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OcmThresholdReport.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
+        ReportDetails reportDetails= new ReportDetails(map);
+
+        OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
+        ocmReportsPage.showReport(reportDetails);
+        
+        OcmThresholdReportPage ocmThReportsPage=PageFactory.createPageInstance(driver,OcmThresholdReportPage.class);
+                
+        Assert.assertTrue(ocmThReportsPage.maximizewindow(),"Fullscreen Assertion Failed"); 
+    	screenshot.captureScreen(driver,"OCMThresholdReport","Maximize");
+    	Assert.assertTrue(ocmThReportsPage.minimizewindow(), "Restored Assertion Failed");
+    	screenshot.captureScreen(driver,"OCMThresholdReport","Minimize");	
+    }
+	
+	@Test(priority=12)
+    public void VerifyDropdownForAllTheColumns() throws Exception {
+		
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OcmThresholdReport.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
+        ReportDetails reportDetails= new ReportDetails(map);
+		
+		OCMReportsPage ocmReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
+		ocmReportsPage.showReport(reportDetails);
+		Assert.assertTrue(ocmReportsPage.verifyDropDownOfAllHeaders(), "Columns dropdown assertion failed");
+    }
+    
+    @Test(priority=13)
+    public void VerifyColumnsHeaderEnable() throws Exception {
+    	
+        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OcmThresholdReport.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
+        ReportDetails reportDetails= new ReportDetails(map);
+		
+		OCMReportsPage ocmReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
+		ocmReportsPage.showReport(reportDetails);
+		Assert.assertTrue(ocmReportsPage.verifycolumnsHeaderEnabled(),"columns enabled assertion failed");
+    }
+    
+    @Test(priority=14)
+    public void VerifyColumnsHeaderDisable() throws Exception {
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OcmThresholdReport.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
+        ReportDetails reportDetails= new ReportDetails(map);
+
+        OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
+        ocmReportsPage.showReport(reportDetails);
+        Assert.assertFalse(ocmReportsPage.verifycolumnsHeaderDisabled(),"columns disabled assertion failed");
+    }
+ 
+   
+   
+    @Test(priority=15)
+    public void VerifyArrowMoveForPreviousAndNextPage() throws Exception {
+   
+        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OcmThresholdReport.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
+        ReportDetails reportDetails= new ReportDetails(map);
+
+        OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
+        ocmReportsPage.showReport(reportDetails);
+    	Assert.assertTrue(ocmReportsPage.verifyArrowMoveForPreviousAndNextPage(),"arrow move for previous and next page assertion failed");
+    }
+    
+    @Test(priority=16)
+    public void VerifyArrowMoveForFirstAndLastPage() throws Exception {
+        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OcmThresholdReport.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
+        ReportDetails reportDetails= new ReportDetails(map);
+
+        OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
+        ocmReportsPage.showReport(reportDetails);
+        Assert.assertTrue(ocmReportsPage.verifyArrowMoveForFirstAndLastPage(),"arrow move for first and last page assertion failed");
+    }
+    
+    @Test(priority=17)
+    public void VerifyTotalNumberOfItemsPerPageDetails() throws Exception {
+        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OcmThresholdReport.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
+        ReportDetails reportDetails= new ReportDetails(map);
+
+        OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
+        ocmReportsPage.showReport(reportDetails);
+        Assert.assertTrue(ocmReportsPage.verifyTotalNumberOfItemsPerPageDetails(),"item per page assertion failed");
+    }
+    
+    @Test(priority=18)
+    public void VerifyNumberOfItemsPerPageSelection() throws Exception {
+        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OcmThresholdReport.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
+        ReportDetails reportDetails= new ReportDetails(map);
+
+        OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
+        ocmReportsPage.showReport(reportDetails);
+        Assert.assertTrue(ocmReportsPage.verifyNumberOfItemsPerPage(),"item per page assertion failed");
+    }
+    
+    @Test(priority=19)
+    public void ExportToExcel() throws Exception
+    {
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OcmThresholdReport.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
+        ReportDetails reportDetails= new ReportDetails(map);
+
+        OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
+        ocmReportsPage.showReport(reportDetails);
+    	
+    	String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles";
+    	OCMReportsPage ocmReportsPage1 = PageFactory.createPageInstance(driver, OCMReportsPage.class);
+        Assert.assertTrue(ocmReportsPage1.verifyExportToExcel(filePath1));
+    }
+    
+    @Test(priority=20)
+    public void SortingByAscending() throws Exception {
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OcmThresholdReport.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
+        ReportDetails reportDetails= new ReportDetails(map);
+
+        OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
+        ocmReportsPage.showReport(reportDetails);
+    	ocmReportsPage.SortByAscending();
+    	String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\OCM Threshold Flag (1).xlsx";
+        List<Map<String, String>> maplist = new ExcelReader(filePath1,"Sheet1").getTestData();
+        Assert.assertTrue(ocmReportsPage.verifyexportToExcelSheet(maplist));
+    }
+    
+    @Test(priority=21)
+    public void SortingByDescending() throws Exception {
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OcmThresholdReport.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
+        ReportDetails reportDetails= new ReportDetails(map);
+
+        OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
+        ocmReportsPage.showReport(reportDetails);
+    	ocmReportsPage.SortByDescending();
+    	String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\OCM Threshold (2).xlsx";
+        List<Map<String, String>> maplist = new ExcelReader(filePath1,"Sheet1").getTestData();
+        Assert.assertTrue(ocmReportsPage.verifyexportToExcelSheet(maplist));
+    }
+    
+    @Test(priority=22)
+    public void ClearAll() throws Exception {
+        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OcmThresholdReport.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
+        ReportDetails reportDetails= new ReportDetails(map);
+
+        OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
+        ocmReportsPage.clearAll();
+        //Assert.assertTrue(ocmReportsPage.verifyDownloadedReportNameAndTimeInReportsDownloadPage(reportDetails.getReportName()),"Report not found in Reporter download page");
+    }
+   
+    @Test(dependsOnMethods ="ShowOcmThresholdReportForDateRange")
+    public void ExportPageForThresholdReport() throws Exception {
+        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OcmThresholdReport.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
+        ReportDetails reportDetails= new ReportDetails(map);
+
+        OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
+        ocmReportsPage.showReport(reportDetails);
+        Assert.assertTrue(ocmReportsPage.verifyDateRangeReportDisplayed(reportDetails),"Show report assertion failed");
+        ocmReportsPage.exportPage();
+        Assert.assertTrue(ocmReportsPage.verifyExportPageFileDownloaded("OCM Threshold Report(1).xlsx"),"Export page assertion failed");
     }
     @AfterMethod
     public void afterEachMethod(Method method) {

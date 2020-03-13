@@ -223,14 +223,14 @@ public class HostValueMappingUITest extends BaseTest{
 	    HostValueMappingDetails hostValueMappingDetails = new HostValueMappingDetails(map);
     	HostValueMappingPage hostValueMappingPage = PageFactory.createPageInstance(driver, HostValueMappingPage.class);
     	hostValueMappingPage.searchwithoutextsearch(hostValueMappingDetails);
-    	Assert.assertFalse(hostValueMappingPage.getErrorMsg());
+    	Assert.assertEquals(hostValueMappingPage.getErrorMsg(),"Please enter the text to search or remove the filter");
     }
     
     @Test(priority=22)
     public void SearchClearSearch() throws Exception
     {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\HostValueMappingData.xlsx";
-    	Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
+    	Map<String, String> map = new ExcelReader(filePath,"Invalid").getTestData().get(0);
 	    HostValueMappingDetails hostValueMappingDetails = new HostValueMappingDetails(map);
     	HostValueMappingPage hostValueMappingPage = PageFactory.createPageInstance(driver, HostValueMappingPage.class);
         Assert.assertTrue(hostValueMappingPage.verifyApprovedSectionData(hostValueMappingDetails ),"invalidsearchwithwrongdata");

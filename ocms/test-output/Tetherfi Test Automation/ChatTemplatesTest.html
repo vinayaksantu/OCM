@@ -1,0 +1,1285 @@
+<html>
+<head>
+<title>TestNG:  ChatTemplatesTest</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>ChatTemplatesTest</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>97/13/0</td>
+</tr><tr>
+<td>Started on:</td><td>Fri Feb 28 12:41:16 IST 2020</td>
+</tr>
+<tr><td>Total time:</td><td>4560 seconds (4560441 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.AddNewChatTemplatesRecord()'><b>AddNewChatTemplatesRecord</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td><div><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for text (&apos;Record Created Successfully&apos;) to be present in element Proxy element for: DefaultElementLocator &apos;By.cssSelector: .toast-message&apos; (tried for 20 second(s) with 500 milliseconds interval)
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
+	at com.tetherfi.pages.BasePage.waitUntilTextToBePresentInWebElement(BasePage.java:146)
+	at com.tetherfi.pages.ChatTemplatesPage.verifyNewRecordCreated(ChatTemplatesPage.java:479)
+	at com.tetherfi.test.chat.ChatTemplatesTest.AddNewChatTemplatesRecord(ChatTemplatesTest.java:357)
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;.toast-message&quot;}
+  (Session info: chrome=78.0.3904.70)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;DESKTOP-O6A5C2O&apos;, ip: &apos;10.0.75.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;9.0.4&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.70, chrome: {chromedriverVersion: 78.0.3904.105 (60e2d8774a81..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:59527}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: a9aa7f22d660d091494250d1a8bd7d67
+*** Element info: {Using=css selector, value=.toast-message}
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:420)
+	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:431)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at com.sun.proxy.$Proxy14.getText(Unknown Source)
+	at org.openqa.selenium.support.ui.ExpectedConditions$12.apply(ExpectedConditions.java:353)
+	at org.openqa.selenium.support.ui.ExpectedConditions$12.apply(ExpectedConditions.java:349)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
+	... 31 more
+... Removed 31 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1351366839", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1351366839'><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for text (&apos;Record Created Successfully&apos;) to be present in element Proxy element for: DefaultElementLocator &apos;By.cssSelector: .toast-message&apos; (tried for 20 second(s) with 500 milliseconds interval)
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
+	at com.tetherfi.pages.BasePage.waitUntilTextToBePresentInWebElement(BasePage.java:146)
+	at com.tetherfi.pages.ChatTemplatesPage.verifyNewRecordCreated(ChatTemplatesPage.java:479)
+	at com.tetherfi.test.chat.ChatTemplatesTest.AddNewChatTemplatesRecord(ChatTemplatesTest.java:357)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+	at org.testng.TestRunner.privateRun(TestRunner.java:770)
+	at org.testng.TestRunner.run(TestRunner.java:591)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+	at org.testng.TestNG.runSuites(TestNG.java:1032)
+	at org.testng.TestNG.run(TestNG.java:1000)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;.toast-message&quot;}
+  (Session info: chrome=78.0.3904.70)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;DESKTOP-O6A5C2O&apos;, ip: &apos;10.0.75.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;9.0.4&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.70, chrome: {chromedriverVersion: 78.0.3904.105 (60e2d8774a81..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:59527}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: a9aa7f22d660d091494250d1a8bd7d67
+*** Element info: {Using=css selector, value=.toast-message}
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.base/java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:420)
+	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:431)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at com.sun.proxy.$Proxy14.getText(Unknown Source)
+	at org.openqa.selenium.support.ui.ExpectedConditions$12.apply(ExpectedConditions.java:353)
+	at org.openqa.selenium.support.ui.ExpectedConditions$12.apply(ExpectedConditions.java:349)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
+	... 31 more
+</pre></div></td>
+<td>90</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.AddNewGroupsRecord()'><b>AddNewGroupsRecord</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td><div><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for text (&apos;Record Created Successfully&apos;) to be present in element Proxy element for: DefaultElementLocator &apos;By.cssSelector: .toast-message&apos; (tried for 20 second(s) with 500 milliseconds interval)
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
+	at com.tetherfi.pages.BasePage.waitUntilTextToBePresentInWebElement(BasePage.java:146)
+	at com.tetherfi.pages.ChatTemplatesPage.verifyNewRecordCreated(ChatTemplatesPage.java:479)
+	at com.tetherfi.test.chat.ChatTemplatesTest.AddNewGroupsRecord(ChatTemplatesTest.java:269)
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;.toast-message&quot;}
+  (Session info: chrome=78.0.3904.70)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;DESKTOP-O6A5C2O&apos;, ip: &apos;10.0.75.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;9.0.4&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.70, chrome: {chromedriverVersion: 78.0.3904.105 (60e2d8774a81..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:59260}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: d51e0982402a2dc00b875c2ffa6f71c6
+*** Element info: {Using=css selector, value=.toast-message}
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:420)
+	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:431)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at com.sun.proxy.$Proxy14.getText(Unknown Source)
+	at org.openqa.selenium.support.ui.ExpectedConditions$12.apply(ExpectedConditions.java:353)
+	at org.openqa.selenium.support.ui.ExpectedConditions$12.apply(ExpectedConditions.java:349)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
+	... 31 more
+... Removed 31 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace890253014", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace890253014'><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for text (&apos;Record Created Successfully&apos;) to be present in element Proxy element for: DefaultElementLocator &apos;By.cssSelector: .toast-message&apos; (tried for 20 second(s) with 500 milliseconds interval)
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
+	at com.tetherfi.pages.BasePage.waitUntilTextToBePresentInWebElement(BasePage.java:146)
+	at com.tetherfi.pages.ChatTemplatesPage.verifyNewRecordCreated(ChatTemplatesPage.java:479)
+	at com.tetherfi.test.chat.ChatTemplatesTest.AddNewGroupsRecord(ChatTemplatesTest.java:269)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+	at org.testng.TestRunner.privateRun(TestRunner.java:770)
+	at org.testng.TestRunner.run(TestRunner.java:591)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+	at org.testng.TestNG.runSuites(TestNG.java:1032)
+	at org.testng.TestNG.run(TestNG.java:1000)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;.toast-message&quot;}
+  (Session info: chrome=78.0.3904.70)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;DESKTOP-O6A5C2O&apos;, ip: &apos;10.0.75.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;9.0.4&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.70, chrome: {chromedriverVersion: 78.0.3904.105 (60e2d8774a81..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:59260}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: d51e0982402a2dc00b875c2ffa6f71c6
+*** Element info: {Using=css selector, value=.toast-message}
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.base/java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:420)
+	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:431)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at com.sun.proxy.$Proxy14.getText(Unknown Source)
+	at org.openqa.selenium.support.ui.ExpectedConditions$12.apply(ExpectedConditions.java:353)
+	at org.openqa.selenium.support.ui.ExpectedConditions$12.apply(ExpectedConditions.java:349)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
+	... 31 more
+</pre></div></td>
+<td>90</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.GroupDatabase()'><b>GroupDatabase</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td><div><pre>java.lang.ArrayIndexOutOfBoundsException: 1
+	at com.tetherfi.pages.ChatTemplatesPage.getGrouptable(ChatTemplatesPage.java:1636)
+	at com.tetherfi.pages.ChatTemplatesPage.verifyGroupDatabase(ChatTemplatesPage.java:1628)
+	at com.tetherfi.test.chat.ChatTemplatesTest.GroupDatabase(ChatTemplatesTest.java:1188)
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+... Removed 27 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1756959398", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1756959398'><pre>java.lang.ArrayIndexOutOfBoundsException: 1
+	at com.tetherfi.pages.ChatTemplatesPage.getGrouptable(ChatTemplatesPage.java:1636)
+	at com.tetherfi.pages.ChatTemplatesPage.verifyGroupDatabase(ChatTemplatesPage.java:1628)
+	at com.tetherfi.test.chat.ChatTemplatesTest.GroupDatabase(ChatTemplatesTest.java:1188)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+	at org.testng.TestRunner.privateRun(TestRunner.java:770)
+	at org.testng.TestRunner.run(TestRunner.java:591)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+	at org.testng.TestNG.runSuites(TestNG.java:1032)
+	at org.testng.TestNG.run(TestNG.java:1000)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.GroupsExportToExcelData()'><b>GroupsExportToExcelData</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td><div><pre>java.lang.ArrayIndexOutOfBoundsException: 1
+	at com.tetherfi.pages.ChatTemplatesPage.getGroupsData(ChatTemplatesPage.java:1064)
+	at com.tetherfi.pages.ChatTemplatesPage.verifyexportToExcelGroupsSheet(ChatTemplatesPage.java:1113)
+	at com.tetherfi.test.chat.ChatTemplatesTest.GroupsExportToExcelData(ChatTemplatesTest.java:525)
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+... Removed 27 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace955984090", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace955984090'><pre>java.lang.ArrayIndexOutOfBoundsException: 1
+	at com.tetherfi.pages.ChatTemplatesPage.getGroupsData(ChatTemplatesPage.java:1064)
+	at com.tetherfi.pages.ChatTemplatesPage.verifyexportToExcelGroupsSheet(ChatTemplatesPage.java:1113)
+	at com.tetherfi.test.chat.ChatTemplatesTest.GroupsExportToExcelData(ChatTemplatesTest.java:525)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+	at org.testng.TestRunner.privateRun(TestRunner.java:770)
+	at org.testng.TestRunner.run(TestRunner.java:591)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+	at org.testng.TestNG.runSuites(TestNG.java:1032)
+	at org.testng.TestNG.run(TestNG.java:1000)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.VerifyAuditTrialReportForDelete()'><b>VerifyAuditTrialReportForDelete</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td><div><pre>java.lang.AssertionError: did not expect to find [true] but found [false]
+	at com.tetherfi.test.chat.ChatTemplatesTest.VerifyAuditTrialReportForDelete(ChatTemplatesTest.java:1004)
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+... Removed 31 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace412919084", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace412919084'><pre>java.lang.AssertionError: did not expect to find [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:97)
+	at org.testng.Assert.failNotEquals(Assert.java:969)
+	at org.testng.Assert.assertTrue(Assert.java:43)
+	at org.testng.Assert.assertTrue(Assert.java:53)
+	at com.tetherfi.test.chat.ChatTemplatesTest.VerifyAuditTrialReportForDelete(ChatTemplatesTest.java:1004)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+	at org.testng.TestRunner.privateRun(TestRunner.java:770)
+	at org.testng.TestRunner.run(TestRunner.java:591)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+	at org.testng.TestNG.runSuites(TestNG.java:1032)
+	at org.testng.TestNG.run(TestNG.java:1000)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>22</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.VerifyAuditTrialReportForDepartmentDelete()'><b>VerifyAuditTrialReportForDepartmentDelete</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td><div><pre>java.lang.AssertionError: did not expect to find [true] but found [false]
+	at com.tetherfi.test.chat.ChatTemplatesTest.VerifyAuditTrialReportForDepartmentDelete(ChatTemplatesTest.java:1109)
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+... Removed 31 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1037558429", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1037558429'><pre>java.lang.AssertionError: did not expect to find [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:97)
+	at org.testng.Assert.failNotEquals(Assert.java:969)
+	at org.testng.Assert.assertTrue(Assert.java:43)
+	at org.testng.Assert.assertTrue(Assert.java:53)
+	at com.tetherfi.test.chat.ChatTemplatesTest.VerifyAuditTrialReportForDepartmentDelete(ChatTemplatesTest.java:1109)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+	at org.testng.TestRunner.privateRun(TestRunner.java:770)
+	at org.testng.TestRunner.run(TestRunner.java:591)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+	at org.testng.TestNG.runSuites(TestNG.java:1032)
+	at org.testng.TestNG.run(TestNG.java:1000)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>21</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.VerifyAuditTrialReportForGroupDelete()'><b>VerifyAuditTrialReportForGroupDelete</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td><div><pre>java.lang.AssertionError: did not expect to find [true] but found [false]
+	at com.tetherfi.test.chat.ChatTemplatesTest.VerifyAuditTrialReportForGroupDelete(ChatTemplatesTest.java:1052)
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+... Removed 31 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace162919584", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace162919584'><pre>java.lang.AssertionError: did not expect to find [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:97)
+	at org.testng.Assert.failNotEquals(Assert.java:969)
+	at org.testng.Assert.assertTrue(Assert.java:43)
+	at org.testng.Assert.assertTrue(Assert.java:53)
+	at com.tetherfi.test.chat.ChatTemplatesTest.VerifyAuditTrialReportForGroupDelete(ChatTemplatesTest.java:1052)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+	at org.testng.TestRunner.privateRun(TestRunner.java:770)
+	at org.testng.TestRunner.run(TestRunner.java:591)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+	at org.testng.TestNG.runSuites(TestNG.java:1032)
+	at org.testng.TestNG.run(TestNG.java:1000)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>21</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.VerifyDeleteGroupRecordInMain()'><b>VerifyDeleteGroupRecordInMain</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td><div><pre>org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element &lt;span title=&quot;&quot; class=&quot;k-widget k-dropdown&quot; unselectable=&quot;on&quot; role=&quot;listbox&quot; aria-haspopup=&quot;true&quot; aria-expanded=&quot;false&quot; aria-owns=&quot;GroupName_listbox&quot; aria-live=&quot;polite&quot; aria-disabled=&quot;true&quot; style=&quot;width: 100%;&quot; aria-activedescendant=&quot;bac2dfb8-d924-41e2-a443-e4a7c0b9f79d&quot;&gt;...&lt;/span&gt; is not clickable at point (983, 180). Other element would receive the click: &lt;li tabindex=&quot;-1&quot; role=&quot;option&quot; unselectable=&quot;on&quot; class=&quot;k-item&quot; aria-selected=&quot;false&quot; data-offset-index=&quot;0&quot;&gt;...&lt;/li&gt;
+  (Session info: chrome=78.0.3904.70)
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;DESKTOP-O6A5C2O&apos;, ip: &apos;10.0.75.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;9.0.4&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.70, chrome: {chromedriverVersion: 78.0.3904.105 (60e2d8774a81..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:61714}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 7d912dfefeeae6544374a7bb3e573bd3
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:84)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
+	at com.sun.proxy.$Proxy14.click(Unknown Source)
+	at com.tetherfi.pages.BasePage.selectWebElement(BasePage.java:202)
+	at com.tetherfi.pages.ChatTemplatesPage.VerifyGroupDropdown(ChatTemplatesPage.java:1405)
+	at com.tetherfi.test.chat.ChatTemplatesTest.VerifyDeleteGroupRecordInMain(ChatTemplatesTest.java:1062)
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+... Removed 34 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1708059667", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1708059667'><pre>org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element &lt;span title=&quot;&quot; class=&quot;k-widget k-dropdown&quot; unselectable=&quot;on&quot; role=&quot;listbox&quot; aria-haspopup=&quot;true&quot; aria-expanded=&quot;false&quot; aria-owns=&quot;GroupName_listbox&quot; aria-live=&quot;polite&quot; aria-disabled=&quot;true&quot; style=&quot;width: 100%;&quot; aria-activedescendant=&quot;bac2dfb8-d924-41e2-a443-e4a7c0b9f79d&quot;&gt;...&lt;/span&gt; is not clickable at point (983, 180). Other element would receive the click: &lt;li tabindex=&quot;-1&quot; role=&quot;option&quot; unselectable=&quot;on&quot; class=&quot;k-item&quot; aria-selected=&quot;false&quot; data-offset-index=&quot;0&quot;&gt;...&lt;/li&gt;
+  (Session info: chrome=78.0.3904.70)
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;DESKTOP-O6A5C2O&apos;, ip: &apos;10.0.75.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;9.0.4&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.70, chrome: {chromedriverVersion: 78.0.3904.105 (60e2d8774a81..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:61714}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 7d912dfefeeae6544374a7bb3e573bd3
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.base/java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:84)
+	at jdk.internal.reflect.GeneratedMethodAccessor5.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
+	at com.sun.proxy.$Proxy14.click(Unknown Source)
+	at com.tetherfi.pages.BasePage.selectWebElement(BasePage.java:202)
+	at com.tetherfi.pages.ChatTemplatesPage.VerifyGroupDropdown(ChatTemplatesPage.java:1405)
+	at com.tetherfi.test.chat.ChatTemplatesTest.VerifyDeleteGroupRecordInMain(ChatTemplatesTest.java:1062)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+	at org.testng.TestRunner.privateRun(TestRunner.java:770)
+	at org.testng.TestRunner.run(TestRunner.java:591)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+	at org.testng.TestNG.runSuites(TestNG.java:1032)
+	at org.testng.TestNG.run(TestNG.java:1000)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>6</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.VerifyDepartmentNumberOfItemsPerPageSelection()'><b>VerifyDepartmentNumberOfItemsPerPageSelection</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td><div><pre>java.lang.AssertionError: item per page assertion failed did not expect to find [true] but found [false]
+	at com.tetherfi.test.chat.ChatTemplatesTest.VerifyDepartmentNumberOfItemsPerPageSelection(ChatTemplatesTest.java:607)
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+... Removed 30 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1795116444", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1795116444'><pre>java.lang.AssertionError: item per page assertion failed did not expect to find [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:97)
+	at org.testng.Assert.failNotEquals(Assert.java:969)
+	at org.testng.Assert.assertTrue(Assert.java:43)
+	at com.tetherfi.test.chat.ChatTemplatesTest.VerifyDepartmentNumberOfItemsPerPageSelection(ChatTemplatesTest.java:607)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+	at org.testng.TestRunner.privateRun(TestRunner.java:770)
+	at org.testng.TestRunner.run(TestRunner.java:591)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+	at org.testng.TestNG.runSuites(TestNG.java:1032)
+	at org.testng.TestNG.run(TestNG.java:1000)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.VerifyDepartmentTotalNumberOfItemsPerPageDetails()'><b>VerifyDepartmentTotalNumberOfItemsPerPageDetails</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td><div><pre>java.lang.AssertionError: item per page assertion failed did not expect to find [true] but found [false]
+	at com.tetherfi.test.chat.ChatTemplatesTest.VerifyDepartmentTotalNumberOfItemsPerPageDetails(ChatTemplatesTest.java:600)
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+... Removed 30 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1869395384", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1869395384'><pre>java.lang.AssertionError: item per page assertion failed did not expect to find [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:97)
+	at org.testng.Assert.failNotEquals(Assert.java:969)
+	at org.testng.Assert.assertTrue(Assert.java:43)
+	at com.tetherfi.test.chat.ChatTemplatesTest.VerifyDepartmentTotalNumberOfItemsPerPageDetails(ChatTemplatesTest.java:600)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+	at org.testng.TestRunner.privateRun(TestRunner.java:770)
+	at org.testng.TestRunner.run(TestRunner.java:591)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+	at org.testng.TestNG.runSuites(TestNG.java:1032)
+	at org.testng.TestNG.run(TestNG.java:1000)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.VerifyGroupsNumberOfItemsPerPageSelection()'><b>VerifyGroupsNumberOfItemsPerPageSelection</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td><div><pre>java.lang.AssertionError: item per page assertion failed did not expect to find [true] but found [false]
+	at com.tetherfi.test.chat.ChatTemplatesTest.VerifyGroupsNumberOfItemsPerPageSelection(ChatTemplatesTest.java:635)
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+... Removed 30 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace2125034616", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace2125034616'><pre>java.lang.AssertionError: item per page assertion failed did not expect to find [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:97)
+	at org.testng.Assert.failNotEquals(Assert.java:969)
+	at org.testng.Assert.assertTrue(Assert.java:43)
+	at com.tetherfi.test.chat.ChatTemplatesTest.VerifyGroupsNumberOfItemsPerPageSelection(ChatTemplatesTest.java:635)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+	at org.testng.TestRunner.privateRun(TestRunner.java:770)
+	at org.testng.TestRunner.run(TestRunner.java:591)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+	at org.testng.TestNG.runSuites(TestNG.java:1032)
+	at org.testng.TestNG.run(TestNG.java:1000)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.VerifyGroupsTotalNumberOfItemsPerPageDetails()'><b>VerifyGroupsTotalNumberOfItemsPerPageDetails</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td><div><pre>java.lang.AssertionError: item per page assertion failed did not expect to find [true] but found [false]
+	at com.tetherfi.test.chat.ChatTemplatesTest.VerifyGroupsTotalNumberOfItemsPerPageDetails(ChatTemplatesTest.java:628)
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+... Removed 30 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1891219323", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1891219323'><pre>java.lang.AssertionError: item per page assertion failed did not expect to find [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:97)
+	at org.testng.Assert.failNotEquals(Assert.java:969)
+	at org.testng.Assert.assertTrue(Assert.java:43)
+	at com.tetherfi.test.chat.ChatTemplatesTest.VerifyGroupsTotalNumberOfItemsPerPageDetails(ChatTemplatesTest.java:628)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+	at org.testng.TestRunner.privateRun(TestRunner.java:770)
+	at org.testng.TestRunner.run(TestRunner.java:591)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+	at org.testng.TestNG.runSuites(TestNG.java:1032)
+	at org.testng.TestNG.run(TestNG.java:1000)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.VerifyNumberOfItemsPerPageSelection()'><b>VerifyNumberOfItemsPerPageSelection</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td><div><pre>java.lang.AssertionError: item per page assertion failed did not expect to find [true] but found [false]
+	at com.tetherfi.test.chat.ChatTemplatesTest.VerifyNumberOfItemsPerPageSelection(ChatTemplatesTest.java:659)
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+... Removed 30 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace269782547", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace269782547'><pre>java.lang.AssertionError: item per page assertion failed did not expect to find [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:97)
+	at org.testng.Assert.failNotEquals(Assert.java:969)
+	at org.testng.Assert.assertTrue(Assert.java:43)
+	at com.tetherfi.test.chat.ChatTemplatesTest.VerifyNumberOfItemsPerPageSelection(ChatTemplatesTest.java:659)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+	at org.testng.TestRunner.privateRun(TestRunner.java:770)
+	at org.testng.TestRunner.run(TestRunner.java:591)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+	at org.testng.TestNG.runSuites(TestNG.java:1032)
+	at org.testng.TestNG.run(TestNG.java:1000)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>2</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.AddDuplicateChatTemplatesRecord()'><b>AddDuplicateChatTemplatesRecord</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>10</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.AddDuplicateDepartmentRecord()'><b>AddDuplicateDepartmentRecord</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>5</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.AddDuplicateGroupsRecord()'><b>AddDuplicateGroupsRecord</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>9</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.AddEmptyChatTemplateRecord()'><b>AddEmptyChatTemplateRecord</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>6</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.AddEmptyDepartmentRecord()'><b>AddEmptyDepartmentRecord</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>2</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.AddEmptyGroupRecord()'><b>AddEmptyGroupRecord</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>7</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.AddNewDepartmentRecord()'><b>AddNewDepartmentRecord</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>5</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.AddRecordWithoutChannel()'><b>AddRecordWithoutChannel</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>3</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.AddRecordWithoutChatDepartmentName()'><b>AddRecordWithoutChatDepartmentName</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>8</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.AddRecordWithoutChatEnabled()'><b>AddRecordWithoutChatEnabled</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>9</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.AddRecordWithoutChatName()'><b>AddRecordWithoutChatName</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>10</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.AddRecordWithoutDepartment()'><b>AddRecordWithoutDepartment</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>5</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.AddRecordWithoutDepartmentName()'><b>AddRecordWithoutDepartmentName</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>8</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.AddRecordWithoutEnabled()'><b>AddRecordWithoutEnabled</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>4</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.AddRecordWithoutEndTime()'><b>AddRecordWithoutEndTime</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>9</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.AddRecordWithoutGroupEnabled()'><b>AddRecordWithoutGroupEnabled</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>8</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.AddRecordWithoutGroupsName()'><b>AddRecordWithoutGroupsName</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>10</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.AddRecordWithoutName()'><b>AddRecordWithoutName</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>9</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.AddRecordWithoutStartTime()'><b>AddRecordWithoutStartTime</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>9</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.AddRecordWithoutText()'><b>AddRecordWithoutText</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>10</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.ChatTemplatePage()'><b>ChatTemplatePage</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>0</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.Database()'><b>Database</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>1</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.DeleteChatTemplatesRecord()'><b>DeleteChatTemplatesRecord</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>15</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.DeleteDepartmentRecord()'><b>DeleteDepartmentRecord</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>9</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.DeleteDepartmentWithoutDeleteReasonRecord()'><b>DeleteDepartmentWithoutDeleteReasonRecord</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>4</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.DeleteGroupRecord()'><b>DeleteGroupRecord</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>14</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.DeleteGroupWithoutDeleteReasonRecord()'><b>DeleteGroupWithoutDeleteReasonRecord</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>4</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.DeleteWithoutDeleteReasonRecord()'><b>DeleteWithoutDeleteReasonRecord</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>3</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.DepartmentDatabase()'><b>DepartmentDatabase</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>1</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.DepartmentExportToExcel()'><b>DepartmentExportToExcel</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>3</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.DepartmentExportToExcelData()'><b>DepartmentExportToExcelData</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>2</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.DepartmentSortingByDescending()'><b>DepartmentSortingByDescending</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>6</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.DepatmentSortingByAscending()'><b>DepatmentSortingByAscending</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>6</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.EditChatTemplatesRecord()'><b>EditChatTemplatesRecord</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>12</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.EditDepartmentRecord()'><b>EditDepartmentRecord</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>11</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.EditGroupRecord()'><b>EditGroupRecord</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>11</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.EditWithoutModifyReasonDepartmentRecord()'><b>EditWithoutModifyReasonDepartmentRecord</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>10</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.EditWithoutModifyReasonGroupRecord()'><b>EditWithoutModifyReasonGroupRecord</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>10</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.EditWithoutModifyReasonRecord()'><b>EditWithoutModifyReasonRecord</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>10</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.ExportToExcel()'><b>ExportToExcel</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>2</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.ExportToExcelData()'><b>ExportToExcelData</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>1</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.GroupsExportToExcel()'><b>GroupsExportToExcel</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>3</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.GroupsSortingByAscending()'><b>GroupsSortingByAscending</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>4</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.GroupsSortingByDescending()'><b>GroupsSortingByDescending</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>4</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.SearchClearSearch()'><b>SearchClearSearch</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>4</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.SearchDepartmentClearSearch()'><b>SearchDepartmentClearSearch</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>4</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.SearchGroupClearSearch()'><b>SearchGroupClearSearch</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>5</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.SortingByAscending()'><b>SortingByAscending</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>4</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.SortingByDescending()'><b>SortingByDescending</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>4</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.VerifyArrowMoveForFirstAndLastPage()'><b>VerifyArrowMoveForFirstAndLastPage</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>0</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.VerifyArrowMoveForPreviousAndNextPage()'><b>VerifyArrowMoveForPreviousAndNextPage</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>0</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.VerifyAuditTrialReportForCreate()'><b>VerifyAuditTrialReportForCreate</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>22</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.VerifyAuditTrialReportForCreateDepartment()'><b>VerifyAuditTrialReportForCreateDepartment</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>23</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.VerifyAuditTrialReportForCreateGroup()'><b>VerifyAuditTrialReportForCreateGroup</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>22</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.VerifyAuditTrialReportForDepartmentUpdate()'><b>VerifyAuditTrialReportForDepartmentUpdate</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>22</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.VerifyAuditTrialReportForGroupUpdate()'><b>VerifyAuditTrialReportForGroupUpdate</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>23</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.VerifyAuditTrialReportForUpdate()'><b>VerifyAuditTrialReportForUpdate</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>21</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.VerifyCancelBtnAtAddChatTemplateRecord()'><b>VerifyCancelBtnAtAddChatTemplateRecord</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>23</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.VerifyCancelBtnAtAddDepartmentRecord()'><b>VerifyCancelBtnAtAddDepartmentRecord</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>24</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.VerifyCancelBtnAtAddGroupsRecord()'><b>VerifyCancelBtnAtAddGroupsRecord</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>24</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.VerifyCancelBtnAtDeleteChatTemplateRecord()'><b>VerifyCancelBtnAtDeleteChatTemplateRecord</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>28</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.VerifyCancelBtnAtDeleteDepartmentRecord()'><b>VerifyCancelBtnAtDeleteDepartmentRecord</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>27</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.VerifyCancelBtnAtDeleteGroupRecord()'><b>VerifyCancelBtnAtDeleteGroupRecord</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>28</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.VerifyCancelBtnAtEditDepartmentRecord()'><b>VerifyCancelBtnAtEditDepartmentRecord</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>28</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.VerifyCancelBtnAtEditGroupRecord()'><b>VerifyCancelBtnAtEditGroupRecord</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>28</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.VerifyCancelBtnAtEditRecord()'><b>VerifyCancelBtnAtEditRecord</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>28</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.VerifyDeleteDepartmentRecordInGroup()'><b>VerifyDeleteDepartmentRecordInGroup</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>1</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.VerifyDeleteDepartmentRecordInMain()'><b>VerifyDeleteDepartmentRecordInMain</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>0</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.VerifyDepartmentArrowMoveForFirstAndLastPage()'><b>VerifyDepartmentArrowMoveForFirstAndLastPage</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>0</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.VerifyDepartmentArrowMoveForPreviousAndNextPage()'><b>VerifyDepartmentArrowMoveForPreviousAndNextPage</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>0</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.VerifyDepartmentDragAndDrop()'><b>VerifyDepartmentDragAndDrop</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>3</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.VerifyDepartmentDragAndDropofAlreadyGroupedHeader()'><b>VerifyDepartmentDragAndDropofAlreadyGroupedHeader</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>3</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.VerifyDepartmentsColumnsHeaderDisable()'><b>VerifyDepartmentsColumnsHeaderDisable</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>7</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.VerifyDepartmentsColumnsHeaderEnable()'><b>VerifyDepartmentsColumnsHeaderEnable</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>5</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.VerifyDepartmentsDropdownForAllTheColumns()'><b>VerifyDepartmentsDropdownForAllTheColumns</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>9</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.VerifyDragAndDrop()'><b>VerifyDragAndDrop</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>2</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.VerifyDragAndDropofAlreadyGroupedHeader()'><b>VerifyDragAndDropofAlreadyGroupedHeader</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>3</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.VerifyGroupsArrowMoveForFirstAndLastPage()'><b>VerifyGroupsArrowMoveForFirstAndLastPage</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>0</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.VerifyGroupsArrowMoveForPreviousAndNextPage()'><b>VerifyGroupsArrowMoveForPreviousAndNextPage</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>0</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.VerifyGroupsColumnsHeaderDisable()'><b>VerifyGroupsColumnsHeaderDisable</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>9</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.VerifyGroupsColumnsHeaderEnable()'><b>VerifyGroupsColumnsHeaderEnable</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>7</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.VerifyGroupsDragAndDrop()'><b>VerifyGroupsDragAndDrop</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>3</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.VerifyGroupsDragAndDropofAlreadyGroupedHeader()'><b>VerifyGroupsDragAndDropofAlreadyGroupedHeader</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>3</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.VerifyGroupsDropdownForAllTheColumns()'><b>VerifyGroupsDropdownForAllTheColumns</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>10</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.VerifyMainsColumnsHeaderDisable()'><b>VerifyMainsColumnsHeaderDisable</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>10</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.VerifyMainsColumnsHeaderEnable()'><b>VerifyMainsColumnsHeaderEnable</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>8</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.VerifyMainsDropdownForAllTheColumns()'><b>VerifyMainsDropdownForAllTheColumns</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>13</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.VerifyTotalNumberOfItemsPerPageDetails()'><b>VerifyTotalNumberOfItemsPerPageDetails</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>0</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.VerifyUpdateDepartmentRecordInGroup()'><b>VerifyUpdateDepartmentRecordInGroup</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>1</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.VerifyUpdateDepartmentRecordInMain()'><b>VerifyUpdateDepartmentRecordInMain</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>0</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.VerifyUpdateGroupRecordInMain()'><b>VerifyUpdateGroupRecordInMain</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>26</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.searchDepartmentPage()'><b>searchDepartmentPage</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>3</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.searchDepartmentwithoutSearchTextbox()'><b>searchDepartmentwithoutSearchTextbox</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>3</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.searchGroupsPage()'><b>searchGroupsPage</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>3</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.searchGroupwithoutSearchTextbox()'><b>searchGroupwithoutSearchTextbox</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>3</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.searchPage()'><b>searchPage</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>3</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatTemplatesTest.searchwithoutSearchTextbox()'><b>searchwithoutSearchTextbox</b><br>Test class: com.tetherfi.test.chat.ChatTemplatesTest</td>
+<td></td>
+<td>3</td>
+<td>com.tetherfi.test.chat.ChatTemplatesTest@5a484ce1</td></tr>
+</table><p>
+</body>
+</html>

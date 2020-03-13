@@ -288,6 +288,21 @@ public class BranchManagementPage extends BasePage {
     @FindBy(id="submitUndoChangesMakerComment")
     private WebElement revertSubmitMakerComments;
     
+    @FindBy(css = ".modal-body .form-inline .form-group .k-select")
+	private List<WebElement> selectSearchCol;
+    
+    @FindBy(css="ul[id='1001sCriteria_listbox'] li")
+	private List<WebElement> searchCriteriaDropDwn;
+    
+    @FindBy(id = "1001sTextToSearch")
+	private WebElement searchTextBox;
+    
+    @FindBy(css = ".modal-footer .button-theme")
+	private WebElement searchSearchBtn;
+    
+    @FindBy(css="#gridDiv2 #tGrid")
+    private WebElement auditGrid;
+    
 	public boolean isBranchManagementPageDisplayed() {
 		waitForLoad(driver);
         waitForJqueryLoad(driver);
@@ -800,6 +815,7 @@ public class BranchManagementPage extends BasePage {
 		selectWebElement(gridsearchLink);
         selectWebElement(selectSearchColumn.get(0));
         selectDropdownFromVisibleText(columnNameList,"Branch Name");
+        Thread.sleep(1000);
         selectWebElement(selectSearchColumn.get(1));
         selectDropdownFromVisibleText(searchTypeList,"Is equal to");
         enterValueToTxtField(searchText.get(0),branchManagementDetails.getBranchName());
@@ -863,6 +879,7 @@ public class BranchManagementPage extends BasePage {
 		String actualitems=items.get(2).getText();
 		selectWebElement(addNewBranchManageRecordBtn);
 		waitForJqueryLoad(driver);
+		Thread.sleep(2000);
         selectWebElement(cancelBtn);
         waitForJqueryLoad(driver);
         if(actualitems.equals(items.get(2).getText()))
@@ -876,7 +893,7 @@ public class BranchManagementPage extends BasePage {
 		selectWebElement(makeBranchManagementChanges);
 		selectWebElement(addNewBranchManageRecordBtn);
 		waitForJqueryLoad(driver);
-		Thread.sleep(1000);
+		Thread.sleep(3000);
 		selectWebElement(mainLinesDropDown);
         selectDropdownFromVisibleText(mainLinesListbox, branchManagementDetails.getMainLines());
         selectWebElement(subLinesDropDown);
@@ -1100,7 +1117,7 @@ public class BranchManagementPage extends BasePage {
 		selectWebElement(makeBranchManagementChanges);
 		selectWebElement(addNewBranchManageRecordBtn);
 		waitForJqueryLoad(driver);
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		selectWebElement(mainLinesDropDown);
         selectDropdownFromVisibleText(mainLinesListbox, branchManagementDetails.getMainLines());
         enterValueToTxtField(LocationTextbox,branchManagementDetails.getLocation());
@@ -1126,7 +1143,7 @@ public class BranchManagementPage extends BasePage {
 		selectWebElement(makeBranchManagementChanges);
 		selectWebElement(addNewBranchManageRecordBtn);
 		waitForJqueryLoad(driver);
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		selectWebElement(mainLinesDropDown);
         selectDropdownFromVisibleText(mainLinesListbox, branchManagementDetails.getMainLines());
         selectWebElement(subLinesDropDown);
@@ -1204,7 +1221,7 @@ public class BranchManagementPage extends BasePage {
 		selectWebElement(makeBranchManagementChanges);
 		selectWebElement(addNewBranchManageRecordBtn);
 		waitForJqueryLoad(driver);
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		selectWebElement(mainLinesDropDown);
         selectDropdownFromVisibleText(mainLinesListbox, branchManagementDetails.getMainLines());
         selectWebElement(subLinesDropDown);
@@ -1284,7 +1301,7 @@ public class BranchManagementPage extends BasePage {
 		selectWebElement(makeBranchManagementChanges);
 		selectWebElement(addNewBranchManageRecordBtn);
 		waitForJqueryLoad(driver);
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		selectWebElement(mainLinesDropDown);
         selectDropdownFromVisibleText(mainLinesListbox, branchManagementDetails.getMainLines());
         selectWebElement(subLinesDropDown);
@@ -1616,6 +1633,148 @@ public class BranchManagementPage extends BasePage {
 	        return(getSuccessMessage().contains("Record approved successfully. Request ID :"));
 
 		}
+		
+		public List<Map<String, String>> gettable1() {
+			int item=Integer.valueOf(items.get(2).getText().split("of ")[1].split(" items")[0]);
+	        int pagersize=Integer.valueOf(pagerSize.get(2).getText());
+	        int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
+			List<Map<String,String>> arr=new ArrayList<Map<String,String>>();
+			for(int k=0;k<=pages;k++){
+
+			waitUntilWebElementIsVisible(auditGrid);
+			List<WebElement> rows=auditGrid.findElements(By.tagName("tr"));
+			List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
+			for(int i=1;i<rows.size();i++) {
+				Map<String,String> map = new HashMap<String,String>();
+				List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
+				String col=null;
+				for(int j=1;j<headers.size();j++){
+					scrollToElement(headers.get(j));
+					if(headers.get(j).getText().equals("Last Changed On")){
+						col=cols.get(j).getText().substring(11);
+						}
+					else
+						col=cols.get(j).getText();
+					map.put(headers.get(j).getText(),col);
+				}
+				map.remove("");
+				arr.add(map);
+			}
+			if(k!=pages)
+			{
+				nextPageIcon.get(2).click();
+				waitForJqueryLoad(driver);}
+			}
+				return arr;
+		}
+		
+		public boolean verifySearchIsNotEqualTo(String sublines) throws Exception {
+			Boolean Status=false;
+			Map<String, String> map=new HashMap<String,String>() ;
+			map.put("SubLines", sublines);
+			selectWebElement(searchLink);
+	        selectWebElement(selectSearchCol.get(0));
+	        selectDropdownFromVisibleText(columnNameList,"SubLines");
+	        selectWebElement(selectSearchCol.get(1));
+	        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is not equal to");
+	        enterValueToTxtField(searchTextBox,sublines);		
+	        selectWebElement(searchBtn);
+	        waitUntilWebElementIsVisible(gridContent);
+	        List<Map<String,String>> UI=gettable1(); 
+	        for (Map<String,String> map1: UI)
+	        {   	
+				if(map1.equals(map))
+	        	Status= false;
+	        	else 
+	        		Status= true;
+		}
+	        return Status;
+		
+		}
+		
+		public boolean verifySearchContains(String sublines) throws Exception {
+			Boolean Status=false;
+			selectWebElement(searchLink);
+	        selectWebElement(selectSearchCol.get(0));
+	        selectDropdownFromVisibleText(columnNameList,"SubLines");
+	        selectWebElement(selectSearchCol.get(1));
+	        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Contains");
+	        enterValueToTxtField(searchTextBox,sublines);		
+	        selectWebElement(searchBtn);
+	        waitUntilWebElementIsVisible(gridContent);
+	        List<Map<String,String>> UI=gettable1(); 
+	        for (Map<String,String> map1: UI)
+	        {   	
+				if(map1.get("SubLines").toUpperCase().contains(sublines.toUpperCase()))
+	        	Status= true;
+	        	else 
+	        		Status= false;
+		}
+	        return Status;
+		}
+		public boolean verifySearchDoesNotContains(String sublines) throws Exception {
+			Boolean Status=false;
+			selectWebElement(searchLink);
+	        selectWebElement(selectSearchCol.get(0));
+	        selectDropdownFromVisibleText(columnNameList,"SubLines");
+	        selectWebElement(selectSearchCol.get(1));
+	        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Does not contain");
+	        enterValueToTxtField(searchTextBox,sublines);		
+	        selectWebElement(searchBtn);
+	        waitUntilWebElementIsVisible(gridContent);
+	        List<Map<String,String>> UI=gettable1(); 
+	        for (Map<String,String> map1: UI)
+	        {   	
+				if(!map1.get("SubLines").toLowerCase().contains(sublines.toLowerCase()))
+	        	Status= true;
+	        	else 
+	        		Status= false;
+		}
+	        return Status;
+		}
+		
+		public boolean verifySearchStartsWith(String sublines) throws Exception {
+			Boolean Status=false;
+			selectWebElement(searchLink);
+	        selectWebElement(selectSearchCol.get(0));
+	        selectDropdownFromVisibleText(columnNameList,"SubLines");
+	        selectWebElement(selectSearchCol.get(1));
+	        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Starts with");
+	        enterValueToTxtField(searchTextBox,sublines);		
+	        selectWebElement(searchBtn);
+	        waitUntilWebElementIsVisible(gridContent);
+	        List<Map<String,String>> UI=gettable1(); 
+	        for (Map<String,String> map1: UI)
+	        {   	
+				if(map1.get("SubLines").toLowerCase().startsWith(sublines.toLowerCase()))
+	        	Status= true;
+	        	else 
+	        		Status= false;
+		}
+	        return Status;
+		}
+		
+		public boolean verifySearchEndsWith(String sublines) throws Exception {
+			Boolean Status=false;
+			selectWebElement(searchLink);
+	        selectWebElement(selectSearchCol.get(0));
+	        selectDropdownFromVisibleText(columnNameList,"SubLines");
+	        selectWebElement(selectSearchCol.get(1));
+	        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Ends with");
+	        enterValueToTxtField(searchTextBox,sublines);		
+	        selectWebElement(searchBtn);
+	        waitUntilWebElementIsVisible(gridContent);
+	        List<Map<String,String>> UI=gettable1(); 
+	        for (Map<String,String> map1: UI)
+	        {   	
+				if(map1.get("SubLines").toUpperCase().endsWith(sublines.toUpperCase()))
+	        	Status= true;
+	        	else 
+	        		Status= false;
+		}
+	        return Status;
+		}
+		
 
 		
 

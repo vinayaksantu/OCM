@@ -221,7 +221,7 @@ public class AgentSettingsNewDesignPage extends BasePage {
     private WebElement makerComments;
     
     @FindBy(css=".k-grid-cancel")
-    private WebElement cancelBtn;
+    private List<WebElement> cancelBtn;
 
     @FindBy(css=".toast-message")
     private WebElement successmsg;
@@ -429,7 +429,7 @@ public class AgentSettingsNewDesignPage extends BasePage {
         selectWebElement(saveBtn);
     }
     public void clickOnCancel(){
-        selectWebElement(cancelBtn);
+        selectWebElement(cancelBtn.get(1));
     }
       
     public void clickOnCancelAtDelete(){
@@ -508,7 +508,7 @@ public class AgentSettingsNewDesignPage extends BasePage {
     selectWebElement(addNewAgentSettingsRecordBtn);
     }
     public boolean verifyAddNewPopupContents(){
-        return popupContent.isDisplayed()&&saveBtn.isEnabled()&&cancelBtn.isEnabled();
+        return popupContent.isDisplayed()&&saveBtn.isEnabled()&&cancelBtn.get(1).isEnabled();
     }
     public void navigateToTab(String tabname){
         waitUntilWebElementListIsVisible(tabList);
@@ -518,7 +518,7 @@ public class AgentSettingsNewDesignPage extends BasePage {
         }
     }
     public void closePopUpIfOpen(){
-        if(popupContent.isEnabled()){clickOn(cancelBtn);
+        if(popupContent.isEnabled()){clickOn(cancelBtn.get(1));
             try {
                 Thread.sleep(3000);
             } catch (InterruptedException e) {
@@ -529,7 +529,7 @@ public class AgentSettingsNewDesignPage extends BasePage {
     public void selectAgentSettingsAuditTrailTab(){
         selectWebElement(agentSettingsTabs.get(1));
         try {
-            Thread.sleep(5000);
+            Thread.sleep(6000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -573,6 +573,7 @@ public class AgentSettingsNewDesignPage extends BasePage {
         //selectDropdownFromVisibleText(teamNameListBox,details.getTeamName());
         ChooseTeamHeirarchy(details.getTeamName());
         selectProfile(details.getProfile(),details.getSupervisor());
+        Thread.sleep(1000);
         selectWebElement(accessroleDropdown);
         selectDropdownFromVisibleText(accessroleListBox,details.getAccessRole());
         //selectWebElement(crmnameDropdown);
@@ -592,8 +593,8 @@ public class AgentSettingsNewDesignPage extends BasePage {
         selectWebElement(numericTextbox.get(5));
         enterValueToTxtFieldWithoutClear(totalFaxTabsAllowedTextBox.get(1),String.valueOf(details.getTotalFaxTabs()));
         selectWebElement(numericTextbox.get(6));
-        //enterValueToTxtFieldWithoutClear(totalEmailTabsAllowedTextBox.get(1),String.valueOf(details.getTotalEmailTabs()));
-        //selectWebElement(numericTextbox.get(7));
+        enterValueToTxtFieldWithoutClear(totalEmailTabsAllowedTextBox.get(1),String.valueOf(details.getTotalEmailTabs()));
+        selectWebElement(numericTextbox.get(7));
         enterValueToTxtFieldWithoutClear(totalSMSTabsAllowedTextBox.get(1),String.valueOf(details.getTotalSMSTabs()));																								
        // selectWebElement(featuresDropdown);
         //selectDropdownFromVisibleText(featuresListBox,details.getFeatures());
@@ -667,6 +668,7 @@ public class AgentSettingsNewDesignPage extends BasePage {
         selectWebElement(selectSearchColumn.get(0));
         selectDropdownFromVisibleText(columnNameList,"Lan ID");
         selectWebElement(selectSearchColumn.get(1));
+        Thread.sleep(1000);
         selectDropdownFromVisibleText(searchTypeList,"Is equal to");
         enterValueToTxtField(searchText.get(0),name);
         selectWebElement(searchBtn);
@@ -710,7 +712,7 @@ public class AgentSettingsNewDesignPage extends BasePage {
         selectWebElement(agentSettingsTabs.get(1));
         selectWebElement(makeAgentSettingsChanges);
         searchAgentSettingsRecord(username);
-        btnClick(deleteBtn);
+        selectWebElement(deleteBtn);
     }
     public boolean verifyRecordDeleted(){
         //waitForJqueryLoad(driver);
@@ -870,7 +872,7 @@ return status;
     public void clickonApprove(String comment) throws Exception{
         selectWebElement(agentSettingsTabs.get(1));
         try {
-            Thread.sleep(3000);
+            Thread.sleep(5000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -883,7 +885,7 @@ return status;
 	public void clickonReject(String comment) throws Exception{
         selectWebElement(agentSettingsTabs.get(1));
         try {
-            Thread.sleep(3000);
+            Thread.sleep(5000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -1455,7 +1457,7 @@ return status;
         selectWebElement(saveBtn);
 	}
 	
-	public void selectRecord() {
+	public void selectRecord() throws Exception {
 		Map<String,String> map = new HashMap<>();
 		waitUntilWebElementIsVisible(auditGridContent);
 		List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
@@ -1502,7 +1504,8 @@ return status;
         Thread.sleep(1000);
         selectWebElement(editBtn);
 		waitForJqueryLoad(driver);
-		selectWebElement(cancelBtn);
+		selectWebElement(cancelBtn.get(1));
+		waitUntilWebElementIsVisible(editrowdata.get(4));
 		if(editrowdata.get(4).getText().equals(details.getFirstname()))
 			return true;
 		else

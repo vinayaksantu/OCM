@@ -29,7 +29,7 @@ public class CepEventMappingPage extends BasePage {
 	@FindBy(css = ".k-grid-CustomDelete")
     private WebElement deleteButton;
 	
-	@FindBy(css = ".k-grid-edit")
+	@FindBy(css = " .k-command-cell .k-grid-edit ")
     private WebElement editButton;
 	
 	@FindBy(xpath="//button[@class='k-button k-button-icontext k-grid-excel']")
@@ -614,6 +614,7 @@ public class CepEventMappingPage extends BasePage {
 		selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Description");
+        Thread.sleep(1000);
         selectWebElement(selectSearchCol.get(1));
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is not equal to");
         enterValueToTxtField(searchTextBox,description);		
@@ -635,6 +636,7 @@ public class CepEventMappingPage extends BasePage {
 		selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Description");
+        Thread.sleep(1000);
         selectWebElement(selectSearchCol.get(1));
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Contains");
         enterValueToTxtField(searchTextBox,description);		
@@ -655,7 +657,9 @@ public class CepEventMappingPage extends BasePage {
 		selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Description");
+        Thread.sleep(1000);
         selectWebElement(selectSearchCol.get(1));
+        Thread.sleep(1000);
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Does not contain");
         enterValueToTxtField(searchTextBox,description);		
         selectWebElement(searchSearchBtn);
@@ -676,6 +680,7 @@ public class CepEventMappingPage extends BasePage {
 		selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Description");
+        Thread.sleep(1000);
         selectWebElement(selectSearchCol.get(1));
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Starts with");
         enterValueToTxtField(searchTextBox,description);		
@@ -697,6 +702,7 @@ public class CepEventMappingPage extends BasePage {
 		selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Description");
+        Thread.sleep(1000);
         selectWebElement(selectSearchCol.get(1));
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Ends with");
         enterValueToTxtField(searchTextBox,description);		
@@ -802,7 +808,7 @@ public class CepEventMappingPage extends BasePage {
 	
 	public void editCepEventMappingRecord(CepEventMappingDetails details) throws Exception {
 		searchCepEventMapping(details.getCepEvent());
-		waitUntilWebElementIsClickable(editButton);
+		waitUntilWebElementIsVisible(editButton);
 		selectWebElement(editButton);
 		waitForJqueryLoad(driver);
 		Thread.sleep(3000);
@@ -863,9 +869,11 @@ public class CepEventMappingPage extends BasePage {
         selectWebElement(deleteYesBtn);	
         selectWebElement(deleteNoBtn);			
 	}
+	
 	public void deleteCEPEventMappingRecord(CepEventMappingDetails details) throws Exception {
 		searchCepEventMapping(details.getCepEvent());
-		waitUntilWebElementIsClickable(deleteButton);
+		waitUntilWebElementIsVisible(deleteButton);
+		Thread.sleep(1000);
         selectWebElement(deleteButton);
 		Thread.sleep(2000);
 		enterValueToTxtFieldWithoutClear(deleteReasonTextBox,details.getDeleteReason());

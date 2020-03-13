@@ -114,7 +114,7 @@ public class IntentMappingTest extends BaseTest {
         IntentMappingDetails IntentMappingDetails = new IntentMappingDetails(map);
         IntentMappingPage IntentMappingPage = PageFactory.createPageInstance(driver, IntentMappingPage.class);
         IntentMappingPage.addNewEmptyRecord(IntentMappingDetails);
-        Assert.assertEquals(IntentMappingPage.verifySuccessMessage(),"Provide a Product", "Add invalid record assertion failed");
+        Assert.assertEquals(IntentMappingPage.verifySuccessMessage(),"Please Provide Product, Segment, Language, Intent Talent", "Add invalid record assertion failed");
     }
     
     @Test(priority=9)
@@ -124,7 +124,7 @@ public class IntentMappingTest extends BaseTest {
         IntentMappingDetails IntentMappingDetails = new IntentMappingDetails(map);
         IntentMappingPage IntentMappingPage = PageFactory.createPageInstance(driver, IntentMappingPage.class);
         IntentMappingPage.addRecordWithoutProduct(IntentMappingDetails);
-        Assert.assertEquals(IntentMappingPage.verifySuccessMessage(),"Provide a Product", "Add invalid record assertion failed");
+        Assert.assertEquals(IntentMappingPage.verifySuccessMessage(),"Please Provide Product", "Add invalid record assertion failed");
     }
     
     @Test(priority=10)
@@ -134,7 +134,7 @@ public class IntentMappingTest extends BaseTest {
         IntentMappingDetails IntentMappingDetails = new IntentMappingDetails(map);
         IntentMappingPage IntentMappingPage = PageFactory.createPageInstance(driver, IntentMappingPage.class);
         IntentMappingPage.addRecordWithoutSegment(IntentMappingDetails);
-        Assert.assertEquals(IntentMappingPage.verifySuccessMessage(),"Provide a Segment", "Add invalid record assertion failed");
+        Assert.assertEquals(IntentMappingPage.verifySuccessMessage(),"Please Provide Segment", "Add invalid record assertion failed");
     }
     
     @Test(priority=11)
@@ -144,7 +144,7 @@ public class IntentMappingTest extends BaseTest {
         IntentMappingDetails IntentMappingDetails = new IntentMappingDetails(map);
         IntentMappingPage IntentMappingPage = PageFactory.createPageInstance(driver, IntentMappingPage.class);
         IntentMappingPage.addRecordWithoutLanguage(IntentMappingDetails);
-        Assert.assertEquals(IntentMappingPage.verifySuccessMessage(),"Provide a Language", "Add invalid record assertion failed");
+        Assert.assertEquals(IntentMappingPage.verifySuccessMessage(),"Please Provide Language", "Add invalid record assertion failed");
     }
     
     @Test(priority=12)
@@ -154,7 +154,7 @@ public class IntentMappingTest extends BaseTest {
         IntentMappingDetails IntentMappingDetails = new IntentMappingDetails(map);
         IntentMappingPage IntentMappingPage = PageFactory.createPageInstance(driver, IntentMappingPage.class);
         IntentMappingPage.addRecordWithoutIntentTalent(IntentMappingDetails);
-        Assert.assertEquals(IntentMappingPage.verifySuccessMessage(),"Provide an Intent Talent", "Add invalid record assertion failed");
+        Assert.assertEquals(IntentMappingPage.verifySuccessMessage(),"Please Provide Intent Talent", "Add invalid record assertion failed");
     }
     
     @Test(priority=13)
@@ -164,7 +164,7 @@ public class IntentMappingTest extends BaseTest {
         IntentMappingDetails IntentMappingDetails = new IntentMappingDetails(map);
         IntentMappingPage IntentMappingPage = PageFactory.createPageInstance(driver, IntentMappingPage.class);
         IntentMappingPage.addRecordWithoutVDN(IntentMappingDetails);
-        Assert.assertEquals(IntentMappingPage.verifySuccessMessage(),"Enter a VDN", "Add invalid record assertion failed");
+        Assert.assertEquals(IntentMappingPage.verifySuccessMessage(),"Enter a VDN greater than 0", "Add invalid record assertion failed");
     }
     
     @Test(priority=14)
@@ -414,14 +414,14 @@ public class IntentMappingTest extends BaseTest {
         Assert.assertTrue(IntentMappingPage.verifyNumberOfItemsPerPage(),"item per page assertion failed");
     }
         
-    /*@Test(priority=41)
+    @Test(priority=41)
     public void database() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntentMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(0);
         IntentMappingPage IntentMappingPage = PageFactory.createPageInstance(driver, IntentMappingPage.class);
         IntentMappingDetails IntentMappingDetails = new IntentMappingDetails(map);
     	Assert.assertTrue(IntentMappingPage.verifyDatabase(IntentMappingDetails.getQuery()));
-    }*/
+    }
 	
 	 @AfterMethod
 	    public void afterEachMethod(Method method) throws InterruptedException {

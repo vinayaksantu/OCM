@@ -9,6 +9,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Action;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
 import java.io.File;
@@ -125,16 +127,16 @@ public class IvrConfigPage extends BasePage {
     private WebElement exporttoexcel;
     
     @FindBy(xpath="//span[@class='k-input']")
-	private WebElement pagerSize;
+	private List<WebElement> pagerSize;
 	    
 	@FindBy(css="a[aria-label='Go to the next page']")
-	private WebElement nextPageIcon;
+	private List<WebElement> nextPageIcon;
 	    
 	@FindBy(xpath="//p[@class='k-reset']")
 	private WebElement groupby;
 	    
 	@FindBy(css="a[aria-label='Go to the first page']")
-	private WebElement firstPageIcon;
+	private List<WebElement> firstPageIcon;
 	    
 	@FindBy(css="a[aria-label='Go to the previous page']")
 	private WebElement previousPageIcon;
@@ -173,10 +175,10 @@ public class IvrConfigPage extends BasePage {
 	private WebElement pageNumber;
 	
 	@FindBy(xpath="//a[text()='Parameter']")
-	private WebElement parameter;
-		    
+	private List<WebElement> parameter;
+			    
 	@FindBy(css="a[aria-label='Go to the last page']")
-	private WebElement lastPageIcon;
+	private List<WebElement> lastPageIcon;
 		    
 	@FindBy(css=".k-pager-sizes .k-icon")
 	private WebElement pagerDropdown;
@@ -277,6 +279,9 @@ public class IvrConfigPage extends BasePage {
 	 @FindBy(css="#gridDiv .search-link")
 	 private WebElement gridsearchLink;
 	 
+	 @FindBy(css="#gridDiv2 .search-link")
+	  private WebElement searchLink;
+	 
 	 @FindBy(css=".modal-body .form-inline .form-group .k-select")
 	 private List<WebElement> selectSearchColumn;
 	 
@@ -298,7 +303,14 @@ public class IvrConfigPage extends BasePage {
 	 @FindBy(id="yesButton")
 	 private WebElement yesBtn;
 	 
+	 @FindBy(id = "drillGrid")
+	 private WebElement grid;
 	 
+	 @FindBy(css = "#drillGrid .k-grouping-header")
+	 private WebElement dragColumnDestination;
+	 
+	 @FindBy(xpath="//a[text()='Value']")
+	 private List<WebElement> value;
 	 
     public boolean isIvrConfigPageDisplayed() {
         waitForLoad(driver);
@@ -330,8 +342,9 @@ public class IvrConfigPage extends BasePage {
         	e.printStackTrace();
         }
     }
+    
     public void searchIvrConfigRecord(String Parameter) throws Exception {
-        selectWebElement(searchBtn.get(0));
+        selectWebElement(searchLink);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Parameter");
         selectWebElement(selectSearchCol.get(1));
@@ -339,9 +352,9 @@ public class IvrConfigPage extends BasePage {
         enterValueToTxtField(searchTextBox,Parameter);
         selectWebElement(searchSearchBtn);
         waitForJqueryLoad(driver);
-        waitUntilWebElementIsVisible(approvedgridcontent);
+        waitUntilWebElementIsVisible(gridContent);
     }
-    
+      
     public void editIvrConfigRecord1(IvrConfigDetails details) throws Exception {
     	selectWebElement(ivrConfigTab.get(1));
     	Thread.sleep(1000);
@@ -385,8 +398,8 @@ public class IvrConfigPage extends BasePage {
     	selectWebElement(editButton);
     	waitForJqueryLoad(driver);		
 		Thread.sleep(1000);
-		selectWebElement(parameterDropdown);
-		selectDropdownFromVisibleText(parameterListBox,details.getUpdatedParameter());
+		selectWebElement(valueDropdown);
+		selectDropdownFromVisibleText(valueListBox,details.getUpdatedValue());
 		selectWebElement(ModifyReasonTextBox);
         enterValueToTxtFieldWithoutClear(ModifyReasonTextBox,details.getModifyReason());
         selectWebElement(saveButton);
@@ -521,7 +534,7 @@ public class IvrConfigPage extends BasePage {
 		return Status;
 	}
 	
-	public boolean verifyexportToExcelSheet(List<Map<String, String>> maplist) {
+	public boolean verifyexportToExcelSheet(List<Map<String, String>> maplist) throws Exception {
 		List<Map<String,String>> UI=getdata(); 
 		System.out.println(UI);
 		System.out.println(maplist);
@@ -530,15 +543,15 @@ public class IvrConfigPage extends BasePage {
 		else
 		return false;
 	}
-	
-	private List<Map<String,String>> getdata(){
-		int item=Integer.valueOf(items.get(0).getText().split("of ")[1].split(" items")[0]);
-        int pagersize=Integer.valueOf(pagerSize.getText());
+		
+	private List<Map<String,String>> getdata() throws Exception{
+		int item=Integer.valueOf(items.get(2).getText().split("of ")[1].split(" items")[0]);
+        int pagersize=Integer.valueOf(pagerSize.get(2).getText());
         int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
 		List<Map<String,String>> arr=new ArrayList<Map<String,String>>();
 		for(int k=0;k<=pages;k++){
-		waitUntilWebElementIsVisible(auditGridContent);
-		List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
+		waitUntilWebElementIsVisible(grid);
+		List<WebElement> rows=grid.findElements(By.tagName("tr"));
 		List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
 		String col=null;
 		for(int i=1;i<rows.size();i++) {
@@ -546,11 +559,7 @@ public class IvrConfigPage extends BasePage {
 			List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
 			for(int j=1;j<headers.size();j++) {
 				scrollToElement(headers.get(j));
-				System.out.println(headers.get(j).getText());
-				if(headers.get(j).getText().equals("Last Changed On")){
-				col=cols.get(j).getText().substring(0,10);
-				}
-				else
+				Thread.sleep(1000);
 					col=cols.get(j).getText();
 				map.put(headers.get(j).getText(),col);
 			}
@@ -559,12 +568,12 @@ public class IvrConfigPage extends BasePage {
 		}
 		if(k!=pages)
 		{
-			nextPageIcon.click();
+			nextPageIcon.get(2).click();
 			waitForJqueryLoad(driver);}
 		}
 			return arr;
 	}
-	
+		
 	public boolean verifyDatabase(String query) {
 		List<Map<String,String>> database=database(query);
 		System.out.println(database);
@@ -582,7 +591,6 @@ public class IvrConfigPage extends BasePage {
         int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
 		List<Map<String,String>> arr=new ArrayList<Map<String,String>>();
 		for(int k=0;k<=pages;k++){
-
 		waitUntilWebElementIsVisible(auditGridContent);
 		List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
 		List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
@@ -622,7 +630,7 @@ public class IvrConfigPage extends BasePage {
 	}
 	
 	public void SortByAscending() {
-		selectWebElement(parameter);
+		selectWebElement(value.get(1));
 		selectWebElement(exporttoexcel);
 		try {
 			Thread.sleep(2000);
@@ -632,8 +640,8 @@ public class IvrConfigPage extends BasePage {
 	}
 
 	public void SortByDescending() {
-		selectWebElement(parameter);
-		selectWebElement(parameter);
+		selectWebElement(parameter.get(1));
+		selectWebElement(parameter.get(1));
 		selectWebElement(exporttoexcel);
 		try {
 			Thread.sleep(2000);
@@ -642,11 +650,11 @@ public class IvrConfigPage extends BasePage {
 		}
 	}
 	
-	public boolean verifyArrowMoveForPreviousAndNextPage(){
+	public boolean verifyArrowMoveForPreviousAndNextPage(int i){
         boolean status=false;
-        if(!nextPageIcon.getAttribute("class").contains("k-state-disabled")){
+        if(!nextPageIcon.get(i).getAttribute("class").contains("k-state-disabled")){
         int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber));
-        selectWebElement(nextPageIcon);
+        selectWebElement(nextPageIcon.get(i));
         int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
         selectWebElement(previousPageIcon);
         int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
@@ -656,13 +664,14 @@ public class IvrConfigPage extends BasePage {
         }
         return status;
 	}
-	public boolean verifyArrowMoveForFirstAndLastPage(){
+	
+	public boolean verifyArrowMoveForFirstAndLastPage(int i){
         boolean status=false;
-        if(!lastPageIcon.getAttribute("class").contains("k-state-disabled")){
+        if(!lastPageIcon.get(i).getAttribute("class").contains("k-state-disabled")){
             int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber));
-            selectWebElement(lastPageIcon);
+            selectWebElement(lastPageIcon.get(i));
             int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
-            selectWebElement(firstPageIcon);
+            selectWebElement(firstPageIcon.get(i));
             int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
             if(nextnumber>pagenumber && pagenumber==previousnumber){status=true;}
         }else{
@@ -670,7 +679,8 @@ public class IvrConfigPage extends BasePage {
         }
         return status;
     }
-	public boolean verifyNumberOfItemsPerPage() {
+	
+	public boolean verifyNumberOfItemsPerPage(int z) {
         boolean status = false;
         try {
           //  if (norecords.size() <= 0) {
@@ -682,10 +692,10 @@ public class IvrConfigPage extends BasePage {
                     selectDropdownFromVisibleText(pageSizeListBox, pageSizeListBox.get(i).getText());
                     waitForJqueryLoad(driver);
                     int totalItems = Integer.valueOf(items.get(0).getText().split("of ")[1].split(" items")[0]);
-                    int pagersize = Integer.valueOf(pagerSize.getText());
+                    int pagersize = Integer.valueOf(pagerSize.get(z).getText());
                     int pages = (totalItems % pagersize == 0) ? item / pagersize : item / pagersize+1;
                     int totalRows=(gridContent.findElements(By.tagName("tr")).size());
-                    selectWebElement(lastPageIcon);
+                    selectWebElement(lastPageIcon.get(z));
                     waitForJqueryLoad(driver);
                     int lastPageNumber = Integer.valueOf(pageNumber.getText());
                     if (item == totalItems && pages == lastPageNumber&&totalRows==pagersize) {
@@ -701,8 +711,8 @@ public class IvrConfigPage extends BasePage {
         } return status;
     }
     
-	public boolean verifyTotalNumberOfItemsPerPageDetails(){
-        String item = items.get(0).getText();
+	public boolean verifyTotalNumberOfItemsPerPageDetails(int z){
+        String item = items.get(z).getText();
         return item.matches("(\\d.*) - (\\d.*) of (\\d.*) items");
     }
     
@@ -953,14 +963,13 @@ public class IvrConfigPage extends BasePage {
 			return true;
 	}
 	public boolean VerifyApprovedSectionData(IvrConfigDetails details) throws Exception {
-		searchIvrConfigRecord(details.getParameter());
+		searchIvrConfigRecordApprovedData(details.getParameter());
 		if(norecords.isDisplayed())
 			return true; 
 			else
 				return false;
 	}
-	
-	
+		
 	public boolean addCancelButton(IvrConfigDetails ivrConfigDetails) {
 	selectWebElement(ivrConfigTab.get(1));
 	selectWebElement(makeIVRConfigChanges);
@@ -1118,7 +1127,6 @@ public class IvrConfigPage extends BasePage {
         selectWebElement(selectSearchColumn.get(1));
         selectDropdownFromVisibleText(searchTypeList,"Is equal to");
         enterValueToTxtField(searchText.get(0),parameter);
-//        waitUntilWebElementIsVisible(searchBtn);
         selectInvisibleWebElement(searchSearchBtn);
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(approvedgridcontent);		
@@ -1281,6 +1289,25 @@ private Map<String, String> getSecondRowDatafromTable() {
     Map<String,String> secondRowData=getSecondRowDatafromTable();
     return secondRowData.get("Status").equals(status);
 }	
+    
+    public void dragColumntoGroup(String columnname) {
+        List<WebElement> rows = grid.findElements(By.tagName("tr"));
+        List<WebElement> columnHeaders = rows.get(0).findElements(By.tagName("th"));
+        for (WebElement ele : columnHeaders) {
+            if (ele.getText().equals(columnname)) {
+                Actions builder = new Actions(driver);
+                Action dragAndDrop = builder.clickAndHold(ele).moveToElement(dragColumnDestination).release(dragColumnDestination).build();
+                dragAndDrop.perform();
+            }
+        }
+    }
+
+    public boolean verifyDragColumntoGroup(String colname) {
+
+        return (dragColumnDestination.getText().equals(colname));
+    }
+    
+    
     
 }	
 

@@ -66,7 +66,7 @@ public class WorkCodeListTest extends BaseTest{
         Assert.assertTrue(workCodeListPage.isWorkCodeListPageDisplayed(), "WorkCodeList page assertion failed");
     }
     
-    /*@Test(priority=1)
+    @Test(priority=1)
     public void WorkCodeListPage()
     {
         WorkCodeListPage workCodeListPage  = PageFactory.createPageInstance(driver, WorkCodeListPage.class);
@@ -396,7 +396,7 @@ public class WorkCodeListTest extends BaseTest{
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\WorkCode List (2).xlsx";
         List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
         Assert.assertTrue(workCodeListPage.verifyexportToExcelSheet(maplist));
-    }*/
+    }
     @Test(priority=37)
     public void ExporttoExcelWithoutData() throws Exception
     {
@@ -415,7 +415,7 @@ public class WorkCodeListTest extends BaseTest{
          driver.navigate().refresh();
      
     }
-    @AfterClass
+   // @AfterClass
     public void Afterclass() throws Exception
     {
     	HomePage homePage= PageFactory.createPageInstance(driver,HomePage.class);

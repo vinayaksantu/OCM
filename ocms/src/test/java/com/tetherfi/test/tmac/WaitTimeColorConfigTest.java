@@ -228,7 +228,7 @@ public class WaitTimeColorConfigTest extends BaseTest {
        Assert.assertTrue(waitTimeColorConfigPage.verifyExportToExcel(filePath));
    }
    
-   @Test(priority=19,dependsOnMethods="ExportToExcel")
+   @Test(priority=19)//,dependsOnMethods="ExportToExcel")
    public void ExportToExcelData() throws Exception
    {	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Wait Time Color Config.xlsx";
    		List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
@@ -310,24 +310,6 @@ public class WaitTimeColorConfigTest extends BaseTest {
    }
    
    @Test(priority=29)
-   public void VerifyDropdownForAllTheColumns() {
-       WaitTimeColorConfigPage waitTimeColorConfigPage=PageFactory.createPageInstance(driver,WaitTimeColorConfigPage.class);
-       Assert.assertTrue(waitTimeColorConfigPage.verifyDropDownOfAllHeaders(), "Columns dropdown assertion failed");
-   }
-   
-   @Test(priority=30)
-   public void VerifyColumnsHeaderEnable() {
-       WaitTimeColorConfigPage waitTimeColorConfigPage=PageFactory.createPageInstance(driver,WaitTimeColorConfigPage.class);
-       Assert.assertTrue(waitTimeColorConfigPage.verifycolumnsHeaderEnabled(),"columns enabled assertion failed");
-   }
-   
-   @Test(priority=31)
-   public void VerifyColumnsHeaderDisable() {
-       WaitTimeColorConfigPage waitTimeColorConfigPage=PageFactory.createPageInstance(driver,WaitTimeColorConfigPage.class);
-       Assert.assertFalse(waitTimeColorConfigPage.verifycolumnsHeaderDisabled(),"columns disabled assertion failed");
-   }
-   
-   @Test(priority=32)
    public void SortingByAscending() throws IOException {
 	   WaitTimeColorConfigPage waitTimeColorConfigPage=PageFactory.createPageInstance(driver,WaitTimeColorConfigPage.class);
 	   waitTimeColorConfigPage.SortByAscending();
@@ -335,7 +317,7 @@ public class WaitTimeColorConfigTest extends BaseTest {
 	   List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
 	   Assert.assertTrue(waitTimeColorConfigPage.verifyexportToExcelSheet(maplist));
    }
-   @Test(priority=33)
+   @Test(priority=30)
    public void SortingByDescending() throws IOException {
 	   WaitTimeColorConfigPage waitTimeColorConfigPage=PageFactory.createPageInstance(driver,WaitTimeColorConfigPage.class);
 	   waitTimeColorConfigPage.SortByDescending();
@@ -344,7 +326,7 @@ public class WaitTimeColorConfigTest extends BaseTest {
 	   Assert.assertTrue(waitTimeColorConfigPage.verifyexportToExcelSheet(maplist));
    }
    
-   @Test(priority=34)
+   @Test(priority=31)
    public void ExporttoExcelWithoutData() throws Exception
    {
 	   WaitTimeColorConfigPage waitTimeColorConfigPage=PageFactory.createPageInstance(driver,WaitTimeColorConfigPage.class);
@@ -352,6 +334,24 @@ public class WaitTimeColorConfigTest extends BaseTest {
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
         WaitTimeColorConfigDetails waitTimeColorConfigDetails = new WaitTimeColorConfigDetails(map);
        Assert.assertTrue(waitTimeColorConfigPage.ExporttoExcelWithoutData(waitTimeColorConfigDetails));
+   }
+   
+   @Test(priority=32)
+   public void VerifyDropdownForAllTheColumns() {
+       WaitTimeColorConfigPage waitTimeColorConfigPage=PageFactory.createPageInstance(driver,WaitTimeColorConfigPage.class);
+       Assert.assertTrue(waitTimeColorConfigPage.verifyDropDownOfAllHeaders(), "Columns dropdown assertion failed");
+   }
+   
+   @Test(priority=33)
+   public void VerifyColumnsHeaderEnable() {
+       WaitTimeColorConfigPage waitTimeColorConfigPage=PageFactory.createPageInstance(driver,WaitTimeColorConfigPage.class);
+       Assert.assertTrue(waitTimeColorConfigPage.verifycolumnsHeaderEnabled(),"columns enabled assertion failed");
+   }
+   
+   @Test(priority=34)
+   public void VerifyColumnsHeaderDisable() {
+       WaitTimeColorConfigPage waitTimeColorConfigPage=PageFactory.createPageInstance(driver,WaitTimeColorConfigPage.class);
+       Assert.assertFalse(waitTimeColorConfigPage.verifycolumnsHeaderDisabled(),"columns disabled assertion failed");
    }
 
     @AfterMethod

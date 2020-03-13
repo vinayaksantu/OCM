@@ -31,7 +31,7 @@ public class TmacBroadCastMsgPage extends BasePage {
     @FindBy(xpath="//i[@class='fas fa-broadcast-tower']")
     private WebElement tbmImg;
     
-    @FindBy(xpath="//table//tbody/tr/td[3]")
+    @FindBy(xpath="//table//tbody/tr/td[4]")
     private WebElement tablerow;
     
     @FindBy(xpath="//span[@class='k-icon k-i-more-vertical']")
@@ -55,8 +55,8 @@ public class TmacBroadCastMsgPage extends BasePage {
     @FindBy(xpath="//a[text()='Message']")
     private WebElement message;
    
-    @FindBy(xpath="//a[text()='TeamName']")
-    private WebElement teamName;
+    @FindBy(xpath="//a[text()='Org. Unit']")
+    private List<WebElement> teamName;
    
     @FindBy(xpath="//a[text()='Status']")
     private WebElement status;
@@ -172,7 +172,7 @@ public class TmacBroadCastMsgPage extends BasePage {
     @FindBy(xpath="//div[@data-role='droptarget']")
 	private WebElement droptarget;
     
-    @FindBy(xpath="//tbody/tr/td/p[@class='k-reset']/../../following-sibling::tr/td[4]")
+    @FindBy(xpath="//tbody/tr/td/p[@class='k-reset']/../../following-sibling::tr/td[5]")
 	private WebElement groupbymessage;
     
     @FindBy(xpath="//span[@class='k-input']")
@@ -451,7 +451,7 @@ public class TmacBroadCastMsgPage extends BasePage {
 		selectWebElement(headerColumn);
 		moveToElement(coloumnarrow);
 		Boolean Status=teamnamecheckbox.isSelected();
-		if(Status.equals(teamName.isDisplayed()))
+		if(Status.equals(teamName.get(1).isDisplayed()))
 			return true;
 		else
 		return false;
@@ -875,7 +875,7 @@ public class TmacBroadCastMsgPage extends BasePage {
     }
     public boolean verifycolumnsHeaderDisabled() {
         boolean status = false;
-        WebElement ele = headersDropdown.get(0);
+        WebElement ele = headersDropdown.get(1);
             if (ele.isDisplayed()) {
                 try {
                     selectWebElement(ele);
@@ -910,7 +910,7 @@ public class TmacBroadCastMsgPage extends BasePage {
     }
     public boolean verifycolumnsHeaderEnabled(){
         boolean status=false;
-        WebElement ele= headersDropdown.get(0);
+        WebElement ele= headersDropdown.get(1);
             if(ele.isDisplayed()){
                 try {
                     selectWebElement(ele);
@@ -967,7 +967,7 @@ public class TmacBroadCastMsgPage extends BasePage {
     }
 	
 	public void SortByAscending() {
-		selectWebElement(teamName);
+		selectWebElement(teamName.get(1));
 		selectWebElement(exporttoexcel);
 		try {
 			Thread.sleep(2000);

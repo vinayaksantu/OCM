@@ -702,13 +702,13 @@ public class SkillConfigurationPage extends BasePage {
         selectWebElement(enabledDropDown);
         selectDropdownFromVisibleText(enabledList,details.getEnabled());
         selectWebElement(saveBtn);
-        try {
+       /* try {
         	selectWebElement(cancelBtn);
         }
         catch(Exception e)
         {
         	e.printStackTrace();
-        }
+        }*/
 	}
 
 	public String getMessage() {
@@ -778,7 +778,7 @@ public class SkillConfigurationPage extends BasePage {
         waitForJqueryLoad(driver);
         enterValueToTxtField(skillIdTextbox, details.getSkillID());
         enterValueToTxtField(skillNameTextbox, details.getSkillName());
-        selectWebElement(skillExtensionTextbox.get(0));
+        //selectWebElement(skillExtensionTextbox.get(0));
         enterValueToTxtField(skillExtensionTextbox1, details.getSkillExtension());
         enterValueToTxtField(skillTimeout, details.getTimeout());
         enterValueToTxtField(acceptedSla, details.getAcceptedSL());
@@ -793,7 +793,7 @@ public class SkillConfigurationPage extends BasePage {
         waitForJqueryLoad(driver);
         enterValueToTxtField(skillIdTextbox, details.getSkillID());
         enterValueToTxtField(skillNameTextbox, details.getSkillName());
-        selectWebElement(skillExtensionTextbox.get(0));
+        //selectWebElement(skillExtensionTextbox.get(0));
         enterValueToTxtField(skillExtensionTextbox1, details.getSkillExtension());
         selectWebElement(skillPriorityDropDown);
         selectDropdownFromVisibleText(skillPriorityList,details.getSkillPriority());
@@ -958,7 +958,7 @@ public class SkillConfigurationPage extends BasePage {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		enterValueToTxtField(deleteReasonTextBox,details.getDeleteReason());
+		enterValueToTxtFieldWithoutClear(deleteReasonTextBox,details.getDeleteReason());
 		selectWebElement(yesBtn);		
 	}
 

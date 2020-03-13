@@ -46,7 +46,7 @@ public class MenuDescriptionMappingTest extends BaseTest {
     	screenshot.captureScreen(driver,"MenuDescriptionMappingTest","MenuDescriptionMappingPage");
     }
 	
-	/*@Test(priority=1)
+	@Test(priority=1)
 	public void MenuDescriptionMappingPage() {
         MenuDescriptionMappingPage menuDescriptionMappingPage = PageFactory.createPageInstance(driver, MenuDescriptionMappingPage.class);
         Assert.assertTrue(menuDescriptionMappingPage.VerifyLogo(),"Logo assertion failed");
@@ -74,7 +74,7 @@ public class MenuDescriptionMappingTest extends BaseTest {
         Assert.assertFalse(menuDescriptionMappingPage.verifycolumnsHeaderDisabled(),"columns disabled assertion failed");
     }
     
-   @Test(priority=5)
+    @Test(priority=5)
     public void AddNewMenuDescriptionMappingRecord() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\MenuDescriptionMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -82,7 +82,7 @@ public class MenuDescriptionMappingTest extends BaseTest {
         MenuDescriptionMappingPage menuDescriptionMappingPage = PageFactory.createPageInstance(driver, MenuDescriptionMappingPage.class);
         menuDescriptionMappingPage.addNewMenuDescriptionMappingRecord(MenuDescriptionMappingDetails);
         Assert.assertEquals(menuDescriptionMappingPage.verifySuccessMessage(),"Record Created Successfully", "Add New record assertion failed");
-    }*/
+    }
     
     @Test(priority=6)//,dependsOnMethods = "AddNewMenuDescriptionMappingRecord")
     public void AddDuplicateMenuDescriptionMappingRecord() throws Exception {
@@ -91,10 +91,10 @@ public class MenuDescriptionMappingTest extends BaseTest {
         MenuDescriptionMappingDetails MenuDescriptionMappingDetails = new MenuDescriptionMappingDetails(map);
         MenuDescriptionMappingPage menuDescriptionMappingPage = PageFactory.createPageInstance(driver, MenuDescriptionMappingPage.class);
         menuDescriptionMappingPage.addNewMenuDescriptionMappingRecord(MenuDescriptionMappingDetails);
-        Assert.assertEquals(menuDescriptionMappingPage.verifySuccessMessage(),"Duplicate MenuId");
+        Assert.assertEquals(menuDescriptionMappingPage.verifySuccessMessage(),"Duplicate MenuName");
     }
     
-    /*@Test(priority=7,dependsOnMethods ="AddNewMenuDescriptionMappingRecord")
+    @Test(priority=7,dependsOnMethods ="AddNewMenuDescriptionMappingRecord")
     public void VerifyAuditTrialReportForCreate() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\MenuDescriptionMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -404,7 +404,7 @@ public class MenuDescriptionMappingTest extends BaseTest {
         MenuDescriptionMappingPage menuDescriptionMappingPage = PageFactory.createPageInstance(driver, MenuDescriptionMappingPage.class);
         MenuDescriptionMappingDetails MenuDescriptionMappingDetails = new MenuDescriptionMappingDetails(map);
     	Assert.assertTrue(menuDescriptionMappingPage.verifyDatabase(MenuDescriptionMappingDetails.getQuery()));
-    }*/
+    }
 	
 	 @AfterMethod
 	    public void afterEachMethod(Method method) throws InterruptedException {

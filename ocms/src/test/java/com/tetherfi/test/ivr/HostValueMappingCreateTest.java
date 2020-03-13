@@ -42,7 +42,7 @@ public class HostValueMappingCreateTest {
         Test t = method.getAnnotation(Test.class);
         Map<String, String> map;
         if(t.groups()[0].equalsIgnoreCase("Checker"))
-            map= new ExcelReader(filePath,"Login").getTestData().get(2);
+            map= new ExcelReader(filePath,"Login").getTestData().get(1);
         else
             map= new ExcelReader(filePath,"Login").getTestData().get(0);
         try{driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);}catch (TimeoutException e){e.printStackTrace();driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);}
@@ -64,7 +64,7 @@ public class HostValueMappingCreateTest {
         Assert.assertTrue(hostValueMappingPage.isHostValueMappingPageDisplayed(), "Branch Management page assertion failed");
     }
 	
-	@Test(groups= {"Maker"})
+	//@Test(groups= {"Maker"},priority=1)
     public void VerifyAddCancelButton() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\HostValueMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -73,77 +73,77 @@ public class HostValueMappingCreateTest {
         Assert.assertTrue(hostValueMappingPage.addCancelButton(hostValueMappingDetails), "Add cancel button assertion failed");
     }
 
-	@Test(groups = { "Maker" })
+	//@Test(groups = { "Maker" },priority=2)
     public void VerifyAddRecordwithoutFunctionality() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\HostValueMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
 	    HostValueMappingDetails HostValueMappingDetails = new HostValueMappingDetails(map);
         HostValueMappingPage HostValueMappingPage = PageFactory.createPageInstance(driver, HostValueMappingPage.class);
         HostValueMappingPage.addwithoutFunctionality(HostValueMappingDetails);
-        Assert.assertFalse(HostValueMappingPage.getErrorMsg());
+        Assert.assertEquals(HostValueMappingPage.getErrorMsg(),HostValueMappingDetails.getErrorMsg1());
     }
     
-    @Test(groups = { "Maker" })
+    @Test(groups = { "Maker" },priority=3)
     public void VerifyAddRecordWithoutLanguage() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\HostValueMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
 	    HostValueMappingDetails HostValueMappingDetails = new HostValueMappingDetails(map);
         HostValueMappingPage HostValueMappingPage = PageFactory.createPageInstance(driver, HostValueMappingPage.class);
         HostValueMappingPage.addwithoutLanguage(HostValueMappingDetails);
-        Assert.assertFalse(HostValueMappingPage.getErrorMsg());
+        Assert.assertEquals(HostValueMappingPage.getErrorMsg(),HostValueMappingDetails.getErrorMsg2());
     }
     
-    @Test(groups = { "Maker" })
+    @Test(groups = { "Maker" },priority=4)
     public void VerifyAddRecordWithoutHostData() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\HostValueMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
 	    HostValueMappingDetails HostValueMappingDetails = new HostValueMappingDetails(map);
         HostValueMappingPage HostValueMappingPage = PageFactory.createPageInstance(driver, HostValueMappingPage.class);
         HostValueMappingPage.addwithoutHostData(HostValueMappingDetails);
-        Assert.assertFalse(HostValueMappingPage.getErrorMsg());
+        Assert.assertEquals(HostValueMappingPage.getErrorMsg(),HostValueMappingDetails.getErrorMsg3());
     }
     
-    @Test(groups = { "Maker" })
+    @Test(groups = { "Maker" },priority=5)
     public void VerifyAddRecordWithoutStatus() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\HostValueMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
 	    HostValueMappingDetails HostValueMappingDetails = new HostValueMappingDetails(map);
         HostValueMappingPage HostValueMappingPage = PageFactory.createPageInstance(driver, HostValueMappingPage.class);
         HostValueMappingPage.addwithoutStatus(HostValueMappingDetails);
-        Assert.assertFalse(HostValueMappingPage.getErrorMsg());
+        Assert.assertEquals(HostValueMappingPage.getErrorMsg(),HostValueMappingDetails.getErrorMsg4());
     }
     
-    @Test(groups = { "Maker" })
+    @Test(groups = { "Maker" },priority=6)
     public void VerifyAddRecordWithoutDescription() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\HostValueMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
 	    HostValueMappingDetails HostValueMappingDetails = new HostValueMappingDetails(map);
         HostValueMappingPage HostValueMappingPage = PageFactory.createPageInstance(driver, HostValueMappingPage.class);
         HostValueMappingPage.addwithoutDescription(HostValueMappingDetails);
-        Assert.assertFalse(HostValueMappingPage.getErrorMsg());
+        Assert.assertEquals(HostValueMappingPage.getErrorMsg(),HostValueMappingDetails.getErrorMsg5());
     }
     
-    @Test(groups = { "Maker" })
+    @Test(groups = { "Maker" },priority=7)
     public void VerifyAddRecordWithoutWaveFile() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\HostValueMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
 	    HostValueMappingDetails HostValueMappingDetails = new HostValueMappingDetails(map);
         HostValueMappingPage HostValueMappingPage = PageFactory.createPageInstance(driver, HostValueMappingPage.class);
         HostValueMappingPage.addwithoutWaveFile(HostValueMappingDetails);
-        Assert.assertFalse(HostValueMappingPage.getErrorMsg());
+        Assert.assertEquals(HostValueMappingPage.getErrorMsg(),HostValueMappingDetails.getErrorMsg6());
     }
     
-    @Test(groups = { "Maker" },priority=6)
+    @Test(groups = { "Maker" },priority=8)
     public void AddRevertRecord() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\HostValueMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
 	    HostValueMappingDetails HostValueMappingDetails = new HostValueMappingDetails(map);
         HostValueMappingPage HostValueMappingPage = PageFactory.createPageInstance(driver, HostValueMappingPage.class);
         HostValueMappingPage.addNewHostValueMappingRecord(HostValueMappingDetails);
-        Assert.assertEquals(HostValueMappingPage.getSuccessMessage(), "Record Created Successfully");
+        Assert.assertEquals(HostValueMappingPage.getSuccessMessage(), "Record created successfully");
        }
 	
-	@Test(groups = { "Maker" },priority=7,dependsOnMethods="AddRevertRecord")
+	@Test(groups = { "Maker" },priority=9,dependsOnMethods="AddRevertRecord")
     public void VerifyRevertForAddNewRecord() throws Exception {
        	HostValueMappingPage HostValueMappingPage = PageFactory.createPageInstance(driver, HostValueMappingPage.class);
        	HostValueMappingPage.selectHostValueMappingAuditTrailTab();
@@ -152,7 +152,7 @@ public class HostValueMappingCreateTest {
         Assert.assertTrue(HostValueMappingPage.verifyStatus("Reverted"),"approal status details failed");
     }
 	
-	@Test(groups= {"Maker"},priority=8,dependsOnMethods="VerifyRevertForAddNewRecord")
+	@Test(groups= {"Maker"},priority=10,dependsOnMethods="VerifyRevertForAddNewRecord")
 	public void VerifyApprovedDataSectionWithoutApproval() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\HostValueMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -161,7 +161,7 @@ public class HostValueMappingCreateTest {
         Assert.assertTrue(HostValueMappingPage.verifyApprovedSectionData(HostValueMappingDetails));
 	}
 	
-	@Test(groups = { "Maker" },priority=9,dependsOnMethods = "VerifyApprovedDataSectionWithoutApproval")
+	@Test(groups = { "Maker" },priority=11,dependsOnMethods = "VerifyApprovedDataSectionWithoutApproval")
     public void VerifyAuditTrailReportForRevert() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\HostValueMappingData.xlsx";
 	    Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -175,17 +175,17 @@ public class HostValueMappingCreateTest {
 	    ocmReportsPage.showReport(reportDetails);
         Assert.assertTrue(ocmReportsPage.verifyHostValueMappingCreate(HostValueMappingDetails, "MakerReverted"),"Audit Trail report assertion failed");
     }
-	@Test(groups = { "Maker" },priority=10)
+	@Test(groups = { "Maker" },priority=12)
     public void AddRejectRecord() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\HostValueMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
 	    HostValueMappingDetails HostValueMappingDetails = new HostValueMappingDetails(map);
         HostValueMappingPage HostValueMappingPage = PageFactory.createPageInstance(driver, HostValueMappingPage.class);
         HostValueMappingPage.addNewHostValueMappingRecord(HostValueMappingDetails);
-        Assert.assertEquals(HostValueMappingPage.getSuccessMessage(), "Record Created Successfully");
+        Assert.assertEquals(HostValueMappingPage.getSuccessMessage(), "Record created successfully");
        }
 	
-	@Test(groups = { "Maker" },priority=11,dependsOnMethods="AddRejectRecord")
+	@Test(groups = { "Maker" },priority=13,dependsOnMethods="AddRejectRecord")
     public void VerifySendForApprovalForAddNewRecord() throws Exception {
        	HostValueMappingPage HostValueMappingPage = PageFactory.createPageInstance(driver, HostValueMappingPage.class);
        	HostValueMappingPage.selectHostValueMappingAuditTrailTab();
@@ -194,7 +194,7 @@ public class HostValueMappingCreateTest {
         Assert.assertTrue(HostValueMappingPage.verifyStatus("Approval Pending"),"approal status details failed");
     }
     
-    @Test(groups = { "Checker" },priority=12,dependsOnMethods="VerifySendForApprovalForAddNewRecord")
+    @Test(groups = { "Checker" },priority=14,dependsOnMethods="VerifySendForApprovalForAddNewRecord")
     public void RejectforAddNewHostValueMappingRecord() throws Exception{
         HostValueMappingPage HostValueMappingPage = PageFactory.createPageInstance(driver, HostValueMappingPage.class);
         HostValueMappingPage.clickonReject("Reject Created");
@@ -202,7 +202,7 @@ public class HostValueMappingCreateTest {
         Assert.assertTrue(HostValueMappingPage.verifyReviewAuditTrail("Rejected","Reject Created"));
     }
     
-    @Test(groups = { "Checker" },priority=13,dependsOnMethods = "RejectforAddNewHostValueMappingRecord")
+    @Test(groups = { "Checker" },priority=15,dependsOnMethods = "RejectforAddNewHostValueMappingRecord")
     public void VerifyAuditTrailReportForReject() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\HostValueMappingData.xlsx";
 	    Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -217,7 +217,7 @@ public class HostValueMappingCreateTest {
         Assert.assertTrue(ocmReportsPage.verifyHostValueMappingCreate(HostValueMappingDetails, "CheckerReject"),"Audit Trail report assertion failed");
     }
     
-    @Test(groups= {"Maker"},priority=14,dependsOnMethods="VerifyAuditTrailReportForReject")
+    @Test(groups= {"Maker"},priority=16,dependsOnMethods="VerifyAuditTrailReportForReject")
     public void VerifyRecordAfterRejection() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\HostValueMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -225,17 +225,17 @@ public class HostValueMappingCreateTest {
         HostValueMappingPage HostValueMappingPage = PageFactory.createPageInstance(driver, HostValueMappingPage.class);
         Assert.assertTrue(HostValueMappingPage.verifyApprovedSectionData(HostValueMappingDetails));
     }
-	@Test(groups = { "Maker" },priority=15)
+	@Test(groups = { "Maker" },priority=17)
     public void AddNewHostValueMappingRecord() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\HostValueMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
 	    HostValueMappingDetails HostValueMappingDetails = new HostValueMappingDetails(map);
         HostValueMappingPage HostValueMappingPage = PageFactory.createPageInstance(driver, HostValueMappingPage.class);
         HostValueMappingPage.addNewHostValueMappingRecord(HostValueMappingDetails);
-        Assert.assertEquals(HostValueMappingPage.getSuccessMessage(), "Record Created Successfully");
+        Assert.assertEquals(HostValueMappingPage.getSuccessMessage(), "Record created successfully");
     }
 	
-	@Test(groups = { "Maker" },priority=16,dependsOnMethods = "AddNewHostValueMappingRecord")
+	@Test(groups = { "Maker" },priority=18,dependsOnMethods = "AddNewHostValueMappingRecord")
     public void VerifyAuditTrailReportForCreate() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\HostValueMappingData.xlsx";
 	    Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -250,7 +250,7 @@ public class HostValueMappingCreateTest {
         Assert.assertTrue(ocmReportsPage.verifyHostValueMappingCreate(HostValueMappingDetails, "MakerCreate"),"Audit Trail report assertion failed");
     }
     
-    @Test(groups = { "Maker" },priority=17,dependsOnMethods="AddNewHostValueMappingRecord")
+    @Test(groups = { "Maker" },priority=19,dependsOnMethods="AddNewHostValueMappingRecord")
     public void VerifyAuditTrailDataForAddNewHostValueMappingRecord() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\HostValueMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -260,7 +260,7 @@ public class HostValueMappingCreateTest {
         Assert.assertTrue(HostValueMappingPage.verifyAuditTrail(HostValueMappingDetails, "MakerCreate", "New"), "Audit trail details failed");
     }
     
-    @Test(groups = { "Maker" },priority=18,dependsOnMethods="VerifyAuditTrailDataForAddNewHostValueMappingRecord")
+    @Test(groups = { "Maker" },priority=20,dependsOnMethods="VerifyAuditTrailDataForAddNewHostValueMappingRecord")
     public void VerifySendForApprovalForAddNewHostValueMappingRecord() throws Exception {
        	HostValueMappingPage HostValueMappingPage = PageFactory.createPageInstance(driver, HostValueMappingPage.class);
        	HostValueMappingPage.selectHostValueMappingAuditTrailTab();
@@ -269,7 +269,7 @@ public class HostValueMappingCreateTest {
         Assert.assertTrue(HostValueMappingPage.verifyStatus("Approval Pending"),"approal status details failed");
     }
     
-    @Test(groups = { "Maker" },priority=19,dependsOnMethods = "VerifySendForApprovalForAddNewHostValueMappingRecord")
+    @Test(groups = { "Maker" },priority=21,dependsOnMethods = "VerifySendForApprovalForAddNewHostValueMappingRecord")
     public void VerifyAuditTrailReportForSendForApproval() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\HostValueMappingData.xlsx";
 	    Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -284,7 +284,7 @@ public class HostValueMappingCreateTest {
         Assert.assertTrue(ocmReportsPage.verifyHostValueMappingCreate(HostValueMappingDetails, "MakerSendToApproval"),"Audit Trail report assertion failed");
     }
     
-	@Test(groups = { "Checker" },priority=20,dependsOnMethods="VerifyAuditTrailReportForSendForApproval")
+	@Test(groups = { "Checker" },priority=22,dependsOnMethods="VerifyAuditTrailReportForSendForApproval")
     public void ApproveforAddNewHostValueMappingRecord() throws Exception{
        	HostValueMappingPage HostValueMappingPage = PageFactory.createPageInstance(driver, HostValueMappingPage.class);
        	HostValueMappingPage.clickonApprove("Approve Create");
@@ -292,7 +292,7 @@ public class HostValueMappingCreateTest {
         Assert.assertTrue(HostValueMappingPage.verifyReviewAuditTrail("Approved","Approve Create"));
     }
     
-    @Test(groups = { "Checker" },priority=21,dependsOnMethods = "ApproveforAddNewHostValueMappingRecord")
+    @Test(groups = { "Checker" },priority=23,dependsOnMethods = "ApproveforAddNewHostValueMappingRecord")
     public void VerifyAuditTrailReportForApprove() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\HostValueMappingData.xlsx";
 	    Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -307,7 +307,7 @@ public class HostValueMappingCreateTest {
         Assert.assertTrue(ocmReportsPage.verifyHostValueMappingCreate(HostValueMappingDetails, "CheckerApprove"),"Audit Trail report assertion failed");
     }
     
-    @Test(groups= {"Checker"},priority=22,dependsOnMethods="ApproveforAddNewHostValueMappingRecord")
+    @Test(groups= {"Checker"},priority=24,dependsOnMethods="ApproveforAddNewHostValueMappingRecord")
     public void VerifyRecordApprovedDataSectionafterApproval()throws Exception{
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\HostValueMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -316,14 +316,14 @@ public class HostValueMappingCreateTest {
         Assert.assertTrue(HostValueMappingPage.verifyApprovedSectionDataafterapproval(HostValueMappingDetails));
     }
     
-    @Test(groups = { "Maker" },priority=23,dependsOnMethods="AddNewHostValueMappingRecord")
+    @Test(groups = { "Maker" },priority=25,dependsOnMethods="AddNewHostValueMappingRecord")
     public void AddDuplicateRecord() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\HostValueMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
 	    HostValueMappingDetails HostValueMappingDetails = new HostValueMappingDetails(map);
         HostValueMappingPage HostValueMappingPage = PageFactory.createPageInstance(driver, HostValueMappingPage.class);
         HostValueMappingPage.addNewHostValueMappingRecord(HostValueMappingDetails);
-        Assert.assertFalse(HostValueMappingPage.getErrorMsg(),"Duplicate assetion failed");
+        Assert.assertEquals(HostValueMappingPage.getErrorMsg(),HostValueMappingDetails.getErrorMsg7(),HostValueMappingDetails.getErrorMsg6());
     }
     
     @AfterMethod

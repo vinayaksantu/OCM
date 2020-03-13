@@ -31,7 +31,7 @@ public class HostValueMappingPage extends BasePage {
 	@FindBy(xpath = "//div[@id='tabstripHostMapMakerChecker']/ul/li")
     private List<WebElement> navTabs;
 	
-	@FindBy(css="#create")
+	@FindBy(css=".k-grid-add#create")
 	private WebElement addNewHostValueMappingRecordBtn;
 	
 	@FindBy(css = ".k-grid-CustomDelete")
@@ -100,7 +100,7 @@ public class HostValueMappingPage extends BasePage {
     @FindBy(css=".k-animation-container ul li")
     private List<WebElement> pageSizeListBox;
     
-    @FindBy(css="#drillGrid th a[title='Column Settings']")
+    @FindBy(css="#drillGrid th a[title='Edit Column Settings']")
     private List<WebElement> headersDropdown;
     
     @FindBy(css="div[style*='overflow: visible'] span[class^='k-link']")
@@ -151,7 +151,7 @@ public class HostValueMappingPage extends BasePage {
     @FindBy(css=".modal-footer .k-primary")
     private WebElement searchBtn;
     
-    @FindBy(css=".toast-message")
+    @FindBy(css="#toast-container .toast-message")
     private WebElement successmsg;
 
     @FindBy(css="#toast-container .toast-error .toast-message")
@@ -163,7 +163,7 @@ public class HostValueMappingPage extends BasePage {
     @FindBy(css="#gridDiv .search-link")
     private WebElement gridsearchLink;
     
-    @FindBy(xpath="//div[@class='k-button k-upload-button']")
+    @FindBy(css=".k-upload-button")
     private WebElement uploadfile;
     
     @FindBy(xpath="//div[text()='No records to display']")
@@ -172,7 +172,7 @@ public class HostValueMappingPage extends BasePage {
     @FindBy(css="#tcheckerGrid .k-grid-content")
     private WebElement approvedgridcontent;
     
-    @FindBy(xpath="//tbody/tr/td[1]")
+    @FindBy(xpath="//tbody/tr/td[3]")
     private WebElement rowdata;
     
     @FindBy(css="#drillGrid tbody tr td")
@@ -226,9 +226,12 @@ public class HostValueMappingPage extends BasePage {
     @FindBy(css="ul[id='Language_listbox'] li")
     private List<WebElement> languageListbox;
     
-    @FindBy(id="HostData")
-    private WebElement hostDataTextbox;
+    @FindBy(css="span[aria-owns='HostData_listbox']")
+    private WebElement hostDataDropdown;
     
+    @FindBy(css="ul[id='HostData_listbox'] li")
+    private List<WebElement> hostDataListbox;
+      
     @FindBy(css="span[aria-owns='Status_listbox']")
     private WebElement statusDropdown;
     
@@ -380,7 +383,7 @@ public class HostValueMappingPage extends BasePage {
 	public void selectHostValueMappingAuditTrailTab() {
 		selectWebElement(HostValueMappingTabs.get(1));
         try {
-            Thread.sleep(5000);
+            Thread.sleep(6000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -406,7 +409,7 @@ public class HostValueMappingPage extends BasePage {
 	public void selectMakeHostValueMappingChanges() {
 		selectWebElement(makeHostValueMappingChanges);
 		try {
-            Thread.sleep(5000);
+            Thread.sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -683,7 +686,7 @@ public class HostValueMappingPage extends BasePage {
 	private void searchHostValueMappingRecord(String hostData) throws Exception {
 		selectWebElement(searchLink);
         selectWebElement(selectSearchColumn.get(0));
-        selectDropdownFromVisibleText(columnNameList,"Host Data");
+        selectDropdownFromVisibleText(columnNameList,"Description");
         selectWebElement(selectSearchColumn.get(1));
         selectDropdownFromVisibleText(searchTypeList,"Is equal to");
         enterValueToTxtField(searchText.get(0),hostData);
@@ -695,10 +698,10 @@ public class HostValueMappingPage extends BasePage {
 	public boolean clearAll(HostValueMappingDetails details) throws Exception {
 		selectWebElement(gridsearchLink);
         selectWebElement(selectSearchColumn.get(0));
-        selectDropdownFromVisibleText(columnNameList,"Host Data");
+        selectDropdownFromVisibleText(columnNameList,"Description");
         selectWebElement(selectSearchColumn.get(1));
         selectDropdownFromVisibleText(searchTypeList,"Is equal to");
-        enterValueToTxtField(searchText.get(0),details.getHostData());
+        enterValueToTxtField(searchText.get(0),details.getDescription());
 	    selectWebElement(clearall);
 			if(searchText.get(0).isEnabled())
 	        	return true;
@@ -733,18 +736,15 @@ public class HostValueMappingPage extends BasePage {
 	}
 	
 	public String getSuccessMessage() {
-		waitForJqueryLoad(driver);
-        if(errorMsg.size()>0){return errorMsg.get(0).getText();}
+		//waitForJqueryLoad(driver);
+        //if(errorMsg.size()>0){return errorMsg.get(0).getText();}
         waitUntilWebElementIsVisible(successmsg);
         return successmsg.getText();
 	}
 	
-	public boolean getErrorMsg() {
+	public String getErrorMsg() {
 		waitUntilWebElementListIsVisible(errorMsg);
-		if(errorMsg.size()>0)
-		return false;
-		else
-			return true;
+		return errorMsg.get(0).getText();
 	}
 	
 	public void SortByAscending() {
@@ -780,6 +780,7 @@ public class HostValueMappingPage extends BasePage {
 		selectWebElement(gridsearchLink);
         selectWebElement(selectSearchColumn.get(0));
         selectDropdownFromVisibleText(columnNameList,"Host Data");
+        Thread.sleep(500);
         selectWebElement(selectSearchColumn.get(1));
         selectDropdownFromVisibleText(searchTypeList,"Is equal to");
         enterValueToTxtField(searchText.get(0),hostData);
@@ -850,23 +851,25 @@ public class HostValueMappingPage extends BasePage {
 	public void addNewHostValueMappingRecord(HostValueMappingDetails hostValueMappingDetails) throws Exception {
 		selectWebElement(HostValueMappingTabs.get(1));
 		selectWebElement(makeHostValueMappingChanges);
+		Thread.sleep(1000);
 		selectWebElement(addNewHostValueMappingRecordBtn);
 		waitForJqueryLoad(driver);	
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		Thread.sleep(1000);
 		selectWebElement(functionalityDropdown);
         selectDropdownFromVisibleText(functionalityListbox, hostValueMappingDetails.getFunctionality());
         selectWebElement(languageDropdown);
         selectDropdownFromVisibleText(languageListbox, hostValueMappingDetails.getLanguage());
-        selectWebElement(hostDataTextbox);
-        enterValueToTxtField(hostDataTextbox,hostValueMappingDetails.getHostData());
+        selectWebElement(hostDataDropdown);
+        selectDropdownFromVisibleText(hostDataListbox,hostValueMappingDetails.getHostData());
         selectWebElement(statusDropdown);
         selectDropdownFromVisibleText(statusListbox,hostValueMappingDetails.getStatus());
         enterValueToTxtField(descriptionTextbox,hostValueMappingDetails.getDescription());
+        try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
         selectWebElement(uploadfile);
         FileUploader fileUploader=new FileUploader();
         fileUploader.uploadFile(System.getProperty("user.dir") + "\\src\\test\\resources\\FileUpload\\" + hostValueMappingDetails.getWaveFile());
@@ -878,7 +881,7 @@ public class HostValueMappingPage extends BasePage {
         Map<String,String> firstRowData=getFirstRowDatafromTable();
         if(firstRowData.get("Transaction").equalsIgnoreCase(Transaction)){
             if(firstRowData.get("Status").equalsIgnoreCase(Status)){
-                if(firstRowData.get("Function").equalsIgnoreCase("IvrHostmap")){
+                if(firstRowData.get("Function").equalsIgnoreCase("Host Value Mapping")){
                        if(Transaction.equals("MakerCreate")){
                            Map<String,String> newvalues=new HashMap<>();
                             String[] d=firstRowData.get("New Values").split("\n");
@@ -892,7 +895,7 @@ public class HostValueMappingPage extends BasePage {
                             stat=false;
                        }
                        else{System.out.println("Data mismatch");}
-                }else{System.out.println("Data mismatch:"+firstRowData.get("Function")+"\t"+"RoleManagement");}
+                }else{System.out.println("Data mismatch:"+firstRowData.get("Function")+"\t"+"Host Value Mapping");}
             }else{System.out.println("Data mismatch:"+firstRowData.get("Status")+"\t"+Status);}
         }else{System.out.println("Data mismatch:"+firstRowData.get("Transaction")+"\t"+Transaction);}
         return stat;
@@ -910,7 +913,9 @@ public class HostValueMappingPage extends BasePage {
 					{
 						if(newvalues.get("Description").equals(details.getDescription()))
 						{
-							if(newvalues.get("WaveFile").equals(details.getWaveFile()))
+							/*if(newvalues.get("WaveFile").equals(details.getWaveFile()))*/
+							String []wavefileSplit=details.getWaveFile().split("\\.");
+							if(newvalues.get("WaveFile").contains(wavefileSplit[0]))
 							{
 								Status=true;
 							}
@@ -978,6 +983,7 @@ public class HostValueMappingPage extends BasePage {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        selectRecord();
         clickOn(approveBtn);
         selectWebElement(checkerReason);
         enterValueToTxtField(checkerReason,comment);
@@ -1017,12 +1023,13 @@ public class HostValueMappingPage extends BasePage {
 	public void addwithoutFunctionality(HostValueMappingDetails hostValueMappingDetails) throws Exception {
 		selectWebElement(HostValueMappingTabs.get(1));
 		selectWebElement(makeHostValueMappingChanges);
+		Thread.sleep(1000);
 		selectWebElement(addNewHostValueMappingRecordBtn);
-		waitForJqueryLoad(driver);		
+		waitForJqueryLoad(driver);	
 		selectWebElement(languageDropdown);
         selectDropdownFromVisibleText(languageListbox, hostValueMappingDetails.getLanguage());
-        selectWebElement(hostDataTextbox);
-        enterValueToTxtField(hostDataTextbox,hostValueMappingDetails.getHostData());
+        selectWebElement(hostDataDropdown);
+        selectDropdownFromVisibleText(hostDataListbox,hostValueMappingDetails.getHostData());
         selectWebElement(statusDropdown);
         selectDropdownFromVisibleText(statusListbox,hostValueMappingDetails.getStatus());
         enterValueToTxtField(descriptionTextbox,hostValueMappingDetails.getDescription());
@@ -1036,12 +1043,14 @@ public class HostValueMappingPage extends BasePage {
 	public void addwithoutLanguage(HostValueMappingDetails hostValueMappingDetails) throws Exception {
 		selectWebElement(HostValueMappingTabs.get(1));
 		selectWebElement(makeHostValueMappingChanges);
+		Thread.sleep(1000);
 		selectWebElement(addNewHostValueMappingRecordBtn);
-		waitForJqueryLoad(driver);		
+		waitForJqueryLoad(driver);
+		Thread.sleep(1000);
 		selectWebElement(functionalityDropdown);
-        selectDropdownFromVisibleText(languageListbox, hostValueMappingDetails.getLanguage());
-        selectWebElement(hostDataTextbox);
-        enterValueToTxtField(hostDataTextbox,hostValueMappingDetails.getHostData());
+        selectDropdownFromVisibleText(functionalityListbox, hostValueMappingDetails.getFunctionality());
+        selectWebElement(hostDataDropdown);
+        selectDropdownFromVisibleText(hostDataListbox,hostValueMappingDetails.getHostData());
         selectWebElement(statusDropdown);
         selectDropdownFromVisibleText(statusListbox,hostValueMappingDetails.getStatus());
         enterValueToTxtField(descriptionTextbox,hostValueMappingDetails.getDescription());
@@ -1055,8 +1064,10 @@ public class HostValueMappingPage extends BasePage {
 	public void addwithoutHostData(HostValueMappingDetails hostValueMappingDetails) throws Exception {
 		selectWebElement(HostValueMappingTabs.get(1));
 		selectWebElement(makeHostValueMappingChanges);
+		Thread.sleep(1000);
 		selectWebElement(addNewHostValueMappingRecordBtn);
-		waitForJqueryLoad(driver);		
+		waitForJqueryLoad(driver);
+		Thread.sleep(1000);
 		selectWebElement(functionalityDropdown);
         selectDropdownFromVisibleText(functionalityListbox, hostValueMappingDetails.getFunctionality());
         selectWebElement(languageDropdown);
@@ -1074,14 +1085,16 @@ public class HostValueMappingPage extends BasePage {
 	public void addwithoutStatus(HostValueMappingDetails hostValueMappingDetails) throws Exception {
 		selectWebElement(HostValueMappingTabs.get(1));
 		selectWebElement(makeHostValueMappingChanges);
+		Thread.sleep(1000);
 		selectWebElement(addNewHostValueMappingRecordBtn);
-		waitForJqueryLoad(driver);		
+		waitForJqueryLoad(driver);	
+		Thread.sleep(1000);
 		selectWebElement(functionalityDropdown);
         selectDropdownFromVisibleText(functionalityListbox, hostValueMappingDetails.getFunctionality());
         selectWebElement(languageDropdown);
         selectDropdownFromVisibleText(languageListbox, hostValueMappingDetails.getLanguage());
-        selectWebElement(hostDataTextbox);
-        enterValueToTxtField(hostDataTextbox,hostValueMappingDetails.getHostData());
+        selectWebElement(hostDataDropdown);
+        selectDropdownFromVisibleText(hostDataListbox,hostValueMappingDetails.getHostData());
         enterValueToTxtField(descriptionTextbox,hostValueMappingDetails.getDescription());
         selectWebElement(uploadfile);
         FileUploader fileUploader=new FileUploader();
@@ -1093,14 +1106,16 @@ public class HostValueMappingPage extends BasePage {
 	public void addwithoutDescription(HostValueMappingDetails hostValueMappingDetails) throws Exception {
 		selectWebElement(HostValueMappingTabs.get(1));
 		selectWebElement(makeHostValueMappingChanges);
+		Thread.sleep(1000);
 		selectWebElement(addNewHostValueMappingRecordBtn);
-		waitForJqueryLoad(driver);		
+		waitForJqueryLoad(driver);	
+		Thread.sleep(1000);
 		selectWebElement(functionalityDropdown);
         selectDropdownFromVisibleText(functionalityListbox, hostValueMappingDetails.getFunctionality());
         selectWebElement(languageDropdown);
         selectDropdownFromVisibleText(languageListbox, hostValueMappingDetails.getLanguage());
-        selectWebElement(hostDataTextbox);
-        enterValueToTxtField(hostDataTextbox,hostValueMappingDetails.getHostData());
+        selectWebElement(hostDataDropdown);
+        selectDropdownFromVisibleText(hostDataListbox,hostValueMappingDetails.getHostData());
         selectWebElement(statusDropdown);
         selectDropdownFromVisibleText(statusListbox,hostValueMappingDetails.getStatus());
         selectWebElement(uploadfile);
@@ -1113,14 +1128,16 @@ public class HostValueMappingPage extends BasePage {
 	public void addwithoutWaveFile(HostValueMappingDetails hostValueMappingDetails) throws Exception {
 		selectWebElement(HostValueMappingTabs.get(1));
 		selectWebElement(makeHostValueMappingChanges);
+		Thread.sleep(1000);
 		selectWebElement(addNewHostValueMappingRecordBtn);
-		waitForJqueryLoad(driver);		
+		waitForJqueryLoad(driver);
+		Thread.sleep(1000);
 		selectWebElement(functionalityDropdown);
         selectDropdownFromVisibleText(functionalityListbox, hostValueMappingDetails.getFunctionality());
         selectWebElement(languageDropdown);
         selectDropdownFromVisibleText(languageListbox, hostValueMappingDetails.getLanguage());
-        selectWebElement(hostDataTextbox);
-        enterValueToTxtField(hostDataTextbox,hostValueMappingDetails.getHostData());
+        selectWebElement(hostDataDropdown);
+        selectDropdownFromVisibleText(hostDataListbox,hostValueMappingDetails.getHostData());
         selectWebElement(statusDropdown);
         selectDropdownFromVisibleText(statusListbox,hostValueMappingDetails.getStatus());
         enterValueToTxtField(descriptionTextbox,hostValueMappingDetails.getDescription());
@@ -1136,6 +1153,7 @@ public class HostValueMappingPage extends BasePage {
 	        } catch (InterruptedException e) {
 	            e.printStackTrace();
 	        }
+	        selectRecord();
 	        clickOn(rejectBtn);
 	        selectWebElement(checkerReason);
 	        enterValueToTxtField(checkerReason,comment);
@@ -1157,7 +1175,7 @@ public class HostValueMappingPage extends BasePage {
 		Thread.sleep(1000);
 		selectWebElement(makeHostValueMappingChanges);
 		Thread.sleep(1000);
-		searchHostValueMappingRecord(details.getHostData());
+		searchHostValueMappingRecord(details.getDescription());
 		selectWebElement(editButton);
 		waitForJqueryLoad(driver);
 		selectWebElement(cancelBtn);
@@ -1172,12 +1190,12 @@ public class HostValueMappingPage extends BasePage {
 		Thread.sleep(1000);
 		selectWebElement(makeHostValueMappingChanges);
 		Thread.sleep(1000);
-		searchHostValueMappingRecord(details.getHostData());
+		searchHostValueMappingRecord(details.getDescription());
 		selectWebElement(editButton);
 		waitForJqueryLoad(driver);		
 		Thread.sleep(1000);
         enterValueToTxtField(descriptionTextbox,details.getUpdatedDescription());
-        enterValueToTxtField(modifyReasonTextBox,details.getModifyReason());
+        enterValueToTxtFieldWithoutClear(modifyReasonTextBox,details.getModifyReason());
         selectWebElement(saveBtn);
 
 	}
@@ -1187,7 +1205,7 @@ public class HostValueMappingPage extends BasePage {
         Map<String,String> firstRowData=getFirstRowDatafromTable();
         if(firstRowData.get("Transaction").equalsIgnoreCase(Transaction)){
             if(firstRowData.get("Status").equalsIgnoreCase(Status)){
-                if(firstRowData.get("Function").equalsIgnoreCase("IvrHostMap")){
+                if(firstRowData.get("Function").equalsIgnoreCase("Host Value Mapping")){
                        if(Transaction.equals("MakerUpdate")){
                            Map<String,String> newvalues=new HashMap<>();
                             String[] d=firstRowData.get("New Values").split("\n");
@@ -1201,7 +1219,7 @@ public class HostValueMappingPage extends BasePage {
                             stat=false;
                        }
                        else{System.out.println("Data mismatch");}
-                }else{System.out.println("Data mismatch:"+firstRowData.get("Function")+"\t"+"RoleManagement");}
+                }else{System.out.println("Data mismatch:"+firstRowData.get("Function")+"\t"+"Host Value Mapping");}
             }else{System.out.println("Data mismatch:"+firstRowData.get("Status")+"\t"+Status);}
         }else{System.out.println("Data mismatch:"+firstRowData.get("Transaction")+"\t"+Transaction);}
         return stat;
@@ -1214,7 +1232,9 @@ public class HostValueMappingPage extends BasePage {
 				if(newvalues.get("HostData").equals(details.getHostData())){
 					if(newvalues.get("Status").equals(details.getStatus())){
 						if(newvalues.get("Description").equals(details.getUpdatedDescription())){
-							if(newvalues.get("WaveFile").equals(details.getWaveFile())) {	
+							/*if(newvalues.get("WaveFile").equals(details.getWaveFile()))*/ 
+							String []wavefileSplit=details.getWaveFile().split("\\.");
+							if(newvalues.get("WaveFile").contains(wavefileSplit[0])){	
 								Status=true;
         					}
         					else System.out.println("WaveFile data mismatch");
@@ -1241,7 +1261,7 @@ public class HostValueMappingPage extends BasePage {
 		Thread.sleep(1000);
 		selectWebElement(makeHostValueMappingChanges);
 		Thread.sleep(1000);
-		searchHostValueMappingRecord(details.getHostData());
+		searchHostValueMappingRecord(details.getDescription());
 		selectWebElement(editButton);
 		waitForJqueryLoad(driver);		
 		Thread.sleep(1000);
@@ -1255,7 +1275,7 @@ public class HostValueMappingPage extends BasePage {
 		Thread.sleep(1000);
 		selectWebElement(makeHostValueMappingChanges);
 		Thread.sleep(1000);
-		searchHostValueMappingRecord(details.getHostData());
+		searchHostValueMappingRecord(details.getDescription());
 		selectWebElement(deleteButton);
 		waitForJqueryLoad(driver);
 		selectWebElement(noBtn);
@@ -1270,12 +1290,12 @@ public class HostValueMappingPage extends BasePage {
 		Thread.sleep(1000);
 		selectWebElement(makeHostValueMappingChanges);
 		Thread.sleep(1000);
-		searchHostValueMappingRecord(details.getHostData());
+		searchHostValueMappingRecord(details.getDescription());
 		Thread.sleep(1000);
 		selectWebElement(deleteButton);
 		Thread.sleep(1000);
         selectWebElement(deleteReasonTextBox);
-        enterValueToTxtField(deleteReasonTextBox,details.getDeleteReason());
+        enterValueToTxtFieldWithoutClear(deleteReasonTextBox,details.getDeleteReason());
         selectWebElement(yesBtn);				
 	}
 
@@ -1285,7 +1305,7 @@ public class HostValueMappingPage extends BasePage {
         Map<String,String> firstRowData=getFirstRowDatafromTable();
         if(firstRowData.get("Transaction").equalsIgnoreCase(Transaction)){
             if(firstRowData.get("Status").equalsIgnoreCase(Status)){
-                if(firstRowData.get("Function").equalsIgnoreCase("IvrHostMap")){
+                if(firstRowData.get("Function").equalsIgnoreCase("Host Value Mapping")){
                        stat=true;
                 }else{System.out.println("Data mismatch:"+firstRowData.get("Function")+"\t"+"RoleManagement");}
             }else{System.out.println("Data mismatch:"+firstRowData.get("Status")+"\t"+Status);}
@@ -1298,7 +1318,7 @@ public class HostValueMappingPage extends BasePage {
 		Thread.sleep(1000);
 		selectWebElement(makeHostValueMappingChanges);
 		Thread.sleep(1000);
-		searchHostValueMappingRecord(details.getHostData());
+		searchHostValueMappingRecord(details.getDescription());
 		Thread.sleep(1000);
 		selectWebElement(deleteButton);
 		Thread.sleep(1000);

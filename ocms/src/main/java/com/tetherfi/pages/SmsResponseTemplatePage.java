@@ -281,9 +281,11 @@ public class SmsResponseTemplatePage extends BasePage {
 	@FindBy(css = ".modal-footer .button-theme")
 	private WebElement searchSearchBtn;
 	
-	@FindBy(css = ".fa-search")
+	@FindBy(css = "#gridDiv2 .fa-search")
 	private WebElement searchBtn1;
-    
+	
+	@FindBy(css=" #gridDiv2 #tGrid")
+    private WebElement auditGrids;
     
     
     
@@ -808,7 +810,7 @@ public class SmsResponseTemplatePage extends BasePage {
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is not equal to");
         enterValueToTxtField(searchTextBox,intent);		
         selectWebElement(searchSearchBtn);
-        waitUntilWebElementIsVisible(checkerGrid);
+        waitUntilWebElementIsVisible(gridContent);
         List<Map<String,String>> UI=gettable(); 
         for (Map<String,String> map1: UI)
         {   	
@@ -830,7 +832,7 @@ public class SmsResponseTemplatePage extends BasePage {
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Contains");
         enterValueToTxtField(searchTextBox,intent);		
         selectWebElement(searchSearchBtn);
-        waitUntilWebElementIsVisible(checkerGrid);
+        waitUntilWebElementIsVisible(gridContent);
         List<Map<String,String>> UI=gettable(); 
         for (Map<String,String> map1: UI)
         {   	
@@ -850,7 +852,7 @@ public class SmsResponseTemplatePage extends BasePage {
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Does not contain");
         enterValueToTxtField(searchTextBox,intent);		
         selectWebElement(searchSearchBtn);
-        waitUntilWebElementIsVisible(checkerGrid);
+        waitUntilWebElementIsVisible(gridContent);
         List<Map<String,String>> UI=gettable(); 
         for (Map<String,String> map1: UI)
         {   	
@@ -871,7 +873,7 @@ public class SmsResponseTemplatePage extends BasePage {
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Starts with");
         enterValueToTxtField(searchTextBox,intent);		
         selectWebElement(searchSearchBtn);
-        waitUntilWebElementIsVisible(checkerGrid);
+        waitUntilWebElementIsVisible(gridContent);
         List<Map<String,String>> UI=gettable(); 
         for (Map<String,String> map1: UI)
         {   	
@@ -892,7 +894,7 @@ public class SmsResponseTemplatePage extends BasePage {
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Ends with");
         enterValueToTxtField(searchTextBox,intent);		
         selectWebElement(searchSearchBtn);
-        waitUntilWebElementIsVisible(checkerGrid);
+        waitUntilWebElementIsVisible(gridContent);
         List<Map<String,String>> UI=gettable(); 
         for (Map<String,String> map1: UI)
         {   	
@@ -928,20 +930,20 @@ public class SmsResponseTemplatePage extends BasePage {
 	}
 	
 	public List<Map<String, String>> gettable() {
-		int item=Integer.valueOf(items.get(0).getText().split("of ")[1].split(" items")[0]);
-        int pagersize=Integer.valueOf(pagerSize.get(0).getText());
+		int item=Integer.valueOf(items.get(2).getText().split("of ")[1].split(" items")[0]);
+        int pagersize=Integer.valueOf(pagerSize.get(2).getText());
         int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
 		List<Map<String,String>> arr=new ArrayList<Map<String,String>>();
 		for(int k=0;k<=pages;k++){
 
-		waitUntilWebElementIsVisible(checkerGrid);
-		List<WebElement> rows=checkerGrid.findElements(By.tagName("tr"));
+		waitUntilWebElementIsVisible(auditGrids);
+		List<WebElement> rows=auditGrids.findElements(By.tagName("tr"));
 		List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
 		for(int i=1;i<rows.size();i++) {
 			Map<String,String> map = new HashMap<String,String>();
 			List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
 			String col=null;
-			for(int j=0;j<headers.size();j++){
+			for(int j=1;j<headers.size();j++){
 				scrollToElement(headers.get(j));
 				if(headers.get(j).getText().equals("Last Changed On")){
 					col=cols.get(j).getText().substring(11);
@@ -951,12 +953,11 @@ public class SmsResponseTemplatePage extends BasePage {
 				map.put(headers.get(j).getText(),col);
 			}
 			map.remove("");
-			map.remove("Preview");
 			arr.add(map);
 		}
 		if(k!=pages)
 		{
-			nextPageIcon.get(0).click();
+			nextPageIcon.get(2).click();
 			waitForJqueryLoad(driver);}
 		}
 			return arr;
@@ -968,6 +969,7 @@ public class SmsResponseTemplatePage extends BasePage {
 		String actualitems=items.get(2).getText();
 		selectWebElement(addNewRecordBtn);
 		waitForJqueryLoad(driver);
+		waitUntilWebElementIsVisible(cancelBtn);
         selectWebElement(cancelBtn);
         if(actualitems.equals(items.get(2).getText()))
         	return true;

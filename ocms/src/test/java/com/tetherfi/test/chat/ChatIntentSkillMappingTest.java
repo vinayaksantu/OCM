@@ -34,7 +34,7 @@ public class ChatIntentSkillMappingTest extends BaseTest {
         Assert.assertTrue(intentSkillMappingPage.isChatIntentSkillMappingPageDisplayed(),"Intent skill mapping page assertion failed");
     }
     
-    /*@Test(priority=1)
+    @Test(priority=1)
 	public void ChatIntentSkillMappingPage() {
         ChatIntentSkillMappingPage ChatIntentSkillMappingPage = PageFactory.createPageInstance(driver, ChatIntentSkillMappingPage.class);
         Assert.assertTrue(ChatIntentSkillMappingPage.VerifyLogo(),"Logo assertion failed");
@@ -72,7 +72,7 @@ public class ChatIntentSkillMappingTest extends BaseTest {
         Assert.assertEquals(intentSkillMappingPage.getMessage(),"Record Created Successfully","Add New record assertion failed");
     }
     
-   @Test(priority=6)//,dependsOnMethods = "AddNewChatIntentSkillMappingRecord")
+    @Test(priority=6)//,dependsOnMethods = "AddNewChatIntentSkillMappingRecord")
     public void AddDuplicateChatIntentSkillMappingRecord() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntentSkillMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -163,19 +163,19 @@ public class ChatIntentSkillMappingTest extends BaseTest {
         ChatIntentSkillMappingPage ChatIntentSkillMappingPage = PageFactory.createPageInstance(driver, ChatIntentSkillMappingPage.class);
         ChatIntentSkillMappingPage.editChatIntentSkillMappingWithoutModifyReason(ChatIntentSkillMappingDetails);
         Assert.assertEquals(ChatIntentSkillMappingPage.getMessage(),"Please enter the modify reason", "empty modify reason record assertion failed");
-    }*/
+    }
     
    @Test(priority=15)
     public void VerifyCancelBtnAtEditRecord() throws Exception{
         ChatIntentSkillMappingPage ChatIntentSkillMappingPage = PageFactory.createPageInstance(driver, ChatIntentSkillMappingPage.class);
-        ChatIntentSkillMappingPage.searchChatIntentSkillMappingRecord("L1");
+        ChatIntentSkillMappingPage.searchChatIntentSkillMappingRecord("Z1");
         Thread.sleep(1000);
         ChatIntentSkillMappingPage.clickOnEditButton();
         ChatIntentSkillMappingPage.clickOnCancelBtn();
         Assert.assertFalse(ChatIntentSkillMappingPage.verifyEditFormContainer(), "Cancel Btn at Edit record assertion failed");
     }
     
-    /*@Test(priority=16)//,dependsOnMethods = "AddNewChatIntentSkillMappingRecord")
+    @Test(priority=16)//,dependsOnMethods = "AddNewChatIntentSkillMappingRecord")
     public void EditChatIntentSkillMappingRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IntentSkillMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
@@ -200,7 +200,7 @@ public class ChatIntentSkillMappingTest extends BaseTest {
         Assert.assertTrue(ocmReportsPage.verifyChatIntentSkillMappingUpdate(ChatIntentSkillMappingDetails,"Update"));
     }
     
-   @Test(priority=18)
+    @Test(priority=18)
     public void searchPage() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntentSkillMappingData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -213,7 +213,7 @@ public class ChatIntentSkillMappingTest extends BaseTest {
    @Test(priority=19)
    public void VerifySearchIsNotEqualTo() throws Exception {
        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntentSkillMappingData.xlsx";
-   	Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
+   	Map<String, String> map = new ExcelReader(filePath,"Invalid").getTestData().get(0);
        ChatIntentSkillMappingDetails ChatIntentSkillMappingDetails = new ChatIntentSkillMappingDetails(map);
        ChatIntentSkillMappingPage ChatIntentSkillMappingPage = PageFactory.createPageInstance(driver, ChatIntentSkillMappingPage.class);
        Assert.assertTrue(ChatIntentSkillMappingPage.verifySearchIsNotEqualTo(ChatIntentSkillMappingDetails.getIntent()));
@@ -222,7 +222,7 @@ public class ChatIntentSkillMappingTest extends BaseTest {
    @Test(priority=20)
    public void VerifySearchContains() throws Exception {
        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntentSkillMappingData.xlsx";
-   	Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);
+   	Map<String, String> map = new ExcelReader(filePath,"Invalid").getTestData().get(1);
        ChatIntentSkillMappingDetails ChatIntentSkillMappingDetails = new ChatIntentSkillMappingDetails(map);
        ChatIntentSkillMappingPage ChatIntentSkillMappingPage = PageFactory.createPageInstance(driver, ChatIntentSkillMappingPage.class);
        Assert.assertTrue(ChatIntentSkillMappingPage.verifySearchContains(ChatIntentSkillMappingDetails.getIntent()));
@@ -231,7 +231,7 @@ public class ChatIntentSkillMappingTest extends BaseTest {
    @Test(priority=21)
    public void VerifySearchDoesNotContains() throws Exception {
        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntentSkillMappingData.xlsx";
-   	Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);
+   	Map<String, String> map = new ExcelReader(filePath,"Invalid").getTestData().get(1);
        ChatIntentSkillMappingDetails ChatIntentSkillMappingDetails = new ChatIntentSkillMappingDetails(map);
        ChatIntentSkillMappingPage ChatIntentSkillMappingPage = PageFactory.createPageInstance(driver, ChatIntentSkillMappingPage.class);
        Assert.assertTrue(ChatIntentSkillMappingPage.verifySearchDoesNotContains(ChatIntentSkillMappingDetails.getIntent()));
@@ -240,7 +240,7 @@ public class ChatIntentSkillMappingTest extends BaseTest {
    @Test(priority=22)
    public void VerifySearchStartsWith() throws Exception {
        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntentSkillMappingData.xlsx";
-   	Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(2);
+   	Map<String, String> map = new ExcelReader(filePath,"Invalid").getTestData().get(2);
        ChatIntentSkillMappingDetails ChatIntentSkillMappingDetails = new ChatIntentSkillMappingDetails(map);
        ChatIntentSkillMappingPage ChatIntentSkillMappingPage = PageFactory.createPageInstance(driver, ChatIntentSkillMappingPage.class);
        Assert.assertTrue(ChatIntentSkillMappingPage.verifySearchStartsWith(ChatIntentSkillMappingDetails.getIntent()));
@@ -249,13 +249,13 @@ public class ChatIntentSkillMappingTest extends BaseTest {
    @Test(priority=23)
    public void VerifySearchEndsWith() throws Exception {
        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntentSkillMappingData.xlsx";
-   	Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(3);
+   	Map<String, String> map = new ExcelReader(filePath,"Invalid").getTestData().get(3);
        ChatIntentSkillMappingDetails ChatIntentSkillMappingDetails = new ChatIntentSkillMappingDetails(map);
        ChatIntentSkillMappingPage ChatIntentSkillMappingPage = PageFactory.createPageInstance(driver, ChatIntentSkillMappingPage.class);
        Assert.assertTrue(ChatIntentSkillMappingPage.verifySearchEndsWith(ChatIntentSkillMappingDetails.getIntent()));
    }
     
-   @Test(priority=24)
+    @Test(priority=24)
     public void searchwithoutSearchTextbox() throws IOException {
         ChatIntentSkillMappingPage ChatIntentSkillMappingPage = PageFactory.createPageInstance(driver, ChatIntentSkillMappingPage.class);
         ChatIntentSkillMappingPage.searchwithoutextsearch();
@@ -290,7 +290,7 @@ public class ChatIntentSkillMappingTest extends BaseTest {
     @Test(priority=28)
     public void VerifyCancelBtnAtDeleteChatIntentSkillMappingRecord() throws Exception{
         ChatIntentSkillMappingPage ChatIntentSkillMappingPage = PageFactory.createPageInstance(driver, ChatIntentSkillMappingPage.class);
-        ChatIntentSkillMappingPage.searchChatIntentSkillMappingRecord("L4");
+        ChatIntentSkillMappingPage.searchChatIntentSkillMappingRecord("z2");
         Thread.sleep(1000);
         ChatIntentSkillMappingPage.clickOnDeleteButton();
         ChatIntentSkillMappingPage.clickOnDeleteCancelBtn();
@@ -406,7 +406,7 @@ public class ChatIntentSkillMappingTest extends BaseTest {
     	Assert.assertTrue(ChatIntentSkillMappingPage.verifyDatabase(ChatIntentSkillMappingDetails.getQuery()));
     }
     
-    /*@Test(priority=41)
+    @Test(priority=41)
     public void AddRecordWithoutSegment() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntentSkillMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -433,7 +433,7 @@ public class ChatIntentSkillMappingTest extends BaseTest {
         ChatIntentSkillMappingPage ChatIntentSkillMappingPage = PageFactory.createPageInstance(driver, ChatIntentSkillMappingPage.class);
         ChatIntentSkillMappingPage.addRecordWithoutCustomEntType(ChatIntentSkillMappingDetails);
         Assert.assertEquals(ChatIntentSkillMappingPage.getMessage(),"Record Created Successfully", "Add invalid record assertion failed");
-    }*/
+    }
     
 	 @AfterMethod
 	    public void afterEachMethod(Method method) throws InterruptedException {

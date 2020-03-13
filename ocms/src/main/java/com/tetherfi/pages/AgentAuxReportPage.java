@@ -696,10 +696,22 @@ private String getProperHeadersInGrid(String cname){
     }
 	
 	/*public void verifySearchByTextbox() throws Exception{		
-			selectWebElement(searchbyfeatureTextBox);    
-	        enterValueToTxtField(searchbyfeatureTextBox,searchbyfeaturelistBox.get(0));
-	        waitForJqueryLoad(driver);     
-		}*/
+	selectWebElement(searchbyfeatureTextBox);    
+    enterValueToTxtFieldWithoutClear(searchbyfeatureTextBox,searchbyfeaturelistBox.get(0));
+    waitForJqueryLoad(driver);
+    List<Map<String,String>> UI=getDataTable(); 
+    for (Map<String,String> map1: UI)
+    {   	
+		if(map1.equals(map))
+    	Status= false;
+    	else 
+    		Status= true;
+}
+    return Status;	
+}
+}*/
+
+	
 	public void searchwithoutextsearch(ReportDetails details) {
 		   selectWebElement(searchBtn);		
 		   selectWebElement(searchColDropdown);  
@@ -743,9 +755,35 @@ private String getProperHeadersInGrid(String cname){
 			List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
 			String col=null;
 			for(int j=0;j<headers.size();j++){
+				if(j==6) {
+					int timeinsecs=0;
+					String Auxtime=cols.get(j).getText();
+					//System.out.println(Auxtime);
+					String[] substring =Auxtime.split(":",3);
+					for (String a :  substring) 
+					{   //System.out.println(a); 
+					int hours = Integer.parseInt(substring[0]);
+					int minutes=Integer.parseInt(substring[1]);
+					int seconds=Integer.parseInt(substring[2]);
+					timeinsecs=hours*60*60+minutes*60+seconds;								
+					}		
+					// System.out.println(timeinsecs);
+					 col=String.valueOf(timeinsecs);
+					//map.put(headers.get(j).getText(),col);
+					//System.out.println(substring);
+					//=substring[0] * 60 * 60 + substring[1] * 60 + substring[2]); 
+					//sytem.out.println("seconds="+seconds);
+				}
+				
+				else
+				{
 					col=cols.get(j).getText();
+				}
 				map.put(headers.get(j).getText(),col);
+				
+				//System.out.println(col);
 			}
+			
 			map.remove("");
 			arr.add(map);
 		}
@@ -898,6 +936,41 @@ private String getProperHeadersInGrid(String cname){
 		    selectWebElement(searchClearAllBtn);	
 		    //selectWebElement(searchCloseBtn);		
 	}
+	
+	public boolean verifyJsonDataForgridColumnHidden(Map<String,String> jsonmap){
+		System.out.println(jsonmap);
+        boolean status=false;
+        for(WebElement e: headersText){
+            scrollToElement(e);
+            if(jsonmap.get(e.getText()).equalsIgnoreCase("false")){status=true;}else{
+                System.out.println("Header "+e.getText()+"is hidden in JSON configuration file");status=false;break;}
+        }
+        return status;
+    }
+	
+	public boolean verifyDatabase(String query,ReportDetails details) {
+		//get dates from xl - step 2
+	String reportbeforedate = details.getStartDate();
+	String reportafterdate=details.getEndDate();
+	   //change date formats - step 3
+	reportbeforedate	=reportbeforedate.substring(6,10)+reportbeforedate.substring(3, 5)+reportbeforedate.substring(0, 2)+reportbeforedate.substring(11, 13)+reportbeforedate.substring(14, 16)+reportbeforedate.substring(17, 19);
+	reportafterdate	=reportafterdate.substring(6,10)+reportafterdate.substring(3, 5)+reportafterdate.substring(0, 2)+reportafterdate.substring(11, 13)+reportafterdate.substring(14, 16)+reportafterdate.substring(17, 19);
+		//Replace identifiers in query to formatted date - step 5
+	query=query.replaceAll("ReportBeforeDate",reportbeforedate );
+	query=query.replaceAll("ReportAfterDate",reportafterdate );
+	
+		List<Map<String,String>> database=database(query);
+		//System.out.println("Printing Database values");
+		System.out.println(database);
+		List<Map<String,String>> UI=getDataTable(); 
+		//System.out.println("Printing UI values");
+		System.out.println(UI);
+		if(UI.equals(database))
+			return true;
+		else
+			return false;
+	}			
+
 
 }
 

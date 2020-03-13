@@ -40,7 +40,7 @@ public class IvrConfigTest extends BaseTest {
 		screenshot.captureScreen(driver,"IvrConfigPageWMC","IvrConfigTest");
 	}
 
-	@Test(priority=1)
+	/*@Test(priority=1)
 	public void IvrConfigPage() {
 		IvrConfigPageWMC ivrConfigPageWMC = PageFactory.createPageInstance(driver, IvrConfigPageWMC.class);
 		Assert.assertTrue(ivrConfigPageWMC.verifylogo(),"CallBackAnnouncement logo assertion failed");
@@ -64,7 +64,7 @@ public class IvrConfigTest extends BaseTest {
 	public void VerifyColumnsHeaderDisable() {
 		IvrConfigPageWMC ivrConfigPageWMC = PageFactory.createPageInstance(driver, IvrConfigPageWMC.class);
 		Assert.assertFalse(ivrConfigPageWMC.verifycolumnsHeaderDisabled(),"columns disabled assertion failed");
-	}
+	}*/
 
 	@Test(priority=5)
 	public void AddNewIvrConfigRecord() throws IOException {
@@ -76,7 +76,7 @@ public class IvrConfigTest extends BaseTest {
 		Assert.assertEquals(ivrConfigPageWMC.getSuccessMessage(),"Record Created Successfully", "Add New record assertion failed");
 	}
 
-	@Test(priority=6)
+	/*@Test(priority=6)
 	public void AddDuplicateIvrConfigRecord() throws IOException {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IvrConfigData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -137,7 +137,7 @@ public class IvrConfigTest extends BaseTest {
 		ivrConfigPageWMC.clickOnAddRecord();
 		ivrConfigPageWMC.clickOnCancelBtn();
 		Assert.assertFalse(ivrConfigPageWMC.verifyEditFormContainer(), "Cancel Btn at Add record assertion failed");
-	}
+	}*/
 
 	@Test(priority=12)
 	public void EditIvrConfigRecord() throws Exception {
@@ -174,7 +174,7 @@ public class IvrConfigTest extends BaseTest {
 		Assert.assertEquals(ivrConfigPageWMC.getSuccessMessage(),"Please enter the modify reason", "empty modify reason record assertion failed");
 	}
 
-	@Test(priority=15)
+	/*@Test(priority=15)
 	public void VerifyCancelBtnAtEditConfigRecord() throws Exception{
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IvrConfigData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(0);	
@@ -215,7 +215,7 @@ public class IvrConfigTest extends BaseTest {
 	List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
 	IvrConfigPageWMC ivrConfigPageWMC=PageFactory.createPageInstance(driver, IvrConfigPageWMC.class);
 	Assert.assertTrue(ivrConfigPageWMC.verifyexportToExcelSheet(maplist));	
-	}
+	}*/
 
 	@Test(priority=20)
 	public void DeleteWithoutDeleteReasonIvrConfigRecord() throws Exception {
@@ -263,7 +263,7 @@ public class IvrConfigTest extends BaseTest {
 		Assert.assertTrue(ocmReportsPage.verifyIvrConfigdelete(IvrConfigDetails,"Delete"));
 	}
 
-	@Test(priority=24)
+	/*@Test(priority=24)
 	public void SearchClearSearch() throws Exception{
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IvrConfigData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Invalid").getTestData().get(0);
@@ -286,7 +286,7 @@ public class IvrConfigTest extends BaseTest {
 	public void SortingByAscending() throws IOException {
 		IvrConfigPageWMC ivrConfigPageWMC=PageFactory.createPageInstance(driver, IvrConfigPageWMC.class);
 		ivrConfigPageWMC.SortByAscending();
-		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\IVR Config.xlsx";
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\IVR Config (1).xlsx";
 		List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
 		Assert.assertTrue(ivrConfigPageWMC.verifyexportToExcelSheet(maplist));
 	}
@@ -295,7 +295,7 @@ public class IvrConfigTest extends BaseTest {
 	public void SortingByDescending() throws IOException {
 		IvrConfigPageWMC ivrConfigPageWMC=PageFactory.createPageInstance(driver, IvrConfigPageWMC.class);
 		ivrConfigPageWMC.SortByDescending();
-		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\IVR Config (3).xlsx";
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\IVR Config (2).xlsx";
 		List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
 		Assert.assertTrue(ivrConfigPageWMC.verifyexportToExcelSheet(maplist));
 	}
@@ -328,7 +328,7 @@ public class IvrConfigTest extends BaseTest {
 	public void VerifyNumberOfItemsPerPageSelection() {
 		IvrConfigPageWMC ivrConfigPageWMC=PageFactory.createPageInstance(driver, IvrConfigPageWMC.class);
 		Assert.assertTrue(ivrConfigPageWMC.verifyNumberOfItemsPerPage(),"item per page assertion failed");
-	}
+	}*/
 
 	@Test(priority=33)
 	public void database() throws Exception {
@@ -342,7 +342,7 @@ public class IvrConfigTest extends BaseTest {
 	@Test(priority=34)
     public void VerifySearchIsNotEqualTo() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IvrConfigData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
+        Map<String, String> map = new ExcelReader(filePath, "Invalid").getTestData().get(5);
         IvrConfigDetails ivrConfigDetails = new IvrConfigDetails(map);
         IvrConfigPageWMC ivrConfigPageWMC=PageFactory.createPageInstance(driver, IvrConfigPageWMC.class);
         Assert.assertTrue(ivrConfigPageWMC.verifySearchIsNotEqualTo(ivrConfigDetails.getParameter()), "Search Assertion failed");
@@ -351,7 +351,7 @@ public class IvrConfigTest extends BaseTest {
 	@Test(priority=35)
     public void VerifySearchContains() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IvrConfigData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(1);
+        Map<String, String> map = new ExcelReader(filePath, "Invalid").getTestData().get(6);
         IvrConfigDetails ivrConfigDetails = new IvrConfigDetails(map);
         IvrConfigPageWMC ivrConfigPageWMC=PageFactory.createPageInstance(driver, IvrConfigPageWMC.class);
         Assert.assertTrue(ivrConfigPageWMC.verifySearchContains(ivrConfigDetails.getParameter()), "Contains Assertion Failed");
@@ -360,7 +360,7 @@ public class IvrConfigTest extends BaseTest {
 	@Test(priority=36)
     public void VerifySearchDoesNotContains() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IvrConfigData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(1);
+        Map<String, String> map = new ExcelReader(filePath, "Invalid").getTestData().get(6);
         IvrConfigDetails ivrConfigDetails = new IvrConfigDetails(map);
         IvrConfigPageWMC ivrConfigPageWMC=PageFactory.createPageInstance(driver, IvrConfigPageWMC.class);
         Assert.assertTrue(ivrConfigPageWMC.verifySearchDoesNotContains(ivrConfigDetails.getParameter()), "Search Assertion failed");
@@ -369,7 +369,7 @@ public class IvrConfigTest extends BaseTest {
     @Test(priority=37)
     public void VerifySearchStartsWith() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IvrConfigData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(2);
+        Map<String, String> map = new ExcelReader(filePath, "Invalid").getTestData().get(7);
         IvrConfigDetails ivrConfigDetails = new IvrConfigDetails(map);
         IvrConfigPageWMC ivrConfigPageWMC=PageFactory.createPageInstance(driver, IvrConfigPageWMC.class);
         Assert.assertTrue(ivrConfigPageWMC.verifySearchStartsWith(ivrConfigDetails.getParameter()), "Search Assertion Failed");
@@ -378,7 +378,7 @@ public class IvrConfigTest extends BaseTest {
     @Test(priority=38)
     public void VerifySearchEndsWith() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IvrConfigData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(3);
+        Map<String, String> map = new ExcelReader(filePath, "Invalid").getTestData().get(8);
         IvrConfigDetails ivrConfigDetails = new IvrConfigDetails(map);
         IvrConfigPageWMC ivrConfigPageWMC=PageFactory.createPageInstance(driver, IvrConfigPageWMC.class);
         Assert.assertTrue(ivrConfigPageWMC.verifySearchEndsWith(ivrConfigDetails.getParameter()), "Search Assertion Failed");

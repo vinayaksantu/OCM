@@ -234,7 +234,7 @@ public class IntroMessageAnnouncementPage extends BasePage {
     @FindBy(xpath="//span[@class='k-icon k-i-arrow-60-right k-menu-expand-arrow']")
     private WebElement coloumnarrow;
     
-    @FindBy(id="grid")
+    @FindBy(css="#tgrid")
     private WebElement auditGridContent;
     
     @FindBy(css=".k-pager-sizes .k-input")
@@ -496,11 +496,21 @@ public class IntroMessageAnnouncementPage extends BasePage {
     }
     public void clickonApprove(String comment) throws Exception{
 		selectWebElement(IntroMessageAnnouncementTabs.get(1));
+		try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     	selectRecord();
         clickOn(approveBtn);
         waitForJqueryLoad(driver);
         selectWebElement(checkerReason);
         enterValueToTxtField(checkerReason,comment);
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         clickOn(yesBtn);
     }
     public boolean verifyReviewAuditTrail(String status,String comment){
@@ -1394,7 +1404,9 @@ public class IntroMessageAnnouncementPage extends BasePage {
 				if(newvalues.get("Hotline").equals(details.getHotLine())){
 					if(newvalues.get("Status").equals(details.getStatus())){
 						if(newvalues.get("Interrupt").equals(details.getUpdatedInterrupt())){
-							if(newvalues.get("WaveFile").equals(details.getWavFile())) {	
+							/*if(newvalues.get("WaveFile").equals(details.getWavFile()))*/
+							String []wavFileSplit=details.getWavFile().split("\\.");
+									if(newvalues.get("WaveFile").contains(wavFileSplit[0])){	
 								Status=true;
         					}
         					else System.out.println("WaveFile data mismatch");

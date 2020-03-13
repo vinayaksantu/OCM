@@ -403,6 +403,7 @@ public class WaitTimeColorConfigPage extends BasePage {
     public void deleteWaitTimeColorConfigRecord(String Starttime, String reason) throws Exception {
         searchWaitTimeColorConfigRecord(Starttime);
         btnClick(deleteBtn);
+        Thread.sleep(1000);
         selectWebElement(deleteReasonTextBox);
         try {
 			Thread.sleep(500);
@@ -420,6 +421,7 @@ public class WaitTimeColorConfigPage extends BasePage {
     
     public boolean deleteNo(String Starttime, String reason) throws Exception {
 		searchWaitTimeColorConfigRecord(Starttime);
+		Thread.sleep(1000);
         btnClick(deleteBtn);
         selectWebElement(deleteReasonTextBox);
         enterValueToTxtFieldWithoutClear(deleteReasonTextBox,reason);
@@ -661,6 +663,16 @@ public class WaitTimeColorConfigPage extends BasePage {
 			List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
 			String col="";
 			for(int j=1;j<headers.size();j++){
+				if(headers.get(j).getText().equals("Last Changed On")){
+					col=cols.get(j).getText().substring(11);
+				}
+				else if(headers.get(j).getText().equals("Start Duration")) {
+					col=cols.get(j).getText().replaceAll(":", "");
+				}
+				else if(headers.get(j).getText().equals("End Duration")) {
+					col=cols.get(j).getText().replaceAll(":", "");
+				}
+				else
 					col=cols.get(j).getText();
 				map.put(headers.get(j).getText(),col);
 			}

@@ -480,7 +480,7 @@ public class AgentTeamManagementPage extends BasePage {
 		searchAgentTeamManagementRecord(oldteamname);
 		selectWebElement(editButton);
 		//selectWebElement(editTeamNameTextBox);
-		enterValueToTxtBox1(editTeamNameTextBox,newteamname);
+		enterValueToTxtField(editTeamNameTextBox,newteamname);
 		enterValueToTxtFieldWithoutClear(editModifyReasonTextBox,reason);
 		selectWebElement(editTeamNameSaveButton);
 	}
@@ -619,12 +619,12 @@ public class AgentTeamManagementPage extends BasePage {
 
 	public void duplicateRecord(String Level,String Country,String Division,String Department,String Teamname) throws Exception {
 		addNewAgentTeamManagementRecord(Level,Country,Division,Department,Teamname);
-		try {
+		/*try {
 			selectWebElement(addcancel);
 		}
 		catch(Exception e) {
 			e.printStackTrace();
-		}
+		}*/
 	}
 
 	public boolean clearAll(AgentTeamMgmtDetails details) throws Exception {
@@ -803,6 +803,7 @@ public class AgentTeamManagementPage extends BasePage {
         }
         return status;
 	}
+	
 	public boolean verifyArrowMoveForFirstAndLastPage(){
         boolean status=false;
         if(!lastPageIcon.getAttribute("class").contains("k-state-disabled")){
@@ -817,6 +818,7 @@ public class AgentTeamManagementPage extends BasePage {
         }
         return status;
     }
+	
 	public boolean verifyNumberOfItemsPerPage() {
         boolean status = false;
         try {

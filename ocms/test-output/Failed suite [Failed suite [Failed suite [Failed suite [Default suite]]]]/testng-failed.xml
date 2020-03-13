@@ -3,17 +3,27 @@
 <suite name="Failed suite [Failed suite [Failed suite [Failed suite [Failed suite [Default suite]]]]]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)(failed)(failed)(failed)(failed)">
     <classes>
-      <class name="com.tetherfi.test.ivr.MenuDescriptionMappingTest">
+      <class name="com.tetherfi.test.ivr.BranchManagementCreateTest">
         <methods>
-          <include name="VerifyTotalNumberOfItemsPerPageDetails"/>
-          <include name="startTestCase"/>
-          <include name="openApplication"/>
+          <include name="VerifyAuditTrailReportForApprove"/>
+          <include name="VerifyAuditTrailDataForAddNewBranchManagementRecord"/>
+          <include name="VerifyApprovedDataSectionWithoutApproval"/>
+          <include name="VerifyAuditTrailReportForReject"/>
+          <include name="AddRejectRecord"/>
+          <include name="AddRevertRecord"/>
           <include name="afterEachMethod"/>
-          <include name="NavigateToMenuDescriptionMappingPage"/>
-          <include name="endTestCase"/>
-          <include name="tearDown"/>
+          <include name="VerifyRecordApprovedDataSectionafterApproval"/>
+          <include name="NavigateToBranchManagementPage"/>
+          <include name="VerifyRecordAfterRejection"/>
+          <include name="VerifyRevertForAddNewRecord"/>
+          <include name="ApproveforAddNewBranchManagementRecord"/>
+          <include name="RejectforAddNewBranchManagementRecord"/>
+          <include name="VerifySendForApprovalForAddNewRecord"/>
+          <include name="VerifyAuditTrailReportForSendForApproval"/>
+          <include name="VerifyAuditTrailReportForRevert"/>
+          <include name="VerifySendForApprovalForAddNewBranchManagementRecord"/>
         </methods>
-      </class> <!-- com.tetherfi.test.ivr.MenuDescriptionMappingTest -->
+      </class> <!-- com.tetherfi.test.ivr.BranchManagementCreateTest -->
     </classes>
   </test> <!-- Default test(failed)(failed)(failed)(failed)(failed) -->
 </suite> <!-- Failed suite [Failed suite [Failed suite [Failed suite [Failed suite [Default suite]]]]] -->

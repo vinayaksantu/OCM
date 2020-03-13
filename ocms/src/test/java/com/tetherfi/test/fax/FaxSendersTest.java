@@ -260,7 +260,7 @@ public class FaxSendersTest extends BaseTest {
     @Test(priority=20)
     public void DeleteFaxSendersCancelRecord() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxSendersData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
+        Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(0);
         FaxSendersDetails faxSendersDetails = new FaxSendersDetails(map);
         FaxSendersPage faxSendersPage = PageFactory.createPageInstance(driver, FaxSendersPage.class);
         Assert.assertTrue(faxSendersPage.deleteFaxSendersCancelRecord(faxSendersDetails));
@@ -279,7 +279,7 @@ public class FaxSendersTest extends BaseTest {
     @Test(dependsOnMethods = {"EditFaxSendersRecord"},priority=22)
     public void DeleteFaxSendersRecord() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxSendersData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
+        Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(0);
         FaxSendersDetails faxSendersDetails = new FaxSendersDetails(map);
         FaxSendersPage faxSendersPage = PageFactory.createPageInstance(driver, FaxSendersPage.class);
         faxSendersPage.deleteFaxSendersRecord(faxSendersDetails);
