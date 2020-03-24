@@ -39,7 +39,7 @@ public class TmacAuxCodesTest extends BaseTest {
     	 Assert.assertTrue(tmacAuxCodesPage.isTmacAuxCodesPageIsDisplayed(), "Tmac Aux Codes Assertion  failed");
      }
 
-     /*@Test(priority=1)
+     @Test(priority=1)
      public void TmacAuxCodesPage() {
     	 TmacAuxCodesPage tmacAuxCodesPage=PageFactory.createPageInstance(driver, TmacAuxCodesPage.class);
     	 Assert.assertTrue(tmacAuxCodesPage.verifylogo(), "TMAC Aux Logo Assertion failed");
@@ -176,7 +176,7 @@ public class TmacAuxCodesTest extends BaseTest {
          ReportDetails reportDetails= new ReportDetails(map2);
          ocmReportsPage.showReport(reportDetails);
          Assert.assertTrue(ocmReportsPage.verifyTmacAuxCodesUpdate(tmacAuxCodesDetails, "Update"), "Update Audit Trail Assertion Failed"); 
-     }*/
+     }
      
      @Test(priority=14)
      public void ExportToExcelButton() {
@@ -194,7 +194,7 @@ public class TmacAuxCodesTest extends BaseTest {
     	 Assert.assertTrue(tmacAuxCodesPage.VerifyExportToExcelSheet(maplist), "Export Data Assertion failed");
      }
      
-    /* @Test(priority=16)
+    @Test(priority=16)
      public void verifyExportToExcelWithoutData() throws Exception {
     	 String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacAuxCodesData.xlsx";
     	 Map<String,String>map=new ExcelReader(filePath,"Invalid").getTestData().get(0);
@@ -359,14 +359,8 @@ public class TmacAuxCodesTest extends BaseTest {
     	 TmacAuxCodesDetails tmacAuxCodesdetails=new TmacAuxCodesDetails(map);
     	 TmacAuxCodesPage tmacAuxCodesPage=PageFactory.createPageInstance(driver, TmacAuxCodesPage.class);
     	 Assert.assertTrue(tmacAuxCodesPage.verifySearchEndsWith(tmacAuxCodesdetails.getCode()), "Search assertion Failed");
-     }*/
-     
-     
-     
-     
-     
-     
-     
+     }
+          
      @AfterMethod()
      public void AfterEachMethod(Method method) {
     	 Screenshot screenshot=new Screenshot(driver);

@@ -1,52 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.tetherfi.test.tmac.WaitTimeColorConfigTest">
+      <class name="com.tetherfi.test.reports.AgentAuxReportTest">
         <methods>
-          <include name="WaitTimeColorConfigPage"/>
-          <include name="SortingByAscending"/>
-          <include name="AddRecordWithoutEndTime"/>
-          <include name="VerifyColumnsHeaderEnable"/>
-          <include name="DeleteCancelRecord"/>
-          <include name="DeleteRecord"/>
+          <include name="ShowAgentAuxReport"/>
           <include name="startTestCase"/>
           <include name="openApplication"/>
-          <include name="EditWaitTimeColorConfigCancelRecord"/>
-          <include name="database"/>
-          <include name="VerifyArrowMoveForFirstAndLastPage"/>
-          <include name="EditWaitTimeColorConfigRecord"/>
-          <include name="VerifySearchEndsWith"/>
-          <include name="AddRecordWithoutDuplicate"/>
-          <include name="SortingByDescending"/>
-          <include name="GroupBy"/>
-          <include name="VerifyAuditTrialReportForDelete"/>
-          <include name="AddNewWaitTimeColorConfigRecord"/>
-          <include name="ExporttoExcelWithoutData"/>
-          <include name="VerifyArrowMoveForPreviousAndNextPage"/>
-          <include name="AddRecordWithoutStartTime"/>
-          <include name="NavigateToWaitTimeColorConfigPage"/>
           <include name="endTestCase"/>
           <include name="tearDown"/>
-          <include name="VerifySearchContains"/>
-          <include name="VerifyAuditTrialReportForCreate"/>
-          <include name="VerifyAuditTrialReportForUpdate"/>
-          <include name="VerifyDropdownForAllTheColumns"/>
-          <include name="VerifySearchStartsWith"/>
-          <include name="ExportToExcelData"/>
-          <include name="VerifyNumberOfItemsPerPageSelection"/>
-          <include name="VerifySearchIsNotEqualTo"/>
           <include name="afterEachMethod"/>
-          <include name="ExportToExcel"/>
-          <include name="searchPage"/>
-          <include name="VerifyColumnsHeaderDisable"/>
-          <include name="AddNewWaitTimeColorConfigCancelRecord"/>
-          <include name="VerifySearchDoesNotContains"/>
-          <include name="VerifyTotalNumberOfItemsPerPageDetails"/>
-          <include name="SearchClearSearch"/>
+          <include name="NavigateToOcmReportsPage"/>
         </methods>
-      </class> <!-- com.tetherfi.test.tmac.WaitTimeColorConfigTest -->
+      </class> <!-- com.tetherfi.test.reports.AgentAuxReportTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

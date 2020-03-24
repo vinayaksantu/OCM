@@ -100,6 +100,7 @@ public class ReportDetails {
             Calendar c = Calendar.getInstance();
             c.setTime(dNow);
             c.add(Calendar.MONTH,-1);//sub 6 months
+//            c.add(Calendar.DATE,-1);
             SimpleDateFormat ft =new SimpleDateFormat ("dd-MM-yyyy HH:mm:ss");
             value=ft.format(c.getTime());
         }
