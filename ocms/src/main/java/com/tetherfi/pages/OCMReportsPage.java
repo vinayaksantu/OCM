@@ -383,15 +383,19 @@ public class OCMReportsPage extends BasePage {
             return true;
         }else {System.out.println("Wrong Report generated Date:"+notificationReportGeneratedOnList.get(0).getText());return false;}
     }
+    
     public boolean verifyDownloadedReportNameAndTimeInReportsDownloadPage(String reportname){
-        String pattern = "dd/MM/yyyy";
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
-        String date = simpleDateFormat.format(new Date());
-        Map<String,String> map=getFirstRowDatafromTable();
-        if(map.get("Report Name").equalsIgnoreCase(reportname)){
-            if(map.get("Report Generated On").contains(date)){return true;}else{System.out.println("Wrong Report Generated Date:"+map.get("Report Generated On"));return false;}
-    }else{System.out.println("Wrong Report Name:"+map.get("Report Name"));return false;}
+    	String pattern = "dd/MM/yyyy";
+    	SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+    	String date = simpleDateFormat.format(new Date());
+    	Map<String,String> map=getFirstRowDatafromTable();
+    	if(map.get("Report Name").equalsIgnoreCase(reportname)){
+    		if(map.get("Report Generated On").contains(date)){return true;}
+    		else{System.out.println("Wrong Report Generated Date:"+map.get("Report Generated On"));return false;}
+    	}
+    	else{System.out.println("Wrong Report Name:"+map.get("Report Name"));return false;}
     }
+    
     public boolean verifyReportDisplayed(ReportDetails details) {
         if (reportnameLbl.getText().contains("OCM Reports > " + details.getReportChannel() + " > " + details.getReportName() + " on " + details.getReportDate())) {
             return true;
@@ -399,6 +403,7 @@ public class OCMReportsPage extends BasePage {
             return false;
         }
     }
+    
     public boolean verifyAuditTrailReportDisplayed(AgentSettingsDetails details ,String Transaction) throws Exception {
     	booleansearchnew(details.getUsername(),Transaction);
 		Boolean Status=false;
@@ -485,6 +490,7 @@ public class OCMReportsPage extends BasePage {
 	            }else {System.out.println("Old values data mismatch");}
 	            return Status;
     		}
+    
     public boolean verifyAgentSettingsDelete(AgentSettingsDetails details, String Transaction) throws Exception {
 		booleansearchold(details.getFirstname(),Transaction);
 		Boolean Status=false;

@@ -40,8 +40,8 @@ public class AgentAuxReportTest extends BaseTest {
 		Assert.assertTrue(ocmReportsPage.verifyReportDisplayed(reportDetails),"Show report assertion failed");       
 	}         
 
-	@Test(priority=2, dependsOnMethods ="ShowAgentAuxReport")
-	public void ShowOcmAgentAuxReportInNewTab() throws Exception {
+	@Test(priority=2) //dependsOnMethods ="ShowAgentAuxReport")
+	public void ShowOcmAgentAuxReportInNewPage() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentAuxReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowInNewPage").getTestData().get(0);
 		ReportDetails reportDetails= new ReportDetails(map);
@@ -61,7 +61,7 @@ public class AgentAuxReportTest extends BaseTest {
 		Assert.assertTrue(ocmReportsPage.verifyScheduleReport(),"Schedule report assertion failed");
 	}
 
-	@Test(priority=4,dependsOnMethods ="ShowOcmAgentAuxReportInNewTab")
+	@Test(priority=4) //,dependsOnMethods ="ShowOcmAgentAuxReportInNewTab")
 	public void ExportOcmAgentAuxReport() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentAuxReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ExportReport").getTestData().get(0);
@@ -430,12 +430,7 @@ public class AgentAuxReportTest extends BaseTest {
 		ocmReportsPage.showReport(reportDetails);  
 		AgentAuxReportPage agntScrptPage=PageFactory.createPageInstance(driver,AgentAuxReportPage.class);
 		agntScrptPage.verifySearchClear(reportDetails);    	
-	} */  
-
-	/*@AfterMethod
-	public void afterEachMethod(Method method) {
-		screenshot.captureScreen(driver, "AgentAuxReportTest", method.getName());
-	}*/
+	}   
 
 	@AfterMethod
 	public void afterEachMethod(Method method) throws InterruptedException {
