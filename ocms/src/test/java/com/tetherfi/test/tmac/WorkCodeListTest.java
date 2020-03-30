@@ -52,6 +52,7 @@ public class WorkCodeListTest extends BaseTest{
         driver.navigate().refresh();
         homePage.navigateToOcmIconImg();
     }
+    
     @BeforeMethod
     public void NavigateToWorkCodeListPage()  {
         HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);

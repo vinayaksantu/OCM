@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>35/2/0</td>
 </tr><tr>
-<td>Started on:</td><td>Fri Feb 28 16:57:20 IST 2020</td>
+<td>Started on:</td><td>Fri Mar 13 18:20:57 IST 2020</td>
 </tr>
-<tr><td>Total time:</td><td>859 seconds (859197 ms)</td>
+<tr><td>Total time:</td><td>901 seconds (901911 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -75,17 +75,58 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.tetherfi.test.tmac.WorkCodeListTest.VerifyAuditTrialReportForUpdate()'><b>VerifyAuditTrialReportForUpdate</b><br>Test class: com.tetherfi.test.tmac.WorkCodeListTest</td>
-<td><div><pre>java.lang.AssertionError: did not expect to find [true] but found [false]
-	at com.tetherfi.test.tmac.WorkCodeListTest.VerifyAuditTrialReportForUpdate(WorkCodeListTest.java:203)
+<td title='com.tetherfi.test.tmac.WorkCodeListTest.ExporttoExcelWithoutData()'><b>ExporttoExcelWithoutData</b><br>Test class: com.tetherfi.test.tmac.WorkCodeListTest</td>
+<td><div><pre>org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element &lt;i class=&quot;fas fa-search&quot; title=&quot;Search&quot;&gt;&lt;/i&gt; is not clickable at point (1536, 88). Other element would receive the click: &lt;div class=&quot;k-overlay&quot; style=&quot;display: block; z-index: 10002; opacity: 0; transition: all 350ms ease-out 0s;&quot;&gt;&lt;/div&gt;
+  (Session info: chrome=78.0.3904.70)
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;DESKTOP-O6A5C2O&apos;, ip: &apos;10.0.75.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;9.0.4&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.70, chrome: {chromedriverVersion: 78.0.3904.105 (60e2d8774a81..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:54730}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 82eaf5881727cec8a0a34f5f039e1474
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:84)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
+	at com.sun.proxy.$Proxy16.click(Unknown Source)
+	at com.tetherfi.pages.BasePage.selectWebElement(BasePage.java:202)
+	at com.tetherfi.pages.WorkCodeListPage.searchWorkcodeList(WorkCodeListPage.java:462)
+	at com.tetherfi.pages.WorkCodeListPage.ExporttoExcelWithoutData(WorkCodeListPage.java:989)
+	at com.tetherfi.test.tmac.WorkCodeListTest.ExporttoExcelWithoutData(WorkCodeListTest.java:409)
 	at java.base/java.util.ArrayList.forEach(Unknown Source)
-... Removed 31 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1266890135", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1266890135'><pre>java.lang.AssertionError: did not expect to find [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:97)
-	at org.testng.Assert.failNotEquals(Assert.java:969)
-	at org.testng.Assert.assertTrue(Assert.java:43)
-	at org.testng.Assert.assertTrue(Assert.java:53)
-	at com.tetherfi.test.tmac.WorkCodeListTest.VerifyAuditTrialReportForUpdate(WorkCodeListTest.java:203)
+... Removed 34 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace324545460", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace324545460'><pre>org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element &lt;i class=&quot;fas fa-search&quot; title=&quot;Search&quot;&gt;&lt;/i&gt; is not clickable at point (1536, 88). Other element would receive the click: &lt;div class=&quot;k-overlay&quot; style=&quot;display: block; z-index: 10002; opacity: 0; transition: all 350ms ease-out 0s;&quot;&gt;&lt;/div&gt;
+  (Session info: chrome=78.0.3904.70)
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;DESKTOP-O6A5C2O&apos;, ip: &apos;10.0.75.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;9.0.4&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.70, chrome: {chromedriverVersion: 78.0.3904.105 (60e2d8774a81..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:54730}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 82eaf5881727cec8a0a34f5f039e1474
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.base/java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:84)
+	at jdk.internal.reflect.GeneratedMethodAccessor4.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
+	at com.sun.proxy.$Proxy16.click(Unknown Source)
+	at com.tetherfi.pages.BasePage.selectWebElement(BasePage.java:202)
+	at com.tetherfi.pages.WorkCodeListPage.searchWorkcodeList(WorkCodeListPage.java:462)
+	at com.tetherfi.pages.WorkCodeListPage.ExporttoExcelWithoutData(WorkCodeListPage.java:989)
+	at com.tetherfi.test.tmac.WorkCodeListTest.ExporttoExcelWithoutData(WorkCodeListTest.java:409)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -115,19 +156,19 @@ function toggleAllBoxes() {
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
-<td>26</td>
+<td>13</td>
 <td>com.tetherfi.test.tmac.WorkCodeListTest@7dcb42a9</td></tr>
 <tr>
 <td title='com.tetherfi.test.tmac.WorkCodeListTest.addDuplicateRecord()'><b>addDuplicateRecord</b><br>Test class: com.tetherfi.test.tmac.WorkCodeListTest</td>
 <td><div><pre>java.lang.AssertionError: DuplicateRecord Assertion failed did not expect to find [false] but found [true]
-	at com.tetherfi.test.tmac.WorkCodeListTest.addDuplicateRecord(WorkCodeListTest.java:170)
+	at com.tetherfi.test.tmac.WorkCodeListTest.addDuplicateRecord(WorkCodeListTest.java:171)
 	at java.base/java.util.ArrayList.forEach(Unknown Source)
-... Removed 30 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace259521645", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace259521645'><pre>java.lang.AssertionError: DuplicateRecord Assertion failed did not expect to find [false] but found [true]
+... Removed 30 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace955185651", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace955185651'><pre>java.lang.AssertionError: DuplicateRecord Assertion failed did not expect to find [false] but found [true]
 	at org.testng.Assert.fail(Assert.java:97)
 	at org.testng.Assert.failNotEquals(Assert.java:969)
 	at org.testng.Assert.assertFalse(Assert.java:65)
-	at com.tetherfi.test.tmac.WorkCodeListTest.addDuplicateRecord(WorkCodeListTest.java:170)
+	at com.tetherfi.test.tmac.WorkCodeListTest.addDuplicateRecord(WorkCodeListTest.java:171)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -157,7 +198,7 @@ function toggleAllBoxes() {
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
-<td>219</td>
+<td>221</td>
 <td>com.tetherfi.test.tmac.WorkCodeListTest@7dcb42a9</td></tr>
 </table><p>
 <table width='100%' border='1' class='invocation-passed'>
@@ -170,12 +211,12 @@ function toggleAllBoxes() {
 <tr>
 <td title='com.tetherfi.test.tmac.WorkCodeListTest.DeleteWorkCodeListCancelRecord()'><b>DeleteWorkCodeListCancelRecord</b><br>Test class: com.tetherfi.test.tmac.WorkCodeListTest</td>
 <td></td>
-<td>11</td>
+<td>13</td>
 <td>com.tetherfi.test.tmac.WorkCodeListTest@7dcb42a9</td></tr>
 <tr>
 <td title='com.tetherfi.test.tmac.WorkCodeListTest.DeleteWorkCodeListRecord()'><b>DeleteWorkCodeListRecord</b><br>Test class: com.tetherfi.test.tmac.WorkCodeListTest</td>
 <td></td>
-<td>11</td>
+<td>12</td>
 <td>com.tetherfi.test.tmac.WorkCodeListTest@7dcb42a9</td></tr>
 <tr>
 <td title='com.tetherfi.test.tmac.WorkCodeListTest.ExportToExcel()'><b>ExportToExcel</b><br>Test class: com.tetherfi.test.tmac.WorkCodeListTest</td>
@@ -185,12 +226,7 @@ function toggleAllBoxes() {
 <tr>
 <td title='com.tetherfi.test.tmac.WorkCodeListTest.ExportToExcelData()'><b>ExportToExcelData</b><br>Test class: com.tetherfi.test.tmac.WorkCodeListTest</td>
 <td></td>
-<td>3</td>
-<td>com.tetherfi.test.tmac.WorkCodeListTest@7dcb42a9</td></tr>
-<tr>
-<td title='com.tetherfi.test.tmac.WorkCodeListTest.ExporttoExcelWithoutData()'><b>ExporttoExcelWithoutData</b><br>Test class: com.tetherfi.test.tmac.WorkCodeListTest</td>
-<td></td>
-<td>16</td>
+<td>5</td>
 <td>com.tetherfi.test.tmac.WorkCodeListTest@7dcb42a9</td></tr>
 <tr>
 <td title='com.tetherfi.test.tmac.WorkCodeListTest.GroupBy()'><b>GroupBy</b><br>Test class: com.tetherfi.test.tmac.WorkCodeListTest</td>
@@ -200,7 +236,7 @@ function toggleAllBoxes() {
 <tr>
 <td title='com.tetherfi.test.tmac.WorkCodeListTest.SearchClearSearch()'><b>SearchClearSearch</b><br>Test class: com.tetherfi.test.tmac.WorkCodeListTest</td>
 <td></td>
-<td>5</td>
+<td>7</td>
 <td>com.tetherfi.test.tmac.WorkCodeListTest@7dcb42a9</td></tr>
 <tr>
 <td title='com.tetherfi.test.tmac.WorkCodeListTest.SortingByAscending()'><b>SortingByAscending</b><br>Test class: com.tetherfi.test.tmac.WorkCodeListTest</td>
@@ -210,7 +246,7 @@ function toggleAllBoxes() {
 <tr>
 <td title='com.tetherfi.test.tmac.WorkCodeListTest.SortingByDescending()'><b>SortingByDescending</b><br>Test class: com.tetherfi.test.tmac.WorkCodeListTest</td>
 <td></td>
-<td>6</td>
+<td>7</td>
 <td>com.tetherfi.test.tmac.WorkCodeListTest@7dcb42a9</td></tr>
 <tr>
 <td title='com.tetherfi.test.tmac.WorkCodeListTest.VerifyArrowMoveForFirstAndLastPage()'><b>VerifyArrowMoveForFirstAndLastPage</b><br>Test class: com.tetherfi.test.tmac.WorkCodeListTest</td>
@@ -220,27 +256,32 @@ function toggleAllBoxes() {
 <tr>
 <td title='com.tetherfi.test.tmac.WorkCodeListTest.VerifyArrowMoveForPreviousAndNextPage()'><b>VerifyArrowMoveForPreviousAndNextPage</b><br>Test class: com.tetherfi.test.tmac.WorkCodeListTest</td>
 <td></td>
-<td>0</td>
+<td>1</td>
 <td>com.tetherfi.test.tmac.WorkCodeListTest@7dcb42a9</td></tr>
 <tr>
 <td title='com.tetherfi.test.tmac.WorkCodeListTest.VerifyAuditTrialReportForCreate()'><b>VerifyAuditTrialReportForCreate</b><br>Test class: com.tetherfi.test.tmac.WorkCodeListTest</td>
 <td></td>
-<td>26</td>
+<td>30</td>
+<td>com.tetherfi.test.tmac.WorkCodeListTest@7dcb42a9</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.WorkCodeListTest.VerifyAuditTrialReportForUpdate()'><b>VerifyAuditTrialReportForUpdate</b><br>Test class: com.tetherfi.test.tmac.WorkCodeListTest</td>
+<td></td>
+<td>30</td>
 <td>com.tetherfi.test.tmac.WorkCodeListTest@7dcb42a9</td></tr>
 <tr>
 <td title='com.tetherfi.test.tmac.WorkCodeListTest.VerifyColumnsHeaderDisable()'><b>VerifyColumnsHeaderDisable</b><br>Test class: com.tetherfi.test.tmac.WorkCodeListTest</td>
 <td></td>
-<td>6</td>
+<td>8</td>
 <td>com.tetherfi.test.tmac.WorkCodeListTest@7dcb42a9</td></tr>
 <tr>
 <td title='com.tetherfi.test.tmac.WorkCodeListTest.VerifyColumnsHeaderEnable()'><b>VerifyColumnsHeaderEnable</b><br>Test class: com.tetherfi.test.tmac.WorkCodeListTest</td>
 <td></td>
-<td>5</td>
+<td>6</td>
 <td>com.tetherfi.test.tmac.WorkCodeListTest@7dcb42a9</td></tr>
 <tr>
 <td title='com.tetherfi.test.tmac.WorkCodeListTest.VerifyDropdownForAllTheColumns()'><b>VerifyDropdownForAllTheColumns</b><br>Test class: com.tetherfi.test.tmac.WorkCodeListTest</td>
 <td></td>
-<td>9</td>
+<td>10</td>
 <td>com.tetherfi.test.tmac.WorkCodeListTest@7dcb42a9</td></tr>
 <tr>
 <td title='com.tetherfi.test.tmac.WorkCodeListTest.VerifyNumberOfItemsPerPageSelection()'><b>VerifyNumberOfItemsPerPageSelection</b><br>Test class: com.tetherfi.test.tmac.WorkCodeListTest</td>
@@ -250,27 +291,27 @@ function toggleAllBoxes() {
 <tr>
 <td title='com.tetherfi.test.tmac.WorkCodeListTest.VerifySearchContains()'><b>VerifySearchContains</b><br>Test class: com.tetherfi.test.tmac.WorkCodeListTest</td>
 <td></td>
-<td>6</td>
+<td>7</td>
 <td>com.tetherfi.test.tmac.WorkCodeListTest@7dcb42a9</td></tr>
 <tr>
 <td title='com.tetherfi.test.tmac.WorkCodeListTest.VerifySearchDoesNotContains()'><b>VerifySearchDoesNotContains</b><br>Test class: com.tetherfi.test.tmac.WorkCodeListTest</td>
 <td></td>
-<td>6</td>
+<td>8</td>
 <td>com.tetherfi.test.tmac.WorkCodeListTest@7dcb42a9</td></tr>
 <tr>
 <td title='com.tetherfi.test.tmac.WorkCodeListTest.VerifySearchEndsWith()'><b>VerifySearchEndsWith</b><br>Test class: com.tetherfi.test.tmac.WorkCodeListTest</td>
 <td></td>
-<td>4</td>
+<td>5</td>
 <td>com.tetherfi.test.tmac.WorkCodeListTest@7dcb42a9</td></tr>
 <tr>
 <td title='com.tetherfi.test.tmac.WorkCodeListTest.VerifySearchIsNotEqualTo()'><b>VerifySearchIsNotEqualTo</b><br>Test class: com.tetherfi.test.tmac.WorkCodeListTest</td>
 <td></td>
-<td>8</td>
+<td>11</td>
 <td>com.tetherfi.test.tmac.WorkCodeListTest@7dcb42a9</td></tr>
 <tr>
 <td title='com.tetherfi.test.tmac.WorkCodeListTest.VerifySearchStartsWith()'><b>VerifySearchStartsWith</b><br>Test class: com.tetherfi.test.tmac.WorkCodeListTest</td>
 <td></td>
-<td>5</td>
+<td>7</td>
 <td>com.tetherfi.test.tmac.WorkCodeListTest@7dcb42a9</td></tr>
 <tr>
 <td title='com.tetherfi.test.tmac.WorkCodeListTest.VerifyTotalNumberOfItemsPerPageDetails()'><b>VerifyTotalNumberOfItemsPerPageDetails</b><br>Test class: com.tetherfi.test.tmac.WorkCodeListTest</td>
@@ -280,7 +321,7 @@ function toggleAllBoxes() {
 <tr>
 <td title='com.tetherfi.test.tmac.WorkCodeListTest.VerifyauditTrailReportDelete()'><b>VerifyauditTrailReportDelete</b><br>Test class: com.tetherfi.test.tmac.WorkCodeListTest</td>
 <td></td>
-<td>26</td>
+<td>29</td>
 <td>com.tetherfi.test.tmac.WorkCodeListTest@7dcb42a9</td></tr>
 <tr>
 <td title='com.tetherfi.test.tmac.WorkCodeListTest.WorkCodeListPage()'><b>WorkCodeListPage</b><br>Test class: com.tetherfi.test.tmac.WorkCodeListTest</td>
@@ -320,22 +361,22 @@ function toggleAllBoxes() {
 <tr>
 <td title='com.tetherfi.test.tmac.WorkCodeListTest.addNewWorkcodeListRecord()'><b>addNewWorkcodeListRecord</b><br>Test class: com.tetherfi.test.tmac.WorkCodeListTest</td>
 <td></td>
-<td>58</td>
+<td>60</td>
 <td>com.tetherfi.test.tmac.WorkCodeListTest@7dcb42a9</td></tr>
 <tr>
 <td title='com.tetherfi.test.tmac.WorkCodeListTest.database()'><b>database</b><br>Test class: com.tetherfi.test.tmac.WorkCodeListTest</td>
 <td></td>
-<td>5</td>
+<td>6</td>
 <td>com.tetherfi.test.tmac.WorkCodeListTest@7dcb42a9</td></tr>
 <tr>
 <td title='com.tetherfi.test.tmac.WorkCodeListTest.editWorkCodeListCancelRecord()'><b>editWorkCodeListCancelRecord</b><br>Test class: com.tetherfi.test.tmac.WorkCodeListTest</td>
 <td></td>
-<td>6</td>
+<td>7</td>
 <td>com.tetherfi.test.tmac.WorkCodeListTest@7dcb42a9</td></tr>
 <tr>
 <td title='com.tetherfi.test.tmac.WorkCodeListTest.editWorkCodeListRecord()'><b>editWorkCodeListRecord</b><br>Test class: com.tetherfi.test.tmac.WorkCodeListTest</td>
 <td></td>
-<td>7</td>
+<td>8</td>
 <td>com.tetherfi.test.tmac.WorkCodeListTest@7dcb42a9</td></tr>
 <tr>
 <td title='com.tetherfi.test.tmac.WorkCodeListTest.searchPage()'><b>searchPage</b><br>Test class: com.tetherfi.test.tmac.WorkCodeListTest</td>

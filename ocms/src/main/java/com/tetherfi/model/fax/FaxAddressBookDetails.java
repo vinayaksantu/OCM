@@ -90,12 +90,12 @@ public class FaxAddressBookDetails {
 	}
 
 	private String readLastName(Map<String, String> map) {
-		String Value=map.get("Last Name");
+		String Value=map.get("Name2");
 		return Value;
 	}
 
 	private String readFirstName(Map<String, String> map) {
-		String Value=map.get("First Name");
+		String Value=map.get("Name1");
 		return Value;
 	}
 

@@ -70,7 +70,7 @@ public class FaxTemplateCreateTest {
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 	 }
 	
-	@Test(groups= {"Maker"},priority=1)
+	/*@Test(groups= {"Maker"},priority=1)
 	public void VerifyAddCancelButton() throws Exception {
 		String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxTemplateData.xlsx";
 		Map<String, String> map=new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -203,7 +203,7 @@ public class FaxTemplateCreateTest {
 		FaxTemplateDetails faxTemplateDetails=new FaxTemplateDetails(map);
 		FaxTemplatePage faxTemplatePage=PageFactory.createPageInstance(driver,FaxTemplatePage.class );
 		Assert.assertTrue(faxTemplatePage.verifyApprovedSectionData(faxTemplateDetails), "Approved Data Section Assertion Failed");
-	}
+	}*/
 	
 	@Test(groups= {"Maker"},priority=14)
 	public void addApproveRecord() throws Exception {

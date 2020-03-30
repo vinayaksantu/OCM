@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>FaxSendersTest</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>39/3/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>38/4/0</td>
 </tr><tr>
-<td>Started on:</td><td>Thu Feb 20 11:46:13 IST 2020</td>
+<td>Started on:</td><td>Wed Mar 18 11:58:37 IST 2020</td>
 </tr>
-<tr><td>Total time:</td><td>558 seconds (558241 ms)</td>
+<tr><td>Total time:</td><td>698 seconds (698808 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -75,12 +75,56 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
+<td title='com.tetherfi.test.fax.FaxSendersTest.AddFaxSendersRecordwithsameFaxNumber()'><b>AddFaxSendersRecordwithsameFaxNumber</b><br>Test class: com.tetherfi.test.fax.FaxSendersTest</td>
+<td><div><pre>java.lang.AssertionError: expected [Record Created Successfully] but found [A record already exists for same Fax Line and Fax Number]
+	at com.tetherfi.test.fax.FaxSendersTest.AddFaxSendersRecordwithsameFaxNumber(FaxSendersTest.java:120)
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+... Removed 32 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace2138886145", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace2138886145'><pre>java.lang.AssertionError: expected [Record Created Successfully] but found [A record already exists for same Fax Line and Fax Number]
+	at org.testng.Assert.fail(Assert.java:97)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:136)
+	at org.testng.Assert.assertEquals(Assert.java:118)
+	at org.testng.Assert.assertEquals(Assert.java:575)
+	at org.testng.Assert.assertEquals(Assert.java:585)
+	at com.tetherfi.test.fax.FaxSendersTest.AddFaxSendersRecordwithsameFaxNumber(FaxSendersTest.java:120)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+	at org.testng.TestRunner.privateRun(TestRunner.java:770)
+	at org.testng.TestRunner.run(TestRunner.java:591)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+	at org.testng.TestNG.runSuites(TestNG.java:1032)
+	at org.testng.TestNG.run(TestNG.java:1000)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>10</td>
+<td>com.tetherfi.test.fax.FaxSendersTest@66a5755</td></tr>
+<tr>
 <td title='com.tetherfi.test.fax.FaxSendersTest.BulkUploadData()'><b>BulkUploadData</b><br>Test class: com.tetherfi.test.fax.FaxSendersTest</td>
 <td><div><pre>java.lang.AssertionError: expected [CSV data being uploaded. Please check after a while] but found [CSV has not been uploaded]
 	at com.tetherfi.test.fax.FaxSendersTest.BulkUploadData(FaxSendersTest.java:403)
 	at java.base/java.util.ArrayList.forEach(Unknown Source)
-... Removed 32 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1161925337", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1161925337'><pre>java.lang.AssertionError: expected [CSV data being uploaded. Please check after a while] but found [CSV has not been uploaded]
+... Removed 32 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1288755959", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1288755959'><pre>java.lang.AssertionError: expected [CSV data being uploaded. Please check after a while] but found [CSV has not been uploaded]
 	at org.testng.Assert.fail(Assert.java:97)
 	at org.testng.Assert.assertEqualsImpl(Assert.java:136)
 	at org.testng.Assert.assertEquals(Assert.java:118)
@@ -117,14 +161,14 @@ function toggleAllBoxes() {
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
 <td>5</td>
-<td>com.tetherfi.test.fax.FaxSendersTest@771a7d53</td></tr>
+<td>com.tetherfi.test.fax.FaxSendersTest@66a5755</td></tr>
 <tr>
 <td title='com.tetherfi.test.fax.FaxSendersTest.VerifyAuditTrialReportForDelete()'><b>VerifyAuditTrialReportForDelete</b><br>Test class: com.tetherfi.test.fax.FaxSendersTest</td>
 <td><div><pre>java.lang.AssertionError: did not expect to find [true] but found [false]
 	at com.tetherfi.test.fax.FaxSendersTest.VerifyAuditTrialReportForDelete(FaxSendersTest.java:300)
 	at java.base/java.util.ArrayList.forEach(Unknown Source)
-... Removed 31 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1965371906", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1965371906'><pre>java.lang.AssertionError: did not expect to find [true] but found [false]
+... Removed 31 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1187430224", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1187430224'><pre>java.lang.AssertionError: did not expect to find [true] but found [false]
 	at org.testng.Assert.fail(Assert.java:97)
 	at org.testng.Assert.failNotEquals(Assert.java:969)
 	at org.testng.Assert.assertTrue(Assert.java:43)
@@ -159,15 +203,15 @@ function toggleAllBoxes() {
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
-<td>20</td>
-<td>com.tetherfi.test.fax.FaxSendersTest@771a7d53</td></tr>
+<td>30</td>
+<td>com.tetherfi.test.fax.FaxSendersTest@66a5755</td></tr>
 <tr>
 <td title='com.tetherfi.test.fax.FaxSendersTest.database()'><b>database</b><br>Test class: com.tetherfi.test.fax.FaxSendersTest</td>
 <td><div><pre>java.lang.AssertionError: did not expect to find [true] but found [false]
 	at com.tetherfi.test.fax.FaxSendersTest.database(FaxSendersTest.java:244)
 	at java.base/java.util.ArrayList.forEach(Unknown Source)
-... Removed 31 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1444715088", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1444715088'><pre>java.lang.AssertionError: did not expect to find [true] but found [false]
+... Removed 31 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace892931653", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace892931653'><pre>java.lang.AssertionError: did not expect to find [true] but found [false]
 	at org.testng.Assert.fail(Assert.java:97)
 	at org.testng.Assert.failNotEquals(Assert.java:969)
 	at org.testng.Assert.assertTrue(Assert.java:43)
@@ -202,8 +246,8 @@ function toggleAllBoxes() {
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
-<td>5</td>
-<td>com.tetherfi.test.fax.FaxSendersTest@771a7d53</td></tr>
+<td>7</td>
+<td>com.tetherfi.test.fax.FaxSendersTest@66a5755</td></tr>
 </table><p>
 <table width='100%' border='1' class='invocation-passed'>
 <tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
@@ -216,197 +260,192 @@ function toggleAllBoxes() {
 <td title='com.tetherfi.test.fax.FaxSendersTest.AddDuplicateFaxSendersRecord()'><b>AddDuplicateFaxSendersRecord</b><br>Test class: com.tetherfi.test.fax.FaxSendersTest</td>
 <td></td>
 <td>9</td>
-<td>com.tetherfi.test.fax.FaxSendersTest@771a7d53</td></tr>
+<td>com.tetherfi.test.fax.FaxSendersTest@66a5755</td></tr>
 <tr>
 <td title='com.tetherfi.test.fax.FaxSendersTest.AddFaxSendersRecord()'><b>AddFaxSendersRecord</b><br>Test class: com.tetherfi.test.fax.FaxSendersTest</td>
 <td></td>
-<td>15</td>
-<td>com.tetherfi.test.fax.FaxSendersTest@771a7d53</td></tr>
+<td>18</td>
+<td>com.tetherfi.test.fax.FaxSendersTest@66a5755</td></tr>
 <tr>
 <td title='com.tetherfi.test.fax.FaxSendersTest.AddFaxSendersRecordwithsameFaxLine()'><b>AddFaxSendersRecordwithsameFaxLine</b><br>Test class: com.tetherfi.test.fax.FaxSendersTest</td>
 <td></td>
-<td>7</td>
-<td>com.tetherfi.test.fax.FaxSendersTest@771a7d53</td></tr>
-<tr>
-<td title='com.tetherfi.test.fax.FaxSendersTest.AddFaxSendersRecordwithsameFaxNumber()'><b>AddFaxSendersRecordwithsameFaxNumber</b><br>Test class: com.tetherfi.test.fax.FaxSendersTest</td>
-<td></td>
-<td>7</td>
-<td>com.tetherfi.test.fax.FaxSendersTest@771a7d53</td></tr>
+<td>9</td>
+<td>com.tetherfi.test.fax.FaxSendersTest@66a5755</td></tr>
 <tr>
 <td title='com.tetherfi.test.fax.FaxSendersTest.AddRecordWithoutFaxLine()'><b>AddRecordWithoutFaxLine</b><br>Test class: com.tetherfi.test.fax.FaxSendersTest</td>
 <td></td>
-<td>7</td>
-<td>com.tetherfi.test.fax.FaxSendersTest@771a7d53</td></tr>
+<td>8</td>
+<td>com.tetherfi.test.fax.FaxSendersTest@66a5755</td></tr>
 <tr>
 <td title='com.tetherfi.test.fax.FaxSendersTest.AddRecordWithoutFaxNumber()'><b>AddRecordWithoutFaxNumber</b><br>Test class: com.tetherfi.test.fax.FaxSendersTest</td>
 <td></td>
-<td>8</td>
-<td>com.tetherfi.test.fax.FaxSendersTest@771a7d53</td></tr>
+<td>11</td>
+<td>com.tetherfi.test.fax.FaxSendersTest@66a5755</td></tr>
 <tr>
 <td title='com.tetherfi.test.fax.FaxSendersTest.AddRecordWithoutInput()'><b>AddRecordWithoutInput</b><br>Test class: com.tetherfi.test.fax.FaxSendersTest</td>
 <td></td>
 <td>1</td>
-<td>com.tetherfi.test.fax.FaxSendersTest@771a7d53</td></tr>
+<td>com.tetherfi.test.fax.FaxSendersTest@66a5755</td></tr>
 <tr>
 <td title='com.tetherfi.test.fax.FaxSendersTest.AddRecordWithoutName()'><b>AddRecordWithoutName</b><br>Test class: com.tetherfi.test.fax.FaxSendersTest</td>
 <td></td>
-<td>8</td>
-<td>com.tetherfi.test.fax.FaxSendersTest@771a7d53</td></tr>
+<td>10</td>
+<td>com.tetherfi.test.fax.FaxSendersTest@66a5755</td></tr>
 <tr>
 <td title='com.tetherfi.test.fax.FaxSendersTest.AddRecordWithoutType()'><b>AddRecordWithoutType</b><br>Test class: com.tetherfi.test.fax.FaxSendersTest</td>
 <td></td>
-<td>7</td>
-<td>com.tetherfi.test.fax.FaxSendersTest@771a7d53</td></tr>
+<td>9</td>
+<td>com.tetherfi.test.fax.FaxSendersTest@66a5755</td></tr>
 <tr>
 <td title='com.tetherfi.test.fax.FaxSendersTest.BulkUploadDataInvalidFaxline()'><b>BulkUploadDataInvalidFaxline</b><br>Test class: com.tetherfi.test.fax.FaxSendersTest</td>
 <td></td>
-<td>6</td>
-<td>com.tetherfi.test.fax.FaxSendersTest@771a7d53</td></tr>
+<td>5</td>
+<td>com.tetherfi.test.fax.FaxSendersTest@66a5755</td></tr>
 <tr>
 <td title='com.tetherfi.test.fax.FaxSendersTest.BulkUploadDataInvalidFile()'><b>BulkUploadDataInvalidFile</b><br>Test class: com.tetherfi.test.fax.FaxSendersTest</td>
 <td></td>
 <td>5</td>
-<td>com.tetherfi.test.fax.FaxSendersTest@771a7d53</td></tr>
+<td>com.tetherfi.test.fax.FaxSendersTest@66a5755</td></tr>
 <tr>
 <td title='com.tetherfi.test.fax.FaxSendersTest.BulkUploadDataInvalidNumber()'><b>BulkUploadDataInvalidNumber</b><br>Test class: com.tetherfi.test.fax.FaxSendersTest</td>
 <td></td>
 <td>5</td>
-<td>com.tetherfi.test.fax.FaxSendersTest@771a7d53</td></tr>
+<td>com.tetherfi.test.fax.FaxSendersTest@66a5755</td></tr>
 <tr>
 <td title='com.tetherfi.test.fax.FaxSendersTest.BulkUploadDataInvalidType()'><b>BulkUploadDataInvalidType</b><br>Test class: com.tetherfi.test.fax.FaxSendersTest</td>
 <td></td>
 <td>5</td>
-<td>com.tetherfi.test.fax.FaxSendersTest@771a7d53</td></tr>
+<td>com.tetherfi.test.fax.FaxSendersTest@66a5755</td></tr>
 <tr>
 <td title='com.tetherfi.test.fax.FaxSendersTest.BulkUploadDuplicateData()'><b>BulkUploadDuplicateData</b><br>Test class: com.tetherfi.test.fax.FaxSendersTest</td>
 <td></td>
 <td>5</td>
-<td>com.tetherfi.test.fax.FaxSendersTest@771a7d53</td></tr>
+<td>com.tetherfi.test.fax.FaxSendersTest@66a5755</td></tr>
 <tr>
 <td title='com.tetherfi.test.fax.FaxSendersTest.DeleteFaxSendersCancelRecord()'><b>DeleteFaxSendersCancelRecord</b><br>Test class: com.tetherfi.test.fax.FaxSendersTest</td>
 <td></td>
-<td>4</td>
-<td>com.tetherfi.test.fax.FaxSendersTest@771a7d53</td></tr>
+<td>5</td>
+<td>com.tetherfi.test.fax.FaxSendersTest@66a5755</td></tr>
 <tr>
 <td title='com.tetherfi.test.fax.FaxSendersTest.DeleteFaxSendersInvalidRecord()'><b>DeleteFaxSendersInvalidRecord</b><br>Test class: com.tetherfi.test.fax.FaxSendersTest</td>
 <td></td>
-<td>7</td>
-<td>com.tetherfi.test.fax.FaxSendersTest@771a7d53</td></tr>
+<td>8</td>
+<td>com.tetherfi.test.fax.FaxSendersTest@66a5755</td></tr>
 <tr>
 <td title='com.tetherfi.test.fax.FaxSendersTest.DeleteFaxSendersRecord()'><b>DeleteFaxSendersRecord</b><br>Test class: com.tetherfi.test.fax.FaxSendersTest</td>
 <td></td>
-<td>5</td>
-<td>com.tetherfi.test.fax.FaxSendersTest@771a7d53</td></tr>
+<td>8</td>
+<td>com.tetherfi.test.fax.FaxSendersTest@66a5755</td></tr>
 <tr>
 <td title='com.tetherfi.test.fax.FaxSendersTest.EditFaxSendersInvalidRecord()'><b>EditFaxSendersInvalidRecord</b><br>Test class: com.tetherfi.test.fax.FaxSendersTest</td>
 <td></td>
-<td>5</td>
-<td>com.tetherfi.test.fax.FaxSendersTest@771a7d53</td></tr>
+<td>8</td>
+<td>com.tetherfi.test.fax.FaxSendersTest@66a5755</td></tr>
 <tr>
 <td title='com.tetherfi.test.fax.FaxSendersTest.EditFaxSendersRecord()'><b>EditFaxSendersRecord</b><br>Test class: com.tetherfi.test.fax.FaxSendersTest</td>
 <td></td>
-<td>6</td>
-<td>com.tetherfi.test.fax.FaxSendersTest@771a7d53</td></tr>
+<td>8</td>
+<td>com.tetherfi.test.fax.FaxSendersTest@66a5755</td></tr>
 <tr>
 <td title='com.tetherfi.test.fax.FaxSendersTest.EditFaxSendersRecordCancel()'><b>EditFaxSendersRecordCancel</b><br>Test class: com.tetherfi.test.fax.FaxSendersTest</td>
 <td></td>
-<td>6</td>
-<td>com.tetherfi.test.fax.FaxSendersTest@771a7d53</td></tr>
+<td>8</td>
+<td>com.tetherfi.test.fax.FaxSendersTest@66a5755</td></tr>
 <tr>
 <td title='com.tetherfi.test.fax.FaxSendersTest.ExportToExcel()'><b>ExportToExcel</b><br>Test class: com.tetherfi.test.fax.FaxSendersTest</td>
 <td></td>
 <td>2</td>
-<td>com.tetherfi.test.fax.FaxSendersTest@771a7d53</td></tr>
+<td>com.tetherfi.test.fax.FaxSendersTest@66a5755</td></tr>
 <tr>
 <td title='com.tetherfi.test.fax.FaxSendersTest.ExportToExcelData()'><b>ExportToExcelData</b><br>Test class: com.tetherfi.test.fax.FaxSendersTest</td>
 <td></td>
-<td>5</td>
-<td>com.tetherfi.test.fax.FaxSendersTest@771a7d53</td></tr>
+<td>4</td>
+<td>com.tetherfi.test.fax.FaxSendersTest@66a5755</td></tr>
 <tr>
 <td title='com.tetherfi.test.fax.FaxSendersTest.ExporttoExcelWithoutData()'><b>ExporttoExcelWithoutData</b><br>Test class: com.tetherfi.test.fax.FaxSendersTest</td>
 <td></td>
 <td>5</td>
-<td>com.tetherfi.test.fax.FaxSendersTest@771a7d53</td></tr>
+<td>com.tetherfi.test.fax.FaxSendersTest@66a5755</td></tr>
 <tr>
 <td title='com.tetherfi.test.fax.FaxSendersTest.FaxSendersPage()'><b>FaxSendersPage</b><br>Test class: com.tetherfi.test.fax.FaxSendersTest</td>
 <td></td>
 <td>0</td>
-<td>com.tetherfi.test.fax.FaxSendersTest@771a7d53</td></tr>
+<td>com.tetherfi.test.fax.FaxSendersTest@66a5755</td></tr>
 <tr>
 <td title='com.tetherfi.test.fax.FaxSendersTest.GroupBy()'><b>GroupBy</b><br>Test class: com.tetherfi.test.fax.FaxSendersTest</td>
 <td></td>
-<td>2</td>
-<td>com.tetherfi.test.fax.FaxSendersTest@771a7d53</td></tr>
+<td>3</td>
+<td>com.tetherfi.test.fax.FaxSendersTest@66a5755</td></tr>
 <tr>
 <td title='com.tetherfi.test.fax.FaxSendersTest.SearchClearSearch()'><b>SearchClearSearch</b><br>Test class: com.tetherfi.test.fax.FaxSendersTest</td>
 <td></td>
-<td>3</td>
-<td>com.tetherfi.test.fax.FaxSendersTest@771a7d53</td></tr>
+<td>5</td>
+<td>com.tetherfi.test.fax.FaxSendersTest@66a5755</td></tr>
 <tr>
 <td title='com.tetherfi.test.fax.FaxSendersTest.SortingByAscending()'><b>SortingByAscending</b><br>Test class: com.tetherfi.test.fax.FaxSendersTest</td>
 <td></td>
-<td>6</td>
-<td>com.tetherfi.test.fax.FaxSendersTest@771a7d53</td></tr>
+<td>7</td>
+<td>com.tetherfi.test.fax.FaxSendersTest@66a5755</td></tr>
 <tr>
 <td title='com.tetherfi.test.fax.FaxSendersTest.SortingByDescending()'><b>SortingByDescending</b><br>Test class: com.tetherfi.test.fax.FaxSendersTest</td>
 <td></td>
-<td>6</td>
-<td>com.tetherfi.test.fax.FaxSendersTest@771a7d53</td></tr>
+<td>7</td>
+<td>com.tetherfi.test.fax.FaxSendersTest@66a5755</td></tr>
 <tr>
 <td title='com.tetherfi.test.fax.FaxSendersTest.VerifyArrowMoveForFirstAndLastPage()'><b>VerifyArrowMoveForFirstAndLastPage</b><br>Test class: com.tetherfi.test.fax.FaxSendersTest</td>
 <td></td>
 <td>0</td>
-<td>com.tetherfi.test.fax.FaxSendersTest@771a7d53</td></tr>
+<td>com.tetherfi.test.fax.FaxSendersTest@66a5755</td></tr>
 <tr>
 <td title='com.tetherfi.test.fax.FaxSendersTest.VerifyArrowMoveForPreviousAndNextPage()'><b>VerifyArrowMoveForPreviousAndNextPage</b><br>Test class: com.tetherfi.test.fax.FaxSendersTest</td>
 <td></td>
 <td>0</td>
-<td>com.tetherfi.test.fax.FaxSendersTest@771a7d53</td></tr>
+<td>com.tetherfi.test.fax.FaxSendersTest@66a5755</td></tr>
 <tr>
 <td title='com.tetherfi.test.fax.FaxSendersTest.VerifyAuditTrialReportForCreate()'><b>VerifyAuditTrialReportForCreate</b><br>Test class: com.tetherfi.test.fax.FaxSendersTest</td>
 <td></td>
-<td>23</td>
-<td>com.tetherfi.test.fax.FaxSendersTest@771a7d53</td></tr>
+<td>28</td>
+<td>com.tetherfi.test.fax.FaxSendersTest@66a5755</td></tr>
 <tr>
 <td title='com.tetherfi.test.fax.FaxSendersTest.VerifyAuditTrialReportForUpdate()'><b>VerifyAuditTrialReportForUpdate</b><br>Test class: com.tetherfi.test.fax.FaxSendersTest</td>
 <td></td>
-<td>22</td>
-<td>com.tetherfi.test.fax.FaxSendersTest@771a7d53</td></tr>
+<td>29</td>
+<td>com.tetherfi.test.fax.FaxSendersTest@66a5755</td></tr>
 <tr>
 <td title='com.tetherfi.test.fax.FaxSendersTest.VerifyColumnsHeaderDisable()'><b>VerifyColumnsHeaderDisable</b><br>Test class: com.tetherfi.test.fax.FaxSendersTest</td>
 <td></td>
-<td>0</td>
-<td>com.tetherfi.test.fax.FaxSendersTest@771a7d53</td></tr>
+<td>5</td>
+<td>com.tetherfi.test.fax.FaxSendersTest@66a5755</td></tr>
 <tr>
 <td title='com.tetherfi.test.fax.FaxSendersTest.VerifyColumnsHeaderEnable()'><b>VerifyColumnsHeaderEnable</b><br>Test class: com.tetherfi.test.fax.FaxSendersTest</td>
 <td></td>
-<td>5</td>
-<td>com.tetherfi.test.fax.FaxSendersTest@771a7d53</td></tr>
+<td>7</td>
+<td>com.tetherfi.test.fax.FaxSendersTest@66a5755</td></tr>
 <tr>
 <td title='com.tetherfi.test.fax.FaxSendersTest.VerifyDropdownForAllTheColumns()'><b>VerifyDropdownForAllTheColumns</b><br>Test class: com.tetherfi.test.fax.FaxSendersTest</td>
 <td></td>
-<td>8</td>
-<td>com.tetherfi.test.fax.FaxSendersTest@771a7d53</td></tr>
+<td>11</td>
+<td>com.tetherfi.test.fax.FaxSendersTest@66a5755</td></tr>
 <tr>
 <td title='com.tetherfi.test.fax.FaxSendersTest.VerifyNumberOfItemsPerPageSelection()'><b>VerifyNumberOfItemsPerPageSelection</b><br>Test class: com.tetherfi.test.fax.FaxSendersTest</td>
 <td></td>
-<td>6</td>
-<td>com.tetherfi.test.fax.FaxSendersTest@771a7d53</td></tr>
+<td>7</td>
+<td>com.tetherfi.test.fax.FaxSendersTest@66a5755</td></tr>
 <tr>
 <td title='com.tetherfi.test.fax.FaxSendersTest.VerifyTotalNumberOfItemsPerPageDetails()'><b>VerifyTotalNumberOfItemsPerPageDetails</b><br>Test class: com.tetherfi.test.fax.FaxSendersTest</td>
 <td></td>
 <td>0</td>
-<td>com.tetherfi.test.fax.FaxSendersTest@771a7d53</td></tr>
+<td>com.tetherfi.test.fax.FaxSendersTest@66a5755</td></tr>
 <tr>
 <td title='com.tetherfi.test.fax.FaxSendersTest.searchPage()'><b>searchPage</b><br>Test class: com.tetherfi.test.fax.FaxSendersTest</td>
 <td></td>
-<td>3</td>
-<td>com.tetherfi.test.fax.FaxSendersTest@771a7d53</td></tr>
+<td>4</td>
+<td>com.tetherfi.test.fax.FaxSendersTest@66a5755</td></tr>
 <tr>
 <td title='com.tetherfi.test.fax.FaxSendersTest.searchwithoutSearchTextbox()'><b>searchwithoutSearchTextbox</b><br>Test class: com.tetherfi.test.fax.FaxSendersTest</td>
 <td></td>
-<td>3</td>
-<td>com.tetherfi.test.fax.FaxSendersTest@771a7d53</td></tr>
+<td>4</td>
+<td>com.tetherfi.test.fax.FaxSendersTest@66a5755</td></tr>
 </table><p>
 </body>
 </html>

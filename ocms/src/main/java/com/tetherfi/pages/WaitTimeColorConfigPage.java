@@ -235,6 +235,12 @@ public class WaitTimeColorConfigPage extends BasePage {
     @FindBy(css = ".modal-footer .button-theme")
 	private WebElement searchSearchBtn;
     
+    @FindBy(xpath="//span[@aria-controls='1001sColumnName_listbox']")
+    private WebElement selectSearchColumns;
+    
+    @FindBy(xpath="//span[@aria-owns='1001sCriteria_listbox']")
+    private WebElement condition;
+    
 
     public boolean isWaitTimeColorConfigPageDisplayed() {
         waitForLoad(driver);
@@ -267,12 +273,14 @@ public class WaitTimeColorConfigPage extends BasePage {
 		Map<String, String> map=new HashMap<String,String>() ;
 		map.put("Color Code", colorcode);
 		selectWebElement(searchLink);
-        selectWebElement(selectSearchCol.get(0));
+        selectWebElement(selectSearchColumns);
         selectDropdownFromVisibleText(columnNameList,"Color Code");
-        selectWebElement(selectSearchCol.get(1));
+        Thread.sleep(1000);
+        selectWebElement(condition);
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is not equal to");
         enterValueToTxtField(searchTextBox,colorcode);		
         selectWebElement(searchSearchBtn);
+        Thread.sleep(1000);
         waitUntilWebElementIsVisible(gridContent);
         List<Map<String,String>> UI=gettable(); 
         for (Map<String,String> map1: UI)
@@ -289,12 +297,14 @@ public class WaitTimeColorConfigPage extends BasePage {
     public boolean verifySearchContains(String colorcode) throws Exception {
 		Boolean Status=false;
 		selectWebElement(searchLink);
-        selectWebElement(selectSearchCol.get(0));
+        selectWebElement(selectSearchColumns);
         selectDropdownFromVisibleText(columnNameList,"Color Code");
-        selectWebElement(selectSearchCol.get(1));
+        Thread.sleep(1000);
+        selectWebElement(condition);
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Contains");
         enterValueToTxtField(searchTextBox,colorcode);		
         selectWebElement(searchSearchBtn);
+        Thread.sleep(1000);
         waitUntilWebElementIsVisible(gridContent);
         List<Map<String,String>> UI=gettable(); 
         for (Map<String,String> map1: UI)
@@ -309,12 +319,14 @@ public class WaitTimeColorConfigPage extends BasePage {
 	public boolean verifySearchDoesNotContains(String colorcode) throws Exception {
 		Boolean Status=false;
 		selectWebElement(searchLink);
-        selectWebElement(selectSearchCol.get(0));
+        selectWebElement(selectSearchColumns);
         selectDropdownFromVisibleText(columnNameList,"Color Code");
-        selectWebElement(selectSearchCol.get(1));
+        Thread.sleep(1000);
+        selectWebElement(condition);
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Does not contain");
         enterValueToTxtField(searchTextBox,colorcode);		
         selectWebElement(searchSearchBtn);
+        Thread.sleep(1000);
         waitUntilWebElementIsVisible(gridContent);
         List<Map<String,String>> UI=gettable(); 
         for (Map<String,String> map1: UI)
@@ -330,12 +342,14 @@ public class WaitTimeColorConfigPage extends BasePage {
 	public boolean verifySearchStartsWith(String colorcode) throws Exception {
 		Boolean Status=false;
 		selectWebElement(searchLink);
-        selectWebElement(selectSearchCol.get(0));
+        selectWebElement(selectSearchColumns);
         selectDropdownFromVisibleText(columnNameList,"Color Code");
-        selectWebElement(selectSearchCol.get(1));
+        Thread.sleep(1000);
+        selectWebElement(condition);
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Starts with");
         enterValueToTxtField(searchTextBox,colorcode);		
         selectWebElement(searchSearchBtn);
+        Thread.sleep(1000);
         waitUntilWebElementIsVisible(gridContent);
         List<Map<String,String>> UI=gettable(); 
         for (Map<String,String> map1: UI)
@@ -351,12 +365,14 @@ public class WaitTimeColorConfigPage extends BasePage {
 	public boolean verifySearchEndsWith(String colorcode) throws Exception {
 		Boolean Status=false;
 		selectWebElement(searchLink);
-        selectWebElement(selectSearchCol.get(0));
+        selectWebElement(selectSearchColumns);
         selectDropdownFromVisibleText(columnNameList,"Color Code");
-        selectWebElement(selectSearchCol.get(1));
+        Thread.sleep(1000);
+        selectWebElement(condition);
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Ends with");
         enterValueToTxtField(searchTextBox,colorcode);		
         selectWebElement(searchSearchBtn);
+        Thread.sleep(1000);
         waitUntilWebElementIsVisible(gridContent);
         List<Map<String,String>> UI=gettable(); 
         for (Map<String,String> map1: UI)
@@ -372,6 +388,7 @@ public class WaitTimeColorConfigPage extends BasePage {
         selectWebElement(searchLink);
         selectWebElement(selectSearchColumn.get(0));
         selectDropdownFromVisibleText(columnNameList,"Start Duration");
+        Thread.sleep(1000);
         selectWebElement(selectSearchColumn.get(1));
         selectDropdownFromVisibleText(searchTypeList,"Is equal to");
         enterValueToTxtBox1(searchText.get(0),StartTime);
@@ -389,7 +406,7 @@ public class WaitTimeColorConfigPage extends BasePage {
         selectWebElement(editBtn);
         waitForJqueryLoad(driver);
         selectWebElement(startTime);
-        enterValueToTxtBox1(startTime, details.getUpdatedStartTime());
+        enterValueToTxtBox1(startTime, details.getStartTime());
         selectWebElement(endTime);
         enterValueToTxtBox1(endTime, details.getEndTime());
         selectWebElement(colorPicker);

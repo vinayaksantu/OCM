@@ -4,19 +4,18 @@
   <listeners>
     <listener class-name="com.tetherfi.ExtentReportListener.ExtentReporterNG"/>
   </listeners>
-  <test thread-count="5" name="RoleBasedAccessManagementCreateTest(failed)(failed)">
+  <test thread-count="5" name="IvrConfigCreateTest(failed)(failed)">
     <classes>
-      <class name="com.tetherfi.test.RoleBasedAccessManagementCreateTest">
+      <class name="com.tetherfi.test.ivr.IvrConfigCreateTest">
         <methods>
-          <include name="VerifyAuditTrailDataForAddNewNewRoleBasedAccessManagementRecord"/>
-          <include name="VerifyAuditTrailReportForSendForApproval"/>
-          <include name="VerifyRecordApprovedDataSectionafterApproval"/>
-          <include name="NavigateToNewRoleBasedAccessManagementPage"/>
-          <include name="VerifySendForApprovalForAddNewNewRoleBasedAccessManagementRecord"/>
+          <include name="NavigateToIvrConfigPage"/>
+          <include name="VerifyApprovedDataSectionWithoutApproval"/>
           <include name="afterEachMethod"/>
-          <include name="ApproveforAddNewNewRoleBasedAccessManagementRecord"/>
+          <include name="AddRejectRecord"/>
+          <include name="VerifyRecordApprovedDataSectionafterApproval"/>
+          <include name="VerifyRecordAfterRejection"/>
         </methods>
-      </class> <!-- com.tetherfi.test.RoleBasedAccessManagementCreateTest -->
+      </class> <!-- com.tetherfi.test.ivr.IvrConfigCreateTest -->
     </classes>
-  </test> <!-- RoleBasedAccessManagementCreateTest(failed)(failed) -->
+  </test> <!-- IvrConfigCreateTest(failed)(failed) -->
 </suite> <!-- Failed suite [Failed suite [Tetherfi Test Automation]] -->

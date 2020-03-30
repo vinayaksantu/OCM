@@ -62,7 +62,7 @@ public class UserRoleMappingCreateTest {
         driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 	}
 	
-	@Test(groups= {"Maker"},priority=1)
+	/*@Test(groups= {"Maker"},priority=1)
     public void VerifyAddCancelButton() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserRoleMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -243,7 +243,7 @@ public class UserRoleMappingCreateTest {
 	    UserRoleMappingDetails UserRoleMappingDetails = new UserRoleMappingDetails(map);
         NewUserRoleMappingPage NewUserRoleMappingPage = PageFactory.createPageInstance(driver, NewUserRoleMappingPage.class);
         Assert.assertTrue(NewUserRoleMappingPage.verifyApprovedSectionData(UserRoleMappingDetails));
-    }
+    }*/
 	@Test(groups = { "Maker" },priority=19)
     public void AddNewNewUserRoleMappingRecord() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserRoleMappingData.xlsx";

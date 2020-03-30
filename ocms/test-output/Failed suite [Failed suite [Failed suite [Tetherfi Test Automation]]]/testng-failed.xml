@@ -4,22 +4,22 @@
   <listeners>
     <listener class-name="com.tetherfi.ExtentReportListener.ExtentReporterNG"/>
   </listeners>
-  <test thread-count="5" name="RoleBasedAccessManagementUITest (failed)(failed)(failed)(failed)">
+  <test thread-count="5" name="FaxTemplateCreateTest(failed)(failed)(failed)(failed)">
     <classes>
-      <class name="com.tetherfi.test.RoleBasedAccessManagementUITest">
+      <class name="com.tetherfi.test.fax.FaxTemplateCreateTest">
         <methods>
-          <include name="VerifyNumberOfItemsPerPageSelection"/>
-          <include name="startTestCase"/>
-          <include name="openApplication"/>
-          <include name="SearchClearSearch"/>
-          <include name="NavigateToRoleBasedAccessManagementPage"/>
-          <include name="endTestCase"/>
-          <include name="tearDown"/>
-          <include name="database"/>
-          <include name="searchPage"/>
+          <include name="VerifyAuditTrailReportForApprove"/>
+          <include name="NavigateToFaxTemplatePage"/>
+          <include name="VerifyAuditTrailReportForApproveRecord"/>
+          <include name="ApproveForAddNewFaxTemplateRecord"/>
+          <include name="VerifyAuditTrailReportForSendForApproval"/>
           <include name="afterEachMethod"/>
+          <include name="VerifyApprovedDataSectionAfterApproval"/>
+          <include name="VerifySendForApprovalAddNewApproveRecord"/>
+          <include name="addDuplicateRecord"/>
+          <include name="VerifyAuditTrailDataForApproveRecord"/>
         </methods>
-      </class> <!-- com.tetherfi.test.RoleBasedAccessManagementUITest -->
+      </class> <!-- com.tetherfi.test.fax.FaxTemplateCreateTest -->
     </classes>
-  </test> <!-- RoleBasedAccessManagementUITest (failed)(failed)(failed)(failed) -->
+  </test> <!-- FaxTemplateCreateTest(failed)(failed)(failed)(failed) -->
 </suite> <!-- Failed suite [Failed suite [Failed suite [Failed suite [Tetherfi Test Automation]]]] -->

@@ -891,6 +891,7 @@ public class BranchManagementPage extends BasePage {
 	public void addNewBranchManagementRecord(BranchManagementDetails branchManagementDetails) throws Exception {
 		selectWebElement(BranchManagementTabs.get(1));
 		selectWebElement(makeBranchManagementChanges);
+		Thread.sleep(1000);
 		selectWebElement(addNewBranchManageRecordBtn);
 		waitForJqueryLoad(driver);
 		Thread.sleep(3000);
@@ -1091,6 +1092,7 @@ public class BranchManagementPage extends BasePage {
 	public void addwithoutMainLines(BranchManagementDetails branchManagementDetails) throws Exception {
 		selectWebElement(BranchManagementTabs.get(1));
 		selectWebElement(makeBranchManagementChanges);
+		Thread.sleep(1000);
 		selectWebElement(addNewBranchManageRecordBtn);
 		waitForJqueryLoad(driver);
 		Thread.sleep(1000);
@@ -1115,6 +1117,7 @@ public class BranchManagementPage extends BasePage {
 	public void addwithoutSubLines(BranchManagementDetails branchManagementDetails) throws Exception {
 		selectWebElement(BranchManagementTabs.get(1));
 		selectWebElement(makeBranchManagementChanges);
+		Thread.sleep(1000);
 		selectWebElement(addNewBranchManageRecordBtn);
 		waitForJqueryLoad(driver);
 		Thread.sleep(2000);
@@ -1141,6 +1144,7 @@ public class BranchManagementPage extends BasePage {
 	public void addwithoutLocation(BranchManagementDetails branchManagementDetails) throws Exception {
 		selectWebElement(BranchManagementTabs.get(1));
 		selectWebElement(makeBranchManagementChanges);
+		Thread.sleep(1000);
 		selectWebElement(addNewBranchManageRecordBtn);
 		waitForJqueryLoad(driver);
 		Thread.sleep(2000);
@@ -1168,6 +1172,7 @@ public class BranchManagementPage extends BasePage {
 	public void addwithoutBranchType(BranchManagementDetails branchManagementDetails) throws Exception {
 		selectWebElement(BranchManagementTabs.get(1));
 		selectWebElement(makeBranchManagementChanges);
+		Thread.sleep(1000);
 		selectWebElement(addNewBranchManageRecordBtn);
 		waitForJqueryLoad(driver);
 		Thread.sleep(1000);
@@ -1194,6 +1199,7 @@ public class BranchManagementPage extends BasePage {
 	public void addwithoutBranchName(BranchManagementDetails branchManagementDetails) throws Exception {
 		selectWebElement(BranchManagementTabs.get(1));
 		selectWebElement(makeBranchManagementChanges);
+		Thread.sleep(1000);
 		selectWebElement(addNewBranchManageRecordBtn);
 		waitForJqueryLoad(driver);
 		Thread.sleep(1000);
@@ -1219,6 +1225,7 @@ public class BranchManagementPage extends BasePage {
 	public void addwithoutAddress(BranchManagementDetails branchManagementDetails) throws Exception {
 		selectWebElement(BranchManagementTabs.get(1));
 		selectWebElement(makeBranchManagementChanges);
+		Thread.sleep(1000);
 		selectWebElement(addNewBranchManageRecordBtn);
 		waitForJqueryLoad(driver);
 		Thread.sleep(2000);
@@ -1245,6 +1252,7 @@ public class BranchManagementPage extends BasePage {
 	public void addwithoutLineOrder(BranchManagementDetails branchManagementDetails) throws Exception {
 		selectWebElement(BranchManagementTabs.get(1));
 		selectWebElement(makeBranchManagementChanges);
+		Thread.sleep(1000);
 		selectWebElement(addNewBranchManageRecordBtn);
 		waitForJqueryLoad(driver);
 		Thread.sleep(1000);
@@ -1273,6 +1281,7 @@ public class BranchManagementPage extends BasePage {
 	public void addwithoutStatus(BranchManagementDetails branchManagementDetails) throws Exception {
 		selectWebElement(BranchManagementTabs.get(1));
 		selectWebElement(makeBranchManagementChanges);
+		Thread.sleep(1000);
 		selectWebElement(addNewBranchManageRecordBtn);
 		waitForJqueryLoad(driver);
 		Thread.sleep(1000);
@@ -1299,6 +1308,7 @@ public class BranchManagementPage extends BasePage {
 	public void addwithoutLanguage(BranchManagementDetails branchManagementDetails) throws Exception {
 		selectWebElement(BranchManagementTabs.get(1));
 		selectWebElement(makeBranchManagementChanges);
+		Thread.sleep(1000);
 		selectWebElement(addNewBranchManageRecordBtn);
 		waitForJqueryLoad(driver);
 		Thread.sleep(2000);

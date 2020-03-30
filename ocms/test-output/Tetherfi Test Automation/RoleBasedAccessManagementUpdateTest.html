@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>RoleBasedAccessManagementUpdateTest</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>14/2/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>15/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Fri Mar 06 14:15:24 IST 2020</td>
+<td>Started on:</td><td>Tue Mar 17 01:47:30 IST 2020</td>
 </tr>
-<tr><td>Total time:</td><td>792 seconds (792879 ms)</td>
+<tr><td>Total time:</td><td>833 seconds (833503 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -75,103 +75,12 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.tetherfi.test.RoleBasedAccessManagementUpdateTest.EditCancelRoleBasedAccessManagementRecord()'><b>EditCancelRoleBasedAccessManagementRecord</b><br>Test class: com.tetherfi.test.RoleBasedAccessManagementUpdateTest</td>
-<td><div><pre>org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
-  (Session info: chrome=78.0.3904.70)
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
-Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
-System info: host: &apos;DESKTOP-O6A5C2O&apos;, ip: &apos;10.0.75.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;9.0.4&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.70, chrome: {chromedriverVersion: 78.0.3904.105 (60e2d8774a81..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:51229}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 3c50d91b13657c0e9d078a88ece01d52
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
-	at org.openqa.selenium.remote.RemoteWebElement.isDisplayed(RemoteWebElement.java:326)
-	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:314)
-	at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:43)
-	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:300)
-	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:297)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
-	at com.tetherfi.pages.BasePage.waitUntilWebElementListIsVisible(BasePage.java:139)
-	at com.tetherfi.pages.BasePage.selectDropdownFromVisibleText(BasePage.java:335)
-	at com.tetherfi.pages.RoleBasedAccessManagementPage.searchRoleBasedAccessManagementRecord(RoleBasedAccessManagementPage.java:354)
-	at com.tetherfi.pages.RoleBasedAccessManagementPage.EditCancel(RoleBasedAccessManagementPage.java:1140)
-	at com.tetherfi.test.RoleBasedAccessManagementUpdateTest.EditCancelRoleBasedAccessManagementRecord(RoleBasedAccessManagementUpdateTest.java:69)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-... Removed 31 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1176176527", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1176176527'><pre>org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
-  (Session info: chrome=78.0.3904.70)
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
-Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
-System info: host: &apos;DESKTOP-O6A5C2O&apos;, ip: &apos;10.0.75.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;9.0.4&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.70, chrome: {chromedriverVersion: 78.0.3904.105 (60e2d8774a81..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:51229}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 3c50d91b13657c0e9d078a88ece01d52
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.base/java.lang.reflect.Constructor.newInstance(Unknown Source)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
-	at org.openqa.selenium.remote.RemoteWebElement.isDisplayed(RemoteWebElement.java:326)
-	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:314)
-	at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:43)
-	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:300)
-	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:297)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
-	at com.tetherfi.pages.BasePage.waitUntilWebElementListIsVisible(BasePage.java:139)
-	at com.tetherfi.pages.BasePage.selectDropdownFromVisibleText(BasePage.java:335)
-	at com.tetherfi.pages.RoleBasedAccessManagementPage.searchRoleBasedAccessManagementRecord(RoleBasedAccessManagementPage.java:354)
-	at com.tetherfi.pages.RoleBasedAccessManagementPage.EditCancel(RoleBasedAccessManagementPage.java:1140)
-	at com.tetherfi.test.RoleBasedAccessManagementUpdateTest.EditCancelRoleBasedAccessManagementRecord(RoleBasedAccessManagementUpdateTest.java:69)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-	at org.testng.TestRunner.privateRun(TestRunner.java:770)
-	at org.testng.TestRunner.run(TestRunner.java:591)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-	at org.testng.TestNG.runSuites(TestNG.java:1032)
-	at org.testng.TestNG.run(TestNG.java:1000)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div></td>
-<td>5</td>
-<td>com.tetherfi.test.RoleBasedAccessManagementUpdateTest@64e1377c</td></tr>
-<tr>
 <td title='com.tetherfi.test.RoleBasedAccessManagementUpdateTest.VerifyAuditTrailDataForEditRoleBasedAccessManagementRecord()'><b>VerifyAuditTrailDataForEditRoleBasedAccessManagementRecord</b><br>Test class: com.tetherfi.test.RoleBasedAccessManagementUpdateTest</td>
 <td><div><pre>java.lang.AssertionError: Audit trail details failed did not expect to find [true] but found [false]
 	at com.tetherfi.test.RoleBasedAccessManagementUpdateTest.VerifyAuditTrailDataForEditRoleBasedAccessManagementRecord(RoleBasedAccessManagementUpdateTest.java:165)
 	at java.base/java.util.ArrayList.forEach(Unknown Source)
-... Removed 30 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace615788190", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace615788190'><pre>java.lang.AssertionError: Audit trail details failed did not expect to find [true] but found [false]
+... Removed 30 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1904831325", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1904831325'><pre>java.lang.AssertionError: Audit trail details failed did not expect to find [true] but found [false]
 	at org.testng.Assert.fail(Assert.java:97)
 	at org.testng.Assert.failNotEquals(Assert.java:969)
 	at org.testng.Assert.assertTrue(Assert.java:43)
@@ -221,9 +130,14 @@ Session ID: 3c50d91b13657c0e9d078a88ece01d52
 <td>12</td>
 <td>com.tetherfi.test.RoleBasedAccessManagementUpdateTest@64e1377c</td></tr>
 <tr>
+<td title='com.tetherfi.test.RoleBasedAccessManagementUpdateTest.EditCancelRoleBasedAccessManagementRecord()'><b>EditCancelRoleBasedAccessManagementRecord</b><br>Test class: com.tetherfi.test.RoleBasedAccessManagementUpdateTest</td>
+<td></td>
+<td>7</td>
+<td>com.tetherfi.test.RoleBasedAccessManagementUpdateTest@64e1377c</td></tr>
+<tr>
 <td title='com.tetherfi.test.RoleBasedAccessManagementUpdateTest.EditRecordWithoutModifyReason()'><b>EditRecordWithoutModifyReason</b><br>Test class: com.tetherfi.test.RoleBasedAccessManagementUpdateTest</td>
 <td></td>
-<td>8</td>
+<td>9</td>
 <td>com.tetherfi.test.RoleBasedAccessManagementUpdateTest@64e1377c</td></tr>
 <tr>
 <td title='com.tetherfi.test.RoleBasedAccessManagementUpdateTest.EditRejectRecord()'><b>EditRejectRecord</b><br>Test class: com.tetherfi.test.RoleBasedAccessManagementUpdateTest</td>
@@ -233,22 +147,22 @@ Session ID: 3c50d91b13657c0e9d078a88ece01d52
 <tr>
 <td title='com.tetherfi.test.RoleBasedAccessManagementUpdateTest.EditRevertRoleBasedAccessManagementRecord()'><b>EditRevertRoleBasedAccessManagementRecord</b><br>Test class: com.tetherfi.test.RoleBasedAccessManagementUpdateTest</td>
 <td></td>
-<td>11</td>
+<td>14</td>
 <td>com.tetherfi.test.RoleBasedAccessManagementUpdateTest@64e1377c</td></tr>
 <tr>
 <td title='com.tetherfi.test.RoleBasedAccessManagementUpdateTest.EditRoleBasedAccessManagementRecord()'><b>EditRoleBasedAccessManagementRecord</b><br>Test class: com.tetherfi.test.RoleBasedAccessManagementUpdateTest</td>
 <td></td>
-<td>10</td>
+<td>11</td>
 <td>com.tetherfi.test.RoleBasedAccessManagementUpdateTest@64e1377c</td></tr>
 <tr>
 <td title='com.tetherfi.test.RoleBasedAccessManagementUpdateTest.RejectforEditRoleBasedAccessManagementRecord()'><b>RejectforEditRoleBasedAccessManagementRecord</b><br>Test class: com.tetherfi.test.RoleBasedAccessManagementUpdateTest</td>
 <td></td>
-<td>11</td>
+<td>12</td>
 <td>com.tetherfi.test.RoleBasedAccessManagementUpdateTest@64e1377c</td></tr>
 <tr>
 <td title='com.tetherfi.test.RoleBasedAccessManagementUpdateTest.VerifyAuditTrailReportForApprove()'><b>VerifyAuditTrailReportForApprove</b><br>Test class: com.tetherfi.test.RoleBasedAccessManagementUpdateTest</td>
 <td></td>
-<td>22</td>
+<td>23</td>
 <td>com.tetherfi.test.RoleBasedAccessManagementUpdateTest@64e1377c</td></tr>
 <tr>
 <td title='com.tetherfi.test.RoleBasedAccessManagementUpdateTest.VerifyAuditTrailReportForReject()'><b>VerifyAuditTrailReportForReject</b><br>Test class: com.tetherfi.test.RoleBasedAccessManagementUpdateTest</td>
@@ -258,12 +172,12 @@ Session ID: 3c50d91b13657c0e9d078a88ece01d52
 <tr>
 <td title='com.tetherfi.test.RoleBasedAccessManagementUpdateTest.VerifyAuditTrialReportForRevertUpdate()'><b>VerifyAuditTrialReportForRevertUpdate</b><br>Test class: com.tetherfi.test.RoleBasedAccessManagementUpdateTest</td>
 <td></td>
-<td>23</td>
+<td>24</td>
 <td>com.tetherfi.test.RoleBasedAccessManagementUpdateTest@64e1377c</td></tr>
 <tr>
 <td title='com.tetherfi.test.RoleBasedAccessManagementUpdateTest.VerifyAuditTrialReportForSendForApprovalUpdate()'><b>VerifyAuditTrialReportForSendForApprovalUpdate</b><br>Test class: com.tetherfi.test.RoleBasedAccessManagementUpdateTest</td>
 <td></td>
-<td>22</td>
+<td>24</td>
 <td>com.tetherfi.test.RoleBasedAccessManagementUpdateTest@64e1377c</td></tr>
 <tr>
 <td title='com.tetherfi.test.RoleBasedAccessManagementUpdateTest.VerifyAuditTrialReportForUpdate()'><b>VerifyAuditTrialReportForUpdate</b><br>Test class: com.tetherfi.test.RoleBasedAccessManagementUpdateTest</td>
@@ -283,7 +197,7 @@ Session ID: 3c50d91b13657c0e9d078a88ece01d52
 <tr>
 <td title='com.tetherfi.test.RoleBasedAccessManagementUpdateTest.VerifySendForApprovalForEditRejectRecord()'><b>VerifySendForApprovalForEditRejectRecord</b><br>Test class: com.tetherfi.test.RoleBasedAccessManagementUpdateTest</td>
 <td></td>
-<td>10</td>
+<td>9</td>
 <td>com.tetherfi.test.RoleBasedAccessManagementUpdateTest@64e1377c</td></tr>
 </table><p>
 </body>

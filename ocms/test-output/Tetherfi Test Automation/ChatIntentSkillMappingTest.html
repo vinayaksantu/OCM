@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>39/4/0</td>
 </tr><tr>
-<td>Started on:</td><td>Fri Feb 28 20:24:37 IST 2020</td>
+<td>Started on:</td><td>Fri Mar 13 20:16:22 IST 2020</td>
 </tr>
-<tr><td>Total time:</td><td>700 seconds (700482 ms)</td>
+<tr><td>Total time:</td><td>667 seconds (667444 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -75,33 +75,104 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.tetherfi.test.chat.ChatIntentSkillMappingTest.AddRecordWithoutSubSegment()'><b>AddRecordWithoutSubSegment</b><br>Test class: com.tetherfi.test.chat.ChatIntentSkillMappingTest</td>
-<td><div><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of [[ChromeDriver: chrome on XP (a6b9d5689cfb29f9b315baa5380a7673)] -&gt; css selector: ul[id=&apos;ChatVdn_listbox&apos;] li] (tried for 20 second(s) with 500 milliseconds interval)
+<td title='com.tetherfi.test.chat.ChatIntentSkillMappingTest.DeleteIntentSkillMappingRecord()'><b>DeleteIntentSkillMappingRecord</b><br>Test class: com.tetherfi.test.chat.ChatIntentSkillMappingTest</td>
+<td><div><pre>java.lang.AssertionError: Delete record assertion failed expected [Record Deleted Successfully] but found [Please enter the delete reason]
+	at com.tetherfi.test.chat.ChatIntentSkillMappingTest.DeleteIntentSkillMappingRecord(ChatIntentSkillMappingTest.java:308)
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+... Removed 31 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace2016624484", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace2016624484'><pre>java.lang.AssertionError: Delete record assertion failed expected [Record Deleted Successfully] but found [Please enter the delete reason]
+	at org.testng.Assert.fail(Assert.java:97)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:136)
+	at org.testng.Assert.assertEquals(Assert.java:118)
+	at org.testng.Assert.assertEquals(Assert.java:575)
+	at com.tetherfi.test.chat.ChatIntentSkillMappingTest.DeleteIntentSkillMappingRecord(ChatIntentSkillMappingTest.java:308)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+	at org.testng.TestRunner.privateRun(TestRunner.java:770)
+	at org.testng.TestRunner.run(TestRunner.java:591)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+	at org.testng.TestNG.runSuites(TestNG.java:1032)
+	at org.testng.TestNG.run(TestNG.java:1000)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>5</td>
+<td>com.tetherfi.test.chat.ChatIntentSkillMappingTest@550e9be6</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatIntentSkillMappingTest.SearchClearSearch()'><b>SearchClearSearch</b><br>Test class: com.tetherfi.test.chat.ChatIntentSkillMappingTest</td>
+<td><div><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//div[text()=&apos;No records to display&apos;]&quot;}
+  (Session info: chrome=78.0.3904.70)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
 Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
 System info: host: &apos;DESKTOP-O6A5C2O&apos;, ip: &apos;10.0.75.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;9.0.4&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.70, chrome: {chromedriverVersion: 78.0.3904.105 (60e2d8774a81..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:52365}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: a6b9d5689cfb29f9b315baa5380a7673
-	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
-	at com.tetherfi.pages.BasePage.waitUntilWebElementListIsVisible(BasePage.java:139)
-	at com.tetherfi.pages.BasePage.selectDropdownFromVisibleText(BasePage.java:335)
-	at com.tetherfi.pages.ChatIntentSkillMappingPage.addRecordWithoutSubSegment(ChatIntentSkillMappingPage.java:988)
-	at com.tetherfi.test.chat.ChatIntentSkillMappingTest.AddRecordWithoutSubSegment(ChatIntentSkillMappingTest.java:424)
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.70, chrome: {chromedriverVersion: 78.0.3904.105 (60e2d8774a81..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:57802}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 0be35a1ee9fb46c9f9c5f55964386c9b
+*** Element info: {Using=xpath, value=//div[text()=&apos;No records to display&apos;]}
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at com.sun.proxy.$Proxy16.isDisplayed(Unknown Source)
+	at com.tetherfi.pages.ChatIntentSkillMappingPage.verifyinvalidsearchwithwrongdata(ChatIntentSkillMappingPage.java:574)
+	at com.tetherfi.test.chat.ChatIntentSkillMappingTest.SearchClearSearch(ChatIntentSkillMappingTest.java:333)
 	at java.base/java.util.ArrayList.forEach(Unknown Source)
-... Removed 27 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1571837725", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1571837725'><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of [[ChromeDriver: chrome on XP (a6b9d5689cfb29f9b315baa5380a7673)] -&gt; css selector: ul[id=&apos;ChatVdn_listbox&apos;] li] (tried for 20 second(s) with 500 milliseconds interval)
+... Removed 31 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace978739868", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace978739868'><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//div[text()=&apos;No records to display&apos;]&quot;}
+  (Session info: chrome=78.0.3904.70)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
 Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
 System info: host: &apos;DESKTOP-O6A5C2O&apos;, ip: &apos;10.0.75.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;9.0.4&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.70, chrome: {chromedriverVersion: 78.0.3904.105 (60e2d8774a81..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:52365}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: a6b9d5689cfb29f9b315baa5380a7673
-	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
-	at com.tetherfi.pages.BasePage.waitUntilWebElementListIsVisible(BasePage.java:139)
-	at com.tetherfi.pages.BasePage.selectDropdownFromVisibleText(BasePage.java:335)
-	at com.tetherfi.pages.ChatIntentSkillMappingPage.addRecordWithoutSubSegment(ChatIntentSkillMappingPage.java:988)
-	at com.tetherfi.test.chat.ChatIntentSkillMappingTest.AddRecordWithoutSubSegment(ChatIntentSkillMappingTest.java:424)
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.70, chrome: {chromedriverVersion: 78.0.3904.105 (60e2d8774a81..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:57802}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 0be35a1ee9fb46c9f9c5f55964386c9b
+*** Element info: {Using=xpath, value=//div[text()=&apos;No records to display&apos;]}
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.base/java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at com.sun.proxy.$Proxy16.isDisplayed(Unknown Source)
+	at com.tetherfi.pages.ChatIntentSkillMappingPage.verifyinvalidsearchwithwrongdata(ChatIntentSkillMappingPage.java:574)
+	at com.tetherfi.test.chat.ChatIntentSkillMappingTest.SearchClearSearch(ChatIntentSkillMappingTest.java:333)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -131,19 +202,30 @@ Session ID: a6b9d5689cfb29f9b315baa5380a7673
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
-<td>23</td>
+<td>44</td>
 <td>com.tetherfi.test.chat.ChatIntentSkillMappingTest@550e9be6</td></tr>
 <tr>
-<td title='com.tetherfi.test.chat.ChatIntentSkillMappingTest.VerifyColumnsHeaderEnable()'><b>VerifyColumnsHeaderEnable</b><br>Test class: com.tetherfi.test.chat.ChatIntentSkillMappingTest</td>
-<td><div><pre>java.lang.AssertionError: columns enabled assertion failed did not expect to find [true] but found [false]
-	at com.tetherfi.test.chat.ChatIntentSkillMappingTest.VerifyColumnsHeaderEnable(ChatIntentSkillMappingTest.java:56)
+<td title='com.tetherfi.test.chat.ChatIntentSkillMappingTest.VerifyAuditTrialReportForDelete()'><b>VerifyAuditTrialReportForDelete</b><br>Test class: com.tetherfi.test.chat.ChatIntentSkillMappingTest</td>
+<td><div><pre>java.lang.IndexOutOfBoundsException: Index 1 out-of-bounds for length 1
+	at java.base/jdk.internal.util.Preconditions.outOfBounds(Unknown Source)
+	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Unknown Source)
+	at java.base/jdk.internal.util.Preconditions.checkIndex(Unknown Source)
+	at java.base/java.util.Objects.checkIndex(Unknown Source)
+	at java.base/java.util.ArrayList.get(Unknown Source)
+	at com.tetherfi.pages.OCMReportsPage.getFirstRowDatafromTable1(OCMReportsPage.java:1287)
+	at com.tetherfi.pages.OCMReportsPage.verifyChatIntentSkillMappingdelete(OCMReportsPage.java:4497)
+	at com.tetherfi.test.chat.ChatIntentSkillMappingTest.VerifyAuditTrialReportForDelete(ChatIntentSkillMappingTest.java:323)
 	at java.base/java.util.ArrayList.forEach(Unknown Source)
-... Removed 30 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace448017319", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace448017319'><pre>java.lang.AssertionError: columns enabled assertion failed did not expect to find [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:97)
-	at org.testng.Assert.failNotEquals(Assert.java:969)
-	at org.testng.Assert.assertTrue(Assert.java:43)
-	at com.tetherfi.test.chat.ChatIntentSkillMappingTest.VerifyColumnsHeaderEnable(ChatIntentSkillMappingTest.java:56)
+... Removed 27 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace633066481", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace633066481'><pre>java.lang.IndexOutOfBoundsException: Index 1 out-of-bounds for length 1
+	at java.base/jdk.internal.util.Preconditions.outOfBounds(Unknown Source)
+	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Unknown Source)
+	at java.base/jdk.internal.util.Preconditions.checkIndex(Unknown Source)
+	at java.base/java.util.Objects.checkIndex(Unknown Source)
+	at java.base/java.util.ArrayList.get(Unknown Source)
+	at com.tetherfi.pages.OCMReportsPage.getFirstRowDatafromTable1(OCMReportsPage.java:1287)
+	at com.tetherfi.pages.OCMReportsPage.verifyChatIntentSkillMappingdelete(OCMReportsPage.java:4497)
+	at com.tetherfi.test.chat.ChatIntentSkillMappingTest.VerifyAuditTrialReportForDelete(ChatIntentSkillMappingTest.java:323)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -173,19 +255,19 @@ Session ID: a6b9d5689cfb29f9b315baa5380a7673
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
-<td>0</td>
+<td>20</td>
 <td>com.tetherfi.test.chat.ChatIntentSkillMappingTest@550e9be6</td></tr>
 <tr>
-<td title='com.tetherfi.test.chat.ChatIntentSkillMappingTest.VerifyNumberOfItemsPerPageSelection()'><b>VerifyNumberOfItemsPerPageSelection</b><br>Test class: com.tetherfi.test.chat.ChatIntentSkillMappingTest</td>
-<td><div><pre>java.lang.AssertionError: item per page assertion failed did not expect to find [true] but found [false]
-	at com.tetherfi.test.chat.ChatIntentSkillMappingTest.VerifyNumberOfItemsPerPageSelection(ChatIntentSkillMappingTest.java:397)
+<td title='com.tetherfi.test.chat.ChatIntentSkillMappingTest.VerifyCancelBtnAtEditRecord()'><b>VerifyCancelBtnAtEditRecord</b><br>Test class: com.tetherfi.test.chat.ChatIntentSkillMappingTest</td>
+<td><div><pre>java.lang.AssertionError: Cancel Btn at Edit record assertion failed did not expect to find [false] but found [true]
+	at com.tetherfi.test.chat.ChatIntentSkillMappingTest.VerifyCancelBtnAtEditRecord(ChatIntentSkillMappingTest.java:175)
 	at java.base/java.util.ArrayList.forEach(Unknown Source)
-... Removed 30 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1731244304", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1731244304'><pre>java.lang.AssertionError: item per page assertion failed did not expect to find [true] but found [false]
+... Removed 30 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace300632854", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace300632854'><pre>java.lang.AssertionError: Cancel Btn at Edit record assertion failed did not expect to find [false] but found [true]
 	at org.testng.Assert.fail(Assert.java:97)
 	at org.testng.Assert.failNotEquals(Assert.java:969)
-	at org.testng.Assert.assertTrue(Assert.java:43)
-	at com.tetherfi.test.chat.ChatIntentSkillMappingTest.VerifyNumberOfItemsPerPageSelection(ChatIntentSkillMappingTest.java:397)
+	at org.testng.Assert.assertFalse(Assert.java:65)
+	at com.tetherfi.test.chat.ChatIntentSkillMappingTest.VerifyCancelBtnAtEditRecord(ChatIntentSkillMappingTest.java:175)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -215,49 +297,7 @@ Session ID: a6b9d5689cfb29f9b315baa5380a7673
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
-<td>0</td>
-<td>com.tetherfi.test.chat.ChatIntentSkillMappingTest@550e9be6</td></tr>
-<tr>
-<td title='com.tetherfi.test.chat.ChatIntentSkillMappingTest.VerifyTotalNumberOfItemsPerPageDetails()'><b>VerifyTotalNumberOfItemsPerPageDetails</b><br>Test class: com.tetherfi.test.chat.ChatIntentSkillMappingTest</td>
-<td><div><pre>java.lang.AssertionError: item per page assertion failed did not expect to find [true] but found [false]
-	at com.tetherfi.test.chat.ChatIntentSkillMappingTest.VerifyTotalNumberOfItemsPerPageDetails(ChatIntentSkillMappingTest.java:391)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-... Removed 30 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1942356593", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1942356593'><pre>java.lang.AssertionError: item per page assertion failed did not expect to find [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:97)
-	at org.testng.Assert.failNotEquals(Assert.java:969)
-	at org.testng.Assert.assertTrue(Assert.java:43)
-	at com.tetherfi.test.chat.ChatIntentSkillMappingTest.VerifyTotalNumberOfItemsPerPageDetails(ChatIntentSkillMappingTest.java:391)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-	at org.testng.TestRunner.privateRun(TestRunner.java:770)
-	at org.testng.TestRunner.run(TestRunner.java:591)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-	at org.testng.TestNG.runSuites(TestNG.java:1032)
-	at org.testng.TestNG.run(TestNG.java:1000)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div></td>
-<td>0</td>
+<td>8</td>
 <td>com.tetherfi.test.chat.ChatIntentSkillMappingTest@550e9be6</td></tr>
 </table><p>
 <table width='100%' border='1' class='invocation-passed'>
@@ -270,17 +310,17 @@ Session ID: a6b9d5689cfb29f9b315baa5380a7673
 <tr>
 <td title='com.tetherfi.test.chat.ChatIntentSkillMappingTest.AddDuplicateChatIntentSkillMappingRecord()'><b>AddDuplicateChatIntentSkillMappingRecord</b><br>Test class: com.tetherfi.test.chat.ChatIntentSkillMappingTest</td>
 <td></td>
-<td>9</td>
+<td>7</td>
 <td>com.tetherfi.test.chat.ChatIntentSkillMappingTest@550e9be6</td></tr>
 <tr>
 <td title='com.tetherfi.test.chat.ChatIntentSkillMappingTest.AddEmptyRecord()'><b>AddEmptyRecord</b><br>Test class: com.tetherfi.test.chat.ChatIntentSkillMappingTest</td>
 <td></td>
-<td>2</td>
+<td>3</td>
 <td>com.tetherfi.test.chat.ChatIntentSkillMappingTest@550e9be6</td></tr>
 <tr>
 <td title='com.tetherfi.test.chat.ChatIntentSkillMappingTest.AddNewChatIntentSkillMappingRecord()'><b>AddNewChatIntentSkillMappingRecord</b><br>Test class: com.tetherfi.test.chat.ChatIntentSkillMappingTest</td>
 <td></td>
-<td>9</td>
+<td>7</td>
 <td>com.tetherfi.test.chat.ChatIntentSkillMappingTest@550e9be6</td></tr>
 <tr>
 <td title='com.tetherfi.test.chat.ChatIntentSkillMappingTest.AddRecordWithoutChannel()'><b>AddRecordWithoutChannel</b><br>Test class: com.tetherfi.test.chat.ChatIntentSkillMappingTest</td>
@@ -290,37 +330,37 @@ Session ID: a6b9d5689cfb29f9b315baa5380a7673
 <tr>
 <td title='com.tetherfi.test.chat.ChatIntentSkillMappingTest.AddRecordWithoutCustEntType()'><b>AddRecordWithoutCustEntType</b><br>Test class: com.tetherfi.test.chat.ChatIntentSkillMappingTest</td>
 <td></td>
-<td>6</td>
+<td>7</td>
 <td>com.tetherfi.test.chat.ChatIntentSkillMappingTest@550e9be6</td></tr>
 <tr>
 <td title='com.tetherfi.test.chat.ChatIntentSkillMappingTest.AddRecordWithoutIntent()'><b>AddRecordWithoutIntent</b><br>Test class: com.tetherfi.test.chat.ChatIntentSkillMappingTest</td>
 <td></td>
-<td>8</td>
+<td>7</td>
 <td>com.tetherfi.test.chat.ChatIntentSkillMappingTest@550e9be6</td></tr>
 <tr>
 <td title='com.tetherfi.test.chat.ChatIntentSkillMappingTest.AddRecordWithoutLanguage()'><b>AddRecordWithoutLanguage</b><br>Test class: com.tetherfi.test.chat.ChatIntentSkillMappingTest</td>
 <td></td>
-<td>8</td>
+<td>6</td>
 <td>com.tetherfi.test.chat.ChatIntentSkillMappingTest@550e9be6</td></tr>
 <tr>
 <td title='com.tetherfi.test.chat.ChatIntentSkillMappingTest.AddRecordWithoutSegment()'><b>AddRecordWithoutSegment</b><br>Test class: com.tetherfi.test.chat.ChatIntentSkillMappingTest</td>
 <td></td>
-<td>6</td>
+<td>10</td>
 <td>com.tetherfi.test.chat.ChatIntentSkillMappingTest@550e9be6</td></tr>
 <tr>
 <td title='com.tetherfi.test.chat.ChatIntentSkillMappingTest.AddRecordWithoutSkill()'><b>AddRecordWithoutSkill</b><br>Test class: com.tetherfi.test.chat.ChatIntentSkillMappingTest</td>
 <td></td>
-<td>6</td>
+<td>5</td>
+<td>com.tetherfi.test.chat.ChatIntentSkillMappingTest@550e9be6</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatIntentSkillMappingTest.AddRecordWithoutSubSegment()'><b>AddRecordWithoutSubSegment</b><br>Test class: com.tetherfi.test.chat.ChatIntentSkillMappingTest</td>
+<td></td>
+<td>8</td>
 <td>com.tetherfi.test.chat.ChatIntentSkillMappingTest@550e9be6</td></tr>
 <tr>
 <td title='com.tetherfi.test.chat.ChatIntentSkillMappingTest.ChatIntentSkillMappingPage()'><b>ChatIntentSkillMappingPage</b><br>Test class: com.tetherfi.test.chat.ChatIntentSkillMappingTest</td>
 <td></td>
 <td>0</td>
-<td>com.tetherfi.test.chat.ChatIntentSkillMappingTest@550e9be6</td></tr>
-<tr>
-<td title='com.tetherfi.test.chat.ChatIntentSkillMappingTest.DeleteIntentSkillMappingRecord()'><b>DeleteIntentSkillMappingRecord</b><br>Test class: com.tetherfi.test.chat.ChatIntentSkillMappingTest</td>
-<td></td>
-<td>5</td>
 <td>com.tetherfi.test.chat.ChatIntentSkillMappingTest@550e9be6</td></tr>
 <tr>
 <td title='com.tetherfi.test.chat.ChatIntentSkillMappingTest.DeleteWithoutDeleteReasonRecord()'><b>DeleteWithoutDeleteReasonRecord</b><br>Test class: com.tetherfi.test.chat.ChatIntentSkillMappingTest</td>
@@ -330,17 +370,17 @@ Session ID: a6b9d5689cfb29f9b315baa5380a7673
 <tr>
 <td title='com.tetherfi.test.chat.ChatIntentSkillMappingTest.EditChatIntentSkillMappingRecord()'><b>EditChatIntentSkillMappingRecord</b><br>Test class: com.tetherfi.test.chat.ChatIntentSkillMappingTest</td>
 <td></td>
-<td>7</td>
+<td>6</td>
 <td>com.tetherfi.test.chat.ChatIntentSkillMappingTest@550e9be6</td></tr>
 <tr>
 <td title='com.tetherfi.test.chat.ChatIntentSkillMappingTest.EditWithoutModifyReasonRecord()'><b>EditWithoutModifyReasonRecord</b><br>Test class: com.tetherfi.test.chat.ChatIntentSkillMappingTest</td>
 <td></td>
-<td>7</td>
+<td>5</td>
 <td>com.tetherfi.test.chat.ChatIntentSkillMappingTest@550e9be6</td></tr>
 <tr>
 <td title='com.tetherfi.test.chat.ChatIntentSkillMappingTest.ExportToExcel()'><b>ExportToExcel</b><br>Test class: com.tetherfi.test.chat.ChatIntentSkillMappingTest</td>
 <td></td>
-<td>3</td>
+<td>2</td>
 <td>com.tetherfi.test.chat.ChatIntentSkillMappingTest@550e9be6</td></tr>
 <tr>
 <td title='com.tetherfi.test.chat.ChatIntentSkillMappingTest.ExportToExcelData()'><b>ExportToExcelData</b><br>Test class: com.tetherfi.test.chat.ChatIntentSkillMappingTest</td>
@@ -358,19 +398,14 @@ Session ID: a6b9d5689cfb29f9b315baa5380a7673
 <td>2</td>
 <td>com.tetherfi.test.chat.ChatIntentSkillMappingTest@550e9be6</td></tr>
 <tr>
-<td title='com.tetherfi.test.chat.ChatIntentSkillMappingTest.SearchClearSearch()'><b>SearchClearSearch</b><br>Test class: com.tetherfi.test.chat.ChatIntentSkillMappingTest</td>
-<td></td>
-<td>6</td>
-<td>com.tetherfi.test.chat.ChatIntentSkillMappingTest@550e9be6</td></tr>
-<tr>
 <td title='com.tetherfi.test.chat.ChatIntentSkillMappingTest.SortingByAscending()'><b>SortingByAscending</b><br>Test class: com.tetherfi.test.chat.ChatIntentSkillMappingTest</td>
 <td></td>
-<td>8</td>
+<td>7</td>
 <td>com.tetherfi.test.chat.ChatIntentSkillMappingTest@550e9be6</td></tr>
 <tr>
 <td title='com.tetherfi.test.chat.ChatIntentSkillMappingTest.SortingByDescending()'><b>SortingByDescending</b><br>Test class: com.tetherfi.test.chat.ChatIntentSkillMappingTest</td>
 <td></td>
-<td>8</td>
+<td>7</td>
 <td>com.tetherfi.test.chat.ChatIntentSkillMappingTest@550e9be6</td></tr>
 <tr>
 <td title='com.tetherfi.test.chat.ChatIntentSkillMappingTest.VerifyArrowMoveForFirstAndLastPage()'><b>VerifyArrowMoveForFirstAndLastPage</b><br>Test class: com.tetherfi.test.chat.ChatIntentSkillMappingTest</td>
@@ -388,11 +423,6 @@ Session ID: a6b9d5689cfb29f9b315baa5380a7673
 <td>22</td>
 <td>com.tetherfi.test.chat.ChatIntentSkillMappingTest@550e9be6</td></tr>
 <tr>
-<td title='com.tetherfi.test.chat.ChatIntentSkillMappingTest.VerifyAuditTrialReportForDelete()'><b>VerifyAuditTrialReportForDelete</b><br>Test class: com.tetherfi.test.chat.ChatIntentSkillMappingTest</td>
-<td></td>
-<td>22</td>
-<td>com.tetherfi.test.chat.ChatIntentSkillMappingTest@550e9be6</td></tr>
-<tr>
 <td title='com.tetherfi.test.chat.ChatIntentSkillMappingTest.VerifyAuditTrialReportForUpdate()'><b>VerifyAuditTrialReportForUpdate</b><br>Test class: com.tetherfi.test.chat.ChatIntentSkillMappingTest</td>
 <td></td>
 <td>22</td>
@@ -400,17 +430,12 @@ Session ID: a6b9d5689cfb29f9b315baa5380a7673
 <tr>
 <td title='com.tetherfi.test.chat.ChatIntentSkillMappingTest.VerifyCancelBtnAtAddRecord()'><b>VerifyCancelBtnAtAddRecord</b><br>Test class: com.tetherfi.test.chat.ChatIntentSkillMappingTest</td>
 <td></td>
-<td>43</td>
+<td>45</td>
 <td>com.tetherfi.test.chat.ChatIntentSkillMappingTest@550e9be6</td></tr>
 <tr>
 <td title='com.tetherfi.test.chat.ChatIntentSkillMappingTest.VerifyCancelBtnAtDeleteChatIntentSkillMappingRecord()'><b>VerifyCancelBtnAtDeleteChatIntentSkillMappingRecord</b><br>Test class: com.tetherfi.test.chat.ChatIntentSkillMappingTest</td>
 <td></td>
-<td>49</td>
-<td>com.tetherfi.test.chat.ChatIntentSkillMappingTest@550e9be6</td></tr>
-<tr>
-<td title='com.tetherfi.test.chat.ChatIntentSkillMappingTest.VerifyCancelBtnAtEditRecord()'><b>VerifyCancelBtnAtEditRecord</b><br>Test class: com.tetherfi.test.chat.ChatIntentSkillMappingTest</td>
-<td></td>
-<td>49</td>
+<td>47</td>
 <td>com.tetherfi.test.chat.ChatIntentSkillMappingTest@550e9be6</td></tr>
 <tr>
 <td title='com.tetherfi.test.chat.ChatIntentSkillMappingTest.VerifyColumnsHeaderDisable()'><b>VerifyColumnsHeaderDisable</b><br>Test class: com.tetherfi.test.chat.ChatIntentSkillMappingTest</td>
@@ -418,34 +443,49 @@ Session ID: a6b9d5689cfb29f9b315baa5380a7673
 <td>6</td>
 <td>com.tetherfi.test.chat.ChatIntentSkillMappingTest@550e9be6</td></tr>
 <tr>
+<td title='com.tetherfi.test.chat.ChatIntentSkillMappingTest.VerifyColumnsHeaderEnable()'><b>VerifyColumnsHeaderEnable</b><br>Test class: com.tetherfi.test.chat.ChatIntentSkillMappingTest</td>
+<td></td>
+<td>5</td>
+<td>com.tetherfi.test.chat.ChatIntentSkillMappingTest@550e9be6</td></tr>
+<tr>
 <td title='com.tetherfi.test.chat.ChatIntentSkillMappingTest.VerifyDropdownForAllTheColumns()'><b>VerifyDropdownForAllTheColumns</b><br>Test class: com.tetherfi.test.chat.ChatIntentSkillMappingTest</td>
 <td></td>
 <td>12</td>
 <td>com.tetherfi.test.chat.ChatIntentSkillMappingTest@550e9be6</td></tr>
 <tr>
+<td title='com.tetherfi.test.chat.ChatIntentSkillMappingTest.VerifyNumberOfItemsPerPageSelection()'><b>VerifyNumberOfItemsPerPageSelection</b><br>Test class: com.tetherfi.test.chat.ChatIntentSkillMappingTest</td>
+<td></td>
+<td>5</td>
+<td>com.tetherfi.test.chat.ChatIntentSkillMappingTest@550e9be6</td></tr>
+<tr>
 <td title='com.tetherfi.test.chat.ChatIntentSkillMappingTest.VerifySearchContains()'><b>VerifySearchContains</b><br>Test class: com.tetherfi.test.chat.ChatIntentSkillMappingTest</td>
 <td></td>
-<td>6</td>
+<td>4</td>
 <td>com.tetherfi.test.chat.ChatIntentSkillMappingTest@550e9be6</td></tr>
 <tr>
 <td title='com.tetherfi.test.chat.ChatIntentSkillMappingTest.VerifySearchDoesNotContains()'><b>VerifySearchDoesNotContains</b><br>Test class: com.tetherfi.test.chat.ChatIntentSkillMappingTest</td>
 <td></td>
-<td>6</td>
+<td>5</td>
 <td>com.tetherfi.test.chat.ChatIntentSkillMappingTest@550e9be6</td></tr>
 <tr>
 <td title='com.tetherfi.test.chat.ChatIntentSkillMappingTest.VerifySearchEndsWith()'><b>VerifySearchEndsWith</b><br>Test class: com.tetherfi.test.chat.ChatIntentSkillMappingTest</td>
 <td></td>
-<td>6</td>
+<td>4</td>
 <td>com.tetherfi.test.chat.ChatIntentSkillMappingTest@550e9be6</td></tr>
 <tr>
 <td title='com.tetherfi.test.chat.ChatIntentSkillMappingTest.VerifySearchIsNotEqualTo()'><b>VerifySearchIsNotEqualTo</b><br>Test class: com.tetherfi.test.chat.ChatIntentSkillMappingTest</td>
 <td></td>
-<td>6</td>
+<td>5</td>
 <td>com.tetherfi.test.chat.ChatIntentSkillMappingTest@550e9be6</td></tr>
 <tr>
 <td title='com.tetherfi.test.chat.ChatIntentSkillMappingTest.VerifySearchStartsWith()'><b>VerifySearchStartsWith</b><br>Test class: com.tetherfi.test.chat.ChatIntentSkillMappingTest</td>
 <td></td>
-<td>4</td>
+<td>3</td>
+<td>com.tetherfi.test.chat.ChatIntentSkillMappingTest@550e9be6</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatIntentSkillMappingTest.VerifyTotalNumberOfItemsPerPageDetails()'><b>VerifyTotalNumberOfItemsPerPageDetails</b><br>Test class: com.tetherfi.test.chat.ChatIntentSkillMappingTest</td>
+<td></td>
+<td>0</td>
 <td>com.tetherfi.test.chat.ChatIntentSkillMappingTest@550e9be6</td></tr>
 <tr>
 <td title='com.tetherfi.test.chat.ChatIntentSkillMappingTest.database()'><b>database</b><br>Test class: com.tetherfi.test.chat.ChatIntentSkillMappingTest</td>
@@ -455,12 +495,12 @@ Session ID: a6b9d5689cfb29f9b315baa5380a7673
 <tr>
 <td title='com.tetherfi.test.chat.ChatIntentSkillMappingTest.searchPage()'><b>searchPage</b><br>Test class: com.tetherfi.test.chat.ChatIntentSkillMappingTest</td>
 <td></td>
-<td>4</td>
+<td>3</td>
 <td>com.tetherfi.test.chat.ChatIntentSkillMappingTest@550e9be6</td></tr>
 <tr>
 <td title='com.tetherfi.test.chat.ChatIntentSkillMappingTest.searchwithoutSearchTextbox()'><b>searchwithoutSearchTextbox</b><br>Test class: com.tetherfi.test.chat.ChatIntentSkillMappingTest</td>
 <td></td>
-<td>4</td>
+<td>3</td>
 <td>com.tetherfi.test.chat.ChatIntentSkillMappingTest@550e9be6</td></tr>
 </table><p>
 </body>

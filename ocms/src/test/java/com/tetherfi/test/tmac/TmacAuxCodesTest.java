@@ -350,7 +350,7 @@ public class TmacAuxCodesTest extends BaseTest {
     	 TmacAuxCodesDetails tmacAuxCodesdetails=new TmacAuxCodesDetails(map);
     	 TmacAuxCodesPage tmacAuxCodesPage=PageFactory.createPageInstance(driver, TmacAuxCodesPage.class);
     	 Assert.assertTrue(tmacAuxCodesPage.verifySearchStartsWith(tmacAuxCodesdetails.getCode()), "Search assertion Failed");
-     }
+     }*/
      
      @Test(priority=35)
      public void SearchEndsWith() throws Exception {
@@ -359,7 +359,7 @@ public class TmacAuxCodesTest extends BaseTest {
     	 TmacAuxCodesDetails tmacAuxCodesdetails=new TmacAuxCodesDetails(map);
     	 TmacAuxCodesPage tmacAuxCodesPage=PageFactory.createPageInstance(driver, TmacAuxCodesPage.class);
     	 Assert.assertTrue(tmacAuxCodesPage.verifySearchEndsWith(tmacAuxCodesdetails.getCode()), "Search assertion Failed");
-     }*/
+     }
      
      
      

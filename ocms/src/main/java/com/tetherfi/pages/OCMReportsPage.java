@@ -1156,6 +1156,7 @@ return status;
 		waitForJqueryLoad(driver);
         selectWebElement(selectSearchColumn.get(0));
         selectDropdownFromVisibleText(columnNameList,"Transaction");
+        Thread.sleep(1000);
         selectWebElement(selectSearchColumn.get(1));
         selectDropdownFromVisibleText(searchTypeList,"Is equal to");
         enterValueToTxtField(searchTextBox,Transaction);
@@ -1180,6 +1181,7 @@ return status;
 		waitForJqueryLoad(driver);
         selectWebElement(selectSearchColumn.get(0));
         selectDropdownFromVisibleText(columnNameList,"Transaction");
+        Thread.sleep(1000);
         selectWebElement(selectSearchColumn.get(1));
         selectDropdownFromVisibleText(searchTypeList,"Is equal to");
         enterValueToTxtField(searchTextBox,Transaction);
@@ -1189,6 +1191,7 @@ return status;
         Thread.sleep(2000);
         selectWebElement(selectSearchColumn.get(2));
         selectDropdownFromVisibleTextContains(columnNameListtwo,"Old Value");
+        Thread.sleep(1000);
         selectWebElement(selectSearchColumn.get(3));
         selectDropdownFromVisibleText(searchTypeListtwo,"Contains");
         enterValueToTxtField(searchTextBoxtwo,Name);
@@ -1348,7 +1351,7 @@ return status;
     							}
     							if(newvalues.get("Color").equals(details.getUpdatedColorCode())){
     								if(newvalues.get("ColorCode").equals(details.getUpdatedColorCode())){
-    									if(newvalues.get("StartTime").equals(details.getUpdatedStartTime())) {
+    									if(newvalues.get("StartTime").equals(details.getStartTime())) {
     										if(newvalues.get("EndTime").equals(details.getEndTime())){
     											if(newvalues.get("ModifyReason").equals(details.getModifyReason())) {
     												if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getModifyReason()))
@@ -5064,9 +5067,9 @@ return status;
 			if(f.length>1)
 			newvalues.put(f[0], f[1]);
 		}
-			if(newvalues.get("FirstName").equals(details.getfirstName()))
+			if(newvalues.get("Name1").equals(details.getfirstName()))
 			{
-				if(newvalues.get("LastName").equals(details.getlastName()))
+				if(newvalues.get("Name2").equals(details.getlastName()))
 				{
 					if(newvalues.get("FaxNumber").equals(details.getNumber()))
 					{
@@ -5093,8 +5096,8 @@ return status;
     			if(f.length>1)
     				oldvalues.put(f[0], f[1]);
     		}
-    		if(oldvalues.get("FirstName").equals(details.getfirstName())){
-    			if(oldvalues.get("LastName").equals(details.getlastName())){
+    		if(oldvalues.get("Name1").equals(details.getfirstName())){
+    			if(oldvalues.get("Name2").equals(details.getlastName())){
     				if(oldvalues.get("FaxNumber").equals(details.getNumber())) {
     					if(firstRowData.containsKey("New Values")) {
     						Map<String,String> newvalues=new HashMap<>();
@@ -5104,8 +5107,8 @@ return status;
                 				if(f.length>1)
                 					newvalues.put(f[0], f[1]);
                 			}
-                			if(newvalues.get("FirstName").equals(details.getUpdatedFirstName())) {
-                				if(newvalues.get("LastName").equals(details.getlastName())){
+                			if(newvalues.get("Name1").equals(details.getUpdatedFirstName())) {
+                				if(newvalues.get("Name2").equals(details.getlastName())){
                 					if(newvalues.get("FaxNumber").equals(details.getNumber())) {	
                     					if(newvalues.get("ModifyReason").equals(details.getModifyReason())){ 
                 							if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getModifyReason()))
@@ -5143,9 +5146,9 @@ return status;
 			if(f.length>1)
 			oldvalues.put(f[0], f[1]);
 		}
-			if(oldvalues.get("FirstName").equals(details.getfirstName()))
+			if(oldvalues.get("Name1").equals(details.getfirstName()))
 			{
-				if(oldvalues.get("LastName").equals(details.getlastName()))
+				if(oldvalues.get("Name2").equals(details.getlastName()))
 				{
 					if(oldvalues.get("FaxNumber").equals(details.getNumber()))
 					{
