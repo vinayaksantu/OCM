@@ -24,13 +24,13 @@ public class AgentAuxReportTest extends BaseTest {
 	@BeforeMethod
 	public void NavigateToOcmReportsPage() {
 		HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
-		homePage.navigateToOcmIconImg();
+		homePage.navigateToOCMIconImg();
 		homePage.navigateToOCMReportsPage();
 		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
 		Assert.assertTrue(ocmReportsPage.isOCMReportPageIsDisplayed());
 	}
 
-	@Test(priority=1)
+	/*@Test(priority=1)
 	public void ShowAgentAuxReport() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentAuxReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
@@ -430,8 +430,21 @@ public class AgentAuxReportTest extends BaseTest {
 		ocmReportsPage.showReport(reportDetails);  
 		AgentAuxReportPage agntScrptPage=PageFactory.createPageInstance(driver,AgentAuxReportPage.class);
 		agntScrptPage.verifySearchClear(reportDetails);    	
-	}   
+	}  */ 
 
+	@Test(priority=39)
+    public void database() throws Exception{
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentAuxReportData.xlsx";
+    	Map<String, String> map = new ExcelReader(filePath, "Queries").getTestData().get(0);
+    	ReportDetails reportDetails= new ReportDetails(map); 
+    	OCMReportsPage ocmReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
+      	ocmReportsPage.showReport(reportDetails);
+      	AgentAuxReportPage agntloginlogoutPage=PageFactory.createPageInstance(driver,AgentAuxReportPage.class);
+    	Assert.assertTrue(agntloginlogoutPage.verifyDatabase(reportDetails.getQuery(),reportDetails));
+    }
+
+	
+	
 	@AfterMethod
 	public void afterEachMethod(Method method) throws InterruptedException {
 		Screenshot screenshot=new Screenshot(driver);

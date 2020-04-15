@@ -1,8 +1,5 @@
-
 package com.tetherfi.test.reports;
-import java.io.IOException;
 import java.lang.reflect.Method;
-import java.util.List;
 import java.util.Map;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
@@ -11,13 +8,11 @@ import org.testng.annotations.Test;
 import com.tetherfi.model.report.ReportDetails;
 import com.tetherfi.pages.HomePage;
 import com.tetherfi.pages.AgentLoginLogoutReportPage;
-import com.tetherfi.pages.AgentSettingsNewDesignPage;
 import com.tetherfi.pages.OCMReportsPage;
 import com.tetherfi.test.BaseTest;
 import com.tetherfi.utility.ExcelReader;
 import com.tetherfi.utility.PageFactory;
 import com.tetherfi.utility.Screenshot;
-import com.tetherfi.utility.JSONReader;
 import com.tetherfi.utility.FTPServer;
 
 public class AgentLoginLogoutReportTest extends BaseTest {
@@ -30,7 +25,7 @@ public class AgentLoginLogoutReportTest extends BaseTest {
 	@BeforeMethod
 	public void NavigateToOcmReportsPage() {
 		HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
-		homePage.navigateToOcmIconImg();
+		homePage.navigateToOCMIconImg();
 		homePage.navigateToOCMReportsPage();
 		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
 		Assert.assertTrue(ocmReportsPage.isOCMReportPageIsDisplayed());       
@@ -38,7 +33,7 @@ public class AgentLoginLogoutReportTest extends BaseTest {
 		ftp.transferFileFromRemote(remoteFilePath,destinationFilePath);
 	}
 
-	@Test(priority=1)
+	/*@Test(priority=1)
 	public void ShowAgentLoginLogoutReport() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentLoginLogoutReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
@@ -99,7 +94,7 @@ public class AgentLoginLogoutReportTest extends BaseTest {
 		Assert.assertTrue(ocmReportsPage.verifyDateRangeReportDisplayed(reportDetails),"Show report assertion failed");
 	}
 
-	@Test(priority=7,dependsOnMethods ="ShowOcmAgentLoginLogoutReportForDateRange")
+	/*@Test(priority=7,dependsOnMethods ="ShowOcmAgentLoginLogoutReportForDateRange")
 	public void ShowOcmAgentLoginLogoutReportInNewTabDateRange() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentLoginLogoutReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowInNewPageDateRange").getTestData().get(0);
@@ -451,7 +446,7 @@ public class AgentLoginLogoutReportTest extends BaseTest {
 		agntloginlogoutPage.verifycolumnsHeaderEnabled();
 		JSONReader json= new JSONReader(destinationFilePath);
 		Assert.assertTrue(agntloginlogoutPage.verifyJsonDataForgridColumnHidden(json.getJsonGridColumnTitleKeyDataForReports("Hidden")),"JSON data grid column hidden assertion failed");  	
-	}
+	}*/
 
 	@Test(priority=39)
 	public void database() throws Exception{
@@ -460,8 +455,8 @@ public class AgentLoginLogoutReportTest extends BaseTest {
 		ReportDetails reportDetails= new ReportDetails(map); 
 		OCMReportsPage ocmReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
 		ocmReportsPage.showReport(reportDetails);
-		AgentLoginLogoutReportPage agntloginlogoutPage=PageFactory.createPageInstance(driver,AgentLoginLogoutReportPage.class);
-		Assert.assertTrue(agntloginlogoutPage.verifyDatabase(reportDetails.getQuery(),reportDetails));
+		AgentLoginLogoutReportPage agentLoginLogoutPage=PageFactory.createPageInstance(driver,AgentLoginLogoutReportPage.class);
+		Assert.assertTrue(agentLoginLogoutPage.verifyDatabase(reportDetails.getQuery(),reportDetails));
 	}
 
 	@AfterMethod

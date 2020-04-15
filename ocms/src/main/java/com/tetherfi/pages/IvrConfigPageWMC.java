@@ -518,7 +518,6 @@ public class IvrConfigPageWMC extends BasePage{
 		return false;
 	}
 		
-	
 	private List<Map<String,String>> getdata(){
 		int item=Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
         int pagersize=Integer.valueOf(pagerSize.getText());

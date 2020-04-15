@@ -11,6 +11,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -773,6 +774,10 @@ public class AgentAuxReportPage extends BasePage  {
 						//System.out.println(substring);
 						//=substring[0] * 60 * 60 + substring[1] * 60 + substring[2]); 
 						//sytem.out.println("seconds="+seconds);
+					long upTime=System.currentTimeMillis();
+					
+					long days=TimeUnit.MILLISECONDS.toDays(upTime);
+					
 					}
 
 					else

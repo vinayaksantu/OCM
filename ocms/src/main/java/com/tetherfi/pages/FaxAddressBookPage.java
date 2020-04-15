@@ -147,6 +147,9 @@ public class FaxAddressBookPage extends BasePage {
     
     @FindBy(css = ".k-grid-edit")
     private WebElement editButton;
+      
+    @FindBy(xpath="//*[@id=\"drillgrid\"]/div[4]/table/tbody/tr/td[1]/a[1]")
+    private WebElement editButton1; 
     
     @FindBy(id = "ModifyReason")
     private WebElement ModifyReasonTextBox;
@@ -771,7 +774,7 @@ public class FaxAddressBookPage extends BasePage {
 	public void editRecipientRecord(FaxAddressBookDetails details) throws Exception {
 		searchRecipientRecord(details);
 		waitForJqueryLoad(driver);
-		selectWebElement(editButton);
+		selectWebElement(editButton1);
 		waitForJqueryLoad(driver);
 		enterValueToTxtField(firstNameTxtbox,details.getUpdatedFirstName());
 		enterValueToTxtFieldWithoutClear(ModifyReasonTextBox,details.getModifyReason());

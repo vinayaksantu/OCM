@@ -10,28 +10,26 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.tetherfi.model.report.ReportDetails;
-import com.tetherfi.model.user.DashboardColorCodeConfigDetails;
-import com.tetherfi.pages.DashboardColorCodeConfigPage;
 import com.tetherfi.pages.HomePage;
+import com.tetherfi.pages.OCMAgentInteractionReportPage;
 import com.tetherfi.pages.OCMReportsPage;
-import com.tetherfi.pages.AgentInteractionReportPage;
 import com.tetherfi.test.BaseTest;
 import com.tetherfi.utility.ExcelReader;
 import com.tetherfi.utility.PageFactory;
 import com.tetherfi.utility.Screenshot;
 
-public class AgentInteractionReportTest extends BaseTest {
+public class OCMAgentInteractionReportTest extends BaseTest {
 	Screenshot screenshot=new Screenshot(driver);
     @BeforeMethod
     public void NavigateToOcmReportsPage() {
         HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
-        homePage.navigateToOcmIconImg();
+        homePage.navigateToOCMIconImg();
         homePage.navigateToOCMReportsPage();
         OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
         Assert.assertTrue(ocmReportsPage.isOCMReportPageIsDisplayed());
     }  
     
-    @Test(priority=1)
+    /*@Test(priority=1)
     public void ShowOCMAgentinteractionReport() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentInteractionReportData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
@@ -398,7 +396,8 @@ public class AgentInteractionReportTest extends BaseTest {
         ReportDetails reportDetails= new ReportDetails(map);
         OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);                   
         ocmReportsPage.ClearAdvFilters(reportDetails);
-    }   
+    }
+       
    @Test(priority=37)
     public void GroupBy() throws Exception{
 	   String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentInteractionReportData.xlsx";
@@ -411,20 +410,25 @@ public class AgentInteractionReportTest extends BaseTest {
   	  screenshot.captureScreen("OCMAgentinteractionReport", "GroupBy");
   	  Assert.assertTrue(Agentintactnpage.groupby());
       screenshot.captureScreen("OCMAgentinteractionReport", "AlreadyGroupBy");
-    }
+    }*/
     
-   /*@Test(priority=38)
+    @Test(priority=38)
     public void database() throws Exception {
-   		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentInteractionReportData.xlsx";
-   		Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(0);
-   		ReportDetails reportDetails= new ReportDetails(map);
-   		AgentInteractionReportPage Agentintactnpage=PageFactory.createPageInstance(driver,AgentInteractionReportPage.class);
-   		Assert.assertTrue(Agentintactnpage.verifyDatabase(reportDetails.getQuery()));
-   }*/
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentInteractionReportData.xlsx";
+    	Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(0);
+    	ReportDetails reportDetails= new ReportDetails(map);
+    	OCMReportsPage ocmReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
+    	ocmReportsPage.showReport(reportDetails);
+    	OCMAgentInteractionReportPage AgentInteractionReportPage =PageFactory.createPageInstance(driver,OCMAgentInteractionReportPage.class);
+    	Assert.assertTrue(AgentInteractionReportPage.verifyDatabase(reportDetails.getQuery(), reportDetails));
+    }
 
     
     @AfterMethod
-    public void afterEachMethod(Method method) {
-    	screenshot.captureScreen(driver, "", method.getName());
-    }
+	public void afterEachMethod(Method method) throws InterruptedException {
+		Screenshot screenshot=new Screenshot(driver);
+		screenshot.captureScreen("OCMAgentInteractionReportTest",method.getName());
+		driver.navigate().refresh();
+	}
+
 }

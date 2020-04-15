@@ -3,17 +3,17 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.tetherfi.test.reports.AgentAuxReportTest">
+      <class name="com.tetherfi.test.reports.OCMAgentInteractionReportTest">
         <methods>
-          <include name="ShowAgentAuxReport"/>
+          <include name="afterEachMethod"/>
           <include name="startTestCase"/>
           <include name="openApplication"/>
+          <include name="database"/>
+          <include name="NavigateToOcmReportsPage"/>
           <include name="endTestCase"/>
           <include name="tearDown"/>
-          <include name="afterEachMethod"/>
-          <include name="NavigateToOcmReportsPage"/>
         </methods>
-      </class> <!-- com.tetherfi.test.reports.AgentAuxReportTest -->
+      </class> <!-- com.tetherfi.test.reports.OCMAgentInteractionReportTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

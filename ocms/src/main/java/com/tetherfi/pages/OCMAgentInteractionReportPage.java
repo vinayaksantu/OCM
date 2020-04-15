@@ -16,9 +16,9 @@ import org.openqa.selenium.support.FindBy;
 
 import com.tetherfi.model.report.ReportDetails;
 
-public class AgentInteractionReportPage extends BasePage  {
+public class OCMAgentInteractionReportPage extends BasePage  {
 	
-	  public AgentInteractionReportPage(WebDriver driver) {
+	  public OCMAgentInteractionReportPage(WebDriver driver) {
 	        super(driver);
 	    }
 				  
@@ -920,7 +920,9 @@ public class AgentInteractionReportPage extends BasePage  {
 		        else {
 		        	return errorMsg.get(0).getText();}
 			}			
-			public boolean verifyDatabase(String query) {
+			
+			
+			/*public boolean verifyDatabase(String query) {
 				List<Map<String,String>> database=database(query);
 				System.out.println(database);
 				List<Map<String,String>> UI=getDataTable(); 
@@ -929,7 +931,37 @@ public class AgentInteractionReportPage extends BasePage  {
 					return true;
 				else
 					return false;
+			}*/
+		
+			public boolean verifyDatabase(String query,ReportDetails details) {
+				//get dates from xl - step 2
+				String reportbeforedate = details.getStartDate();
+				String reportafterdate=details.getEndDate();
+				//change date formats - step 3
+				reportbeforedate	=reportbeforedate.substring(6,10)+reportbeforedate.substring(3, 5)+reportbeforedate.substring(0, 2)+reportbeforedate.substring(11, 13)+reportbeforedate.substring(14, 16)+reportbeforedate.substring(17, 19);
+				reportafterdate	=reportafterdate.substring(6,10)+reportafterdate.substring(3, 5)+reportafterdate.substring(0, 2)+reportafterdate.substring(11, 13)+reportafterdate.substring(14, 16)+reportafterdate.substring(17, 19);
+				//Replace identifiers in query to formatted date - step 5
+				query=query.replaceAll("ReportBeforeDate",reportbeforedate );
+				query=query.replaceAll("ReportAfterDate",reportafterdate );
+				List<Map<String,String>> database=database(query);
+				System.out.println(query);		
+				System.out.println("*********");
+				System.out.println(database);
+				//added this
+				/*Map<String, String> dbdata=database.get(0);
+				System.out.println(dbdata);
+				String AgentID=dbdata.get("Agent ID");
+				System.out.println(AgentID);*/
+				//ended here
+				System.out.println("***************");
+				List<Map<String,String>> UI=getDataTable(); 
+				System.out.println(UI);	
+				if(UI.equals(database))
+					return true;
+				else
+					return false;
 			}
+			
 			 public boolean groupby() {
 					DragandDrop(channel,droptarget);
 					try {

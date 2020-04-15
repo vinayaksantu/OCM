@@ -57,6 +57,7 @@ public class BasePage {
     	  e.printStackTrace();
       }
     }
+    
     public void waitUntilLoadingImageDisapper(WebDriver driver){
         Wait<WebDriver> wait= new FluentWait<WebDriver>(driver).withTimeout(30, TimeUnit.SECONDS).pollingEvery(5,TimeUnit.SECONDS).ignoring(java.util.NoSuchElementException.class).ignoring(TimeoutException.class);
         WebElement e=wait.until(new Function<WebDriver, WebElement>() {
@@ -66,6 +67,7 @@ public class BasePage {
         });
         if(e!=null){waitUntilInvisibilityOfWebElement(e);}
     }
+    
 	public void waitForJqueryLoad(WebDriver driver) {
         try {
             WebDriverWait wait = new WebDriverWait(driver, 20);
@@ -99,10 +101,8 @@ public class BasePage {
             }
         }
     }
-
-
-    public void waitForWebElementIgnoringStaleException(WebElement element) 
-    {
+    
+    public void waitForWebElementIgnoringStaleException(WebElement element) {
         WebDriverWait webDriverWait = new WebDriverWait(driver, 30);
         webDriverWait.ignoring(StaleElementReferenceException.class).until(ExpectedConditions.visibilityOf(element));
     }
@@ -116,23 +116,19 @@ public class BasePage {
         WebDriverWait webDriverWait = new WebDriverWait(driver, 20);
         webDriverWait.ignoring(ElementNotInteractableException.class).until(ExpectedConditions.elementToBeClickable(element));
     }
-	public void waitForWebElementsEnabled(List<WebElement> webElementList) {
+	
+    public void waitForWebElementsEnabled(List<WebElement> webElementList) {
         for(WebElement element: webElementList){
         WebDriverWait webDriverWait = new WebDriverWait(driver, 30);
         webDriverWait.until(ExpectedConditions.elementToBeSelected(element));}
     }
-    public void waitUntilWebElementIsVisible(WebElement webElement) { 
-        {
-            WebDriverWait webDriverWait = new WebDriverWait(driver, 30);
-            webDriverWait.ignoring(StaleElementReferenceException.class).until(ExpectedConditions.visibilityOf(webElement));
-        }
-		
-	}
     
+    public void waitUntilWebElementIsVisible(WebElement webElement) {    
+    	WebDriverWait webDriverWait = new WebDriverWait(driver, 30);
+    	webDriverWait.ignoring(StaleElementReferenceException.class).until(ExpectedConditions.visibilityOf(webElement));		
+    }
     
-
-    public void waitUntilWebElementListIsVisible(List<WebElement> webElementList) 
-    {
+    public void waitUntilWebElementListIsVisible(List<WebElement> webElementList) {
             for(WebElement ele: webElementList)
             {
             WebDriverWait webDriverWait = new WebDriverWait(driver, 20);
@@ -201,10 +197,12 @@ public class BasePage {
         waitForWebElementIgnoringElementNotInteractableException(webElement);
         webElement.click();
     }
+    
     public void selectInvisibleWebElement(WebElement webElement){
         JavascriptExecutor js = (JavascriptExecutor)driver;
         js.executeScript("arguments[0].click();", webElement);
     }
+    
     public boolean isWebElementEnabled(WebElement validateBtn) {
         return validateBtn.isEnabled();
     }
@@ -407,12 +405,14 @@ public class BasePage {
             }
         }
     }*/    
+    
     public void switchToNewWindow(){
         String oldTab=driver.getWindowHandle();
         ArrayList<String> newTab = new ArrayList<String>(driver.getWindowHandles());
         newTab.remove(oldTab);
         driver.switchTo().window(newTab.get(0));
     }
+    
     public void switchBackToParentWindow(){
         String newTab=driver.getWindowHandle();
         ArrayList<String> oldTab = new ArrayList<String>(driver.getWindowHandles());
@@ -420,10 +420,12 @@ public class BasePage {
         oldTab.remove(newTab);
         driver.switchTo().window(oldTab.get(0));
     }
-	public void switchToWindow(int i){
+	
+    public void switchToWindow(int i){
         ArrayList<String> Tabs = new ArrayList<String>(driver.getWindowHandles());
         driver.switchTo().window(Tabs.get(i));
     }
+    
     public void clickOnUsingActionClass(WebElement ele){
         Actions builder = new Actions(driver);
         Action clickon = builder.click(ele).build();
@@ -443,8 +445,7 @@ public class BasePage {
             return false;
         }
     }
-    public List<Map<String,String>> database(String query)
-	{
+    public List<Map<String,String>> database(String query){
 		DatabaseConnector dc=new DatabaseConnector();
 		dc.connectToDataBase(Constants.db_name);
 		ResultSet rs=dc.executeQuery(query);
@@ -459,6 +460,7 @@ public class BasePage {
 		dc.insertQuery(Query);
 		dc.closeDbConnection();
     }
+    
     public boolean verifyExportPageFileDownload(String filepath, String pattern){
         File downloadsDir = new File(filepath);
         File[] downloadDirFiles = downloadsDir.listFiles();
@@ -474,11 +476,11 @@ public class BasePage {
         }return status;
     }
     
-    public void DragandDrop(WebElement ele,WebElement ele1)
-    {
+    public void DragandDrop(WebElement ele,WebElement ele1){
     	Actions builder = new Actions(driver);
     	builder.dragAndDrop(ele, ele1).build().perform();;
     }   
+    
 	public void selectDropdownFromVisibleTextContains(List<WebElement> webElementList, String text) {
         waitUntilWebElementListIsVisible(webElementList);
         waitUntilWebElementListIsClickable(webElementList);
@@ -487,23 +489,23 @@ public class BasePage {
             if(ele.getText().contains(text)){ele.click();break;}
         }
     }
-    public void waitForWebElementsIgnoringStaleException(List<WebElement> elements) {
+    
+	public void waitForWebElementsIgnoringStaleException(List<WebElement> elements) {
         for(WebElement element:elements){
             WebDriverWait webDriverWait = new WebDriverWait(driver, 30);
             webDriverWait.ignoring(StaleElementReferenceException.class).until(ExpectedConditions.visibilityOf(element));}
     }
-    public void waitUntilNewTabIsOpen(int windowsize){
+    
+	public void waitUntilNewTabIsOpen(int windowsize){
         WebDriverWait wait = new WebDriverWait(driver, 120);
         wait.ignoring(NoSuchWindowException.class).until(ExpectedConditions.numberOfWindowsToBe(windowsize));
     }
     
-    public String converttostring(String str[])
-	{
+    public String converttostring(String str[]){
 		StringBuilder sb = new StringBuilder();
 		for (String str1 : str)
 			sb.append(str1);
-		return sb.toString();
-		
+		return sb.toString();	
 	}
     
     

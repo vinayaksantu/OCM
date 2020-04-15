@@ -143,6 +143,9 @@ public class OCMReportsPage extends BasePage {
     @FindBy(css="#toast-container .toast-error")
     private List<WebElement> errorMsg;
 
+    @FindBy(css="#toast-container .toast-message")
+    private WebElement errorMsg1;
+     
     //Reports Download page web elements
     @FindBy(id="notifications")
     private WebElement notificationIcon;
@@ -290,6 +293,8 @@ public class OCMReportsPage extends BasePage {
     
     @FindBy(xpath="//button[@id='clearAll']")
 	private WebElement ClearAllFiltersAdvSrch; 
+    
+    
 
     
     public boolean isShowButtonsDisplayed() {
@@ -317,6 +322,7 @@ public class OCMReportsPage extends BasePage {
         waitForJqueryLoad(driver);
         return ocmReportsManager.isEnabled();
     }
+    
     public void showReport(ReportDetails details) throws Exception {
         chooseReport(details);
         if(details.getAdvancedsearch().equalsIgnoreCase("Yes")){chooseAdvancedSearch(details);}
@@ -325,6 +331,8 @@ public class OCMReportsPage extends BasePage {
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(gridBoxContent);
     }
+    
+    
     public void chooseAdvancedSearch(ReportDetails details){
     try{selectWebElement(advancedSearchBtn);
     selectWebElement(selectSearchColumn.get(0));
@@ -335,6 +343,7 @@ public class OCMReportsPage extends BasePage {
     selectDropdownFromVisibleText(searchTypeList,details.getColtype());
     enterValueToTxtField(searchText.get(0),details.getSearchStr());
     }catch(Exception e){e.printStackTrace();}}
+    
     public void showReportInNewPage(ReportDetails details) throws Exception {
         chooseReport(details);
         selectWebElement(showReportBtn.get(1));
@@ -343,14 +352,17 @@ public class OCMReportsPage extends BasePage {
         waitForJqueryLoad(driver);
       waitUntilWebElementIsVisible(gridBoxContent);
     }
+    
     public void exportReport(ReportDetails details) throws Exception{
         chooseReport(details);
         selectWebElement(exportReportBtn);
     }
+    
     public void scheduleReport(ReportDetails details) throws Exception{
         chooseReport(details);
         selectWebElement(scheduleReport);
     }
+    
     public void viewDownloadedReportInNotificationTab(){
         selectWebElement(viewDownloadedReport);
         waitForLoad(driver);
@@ -358,30 +370,33 @@ public class OCMReportsPage extends BasePage {
         selectWebElement(notificationIcon);
         waitUntilWebElementIsVisible(notificationPan);
     }
-    public void viewDownloadedReportInReportsDownloadsPage() {
-        waitForLoad(driver);
-        waitForJqueryLoad(driver);
-        selectWebElement(viewDownloadedReport);
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        waitForLoad(driver);
-        waitForJqueryLoad(driver);
+    
+    public void viewDownloadedReportInReportDownloadsPage() {
+    	waitForLoad(driver);
+    	waitForJqueryLoad(driver);
+    	selectWebElement(viewDownloadedReport);
+    	try {
+    		Thread.sleep(2000);
+    	} catch (InterruptedException e) {
+    		e.printStackTrace();
+    	}
+    	waitForLoad(driver);
+    	waitForJqueryLoad(driver);
     }
+    
     public boolean verifyDownloadedReportNameInNotificationPan(String reportname){
-        if(notificationReportNameList.get(0).getText().contains(reportname)){
-            return true;}else{
-            System.out.println("Wrong Report name:"+notificationReportNameList.get(0).getText());return false;}
-        }
+    	if(notificationReportNameList.get(0).getText().contains(reportname)){
+    		return true;}else{
+    			System.out.println("Wrong Report name:"+notificationReportNameList.get(0).getText());return false;}
+    }
+    
     public boolean verifyDownloadedReportGeneratedTime(){
-        String pattern = "dd/MM/yyyy";
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
-        String date = simpleDateFormat.format(new Date());
-        if(notificationReportGeneratedOnList.get(0).getText().contains("Generated On : "+date)){
-            return true;
-        }else {System.out.println("Wrong Report generated Date:"+notificationReportGeneratedOnList.get(0).getText());return false;}
+    	String pattern = "dd/MM/yyyy";
+    	SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+    	String date = simpleDateFormat.format(new Date());
+    	if(notificationReportGeneratedOnList.get(0).getText().contains("Generated On : "+date)){
+    		return true;
+    	}else {System.out.println("Wrong Report generated Date:"+notificationReportGeneratedOnList.get(0).getText());return false;}
     }
     
     public boolean verifyDownloadedReportNameAndTimeInReportsDownloadPage(String reportname){
@@ -391,17 +406,18 @@ public class OCMReportsPage extends BasePage {
     	Map<String,String> map=getFirstRowDatafromTable();
     	if(map.get("Report Name").equalsIgnoreCase(reportname)){
     		if(map.get("Report Generated On").contains(date)){return true;}
-    		else{System.out.println("Wrong Report Generated Date:"+map.get("Report Generated On"));return false;}
+    		else{System.out.println("Wrong Report Generated Date:"+map.get("Report Generated On"));
+    		return false;}
     	}
     	else{System.out.println("Wrong Report Name:"+map.get("Report Name"));return false;}
     }
     
     public boolean verifyReportDisplayed(ReportDetails details) {
-        if (reportnameLbl.getText().contains("OCM Reports > " + details.getReportChannel() + " > " + details.getReportName() + " on " + details.getReportDate())) {
-            return true;
-        } else {
-            return false;
-        }
+    	if (reportnameLbl.getText().contains("OCM Reports > " + details.getReportChannel() + " > " + details.getReportName() + " on " + details.getReportDate())) {
+    		return true;
+    	} else {
+    		return false;
+    	}
     }
     
     public boolean verifyAuditTrailReportDisplayed(AgentSettingsDetails details ,String Transaction) throws Exception {
@@ -545,19 +561,40 @@ public class OCMReportsPage extends BasePage {
         }
     return status;
     }
+  
     public boolean verifyDateRangeReportDisplayed(ReportDetails details) {
-        if (reportnameLbl.getText().contains("OCM Reports > " + details.getReportChannel() + " > " + details.getReportName() + " from " + details.getStartDate()+" to "+details.getEndDate())){
-            return true;
-        } else {
-            return false;
-        }
+    	System.out.println(reportnameLbl.getText());
+    	if (reportnameLbl.getText().contains("OCM Reports > " + details.getReportChannel() + " > " + details.getReportName() + " from " + details.getStartDate()+" to "+details.getEndDate())){
+    		return true;
+    	} else {
+    		return false;
+    	}
+
     }
+    
     public boolean verifyReportExported(){
-        waitForJqueryLoad(driver);
-        if(errorMsg.size()>0){return false;}
-        if(waitUntilTextToBePresentInWebElement(successmsg,"Report Export is Initiated... Notification will be sent once Completed"))
-        {return true;}else{return false;}
+    	waitForJqueryLoad(driver);
+    	if(errorMsg.size()>0){
+    		return false;
+    	}
+    	if(waitUntilTextToBePresentInWebElement(successmsg,"Report Export is Initiated... Notification will be sent once Completed"))
+    	{return true;
+    	}else
+    	{return false;
+    	}
     }
+    
+    public  boolean verifyExportReport() {
+    	waitForJqueryLoad(driver);
+    	if(waitUntilTextToBePresentInWebElement(errorMsg1,"There is no record to export")) { 
+    		return true;}
+    	else if(waitUntilTextToBePresentInWebElement(successmsg,"Report Export is Initiated... Notification will be sent once Completed")) {
+    		return true;}	
+    	else {
+    		return false;
+    	}  		 	
+    }
+       
     public boolean verifyScheduleReport(){
         waitForLoad(driver);
         waitForJqueryLoad(driver);
@@ -576,32 +613,32 @@ public class OCMReportsPage extends BasePage {
         selectDropdownFromVisibleText(reportNameListbox, rptName);
     }
     
-    public void chooseReport(ReportDetails details) throws Exception
-    {
-        waitUntilWebElementIsVisible(formContents);
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        selectWebElement(reportChannelDropdown);
-        selectDropdownFromVisibleText(reportChannelListBox, details.getReportChannel());
-        waitForJqueryLoad(driver);
-        selectWebElement(reportNameDropdown);
-        selectDropdownFromVisibleText(reportNameListbox, details.getReportName());
-        waitForJqueryLoad(driver);
-        selectWebElement(reportTypeDropdown);
-        selectDropdownFromVisibleText(reportTypeListbox, details.getReportType());
-        if(details.getReportType().equalsIgnoreCase("Single Date"))
-        {enterValueToTxtField(reportdate, formatDate(details.getReportDate()));
-            reportdate.sendKeys(Keys.TAB);}
-        else if(details.getReportType().equalsIgnoreCase("Date Range")){
-            enterValueToTxtField(startDate,formatDate(details.getStartDate()));
-            startDate.sendKeys(Keys.TAB);
-            enterValueToTxtField(endDate,formatDate(details.getEndDate()));
-            endDate.sendKeys(Keys.TAB);
-        }
+    public void chooseReport(ReportDetails details) throws Exception{
+    	waitUntilWebElementIsVisible(formContents);
+    	try {
+    		Thread.sleep(5000);
+    	} catch (InterruptedException e) {
+    		e.printStackTrace();
+    	}
+    	selectWebElement(reportChannelDropdown);
+    	selectDropdownFromVisibleText(reportChannelListBox, details.getReportChannel());
+    	waitForJqueryLoad(driver);
+    	selectWebElement(reportNameDropdown);
+    	selectDropdownFromVisibleText(reportNameListbox, details.getReportName());
+    	waitForJqueryLoad(driver);
+    	selectWebElement(reportTypeDropdown);
+    	selectDropdownFromVisibleText(reportTypeListbox, details.getReportType());
+    	if(details.getReportType().equalsIgnoreCase("Single Date"))
+    	{enterValueToTxtField(reportdate, formatDate(details.getReportDate()));
+    	reportdate.sendKeys(Keys.TAB);}
+    	else if(details.getReportType().equalsIgnoreCase("Date Range")){
+    		enterValueToTxtField(startDate,formatDate(details.getStartDate()));
+    		startDate.sendKeys(Keys.TAB);
+    		enterValueToTxtField(endDate,formatDate(details.getEndDate()));
+    		endDate.sendKeys(Keys.TAB);
+    	}
     }
+    
     public String formatDate(String date){
         Date dateParsed = null;
         try {
@@ -612,6 +649,7 @@ public class OCMReportsPage extends BasePage {
         String inputDate = new SimpleDateFormat("yyyyMMdd").format(dateParsed);
     return inputDate;
     }
+    
     public void exportPage(){
         emptyDownloadsDirectory(System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles");
         selectWebElement(exportPage);
@@ -737,12 +775,14 @@ public class OCMReportsPage extends BasePage {
         }
         return status;
     }
+    
     private String getProperHeadersInGrid(String cname){
         List<WebElement> rows=gridContent.findElements(By.tagName("tr"));
         List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
         for(WebElement e:headers){if(cname.contains(e.getText())){return e.getText();}}
         return "";
     }
+    
     public boolean verifySearchByTextbox() throws Exception{
         boolean status=false;
         String colname=searchByTextBox.getAttribute("placeholder").split("Search by ")[1];
@@ -773,6 +813,7 @@ public class OCMReportsPage extends BasePage {
         }
         return status;
     }
+    
     public boolean verifySearchByColumnValue() throws Exception{
         boolean status=false;
         List<Map<String,String>> table=getAllDatafromTable();
@@ -811,6 +852,7 @@ public class OCMReportsPage extends BasePage {
         }
 return status;
     }
+    
     private Map<String,String> getFirstRowDatafromTable(){
         Map<String,String> map = new HashMap<>();
         List<WebElement> rows=gridContent.findElements(By.tagName("tr"));
@@ -821,6 +863,7 @@ return status;
         }
         return map;
     }
+    
     public void searchReport(String colname, String criteria, String searchString) throws Exception {
         selectWebElement(searchBtn);
         selectWebElement(searchColDropdown);
@@ -834,6 +877,7 @@ return status;
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(gridContent);
     }
+    
     public boolean verifySearchContainsColumnValue() throws Exception{
         boolean status=false;
         List<Map<String,String>> table=getAllDatafromTable();
@@ -874,6 +918,7 @@ return status;
         }
         return status;
     }
+    
     public boolean verifySearchIsNotEqualsColumnValue() throws Exception{
         boolean status=false;
         List<Map<String,String>> table=getAllDatafromTable();
@@ -912,6 +957,7 @@ return status;
         }
         return status;
     }
+    
     public boolean verifySearchStartsWithColumnValue() throws Exception{
         boolean status=false;
         List<Map<String,String>> table=getAllDatafromTable();
@@ -6211,12 +6257,24 @@ return status;
 			else {System.out.println("DashboardName data mismatch");}
 			return Status;	
 		}
-		public void ClearHomepgDrpDown(ReportDetails details) throws Exception {
+		
+		public void clearAllFilters(ReportDetails details) throws Exception {
 			chooseReport(details);
 			waitUntilWebElementIsClickable(ClearAll);
 			selectWebElement(ClearAll);
-			}
+		}
 
+		public void clearWithoutFilters(ReportDetails details) throws Exception {
+			waitUntilWebElementIsClickable(ClearAll);
+			selectWebElement(ClearAll);
+		}
+		
+		public String getSuccessMessage() {
+			if(successmsg.isDisplayed())
+				return successmsg.getText();
+			else{return errorMsg.get(0).getText();}	
+		}			
+		
 		public boolean verifyExportSchedulerCreate(ExportSchedulerDetails details, String Transaction) throws Exception {
 			booleansearchnew(details.getName(),Transaction);
 			Boolean Status=false;
