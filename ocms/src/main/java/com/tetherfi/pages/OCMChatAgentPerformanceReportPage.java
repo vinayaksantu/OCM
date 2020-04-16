@@ -961,12 +961,12 @@ private WebElement groupbycolor;*/
 		System.out.println(query);		
 		System.out.println("*********");
 		System.out.println(database);
-		//added this
-		Map<String, String> dbdata=database.get(0);
+		
+		/*Map<String, String> dbdata=database.get(0);
 		System.out.println(dbdata);
 		String AgentID=dbdata.get("Agent ID");
-		System.out.println(AgentID);
-		//ended here
+		System.out.println(AgentID);*/
+	
 		System.out.println("***************");
 		List<Map<String,String>> UI=getDataTable(); 
 		System.out.println(UI);	

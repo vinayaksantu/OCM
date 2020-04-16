@@ -431,7 +431,7 @@ public class OCMChatAgentPerformanceReportTest extends BaseTest {
    		Assert.assertTrue(ChatAgentPerformanceReport.verifyDatabase(reportDetails.getQuery(),reportDetails));
    }
        
-    @Test(priority=39, description="To verify number of chats transferred in drill down report")
+    /*@Test(priority=39, description="To verify number of chats transferred in drill down report")
     public void VerifyDrillDownData() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMChatAgentPerformanceReport.xlsx";
     	Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(0);
@@ -441,7 +441,7 @@ public class OCMChatAgentPerformanceReportTest extends BaseTest {
     	OCMChatAgentPerformanceReportPage ChatAgentPerformanceReport=PageFactory.createPageInstance(driver,OCMChatAgentPerformanceReportPage.class);    	
     	ChatAgentPerformanceReport.SearchByAgent("9999");
     	Assert.assertTrue(ChatAgentPerformanceReport.verifyDrillDownData(reportDetails.getQuery(), reportDetails));
-    }
+    }*/
 
     
     

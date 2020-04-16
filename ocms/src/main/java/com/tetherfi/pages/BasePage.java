@@ -450,6 +450,7 @@ public class BasePage {
 		dc.connectToDataBase(Constants.db_name);
 		ResultSet rs=dc.executeQuery(query);
 		List<Map<String,String>> dbdata=dc.getResultSetInMap(rs);
+//		rs.close();
 		dc.closeDbConnection();
 		return dbdata;
 	}

@@ -738,7 +738,9 @@ public class OCMAgentInteractionReportPage extends BasePage  {
 	        		Status= true;
 		}
 	        return Status;	
-		}
+		}	 
+	 		 
+	 //Get data table
 	 private List<Map<String, String>> getDataTable() {
 			int item=Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
 	        int pagersize=Integer.valueOf(pagerSize.getText());
@@ -753,7 +755,8 @@ public class OCMAgentInteractionReportPage extends BasePage  {
 				List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
 				String col=null;
 				for(int j=0;j<headers.size();j++){
-						col=cols.get(j).getText();
+					scrollToElement(headers.get(j));
+					col=cols.get(j).getText();
 					map.put(headers.get(j).getText(),col);
 				}
 				map.remove("");
@@ -765,9 +768,47 @@ public class OCMAgentInteractionReportPage extends BasePage  {
 				waitForJqueryLoad(driver);}
 			}
 				return arr;
-		}
+		}	 
 	 
-		public boolean verifySearchByTextbox(ReportDetails details) throws Exception{	
+	//Login-Logout report
+	 
+	 /*private List<Map<String, String>> getDataTable() {
+			int item=Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
+	        int pagersize=Integer.valueOf(pagerSize.getText());
+	        int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
+			List<Map<String,String>> arr=new ArrayList<Map<String,String>>();
+			for(int k=0;k<=pages;k++){
+			waitUntilWebElementIsVisible(auditGridContent);
+			List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
+			List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
+			for(int i=1;i<rows.size();i++) {
+				Map<String,String> map = new HashMap<String,String>();
+				List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
+				String col=null;
+				for(int j=0;j<headers.size();j++){//change to column name instead of index...........
+						if(j==4||j==5) {
+							String col1=cols.get(j).getText();
+							col=col1.substring(6,10)+col1.substring(3, 5)+col1.substring(0, 2)+col1.substring(11, 13)+col1.substring(14, 16)+col1.substring(17, 19);
+						}
+								else
+						{
+							col=cols.get(j).getText();
+						}
+					
+					map.put(headers.get(j).getText(),col);
+				}
+				map.remove("");
+				arr.add(map);
+			}
+			if(k!=pages)
+			{
+				nextPageIcon.click();
+				waitForJqueryLoad(driver);}
+			}
+				return arr;
+		}*/
+	  
+	 public boolean verifySearchByTextbox(ReportDetails details) throws Exception{	
 		 boolean Status=false;
 		 Map<String, String> map=new HashMap<String,String>() ;
 		 selectWebElement(searchbyfeatureTextBox);    
@@ -944,18 +985,10 @@ public class OCMAgentInteractionReportPage extends BasePage  {
 				query=query.replaceAll("ReportBeforeDate",reportbeforedate );
 				query=query.replaceAll("ReportAfterDate",reportafterdate );
 				List<Map<String,String>> database=database(query);
-				System.out.println(query);		
-				System.out.println("*********");
-				System.out.println(database);
-				//added this
-				/*Map<String, String> dbdata=database.get(0);
-				System.out.println(dbdata);
-				String AgentID=dbdata.get("Agent ID");
-				System.out.println(AgentID);*/
-				//ended here
-				System.out.println("***************");
+				System.out.println("Printing Query" +" "+query);		
+				System.out.println("Printing DB results" +" "+database);
 				List<Map<String,String>> UI=getDataTable(); 
-				System.out.println(UI);	
+				System.out.println("Printing UI Results"+" "+UI);	
 				if(UI.equals(database))
 					return true;
 				else
