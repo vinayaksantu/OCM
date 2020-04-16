@@ -3,20 +3,17 @@
 <suite name="Failed suite [Failed suite [Default suite]]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)(failed)">
     <classes>
-      <class name="com.tetherfi.test.tmac.TmacAuxCodesTest">
+      <class name="com.tetherfi.test.RoleBasedAccessManagementTest">
         <methods>
-          <include name="AddRecordWithoutCode"/>
+          <include name="NavigateToRoleBasedAccessManagementWMCPage"/>
+          <include name="afterEachMethod"/>
           <include name="startTestCase"/>
           <include name="openApplication"/>
-          <include name="DuplicateRecord"/>
-          <include name="verifyAddNewTmacAuxCodesCancelButton"/>
-          <include name="AfterEachMethod"/>
           <include name="endTestCase"/>
           <include name="tearDown"/>
-          <include name="AddRecordWithoutName"/>
-          <include name="NavigateToTmaxAuxCodesPage"/>
+          <include name="VerifySearchEndsWith"/>
         </methods>
-      </class> <!-- com.tetherfi.test.tmac.TmacAuxCodesTest -->
+      </class> <!-- com.tetherfi.test.RoleBasedAccessManagementTest -->
     </classes>
   </test> <!-- Default test(failed)(failed) -->
 </suite> <!-- Failed suite [Failed suite [Default suite]] -->

@@ -1,5 +1,6 @@
 package com.tetherfi.pages;
 
+import com.tetherfi.model.user.CepEventMappingDetails;
 import com.tetherfi.model.user.UserDetails;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -878,6 +879,7 @@ public class RoleBasedAccessManagementPage extends BasePage {
 		waitUntilWebElementListIsVisible(errorMsg);
 		return errorMsg.get(0).getText();
 	}
+	
 	
 	public void SortByAscending() {
 		selectWebElement(RoleName.get(1));
