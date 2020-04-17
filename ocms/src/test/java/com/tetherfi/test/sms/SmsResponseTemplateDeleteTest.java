@@ -63,7 +63,7 @@ public class SmsResponseTemplateDeleteTest {
         Assert.assertTrue(SmsResponseTemplatePage.isSMSResponseTemplatePageDisplayed(), "SMS Response Template page assertion failed");
     }
 	
-	@Test(groups= {"Maker"}, priority=1)
+/*	@Test(groups= {"Maker"}, priority=1)
 	public void DeleteCancelSmsResponseTemplateRecord() throws Exception {
 		 String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\SmsResponseTemplateData.xlsx";
 	     Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(0);
@@ -133,7 +133,7 @@ public class SmsResponseTemplateDeleteTest {
        	SmsResponseTemplatePage.selectRecord();
        	SmsResponseTemplatePage.sendForAprroval("sent");
         Assert.assertTrue(SmsResponseTemplatePage.verifyStatus("Approval Pending"),"approal status details failed");
-    }
+    }*/
 		
     @Test(priority=8,groups = { "Checker" },dependsOnMethods="VerifySendForApprovalForDeleteNewRecord")
     public void RejectforDeleteSmsResponseTemplateRecord() throws Exception{
@@ -158,7 +158,7 @@ public class SmsResponseTemplateDeleteTest {
         Assert.assertTrue(ocmReportsPage.verifySmsResponseTemplateDelete(SmsResponseTemplateDetails, "CheckerReject"),"Audit Trail report assertion failed");
     }
 	
-	@Test(groups= {"Maker"},priority=10)
+	/*@Test(groups= {"Maker"},priority=10)
 	public void DeleteSmsResponseTemplateRecord() throws Exception {
 		 String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\SmsResponseTemplateData.xlsx";
 		 Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(0);
@@ -191,9 +191,9 @@ public class SmsResponseTemplateDeleteTest {
 	     SmsResponseTemplatePage SmsResponseTemplatePage = PageFactory.createPageInstance(driver, SmsResponseTemplatePage.class);
 	     SmsResponseTemplatePage.selectSmsResponseTemplateAuditTrailTab();
 	     Assert.assertTrue(SmsResponseTemplatePage.verifyAuditTrailDelete(SmsResponseTemplateDetails, "MakerDelete", "New"), "Audit trail details failed");
-    }
+    }*/
 
-	@Test(groups = { "Maker" },priority=13,dependsOnMethods="VerifyAuditTrailDataForDeleteSmsResponseTemplateRecord")
+	@Test(groups = { "Maker" },priority=13)//,dependsOnMethods="VerifyAuditTrailDataForDeleteSmsResponseTemplateRecord")
     public void VerifySendForApprovalForDeleteRecord() throws Exception {
        	SmsResponseTemplatePage SmsResponseTemplatePage = PageFactory.createPageInstance(driver, SmsResponseTemplatePage.class);
        	SmsResponseTemplatePage.selectSmsResponseTemplateAuditTrailTab();
@@ -202,7 +202,7 @@ public class SmsResponseTemplateDeleteTest {
         Assert.assertTrue(SmsResponseTemplatePage.verifyStatus("Approval Pending"),"approal status details failed");
     }
 	
-	@Test(priority=14,groups = { "Maker" },dependsOnMethods = "VerifySendForApprovalForDeleteRecord")
+	@Test(priority=14,groups = { "Maker" })//,dependsOnMethods = "VerifySendForApprovalForDeleteRecord")
     public void VerifyAuditTrailReportForSendForApprove() throws Exception {
 		 String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\SmsResponseTemplateData.xlsx";
 		 Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);

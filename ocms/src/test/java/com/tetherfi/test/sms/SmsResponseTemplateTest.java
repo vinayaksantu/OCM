@@ -41,7 +41,7 @@ Screenshot screenshot=new Screenshot(driver);
         Assert.assertTrue(SmsResponseTemplatePageWMC.isSMSResponseTemplatePageDisplayed(), "SMS Response Template Page assertion failed");
     }
 	
-	@Test(priority=1)
+	/*@Test(priority=1)
 	public void SmsResponseTemplatePage() {
 		SmsResponseTemplatePageWMC SmsResponseTemplatePageWMC = PageFactory.createPageInstance(driver, SmsResponseTemplatePageWMC.class);
 		Assert.assertTrue(SmsResponseTemplatePageWMC.verifylogo(),"SMS Page logo assertion failed");
@@ -75,11 +75,11 @@ Screenshot screenshot=new Screenshot(driver);
 		SmsResponseTemplateDetails SmsResponseTemplateDetails = new SmsResponseTemplateDetails(map);	
 		SmsResponseTemplatePageWMC.addNewSmsResponseTemplateRecord(SmsResponseTemplateDetails);
 		Assert.assertEquals(SmsResponseTemplatePageWMC.getSuccessMessage(),"Record Created Successfully"); 
-	}
+	}*/
 
     @Test(priority=6)
     public void AddDuplicateSMSRecord() throws Exception {
-    	String filePath=System.getProperty("user.dir")+"\\src\\test\\\\resources\\TestData\\SmsResponseTemplateData.xlsx";
+    	String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SmsResponseTemplateData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         SmsResponseTemplatePageWMC SmsResponseTemplatePageWMC=PageFactory.createPageInstance(driver, SmsResponseTemplatePageWMC.class);		
         SmsResponseTemplateDetails SmsResponseTemplateDetails = new SmsResponseTemplateDetails(map);	
@@ -87,7 +87,7 @@ Screenshot screenshot=new Screenshot(driver);
         Assert.assertEquals(SmsResponseTemplatePageWMC.getSuccessMessage(),"Duplicate ICOM Template ID", "Duplicate Record Create Assertion Failed"); 	  	
     }
     
-    @Test(priority=7)
+   /* @Test(priority=7)
     public void VerifyAuditTrialReportForCreate() throws Exception {
     	String filePath=System.getProperty("user.dir")+"\\src\\test\\\\resources\\TestData\\SmsResponseTemplateData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);	
@@ -150,7 +150,7 @@ Screenshot screenshot=new Screenshot(driver);
 	   SmsResponseTemplateDetails SmsResponseTemplateDetails = new SmsResponseTemplateDetails(map);   
 	   SmsResponseTemplatePageWMC.addNewSmsResponseTemplateRecordWithoutIcomTemplateID(SmsResponseTemplateDetails);
 	   Assert.assertEquals(SmsResponseTemplatePageWMC.getSuccessMessage(), "Please provide input for ICOM Template ID", "Add New ICOM TemplateID Record Assertion Failed");   
-   }
+   }*/
 
    @Test(priority=13)
    public void VerifyCancelBtnAtAddnewRecord() throws Exception {
@@ -160,7 +160,7 @@ Screenshot screenshot=new Screenshot(driver);
 	   Assert.assertFalse(SmsResponseTemplatePageWMC.verifyEditFormContainer(), "Cancel Btn at Add record assertion failed");	   
    }
    
-   @Test(priority=14,dependsOnMethods="AddNewSMSRecord") 
+   /*@Test(priority=14,dependsOnMethods="AddNewSMSRecord") 
    public void EditSmsResponseTemplateRecord() throws Exception {
 	   String filePath=System.getProperty("user.dir")+"\\src\\test\\\\resources\\TestData\\SmsResponseTemplateData.xlsx";
 	   Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(0);
@@ -236,11 +236,11 @@ Screenshot screenshot=new Screenshot(driver);
 	   List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
 	   SmsResponseTemplatePageWMC SmsResponseTemplatePageWMC=PageFactory.createPageInstance(driver, SmsResponseTemplatePageWMC.class);	   
 	   Assert.assertTrue(SmsResponseTemplatePageWMC.verifyexportToExcelSheet(maplist));	   
-   }
+   }*/
    
    @Test(priority=22)
    public void DeleteRecordWithoutDeleteReason() throws Exception {
-	   String filePath=System.getProperty("user.dir")+"\\src\\test\\\\resources\\TestData\\SmsResponseTemplateData.xlsx";
+	   String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SmsResponseTemplateData.xlsx";
 	   Map<String, String> map = new ExcelReader(filePath, "Invalid").getTestData().get(0);	
 	   SmsResponseTemplateDetails SmsResponseTemplateDetails = new SmsResponseTemplateDetails(map);	
 	   SmsResponseTemplatePageWMC SmsResponseTemplatePageWMC=PageFactory.createPageInstance(driver, SmsResponseTemplatePageWMC.class);		
@@ -250,7 +250,7 @@ Screenshot screenshot=new Screenshot(driver);
 
    @Test(priority=23)
    public void VerifyCancelBtnAtDeleteConfigRecord() throws Exception {
-	   String filePath=System.getProperty("user.dir")+"\\src\\test\\\\resources\\TestData\\SmsResponseTemplateData.xlsx";
+	   String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SmsResponseTemplateData.xlsx";
 	   Map<String, String> map = new ExcelReader(filePath, "Invalid").getTestData().get(0);	
 	   SmsResponseTemplateDetails SmsResponseTemplateDetails = new SmsResponseTemplateDetails(map);	
 	   SmsResponseTemplatePageWMC SmsResponseTemplatePageWMC=PageFactory.createPageInstance(driver, SmsResponseTemplatePageWMC.class);			   
@@ -259,9 +259,9 @@ Screenshot screenshot=new Screenshot(driver);
 	   Assert.assertFalse(SmsResponseTemplatePageWMC.verifyDeleteContainer(), "Cancel Btn at Delete record assertion failed");
    }
    
-   @Test(priority=24)
+  /* @Test(priority=24)
    public void DeleteSmsResponseTemplateRecord() throws Exception {
-	   String filePath=System.getProperty("user.dir")+"\\src\\test\\\\resources\\TestData\\SmsResponseTemplateData.xlsx";
+	   String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SmsResponseTemplateData.xlsx";
 	   Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(0);	
 	   SmsResponseTemplateDetails SmsResponseTemplateDetails=new SmsResponseTemplateDetails(map);
 	   SmsResponseTemplatePageWMC SmsResponseTemplatePageWMC=PageFactory.createPageInstance(driver, SmsResponseTemplatePageWMC.class);			   
@@ -300,13 +300,13 @@ Screenshot screenshot=new Screenshot(driver);
 	   Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);	
 	   SmsResponseTemplateDetails SmsResponseTemplateDetails = new SmsResponseTemplateDetails(map);
 	   Assert.assertTrue(SmsResponseTemplatePageWMC.ExporttoExcelWithoutData(SmsResponseTemplateDetails));	
-   }
+   }*/
    
    @Test(priority=28)
    public void SortByAscending() throws IOException {
 	   SmsResponseTemplatePageWMC SmsResponseTemplatePageWMC=PageFactory.createPageInstance(driver, SmsResponseTemplatePageWMC.class);			     
 	   SmsResponseTemplatePageWMC.SortByAscending();
-	   String filePath=System.getProperty("user.dir") +"\\src\\test\\resources\\DownloadedFiles\\SMS Response Template.xlsx";
+	   String filePath=System.getProperty("user.dir") +"\\src\\test\\resources\\DownloadedFiles\\SMS Response Template(1).xlsx";
 	   List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
 	   Assert.assertTrue(SmsResponseTemplatePageWMC.verifyexportToExcelSheet(maplist));   
    }
@@ -315,12 +315,12 @@ Screenshot screenshot=new Screenshot(driver);
    public void SortByDescending() throws IOException{
 	   SmsResponseTemplatePageWMC SmsResponseTemplatePageWMC=PageFactory.createPageInstance(driver, SmsResponseTemplatePageWMC.class);			     
 	   SmsResponseTemplatePageWMC.SortByDescending();
-	   String filePath=System.getProperty("user.dir") +"\\src\\test\\resources\\DownloadedFiles\\SMS Response Template.xlsx";
+	   String filePath=System.getProperty("user.dir") +"\\src\\test\\resources\\DownloadedFiles\\SMS Response Template(2).xlsx";
 	   List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
 	   Assert.assertTrue(SmsResponseTemplatePageWMC.verifyexportToExcelSheet(maplist));   	   
    }
    
-   @Test(priority=30)
+ /*  @Test(priority=30)
    public void GroupBy() {
 	   SmsResponseTemplatePageWMC SmsResponseTemplatePageWMC=PageFactory.createPageInstance(driver, SmsResponseTemplatePageWMC.class);			     
 	   Assert.assertTrue(SmsResponseTemplatePageWMC.groupby(), "Group By Assertion Failed"); 
@@ -348,7 +348,7 @@ Screenshot screenshot=new Screenshot(driver);
    public void VerifyNumberOfItemsPerPageSelection() {
 	   SmsResponseTemplatePageWMC SmsResponseTemplatePageWMC=PageFactory.createPageInstance(driver, SmsResponseTemplatePageWMC.class);			      
 	   Assert.assertTrue(SmsResponseTemplatePageWMC.verifyNumberOfItemsPerPage(), "Number of items per page assertion failed");
-   }
+   }*/
        
      @AfterMethod
     public void afterEachMethod(Method method) throws InterruptedException {

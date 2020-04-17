@@ -27,7 +27,7 @@ public class ExtentReporterNG implements IReporter{
 		/*extent = new ExtentReports(outputDirectory + File.separator
 				+ "ExtentReportTestResults.html", false);*/
 		
-		String extentReportFile = outputDirectory+"\\ExtentReports\\"+"IvrConfigDeleteTest.html";
+		String extentReportFile = outputDirectory+"\\ExtentReports\\"+"BranchManagementCreateTest2.html";
 		extent=new ExtentReports(extentReportFile,false);
 
 		for (ISuite suite : suites) {

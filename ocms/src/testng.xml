@@ -11,9 +11,9 @@
 			class-name="com.tetherfi.ExtentReportListener.ExtentReporterNG" />
 	</listeners>
      
-     <test name="IvrConfigDeleteTest" parallel="false">
+     <test name="BranchManagementCreateTest" parallel="false">
       <classes>  
-           <class name="com.tetherfi.test.ivr.IvrConfigDeleteTest"/> 
+           <class name="com.tetherfi.test.ivr.BranchManagementCreateTest"/> 
             </classes>
      </test>
               

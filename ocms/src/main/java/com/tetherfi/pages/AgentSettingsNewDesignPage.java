@@ -1583,5 +1583,34 @@ return status;
         selectWebElement(saveBtn);}catch (Exception e){e.printStackTrace();}
     }
 		
-	}
+			public void addNewAgentSettingsRecord1(AgentSettingsDetails details) throws Exception {
+		        
+		        selectWebElement(addNewAgentSettingsRecordBtn);
+		        waitUntilWebElementIsVisible(popupContent);
+		        navigateToTab("Info");
+		        selectWebElement(usernameTextBox);
+		        enterValueToTxtFieldWithoutClear(usernameTextBox,details.getUsername());
+		        selectWebElement(numericTextbox.get(0));
+		        enterValueToTxtFieldWithoutClear(avayaLoginIdTextBox,details.getAvayaLoginID());
+		        selectWebElement(firstnameTextBox);
+		        enterValueToTxtFieldWithoutClear(firstnameTextBox,details.getFirstname());
+		        selectWebElement(lastnameTextBox);
+		        enterValueToTxtFieldWithoutClear(lastnameTextBox,details.getLastname());
+		        selectWebElement(teamnameDropdown);
+		        /*try {
+		            Thread.sleep(3000);
+		        } catch (InterruptedException e) {
+		            e.printStackTrace();
+		        }*/
+		        //selectDropdownFromVisibleText(teamNameListBox,details.getTeamName());
+		        ChooseTeamHeirarchy(details.getTeamName());
+		        selectProfile(details.getProfile(),details.getSupervisor());
+		        Thread.sleep(1000);
+		        selectWebElement(accessroleDropdown);
+		        selectDropdownFromVisibleText(accessroleListBox,details.getAccessRole());
+		        selectWebElement(saveBtn);
+		    }
+			
+		}
+	
 

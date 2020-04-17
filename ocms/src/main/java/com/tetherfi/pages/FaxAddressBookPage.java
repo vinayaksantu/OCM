@@ -149,8 +149,12 @@ public class FaxAddressBookPage extends BasePage {
     @FindBy(xpath="//i[@class='fas fa-sync']")
     private WebElement clearsearch;
     
-    @FindBy(css = ".k-grid-edit")
-    private WebElement editButton;
+    //@FindBy(css = ".k-grid-edit")
+    //private WebElement editButton;
+    
+    //@FindBy(xpath="//*[@id=\\\"drillgrid\\\"]/div[4]/table/tbody/tr/td[1]/a[1]")
+    @FindBy(xpath="//a[@class='k-button k-button-icontext k-grid-edit']")
+    private List<WebElement> EditButton;
     
     @FindBy(id = "ModifyReason")
     private WebElement ModifyReasonTextBox;
@@ -764,8 +768,17 @@ public class FaxAddressBookPage extends BasePage {
     public boolean verifyEditFormContainer(){
         return isElementExist(editFormContainer);
     }
-    public void clickOnEditButton(){
-        selectWebElement(editButton);
+    public void clickOnEditButtonrecepient(FaxAddressBookDetails details) throws Exception{
+    	searchRecipientRecord(details);
+		waitUntilWebElementIsVisible(EditButton.get(4));
+		selectWebElement(EditButton.get(4));
+        //selectWebElement(editButton);
+    }
+    public void clickOnEditButtonAddress(FaxAddressBookDetails details) throws Exception{
+    	searchRecipientRecord(details);
+		waitUntilWebElementIsVisible(EditButton.get(0));
+		selectWebElement(EditButton.get(0));
+        //selectWebElement(editButton);
     }
     public void clickOnDeleteButton(){
         selectWebElement(deleteButton);
@@ -818,8 +831,9 @@ public class FaxAddressBookPage extends BasePage {
 
 	public void editRecipientRecord(FaxAddressBookDetails details) throws Exception {
 		searchRecipientRecord(details);
-		waitForJqueryLoad(driver);
-		selectWebElement(editButton);
+		//waitForJqueryLoad(driver);
+		waitUntilWebElementIsVisible(EditButton.get(4));
+		selectWebElement(EditButton.get(4));
 		waitForJqueryLoad(driver);
 		enterValueToTxtField(firstNameTxtbox,details.getUpdatedFirstName());
 		enterValueToTxtFieldWithoutClear(ModifyReasonTextBox,details.getModifyReason());
@@ -840,12 +854,12 @@ public class FaxAddressBookPage extends BasePage {
 
 	public void editRecipientWithoutModifyReason(FaxAddressBookDetails details) throws Exception {
 		searchRecipientRecord(details);
-		waitUntilWebElementIsVisible(editButton);
-		selectWebElement(editButton);
+		waitUntilWebElementIsVisible(EditButton.get(4));
+		selectWebElement(EditButton.get(4));
 		waitForJqueryLoad(driver);
 		enterValueToTxtField(firstNameTxtbox,details.getUpdatedFirstName());
 		selectWebElement(saveBtn);		
-		selectWebElement(cancelBtn);
+		//selectWebElement(cancelBtn);
 	}
 
 	public void deleteRecipientWithoutDeleteReasonRecord(FaxAddressBookDetails details) throws Exception {
@@ -1065,8 +1079,8 @@ public class FaxAddressBookPage extends BasePage {
 
 	public void editAddressBookRecord(FaxAddressBookDetails details) throws Exception {
 		searchAddressRecord(details);
-		waitUntilWebElementIsVisible(editButton);
-		selectWebElement(editButton);
+		waitUntilWebElementIsVisible(EditButton.get(0));
+		selectWebElement(EditButton.get(0));
 		waitForJqueryLoad(driver);
 		enterValueToTxtField(NameTextbox,details.getUpdatedName());
 		enterValueToTxtFieldWithoutClear(ModifyReasonTextBox,details.getModifyReason());
@@ -1075,8 +1089,8 @@ public class FaxAddressBookPage extends BasePage {
 
 	public void editAddressBookWithoutModifyReason(FaxAddressBookDetails details) throws Exception {
 		searchAddressRecord(details);
-		waitUntilWebElementIsVisible(editButton);
-		selectWebElement(editButton);
+		waitUntilWebElementIsVisible(EditButton.get(0));
+		selectWebElement(EditButton.get(0));
 		waitForJqueryLoad(driver);
 		enterValueToTxtField(NameTextbox,details.getUpdatedName());
 		selectWebElement(saveBtn);		

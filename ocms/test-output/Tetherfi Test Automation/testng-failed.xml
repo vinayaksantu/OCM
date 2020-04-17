@@ -4,29 +4,38 @@
   <listeners>
     <listener class-name="com.tetherfi.ExtentReportListener.ExtentReporterNG"/>
   </listeners>
-  <test thread-count="5" name="IvrConfigDeleteTest(failed)">
+  <test thread-count="5" name="BranchManagementCreateTest(failed)">
     <classes>
-      <class name="com.tetherfi.test.ivr.IvrConfigDeleteTest">
+      <class name="com.tetherfi.test.ivr.BranchManagementCreateTest">
         <methods>
-          <include name="VerifyAuditTrialReportForDelete"/>
-          <include name="DeleteWithoutModifyReasonRecord"/>
-          <include name="VerifyAuditTrailDataForAddNewIvrConfigRecord"/>
-          <include name="NavigateToIvrConfigPage"/>
-          <include name="VerifySendForApprovalForDeleteNewRecord"/>
-          <include name="DeleteCancelIvrConfigRecord"/>
-          <include name="DeleteRecord"/>
-          <include name="VerifyRevertForDeleteRecord"/>
-          <include name="VerifySendForApprovalForDeleteApproveNewRecord"/>
-          <include name="DeleteIvrConfigRecord"/>
-          <include name="VerifyAuditTrailReportForReject"/>
-          <include name="VerifyAuditTrailReportForApprove"/>
-          <include name="VerifyAuditTrialReportForRevertDelete"/>
-          <include name="RejectDeleteRecord"/>
-          <include name="RejectforDeleteIvrConfigRecord"/>
+          <include name="VerifyAddRecordWithoutLocation"/>
+          <include name="VerifyAuditTrailDataForAddNewBranchManagementRecord"/>
+          <include name="AddRevertRecord"/>
           <include name="afterEachMethod"/>
-          <include name="ApproveForDeleteIvrConfigRecord"/>
+          <include name="NavigateToBranchManagementPage"/>
+          <include name="VerifyRecordAfterRejection"/>
+          <include name="VerifyRevertForAddNewRecord"/>
+          <include name="ApproveforAddNewBranchManagementRecord"/>
+          <include name="RejectforAddNewBranchManagementRecord"/>
+          <include name="VerifySendForApprovalForAddNewRecord"/>
+          <include name="VerifyAuditTrailReportForSendForApproval"/>
+          <include name="VerifyAddRecordWithoutLanguage"/>
+          <include name="VerifyAddRecordWithoutLineOrder"/>
+          <include name="VerifyAuditTrailReportForApprove"/>
+          <include name="VerifyApprovedDataSectionWithoutApproval"/>
+          <include name="VerifyAuditTrailReportForReject"/>
+          <include name="AddRejectRecord"/>
+          <include name="VerifyRecordApprovedDataSectionafterApproval"/>
+          <include name="AddNewBranchManagementRecord"/>
+          <include name="AddDuplicateRecord"/>
+          <include name="VerifyAuditTrailReportForRevert"/>
+          <include name="VerifyAddRecordWithoutBranchName"/>
+          <include name="VerifyAuditTrailReportForCreate"/>
+          <include name="VerifyAddRecordWithoutAddress"/>
+          <include name="VerifyAddRecordWithoutStatus"/>
+          <include name="VerifySendForApprovalForAddNewBranchManagementRecord"/>
         </methods>
-      </class> <!-- com.tetherfi.test.ivr.IvrConfigDeleteTest -->
+      </class> <!-- com.tetherfi.test.ivr.BranchManagementCreateTest -->
     </classes>
-  </test> <!-- IvrConfigDeleteTest(failed) -->
+  </test> <!-- BranchManagementCreateTest(failed) -->
 </suite> <!-- Failed suite [Tetherfi Test Automation] -->

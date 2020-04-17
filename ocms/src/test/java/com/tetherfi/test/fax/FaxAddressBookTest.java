@@ -158,7 +158,7 @@ public class FaxAddressBookTest extends BaseTest{
 		faxAddressBookPage.NavigateToRecipientTab();
 		faxAddressBookPage.addNewRecipientWithoutNumberRecord(faxAddressBoookDetails);
 		Assert.assertEquals(faxAddressBookPage.getMessage(),"Please Provide Fax Number");
-	}*/
+	}
 	
 	@Test(priority=13)
 	public void AddNewFaxAddressBookRecord() throws Exception {
@@ -305,9 +305,9 @@ public class FaxAddressBookTest extends BaseTest{
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\AddressBook (2).xlsx";
         List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
         Assert.assertTrue(faxAddressBookPage.verifyAddressBookexportToExcelSheet(maplist));
-    }
-  /*  
-    @Test(priority=17)
+    }*/
+    
+    @Test(priority=28)
     public void EditRecipientRecord() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxAddressBookData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"EditRecipient").getTestData().get(0);
@@ -318,7 +318,7 @@ public class FaxAddressBookTest extends BaseTest{
         Assert.assertEquals(faxAddressBookPage.getSuccessMessage(),"Record Updated Successfully");
     }
     
-    @Test(priority=18,dependsOnMethods="EditRecipientRecord")
+    @Test(priority=29,dependsOnMethods="EditRecipientRecord")
     public void VerifyAuditTrialReportForRecipientUpdate() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxAddressBookData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"EditRecipient").getTestData().get(0);
@@ -333,7 +333,7 @@ public class FaxAddressBookTest extends BaseTest{
         Assert.assertTrue(ocmReportsPage.verifyRecipientUpdate(faxAddressBoookDetails,"Update"));
     }
        
-    @Test(priority=19)
+    @Test(priority=30)
     public void EditWithoutModifyReasonRecipientRecord() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxAddressBookData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"EditRecipient").getTestData().get(0);
@@ -344,16 +344,19 @@ public class FaxAddressBookTest extends BaseTest{
         Assert.assertEquals(faxAddressBookPage.getMessage(),"Please enter the modify reason", "empty modify reason record assertion failed");
     }
     
-    @Test(priority=20)
+    @Test(priority=31)
     public void VerifyCancelBtnAtEditDepartmentRecord() throws Exception{
+    	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxAddressBookData.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"EditRecipient").getTestData().get(0);
+		FaxAddressBookDetails faxAddressBoookDetails = new FaxAddressBookDetails(map);		
     	FaxAddressBookPage faxAddressBookPage = PageFactory.createPageInstance(driver, FaxAddressBookPage.class);
 		faxAddressBookPage.NavigateToRecipientTab();
-		faxAddressBookPage.clickOnEditButton();
+		faxAddressBookPage.clickOnEditButtonrecepient(faxAddressBoookDetails);
 		faxAddressBookPage.clickOnCancelBtn();
-        Assert.assertFalse(faxAddressBookPage.verifyEditFormContainer(), "Cancel Btn at Edit record assertion failed");
+		Assert.assertTrue(faxAddressBookPage.canclBtnverificationForRecepientTab(),"Cancel Btn at Add record assertion failed");
     }
     
-    @Test(priority=21)
+    @Test(priority=32)
     public void EditFaxAddressBookRecord() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxAddressBookData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"EditAddressBook").getTestData().get(0);
@@ -363,7 +366,7 @@ public class FaxAddressBookTest extends BaseTest{
         Assert.assertEquals(faxAddressBookPage.getSuccessMessage(),"Record Updated Successfully");
     }
     
-    @Test(priority=22,dependsOnMethods="EditFaxAddressBookRecord")
+    @Test(priority=33,dependsOnMethods="EditFaxAddressBookRecord")
     public void VerifyAuditTrialReportForFaxAddressBookUpdate() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxAddressBookData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"EditAddressBook").getTestData().get(0);
@@ -378,7 +381,7 @@ public class FaxAddressBookTest extends BaseTest{
         Assert.assertTrue(ocmReportsPage.verifyAddressBookUpdate(faxAddressBoookDetails,"Update"));
     }
        
-    @Test(priority=23)
+    @Test(priority=34)
     public void EditWithoutModifyReasonAddressBookRecord() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxAddressBookData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"EditAddressBook").getTestData().get(0);
@@ -393,7 +396,7 @@ public class FaxAddressBookTest extends BaseTest{
     	FaxAddressBookPage faxAddressBookPage = PageFactory.createPageInstance(driver, FaxAddressBookPage.class);
 		faxAddressBookPage.clickOnEditButton();
 		faxAddressBookPage.clickOnCancelBtn();
-        Assert.assertFalse(faxAddressBookPage.verifyEditFormContainer(), "Cancel Btn at Edit record assertion failed");
+		Assert.assertTrue(faxAddressBookPage.canclBtnverificationForAddressTab(),"Cancel Btn at Add record assertion failed");
     }
     
     @Test(priority=25)

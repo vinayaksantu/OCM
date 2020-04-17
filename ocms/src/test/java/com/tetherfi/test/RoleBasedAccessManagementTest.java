@@ -32,7 +32,7 @@ public class RoleBasedAccessManagementTest extends BaseTest {
         Assert.assertTrue(roleBasedAccessManagementPage.isRoleBasedAccessManagementPageDisplayed(),"Role Based access management assertion failed");
     }
     
-    /*@Test(priority=1)
+    @Test(priority=1)
     public void RoleBasedAccessManagementPage(){
         RoleBasedAccessManagementPage roleBasedAccessManagementPage=PageFactory.createPageInstance(driver,RoleBasedAccessManagementPage.class);
     	Assert.assertTrue(roleBasedAccessManagementPage.verifylogo(),"Role Based Access Management logo assertion failed");
@@ -71,7 +71,7 @@ public class RoleBasedAccessManagementTest extends BaseTest {
     	screenshot.captureScreen(driver, "Duplicate Record","RoleBasedAccessManagementTest");
     	
     }
-   //@Test(priority=4)
+   @Test(priority=4)
     public void EditRoleBasedAccessManagementCancelButton() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\RoleBasedAccessManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
@@ -220,8 +220,7 @@ public class RoleBasedAccessManagementTest extends BaseTest {
         screenshot.captureScreen(driver, "Record deleted No button", "RoleBasedAccessManagementTest");
   }
   //@Test(priority=22)
-  	public void DeleteRoleBasedAccessManagementRecord() throws Exception {
-      	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\RoleBasedAccessManagementData.xlsx";
+  	public void DeleteRoleBasedAccessManagementRecord() throws Exception       	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\RoleBasedAccessManagementData.xlsx";
       	Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
       	UserDetails userDetails=new UserDetails(map);
       	RoleBasedAccessManagementPage roleBasedAccessManagementPage=PageFactory.createPageInstance(driver,RoleBasedAccessManagementPage.class);
@@ -334,7 +333,7 @@ public class RoleBasedAccessManagementTest extends BaseTest {
         screenshot.captureScreen(driver,"VerifyAccessCheckBox", "RoleBasedAccessManagementTest");
         Thread.sleep(1000);
     }
-    //@Test(priority=32)
+    @Test(priority=32)
     public void VerifyDashboardPageButton() throws Exception {
     	RoleBasedAccessManagementPage roleBasedAccessManagementPage=PageFactory.createPageInstance(driver,RoleBasedAccessManagementPage.class);
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\RoleBasedAccessManagementData.xlsx";
@@ -345,7 +344,7 @@ public class RoleBasedAccessManagementTest extends BaseTest {
         Assert.assertTrue(roleBasedAccessManagementPage.verifyDashboardsavechanges());
         screenshot.captureScreen(driver,"verifysavechanges", "RoleBasedAccessManagementTest");
     }
-    //@Test(priority=33)
+    @Test(priority=33)
     public void VerifyDashboardunsuccefullchanges() throws Exception
     {
     	RoleBasedAccessManagementPage roleBasedAccessManagementPage=PageFactory.createPageInstance(driver,RoleBasedAccessManagementPage.class);
@@ -391,7 +390,7 @@ public class RoleBasedAccessManagementTest extends BaseTest {
         Assert.assertTrue(roleBasedAccessManagementPage.verifyotherapplicationunsuccessfullsavechanges());
         screenshot.captureScreen(driver,"Verifyunsuccefullchanges", "RoleBasedAccessManagementTest");
         Assert.assertTrue(roleBasedAccessManagementPage.verifyclosebutton());
-    }*/
+    }
     
     @AfterMethod
     public void afterEachMethod(ITestResult result, Method method) throws Exception {

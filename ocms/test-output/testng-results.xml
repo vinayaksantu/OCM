@@ -1,167 +1,156 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="15" passed="8" failed="7" skipped="0">
+<testng-results ignored="0" total="28" passed="4" failed="1" skipped="23">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2020-03-30T09:28:15 IST" name="Default suite" finished-at="2020-03-30T09:32:25 IST" duration-ms="250111">
+  <suite started-at="2020-04-16T17:24:25 IST" name="Tetherfi Test Automation" finished-at="2020-04-16T17:35:27 IST" duration-ms="662060">
     <groups>
+      <group name="Checker">
+        <method signature="BranchManagementCreateTest.ApproveforAddNewBranchManagementRecord()[pri:25, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d]" name="ApproveforAddNewBranchManagementRecord" class="com.tetherfi.test.ivr.BranchManagementCreateTest"/>
+        <method signature="BranchManagementCreateTest.VerifyAuditTrailReportForApprove()[pri:26, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d]" name="VerifyAuditTrailReportForApprove" class="com.tetherfi.test.ivr.BranchManagementCreateTest"/>
+        <method signature="BranchManagementCreateTest.VerifyRecordApprovedDataSectionafterApproval()[pri:27, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d]" name="VerifyRecordApprovedDataSectionafterApproval" class="com.tetherfi.test.ivr.BranchManagementCreateTest"/>
+        <method signature="BranchManagementCreateTest.RejectforAddNewBranchManagementRecord()[pri:17, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d]" name="RejectforAddNewBranchManagementRecord" class="com.tetherfi.test.ivr.BranchManagementCreateTest"/>
+        <method signature="BranchManagementCreateTest.VerifyAuditTrailReportForReject()[pri:18, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d]" name="VerifyAuditTrailReportForReject" class="com.tetherfi.test.ivr.BranchManagementCreateTest"/>
+      </group> <!-- Checker -->
+      <group name="Maker">
+        <method signature="BranchManagementCreateTest.AddNewBranchManagementRecord()[pri:20, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d]" name="AddNewBranchManagementRecord" class="com.tetherfi.test.ivr.BranchManagementCreateTest"/>
+        <method signature="BranchManagementCreateTest.AddDuplicateRecord()[pri:28, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d]" name="AddDuplicateRecord" class="com.tetherfi.test.ivr.BranchManagementCreateTest"/>
+        <method signature="BranchManagementCreateTest.AddRejectRecord()[pri:15, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d]" name="AddRejectRecord" class="com.tetherfi.test.ivr.BranchManagementCreateTest"/>
+        <method signature="BranchManagementCreateTest.AddRevertRecord()[pri:11, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d]" name="AddRevertRecord" class="com.tetherfi.test.ivr.BranchManagementCreateTest"/>
+        <method signature="BranchManagementCreateTest.VerifyAddCancelButton()[pri:1, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d]" name="VerifyAddCancelButton" class="com.tetherfi.test.ivr.BranchManagementCreateTest"/>
+        <method signature="BranchManagementCreateTest.VerifyAddRecordWithoutAddress()[pri:7, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d]" name="VerifyAddRecordWithoutAddress" class="com.tetherfi.test.ivr.BranchManagementCreateTest"/>
+        <method signature="BranchManagementCreateTest.VerifyAddRecordWithoutBranchName()[pri:6, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d]" name="VerifyAddRecordWithoutBranchName" class="com.tetherfi.test.ivr.BranchManagementCreateTest"/>
+        <method signature="BranchManagementCreateTest.VerifyAddRecordWithoutBranchType()[pri:5, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d]" name="VerifyAddRecordWithoutBranchType" class="com.tetherfi.test.ivr.BranchManagementCreateTest"/>
+        <method signature="BranchManagementCreateTest.VerifyAddRecordWithoutLanguage()[pri:10, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d]" name="VerifyAddRecordWithoutLanguage" class="com.tetherfi.test.ivr.BranchManagementCreateTest"/>
+        <method signature="BranchManagementCreateTest.VerifyAddRecordWithoutLineOrder()[pri:8, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d]" name="VerifyAddRecordWithoutLineOrder" class="com.tetherfi.test.ivr.BranchManagementCreateTest"/>
+        <method signature="BranchManagementCreateTest.VerifyAddRecordWithoutLocation()[pri:4, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d]" name="VerifyAddRecordWithoutLocation" class="com.tetherfi.test.ivr.BranchManagementCreateTest"/>
+        <method signature="BranchManagementCreateTest.VerifyAddRecordWithoutStatus()[pri:9, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d]" name="VerifyAddRecordWithoutStatus" class="com.tetherfi.test.ivr.BranchManagementCreateTest"/>
+        <method signature="BranchManagementCreateTest.VerifyAddRecordWithoutSubLines()[pri:3, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d]" name="VerifyAddRecordWithoutSubLines" class="com.tetherfi.test.ivr.BranchManagementCreateTest"/>
+        <method signature="BranchManagementCreateTest.VerifyAddRecordwithoutMainLines()[pri:2, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d]" name="VerifyAddRecordwithoutMainLines" class="com.tetherfi.test.ivr.BranchManagementCreateTest"/>
+        <method signature="BranchManagementCreateTest.VerifyAuditTrailDataForAddNewBranchManagementRecord()[pri:22, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d]" name="VerifyAuditTrailDataForAddNewBranchManagementRecord" class="com.tetherfi.test.ivr.BranchManagementCreateTest"/>
+        <method signature="BranchManagementCreateTest.VerifyAuditTrailReportForCreate()[pri:21, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d]" name="VerifyAuditTrailReportForCreate" class="com.tetherfi.test.ivr.BranchManagementCreateTest"/>
+        <method signature="BranchManagementCreateTest.VerifyRevertForAddNewRecord()[pri:12, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d]" name="VerifyRevertForAddNewRecord" class="com.tetherfi.test.ivr.BranchManagementCreateTest"/>
+        <method signature="BranchManagementCreateTest.VerifyApprovedDataSectionWithoutApproval()[pri:13, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d]" name="VerifyApprovedDataSectionWithoutApproval" class="com.tetherfi.test.ivr.BranchManagementCreateTest"/>
+        <method signature="BranchManagementCreateTest.VerifyAuditTrailReportForRevert()[pri:14, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d]" name="VerifyAuditTrailReportForRevert" class="com.tetherfi.test.ivr.BranchManagementCreateTest"/>
+        <method signature="BranchManagementCreateTest.VerifySendForApprovalForAddNewBranchManagementRecord()[pri:23, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d]" name="VerifySendForApprovalForAddNewBranchManagementRecord" class="com.tetherfi.test.ivr.BranchManagementCreateTest"/>
+        <method signature="BranchManagementCreateTest.VerifyAuditTrailReportForSendForApproval()[pri:24, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d]" name="VerifyAuditTrailReportForSendForApproval" class="com.tetherfi.test.ivr.BranchManagementCreateTest"/>
+        <method signature="BranchManagementCreateTest.VerifySendForApprovalForAddNewRecord()[pri:16, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d]" name="VerifySendForApprovalForAddNewRecord" class="com.tetherfi.test.ivr.BranchManagementCreateTest"/>
+        <method signature="BranchManagementCreateTest.VerifyRecordAfterRejection()[pri:19, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d]" name="VerifyRecordAfterRejection" class="com.tetherfi.test.ivr.BranchManagementCreateTest"/>
+      </group> <!-- Maker -->
     </groups>
-    <test started-at="2020-03-30T09:28:15 IST" name="Default test" finished-at="2020-03-30T09:32:25 IST" duration-ms="250111">
-      <class name="com.tetherfi.test.fax.FaxAddressBookTest">
-        <test-method is-config="true" signature="openApplication()[pri:0, instance:com.tetherfi.test.fax.FaxAddressBookTest@1c3259fa]" started-at="2020-03-30T09:28:15 IST" name="openApplication" finished-at="2020-03-30T09:28:46 IST" duration-ms="31101" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- openApplication -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxAddressBookTest@1c3259fa]" started-at="2020-03-30T09:28:46 IST" name="startTestCase" finished-at="2020-03-30T09:28:46 IST" duration-ms="4" status="PASS">
+    <test started-at="2020-04-16T17:24:25 IST" name="BranchManagementCreateTest" finished-at="2020-04-16T17:35:27 IST" duration-ms="662060">
+      <class name="com.tetherfi.test.ivr.BranchManagementCreateTest">
+        <test-method is-config="true" signature="NavigateToBranchManagementPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d]" started-at="2020-04-16T17:24:25 IST" name="NavigateToBranchManagementPage" finished-at="2020-04-16T17:25:03 IST" duration-ms="38526" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.fax.FaxAddressBookTest.AddNewFaxAddressBookRecord() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.ivr.BranchManagementCreateTest.VerifyAddCancelButton() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigatetoFaxAddressPage()[pri:0, instance:com.tetherfi.test.fax.FaxAddressBookTest@1c3259fa]" started-at="2020-03-30T09:28:46 IST" name="NavigatetoFaxAddressPage" finished-at="2020-03-30T09:28:51 IST" duration-ms="4918" status="PASS">
+        </test-method> <!-- NavigateToBranchManagementPage -->
+        <test-method signature="VerifyAddCancelButton()[pri:1, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d]" started-at="2020-04-16T17:25:03 IST" name="VerifyAddCancelButton" finished-at="2020-04-16T17:25:09 IST" duration-ms="5961" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- NavigatetoFaxAddressPage -->
-        <test-method signature="AddNewFaxAddressBookRecord()[pri:13, instance:com.tetherfi.test.fax.FaxAddressBookTest@1c3259fa]" started-at="2020-03-30T09:28:51 IST" name="AddNewFaxAddressBookRecord" finished-at="2020-03-30T09:28:58 IST" duration-ms="6673" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- AddNewFaxAddressBookRecord -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxAddressBookTest@1c3259fa]" started-at="2020-03-30T09:28:58 IST" name="afterEachMethod" finished-at="2020-03-30T09:28:59 IST" duration-ms="766" status="PASS">
+        </test-method> <!-- VerifyAddCancelButton -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d]" started-at="2020-04-16T17:25:09 IST" name="afterEachMethod" finished-at="2020-04-16T17:25:18 IST" duration-ms="8255" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.fax.FaxAddressBookTest.AddNewFaxAddressBookRecord() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.ivr.BranchManagementCreateTest.VerifyAddCancelButton() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxAddressBookTest@1c3259fa]" started-at="2020-03-30T09:28:59 IST" name="endTestCase" finished-at="2020-03-30T09:28:59 IST" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="NavigateToBranchManagementPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d]" started-at="2020-04-16T17:25:18 IST" name="NavigateToBranchManagementPage" finished-at="2020-04-16T17:25:54 IST" duration-ms="36023" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.fax.FaxAddressBookTest.AddNewFaxAddressBookRecord() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.ivr.BranchManagementCreateTest.VerifyAddRecordwithoutMainLines() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="NavigatetoFaxAddressPage()[pri:0, instance:com.tetherfi.test.fax.FaxAddressBookTest@1c3259fa]" started-at="2020-03-30T09:28:59 IST" name="NavigatetoFaxAddressPage" finished-at="2020-03-30T09:29:06 IST" duration-ms="7063" status="PASS">
+        </test-method> <!-- NavigateToBranchManagementPage -->
+        <test-method signature="VerifyAddRecordwithoutMainLines()[pri:2, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d]" started-at="2020-04-16T17:25:54 IST" name="VerifyAddRecordwithoutMainLines" finished-at="2020-04-16T17:26:13 IST" duration-ms="18814" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- NavigatetoFaxAddressPage -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxAddressBookTest@1c3259fa]" started-at="2020-03-30T09:28:59 IST" name="startTestCase" finished-at="2020-03-30T09:28:59 IST" duration-ms="0" status="PASS">
+        </test-method> <!-- VerifyAddRecordwithoutMainLines -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d]" started-at="2020-04-16T17:26:13 IST" name="afterEachMethod" finished-at="2020-04-16T17:26:21 IST" duration-ms="8215" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.fax.FaxAddressBookTest.VerifyAuditTrailReportForAddressCreate() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method signature="VerifyAuditTrailReportForAddressCreate()[pri:14, instance:com.tetherfi.test.fax.FaxAddressBookTest@1c3259fa]" started-at="2020-03-30T09:29:06 IST" name="VerifyAuditTrailReportForAddressCreate" finished-at="2020-03-30T09:29:39 IST" depends-on-methods="com.tetherfi.test.fax.FaxAddressBookTest.AddNewFaxAddressBookRecord" duration-ms="33582" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- VerifyAuditTrailReportForAddressCreate -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxAddressBookTest@1c3259fa]" started-at="2020-03-30T09:29:39 IST" name="afterEachMethod" finished-at="2020-03-30T09:29:41 IST" duration-ms="1932" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.fax.FaxAddressBookTest.VerifyAuditTrailReportForAddressCreate() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.ivr.BranchManagementCreateTest.VerifyAddRecordwithoutMainLines() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxAddressBookTest@1c3259fa]" started-at="2020-03-30T09:29:41 IST" name="endTestCase" finished-at="2020-03-30T09:29:41 IST" duration-ms="4" status="PASS">
+        <test-method is-config="true" signature="NavigateToBranchManagementPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d]" started-at="2020-04-16T17:26:21 IST" name="NavigateToBranchManagementPage" finished-at="2020-04-16T17:27:01 IST" duration-ms="40165" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.fax.FaxAddressBookTest.VerifyAuditTrailReportForAddressCreate() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.ivr.BranchManagementCreateTest.VerifyAddRecordWithoutSubLines() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxAddressBookTest@1c3259fa]" started-at="2020-03-30T09:29:41 IST" name="startTestCase" finished-at="2020-03-30T09:29:41 IST" duration-ms="0" status="PASS">
+        </test-method> <!-- NavigateToBranchManagementPage -->
+        <test-method signature="VerifyAddRecordWithoutSubLines()[pri:3, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d]" started-at="2020-04-16T17:27:01 IST" name="VerifyAddRecordWithoutSubLines" finished-at="2020-04-16T17:27:22 IST" duration-ms="21190" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyAddRecordWithoutSubLines -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d]" started-at="2020-04-16T17:27:22 IST" name="afterEachMethod" finished-at="2020-04-16T17:27:31 IST" duration-ms="8719" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.fax.FaxAddressBookTest.AddNewDuplicateRecord() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigatetoFaxAddressPage()[pri:0, instance:com.tetherfi.test.fax.FaxAddressBookTest@1c3259fa]" started-at="2020-03-30T09:29:41 IST" name="NavigatetoFaxAddressPage" finished-at="2020-03-30T09:29:47 IST" duration-ms="5512" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigatetoFaxAddressPage -->
-        <test-method signature="AddNewDuplicateRecord()[pri:15, instance:com.tetherfi.test.fax.FaxAddressBookTest@1c3259fa]" started-at="2020-03-30T09:29:47 IST" name="AddNewDuplicateRecord" finished-at="2020-03-30T09:29:51 IST" duration-ms="4802" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- AddNewDuplicateRecord -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxAddressBookTest@1c3259fa]" started-at="2020-03-30T09:29:51 IST" name="afterEachMethod" finished-at="2020-03-30T09:29:53 IST" duration-ms="1720" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.fax.FaxAddressBookTest.AddNewDuplicateRecord() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.ivr.BranchManagementCreateTest.VerifyAddRecordWithoutSubLines() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxAddressBookTest@1c3259fa]" started-at="2020-03-30T09:29:53 IST" name="endTestCase" finished-at="2020-03-30T09:29:53 IST" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="NavigateToBranchManagementPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d]" started-at="2020-04-16T17:27:31 IST" name="NavigateToBranchManagementPage" finished-at="2020-04-16T17:28:05 IST" duration-ms="34629" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.fax.FaxAddressBookTest.AddNewDuplicateRecord() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.ivr.BranchManagementCreateTest.VerifyAddRecordWithoutLocation() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxAddressBookTest@1c3259fa]" started-at="2020-03-30T09:29:53 IST" name="startTestCase" finished-at="2020-03-30T09:29:53 IST" duration-ms="4" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.fax.FaxAddressBookTest.AddNewEmptyRecord() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigatetoFaxAddressPage()[pri:0, instance:com.tetherfi.test.fax.FaxAddressBookTest@1c3259fa]" started-at="2020-03-30T09:29:53 IST" name="NavigatetoFaxAddressPage" finished-at="2020-03-30T09:29:59 IST" duration-ms="5754" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigatetoFaxAddressPage -->
-        <test-method signature="AddNewEmptyRecord()[pri:16, instance:com.tetherfi.test.fax.FaxAddressBookTest@1c3259fa]" started-at="2020-03-30T09:29:59 IST" name="AddNewEmptyRecord" finished-at="2020-03-30T09:30:00 IST" duration-ms="1000" status="FAIL">
-          <exception class="java.lang.AssertionError">
+        </test-method> <!-- NavigateToBranchManagementPage -->
+        <test-method signature="VerifyAddRecordWithoutLocation()[pri:4, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d]" started-at="2020-04-16T17:28:05 IST" name="VerifyAddRecordWithoutLocation" finished-at="2020-04-16T17:28:46 IST" duration-ms="40840" status="FAIL">
+          <exception class="org.openqa.selenium.TimeoutException">
             <message>
-              <![CDATA[expected [Please Provide FaxLine, Name, Recepient] but found [Please Provide FaxLine, Name, Recipient]]]>
+              <![CDATA[Expected condition failed: waiting for visibility of [[ChromeDriver: chrome on WINDOWS (61e9c687605b8bae5cacf03176144519)] -> css selector: ul[id='Status_listbox'] li] (tried for 20 second(s) with 500 milliseconds interval)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-O6A5C2O', ip: '10.0.75.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '9.0.4'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 80.0.3987.116, chrome: {chromedriverVersion: 80.0.3987.106 (f68069574609..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:58986}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 61e9c687605b8bae5cacf03176144519]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: expected [Please Provide FaxLine, Name, Recepient] but found [Please Provide FaxLine, Name, Recipient]
-at org.testng.Assert.fail(Assert.java:97)
-at org.testng.Assert.assertEqualsImpl(Assert.java:136)
-at org.testng.Assert.assertEquals(Assert.java:118)
-at org.testng.Assert.assertEquals(Assert.java:575)
-at org.testng.Assert.assertEquals(Assert.java:585)
-at com.tetherfi.test.fax.FaxAddressBookTest.AddNewEmptyRecord(FaxAddressBookTest.java:205)
+              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of [[ChromeDriver: chrome on WINDOWS (61e9c687605b8bae5cacf03176144519)] -> css selector: ul[id='Status_listbox'] li] (tried for 20 second(s) with 500 milliseconds interval)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-O6A5C2O', ip: '10.0.75.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '9.0.4'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 80.0.3987.116, chrome: {chromedriverVersion: 80.0.3987.106 (f68069574609..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:58986}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 61e9c687605b8bae5cacf03176144519
+at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
+at com.tetherfi.pages.BasePage.waitUntilWebElementListIsVisible(BasePage.java:139)
+at com.tetherfi.pages.BasePage.selectDropdownFromVisibleText(BasePage.java:335)
+at com.tetherfi.pages.BranchManagementPage.addwithoutLocation(BranchManagementPage.java:1165)
+at com.tetherfi.test.ivr.BranchManagementCreateTest.VerifyAddRecordWithoutLocation(BranchManagementCreateTest.java:105)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -192,310 +181,75 @@ at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 ]]>
             </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
+          </exception> <!-- org.openqa.selenium.TimeoutException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- AddNewEmptyRecord -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxAddressBookTest@1c3259fa]" started-at="2020-03-30T09:30:00 IST" name="afterEachMethod" finished-at="2020-03-30T09:30:02 IST" duration-ms="1751" status="PASS">
+        </test-method> <!-- VerifyAddRecordWithoutLocation -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d]" started-at="2020-04-16T17:28:46 IST" name="afterEachMethod" finished-at="2020-04-16T17:28:55 IST" duration-ms="8427" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.fax.FaxAddressBookTest.AddNewEmptyRecord() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.ivr.BranchManagementCreateTest.VerifyAddRecordWithoutLocation() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxAddressBookTest@1c3259fa]" started-at="2020-03-30T09:30:02 IST" name="endTestCase" finished-at="2020-03-30T09:30:02 IST" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="NavigateToBranchManagementPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d]" started-at="2020-04-16T17:28:55 IST" name="NavigateToBranchManagementPage" finished-at="2020-04-16T17:29:40 IST" duration-ms="45661" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.fax.FaxAddressBookTest.AddNewEmptyRecord() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.ivr.BranchManagementCreateTest.VerifyAddRecordWithoutBranchType() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxAddressBookTest@1c3259fa]" started-at="2020-03-30T09:30:02 IST" name="startTestCase" finished-at="2020-03-30T09:30:02 IST" duration-ms="0" status="PASS">
+        </test-method> <!-- NavigateToBranchManagementPage -->
+        <test-method signature="VerifyAddRecordWithoutBranchType()[pri:5, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d]" started-at="2020-04-16T17:29:40 IST" name="VerifyAddRecordWithoutBranchType" finished-at="2020-04-16T17:30:02 IST" duration-ms="21230" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyAddRecordWithoutBranchType -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d]" started-at="2020-04-16T17:30:02 IST" name="afterEachMethod" finished-at="2020-04-16T17:30:10 IST" duration-ms="8424" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.fax.FaxAddressBookTest.AddNewRecordWithoutFaxLine() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigatetoFaxAddressPage()[pri:0, instance:com.tetherfi.test.fax.FaxAddressBookTest@1c3259fa]" started-at="2020-03-30T09:30:02 IST" name="NavigatetoFaxAddressPage" finished-at="2020-03-30T09:30:08 IST" duration-ms="5900" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigatetoFaxAddressPage -->
-        <test-method signature="AddNewRecordWithoutFaxLine()[pri:17, instance:com.tetherfi.test.fax.FaxAddressBookTest@1c3259fa]" started-at="2020-03-30T09:30:08 IST" name="AddNewRecordWithoutFaxLine" finished-at="2020-03-30T09:30:13 IST" duration-ms="5225" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- AddNewRecordWithoutFaxLine -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxAddressBookTest@1c3259fa]" started-at="2020-03-30T09:30:13 IST" name="afterEachMethod" finished-at="2020-03-30T09:30:15 IST" duration-ms="1840" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.fax.FaxAddressBookTest.AddNewRecordWithoutFaxLine() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.ivr.BranchManagementCreateTest.VerifyAddRecordWithoutBranchType() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxAddressBookTest@1c3259fa]" started-at="2020-03-30T09:30:15 IST" name="endTestCase" finished-at="2020-03-30T09:30:15 IST" duration-ms="4" status="PASS">
+        <test-method is-config="true" signature="NavigateToBranchManagementPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d]" started-at="2020-04-16T17:30:10 IST" name="NavigateToBranchManagementPage" finished-at="2020-04-16T17:35:27 IST" duration-ms="316628" status="FAIL">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.fax.FaxAddressBookTest.AddNewRecordWithoutFaxLine() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.ivr.BranchManagementCreateTest.VerifyAddRecordWithoutBranchName() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="NavigatetoFaxAddressPage()[pri:0, instance:com.tetherfi.test.fax.FaxAddressBookTest@1c3259fa]" started-at="2020-03-30T09:30:15 IST" name="NavigatetoFaxAddressPage" finished-at="2020-03-30T09:30:21 IST" duration-ms="5871" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigatetoFaxAddressPage -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxAddressBookTest@1c3259fa]" started-at="2020-03-30T09:30:15 IST" name="startTestCase" finished-at="2020-03-30T09:30:15 IST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.fax.FaxAddressBookTest.AddNewRecordWithoutName() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method signature="AddNewRecordWithoutName()[pri:18, instance:com.tetherfi.test.fax.FaxAddressBookTest@1c3259fa]" started-at="2020-03-30T09:30:21 IST" name="AddNewRecordWithoutName" finished-at="2020-03-30T09:30:26 IST" duration-ms="5209" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- AddNewRecordWithoutName -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxAddressBookTest@1c3259fa]" started-at="2020-03-30T09:30:26 IST" name="afterEachMethod" finished-at="2020-03-30T09:30:26 IST" duration-ms="592" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.fax.FaxAddressBookTest.AddNewRecordWithoutName() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxAddressBookTest@1c3259fa]" started-at="2020-03-30T09:30:26 IST" name="startTestCase" finished-at="2020-03-30T09:30:26 IST" duration-ms="4" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.fax.FaxAddressBookTest.AddNewRecordWithoutRecipients() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxAddressBookTest@1c3259fa]" started-at="2020-03-30T09:30:26 IST" name="endTestCase" finished-at="2020-03-30T09:30:26 IST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.fax.FaxAddressBookTest.AddNewRecordWithoutName() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="NavigatetoFaxAddressPage()[pri:0, instance:com.tetherfi.test.fax.FaxAddressBookTest@1c3259fa]" started-at="2020-03-30T09:30:26 IST" name="NavigatetoFaxAddressPage" finished-at="2020-03-30T09:30:33 IST" duration-ms="6438" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigatetoFaxAddressPage -->
-        <test-method signature="AddNewRecordWithoutRecipients()[pri:19, instance:com.tetherfi.test.fax.FaxAddressBookTest@1c3259fa]" started-at="2020-03-30T09:30:33 IST" name="AddNewRecordWithoutRecipients" finished-at="2020-03-30T09:30:35 IST" duration-ms="2172" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- AddNewRecordWithoutRecipients -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxAddressBookTest@1c3259fa]" started-at="2020-03-30T09:30:35 IST" name="afterEachMethod" finished-at="2020-03-30T09:30:37 IST" duration-ms="1947" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.fax.FaxAddressBookTest.AddNewRecordWithoutRecipients() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxAddressBookTest@1c3259fa]" started-at="2020-03-30T09:30:37 IST" name="endTestCase" finished-at="2020-03-30T09:30:37 IST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.fax.FaxAddressBookTest.AddNewRecordWithoutRecipients() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxAddressBookTest@1c3259fa]" started-at="2020-03-30T09:30:37 IST" name="startTestCase" finished-at="2020-03-30T09:30:37 IST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.fax.FaxAddressBookTest.ExportToExcel() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigatetoFaxAddressPage()[pri:0, instance:com.tetherfi.test.fax.FaxAddressBookTest@1c3259fa]" started-at="2020-03-30T09:30:37 IST" name="NavigatetoFaxAddressPage" finished-at="2020-03-30T09:30:43 IST" duration-ms="5919" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigatetoFaxAddressPage -->
-        <test-method signature="ExportToExcel()[pri:20, instance:com.tetherfi.test.fax.FaxAddressBookTest@1c3259fa]" started-at="2020-03-30T09:30:43 IST" name="ExportToExcel" finished-at="2020-03-30T09:30:46 IST" duration-ms="3360" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- ExportToExcel -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxAddressBookTest@1c3259fa]" started-at="2020-03-30T09:30:46 IST" name="afterEachMethod" finished-at="2020-03-30T09:30:47 IST" duration-ms="438" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.fax.FaxAddressBookTest.ExportToExcel() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxAddressBookTest@1c3259fa]" started-at="2020-03-30T09:30:47 IST" name="startTestCase" finished-at="2020-03-30T09:30:47 IST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.fax.FaxAddressBookTest.ExportToExcelData() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigatetoFaxAddressPage()[pri:0, instance:com.tetherfi.test.fax.FaxAddressBookTest@1c3259fa]" started-at="2020-03-30T09:30:47 IST" name="NavigatetoFaxAddressPage" finished-at="2020-03-30T09:30:54 IST" duration-ms="7750" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigatetoFaxAddressPage -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxAddressBookTest@1c3259fa]" started-at="2020-03-30T09:30:47 IST" name="endTestCase" finished-at="2020-03-30T09:30:47 IST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.fax.FaxAddressBookTest.ExportToExcel() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method signature="ExportToExcelData()[pri:21, instance:com.tetherfi.test.fax.FaxAddressBookTest@1c3259fa]" started-at="2020-03-30T09:30:54 IST" name="ExportToExcelData" finished-at="2020-03-30T09:30:55 IST" duration-ms="373" status="FAIL">
-          <exception class="java.lang.ArrayIndexOutOfBoundsException">
-            <message>
-              <![CDATA[1]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.ArrayIndexOutOfBoundsException: 1
-at com.tetherfi.pages.FaxAddressBookPage.getdata(FaxAddressBookPage.java:380)
-at com.tetherfi.pages.FaxAddressBookPage.verifyexportToExcelSheet(FaxAddressBookPage.java:318)
-at com.tetherfi.test.fax.FaxAddressBookTest.ExportToExcelData(FaxAddressBookTest.java:253)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(Unknown Source)
-at org.testng.TestRunner.privateRun(TestRunner.java:770)
-at org.testng.TestRunner.run(TestRunner.java:591)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-at org.testng.TestNG.runSuites(TestNG.java:1032)
-at org.testng.TestNG.run(TestNG.java:1000)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.ArrayIndexOutOfBoundsException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- ExportToExcelData -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxAddressBookTest@1c3259fa]" started-at="2020-03-30T09:30:55 IST" name="afterEachMethod" finished-at="2020-03-30T09:30:56 IST" duration-ms="1594" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.fax.FaxAddressBookTest.ExportToExcelData() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxAddressBookTest@1c3259fa]" started-at="2020-03-30T09:30:56 IST" name="endTestCase" finished-at="2020-03-30T09:30:56 IST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.fax.FaxAddressBookTest.ExportToExcelData() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxAddressBookTest@1c3259fa]" started-at="2020-03-30T09:30:56 IST" name="startTestCase" finished-at="2020-03-30T09:30:56 IST" duration-ms="1" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.fax.FaxAddressBookTest.SortingByAscending() throws java.io.IOException]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigatetoFaxAddressPage()[pri:0, instance:com.tetherfi.test.fax.FaxAddressBookTest@1c3259fa]" started-at="2020-03-30T09:30:56 IST" name="NavigatetoFaxAddressPage" finished-at="2020-03-30T09:31:02 IST" duration-ms="5405" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigatetoFaxAddressPage -->
-        <test-method signature="SortingByAscending()[pri:22, instance:com.tetherfi.test.fax.FaxAddressBookTest@1c3259fa]" started-at="2020-03-30T09:31:02 IST" name="SortingByAscending" finished-at="2020-03-30T09:31:10 IST" duration-ms="7899" status="FAIL">
           <exception class="java.lang.AssertionError">
             <message>
-              <![CDATA[did not expect to find [true] but found [false]]]>
+              <![CDATA[IVR page assertion failed did not expect to find [true] but found [false]]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: did not expect to find [true] but found [false]
+              <![CDATA[java.lang.AssertionError: IVR page assertion failed did not expect to find [true] but found [false]
 at org.testng.Assert.fail(Assert.java:97)
 at org.testng.Assert.failNotEquals(Assert.java:969)
 at org.testng.Assert.assertTrue(Assert.java:43)
-at org.testng.Assert.assertTrue(Assert.java:53)
-at com.tetherfi.test.fax.FaxAddressBookTest.SortingByAscending(FaxAddressBookTest.java:263)
+at com.tetherfi.test.ivr.BranchManagementCreateTest.NavigateToBranchManagementPage(BranchManagementCreateTest.java:64)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 at java.base/java.lang.reflect.Method.invoke(Unknown Source)
 at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:62)
+at org.testng.internal.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:340)
+at org.testng.internal.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:294)
+at org.testng.internal.TestInvoker.runConfigMethods(TestInvoker.java:683)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:510)
 at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
 at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
 at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
@@ -523,62 +277,28 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
           </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- SortingByAscending -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxAddressBookTest@1c3259fa]" started-at="2020-03-30T09:31:10 IST" name="afterEachMethod" finished-at="2020-03-30T09:31:11 IST" duration-ms="1739" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.fax.FaxAddressBookTest.SortingByAscending() throws java.io.IOException]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxAddressBookTest@1c3259fa]" started-at="2020-03-30T09:31:11 IST" name="endTestCase" finished-at="2020-03-30T09:31:11 IST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.fax.FaxAddressBookTest.SortingByAscending() throws java.io.IOException]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="NavigatetoFaxAddressPage()[pri:0, instance:com.tetherfi.test.fax.FaxAddressBookTest@1c3259fa]" started-at="2020-03-30T09:31:11 IST" name="NavigatetoFaxAddressPage" finished-at="2020-03-30T09:31:17 IST" duration-ms="5954" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigatetoFaxAddressPage -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxAddressBookTest@1c3259fa]" started-at="2020-03-30T09:31:11 IST" name="startTestCase" finished-at="2020-03-30T09:31:11 IST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.fax.FaxAddressBookTest.SortingByDescending() throws java.io.IOException]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method signature="SortingByDescending()[pri:23, instance:com.tetherfi.test.fax.FaxAddressBookTest@1c3259fa]" started-at="2020-03-30T09:31:17 IST" name="SortingByDescending" finished-at="2020-03-30T09:31:26 IST" duration-ms="8419" status="FAIL">
+        </test-method> <!-- NavigateToBranchManagementPage -->
+        <test-method signature="VerifyAddRecordWithoutBranchName()[pri:6, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d]" started-at="2020-04-16T17:35:27 IST" name="VerifyAddRecordWithoutBranchName" finished-at="2020-04-16T17:35:27 IST" duration-ms="0" status="SKIP">
           <exception class="java.lang.AssertionError">
             <message>
-              <![CDATA[did not expect to find [true] but found [false]]]>
+              <![CDATA[IVR page assertion failed did not expect to find [true] but found [false]]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: did not expect to find [true] but found [false]
+              <![CDATA[java.lang.AssertionError: IVR page assertion failed did not expect to find [true] but found [false]
 at org.testng.Assert.fail(Assert.java:97)
 at org.testng.Assert.failNotEquals(Assert.java:969)
 at org.testng.Assert.assertTrue(Assert.java:43)
-at org.testng.Assert.assertTrue(Assert.java:53)
-at com.tetherfi.test.fax.FaxAddressBookTest.SortingByDescending(FaxAddressBookTest.java:273)
+at com.tetherfi.test.ivr.BranchManagementCreateTest.NavigateToBranchManagementPage(BranchManagementCreateTest.java:64)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 at java.base/java.lang.reflect.Method.invoke(Unknown Source)
 at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:62)
+at org.testng.internal.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:340)
+at org.testng.internal.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:294)
+at org.testng.internal.TestInvoker.runConfigMethods(TestInvoker.java:683)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:510)
 at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
 at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
 at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
@@ -606,103 +326,36 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
           </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- SortingByDescending -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxAddressBookTest@1c3259fa]" started-at="2020-03-30T09:31:26 IST" name="afterEachMethod" finished-at="2020-03-30T09:31:28 IST" duration-ms="1709" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.fax.FaxAddressBookTest.SortingByDescending() throws java.io.IOException]]>
-              </value>
-            </param>
-          </params>
+        </test-method> <!-- VerifyAddRecordWithoutBranchName -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d]" started-at="2020-04-16T17:35:27 IST" name="afterEachMethod" finished-at="1970-01-01T05:30:00 IST" duration-ms="-1587038727184" status="SKIP">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxAddressBookTest@1c3259fa]" started-at="2020-03-30T09:31:28 IST" name="endTestCase" finished-at="2020-03-30T09:31:28 IST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.fax.FaxAddressBookTest.SortingByDescending() throws java.io.IOException]]>
-              </value>
-            </param>
-          </params>
+        <test-method is-config="true" signature="NavigateToBranchManagementPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d]" started-at="2020-04-16T17:35:27 IST" name="NavigateToBranchManagementPage" finished-at="1970-01-01T05:30:00 IST" duration-ms="-1587038727188" status="SKIP">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxAddressBookTest@1c3259fa]" started-at="2020-03-30T09:31:28 IST" name="startTestCase" finished-at="2020-03-30T09:31:28 IST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.fax.FaxAddressBookTest.AddressBookExportToExcel() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigatetoFaxAddressPage()[pri:0, instance:com.tetherfi.test.fax.FaxAddressBookTest@1c3259fa]" started-at="2020-03-30T09:31:28 IST" name="NavigatetoFaxAddressPage" finished-at="2020-03-30T09:31:34 IST" duration-ms="6390" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigatetoFaxAddressPage -->
-        <test-method signature="AddressBookExportToExcel()[pri:24, instance:com.tetherfi.test.fax.FaxAddressBookTest@1c3259fa]" started-at="2020-03-30T09:31:34 IST" name="AddressBookExportToExcel" finished-at="2020-03-30T09:31:36 IST" duration-ms="2586" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- AddressBookExportToExcel -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxAddressBookTest@1c3259fa]" started-at="2020-03-30T09:31:37 IST" name="afterEachMethod" finished-at="2020-03-30T09:31:38 IST" duration-ms="1646" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.fax.FaxAddressBookTest.AddressBookExportToExcel() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxAddressBookTest@1c3259fa]" started-at="2020-03-30T09:31:38 IST" name="endTestCase" finished-at="2020-03-30T09:31:38 IST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.fax.FaxAddressBookTest.AddressBookExportToExcel() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxAddressBookTest@1c3259fa]" started-at="2020-03-30T09:31:38 IST" name="startTestCase" finished-at="2020-03-30T09:31:38 IST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.fax.FaxAddressBookTest.AddressBookExportToExcelData() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigatetoFaxAddressPage()[pri:0, instance:com.tetherfi.test.fax.FaxAddressBookTest@1c3259fa]" started-at="2020-03-30T09:31:38 IST" name="NavigatetoFaxAddressPage" finished-at="2020-03-30T09:31:44 IST" duration-ms="5808" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigatetoFaxAddressPage -->
-        <test-method signature="AddressBookExportToExcelData()[pri:25, instance:com.tetherfi.test.fax.FaxAddressBookTest@1c3259fa]" started-at="2020-03-30T09:31:44 IST" name="AddressBookExportToExcelData" finished-at="2020-03-30T09:31:48 IST" duration-ms="4247" status="FAIL">
+        </test-method> <!-- NavigateToBranchManagementPage -->
+        <test-method signature="VerifyAddRecordWithoutAddress()[pri:7, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d]" started-at="2020-04-16T17:35:27 IST" name="VerifyAddRecordWithoutAddress" finished-at="2020-04-16T17:35:27 IST" duration-ms="0" status="SKIP">
           <exception class="java.lang.AssertionError">
             <message>
-              <![CDATA[did not expect to find [true] but found [false]]]>
+              <![CDATA[IVR page assertion failed did not expect to find [true] but found [false]]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: did not expect to find [true] but found [false]
+              <![CDATA[java.lang.AssertionError: IVR page assertion failed did not expect to find [true] but found [false]
 at org.testng.Assert.fail(Assert.java:97)
 at org.testng.Assert.failNotEquals(Assert.java:969)
 at org.testng.Assert.assertTrue(Assert.java:43)
-at org.testng.Assert.assertTrue(Assert.java:53)
-at com.tetherfi.test.fax.FaxAddressBookTest.AddressBookExportToExcelData(FaxAddressBookTest.java:289)
+at com.tetherfi.test.ivr.BranchManagementCreateTest.NavigateToBranchManagementPage(BranchManagementCreateTest.java:64)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 at java.base/java.lang.reflect.Method.invoke(Unknown Source)
 at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:62)
+at org.testng.internal.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:340)
+at org.testng.internal.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:294)
+at org.testng.internal.TestInvoker.runConfigMethods(TestInvoker.java:683)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:510)
 at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
 at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
 at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
@@ -730,62 +383,32 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
           </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- AddressBookExportToExcelData -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxAddressBookTest@1c3259fa]" started-at="2020-03-30T09:31:48 IST" name="afterEachMethod" finished-at="2020-03-30T09:31:50 IST" duration-ms="1672" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.fax.FaxAddressBookTest.AddressBookExportToExcelData() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
+        </test-method> <!-- VerifyAddRecordWithoutAddress -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d]" started-at="2020-04-16T17:35:27 IST" name="afterEachMethod" finished-at="1970-01-01T05:30:00 IST" duration-ms="-1587038727208" status="SKIP">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxAddressBookTest@1c3259fa]" started-at="2020-03-30T09:31:50 IST" name="endTestCase" finished-at="2020-03-30T09:31:50 IST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.fax.FaxAddressBookTest.AddressBookExportToExcelData() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="NavigatetoFaxAddressPage()[pri:0, instance:com.tetherfi.test.fax.FaxAddressBookTest@1c3259fa]" started-at="2020-03-30T09:31:50 IST" name="NavigatetoFaxAddressPage" finished-at="2020-03-30T09:31:55 IST" duration-ms="5565" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigatetoFaxAddressPage -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxAddressBookTest@1c3259fa]" started-at="2020-03-30T09:31:50 IST" name="startTestCase" finished-at="2020-03-30T09:31:50 IST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.fax.FaxAddressBookTest.AddressBookSortingByAscending() throws java.io.IOException]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method signature="AddressBookSortingByAscending()[pri:26, instance:com.tetherfi.test.fax.FaxAddressBookTest@1c3259fa]" started-at="2020-03-30T09:31:55 IST" name="AddressBookSortingByAscending" finished-at="2020-03-30T09:32:02 IST" duration-ms="6784" status="FAIL">
+        <test-method signature="VerifyAddRecordWithoutLineOrder()[pri:8, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d]" started-at="2020-04-16T17:35:27 IST" name="VerifyAddRecordWithoutLineOrder" finished-at="2020-04-16T17:35:27 IST" duration-ms="0" status="SKIP">
           <exception class="java.lang.AssertionError">
             <message>
-              <![CDATA[did not expect to find [true] but found [false]]]>
+              <![CDATA[IVR page assertion failed did not expect to find [true] but found [false]]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: did not expect to find [true] but found [false]
+              <![CDATA[java.lang.AssertionError: IVR page assertion failed did not expect to find [true] but found [false]
 at org.testng.Assert.fail(Assert.java:97)
 at org.testng.Assert.failNotEquals(Assert.java:969)
 at org.testng.Assert.assertTrue(Assert.java:43)
-at org.testng.Assert.assertTrue(Assert.java:53)
-at com.tetherfi.test.fax.FaxAddressBookTest.AddressBookSortingByAscending(FaxAddressBookTest.java:298)
+at com.tetherfi.test.ivr.BranchManagementCreateTest.NavigateToBranchManagementPage(BranchManagementCreateTest.java:64)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 at java.base/java.lang.reflect.Method.invoke(Unknown Source)
 at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:62)
+at org.testng.internal.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:340)
+at org.testng.internal.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:294)
+at org.testng.internal.TestInvoker.runConfigMethods(TestInvoker.java:683)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:510)
 at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
 at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
 at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
@@ -813,62 +436,40 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
           </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- AddressBookSortingByAscending -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxAddressBookTest@1c3259fa]" started-at="2020-03-30T09:32:02 IST" name="afterEachMethod" finished-at="2020-03-30T09:32:04 IST" duration-ms="1623" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.fax.FaxAddressBookTest.AddressBookSortingByAscending() throws java.io.IOException]]>
-              </value>
-            </param>
-          </params>
+        </test-method> <!-- VerifyAddRecordWithoutLineOrder -->
+        <test-method is-config="true" signature="NavigateToBranchManagementPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d]" started-at="2020-04-16T17:35:27 IST" name="NavigateToBranchManagementPage" finished-at="1970-01-01T05:30:00 IST" duration-ms="-1587038727212" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToBranchManagementPage -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d]" started-at="2020-04-16T17:35:27 IST" name="afterEachMethod" finished-at="1970-01-01T05:30:00 IST" duration-ms="-1587038727220" status="SKIP">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxAddressBookTest@1c3259fa]" started-at="2020-03-30T09:32:04 IST" name="endTestCase" finished-at="2020-03-30T09:32:04 IST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.fax.FaxAddressBookTest.AddressBookSortingByAscending() throws java.io.IOException]]>
-              </value>
-            </param>
-          </params>
+        <test-method is-config="true" signature="NavigateToBranchManagementPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d]" started-at="2020-04-16T17:35:27 IST" name="NavigateToBranchManagementPage" finished-at="1970-01-01T05:30:00 IST" duration-ms="-1587038727224" status="SKIP">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxAddressBookTest@1c3259fa]" started-at="2020-03-30T09:32:04 IST" name="startTestCase" finished-at="2020-03-30T09:32:04 IST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.fax.FaxAddressBookTest.AddressBookSortingByDescending() throws java.io.IOException]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigatetoFaxAddressPage()[pri:0, instance:com.tetherfi.test.fax.FaxAddressBookTest@1c3259fa]" started-at="2020-03-30T09:32:04 IST" name="NavigatetoFaxAddressPage" finished-at="2020-03-30T09:32:10 IST" duration-ms="6215" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigatetoFaxAddressPage -->
-        <test-method signature="AddressBookSortingByDescending()[pri:27, instance:com.tetherfi.test.fax.FaxAddressBookTest@1c3259fa]" started-at="2020-03-30T09:32:10 IST" name="AddressBookSortingByDescending" finished-at="2020-03-30T09:32:18 IST" duration-ms="7494" status="FAIL">
+        </test-method> <!-- NavigateToBranchManagementPage -->
+        <test-method signature="VerifyAddRecordWithoutStatus()[pri:9, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d]" started-at="2020-04-16T17:35:27 IST" name="VerifyAddRecordWithoutStatus" finished-at="2020-04-16T17:35:27 IST" duration-ms="0" status="SKIP">
           <exception class="java.lang.AssertionError">
             <message>
-              <![CDATA[did not expect to find [true] but found [false]]]>
+              <![CDATA[IVR page assertion failed did not expect to find [true] but found [false]]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: did not expect to find [true] but found [false]
+              <![CDATA[java.lang.AssertionError: IVR page assertion failed did not expect to find [true] but found [false]
 at org.testng.Assert.fail(Assert.java:97)
 at org.testng.Assert.failNotEquals(Assert.java:969)
 at org.testng.Assert.assertTrue(Assert.java:43)
-at org.testng.Assert.assertTrue(Assert.java:53)
-at com.tetherfi.test.fax.FaxAddressBookTest.AddressBookSortingByDescending(FaxAddressBookTest.java:307)
+at com.tetherfi.test.ivr.BranchManagementCreateTest.NavigateToBranchManagementPage(BranchManagementCreateTest.java:64)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 at java.base/java.lang.reflect.Method.invoke(Unknown Source)
 at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:62)
+at org.testng.internal.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:340)
+at org.testng.internal.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:294)
+at org.testng.internal.TestInvoker.runConfigMethods(TestInvoker.java:683)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:510)
 at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
 at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
 at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
@@ -896,34 +497,745 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
           </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- AddressBookSortingByDescending -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxAddressBookTest@1c3259fa]" started-at="2020-03-30T09:32:18 IST" name="afterEachMethod" finished-at="2020-03-30T09:32:19 IST" duration-ms="1658" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.fax.FaxAddressBookTest.AddressBookSortingByDescending() throws java.io.IOException]]>
-              </value>
-            </param>
-          </params>
+        </test-method> <!-- VerifyAddRecordWithoutStatus -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d]" started-at="2020-04-16T17:35:27 IST" name="afterEachMethod" finished-at="1970-01-01T05:30:00 IST" duration-ms="-1587038727232" status="SKIP">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxAddressBookTest@1c3259fa]" started-at="2020-03-30T09:32:19 IST" name="endTestCase" finished-at="2020-03-30T09:32:19 IST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.fax.FaxAddressBookTest.AddressBookSortingByDescending() throws java.io.IOException]]>
-              </value>
-            </param>
-          </params>
+        <test-method is-config="true" signature="NavigateToBranchManagementPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d]" started-at="2020-04-16T17:35:27 IST" name="NavigateToBranchManagementPage" finished-at="1970-01-01T05:30:00 IST" duration-ms="-1587038727240" status="SKIP">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.tetherfi.test.fax.FaxAddressBookTest@1c3259fa]" started-at="2020-03-30T09:32:19 IST" name="tearDown" finished-at="2020-03-30T09:32:25 IST" duration-ms="5900" status="PASS">
+        </test-method> <!-- NavigateToBranchManagementPage -->
+        <test-method signature="VerifyAddRecordWithoutLanguage()[pri:10, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d]" started-at="2020-04-16T17:35:27 IST" name="VerifyAddRecordWithoutLanguage" finished-at="2020-04-16T17:35:27 IST" duration-ms="0" status="SKIP">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[IVR page assertion failed did not expect to find [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: IVR page assertion failed did not expect to find [true] but found [false]
+at org.testng.Assert.fail(Assert.java:97)
+at org.testng.Assert.failNotEquals(Assert.java:969)
+at org.testng.Assert.assertTrue(Assert.java:43)
+at com.tetherfi.test.ivr.BranchManagementCreateTest.NavigateToBranchManagementPage(BranchManagementCreateTest.java:64)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:62)
+at org.testng.internal.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:340)
+at org.testng.internal.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:294)
+at org.testng.internal.TestInvoker.runConfigMethods(TestInvoker.java:683)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:510)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- com.tetherfi.test.fax.FaxAddressBookTest -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+        </test-method> <!-- VerifyAddRecordWithoutLanguage -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d]" started-at="2020-04-16T17:35:27 IST" name="afterEachMethod" finished-at="1970-01-01T05:30:00 IST" duration-ms="-1587038727256" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="NavigateToBranchManagementPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d]" started-at="2020-04-16T17:35:27 IST" name="NavigateToBranchManagementPage" finished-at="1970-01-01T05:30:00 IST" duration-ms="-1587038727256" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToBranchManagementPage -->
+        <test-method signature="AddRevertRecord()[pri:11, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d]" started-at="2020-04-16T17:35:27 IST" name="AddRevertRecord" finished-at="2020-04-16T17:35:27 IST" duration-ms="0" status="SKIP">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[IVR page assertion failed did not expect to find [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: IVR page assertion failed did not expect to find [true] but found [false]
+at org.testng.Assert.fail(Assert.java:97)
+at org.testng.Assert.failNotEquals(Assert.java:969)
+at org.testng.Assert.assertTrue(Assert.java:43)
+at com.tetherfi.test.ivr.BranchManagementCreateTest.NavigateToBranchManagementPage(BranchManagementCreateTest.java:64)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:62)
+at org.testng.internal.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:340)
+at org.testng.internal.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:294)
+at org.testng.internal.TestInvoker.runConfigMethods(TestInvoker.java:683)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:510)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AddRevertRecord -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d]" started-at="2020-04-16T17:35:27 IST" name="afterEachMethod" finished-at="1970-01-01T05:30:00 IST" duration-ms="-1587038727264" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method signature="VerifyRevertForAddNewRecord()[pri:12, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d]" started-at="2020-04-16T17:35:27 IST" name="VerifyRevertForAddNewRecord" finished-at="2020-04-16T17:35:27 IST" depends-on-methods="com.tetherfi.test.ivr.BranchManagementCreateTest.AddRevertRecord" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method BranchManagementCreateTest.VerifyRevertForAddNewRecord()[pri:12, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method BranchManagementCreateTest.VerifyRevertForAddNewRecord()[pri:12, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d] depends on not successfully finished methods
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:99)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyRevertForAddNewRecord -->
+        <test-method signature="VerifyApprovedDataSectionWithoutApproval()[pri:13, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d]" started-at="2020-04-16T17:35:27 IST" name="VerifyApprovedDataSectionWithoutApproval" finished-at="2020-04-16T17:35:27 IST" depends-on-methods="com.tetherfi.test.ivr.BranchManagementCreateTest.VerifyRevertForAddNewRecord" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method BranchManagementCreateTest.VerifyApprovedDataSectionWithoutApproval()[pri:13, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method BranchManagementCreateTest.VerifyApprovedDataSectionWithoutApproval()[pri:13, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d] depends on not successfully finished methods
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:99)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyApprovedDataSectionWithoutApproval -->
+        <test-method signature="VerifyAuditTrailReportForRevert()[pri:14, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d]" started-at="2020-04-16T17:35:27 IST" name="VerifyAuditTrailReportForRevert" finished-at="2020-04-16T17:35:27 IST" depends-on-methods="com.tetherfi.test.ivr.BranchManagementCreateTest.VerifyApprovedDataSectionWithoutApproval" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method BranchManagementCreateTest.VerifyAuditTrailReportForRevert()[pri:14, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method BranchManagementCreateTest.VerifyAuditTrailReportForRevert()[pri:14, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d] depends on not successfully finished methods
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:99)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyAuditTrailReportForRevert -->
+        <test-method signature="AddRejectRecord()[pri:15, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d]" started-at="2020-04-16T17:35:27 IST" name="AddRejectRecord" finished-at="2020-04-16T17:35:27 IST" duration-ms="0" status="SKIP">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[IVR page assertion failed did not expect to find [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: IVR page assertion failed did not expect to find [true] but found [false]
+at org.testng.Assert.fail(Assert.java:97)
+at org.testng.Assert.failNotEquals(Assert.java:969)
+at org.testng.Assert.assertTrue(Assert.java:43)
+at com.tetherfi.test.ivr.BranchManagementCreateTest.NavigateToBranchManagementPage(BranchManagementCreateTest.java:64)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:62)
+at org.testng.internal.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:340)
+at org.testng.internal.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:294)
+at org.testng.internal.TestInvoker.runConfigMethods(TestInvoker.java:683)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:510)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AddRejectRecord -->
+        <test-method is-config="true" signature="NavigateToBranchManagementPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d]" started-at="2020-04-16T17:35:27 IST" name="NavigateToBranchManagementPage" finished-at="1970-01-01T05:30:00 IST" duration-ms="-1587038727312" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToBranchManagementPage -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d]" started-at="2020-04-16T17:35:27 IST" name="afterEachMethod" finished-at="1970-01-01T05:30:00 IST" duration-ms="-1587038727316" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method signature="VerifySendForApprovalForAddNewRecord()[pri:16, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d]" started-at="2020-04-16T17:35:27 IST" name="VerifySendForApprovalForAddNewRecord" finished-at="2020-04-16T17:35:27 IST" depends-on-methods="com.tetherfi.test.ivr.BranchManagementCreateTest.AddRejectRecord" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method BranchManagementCreateTest.VerifySendForApprovalForAddNewRecord()[pri:16, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method BranchManagementCreateTest.VerifySendForApprovalForAddNewRecord()[pri:16, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d] depends on not successfully finished methods
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:99)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifySendForApprovalForAddNewRecord -->
+        <test-method signature="RejectforAddNewBranchManagementRecord()[pri:17, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d]" started-at="2020-04-16T17:35:27 IST" name="RejectforAddNewBranchManagementRecord" finished-at="2020-04-16T17:35:27 IST" depends-on-methods="com.tetherfi.test.ivr.BranchManagementCreateTest.VerifySendForApprovalForAddNewRecord" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method BranchManagementCreateTest.RejectforAddNewBranchManagementRecord()[pri:17, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method BranchManagementCreateTest.RejectforAddNewBranchManagementRecord()[pri:17, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d] depends on not successfully finished methods
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:99)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- RejectforAddNewBranchManagementRecord -->
+        <test-method signature="VerifyAuditTrailReportForReject()[pri:18, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d]" started-at="2020-04-16T17:35:27 IST" name="VerifyAuditTrailReportForReject" finished-at="2020-04-16T17:35:27 IST" depends-on-methods="com.tetherfi.test.ivr.BranchManagementCreateTest.RejectforAddNewBranchManagementRecord" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method BranchManagementCreateTest.VerifyAuditTrailReportForReject()[pri:18, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method BranchManagementCreateTest.VerifyAuditTrailReportForReject()[pri:18, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d] depends on not successfully finished methods
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:99)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyAuditTrailReportForReject -->
+        <test-method signature="VerifyRecordAfterRejection()[pri:19, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d]" started-at="2020-04-16T17:35:27 IST" name="VerifyRecordAfterRejection" finished-at="2020-04-16T17:35:27 IST" depends-on-methods="com.tetherfi.test.ivr.BranchManagementCreateTest.VerifyAuditTrailReportForReject" duration-ms="4" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method BranchManagementCreateTest.VerifyRecordAfterRejection()[pri:19, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method BranchManagementCreateTest.VerifyRecordAfterRejection()[pri:19, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d] depends on not successfully finished methods
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:99)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyRecordAfterRejection -->
+        <test-method is-config="true" signature="NavigateToBranchManagementPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d]" started-at="2020-04-16T17:35:27 IST" name="NavigateToBranchManagementPage" finished-at="1970-01-01T05:30:00 IST" duration-ms="-1587038727360" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToBranchManagementPage -->
+        <test-method signature="AddNewBranchManagementRecord()[pri:20, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d]" started-at="2020-04-16T17:35:27 IST" name="AddNewBranchManagementRecord" finished-at="2020-04-16T17:35:27 IST" duration-ms="0" status="SKIP">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[IVR page assertion failed did not expect to find [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: IVR page assertion failed did not expect to find [true] but found [false]
+at org.testng.Assert.fail(Assert.java:97)
+at org.testng.Assert.failNotEquals(Assert.java:969)
+at org.testng.Assert.assertTrue(Assert.java:43)
+at com.tetherfi.test.ivr.BranchManagementCreateTest.NavigateToBranchManagementPage(BranchManagementCreateTest.java:64)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:62)
+at org.testng.internal.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:340)
+at org.testng.internal.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:294)
+at org.testng.internal.TestInvoker.runConfigMethods(TestInvoker.java:683)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:510)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AddNewBranchManagementRecord -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d]" started-at="2020-04-16T17:35:27 IST" name="afterEachMethod" finished-at="1970-01-01T05:30:00 IST" duration-ms="-1587038727364" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method signature="VerifyAuditTrailReportForCreate()[pri:21, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d]" started-at="2020-04-16T17:35:27 IST" name="VerifyAuditTrailReportForCreate" finished-at="2020-04-16T17:35:27 IST" depends-on-methods="com.tetherfi.test.ivr.BranchManagementCreateTest.AddNewBranchManagementRecord" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method BranchManagementCreateTest.VerifyAuditTrailReportForCreate()[pri:21, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method BranchManagementCreateTest.VerifyAuditTrailReportForCreate()[pri:21, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d] depends on not successfully finished methods
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:99)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyAuditTrailReportForCreate -->
+        <test-method is-config="true" signature="NavigateToBranchManagementPage(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d]" started-at="2020-04-16T17:35:27 IST" name="NavigateToBranchManagementPage" finished-at="1970-01-01T05:30:00 IST" duration-ms="-1587038727372" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToBranchManagementPage -->
+        <test-method signature="VerifyAuditTrailDataForAddNewBranchManagementRecord()[pri:22, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d]" started-at="2020-04-16T17:35:27 IST" name="VerifyAuditTrailDataForAddNewBranchManagementRecord" finished-at="2020-04-16T17:35:27 IST" duration-ms="0" status="SKIP">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[IVR page assertion failed did not expect to find [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: IVR page assertion failed did not expect to find [true] but found [false]
+at org.testng.Assert.fail(Assert.java:97)
+at org.testng.Assert.failNotEquals(Assert.java:969)
+at org.testng.Assert.assertTrue(Assert.java:43)
+at com.tetherfi.test.ivr.BranchManagementCreateTest.NavigateToBranchManagementPage(BranchManagementCreateTest.java:64)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:62)
+at org.testng.internal.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:340)
+at org.testng.internal.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:294)
+at org.testng.internal.TestInvoker.runConfigMethods(TestInvoker.java:683)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:510)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyAuditTrailDataForAddNewBranchManagementRecord -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d]" started-at="2020-04-16T17:35:27 IST" name="afterEachMethod" finished-at="1970-01-01T05:30:00 IST" duration-ms="-1587038727384" status="SKIP">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method signature="VerifySendForApprovalForAddNewBranchManagementRecord()[pri:23, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d]" started-at="2020-04-16T17:35:27 IST" name="VerifySendForApprovalForAddNewBranchManagementRecord" finished-at="2020-04-16T17:35:27 IST" depends-on-methods="com.tetherfi.test.ivr.BranchManagementCreateTest.VerifyAuditTrailDataForAddNewBranchManagementRecord" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method BranchManagementCreateTest.VerifySendForApprovalForAddNewBranchManagementRecord()[pri:23, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method BranchManagementCreateTest.VerifySendForApprovalForAddNewBranchManagementRecord()[pri:23, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d] depends on not successfully finished methods
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:99)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifySendForApprovalForAddNewBranchManagementRecord -->
+        <test-method signature="VerifyAuditTrailReportForSendForApproval()[pri:24, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d]" started-at="2020-04-16T17:35:27 IST" name="VerifyAuditTrailReportForSendForApproval" finished-at="2020-04-16T17:35:27 IST" depends-on-methods="com.tetherfi.test.ivr.BranchManagementCreateTest.VerifySendForApprovalForAddNewBranchManagementRecord" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method BranchManagementCreateTest.VerifyAuditTrailReportForSendForApproval()[pri:24, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method BranchManagementCreateTest.VerifyAuditTrailReportForSendForApproval()[pri:24, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d] depends on not successfully finished methods
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:99)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyAuditTrailReportForSendForApproval -->
+        <test-method signature="ApproveforAddNewBranchManagementRecord()[pri:25, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d]" started-at="2020-04-16T17:35:27 IST" name="ApproveforAddNewBranchManagementRecord" finished-at="2020-04-16T17:35:27 IST" depends-on-methods="com.tetherfi.test.ivr.BranchManagementCreateTest.VerifyAuditTrailReportForSendForApproval" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method BranchManagementCreateTest.ApproveforAddNewBranchManagementRecord()[pri:25, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method BranchManagementCreateTest.ApproveforAddNewBranchManagementRecord()[pri:25, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d] depends on not successfully finished methods
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:99)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ApproveforAddNewBranchManagementRecord -->
+        <test-method signature="VerifyAuditTrailReportForApprove()[pri:26, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d]" started-at="2020-04-16T17:35:27 IST" name="VerifyAuditTrailReportForApprove" finished-at="2020-04-16T17:35:27 IST" depends-on-methods="com.tetherfi.test.ivr.BranchManagementCreateTest.ApproveforAddNewBranchManagementRecord" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method BranchManagementCreateTest.VerifyAuditTrailReportForApprove()[pri:26, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method BranchManagementCreateTest.VerifyAuditTrailReportForApprove()[pri:26, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d] depends on not successfully finished methods
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:99)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyAuditTrailReportForApprove -->
+        <test-method signature="VerifyRecordApprovedDataSectionafterApproval()[pri:27, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d]" started-at="2020-04-16T17:35:27 IST" name="VerifyRecordApprovedDataSectionafterApproval" finished-at="2020-04-16T17:35:27 IST" depends-on-methods="com.tetherfi.test.ivr.BranchManagementCreateTest.ApproveforAddNewBranchManagementRecord" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method BranchManagementCreateTest.VerifyRecordApprovedDataSectionafterApproval()[pri:27, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method BranchManagementCreateTest.VerifyRecordApprovedDataSectionafterApproval()[pri:27, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d] depends on not successfully finished methods
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:99)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyRecordApprovedDataSectionafterApproval -->
+        <test-method signature="AddDuplicateRecord()[pri:28, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d]" started-at="2020-04-16T17:35:27 IST" name="AddDuplicateRecord" finished-at="2020-04-16T17:35:27 IST" depends-on-methods="com.tetherfi.test.ivr.BranchManagementCreateTest.AddNewBranchManagementRecord" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method BranchManagementCreateTest.AddDuplicateRecord()[pri:28, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method BranchManagementCreateTest.AddDuplicateRecord()[pri:28, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d] depends on not successfully finished methods
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:99)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AddDuplicateRecord -->
+      </class> <!-- com.tetherfi.test.ivr.BranchManagementCreateTest -->
+    </test> <!-- BranchManagementCreateTest -->
+  </suite> <!-- Tetherfi Test Automation -->
 </testng-results>

@@ -354,13 +354,13 @@ public class IvrConfigPageWMC extends BasePage{
         selectWebElement(ModifyReasonTextBox);
         enterValueToTxtField(ModifyReasonTextBox,details.getModifyReason());
         selectWebElement(saveButton);
-        try {
+        /*try {
         	selectWebElement(cancelBtn);
         }
         catch(Exception e)
         {
         	e.printStackTrace();
-        }
+        }*/
     }
     
     public void editIvrConfigRecord(IvrConfigDetails details) throws Exception {
@@ -380,13 +380,13 @@ public class IvrConfigPageWMC extends BasePage{
         selectWebElement(deleteButton);
         enterValueToTxtFieldWithoutClear(deleteReasonTextBox,details.getDeleteReason());
         selectWebElement(deleteYesBtn);
-        try {
+        /*try {
             selectWebElement(deleteNoBtn);
         }
         catch(Exception e)
         {
         	e.printStackTrace();
-        }
+        }*/
     }
     
     public String verifySuccessMessage(){

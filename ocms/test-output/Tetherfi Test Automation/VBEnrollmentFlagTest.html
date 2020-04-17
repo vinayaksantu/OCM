@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>VBEnrollmentFlagTest</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>39/0/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>37/2/0</td>
 </tr><tr>
-<td>Started on:</td><td>Wed Mar 11 12:14:04 IST 2020</td>
+<td>Started on:</td><td>Fri Apr 10 14:44:25 IST 2020</td>
 </tr>
-<tr><td>Total time:</td><td>697 seconds (697621 ms)</td>
+<tr><td>Total time:</td><td>552 seconds (552050 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -67,6 +67,98 @@ function toggleAllBoxes() {
 </tr>
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.tetherfi.test.ivr.VBEnrollmentFlagTest.VerifyCancelBtnAtAddRecord()'><b>VerifyCancelBtnAtAddRecord</b><br>Test class: com.tetherfi.test.ivr.VBEnrollmentFlagTest</td>
+<td><div><pre>java.lang.AssertionError: Cancel Btn at Add record assertion failed did not expect to find [false] but found [true]
+	at com.tetherfi.test.ivr.VBEnrollmentFlagTest.VerifyCancelBtnAtAddRecord(VBEnrollmentFlagTest.java:156)
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+... Removed 30 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace931872035", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace931872035'><pre>java.lang.AssertionError: Cancel Btn at Add record assertion failed did not expect to find [false] but found [true]
+	at org.testng.Assert.fail(Assert.java:97)
+	at org.testng.Assert.failNotEquals(Assert.java:969)
+	at org.testng.Assert.assertFalse(Assert.java:65)
+	at com.tetherfi.test.ivr.VBEnrollmentFlagTest.VerifyCancelBtnAtAddRecord(VBEnrollmentFlagTest.java:156)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+	at org.testng.TestRunner.privateRun(TestRunner.java:770)
+	at org.testng.TestRunner.run(TestRunner.java:591)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+	at org.testng.TestNG.runSuites(TestNG.java:1032)
+	at org.testng.TestNG.run(TestNG.java:1000)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>3</td>
+<td>com.tetherfi.test.ivr.VBEnrollmentFlagTest@152c4495</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.VBEnrollmentFlagTest.VerifyColumnsHeaderEnable()'><b>VerifyColumnsHeaderEnable</b><br>Test class: com.tetherfi.test.ivr.VBEnrollmentFlagTest</td>
+<td><div><pre>java.lang.AssertionError: columns enabled assertion failed did not expect to find [true] but found [false]
+	at com.tetherfi.test.ivr.VBEnrollmentFlagTest.VerifyColumnsHeaderEnable(VBEnrollmentFlagTest.java:67)
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+... Removed 30 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1541960374", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1541960374'><pre>java.lang.AssertionError: columns enabled assertion failed did not expect to find [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:97)
+	at org.testng.Assert.failNotEquals(Assert.java:969)
+	at org.testng.Assert.assertTrue(Assert.java:43)
+	at com.tetherfi.test.ivr.VBEnrollmentFlagTest.VerifyColumnsHeaderEnable(VBEnrollmentFlagTest.java:67)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+	at org.testng.TestRunner.privateRun(TestRunner.java:770)
+	at org.testng.TestRunner.run(TestRunner.java:591)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+	at org.testng.TestNG.runSuites(TestNG.java:1032)
+	at org.testng.TestNG.run(TestNG.java:1000)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>com.tetherfi.test.ivr.VBEnrollmentFlagTest@152c4495</td></tr>
+</table><p>
 <table width='100%' border='1' class='invocation-passed'>
 <tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
 <tr><td><b>Test method</b></td>
@@ -77,7 +169,7 @@ function toggleAllBoxes() {
 <tr>
 <td title='com.tetherfi.test.ivr.VBEnrollmentFlagTest.AddDuplicateVBEnrollmentFlagRecord()'><b>AddDuplicateVBEnrollmentFlagRecord</b><br>Test class: com.tetherfi.test.ivr.VBEnrollmentFlagTest</td>
 <td></td>
-<td>3</td>
+<td>2</td>
 <td>com.tetherfi.test.ivr.VBEnrollmentFlagTest@152c4495</td></tr>
 <tr>
 <td title='com.tetherfi.test.ivr.VBEnrollmentFlagTest.AddEmptyRecord()'><b>AddEmptyRecord</b><br>Test class: com.tetherfi.test.ivr.VBEnrollmentFlagTest</td>
@@ -97,32 +189,32 @@ function toggleAllBoxes() {
 <tr>
 <td title='com.tetherfi.test.ivr.VBEnrollmentFlagTest.AddRecordWithoutEnrollmentFlag()'><b>AddRecordWithoutEnrollmentFlag</b><br>Test class: com.tetherfi.test.ivr.VBEnrollmentFlagTest</td>
 <td></td>
-<td>2</td>
+<td>1</td>
 <td>com.tetherfi.test.ivr.VBEnrollmentFlagTest@152c4495</td></tr>
 <tr>
 <td title='com.tetherfi.test.ivr.VBEnrollmentFlagTest.AddRecordWithoutHotLineName()'><b>AddRecordWithoutHotLineName</b><br>Test class: com.tetherfi.test.ivr.VBEnrollmentFlagTest</td>
 <td></td>
-<td>3</td>
+<td>2</td>
 <td>com.tetherfi.test.ivr.VBEnrollmentFlagTest@152c4495</td></tr>
 <tr>
 <td title='com.tetherfi.test.ivr.VBEnrollmentFlagTest.DeleteVBEnrollmentFlagRecord()'><b>DeleteVBEnrollmentFlagRecord</b><br>Test class: com.tetherfi.test.ivr.VBEnrollmentFlagTest</td>
 <td></td>
-<td>6</td>
+<td>4</td>
 <td>com.tetherfi.test.ivr.VBEnrollmentFlagTest@152c4495</td></tr>
 <tr>
 <td title='com.tetherfi.test.ivr.VBEnrollmentFlagTest.DeleteWithoutDeleteReasonRecord()'><b>DeleteWithoutDeleteReasonRecord</b><br>Test class: com.tetherfi.test.ivr.VBEnrollmentFlagTest</td>
 <td></td>
-<td>6</td>
+<td>4</td>
 <td>com.tetherfi.test.ivr.VBEnrollmentFlagTest@152c4495</td></tr>
 <tr>
 <td title='com.tetherfi.test.ivr.VBEnrollmentFlagTest.EditVBEnrollmentFlagRecord()'><b>EditVBEnrollmentFlagRecord</b><br>Test class: com.tetherfi.test.ivr.VBEnrollmentFlagTest</td>
 <td></td>
-<td>7</td>
+<td>5</td>
 <td>com.tetherfi.test.ivr.VBEnrollmentFlagTest@152c4495</td></tr>
 <tr>
 <td title='com.tetherfi.test.ivr.VBEnrollmentFlagTest.EditWithoutModifyReasonRecord()'><b>EditWithoutModifyReasonRecord</b><br>Test class: com.tetherfi.test.ivr.VBEnrollmentFlagTest</td>
 <td></td>
-<td>6</td>
+<td>5</td>
 <td>com.tetherfi.test.ivr.VBEnrollmentFlagTest@152c4495</td></tr>
 <tr>
 <td title='com.tetherfi.test.ivr.VBEnrollmentFlagTest.ExportToExcel()'><b>ExportToExcel</b><br>Test class: com.tetherfi.test.ivr.VBEnrollmentFlagTest</td>
@@ -132,32 +224,32 @@ function toggleAllBoxes() {
 <tr>
 <td title='com.tetherfi.test.ivr.VBEnrollmentFlagTest.ExportToExcelData()'><b>ExportToExcelData</b><br>Test class: com.tetherfi.test.ivr.VBEnrollmentFlagTest</td>
 <td></td>
-<td>2</td>
+<td>1</td>
 <td>com.tetherfi.test.ivr.VBEnrollmentFlagTest@152c4495</td></tr>
 <tr>
 <td title='com.tetherfi.test.ivr.VBEnrollmentFlagTest.ExporttoExcelWithoutData()'><b>ExporttoExcelWithoutData</b><br>Test class: com.tetherfi.test.ivr.VBEnrollmentFlagTest</td>
 <td></td>
-<td>5</td>
+<td>4</td>
 <td>com.tetherfi.test.ivr.VBEnrollmentFlagTest@152c4495</td></tr>
 <tr>
 <td title='com.tetherfi.test.ivr.VBEnrollmentFlagTest.GroupBy()'><b>GroupBy</b><br>Test class: com.tetherfi.test.ivr.VBEnrollmentFlagTest</td>
 <td></td>
-<td>3</td>
+<td>2</td>
 <td>com.tetherfi.test.ivr.VBEnrollmentFlagTest@152c4495</td></tr>
 <tr>
 <td title='com.tetherfi.test.ivr.VBEnrollmentFlagTest.SearchClearSearch()'><b>SearchClearSearch</b><br>Test class: com.tetherfi.test.ivr.VBEnrollmentFlagTest</td>
 <td></td>
-<td>6</td>
+<td>4</td>
 <td>com.tetherfi.test.ivr.VBEnrollmentFlagTest@152c4495</td></tr>
 <tr>
 <td title='com.tetherfi.test.ivr.VBEnrollmentFlagTest.SortingByAscending()'><b>SortingByAscending</b><br>Test class: com.tetherfi.test.ivr.VBEnrollmentFlagTest</td>
 <td></td>
-<td>5</td>
+<td>4</td>
 <td>com.tetherfi.test.ivr.VBEnrollmentFlagTest@152c4495</td></tr>
 <tr>
 <td title='com.tetherfi.test.ivr.VBEnrollmentFlagTest.SortingByDescending()'><b>SortingByDescending</b><br>Test class: com.tetherfi.test.ivr.VBEnrollmentFlagTest</td>
 <td></td>
-<td>5</td>
+<td>4</td>
 <td>com.tetherfi.test.ivr.VBEnrollmentFlagTest@152c4495</td></tr>
 <tr>
 <td title='com.tetherfi.test.ivr.VBEnrollmentFlagTest.VbEnrollmentFlagPage()'><b>VbEnrollmentFlagPage</b><br>Test class: com.tetherfi.test.ivr.VBEnrollmentFlagTest</td>
@@ -177,77 +269,67 @@ function toggleAllBoxes() {
 <tr>
 <td title='com.tetherfi.test.ivr.VBEnrollmentFlagTest.VerifyAuditTrialReportForCreate()'><b>VerifyAuditTrialReportForCreate</b><br>Test class: com.tetherfi.test.ivr.VBEnrollmentFlagTest</td>
 <td></td>
-<td>29</td>
+<td>23</td>
 <td>com.tetherfi.test.ivr.VBEnrollmentFlagTest@152c4495</td></tr>
 <tr>
 <td title='com.tetherfi.test.ivr.VBEnrollmentFlagTest.VerifyAuditTrialReportForDelete()'><b>VerifyAuditTrialReportForDelete</b><br>Test class: com.tetherfi.test.ivr.VBEnrollmentFlagTest</td>
 <td></td>
-<td>27</td>
+<td>23</td>
 <td>com.tetherfi.test.ivr.VBEnrollmentFlagTest@152c4495</td></tr>
 <tr>
 <td title='com.tetherfi.test.ivr.VBEnrollmentFlagTest.VerifyAuditTrialReportForUpdate()'><b>VerifyAuditTrialReportForUpdate</b><br>Test class: com.tetherfi.test.ivr.VBEnrollmentFlagTest</td>
 <td></td>
-<td>28</td>
-<td>com.tetherfi.test.ivr.VBEnrollmentFlagTest@152c4495</td></tr>
-<tr>
-<td title='com.tetherfi.test.ivr.VBEnrollmentFlagTest.VerifyCancelBtnAtAddRecord()'><b>VerifyCancelBtnAtAddRecord</b><br>Test class: com.tetherfi.test.ivr.VBEnrollmentFlagTest</td>
-<td></td>
-<td>43</td>
+<td>23</td>
 <td>com.tetherfi.test.ivr.VBEnrollmentFlagTest@152c4495</td></tr>
 <tr>
 <td title='com.tetherfi.test.ivr.VBEnrollmentFlagTest.VerifyCancelBtnAtDeleteVBEnrollmentFlagRecord()'><b>VerifyCancelBtnAtDeleteVBEnrollmentFlagRecord</b><br>Test class: com.tetherfi.test.ivr.VBEnrollmentFlagTest</td>
 <td></td>
-<td>49</td>
+<td>47</td>
 <td>com.tetherfi.test.ivr.VBEnrollmentFlagTest@152c4495</td></tr>
 <tr>
 <td title='com.tetherfi.test.ivr.VBEnrollmentFlagTest.VerifyCancelBtnAtEditRecord()'><b>VerifyCancelBtnAtEditRecord</b><br>Test class: com.tetherfi.test.ivr.VBEnrollmentFlagTest</td>
 <td></td>
-<td>50</td>
+<td>48</td>
 <td>com.tetherfi.test.ivr.VBEnrollmentFlagTest@152c4495</td></tr>
 <tr>
 <td title='com.tetherfi.test.ivr.VBEnrollmentFlagTest.VerifyColumnsHeaderDisable()'><b>VerifyColumnsHeaderDisable</b><br>Test class: com.tetherfi.test.ivr.VBEnrollmentFlagTest</td>
 <td></td>
-<td>5</td>
-<td>com.tetherfi.test.ivr.VBEnrollmentFlagTest@152c4495</td></tr>
-<tr>
-<td title='com.tetherfi.test.ivr.VBEnrollmentFlagTest.VerifyColumnsHeaderEnable()'><b>VerifyColumnsHeaderEnable</b><br>Test class: com.tetherfi.test.ivr.VBEnrollmentFlagTest</td>
-<td></td>
-<td>5</td>
+<td>4</td>
 <td>com.tetherfi.test.ivr.VBEnrollmentFlagTest@152c4495</td></tr>
 <tr>
 <td title='com.tetherfi.test.ivr.VBEnrollmentFlagTest.VerifyDropdownForAllTheColumns()'><b>VerifyDropdownForAllTheColumns</b><br>Test class: com.tetherfi.test.ivr.VBEnrollmentFlagTest</td>
 <td></td>
-<td>8</td>
+<td>47</td>
 <td>com.tetherfi.test.ivr.VBEnrollmentFlagTest@152c4495</td></tr>
 <tr>
 <td title='com.tetherfi.test.ivr.VBEnrollmentFlagTest.VerifyNumberOfItemsPerPageSelection()'><b>VerifyNumberOfItemsPerPageSelection</b><br>Test class: com.tetherfi.test.ivr.VBEnrollmentFlagTest</td>
 <td></td>
-<td>5</td>
+<td>4</td>
 <td>com.tetherfi.test.ivr.VBEnrollmentFlagTest@152c4495</td></tr>
 <tr>
 <td title='com.tetherfi.test.ivr.VBEnrollmentFlagTest.VerifySearchContains()'><b>VerifySearchContains</b><br>Test class: com.tetherfi.test.ivr.VBEnrollmentFlagTest</td>
 <td></td>
-<td>6</td>
+<td>4</td>
 <td>com.tetherfi.test.ivr.VBEnrollmentFlagTest@152c4495</td></tr>
 <tr>
 <td title='com.tetherfi.test.ivr.VBEnrollmentFlagTest.VerifySearchDoesNotContains()'><b>VerifySearchDoesNotContains</b><br>Test class: com.tetherfi.test.ivr.VBEnrollmentFlagTest</td>
 <td></td>
-<td>4</td>
+<td>3</td>
 <td>com.tetherfi.test.ivr.VBEnrollmentFlagTest@152c4495</td></tr>
 <tr>
 <td title='com.tetherfi.test.ivr.VBEnrollmentFlagTest.VerifySearchEndsWith()'><b>VerifySearchEndsWith</b><br>Test class: com.tetherfi.test.ivr.VBEnrollmentFlagTest</td>
 <td></td>
-<td>5</td>
+<td>3</td>
 <td>com.tetherfi.test.ivr.VBEnrollmentFlagTest@152c4495</td></tr>
 <tr>
 <td title='com.tetherfi.test.ivr.VBEnrollmentFlagTest.VerifySearchIsNotEqualTo()'><b>VerifySearchIsNotEqualTo</b><br>Test class: com.tetherfi.test.ivr.VBEnrollmentFlagTest</td>
 <td></td>
-<td>6</td>
+<td>4</td>
 <td>com.tetherfi.test.ivr.VBEnrollmentFlagTest@152c4495</td></tr>
 <tr>
 <td title='com.tetherfi.test.ivr.VBEnrollmentFlagTest.VerifySearchStartsWith()'><b>VerifySearchStartsWith</b><br>Test class: com.tetherfi.test.ivr.VBEnrollmentFlagTest</td>
 <td></td>
-<td>5</td>
+<td>3</td>
 <td>com.tetherfi.test.ivr.VBEnrollmentFlagTest@152c4495</td></tr>
 <tr>
 <td title='com.tetherfi.test.ivr.VBEnrollmentFlagTest.VerifyTotalNumberOfItemsPerPageDetails()'><b>VerifyTotalNumberOfItemsPerPageDetails</b><br>Test class: com.tetherfi.test.ivr.VBEnrollmentFlagTest</td>
@@ -257,17 +339,17 @@ function toggleAllBoxes() {
 <tr>
 <td title='com.tetherfi.test.ivr.VBEnrollmentFlagTest.database()'><b>database</b><br>Test class: com.tetherfi.test.ivr.VBEnrollmentFlagTest</td>
 <td></td>
-<td>3</td>
+<td>2</td>
 <td>com.tetherfi.test.ivr.VBEnrollmentFlagTest@152c4495</td></tr>
 <tr>
 <td title='com.tetherfi.test.ivr.VBEnrollmentFlagTest.searchPage()'><b>searchPage</b><br>Test class: com.tetherfi.test.ivr.VBEnrollmentFlagTest</td>
 <td></td>
-<td>4</td>
+<td>3</td>
 <td>com.tetherfi.test.ivr.VBEnrollmentFlagTest@152c4495</td></tr>
 <tr>
 <td title='com.tetherfi.test.ivr.VBEnrollmentFlagTest.searchwithoutSearchTextbox()'><b>searchwithoutSearchTextbox</b><br>Test class: com.tetherfi.test.ivr.VBEnrollmentFlagTest</td>
 <td></td>
-<td>4</td>
+<td>2</td>
 <td>com.tetherfi.test.ivr.VBEnrollmentFlagTest@152c4495</td></tr>
 </table><p>
 </body>

@@ -5,19 +5,13 @@
     <classes>
       <class name="com.tetherfi.test.fax.FaxAddressBookTest">
         <methods>
-          <include name="AddressBookSortingByAscending"/>
-          <include name="SortingByAscending"/>
+          <include name="startTestCase"/>
+          <include name="openApplication"/>
+          <include name="EditRecipientRecord"/>
           <include name="NavigatetoFaxAddressPage"/>
-          <include name="SortingByDescending"/>
           <include name="endTestCase"/>
           <include name="tearDown"/>
           <include name="afterEachMethod"/>
-          <include name="AddNewEmptyRecord"/>
-          <include name="startTestCase"/>
-          <include name="openApplication"/>
-          <include name="AddressBookSortingByDescending"/>
-          <include name="ExportToExcelData"/>
-          <include name="AddressBookExportToExcelData"/>
         </methods>
       </class> <!-- com.tetherfi.test.fax.FaxAddressBookTest -->
     </classes>

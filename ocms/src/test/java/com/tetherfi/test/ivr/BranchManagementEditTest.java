@@ -144,7 +144,7 @@ public class BranchManagementEditTest {
         Assert.assertTrue(BranchManagementPage.verifyReviewAuditTrail("Rejected","Reject Updated"));
     }
     
-    @Test(groups = { "Checker" },priority=9,dependsOnMethods = "RejectforEditBranchManagementRecord")
+    @Test(groups = { "Checker" },priority=9)//,dependsOnMethods = "RejectforEditBranchManagementRecord")
     public void VerifyAuditTrailReportForReject() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\BranchManagementData.xlsx";
 	    Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
@@ -219,7 +219,7 @@ public class BranchManagementEditTest {
         Assert.assertTrue(ocmReportsPage.verifyBranchManagementUpdate(BranchManagementDetails,"MakerSendToApproval"));
     }
     
-    @Test(groups = { "Checker" },priority=15)//,dependsOnMethods="VerifyAuditTrialReportForSendForApprovalUpdate")
+    @Test(groups = { "Checker" },priority=15,dependsOnMethods="VerifyAuditTrialReportForSendForApprovalUpdate")
     public void ApproveforEditBranchManagementRecord() throws Exception{
         BranchManagementPage BranchManagementPage = PageFactory.createPageInstance(driver, BranchManagementPage.class);
         BranchManagementPage.clickonApprove("Approve Edited");

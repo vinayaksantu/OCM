@@ -8,262 +8,127 @@
 <body>
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
-<tr><th colspan="7">Default suite</th></tr>
-<tr><td><a href="#t0">Default test</a></td><td class="num">8</td><td class="num">0</td><td class="num">0</td><td class="num attn">7</td><td class="num">250,111</td><td></td><td></td></tr>
+<tr><th colspan="7">Tetherfi Test Automation</th></tr>
+<tr><td><a href="#t0">BranchManagementCreateTest</a></td><td class="num">4</td><td class="num attn">23</td><td class="num">0</td><td class="num attn">1</td><td class="num">662,060</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Default suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Default test &#8212; failed</th></tr><tr class="failedeven"><td rowspan="7">com.tetherfi.test.fax.FaxAddressBookTest</td><td><a href="#m0">AddNewEmptyRecord</a></td><td rowspan="1">1585540799459</td><td rowspan="1">1000</td></tr><tr class="failedeven"><td><a href="#m1">AddressBookExportToExcelData</a></td><td rowspan="1">1585540904459</td><td rowspan="1">4247</td></tr><tr class="failedeven"><td><a href="#m2">AddressBookSortingByAscending</a></td><td rowspan="1">1585540915948</td><td rowspan="1">6784</td></tr><tr class="failedeven"><td><a href="#m3">AddressBookSortingByDescending</a></td><td rowspan="1">1585540930578</td><td rowspan="1">7494</td></tr><tr class="failedeven"><td><a href="#m4">ExportToExcelData</a></td><td rowspan="1">1585540854912</td><td rowspan="1">373</td></tr><tr class="failedeven"><td><a href="#m5">SortingByAscending</a></td><td rowspan="1">1585540862287</td><td rowspan="1">7899</td></tr><tr class="failedeven"><td><a href="#m6">SortingByDescending</a></td><td rowspan="1">1585540877886</td><td rowspan="1">8419</td></tr><tr><th colspan="4">Default test &#8212; passed</th></tr><tr class="passedeven"><td rowspan="8">com.tetherfi.test.fax.FaxAddressBookTest</td><td><a href="#m7">AddNewDuplicateRecord</a></td><td rowspan="1">1585540787175</td><td rowspan="1">4802</td></tr><tr class="passedeven"><td><a href="#m8">AddNewFaxAddressBookRecord</a></td><td rowspan="1">1585540731622</td><td rowspan="1">6673</td></tr><tr class="passedeven"><td><a href="#m9">AddNewRecordWithoutFaxLine</a></td><td rowspan="1">1585540808118</td><td rowspan="1">5225</td></tr><tr class="passedeven"><td><a href="#m10">AddNewRecordWithoutName</a></td><td rowspan="1">1585540821062</td><td rowspan="1">5209</td></tr><tr class="passedeven"><td><a href="#m11">AddNewRecordWithoutRecipients</a></td><td rowspan="1">1585540833313</td><td rowspan="1">2172</td></tr><tr class="passedeven"><td><a href="#m12">AddressBookExportToExcel</a></td><td rowspan="1">1585540894412</td><td rowspan="1">2586</td></tr><tr class="passedeven"><td><a href="#m13">ExportToExcel</a></td><td rowspan="1">1585540843359</td><td rowspan="1">3360</td></tr><tr class="passedeven"><td><a href="#m14">VerifyAuditTrailReportForAddressCreate</a></td><td rowspan="1">1585540746137</td><td rowspan="1">33582</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Tetherfi Test Automation</th></tr></tbody><tbody id="t0"><tr><th colspan="4">BranchManagementCreateTest &#8212; failed (configuration methods)</th></tr><tr class="failedeven"><td rowspan="1">com.tetherfi.test.ivr.BranchManagementCreateTest</td><td><a href="#m0">NavigateToBranchManagementPage</a></td><td rowspan="1">1587038410548</td><td rowspan="1">316628</td></tr><tr><th colspan="4">BranchManagementCreateTest &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">com.tetherfi.test.ivr.BranchManagementCreateTest</td><td><a href="#m1">VerifyAddRecordWithoutLocation</a></td><td rowspan="1">1587038285951</td><td rowspan="1">40840</td></tr><tr><th colspan="4">BranchManagementCreateTest &#8212; skipped (configuration methods)</th></tr><tr class="skippedeven"><td rowspan="17">com.tetherfi.test.ivr.BranchManagementCreateTest</td><td><a href="#m2">NavigateToBranchManagementPage</a></td><td rowspan="8">1587038727312</td><td rowspan="8">-1587038727312</td></tr><tr class="skippedeven"><td><a href="#m3">NavigateToBranchManagementPage</a></td></tr><tr class="skippedeven"><td><a href="#m4">NavigateToBranchManagementPage</a></td></tr><tr class="skippedeven"><td><a href="#m5">NavigateToBranchManagementPage</a></td></tr><tr class="skippedeven"><td><a href="#m6">NavigateToBranchManagementPage</a></td></tr><tr class="skippedeven"><td><a href="#m7">NavigateToBranchManagementPage</a></td></tr><tr class="skippedeven"><td><a href="#m8">NavigateToBranchManagementPage</a></td></tr><tr class="skippedeven"><td><a href="#m9">NavigateToBranchManagementPage</a></td></tr><tr class="skippedeven"><td><a href="#m10">afterEachMethod</a></td><td rowspan="9">1587038727316</td><td rowspan="9">-1587038727316</td></tr><tr class="skippedeven"><td><a href="#m11">afterEachMethod</a></td></tr><tr class="skippedeven"><td><a href="#m12">afterEachMethod</a></td></tr><tr class="skippedeven"><td><a href="#m13">afterEachMethod</a></td></tr><tr class="skippedeven"><td><a href="#m14">afterEachMethod</a></td></tr><tr class="skippedeven"><td><a href="#m15">afterEachMethod</a></td></tr><tr class="skippedeven"><td><a href="#m16">afterEachMethod</a></td></tr><tr class="skippedeven"><td><a href="#m17">afterEachMethod</a></td></tr><tr class="skippedeven"><td><a href="#m18">afterEachMethod</a></td></tr><tr><th colspan="4">BranchManagementCreateTest &#8212; skipped</th></tr><tr class="skippedeven"><td rowspan="23">com.tetherfi.test.ivr.BranchManagementCreateTest</td><td><a href="#m19">AddDuplicateRecord</a></td><td rowspan="1">1587038727416</td><td rowspan="1">0</td></tr><tr class="skippedeven"><td><a href="#m20">AddNewBranchManagementRecord</a></td><td rowspan="1">1587038727364</td><td rowspan="1">0</td></tr><tr class="skippedeven"><td><a href="#m21">AddRejectRecord</a></td><td rowspan="1">1587038727312</td><td rowspan="1">0</td></tr><tr class="skippedeven"><td><a href="#m22">AddRevertRecord</a></td><td rowspan="1">1587038727260</td><td rowspan="1">0</td></tr><tr class="skippedeven"><td><a href="#m23">ApproveforAddNewBranchManagementRecord</a></td><td rowspan="1">1587038727400</td><td rowspan="1">0</td></tr><tr class="skippedeven"><td><a href="#m24">RejectforAddNewBranchManagementRecord</a></td><td rowspan="1">1587038727344</td><td rowspan="1">0</td></tr><tr class="skippedeven"><td><a href="#m25">VerifyAddRecordWithoutAddress</a></td><td rowspan="1">1587038727188</td><td rowspan="1">0</td></tr><tr class="skippedeven"><td><a href="#m26">VerifyAddRecordWithoutBranchName</a></td><td rowspan="1">1587038727180</td><td rowspan="1">0</td></tr><tr class="skippedeven"><td><a href="#m27">VerifyAddRecordWithoutLanguage</a></td><td rowspan="1">1587038727248</td><td rowspan="1">0</td></tr><tr class="skippedeven"><td><a href="#m28">VerifyAddRecordWithoutLineOrder</a></td><td rowspan="1">1587038727212</td><td rowspan="1">0</td></tr><tr class="skippedeven"><td><a href="#m29">VerifyAddRecordWithoutStatus</a></td><td rowspan="1">1587038727228</td><td rowspan="1">0</td></tr><tr class="skippedeven"><td><a href="#m30">VerifyApprovedDataSectionWithoutApproval</a></td><td rowspan="1">1587038727280</td><td rowspan="1">0</td></tr><tr class="skippedeven"><td><a href="#m31">VerifyAuditTrailDataForAddNewBranchManagementRecord</a></td><td rowspan="1">1587038727376</td><td rowspan="1">0</td></tr><tr class="skippedeven"><td><a href="#m32">VerifyAuditTrailReportForApprove</a></td><td rowspan="1">1587038727404</td><td rowspan="1">0</td></tr><tr class="skippedeven"><td><a href="#m33">VerifyAuditTrailReportForCreate</a></td><td rowspan="1">1587038727368</td><td rowspan="1">0</td></tr><tr class="skippedeven"><td><a href="#m34">VerifyAuditTrailReportForReject</a></td><td rowspan="1">1587038727348</td><td rowspan="1">0</td></tr><tr class="skippedeven"><td><a href="#m35">VerifyAuditTrailReportForRevert</a></td><td rowspan="1">1587038727284</td><td rowspan="1">0</td></tr><tr class="skippedeven"><td><a href="#m36">VerifyAuditTrailReportForSendForApproval</a></td><td rowspan="1">1587038727396</td><td rowspan="1">0</td></tr><tr class="skippedeven"><td><a href="#m37">VerifyRecordAfterRejection</a></td><td rowspan="1">1587038727356</td><td rowspan="1">4</td></tr><tr class="skippedeven"><td><a href="#m38">VerifyRecordApprovedDataSectionafterApproval</a></td><td rowspan="1">1587038727412</td><td rowspan="1">0</td></tr><tr class="skippedeven"><td><a href="#m39">VerifyRevertForAddNewRecord</a></td><td rowspan="1">1587038727268</td><td rowspan="1">0</td></tr><tr class="skippedeven"><td><a href="#m40">VerifySendForApprovalForAddNewBranchManagementRecord</a></td><td rowspan="1">1587038727388</td><td rowspan="1">0</td></tr><tr class="skippedeven"><td><a href="#m41">VerifySendForApprovalForAddNewRecord</a></td><td rowspan="1">1587038727336</td><td rowspan="1">0</td></tr><tr><th colspan="4">BranchManagementCreateTest &#8212; passed</th></tr><tr class="passedeven"><td rowspan="4">com.tetherfi.test.ivr.BranchManagementCreateTest</td><td><a href="#m42">VerifyAddCancelButton</a></td><td rowspan="1">1587038103951</td><td rowspan="1">5961</td></tr><tr class="passedeven"><td><a href="#m43">VerifyAddRecordWithoutBranchType</a></td><td rowspan="1">1587038380892</td><td rowspan="1">21230</td></tr><tr class="passedeven"><td><a href="#m44">VerifyAddRecordWithoutSubLines</a></td><td rowspan="1">1587038221409</td><td rowspan="1">21190</td></tr><tr class="passedeven"><td><a href="#m45">VerifyAddRecordwithoutMainLines</a></td><td rowspan="1">1587038154205</td><td rowspan="1">18814</td></tr></tbody>
 </table>
-<h2>Default test</h2><h3 id="m0">com.tetherfi.test.fax.FaxAddressBookTest#AddNewEmptyRecord</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: expected [Please Provide FaxLine, Name, Recepient] but found [Please Provide FaxLine, Name, Recipient]
-	at org.testng.Assert.fail(Assert.java:97)
-	at org.testng.Assert.assertEqualsImpl(Assert.java:136)
-	at org.testng.Assert.assertEquals(Assert.java:118)
-	at org.testng.Assert.assertEquals(Assert.java:575)
-	at org.testng.Assert.assertEquals(Assert.java:585)
-	at com.tetherfi.test.fax.FaxAddressBookTest.AddNewEmptyRecord(FaxAddressBookTest.java:205)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+<h2>BranchManagementCreateTest</h2><h3 id="m0">com.tetherfi.test.ivr.BranchManagementCreateTest#NavigateToBranchManagementPage</h3><table class="result"><tr class="param"><th>Parameter #1</th></tr><tr class="param stripe"><td>public void com.tetherfi.test.ivr.BranchManagementCreateTest.VerifyAddRecordWithoutBranchName() throws java.lang.Exception</td></tr><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: IVR page assertion failed did not expect to find [true] but found [false]
+	at com.tetherfi.test.ivr.BranchManagementCreateTest.NavigateToBranchManagementPage(BranchManagementCreateTest.java:64)
 	at java.base/java.util.ArrayList.forEach(Unknown Source)
-	at org.testng.TestRunner.privateRun(TestRunner.java:770)
-	at org.testng.TestRunner.run(TestRunner.java:591)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-	at org.testng.TestNG.runSuites(TestNG.java:1032)
-	at org.testng.TestNG.run(TestNG.java:1000)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m1">com.tetherfi.test.fax.FaxAddressBookTest#AddressBookExportToExcelData</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: did not expect to find [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:97)
-	at org.testng.Assert.failNotEquals(Assert.java:969)
-	at org.testng.Assert.assertTrue(Assert.java:43)
-	at org.testng.Assert.assertTrue(Assert.java:53)
-	at com.tetherfi.test.fax.FaxAddressBookTest.AddressBookExportToExcelData(FaxAddressBookTest.java:289)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+... Removed 34 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m1">com.tetherfi.test.ivr.BranchManagementCreateTest#VerifyAddRecordWithoutLocation</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of [[ChromeDriver: chrome on WINDOWS (61e9c687605b8bae5cacf03176144519)] -&gt; css selector: ul[id=&apos;Status_listbox&apos;] li] (tried for 20 second(s) with 500 milliseconds interval)
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;DESKTOP-O6A5C2O&apos;, ip: &apos;10.0.75.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;9.0.4&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 80.0.3987.116, chrome: {chromedriverVersion: 80.0.3987.106 (f68069574609..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:58986}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 61e9c687605b8bae5cacf03176144519
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
+	at com.tetherfi.pages.BasePage.waitUntilWebElementListIsVisible(BasePage.java:139)
+	at com.tetherfi.pages.BasePage.selectDropdownFromVisibleText(BasePage.java:335)
+	at com.tetherfi.pages.BranchManagementPage.addwithoutLocation(BranchManagementPage.java:1165)
+	at com.tetherfi.test.ivr.BranchManagementCreateTest.VerifyAddRecordWithoutLocation(BranchManagementCreateTest.java:105)
 	at java.base/java.util.ArrayList.forEach(Unknown Source)
-	at org.testng.TestRunner.privateRun(TestRunner.java:770)
-	at org.testng.TestRunner.run(TestRunner.java:591)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-	at org.testng.TestNG.runSuites(TestNG.java:1032)
-	at org.testng.TestNG.run(TestNG.java:1000)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m2">com.tetherfi.test.fax.FaxAddressBookTest#AddressBookSortingByAscending</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: did not expect to find [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:97)
-	at org.testng.Assert.failNotEquals(Assert.java:969)
-	at org.testng.Assert.assertTrue(Assert.java:43)
-	at org.testng.Assert.assertTrue(Assert.java:53)
-	at com.tetherfi.test.fax.FaxAddressBookTest.AddressBookSortingByAscending(FaxAddressBookTest.java:298)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+... Removed 27 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m2">com.tetherfi.test.ivr.BranchManagementCreateTest#NavigateToBranchManagementPage</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m3">com.tetherfi.test.ivr.BranchManagementCreateTest#NavigateToBranchManagementPage</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m4">com.tetherfi.test.ivr.BranchManagementCreateTest#NavigateToBranchManagementPage</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m5">com.tetherfi.test.ivr.BranchManagementCreateTest#NavigateToBranchManagementPage</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m6">com.tetherfi.test.ivr.BranchManagementCreateTest#NavigateToBranchManagementPage</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m7">com.tetherfi.test.ivr.BranchManagementCreateTest#NavigateToBranchManagementPage</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m8">com.tetherfi.test.ivr.BranchManagementCreateTest#NavigateToBranchManagementPage</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m9">com.tetherfi.test.ivr.BranchManagementCreateTest#NavigateToBranchManagementPage</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m10">com.tetherfi.test.ivr.BranchManagementCreateTest#afterEachMethod</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m11">com.tetherfi.test.ivr.BranchManagementCreateTest#afterEachMethod</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m12">com.tetherfi.test.ivr.BranchManagementCreateTest#afterEachMethod</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m13">com.tetherfi.test.ivr.BranchManagementCreateTest#afterEachMethod</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m14">com.tetherfi.test.ivr.BranchManagementCreateTest#afterEachMethod</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m15">com.tetherfi.test.ivr.BranchManagementCreateTest#afterEachMethod</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m16">com.tetherfi.test.ivr.BranchManagementCreateTest#afterEachMethod</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m17">com.tetherfi.test.ivr.BranchManagementCreateTest#afterEachMethod</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m18">com.tetherfi.test.ivr.BranchManagementCreateTest#afterEachMethod</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m19">com.tetherfi.test.ivr.BranchManagementCreateTest#AddDuplicateRecord</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.Throwable: Method BranchManagementCreateTest.AddDuplicateRecord()[pri:28, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d] depends on not successfully finished methods
 	at java.base/java.util.ArrayList.forEach(Unknown Source)
-	at org.testng.TestRunner.privateRun(TestRunner.java:770)
-	at org.testng.TestRunner.run(TestRunner.java:591)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-	at org.testng.TestNG.runSuites(TestNG.java:1032)
-	at org.testng.TestNG.run(TestNG.java:1000)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m3">com.tetherfi.test.fax.FaxAddressBookTest#AddressBookSortingByDescending</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: did not expect to find [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:97)
-	at org.testng.Assert.failNotEquals(Assert.java:969)
-	at org.testng.Assert.assertTrue(Assert.java:43)
-	at org.testng.Assert.assertTrue(Assert.java:53)
-	at com.tetherfi.test.fax.FaxAddressBookTest.AddressBookSortingByDescending(FaxAddressBookTest.java:307)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+... Removed 18 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m20">com.tetherfi.test.ivr.BranchManagementCreateTest#AddNewBranchManagementRecord</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: IVR page assertion failed did not expect to find [true] but found [false]
+	at com.tetherfi.test.ivr.BranchManagementCreateTest.NavigateToBranchManagementPage(BranchManagementCreateTest.java:64)
 	at java.base/java.util.ArrayList.forEach(Unknown Source)
-	at org.testng.TestRunner.privateRun(TestRunner.java:770)
-	at org.testng.TestRunner.run(TestRunner.java:591)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-	at org.testng.TestNG.runSuites(TestNG.java:1032)
-	at org.testng.TestNG.run(TestNG.java:1000)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m4">com.tetherfi.test.fax.FaxAddressBookTest#ExportToExcelData</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.ArrayIndexOutOfBoundsException: 1
-	at com.tetherfi.pages.FaxAddressBookPage.getdata(FaxAddressBookPage.java:380)
-	at com.tetherfi.pages.FaxAddressBookPage.verifyexportToExcelSheet(FaxAddressBookPage.java:318)
-	at com.tetherfi.test.fax.FaxAddressBookTest.ExportToExcelData(FaxAddressBookTest.java:253)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+... Removed 34 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m21">com.tetherfi.test.ivr.BranchManagementCreateTest#AddRejectRecord</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: IVR page assertion failed did not expect to find [true] but found [false]
+	at com.tetherfi.test.ivr.BranchManagementCreateTest.NavigateToBranchManagementPage(BranchManagementCreateTest.java:64)
 	at java.base/java.util.ArrayList.forEach(Unknown Source)
-	at org.testng.TestRunner.privateRun(TestRunner.java:770)
-	at org.testng.TestRunner.run(TestRunner.java:591)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-	at org.testng.TestNG.runSuites(TestNG.java:1032)
-	at org.testng.TestNG.run(TestNG.java:1000)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m5">com.tetherfi.test.fax.FaxAddressBookTest#SortingByAscending</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: did not expect to find [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:97)
-	at org.testng.Assert.failNotEquals(Assert.java:969)
-	at org.testng.Assert.assertTrue(Assert.java:43)
-	at org.testng.Assert.assertTrue(Assert.java:53)
-	at com.tetherfi.test.fax.FaxAddressBookTest.SortingByAscending(FaxAddressBookTest.java:263)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+... Removed 34 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m22">com.tetherfi.test.ivr.BranchManagementCreateTest#AddRevertRecord</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: IVR page assertion failed did not expect to find [true] but found [false]
+	at com.tetherfi.test.ivr.BranchManagementCreateTest.NavigateToBranchManagementPage(BranchManagementCreateTest.java:64)
 	at java.base/java.util.ArrayList.forEach(Unknown Source)
-	at org.testng.TestRunner.privateRun(TestRunner.java:770)
-	at org.testng.TestRunner.run(TestRunner.java:591)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-	at org.testng.TestNG.runSuites(TestNG.java:1032)
-	at org.testng.TestNG.run(TestNG.java:1000)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m6">com.tetherfi.test.fax.FaxAddressBookTest#SortingByDescending</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: did not expect to find [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:97)
-	at org.testng.Assert.failNotEquals(Assert.java:969)
-	at org.testng.Assert.assertTrue(Assert.java:43)
-	at org.testng.Assert.assertTrue(Assert.java:53)
-	at com.tetherfi.test.fax.FaxAddressBookTest.SortingByDescending(FaxAddressBookTest.java:273)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+... Removed 34 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m23">com.tetherfi.test.ivr.BranchManagementCreateTest#ApproveforAddNewBranchManagementRecord</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.Throwable: Method BranchManagementCreateTest.ApproveforAddNewBranchManagementRecord()[pri:25, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d] depends on not successfully finished methods
 	at java.base/java.util.ArrayList.forEach(Unknown Source)
-	at org.testng.TestRunner.privateRun(TestRunner.java:770)
-	at org.testng.TestRunner.run(TestRunner.java:591)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-	at org.testng.TestNG.runSuites(TestNG.java:1032)
-	at org.testng.TestNG.run(TestNG.java:1000)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m7">com.tetherfi.test.fax.FaxAddressBookTest#AddNewDuplicateRecord</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m8">com.tetherfi.test.fax.FaxAddressBookTest#AddNewFaxAddressBookRecord</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m9">com.tetherfi.test.fax.FaxAddressBookTest#AddNewRecordWithoutFaxLine</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m10">com.tetherfi.test.fax.FaxAddressBookTest#AddNewRecordWithoutName</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m11">com.tetherfi.test.fax.FaxAddressBookTest#AddNewRecordWithoutRecipients</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m12">com.tetherfi.test.fax.FaxAddressBookTest#AddressBookExportToExcel</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m13">com.tetherfi.test.fax.FaxAddressBookTest#ExportToExcel</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m14">com.tetherfi.test.fax.FaxAddressBookTest#VerifyAuditTrailReportForAddressCreate</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+... Removed 18 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m24">com.tetherfi.test.ivr.BranchManagementCreateTest#RejectforAddNewBranchManagementRecord</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.Throwable: Method BranchManagementCreateTest.RejectforAddNewBranchManagementRecord()[pri:17, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d] depends on not successfully finished methods
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+... Removed 18 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m25">com.tetherfi.test.ivr.BranchManagementCreateTest#VerifyAddRecordWithoutAddress</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: IVR page assertion failed did not expect to find [true] but found [false]
+	at com.tetherfi.test.ivr.BranchManagementCreateTest.NavigateToBranchManagementPage(BranchManagementCreateTest.java:64)
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+... Removed 34 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m26">com.tetherfi.test.ivr.BranchManagementCreateTest#VerifyAddRecordWithoutBranchName</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: IVR page assertion failed did not expect to find [true] but found [false]
+	at com.tetherfi.test.ivr.BranchManagementCreateTest.NavigateToBranchManagementPage(BranchManagementCreateTest.java:64)
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+... Removed 34 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m27">com.tetherfi.test.ivr.BranchManagementCreateTest#VerifyAddRecordWithoutLanguage</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: IVR page assertion failed did not expect to find [true] but found [false]
+	at com.tetherfi.test.ivr.BranchManagementCreateTest.NavigateToBranchManagementPage(BranchManagementCreateTest.java:64)
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+... Removed 34 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m28">com.tetherfi.test.ivr.BranchManagementCreateTest#VerifyAddRecordWithoutLineOrder</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: IVR page assertion failed did not expect to find [true] but found [false]
+	at com.tetherfi.test.ivr.BranchManagementCreateTest.NavigateToBranchManagementPage(BranchManagementCreateTest.java:64)
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+... Removed 34 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m29">com.tetherfi.test.ivr.BranchManagementCreateTest#VerifyAddRecordWithoutStatus</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: IVR page assertion failed did not expect to find [true] but found [false]
+	at com.tetherfi.test.ivr.BranchManagementCreateTest.NavigateToBranchManagementPage(BranchManagementCreateTest.java:64)
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+... Removed 34 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m30">com.tetherfi.test.ivr.BranchManagementCreateTest#VerifyApprovedDataSectionWithoutApproval</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.Throwable: Method BranchManagementCreateTest.VerifyApprovedDataSectionWithoutApproval()[pri:13, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d] depends on not successfully finished methods
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+... Removed 18 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m31">com.tetherfi.test.ivr.BranchManagementCreateTest#VerifyAuditTrailDataForAddNewBranchManagementRecord</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: IVR page assertion failed did not expect to find [true] but found [false]
+	at com.tetherfi.test.ivr.BranchManagementCreateTest.NavigateToBranchManagementPage(BranchManagementCreateTest.java:64)
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+... Removed 34 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m32">com.tetherfi.test.ivr.BranchManagementCreateTest#VerifyAuditTrailReportForApprove</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.Throwable: Method BranchManagementCreateTest.VerifyAuditTrailReportForApprove()[pri:26, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d] depends on not successfully finished methods
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+... Removed 18 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m33">com.tetherfi.test.ivr.BranchManagementCreateTest#VerifyAuditTrailReportForCreate</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.Throwable: Method BranchManagementCreateTest.VerifyAuditTrailReportForCreate()[pri:21, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d] depends on not successfully finished methods
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+... Removed 18 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m34">com.tetherfi.test.ivr.BranchManagementCreateTest#VerifyAuditTrailReportForReject</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.Throwable: Method BranchManagementCreateTest.VerifyAuditTrailReportForReject()[pri:18, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d] depends on not successfully finished methods
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+... Removed 18 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m35">com.tetherfi.test.ivr.BranchManagementCreateTest#VerifyAuditTrailReportForRevert</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.Throwable: Method BranchManagementCreateTest.VerifyAuditTrailReportForRevert()[pri:14, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d] depends on not successfully finished methods
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+... Removed 18 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m36">com.tetherfi.test.ivr.BranchManagementCreateTest#VerifyAuditTrailReportForSendForApproval</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.Throwable: Method BranchManagementCreateTest.VerifyAuditTrailReportForSendForApproval()[pri:24, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d] depends on not successfully finished methods
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+... Removed 18 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m37">com.tetherfi.test.ivr.BranchManagementCreateTest#VerifyRecordAfterRejection</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.Throwable: Method BranchManagementCreateTest.VerifyRecordAfterRejection()[pri:19, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d] depends on not successfully finished methods
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+... Removed 18 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m38">com.tetherfi.test.ivr.BranchManagementCreateTest#VerifyRecordApprovedDataSectionafterApproval</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.Throwable: Method BranchManagementCreateTest.VerifyRecordApprovedDataSectionafterApproval()[pri:27, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d] depends on not successfully finished methods
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+... Removed 18 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m39">com.tetherfi.test.ivr.BranchManagementCreateTest#VerifyRevertForAddNewRecord</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.Throwable: Method BranchManagementCreateTest.VerifyRevertForAddNewRecord()[pri:12, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d] depends on not successfully finished methods
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+... Removed 18 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m40">com.tetherfi.test.ivr.BranchManagementCreateTest#VerifySendForApprovalForAddNewBranchManagementRecord</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.Throwable: Method BranchManagementCreateTest.VerifySendForApprovalForAddNewBranchManagementRecord()[pri:23, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d] depends on not successfully finished methods
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+... Removed 18 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m41">com.tetherfi.test.ivr.BranchManagementCreateTest#VerifySendForApprovalForAddNewRecord</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.Throwable: Method BranchManagementCreateTest.VerifySendForApprovalForAddNewRecord()[pri:16, instance:com.tetherfi.test.ivr.BranchManagementCreateTest@6a84a97d] depends on not successfully finished methods
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+... Removed 18 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m42">com.tetherfi.test.ivr.BranchManagementCreateTest#VerifyAddCancelButton</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m43">com.tetherfi.test.ivr.BranchManagementCreateTest#VerifyAddRecordWithoutBranchType</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m44">com.tetherfi.test.ivr.BranchManagementCreateTest#VerifyAddRecordWithoutSubLines</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m45">com.tetherfi.test.ivr.BranchManagementCreateTest#VerifyAddRecordwithoutMainLines</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>

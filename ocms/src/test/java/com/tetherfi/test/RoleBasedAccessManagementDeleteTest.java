@@ -58,7 +58,7 @@ public class RoleBasedAccessManagementDeleteTest {
         Assert.assertTrue(RoleBasedAccessManagementPage.isRoleBasedAccessManagementPageDisplayed(), "SMS Response Template page assertion failed");
     }
 	
-	@Test(groups= {"Maker"}, priority=1)
+	/*@Test(groups= {"Maker"}, priority=1)
 	public void DeleteCancelRoleBasedAccessManagementRecord() throws Exception {
 		 String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\RoleBasedAccessManagementData.xlsx";
 	     Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(0);
@@ -151,7 +151,7 @@ public class RoleBasedAccessManagementDeleteTest {
 	    ReportDetails reportDetails= new ReportDetails(map1);
 	    ocmReportsPage.showReport(reportDetails);
         Assert.assertTrue(ocmReportsPage.verifyRoleBasedAccessManagementDelete(UserDetails, "CheckerReject"),"Audit Trail report assertion failed");
-    }
+    }*/
     
 	@Test(groups= {"Maker"},priority=10)
 	public void DeleteRoleBasedAccessManagementRecord() throws Exception {

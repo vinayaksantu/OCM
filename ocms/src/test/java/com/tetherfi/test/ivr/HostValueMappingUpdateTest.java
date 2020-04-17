@@ -64,7 +64,7 @@ public class HostValueMappingUpdateTest {
         HostValueMappingPage HostValueMappingPage = PageFactory.createPageInstance(driver, HostValueMappingPage.class);
         Assert.assertTrue(HostValueMappingPage.isHostValueMappingPageDisplayed(), "Branch Management page assertion failed");
     }
-	
+
 	@Test(groups= {"Maker"},priority=1)
 	public void EditCancelHostValueMappingRecord() throws Exception {
 	    String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\HostValueMappingData.xlsx";
