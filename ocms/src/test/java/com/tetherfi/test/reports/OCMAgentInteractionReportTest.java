@@ -414,7 +414,7 @@ public class OCMAgentInteractionReportTest extends BaseTest {
     
     @Test(priority=38)
     public void database() throws Exception {
-    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentInteractionReportData.xlsx";
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentInteractionReportData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(0);
     	ReportDetails reportDetails= new ReportDetails(map);
     	OCMReportsPage ocmReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);

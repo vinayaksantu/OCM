@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Thu Apr 16 10:59:08 IST 2020</td>
+<td>Started on:</td><td>Fri Apr 17 12:11:49 IST 2020</td>
 </tr>
-<tr><td>Total time:</td><td>182 seconds (182553 ms)</td>
+<tr><td>Total time:</td><td>151 seconds (151215 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -75,13 +75,16 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.tetherfi.test.reports.OCMAgentInteractionReportTest.database()'><b>database</b><br>Test class: com.tetherfi.test.reports.OCMAgentInteractionReportTest</td>
-<td><div><pre>java.lang.AssertionError: did not expect to find [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:97)
-	at org.testng.Assert.failNotEquals(Assert.java:969)
-	at org.testng.Assert.assertTrue(Assert.java:43)
-	at org.testng.Assert.assertTrue(Assert.java:53)
-	at com.tetherfi.test.reports.OCMAgentInteractionReportTest.database(OCMAgentInteractionReportTest.java:423)
+<td title='com.tetherfi.test.reports.OCMAgentSummaryReportTest.database()'><b>database</b><br>Test class: com.tetherfi.test.reports.OCMAgentSummaryReportTest<br>Test method: To verify main page details of Agent Summary report</td>
+<td><div><pre>java.lang.NullPointerException
+	at java.util.Calendar.setTime(Unknown Source)
+	at java.text.SimpleDateFormat.format(Unknown Source)
+	at java.text.SimpleDateFormat.format(Unknown Source)
+	at java.text.DateFormat.format(Unknown Source)
+	at com.tetherfi.pages.OCMReportsPage.formatDate(OCMReportsPage.java:649)
+	at com.tetherfi.pages.OCMReportsPage.chooseReport(OCMReportsPage.java:635)
+	at com.tetherfi.pages.OCMReportsPage.showReport(OCMReportsPage.java:327)
+	at com.tetherfi.test.reports.OCMAgentSummaryReportTest.database(OCMAgentSummaryReportTest.java:472)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -110,13 +113,16 @@ function toggleAllBoxes() {
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace402505467", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace402505467'><pre>java.lang.AssertionError: did not expect to find [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:97)
-	at org.testng.Assert.failNotEquals(Assert.java:969)
-	at org.testng.Assert.assertTrue(Assert.java:43)
-	at org.testng.Assert.assertTrue(Assert.java:53)
-	at com.tetherfi.test.reports.OCMAgentInteractionReportTest.database(OCMAgentInteractionReportTest.java:423)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1383343992", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1383343992'><pre>java.lang.NullPointerException
+	at java.util.Calendar.setTime(Unknown Source)
+	at java.text.SimpleDateFormat.format(Unknown Source)
+	at java.text.SimpleDateFormat.format(Unknown Source)
+	at java.text.DateFormat.format(Unknown Source)
+	at com.tetherfi.pages.OCMReportsPage.formatDate(OCMReportsPage.java:649)
+	at com.tetherfi.pages.OCMReportsPage.chooseReport(OCMReportsPage.java:635)
+	at com.tetherfi.pages.OCMReportsPage.showReport(OCMReportsPage.java:327)
+	at com.tetherfi.test.reports.OCMAgentSummaryReportTest.database(OCMAgentSummaryReportTest.java:472)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -146,8 +152,8 @@ function toggleAllBoxes() {
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
-<td>76</td>
-<td>com.tetherfi.test.reports.OCMAgentInteractionReportTest@25290bca</td></tr>
+<td>10</td>
+<td>com.tetherfi.test.reports.OCMAgentSummaryReportTest@1907874b</td></tr>
 </table><p>
 </body>
 </html>

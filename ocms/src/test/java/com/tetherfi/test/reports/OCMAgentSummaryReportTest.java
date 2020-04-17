@@ -8,13 +8,13 @@ import org.testng.annotations.Test;
 import com.tetherfi.model.report.ReportDetails;
 import com.tetherfi.pages.HomePage;
 import com.tetherfi.pages.OCMReportsPage;
-import com.tetherfi.pages.AgentSummaryReportPage;
+import com.tetherfi.pages.OCMAgentSummaryReportPage;
 import com.tetherfi.test.BaseTest;
 import com.tetherfi.utility.ExcelReader;
 import com.tetherfi.utility.PageFactory;
 import com.tetherfi.utility.Screenshot;
 
-public class AgentSummaryReportTest extends BaseTest {
+public class OCMAgentSummaryReportTest extends BaseTest {
 	Screenshot screenshot=new Screenshot(driver);
 	@BeforeMethod
 	public void NavigateToOcmReportsPage() {
@@ -465,13 +465,13 @@ public class AgentSummaryReportTest extends BaseTest {
 
 	@Test(priority=38, description="To verify main page details of Agent Summary report")
 	public void database() throws Exception {
-		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentSummaryReportData.xlsx";
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(0);
 		ReportDetails reportDetails= new ReportDetails(map);
 		OCMReportsPage ocmReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
 		ocmReportsPage.showReport(reportDetails);
-		AgentSummaryReportPage agentSummaryReportPage=PageFactory.createPageInstance(driver,AgentSummaryReportPage.class);
-		Assert.assertTrue(agentSummaryReportPage.verifyDatabase(reportDetails.getQuery()));
+		OCMAgentSummaryReportPage AgentSummaryReportPage=PageFactory.createPageInstance(driver,OCMAgentSummaryReportPage.class);
+		Assert.assertTrue(AgentSummaryReportPage.verifyDatabase(reportDetails.getQuery(), reportDetails));
 	}
 
 	

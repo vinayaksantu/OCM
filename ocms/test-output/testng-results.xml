@@ -2,42 +2,42 @@
 <testng-results skipped="0" failed="1" ignored="0" total="1" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="182553" started-at="2020-04-16T10:59:08 IST" finished-at="2020-04-16T11:02:10 IST">
+  <suite name="Default suite" duration-ms="151215" started-at="2020-04-17T12:11:49 IST" finished-at="2020-04-17T12:14:20 IST">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="182553" started-at="2020-04-16T10:59:08 IST" finished-at="2020-04-16T11:02:10 IST">
-      <class name="com.tetherfi.test.reports.OCMAgentInteractionReportTest">
-        <test-method status="PASS" signature="openApplication()[pri:0, instance:com.tetherfi.test.reports.OCMAgentInteractionReportTest@25290bca]" name="openApplication" is-config="true" duration-ms="69814" started-at="2020-04-16T10:59:08 IST" finished-at="2020-04-16T11:00:18 IST">
+    <test name="Default test" duration-ms="151215" started-at="2020-04-17T12:11:49 IST" finished-at="2020-04-17T12:14:20 IST">
+      <class name="com.tetherfi.test.reports.OCMAgentSummaryReportTest">
+        <test-method status="PASS" signature="openApplication()[pri:0, instance:com.tetherfi.test.reports.OCMAgentSummaryReportTest@1907874b]" name="openApplication" is-config="true" duration-ms="120571" started-at="2020-04-17T12:11:49 IST" finished-at="2020-04-17T12:13:50 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- openApplication -->
-        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMAgentInteractionReportTest@25290bca]" name="startTestCase" is-config="true" duration-ms="3" started-at="2020-04-16T11:00:18 IST" finished-at="2020-04-16T11:00:18 IST">
+        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMAgentSummaryReportTest@1907874b]" name="startTestCase" is-config="true" duration-ms="4" started-at="2020-04-17T12:13:50 IST" finished-at="2020-04-17T12:13:50 IST">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.reports.OCMAgentInteractionReportTest.database() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.reports.OCMAgentSummaryReportTest.database() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startTestCase -->
-        <test-method status="PASS" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.OCMAgentInteractionReportTest@25290bca]" name="NavigateToOcmReportsPage" is-config="true" duration-ms="10480" started-at="2020-04-16T11:00:18 IST" finished-at="2020-04-16T11:00:28 IST">
+        <test-method status="PASS" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.OCMAgentSummaryReportTest@1907874b]" name="NavigateToOcmReportsPage" is-config="true" duration-ms="9579" started-at="2020-04-17T12:13:50 IST" finished-at="2020-04-17T12:13:59 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- NavigateToOcmReportsPage -->
-        <test-method status="FAIL" signature="database()[pri:38, instance:com.tetherfi.test.reports.OCMAgentInteractionReportTest@25290bca]" name="database" duration-ms="76763" started-at="2020-04-16T11:00:28 IST" finished-at="2020-04-16T11:01:45 IST">
-          <exception class="java.lang.AssertionError">
-            <message>
-              <![CDATA[did not expect to find [true] but found [false]]]>
-            </message>
+        <test-method status="FAIL" signature="database()[pri:38, instance:com.tetherfi.test.reports.OCMAgentSummaryReportTest@1907874b]" name="database" duration-ms="10716" started-at="2020-04-17T12:13:59 IST" description="To verify main page details of Agent Summary report" finished-at="2020-04-17T12:14:10 IST">
+          <exception class="java.lang.NullPointerException">
             <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: did not expect to find [true] but found [false]
-at org.testng.Assert.fail(Assert.java:97)
-at org.testng.Assert.failNotEquals(Assert.java:969)
-at org.testng.Assert.assertTrue(Assert.java:43)
-at org.testng.Assert.assertTrue(Assert.java:53)
-at com.tetherfi.test.reports.OCMAgentInteractionReportTest.database(OCMAgentInteractionReportTest.java:423)
+              <![CDATA[java.lang.NullPointerException
+at java.util.Calendar.setTime(Unknown Source)
+at java.text.SimpleDateFormat.format(Unknown Source)
+at java.text.SimpleDateFormat.format(Unknown Source)
+at java.text.DateFormat.format(Unknown Source)
+at com.tetherfi.pages.OCMReportsPage.formatDate(OCMReportsPage.java:649)
+at com.tetherfi.pages.OCMReportsPage.chooseReport(OCMReportsPage.java:635)
+at com.tetherfi.pages.OCMReportsPage.showReport(OCMReportsPage.java:327)
+at com.tetherfi.test.reports.OCMAgentSummaryReportTest.database(OCMAgentSummaryReportTest.java:472)
 at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -68,37 +68,37 @@ at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 ]]>
             </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
+          </exception> <!-- java.lang.NullPointerException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- database -->
-        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMAgentInteractionReportTest@25290bca]" name="afterEachMethod" is-config="true" duration-ms="2610" started-at="2020-04-16T11:01:45 IST" finished-at="2020-04-16T11:01:47 IST">
+        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMAgentSummaryReportTest@1907874b]" name="afterEachMethod" is-config="true" duration-ms="7778" started-at="2020-04-17T12:14:10 IST" finished-at="2020-04-17T12:14:18 IST">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.reports.OCMAgentInteractionReportTest.database() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.reports.OCMAgentSummaryReportTest.database() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterEachMethod -->
-        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMAgentInteractionReportTest@25290bca]" name="endTestCase" is-config="true" duration-ms="1" started-at="2020-04-16T11:01:47 IST" finished-at="2020-04-16T11:01:47 IST">
+        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMAgentSummaryReportTest@1907874b]" name="endTestCase" is-config="true" duration-ms="1" started-at="2020-04-17T12:14:18 IST" finished-at="2020-04-17T12:14:18 IST">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.reports.OCMAgentInteractionReportTest.database() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.reports.OCMAgentSummaryReportTest.database() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- endTestCase -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.tetherfi.test.reports.OCMAgentInteractionReportTest@25290bca]" name="tearDown" is-config="true" duration-ms="22752" started-at="2020-04-16T11:01:47 IST" finished-at="2020-04-16T11:02:10 IST">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.tetherfi.test.reports.OCMAgentSummaryReportTest@1907874b]" name="tearDown" is-config="true" duration-ms="2453" started-at="2020-04-17T12:14:18 IST" finished-at="2020-04-17T12:14:20 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.tetherfi.test.reports.OCMAgentInteractionReportTest -->
+      </class> <!-- com.tetherfi.test.reports.OCMAgentSummaryReportTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
