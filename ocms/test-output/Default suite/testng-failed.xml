@@ -3,71 +3,29 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.tetherfi.test.RoleBasedAccessManagementTest">
+      <class name="com.tetherfi.test.fax.FaxLineConfigTest">
         <methods>
-          <include name="VerifyAuditTrailReportForCreate"/>
-          <include name="EditRoleBasedAccessManagementCancelButton"/>
-          <include name="VerifyDashboardPageSaveButton"/>
-          <include name="VerifyAdminPageCancelButton"/>
-          <include name="VerifyDashboardPageCancelButton"/>
-          <include name="database"/>
-          <include name="NavigateToRoleBasedAccessManagementWMCPage"/>
-          <include name="VerifyDashboardAccessCheckbox"/>
-          <include name="startTestCase"/>
-          <include name="VerifyReportsPageSaveButton"/>
-          <include name="VerifyArrowMoveForFirstAndLastPage"/>
-          <include name="SortingByDescending"/>
-          <include name="SortingByAscending"/>
-          <include name="VerifySearchEndsWith"/>
-          <include name="VerifyAdminPageSaveButton"/>
-          <include name="VerifySearchContains"/>
-          <include name="tearDown"/>
-          <include name="VerifyOtherApplicationPageSaveButton"/>
-          <include name="VerifyDropdownForAllTheColumns"/>
-          <include name="VerifyOtherApplicationunsuccefullSavechanges"/>
-          <include name="ExportToExcel"/>
-          <include name="VerifyAuditTrailReportForDelete"/>
-          <include name="searchPage"/>
-          <include name="afterEachMethod"/>
-          <include name="VerifyReportsunsuccefullcancelchanges"/>
-          <include name="VerifyColumnsHeaderDisable"/>
-          <include name="VerifySearchDoesNotContains"/>
-          <include name="AddNewRoleBasedAccessManagementRecord"/>
-          <include name="VerifyColumnsHeaderEnable"/>
-          <include name="AddNewRoleBasedAccessManagementCancelRecord"/>
-          <include name="VerifyAccessCheckBox"/>
-          <include name="VerifyReportsAccessCheckBox"/>
-          <include name="EditRecordWithoutModifyReason"/>
-          <include name="AddNewRecordWithoutRoleName"/>
-          <include name="EditRoleBasedAccessManagementRecord"/>
-          <include name="AddDuplicateRecord"/>
-          <include name="VerifyunsuccefullSavechanges"/>
-          <include name="openApplication"/>
-          <include name="VerifyReportsPageCancelButton"/>
-          <include name="VerifyReportsunsuccefullsavechanges"/>
-          <include name="VerifyDeleteRoleBasedAccessManagementNoButton"/>
-          <include name="VerifyDashboardunsuccefullcancelchanges"/>
-          <include name="GroupBy"/>
-          <include name="VerifyOtherApplicationAccessCheckbox"/>
           <include name="ExporttoExcelWithoutData"/>
           <include name="VerifyArrowMoveForPreviousAndNextPage"/>
+          <include name="AutoAckLink"/>
+          <include name="RoutesLink"/>
+          <include name="SearchClearSearch"/>
           <include name="endTestCase"/>
-          <include name="DeleteRoleBasedAccessManagementRecord"/>
-          <include name="VerifyNumberOfItemsPerPageSelection"/>
-          <include name="VerifySearchIsNotEqualTo"/>
-          <include name="VerifyunsuccefullCancelchanges"/>
+          <include name="SendersLink"/>
+          <include name="tearDown"/>
+          <include name="database"/>
           <include name="ExportToExcelData"/>
-          <include name="VerifyDashboardunsuccefullsavechanges"/>
-          <include name="VerifySearchStartsWith"/>
-          <include name="VerifyPageBasedUserAccess"/>
-          <include name="VerifyOtherApplicationPageCancelButton"/>
-          <include name="VerifyDeleteRoleBasedAccessManagementWithoutModifyReason"/>
-          <include name="VerifyOtherApplicationunsuccefullCancelchanges"/>
-          <include name="VerifyTotalNumberOfItemsPerPageDetails"/>
-          <include name="ClearSearch"/>
-          <include name="VerifyAuditTrailReportForUpdate"/>
+          <include name="NavigateToFaxLineConfigPage"/>
+          <include name="startTestCase"/>
+          <include name="openApplication"/>
+          <include name="SortingByDescending"/>
+          <include name="afterEachMethod"/>
+          <include name="VerifyArrowMoveForFirstAndLastPage"/>
+          <include name="VerifyAuditTrialReportForCreate"/>
+          <include name="AddFaxLineConfigRecord"/>
+          <include name="SortingByAscending"/>
         </methods>
-      </class> <!-- com.tetherfi.test.RoleBasedAccessManagementTest -->
+      </class> <!-- com.tetherfi.test.fax.FaxLineConfigTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

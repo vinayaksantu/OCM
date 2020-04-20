@@ -47,9 +47,9 @@ public class FaxLineConfigTest extends BaseTest {
         FaxLineConfigPage faxLineConfigPage = PageFactory.createPageInstance(driver, FaxLineConfigPage.class);
     	Assert.assertTrue(faxLineConfigPage.verifylogo(),"FaxLineConfig logo assertion failed");
     	Assert.assertTrue(faxLineConfigPage .maximizewindow(),"Fullscreen Assertion Failed"); 
-    	screenshot.captureScreen(driver,"maximize window","FaxLineConfigTest");
+    	screenshot.captureScreen("FaxLineConfigTest","maximize window");
     	Assert.assertTrue(faxLineConfigPage .minimizewindow(), "Restored Assertion Failed");
-    	screenshot.captureScreen(driver,"minimize window","FaxLineConfigTest");
+    	screenshot.captureScreen("FaxLineConfigTest","minimize window");
     }
    
     @Test(priority=2)
