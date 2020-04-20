@@ -93,6 +93,7 @@ public class ReportDetails {
         }
         return value;
     }
+    
     private String readStartDate(Map<String, String> map) throws ParseException {
         String value=map.get("Start Date");
         if(value==null||value.equalsIgnoreCase("random.str")){
@@ -106,6 +107,7 @@ public class ReportDetails {
         }
         return value;
     }
+    
     private String readEndDate(Map<String, String> map) throws ParseException {
         String value=map.get("End Date");
         if(value==null||value.equalsIgnoreCase("random.str")){
