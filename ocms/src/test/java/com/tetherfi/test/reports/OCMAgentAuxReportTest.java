@@ -12,14 +12,14 @@ import org.testng.annotations.Test;
 
 import com.tetherfi.model.report.ReportDetails;
 import com.tetherfi.pages.HomePage;
-import com.tetherfi.pages.AgentAuxReportPage;
+import com.tetherfi.pages.OCMAgentAuxReportPage;
 import com.tetherfi.pages.OCMReportsPage;
 import com.tetherfi.test.BaseTest;
 import com.tetherfi.utility.ExcelReader;
 import com.tetherfi.utility.PageFactory;
 import com.tetherfi.utility.Screenshot;
 
-public class AgentAuxReportTest extends BaseTest {
+public class OCMAgentAuxReportTest extends BaseTest {
 	Screenshot screenshot=new Screenshot(driver);
 	@BeforeMethod
 	public void NavigateToOcmReportsPage() {
@@ -70,7 +70,7 @@ public class AgentAuxReportTest extends BaseTest {
 		ocmReportsPage.exportReport(reportDetails);
 		Assert.assertTrue(ocmReportsPage.verifyReportExported(),"export report assertion failed");
 	} 
-	
+
 	@Test(priority=5,dependsOnMethods ="ExportOcmAgentAuxReport")
 	public void ViewDownloadedOcmAgentAuxReportInReportsDownloadPage() throws IOException {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentAuxReportData.xlsx";
@@ -80,7 +80,7 @@ public class AgentAuxReportTest extends BaseTest {
 		ocmReportsPage.viewDownloadedReportInReportsDownloadsPage();
 		Assert.assertTrue(ocmReportsPage.verifyDownloadedReportNameAndTimeInReportsDownloadPage(reportDetails.getReportName()),"Report not found in Reporter download page");
 	}     
-	
+
 	@Test(priority=6)
 	public void ShowOcmAgentAuxReportForDateRange() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentAuxReportData.xlsx";
@@ -90,7 +90,7 @@ public class AgentAuxReportTest extends BaseTest {
 		ocmReportsPage.showReport(reportDetails);
 		Assert.assertTrue(ocmReportsPage.verifyDateRangeReportDisplayed(reportDetails),"Show report assertion failed");
 	}   
-	
+
 	@Test(priority=7,dependsOnMethods ="ShowOcmAgentAuxReportForDateRange")
 	public void ShowOcmAgentAuxReportInNewTabDateRange() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentAuxReportData.xlsx";
@@ -101,7 +101,7 @@ public class AgentAuxReportTest extends BaseTest {
 		Assert.assertTrue(ocmReportsPage.verifyDateRangeReportDisplayed(reportDetails),"show report in new tab assertion failed");
 		ocmReportsPage.switchBackToParentWindow();
 	}   
-	
+
 	@Test(priority=8,dependsOnMethods ="ShowOcmAgentAuxReportInNewTabDateRange")
 	public void ExportOcmAgentAuxReportDateRange() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentAuxReportData.xlsx";
@@ -111,7 +111,7 @@ public class AgentAuxReportTest extends BaseTest {
 		ocmReportsPage.exportReport(reportDetails);
 		Assert.assertTrue(ocmReportsPage.verifyReportExported(),"export report assertion failed");
 	}    
-	
+
 	@Test(priority=9,dependsOnMethods ="ExportOcmAgentAuxReportDateRange")
 	public void ViewDownloadedOcmAgentAuxReportInReportsDownloadPageDateRange() throws IOException {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentAuxReportData.xlsx";
@@ -121,7 +121,7 @@ public class AgentAuxReportTest extends BaseTest {
 		ocmReportsPage.viewDownloadedReportInReportsDownloadsPage();
 		Assert.assertTrue(ocmReportsPage.verifyDownloadedReportNameAndTimeInReportsDownloadPage(reportDetails.getReportName1()),"Report not found in Reporter download page");
 	}  
-	
+
 	@Test(priority=10)
 	public void ScheduleAgentAuxReportforDateRange() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentAuxReportData.xlsx";
@@ -131,7 +131,7 @@ public class AgentAuxReportTest extends BaseTest {
 		ocmReportsPage.scheduleReport(reportDetails);
 		Assert.assertTrue(ocmReportsPage.verifyScheduleReport(),"Schedule report assertion failed");
 	}
-	
+
 	@Test(priority=11)
 	public void ClearAll() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentAuxReportData.xlsx";
@@ -140,7 +140,7 @@ public class AgentAuxReportTest extends BaseTest {
 		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
 		ocmReportsPage.ClearHomepgDrpDown(reportDetails);
 	}
-	
+
 	@Test(priority=12)
 	public void OCMWindow() throws Exception {	
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentAuxReportData.xlsx";
@@ -154,7 +154,7 @@ public class AgentAuxReportTest extends BaseTest {
 		Assert.assertTrue(agntScrptPage.minimizewindow(), "Restored Assertion Failed");
 		screenshot.captureScreen("AgentAuxReport","Minimize");	
 	}	
-	
+
 	@Test(priority=13)
 	public void VerifyDropdownForAllTheColumns() throws Exception {	
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentAuxReportData.xlsx";
@@ -165,7 +165,7 @@ public class AgentAuxReportTest extends BaseTest {
 		AgentAuxReportPage agntScrptPage=PageFactory.createPageInstance(driver,AgentAuxReportPage.class);
 		Assert.assertTrue(agntScrptPage.verifyDropDownOfAllHeaders(), "Columns dropdown assertion failed");
 	}  
-	
+
 	@Test(priority=14)
 	public void VerifyColumnsHeaderEnable() throws Exception {	
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentAuxReportData.xlsx";
@@ -176,7 +176,7 @@ public class AgentAuxReportTest extends BaseTest {
 		AgentAuxReportPage agntScrptPage=PageFactory.createPageInstance(driver,AgentAuxReportPage.class);
 		Assert.assertTrue(agntScrptPage.verifycolumnsHeaderEnabled(),"columns enabled assertion failed");
 	}  
-	
+
 	@Test(priority=15)
 	public void VerifyColumnsHeaderDisable() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentAuxReportData.xlsx";
@@ -187,7 +187,7 @@ public class AgentAuxReportTest extends BaseTest {
 		AgentAuxReportPage agntScrptPage=PageFactory.createPageInstance(driver,AgentAuxReportPage.class);
 		Assert.assertFalse(agntScrptPage.verifycolumnsHeaderDisabled(),"columns disabled assertion failed");
 	}
-	
+
 	@Test(priority=16)
 	public void VerifyArrowMoveForPreviousAndNextPage() throws Exception {  
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentAuxReportData.xlsx";
@@ -198,7 +198,7 @@ public class AgentAuxReportTest extends BaseTest {
 		AgentAuxReportPage agntScrptPage=PageFactory.createPageInstance(driver,AgentAuxReportPage.class);
 		Assert.assertTrue(agntScrptPage.verifyArrowMoveForPreviousAndNextPage(),"arrow move for previous and next page assertion failed");
 	}    
-	
+
 	@Test(priority=17)
 	public void VerifyArrowMoveForFirstAndLastPage() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentAuxReportData.xlsx";
@@ -209,7 +209,7 @@ public class AgentAuxReportTest extends BaseTest {
 		AgentAuxReportPage agntScrptPage=PageFactory.createPageInstance(driver,AgentAuxReportPage.class);
 		Assert.assertTrue(agntScrptPage.verifyArrowMoveForFirstAndLastPage(),"arrow move for first and last page assertion failed");
 	}   
-	
+
 	@Test(priority=18)
 	public void VerifyTotalNumberOfItemsPerPageDetails() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentAuxReportData.xlsx";
@@ -220,7 +220,7 @@ public class AgentAuxReportTest extends BaseTest {
 		AgentAuxReportPage agntScrptPage=PageFactory.createPageInstance(driver,AgentAuxReportPage.class);
 		Assert.assertTrue(agntScrptPage.verifyTotalNumberOfItemsPerPageDetails(),"item per page assertion failed");
 	} 
-	
+
 	@Test(priority=19)
 	public void VerifyNumberOfItemsPerPageSelection() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentAuxReportData.xlsx";
@@ -231,7 +231,7 @@ public class AgentAuxReportTest extends BaseTest {
 		AgentAuxReportPage agntScrptPage=PageFactory.createPageInstance(driver,AgentAuxReportPage.class);
 		Assert.assertTrue(agntScrptPage.verifyNumberOfItemsPerPage(),"item per page assertion failed");
 	}   
-	
+
 	@Test(priority=20)
 	public void ExportPage() throws Exception{
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentAuxReportData.xlsx";
@@ -243,7 +243,7 @@ public class AgentAuxReportTest extends BaseTest {
 		AgentAuxReportPage agntScrptPage=PageFactory.createPageInstance(driver,AgentAuxReportPage.class);
 		Assert.assertTrue(agntScrptPage.verifyExportToExcel(filePath1));
 	}        
-	
+
 	@Test(priority=21)
 	public void SortingByAscending() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentAuxReportData.xlsx";
@@ -257,7 +257,7 @@ public class AgentAuxReportTest extends BaseTest {
 		List<Map<String, String>> maplist = new ExcelReader(filePath1,"Sheet1").getTestData();
 		Assert.assertTrue(agntScrptPage.verifyexportToExcelSheet(maplist));
 	}
-	
+
 	@Test(priority=22)
 	public void SortingByDescending() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentAuxReportData.xlsx";
@@ -271,7 +271,7 @@ public class AgentAuxReportTest extends BaseTest {
 		List<Map<String, String>> maplist = new ExcelReader(filePath1,"Sheet1").getTestData();
 		Assert.assertTrue(agntScrptPage.verifyexportToExcelSheet(maplist));
 	} 
-	
+
 	@Test(priority=23)
 	public void SchedulereportinAgentAuxReportPage() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentAuxReportData.xlsx";
@@ -284,7 +284,7 @@ public class AgentAuxReportTest extends BaseTest {
 		Assert.assertTrue(agntScrptPage.isExportSchedulerPageDisplayed(), "ExportScheduler page assertion failed");
 		screenshot.captureScreen("AgentAuxReportTest","ExportSchedulerPage");    	
 	}    
-	
+
 	@Test(priority=24)
 	public void ExportToExcelForAgentAuxReport() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentAuxReportData.xlsx";
@@ -297,7 +297,7 @@ public class AgentAuxReportTest extends BaseTest {
 		agntScrptPage.exportToExcel();
 		Assert.assertTrue(agntScrptPage.verifyReportExported(),"export report assertion failed");
 	}
-	
+
 	@Test(priority=25,dependsOnMethods ="ExportToExcelForAgentAuxReport")
 	public void ViewDownloadedOcmAgentAuxReportInReportsDownloadPageinAgentAuxPg() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentAuxReportData.xlsx";
@@ -309,7 +309,7 @@ public class AgentAuxReportTest extends BaseTest {
 		agntScrptPage.viewDownloadedReportInReportsDownloadsPage();
 		Assert.assertTrue(ocmReportsPage.verifyDownloadedReportNameAndTimeInReportsDownloadPage(reportDetails.getReportName1()),"Report not found in Reporter download page");
 	}   
-	
+
 	@Test(priority=26)
 	public void VerifySearchByFeatureForAgentAuxReport() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentAuxReportData.xlsx";
@@ -320,7 +320,7 @@ public class AgentAuxReportTest extends BaseTest {
 		Assert.assertTrue(ocmReportsPage.verifyDateRangeReportDisplayed(reportDetails),"Show report assertion failed");
 		Assert.assertTrue(ocmReportsPage.verifySearchByTextbox());
 	}   
-	
+
 	@Test(priority=27)
 	public void VerifySearchFeatureForAgentAuxReport() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentAuxReportData.xlsx";
@@ -331,7 +331,7 @@ public class AgentAuxReportTest extends BaseTest {
 		Assert.assertTrue(ocmReportsPage.verifyDateRangeReportDisplayed(reportDetails),"Show report assertion failed");
 		Assert.assertTrue(ocmReportsPage.verifySearchByColumnValue());
 	}    
-	
+
 	@Test(priority=28)
 	public void VerifySearchContainsForAgentAuxReport() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentAuxReportData.xlsx";
@@ -342,7 +342,7 @@ public class AgentAuxReportTest extends BaseTest {
 		Assert.assertTrue(ocmReportsPage.verifyDateRangeReportDisplayed(reportDetails),"Show report assertion failed");
 		Assert.assertTrue(ocmReportsPage.verifySearchContainsColumnValue());
 	}   
-	
+
 	@Test(priority=29)
 	public void verifyAdvancedSearchinreportpage() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentAuxReportData.xlsx";
@@ -353,7 +353,7 @@ public class AgentAuxReportTest extends BaseTest {
 		AgentAuxReportPage agntScrptPage=PageFactory.createPageInstance(driver,AgentAuxReportPage.class);
 		Assert.assertTrue(agntScrptPage.verifyAdvanceSearch(reportDetails));
 	}
-	
+
 	@Test(priority=30)
 	public void searchwithoutSearchTextbox() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentAuxReportData.xlsx";
@@ -365,7 +365,7 @@ public class AgentAuxReportTest extends BaseTest {
 		agntScrptPage.searchwithoutextsearch(reportDetails);
 		Assert.assertEquals(agntScrptPage.getSuccessMessage(),"Please enter the text to search or remove the filter", "Add invalid record assertion failed");
 	}    
-	
+
 	@Test(priority=32)
 	public void VerifySearchIsNotEqualTo() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentAuxReportData.xlsx";
@@ -376,7 +376,7 @@ public class AgentAuxReportTest extends BaseTest {
 		AgentAuxReportPage agntScrptPage=PageFactory.createPageInstance(driver,AgentAuxReportPage.class);
 		Assert.assertTrue(agntScrptPage.verifySearchIsNotEqualTo(reportDetails.getSearchStr()));
 	}   
-	
+
 	@Test(priority=33)
 	public void  VerifySearchContains() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentAuxReportData.xlsx";
@@ -387,7 +387,7 @@ public class AgentAuxReportTest extends BaseTest {
 		AgentAuxReportPage agntScrptPage=PageFactory.createPageInstance(driver,AgentAuxReportPage.class);
 		Assert.assertTrue(agntScrptPage.verifySearchContains(reportDetails.getSearchStr()));
 	}   
-	
+
 	@Test(priority=34)
 	public void  VerifySearchDoesNotContains() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentAuxReportData.xlsx";
@@ -398,7 +398,7 @@ public class AgentAuxReportTest extends BaseTest {
 		AgentAuxReportPage agentAuxReportPage=PageFactory.createPageInstance(driver,AgentAuxReportPage.class);
 		Assert.assertTrue(agentAuxReportPage.verifySearchDoesNotContains(reportDetails.getSearchStr())); 
 	}    
-	
+
 	@Test(priority=35)
 	public void  VerifySearchStartsWith() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentAuxReportData.xlsx";
@@ -409,7 +409,7 @@ public class AgentAuxReportTest extends BaseTest {
 		AgentAuxReportPage agntScrptPage=PageFactory.createPageInstance(driver,AgentAuxReportPage.class);
 		Assert.assertTrue(agntScrptPage.verifySearchStartsWith(reportDetails.getSearchStr()));
 	}
-	
+
 	@Test(priority=36)
 	public void  VerifySearchEndsWith() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentAuxReportData.xlsx";
@@ -420,7 +420,7 @@ public class AgentAuxReportTest extends BaseTest {
 		AgentAuxReportPage agntScrptPage=PageFactory.createPageInstance(driver,AgentAuxReportPage.class);
 		Assert.assertTrue(agntScrptPage.verifySearchEndsWith(reportDetails.getSearchStr()));
 	}
-	
+
 	@Test(priority=37)
 	public void SearchClearSearch() throws Exception{
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentAuxReportData.xlsx";
@@ -433,25 +433,25 @@ public class AgentAuxReportTest extends BaseTest {
 	}  */ 
 
 	@Test(priority=39)
-    public void database() throws Exception{
-    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentAuxReportData.xlsx";
-    	Map<String, String> map = new ExcelReader(filePath, "Queries").getTestData().get(0);
-    	ReportDetails reportDetails= new ReportDetails(map); 
-    	OCMReportsPage ocmReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
-      	ocmReportsPage.showReport(reportDetails);
-      	AgentAuxReportPage agntloginlogoutPage=PageFactory.createPageInstance(driver,AgentAuxReportPage.class);
-    	Assert.assertTrue(agntloginlogoutPage.verifyDatabase(reportDetails.getQuery(),reportDetails));
-    }
+	public void database() throws Exception{
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentAuxReportData.xlsx";
+		Map<String, String> map = new ExcelReader(filePath, "Queries").getTestData().get(0);
+		ReportDetails reportDetails= new ReportDetails(map); 
+		OCMReportsPage ocmReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
+		ocmReportsPage.showReport(reportDetails);
+		OCMAgentAuxReportPage agntloginlogoutPage=PageFactory.createPageInstance(driver,OCMAgentAuxReportPage.class);
+		Assert.assertTrue(agntloginlogoutPage.verifyDatabase(reportDetails.getQuery(),reportDetails));
+	}
 
-	
-	
+
+
 	@AfterMethod
 	public void afterEachMethod(Method method) throws InterruptedException {
 		Screenshot screenshot=new Screenshot(driver);
 		screenshot.captureScreen("AgentAuxReportTest",method.getName());
 		driver.navigate().refresh();
 	}
-	
+
 
 }
 

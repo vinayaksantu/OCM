@@ -22,12 +22,12 @@ import org.openqa.selenium.support.FindBy;
 
 import com.tetherfi.model.report.ReportDetails;
 
-public class AgentAuxReportPage extends BasePage  {
+public class OCMAgentAuxReportPage extends BasePage  {
 
-	public AgentAuxReportPage(WebDriver driver) {
+	public OCMAgentAuxReportPage(WebDriver driver) {
 		super(driver);
 	}
-
+	
 	@FindBy(xpath="//i[@class='fas fa-file-export']")
 	private WebElement VEFImg;
 
@@ -774,10 +774,10 @@ public class AgentAuxReportPage extends BasePage  {
 						//System.out.println(substring);
 						//=substring[0] * 60 * 60 + substring[1] * 60 + substring[2]); 
 						//sytem.out.println("seconds="+seconds);
-					long upTime=System.currentTimeMillis();
-					
-					long days=TimeUnit.MILLISECONDS.toDays(upTime);
-					
+						long upTime=System.currentTimeMillis();
+
+						long days=TimeUnit.MILLISECONDS.toDays(upTime);
+
 					}
 
 					else
