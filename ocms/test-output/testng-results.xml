@@ -2,61 +2,61 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="115495" started-at="2020-04-20T08:40:13 IST" finished-at="2020-04-20T08:42:08 IST">
+  <suite name="Default suite" duration-ms="103233" started-at="2020-04-20T08:44:49 IST" finished-at="2020-04-20T08:46:33 IST">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="115495" started-at="2020-04-20T08:40:13 IST" finished-at="2020-04-20T08:42:08 IST">
-      <class name="com.tetherfi.test.reports.OCMAgentSummaryReportTest">
-        <test-method status="PASS" signature="openApplication()[pri:0, instance:com.tetherfi.test.reports.OCMAgentSummaryReportTest@1907874b]" name="openApplication" is-config="true" duration-ms="51891" started-at="2020-04-20T08:40:13 IST" finished-at="2020-04-20T08:41:05 IST">
+    <test name="Default test" duration-ms="103233" started-at="2020-04-20T08:44:49 IST" finished-at="2020-04-20T08:46:33 IST">
+      <class name="com.tetherfi.test.reports.OCMChatAgentPerformanceReportTest">
+        <test-method status="PASS" signature="openApplication()[pri:0, instance:com.tetherfi.test.reports.OCMChatAgentPerformanceReportTest@1907874b]" name="openApplication" is-config="true" duration-ms="43876" started-at="2020-04-20T08:44:49 IST" finished-at="2020-04-20T08:45:33 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- openApplication -->
-        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMAgentSummaryReportTest@1907874b]" name="startTestCase" is-config="true" duration-ms="2" started-at="2020-04-20T08:41:05 IST" finished-at="2020-04-20T08:41:05 IST">
+        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMChatAgentPerformanceReportTest@1907874b]" name="startTestCase" is-config="true" duration-ms="2" started-at="2020-04-20T08:45:33 IST" finished-at="2020-04-20T08:45:33 IST">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.reports.OCMAgentSummaryReportTest.database() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.reports.OCMChatAgentPerformanceReportTest.database() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startTestCase -->
-        <test-method status="PASS" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.OCMAgentSummaryReportTest@1907874b]" name="NavigateToOcmReportsPage" is-config="true" duration-ms="5718" started-at="2020-04-20T08:41:05 IST" finished-at="2020-04-20T08:41:10 IST">
+        <test-method status="PASS" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.OCMChatAgentPerformanceReportTest@1907874b]" name="NavigateToOcmReportsPage" is-config="true" duration-ms="8196" started-at="2020-04-20T08:45:33 IST" finished-at="2020-04-20T08:45:42 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- NavigateToOcmReportsPage -->
-        <test-method status="PASS" signature="database()[pri:38, instance:com.tetherfi.test.reports.OCMAgentSummaryReportTest@1907874b]" name="database" duration-ms="37145" started-at="2020-04-20T08:41:10 IST" description="To verify main page details of Agent Summary report" finished-at="2020-04-20T08:41:48 IST">
+        <test-method status="PASS" signature="database()[pri:38, instance:com.tetherfi.test.reports.OCMChatAgentPerformanceReportTest@1907874b]" name="database" duration-ms="29502" started-at="2020-04-20T08:45:42 IST" description="To verify main page details of report" finished-at="2020-04-20T08:46:11 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- database -->
-        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMAgentSummaryReportTest@1907874b]" name="afterEachMethod" is-config="true" duration-ms="2179" started-at="2020-04-20T08:41:48 IST" finished-at="2020-04-20T08:41:50 IST">
+        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMChatAgentPerformanceReportTest@1907874b]" name="afterEachMethod" is-config="true" duration-ms="10717" started-at="2020-04-20T08:46:11 IST" finished-at="2020-04-20T08:46:22 IST">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.reports.OCMAgentSummaryReportTest.database() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.reports.OCMChatAgentPerformanceReportTest.database() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterEachMethod -->
-        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMAgentSummaryReportTest@1907874b]" name="endTestCase" is-config="true" duration-ms="1" started-at="2020-04-20T08:41:50 IST" finished-at="2020-04-20T08:41:50 IST">
+        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMChatAgentPerformanceReportTest@1907874b]" name="endTestCase" is-config="true" duration-ms="1" started-at="2020-04-20T08:46:22 IST" finished-at="2020-04-20T08:46:22 IST">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.reports.OCMAgentSummaryReportTest.database() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.reports.OCMChatAgentPerformanceReportTest.database() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- endTestCase -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.tetherfi.test.reports.OCMAgentSummaryReportTest@1907874b]" name="tearDown" is-config="true" duration-ms="18451" started-at="2020-04-20T08:41:50 IST" finished-at="2020-04-20T08:42:08 IST">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.tetherfi.test.reports.OCMChatAgentPerformanceReportTest@1907874b]" name="tearDown" is-config="true" duration-ms="10860" started-at="2020-04-20T08:46:22 IST" finished-at="2020-04-20T08:46:33 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.tetherfi.test.reports.OCMAgentSummaryReportTest -->
+      </class> <!-- com.tetherfi.test.reports.OCMChatAgentPerformanceReportTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
