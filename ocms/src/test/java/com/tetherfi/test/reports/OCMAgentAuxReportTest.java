@@ -434,13 +434,13 @@ public class OCMAgentAuxReportTest extends BaseTest {
 
 	@Test(priority=39)
 	public void database() throws Exception{
-		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentAuxReportData.xlsx";
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentAuxReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath, "Queries").getTestData().get(0);
 		ReportDetails reportDetails= new ReportDetails(map); 
 		OCMReportsPage ocmReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
 		ocmReportsPage.showReport(reportDetails);
-		OCMAgentAuxReportPage agntloginlogoutPage=PageFactory.createPageInstance(driver,OCMAgentAuxReportPage.class);
-		Assert.assertTrue(agntloginlogoutPage.verifyDatabase(reportDetails.getQuery(),reportDetails));
+		OCMAgentAuxReportPage AgentAuxReportPage=PageFactory.createPageInstance(driver,OCMAgentAuxReportPage.class);
+		Assert.assertTrue(AgentAuxReportPage.verifyDatabase(reportDetails.getQuery(),reportDetails));
 	}
 
 
