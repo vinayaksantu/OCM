@@ -668,6 +668,7 @@ public class OCMAgentSummaryReportPage extends BasePage  {
 		Boolean Status=verifyExportPageFileDownload(filePath, "OCMAgentSummaryReport");
 		return Status;
 	}
+	
 	public boolean verifyExportPageFileDownloaded(String reportname){
 		return verifyExportPageFileDownload(System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles",reportname);
 	}
@@ -689,6 +690,7 @@ public class OCMAgentSummaryReportPage extends BasePage  {
 			return false;
 
 	}
+	
 	public void viewDownloadedReportInReportsDownloadsPage() {
 		waitForLoad(driver);
 		waitForJqueryLoad(driver);
@@ -701,6 +703,7 @@ public class OCMAgentSummaryReportPage extends BasePage  {
 		waitForLoad(driver);
 		waitForJqueryLoad(driver);
 	}
+	
 	public boolean isExportSchedulerPageDisplayed() {
 		waitForLoad(driver);
 		waitForJqueryLoad(driver);

@@ -473,8 +473,6 @@ public class OCMAgentSummaryReportTest extends BaseTest {
 		OCMAgentSummaryReportPage AgentSummaryReportPage=PageFactory.createPageInstance(driver,OCMAgentSummaryReportPage.class);
 		Assert.assertTrue(AgentSummaryReportPage.verifyDatabase(reportDetails.getQuery(), reportDetails));
 	}
-
-	
 	
 	@AfterMethod
 	public void afterEachMethod(Method method) throws InterruptedException {
