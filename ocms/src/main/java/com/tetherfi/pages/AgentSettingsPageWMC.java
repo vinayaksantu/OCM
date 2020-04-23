@@ -719,8 +719,9 @@ public class AgentSettingsPageWMC extends BasePage{
     
     public void DeleteAgentSettingsRecord(AgentSettingsDetails details) throws Exception {
         searchAgentSettingsRecord(details.getUsername());
+        Thread.sleep(8000);
+        selectWebElement(deleteBtn);
         Thread.sleep(2000);
-        btnClick(deleteBtn);
         selectWebElement(deleteReasonTextBox);
         enterValueToTxtFieldWithoutClear(deleteReasonTextBox,details.getDeleteReason());
         selectWebElement(yesBtn);

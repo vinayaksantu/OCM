@@ -3,26 +3,17 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.tetherfi.test.sms.SmsResponseTemplateTest">
+      <class name="com.tetherfi.test.tmac.AgentSettingsTest">
         <methods>
-          <include name="SortByDescending"/>
-          <include name="searchPage"/>
-          <include name="VerifyArrowMoveForFirstAndLastPage"/>
-          <include name="endTestCase"/>
-          <include name="SortByAscending"/>
-          <include name="tearDown"/>
-          <include name="VerifyCancelBtnAtDeleteConfigRecord"/>
           <include name="startTestCase"/>
-          <include name="NavigateToSmsResponseTemplatePage"/>
           <include name="openApplication"/>
-          <include name="ExporttoExcelWithoutData"/>
-          <include name="VerifyArrowMoveForPreviousAndNextPage"/>
-          <include name="ExportToExcelData"/>
-          <include name="DeleteRecordWithoutDeleteReason"/>
+          <include name="NavigateToAgentSettingsPage"/>
+          <include name="endTestCase"/>
           <include name="afterEachMethod"/>
-          <include name="VerifyNumberOfItemsPerPageSelection"/>
+          <include name="tearDown"/>
+          <include name="VerifyAuditTrailReportForDelete"/>
         </methods>
-      </class> <!-- com.tetherfi.test.sms.SmsResponseTemplateTest -->
+      </class> <!-- com.tetherfi.test.tmac.AgentSettingsTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

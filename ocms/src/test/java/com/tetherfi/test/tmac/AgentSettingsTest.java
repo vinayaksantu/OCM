@@ -38,7 +38,7 @@ public class AgentSettingsTest extends BaseTest{
 		Assert.assertTrue(agentSettingsPagewmc.isAgentSettingsPageDisplayed(),"Agent Settings page assertion failed");	
 	}
 
-	@Test(priority=1)
+	/*@Test(priority=1)
 	public void VerifyAgentSettingsPage() {
 		AgentSettingsPageWMC agentSettingsPagewmc=PageFactory.createPageInstance(driver,AgentSettingsPageWMC.class);
 		Assert.assertTrue(agentSettingsPagewmc.VerifyLogo(), "Agent Settings logo assertion failed");
@@ -146,7 +146,7 @@ public class AgentSettingsTest extends BaseTest{
 		AgentSettingsPageWMC agentSettingsPagewmc=PageFactory.createPageInstance(driver, AgentSettingsPageWMC.class);
 		agentSettingsPagewmc.editAgentSettingsRecord(agentSettingsDetails);
 		Assert.assertEquals(agentSettingsPagewmc.getSuccessMessage(), "Record Updated Successfully", "Edit Record Assertion Failed");
-	}
+	}*/
 
 	@Test(priority=13)
 	public void VerifyAuditTrailReportForUpdate() throws Exception {
@@ -164,7 +164,7 @@ public class AgentSettingsTest extends BaseTest{
 		Assert.assertTrue(ocmReportsPage.verifyAgentSettingsUpdate(agentSettingsDetails, "Update"), "Audit Trail Report assertion failed");		
 	}
 
-	@Test(priority=14)
+	/*@Test(priority=14)
 	public void EditRecordWithoutModifyReason() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentSettingsData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(2);
@@ -246,7 +246,7 @@ public class AgentSettingsTest extends BaseTest{
     	AgentSettingsPageWMC agentSettingsPagewmc=PageFactory.createPageInstance(driver, AgentSettingsPageWMC.class);	
     	agentSettingsPagewmc.DeleteAgentSettingsRecord(agentSettingsDetails);
     	Assert.assertEquals(agentSettingsPagewmc.getSuccessMessage(), "Record Deleted Successfully", "Delete Record Assertion failed");		
-    }
+    }*/
 
     @Test(priority=23)
 	public void VerifyAuditTrailReportForDelete() throws Exception {
@@ -264,7 +264,7 @@ public class AgentSettingsTest extends BaseTest{
 		Assert.assertTrue(ocmReportsPage.verifyAgentSettingsDelete(agentSettingsDetails, "Delete"),"Audit Trail Report Assertion Failed");
 	}
 	
-    @Test(priority=24)
+    /*@Test(priority=24)
     public void SearchClearSearch() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentSettingsData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath, "Invalid").getTestData().get(1);
@@ -373,7 +373,7 @@ public class AgentSettingsTest extends BaseTest{
 	    AgentSettingsDetails agentSettingsDetails = new AgentSettingsDetails(map);
 	    AgentSettingsPageWMC agentSettingsPagewmc=PageFactory.createPageInstance(driver, AgentSettingsPageWMC.class);
 	    Assert.assertTrue(agentSettingsPagewmc.verifySearchEndsWith(agentSettingsDetails.getFirstname()));
-	 }
+	 }*/
 	  
 	@AfterMethod
 	public void afterEachMethod(Method method) throws InterruptedException {
