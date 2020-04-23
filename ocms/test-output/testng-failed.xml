@@ -1,19 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
-  <test thread-count="5" name="Default test(failed)">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Tetherfi Test Automation]">
+  <listeners>
+    <listener class-name="com.tetherfi.ExtentReportListener.ExtentReporterNG"/>
+  </listeners>
+  <test thread-count="5" name="WorkCodeListTest(failed)">
     <classes>
-      <class name="com.tetherfi.test.reports.OCMAgentAuxReportTest">
+      <class name="com.tetherfi.test.sms.SmsResponseTemplateTest">
         <methods>
-          <include name="NavigateToOcmReportsPage"/>
-          <include name="startTestCase"/>
-          <include name="afterEachMethod"/>
-          <include name="openApplication"/>
-          <include name="database"/>
+          <include name="SortByDescending"/>
+          <include name="VerifyAuditTrialReportForCreate"/>
+          <include name="VerifyArrowMoveForFirstAndLastPage"/>
           <include name="endTestCase"/>
+          <include name="SortByAscending"/>
           <include name="tearDown"/>
+          <include name="EditSmsResponseTemplateRecord"/>
+          <include name="VerifyTotalNumberOfItemsPerPageDetails"/>
+          <include name="VerifyAuditTrialReportForDelete"/>
+          <include name="startTestCase"/>
+          <include name="NavigateToSmsResponseTemplatePage"/>
+          <include name="openApplication"/>
+          <include name="VerifyArrowMoveForPreviousAndNextPage"/>
+          <include name="VerifyCancelBtnAtEditSmsResponseTemplateRecord"/>
+          <include name="SearchClearSearch"/>
+          <include name="VerifyCancelBtnAtAddnewRecord"/>
+          <include name="AddDuplicateSMSRecord"/>
+          <include name="AddNewSMSRecord"/>
+          <include name="EditSmsTemplateRecordWithoutModifyReason"/>
+          <include name="VerifyAuditTrialReportForUpdate"/>
+          <include name="DeleteSmsResponseTemplateRecord"/>
+          <include name="afterEachMethod"/>
+          <include name="VerifyNumberOfItemsPerPageSelection"/>
         </methods>
-      </class> <!-- com.tetherfi.test.reports.OCMAgentAuxReportTest -->
+      </class> <!-- com.tetherfi.test.sms.SmsResponseTemplateTest -->
     </classes>
-  </test> <!-- Default test(failed) -->
-</suite> <!-- Failed suite [Default suite] -->
+  </test> <!-- WorkCodeListTest(failed) -->
+</suite> <!-- Failed suite [Tetherfi Test Automation] -->

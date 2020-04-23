@@ -714,6 +714,7 @@ public class OCMAgentSummaryReportPage extends BasePage  {
 		waitUntilWebElementIsClickable(schRptsinAgent);
 		selectWebElement(schRptsinAgent);			
 	}
+	
 	public void exportToExcel() {
 		selectWebElement(exportToExcel);
 	}
@@ -955,6 +956,7 @@ public class OCMAgentSummaryReportPage extends BasePage  {
 		}
 		return Status;
 	}
+	
 	public void verifySearchClear(ReportDetails details) {
 		selectWebElement(searchBtn);		
 		selectWebElement(searchColDropdown);  
@@ -966,6 +968,7 @@ public class OCMAgentSummaryReportPage extends BasePage  {
 		selectWebElement(searchClearAllBtn);	
 		//selectWebElement(searchCloseBtn);		
 	}
+	
 	public boolean verifyAdvanceSearch(ReportDetails reportDetails) throws Exception {
 		Boolean Status=false;
 		List<Map<String,String>>UI=getDataTable();
@@ -979,6 +982,7 @@ public class OCMAgentSummaryReportPage extends BasePage  {
 		}
 		return Status;
 	}
+
 	public void searchwithoutextsearch(ReportDetails details) {
 		selectWebElement(searchBtn);		
 		selectWebElement(searchColDropdown);  
@@ -1051,6 +1055,7 @@ public class OCMAgentSummaryReportPage extends BasePage  {
 					        }
 					        return header;
 					    }*/
+
 }
 
 

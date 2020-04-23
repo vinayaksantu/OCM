@@ -13,7 +13,7 @@
      
      <test name="WorkCodeListTest" parallel="false">
       <classes>  
-           <class name="com.tetherfi.test.tmac.WorkCodeListTest"/> 
+           <class name="com.tetherfi.test.sms.SmsResponseTemplateTest"/> 
             </classes>
      </test>
               
