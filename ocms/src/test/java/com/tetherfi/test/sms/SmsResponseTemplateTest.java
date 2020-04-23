@@ -160,7 +160,7 @@ public class SmsResponseTemplateTest extends BaseTest{
 		Assert.assertFalse(SmsResponseTemplatePageWMC.verifyEditFormContainer(), "Cancel Btn at Add record assertion failed");	   
 	}
 
-	@Test(priority=14,dependsOnMethods="AddNewSMSRecord") 
+	@Test(priority=14)//,dependsOnMethods="AddNewSMSRecord") 
 	public void EditSmsResponseTemplateRecord() throws Exception {
 		String filePath=System.getProperty("user.dir")+"\\src\\test\\\\resources\\TestData\\SmsResponseTemplateData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(0);
@@ -223,14 +223,14 @@ public class SmsResponseTemplateTest extends BaseTest{
 		Assert.assertEquals(SmsResponseTemplatePageWMC.verifySuccessMessage(),"Please enter the text to search or remove the filter", "Add invalid record assertion failed");	 
 	}
 
-	//@Test(priority=20)
+	@Test(priority=20)
 	public void ExportToExcel() {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles";
 		SmsResponseTemplatePageWMC SmsResponseTemplatePageWMC=PageFactory.createPageInstance(driver, SmsResponseTemplatePageWMC.class);
 		Assert.assertTrue(SmsResponseTemplatePageWMC.verifyExportToExcel(filePath));	 
 	}
 
-	//@Test(priority=21)
+	@Test(priority=21)
 	public void ExportToExcelData() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\SMS Response Template.xlsx";
 		List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
@@ -297,7 +297,7 @@ public class SmsResponseTemplateTest extends BaseTest{
 	public void ExporttoExcelWithoutData() throws Exception {
 		SmsResponseTemplatePageWMC SmsResponseTemplatePageWMC=PageFactory.createPageInstance(driver, SmsResponseTemplatePageWMC.class);			     
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\SmsResponseTemplateData.xlsx";
-		Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);	
+		Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(1);	
 		SmsResponseTemplateDetails SmsResponseTemplateDetails = new SmsResponseTemplateDetails(map);
 		Assert.assertTrue(SmsResponseTemplatePageWMC.ExporttoExcelWithoutData(SmsResponseTemplateDetails));	
 	}

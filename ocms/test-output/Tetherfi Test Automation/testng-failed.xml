@@ -4,35 +4,32 @@
   <listeners>
     <listener class-name="com.tetherfi.ExtentReportListener.ExtentReporterNG"/>
   </listeners>
-  <test thread-count="5" name="WorkCodeListTest(failed)">
+  <test thread-count="5" name="SMSResponseTemplateWMC(failed)">
     <classes>
       <class name="com.tetherfi.test.sms.SmsResponseTemplateTest">
         <methods>
           <include name="SortByDescending"/>
-          <include name="VerifyAuditTrialReportForCreate"/>
+          <include name="searchwithoutSearchTextbox"/>
+          <include name="searchPage"/>
           <include name="VerifyArrowMoveForFirstAndLastPage"/>
           <include name="endTestCase"/>
           <include name="SortByAscending"/>
           <include name="tearDown"/>
           <include name="EditSmsResponseTemplateRecord"/>
-          <include name="VerifyTotalNumberOfItemsPerPageDetails"/>
-          <include name="VerifyAuditTrialReportForDelete"/>
+          <include name="VerifyCancelBtnAtDeleteConfigRecord"/>
           <include name="startTestCase"/>
           <include name="NavigateToSmsResponseTemplatePage"/>
           <include name="openApplication"/>
+          <include name="ExporttoExcelWithoutData"/>
           <include name="VerifyArrowMoveForPreviousAndNextPage"/>
-          <include name="VerifyCancelBtnAtEditSmsResponseTemplateRecord"/>
-          <include name="SearchClearSearch"/>
           <include name="VerifyCancelBtnAtAddnewRecord"/>
-          <include name="AddDuplicateSMSRecord"/>
-          <include name="AddNewSMSRecord"/>
           <include name="EditSmsTemplateRecordWithoutModifyReason"/>
-          <include name="VerifyAuditTrialReportForUpdate"/>
           <include name="DeleteSmsResponseTemplateRecord"/>
+          <include name="DeleteRecordWithoutDeleteReason"/>
           <include name="afterEachMethod"/>
           <include name="VerifyNumberOfItemsPerPageSelection"/>
         </methods>
       </class> <!-- com.tetherfi.test.sms.SmsResponseTemplateTest -->
     </classes>
-  </test> <!-- WorkCodeListTest(failed) -->
+  </test> <!-- SMSResponseTemplateWMC(failed) -->
 </suite> <!-- Failed suite [Tetherfi Test Automation] -->

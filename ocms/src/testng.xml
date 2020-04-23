@@ -11,7 +11,7 @@
 			class-name="com.tetherfi.ExtentReportListener.ExtentReporterNG" />
 	</listeners>
      
-     <test name="WorkCodeListTest" parallel="false">
+     <test name="SMSResponseTemplateWMC" parallel="false">
       <classes>  
            <class name="com.tetherfi.test.sms.SmsResponseTemplateTest"/> 
             </classes>

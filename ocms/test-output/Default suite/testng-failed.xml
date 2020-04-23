@@ -3,17 +3,26 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.tetherfi.test.reports.OCMAgentAuxReportTest">
+      <class name="com.tetherfi.test.sms.SmsResponseTemplateTest">
         <methods>
-          <include name="NavigateToOcmReportsPage"/>
-          <include name="startTestCase"/>
-          <include name="afterEachMethod"/>
-          <include name="openApplication"/>
-          <include name="database"/>
+          <include name="SortByDescending"/>
+          <include name="searchPage"/>
+          <include name="VerifyArrowMoveForFirstAndLastPage"/>
           <include name="endTestCase"/>
+          <include name="SortByAscending"/>
           <include name="tearDown"/>
+          <include name="VerifyCancelBtnAtDeleteConfigRecord"/>
+          <include name="startTestCase"/>
+          <include name="NavigateToSmsResponseTemplatePage"/>
+          <include name="openApplication"/>
+          <include name="ExporttoExcelWithoutData"/>
+          <include name="VerifyArrowMoveForPreviousAndNextPage"/>
+          <include name="ExportToExcelData"/>
+          <include name="DeleteRecordWithoutDeleteReason"/>
+          <include name="afterEachMethod"/>
+          <include name="VerifyNumberOfItemsPerPageSelection"/>
         </methods>
-      </class> <!-- com.tetherfi.test.reports.OCMAgentAuxReportTest -->
+      </class> <!-- com.tetherfi.test.sms.SmsResponseTemplateTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
