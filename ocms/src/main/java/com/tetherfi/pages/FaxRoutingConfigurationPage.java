@@ -798,7 +798,7 @@ public class FaxRoutingConfigurationPage extends BasePage {
 	    selectDropdownFromVisibleText(routeTypeListBox,faxRoutingConfigDetails.getUpdatedRouteType());
 	    enterValueToTxtField(routeData,faxRoutingConfigDetails.getUpdatedRouteData());
         selectWebElement(modifyReasonTextBox);
-        enterValueToTxtField(modifyReasonTextBox,faxRoutingConfigDetails.getModifyReason());
+        enterValueToTxtFieldWithoutClear(modifyReasonTextBox,faxRoutingConfigDetails.getModifyReason());
         selectWebElement(SaveButton);
 		
 	}
@@ -872,7 +872,7 @@ public class FaxRoutingConfigurationPage extends BasePage {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        enterValueToTxtField(deleteReasonTextBox,faxRoutingConfigDetails.getDeleteReason());
+        enterValueToTxtFieldWithoutClear(deleteReasonTextBox,faxRoutingConfigDetails.getDeleteReason());
         selectWebElement(deleteYesBtn);
 	}
 

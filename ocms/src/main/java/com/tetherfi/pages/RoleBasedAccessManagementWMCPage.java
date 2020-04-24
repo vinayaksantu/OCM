@@ -255,8 +255,14 @@ public class RoleBasedAccessManagementWMCPage extends BasePage{
 	@FindBy(id="checkAllOtherApplications")
     private WebElement checkallotherapplication;
 	
+	@FindBy(id="checkAllCheckerPage")
+	private WebElement checkallcheckerpages;
+	
 	@FindBy(xpath="//span[text()='Other Applications']")
 	private WebElement navigatetootherapplication;
+	
+	@FindBy(xpath="//span[text()='Admin Pages Checker']")
+	private WebElement navigatetoAdminPagesChecker;
 
 	public boolean verifylogo() {
 		if(isElementExist(RBAMImg))
@@ -1209,6 +1215,73 @@ public class RoleBasedAccessManagementWMCPage extends BasePage{
 		Thread.sleep(1000);	
 		selectWebElement(navigatetootherapplication);
 		selectWebElement(saveaccess.get(4));
+		if(changesMsg.getText().equals("No rows has been changed"))
+			return true;
+		else
+		return false;
+	}
+	public boolean verifyAdminCheckerAccessCheckbox(UserDetails userDetails) throws Exception {
+		searchRoleBasedAccessManagementRecord(userDetails.getRoleName());
+		selectWebElement(rowdata);
+		Thread.sleep(1000);
+		selectWebElement(navigatetoAdminPagesChecker);
+		Boolean Status=false;
+		selectWebElement(checkallcheckerpages);
+		if(checkallcheckerpages.isSelected())
+			{
+				Status=true;
+			}
+		return Status;
+	}
+	public boolean verifyAdminCheckercancelchanges(UserDetails userDetails) throws Exception {
+		searchRoleBasedAccessManagementRecord(userDetails.getRoleName());
+		selectWebElement(rowdata);
+		Thread.sleep(1000);
+		selectWebElement(navigatetoAdminPagesChecker);
+		Thread.sleep(1000);
+		selectWebElement(checkallcheckerpages);
+		selectWebElement(pbuacancel.get(1));
+		Thread.sleep(1000);
+		if(checkallcheckerpages.isSelected())
+			return false;
+		else
+		return true;
+	}
+	public void verifyAdminCheckersavechanges(UserDetails userDetails) throws Exception {
+		searchRoleBasedAccessManagementRecord(userDetails.getRoleName());
+		selectWebElement(rowdata);
+		Thread.sleep(1000);
+		selectWebElement(navigatetoAdminPagesChecker);
+		Thread.sleep(1000);
+		selectWebElement(checkallcheckerpages);
+		selectWebElement(saveaccess.get(1));
+		if(modifypopup.isDisplayed())
+		{	
+			selectWebElement(userModifyReasontxtbox);
+			Thread.sleep(1000);
+			enterValueToTxtFieldWithoutClear(userModifyReasontxtbox,"Modified");
+			Thread.sleep(1000);
+			clickOn(useryesBtn);
+		}
+		
+	}
+	public boolean verifyAdminCheckerunsuccessfullcancelchanges(UserDetails userDetails) throws Exception {
+		searchRoleBasedAccessManagementRecord(userDetails.getRoleName());
+		selectWebElement(rowdata);
+		Thread.sleep(1000);	
+		selectWebElement(navigatetoAdminPagesChecker);
+		selectWebElement(pbuacancel.get(1));
+		if(changesMsg.getText().equals("No rows has been changed"))
+			return true;
+		else
+		return false;
+	}
+	public boolean verifyAdminCheckerunsuccessfullsavechanges(UserDetails userDetails) throws Exception {
+		searchRoleBasedAccessManagementRecord(userDetails.getRoleName());
+		selectWebElement(rowdata);
+		Thread.sleep(1000);	
+		selectWebElement(navigatetoAdminPagesChecker);
+		selectWebElement(saveaccess.get(1));
 		if(changesMsg.getText().equals("No rows has been changed"))
 			return true;
 		else

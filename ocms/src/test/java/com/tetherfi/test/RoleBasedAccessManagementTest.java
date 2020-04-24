@@ -231,6 +231,61 @@ public class RoleBasedAccessManagementTest extends BaseTest {
 		UserDetails userDetails=new UserDetails(map);		
 		Assert.assertTrue(RoleBasedAccessManagementWMCPage.verifyunsuccessfullsavechanges(userDetails));
 	}
+	
+	
+	@Test(priority=19)
+	public void VerifyAdminCheckerAccessCheckBox() throws Exception
+	{ 
+		RoleBasedAccessManagementWMCPage RoleBasedAccessManagementWMCPage=PageFactory.createPageInstance(driver,RoleBasedAccessManagementWMCPage.class);
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\RoleBasedAccessManagementData.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);
+		UserDetails userDetails=new UserDetails(map);
+		Assert.assertTrue(RoleBasedAccessManagementWMCPage.verifyAdminCheckerAccessCheckbox(userDetails));
+		screenshot.captureScreen("RoleBasedAccessManagementTest","VerifyAdminCheckerAccessCheckBox");
+		Assert.assertTrue(RoleBasedAccessManagementWMCPage.verifyclosebutton());
+	}
+
+	@Test(priority=20)
+	public void VerifyAdminCheckerPageCancelButton() throws Exception
+	{
+		RoleBasedAccessManagementWMCPage RoleBasedAccessManagementWMCPage=PageFactory.createPageInstance(driver,RoleBasedAccessManagementWMCPage.class);
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\RoleBasedAccessManagementData.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);
+		UserDetails userDetails=new UserDetails(map);
+		Assert.assertTrue(RoleBasedAccessManagementWMCPage.verifyAdminCheckercancelchanges(userDetails));
+	}
+
+	@Test(priority=21)
+	public void VerifyAdminCheckerPageSaveButton() throws Exception
+	{
+		RoleBasedAccessManagementWMCPage RoleBasedAccessManagementWMCPage=PageFactory.createPageInstance(driver,RoleBasedAccessManagementWMCPage.class);
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\RoleBasedAccessManagementData.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);
+		UserDetails userDetails=new UserDetails(map);
+		RoleBasedAccessManagementWMCPage.verifyAdminCheckersavechanges(userDetails);
+		Assert.assertEquals(RoleBasedAccessManagementWMCPage.getSuccessMessage(),"Record Updated Successfully","Edit record assertion failed");
+
+	}
+
+	@Test(priority=22)
+	public void VerifyAdminCheckerunsuccefullCancelchanges() throws Exception
+	{
+		RoleBasedAccessManagementWMCPage RoleBasedAccessManagementWMCPage=PageFactory.createPageInstance(driver,RoleBasedAccessManagementWMCPage.class);
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\RoleBasedAccessManagementData.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);
+		UserDetails userDetails=new UserDetails(map);
+		Assert.assertTrue(RoleBasedAccessManagementWMCPage.verifyAdminCheckerunsuccessfullcancelchanges(userDetails));
+	}
+
+	@Test(priority=23)
+	public void VerifyAdminCheckerunsuccefullSavechanges() throws Exception
+	{
+		RoleBasedAccessManagementWMCPage RoleBasedAccessManagementWMCPage=PageFactory.createPageInstance(driver,RoleBasedAccessManagementWMCPage.class);
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\RoleBasedAccessManagementData.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);
+		UserDetails userDetails=new UserDetails(map);		
+		Assert.assertTrue(RoleBasedAccessManagementWMCPage.verifyAdminCheckerunsuccessfullsavechanges(userDetails));
+	}
 
 	@Test(priority=24)
 	public void VerifyReportsAccessCheckBox() throws Exception

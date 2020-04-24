@@ -493,35 +493,35 @@ public class FaxAddressBookTest extends BaseTest{
         Assert.assertTrue(ocmReportsPage.verifyRecipientdelete(faxAddressBoookDetails,"Delete"));
     }
     
-    /*@Test(priority=25)
+    /*@Test(priority=33)
     public void VerifyRecipientArrowMoveForPreviousAndNextPage() {
     	FaxAddressBookPage faxAddressBookPage = PageFactory.createPageInstance(driver, FaxAddressBookPage.class);
 		faxAddressBookPage.NavigateToRecipientTab();
         Assert.assertTrue(faxAddressBookPage.verifyArrowMoveForPreviousAndNextPage(1),"arrow move for previous and next page assertion failed");
     }
     
-    @Test(priority=26)
+    @Test(priority=34)
     public void VerifyRecipientArrowMoveForFirstAndLastPage() {
     	FaxAddressBookPage faxAddressBookPage = PageFactory.createPageInstance(driver, FaxAddressBookPage.class);
 		faxAddressBookPage.NavigateToRecipientTab();
         Assert.assertTrue(faxAddressBookPage.verifyArrowMoveForFirstAndLastPage(1),"arrow move for first and last page assertion failed");
     }
     
-    @Test(priority=27)
+    @Test(priority=35)
     public void VerifyRecipientTotalNumberOfItemsPerPageDetails() {
         FaxAddressBookPage faxAddressBookPage = PageFactory.createPageInstance(driver, FaxAddressBookPage.class);
 		faxAddressBookPage.NavigateToRecipientTab();
         Assert.assertTrue(faxAddressBookPage.verifyTotalNumberOfItemsPerPageDetails(1),"item per page assertion failed");
     }
     
-    @Test(priority=28)
+    @Test(priority=36)
     public void VerifyRecipientNumberOfItemsPerPageSelection() {
     	FaxAddressBookPage faxAddressBookPage = PageFactory.createPageInstance(driver, FaxAddressBookPage.class);
 		faxAddressBookPage.NavigateToRecipientTab();
         Assert.assertTrue(faxAddressBookPage.verifyNumberOfItemsPerPage(1),"item per page assertion failed");
     }
     
-    /*@Test(priority=29)
+    @Test(priority=37)
     public void searchRecipientPage() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxAddressBookData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"DeleteRecipient").getTestData().get(0);
@@ -533,15 +533,15 @@ public class FaxAddressBookTest extends BaseTest{
         Assert.assertTrue(faxAddressBookPage.verifyRecipientSearchclose());
     }
     
-    @Test(priority=30)
+    @Test(priority=38)
     public void searchRecipientwithoutSearchTextbox() throws IOException {
     	FaxAddressBookPage faxAddressBookPage = PageFactory.createPageInstance(driver, FaxAddressBookPage.class);
 		faxAddressBookPage.NavigateToRecipientTab();
 		faxAddressBookPage.searchwithoutextsearch();
         Assert.assertEquals(faxAddressBookPage.getMessage(),"Please enter the text to search or remove the filter", "Add invalid record assertion failed");
-    }*/
+    }
 	
-	/*@Test(priority=31)
+	@Test(priority=39)
     public void VerifyRecipientDragAndDrop() throws Exception {
 		FaxAddressBookPage faxAddressBookPage = PageFactory.createPageInstance(driver, FaxAddressBookPage.class);
 		faxAddressBookPage.NavigateToRecipientTab();
@@ -550,7 +550,7 @@ public class FaxAddressBookTest extends BaseTest{
         Assert.assertTrue(faxAddressBookPage.verifyDragColumntoGroup("First Name",1),"drag and drop assertion failed");
     }
 	
-	@Test(priority=32)
+	@Test(priority=40)
     public void VerifyRecipientDragAndDropofAlreadyGroupedHeader() throws Exception {
 		FaxAddressBookPage faxAddressBookPage = PageFactory.createPageInstance(driver, FaxAddressBookPage.class);
 		faxAddressBookPage.NavigateToRecipientTab();
@@ -560,7 +560,7 @@ public class FaxAddressBookTest extends BaseTest{
         Assert.assertTrue(faxAddressBookPage.verifyDragColumntoGroup("First Name",1),"drag and drop assertion failed");
     }
 	
-	@Test(priority=33)
+	@Test(priority=41)
     public void VerifyDragAndDrop() throws Exception {
 		FaxAddressBookPage faxAddressBookPage = PageFactory.createPageInstance(driver, FaxAddressBookPage.class);
         Thread.sleep(2000);
