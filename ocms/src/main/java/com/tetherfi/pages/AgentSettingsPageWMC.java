@@ -111,13 +111,19 @@ public class AgentSettingsPageWMC extends BasePage{
     @FindBy(css="span[aria-owns='CrmName_listbox']")
     private WebElement crmnameDropdown;
 
-    @FindBy(css="ul[id='CrmName_listbox'] li")
-    private List<WebElement> crmnameListBox;
+    /*@FindBy(css="ul[id='CrmName_listbox'] li")
+    private List<WebElement> crmnameListBox;*/
 
+    @FindBy(css="ul#CrmName_listbox>li:nth-of-type(2)")
+    private List<WebElement> crmnameListBox;
+    
     @FindBy(css="span[aria-owns='TextChatGreetingTemplateID_listbox']")
     private WebElement texttemplatenameDropdown;
 
-    @FindBy(css="ul[id='TextChatGreetingTemplateID_listbox'] li")
+    /*@FindBy(css="ul[id='TextChatGreetingTemplateID_listbox'] li")
+    private List<WebElement> texttemplatenameListBox;*/
+    
+    @FindBy(css="ul#TextChatGreetingTemplateID_listbox>li:nth-of-type(2)")
     private List<WebElement> texttemplatenameListBox;
 
     @FindBy(css="input[title='Total Audio Chat Tabs Allowed']")
@@ -596,10 +602,10 @@ public class AgentSettingsPageWMC extends BasePage{
         selectProfile(details.getProfile(),details.getSupervisor());
         selectWebElement(accessroleDropdown);
         selectDropdownFromVisibleText(accessroleListBox,details.getAccessRole());
-       // selectWebElement(crmnameDropdown);
-        //selectDropdownFromVisibleText(crmnameListBox,details.getCrmName());
-//        selectWebElement(texttemplatenameDropdown);
-//        selectDropdownFromVisibleText(texttemplatenameListBox,details.getTextTemplateName());
+        selectWebElement(crmnameDropdown);
+        selectDropdownFromVisibleText(crmnameListBox,details.getCrmName());
+        selectWebElement(texttemplatenameDropdown);
+        selectDropdownFromVisibleText(texttemplatenameListBox,details.getTextTemplateName());
         navigateToTab("Channel Count & Features");
         selectFeaturesToBeSelected(details.getFeaturestobeSeleted());
         selectWebElement(numericTextbox.get(1));

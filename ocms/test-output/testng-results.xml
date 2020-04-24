@@ -2,57 +2,57 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="75449" started-at="2020-04-23T18:53:58 IST" finished-at="2020-04-23T18:55:14 IST">
+  <suite name="Default suite" duration-ms="153537" started-at="2020-04-24T10:15:05 IST" finished-at="2020-04-24T10:17:38 IST">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="75449" started-at="2020-04-23T18:53:58 IST" finished-at="2020-04-23T18:55:14 IST">
+    <test name="Default test" duration-ms="153537" started-at="2020-04-24T10:15:05 IST" finished-at="2020-04-24T10:17:38 IST">
       <class name="com.tetherfi.test.tmac.AgentSettingsTest">
-        <test-method status="PASS" signature="openApplication()[pri:0, instance:com.tetherfi.test.tmac.AgentSettingsTest@48528634]" name="openApplication" is-config="true" duration-ms="33251" started-at="2020-04-23T18:53:58 IST" finished-at="2020-04-23T18:54:32 IST">
+        <test-method status="PASS" signature="openApplication()[pri:0, instance:com.tetherfi.test.tmac.AgentSettingsTest@6b2e46af]" name="openApplication" is-config="true" duration-ms="57143" started-at="2020-04-24T10:15:05 IST" finished-at="2020-04-24T10:16:02 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- openApplication -->
-        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.AgentSettingsTest@48528634]" name="startTestCase" is-config="true" duration-ms="2" started-at="2020-04-23T18:54:32 IST" finished-at="2020-04-23T18:54:32 IST">
+        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.AgentSettingsTest@6b2e46af]" name="startTestCase" is-config="true" duration-ms="2" started-at="2020-04-24T10:16:02 IST" finished-at="2020-04-24T10:16:02 IST">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.tmac.AgentSettingsTest.VerifyAuditTrailReportForDelete() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.tmac.AgentSettingsTest.VerifyAddNewAgentSettingsRecord() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startTestCase -->
-        <test-method status="PASS" signature="NavigateToAgentSettingsPage()[pri:0, instance:com.tetherfi.test.tmac.AgentSettingsTest@48528634]" name="NavigateToAgentSettingsPage" is-config="true" duration-ms="10018" started-at="2020-04-23T18:54:32 IST" finished-at="2020-04-23T18:54:42 IST">
+        <test-method status="PASS" signature="NavigateToAgentSettingsPage()[pri:0, instance:com.tetherfi.test.tmac.AgentSettingsTest@6b2e46af]" name="NavigateToAgentSettingsPage" is-config="true" duration-ms="20893" started-at="2020-04-24T10:16:02 IST" finished-at="2020-04-24T10:16:23 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- NavigateToAgentSettingsPage -->
-        <test-method status="PASS" signature="VerifyAuditTrailReportForDelete()[pri:23, instance:com.tetherfi.test.tmac.AgentSettingsTest@48528634]" name="VerifyAuditTrailReportForDelete" duration-ms="24687" started-at="2020-04-23T18:54:42 IST" finished-at="2020-04-23T18:55:06 IST">
+        <test-method status="PASS" signature="VerifyAddNewAgentSettingsRecord()[pri:5, instance:com.tetherfi.test.tmac.AgentSettingsTest@6b2e46af]" name="VerifyAddNewAgentSettingsRecord" duration-ms="61719" started-at="2020-04-24T10:16:23 IST" finished-at="2020-04-24T10:17:25 IST">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- VerifyAuditTrailReportForDelete -->
-        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.AgentSettingsTest@48528634]" name="afterEachMethod" is-config="true" duration-ms="1547" started-at="2020-04-23T18:55:06 IST" finished-at="2020-04-23T18:55:08 IST">
+        </test-method> <!-- VerifyAddNewAgentSettingsRecord -->
+        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.AgentSettingsTest@6b2e46af]" name="afterEachMethod" is-config="true" duration-ms="4526" started-at="2020-04-24T10:17:25 IST" finished-at="2020-04-24T10:17:29 IST">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.tmac.AgentSettingsTest.VerifyAuditTrailReportForDelete() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.tmac.AgentSettingsTest.VerifyAddNewAgentSettingsRecord() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterEachMethod -->
-        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.AgentSettingsTest@48528634]" name="endTestCase" is-config="true" duration-ms="1" started-at="2020-04-23T18:55:08 IST" finished-at="2020-04-23T18:55:08 IST">
+        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.AgentSettingsTest@6b2e46af]" name="endTestCase" is-config="true" duration-ms="0" started-at="2020-04-24T10:17:29 IST" finished-at="2020-04-24T10:17:29 IST">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.tmac.AgentSettingsTest.VerifyAuditTrailReportForDelete() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.tmac.AgentSettingsTest.VerifyAddNewAgentSettingsRecord() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- endTestCase -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.tetherfi.test.tmac.AgentSettingsTest@48528634]" name="tearDown" is-config="true" duration-ms="5853" started-at="2020-04-23T18:55:08 IST" finished-at="2020-04-23T18:55:14 IST">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.tetherfi.test.tmac.AgentSettingsTest@6b2e46af]" name="tearDown" is-config="true" duration-ms="9165" started-at="2020-04-24T10:17:29 IST" finished-at="2020-04-24T10:17:38 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
