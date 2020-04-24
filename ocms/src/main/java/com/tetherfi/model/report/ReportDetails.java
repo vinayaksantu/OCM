@@ -24,7 +24,8 @@ public class ReportDetails {
     private String searchStr;
     private String reportName1;
     private String query;
-
+    private String queryDrillGridOne;
+    private String queryDrillGridTwo;
     
 
     public ReportDetails(Map<String, String> map){
@@ -34,6 +35,8 @@ public class ReportDetails {
         reportType=readReportType(map);
         reportDate=readReportDate(map);
         query=readQuery(map);
+        queryDrillGridOne=readQueryDrillGridOne(map);
+        queryDrillGridTwo=readQueryDrillGridTwo(map);
         try {
             startDate=readStartDate(map);
         } catch (ParseException e) {
@@ -153,7 +156,17 @@ public class ReportDetails {
 		String value=map.get("Query");
 		return value;
 	}
+    
+    private String readQueryDrillGridOne(Map<String, String> map) {
+		String value=map.get("QueryDrillGridOne");
+		return value;
+	}
 
+    private String readQueryDrillGridTwo(Map<String, String> map) {
+		String value=map.get("QueryDrillGridTwo");
+		return value;
+	}
+    
     public String getReportChannel() {
         return reportChannel;
     }
@@ -202,5 +215,11 @@ public class ReportDetails {
 	}
 	public String getQuery() {
 		return query;
+	}
+	public String getQueryDrillGridOne() {
+		return queryDrillGridOne;
+	}
+	public String getQueryDrillGridTwo() {
+		return queryDrillGridTwo;
 	}
 }

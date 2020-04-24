@@ -1,6 +1,7 @@
 package com.tetherfi.test.reports;
 import java.io.IOException;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -25,13 +26,13 @@ public class SkillHistoricalReportTest extends BaseTest {
     @BeforeMethod
     public void NavigateToOcmReportsPage() {
         HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
-        homePage.navigateToOcmIconImg();
+        homePage.navigateToOCMIconImg();
         homePage.navigateToOCMReportsPage();
         OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
         Assert.assertTrue(ocmReportsPage.isOCMReportPageIsDisplayed());
     }
     
-    @Test(priority=1)
+    /*@Test(priority=1)
     public void ShowOCMAgentSkillhistoricalReport() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillhistoricaloricalReportData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
@@ -411,16 +412,56 @@ public class SkillHistoricalReportTest extends BaseTest {
   	  screenshot.captureScreen("OCMAgentSkillhistoricalReport", "GroupBy");
   	  Assert.assertTrue(Agentintactnpage.groupby());
       screenshot.captureScreen("OCMAgentSkillhistoricalReport", "AlreadyGroupBy");
-    }
+    }*/
     
-   /*@Test(priority=38)
-    public void database() throws Exception {
-   		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillhistoricaloricalReportData.xlsx";
-   		Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(0);
-   		ReportDetails reportDetails= new ReportDetails(map);
-   		AgentSkillHistoricalReportPage Agentintactnpage=PageFactory.createPageInstance(driver,AgentSkillHistoricalReportPage.class);
-   		Assert.assertTrue(Agentintactnpage.verifyDatabase(reportDetails.getQuery()));
-   }*/
+   @Test(priority=38, description="To verify report data against DB")
+	public void database() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillHistoricalReportData.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(0);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
+		ocmReportsPage.showReport(reportDetails);
+		AgentSkillHistoricalReportPage agtSkillHistoricalPage=PageFactory.createPageInstance(driver,AgentSkillHistoricalReportPage.class);
+		agtSkillHistoricalPage.sortAscSkillName();
+		Assert.assertTrue(agtSkillHistoricalPage.verifyDatabase(reportDetails.getQuery(), reportDetails),"Main Report Data Mismatch");
+		System.out.println("Main Report Data Match Successfull");
+		List<String> skillList = new ArrayList<>();
+		skillList = agtSkillHistoricalPage.getSkills();
+		//System.out.println(skillList);
+		int k=0;
+		for(int i=0;i<skillList.size();i++) {
+			if(k==10){
+				agtSkillHistoricalPage.goToNextPage();
+				k=k-10;
+			}
+			agtSkillHistoricalPage.clickOnSkillIdRowOnMainReport(k);
+			Assert.assertTrue(agtSkillHistoricalPage.verifyDatabaseDrillGridOne(reportDetails.getQueryDrillGridOne(), reportDetails, skillList.get(i)),"Drill Grid One data mismatch for Skill Id " + skillList.get(i));
+			System.out.println("Drill Grid One data match successfull for Skill Id " + skillList.get(i));
+			k++;
+			Thread.sleep(1000);
+		}
+		List<String> skillDates = new ArrayList<>();
+		for(int i=0;i<skillList.size();i++) {
+			agtSkillHistoricalPage.clickOnSkillIdRowOnMainReport(i);
+			Thread.sleep(1000);
+			skillDates = agtSkillHistoricalPage.getSkillDates();
+			//System.out.println(skillDates);
+			k=0;
+			for(int j=0;j<skillDates.size();j++) {
+				if(k==10){
+					agtSkillHistoricalPage.goToNextPageDrillOne();
+					k=k-10;
+				}
+				agtSkillHistoricalPage.clickOnDateRowOnDrillOneReport(k);
+				Assert.assertTrue(agtSkillHistoricalPage.verifyDatabaseDrillGridTwo(reportDetails.getQueryDrillGridTwo(), reportDetails, skillDates.get(j), skillList.get(i)),"Drill Grid Two data mismatch for Skill Id " + skillList.get(i) + " and Date " + skillDates.get(j));
+				System.out.println("Drill Grid Two data match successfull for Skill Id " + skillList.get(i) + " and Date " + skillDates.get(j));
+				k++;
+				Thread.sleep(1000);
+			}
+			agtSkillHistoricalPage.closeDrillOneReport();
+			Thread.sleep(1000);
+		}
+	}
 
     
     @AfterMethod
