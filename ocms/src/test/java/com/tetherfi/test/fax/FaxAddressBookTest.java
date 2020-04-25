@@ -48,9 +48,9 @@ public class FaxAddressBookTest extends BaseTest{
 	     faxPage.navigateToFaxAddressBookPage();
 	     FaxAddressBookPage faxAddressBookPage = PageFactory.createPageInstance(driver, FaxAddressBookPage.class);
 	     Assert.assertTrue(faxAddressBookPage.isFaxAddressBookPageDisplayed(), "FAX page assertion failed");
-	     //faxAddressBookPage.NavigateToRecipientTab();
+	    // faxAddressBookPage.NavigateToRecipientTab();
 	}
-	/*@Test(priority=1)
+	@Test(priority=1)
     public void FaxSendersPage() {
 		FaxAddressBookPage faxAddressBookPage = PageFactory.createPageInstance(driver, FaxAddressBookPage.class);
     	Assert.assertTrue(faxAddressBookPage.verifylogo(),"FaxSenderslogo assertion failed");
@@ -64,10 +64,10 @@ public class FaxAddressBookTest extends BaseTest{
 			FaxAddressBookPage faxAddressBookPage = PageFactory.createPageInstance(driver, FaxAddressBookPage.class);
 			faxAddressBookPage.NavigateToRecipientTab();
 			Assert.assertTrue(faxAddressBookPage.verifyDropDownOfAllHeaders(), "Columns dropdown assertion failed");
-	    }
+	}
 	   
 	@Test(priority=3)
-	    public void VerifyColumnsHeaderEnable() throws Exception {
+	    public void VerifyColumnsHeaderEnableRecepient() throws Exception {
 			FaxAddressBookPage faxAddressBookPage = PageFactory.createPageInstance(driver, FaxAddressBookPage.class);
 			faxAddressBookPage.NavigateToRecipientTab();
 			Assert.assertTrue(faxAddressBookPage.verifycolumnsHeaderEnabled(),"columns enabled assertion failed");
@@ -100,7 +100,7 @@ public class FaxAddressBookTest extends BaseTest{
 		Assert.assertEquals(faxAddressBookPage.getSuccessMessage(), "Record Created Successfully");
 	}
 	
-	@Test(priority=7,dependsOnMethods = "AddNewRecipientRecord")
+	@Test(priority=7)//,dependsOnMethods = "AddNewRecipientRecord")
     public void VerifyAuditTrailReportForCreate() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxAddressBookData.xlsx";
 	    Map<String, String> map = new ExcelReader(filePath,"CreateRecipient").getTestData().get(0);
@@ -170,7 +170,7 @@ public class FaxAddressBookTest extends BaseTest{
 		Assert.assertEquals(faxAddressBookPage.getSuccessMessage(), "Record Created Successfully");
 	}
 	
-	@Test(priority=14,dependsOnMethods = "AddNewFaxAddressBookRecord")
+	@Test(priority=14)//dependsOnMethods = "AddNewFaxAddressBookRecord")
     public void VerifyAuditTrailReportForAddressCreate() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxAddressBookData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"AddressCreate").getTestData().get(0);
@@ -202,7 +202,7 @@ public class FaxAddressBookTest extends BaseTest{
 		FaxAddressBookDetails faxAddressBoookDetails = new FaxAddressBookDetails(map);
 		FaxAddressBookPage faxAddressBookPage = PageFactory.createPageInstance(driver, FaxAddressBookPage.class);
 		faxAddressBookPage.addNewEmptyRecord(faxAddressBoookDetails);
-		Assert.assertEquals(faxAddressBookPage.getMessage(), "Please Provide FaxLine, Name, Recepient");
+		Assert.assertEquals(faxAddressBookPage.getMessage(), "Please Provide FaxLine, Name, Recipient");
 	}
 	
 	@Test(priority=17)
@@ -305,7 +305,7 @@ public class FaxAddressBookTest extends BaseTest{
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\AddressBook (2).xlsx";
         List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
         Assert.assertTrue(faxAddressBookPage.verifyAddressBookexportToExcelSheet(maplist));
-    }*/
+    }
     
     @Test(priority=28)
     public void EditRecipientRecord() throws Exception {
@@ -344,8 +344,8 @@ public class FaxAddressBookTest extends BaseTest{
         Assert.assertEquals(faxAddressBookPage.getMessage(),"Please enter the modify reason", "empty modify reason record assertion failed");
     }
     
-    @Test(priority=31)
-    public void VerifyCancelBtnAtEditDepartmentRecord() throws Exception{
+   @Test(priority=31)
+    public void VerifyCancelBtnAtEditRecord() throws Exception{
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxAddressBookData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"EditRecipient").getTestData().get(0);
 		FaxAddressBookDetails faxAddressBoookDetails = new FaxAddressBookDetails(map);		
@@ -356,7 +356,7 @@ public class FaxAddressBookTest extends BaseTest{
 		Assert.assertTrue(faxAddressBookPage.canclBtnverificationForRecepientTab(),"Cancel Btn at Add record assertion failed");
     }
     
-    @Test(priority=32)
+   @Test(priority=32)
     public void EditFaxAddressBookRecord() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxAddressBookData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"EditAddressBook").getTestData().get(0);
@@ -391,43 +391,49 @@ public class FaxAddressBookTest extends BaseTest{
         Assert.assertEquals(faxAddressBookPage.getMessage(),"Please enter the modify reason", "empty modify reason record assertion failed");
     }
     
-    @Test(priority=24)
+    @Test(priority=35)
     public void VerifyCancelBtnAtEditAddressBookRecord() throws Exception{
+    	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxAddressBookData.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"EditAddressBook").getTestData().get(0);
     	FaxAddressBookPage faxAddressBookPage = PageFactory.createPageInstance(driver, FaxAddressBookPage.class);
-		faxAddressBookPage.clickOnEditButton();
+    	FaxAddressBookDetails faxAddressBoookDetails = new FaxAddressBookDetails(map);
+    	faxAddressBookPage.clickOnEditButtonAddress(faxAddressBoookDetails);
 		faxAddressBookPage.clickOnCancelBtn();
 		Assert.assertTrue(faxAddressBookPage.canclBtnverificationForAddressTab(),"Cancel Btn at Add record assertion failed");
     }
     
-    @Test(priority=25)
+    @Test(priority=36)
     public void DeleteWithoutDeleteReasonAddressBookRecord() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxAddressBookData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"DeleteAddressBook").getTestData().get(0);
 		FaxAddressBookDetails faxAddressBoookDetails = new FaxAddressBookDetails(map);
 		FaxAddressBookPage faxAddressBookPage = PageFactory.createPageInstance(driver, FaxAddressBookPage.class);
-		faxAddressBookPage.deleteWithoutDeleteReason(faxAddressBoookDetails);
+		faxAddressBookPage.deleteWithoutDeleteReasonAddress(faxAddressBoookDetails);
         Assert.assertEquals(faxAddressBookPage.getMessage(),"Please enter the delete reason","empty delete reason record assertion failed");
     }
     
-    @Test(priority=26)
-    public void VerifyCancelBtnAtDeleteRecipientRecord() throws Exception{
-		FaxAddressBookPage faxAddressBookPage = PageFactory.createPageInstance(driver, FaxAddressBookPage.class);
-		faxAddressBookPage.clickOnDeleteButton();
+    @Test(priority=37)
+    public void VerifyCancelBtnAtDeleteAddressRecord() throws Exception{  	
+    	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxAddressBookData.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"DeleteAddressBook").getTestData().get(0);
+		FaxAddressBookDetails faxAddressBoookDetails = new FaxAddressBookDetails(map);FaxAddressBookPage faxAddressBookPage = PageFactory.createPageInstance(driver, FaxAddressBookPage.class);
+		//faxAddressBookPage.NavigateToRecipientTab();
+		faxAddressBookPage.DeletecancelButtonAddressTab(faxAddressBoookDetails);
 		faxAddressBookPage.clickOnDeleteCancelBtn();
-        Assert.assertFalse(faxAddressBookPage.verifyDeleteContainer(), "Cancel Btn at Delete record assertion failed");
+		Assert.assertTrue(faxAddressBookPage.canclBtnverificationForAddressTab(),"Cancel Btn at Add record assertion failed");
     }
-    
-    @Test(priority=27)
+       
+    @Test(priority=38)
     public void DeleteAddressBookRecord() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxAddressBookData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"DeleteAddressBook").getTestData().get(0);
 		FaxAddressBookDetails faxAddressBoookDetails = new FaxAddressBookDetails(map);
 		FaxAddressBookPage faxAddressBookPage = PageFactory.createPageInstance(driver, FaxAddressBookPage.class);
-		faxAddressBookPage.deleteRecord(faxAddressBoookDetails);
+		faxAddressBookPage.deleteRecordAddress(faxAddressBoookDetails);
         Assert.assertEquals(faxAddressBookPage.getSuccessMessage(),"Record Deleted Successfully");
     }
     
-    @Test(priority=28)
+    @Test(priority=39)
     public void VerifyAuditTrialReportForAddressBookDelete() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxAddressBookData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"DeleteAddressBook").getTestData().get(0);
@@ -442,25 +448,27 @@ public class FaxAddressBookTest extends BaseTest{
         Assert.assertTrue(ocmReportsPage.verifyAddressBookdelete(faxAddressBoookDetails,"Delete"));
     }
     
-    @Test(priority=29)
-    public void DeleteWithoutDeleteReasonRecord() throws Exception {
+    @Test(priority=40)
+    public void DeleteRecepientWithoutDeleteReasonRecord() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxAddressBookData.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"DeleteRecipient").getTestData().get(0);
+		Map<String, String> map = new ExcelReader(filePath,"DeleteRecipient").getTestData().get(1);
 		FaxAddressBookDetails faxAddressBoookDetails = new FaxAddressBookDetails(map);
 		FaxAddressBookPage faxAddressBookPage = PageFactory.createPageInstance(driver, FaxAddressBookPage.class);
 		faxAddressBookPage.NavigateToRecipientTab();
 		faxAddressBookPage.deleteRecipientWithoutDeleteReasonRecord(faxAddressBoookDetails);
         Assert.assertEquals(faxAddressBookPage.getMessage(),"Please enter the delete reason","empty delete reason record assertion failed");
     }
-    @Test(priority=30)
-    public void VerifyCancelBtnAtDeleteAddressRecord() throws Exception{
-    	FaxAddressBookPage faxAddressBookPage = PageFactory.createPageInstance(driver, FaxAddressBookPage.class);
+    @Test(priority=41)
+    public void VerifyCancelBtnAtDeleteRecepientRecord() throws Exception{
+    	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxAddressBookData.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"DeleteAddressBook").getTestData().get(1);
+		FaxAddressBookDetails faxAddressBoookDetails = new FaxAddressBookDetails(map);FaxAddressBookPage faxAddressBookPage = PageFactory.createPageInstance(driver, FaxAddressBookPage.class);
 		faxAddressBookPage.NavigateToRecipientTab();
-		faxAddressBookPage.clickOnDeleteButton();
+		faxAddressBookPage.DeletecancelButtonRecepientTab(faxAddressBoookDetails);
 		faxAddressBookPage.clickOnDeleteCancelBtn();
-        Assert.assertFalse(faxAddressBookPage.verifyDeleteContainer(), "Cancel Btn at Delete record assertion failed");
+		Assert.assertTrue(faxAddressBookPage.canclBtnverificationForRecepientTab(),"Cancel Btn at Add record assertion failed");
     }
-    @Test(priority=31)
+    @Test(priority=42)
     public void DeleteRecipientRecord() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxAddressBookData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"DeleteRecipient").getTestData().get(0);
@@ -471,7 +479,7 @@ public class FaxAddressBookTest extends BaseTest{
         Assert.assertEquals(faxAddressBookPage.getSuccessMessage(),"Record Deleted Successfully");
     }
     
-    @Test(priority=32)
+    @Test(priority=43)
     public void VerifyAuditTrialReportForDelete() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxAddressBookData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"DeleteRecipient").getTestData().get(0);
@@ -486,38 +494,38 @@ public class FaxAddressBookTest extends BaseTest{
         Assert.assertTrue(ocmReportsPage.verifyRecipientdelete(faxAddressBoookDetails,"Delete"));
     }
     
-    /*@Test(priority=25)
+   @Test(priority=44)
     public void VerifyRecipientArrowMoveForPreviousAndNextPage() {
     	FaxAddressBookPage faxAddressBookPage = PageFactory.createPageInstance(driver, FaxAddressBookPage.class);
 		faxAddressBookPage.NavigateToRecipientTab();
         Assert.assertTrue(faxAddressBookPage.verifyArrowMoveForPreviousAndNextPage(1),"arrow move for previous and next page assertion failed");
     }
     
-    @Test(priority=26)
+    @Test(priority=45)
     public void VerifyRecipientArrowMoveForFirstAndLastPage() {
     	FaxAddressBookPage faxAddressBookPage = PageFactory.createPageInstance(driver, FaxAddressBookPage.class);
 		faxAddressBookPage.NavigateToRecipientTab();
         Assert.assertTrue(faxAddressBookPage.verifyArrowMoveForFirstAndLastPage(1),"arrow move for first and last page assertion failed");
     }
     
-    @Test(priority=27)
+    @Test(priority=46)
     public void VerifyRecipientTotalNumberOfItemsPerPageDetails() {
         FaxAddressBookPage faxAddressBookPage = PageFactory.createPageInstance(driver, FaxAddressBookPage.class);
 		faxAddressBookPage.NavigateToRecipientTab();
         Assert.assertTrue(faxAddressBookPage.verifyTotalNumberOfItemsPerPageDetails(1),"item per page assertion failed");
     }
     
-    @Test(priority=28)
+    @Test(priority=47)
     public void VerifyRecipientNumberOfItemsPerPageSelection() {
     	FaxAddressBookPage faxAddressBookPage = PageFactory.createPageInstance(driver, FaxAddressBookPage.class);
 		faxAddressBookPage.NavigateToRecipientTab();
         Assert.assertTrue(faxAddressBookPage.verifyNumberOfItemsPerPage(1),"item per page assertion failed");
     }
     
-    /*@Test(priority=29)
-    public void searchRecipientPage() throws Exception {
+    @Test(priority=48)
+    public void searchRecipientPageClose() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxAddressBookData.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"DeleteRecipient").getTestData().get(0);
+		Map<String, String> map = new ExcelReader(filePath,"CreateRecipient").getTestData().get(0);
 		FaxAddressBookDetails faxAddressBoookDetails = new FaxAddressBookDetails(map);
         FaxAddressBookPage faxAddressBookPage = PageFactory.createPageInstance(driver, FaxAddressBookPage.class);
 		faxAddressBookPage.NavigateToRecipientTab();
@@ -526,15 +534,15 @@ public class FaxAddressBookTest extends BaseTest{
         Assert.assertTrue(faxAddressBookPage.verifyRecipientSearchclose());
     }
     
-    @Test(priority=30)
+    @Test(priority=49)
     public void searchRecipientwithoutSearchTextbox() throws IOException {
     	FaxAddressBookPage faxAddressBookPage = PageFactory.createPageInstance(driver, FaxAddressBookPage.class);
 		faxAddressBookPage.NavigateToRecipientTab();
 		faxAddressBookPage.searchwithoutextsearch();
         Assert.assertEquals(faxAddressBookPage.getMessage(),"Please enter the text to search or remove the filter", "Add invalid record assertion failed");
-    }*/
+    }
 	
-	/*@Test(priority=31)
+	@Test(priority=50)
     public void VerifyRecipientDragAndDrop() throws Exception {
 		FaxAddressBookPage faxAddressBookPage = PageFactory.createPageInstance(driver, FaxAddressBookPage.class);
 		faxAddressBookPage.NavigateToRecipientTab();
@@ -543,7 +551,7 @@ public class FaxAddressBookTest extends BaseTest{
         Assert.assertTrue(faxAddressBookPage.verifyDragColumntoGroup("First Name",1),"drag and drop assertion failed");
     }
 	
-	@Test(priority=32)
+	@Test(priority=51)
     public void VerifyRecipientDragAndDropofAlreadyGroupedHeader() throws Exception {
 		FaxAddressBookPage faxAddressBookPage = PageFactory.createPageInstance(driver, FaxAddressBookPage.class);
 		faxAddressBookPage.NavigateToRecipientTab();
@@ -553,7 +561,7 @@ public class FaxAddressBookTest extends BaseTest{
         Assert.assertTrue(faxAddressBookPage.verifyDragColumntoGroup("First Name",1),"drag and drop assertion failed");
     }
 	
-	@Test(priority=33)
+	@Test(priority=52)
     public void VerifyDragAndDrop() throws Exception {
 		FaxAddressBookPage faxAddressBookPage = PageFactory.createPageInstance(driver, FaxAddressBookPage.class);
         Thread.sleep(2000);
@@ -561,7 +569,7 @@ public class FaxAddressBookTest extends BaseTest{
         Assert.assertTrue(faxAddressBookPage.verifyDragColumntoGroup("Name",0),"drag and drop assertion failed");
     }
 	
-	@Test(priority=34)
+	@Test(priority=53)
     public void VerifyDragAndDropofAlreadyGroupedHeader() throws Exception {
 		FaxAddressBookPage faxAddressBookPage = PageFactory.createPageInstance(driver, FaxAddressBookPage.class);
         Thread.sleep(2000);
@@ -570,25 +578,25 @@ public class FaxAddressBookTest extends BaseTest{
         Assert.assertTrue(faxAddressBookPage.verifyDragColumntoGroup("Name",0),"drag and drop assertion failed");
     }
     
-	@Test(priority=35)
+	@Test(priority=54)
     public void VerifyAddressBookDropdownForAllTheColumns() {
 		FaxAddressBookPage faxAddressBookPage = PageFactory.createPageInstance(driver, FaxAddressBookPage.class);
 		Assert.assertTrue(faxAddressBookPage.verifyDropDownOfAllHeaders(), "Columns dropdown assertion failed");
     }
     
-	@Test(priority=36)
+	@Test(priority=55)
     public void VerifyAddressBookColumnsHeaderEnable() {
 		FaxAddressBookPage faxAddressBookPage = PageFactory.createPageInstance(driver, FaxAddressBookPage.class);
 		Assert.assertTrue(faxAddressBookPage.verifycolumnsHeaderEnabled(),"columns enabled assertion failed");
     }
     
-	@Test(priority=37)
+	@Test(priority=56)
     public void VerifyAddressBookColumnsHeaderDisable() {
 		FaxAddressBookPage faxAddressBookPage = PageFactory.createPageInstance(driver, FaxAddressBookPage.class);
 		Assert.assertFalse(faxAddressBookPage.verifycolumnsHeaderDisabled(),"columns disabled assertion failed");
     }
 	
-	@Test(priority=38)
+	@Test(priority=57)
 	public void SearchRecipientClearSearch() throws Exception{
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxAddressBookData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"DeleteRecipient").getTestData().get(0);
@@ -600,7 +608,7 @@ public class FaxAddressBookTest extends BaseTest{
 		Assert.assertTrue(faxAddressBookPage.verifyRecipientclearsearch(), "Clear All Assertion Failed");
 	 }
 	
-	@Test(priority=39)
+	@Test(priority=58)
     public void searchRecipientPage() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxAddressBookData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"AddressCreate").getTestData().get(0);
@@ -611,14 +619,14 @@ public class FaxAddressBookTest extends BaseTest{
         Assert.assertTrue(faxAddressBookPage.verifyAddressBookSearchclose());
     }
     
-    @Test(priority=40)
+    @Test(priority=59)
     public void searchAddressBookwithoutSearchTextbox() throws IOException {
     	FaxAddressBookPage faxAddressBookPage = PageFactory.createPageInstance(driver, FaxAddressBookPage.class);
 		faxAddressBookPage.searchAddressBookwithoutextsearch();
         Assert.assertEquals(faxAddressBookPage.getMessage(),"Please enter the text to search or remove the filter", "Add invalid record assertion failed");
     }
     
-    @Test(priority=41)
+    @Test(priority=60)
 	public void SearchClearSearch() throws Exception{
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxAddressBookData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"AddressCreate").getTestData().get(0);
@@ -629,35 +637,35 @@ public class FaxAddressBookTest extends BaseTest{
 		Assert.assertTrue(faxAddressBookPage.verifyAddressclearsearch(), "Clear All Assertion Failed");
 	 }
     
-    @Test(priority=42)
+    @Test(priority=61)
     public void VerifyArrowMoveForPreviousAndNextPage() {
     	FaxAddressBookPage faxAddressBookPage = PageFactory.createPageInstance(driver, FaxAddressBookPage.class);
         Assert.assertTrue(faxAddressBookPage.verifyArrowMoveForPreviousAndNextPage(0),"arrow move for previous and next page assertion failed");
     }
     
-    @Test(priority=43)
+    @Test(priority=62)
     public void VerifyArrowMoveForFirstAndLastPage() {
     	FaxAddressBookPage faxAddressBookPage = PageFactory.createPageInstance(driver, FaxAddressBookPage.class);
         Assert.assertTrue(faxAddressBookPage.verifyArrowMoveForFirstAndLastPage(0),"arrow move for first and last page assertion failed");
     }
     
-    @Test(priority=44)
+    @Test(priority=63)
     public void VerifyTotalNumberOfItemsPerPageDetails() {
         FaxAddressBookPage faxAddressBookPage = PageFactory.createPageInstance(driver, FaxAddressBookPage.class);
         Assert.assertTrue(faxAddressBookPage.verifyTotalNumberOfItemsPerPageDetails(0),"item per page assertion failed");
     }
     
-    @Test(priority=45)
+    @Test(priority=64)
     public void VerifyNumberOfItemsPerPageSelection() {
     	FaxAddressBookPage faxAddressBookPage = PageFactory.createPageInstance(driver, FaxAddressBookPage.class);
         Assert.assertTrue(faxAddressBookPage.verifyNumberOfItemsPerPage(0),"item per page assertion failed");
     }
-	*/
+	
 	
 	 @AfterMethod
 	    public void afterEachMethod(Method method) {
 	    	Screenshot screenshot=new Screenshot(driver);
-	        screenshot.captureScreen("FaxAddressBookTest",method.getName());
+	        screenshot.captureScreen("FaxAddressBookTestResult",method.getName());
 	        driver.navigate().refresh();    }
 	
 	

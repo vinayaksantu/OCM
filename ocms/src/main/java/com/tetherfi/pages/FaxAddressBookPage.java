@@ -168,8 +168,11 @@ public class FaxAddressBookPage extends BasePage {
     @FindBy(css="div[style='display: block; z-index: 10002; opacity: 0.5;']")
     private WebElement deleteContainer;
 
-    @FindBy(css = ".k-grid-CustomDelete")
-    private WebElement deleteButton;
+    //@FindBy(css = ".k-grid-CustomDelete")
+    //private WebElement deleteButton;
+    
+    @FindBy(xpath="//a[@class='k-button k-button-icontext k-grid-CustomDelete']")
+    private List<WebElement> deleteRecordButton;
 
     @FindBy(id = "ModifyReason1")
     private WebElement deleteReasonTextBox;
@@ -221,7 +224,7 @@ public class FaxAddressBookPage extends BasePage {
     @FindBy(css="ul[id='RecipientIds_listbox'] li")
     private List<WebElement> RecipientListbox;
         
-    	
+    //items.get(0)-1 as index for the recepient tab
 	public boolean isFaxAddressBookPageDisplayed() {
 		waitForLoad(driver);
         waitForJqueryLoad(driver);
@@ -322,11 +325,11 @@ public class FaxAddressBookPage extends BasePage {
 		List<Map<String,String>> UI=getdata(); 
 		System.out.println(UI);
 		System.out.println(maplist);
-		try {
+		/*try {
 			Thread.sleep(2000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
-		}
+		}*/
 		if(UI.equals(maplist))
 		return true;
 		else
@@ -362,10 +365,10 @@ public class FaxAddressBookPage extends BasePage {
 			Map<String,String> map = new HashMap<String,String>();
 			List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
 			for(int j=1;j<headers.size();j++) {
-				if(headers.get(j).getText().equals("Last Changed On")){
+				/*if(headers.get(j).getText().equals("Last Changed On")){
 				col=cols.get(j).getText().substring(0,10);
 				}
-				else
+				else*/
 					col=cols.get(j).getText();
 				map.put(headers.get(j).getText(),col);
 			}
@@ -394,10 +397,10 @@ public class FaxAddressBookPage extends BasePage {
 			Map<String,String> map = new HashMap<String,String>();
 			List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
 			for(int j=1;j<headers.size();j++) {
-				if(headers.get(j).getText().equals("Last Changed On")){
-				col=cols.get(j).getText().substring(0,10);
-				}
-				else
+				/*if(headers.get(j).getText().equals("Last Changed On")){
+				///col=cols.get(j).getText().substring(0,10);
+				//}
+				//else*/
 					col=cols.get(j).getText();
 				map.put(headers.get(j).getText(),col);
 			}
@@ -696,7 +699,9 @@ public class FaxAddressBookPage extends BasePage {
     
     public boolean verifycolumnsHeaderEnabled(){
         boolean status=false;
-        WebElement ele= headersDropdown.get(0);
+        WebElement ele= headersDropdown.get(9);
+        System.out.println(ele);
+        waitUntilWebElementIsVisible(ele);
             if(ele.isDisplayed()){
                 try {
                     selectWebElement(ele);
@@ -769,9 +774,10 @@ public class FaxAddressBookPage extends BasePage {
         return isElementExist(editFormContainer);
     }
     public void clickOnEditButtonrecepient(FaxAddressBookDetails details) throws Exception{
+    	int item=Integer.valueOf(items.get(0).getText().split("of ")[1].split(" items")[0]);
     	searchRecipientRecord(details);
-		waitUntilWebElementIsVisible(EditButton.get(4));
-		selectWebElement(EditButton.get(4));
+		waitUntilWebElementIsVisible(EditButton.get(item));
+		selectWebElement(EditButton.get(item));
         //selectWebElement(editButton);
     }
     public void clickOnEditButtonAddress(FaxAddressBookDetails details) throws Exception{
@@ -780,9 +786,24 @@ public class FaxAddressBookPage extends BasePage {
 		selectWebElement(EditButton.get(0));
         //selectWebElement(editButton);
     }
-    public void clickOnDeleteButton(){
-        selectWebElement(deleteButton);
+    public void clickOnDeleteButtonAddress(FaxAddressBookDetails details) throws Exception{
+    	searchAddressRecord(details);
+		waitUntilWebElementIsVisible(deleteRecordButton.get(0));
+		selectWebElement(deleteRecordButton.get(0));		    	
     }
+    public void DeletecancelButtonAddressTab(FaxAddressBookDetails details) throws Exception{
+    	
+    	searchAddressRecord(details);
+		waitUntilWebElementIsVisible(deleteRecordButton.get(0));
+		selectWebElement(deleteRecordButton.get(0));		    	
+    }
+    public void DeletecancelButtonRecepientTab(FaxAddressBookDetails details) throws Exception{
+    	int item=Integer.valueOf(items.get(0).getText().split("of ")[1].split(" items")[0]);
+    	searchRecipientRecord(details);
+		waitUntilWebElementIsVisible(deleteRecordButton.get(item));
+		selectWebElement(deleteRecordButton.get(item));		    	
+    }
+    
     public void clickOnDeleteCancelBtn(){
         selectWebElement(deleteNoBtn);
     }
@@ -807,7 +828,7 @@ public class FaxAddressBookPage extends BasePage {
 		enterValueToTxtField(lastNameTxtbox,details.getlastName());
 		enterValueToTxtField(FaxNumberTxtbox,details.getNumber());
 		selectWebElement(saveBtn);
-		selectWebElement(cancelBtn);
+		//selectWebElement(cancelBtn);
 
 	}
 	
@@ -817,7 +838,7 @@ public class FaxAddressBookPage extends BasePage {
 		enterValueToTxtField(firstNameTxtbox,details.getfirstName());
 		enterValueToTxtField(FaxNumberTxtbox,details.getNumber());
 		selectWebElement(saveBtn);	
-		selectWebElement(cancelBtn);
+		//selectWebElement(cancelBtn);
 	}
 
 	public void addNewRecipientWithoutNumberRecord(FaxAddressBookDetails details) throws Exception {
@@ -826,14 +847,15 @@ public class FaxAddressBookPage extends BasePage {
 		enterValueToTxtField(firstNameTxtbox,details.getfirstName());
 		enterValueToTxtField(lastNameTxtbox,details.getlastName());
 		selectWebElement(saveBtn);	
-		selectWebElement(cancelBtn);		
+		//selectWebElement(cancelBtn);		
 	}
 
 	public void editRecipientRecord(FaxAddressBookDetails details) throws Exception {
+		int item=Integer.valueOf(items.get(0).getText().split("of ")[1].split(" items")[0]);
 		searchRecipientRecord(details);
 		//waitForJqueryLoad(driver);
-		waitUntilWebElementIsVisible(EditButton.get(4));
-		selectWebElement(EditButton.get(4));
+		waitUntilWebElementIsVisible(EditButton.get(item));
+		selectWebElement(EditButton.get(item));
 		waitForJqueryLoad(driver);
 		enterValueToTxtField(firstNameTxtbox,details.getUpdatedFirstName());
 		enterValueToTxtFieldWithoutClear(ModifyReasonTextBox,details.getModifyReason());
@@ -843,19 +865,21 @@ public class FaxAddressBookPage extends BasePage {
 	private void searchRecipientRecord(FaxAddressBookDetails details) throws Exception {
 		selectWebElement(searchLink);
         selectWebElement(selectSearchColumn.get(0));
-        selectDropdownFromVisibleText(columnNameList,"Fax Number");
+        selectDropdownFromVisibleText(columnNameList,"Name1");
         selectWebElement(selectSearchColumn.get(1));
         selectDropdownFromVisibleText(searchTypeList,"Is equal to");
-        enterValueToTxtFieldWithoutClear(searchText.get(0),details.getNumber());
+        enterValueToTxtFieldWithoutClear(searchText.get(0),details.getfirstName());
         selectWebElement(searchBtn);
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(gridcontent);		
 	}
 
 	public void editRecipientWithoutModifyReason(FaxAddressBookDetails details) throws Exception {
+		int item=Integer.valueOf(items.get(0).getText().split("of ")[1].split(" items")[0]);
+		//item=item-1;
 		searchRecipientRecord(details);
-		waitUntilWebElementIsVisible(EditButton.get(4));
-		selectWebElement(EditButton.get(4));
+		//waitUntilWebElementIsVisible(EditButton.get(item));
+		selectWebElement(EditButton.get(item));
 		waitForJqueryLoad(driver);
 		enterValueToTxtField(firstNameTxtbox,details.getUpdatedFirstName());
 		selectWebElement(saveBtn);		
@@ -863,19 +887,21 @@ public class FaxAddressBookPage extends BasePage {
 	}
 
 	public void deleteRecipientWithoutDeleteReasonRecord(FaxAddressBookDetails details) throws Exception {
+		int item=Integer.valueOf(items.get(0).getText().split("of ")[1].split(" items")[0]);
 		searchRecipientRecord(details);
-		waitUntilWebElementIsVisible(deleteButton);
-		selectWebElement(deleteButton);
+		waitUntilWebElementIsVisible(deleteRecordButton.get(item));
+		selectWebElement(deleteRecordButton.get(item));
 		waitForJqueryLoad(driver);
 		selectWebElement(deleteYesBtn);		
-		selectWebElement(deleteNoBtn);
+		//selectWebElement(deleteNoBtn);
 		
 	}
 
 	public void deleteRecipientRecord(FaxAddressBookDetails details) throws Exception {
+		int item=Integer.valueOf(items.get(0).getText().split("of ")[1].split(" items")[0]);
 		searchRecipientRecord(details);
-		waitUntilWebElementIsVisible(deleteButton);
-		selectWebElement(deleteButton);
+		waitUntilWebElementIsVisible(deleteRecordButton.get(item));
+		selectWebElement(deleteRecordButton.get(item));
 		waitForJqueryLoad(driver);
 		enterValueToTxtFieldWithoutClear(deleteReasonTextBox,details.getDeleteReason());
 		selectWebElement(deleteYesBtn);		
@@ -1097,22 +1123,25 @@ public class FaxAddressBookPage extends BasePage {
 		selectWebElement(cancelBtn);
 	}
 
-	public void deleteWithoutDeleteReason(FaxAddressBookDetails details) throws Exception {
+	public void deleteWithoutDeleteReasonAddress(FaxAddressBookDetails details) throws Exception {
 		searchAddressRecord(details);
-		waitUntilWebElementIsVisible(deleteButton);
-		selectWebElement(deleteButton);
+		waitUntilWebElementIsVisible(deleteRecordButton.get(0));
+		selectWebElement(deleteRecordButton.get(0));
 		waitForJqueryLoad(driver);
 		selectWebElement(deleteYesBtn);			
 	}
 
-	public void deleteRecord(FaxAddressBookDetails details) throws Exception {
+	public void deleteRecordAddress(FaxAddressBookDetails details) throws Exception {
 		searchAddressRecord(details);
-		waitUntilWebElementIsVisible(deleteButton);
-		selectWebElement(deleteButton);
+		waitUntilWebElementIsVisible(deleteRecordButton.get(0));
+		selectWebElement(deleteRecordButton.get(0));
 		waitForJqueryLoad(driver);
 		enterValueToTxtFieldWithoutClear(deleteReasonTextBox,details.getDeleteReason());
 		selectWebElement(deleteYesBtn);				
 	}
+	
+	
+	
 	
 	public boolean canclBtnverificationForRecepientTab() throws Exception {
 		

@@ -461,13 +461,16 @@ public class BasePage {
     }
     public boolean verifyExportPageFileDownload(String filepath, String pattern){
         File downloadsDir = new File(filepath);
+        //System.out.println("downloadsDir");       
         File[] downloadDirFiles = downloadsDir.listFiles();
         String actualName = null;
         boolean status=false;
         for (File file : downloadDirFiles) {
             actualName = file.getName();
-            System.out.println(actualName);
+            //System.out.println(actualName);
+            //actualName=actualName.replaceAll(actualName,"OCMReportDownload");
             if (actualName.contains(pattern)) {
+            	System.out.println("filepath");
                 status=true;
                 break;
             }

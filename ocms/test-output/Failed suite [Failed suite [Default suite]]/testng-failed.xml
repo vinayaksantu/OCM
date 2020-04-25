@@ -3,20 +3,18 @@
 <suite name="Failed suite [Failed suite [Failed suite [Default suite]]]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)(failed)(failed)">
     <classes>
-      <class name="com.tetherfi.test.tmac.TmacAuxCodesTest">
+      <class name="com.tetherfi.test.fax.FaxAddressBookTest">
         <methods>
-          <include name="AddRecordWithoutCode"/>
           <include name="startTestCase"/>
           <include name="openApplication"/>
-          <include name="DuplicateRecord"/>
-          <include name="verifyAddNewTmacAuxCodesCancelButton"/>
-          <include name="AfterEachMethod"/>
+          <include name="VerifyColumnsHeaderEnable"/>
+          <include name="VerifyDropdownForAllTheColumns"/>
+          <include name="NavigatetoFaxAddressPage"/>
           <include name="endTestCase"/>
           <include name="tearDown"/>
-          <include name="AddRecordWithoutName"/>
-          <include name="NavigateToTmaxAuxCodesPage"/>
+          <include name="afterEachMethod"/>
         </methods>
-      </class> <!-- com.tetherfi.test.tmac.TmacAuxCodesTest -->
+      </class> <!-- com.tetherfi.test.fax.FaxAddressBookTest -->
     </classes>
   </test> <!-- Default test(failed)(failed)(failed) -->
 </suite> <!-- Failed suite [Failed suite [Failed suite [Default suite]]] -->

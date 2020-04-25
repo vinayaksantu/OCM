@@ -290,8 +290,26 @@ public class OCMReportsPage extends BasePage {
     
     @FindBy(xpath="//button[@id='clearAll']")
 	private WebElement ClearAllFiltersAdvSrch; 
-
     
+    @FindBy(css = "span[aria-owns='1001ColumnName_listbox']")
+	private WebElement searchColDropdownAdvSrchReportPage;
+
+	@FindBy(css="ul[id='1001ColumnName_listbox'] li")
+	private List<WebElement> searchColListBoxAdvSrchReportPage;
+
+	@FindBy(css = "span[aria-owns='1001Criteria_listbox']")
+	private WebElement searchCriteriaDropdownAdvSrch;
+	
+	@FindBy(css="ul[id='1001Criteria_listbox'] li") 
+	private List<WebElement> searchCriteriaListboxAdvSrch;
+	
+	@FindBy(id = "1001TextToSearch")
+	private WebElement searchTextBoxAdvSrch;
+	
+	@FindBy(xpath="//a[@class='k-button k-button-icontext k-grid-Download']")
+	private List<WebElement> downloadbuttonInReportDownloadpage;
+
+   
     public boolean isShowButtonsDisplayed() {
     	return showReportBtn.get(0).isDisplayed() && showReportBtn.get(1).isDisplayed() && showReportBtn.get(0).isEnabled() && showReportBtn.get(1).isEnabled();    	
     }
@@ -319,7 +337,7 @@ public class OCMReportsPage extends BasePage {
     }
     public void showReport(ReportDetails details) throws Exception {
         chooseReport(details);
-        if(details.getAdvancedsearch().equalsIgnoreCase("Yes")){chooseAdvancedSearch(details);}
+        if(details.getAdvancedsearch().equalsIgnoreCase("Yes")){chooseAdvancedSearchNew(details);}
         selectWebElement(showReportBtn.get(0));
         waitForLoad(driver);
         waitForJqueryLoad(driver);
@@ -335,6 +353,18 @@ public class OCMReportsPage extends BasePage {
     selectDropdownFromVisibleText(searchTypeList,details.getColtype());
     enterValueToTxtField(searchText.get(0),details.getSearchStr());
     }catch(Exception e){e.printStackTrace();}}
+    
+    public void chooseAdvancedSearchNew(ReportDetails details){
+        try{selectWebElement(advancedSearchBtn);
+        selectWebElement(searchColDropdownAdvSrchReportPage);
+        Thread.sleep(2000);
+        selectDropdownFromVisibleText(searchColListBoxAdvSrchReportPage,details.getColname());
+        Thread.sleep(2000);
+        selectWebElement(searchCriteriaDropdownAdvSrch);
+        selectDropdownFromVisibleText(searchCriteriaListboxAdvSrch,details.getColtype());
+        enterValueToTxtField(searchTextBoxAdvSrch,details.getSearchStr());
+        }catch(Exception e){e.printStackTrace();}}
+    
     public void showReportInNewPage(ReportDetails details) throws Exception {
         chooseReport(details);
         selectWebElement(showReportBtn.get(1));
@@ -349,6 +379,7 @@ public class OCMReportsPage extends BasePage {
     }
     public void scheduleReport(ReportDetails details) throws Exception{
         chooseReport(details);
+        waitForJqueryLoad(driver);
         selectWebElement(scheduleReport);
     }
     public void viewDownloadedReportInNotificationTab(){
@@ -391,6 +422,20 @@ public class OCMReportsPage extends BasePage {
         if(map.get("Report Name").equalsIgnoreCase(reportname)){
             if(map.get("Report Generated On").contains(date)){return true;}else{System.out.println("Wrong Report Generated Date:"+map.get("Report Generated On"));return false;}
     }else{System.out.println("Wrong Report Name:"+map.get("Report Name"));return false;}
+    }
+    
+    public boolean verifyDownloadedReportInReportsDownloadPage(String reportname){
+        String pattern = "dd/MM/yyyy";
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+        String date = simpleDateFormat.format(new Date());
+        Map<String,String> map=getFirstRowDatafromTable();
+        if(map.get("Report Name").equalsIgnoreCase(reportname)){
+            if(map.get("Report Generated On").contains(date)){
+            	//verifyExportPageFileDownloadedselectWebElement(downloadbuttonInReportDownloadpage.get(0));    	
+            	return true;}
+            else{System.out.println("Wrong Report Generated Date:"+map.get("Report Generated On"));return false;}
+    }else{System.out.println("Wrong Report Name:"+map.get("Report Name"));return false;}
+        
     }
     public boolean verifyReportDisplayed(ReportDetails details) {
         if (reportnameLbl.getText().contains("OCM Reports > " + details.getReportChannel() + " > " + details.getReportName() + " on " + details.getReportDate())) {
@@ -540,22 +585,23 @@ public class OCMReportsPage extends BasePage {
     return status;
     }
     public boolean verifyDateRangeReportDisplayed(ReportDetails details) {
-        if (reportnameLbl.getText().contains("OCM Reports > " + details.getReportChannel() + " > " + details.getReportName() + " from " + details.getStartDate()+" to "+details.getEndDate())){
-            return true;
+        if (reportnameLbl.getText().contains("OCM Reports > " + details.getReportChannel() + " > " + details.getReportName())){
+            //+ " from " + details.getStartDate()+" to "+details.getEndDate()
+        	return true;
         } else {
             return false;
         }
     }
     public boolean verifyReportExported(){
-        waitForJqueryLoad(driver);
-        if(errorMsg.size()>0){return false;}
+        waitFoqueryLoad(driver);
+        //if(errorMsg.size()>0){return false;}
         if(waitUntilTextToBePresentInWebElement(successmsg,"Report Export is Initiated... Notification will be sent once Completed"))
         {return true;}else{return false;}
     }
     public boolean verifyScheduleReport(){
         waitForLoad(driver);
         waitForJqueryLoad(driver);
-        return (ocmReportsManager.getText().equals("Report Scheduler"));
+        return (ocmReportsManager.getText().equals("Export Scheduler"));
     }
     
     public void chooseReportChannel(String rptChannel) {
@@ -1171,6 +1217,7 @@ return status;
         selectDropdownFromVisibleText(searchTypeListtwo,"Contains");
         enterValueToTxtFieldWithoutClear(searchTextBoxtwo,Name);
         selectWebElement(searchSearchBtn);
+        Thread.sleep(1000);
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(gridContent);
 	}
@@ -5177,7 +5224,10 @@ return status;
 			String f[]=e.split(":",2);
 			if(f.length>1)
 			newvalues.put(f[0], f[1]);
-		}
+			System.out.println(details.getFaxLine());
+			System.out.println(details.getName());
+			System.out.println(details.getRecipient());			
+		}	
 			if(newvalues.get("FaxLine").equals(details.getFaxLine()))
 			{
 				if(newvalues.get("Name").equals(details.getName()))

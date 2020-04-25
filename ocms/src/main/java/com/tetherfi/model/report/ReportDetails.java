@@ -99,7 +99,7 @@ public class ReportDetails {
             Date dNow = new Date( );
             Calendar c = Calendar.getInstance();
             c.setTime(dNow);
-            c.add(Calendar.MONTH,-1);//sub 6 months
+            c.add(Calendar.DATE,-18);//sub 6 months
             SimpleDateFormat ft =new SimpleDateFormat ("dd-MM-yyyy HH:mm:ss");
             value=ft.format(c.getTime());
         }
@@ -108,9 +108,15 @@ public class ReportDetails {
     private String readEndDate(Map<String, String> map) throws ParseException {
         String value=map.get("End Date");
         if(value==null||value.equalsIgnoreCase("random.str")){
-            DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+        	Date dNow = new Date( );
+            Calendar c = Calendar.getInstance();
+            c.setTime(dNow);
+            c.add(Calendar.DATE,-17);//sub 6 months
+            SimpleDateFormat ft =new SimpleDateFormat ("dd-MM-yyyy HH:mm:ss");
+            value=ft.format(c.getTime());
+            /*DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
             Date date=new Date();
-            value= dateFormat.format(date);
+            value= dateFormat.format(date);*/
         }
         return value;
     }

@@ -4,38 +4,37 @@
   <listeners>
     <listener class-name="com.tetherfi.ExtentReportListener.ExtentReporterNG"/>
   </listeners>
-  <test thread-count="5" name="BranchManagementCreateTest(failed)">
+  <test thread-count="5" name="FaxAddressBookTest(failed)">
     <classes>
-      <class name="com.tetherfi.test.ivr.BranchManagementCreateTest">
+      <class name="com.tetherfi.test.fax.FaxAddressBookTest">
         <methods>
-          <include name="VerifyAddRecordWithoutLocation"/>
-          <include name="VerifyAuditTrailDataForAddNewBranchManagementRecord"/>
-          <include name="AddRevertRecord"/>
+          <include name="VerifyAuditTrialReportForDelete"/>
+          <include name="startTestCase"/>
+          <include name="openApplication"/>
+          <include name="VerifyCancelBtnAtEditAddressBookRecord"/>
+          <include name="VerifyCancelBtnAtEditRecord"/>
+          <include name="EditWithoutModifyReasonRecipientRecord"/>
+          <include name="EditWithoutModifyReasonAddressBookRecord"/>
+          <include name="EditFaxAddressBookRecord"/>
+          <include name="VerifyAddressBookColumnsHeaderEnable"/>
+          <include name="AddressBookExportToExcelData"/>
+          <include name="VerifyRecipientDragAndDrop"/>
+          <include name="VerifyAuditTrialReportForAddressBookDelete"/>
+          <include name="NavigatetoFaxAddressPage"/>
+          <include name="VerifyRecipientDragAndDropofAlreadyGroupedHeader"/>
+          <include name="endTestCase"/>
+          <include name="tearDown"/>
           <include name="afterEachMethod"/>
-          <include name="NavigateToBranchManagementPage"/>
-          <include name="VerifyRecordAfterRejection"/>
-          <include name="VerifyRevertForAddNewRecord"/>
-          <include name="ApproveforAddNewBranchManagementRecord"/>
-          <include name="RejectforAddNewBranchManagementRecord"/>
-          <include name="VerifySendForApprovalForAddNewRecord"/>
-          <include name="VerifyAuditTrailReportForSendForApproval"/>
-          <include name="VerifyAddRecordWithoutLanguage"/>
-          <include name="VerifyAddRecordWithoutLineOrder"/>
-          <include name="VerifyAuditTrailReportForApprove"/>
-          <include name="VerifyApprovedDataSectionWithoutApproval"/>
-          <include name="VerifyAuditTrailReportForReject"/>
-          <include name="AddRejectRecord"/>
-          <include name="VerifyRecordApprovedDataSectionafterApproval"/>
-          <include name="AddNewBranchManagementRecord"/>
-          <include name="AddDuplicateRecord"/>
-          <include name="VerifyAuditTrailReportForRevert"/>
-          <include name="VerifyAddRecordWithoutBranchName"/>
-          <include name="VerifyAuditTrailReportForCreate"/>
-          <include name="VerifyAddRecordWithoutAddress"/>
-          <include name="VerifyAddRecordWithoutStatus"/>
-          <include name="VerifySendForApprovalForAddNewBranchManagementRecord"/>
+          <include name="AddNewRecordWithoutRecipients"/>
+          <include name="VerifyRecipientNumberOfItemsPerPageSelection"/>
+          <include name="VerifyDropdownForAllTheColumns"/>
+          <include name="VerifyCancelBtnAtDeleteRecepientRecord"/>
+          <include name="ExportToExcelData"/>
+          <include name="VerifyNumberOfItemsPerPageSelection"/>
+          <include name="VerifyAddressBookDropdownForAllTheColumns"/>
+          <include name="VerifyAuditTrialReportForFaxAddressBookUpdate"/>
         </methods>
-      </class> <!-- com.tetherfi.test.ivr.BranchManagementCreateTest -->
+      </class> <!-- com.tetherfi.test.fax.FaxAddressBookTest -->
     </classes>
-  </test> <!-- BranchManagementCreateTest(failed) -->
+  </test> <!-- FaxAddressBookTest(failed) -->
 </suite> <!-- Failed suite [Tetherfi Test Automation] -->
