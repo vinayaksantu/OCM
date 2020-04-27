@@ -64,7 +64,7 @@ public class FaxAddressBookTest extends BaseTest{
     public void VerifyDropdownForAllTheColumnsRecipient() {
 		FaxAddressBookPage faxAddressBookPage = PageFactory.createPageInstance(driver, FaxAddressBookPage.class);
 		faxAddressBookPage.NavigateToRecipientTab();
-		Assert.assertTrue(faxAddressBookPage.verifyDropDownOfAllHeadersRecp(), "Columns dropdown assertion failed");
+		Assert.assertTrue(faxAddressBookPage.verifyDropDownOfAllHeaders(), "Columns dropdown assertion failed");
 } 
 	@Test(priority=3)
 	    public void VerifyColumnsHeaderEnableRecepient() throws Exception {
