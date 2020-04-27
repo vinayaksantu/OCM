@@ -8,30 +8,23 @@
     <classes>
       <class name="com.tetherfi.test.fax.FaxAddressBookTest">
         <methods>
-          <include name="VerifyAuditTrialReportForDelete"/>
-          <include name="startTestCase"/>
-          <include name="openApplication"/>
-          <include name="VerifyCancelBtnAtEditAddressBookRecord"/>
-          <include name="VerifyCancelBtnAtEditRecord"/>
-          <include name="EditWithoutModifyReasonRecipientRecord"/>
-          <include name="EditWithoutModifyReasonAddressBookRecord"/>
-          <include name="EditFaxAddressBookRecord"/>
-          <include name="VerifyAddressBookColumnsHeaderEnable"/>
-          <include name="AddressBookExportToExcelData"/>
-          <include name="VerifyRecipientDragAndDrop"/>
           <include name="VerifyAuditTrialReportForAddressBookDelete"/>
+          <include name="VerifyRecipientTotalNumberOfItemsPerPageDetailsRecipient"/>
+          <include name="VerifyRecipientNumberOfItemsPerPageSelectionRecipient"/>
           <include name="NavigatetoFaxAddressPage"/>
-          <include name="VerifyRecipientDragAndDropofAlreadyGroupedHeader"/>
+          <include name="VerifyAuditTrialReportForDelete"/>
           <include name="endTestCase"/>
           <include name="tearDown"/>
           <include name="afterEachMethod"/>
-          <include name="AddNewRecordWithoutRecipients"/>
-          <include name="VerifyRecipientNumberOfItemsPerPageSelection"/>
-          <include name="VerifyDropdownForAllTheColumns"/>
-          <include name="VerifyCancelBtnAtDeleteRecepientRecord"/>
+          <include name="DeleteRecepientWithoutDeleteReasonRecord"/>
+          <include name="startTestCase"/>
+          <include name="openApplication"/>
           <include name="ExportToExcelData"/>
+          <include name="VerifyCancelBtnAtDeleteRecepientRecord"/>
           <include name="VerifyNumberOfItemsPerPageSelection"/>
-          <include name="VerifyAddressBookDropdownForAllTheColumns"/>
+          <include name="VerifyAddressBookColumnsHeaderEnable"/>
+          <include name="AddDuplicateRecipientRecord"/>
+          <include name="VerifyDropdownForAllTheColumnsRecipient"/>
           <include name="VerifyAuditTrialReportForFaxAddressBookUpdate"/>
         </methods>
       </class> <!-- com.tetherfi.test.fax.FaxAddressBookTest -->

@@ -5,20 +5,23 @@
     <classes>
       <class name="com.tetherfi.test.fax.FaxAddressBookTest">
         <methods>
+          <include name="AddNewRecordWithoutName"/>
           <include name="VerifyAuditTrialReportForAddressBookDelete"/>
+          <include name="VerifyRecipientTotalNumberOfItemsPerPageDetailsRecipient"/>
+          <include name="VerifyRecipientNumberOfItemsPerPageSelectionRecipient"/>
           <include name="NavigatetoFaxAddressPage"/>
           <include name="VerifyAuditTrialReportForDelete"/>
           <include name="endTestCase"/>
           <include name="tearDown"/>
           <include name="afterEachMethod"/>
-          <include name="VerifyCancelBtnAtDeleteAddressRecord"/>
-          <include name="VerifyRecipientNumberOfItemsPerPageSelection"/>
           <include name="startTestCase"/>
           <include name="openApplication"/>
-          <include name="VerifyRecipientTotalNumberOfItemsPerPageDetails"/>
-          <include name="VerifyCancelBtnAtDeleteRecepientRecord"/>
-          <include name="searchRecipientPageClose"/>
-          <include name="DeleteAddressBookRecord"/>
+          <include name="ExportToExcelData"/>
+          <include name="VerifyNumberOfItemsPerPageSelection"/>
+          <include name="VerifyAddressBookColumnsHeaderEnable"/>
+          <include name="VerifyDropdownForAllTheColumnsRecipient"/>
+          <include name="AddressBookExportToExcelData"/>
+          <include name="VerifyAuditTrialReportForFaxAddressBookUpdate"/>
         </methods>
       </class> <!-- com.tetherfi.test.fax.FaxAddressBookTest -->
     </classes>

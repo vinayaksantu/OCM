@@ -586,7 +586,7 @@ public class FaxAddressBookPage extends BasePage {
             scrollToElement(ele);
             if (!ele.isDisplayed()) {
                 continue;
-            } else {
+           } else {
                 selectWebElement(ele);
                     Thread.sleep(1000);
                 if (headersColumns.get(0).getText().equals("Sort Ascending")) {
@@ -601,7 +601,35 @@ public class FaxAddressBookPage extends BasePage {
                     break;
                 }
             }
-        }} catch (Exception e) {
+        }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return status;
+    }
+    public boolean verifyDropDownOfAllHeadersRecp() {
+        boolean status = false;
+        try {for (WebElement ele : headersDropdown) {
+            scrollToElement(ele);
+            //if (ele.isDisplayed()) {
+           //     continue;
+           //} else {
+                selectWebElement(ele);
+                    Thread.sleep(1000);
+                if (headersColumns.get(0).getText().equals("Sort Ascending")) {
+                    if (headersColumns.get(1).getText().equals("Sort Descending")) {
+                        if (headersColumns.get(2).getText().equals("Columns")) {
+                            status = true;selectWebElement(ele);
+                        }
+                    }
+                }
+                if (status) {
+                } else {
+                    break;
+                }
+            }
+       // }
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return status;
@@ -733,7 +761,42 @@ public class FaxAddressBookPage extends BasePage {
         return status;
     }
 
-    
+    public boolean verifycolumnsHeaderEnabledAdress(){
+        boolean status=false;
+        WebElement ele= headersDropdown.get(0);
+        System.out.println(ele);
+        waitUntilWebElementIsVisible(ele);
+            if(ele.isDisplayed()){
+                try {
+                    selectWebElement(ele);
+                    Thread.sleep(1000);
+                    selectWebElement(headersColumns.get(2));
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                for (int i = 3; i <headersColumns.size(); i++) {
+                    WebElement checkbox = headersColumns.get(i).findElement(By.tagName("input"));
+                    checkbox.click();
+                    if (checkbox.isSelected()) {
+                    } else {
+                        checkbox.click();
+                    }
+                    for (WebElement ele1 : headersText) {
+                        if (ele1.getText().equals(headersColumns.get(i).getText())) {
+                            status = true;
+                            break;
+                        }
+                    }
+                    if (status) {
+                    } else {
+                        break;
+                    }
+                }
+            }
+        return status;
+    }
+
     public void dragRecipientColumntoGroup(String columnname) {
         List<WebElement> rows = auditGridContent.findElements(By.tagName("tr"));
         List<WebElement> columnHeaders = rows.get(0).findElements(By.tagName("th"));
@@ -781,7 +844,7 @@ public class FaxAddressBookPage extends BasePage {
         //selectWebElement(editButton);
     }
     public void clickOnEditButtonAddress(FaxAddressBookDetails details) throws Exception{
-    	searchRecipientRecord(details);
+    	searchAddressRecord(details);
 		waitUntilWebElementIsVisible(EditButton.get(0));
 		selectWebElement(EditButton.get(0));
         //selectWebElement(editButton);
@@ -1019,6 +1082,7 @@ public class FaxAddressBookPage extends BasePage {
 	public void addNewAddressBookRecord(FaxAddressBookDetails details) throws Exception {
 		selectWebElement(addNewFaxAddressRecordBtn);
 		waitForJqueryLoad(driver);
+		Thread.sleep(2000);
 		selectWebElement(FaxLineDropdown);
 		selectDropdownFromVisibleText(FaxLineListbox,details.getFaxLine());
 		enterValueToTxtField(NameTextbox,details.getName());
@@ -1090,7 +1154,9 @@ public class FaxAddressBookPage extends BasePage {
 	public void addNewAddressBookRecordWithoutRecipients(FaxAddressBookDetails details) throws Exception {
 		selectWebElement(addNewFaxAddressRecordBtn);
 		waitForJqueryLoad(driver);
+		Thread.sleep(2000);
 		selectWebElement(FaxLineDropdown);
+		Thread.sleep(2000);
 		selectDropdownFromVisibleText(FaxLineListbox,details.getFaxLine());
 		enterValueToTxtField(NameTextbox,details.getName());
 		selectWebElement(saveBtn);
