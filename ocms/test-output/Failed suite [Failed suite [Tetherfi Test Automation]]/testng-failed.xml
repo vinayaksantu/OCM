@@ -6,20 +6,25 @@
   </listeners>
   <test thread-count="5" name="SMSResponseTemplateWMC(failed)(failed)(failed)">
     <classes>
-      <class name="com.tetherfi.test.ivr.OperatingHoursTest">
+      <class name="com.tetherfi.test.tmac.WaitTimeColorConfigTest">
         <methods>
-          <include name="database"/>
-          <include name="startTestCase"/>
-          <include name="openApplication"/>
-          <include name="EditRecordWithoutReason"/>
-          <include name="DeleteOperatinghoursRecord"/>
+          <include name="SortingByAscending"/>
+          <include name="NavigateToWaitTimeColorConfigPage"/>
           <include name="endTestCase"/>
           <include name="tearDown"/>
-          <include name="EditOperatingHoursCancelRecord"/>
+          <include name="VerifySearchContains"/>
+          <include name="VerifySearchStartsWith"/>
+          <include name="VerifySearchIsNotEqualTo"/>
+          <include name="startTestCase"/>
           <include name="afterEachMethod"/>
-          <include name="NavigateToOperatingHoursPage"/>
+          <include name="openApplication"/>
+          <include name="EditWaitTimeColorConfigCancelRecord"/>
+          <include name="database"/>
+          <include name="VerifySearchDoesNotContains"/>
+          <include name="VerifySearchEndsWith"/>
+          <include name="SortingByDescending"/>
         </methods>
-      </class> <!-- com.tetherfi.test.ivr.OperatingHoursTest -->
+      </class> <!-- com.tetherfi.test.tmac.WaitTimeColorConfigTest -->
     </classes>
   </test> <!-- SMSResponseTemplateWMC(failed)(failed)(failed) -->
 </suite> <!-- Failed suite [Failed suite [Failed suite [Tetherfi Test Automation]]] -->

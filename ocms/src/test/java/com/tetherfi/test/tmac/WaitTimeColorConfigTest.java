@@ -355,4 +355,5 @@ public class WaitTimeColorConfigTest extends BaseTest {
 		screenshot.captureScreen("WaitTimeColorConfigTest",method.getName());
 		driver.navigate().refresh();
 	}
+
 }

@@ -199,9 +199,13 @@ public class WaitTimeColorConfigPage extends BasePage {
     
     @FindBy(css=".k-pager-numbers .k-state-selected")
     private WebElement pageNumber;
-    @FindBy(css="a[aria-label='Go to the next page']")
-    private WebElement nextPageIcon;
     
+    @FindBy(css="a[aria-label='Go to the next page']")
+    private WebElement nextPageIcon1;
+    
+    @FindBy(xpath="//a[@title='Go to the next page']")
+    private WebElement nextPageIcon;
+     
     @FindBy(css="a[aria-label='Go to the last page']")
     private WebElement lastPageIcon;
     
@@ -273,6 +277,7 @@ public class WaitTimeColorConfigPage extends BasePage {
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is not equal to");
         enterValueToTxtField(searchTextBox,colorcode);		
         selectWebElement(searchSearchBtn);
+        Thread.sleep(3000);
         waitUntilWebElementIsVisible(gridContent);
         List<Map<String,String>> UI=gettable(); 
         for (Map<String,String> map1: UI)
@@ -295,6 +300,7 @@ public class WaitTimeColorConfigPage extends BasePage {
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Contains");
         enterValueToTxtField(searchTextBox,colorcode);		
         selectWebElement(searchSearchBtn);
+        Thread.sleep(3000);
         waitUntilWebElementIsVisible(gridContent);
         List<Map<String,String>> UI=gettable(); 
         for (Map<String,String> map1: UI)
@@ -315,6 +321,7 @@ public class WaitTimeColorConfigPage extends BasePage {
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Does not contain");
         enterValueToTxtField(searchTextBox,colorcode);		
         selectWebElement(searchSearchBtn);
+        Thread.sleep(3000);
         waitUntilWebElementIsVisible(gridContent);
         List<Map<String,String>> UI=gettable(); 
         for (Map<String,String> map1: UI)
@@ -336,6 +343,7 @@ public class WaitTimeColorConfigPage extends BasePage {
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Starts with");
         enterValueToTxtField(searchTextBox,colorcode);		
         selectWebElement(searchSearchBtn);
+        Thread.sleep(3000);
         waitUntilWebElementIsVisible(gridContent);
         List<Map<String,String>> UI=gettable(); 
         for (Map<String,String> map1: UI)
@@ -357,6 +365,7 @@ public class WaitTimeColorConfigPage extends BasePage {
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Ends with");
         enterValueToTxtField(searchTextBox,colorcode);		
         selectWebElement(searchSearchBtn);
+        Thread.sleep(3000);
         waitUntilWebElementIsVisible(gridContent);
         List<Map<String,String>> UI=gettable(); 
         for (Map<String,String> map1: UI)

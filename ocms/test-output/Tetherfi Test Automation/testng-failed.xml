@@ -6,26 +6,32 @@
   </listeners>
   <test thread-count="5" name="SMSResponseTemplateWMC(failed)">
     <classes>
-      <class name="com.tetherfi.test.ivr.OperatingHoursTest">
+      <class name="com.tetherfi.test.tmac.WaitTimeColorConfigTest">
         <methods>
+          <include name="VerifyAuditTrialReportForDelete"/>
+          <include name="SortingByAscending"/>
           <include name="VerifyArrowMoveForPreviousAndNextPage"/>
-          <include name="SearchClearSearch"/>
+          <include name="NavigateToWaitTimeColorConfigPage"/>
           <include name="endTestCase"/>
           <include name="tearDown"/>
-          <include name="EditOperatingHoursRecord"/>
+          <include name="VerifySearchContains"/>
+          <include name="VerifyAuditTrialReportForUpdate"/>
+          <include name="VerifySearchStartsWith"/>
+          <include name="ExportToExcelData"/>
           <include name="VerifyNumberOfItemsPerPageSelection"/>
-          <include name="NavigateToOperatingHoursPage"/>
-          <include name="database"/>
+          <include name="VerifySearchIsNotEqualTo"/>
+          <include name="DeleteRecord"/>
           <include name="startTestCase"/>
-          <include name="openApplication"/>
-          <include name="EditInvalidRecord"/>
-          <include name="EditRecordWithoutReason"/>
-          <include name="VerifyArrowMoveForFirstAndLastPage"/>
-          <include name="DeleteOperatinghoursRecord"/>
-          <include name="EditOperatingHoursCancelRecord"/>
           <include name="afterEachMethod"/>
+          <include name="openApplication"/>
+          <include name="EditWaitTimeColorConfigCancelRecord"/>
+          <include name="database"/>
+          <include name="VerifyArrowMoveForFirstAndLastPage"/>
+          <include name="VerifySearchDoesNotContains"/>
+          <include name="VerifySearchEndsWith"/>
+          <include name="SortingByDescending"/>
         </methods>
-      </class> <!-- com.tetherfi.test.ivr.OperatingHoursTest -->
+      </class> <!-- com.tetherfi.test.tmac.WaitTimeColorConfigTest -->
     </classes>
   </test> <!-- SMSResponseTemplateWMC(failed) -->
 </suite> <!-- Failed suite [Tetherfi Test Automation] -->
