@@ -80,7 +80,7 @@ public class OperatingHoursTest extends BaseTest {
     }
     
     @Test(priority=5)
-   	public void AddLeavingVDNBlankBlank() throws Exception {
+   	public void AddLeavingVDNBlank() throws Exception {
        	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\OperatingHoursData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(1);
         OperatingHoursDetails operatingHoursDetails = new OperatingHoursDetails(map);
@@ -147,7 +147,7 @@ public class OperatingHoursTest extends BaseTest {
 	@Test(priority=11)
 	public void AddInvalidVDNRecord() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\OperatingHoursData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(2);
+        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(5);
         OperatingHoursDetails operatingHoursDetails = new OperatingHoursDetails(map);
         OperatingHoursPage operatingHoursPage = PageFactory.createPageInstance(driver, OperatingHoursPage.class);
         operatingHoursPage.addVDNvaluelessthanfour(operatingHoursDetails);
@@ -180,13 +180,13 @@ public class OperatingHoursTest extends BaseTest {
     @Test(priority=14)
     public void EditOperatingHoursCancelRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OperatingHoursData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
+        Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(1);
         OperatingHoursDetails operatingHoursDetails=new OperatingHoursDetails(map);
         OperatingHoursPage operatingHoursPage=PageFactory.createPageInstance(driver,OperatingHoursPage.class);
         Assert.assertTrue(operatingHoursPage.editOperatingHoursCancelbtn(operatingHoursDetails));
         screenshot.captureScreen(driver,"Edit Cancel", "OperatingHoursTest");
-        Thread.sleep(1000);
     }
+    
     @Test(priority=15)
     public void EditOperatingHoursRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OperatingHoursData.xlsx";
@@ -286,7 +286,7 @@ public class OperatingHoursTest extends BaseTest {
    @Test(priority=24)
     public void SearchClearSearch() throws Exception{
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OperatingHoursData.xlsx";
-    	Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
+    	Map<String, String> map = new ExcelReader(filePath,"Invalid").getTestData().get(0);
     	OperatingHoursDetails operatingHoursDetails=new OperatingHoursDetails(map);
     	OperatingHoursPage operatingHoursPage=PageFactory.createPageInstance(driver,OperatingHoursPage.class);
         Assert.assertTrue(operatingHoursPage.verifyinvalidsearchwithwrongdata(operatingHoursDetails),"invalidsearchwithwrongdata");
@@ -391,7 +391,7 @@ public class OperatingHoursTest extends BaseTest {
     }
     
     @Test(priority=38)
-    public void DeleteNoRecord() throws Exception {
+    public void DeleteWithoutDeleteReason() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OperatingHoursData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
     	OperatingHoursDetails operatingHoursDetails=new OperatingHoursDetails(map);
@@ -424,7 +424,7 @@ public class OperatingHoursTest extends BaseTest {
     @AfterMethod
     public void afterEachMethod(Method method){
 		Screenshot screenshot=new Screenshot(driver);
-        screenshot.captureScreen("HolidayListTest",method.getName());
+        screenshot.captureScreen("OperatingHoursTest",method.getName());
         driver.navigate().refresh();
 	}   
 }

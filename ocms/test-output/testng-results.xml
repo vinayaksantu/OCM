@@ -1,62 +1,375 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+<testng-results skipped="0" failed="3" ignored="36" total="40" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="153537" started-at="2020-04-24T10:15:05 IST" finished-at="2020-04-24T10:17:38 IST">
+  <suite name="Failed suite [Failed suite [Failed suite [Tetherfi Test Automation]]]" duration-ms="247460" started-at="2020-04-28T08:28:36 IST" finished-at="2020-04-28T08:32:43 IST">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="153537" started-at="2020-04-24T10:15:05 IST" finished-at="2020-04-24T10:17:38 IST">
-      <class name="com.tetherfi.test.tmac.AgentSettingsTest">
-        <test-method status="PASS" signature="openApplication()[pri:0, instance:com.tetherfi.test.tmac.AgentSettingsTest@6b2e46af]" name="openApplication" is-config="true" duration-ms="57143" started-at="2020-04-24T10:15:05 IST" finished-at="2020-04-24T10:16:02 IST">
+    <test name="SMSResponseTemplateWMC(failed)(failed)(failed)" duration-ms="247460" started-at="2020-04-28T08:28:36 IST" finished-at="2020-04-28T08:32:43 IST">
+      <class name="com.tetherfi.test.ivr.OperatingHoursTest">
+        <test-method status="PASS" signature="openApplication()[pri:0, instance:com.tetherfi.test.ivr.OperatingHoursTest@1305c126]" name="openApplication" is-config="true" duration-ms="37900" started-at="2020-04-28T08:28:36 IST" finished-at="2020-04-28T08:29:14 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- openApplication -->
-        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.AgentSettingsTest@6b2e46af]" name="startTestCase" is-config="true" duration-ms="2" started-at="2020-04-24T10:16:02 IST" finished-at="2020-04-24T10:16:02 IST">
+        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.OperatingHoursTest@1305c126]" name="startTestCase" is-config="true" duration-ms="2" started-at="2020-04-28T08:29:14 IST" finished-at="2020-04-28T08:29:14 IST">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.tmac.AgentSettingsTest.VerifyAddNewAgentSettingsRecord() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.ivr.OperatingHoursTest.EditOperatingHoursCancelRecord() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startTestCase -->
-        <test-method status="PASS" signature="NavigateToAgentSettingsPage()[pri:0, instance:com.tetherfi.test.tmac.AgentSettingsTest@6b2e46af]" name="NavigateToAgentSettingsPage" is-config="true" duration-ms="20893" started-at="2020-04-24T10:16:02 IST" finished-at="2020-04-24T10:16:23 IST">
+        <test-method status="PASS" signature="NavigateToOperatingHoursPage()[pri:0, instance:com.tetherfi.test.ivr.OperatingHoursTest@1305c126]" name="NavigateToOperatingHoursPage" is-config="true" duration-ms="59170" started-at="2020-04-28T08:29:14 IST" finished-at="2020-04-28T08:30:13 IST">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- NavigateToAgentSettingsPage -->
-        <test-method status="PASS" signature="VerifyAddNewAgentSettingsRecord()[pri:5, instance:com.tetherfi.test.tmac.AgentSettingsTest@6b2e46af]" name="VerifyAddNewAgentSettingsRecord" duration-ms="61719" started-at="2020-04-24T10:16:23 IST" finished-at="2020-04-24T10:17:25 IST">
+        </test-method> <!-- NavigateToOperatingHoursPage -->
+        <test-method status="FAIL" signature="EditOperatingHoursCancelRecord()[pri:14, instance:com.tetherfi.test.ivr.OperatingHoursTest@1305c126]" name="EditOperatingHoursCancelRecord" duration-ms="7604" started-at="2020-04-28T08:30:13 IST" finished-at="2020-04-28T08:30:21 IST">
+          <exception class="org.openqa.selenium.StaleElementReferenceException">
+            <message>
+              <![CDATA[stale element reference: element is not attached to the page document
+  (Session info: chrome=81.0.4044.122)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-NJVBPFB', ip: '192.168.225.65', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_181'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 81.0.4044.122, chrome: {chromedriverVersion: 80.0.3987.106 (f68069574609..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:57226}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: c4a37f1b2a6c9b0ef77d774b255b8ddc]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
+  (Session info: chrome=81.0.4044.122)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-NJVBPFB', ip: '192.168.225.65', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_181'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 81.0.4044.122, chrome: {chromedriverVersion: 80.0.3987.106 (f68069574609..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:57226}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: c4a37f1b2a6c9b0ef77d774b255b8ddc
+at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+at java.lang.reflect.Constructor.newInstance(Unknown Source)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
+at org.openqa.selenium.remote.RemoteWebElement.isDisplayed(RemoteWebElement.java:326)
+at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:314)
+at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:43)
+at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:300)
+at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:297)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
+at com.tetherfi.pages.BasePage.waitUntilWebElementListIsVisible(BasePage.java:135)
+at com.tetherfi.pages.BasePage.selectDropdownFromVisibleText(BasePage.java:334)
+at com.tetherfi.pages.OperatingHoursPage.BooleansearchOperatingHoursRecord(OperatingHoursPage.java:438)
+at com.tetherfi.pages.OperatingHoursPage.editOperatingHoursCancelbtn(OperatingHoursPage.java:459)
+at com.tetherfi.test.ivr.OperatingHoursTest.EditOperatingHoursCancelRecord(OperatingHoursTest.java:186)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.StaleElementReferenceException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- VerifyAddNewAgentSettingsRecord -->
-        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.AgentSettingsTest@6b2e46af]" name="afterEachMethod" is-config="true" duration-ms="4526" started-at="2020-04-24T10:17:25 IST" finished-at="2020-04-24T10:17:29 IST">
+        </test-method> <!-- EditOperatingHoursCancelRecord -->
+        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.OperatingHoursTest@1305c126]" name="afterEachMethod" is-config="true" duration-ms="1934" started-at="2020-04-28T08:30:21 IST" finished-at="2020-04-28T08:30:22 IST">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.tmac.AgentSettingsTest.VerifyAddNewAgentSettingsRecord() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.ivr.OperatingHoursTest.EditOperatingHoursCancelRecord() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterEachMethod -->
-        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.AgentSettingsTest@6b2e46af]" name="endTestCase" is-config="true" duration-ms="0" started-at="2020-04-24T10:17:29 IST" finished-at="2020-04-24T10:17:29 IST">
+        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.OperatingHoursTest@1305c126]" name="endTestCase" is-config="true" duration-ms="1" started-at="2020-04-28T08:30:22 IST" finished-at="2020-04-28T08:30:22 IST">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.tmac.AgentSettingsTest.VerifyAddNewAgentSettingsRecord() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.ivr.OperatingHoursTest.EditOperatingHoursCancelRecord() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- endTestCase -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.tetherfi.test.tmac.AgentSettingsTest@6b2e46af]" name="tearDown" is-config="true" duration-ms="9165" started-at="2020-04-24T10:17:29 IST" finished-at="2020-04-24T10:17:38 IST">
+        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.OperatingHoursTest@1305c126]" name="startTestCase" is-config="true" duration-ms="1" started-at="2020-04-28T08:30:22 IST" finished-at="2020-04-28T08:30:22 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.OperatingHoursTest.EditRecordWithoutReason() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method status="PASS" signature="NavigateToOperatingHoursPage()[pri:0, instance:com.tetherfi.test.ivr.OperatingHoursTest@1305c126]" name="NavigateToOperatingHoursPage" is-config="true" duration-ms="6227" started-at="2020-04-28T08:30:22 IST" finished-at="2020-04-28T08:30:29 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToOperatingHoursPage -->
+        <test-method status="PASS" signature="EditRecordWithoutReason()[pri:17, instance:com.tetherfi.test.ivr.OperatingHoursTest@1305c126]" name="EditRecordWithoutReason" duration-ms="11779" started-at="2020-04-28T08:30:29 IST" finished-at="2020-04-28T08:30:40 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- EditRecordWithoutReason -->
+        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.OperatingHoursTest@1305c126]" name="afterEachMethod" is-config="true" duration-ms="3463" started-at="2020-04-28T08:30:40 IST" finished-at="2020-04-28T08:30:44 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.OperatingHoursTest.EditRecordWithoutReason() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.OperatingHoursTest@1305c126]" name="endTestCase" is-config="true" duration-ms="1" started-at="2020-04-28T08:30:44 IST" finished-at="2020-04-28T08:30:44 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.OperatingHoursTest.EditRecordWithoutReason() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.OperatingHoursTest@1305c126]" name="startTestCase" is-config="true" duration-ms="1" started-at="2020-04-28T08:30:44 IST" finished-at="2020-04-28T08:30:44 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.OperatingHoursTest.DeleteOperatinghoursRecord() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method status="PASS" signature="NavigateToOperatingHoursPage()[pri:0, instance:com.tetherfi.test.ivr.OperatingHoursTest@1305c126]" name="NavigateToOperatingHoursPage" is-config="true" duration-ms="5016" started-at="2020-04-28T08:30:44 IST" finished-at="2020-04-28T08:30:49 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToOperatingHoursPage -->
+        <test-method status="FAIL" signature="DeleteOperatinghoursRecord()[pri:39, instance:com.tetherfi.test.ivr.OperatingHoursTest@1305c126]" name="DeleteOperatinghoursRecord" duration-ms="85150" started-at="2020-04-28T08:30:49 IST" finished-at="2020-04-28T08:32:14 IST">
+          <exception class="org.openqa.selenium.TimeoutException">
+            <message>
+              <![CDATA[Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.cssSelector: .k-grid-CustomDelete' (tried for 30 second(s) with 500 milliseconds interval)]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.cssSelector: .k-grid-CustomDelete' (tried for 30 second(s) with 500 milliseconds interval)
+at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
+at com.tetherfi.pages.BasePage.waitUntilWebElementIsVisible(BasePage.java:128)
+at com.tetherfi.pages.BasePage.selectWebElement(BasePage.java:195)
+at com.tetherfi.pages.OperatingHoursPage.deleteOperatingHoursRecord(OperatingHoursPage.java:493)
+at com.tetherfi.test.ivr.OperatingHoursTest.DeleteOperatinghoursRecord(OperatingHoursTest.java:410)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"css selector","selector":".k-grid-CustomDelete"}
+  (Session info: chrome=81.0.4044.122)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-NJVBPFB', ip: '192.168.225.65', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_181'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 81.0.4044.122, chrome: {chromedriverVersion: 80.0.3987.106 (f68069574609..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:57226}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: c4a37f1b2a6c9b0ef77d774b255b8ddc
+*** Element info: {Using=css selector, value=.k-grid-CustomDelete}
+at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+at java.lang.reflect.Constructor.newInstance(Unknown Source)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:420)
+at org.openqa.selenium.By$ByCssSelector.findElement(By.java:431)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+at com.sun.proxy.$Proxy11.isDisplayed(Unknown Source)
+at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:314)
+at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:43)
+at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:300)
+at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:297)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
+... 32 more
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.TimeoutException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- DeleteOperatinghoursRecord -->
+        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.OperatingHoursTest@1305c126]" name="afterEachMethod" is-config="true" duration-ms="1727" started-at="2020-04-28T08:32:14 IST" finished-at="2020-04-28T08:32:16 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.OperatingHoursTest.DeleteOperatinghoursRecord() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.OperatingHoursTest@1305c126]" name="endTestCase" is-config="true" duration-ms="0" started-at="2020-04-28T08:32:16 IST" finished-at="2020-04-28T08:32:16 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.OperatingHoursTest.DeleteOperatinghoursRecord() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.OperatingHoursTest@1305c126]" name="startTestCase" is-config="true" duration-ms="0" started-at="2020-04-28T08:32:16 IST" finished-at="2020-04-28T08:32:16 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.OperatingHoursTest.database() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method status="PASS" signature="NavigateToOperatingHoursPage()[pri:0, instance:com.tetherfi.test.ivr.OperatingHoursTest@1305c126]" name="NavigateToOperatingHoursPage" is-config="true" duration-ms="5504" started-at="2020-04-28T08:32:16 IST" finished-at="2020-04-28T08:32:21 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToOperatingHoursPage -->
+        <test-method status="FAIL" signature="database()[pri:40, instance:com.tetherfi.test.ivr.OperatingHoursTest@1305c126]" name="database" duration-ms="17594" started-at="2020-04-28T08:32:21 IST" finished-at="2020-04-28T08:32:39 IST">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[did not expect to find [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: did not expect to find [true] but found [false]
+at org.testng.Assert.fail(Assert.java:97)
+at org.testng.Assert.failNotEquals(Assert.java:969)
+at org.testng.Assert.assertTrue(Assert.java:43)
+at org.testng.Assert.assertTrue(Assert.java:53)
+at com.tetherfi.test.ivr.OperatingHoursTest.database(OperatingHoursTest.java:421)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- database -->
+        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.OperatingHoursTest@1305c126]" name="afterEachMethod" is-config="true" duration-ms="1737" started-at="2020-04-28T08:32:39 IST" finished-at="2020-04-28T08:32:41 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.OperatingHoursTest.database() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.OperatingHoursTest@1305c126]" name="endTestCase" is-config="true" duration-ms="0" started-at="2020-04-28T08:32:41 IST" finished-at="2020-04-28T08:32:41 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.ivr.OperatingHoursTest.database() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.tetherfi.test.ivr.OperatingHoursTest@1305c126]" name="tearDown" is-config="true" duration-ms="2536" started-at="2020-04-28T08:32:41 IST" finished-at="2020-04-28T08:32:43 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.tetherfi.test.tmac.AgentSettingsTest -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+      </class> <!-- com.tetherfi.test.ivr.OperatingHoursTest -->
+    </test> <!-- SMSResponseTemplateWMC(failed)(failed)(failed) -->
+  </suite> <!-- Failed suite [Failed suite [Failed suite [Tetherfi Test Automation]]] -->
 </testng-results>

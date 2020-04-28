@@ -1,21 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Failed suite [Failed suite [Tetherfi Test Automation]]]" guice-stage="DEVELOPMENT">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Failed suite [Failed suite [Tetherfi Test Automation]]]">
   <listeners>
     <listener class-name="com.tetherfi.ExtentReportListener.ExtentReporterNG"/>
   </listeners>
-  <test thread-count="5" name="BranchManagementDeleteTest (failed)(failed)(failed)">
+  <test thread-count="5" name="SMSResponseTemplateWMC(failed)(failed)(failed)">
     <classes>
-      <class name="com.tetherfi.test.ivr.BranchManagementDeleteTest">
+      <class name="com.tetherfi.test.ivr.OperatingHoursTest">
         <methods>
-          <include name="DeleteBranchManagementRecord"/>
-          <include name="VerifyAuditTrialReportForDelete"/>
-          <include name="ApproveforDeleteBranchManagementRecord"/>
-          <include name="VerifyAuditTrailReportForApprove"/>
-          <include name="NavigateToBranchManagementPage"/>
+          <include name="database"/>
+          <include name="startTestCase"/>
+          <include name="openApplication"/>
+          <include name="EditRecordWithoutReason"/>
+          <include name="DeleteOperatinghoursRecord"/>
+          <include name="endTestCase"/>
+          <include name="tearDown"/>
+          <include name="EditOperatingHoursCancelRecord"/>
           <include name="afterEachMethod"/>
+          <include name="NavigateToOperatingHoursPage"/>
         </methods>
-      </class> <!-- com.tetherfi.test.ivr.BranchManagementDeleteTest -->
+      </class> <!-- com.tetherfi.test.ivr.OperatingHoursTest -->
     </classes>
-  </test> <!-- BranchManagementDeleteTest (failed)(failed)(failed) -->
+  </test> <!-- SMSResponseTemplateWMC(failed)(failed)(failed) -->
 </suite> <!-- Failed suite [Failed suite [Failed suite [Tetherfi Test Automation]]] -->

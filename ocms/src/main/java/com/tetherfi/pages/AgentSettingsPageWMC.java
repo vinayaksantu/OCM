@@ -252,6 +252,9 @@ public class AgentSettingsPageWMC extends BasePage{
     @FindBy(xpath="//i[@class='fas fa-expand']")
     private WebElement maximize;
     
+    @FindBy(id="footer")
+    private WebElement FooterButton;
+    
     @FindBy(xpath="//i[@class='fas fa-compress']")
     private WebElement minimize;
     
@@ -733,7 +736,6 @@ public class AgentSettingsPageWMC extends BasePage{
         selectWebElement(yesBtn);
         }
     
-
     public void deleteSupervisorRecordWhenAssignedToAgent(String username) throws Exception {
         selectWebElement(agentSettingsTabs.get(1));
         selectWebElement(makeAgentSettingsChanges);
@@ -1540,6 +1542,17 @@ return status;
 		selectWebElement(minimize);
 		waitForJqueryLoad(driver);
 		if(header.isDisplayed())
+		{
+			return true;
+		}
+		else 
+			return false; 
+	}
+	
+	public boolean VerifyFooterInfo() {
+		selectWebElement(FooterButton);
+		waitForJqueryLoad(driver);
+		if(FooterButton.isDisplayed())
 		{
 			return true;
 		}

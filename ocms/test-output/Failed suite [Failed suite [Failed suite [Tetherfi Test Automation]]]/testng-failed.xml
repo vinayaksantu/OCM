@@ -1,25 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Failed suite [Failed suite [Failed suite [Tetherfi Test Automation]]]]" guice-stage="DEVELOPMENT">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Failed suite [Failed suite [Failed suite [Tetherfi Test Automation]]]]">
   <listeners>
     <listener class-name="com.tetherfi.ExtentReportListener.ExtentReporterNG"/>
   </listeners>
-  <test thread-count="5" name="RoleBasedAccessManagementUITest (failed)(failed)(failed)(failed)">
+  <test thread-count="5" name="SMSResponseTemplateWMC(failed)(failed)(failed)(failed)">
     <classes>
-      <class name="com.tetherfi.test.RoleBasedAccessManagementUITest">
+      <class name="com.tetherfi.test.ivr.OperatingHoursTest">
         <methods>
-          <include name="VerifyNumberOfItemsPerPageSelection"/>
+          <include name="database"/>
           <include name="startTestCase"/>
           <include name="openApplication"/>
-          <include name="SearchClearSearch"/>
-          <include name="NavigateToRoleBasedAccessManagementPage"/>
+          <include name="DeleteOperatinghoursRecord"/>
           <include name="endTestCase"/>
           <include name="tearDown"/>
-          <include name="database"/>
-          <include name="searchPage"/>
+          <include name="EditOperatingHoursCancelRecord"/>
           <include name="afterEachMethod"/>
+          <include name="NavigateToOperatingHoursPage"/>
         </methods>
-      </class> <!-- com.tetherfi.test.RoleBasedAccessManagementUITest -->
+      </class> <!-- com.tetherfi.test.ivr.OperatingHoursTest -->
     </classes>
-  </test> <!-- RoleBasedAccessManagementUITest (failed)(failed)(failed)(failed) -->
+  </test> <!-- SMSResponseTemplateWMC(failed)(failed)(failed)(failed) -->
 </suite> <!-- Failed suite [Failed suite [Failed suite [Failed suite [Tetherfi Test Automation]]]] -->

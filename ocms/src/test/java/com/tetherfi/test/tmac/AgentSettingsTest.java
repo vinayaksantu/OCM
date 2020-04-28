@@ -38,12 +38,15 @@ public class AgentSettingsTest extends BaseTest{
 		Assert.assertTrue(agentSettingsPagewmc.isAgentSettingsPageDisplayed(),"Agent Settings page assertion failed");	
 	}
 
-	/*@Test(priority=1)
+	@Test(priority=1)
 	public void VerifyAgentSettingsPage() {
 		AgentSettingsPageWMC agentSettingsPagewmc=PageFactory.createPageInstance(driver,AgentSettingsPageWMC.class);
 		Assert.assertTrue(agentSettingsPagewmc.VerifyLogo(), "Agent Settings logo assertion failed");
 		Assert.assertTrue(agentSettingsPagewmc.maximizeWindow(), "Window maximize assertion failed");
-		Assert.assertTrue(agentSettingsPagewmc.minimizeWindow(), "Window minimize assertion failed");		
+//		Assert.assertTrue(agentSettingsPagewmc.VerifyFooterInfo(), "Footer info not available");
+		Assert.assertTrue(agentSettingsPagewmc.minimizeWindow(), "Window minimize assertion failed");
+		Assert.assertTrue(agentSettingsPagewmc.VerifyFooterInfo(), "Footer info not available");
+	
 	}
 	
 	@Test(priority=2)
@@ -62,7 +65,7 @@ public class AgentSettingsTest extends BaseTest{
 	public void VerifyColumnsHeaderDisabled() {
 		AgentSettingsPageWMC agentSettingsPagewmc=PageFactory.createPageInstance(driver, AgentSettingsPageWMC.class);
 		Assert.assertTrue(agentSettingsPagewmc.verifycolumnsHeaderDisabled(), "Columns heade assertion failed");			
-	}*/
+	}
 
 	@Test(priority=5)
 	public void VerifyAddNewAgentSettingsRecord() throws Exception {
@@ -74,7 +77,7 @@ public class AgentSettingsTest extends BaseTest{
 		Assert.assertEquals(agentSettingsPagewmc.getSuccessMessage(), "Record Created Successfully","Record Creation Assertion Failed");		
 	}
 
-	@Test(priority=6)
+	/*@Test(priority=6)
 	public void VerifyAuditTrailReportForCreate() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentSettingsData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(5);
@@ -236,7 +239,7 @@ public class AgentSettingsTest extends BaseTest{
 		agentSettingsPagewmc.clickOnDeleteButton(agentSettingsDetails);
 		agentSettingsPagewmc.clickOnDeleteCancelBtn();
 		Assert.assertTrue(agentSettingsPagewmc.verifyDeleteContainer(), "Delete Record Assertion Failed");
-	}
+	}*/
 
     @Test(priority=22)
     public void DeleteAgentSettingsRecord() throws Exception {
@@ -374,6 +377,11 @@ public class AgentSettingsTest extends BaseTest{
 	    AgentSettingsPageWMC agentSettingsPagewmc=PageFactory.createPageInstance(driver, AgentSettingsPageWMC.class);
 	    Assert.assertTrue(agentSettingsPagewmc.verifySearchEndsWith(agentSettingsDetails.getFirstname()));
 	 }*/
+	
+	@Test(priority=38)
+	public void verifyFooterData() {
+				
+	}
 	  
 	@AfterMethod
 	public void afterEachMethod(Method method) throws InterruptedException {

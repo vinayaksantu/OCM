@@ -1,22 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Failed suite [Tetherfi Test Automation]]" guice-stage="DEVELOPMENT">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Failed suite [Tetherfi Test Automation]]">
   <listeners>
     <listener class-name="com.tetherfi.ExtentReportListener.ExtentReporterNG"/>
   </listeners>
-  <test thread-count="5" name="RoleBasedAccessManagementCreateTest(failed)(failed)">
+  <test thread-count="5" name="SMSResponseTemplateWMC(failed)(failed)">
     <classes>
-      <class name="com.tetherfi.test.RoleBasedAccessManagementCreateTest">
+      <class name="com.tetherfi.test.ivr.OperatingHoursTest">
         <methods>
-          <include name="VerifyAuditTrailDataForAddNewNewRoleBasedAccessManagementRecord"/>
-          <include name="VerifyAuditTrailReportForSendForApproval"/>
-          <include name="VerifyRecordApprovedDataSectionafterApproval"/>
-          <include name="NavigateToNewRoleBasedAccessManagementPage"/>
-          <include name="VerifySendForApprovalForAddNewNewRoleBasedAccessManagementRecord"/>
+          <include name="database"/>
+          <include name="startTestCase"/>
+          <include name="openApplication"/>
+          <include name="EditInvalidRecord"/>
+          <include name="SearchClearSearch"/>
+          <include name="EditRecordWithoutReason"/>
+          <include name="DeleteOperatinghoursRecord"/>
+          <include name="endTestCase"/>
+          <include name="tearDown"/>
+          <include name="EditOperatingHoursCancelRecord"/>
           <include name="afterEachMethod"/>
-          <include name="ApproveforAddNewNewRoleBasedAccessManagementRecord"/>
+          <include name="NavigateToOperatingHoursPage"/>
         </methods>
-      </class> <!-- com.tetherfi.test.RoleBasedAccessManagementCreateTest -->
+      </class> <!-- com.tetherfi.test.ivr.OperatingHoursTest -->
     </classes>
-  </test> <!-- RoleBasedAccessManagementCreateTest(failed)(failed) -->
+  </test> <!-- SMSResponseTemplateWMC(failed)(failed) -->
 </suite> <!-- Failed suite [Failed suite [Tetherfi Test Automation]] -->

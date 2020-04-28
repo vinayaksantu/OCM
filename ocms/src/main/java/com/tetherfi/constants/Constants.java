@@ -19,7 +19,14 @@ public class Constants {
     public static final String db_pass="Tetherfi123$";
     public static final String db_name="Product_OCM";
     
+     
+ //.18 DB      
+    /*public static final String host="jdbc:sqlserver://10.133.146.18:14330";
+    public static final String db_user="sa";
+    public static final String db_pass="Cre@t1ve";
+    public static final String db_name="DOCMT1_SG";
     
+      
     /*public static final String host="jdbc:sqlserver://10.133.146.18:14330";
     public static final String db_user="sa";
     public static final String db_pass="P@ssw0rd";

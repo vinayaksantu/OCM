@@ -6,30 +6,26 @@
   </listeners>
   <test thread-count="5" name="SMSResponseTemplateWMC(failed)">
     <classes>
-      <class name="com.tetherfi.test.sms.SmsResponseTemplateTest">
+      <class name="com.tetherfi.test.ivr.OperatingHoursTest">
         <methods>
-          <include name="SortByDescending"/>
-          <include name="searchwithoutSearchTextbox"/>
-          <include name="searchPage"/>
-          <include name="VerifyArrowMoveForFirstAndLastPage"/>
-          <include name="endTestCase"/>
-          <include name="SortByAscending"/>
-          <include name="tearDown"/>
-          <include name="EditSmsResponseTemplateRecord"/>
-          <include name="VerifyCancelBtnAtDeleteConfigRecord"/>
-          <include name="startTestCase"/>
-          <include name="NavigateToSmsResponseTemplatePage"/>
-          <include name="openApplication"/>
-          <include name="ExporttoExcelWithoutData"/>
           <include name="VerifyArrowMoveForPreviousAndNextPage"/>
-          <include name="VerifyCancelBtnAtAddnewRecord"/>
-          <include name="EditSmsTemplateRecordWithoutModifyReason"/>
-          <include name="DeleteSmsResponseTemplateRecord"/>
-          <include name="DeleteRecordWithoutDeleteReason"/>
-          <include name="afterEachMethod"/>
+          <include name="SearchClearSearch"/>
+          <include name="endTestCase"/>
+          <include name="tearDown"/>
+          <include name="EditOperatingHoursRecord"/>
           <include name="VerifyNumberOfItemsPerPageSelection"/>
+          <include name="NavigateToOperatingHoursPage"/>
+          <include name="database"/>
+          <include name="startTestCase"/>
+          <include name="openApplication"/>
+          <include name="EditInvalidRecord"/>
+          <include name="EditRecordWithoutReason"/>
+          <include name="VerifyArrowMoveForFirstAndLastPage"/>
+          <include name="DeleteOperatinghoursRecord"/>
+          <include name="EditOperatingHoursCancelRecord"/>
+          <include name="afterEachMethod"/>
         </methods>
-      </class> <!-- com.tetherfi.test.sms.SmsResponseTemplateTest -->
+      </class> <!-- com.tetherfi.test.ivr.OperatingHoursTest -->
     </classes>
   </test> <!-- SMSResponseTemplateWMC(failed) -->
 </suite> <!-- Failed suite [Tetherfi Test Automation] -->

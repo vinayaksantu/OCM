@@ -156,6 +156,7 @@ public class BasePage {
     	robot.keyPress(KeyEvent.VK_TAB);
     	robot.keyRelease(KeyEvent.VK_TAB);
     }
+
     public void enterValueToTxtBox(List<WebElement> webElement, String value) {
         webElement.get(1).clear();
         webElement.get(0).click();

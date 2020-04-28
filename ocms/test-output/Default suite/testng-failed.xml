@@ -7,11 +7,12 @@
         <methods>
           <include name="startTestCase"/>
           <include name="openApplication"/>
+          <include name="verifyFooterData"/>
+          <include name="VerifyAgentSettingsPage"/>
           <include name="NavigateToAgentSettingsPage"/>
           <include name="endTestCase"/>
           <include name="afterEachMethod"/>
           <include name="tearDown"/>
-          <include name="VerifyAuditTrailReportForDelete"/>
         </methods>
       </class> <!-- com.tetherfi.test.tmac.AgentSettingsTest -->
     </classes>

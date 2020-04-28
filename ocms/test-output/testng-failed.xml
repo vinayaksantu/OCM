@@ -1,19 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
-  <test thread-count="5" name="Default test(failed)">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Failed suite [Failed suite [Failed suite [Tetherfi Test Automation]]]]">
+  <listeners>
+    <listener class-name="com.tetherfi.ExtentReportListener.ExtentReporterNG"/>
+  </listeners>
+  <test thread-count="5" name="SMSResponseTemplateWMC(failed)(failed)(failed)(failed)">
     <classes>
-      <class name="com.tetherfi.test.tmac.AgentSettingsTest">
+      <class name="com.tetherfi.test.ivr.OperatingHoursTest">
         <methods>
+          <include name="database"/>
           <include name="startTestCase"/>
           <include name="openApplication"/>
-          <include name="NavigateToAgentSettingsPage"/>
+          <include name="DeleteOperatinghoursRecord"/>
           <include name="endTestCase"/>
-          <include name="afterEachMethod"/>
           <include name="tearDown"/>
-          <include name="VerifyAuditTrailReportForDelete"/>
+          <include name="EditOperatingHoursCancelRecord"/>
+          <include name="afterEachMethod"/>
+          <include name="NavigateToOperatingHoursPage"/>
         </methods>
-      </class> <!-- com.tetherfi.test.tmac.AgentSettingsTest -->
+      </class> <!-- com.tetherfi.test.ivr.OperatingHoursTest -->
     </classes>
-  </test> <!-- Default test(failed) -->
-</suite> <!-- Failed suite [Default suite] -->
+  </test> <!-- SMSResponseTemplateWMC(failed)(failed)(failed)(failed) -->
+</suite> <!-- Failed suite [Failed suite [Failed suite [Failed suite [Tetherfi Test Automation]]]] -->

@@ -784,7 +784,8 @@ public class WaitTimeColorConfigPage extends BasePage {
         String item = items.getText();
         return item.matches("(\\d.*) - (\\d.*) of (\\d.*) items");
     }
-	public void addRecordWithoutStartTime(WaitTimeColorConfigDetails details) throws Exception {
+	
+    public void addRecordWithoutStartTime(WaitTimeColorConfigDetails details) throws Exception {
 		selectWebElement(addNewWaitTimeColorConfigRecordBtn);
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(popupContent);
@@ -797,6 +798,7 @@ public class WaitTimeColorConfigPage extends BasePage {
         selectWebElement(saveBtn);
         selectWebElement(cancelBtn);
 	}
+	
 	public boolean verifymessage() {
 		waitUntilWebElementListIsVisible(errorMsg);									 
 		if(errorMsg.size()>0)
@@ -804,6 +806,7 @@ public class WaitTimeColorConfigPage extends BasePage {
 		else 
 			return true;
 	}
+	
 	public void addRecordWithoutEndTime(WaitTimeColorConfigDetails details) throws Exception {
 		selectWebElement(addNewWaitTimeColorConfigRecordBtn);
         waitForJqueryLoad(driver);
@@ -817,6 +820,7 @@ public class WaitTimeColorConfigPage extends BasePage {
         selectWebElement(saveBtn);
         selectWebElement(cancelBtn);	
 	}
+	
 	public boolean verifyDropDownOfAllHeaders() {
         boolean status = false;
         try {for (WebElement ele : headersDropdown) {

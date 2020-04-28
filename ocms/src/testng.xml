@@ -13,7 +13,7 @@
      
      <test name="SMSResponseTemplateWMC" parallel="false">
       <classes>  
-           <class name="com.tetherfi.test.sms.SmsResponseTemplateTest"/> 
+           <class name="com.tetherfi.test.tmac.WaitTimeColorConfigTest"/> 
             </classes>
      </test>
               

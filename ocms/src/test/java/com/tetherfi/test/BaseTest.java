@@ -21,6 +21,7 @@ public class BaseTest {
         try {
             PageFactory.reset();
             BrowserFactory browserFactory = new BrowserFactory();
+            System.setProperty("webdriver.chrome.silentOutput", "true");
             driver = browserFactory.createBrowserInstance(BrowserFactory.BrowserType.CHROME, System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles");
             String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\LoginData.xlsx";
             Map<String, String> map = new ExcelReader(filePath,"Login").getTestData().get(0);
@@ -39,10 +40,12 @@ public class BaseTest {
         }
         driver.manage().timeouts().implicitlyWait(40,TimeUnit.SECONDS);
     }
+    
     @BeforeMethod
         public void startTestCase(Method method){
         System.out.println("Started Executing : "+method.getName());
     }
+    
     @AfterMethod
         public void endTestCase(Method method){
         System.out.println("Completed Executing : "+method.getName());
