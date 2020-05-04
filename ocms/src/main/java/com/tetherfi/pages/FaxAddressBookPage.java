@@ -925,7 +925,7 @@ public class FaxAddressBookPage extends BasePage {
 		selectWebElement(saveBtn);	
 	}
 
-	private void searchRecipientRecord(FaxAddressBookDetails details) throws Exception {
+	public  void searchRecipientRecord(FaxAddressBookDetails details) throws Exception {
 		selectWebElement(searchLink);
         selectWebElement(selectSearchColumn.get(0));
         selectDropdownFromVisibleText(columnNameList,"Name1");
@@ -936,7 +936,141 @@ public class FaxAddressBookPage extends BasePage {
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(gridcontent);		
 	}
-
+	
+	public  boolean searchIsEqualto(FaxAddressBookDetails details) throws Exception {
+		Boolean Status=false;
+		Map<String, String> map=new HashMap<String,String>() ;
+		map.put("Name1", details.getfirstName());		
+		selectWebElement(searchLink);
+        selectWebElement(selectSearchColumn.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Name1");
+        selectWebElement(selectSearchColumn.get(1));
+        selectDropdownFromVisibleText(searchTypeList,"Is equal to");
+        enterValueToTxtFieldWithoutClear(searchText.get(0),details.getfirstName());
+        selectWebElement(searchBtn);
+        waitForJqueryLoad(driver);
+        waitUntilWebElementIsVisible(gridcontent);	
+        List<Map<String,String>> UI=gettable(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(map1.get("Name1").equals(map.get("Name1")))
+        	Status= true;
+        	else 
+        		Status= false;
+	}
+        return Status;
+	}
+	public boolean verifySearchIsNotEqualTo(FaxAddressBookDetails details) throws Exception {
+		Boolean Status=false;
+		Map<String, String> map=new HashMap<String,String>() ;
+		map.put("Name2", details.getlastName());
+		selectWebElement(searchLink);
+        selectWebElement(selectSearchColumn.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Name2");
+        Thread.sleep(1000);
+        selectWebElement(selectSearchColumn.get(1));
+        selectDropdownFromVisibleText(searchTypeList,"Is not equal to");
+        enterValueToTxtField(searchText.get(0),details.getlastName());		
+        selectWebElement(searchBtn);
+        waitUntilWebElementIsVisible(gridcontent);
+        List<Map<String,String>> UI=gettable(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(map1.equals(map))
+        	Status= false;
+        	else 
+        		Status= true;
+	}
+        return Status;
+	
+	}
+	public boolean verifySearchContains(FaxAddressBookDetails details) throws Exception {
+		Boolean Status=false;
+		selectWebElement(searchLink);
+        selectWebElement(selectSearchColumn.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Name1");
+        Thread.sleep(1000);
+        selectWebElement(selectSearchColumn.get(1));
+        selectDropdownFromVisibleText(searchTypeList,"Contains");
+        enterValueToTxtField(searchText.get(0),details.getfirstName());		
+        selectWebElement(searchBtn);
+        waitUntilWebElementIsVisible(gridcontent);
+        List<Map<String,String>> UI=gettable(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(map1.get("Name1").toUpperCase().contains(details.getfirstName().toUpperCase()))
+        	Status= true;
+        	else 
+        		Status= false;
+	}
+        return Status;
+	}
+	public boolean verifySearchDoesNotContains(FaxAddressBookDetails details) throws Exception {
+		Boolean Status=false;
+		selectWebElement(searchLink);
+        selectWebElement(selectSearchColumn.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Name1");
+        Thread.sleep(1000);
+        selectWebElement(selectSearchColumn.get(1));
+        Thread.sleep(1000);
+        selectDropdownFromVisibleText(searchTypeList,"Does not contain");
+        enterValueToTxtField(searchText.get(0),details.getfirstName());		
+        selectWebElement(searchBtn);
+        waitUntilWebElementIsVisible(gridcontent);
+        List<Map<String,String>> UI=gettable(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(!map1.get("Name1").toLowerCase().contains(details.getfirstName().toLowerCase()))
+        	Status= true;
+        	else 
+        		Status= false;
+	}
+        return Status;
+	}
+	
+	public boolean verifySearchStartsWith(FaxAddressBookDetails details) throws Exception {
+		Boolean Status=false;
+		selectWebElement(searchLink);
+        selectWebElement(selectSearchColumn.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Fax Number");
+        Thread.sleep(1000);
+        selectWebElement(selectSearchColumn.get(1));
+        selectDropdownFromVisibleText(searchTypeList,"Starts with");
+        enterValueToTxtField(searchText.get(0),details.getNumber());		
+        selectWebElement(searchBtn);
+        waitUntilWebElementIsVisible(gridcontent);
+        List<Map<String,String>> UI=gettable(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(map1.get("Fax Number").toLowerCase().startsWith(details.getNumber().toLowerCase()))
+        	Status= true;
+        	else 
+        		Status= false;
+	}
+        return Status;
+	}
+	
+	public boolean verifySearchEndsWith(FaxAddressBookDetails details) throws Exception {
+		Boolean Status=false;
+		selectWebElement(searchLink);
+        selectWebElement(selectSearchColumn.get(0));
+        selectDropdownFromVisibleText(columnNameList,"Fax Number");
+        Thread.sleep(1000);
+        selectWebElement(selectSearchColumn.get(1));
+        selectDropdownFromVisibleText(searchTypeList,"Ends with");
+        enterValueToTxtField(searchText.get(0),details.getNumber());		
+        selectWebElement(searchBtn);
+        waitUntilWebElementIsVisible(gridcontent);
+        List<Map<String,String>> UI=gettable(); 
+        for (Map<String,String> map1: UI)
+        {   	
+			if(map1.get("Fax Number").toUpperCase().endsWith(details.getNumber()s.toUpperCase()))
+        	Status= true;
+        	else 
+        		Status= false;
+	}
+        return Status;
+	}
 	public void editRecipientWithoutModifyReason(FaxAddressBookDetails details) throws Exception {
 		int item=Integer.valueOf(items.get(0).getText().split("of ")[1].split(" items")[0]);
 		//item=item-1;
