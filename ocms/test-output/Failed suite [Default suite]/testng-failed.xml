@@ -5,14 +5,34 @@
     <classes>
       <class name="com.tetherfi.test.fax.FaxAddressBookTest">
         <methods>
+          <include name="AddressBookSortingByAscending"/>
+          <include name="VerifyRecipientTotalNumberOfItemsPerPageDetailsRecipient"/>
+          <include name="VerifyAuditTrialReportForDelete"/>
+          <include name="DeleteRecipientRecord"/>
           <include name="startTestCase"/>
           <include name="openApplication"/>
-          <include name="VerifyColumnsHeaderEnable"/>
-          <include name="VerifyDropdownForAllTheColumns"/>
+          <include name="VerifyAddressBookColumnsHeaderEnable"/>
+          <include name="VerifyAuditTrailReportForAddressCreate"/>
+          <include name="AddressBookExportToExcelData"/>
+          <include name="VerifyAuditTrailReportForCreate"/>
+          <include name="VerifyAuditTrialReportForAddressBookDelete"/>
+          <include name="VerifyRecipientNumberOfItemsPerPageSelectionRecipient"/>
           <include name="NavigatetoFaxAddressPage"/>
+          <include name="EditRecipientWithoutModifyReasonRecord"/>
           <include name="endTestCase"/>
           <include name="tearDown"/>
           <include name="afterEachMethod"/>
+          <include name="DeleteRecepientWithoutDeleteReasonRecord"/>
+          <include name="AddNewRecipientRecord"/>
+          <include name="VerifyAuditTrialReportForRecipientUpdate"/>
+          <include name="AddressBookSortingByDescending"/>
+          <include name="EditRecipientRecord"/>
+          <include name="ExportToExcelData"/>
+          <include name="VerifyCancelBtnAtDeleteRecepientRecord"/>
+          <include name="VerifyNumberOfItemsPerPageSelection"/>
+          <include name="VerifyRecipientCancelBtnAtEditRecord"/>
+          <include name="VerifyDropdownForAllTheColumnsRecipient"/>
+          <include name="VerifyAuditTrialReportForFaxAddressBookUpdate"/>
         </methods>
       </class> <!-- com.tetherfi.test.fax.FaxAddressBookTest -->
     </classes>

@@ -1064,7 +1064,7 @@ public class FaxAddressBookPage extends BasePage {
         List<Map<String,String>> UI=gettable(); 
         for (Map<String,String> map1: UI)
         {   	
-			if(map1.get("Fax Number").toUpperCase().endsWith(details.getNumber()s.toUpperCase()))
+			if(map1.get("Fax Number").toUpperCase().endsWith(details.getNumber().toUpperCase()))
         	Status= true;
         	else 
         		Status= false;
