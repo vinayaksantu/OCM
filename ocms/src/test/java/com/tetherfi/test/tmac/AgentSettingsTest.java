@@ -43,7 +43,7 @@ public class AgentSettingsTest extends BaseTest{
 		AgentSettingsPageWMC agentSettingsPagewmc=PageFactory.createPageInstance(driver,AgentSettingsPageWMC.class);
 		Assert.assertTrue(agentSettingsPagewmc.VerifyLogo(), "Agent Settings logo assertion failed");
 		Assert.assertTrue(agentSettingsPagewmc.maximizeWindow(), "Window maximize assertion failed");
-//		Assert.assertTrue(agentSettingsPagewmc.VerifyFooterInfo(), "Footer info not available");
+		Assert.assertTrue(agentSettingsPagewmc.VerifyFooterInfo(), "Footer info not available");
 		Assert.assertTrue(agentSettingsPagewmc.minimizeWindow(), "Window minimize assertion failed");
 		Assert.assertTrue(agentSettingsPagewmc.VerifyFooterInfo(), "Footer info not available");
 	

@@ -112,8 +112,11 @@ public class AdhocOptionEnhancementPage extends BasePage {
     private WebElement saveButton;
 
     @FindBy(css = ".k-grid-CustomDelete")
+    private WebElement deleteButton1;
+    
+    @FindBy(xpath = "//*[@id=\"grid\"]/div[4]/table/tbody/tr/td[1]/a[2]")
     private WebElement deleteButton;
-
+    
     @FindBy(id = "ModifyReason1")
     private WebElement deleteReasonTextBox;
 

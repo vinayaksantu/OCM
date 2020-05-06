@@ -44,9 +44,13 @@ public class WaitTimeColorConfigTest extends BaseTest {
 		WaitTimeColorConfigPage waitTimeColorConfigPage=PageFactory.createPageInstance(driver,WaitTimeColorConfigPage.class);
 		Assert.assertTrue(waitTimeColorConfigPage.verifylogo(),"Wait Time ColorConfig logo assertion failed");
 		Assert.assertTrue(waitTimeColorConfigPage.verifygridcontent(),"Grid Container assertion failed");
-		Assert.assertTrue(waitTimeColorConfigPage.maximizewindow(),"Fullscreen Assertion Failed"); 
+		Assert.assertTrue(waitTimeColorConfigPage.maximizewindow(),"Fullscreen Assertion Failed");
+		screenshot.captureScreen("WaitTimeColorConfigTest", "Maximize Window");
+//		Assert.assertTrue(waitTimeColorConfigPage.VerifyFooterInfo(), "Footer info not available");
 		screenshot.captureScreen("WaitTimeColorConfigTest", "Maximize Window");
 		Assert.assertTrue(waitTimeColorConfigPage.minimizewindow(), "Restored Assertion Failed");
+		screenshot.captureScreen("WaitTimeColorConfigTest", "Maximize Window");
+		Assert.assertTrue(waitTimeColorConfigPage.VerifyFooterInfo(), "Footer info not available");
 		screenshot.captureScreen("WaitTimeColorConfigTest", "Minimize Window");
 	}
 

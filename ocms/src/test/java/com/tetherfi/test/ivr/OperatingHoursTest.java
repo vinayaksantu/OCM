@@ -35,7 +35,7 @@ public class OperatingHoursTest extends BaseTest {
         screenshot.captureScreen("OperatingHoursTest","Operating Hours Page");
     }
     
-    @Test(priority=1)
+    /*@Test(priority=1)
     public void OperatingHoursPage() {
         OperatingHoursPage operatingHoursPage = PageFactory.createPageInstance(driver, OperatingHoursPage.class);
     	Assert.assertTrue( operatingHoursPage.verifylogo(),"Operating Hours logo assertion failed");
@@ -43,7 +43,7 @@ public class OperatingHoursTest extends BaseTest {
     	screenshot.captureScreen(driver,"maximize window","OperatingHoursTest");
     	Assert.assertTrue(operatingHoursPage .minimizewindow(), "Restored Assertion Failed");
     	screenshot.captureScreen(driver,"minimize window","OperatingHoursTest");
-    }
+    }*/
 
    @Test(priority=2)
     public void AddNewOperatingHoursRecord() throws Exception {
@@ -69,7 +69,7 @@ public class OperatingHoursTest extends BaseTest {
         screenshot.captureScreen(driver,"Multiple record Created","OperatingHoursTest");
     }
     
-    @Test(priority=4)
+    /*@Test(priority=4)
 	public void AddLeavingFieldsBlank() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\OperatingHoursData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(1);
@@ -185,7 +185,7 @@ public class OperatingHoursTest extends BaseTest {
         OperatingHoursPage operatingHoursPage=PageFactory.createPageInstance(driver,OperatingHoursPage.class);
         Assert.assertTrue(operatingHoursPage.editOperatingHoursCancelbtn(operatingHoursDetails));
         screenshot.captureScreen(driver,"Edit Cancel", "OperatingHoursTest");
-    }
+    }*/
     
     @Test(priority=15)
     public void EditOperatingHoursRecord() throws Exception {
@@ -198,7 +198,7 @@ public class OperatingHoursTest extends BaseTest {
         screenshot.captureScreen(driver,"Record Updated", "OperatingHoursTest");
     }
     
-    @Test(priority=16)
+    /*@Test(priority=16)
     public void EditInvalidRecord() throws Exception{
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OperatingHoursData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(1);
@@ -398,7 +398,7 @@ public class OperatingHoursTest extends BaseTest {
     	OperatingHoursPage operatingHoursPage=PageFactory.createPageInstance(driver,OperatingHoursPage.class);
         Assert.assertTrue(operatingHoursPage.verifydeleteNo(operatingHoursDetails));
         screenshot.captureScreen(driver,"Delete No", "OperatingHoursTest");
-    }
+    }*/
     
     @Test(priority=39)
     public void DeleteOperatinghoursRecord() throws Exception {
@@ -411,14 +411,14 @@ public class OperatingHoursTest extends BaseTest {
         screenshot.captureScreen(driver,"Record Deleted", "OperatingHoursTest");
     }
      
-    @Test(priority=40)
+    /*@Test(priority=40)
     public void database() throws Exception{
         OperatingHoursPage operatingHoursPage=PageFactory.createPageInstance(driver,OperatingHoursPage.class);
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\OperatingHoursData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Queries").getTestData().get(0);
         OperatingHoursDetails operatingHoursDetails = new OperatingHoursDetails(map);
         Assert.assertTrue(operatingHoursPage.verifyDatabase(operatingHoursDetails.getQuery()));
-    }
+    }*/
     
     
     @AfterMethod

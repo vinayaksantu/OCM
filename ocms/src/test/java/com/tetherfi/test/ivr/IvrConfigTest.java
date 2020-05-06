@@ -40,7 +40,7 @@ public class IvrConfigTest extends BaseTest {
 		screenshot.captureScreen(driver,"IvrConfigPageWMC","IvrConfigTest");
 	}
 
-	@Test(priority=1)
+	/*@Test(priority=1)
 	public void IvrConfigPage() {
 		IvrConfigPageWMC ivrConfigPageWMC = PageFactory.createPageInstance(driver, IvrConfigPageWMC.class);
 		Assert.assertTrue(ivrConfigPageWMC.verifylogo(),"CallBackAnnouncement logo assertion failed");
@@ -64,7 +64,7 @@ public class IvrConfigTest extends BaseTest {
 	public void VerifyColumnsHeaderDisable() {
 		IvrConfigPageWMC ivrConfigPageWMC = PageFactory.createPageInstance(driver, IvrConfigPageWMC.class);
 		Assert.assertFalse(ivrConfigPageWMC.verifycolumnsHeaderDisabled(),"columns disabled assertion failed");
-	}
+	}*/
 
 	@Test(priority=5)
 	public void AddNewIvrConfigRecord() throws IOException {
@@ -76,7 +76,7 @@ public class IvrConfigTest extends BaseTest {
 		Assert.assertEquals(ivrConfigPageWMC.getSuccessMessage(),"Record Created Successfully", "Add New record assertion failed");
 	}
 
-	@Test(priority=6)
+	/*@Test(priority=6)
 	public void AddDuplicateIvrConfigRecord() throws IOException {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IvrConfigData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -137,7 +137,7 @@ public class IvrConfigTest extends BaseTest {
 		ivrConfigPageWMC.clickOnAddRecord();
 		ivrConfigPageWMC.clickOnCancelBtn();
 		Assert.assertFalse(ivrConfigPageWMC.verifyEditFormContainer(), "Cancel Btn at Add record assertion failed");
-	}
+	}*/
 
 	@Test(priority=12)
 	public void EditIvrConfigRecord() throws Exception {
@@ -149,7 +149,7 @@ public class IvrConfigTest extends BaseTest {
 		Assert.assertEquals(ivrConfigPageWMC.getSuccessMessage(),"Record Updated Successfully","Edit record assertion failed");
 	}
 
-	@Test(priority=13)//,dependsOnMethods="EditIvrConfigRecord")
+	/*@Test(priority=13)//,dependsOnMethods="EditIvrConfigRecord")
 	public void VerifyAuditTrialReportForUpdate() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IvrConfigData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(0);	
@@ -236,7 +236,7 @@ public class IvrConfigTest extends BaseTest {
 		ivrConfigPageWMC.clickOnDeleteButton(IvrConfigDetails);
 		ivrConfigPageWMC.clickOnDeleteCancelBtn();
 		Assert.assertFalse(ivrConfigPageWMC.verifyDeleteContainer(), "Cancel Btn at Delete record assertion failed");
-	}
+	}*/
 
 	@Test(priority=22)
 	public void DeleteIvrConfigRecord() throws Exception {
@@ -248,7 +248,7 @@ public class IvrConfigTest extends BaseTest {
 		Assert.assertEquals(ivrConfigPageWMC.getSuccessMessage(),"Record Deleted Successfully","delete record assertion failed");
 	}
 
-	@Test(priority=23)//,dependsOnMethods= {"DeleteIvrConfigRecord"})
+	/*@Test(priority=23)//,dependsOnMethods= {"DeleteIvrConfigRecord"})
 	public void VerifyAuditTrialReportForDelete() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IvrConfigData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(0);	
@@ -382,7 +382,7 @@ public class IvrConfigTest extends BaseTest {
         IvrConfigDetails ivrConfigDetails = new IvrConfigDetails(map);
         IvrConfigPageWMC ivrConfigPageWMC=PageFactory.createPageInstance(driver, IvrConfigPageWMC.class);
         Assert.assertTrue(ivrConfigPageWMC.verifySearchEndsWith(ivrConfigDetails.getParameter()), "Search Assertion Failed");
-    }
+    }*/
 	
 	@AfterMethod
 	public void afterEachMethod(Method method) throws InterruptedException {

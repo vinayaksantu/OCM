@@ -91,7 +91,7 @@ public class ChatTemplatesTest {
 	    driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
       }
     
-    @Test(priority=1,groups= {"OCM"})
+    /*@Test(priority=1,groups= {"OCM"})
 	public void ChatTemplatePage() {
         ChatTemplatesPage ChatTemplatePage = PageFactory.createPageInstance(driver, ChatTemplatesPage.class);
         Assert.assertTrue(ChatTemplatePage.VerifyLogo(),"Logo assertion failed");
@@ -410,7 +410,7 @@ public class ChatTemplatesTest {
         ChatTemplatesPage ChatTemplatesPage = PageFactory.createPageInstance(driver, ChatTemplatesPage.class);
         ChatTemplatesPage.addRecordWithoutGroupName(ChatTemplatesDetails);
         Assert.assertEquals(ChatTemplatesPage.getMessage(),"×\nPlease Provide Group Name", "Add invalid record assertion failed");
-    }
+    }*/
     
     @Test(priority=33,groups= {"OCM"})
     public void AddRecordWithoutChatName() throws Exception {

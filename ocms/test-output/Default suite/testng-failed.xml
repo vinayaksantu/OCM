@@ -3,18 +3,17 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.tetherfi.test.tmac.AgentSettingsTest">
+      <class name="com.tetherfi.test.ivr.IntentMappingTest">
         <methods>
           <include name="startTestCase"/>
           <include name="openApplication"/>
-          <include name="verifyFooterData"/>
-          <include name="VerifyAgentSettingsPage"/>
-          <include name="NavigateToAgentSettingsPage"/>
+          <include name="DeleteIntentMappingRecord"/>
           <include name="endTestCase"/>
           <include name="afterEachMethod"/>
           <include name="tearDown"/>
+          <include name="NavigateToIntentMappingPage"/>
         </methods>
-      </class> <!-- com.tetherfi.test.tmac.AgentSettingsTest -->
+      </class> <!-- com.tetherfi.test.ivr.IntentMappingTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

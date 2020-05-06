@@ -1,30 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [Failed suite [Failed suite [Failed suite [Failed suite [Tetherfi Test Automation]]]]]">
-  <listeners>
-    <listener class-name="com.tetherfi.ExtentReportListener.ExtentReporterNG"/>
-  </listeners>
-  <test thread-count="5" name="SMSResponseTemplateWMC(failed)(failed)(failed)(failed)(failed)">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
+  <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.tetherfi.test.tmac.WaitTimeColorConfigTest">
+      <class name="com.tetherfi.test.ivr.IntentMappingTest">
         <methods>
-          <include name="SortingByAscending"/>
-          <include name="NavigateToWaitTimeColorConfigPage"/>
-          <include name="endTestCase"/>
-          <include name="tearDown"/>
-          <include name="VerifySearchContains"/>
-          <include name="VerifySearchStartsWith"/>
-          <include name="VerifySearchIsNotEqualTo"/>
           <include name="startTestCase"/>
-          <include name="afterEachMethod"/>
           <include name="openApplication"/>
-          <include name="EditWaitTimeColorConfigCancelRecord"/>
-          <include name="database"/>
-          <include name="VerifySearchDoesNotContains"/>
-          <include name="VerifySearchEndsWith"/>
-          <include name="SortingByDescending"/>
+          <include name="DeleteIntentMappingRecord"/>
+          <include name="endTestCase"/>
+          <include name="afterEachMethod"/>
+          <include name="tearDown"/>
+          <include name="NavigateToIntentMappingPage"/>
         </methods>
-      </class> <!-- com.tetherfi.test.tmac.WaitTimeColorConfigTest -->
+      </class> <!-- com.tetherfi.test.ivr.IntentMappingTest -->
     </classes>
-  </test> <!-- SMSResponseTemplateWMC(failed)(failed)(failed)(failed)(failed) -->
-</suite> <!-- Failed suite [Failed suite [Failed suite [Failed suite [Failed suite [Tetherfi Test Automation]]]]] -->
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->

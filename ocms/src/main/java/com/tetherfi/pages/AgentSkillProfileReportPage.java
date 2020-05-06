@@ -1066,7 +1066,8 @@ private String getProperHeadersInGrid(String cname){
 				else
 					return false;
 			}
-			 public boolean groupby() {
+			
+			public boolean groupby() {
 					DragandDrop(agentid,droptarget);
 					try {
 						Thread.sleep(1000);
@@ -1102,9 +1103,9 @@ private String getProperHeadersInGrid(String cname){
 			 
 			 public void sortAscSkillName() {
 				 selectWebElement(headersDropdown.get(0));
-			        waitForJqueryLoad(driver);
-			        selectWebElement(sortAscending.get(0));
-			        waitForJqueryLoad(driver);
+				 waitForJqueryLoad(driver);
+				 selectWebElement(sortAscending.get(0));
+				 waitForJqueryLoad(driver);
 			 }
 	 
 }

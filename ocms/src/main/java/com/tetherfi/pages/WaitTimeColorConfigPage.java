@@ -83,6 +83,9 @@ public class WaitTimeColorConfigPage extends BasePage {
 	@FindBy(xpath="//div[@class='ibox float-e-margins fullscreen'")
 	private WebElement fullscreen;
 
+	 @FindBy(id="footer")
+	 private WebElement FooterButton;
+	
 	@FindBy(xpath="//i[@class='fas fa-compress']")
 	private WebElement minimize;
 
@@ -994,5 +997,18 @@ public class WaitTimeColorConfigPage extends BasePage {
 			return successmsg.getText();}
         else {
          return errorMsg.get(0).getText();}
-	}	
+	}
+	
+	public boolean VerifyFooterInfo() {
+		selectWebElement(FooterButton);
+		waitForJqueryLoad(driver);
+		if(FooterButton.isDisplayed())
+		{
+			return true;
+		}
+		else 
+			return false; 
+	}
+	
+		
 }

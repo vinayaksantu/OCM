@@ -1,11 +1,14 @@
 package com.tetherfi.test.reports;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import com.tetherfi.model.report.ReportDetails;
+import com.tetherfi.pages.AgentSkillHistoricalReportPage;
 import com.tetherfi.pages.HomePage;
 import com.tetherfi.pages.OCMReportsPage;
 import com.tetherfi.pages.OCMAgentSummaryReportPage;
@@ -463,7 +466,7 @@ public class OCMAgentSummaryReportTest extends BaseTest {
 		screenshot.captureScreen("OCMAgentSummaryReport", "AlreadyGroupBy");
 	}*/
 
-	@Test(priority=38, description="To verify main page details of Agent Summary report")
+	/*@Test(priority=38, description="To verify main page details of Agent Summary report")
 	public void database() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(0);
@@ -472,8 +475,59 @@ public class OCMAgentSummaryReportTest extends BaseTest {
 		ocmReportsPage.showReport(reportDetails);
 		OCMAgentSummaryReportPage AgentSummaryReportPage=PageFactory.createPageInstance(driver,OCMAgentSummaryReportPage.class);
 		Assert.assertTrue(AgentSummaryReportPage.verifyDatabase(reportDetails.getQuery(), reportDetails));
-	}
+	}*/
 	
+	
+	@Test(priority=38, description="To verify report data against DB")
+	public void database1() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(0);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
+		ocmReportsPage.showReport(reportDetails);
+		OCMAgentSummaryReportPage AgentSummaryReportPage=PageFactory.createPageInstance(driver,OCMAgentSummaryReportPage.class);
+//		AgentSummaryReportPage.sortAscAgentID();
+		Assert.assertTrue(AgentSummaryReportPage.verifyDatabase(reportDetails.getQuery(), reportDetails),"Main Report Data Mismatch");
+		System.out.println("Main Report Data Match Successfull");
+		List<String> agentList = new ArrayList<>();
+		agentList = AgentSummaryReportPage.getAgents();
+		System.out.println(agentList);
+		int k=0;
+		for(int i=0;i<agentList.size();i++) {
+			if(k==10){
+				AgentSummaryReportPage.goToNextPage();
+				k=k-10;
+			}
+			AgentSummaryReportPage.clickOnSkillIdRowOnMainReport(k);
+			Assert.assertTrue(AgentSummaryReportPage.verifyDatabaseDrillGridOne(reportDetails.getQueryDrillGridOne(), reportDetails, agentList.get(i)),"Drill Grid One data mismatch for Skill Id " + agentList.get(i));
+			System.out.println("Drill Grid One data match successfull for Skill Id " + agentList.get(i));
+			k++;
+			Thread.sleep(1000);
+		}
+		List<String> LogoutDates = new ArrayList<>();
+		for(int i=0;i<agentList.size();i++) {
+			AgentSummaryReportPage.clickOnSkillIdRowOnMainReport(i);
+			Thread.sleep(1000);
+			LogoutDates = AgentSummaryReportPage.getLogoutDates();
+			//System.out.println(skillDates);
+			k=0;
+			for(int j=0;j<LogoutDates.size();j++) {
+				if(k==10){
+					AgentSummaryReportPage.goToNextPageDrillOne();
+					k=k-10;
+				}
+				AgentSummaryReportPage.clickOnDateRowOnDrillOneReport(k);
+				Assert.assertTrue(AgentSummaryReportPage.verifyDatabaseDrillGridTwo(reportDetails.getQueryDrillGridTwo(), reportDetails, LogoutDates.get(j), agentList.get(i)),"Drill Grid Two data mismatch for Skill Id " + agentList.get(i) + " and Date " + LogoutDates.get(j));
+				System.out.println("Drill Grid Two data match successfull for Skill Id " + agentList.get(i) + " and Date " + LogoutDates.get(j));
+				k++;
+				Thread.sleep(1000);
+			}
+			AgentSummaryReportPage.closeDrillOneReport();
+			Thread.sleep(1000);
+		}
+	}
+
+		
 	@AfterMethod
 	public void afterEachMethod(Method method) throws InterruptedException {
 		Screenshot screenshot=new Screenshot(driver);
