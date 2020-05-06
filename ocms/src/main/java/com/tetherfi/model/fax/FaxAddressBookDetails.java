@@ -16,6 +16,7 @@ public class FaxAddressBookDetails {
 	private String Recipient;
 	private String UpdatedName;
 	private String UpdatedRecipients;
+	String query;
 	
 
 	public FaxAddressBookDetails(Map<String, String> map) {
@@ -32,11 +33,17 @@ public class FaxAddressBookDetails {
 		Recipient=readRecipient(map);
 		UpdatedName=readUpdatedName(map);
 		UpdatedRecipients=readUpdatedRecipients(map);
+		query=readQuery(map);
 	}
 
 	private String readUpdatedRecipients(Map<String, String> map) {
 		String Value=map.get("Updated Recipients");
 		return Value;
+	}
+	
+	private String readQuery(Map<String, String> map) {
+		String value=map.get("Query");
+		return value;
 	}
 
 	private String readUpdatedName(Map<String, String> map) {
@@ -150,5 +157,10 @@ public class FaxAddressBookDetails {
 	public String getUpdatedRecipients() {
 		return UpdatedRecipients;
 	}
+	
+	public String getQuery() {
+		return query;
+	}
+
 
 }

@@ -22,7 +22,7 @@ public class Constants {
     //public static String fileTransferDestinationTransfer = "D:/TetherfiWork/ProductOCM/scripts/ocms/src/test/resources/DownloadedFiles/Json/AgentSetting.json";
     public static String ftp_domain = "172.16.2.61";
     public static String ftp_userName = "Administrator";
-    public static String ftp_password = "Tetherfi@920";
+    public static String ftp_password = "Tetherfi@930";
     //public static String remoteFilePathTransfer = "\\\\172.16.2.16\\d$\\Products\\OCM\\UI\\CustomJSONConfigurations\\Admin%20Modules\\AgentSetting.json";
 
 }

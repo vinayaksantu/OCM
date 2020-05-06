@@ -15,6 +15,7 @@ import org.openqa.selenium.support.FindBy;
 
 import com.tetherfi.model.fax.FaxAddressBookDetails;
 import com.tetherfi.model.fax.FaxSendersDetails;
+import com.tetherfi.model.user.CepEventMappingDetails;
 
 public class FaxAddressBookPage extends BasePage {
 
@@ -154,7 +155,8 @@ public class FaxAddressBookPage extends BasePage {
 	
 	//@FindBy(css=".k-grid-edit")
 	//@FindBy(css="k-button k-button-icontext k-grid-edit k-state-border-down")
-	@FindBy(xpath="//a[@class='k-button k-button-icontext k-grid-edit k-state-border-down']")
+	//@FindBy(xpath="//a[@class='k-button k-button-icontext k-grid-edit k-state-border-down']")
+	@FindBy(css="#tdrillgrid .k-grid-edit")
     private WebElement editBtn;
 
 
@@ -174,8 +176,8 @@ public class FaxAddressBookPage extends BasePage {
 	@FindBy(css="div[style='display: block; z-index: 10002; opacity: 0.5;']")
 	private WebElement deleteContainer;
 
-	//@FindBy(css = ".k-grid-CustomDelete")
-	//private WebElement deleteButton;
+	@FindBy(css = "#tdrillgrid .k-grid-CustomDelete")
+	private WebElement deleteButton;
 
 	@FindBy(xpath="//a[@class='k-button k-button-icontext k-grid-CustomDelete']")
 	private List<WebElement> deleteRecordButton;
@@ -426,16 +428,7 @@ public class FaxAddressBookPage extends BasePage {
 		}
 		return arr;
 	}
-	public boolean verifyDatabase(String query) {
-		List<Map<String,String>> database=database(query);
-		System.out.println(database);
-		List<Map<String,String>> UI=gettable(); 
-		System.out.println(UI);
-		if(UI.equals(database))
-			return true;
-		else
-			return false;
-	}
+	
 
 	public List<Map<String, String>> gettable() {
 		int item=Integer.valueOf(items.get(1).getText().split("of ")[1].split(" items")[0]);
@@ -470,7 +463,7 @@ public class FaxAddressBookPage extends BasePage {
 		}
 		return arr;
 	}
-	public boolean ExporttoExcelWithoutData(FaxSendersDetails details) throws Exception {
+	/*public boolean ExporttoExcelWithoutData(FaxSendersDetails details) throws Exception {
 		searchFaxAddressBookRecord(details.getFaxLine());
 		waitForJqueryLoad(driver);
 		Thread.sleep(1000);
@@ -485,7 +478,7 @@ public class FaxAddressBookPage extends BasePage {
 	private void searchFaxAddressBookRecord(String faxLine2) {
 		// TODO Auto-generated method stub
 
-	}
+	}*/
 
 	public void SortByAscending() {
 		selectWebElement(FirstName);
@@ -851,8 +844,10 @@ public class FaxAddressBookPage extends BasePage {
 	public void clickOnEditButtonrecepient(FaxAddressBookDetails details) throws Exception{
 		int item=Integer.valueOf(items.get(0).getText().split("of ")[1].split(" items")[0]);
 		searchRecipientRecord(details);
-		waitUntilWebElementIsVisible(EditButton.get(item));
-		selectWebElement(EditButton.get(item));
+		waitUntilWebElementIsVisible(editBtn);
+		selectWebElement(editBtn);
+		//waitUntilWebElementIsVisible(EditButton.get(item));
+		//selectWebElement(EditButton.get(item));
 		//selectWebElement(editButton);
 	}
 	public void clickOnEditButtonAddress(FaxAddressBookDetails details) throws Exception{
@@ -875,8 +870,10 @@ public class FaxAddressBookPage extends BasePage {
 	public void DeletecancelButtonRecepientTab(FaxAddressBookDetails details) throws Exception{
 		int item=Integer.valueOf(items.get(0).getText().split("of ")[1].split(" items")[0]);
 		searchRecipientRecord(details);
-		waitUntilWebElementIsVisible(deleteRecordButton.get(item));
-		selectWebElement(deleteRecordButton.get(item));		    	
+		//waitUntilWebElementIsVisible(deleteRecordButton.get(item));
+		//selectWebElement(deleteRecordButton.get(item));
+		waitUntilWebElementIsVisible(deleteButton);
+		selectWebElement(deleteButton);
 	}
 
 	public void clickOnDeleteCancelBtn(){
@@ -929,8 +926,10 @@ public class FaxAddressBookPage extends BasePage {
 		int item=Integer.valueOf(items.get(0).getText().split("of ")[1].split(" items")[0]);
 		searchRecipientRecord(details);
 		//waitForJqueryLoad(driver);
-		waitUntilWebElementIsVisible(EditButton.get(item));
-		selectWebElement(EditButton.get(item));
+		//waitUntilWebElementIsVisible(EditButton.get(item));
+		//selectWebElement(EditButton.get(item));
+		waitUntilWebElementIsVisible(editBtn);
+		selectWebElement(editBtn);
 		waitForJqueryLoad(driver);
 		enterValueToTxtField(firstNameTxtbox,details.getUpdatedFirstName());
 		enterValueToTxtFieldWithoutClear(ModifyReasonTextBox,details.getModifyReason());
@@ -1089,7 +1088,7 @@ public class FaxAddressBookPage extends BasePage {
 		searchRecipientRecord(details);
 		//waitUntilWebElementIsVisible(EditButton.get(item));
 		//selectWebElement(EditButton.get(item));
-		Thread.sleep(2000);
+		//Thread.sleep(2000);
 		waitUntilWebElementIsVisible(editBtn);
 		selectWebElement(editBtn);
 		waitForJqueryLoad(driver);
@@ -1101,8 +1100,10 @@ public class FaxAddressBookPage extends BasePage {
 	public void deleteRecipientWithoutDeleteReasonRecord(FaxAddressBookDetails details) throws Exception {
 		int item=Integer.valueOf(items.get(0).getText().split("of ")[1].split(" items")[0]);
 		searchRecipientRecord(details);
-		waitUntilWebElementIsVisible(deleteRecordButton.get(item));
-		selectWebElement(deleteRecordButton.get(item));
+		//waitUntilWebElementIsVisible(deleteRecordButton.get(item));
+		//selectWebElement(deleteRecordButton.get(item));
+		waitUntilWebElementIsVisible(deleteButton);
+		selectWebElement(deleteButton);	
 		waitForJqueryLoad(driver);
 		selectWebElement(deleteYesBtn);		
 		//selectWebElement(deleteNoBtn);
@@ -1112,8 +1113,10 @@ public class FaxAddressBookPage extends BasePage {
 	public void deleteRecipientRecord(FaxAddressBookDetails details) throws Exception {
 		int item=Integer.valueOf(items.get(0).getText().split("of ")[1].split(" items")[0]);
 		searchRecipientRecord(details);
-		waitUntilWebElementIsVisible(deleteRecordButton.get(item));
-		selectWebElement(deleteRecordButton.get(item));
+		//waitUntilWebElementIsVisible(deleteRecordButton.get(item));
+		//selectWebElement(deleteRecordButton.get(item));
+		waitUntilWebElementIsVisible(deleteButton);
+		selectWebElement(deleteButton);
 		waitForJqueryLoad(driver);
 		enterValueToTxtFieldWithoutClear(deleteReasonTextBox,details.getDeleteReason());
 		selectWebElement(deleteYesBtn);		
@@ -1504,6 +1507,48 @@ public class FaxAddressBookPage extends BasePage {
 
 		String actualitems=items.get(0).getText();
 		if(actualitems.equals(items.get(0).getText()))
+			return true;
+		else
+			return false;
+	}
+	public boolean ExporttoExcelWithoutDataRecipient(FaxAddressBookDetails details ) throws Exception {
+		searchRecipientRecord(details);
+		waitForJqueryLoad(driver);
+		Thread.sleep(1000);
+		selectWebElement(exporttoexcel.get(1));
+		if(errorMsg.get(0).getText().equals("There is no record to export"))
+			return true;
+		else
+		return false;
+	}
+	
+	public boolean ExporttoExcelWithoutDataAddressbook(FaxAddressBookDetails details) throws Exception {
+		searchAddressRecord(details);
+		waitForJqueryLoad(driver);
+		Thread.sleep(1000);
+		selectWebElement(exporttoexcel.get(0));
+		if(errorMsg.get(0).getText().equals("There is no record to export"))
+			return true;
+		else
+		return false;
+	}
+	public boolean verifyRecipientDatabase(String query) {
+		List<Map<String,String>> database=database(query);
+		System.out.println(database);
+		List<Map<String,String>> UI=getdata(); 
+		System.out.println(UI);
+		if(UI.equals(database))
+			return true;
+		else
+			return false;
+	}
+	
+	public boolean verifyAddressBookDatabase(String query) {
+		List<Map<String,String>> database=database(query);
+		System.out.println(database);
+		List<Map<String,String>> UI=getAddressBookdata(); 
+		System.out.println(UI);
+		if(UI.equals(database))
 			return true;
 		else
 			return false;
