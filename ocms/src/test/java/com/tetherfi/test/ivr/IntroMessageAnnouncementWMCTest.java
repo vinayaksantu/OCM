@@ -40,7 +40,7 @@ public class IntroMessageAnnouncementWMCTest extends BaseTest {
     	Assert.assertTrue(introMessageAnnouncementWMCPage.isIntroMessageAnnouncementPageDisplayed(), "IntroMessage Announcement Assertion Failed");
     }
     
-    @Test(priority=1)
+    /*@Test(priority=1)
     public void IntroMessageAnnouncementWMCPage() {
     	IntroMessageAnnouncementWMCPage introMessageAnnouncementPage=PageFactory.createPageInstance(driver, IntroMessageAnnouncementWMCPage.class);
     	Assert.assertTrue(introMessageAnnouncementPage.verifyLogo(), "IntroMessageAnnouncement Logo Assertion Failed");
@@ -75,7 +75,7 @@ public class IntroMessageAnnouncementWMCTest extends BaseTest {
         IntroMessageAnnouncementDetails introMessageAnnouncementDetails=new IntroMessageAnnouncementDetails(map);
         IntroMessageAnnouncementWMCPage introMesssageAnnouncementPage=PageFactory.createPageInstance(driver, IntroMessageAnnouncementWMCPage.class);
         Assert.assertTrue(introMesssageAnnouncementPage.addNewcancel(introMessageAnnouncementDetails),"Add New Record Assertion failed");
-    }
+    }*/
     
     @Test(priority=6)
     public void AddNewIntroMessageAnnouncementRecord() throws Exception {
@@ -87,7 +87,7 @@ public class IntroMessageAnnouncementWMCTest extends BaseTest {
         Assert.assertEquals(introMesssageAnnouncementPage.verifySuccessMessage(), "Record created successfully","Add New record assertion failed");
     }
     
-    @Test(priority=7,dependsOnMethods="AddNewIntroMessageAnnouncementRecord")
+    /*@Test(priority=7,dependsOnMethods="AddNewIntroMessageAnnouncementRecord")
     public void VerifyAuditTrialReportForCreate() throws Exception {
     	String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IntroMessageAnnouncementData.xlsx";
     	Map<String,String>map=new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -193,7 +193,7 @@ public class IntroMessageAnnouncementWMCTest extends BaseTest {
     	introMessageAnnouncementPage.AddIntroMessageAnnouncementWithoutWaveFile(introMessageAnnouncementDetails);
     	Assert.assertEquals(introMessageAnnouncementPage.verifySuccessMessage(), "Please provide input for Wave File", "Record Assertion Failed");
     	
-    }
+    }*/
     
     @Test(priority=17)
     public void EditIntroMessageAnnouncementRecord() throws Exception {
@@ -205,7 +205,7 @@ public class IntroMessageAnnouncementWMCTest extends BaseTest {
     	Assert.assertEquals(introMessageAnnouncementPage.verifySuccessMessage(), "Record updated successfully", "Record Updation Assertion Failed");
     }
     
-    @Test(priority=18,dependsOnMethods="EditIntroMessageAnnouncementRecord")
+    /*@Test(priority=18,dependsOnMethods="EditIntroMessageAnnouncementRecord")
     public void VerifyAuditTrialReportForUpdate() throws Exception {
     	String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IntroMessageAnnouncementData.xlsx";
     	Map<String,String>map=new ExcelReader(filePath,"Edit").getTestData().get(0);
@@ -322,7 +322,7 @@ public class IntroMessageAnnouncementWMCTest extends BaseTest {
     	IntroMessageAnnouncementDetails introMessageAnnouncementDetails=new IntroMessageAnnouncementDetails(map);
     	IntroMessageAnnouncementWMCPage introMessageAnnouncementPage=PageFactory.createPageInstance(driver, IntroMessageAnnouncementWMCPage.class);
     	Assert.assertTrue(introMessageAnnouncementPage.deleteCancel(introMessageAnnouncementDetails));
-    }
+    }*/
     
     @Test(priority=30)
     public void DeleteIntroMessageAnnouncementRecord() throws Exception {
@@ -334,7 +334,7 @@ public class IntroMessageAnnouncementWMCTest extends BaseTest {
     	Assert.assertEquals(introMessageAnnouncementPage.verifySuccessMessage(), "Record deleted successfully", "Record Delete Assertion failed");
     }
     
-    @Test(priority=31,dependsOnMethods="DeleteIntroMessageAnnouncementRecord")
+    /*@Test(priority=31,dependsOnMethods="DeleteIntroMessageAnnouncementRecord")
     public void VerifyAuditTrialReportForDelete() throws Exception {
     	String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IntroMessageAnnouncementData.xlsx";
     	Map<String,String>map=new ExcelReader(filePath,"Delete").getTestData().get(0);
@@ -412,7 +412,7 @@ public class IntroMessageAnnouncementWMCTest extends BaseTest {
     	IntroMessageAnnouncementWMCPage introMessageAnnouncementPage=PageFactory.createPageInstance(driver, IntroMessageAnnouncementWMCPage.class);
     	introMessageAnnouncementPage.deleteIntroMessageAnnouncementRecord(introMessageAnnouncementDetails);
     	Assert.assertEquals(introMessageAnnouncementPage.verifySuccessMessage(), "Record deleted successfully", "Record Delete Assertion failed");
-    }
+    }*/
     
     
     @AfterMethod

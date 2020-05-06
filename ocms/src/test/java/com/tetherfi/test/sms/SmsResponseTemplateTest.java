@@ -41,7 +41,7 @@ public class SmsResponseTemplateTest extends BaseTest{
 		Assert.assertTrue(SmsResponseTemplatePageWMC.isSMSResponseTemplatePageDisplayed(), "SMS Response Template Page assertion failed");
 	}
 
-	@Test(priority=1)
+	/*@Test(priority=1)
 	public void SmsResponseTemplatePage() {
 		SmsResponseTemplatePageWMC SmsResponseTemplatePageWMC = PageFactory.createPageInstance(driver, SmsResponseTemplatePageWMC.class);
 		Assert.assertTrue(SmsResponseTemplatePageWMC.verifylogo(),"SMS Page logo assertion failed");
@@ -65,7 +65,7 @@ public class SmsResponseTemplateTest extends BaseTest{
 	public void VerifyColumnsHeaderDisable() {
 		SmsResponseTemplatePageWMC SmsResponseTemplatePageWMC=PageFactory.createPageInstance(driver, SmsResponseTemplatePageWMC.class);	
 		Assert.assertFalse(SmsResponseTemplatePageWMC.verifycolumnsHeaderDisabled(),"Columns Headers Assertion Failed");	   	
-	}
+	}*/
 
 	@Test(priority=5)
 	public void AddNewSMSRecord() throws Exception {
@@ -77,7 +77,7 @@ public class SmsResponseTemplateTest extends BaseTest{
 		Assert.assertEquals(SmsResponseTemplatePageWMC.getSuccessMessage(),"Record Created Successfully"); 
 	}
 
-	@Test(priority=6)
+	/*@Test(priority=6)
 	public void AddDuplicateSMSRecord() throws Exception {
 		String filePath=System.getProperty("user.dir")+"\\src\\test\\\\resources\\TestData\\SmsResponseTemplateData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -158,7 +158,7 @@ public class SmsResponseTemplateTest extends BaseTest{
 		SmsResponseTemplatePageWMC.clickOnAddNewRecord();
 		SmsResponseTemplatePageWMC.clickOnCancelBtn();
 		Assert.assertFalse(SmsResponseTemplatePageWMC.verifyEditFormContainer(), "Cancel Btn at Add record assertion failed");	   
-	}
+	}*/
 
 	@Test(priority=14)//,dependsOnMethods="AddNewSMSRecord") 
 	public void EditSmsResponseTemplateRecord() throws Exception {
@@ -170,7 +170,7 @@ public class SmsResponseTemplateTest extends BaseTest{
 		Assert.assertEquals(SmsResponseTemplatePageWMC.getSuccessMessage(), "Record updated successfully","Edit record assertion failed");;
 	}
 
-	@Test(priority=15)//, dependsOnMethods="EditSmsResponseTemplateRecord")
+	/*@Test(priority=15)//, dependsOnMethods="EditSmsResponseTemplateRecord")
 	public void VerifyAuditTrialReportForUpdate() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\SmsResponseTemplateData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(0);	
@@ -257,7 +257,7 @@ public class SmsResponseTemplateTest extends BaseTest{
 		SmsResponseTemplatePageWMC.clickOnDeleteButton(SmsResponseTemplateDetails);
 		SmsResponseTemplatePageWMC.clickOnDeleteCancelBtn();
 		Assert.assertFalse(SmsResponseTemplatePageWMC.verifyDeleteContainer(), "Cancel Btn at Delete record assertion failed");
-	}
+	}*/
 
 	@Test(priority=24)
 	public void DeleteSmsResponseTemplateRecord() throws Exception {
@@ -269,7 +269,7 @@ public class SmsResponseTemplateTest extends BaseTest{
 		Assert.assertEquals(SmsResponseTemplatePageWMC.getSuccessMessage(), "Record deleted successfully", "Delete Record Assertion failed");  
 	}
 
-	@Test(priority=25)//, dependsOnMethods="DeleteSmsResponseTemplateRecord")
+	/*@Test(priority=25)//, dependsOnMethods="DeleteSmsResponseTemplateRecord")
 	public void VerifyAuditTrialReportForDelete() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\SmsResponseTemplateData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(0);	
@@ -348,7 +348,7 @@ public class SmsResponseTemplateTest extends BaseTest{
 	public void VerifyNumberOfItemsPerPageSelection() {
 		SmsResponseTemplatePageWMC SmsResponseTemplatePageWMC=PageFactory.createPageInstance(driver, SmsResponseTemplatePageWMC.class);			      
 		Assert.assertTrue(SmsResponseTemplatePageWMC.verifyNumberOfItemsPerPage(), "Number of items per page assertion failed");
-	}
+	}*/
 
 	@AfterMethod
 	public void afterEachMethod(Method method) throws InterruptedException {

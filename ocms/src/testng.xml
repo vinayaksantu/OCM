@@ -11,10 +11,16 @@
 			class-name="com.tetherfi.ExtentReportListener.ExtentReporterNG" />
 	</listeners>
      
-     <test name="ChatTemplate" parallel="false">
+     <test name="VBEnrolement Flag" parallel="false">
       <classes>  
-           <class name="com.tetherfi.test.chat.ChatTemplatesTest"/> 
+           <class name="com.tetherfi.test.ivr.VBEnrollmentFlagTest"/> 
             </classes>
      </test>
-              
+   
+     <test name="HolidayListTest" parallel="false">
+      <classes>  
+           <class name="com.tetherfi.test.ivr.HolidayListTest"/> 
+            </classes>
+     </test>
+               
 </suite>

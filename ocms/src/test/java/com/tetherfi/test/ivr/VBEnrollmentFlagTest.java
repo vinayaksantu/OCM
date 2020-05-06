@@ -199,7 +199,7 @@ public class VBEnrollmentFlagTest extends BaseTest {
         VBEnrollmentFlagDetails VBEnrollmentFlagDetails = new VBEnrollmentFlagDetails(map);
         VbEnrollmentFlagPage VbEnrollmentFlagPage = PageFactory.createPageInstance(driver, VbEnrollmentFlagPage.class);
         Assert.assertTrue(VbEnrollmentFlagPage.verifySearchEndsWith(VBEnrollmentFlagDetails.getHotLineName()));
-	}
+	}*/
 	
     @Test(priority=18)
     public void EditVBEnrollmentFlagRecord() throws Exception {
@@ -211,7 +211,7 @@ public class VBEnrollmentFlagTest extends BaseTest {
         Assert.assertEquals(VbEnrollmentFlagPage.verifySuccessMessage(),"Record Updated Successfully","Edit record assertion failed");
     }
     
-    @Test(priority=19,dependsOnMethods="EditVBEnrollmentFlagRecord")
+    /*@Test(priority=19,dependsOnMethods="EditVBEnrollmentFlagRecord")
     public void VerifyAuditTrialReportForUpdate() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\VBEnrollmentFlagData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(0);	
@@ -362,7 +362,7 @@ public class VBEnrollmentFlagTest extends BaseTest {
         Assert.assertFalse(VbEnrollmentFlagPage.verifyDeleteContainer(), "Cancel Btn at Delete record assertion failed");
     }*/
     
-    @Test(priority=36,dependsOnMethods = "VerifyCancelBtnAtDeleteVBEnrollmentFlagRecord")
+    @Test(priority=36)//,dependsOnMethods = "VerifyCancelBtnAtDeleteVBEnrollmentFlagRecord")
     public void DeleteVBEnrollmentFlagRecord() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\VBEnrollmentFlagData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
@@ -410,8 +410,6 @@ public class VBEnrollmentFlagTest extends BaseTest {
     }*/
     
   
-    
-	
 	 @AfterMethod
 	    public void afterEachMethod(Method method) throws InterruptedException {
 		        Screenshot screenshot=new Screenshot(driver);

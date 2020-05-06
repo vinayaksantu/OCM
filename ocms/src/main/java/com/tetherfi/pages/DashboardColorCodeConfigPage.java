@@ -363,6 +363,7 @@ public class DashboardColorCodeConfigPage extends BasePage {
 
     public void deleteDashboardColorConfigRecord(String Starttime, String reason) throws Exception {
         searchDashboardColorConfigRecord(Starttime);
+        Thread.sleep(3000);
         btnClick(deleteBtn);
         selectWebElement(deleteReasonTextBox);
         try {

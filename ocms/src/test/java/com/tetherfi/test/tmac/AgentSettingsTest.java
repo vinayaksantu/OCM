@@ -38,7 +38,7 @@ public class AgentSettingsTest extends BaseTest{
 		Assert.assertTrue(agentSettingsPagewmc.isAgentSettingsPageDisplayed(),"Agent Settings page assertion failed");	
 	}
 
-	@Test(priority=1)
+	/*@Test(priority=1)
 	public void VerifyAgentSettingsPage() {
 		AgentSettingsPageWMC agentSettingsPagewmc=PageFactory.createPageInstance(driver,AgentSettingsPageWMC.class);
 		Assert.assertTrue(agentSettingsPagewmc.VerifyLogo(), "Agent Settings logo assertion failed");
@@ -65,7 +65,7 @@ public class AgentSettingsTest extends BaseTest{
 	public void VerifyColumnsHeaderDisabled() {
 		AgentSettingsPageWMC agentSettingsPagewmc=PageFactory.createPageInstance(driver, AgentSettingsPageWMC.class);
 		Assert.assertTrue(agentSettingsPagewmc.verifycolumnsHeaderDisabled(), "Columns heade assertion failed");			
-	}
+	}*/
 
 	@Test(priority=5)
 	public void VerifyAddNewAgentSettingsRecord() throws Exception {
@@ -139,7 +139,7 @@ public class AgentSettingsTest extends BaseTest{
 	agentSettingsPagewmc.clickOnAddRecord();
 	agentSettingsPagewmc.clickOnCancel();
 	Assert.assertTrue(agentSettingsPagewmc.verifyEditFormContainer(), "Cancel Button At Add Record Assertion Failed");	
-}
+}*/
 	
 	@Test(priority=12)
 	public void EditAgentSettingsRecord() throws Exception {
@@ -151,7 +151,7 @@ public class AgentSettingsTest extends BaseTest{
 		Assert.assertEquals(agentSettingsPagewmc.getSuccessMessage(), "Record Updated Successfully", "Edit Record Assertion Failed");
 	}
 
-	@Test(priority=13)
+	/*@Test(priority=13)
 	public void VerifyAuditTrailReportForUpdate() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentSettingsData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(2);
@@ -251,7 +251,7 @@ public class AgentSettingsTest extends BaseTest{
     	Assert.assertEquals(agentSettingsPagewmc.getSuccessMessage(), "Record Deleted Successfully", "Delete Record Assertion failed");		
     }
 
-    @Test(priority=23)
+    /*@Test(priority=23)
 	public void VerifyAuditTrailReportForDelete() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentSettingsData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(2);
@@ -378,10 +378,7 @@ public class AgentSettingsTest extends BaseTest{
 	    Assert.assertTrue(agentSettingsPagewmc.verifySearchEndsWith(agentSettingsDetails.getFirstname()));
 	 }*/
 	
-	@Test(priority=38)
-	public void verifyFooterData() {
-				
-	}
+	
 	  
 	@AfterMethod
 	public void afterEachMethod(Method method) throws InterruptedException {

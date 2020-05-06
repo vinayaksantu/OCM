@@ -31,7 +31,7 @@ public class DashboardColorCodeConfigTest extends BaseTest {
         Assert.assertTrue(dshccpage.isDashboardColorConfigPageDisplayed(),("Dashboard Color Code Config page assertion failed"));
     }
     
-    @Test (priority=1)
+    /*@Test (priority=1)
     public void DashboardColorCodeConfigPage(){
     	DashboardColorCodeConfigPage dshccpage=PageFactory.createPageInstance(driver,DashboardColorCodeConfigPage.class);
     	Assert.assertTrue(dshccpage.verifylogo(),"Dashboard Color Config logo assertion failed");
@@ -48,7 +48,7 @@ public class DashboardColorCodeConfigTest extends BaseTest {
         DashboardColorCodeConfigDetails dashColorConfigDetails = new DashboardColorCodeConfigDetails(map);
         DashboardColorCodeConfigPage dshccpage=PageFactory.createPageInstance(driver,DashboardColorCodeConfigPage.class);
         Assert.assertTrue(dshccpage.addNewCancel(dashColorConfigDetails));
-    }
+    }*/
    
     @Test(priority=3)
     public void AddNewDashboardColorConfigRecord() throws Exception {
@@ -60,7 +60,7 @@ public class DashboardColorCodeConfigTest extends BaseTest {
         Assert.assertEquals(dshccpage.getSuccessMessage(),"Record Created Successfully","Add New record assertion failed");
     }
    
-   @Test(priority=4)
+   /*@Test(priority=4)
    public void AddRecordWithoutDashboardName() throws Exception {
 	   String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\DashboardColourConfig.xlsx";
        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -124,7 +124,7 @@ public class DashboardColorCodeConfigTest extends BaseTest {
         ReportDetails reportDetails= new ReportDetails(map1);
         ocmReportsPage.showReport(reportDetails);
         Assert.assertTrue(ocmReportsPage.verifyDashboardColorConfigCreate(dshColorConfigDetails,"Create"));
-    }
+    }*/
   
    	@Test(priority=10)
     public void EditDashboardColorConfigCancelRecord() throws Exception {
@@ -135,7 +135,7 @@ public class DashboardColorCodeConfigTest extends BaseTest {
         Assert.assertTrue(dshccpage.editcancel(dshColorConfigDetails));
    	}
    	
-   	@Test(priority=11)
+   	/*@Test(priority=11)
     public void EditWithoutModifyReasonRecord() throws Exception {
    		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\DashboardColourConfig.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
@@ -329,7 +329,7 @@ public class DashboardColorCodeConfigTest extends BaseTest {
 	  DashboardColorCodeConfigPage dshccpage=PageFactory.createPageInstance(driver,DashboardColorCodeConfigPage.class);
 	  dshccpage.deleteWithoutDeleteReasonRecord(dshColorConfigDetails);
 	  Assert.assertEquals(dshccpage.verifymessage(),"Please enter the delete reason","empty delete reason record assertion failed");
-  }
+  }*/
  
   @Test(priority=34)
   public void DeleteRecord() throws Exception {
@@ -342,7 +342,7 @@ public class DashboardColorCodeConfigTest extends BaseTest {
   }
   
   
-  @Test(priority=35)
+  /*@Test(priority=35)
   public void VerifyAuditTrialReportForDelete() throws Exception {
 	   String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\DashboardColourConfig.xlsx";
       Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
@@ -392,7 +392,7 @@ public class DashboardColorCodeConfigTest extends BaseTest {
 		DashboardColorCodeConfigPage dshccpage=PageFactory.createPageInstance(driver,DashboardColorCodeConfigPage.class);
 		dshccpage.searchwithoutextsearch();
 		Assert.assertEquals(dshccpage.verifymessage(),"Please enter the text to search or remove the filter", "Add invalid record assertion failed");
-  }
+  }*/
      
   @AfterMethod
     	public void afterEachMethod(Method method) throws InterruptedException {

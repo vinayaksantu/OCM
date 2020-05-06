@@ -4,47 +4,21 @@
   <listeners>
     <listener class-name="com.tetherfi.ExtentReportListener.ExtentReporterNG"/>
   </listeners>
-  <test thread-count="5" name="ChatTemplate(failed)">
+  <test thread-count="5" name="HolidayListTest(failed)">
     <classes>
-      <class name="com.tetherfi.test.chat.ChatTemplatesTest">
+      <class name="com.tetherfi.test.ivr.HolidayListTest">
         <methods>
-          <include name="NavigateToChatTemplatesPage"/>
-          <include name="VerifyCancelBtnAtEditRecord"/>
-          <include name="DeleteGroupWithoutDeleteReasonRecord"/>
-          <include name="VerifyCancelBtnAtEditDepartmentRecord"/>
-          <include name="searchDepartmentPage"/>
-          <include name="VerifyAuditTrialReportForGroupDelete"/>
-          <include name="SortingByAscending"/>
-          <include name="Database"/>
-          <include name="VerifyGroupsNumberOfItemsPerPageSelection"/>
-          <include name="VerifyDepartmentNumberOfItemsPerPageSelection"/>
-          <include name="SortingByDescending"/>
-          <include name="close"/>
-          <include name="DeleteDepartmentRecord"/>
-          <include name="ExportToExcelData"/>
-          <include name="EditWithoutModifyReasonRecord"/>
-          <include name="EditChatTemplatesRecord"/>
-          <include name="VerifyUpdateDepartmentRecordInMain"/>
-          <include name="DeleteWithoutDeleteReasonRecord"/>
-          <include name="VerifyDepartmentTotalNumberOfItemsPerPageDetails"/>
-          <include name="VerifyNumberOfItemsPerPageSelection"/>
-          <include name="VerifyAuditTrialReportForDepartmentDelete"/>
-          <include name="VerifyAuditTrialReportForDepartmentUpdate"/>
-          <include name="VerifyAuditTrialReportForUpdate"/>
-          <include name="searchDepartmentwithoutSearchTextbox"/>
-          <include name="AddRecordWithoutStartTime"/>
-          <include name="VerifyGroupsTotalNumberOfItemsPerPageDetails"/>
-          <include name="VerifyAuditTrialReportForDelete"/>
-          <include name="searchGroupwithoutSearchTextbox"/>
-          <include name="VerifyCancelBtnAtDeleteChatTemplateRecord"/>
-          <include name="AddRecordWithoutChatEnabled"/>
-          <include name="DeleteChatTemplatesRecord"/>
-          <include name="EditWithoutModifyReasonDepartmentRecord"/>
-          <include name="searchPage"/>
-          <include name="GroupsExportToExcelData"/>
-          <include name="EditDepartmentRecord"/>
+          <include name="startTestCase"/>
+          <include name="afterEachMethod"/>
+          <include name="openApplication"/>
+          <include name="DeleteHolidayListRecord"/>
+          <include name="endTestCase"/>
+          <include name="tearDown"/>
+          <include name="editHolidayListRecord"/>
+          <include name="NavigateToHolidayListPage"/>
+          <include name="addNewHolidayListRecord"/>
         </methods>
-      </class> <!-- com.tetherfi.test.chat.ChatTemplatesTest -->
+      </class> <!-- com.tetherfi.test.ivr.HolidayListTest -->
     </classes>
-  </test> <!-- ChatTemplate(failed) -->
+  </test> <!-- HolidayListTest(failed) -->
 </suite> <!-- Failed suite [Tetherfi Test Automation] -->

@@ -661,18 +661,13 @@ public class FaxAddressBookTest extends BaseTest{
     }*/
 
     
-	
-	
-	
-	
-	
-	
-	
 	 @AfterMethod
 	    public void afterEachMethod(Method method) {
 	    	Screenshot screenshot=new Screenshot(driver);
 	        screenshot.captureScreen("FaxAddressBookTest",method.getName());
-	        driver.navigate().refresh();    }
+	        driver.navigate().refresh();    
+	        
+	 }
 	
 	
 
