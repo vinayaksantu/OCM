@@ -88,7 +88,7 @@ public class FaxAddressBookTest extends BaseTest{
 		faxAddressBookPage.clickonAddNewRecipientRecord();
 		faxAddressBookPage.clickOnCancelBtn();
         Assert.assertFalse(faxAddressBookPage.verifyEditFormContainer(),"Cancel Btn at Add record assertion failed");
-	}
+	}*/
 	
 	@Test(priority=6)
 	public void AddNewFaxAddressBookRecipientRecord() throws Exception {
@@ -101,7 +101,7 @@ public class FaxAddressBookTest extends BaseTest{
 		Assert.assertEquals(faxAddressBookPage.getSuccessMessage(), "Record Created Successfully");
 	}
 	
-	@Test(priority=7)//,dependsOnMethods = "AddNewFaxAddressBookRecipientRecord")
+	/*@Test(priority=7)//,dependsOnMethods = "AddNewFaxAddressBookRecipientRecord")
     public void VerifyAuditTrailReportForCreate() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxAddressBookData.xlsx";
 	    Map<String, String> map = new ExcelReader(filePath,"CreateRecipient").getTestData().get(0);
@@ -422,7 +422,7 @@ public class FaxAddressBookTest extends BaseTest{
 		faxAddressBookPage.clickOnDeleteButton();
 		faxAddressBookPage.clickOnDeleteCancelBtn();
         Assert.assertFalse(faxAddressBookPage.verifyDeleteContainer(), "Cancel Btn at Delete record assertion failed");
-    }
+    }*/
     
     @Test(priority=27)
     public void DeleteAddressBookRecord() throws Exception {
@@ -434,7 +434,7 @@ public class FaxAddressBookTest extends BaseTest{
         Assert.assertEquals(faxAddressBookPage.getSuccessMessage(),"Record Deleted Successfully");
     }
     
-    @Test(priority=28)
+    /*@Test(priority=28)
     public void VerifyAuditTrialReportForAddressBookDelete() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxAddressBookData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"DeleteAddressBook").getTestData().get(0);

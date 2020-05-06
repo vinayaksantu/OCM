@@ -24,7 +24,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite, 1 failed test</span>
+      <span class="top-banner-font-1">1 suite</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -38,7 +38,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" class="navigator-link" panel-name="suite-Default_suite">
-              <span class="suite-name border-failed">Default suite</span>
+              <span class="suite-name border-passed">Default suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -49,7 +49,7 @@
               <ul>
                 <li>
                   <a href="#" class="navigator-link " panel-name="test-xml-Default_suite">
-                    <span>C:\Users\admin\AppData\Local\Temp\testng-eclipse--1767278842\testng-customsuite.xml</span>
+                    <span>C:\Users\admin\AppData\Local\Temp\testng-eclipse-1231991184\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -91,21 +91,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">3 methods, 1 failed,   2 passed</span>
-                  </li>
-                  <li>
-                    <span class="method-list-title failed">Failed methods</span>
-                    <span class="show-or-hide-methods failed">
-                      <a href="#" panel-name="suite-Default_suite" class="hide-methods failed suite-Default_suite"> (hide)</a> <!-- hide-methods failed suite-Default_suite -->
-                      <a href="#" panel-name="suite-Default_suite" class="show-methods failed suite-Default_suite"> (show)</a> <!-- show-methods failed suite-Default_suite -->
-                    </span>
-                    <div class="method-list-content failed suite-Default_suite">
-                      <span>
-                        <img width="3%" src="failed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com.tetherfi.test.DashboardColorCodeConfigTest" hash-for-method="DeleteRecord">DeleteRecord</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                    </div> <!-- method-list-content failed suite-Default_suite -->
+                    <span class="method-stats">3 methods,   3 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -116,12 +102,17 @@
                     <div class="method-list-content passed suite-Default_suite">
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com.tetherfi.test.DashboardColorCodeConfigTest" hash-for-method="AddNewDashboardColorConfigRecord">AddNewDashboardColorConfigRecord</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com.tetherfi.test.chat.ChatMenuDescriptionTest" hash-for-method="AddNewChatMenuDescriptionRecord">AddNewChatMenuDescriptionRecord</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com.tetherfi.test.DashboardColorCodeConfigTest" hash-for-method="EditDashboardColorConfigCancelRecord">EditDashboardColorConfigCancelRecord</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com.tetherfi.test.chat.ChatMenuDescriptionTest" hash-for-method="DeleteChatMenuDescriptionRecord">DeleteChatMenuDescriptionRecord</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com.tetherfi.test.chat.ChatMenuDescriptionTest" hash-for-method="EditChatMenuDescriptionRecord">EditChatMenuDescriptionRecord</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Default_suite -->
@@ -136,98 +127,31 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Default_suite" class="panel Default_suite">
-          <div class="suite-Default_suite-class-failed">
-            <div class="main-panel-header rounded-window-top">
-              <img src="failed.png"/>
-              <span class="class-name">com.tetherfi.test.DashboardColorCodeConfigTest</span>
-            </div> <!-- main-panel-header rounded-window-top -->
-            <div class="main-panel-content rounded-window-bottom">
-              <div class="method">
-                <div class="method-content">
-                  <a name="DeleteRecord">
-                  </a> <!-- DeleteRecord -->
-                  <span class="method-name">DeleteRecord</span>
-                  <div class="stack-trace">org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;.k-grid-CustomDelete&quot;}
-  (Session info: chrome=81.0.4044.129)
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
-Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
-System info: host: &apos;DESKTOP-NJVBPFB&apos;, ip: &apos;192.168.225.65&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_181&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 81.0.4044.129, chrome: {chromedriverVersion: 80.0.3987.106 (f68069574609..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:60138}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 5cc381ea87265a9b4eb0a472fa293eb9
-*** Element info: {Using=css selector, value=.k-grid-CustomDelete}
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
-	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.lang.reflect.Constructor.newInstance(Unknown Source)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:420)
-	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:431)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
-	at com.sun.proxy.$Proxy11.click(Unknown Source)
-	at com.tetherfi.pages.BasePage.btnClick(BasePage.java:219)
-	at com.tetherfi.pages.DashboardColorCodeConfigPage.deleteDashboardColorConfigRecord(DashboardColorCodeConfigPage.java:366)
-	at com.tetherfi.test.DashboardColorCodeConfigTest.DeleteRecord(DashboardColorCodeConfigTest.java:340)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.util.ArrayList.forEach(Unknown Source)
-	at org.testng.TestRunner.privateRun(TestRunner.java:770)
-	at org.testng.TestRunner.run(TestRunner.java:591)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-	at org.testng.TestNG.runSuites(TestNG.java:1032)
-	at org.testng.TestNG.run(TestNG.java:1000)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-
-</div> <!-- stack-trace -->
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-            </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Default_suite-class-failed -->
           <div class="suite-Default_suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
-              <span class="class-name">com.tetherfi.test.DashboardColorCodeConfigTest</span>
+              <span class="class-name">com.tetherfi.test.chat.ChatMenuDescriptionTest</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="AddNewDashboardColorConfigRecord">
-                  </a> <!-- AddNewDashboardColorConfigRecord -->
-                  <span class="method-name">AddNewDashboardColorConfigRecord</span>
+                  <a name="AddNewChatMenuDescriptionRecord">
+                  </a> <!-- AddNewChatMenuDescriptionRecord -->
+                  <span class="method-name">AddNewChatMenuDescriptionRecord</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="EditDashboardColorConfigCancelRecord">
-                  </a> <!-- EditDashboardColorConfigCancelRecord -->
-                  <span class="method-name">EditDashboardColorConfigCancelRecord</span>
+                  <a name="DeleteChatMenuDescriptionRecord">
+                  </a> <!-- DeleteChatMenuDescriptionRecord -->
+                  <span class="method-name">DeleteChatMenuDescriptionRecord</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="EditChatMenuDescriptionRecord">
+                  </a> <!-- EditChatMenuDescriptionRecord -->
+                  <span class="method-name">EditChatMenuDescriptionRecord</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -235,7 +159,7 @@ Session ID: 5cc381ea87265a9b4eb0a472fa293eb9
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\admin\AppData\Local\Temp\testng-eclipse--1767278842\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\admin\AppData\Local\Temp\testng-eclipse-1231991184\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -244,7 +168,7 @@ Session ID: 5cc381ea87265a9b4eb0a472fa293eb9
 &lt;suite guice-stage=&quot;DEVELOPMENT&quot; name=&quot;Default suite&quot;&gt;
   &lt;test thread-count=&quot;5&quot; verbose=&quot;2&quot; name=&quot;Default test&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;com.tetherfi.test.DashboardColorCodeConfigTest&quot;/&gt;
+      &lt;class name=&quot;com.tetherfi.test.chat.ChatMenuDescriptionTest&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Default test --&gt;
 &lt;/suite&gt; &lt;!-- Default suite --&gt;
@@ -286,22 +210,22 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(3);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'DeleteRecord')
-data.setCell(0, 2, 'com.tetherfi.test.DashboardColorCodeConfigTest')
-data.setCell(0, 3, 83911);
+data.setCell(0, 1, 'EditChatMenuDescriptionRecord')
+data.setCell(0, 2, 'com.tetherfi.test.chat.ChatMenuDescriptionTest')
+data.setCell(0, 3, 7761);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'AddNewDashboardColorConfigRecord')
-data.setCell(1, 2, 'com.tetherfi.test.DashboardColorCodeConfigTest')
-data.setCell(1, 3, 9059);
+data.setCell(1, 1, 'DeleteChatMenuDescriptionRecord')
+data.setCell(1, 2, 'com.tetherfi.test.chat.ChatMenuDescriptionTest')
+data.setCell(1, 3, 4350);
 data.setCell(2, 0, 2)
-data.setCell(2, 1, 'EditDashboardColorConfigCancelRecord')
-data.setCell(2, 2, 'com.tetherfi.test.DashboardColorCodeConfigTest')
-data.setCell(2, 3, 6994);
+data.setCell(2, 1, 'AddNewChatMenuDescriptionRecord')
+data.setCell(2, 2, 'com.tetherfi.test.chat.ChatMenuDescriptionTest')
+data.setCell(2, 3, 1970);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 1 minutes</span>
+              <span class="suite-total-time">Total running time: 14 seconds</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -327,76 +251,74 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">com.tetherfi.test.DashboardColorCodeConfigTest</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">com.tetherfi.test.chat.ChatMenuDescriptionTest</div> <!-- chronological-class-name -->
               <div class="configuration-class before">
                 <span class="method-name">openApplication</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-class before -->
               <div class="configuration-method before">
-                <span class="method-name">startTestCase(public void com.tetherfi.test.DashboardColorCodeConfigTest.AddNewDashboardColorConfigRecord() throws...)</span>
-                <span class="method-start">35673 ms</span>
+                <span class="method-name">startTestCase(public void com.tetherfi.test.chat.ChatMenuDescriptionTest.AddNewChatMenuDescriptionRecord() throws ...)</span>
+                <span class="method-start">28406 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
-                <span class="method-name">NavigateToDashboardColorCodeConfigPage</span>
-                <span class="method-start">35679 ms</span>
+                <span class="method-name">NavigateToChatMenuDescriptionPage</span>
+                <span class="method-start">28409 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">AddNewDashboardColorConfigRecord</span>
-                <span class="method-start">40851 ms</span>
+                <span class="method-name">AddNewChatMenuDescriptionRecord</span>
+                <span class="method-start">33919 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">afterEachMethod(public void com.tetherfi.test.DashboardColorCodeConfigTest.AddNewDashboardColorConfigRecord() throws...)</span>
-                <span class="method-start">49916 ms</span>
+                <span class="method-name">afterEachMethod(public void com.tetherfi.test.chat.ChatMenuDescriptionTest.AddNewChatMenuDescriptionRecord() throws ...)</span>
+                <span class="method-start">35896 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method after">
-                <span class="method-name">endTestCase(public void com.tetherfi.test.DashboardColorCodeConfigTest.AddNewDashboardColorConfigRecord() throws...)</span>
-                <span class="method-start">51678 ms</span>
+                <span class="method-name">endTestCase(public void com.tetherfi.test.chat.ChatMenuDescriptionTest.AddNewChatMenuDescriptionRecord() throws ...)</span>
+                <span class="method-start">37533 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
-                <span class="method-name">startTestCase(public void com.tetherfi.test.DashboardColorCodeConfigTest.EditDashboardColorConfigCancelRecord() th...)</span>
-                <span class="method-start">51683 ms</span>
+                <span class="method-name">startTestCase(public void com.tetherfi.test.chat.ChatMenuDescriptionTest.EditChatMenuDescriptionRecord() throws ja...)</span>
+                <span class="method-start">37541 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
-                <span class="method-name">NavigateToDashboardColorCodeConfigPage</span>
-                <span class="method-start">51684 ms</span>
+                <span class="method-name">NavigateToChatMenuDescriptionPage</span>
+                <span class="method-start">37542 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">EditDashboardColorConfigCancelRecord</span>
-                <span class="method-start">55263 ms</span>
+                <span class="method-name">EditChatMenuDescriptionRecord</span>
+                <span class="method-start">42077 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">afterEachMethod(public void com.tetherfi.test.DashboardColorCodeConfigTest.EditDashboardColorConfigCancelRecord() th...)</span>
-                <span class="method-start">62260 ms</span>
+                <span class="method-name">afterEachMethod(public void com.tetherfi.test.chat.ChatMenuDescriptionTest.EditChatMenuDescriptionRecord() throws ja...)</span>
+                <span class="method-start">49843 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method after">
-                <span class="method-name">endTestCase(public void com.tetherfi.test.DashboardColorCodeConfigTest.EditDashboardColorConfigCancelRecord() th...)</span>
-                <span class="method-start">63930 ms</span>
+                <span class="method-name">endTestCase(public void com.tetherfi.test.chat.ChatMenuDescriptionTest.EditChatMenuDescriptionRecord() throws ja...)</span>
+                <span class="method-start">51458 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
-                <span class="method-name">startTestCase(public void com.tetherfi.test.DashboardColorCodeConfigTest.DeleteRecord() throws java.lang.Exception)</span>
-                <span class="method-start">63932 ms</span>
+                <span class="method-name">startTestCase(public void com.tetherfi.test.chat.ChatMenuDescriptionTest.DeleteChatMenuDescriptionRecord() throws ...)</span>
+                <span class="method-start">51459 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
-                <span class="method-name">NavigateToDashboardColorCodeConfigPage</span>
-                <span class="method-start">63932 ms</span>
+                <span class="method-name">NavigateToChatMenuDescriptionPage</span>
+                <span class="method-start">51460 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <img src="failed.png">
-                </img>
-                <span class="method-name">DeleteRecord</span>
-                <span class="method-start">67694 ms</span>
+                <span class="method-name">DeleteChatMenuDescriptionRecord</span>
+                <span class="method-start">55777 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">afterEachMethod(public void com.tetherfi.test.DashboardColorCodeConfigTest.DeleteRecord() throws java.lang.Exception)</span>
-                <span class="method-start">151622 ms</span>
+                <span class="method-name">afterEachMethod(public void com.tetherfi.test.chat.ChatMenuDescriptionTest.DeleteChatMenuDescriptionRecord() throws ...)</span>
+                <span class="method-start">60129 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method after">
-                <span class="method-name">endTestCase(public void com.tetherfi.test.DashboardColorCodeConfigTest.DeleteRecord() throws java.lang.Exception)</span>
-                <span class="method-start">153304 ms</span>
+                <span class="method-name">endTestCase(public void com.tetherfi.test.chat.ChatMenuDescriptionTest.DeleteChatMenuDescriptionRecord() throws ...)</span>
+                <span class="method-start">61746 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-class after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">153307 ms</span>
+                <span class="method-start">61749 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
