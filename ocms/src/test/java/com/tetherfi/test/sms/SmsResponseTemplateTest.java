@@ -41,7 +41,7 @@ public class SmsResponseTemplateTest extends BaseTest{
 		Assert.assertTrue(SmsResponseTemplatePageWMC.isSMSResponseTemplatePageDisplayed(), "SMS Response Template Page assertion failed");
 	}
 
-	/*@Test(priority=1)
+	@Test(priority=1)
 	public void SmsResponseTemplatePage() {
 		SmsResponseTemplatePageWMC SmsResponseTemplatePageWMC = PageFactory.createPageInstance(driver, SmsResponseTemplatePageWMC.class);
 		Assert.assertTrue(SmsResponseTemplatePageWMC.verifylogo(),"SMS Page logo assertion failed");
@@ -49,7 +49,7 @@ public class SmsResponseTemplateTest extends BaseTest{
 		Assert.assertTrue(SmsResponseTemplatePageWMC.minimizewindow(), "Restored Assertion Failed");
 	}
 
-	@Test(priority=2)
+	/*@Test(priority=2)
 	public void VerifyDropDownForAllColumns() {
 		SmsResponseTemplatePageWMC SmsResponseTemplatePageWMC=PageFactory.createPageInstance(driver, SmsResponseTemplatePageWMC.class);
 		Assert.assertTrue(SmsResponseTemplatePageWMC.verifyDropDownOfAllHeaders(),"Columns DropDown Assertion Failed"); 	
