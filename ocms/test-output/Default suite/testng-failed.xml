@@ -8,10 +8,10 @@
           <include name="startTestCase"/>
           <include name="openApplication"/>
           <include name="NavigatetoFaxAddressPage"/>
+          <include name="EditRecipientWithoutModifyReasonRecord"/>
           <include name="endTestCase"/>
           <include name="tearDown"/>
           <include name="afterEachMethod"/>
-          <include name="VerifySearchIsEqualTo"/>
         </methods>
       </class> <!-- com.tetherfi.test.fax.FaxAddressBookTest -->
     </classes>
