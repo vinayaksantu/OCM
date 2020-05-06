@@ -8,8 +8,8 @@
           <include name="startTestCase"/>
           <include name="openApplication"/>
           <include name="NavigatetoFaxAddressPage"/>
-          <include name="EditRecipientWithoutModifyReasonRecord"/>
           <include name="endTestCase"/>
+          <include name="verifyAddressBookdatabase"/>
           <include name="tearDown"/>
           <include name="afterEachMethod"/>
         </methods>

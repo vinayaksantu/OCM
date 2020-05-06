@@ -2,42 +2,42 @@
 <testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2020-05-06T00:37:46 IST" name="Default suite" finished-at="2020-05-06T00:39:47 IST" duration-ms="121275">
+  <suite started-at="2020-05-06T19:55:43 IST" name="Default suite" finished-at="2020-05-06T19:58:35 IST" duration-ms="172463">
     <groups>
     </groups>
-    <test started-at="2020-05-06T00:37:46 IST" name="Default test" finished-at="2020-05-06T00:39:47 IST" duration-ms="121275">
+    <test started-at="2020-05-06T19:55:43 IST" name="Default test" finished-at="2020-05-06T19:58:35 IST" duration-ms="172463">
       <class name="com.tetherfi.test.fax.FaxAddressBookTest">
-        <test-method is-config="true" signature="openApplication()[pri:0, instance:com.tetherfi.test.fax.FaxAddressBookTest@6ebc9573]" started-at="2020-05-06T00:37:46 IST" name="openApplication" finished-at="2020-05-06T00:38:12 IST" duration-ms="26482" status="PASS">
+        <test-method is-config="true" signature="openApplication()[pri:0, instance:com.tetherfi.test.fax.FaxAddressBookTest@6e03db1f]" started-at="2020-05-06T19:55:43 IST" name="openApplication" finished-at="2020-05-06T19:58:10 IST" duration-ms="146862" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- openApplication -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxAddressBookTest@6ebc9573]" started-at="2020-05-06T00:38:12 IST" name="startTestCase" finished-at="2020-05-06T00:38:12 IST" duration-ms="4" status="PASS">
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxAddressBookTest@6e03db1f]" started-at="2020-05-06T19:58:10 IST" name="startTestCase" finished-at="2020-05-06T19:58:10 IST" duration-ms="4" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.fax.FaxAddressBookTest.EditRecipientWithoutModifyReasonRecord() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.fax.FaxAddressBookTest.verifyAddressBookdatabase() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigatetoFaxAddressPage()[pri:0, instance:com.tetherfi.test.fax.FaxAddressBookTest@6ebc9573]" started-at="2020-05-06T00:38:12 IST" name="NavigatetoFaxAddressPage" finished-at="2020-05-06T00:38:17 IST" duration-ms="4600" status="PASS">
+        <test-method is-config="true" signature="NavigatetoFaxAddressPage()[pri:0, instance:com.tetherfi.test.fax.FaxAddressBookTest@6e03db1f]" started-at="2020-05-06T19:58:10 IST" name="NavigatetoFaxAddressPage" finished-at="2020-05-06T19:58:18 IST" duration-ms="7893" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- NavigatetoFaxAddressPage -->
-        <test-method signature="EditRecipientWithoutModifyReasonRecord()[pri:48, instance:com.tetherfi.test.fax.FaxAddressBookTest@6ebc9573]" started-at="2020-05-06T00:38:17 IST" name="EditRecipientWithoutModifyReasonRecord" finished-at="2020-05-06T00:39:43 IST" duration-ms="86048" status="FAIL">
-          <exception class="org.openqa.selenium.TimeoutException">
+        <test-method signature="verifyAddressBookdatabase()[pri:81, instance:com.tetherfi.test.fax.FaxAddressBookTest@6e03db1f]" started-at="2020-05-06T19:58:18 IST" name="verifyAddressBookdatabase" finished-at="2020-05-06T19:58:26 IST" duration-ms="8506" status="FAIL">
+          <exception class="java.lang.AssertionError">
             <message>
-              <![CDATA[Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //a[@class='k-button k-button-icontext k-grid-edit k-state-border-down']' (tried for 30 second(s) with 500 milliseconds interval)]]>
+              <![CDATA[did not expect to find [true] but found [false]]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //a[@class='k-button k-button-icontext k-grid-edit k-state-border-down']' (tried for 30 second(s) with 500 milliseconds interval)
-at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
-at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
-at com.tetherfi.pages.BasePage.waitUntilWebElementIsVisible(BasePage.java:127)
-at com.tetherfi.pages.FaxAddressBookPage.editRecipientWithoutModifyReason(FaxAddressBookPage.java:1093)
-at com.tetherfi.test.fax.FaxAddressBookTest.EditRecipientWithoutModifyReasonRecord(FaxAddressBookTest.java:515)
+              <![CDATA[java.lang.AssertionError: did not expect to find [true] but found [false]
+at org.testng.Assert.fail(Assert.java:97)
+at org.testng.Assert.failNotEquals(Assert.java:969)
+at org.testng.Assert.assertTrue(Assert.java:43)
+at org.testng.Assert.assertTrue(Assert.java:53)
+at com.tetherfi.test.fax.FaxAddressBookTest.verifyAddressBookdatabase(FaxAddressBookTest.java:845)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -66,67 +66,35 @@ at org.testng.TestNG.run(TestNG.java:1000)
 at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//a[@class='k-button k-button-icontext k-grid-edit k-state-border-down']"}
-  (Session info: chrome=80.0.3987.116)
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'DESKTOP-O6A5C2O', ip: '10.0.75.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '9.0.4'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 80.0.3987.116, chrome: {chromedriverVersion: 80.0.3987.106 (f68069574609..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:56140}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 9bb9d6faa7eb97c1eff09106c2aba3b5
-*** Element info: {Using=xpath, value=//a[@class='k-button k-button-icontext k-grid-edit k-state-border-down']}
-at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
-at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-at java.base/java.lang.reflect.Constructor.newInstance(Unknown Source)
-at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
-at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)
-at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
-at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
-at com.sun.proxy.$Proxy16.isDisplayed(Unknown Source)
-at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:314)
-at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:43)
-at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:300)
-at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:297)
-at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
-... 31 more
 ]]>
             </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.TimeoutException -->
+          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- EditRecipientWithoutModifyReasonRecord -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxAddressBookTest@6ebc9573]" started-at="2020-05-06T00:39:43 IST" name="afterEachMethod" finished-at="2020-05-06T00:39:45 IST" duration-ms="1850" status="PASS">
+        </test-method> <!-- verifyAddressBookdatabase -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxAddressBookTest@6e03db1f]" started-at="2020-05-06T19:58:26 IST" name="afterEachMethod" finished-at="2020-05-06T19:58:29 IST" duration-ms="2414" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.fax.FaxAddressBookTest.EditRecipientWithoutModifyReasonRecord() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.fax.FaxAddressBookTest.verifyAddressBookdatabase() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxAddressBookTest@6ebc9573]" started-at="2020-05-06T00:39:45 IST" name="endTestCase" finished-at="2020-05-06T00:39:45 IST" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.fax.FaxAddressBookTest@6e03db1f]" started-at="2020-05-06T19:58:29 IST" name="endTestCase" finished-at="2020-05-06T19:58:29 IST" duration-ms="1" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.fax.FaxAddressBookTest.EditRecipientWithoutModifyReasonRecord() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.fax.FaxAddressBookTest.verifyAddressBookdatabase() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.tetherfi.test.fax.FaxAddressBookTest@6ebc9573]" started-at="2020-05-06T00:39:45 IST" name="tearDown" finished-at="2020-05-06T00:39:47 IST" duration-ms="2145" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.tetherfi.test.fax.FaxAddressBookTest@6e03db1f]" started-at="2020-05-06T19:58:29 IST" name="tearDown" finished-at="2020-05-06T19:58:35 IST" duration-ms="6665" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
