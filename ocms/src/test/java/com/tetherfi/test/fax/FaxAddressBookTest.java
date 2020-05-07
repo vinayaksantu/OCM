@@ -55,7 +55,7 @@ public class FaxAddressBookTest extends BaseTest{
 		// faxAddressBookPage.NavigateToRecipientTab();
 	}
 
-	/*@Test(priority=1)
+	@Test(priority=1)
 	public void VerifyFaxAddressBookPage() {
 		FaxAddressBookPage faxAddressBookPage = PageFactory.createPageInstance(driver, FaxAddressBookPage.class);
 		Assert.assertTrue(faxAddressBookPage.verifylogo(),"FaxSenderslogo assertion failed");
@@ -79,7 +79,7 @@ public class FaxAddressBookTest extends BaseTest{
 		Assert.assertTrue(faxAddressBookPage.verifycolumnsHeaderEnabled(),"columns enabled assertion failed");
 	}
 
-	/*@Test(priority=4)
+	@Test(priority=4)
 	public void VerifyRecipientColumnsHeaderDisable() {
 		FaxAddressBookPage faxAddressBookPage = PageFactory.createPageInstance(driver, FaxAddressBookPage.class);
 		faxAddressBookPage.NavigateToRecipientTab();
@@ -103,6 +103,7 @@ public class FaxAddressBookTest extends BaseTest{
 		faxAddressBookPage.dragRecipientColumntoGroup("Name1");
 		Assert.assertTrue(faxAddressBookPage.verifyDragColumntoGroup("Name1",1),"drag and drop assertion failed");
 	}
+	
 	@Test(priority=7)
 	public void ExportToExcelData() throws Exception{
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Recipient.xlsx";
@@ -179,7 +180,6 @@ public class FaxAddressBookTest extends BaseTest{
 		Assert.assertEquals(faxAddressBookPage.getMessage(),"Please enter the text to search or remove the filter", "Add invalid record assertion failed");
 	}
 
-
 	@Test(priority=16)
 	public void VerifyCancelButtonatAddRecipientRecord() throws Exception {
 		FaxAddressBookPage faxAddressBookPage = PageFactory.createPageInstance(driver, FaxAddressBookPage.class);
@@ -199,6 +199,7 @@ public class FaxAddressBookTest extends BaseTest{
 		faxAddressBookPage.addNewRecipientRecord(faxAddressBoookDetails);
 		Assert.assertEquals(faxAddressBookPage.getSuccessMessage(), "Record Created Successfully");
 	}
+	
 	@Test(priority=18)
 	public void AddNewRecipientRecordwithoutName2() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxAddressBookData.xlsx";
@@ -224,6 +225,7 @@ public class FaxAddressBookTest extends BaseTest{
 		ocmReportsPage.showReport(reportDetails);
 		Assert.assertTrue(ocmReportsPage.verifyRecipientCreate(faxAddressBoookDetails,"Create"),"Audit Trail report assertion failed");
 	}
+	
 	@Test(priority=20)
 	public void VerifySearchIsEqualTo() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxAddressBookData.xlsx";
@@ -233,6 +235,7 @@ public class FaxAddressBookTest extends BaseTest{
 		faxAddressBookPage.NavigateToRecipientTab();
 		Assert.assertTrue(faxAddressBookPage.searchIsEqualto(faxAddressBookDetails));
 	}
+	
 	@Test(priority=21)
 	public void VerifySearchIsNotEqualTo() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxAddressBookData.xlsx";
@@ -242,6 +245,7 @@ public class FaxAddressBookTest extends BaseTest{
 		faxAddressBookPage.NavigateToRecipientTab();
 		Assert.assertTrue(faxAddressBookPage.verifySearchIsNotEqualTo(faxAddressBookDetails));
 	}
+	
 	@Test(priority=22)
 	public void  VerifySearchContains() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxAddressBookData.xlsx";
@@ -363,6 +367,7 @@ public class FaxAddressBookTest extends BaseTest{
 		ocmReportsPage.showReport(reportDetails);
 		Assert.assertTrue(ocmReportsPage.verifyFaxAddressCreate(faxAddressBoookDetails,"Create"),"Audit Trail report assertion failed");
 	}
+	
 	@Test(priority=33)
 	public void VerifyAddressBookSearchIsEqualTo() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxAddressBookData.xlsx";
@@ -371,6 +376,7 @@ public class FaxAddressBookTest extends BaseTest{
 		FaxAddressBookPage faxAddressBookPage = PageFactory.createPageInstance(driver, FaxAddressBookPage.class);
 		Assert.assertTrue(faxAddressBookPage.searchAddressBookIsEqualto(faxAddressBookDetails));
 	}
+	
 	@Test(priority=34)
 	public void VerifyAddressBookSearchIsNotEqualTo() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxAddressBookData.xlsx";
@@ -379,6 +385,7 @@ public class FaxAddressBookTest extends BaseTest{
 		FaxAddressBookPage faxAddressBookPage = PageFactory.createPageInstance(driver, FaxAddressBookPage.class);	   
 		Assert.assertTrue(faxAddressBookPage.verifyAddressBookSearchIsNotEqualTo(faxAddressBookDetails));
 	}
+	
 	@Test(priority=35)
 	public void  VerifyAddressBookSearchContains() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxAddressBookData.xlsx";
@@ -799,6 +806,7 @@ public class FaxAddressBookTest extends BaseTest{
 		FaxAddressBookPage faxAddressBookPage = PageFactory.createPageInstance(driver, FaxAddressBookPage.class);
 		Assert.assertTrue(faxAddressBookPage.verifyNumberOfItemsPerPage(0),"item per page assertion failed");
 	}
+	
 	@Test(priority=77)
 	public void DeleteRecipientRecordAssignedtoAddressBook() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxAddressBookData.xlsx";
@@ -809,7 +817,7 @@ public class FaxAddressBookTest extends BaseTest{
 		faxAddressBookPage.deleteRecipientRecord(faxAddressBoookDetails);
 		Assert.assertEquals(faxAddressBookPage.getSuccessMessage(),"Record Deletion Failed, Recipient is already assigned to Address Book.");;
 	}
-ss
+
 	@Test(priority=78)
 	public void ExporttoExcelWithoutDataRecipient() throws Exception{		 
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxAddressBookData.xlsx";
@@ -826,6 +834,7 @@ ss
 		FaxAddressBookDetails faxAddressBookDetails = new FaxAddressBookDetails(map);
 		Assert.assertTrue(faxAddressBookPage.ExporttoExcelWithoutDataAddressbook(faxAddressBookDetails));
 	}
+	
 	@Test(priority=80)
 	public void VerifyRecipientdatabase() throws Exception{
 		FaxAddressBookPage faxAddressBookPage = PageFactory.createPageInstance(driver, FaxAddressBookPage.class);
@@ -834,8 +843,8 @@ ss
 		FaxAddressBookDetails faxAddressBookDetails = new FaxAddressBookDetails(map);
 		faxAddressBookPage.NavigateToRecipientTab();
 		Assert.assertTrue(faxAddressBookPage.verifyRecipientDatabase(faxAddressBookDetails.getQuery()));
-
-	}*/
+	}
+	
 	@Test(priority=81)
 	public void verifyAddressBookdatabase() throws Exception{
 		FaxAddressBookPage faxAddressBookPage = PageFactory.createPageInstance(driver, FaxAddressBookPage.class);
@@ -843,13 +852,12 @@ ss
 		Map<String, String> map = new ExcelReader(filePath, "AddressBookQuery").getTestData().get(0);
 		FaxAddressBookDetails faxAddressBookDetails = new FaxAddressBookDetails(map);
 		Assert.assertTrue(faxAddressBookPage.verifyAddressBookDatabase(faxAddressBookDetails.getQuery()));
-
 	}
 
 	@AfterMethod
 	public void afterEachMethod(Method method) {
 		Screenshot screenshot=new Screenshot(driver);
-		screenshot.captureScreen("FaxAddressBookUOBRun2",method.getName());
+		screenshot.captureScreen("FaxAddrBookMay7",method.getName());
 		driver.navigate().refresh();    }
 
 

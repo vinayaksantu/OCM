@@ -152,12 +152,12 @@ public class FaxAddressBookPage extends BasePage {
 
 	//@FindBy(css = ".k-grid-edit")
 	//private WebElement editButton;
-	
+
 	//@FindBy(css=".k-grid-edit")
 	//@FindBy(css="k-button k-button-icontext k-grid-edit k-state-border-down")
 	//@FindBy(xpath="//a[@class='k-button k-button-icontext k-grid-edit k-state-border-down']")
 	@FindBy(css="#tdrillgrid .k-grid-edit")
-    private WebElement editBtn;
+	private WebElement editBtn;
 
 
 	//@FindBy(xpath="//*[@id=\\\"drillgrid\\\"]/div[4]/table/tbody/tr/td[1]/a[1]")
@@ -274,12 +274,12 @@ public class FaxAddressBookPage extends BasePage {
 		else
 			return false;
 	}
-	
+
 	/*public boolean verifyRefresh() {
-		
-		
+
+
 	}*/
-	
+
 	public boolean maximizewindow() {
 		selectWebElement(maximize);
 		waitForJqueryLoad(driver);
@@ -428,7 +428,7 @@ public class FaxAddressBookPage extends BasePage {
 		}
 		return arr;
 	}
-	
+
 
 	public List<Map<String, String>> gettable() {
 		int item=Integer.valueOf(items.get(1).getText().split("of ")[1].split(" items")[0]);
@@ -1222,7 +1222,7 @@ public class FaxAddressBookPage extends BasePage {
 		waitForJqueryLoad(driver);
 		waitUntilWebElementIsVisible(auditGridAddressContent);		
 	}
-	
+
 	public  boolean searchAddressBookIsEqualto(FaxAddressBookDetails details) throws Exception {
 		Boolean Status=false;
 		Map<String, String> map=new HashMap<String,String>() ;
@@ -1519,9 +1519,9 @@ public class FaxAddressBookPage extends BasePage {
 		if(errorMsg.get(0).getText().equals("There is no record to export"))
 			return true;
 		else
-		return false;
+			return false;
 	}
-	
+
 	public boolean ExporttoExcelWithoutDataAddressbook(FaxAddressBookDetails details) throws Exception {
 		searchAddressRecord(details);
 		waitForJqueryLoad(driver);
@@ -1530,9 +1530,9 @@ public class FaxAddressBookPage extends BasePage {
 		if(errorMsg.get(0).getText().equals("There is no record to export"))
 			return true;
 		else
-		return false;
+			return false;
 	}
-	public boolean verifyRecipientDatabase(String query) {
+	public boolean verifyRecipientDatabase(String query) {		
 		List<Map<String,String>> database=database(query);
 		System.out.println(database);
 		List<Map<String,String>> UI=getdata(); 
@@ -1542,7 +1542,7 @@ public class FaxAddressBookPage extends BasePage {
 		else
 			return false;
 	}
-	
+
 	public boolean verifyAddressBookDatabase(String query) {
 		List<Map<String,String>> database=database(query);
 		System.out.println(database);

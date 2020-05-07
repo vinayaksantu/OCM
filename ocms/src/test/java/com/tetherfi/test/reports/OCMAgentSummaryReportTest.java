@@ -418,7 +418,7 @@ public class OCMAgentSummaryReportTest extends BaseTest {
     	OCMReportsPage.showReport(reportDetails);  
     	OCMAgentSummaryReportPage OCMAgentSummaryReportPage=PageFactory.createPageInstance(driver,OCMAgentSummaryReportPage.class);
     	OCMAgentSummaryReportPage.verifySearchClear(reportDetails);    	
-    }
+    }*/
     
     @Test(priority=35)
     public void verifyAdvancedSearchinreportpage() throws Exception {
@@ -431,7 +431,7 @@ public class OCMAgentSummaryReportTest extends BaseTest {
     	Assert.assertTrue(OCMReportsPage.verifyReportDisplayed(reportDetails),"Show report assertion failed");
     }
     
-    @Test(priority=36)
+  /*  @Test(priority=36)
     public void ClearfiltersAdvSrch() throws Exception{ 	
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(0);
@@ -490,7 +490,7 @@ public class OCMAgentSummaryReportTest extends BaseTest {
     	Assert.assertTrue(OCMAgentSummaryReportPage.verifyexportToExcelSheet(maplist));	  
     }*/
     
-    @Test(priority=41)
+   /* @Test(priority=41)
     public void VerifyDeleteRecordinReportsDownload() throws Exception {
     	HomePage homePage= PageFactory.createPageInstance(driver,HomePage.class);
     	homePage.navigateToOCMPage();
@@ -505,7 +505,7 @@ public class OCMAgentSummaryReportTest extends BaseTest {
     	
     }
     @Test(priority=42)
-    public void DeleteWithoutDeleteReasonRecord() throws Exception {
+    public void DeleteWithoutDeleteReasonRecordinReportsDownload() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\CepEventMappingData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
     	CepEventMappingDetails CepEventMappingDetails = new CepEventMappingDetails(map);
@@ -532,7 +532,7 @@ public class OCMAgentSummaryReportTest extends BaseTest {
     	CepEventMappingPage CepEventMappingPage=PageFactory.createPageInstance(driver,CepEventMappingPage.class);
     	CepEventMappingPage.deleteCEPEventMappingRecord(CepEventMappingDetails);
     	Assert.assertEquals(CepEventMappingPage.getSuccessMessage(),"Record Deleted Successfully","Delete record assertion failed");
-    }
+    }*/
 
     
     @AfterMethod

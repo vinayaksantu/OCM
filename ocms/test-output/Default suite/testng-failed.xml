@@ -3,17 +3,17 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.tetherfi.test.fax.FaxAddressBookTest">
+      <class name="com.tetherfi.test.reports.OCMAgentSummaryReportTest">
         <methods>
           <include name="startTestCase"/>
           <include name="openApplication"/>
-          <include name="NavigatetoFaxAddressPage"/>
-          <include name="endTestCase"/>
-          <include name="verifyAddressBookdatabase"/>
-          <include name="tearDown"/>
           <include name="afterEachMethod"/>
+          <include name="verifyAdvancedSearchinreportpage"/>
+          <include name="endTestCase"/>
+          <include name="tearDown"/>
+          <include name="NavigateToOcmReportsPage"/>
         </methods>
-      </class> <!-- com.tetherfi.test.fax.FaxAddressBookTest -->
+      </class> <!-- com.tetherfi.test.reports.OCMAgentSummaryReportTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
