@@ -444,6 +444,13 @@ public class OCMReportsPage extends BasePage {
             return false;
         }
     }
+    public boolean verifyReportDisplayedNew(ReportDetails details) {
+        if (reportnameLbl.getText().contains("OCM Reports > " + details.getReportChannel() + " > " + details.getReportName())) {
+            return true;
+        } else {
+            return false;
+        }
+    }
     public boolean verifyAuditTrailReportDisplayed(AgentSettingsDetails details ,String Transaction) throws Exception {
     	booleansearchnew(details.getUsername(),Transaction);
 		Boolean Status=false;
@@ -593,7 +600,7 @@ public class OCMReportsPage extends BasePage {
         }
     }
     public boolean verifyReportExported(){
-        waitFoqueryLoad(driver);
+        waitForJqueryLoad(driver);
         //if(errorMsg.size()>0){return false;}
         if(waitUntilTextToBePresentInWebElement(successmsg,"Report Export is Initiated... Notification will be sent once Completed"))
         {return true;}else{return false;}
@@ -642,6 +649,29 @@ public class OCMReportsPage extends BasePage {
             endDate.sendKeys(Keys.TAB);
         }
     }
+    public String getSuccessMessage() {
+		if(successmsg.isDisplayed())
+			return successmsg.getText();
+		else
+			return errorMsg.get(0).getText();
+	}
+    public boolean reporChannelValidation() throws Exception
+    {
+    	waitUntilWebElementIsVisible(formContents);
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        waitUntilWebElementIsVisible(showReportBtn.get(0));
+    	selectWebElement(showReportBtn.get(0));  	
+    	if(waitUntilTextToBePresentInWebElement(successmsg,"Please select a Report Channel"))
+        {
+    		return true;}
+    	else{
+    		return false;}
+    }
+    
     public String formatDate(String date){
         Date dateParsed = null;
         try {

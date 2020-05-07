@@ -32,7 +32,7 @@ public class OCMAgentSummaryReportTest extends BaseTest {
         Assert.assertTrue(ocmReportsPage.isOCMReportPageIsDisplayed());
     }
    
- /*   @Test(priority=1)
+/*   @Test(priority=1)
     public void ShowOCMAgentSummaryReport() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
@@ -418,7 +418,7 @@ public class OCMAgentSummaryReportTest extends BaseTest {
     	OCMReportsPage.showReport(reportDetails);  
     	OCMAgentSummaryReportPage OCMAgentSummaryReportPage=PageFactory.createPageInstance(driver,OCMAgentSummaryReportPage.class);
     	OCMAgentSummaryReportPage.verifySearchClear(reportDetails);    	
-    }*/
+    }
     
     @Test(priority=35)
     public void verifyAdvancedSearchinreportpage() throws Exception {
@@ -426,9 +426,9 @@ public class OCMAgentSummaryReportTest extends BaseTest {
     	Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(0);
     	ReportDetails reportDetails= new ReportDetails(map);
     	OCMReportsPage OCMReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);                   	
-    	//OCMReportsPage.chooseAdvancedSearchNew(reportDetails);  
+    	OCMReportsPage.chooseAdvancedSearchNew(reportDetails);  
     	OCMReportsPage.showReport(reportDetails);
-    	Assert.assertTrue(OCMReportsPage.verifyReportDisplayed(reportDetails),"Show report assertion failed");
+    	Assert.assertTrue(OCMReportsPage.verifyReportDisplayedNew(reportDetails),"Show report assertion failed");
     }
     
   /*  @Test(priority=36)
@@ -532,12 +532,74 @@ public class OCMAgentSummaryReportTest extends BaseTest {
     	CepEventMappingPage CepEventMappingPage=PageFactory.createPageInstance(driver,CepEventMappingPage.class);
     	CepEventMappingPage.deleteCEPEventMappingRecord(CepEventMappingDetails);
     	Assert.assertEquals(CepEventMappingPage.getSuccessMessage(),"Record Deleted Successfully","Delete record assertion failed");
-    }*/
+    }
 
+    @Test(priority=42)
+    public void verifyAdvancedSearchinreportpageSearchNotEqualTo() throws Exception {
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
+    	Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(1);
+    	ReportDetails reportDetails= new ReportDetails(map);
+    	OCMReportsPage OCMReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);                   	
+    	OCMReportsPage.chooseAdvancedSearchNew(reportDetails);  
+    	OCMReportsPage.showReport(reportDetails);
+    	Assert.assertTrue(OCMReportsPage.verifyReportDisplayedNew(reportDetails),"Show report assertion failed");
+    }
+    
+    @Test(priority=43)
+    public void verifyAdvancedSearchinreportpageSearchcontains() throws Exception {
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
+    	Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(2);
+    	ReportDetails reportDetails= new ReportDetails(map);
+    	OCMReportsPage OCMReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);                   	
+    	OCMReportsPage.chooseAdvancedSearchNew(reportDetails);  
+    	OCMReportsPage.showReport(reportDetails);
+    	Assert.assertTrue(OCMReportsPage.verifyReportDisplayedNew(reportDetails),"Show report assertion failed");
+    }
+    
+   /* @Test(priority=44)
+    public void verifyAdvancedSearchinreportpageSearchDoesnotcontains() throws Exception {
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
+    	Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(3);
+    	ReportDetails reportDetails= new ReportDetails(map);
+    	OCMReportsPage OCMReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);                   	
+    	OCMReportsPage.chooseAdvancedSearchNew(reportDetails);  
+    	OCMReportsPage.showReport(reportDetails);
+    	Assert.assertTrue(OCMReportsPage.verifyReportDisplayedNew(reportDetails),"Show report assertion failed");
+    }
+
+    @Test(priority=45)
+    public void verifyAdvancedSearchinreportpageSearchStartswith() throws Exception {
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
+    	Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(4);
+    	ReportDetails reportDetails= new ReportDetails(map);
+    	OCMReportsPage OCMReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);                   	
+    	OCMReportsPage.chooseAdvancedSearchNew(reportDetails);  
+    	OCMReportsPage.showReport(reportDetails);
+    	Assert.assertTrue(OCMReportsPage.verifyReportDisplayedNew(reportDetails),"Show report assertion failed");
+    }
+    
+    @Test(priority=46)
+    public void verifyAdvancedSearchinreportpageSearchEndswith() throws Exception {
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
+    	Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(5);
+    	ReportDetails reportDetails= new ReportDetails(map);
+    	OCMReportsPage OCMReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);                   	
+    	OCMReportsPage.chooseAdvancedSearchNew(reportDetails);  
+    	OCMReportsPage.showReport(reportDetails);
+//    	Assert.assertTrue(OCMReportsPage.verifyReportDisplayedNew(reportDetails),"Show report assertion failed");
+    }*/
+    
+    @Test(priority=47)
+    public void ReportChannelValidation() throws Exception{
+    	OCMReportsPage OCMReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);                   		
+    	Assert.assertTrue(OCMReportsPage.reporChannelValidation(),"Invalid message");   	    	
+    }
+    
+   // @Test(priority=)
     
     @AfterMethod
     public void afterEachMethod(Method method) {
-    	screenshot.captureScreen(driver, "OCMAgentSummaryReportTest", method.getName());
+    	screenshot.captureScreen(driver, "OCMAgentSummaryReportAdvsrchTest", method.getName());
     }
 
 
