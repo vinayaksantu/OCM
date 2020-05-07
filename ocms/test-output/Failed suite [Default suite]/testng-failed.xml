@@ -3,17 +3,27 @@
 <suite name="Failed suite [Failed suite [Default suite]]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)(failed)">
     <classes>
-      <class name="com.tetherfi.test.RoleBasedAccessManagementTest">
+      <class name="com.tetherfi.test.tmac.AgentTeamMgmtTest">
         <methods>
-          <include name="NavigateToRoleBasedAccessManagementWMCPage"/>
-          <include name="afterEachMethod"/>
+          <include name="VerifySearchContains"/>
+          <include name="NavigateToAgentTeamManagementPage"/>
+          <include name="VerifySearchIsNotEqualTo"/>
+          <include name="VerifyAuditTrialReportForUpdate"/>
+          <include name="VerifySearchStartsWith"/>
+          <include name="endTestCase"/>
+          <include name="VerifyAuditTrialReportForDelete"/>
+          <include name="tearDown"/>
+          <include name="ExporttoExcelWithoutData"/>
+          <include name="VerifyArrowMoveForPreviousAndNextPage"/>
+          <include name="VerifySearchDoesNotContains"/>
           <include name="startTestCase"/>
           <include name="openApplication"/>
-          <include name="endTestCase"/>
-          <include name="tearDown"/>
           <include name="VerifySearchEndsWith"/>
+          <include name="afterEachMethod"/>
+          <include name="database"/>
+          <include name="VerifyArrowMoveForFirstAndLastPage"/>
         </methods>
-      </class> <!-- com.tetherfi.test.RoleBasedAccessManagementTest -->
+      </class> <!-- com.tetherfi.test.tmac.AgentTeamMgmtTest -->
     </classes>
   </test> <!-- Default test(failed)(failed) -->
 </suite> <!-- Failed suite [Failed suite [Default suite]] -->

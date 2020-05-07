@@ -3,56 +3,32 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.tetherfi.test.fax.FaxAddressBookTest">
+      <class name="com.tetherfi.test.tmac.AgentTeamMgmtTest">
         <methods>
-          <include name="AddressBookSortingByAscending"/>
-          <include name="SortingByAscending"/>
-          <include name="SortingByDescending"/>
+          <include name="VerifySearchContains"/>
+          <include name="NavigateToAgentTeamManagementPage"/>
+          <include name="DeleteAgentTeamManagementCancelRecord"/>
+          <include name="VerifySearchIsNotEqualTo"/>
+          <include name="VerifyAuditTrialReportForUpdate"/>
+          <include name="VerifySearchStartsWith"/>
+          <include name="endTestCase"/>
           <include name="VerifyAuditTrialReportForDelete"/>
-          <include name="AddNewFaxAddressBookRecord"/>
-          <include name="DeleteRecipientRecord"/>
-          <include name="AddNewEmptyRecord"/>
-          <include name="AddNewFaxAddressBookRecipientWithoutNumberRecord"/>
-          <include name="VerifyCancelBtnAtDeleteAddressRecord"/>
-          <include name="AddNewEmptyFaxAddressBookRecipientRecord"/>
-          <include name="AddNewFaxAddressBookRecipientWithoutFirstNameRecord"/>
-          <include name="DeleteWithoutDeleteReasonAddressBookRecord"/>
+          <include name="tearDown"/>
+          <include name="ExporttoExcelWithoutData"/>
+          <include name="VerifyArrowMoveForPreviousAndNextPage"/>
+          <include name="DeleteAgentTeamManagementRecord"/>
+          <include name="SearchClearSearch"/>
+          <include name="VerifySearchDoesNotContains"/>
           <include name="startTestCase"/>
           <include name="openApplication"/>
-          <include name="VerifyCancelBtnAtEditAddressBookRecord"/>
-          <include name="EditWithoutModifyReasonRecipientRecord"/>
-          <include name="VerifyCancelBtnAtEditDepartmentRecord"/>
-          <include name="EditWithoutModifyReasonAddressBookRecord"/>
-          <include name="EditFaxAddressBookRecord"/>
-          <include name="VerifyAuditTrailReportForAddressCreate"/>
-          <include name="AddressBookExportToExcelData"/>
-          <include name="VerifyAuditTrailReportForCreate"/>
-          <include name="AddNewRecordWithoutName"/>
-          <include name="VerifyAuditTrialReportForAddressBookDelete"/>
-          <include name="NavigatetoFaxAddressPage"/>
-          <include name="endTestCase"/>
-          <include name="tearDown"/>
+          <include name="VerifySearchEndsWith"/>
           <include name="afterEachMethod"/>
-          <include name="AddNewRecordWithoutRecipients"/>
-          <include name="VerifyAuditTrialReportForRecipientUpdate"/>
-          <include name="ExportToExcel"/>
-          <include name="AddNewRecordWithoutFaxLine"/>
-          <include name="AddNewFaxAddressBookRecipientWithoutLastNameRecord"/>
-          <include name="AddNewDuplicateRecord"/>
-          <include name="VerifyCancelButtonAtAddAdhocOptionEnhancementRecord"/>
-          <include name="AddNewFaxAddressBookRecipientRecord"/>
-          <include name="AddressBookSortingByDescending"/>
-          <include name="EditRecipientRecord"/>
-          <include name="VerifyCancelBtnAtDeleteRecipientRecord"/>
-          <include name="VerifyDropdownForAllTheColumns"/>
-          <include name="DeleteWithoutDeleteReasonRecord"/>
-          <include name="AddressBookExportToExcel"/>
-          <include name="ExportToExcelData"/>
-          <include name="AddDuplicateRecipientRecord"/>
-          <include name="DeleteAddressBookRecord"/>
-          <include name="VerifyAuditTrialReportForFaxAddressBookUpdate"/>
+          <include name="database"/>
+          <include name="searchPage"/>
+          <include name="EditAgentTeamManagementRecord"/>
+          <include name="VerifyArrowMoveForFirstAndLastPage"/>
         </methods>
-      </class> <!-- com.tetherfi.test.fax.FaxAddressBookTest -->
+      </class> <!-- com.tetherfi.test.tmac.AgentTeamMgmtTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

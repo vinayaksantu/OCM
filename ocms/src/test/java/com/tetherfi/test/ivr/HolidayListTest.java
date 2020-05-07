@@ -188,7 +188,7 @@ public class HolidayListTest extends BaseTest {
         Assert.assertFalse(holidaylistPage.verifymessage());
 	}
 	
-	//@Test(priority=16)
+	@Test(priority=16)
 	public void AddWithoutEndTime() throws Exception {
 		HolidayListPage holidaylistPage = PageFactory.createPageInstance(driver, HolidayListPage.class);
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\HolidayListData.xlsx";
