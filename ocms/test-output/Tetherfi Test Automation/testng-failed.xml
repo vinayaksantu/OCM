@@ -4,6 +4,21 @@
   <listeners>
     <listener class-name="com.tetherfi.ExtentReportListener.ExtentReporterNG"/>
   </listeners>
+  <test thread-count="5" name="VBEnrolement Flag(failed)">
+    <classes>
+      <class name="com.tetherfi.test.ivr.VBEnrollmentFlagTest">
+        <methods>
+          <include name="startTestCase"/>
+          <include name="openApplication"/>
+          <include name="endTestCase"/>
+          <include name="afterEachMethod"/>
+          <include name="tearDown"/>
+          <include name="EditVBEnrollmentFlagRecord"/>
+          <include name="NavigateToVbEnrollmentFlagPage"/>
+        </methods>
+      </class> <!-- com.tetherfi.test.ivr.VBEnrollmentFlagTest -->
+    </classes>
+  </test> <!-- VBEnrolement Flag(failed) -->
   <test thread-count="5" name="HolidayListTest(failed)">
     <classes>
       <class name="com.tetherfi.test.ivr.HolidayListTest">

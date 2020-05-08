@@ -72,7 +72,7 @@ public class IntentMappingTest extends BaseTest {
         Assert.assertFalse(IntentMappingPage.verifycolumnsHeaderDisabled(),"columns disabled assertion failed");
     }*/
     
-   /*@Test(priority=5)
+   @Test(priority=5)
     public void AddNewIntentMappingRecord() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntentMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -80,7 +80,7 @@ public class IntentMappingTest extends BaseTest {
         IntentMappingPage IntentMappingPage = PageFactory.createPageInstance(driver, IntentMappingPage.class);
         IntentMappingPage.addNewIntentMappingRecord(IntentMappingDetails);
         Assert.assertEquals(IntentMappingPage.getSuccessMessage(),"Record Created Successfully", "Add New record assertion failed");
-    }*/
+    }
     
     /*@Test(priority=6)//,dependsOnMethods = "AddNewIntentMappingRecord")
     public void AddDuplicateIntentMappingRecord() throws Exception {

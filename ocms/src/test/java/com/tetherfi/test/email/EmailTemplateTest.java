@@ -991,6 +991,7 @@ public class EmailTemplateTest extends BaseTest{
         EmailTemplatePage.deleteEmailTempalateWithoutDeleteReasonRecord(EmailTemplateDetails);
         Assert.assertEquals(EmailTemplatePage.getMessage(),"×\nPlease enter the delete reason","empty delete reason record assertion failed");
     }
+    
     @Test(priority=93,groups= {"OCM"})
     public void VerifyCancelBtnAtDeleteEmailTemplateRecord() throws Exception{
         EmailTemplatePage EmailTemplatePage = PageFactory.createPageInstance(driver,EmailTemplatePage.class);
@@ -1000,6 +1001,7 @@ public class EmailTemplateTest extends BaseTest{
         EmailTemplatePage.clickOnDeleteCancelBtn();
         Assert.assertFalse(EmailTemplatePage.verifyDeleteContainer(), "Cancel Btn at Delete record assertion failed");
     }
+   
     @Test(priority=94,groups= {"OCM"})//dependsOnMethods = "EditEmailTemplateRecord")
     public void DeleteEmailTemplateRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\EmailTemplateData.xlsx";
@@ -1093,6 +1095,7 @@ public class EmailTemplateTest extends BaseTest{
         EmailTemplatePage.deleteDepartmentWithoutDeleteReasonRecord(EmailTemplateDetails);
         Assert.assertEquals(EmailTemplatePage.getMessage(),"×\nPlease enter the delete reason","empty delete reason record assertion failed");
     }
+   
     @Test(priority=103,groups= {"OCM"})
     public void VerifyCancelBtnAtDeleteDepartmentRecord() throws Exception{
         EmailTemplatePage EmailTemplatePage = PageFactory.createPageInstance(driver,EmailTemplatePage.class);
@@ -1150,9 +1153,7 @@ public class EmailTemplateTest extends BaseTest{
         EmailTemplatePage.clickOnAddRecord();
         Assert.assertFalse(EmailTemplatePage.VerifyDepartmentDropdown(EmailTemplateDetails));
     }
-   
-   
-   
+    
    @Test(priority=111,groups= {"OCM"})
    public void DepartmentDatabase() throws Exception {
 	   String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\EmailTemplateData.xlsx";

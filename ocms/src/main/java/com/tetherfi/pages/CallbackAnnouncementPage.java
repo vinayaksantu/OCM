@@ -391,6 +391,7 @@ public class CallbackAnnouncementPage extends BasePage{
         selectWebElement(selectSearchColumn);
         selectDropdownFromVisibleText(columnNameList,"Start Time");
         selectWebElement(condition);
+        Thread.sleep(3000);
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is equal to");
         enterValueToTxtBox1(searchTextBox,startTime);
         selectWebElement(searchSearchBtn);

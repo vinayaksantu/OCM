@@ -174,8 +174,6 @@ public class SkillConfigurationTest extends BaseTest{
     	Assert.assertTrue(skillConfigurationPage.verifySearchIsNotEqualTo(skillConfigurationDetails.getSkillName()));
     }
     
-   
-    
     @Test(priority=15)
     public void VerifySearchContains() throws Exception {
    	 	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillConfigurationData.xlsx";

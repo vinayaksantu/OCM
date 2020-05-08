@@ -872,6 +872,7 @@ public class IntentMappingPage extends BasePage{
 	
 	public void deleteIntentMappingRecord(IntentMappingDetails details) throws Exception {
 		searchIntentMappingRecord(details.getVDN());
+		Thread.sleep(3000);
         selectWebElement(deleteButton);
         waitForJqueryLoad(driver);
         enterValueToTxtFieldWithoutClear(deleteReasonTextBox,details.getDeleteReason());

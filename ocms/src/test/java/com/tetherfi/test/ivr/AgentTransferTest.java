@@ -90,7 +90,7 @@ public class AgentTransferTest extends BaseTest{
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         AgentTransferDetails agentTransferDetails=new AgentTransferDetails (map);
     	agentTransferPage.addNewAgentTransferRecord(agentTransferDetails);
-        Assert.assertEquals(agentTransferPage.getSuccessMessage(),"Record Create Successfully", "Record creation assertion failed" );
+        Assert.assertEquals(agentTransferPage.getSuccessMessage(),"Record Created Successfully", "Record creation assertion failed" );
 	}
 	
 	/*@Test(priority=7)

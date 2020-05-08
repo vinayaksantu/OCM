@@ -3,18 +3,20 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.tetherfi.test.SkillConfigurationTest">
+      <class name="com.tetherfi.test.fax.FaxAddressBookTest">
         <methods>
-          <include name="EditSkillConfigurationRecord"/>
           <include name="startTestCase"/>
           <include name="openApplication"/>
-          <include name="NavigateToSkillConfigurationPage"/>
+          <include name="EditRecipientRecord"/>
+          <include name="NavigatetoFaxAddressPage"/>
+          <include name="AddNewFaxAddressBookRecord"/>
+          <include name="EditFaxAddressBookRecord"/>
           <include name="endTestCase"/>
           <include name="tearDown"/>
-          <include name="AddSkillConfigurationRecord"/>
           <include name="afterEachMethod"/>
+          <include name="DeleteAddressBookRecord"/>
         </methods>
-      </class> <!-- com.tetherfi.test.SkillConfigurationTest -->
+      </class> <!-- com.tetherfi.test.fax.FaxAddressBookTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
