@@ -175,6 +175,7 @@ public class IvrPage extends BasePage {
 		selectWebElement(productPromotions);			
 	}
 	public void navigateToIntentMappingPage() {
+//		scrollToElement(intentMapping);
 		waitUntilWebElementIsClickable(intentMapping);
 		selectWebElement(intentMapping);		
 	}

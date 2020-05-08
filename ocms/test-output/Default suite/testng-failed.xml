@@ -3,20 +3,17 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.tetherfi.test.fax.FaxAddressBookTest">
+      <class name="com.tetherfi.test.ivr.IntentMappingTest">
         <methods>
           <include name="startTestCase"/>
           <include name="openApplication"/>
-          <include name="EditRecipientRecord"/>
-          <include name="NavigatetoFaxAddressPage"/>
-          <include name="AddNewFaxAddressBookRecord"/>
-          <include name="EditFaxAddressBookRecord"/>
           <include name="endTestCase"/>
-          <include name="tearDown"/>
           <include name="afterEachMethod"/>
-          <include name="DeleteAddressBookRecord"/>
+          <include name="tearDown"/>
+          <include name="AddNewIntentMappingRecord"/>
+          <include name="NavigateToIntentMappingPage"/>
         </methods>
-      </class> <!-- com.tetherfi.test.fax.FaxAddressBookTest -->
+      </class> <!-- com.tetherfi.test.ivr.IntentMappingTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
