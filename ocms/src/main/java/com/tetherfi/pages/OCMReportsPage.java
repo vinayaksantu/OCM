@@ -655,7 +655,7 @@ public class OCMReportsPage extends BasePage {
 		else
 			return errorMsg.get(0).getText();
 	}
-    public boolean reporChannelValidation() throws Exception
+    public boolean reportChannelValidation() throws Exception
     {
     	waitUntilWebElementIsVisible(formContents);
         try {
@@ -666,6 +666,94 @@ public class OCMReportsPage extends BasePage {
         waitUntilWebElementIsVisible(showReportBtn.get(0));
     	selectWebElement(showReportBtn.get(0));  	
     	if(waitUntilTextToBePresentInWebElement(successmsg,"Please select a Report Channel"))
+        {
+    		return true;}
+    	else{
+    		return false;}
+    }
+    public boolean reporChannelValidation1(ReportDetails details) throws Exception
+    { boolean status=true;
+    	waitUntilWebElementIsVisible(formContents);
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        if(reportNameDropdown.isEnabled()==false) {
+        	//status=true;
+        //if(true) {
+        waitUntilWebElementIsVisible(showReportBtn.get(0));
+    	selectWebElement(showReportBtn.get(0));  	
+    	if(waitUntilTextToBePresentInWebElement(successmsg,"Please select a Report Channel"))
+        {	status=true;
+    		}
+    	//else{
+    	//	status=false;
+    	//	}
+        }
+        return status;
+    }  
+    public boolean reporNameValidation(ReportDetails details) throws Exception
+    {
+    	waitUntilWebElementIsVisible(formContents);
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        selectWebElement(reportChannelDropdown);
+        selectDropdownFromVisibleText(reportChannelListBox, details.getReportChannel());
+        waitForJqueryLoad(driver);
+        waitUntilWebElementIsVisible(showReportBtn.get(0));
+    	selectWebElement(showReportBtn.get(0));  	
+    	if(waitUntilTextToBePresentInWebElement(successmsg,"Please select a Report Name"))
+        {
+    		return true;}
+    	else{
+    		return false;}
+    }
+    
+    public boolean reportTypeValidation(ReportDetails details) throws Exception
+    {
+    	waitUntilWebElementIsVisible(formContents);
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        selectWebElement(reportChannelDropdown);
+        selectDropdownFromVisibleText(reportChannelListBox, details.getReportChannel());
+        waitForJqueryLoad(driver);
+        selectWebElement(reportNameDropdown);
+        selectDropdownFromVisibleText(reportNameListbox, details.getReportName());
+        waitForJqueryLoad(driver);
+        waitUntilWebElementIsVisible(showReportBtn.get(0));
+    	selectWebElement(showReportBtn.get(0));  	
+    	if(waitUntilTextToBePresentInWebElement(successmsg,"Please select a Report Type"))
+        {
+    		return true;}
+    	else{
+    		return false;}
+    }
+    public boolean reportSingleDateTypeValidation(ReportDetails details) throws Exception
+    {
+    	waitUntilWebElementIsVisible(formContents);
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        selectWebElement(reportChannelDropdown);
+        selectDropdownFromVisibleText(reportChannelListBox, details.getReportChannel());
+        waitForJqueryLoad(driver);
+        selectWebElement(reportNameDropdown);
+        selectDropdownFromVisibleText(reportNameListbox, details.getReportName());        
+        waitForJqueryLoad(driver);
+        selectWebElement(reportTypeDropdown);
+        selectDropdownFromVisibleText(reportTypeListbox, details.getReportType());
+        waitUntilWebElementIsVisible(showReportBtn.get(0));
+    	selectWebElement(showReportBtn.get(0));  	
+    	if(waitUntilTextToBePresentInWebElement(successmsg,"Please enter Single DateTime in correct format(yyyyMMdd HHmmss)"))
         {
     		return true;}
     	else{

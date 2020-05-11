@@ -857,7 +857,7 @@ public class FaxAddressBookTest extends BaseTest{
 	@AfterMethod
 	public void afterEachMethod(Method method) {
 		Screenshot screenshot=new Screenshot(driver);
-		screenshot.captureScreen("FaxAddrBookMay7",method.getName());
+		screenshot.captureScreen("AddrBook",method.getName());
 		driver.navigate().refresh();    }
 
 

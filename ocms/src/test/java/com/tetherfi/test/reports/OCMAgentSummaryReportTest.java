@@ -587,16 +587,46 @@ public class OCMAgentSummaryReportTest extends BaseTest {
     	OCMReportsPage.chooseAdvancedSearchNew(reportDetails);  
     	OCMReportsPage.showReport(reportDetails);
 //    	Assert.assertTrue(OCMReportsPage.verifyReportDisplayedNew(reportDetails),"Show report assertion failed");
-    }*/
+    }
     
     @Test(priority=47)
     public void ReportChannelValidation() throws Exception{
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
+    	Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(5);
+    	ReportDetails reportDetails= new ReportDetails(map); 	
     	OCMReportsPage OCMReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);                   		
-    	Assert.assertTrue(OCMReportsPage.reporChannelValidation(),"Invalid message");   	    	
+    	Assert.assertTrue(OCMReportsPage.reportChannelValidation(),"Invalid channel message");   	    	
     }
     
-   // @Test(priority=)
+   @Test(priority=48)
+   public void ReportNameValidation() throws Exception{
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
+    	Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
+    	ReportDetails reportDetails= new ReportDetails(map);
+    	OCMReportsPage OCMReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);  
+    	Assert.assertTrue(OCMReportsPage.reporNameValidation(reportDetails),"Invalid Reportname message");    	
+    }
     
+    @Test(priority=49)
+    public void reportTypeValidation() throws Exception{
+     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
+     	Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
+     	ReportDetails reportDetails= new ReportDetails(map);
+     	OCMReportsPage OCMReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);  
+     	Assert.assertTrue(OCMReportsPage.reportTypeValidation(reportDetails),"Invalid ReportType message");    	
+     }*/
+    
+    @Test(priority=50)
+    public void reportSingleDateTypeValidation() throws Exception{
+     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
+     	Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
+     	ReportDetails reportDetails= new ReportDetails(map);
+     	OCMReportsPage OCMReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);  
+     	Assert.assertTrue(OCMReportsPage.reportSingleDateTypeValidation(reportDetails),"Invalid Date message");    	
+     }
+    
+    
+     
     @AfterMethod
     public void afterEachMethod(Method method) {
     	screenshot.captureScreen(driver, "OCMAgentSummaryReportAdvsrchTest", method.getName());

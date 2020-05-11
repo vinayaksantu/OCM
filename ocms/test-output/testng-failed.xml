@@ -8,9 +8,9 @@
           <include name="startTestCase"/>
           <include name="openApplication"/>
           <include name="afterEachMethod"/>
-          <include name="verifyAdvancedSearchinreportpage"/>
           <include name="endTestCase"/>
           <include name="tearDown"/>
+          <include name="reportSingleDateTypeValidation"/>
           <include name="NavigateToOcmReportsPage"/>
         </methods>
       </class> <!-- com.tetherfi.test.reports.OCMAgentSummaryReportTest -->
