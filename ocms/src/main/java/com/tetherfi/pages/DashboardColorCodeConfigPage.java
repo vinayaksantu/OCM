@@ -324,6 +324,7 @@ public class DashboardColorCodeConfigPage extends BasePage {
         selectWebElement(selectSearchColumn.get(0));
         selectDropdownFromVisibleText(columnNameList,"Start Range");
         selectWebElement(selectSearchColumn.get(1));
+        Thread.sleep(3000);
         selectDropdownFromVisibleText(searchTypeList,"Is equal to");
         enterValueToTxtField(textTosearch,StartTime);
         selectWebElement(searchBtn);
@@ -346,6 +347,7 @@ public class DashboardColorCodeConfigPage extends BasePage {
         selectWebElement(applyBtn.get(0));      
         enterValueToTxtFieldWithoutClear(modifyReasonTextBox,details.getModifyReason());
         waitForJqueryLoad(driver);
+        Thread.sleep(3000);
         btnClick(saveBtn);
     }
     

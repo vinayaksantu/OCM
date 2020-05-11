@@ -24,7 +24,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite, 1 failed test</span>
+      <span class="top-banner-font-1">1 suite</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -38,7 +38,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" class="navigator-link" panel-name="suite-Default_suite">
-              <span class="suite-name border-failed">Default suite</span>
+              <span class="suite-name border-passed">Default suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -49,7 +49,7 @@
               <ul>
                 <li>
                   <a href="#" class="navigator-link " panel-name="test-xml-Default_suite">
-                    <span>C:\Users\admin\AppData\Local\Temp\testng-eclipse--1087314187\testng-customsuite.xml</span>
+                    <span>C:\Users\admin\AppData\Local\Temp\testng-eclipse--300364540\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -91,21 +91,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">3 methods, 1 failed,   2 passed</span>
-                  </li>
-                  <li>
-                    <span class="method-list-title failed">Failed methods</span>
-                    <span class="show-or-hide-methods failed">
-                      <a href="#" panel-name="suite-Default_suite" class="hide-methods failed suite-Default_suite"> (hide)</a> <!-- hide-methods failed suite-Default_suite -->
-                      <a href="#" panel-name="suite-Default_suite" class="show-methods failed suite-Default_suite"> (show)</a> <!-- show-methods failed suite-Default_suite -->
-                    </span>
-                    <div class="method-list-content failed suite-Default_suite">
-                      <span>
-                        <img width="3%" src="failed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com.tetherfi.test.ivr.IntentMappingTest" hash-for-method="AddNewIntentMappingRecord">AddNewIntentMappingRecord</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                    </div> <!-- method-list-content failed suite-Default_suite -->
+                    <span class="method-stats">3 methods,   3 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -116,12 +102,17 @@
                     <div class="method-list-content passed suite-Default_suite">
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com.tetherfi.test.ivr.IntentMappingTest" hash-for-method="DeleteIntentMappingRecord">DeleteIntentMappingRecord</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com.tetherfi.test.DashboardColorCodeConfigTest" hash-for-method="AddNewDashboardColorConfigRecord">AddNewDashboardColorConfigRecord</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com.tetherfi.test.ivr.IntentMappingTest" hash-for-method="EditIntentMappingRecord">EditIntentMappingRecord</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com.tetherfi.test.DashboardColorCodeConfigTest" hash-for-method="DeleteRecord">DeleteRecord</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com.tetherfi.test.DashboardColorCodeConfigTest" hash-for-method="EditDashboardColorConfigRecord">EditDashboardColorConfigRecord</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Default_suite -->
@@ -136,75 +127,31 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Default_suite" class="panel Default_suite">
-          <div class="suite-Default_suite-class-failed">
-            <div class="main-panel-header rounded-window-top">
-              <img src="failed.png"/>
-              <span class="class-name">com.tetherfi.test.ivr.IntentMappingTest</span>
-            </div> <!-- main-panel-header rounded-window-top -->
-            <div class="main-panel-content rounded-window-bottom">
-              <div class="method">
-                <div class="method-content">
-                  <a name="AddNewIntentMappingRecord">
-                  </a> <!-- AddNewIntentMappingRecord -->
-                  <span class="method-name">AddNewIntentMappingRecord</span>
-                  <div class="stack-trace">java.lang.AssertionError: Add New record assertion failed expected [Record Created Successfully] but found [Duplicate Record]
-	at org.testng.Assert.fail(Assert.java:97)
-	at org.testng.Assert.assertEqualsImpl(Assert.java:136)
-	at org.testng.Assert.assertEquals(Assert.java:118)
-	at org.testng.Assert.assertEquals(Assert.java:575)
-	at com.tetherfi.test.ivr.IntentMappingTest.AddNewIntentMappingRecord(IntentMappingTest.java:82)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.util.ArrayList.forEach(Unknown Source)
-	at org.testng.TestRunner.privateRun(TestRunner.java:770)
-	at org.testng.TestRunner.run(TestRunner.java:591)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-	at org.testng.TestNG.runSuites(TestNG.java:1032)
-	at org.testng.TestNG.run(TestNG.java:1000)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-
-</div> <!-- stack-trace -->
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-            </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Default_suite-class-failed -->
           <div class="suite-Default_suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
-              <span class="class-name">com.tetherfi.test.ivr.IntentMappingTest</span>
+              <span class="class-name">com.tetherfi.test.DashboardColorCodeConfigTest</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="DeleteIntentMappingRecord">
-                  </a> <!-- DeleteIntentMappingRecord -->
-                  <span class="method-name">DeleteIntentMappingRecord</span>
+                  <a name="AddNewDashboardColorConfigRecord">
+                  </a> <!-- AddNewDashboardColorConfigRecord -->
+                  <span class="method-name">AddNewDashboardColorConfigRecord</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="EditIntentMappingRecord">
-                  </a> <!-- EditIntentMappingRecord -->
-                  <span class="method-name">EditIntentMappingRecord</span>
+                  <a name="DeleteRecord">
+                  </a> <!-- DeleteRecord -->
+                  <span class="method-name">DeleteRecord</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="EditDashboardColorConfigRecord">
+                  </a> <!-- EditDashboardColorConfigRecord -->
+                  <span class="method-name">EditDashboardColorConfigRecord</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -212,7 +159,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\admin\AppData\Local\Temp\testng-eclipse--1087314187\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\admin\AppData\Local\Temp\testng-eclipse--300364540\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -221,7 +168,7 @@
 &lt;suite guice-stage=&quot;DEVELOPMENT&quot; name=&quot;Default suite&quot;&gt;
   &lt;test thread-count=&quot;5&quot; verbose=&quot;2&quot; name=&quot;Default test&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;com.tetherfi.test.ivr.IntentMappingTest&quot;/&gt;
+      &lt;class name=&quot;com.tetherfi.test.DashboardColorCodeConfigTest&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Default test --&gt;
 &lt;/suite&gt; &lt;!-- Default suite --&gt;
@@ -263,22 +210,22 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(3);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'EditIntentMappingRecord')
-data.setCell(0, 2, 'com.tetherfi.test.ivr.IntentMappingTest')
-data.setCell(0, 3, 13789);
+data.setCell(0, 1, 'EditDashboardColorConfigRecord')
+data.setCell(0, 2, 'com.tetherfi.test.DashboardColorCodeConfigTest')
+data.setCell(0, 3, 11831);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'DeleteIntentMappingRecord')
-data.setCell(1, 2, 'com.tetherfi.test.ivr.IntentMappingTest')
-data.setCell(1, 3, 13437);
+data.setCell(1, 1, 'DeleteRecord')
+data.setCell(1, 2, 'com.tetherfi.test.DashboardColorCodeConfigTest')
+data.setCell(1, 3, 11587);
 data.setCell(2, 0, 2)
-data.setCell(2, 1, 'AddNewIntentMappingRecord')
-data.setCell(2, 2, 'com.tetherfi.test.ivr.IntentMappingTest')
-data.setCell(2, 3, 8803);
+data.setCell(2, 1, 'AddNewDashboardColorConfigRecord')
+data.setCell(2, 2, 'com.tetherfi.test.DashboardColorCodeConfigTest')
+data.setCell(2, 3, 8639);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 36 seconds</span>
+              <span class="suite-total-time">Total running time: 32 seconds</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -304,76 +251,74 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">com.tetherfi.test.ivr.IntentMappingTest</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">com.tetherfi.test.DashboardColorCodeConfigTest</div> <!-- chronological-class-name -->
               <div class="configuration-class before">
                 <span class="method-name">openApplication</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-class before -->
               <div class="configuration-method before">
-                <span class="method-name">startTestCase(public void com.tetherfi.test.ivr.IntentMappingTest.AddNewIntentMappingRecord() throws java.lang.Exc...)</span>
-                <span class="method-start">35721 ms</span>
+                <span class="method-name">startTestCase(public void com.tetherfi.test.DashboardColorCodeConfigTest.AddNewDashboardColorConfigRecord() throws...)</span>
+                <span class="method-start">44540 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
-                <span class="method-name">NavigateToIntentMappingPage</span>
-                <span class="method-start">35724 ms</span>
+                <span class="method-name">NavigateToDashboardColorCodeConfigPage</span>
+                <span class="method-start">44543 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <img src="failed.png">
-                </img>
-                <span class="method-name">AddNewIntentMappingRecord</span>
-                <span class="method-start">41942 ms</span>
+                <span class="method-name">AddNewDashboardColorConfigRecord</span>
+                <span class="method-start">49183 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">afterEachMethod(public void com.tetherfi.test.ivr.IntentMappingTest.AddNewIntentMappingRecord() throws java.lang.Exc...)</span>
-                <span class="method-start">50753 ms</span>
+                <span class="method-name">afterEachMethod(public void com.tetherfi.test.DashboardColorCodeConfigTest.AddNewDashboardColorConfigRecord() throws...)</span>
+                <span class="method-start">57826 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method after">
-                <span class="method-name">endTestCase(public void com.tetherfi.test.ivr.IntentMappingTest.AddNewIntentMappingRecord() throws java.lang.Exc...)</span>
-                <span class="method-start">52469 ms</span>
+                <span class="method-name">endTestCase(public void com.tetherfi.test.DashboardColorCodeConfigTest.AddNewDashboardColorConfigRecord() throws...)</span>
+                <span class="method-start">59467 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
-                <span class="method-name">startTestCase(public void com.tetherfi.test.ivr.IntentMappingTest.EditIntentMappingRecord() throws java.lang.Excep...)</span>
-                <span class="method-start">52478 ms</span>
+                <span class="method-name">startTestCase(public void com.tetherfi.test.DashboardColorCodeConfigTest.EditDashboardColorConfigRecord() throws j...)</span>
+                <span class="method-start">59474 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
-                <span class="method-name">NavigateToIntentMappingPage</span>
-                <span class="method-start">52479 ms</span>
+                <span class="method-name">NavigateToDashboardColorCodeConfigPage</span>
+                <span class="method-start">59476 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">EditIntentMappingRecord</span>
-                <span class="method-start">56875 ms</span>
+                <span class="method-name">EditDashboardColorConfigRecord</span>
+                <span class="method-start">62771 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">afterEachMethod(public void com.tetherfi.test.ivr.IntentMappingTest.EditIntentMappingRecord() throws java.lang.Excep...)</span>
-                <span class="method-start">70666 ms</span>
+                <span class="method-name">afterEachMethod(public void com.tetherfi.test.DashboardColorCodeConfigTest.EditDashboardColorConfigRecord() throws j...)</span>
+                <span class="method-start">74606 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method after">
-                <span class="method-name">endTestCase(public void com.tetherfi.test.ivr.IntentMappingTest.EditIntentMappingRecord() throws java.lang.Excep...)</span>
-                <span class="method-start">72275 ms</span>
+                <span class="method-name">endTestCase(public void com.tetherfi.test.DashboardColorCodeConfigTest.EditDashboardColorConfigRecord() throws j...)</span>
+                <span class="method-start">76015 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
-                <span class="method-name">startTestCase(public void com.tetherfi.test.ivr.IntentMappingTest.DeleteIntentMappingRecord() throws java.lang.Exc...)</span>
-                <span class="method-start">72277 ms</span>
+                <span class="method-name">startTestCase(public void com.tetherfi.test.DashboardColorCodeConfigTest.DeleteRecord() throws java.lang.Exception)</span>
+                <span class="method-start">76017 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
-                <span class="method-name">NavigateToIntentMappingPage</span>
-                <span class="method-start">72277 ms</span>
+                <span class="method-name">NavigateToDashboardColorCodeConfigPage</span>
+                <span class="method-start">76021 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">DeleteIntentMappingRecord</span>
-                <span class="method-start">76753 ms</span>
+                <span class="method-name">DeleteRecord</span>
+                <span class="method-start">79402 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">afterEachMethod(public void com.tetherfi.test.ivr.IntentMappingTest.DeleteIntentMappingRecord() throws java.lang.Exc...)</span>
-                <span class="method-start">90193 ms</span>
+                <span class="method-name">afterEachMethod(public void com.tetherfi.test.DashboardColorCodeConfigTest.DeleteRecord() throws java.lang.Exception)</span>
+                <span class="method-start">90992 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method after">
-                <span class="method-name">endTestCase(public void com.tetherfi.test.ivr.IntentMappingTest.DeleteIntentMappingRecord() throws java.lang.Exc...)</span>
-                <span class="method-start">91657 ms</span>
+                <span class="method-name">endTestCase(public void com.tetherfi.test.DashboardColorCodeConfigTest.DeleteRecord() throws java.lang.Exception)</span>
+                <span class="method-start">93643 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-class after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">91659 ms</span>
+                <span class="method-start">93644 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

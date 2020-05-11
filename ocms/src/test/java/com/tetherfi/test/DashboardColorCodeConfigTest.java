@@ -124,7 +124,7 @@ public class DashboardColorCodeConfigTest extends BaseTest {
         ReportDetails reportDetails= new ReportDetails(map1);
         ocmReportsPage.showReport(reportDetails);
         Assert.assertTrue(ocmReportsPage.verifyDashboardColorConfigCreate(dshColorConfigDetails,"Create"));
-    }*/
+    }
   
    	@Test(priority=10)
     public void EditDashboardColorConfigCancelRecord() throws Exception {
@@ -135,7 +135,7 @@ public class DashboardColorCodeConfigTest extends BaseTest {
         Assert.assertTrue(dshccpage.editcancel(dshColorConfigDetails));
    	}
    	
-   	/*@Test(priority=11)
+   	@Test(priority=11)
     public void EditWithoutModifyReasonRecord() throws Exception {
    		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\DashboardColourConfig.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
@@ -143,7 +143,7 @@ public class DashboardColorCodeConfigTest extends BaseTest {
     	DashboardColorCodeConfigPage dshccpage=PageFactory.createPageInstance(driver,DashboardColorCodeConfigPage.class);
     	dshccpage.editRecordWithoutModifyReason(dshColorConfigDetails);
         Assert.assertEquals(dshccpage.verifymessage(),"Please enter the modify reason", "empty modify reason record assertion failed");
-    }
+    }*/
     
    	@Test(priority=12)
         public void EditDashboardColorConfigRecord() throws Exception {
@@ -155,7 +155,7 @@ public class DashboardColorCodeConfigTest extends BaseTest {
         Assert.assertEquals(dshccpage.getSuccessMessage(),"Record updated successfully","Edit record assertion failed");
     }
    	
-   @Test(priority=13)
+   /*@Test(priority=13)
     public void VerifyAuditTrialReportForUpdate() throws Exception {
 	   String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\DashboardColourConfig.xlsx";
        Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);

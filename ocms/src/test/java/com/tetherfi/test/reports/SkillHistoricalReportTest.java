@@ -468,4 +468,5 @@ public class SkillHistoricalReportTest extends BaseTest {
     public void afterEachMethod(Method method) {
     	screenshot.captureScreen(driver, "SkillHistoricalReportTest", method.getName());
     }
+
 }

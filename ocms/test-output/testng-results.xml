@@ -1,186 +1,144 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="1" ignored="0" total="3" passed="2">
+<testng-results skipped="0" failed="0" ignored="0" total="3" passed="3">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="97585" started-at="2020-05-08T16:27:45 IST" finished-at="2020-05-08T16:29:23 IST">
+  <suite name="Default suite" duration-ms="95677" started-at="2020-05-08T17:03:51 IST" finished-at="2020-05-08T17:05:26 IST">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="97585" started-at="2020-05-08T16:27:45 IST" finished-at="2020-05-08T16:29:23 IST">
-      <class name="com.tetherfi.test.ivr.IntentMappingTest">
-        <test-method status="PASS" signature="openApplication()[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@10a0fe30]" name="openApplication" is-config="true" duration-ms="35698" started-at="2020-05-08T16:27:45 IST" finished-at="2020-05-08T16:28:21 IST">
+    <test name="Default test" duration-ms="95677" started-at="2020-05-08T17:03:51 IST" finished-at="2020-05-08T17:05:26 IST">
+      <class name="com.tetherfi.test.DashboardColorCodeConfigTest">
+        <test-method status="PASS" signature="openApplication()[pri:0, instance:com.tetherfi.test.DashboardColorCodeConfigTest@38d17d80]" name="openApplication" is-config="true" duration-ms="44508" started-at="2020-05-08T17:03:51 IST" finished-at="2020-05-08T17:04:35 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- openApplication -->
-        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@10a0fe30]" name="startTestCase" is-config="true" duration-ms="2" started-at="2020-05-08T16:28:21 IST" finished-at="2020-05-08T16:28:21 IST">
+        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.DashboardColorCodeConfigTest@38d17d80]" name="startTestCase" is-config="true" duration-ms="2" started-at="2020-05-08T17:04:35 IST" finished-at="2020-05-08T17:04:35 IST">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.AddNewIntentMappingRecord() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.DashboardColorCodeConfigTest.AddNewDashboardColorConfigRecord() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startTestCase -->
-        <test-method status="PASS" signature="NavigateToIntentMappingPage()[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@10a0fe30]" name="NavigateToIntentMappingPage" is-config="true" duration-ms="6218" started-at="2020-05-08T16:28:21 IST" finished-at="2020-05-08T16:28:27 IST">
+        <test-method status="PASS" signature="NavigateToDashboardColorCodeConfigPage()[pri:0, instance:com.tetherfi.test.DashboardColorCodeConfigTest@38d17d80]" name="NavigateToDashboardColorCodeConfigPage" is-config="true" duration-ms="4640" started-at="2020-05-08T17:04:35 IST" finished-at="2020-05-08T17:04:40 IST">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- NavigateToIntentMappingPage -->
-        <test-method status="FAIL" signature="AddNewIntentMappingRecord()[pri:5, instance:com.tetherfi.test.ivr.IntentMappingTest@10a0fe30]" name="AddNewIntentMappingRecord" duration-ms="8803" started-at="2020-05-08T16:28:27 IST" finished-at="2020-05-08T16:28:36 IST">
-          <exception class="java.lang.AssertionError">
-            <message>
-              <![CDATA[Add New record assertion failed expected [Record Created Successfully] but found [Duplicate Record]]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: Add New record assertion failed expected [Record Created Successfully] but found [Duplicate Record]
-at org.testng.Assert.fail(Assert.java:97)
-at org.testng.Assert.assertEqualsImpl(Assert.java:136)
-at org.testng.Assert.assertEquals(Assert.java:118)
-at org.testng.Assert.assertEquals(Assert.java:575)
-at com.tetherfi.test.ivr.IntentMappingTest.AddNewIntentMappingRecord(IntentMappingTest.java:82)
-at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-at java.lang.reflect.Method.invoke(Unknown Source)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.util.ArrayList.forEach(Unknown Source)
-at org.testng.TestRunner.privateRun(TestRunner.java:770)
-at org.testng.TestRunner.run(TestRunner.java:591)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-at org.testng.TestNG.runSuites(TestNG.java:1032)
-at org.testng.TestNG.run(TestNG.java:1000)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
+        </test-method> <!-- NavigateToDashboardColorCodeConfigPage -->
+        <test-method status="PASS" signature="AddNewDashboardColorConfigRecord()[pri:3, instance:com.tetherfi.test.DashboardColorCodeConfigTest@38d17d80]" name="AddNewDashboardColorConfigRecord" duration-ms="8639" started-at="2020-05-08T17:04:40 IST" finished-at="2020-05-08T17:04:48 IST">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- AddNewIntentMappingRecord -->
-        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@10a0fe30]" name="afterEachMethod" is-config="true" duration-ms="1716" started-at="2020-05-08T16:28:36 IST" finished-at="2020-05-08T16:28:38 IST">
+        </test-method> <!-- AddNewDashboardColorConfigRecord -->
+        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.DashboardColorCodeConfigTest@38d17d80]" name="afterEachMethod" is-config="true" duration-ms="1641" started-at="2020-05-08T17:04:48 IST" finished-at="2020-05-08T17:04:50 IST">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.AddNewIntentMappingRecord() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.DashboardColorCodeConfigTest.AddNewDashboardColorConfigRecord() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterEachMethod -->
-        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@10a0fe30]" name="endTestCase" is-config="true" duration-ms="1" started-at="2020-05-08T16:28:38 IST" finished-at="2020-05-08T16:28:38 IST">
+        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.DashboardColorCodeConfigTest@38d17d80]" name="endTestCase" is-config="true" duration-ms="0" started-at="2020-05-08T17:04:50 IST" finished-at="2020-05-08T17:04:50 IST">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.AddNewIntentMappingRecord() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.DashboardColorCodeConfigTest.AddNewDashboardColorConfigRecord() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- endTestCase -->
-        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@10a0fe30]" name="startTestCase" is-config="true" duration-ms="1" started-at="2020-05-08T16:28:38 IST" finished-at="2020-05-08T16:28:38 IST">
+        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.DashboardColorCodeConfigTest@38d17d80]" name="startTestCase" is-config="true" duration-ms="1" started-at="2020-05-08T17:04:50 IST" finished-at="2020-05-08T17:04:50 IST">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.EditIntentMappingRecord() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.DashboardColorCodeConfigTest.EditDashboardColorConfigRecord() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startTestCase -->
-        <test-method status="PASS" signature="NavigateToIntentMappingPage()[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@10a0fe30]" name="NavigateToIntentMappingPage" is-config="true" duration-ms="4396" started-at="2020-05-08T16:28:38 IST" finished-at="2020-05-08T16:28:42 IST">
+        <test-method status="PASS" signature="NavigateToDashboardColorCodeConfigPage()[pri:0, instance:com.tetherfi.test.DashboardColorCodeConfigTest@38d17d80]" name="NavigateToDashboardColorCodeConfigPage" is-config="true" duration-ms="3295" started-at="2020-05-08T17:04:50 IST" finished-at="2020-05-08T17:04:53 IST">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- NavigateToIntentMappingPage -->
-        <test-method status="PASS" signature="EditIntentMappingRecord()[pri:17, instance:com.tetherfi.test.ivr.IntentMappingTest@10a0fe30]" name="EditIntentMappingRecord" duration-ms="13789" started-at="2020-05-08T16:28:42 IST" finished-at="2020-05-08T16:28:56 IST">
+        </test-method> <!-- NavigateToDashboardColorCodeConfigPage -->
+        <test-method status="PASS" signature="EditDashboardColorConfigRecord()[pri:12, instance:com.tetherfi.test.DashboardColorCodeConfigTest@38d17d80]" name="EditDashboardColorConfigRecord" duration-ms="11831" started-at="2020-05-08T17:04:53 IST" finished-at="2020-05-08T17:05:05 IST">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- EditIntentMappingRecord -->
-        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@10a0fe30]" name="afterEachMethod" is-config="true" duration-ms="1609" started-at="2020-05-08T16:28:56 IST" finished-at="2020-05-08T16:28:58 IST">
+        </test-method> <!-- EditDashboardColorConfigRecord -->
+        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.DashboardColorCodeConfigTest@38d17d80]" name="afterEachMethod" is-config="true" duration-ms="1409" started-at="2020-05-08T17:05:05 IST" finished-at="2020-05-08T17:05:07 IST">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.EditIntentMappingRecord() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.DashboardColorCodeConfigTest.EditDashboardColorConfigRecord() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterEachMethod -->
-        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@10a0fe30]" name="endTestCase" is-config="true" duration-ms="1" started-at="2020-05-08T16:28:58 IST" finished-at="2020-05-08T16:28:58 IST">
+        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.DashboardColorCodeConfigTest@38d17d80]" name="endTestCase" is-config="true" duration-ms="1" started-at="2020-05-08T17:05:07 IST" finished-at="2020-05-08T17:05:07 IST">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.EditIntentMappingRecord() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.DashboardColorCodeConfigTest.EditDashboardColorConfigRecord() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- endTestCase -->
-        <test-method status="PASS" signature="NavigateToIntentMappingPage()[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@10a0fe30]" name="NavigateToIntentMappingPage" is-config="true" duration-ms="4476" started-at="2020-05-08T16:28:58 IST" finished-at="2020-05-08T16:29:02 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToIntentMappingPage -->
-        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@10a0fe30]" name="startTestCase" is-config="true" duration-ms="0" started-at="2020-05-08T16:28:58 IST" finished-at="2020-05-08T16:28:58 IST">
+        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.DashboardColorCodeConfigTest@38d17d80]" name="startTestCase" is-config="true" duration-ms="4" started-at="2020-05-08T17:05:07 IST" finished-at="2020-05-08T17:05:07 IST">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.DeleteIntentMappingRecord() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.DashboardColorCodeConfigTest.DeleteRecord() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startTestCase -->
-        <test-method status="PASS" signature="DeleteIntentMappingRecord()[pri:30, instance:com.tetherfi.test.ivr.IntentMappingTest@10a0fe30]" name="DeleteIntentMappingRecord" duration-ms="13437" started-at="2020-05-08T16:29:02 IST" finished-at="2020-05-08T16:29:15 IST">
+        <test-method status="PASS" signature="NavigateToDashboardColorCodeConfigPage()[pri:0, instance:com.tetherfi.test.DashboardColorCodeConfigTest@38d17d80]" name="NavigateToDashboardColorCodeConfigPage" is-config="true" duration-ms="3381" started-at="2020-05-08T17:05:07 IST" finished-at="2020-05-08T17:05:10 IST">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- DeleteIntentMappingRecord -->
-        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@10a0fe30]" name="afterEachMethod" is-config="true" duration-ms="1464" started-at="2020-05-08T16:29:15 IST" finished-at="2020-05-08T16:29:17 IST">
+        </test-method> <!-- NavigateToDashboardColorCodeConfigPage -->
+        <test-method status="PASS" signature="DeleteRecord()[pri:34, instance:com.tetherfi.test.DashboardColorCodeConfigTest@38d17d80]" name="DeleteRecord" duration-ms="11587" started-at="2020-05-08T17:05:10 IST" finished-at="2020-05-08T17:05:22 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- DeleteRecord -->
+        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.DashboardColorCodeConfigTest@38d17d80]" name="afterEachMethod" is-config="true" duration-ms="2650" started-at="2020-05-08T17:05:22 IST" finished-at="2020-05-08T17:05:24 IST">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.DeleteIntentMappingRecord() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.DashboardColorCodeConfigTest.DeleteRecord() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterEachMethod -->
-        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@10a0fe30]" name="endTestCase" is-config="true" duration-ms="1" started-at="2020-05-08T16:29:17 IST" finished-at="2020-05-08T16:29:17 IST">
+        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.DashboardColorCodeConfigTest@38d17d80]" name="endTestCase" is-config="true" duration-ms="0" started-at="2020-05-08T17:05:24 IST" finished-at="2020-05-08T17:05:24 IST">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.ivr.IntentMappingTest.DeleteIntentMappingRecord() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.DashboardColorCodeConfigTest.DeleteRecord() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- endTestCase -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.tetherfi.test.ivr.IntentMappingTest@10a0fe30]" name="tearDown" is-config="true" duration-ms="5873" started-at="2020-05-08T16:29:17 IST" finished-at="2020-05-08T16:29:23 IST">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.tetherfi.test.DashboardColorCodeConfigTest@38d17d80]" name="tearDown" is-config="true" duration-ms="1981" started-at="2020-05-08T17:05:24 IST" finished-at="2020-05-08T17:05:26 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.tetherfi.test.ivr.IntentMappingTest -->
+      </class> <!-- com.tetherfi.test.DashboardColorCodeConfigTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
