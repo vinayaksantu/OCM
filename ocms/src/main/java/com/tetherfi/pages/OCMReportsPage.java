@@ -306,10 +306,31 @@ public class OCMReportsPage extends BasePage {
 	@FindBy(id = "1001TextToSearch")
 	private WebElement searchTextBoxAdvSrch;
 	
+	@FindBy(xpath="//div[label='Show Advanced Search...']")
+	private WebElement advSrcLabel;
+	
 	@FindBy(xpath="//a[@class='k-button k-button-icontext k-grid-Download']")
 	private List<WebElement> downloadbuttonInReportDownloadpage;
+	
+	@FindBy(xpath="//button[@id='quickSearchButton']")
+	private WebElement quickInputBtn;
+	
+	@FindBy(xpath="//input[@class='k-formatted-value k-input']")
+	private WebElement getNumberTxtbox;
 
-   
+	@FindBy(id="number")
+	private WebElement getNumberTxtbox1;
+	
+	@FindBy(xpath="//span[@class='k-icon k-i-arrow-60-up']")
+	private WebElement increasearrow;
+	
+	@FindBy(css="span[aria-owns='numberType_listbox']")
+	private WebElement numberDropdown;
+	
+	@FindBy(css="ul[id='numberType_listbox'] li")
+	private List<WebElement> NumberTypeListbox;
+	
+
     public boolean isShowButtonsDisplayed() {
     	return showReportBtn.get(0).isDisplayed() && showReportBtn.get(1).isDisplayed() && showReportBtn.get(0).isEnabled() && showReportBtn.get(1).isEnabled();    	
     }
@@ -735,7 +756,7 @@ public class OCMReportsPage extends BasePage {
     	else{
     		return false;}
     }
-    public boolean reportSingleDateTypeValidation(ReportDetails details) throws Exception
+    public void reportSingleDateTypeValidation(ReportDetails details) throws Exception
     {
     	waitUntilWebElementIsVisible(formContents);
         try {
@@ -751,13 +772,171 @@ public class OCMReportsPage extends BasePage {
         waitForJqueryLoad(driver);
         selectWebElement(reportTypeDropdown);
         selectDropdownFromVisibleText(reportTypeListbox, details.getReportType());
+        if(details.getReportType().equalsIgnoreCase("Single Date"));
         waitUntilWebElementIsVisible(showReportBtn.get(0));
     	selectWebElement(showReportBtn.get(0));  	
-    	if(waitUntilTextToBePresentInWebElement(successmsg,"Please enter Single DateTime in correct format(yyyyMMdd HHmmss)"))
-        {
-    		return true;}
-    	else{
-    		return false;}
+    	
+    }
+    
+    public void reportStartDateValidation(ReportDetails details) throws Exception
+    {
+    	waitUntilWebElementIsVisible(formContents);
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        selectWebElement(reportChannelDropdown);
+        selectDropdownFromVisibleText(reportChannelListBox, details.getReportChannel());
+        waitForJqueryLoad(driver);
+        selectWebElement(reportNameDropdown);
+        selectDropdownFromVisibleText(reportNameListbox, details.getReportName());
+        waitForJqueryLoad(driver);
+        selectWebElement(reportTypeDropdown);
+        selectDropdownFromVisibleText(reportTypeListbox, details.getReportType());
+        if(details.getReportType().equalsIgnoreCase("Date Range")){
+            
+            enterValueToTxtField(endDate,formatDate(details.getEndDate()));
+            endDate.sendKeys(Keys.TAB);
+        }
+        waitUntilWebElementIsVisible(showReportBtn.get(0));
+    	selectWebElement(showReportBtn.get(0));  	
+    	
+    }
+    public void quickinput(ReportDetails details) throws Exception
+    {
+    	waitUntilWebElementIsVisible(formContents);
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        selectWebElement(reportChannelDropdown);
+        selectDropdownFromVisibleText(reportChannelListBox, details.getReportChannel());
+        waitForJqueryLoad(driver);
+        selectWebElement(reportNameDropdown);
+        selectDropdownFromVisibleText(reportNameListbox, details.getReportName());
+        waitForJqueryLoad(driver);
+        selectWebElement(quickInputBtn);
+        selectWebElement(reportTypeDropdown);
+        selectDropdownFromVisibleText(reportTypeListbox, details.getReportType());
+        if(details.getReportType().equalsIgnoreCase("Date Range")){
+            enterValueToTxtField(startDate,formatDate(details.getStartDate()));
+            startDate.sendKeys(Keys.TAB);
+            
+        }
+        waitUntilWebElementIsVisible(showReportBtn.get(0));
+    	selectWebElement(showReportBtn.get(0));  	
+    	
+    }
+    
+    public void reportEndDateValidation(ReportDetails details) throws Exception
+    {
+    	waitUntilWebElementIsVisible(formContents);
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        selectWebElement(reportChannelDropdown);
+        selectDropdownFromVisibleText(reportChannelListBox, details.getReportChannel());
+        waitForJqueryLoad(driver);
+        selectWebElement(reportNameDropdown);
+        selectDropdownFromVisibleText(reportNameListbox, details.getReportName());
+        waitForJqueryLoad(driver);
+        selectWebElement(reportTypeDropdown);
+        selectDropdownFromVisibleText(reportTypeListbox, details.getReportType());
+        if(details.getReportType().equalsIgnoreCase("Date Range")){
+            enterValueToTxtField(startDate,formatDate(details.getStartDate()));
+            startDate.sendKeys(Keys.TAB);
+            
+        }
+        waitUntilWebElementIsVisible(showReportBtn.get(0));
+    	selectWebElement(showReportBtn.get(0));  	
+    	
+    }
+    public void reportEndDateValidationwitAdvsrch(ReportDetails details) throws Exception
+    {
+    	waitUntilWebElementIsVisible(formContents);
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        selectWebElement(reportChannelDropdown);
+        selectDropdownFromVisibleText(reportChannelListBox, details.getReportChannel());
+        waitForJqueryLoad(driver);
+        selectWebElement(reportNameDropdown);
+        selectDropdownFromVisibleText(reportNameListbox, details.getReportName());
+        waitForJqueryLoad(driver);
+        selectWebElement(reportTypeDropdown);
+        selectDropdownFromVisibleText(reportTypeListbox, details.getReportType());
+        if(details.getReportType().equalsIgnoreCase("Date Range")){
+            enterValueToTxtField(startDate,formatDate(details.getStartDate()));
+            startDate.sendKeys(Keys.TAB);
+            
+        }
+        //include the ode for advance search
+        waitUntilWebElementIsVisible(showReportBtn.get(0));
+    	selectWebElement(showReportBtn.get(0));  	
+    	
+    }
+    
+    public void dateconvert(ReportDetails details) throws Exception {
+    	
+    	waitUntilWebElementIsVisible(formContents);
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        selectWebElement(reportChannelDropdown);
+        selectDropdownFromVisibleText(reportChannelListBox, details.getReportChannel());
+        waitForJqueryLoad(driver);
+        selectWebElement(reportNameDropdown);
+        selectDropdownFromVisibleText(reportNameListbox, details.getReportName());
+        waitForJqueryLoad(driver);
+        selectWebElement(quickInputBtn);
+        Thread.sleep(1000);
+        //waitUntilWebElementIsVisible(getNumberTxtbox);
+       // selectWebElement(getNumberTxtbox);
+        //enterValueToTxtFieldWithoutClear(getNumberTxtbox1, details.getNumber());
+        System.out.println(details.getNumber());
+        selectWebElement(numberDropdown);
+        selectDropdownFromVisibleText(NumberTypeListbox,details.getCalendarType());
+        System.out.println(details.getCalendarType());
+        
+        
+        /*selectWebElement(reportTypeDropdown);
+        selectDropdownFromVisibleText(reportTypeListbox, details.getReportType());
+        if(details.getReportType().equalsIgnoreCase("Date Range")){
+            enterValueToTxtField(startDate,formatDate(details.getStartDate()));
+            startDate.sendKeys(Keys.TAB);}
+    	//Date str1= new Date();
+        String str1;//=details.getStartDate();
+        //details.getStartDate()=
+    	Date dNow = new Date( );
+        Calendar c = Calendar.getInstance();
+        c.setTime(dNow);
+        //c.add(Calendar.DATE);//sub 6 months
+        SimpleDateFormat ft =new SimpleDateFormat ("dd-MM-yyyy HH:mm:ss");
+        str1=ft.format(c.getTime());
+    	System.out.println(str1);
+    	String year=str1.substring(6,10);
+    	String month=str1.substring(3,5);
+    	String day=str1.substring(0,2);
+    	String hours=str1.substring(11,13);
+    	String minutes=str1.substring(14,16);
+    	String secs=str1.substring(17,19);   	
+    	
+    	//System.out.println(details.getStartDate());
+    	System.out.println(year);
+    	System.out.println("month:"+ month);
+    	System.out.println("day:"+day);
+    	System.out.println(hours);
+    	System.out.println(minutes);
+    	System.out.println(secs);*/
+    	  		
     }
     
     public String formatDate(String date){

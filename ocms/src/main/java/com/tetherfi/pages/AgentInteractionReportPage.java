@@ -771,13 +771,14 @@ public class AgentInteractionReportPage extends BasePage  {
 		 boolean Status=false;
 		 Map<String, String> map=new HashMap<String,String>() ;
 		 selectWebElement(searchbyfeatureTextBox);    
-		 searchbyfeatureTextBox.sendKeys("90003");//given an identification value
+		// searchbyfeatureTextBox.sendKeys("6666");//given an identification value
+		 enterValueToTxtField(searchbyfeatureTextBox,details.getSearchStr());
 		 selectDropdownFromVisibleText(searchbyfeaturelistBox,details.getSearchStr());
 		 waitForJqueryLoad(driver);
 		 List<Map<String,String>> UI=getDataTable(); 
 		 for (Map<String,String> map1: UI)
 		 {   	
-				if(map1.get("Agent Name").equals(details.getSearchStr()))	
+				if(map1.get("Agent ID").equals(details.getSearchStr()))	
 		 	    Status= true;
 		 	else 
 		 		Status= false;

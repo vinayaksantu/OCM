@@ -24,6 +24,8 @@ public class ReportDetails {
     private String searchStr;
     private String reportName1;
     private String query;
+    private String getNumber;
+    private String getdateType;
 
     
 
@@ -49,7 +51,19 @@ public class ReportDetails {
         colname=readColname(map);
         coltype=readColType(map);
         searchStr=readSearchStr(map);
+        getNumber=readGetNumber(map);
+        getdateType=readCalendarType(map);
     }
+    
+    private String readCalendarType(Map<String, String> map) {
+    	String value=map.get("GetCalendarType");
+    	return value;
+    }
+    private String readGetNumber(Map<String, String> map) {
+    	String value=map.get("GetNumber");
+    	return value;
+    }
+    
     private String readReportName1(Map<String, String> map) {
     	String value=map.get("Report Name1");
         if(value==null||value.equalsIgnoreCase("random.str")){
@@ -205,5 +219,13 @@ public class ReportDetails {
 	}
 	public String getQuery() {
 		return query;
+	}
+	
+	public String getNumber() {
+		return getNumber;
+	}
+	
+	public String getCalendarType() {
+		return getdateType;
 	}
 }

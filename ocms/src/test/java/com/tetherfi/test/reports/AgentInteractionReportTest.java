@@ -31,7 +31,7 @@ public class AgentInteractionReportTest extends BaseTest {
         Assert.assertTrue(ocmReportsPage.isOCMReportPageIsDisplayed());
     }  
     
-    @Test(priority=1)
+   @Test(priority=1)
     public void ShowOCMAgentinteractionReport() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentInteractionReportData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
@@ -286,11 +286,11 @@ public class AgentInteractionReportTest extends BaseTest {
         AgentInteractionReportPage Agentintactnpage=PageFactory.createPageInstance(driver,AgentInteractionReportPage.class);
         Agentintactnpage.viewDownloadedReportInReportsDownloadsPage();
         Assert.assertTrue(ocmReportsPage.verifyDownloadedReportNameAndTimeInReportsDownloadPage(reportDetails.getReportName1()),"Report not found in Reporter download page");    
-    }    
+    }   
     @Test(priority=26)
     public void VerifySearchByFeatureForAgentinteractionReport() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentInteractionReportData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
+        Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(5);
         ReportDetails reportDetails= new ReportDetails(map);
         OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
         ocmReportsPage.showReport(reportDetails);
@@ -364,7 +364,7 @@ public class AgentInteractionReportTest extends BaseTest {
   @Test(priority=33)
     public void  VerifySearchEndsWith() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentInteractionReportData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(2);
+        Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(4);
         ReportDetails reportDetails= new ReportDetails(map);
         OCMReportsPage ocmReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
       	ocmReportsPage.showReport(reportDetails);  
@@ -398,7 +398,7 @@ public class AgentInteractionReportTest extends BaseTest {
         ReportDetails reportDetails= new ReportDetails(map);
         OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);                   
         ocmReportsPage.ClearAdvFilters(reportDetails);
-    }   
+    }  
    @Test(priority=37)
     public void GroupBy() throws Exception{
 	   String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentInteractionReportData.xlsx";
@@ -413,7 +413,7 @@ public class AgentInteractionReportTest extends BaseTest {
       screenshot.captureScreen("OCMAgentinteractionReport", "AlreadyGroupBy");
     }
     
-   /*@Test(priority=38)
+  /* @Test(priority=38)
     public void database() throws Exception {
    		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentInteractionReportData.xlsx";
    		Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(0);
@@ -425,6 +425,6 @@ public class AgentInteractionReportTest extends BaseTest {
     
     @AfterMethod
     public void afterEachMethod(Method method) {
-    	screenshot.captureScreen(driver, "", method.getName());
+    	screenshot.captureScreen(driver, "AgentInteractionReport", method.getName());
     }
 }

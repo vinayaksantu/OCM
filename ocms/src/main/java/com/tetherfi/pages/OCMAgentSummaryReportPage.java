@@ -1053,6 +1053,11 @@ public class OCMAgentSummaryReportPage extends BasePage  {
 		//enterValueToTxtFieldWithoutClear(deleteReasonTextBox,"Delete");
         selectWebElement(deleteYesBtn);	
 	}
+	
+	public void qickInput() throws Exception {
+		
+		
+	}
 
 }
 

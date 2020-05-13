@@ -32,7 +32,7 @@ public class OCMAgentSummaryReportTest extends BaseTest {
         Assert.assertTrue(ocmReportsPage.isOCMReportPageIsDisplayed());
     }
    
-/*   @Test(priority=1)
+   @Test(priority=1)
     public void ShowOCMAgentSummaryReport() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
@@ -83,8 +83,7 @@ public class OCMAgentSummaryReportTest extends BaseTest {
     	OCMReportsPage.viewDownloadedReportInReportsDownloadsPage();
     	Assert.assertTrue(OCMReportsPage.verifyDownloadedReportNameAndTimeInReportsDownloadPage(reportDetails.getReportName()),"Report not found in Reporter download page");
     }  
-
-    @Test(priority=6)
+  /*  @Test(priority=6)
     public void ShowOCMAgentSummaryReportForDateRange() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -123,12 +122,10 @@ public class OCMAgentSummaryReportTest extends BaseTest {
     	OCMReportsPage OCMReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
     	OCMReportsPage.viewDownloadedReportInReportsDownloadsPage();
     	Assert.assertTrue(OCMReportsPage.verifyDownloadedReportNameAndTimeInReportsDownloadPage(reportDetails.getReportName()),"Report not found in Reporter download page");
-    }*/
+    }
     
-    
-    
-    
-  /*  @Test(priority=10)
+       
+    @Test(priority=10)
     public void ScheduleOCMAgentSummaryReportforDateRange() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath,"ExportReportDateRange").getTestData().get(0);
@@ -316,7 +313,7 @@ public class OCMAgentSummaryReportTest extends BaseTest {
     	OCMAgentSummaryReportPage OCMAgentSummaryReportPage=PageFactory.createPageInstance(driver,OCMAgentSummaryReportPage.class);
     	OCMAgentSummaryReportPage.viewDownloadedReportInReportsDownloadsPage();
     	Assert.assertTrue(OCMReportsPage.verifyDownloadedReportNameAndTimeInReportsDownloadPage(reportDetails.getReportName()),"Report not found in Reporter download page");    
-    }
+    }*/
       
     @Test(priority=26)
     public void VerifySearchByFeatureForAgentSummaryReport() throws Exception {
@@ -330,7 +327,7 @@ public class OCMAgentSummaryReportTest extends BaseTest {
     	Assert.assertTrue(OCMAgentSummaryReportPage.verifySearchByTextbox(reportDetails));
     }
     
-    @Test(priority=27)
+  /*  @Test(priority=27)
     public void VerifySearchFeatureForAgentSummaryReport() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -365,7 +362,7 @@ public class OCMAgentSummaryReportTest extends BaseTest {
     	Assert.assertTrue(OCMAgentSummaryReportPage.verifySearchIsNotEqualTo(reportDetails.getSearchStr()));
     }
     
-   /*@Test(priority=30)
+   @Test(priority=30)
     public void  VerifySearchContains() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(2);
@@ -431,7 +428,7 @@ public class OCMAgentSummaryReportTest extends BaseTest {
     	Assert.assertTrue(OCMReportsPage.verifyReportDisplayedNew(reportDetails),"Show report assertion failed");
     }
     
-  /*  @Test(priority=36)
+    @Test(priority=36)
     public void ClearfiltersAdvSrch() throws Exception{ 	
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(0);
@@ -454,7 +451,7 @@ public class OCMAgentSummaryReportTest extends BaseTest {
     	screenshot.captureScreen("OCMAgentSummaryReport", "AlreadyGroupBy");
     }
 
- /* @Test(priority=38)
+  @Test(priority=38)
     public void database() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(0);
@@ -479,7 +476,7 @@ public class OCMAgentSummaryReportTest extends BaseTest {
     	
     }
     
-    @Test(priority=40)
+ /*   @Test(priority=40)
     public void verifyDownloadedExcelfile() throws Exception{
     	OCMAgentSummaryReportPage OCMAgentSummaryReportPage=PageFactory.createPageInstance(driver,OCMAgentSummaryReportPage.class);
     	String filePath2 = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles";
@@ -488,7 +485,7 @@ public class OCMAgentSummaryReportTest extends BaseTest {
        	String filePath3 = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\OCMReportDownload.xlsx";
        	List<Map<String, String>> maplist = new ExcelReader(filePath3,"OCM Agent Summary Report").getTestData();
     	Assert.assertTrue(OCMAgentSummaryReportPage.verifyexportToExcelSheet(maplist));	  
-    }*/
+    }
     
    /* @Test(priority=41)
     public void VerifyDeleteRecordinReportsDownload() throws Exception {
@@ -556,7 +553,7 @@ public class OCMAgentSummaryReportTest extends BaseTest {
     	Assert.assertTrue(OCMReportsPage.verifyReportDisplayedNew(reportDetails),"Show report assertion failed");
     }
     
-   /* @Test(priority=44)
+    @Test(priority=44)
     public void verifyAdvancedSearchinreportpageSearchDoesnotcontains() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(3);
@@ -592,7 +589,7 @@ public class OCMAgentSummaryReportTest extends BaseTest {
     @Test(priority=47)
     public void ReportChannelValidation() throws Exception{
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
-    	Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(5);
+    	Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
     	ReportDetails reportDetails= new ReportDetails(map); 	
     	OCMReportsPage OCMReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);                   		
     	Assert.assertTrue(OCMReportsPage.reportChannelValidation(),"Invalid channel message");   	    	
@@ -614,7 +611,7 @@ public class OCMAgentSummaryReportTest extends BaseTest {
      	ReportDetails reportDetails= new ReportDetails(map);
      	OCMReportsPage OCMReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);  
      	Assert.assertTrue(OCMReportsPage.reportTypeValidation(reportDetails),"Invalid ReportType message");    	
-     }*/
+     }
     
     @Test(priority=50)
     public void reportSingleDateTypeValidation() throws Exception{
@@ -622,14 +619,52 @@ public class OCMAgentSummaryReportTest extends BaseTest {
      	Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
      	ReportDetails reportDetails= new ReportDetails(map);
      	OCMReportsPage OCMReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);  
-     	Assert.assertTrue(OCMReportsPage.reportSingleDateTypeValidation(reportDetails),"Invalid Date message");    	
+     	OCMReportsPage.reportSingleDateTypeValidation(reportDetails); 
+     	Assert.assertEquals(OCMReportsPage.getSuccessMessage(),"Please enter Single Datetime in correct format (yyyyMMdd HHmmss)");   	
      }
     
+    @Test(priority=51)
+    public void reportDateTypeValidationwithoutStartDate() throws Exception{
+     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
+     	Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
+     	ReportDetails reportDetails= new ReportDetails(map);
+     	OCMReportsPage OCMReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);  
+     	OCMReportsPage.reportStartDateValidation(reportDetails); 
+     	Assert.assertEquals(OCMReportsPage.getSuccessMessage(),"Please select a Start Datetime");
+     }
+    @Test(priority=52)
+    public void reportDateTypeValidationwithoutEndDate() throws Exception{
+     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
+     	Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
+     	ReportDetails reportDetails= new ReportDetails(map);
+     	OCMReportsPage OCMReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);  
+     	OCMReportsPage.reportEndDateValidation(reportDetails);
+     	Assert.assertEquals(OCMReportsPage.getSuccessMessage(),"Please select an End Datetime");
+     }
     
-     
+    @Test(priority=53)
+    public void reportDateTypeValidationwithoutEndDateandAdvSearch() throws Exception{
+     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
+     	Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
+     	ReportDetails reportDetails= new ReportDetails(map);
+     	OCMReportsPage OCMReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);  
+     	OCMReportsPage.reportEndDateValidation(reportDetails);//reportEndDateValidationwitAdvSrch
+     	Assert.assertEquals(OCMReportsPage.getSuccessMessage(),"Please select an End Datetime");
+     }
+    
+    @Test(priority=54)
+    public void quickinput() throws Exception{
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
+     	Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(6);
+     	ReportDetails reportDetails= new ReportDetails(map);
+     	OCMReportsPage OCMReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);  
+     	OCMReportsPage.dateconvert(reportDetails);
+    	
+    }*/
+    
     @AfterMethod
     public void afterEachMethod(Method method) {
-    	screenshot.captureScreen(driver, "OCMAgentSummaryReportAdvsrchTest", method.getName());
+    	screenshot.captureScreen(driver, "OCMSummRpt", method.getName());
     }
 
 

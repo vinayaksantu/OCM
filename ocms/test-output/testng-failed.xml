@@ -3,17 +3,26 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.tetherfi.test.reports.OCMAgentSummaryReportTest">
+      <class name="com.tetherfi.test.reports.AgentInteractionReportTest">
         <methods>
-          <include name="startTestCase"/>
-          <include name="openApplication"/>
           <include name="afterEachMethod"/>
+          <include name="VerifySearchFeatureForAgentinteractionReport"/>
+          <include name="NavigateToOcmReportsPage"/>
           <include name="endTestCase"/>
           <include name="tearDown"/>
-          <include name="reportSingleDateTypeValidation"/>
-          <include name="NavigateToOcmReportsPage"/>
+          <include name="VerifyTotalNumberOfItemsPerPageDetails"/>
+          <include name="SortingByDescending"/>
+          <include name="GroupBy"/>
+          <include name="startTestCase"/>
+          <include name="openApplication"/>
+          <include name="ClearfiltersAdvSrch"/>
+          <include name="VerifySearchByFeatureForAgentinteractionReport"/>
+          <include name="SortingByAscending"/>
+          <include name="verifyAdvancedSearchinreportpage"/>
+          <include name="VerifyNumberOfItemsPerPageSelection"/>
+          <include name="VerifySearchStartsWith"/>
         </methods>
-      </class> <!-- com.tetherfi.test.reports.OCMAgentSummaryReportTest -->
+      </class> <!-- com.tetherfi.test.reports.AgentInteractionReportTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

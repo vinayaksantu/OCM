@@ -896,7 +896,7 @@ private String getProperHeadersInGrid(String cname){
 			String reportbeforedate = details.getStartDate();
 			String reportafterdate=details.getEndDate();
 			   //change date formats - step 3
-			reportbeforedate	=reportbeforedate.substring(6,10)+reportbeforedate.substring(3, 5)+reportbeforedate.substring(0, 2)+reportbeforedate.substring(11, 13)+reportbeforedate.substring(14, 16)+reportbeforedate.substring(17, 19);
+			reportbeforedate = reportbeforedate.substring(6,10)+reportbeforedate.substring(3, 5)+reportbeforedate.substring(0, 2)+reportbeforedate.substring(11, 13)+reportbeforedate.substring(14, 16)+reportbeforedate.substring(17, 19);
 			reportafterdate	=reportafterdate.substring(6,10)+reportafterdate.substring(3, 5)+reportafterdate.substring(0, 2)+reportafterdate.substring(11, 13)+reportafterdate.substring(14, 16)+reportafterdate.substring(17, 19);
 				//Replace identifiers in query to formatted date - step 5
 			query=query.replaceAll("ReportBeforeDate",reportbeforedate );

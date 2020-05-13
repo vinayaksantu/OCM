@@ -39,7 +39,7 @@ public class TmacAuxCodesTest extends BaseTest {
     	 Assert.assertTrue(tmacAuxCodesPage.isTmacAuxCodesPageIsDisplayed(), "Tmac Aux Codes Assertion  failed");
      }
 
-     /*@Test(priority=1)
+     @Test(priority=1)
      public void TmacAuxCodesPage() {
     	 TmacAuxCodesPage tmacAuxCodesPage=PageFactory.createPageInstance(driver, TmacAuxCodesPage.class);
     	 Assert.assertTrue(tmacAuxCodesPage.verifylogo(), "TMAC Aux Logo Assertion failed");
