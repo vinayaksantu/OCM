@@ -418,7 +418,7 @@ public class OCMAudioVideoPlaybackReportTest extends BaseTest {
     
     @Test(priority=38)
     public void database() throws Exception {
-   		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoReport.xlsx";
+   		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoPlaybackReport.xlsx";
    		Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(0);
    		ReportDetails reportDetails= new ReportDetails(map);
    		OCMAudioVideoPlaybackReportPage AudioVideoPlaybackReportPage=PageFactory.createPageInstance(driver,OCMAudioVideoPlaybackReportPage.class);
@@ -427,7 +427,10 @@ public class OCMAudioVideoPlaybackReportTest extends BaseTest {
 
     
     @AfterMethod
-    public void afterEachMethod(Method method) {
-    	screenshot.captureScreen(driver, "", method.getName());
-    }
+	public void afterEachMethod(Method method) throws InterruptedException {
+		Screenshot screenshot=new Screenshot(driver);
+		screenshot.captureScreen("AgentAuxReportTest",method.getName());
+		driver.navigate().refresh();
+	}
+    
 }
