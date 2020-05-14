@@ -1164,6 +1164,7 @@ private String getProperHeadersInGrid(String cname){
 			public void clickOnFirstRowOnDrillOneReport() {
 				DrillGridOneFirstCell.click();
 			}
+			
 			public List<String> getSkills() {
 				int item=Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
 		        int pagersize=Integer.valueOf(pagerSize.getText());
@@ -1191,6 +1192,7 @@ private String getProperHeadersInGrid(String cname){
 				}
 				return skills;
 			}
+			
 			public void clickOnSkillIdRowOnMainReport(int rowNo) throws InterruptedException {
 				//Thread.sleep(2000);
 				MainReportRows.get(rowNo).click();

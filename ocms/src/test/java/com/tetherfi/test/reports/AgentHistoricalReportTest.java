@@ -1,6 +1,7 @@
 package com.tetherfi.test.reports;
 import java.io.IOException;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import org.testng.Assert;
@@ -411,17 +412,16 @@ public class AgentHistoricalReportTest extends BaseTest {
       screenshot.captureScreen("OCMAgentHistoricalReport", "AlreadyGroupBy");
     }*/
     
-   @Test(priority=38)
+   /*@Test(priority=38)
     public void database1() throws Exception {
    		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
    		Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(0);
    		ReportDetails reportDetails= new ReportDetails(map);
    		AgentHistoricalReportPage AgentHistoricalReport=PageFactory.createPageInstance(driver,AgentHistoricalReportPage.class);
    		Assert.assertTrue(AgentHistoricalReport.verifyDatabase(reportDetails.getQuery()));
-   }
+   }*/
  
    
-
     @Test(priority=38, description="To verify report data against DB")
 	public void database() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
@@ -432,23 +432,23 @@ public class AgentHistoricalReportTest extends BaseTest {
    		AgentHistoricalReportPage AgentHistoricalReport=PageFactory.createPageInstance(driver,AgentHistoricalReportPage.class);
    		AgentHistoricalReport.sortAscAgentName();;
 		Assert.assertTrue(AgentHistoricalReport.verifyDatabase(reportDetails.getQuery(), reportDetails),"Main Report Data Mismatch");
-		/*System.out.println("Main Report Data Match Successfull");
-		List<String> skillList = new ArrayList<>();
-		skillList = AgentHistoricalReport.getSkills();
-		//System.out.println(skillList);
+		System.out.println("Main Report Data Match Successfull");
+		List<String> agentList = new ArrayList<>();
+		agentList = AgentHistoricalReport.getAgents();
+		System.out.println(agentList);
 		int k=0;
-		for(int i=0;i<skillList.size();i++) {
+		for(int i=0;i<agentList.size();i++) {
 			if(k==10){
 				AgentHistoricalReport.goToNextPage();
 				k=k-10;
 			}
-			AgentHistoricalReport.clickOnSkillIdRowOnMainReport(k);
-			Assert.assertTrue(AgentHistoricalReport.verifyDatabaseDrillGridOne(reportDetails.getQueryDrillGridOne(), reportDetails, skillList.get(i)),"Drill Grid One data mismatch for Skill Id " + skillList.get(i));
-			System.out.println("Drill Grid One data match successfull for Skill Id " + skillList.get(i));
+			AgentHistoricalReport.clickOnAgentIdRowOnMainReport(k);
+			Assert.assertTrue(AgentHistoricalReport.verifyDatabaseDrillGridOne(reportDetails.getQueryDrillGridOne(), reportDetails, agentList.get(i)),"Drill Grid One data mismatch for Agent Id " + agentList.get(i));
+			System.out.println("Drill Grid One data match successfull for Agent Id " + agentList.get(i));
 			k++;
 			Thread.sleep(1000);
 		}
-		List<String> skillDates = new ArrayList<>();
+		/*List<String> skillDates = new ArrayList<>();
 		for(int i=0;i<skillList.size();i++) {
 			AgentHistoricalReport.clickOnSkillIdRowOnMainReport(i);
 			Thread.sleep(1000);

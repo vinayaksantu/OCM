@@ -59,8 +59,12 @@ public class OCMAgentAuxReportPage extends BasePage  {
 	private WebElement pagerInfo;
 
 	@FindBy(css=".k-pager-sizes .k-input")
+	private WebElement pagerSize1;
+
+	@FindBy(xpath="//*[@id=\"grid\"]/div[5]/span[1]/span/span/span[1]")
 	private WebElement pagerSize;
 
+	
 	@FindBy(css=".k-i-more-vertical")
 	private List<WebElement> headersDropdown;
 
@@ -724,7 +728,7 @@ public class OCMAgentAuxReportPage extends BasePage  {
 		selectWebElement(searchSearchBtn);	
 		selectWebElement(searchCloseBtn);		
 	}
-	public boolean verifyAdvanceSearch(ReportDetails reportDetails) {
+	public boolean verifyAdvanceSearch(ReportDetails reportDetails) throws InterruptedException {
 		Boolean Status=false;
 		List<Map<String,String>>UI=getDataTable();
 		for(Map<String,String> map1:UI)
@@ -801,7 +805,7 @@ public class OCMAgentAuxReportPage extends BasePage  {
 	}*/
 
 	
-	 private List<Map<String, String>> getDataTable() {
+	 private List<Map<String, String>> getDataTable() throws InterruptedException {
 			int item=Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
 	        int pagersize=Integer.valueOf(pagerSize.getText());
 	        int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
@@ -824,6 +828,7 @@ public class OCMAgentAuxReportPage extends BasePage  {
 			}
 			if(k!=pages)
 			{
+				Thread.sleep(5000);
 				nextPageIcon.click();
 				waitForJqueryLoad(driver);}
 			}
@@ -984,7 +989,7 @@ public class OCMAgentAuxReportPage extends BasePage  {
 	}
 
 
-	public boolean verifyDatabase(String query,ReportDetails details) {
+	public boolean verifyDatabase(String query,ReportDetails details) throws InterruptedException {
 		//get dates from xl - step 2
 		String reportbeforedate = details.getStartDate();
 		String reportafterdate=details.getEndDate();

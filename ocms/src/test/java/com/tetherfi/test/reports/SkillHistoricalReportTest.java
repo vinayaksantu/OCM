@@ -427,7 +427,7 @@ public class SkillHistoricalReportTest extends BaseTest {
 		System.out.println("Main Report Data Match Successfull");
 		List<String> skillList = new ArrayList<>();
 		skillList = agtSkillHistoricalPage.getSkills();
-		//System.out.println(skillList);
+		System.out.println(skillList);
 		int k=0;
 		for(int i=0;i<skillList.size();i++) {
 			if(k==10){

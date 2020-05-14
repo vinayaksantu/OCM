@@ -16,9 +16,9 @@ import org.openqa.selenium.support.FindBy;
 
 import com.tetherfi.model.report.ReportDetails;
 
-public class OCMAudioVideoReportPage extends BasePage  {
+public class OCMAudioVideoPlaybackReportPage extends BasePage  {
 	
-	  public OCMAudioVideoReportPage(WebDriver driver) {
+	  public OCMAudioVideoPlaybackReportPage(WebDriver driver) {
 	        super(driver);
 	    }
 	  

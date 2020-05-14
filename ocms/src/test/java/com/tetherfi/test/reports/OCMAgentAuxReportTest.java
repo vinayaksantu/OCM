@@ -440,7 +440,8 @@ public class OCMAgentAuxReportTest extends BaseTest {
 		OCMReportsPage ocmReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
 		ocmReportsPage.showReport(reportDetails);
 		OCMAgentAuxReportPage AgentAuxReportPage=PageFactory.createPageInstance(driver,OCMAgentAuxReportPage.class);
-		Assert.assertTrue(AgentAuxReportPage.verifyDatabase(reportDetails.getQuery(),reportDetails));
+		Assert.assertTrue(AgentAuxReportPage.verifyDatabase(reportDetails.getQuery(),reportDetails),"UI and Database data mismatch");
+       System.out.println("Database Validation Completed Succesfully" +" : "+"UI and Database data is matched");	
 	}
 
 

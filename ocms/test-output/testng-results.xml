@@ -1,144 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="3" passed="3">
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="95677" started-at="2020-05-08T17:03:51 IST" finished-at="2020-05-08T17:05:26 IST">
+  <suite name="Default suite" duration-ms="121963" started-at="2020-05-13T13:25:39 IST" finished-at="2020-05-13T13:27:41 IST">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="95677" started-at="2020-05-08T17:03:51 IST" finished-at="2020-05-08T17:05:26 IST">
-      <class name="com.tetherfi.test.DashboardColorCodeConfigTest">
-        <test-method status="PASS" signature="openApplication()[pri:0, instance:com.tetherfi.test.DashboardColorCodeConfigTest@38d17d80]" name="openApplication" is-config="true" duration-ms="44508" started-at="2020-05-08T17:03:51 IST" finished-at="2020-05-08T17:04:35 IST">
+    <test name="Default test" duration-ms="121963" started-at="2020-05-13T13:25:39 IST" finished-at="2020-05-13T13:27:41 IST">
+      <class name="com.tetherfi.test.reports.OCMAgentAuxReportTest">
+        <test-method status="PASS" signature="openApplication()[pri:0, instance:com.tetherfi.test.reports.OCMAgentAuxReportTest@4ac86d6a]" name="openApplication" is-config="true" duration-ms="32155" started-at="2020-05-13T13:25:39 IST" finished-at="2020-05-13T13:26:11 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- openApplication -->
-        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.DashboardColorCodeConfigTest@38d17d80]" name="startTestCase" is-config="true" duration-ms="2" started-at="2020-05-08T17:04:35 IST" finished-at="2020-05-08T17:04:35 IST">
+        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMAgentAuxReportTest@4ac86d6a]" name="startTestCase" is-config="true" duration-ms="4" started-at="2020-05-13T13:26:11 IST" finished-at="2020-05-13T13:26:11 IST">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.DashboardColorCodeConfigTest.AddNewDashboardColorConfigRecord() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.reports.OCMAgentAuxReportTest.database() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startTestCase -->
-        <test-method status="PASS" signature="NavigateToDashboardColorCodeConfigPage()[pri:0, instance:com.tetherfi.test.DashboardColorCodeConfigTest@38d17d80]" name="NavigateToDashboardColorCodeConfigPage" is-config="true" duration-ms="4640" started-at="2020-05-08T17:04:35 IST" finished-at="2020-05-08T17:04:40 IST">
+        <test-method status="PASS" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.OCMAgentAuxReportTest@4ac86d6a]" name="NavigateToOcmReportsPage" is-config="true" duration-ms="5983" started-at="2020-05-13T13:26:11 IST" finished-at="2020-05-13T13:26:17 IST">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- NavigateToDashboardColorCodeConfigPage -->
-        <test-method status="PASS" signature="AddNewDashboardColorConfigRecord()[pri:3, instance:com.tetherfi.test.DashboardColorCodeConfigTest@38d17d80]" name="AddNewDashboardColorConfigRecord" duration-ms="8639" started-at="2020-05-08T17:04:40 IST" finished-at="2020-05-08T17:04:48 IST">
+        </test-method> <!-- NavigateToOcmReportsPage -->
+        <test-method status="PASS" signature="database()[pri:39, instance:com.tetherfi.test.reports.OCMAgentAuxReportTest@4ac86d6a]" name="database" duration-ms="61164" started-at="2020-05-13T13:26:17 IST" finished-at="2020-05-13T13:27:19 IST">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- AddNewDashboardColorConfigRecord -->
-        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.DashboardColorCodeConfigTest@38d17d80]" name="afterEachMethod" is-config="true" duration-ms="1641" started-at="2020-05-08T17:04:48 IST" finished-at="2020-05-08T17:04:50 IST">
+        </test-method> <!-- database -->
+        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMAgentAuxReportTest@4ac86d6a]" name="afterEachMethod" is-config="true" duration-ms="1927" started-at="2020-05-13T13:27:19 IST" finished-at="2020-05-13T13:27:21 IST">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.DashboardColorCodeConfigTest.AddNewDashboardColorConfigRecord() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.reports.OCMAgentAuxReportTest.database() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterEachMethod -->
-        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.DashboardColorCodeConfigTest@38d17d80]" name="endTestCase" is-config="true" duration-ms="0" started-at="2020-05-08T17:04:50 IST" finished-at="2020-05-08T17:04:50 IST">
+        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMAgentAuxReportTest@4ac86d6a]" name="endTestCase" is-config="true" duration-ms="0" started-at="2020-05-13T13:27:21 IST" finished-at="2020-05-13T13:27:21 IST">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.DashboardColorCodeConfigTest.AddNewDashboardColorConfigRecord() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.reports.OCMAgentAuxReportTest.database() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- endTestCase -->
-        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.DashboardColorCodeConfigTest@38d17d80]" name="startTestCase" is-config="true" duration-ms="1" started-at="2020-05-08T17:04:50 IST" finished-at="2020-05-08T17:04:50 IST">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.DashboardColorCodeConfigTest.EditDashboardColorConfigRecord() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method status="PASS" signature="NavigateToDashboardColorCodeConfigPage()[pri:0, instance:com.tetherfi.test.DashboardColorCodeConfigTest@38d17d80]" name="NavigateToDashboardColorCodeConfigPage" is-config="true" duration-ms="3295" started-at="2020-05-08T17:04:50 IST" finished-at="2020-05-08T17:04:53 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToDashboardColorCodeConfigPage -->
-        <test-method status="PASS" signature="EditDashboardColorConfigRecord()[pri:12, instance:com.tetherfi.test.DashboardColorCodeConfigTest@38d17d80]" name="EditDashboardColorConfigRecord" duration-ms="11831" started-at="2020-05-08T17:04:53 IST" finished-at="2020-05-08T17:05:05 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- EditDashboardColorConfigRecord -->
-        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.DashboardColorCodeConfigTest@38d17d80]" name="afterEachMethod" is-config="true" duration-ms="1409" started-at="2020-05-08T17:05:05 IST" finished-at="2020-05-08T17:05:07 IST">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.DashboardColorCodeConfigTest.EditDashboardColorConfigRecord() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.DashboardColorCodeConfigTest@38d17d80]" name="endTestCase" is-config="true" duration-ms="1" started-at="2020-05-08T17:05:07 IST" finished-at="2020-05-08T17:05:07 IST">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.DashboardColorCodeConfigTest.EditDashboardColorConfigRecord() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.DashboardColorCodeConfigTest@38d17d80]" name="startTestCase" is-config="true" duration-ms="4" started-at="2020-05-08T17:05:07 IST" finished-at="2020-05-08T17:05:07 IST">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.DashboardColorCodeConfigTest.DeleteRecord() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method status="PASS" signature="NavigateToDashboardColorCodeConfigPage()[pri:0, instance:com.tetherfi.test.DashboardColorCodeConfigTest@38d17d80]" name="NavigateToDashboardColorCodeConfigPage" is-config="true" duration-ms="3381" started-at="2020-05-08T17:05:07 IST" finished-at="2020-05-08T17:05:10 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToDashboardColorCodeConfigPage -->
-        <test-method status="PASS" signature="DeleteRecord()[pri:34, instance:com.tetherfi.test.DashboardColorCodeConfigTest@38d17d80]" name="DeleteRecord" duration-ms="11587" started-at="2020-05-08T17:05:10 IST" finished-at="2020-05-08T17:05:22 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- DeleteRecord -->
-        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.DashboardColorCodeConfigTest@38d17d80]" name="afterEachMethod" is-config="true" duration-ms="2650" started-at="2020-05-08T17:05:22 IST" finished-at="2020-05-08T17:05:24 IST">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.DashboardColorCodeConfigTest.DeleteRecord() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.DashboardColorCodeConfigTest@38d17d80]" name="endTestCase" is-config="true" duration-ms="0" started-at="2020-05-08T17:05:24 IST" finished-at="2020-05-08T17:05:24 IST">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.DashboardColorCodeConfigTest.DeleteRecord() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.tetherfi.test.DashboardColorCodeConfigTest@38d17d80]" name="tearDown" is-config="true" duration-ms="1981" started-at="2020-05-08T17:05:24 IST" finished-at="2020-05-08T17:05:26 IST">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.tetherfi.test.reports.OCMAgentAuxReportTest@4ac86d6a]" name="tearDown" is-config="true" duration-ms="20589" started-at="2020-05-13T13:27:21 IST" finished-at="2020-05-13T13:27:41 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.tetherfi.test.DashboardColorCodeConfigTest -->
+      </class> <!-- com.tetherfi.test.reports.OCMAgentAuxReportTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
