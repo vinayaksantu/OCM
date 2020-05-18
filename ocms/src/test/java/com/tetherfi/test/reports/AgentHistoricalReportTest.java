@@ -9,8 +9,6 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import com.tetherfi.model.report.ReportDetails;
-import com.tetherfi.model.user.DashboardColorCodeConfigDetails;
-import com.tetherfi.pages.DashboardColorCodeConfigPage;
 import com.tetherfi.pages.HomePage;
 import com.tetherfi.pages.OCMReportsPage;
 import com.tetherfi.pages.AgentHistoricalReportPage;
@@ -30,7 +28,7 @@ public class AgentHistoricalReportTest extends BaseTest {
         Assert.assertTrue(ocmReportsPage.isOCMReportPageIsDisplayed());
     }
     
-    /*@Test(priority=1)
+    @Test(priority=1)
     public void ShowOCMAgentHistoricalReport() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
@@ -38,8 +36,8 @@ public class AgentHistoricalReportTest extends BaseTest {
         OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
         ocmReportsPage.showReport(reportDetails);
         Assert.assertTrue(ocmReportsPage.verifyReportDisplayed(reportDetails),"Show report assertion failed");     
-    }      
-    @Test(priority=2, dependsOnMethods ="ShowOCMAgentHistoricalReport")
+    }
+    /*@Test(priority=2, dependsOnMethods ="ShowOCMAgentHistoricalReport")
     public void ShowOcmAgentHistoricalReportInNewTab() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ShowInNewPage").getTestData().get(0);
@@ -73,7 +71,7 @@ public class AgentHistoricalReportTest extends BaseTest {
         Map<String, String> map = new ExcelReader(filePath,"ExportReport").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
         OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
-        ocmReportsPage.viewDownloadedReportInReportsDownloadsPage();
+        ocmReportsPage.viewDownloadedReportInReportDownloadsPage();
         Assert.assertTrue(ocmReportsPage.verifyDownloadedReportNameAndTimeInReportsDownloadPage(reportDetails.getReportName()),"Report not found in Reporter download page");
     }    
    @Test(priority=6)
@@ -110,7 +108,7 @@ public class AgentHistoricalReportTest extends BaseTest {
         Map<String, String> map = new ExcelReader(filePath,"ExportReportDateRange").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
         OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
-        ocmReportsPage.viewDownloadedReportInReportsDownloadsPage();
+        ocmReportsPage.viewDownloadedReportInReportDownloadsPage();
         Assert.assertTrue(ocmReportsPage.verifyDownloadedReportNameAndTimeInReportsDownloadPage(reportDetails.getReportName()),"Report not found in Reporter download page");
     }
     @Test(priority=10)
@@ -410,7 +408,7 @@ public class AgentHistoricalReportTest extends BaseTest {
   	  screenshot.captureScreen("OCMAgentHistoricalReport", "GroupBy");
   	  Assert.assertTrue(agnthistpg.groupby());
       screenshot.captureScreen("OCMAgentHistoricalReport", "AlreadyGroupBy");
-    }*/
+    }
     
    /*@Test(priority=38)
     public void database1() throws Exception {
@@ -419,8 +417,7 @@ public class AgentHistoricalReportTest extends BaseTest {
    		ReportDetails reportDetails= new ReportDetails(map);
    		AgentHistoricalReportPage AgentHistoricalReport=PageFactory.createPageInstance(driver,AgentHistoricalReportPage.class);
    		Assert.assertTrue(AgentHistoricalReport.verifyDatabase(reportDetails.getQuery()));
-   }*/
- 
+   }
    
     @Test(priority=38, description="To verify report data against DB")
 	public void database() throws Exception {
@@ -468,8 +465,8 @@ public class AgentHistoricalReportTest extends BaseTest {
 			}
 			AgentHistoricalReport.closeDrillOneReport();
 			Thread.sleep(1000);
-		}*/
-	}
+		}
+	}*/
    
    @AfterMethod
    public void afterEachMethod(Method method) throws InterruptedException {

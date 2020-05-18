@@ -1,86 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<<<<<<< HEAD
-<<<<<<< HEAD
-<suite name="Failed suite [Failed suite [Default suite]]" guice-stage="DEVELOPMENT">
-  <test thread-count="5" name="Default test(failed)(failed)">
-=======
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
->>>>>>> refs/remotes/origin/PalakMay18th
-=======
-<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
-  <test thread-count="5" name="Default test(failed)">
->>>>>>> refs/remotes/origin/PalakReports
     <classes>
-<<<<<<< HEAD
-<<<<<<< HEAD
-      <class name="com.tetherfi.test.tmac.AgentTeamMgmtTest">
-=======
-      <class name="com.tetherfi.test.reports.OCMAgentSummaryReportTest">
->>>>>>> refs/remotes/origin/PalakMay18th
-=======
-      <class name="com.tetherfi.test.reports.OCMAudioVideoPlaybackReportTest">
->>>>>>> refs/remotes/origin/PalakReports
+      <class name="com.tetherfi.test.reports.AgentHistoricalReportTest">
         <methods>
-<<<<<<< HEAD
-<<<<<<< HEAD
-          <include name="VerifySearchContains"/>
-          <include name="NavigateToAgentTeamManagementPage"/>
-          <include name="VerifySearchIsNotEqualTo"/>
-          <include name="VerifyAuditTrialReportForUpdate"/>
-          <include name="VerifySearchStartsWith"/>
-          <include name="endTestCase"/>
-          <include name="VerifyAuditTrialReportForDelete"/>
-          <include name="tearDown"/>
-          <include name="ExporttoExcelWithoutData"/>
-          <include name="VerifyArrowMoveForPreviousAndNextPage"/>
-          <include name="VerifySearchDoesNotContains"/>
           <include name="startTestCase"/>
           <include name="openApplication"/>
-          <include name="VerifySearchEndsWith"/>
-          <include name="afterEachMethod"/>
-          <include name="database"/>
-          <include name="VerifyArrowMoveForFirstAndLastPage"/>
-=======
-          <include name="startTestCase"/>
-          <include name="openApplication"/>
-          <include name="quickInputMonth"/>
-=======
-          <include name="startTestCase"/>
-          <include name="openApplication"/>
->>>>>>> refs/remotes/origin/PalakReports
-          <include name="endTestCase"/>
-<<<<<<< HEAD
-          <include name="tearDown"/>
           <include name="NavigateToOcmReportsPage"/>
->>>>>>> refs/remotes/origin/PalakMay18th
-=======
-          <include name="afterEachMethod"/>
+          <include name="endTestCase"/>
           <include name="tearDown"/>
-          <include name="NavigateToOcmReportsPage"/>
-          <include name="database"/>
->>>>>>> refs/remotes/origin/PalakReports
+          <include name="ShowOCMAgentHistoricalReport"/>
+          <include name="afterEachMethod"/>
         </methods>
-<<<<<<< HEAD
-<<<<<<< HEAD
-      </class> <!-- com.tetherfi.test.tmac.AgentTeamMgmtTest -->
-=======
-      </class> <!-- com.tetherfi.test.reports.OCMAgentSummaryReportTest -->
->>>>>>> refs/remotes/origin/PalakMay18th
-=======
-      </class> <!-- com.tetherfi.test.reports.OCMAudioVideoPlaybackReportTest -->
->>>>>>> refs/remotes/origin/PalakReports
+      </class> <!-- com.tetherfi.test.reports.AgentHistoricalReportTest -->
     </classes>
-<<<<<<< HEAD
-<<<<<<< HEAD
-  </test> <!-- Default test(failed)(failed) -->
-</suite> <!-- Failed suite [Failed suite [Default suite]] -->
-=======
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
->>>>>>> refs/remotes/origin/PalakMay18th
-=======
-  </test> <!-- Default test(failed) -->
-</suite> <!-- Failed suite [Default suite] -->
->>>>>>> refs/remotes/origin/PalakReports

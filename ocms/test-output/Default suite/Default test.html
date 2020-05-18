@@ -55,27 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Default test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>23/16/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>0/0/1</td>
 </tr><tr>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<td>Started on:</td><td>Mon Apr 27 17:51:34 IST 2020</td>
-=======
-<td>Started on:</td><td>Mon May 18 08:38:56 IST 2020</td>
->>>>>>> refs/remotes/origin/PalakMay18th
-=======
-<td>Started on:</td><td>Mon May 18 09:44:08 IST 2020</td>
->>>>>>> refs/remotes/origin/PalakReports
+<td>Started on:</td><td>Mon May 18 13:23:43 IST 2020</td>
 </tr>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<tr><td>Total time:</td><td>1239 seconds (1239407 ms)</td>
-=======
-<tr><td>Total time:</td><td>58 seconds (58786 ms)</td>
->>>>>>> refs/remotes/origin/PalakMay18th
-=======
-<tr><td>Total time:</td><td>121 seconds (121447 ms)</td>
->>>>>>> refs/remotes/origin/PalakReports
+<tr><td>Total time:</td><td>6 seconds (6880 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -84,33 +68,42 @@ function toggleAllBoxes() {
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
 <table width='100%' border='1' class='invocation-failed'>
-<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td colspan='4' align='center'><b>FAILED CONFIGURATIONS</b></td></tr>
 <tr><td><b>Test method</b></td>
 <td width="30%"><b>Exception</b></td>
 <td width="10%"><b>Time (seconds)</b></td>
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.tetherfi.test.tmac.AgentTeamMgmtTest.DeleteAgentTeamManagementCancelRecord()'><b>DeleteAgentTeamManagementCancelRecord</b><br>Test class: com.tetherfi.test.tmac.AgentTeamMgmtTest</td>
-<td><div><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator &apos;By.cssSelector: .k-grid-CustomDelete&apos; (tried for 30 second(s) with 500 milliseconds interval)
-	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
-	at com.tetherfi.pages.BasePage.waitUntilWebElementIsVisible(BasePage.java:127)
-	at com.tetherfi.pages.BasePage.selectWebElement(BasePage.java:198)
-	at com.tetherfi.pages.AgentTeamManagementPage.verifydeleteNo(AgentTeamManagementPage.java:668)
-	at com.tetherfi.test.tmac.AgentTeamMgmtTest.DeleteAgentTeamManagementCancelRecord(AgentTeamMgmtTest.java:261)
+<td title='com.tetherfi.test.reports.AgentHistoricalReportTest.openApplication()'><b>openApplication</b><br>Test class: com.tetherfi.test.reports.AgentHistoricalReportTest</td>
+<td><div><pre>org.openqa.selenium.NoSuchSessionException: invalid session id
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;ADMIN&apos;, ip: &apos;192.168.1.4&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;9.0.4&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 81.0.4044.138, chrome: {chromedriverVersion: 80.0.3987.106 (f68069574609..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:53645}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: f0c4328c263ac965a36daa5f8e891d74
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.base/java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebDriver$RemoteWebDriverOptions$RemoteTimeouts.implicitlyWait(RemoteWebDriver.java:780)
+	at com.tetherfi.test.BaseTest.openApplication(BaseTest.java:41)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
 	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:62)
+	at org.testng.internal.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:340)
+	at org.testng.internal.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:294)
+	at org.testng.internal.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:176)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:122)
 	at java.base/java.util.ArrayList.forEach(Unknown Source)
 	at org.testng.TestRunner.privateRun(TestRunner.java:770)
 	at org.testng.TestRunner.run(TestRunner.java:591)
@@ -127,15 +120,13 @@ function toggleAllBoxes() {
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;.k-grid-CustomDelete&quot;}
-  (Session info: chrome=81.0.4044.122)
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+</pre></div><a href='#' onClick='toggleBox("stack-trace860422228", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace860422228'><pre>org.openqa.selenium.NoSuchSessionException: invalid session id
 Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
-System info: host: &apos;ADMIN&apos;, ip: &apos;192.168.43.128&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;9.0.4&apos;
+System info: host: &apos;ADMIN&apos;, ip: &apos;192.168.1.4&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;9.0.4&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 81.0.4044.122, chrome: {chromedriverVersion: 80.0.3987.106 (f68069574609..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:63648}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 6444ec219045364ecb62c80e3266da84
-*** Element info: {Using=css selector, value=.k-grid-CustomDelete}
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 81.0.4044.138, chrome: {chromedriverVersion: 80.0.3987.106 (f68069574609..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:53645}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: f0c4328c263ac965a36daa5f8e891d74
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
@@ -146,333 +137,18 @@ Session ID: 6444ec219045364ecb62c80e3266da84
 	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:420)
-	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:431)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
-	at com.sun.proxy.$Proxy14.isDisplayed(Unknown Source)
-	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:314)
-	at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:43)
-	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:300)
-	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:297)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
-	... 32 more
-</pre></div><a href='#' onClick='toggleBox("stack-trace1071267875", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1071267875'><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator &apos;By.cssSelector: .k-grid-CustomDelete&apos; (tried for 30 second(s) with 500 milliseconds interval)
-	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
-	at com.tetherfi.pages.BasePage.waitUntilWebElementIsVisible(BasePage.java:127)
-	at com.tetherfi.pages.BasePage.selectWebElement(BasePage.java:198)
-	at com.tetherfi.pages.AgentTeamManagementPage.verifydeleteNo(AgentTeamManagementPage.java:668)
-	at com.tetherfi.test.tmac.AgentTeamMgmtTest.DeleteAgentTeamManagementCancelRecord(AgentTeamMgmtTest.java:261)
+	at org.openqa.selenium.remote.RemoteWebDriver$RemoteWebDriverOptions$RemoteTimeouts.implicitlyWait(RemoteWebDriver.java:780)
+	at com.tetherfi.test.BaseTest.openApplication(BaseTest.java:41)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
 	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-	at org.testng.TestRunner.privateRun(TestRunner.java:770)
-	at org.testng.TestRunner.run(TestRunner.java:591)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-	at org.testng.TestNG.runSuites(TestNG.java:1032)
-	at org.testng.TestNG.run(TestNG.java:1000)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;.k-grid-CustomDelete&quot;}
-  (Session info: chrome=81.0.4044.122)
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
-Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
-System info: host: &apos;ADMIN&apos;, ip: &apos;192.168.43.128&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;9.0.4&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 81.0.4044.122, chrome: {chromedriverVersion: 80.0.3987.106 (f68069574609..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:63648}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 6444ec219045364ecb62c80e3266da84
-*** Element info: {Using=css selector, value=.k-grid-CustomDelete}
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.base/java.lang.reflect.Constructor.newInstance(Unknown Source)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:420)
-	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:431)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
-	at com.sun.proxy.$Proxy14.isDisplayed(Unknown Source)
-	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:314)
-	at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:43)
-	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:300)
-	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:297)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
-	... 32 more
-</pre></div></td>
-<td>85</td>
-<td>com.tetherfi.test.tmac.AgentTeamMgmtTest@14c93774</td></tr>
-<tr>
-<td title='com.tetherfi.test.tmac.AgentTeamMgmtTest.DeleteAgentTeamManagementRecord()'><b>DeleteAgentTeamManagementRecord</b><br>Test class: com.tetherfi.test.tmac.AgentTeamMgmtTest</td>
-<td><div><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator &apos;By.cssSelector: .k-grid-CustomDelete&apos; (tried for 30 second(s) with 500 milliseconds interval)
-	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
-	at com.tetherfi.pages.BasePage.waitUntilWebElementIsVisible(BasePage.java:127)
-	at com.tetherfi.pages.BasePage.selectWebElement(BasePage.java:198)
-	at com.tetherfi.pages.AgentTeamManagementPage.deleteAgentTeamManagementRecord(AgentTeamManagementPage.java:508)
-	at com.tetherfi.test.tmac.AgentTeamMgmtTest.DeleteAgentTeamManagementRecord(AgentTeamMgmtTest.java:269)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-	at org.testng.TestRunner.privateRun(TestRunner.java:770)
-	at org.testng.TestRunner.run(TestRunner.java:591)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-	at org.testng.TestNG.runSuites(TestNG.java:1032)
-	at org.testng.TestNG.run(TestNG.java:1000)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;.k-grid-CustomDelete&quot;}
-  (Session info: chrome=81.0.4044.122)
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
-Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
-System info: host: &apos;ADMIN&apos;, ip: &apos;192.168.43.128&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;9.0.4&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 81.0.4044.122, chrome: {chromedriverVersion: 80.0.3987.106 (f68069574609..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:63648}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 6444ec219045364ecb62c80e3266da84
-*** Element info: {Using=css selector, value=.k-grid-CustomDelete}
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.base/java.lang.reflect.Constructor.newInstance(Unknown Source)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:420)
-	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:431)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
-	at com.sun.proxy.$Proxy14.isDisplayed(Unknown Source)
-	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:314)
-	at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:43)
-	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:300)
-	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:297)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
-	... 32 more
-</pre></div><a href='#' onClick='toggleBox("stack-trace1491406622", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1491406622'><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator &apos;By.cssSelector: .k-grid-CustomDelete&apos; (tried for 30 second(s) with 500 milliseconds interval)
-	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
-	at com.tetherfi.pages.BasePage.waitUntilWebElementIsVisible(BasePage.java:127)
-	at com.tetherfi.pages.BasePage.selectWebElement(BasePage.java:198)
-	at com.tetherfi.pages.AgentTeamManagementPage.deleteAgentTeamManagementRecord(AgentTeamManagementPage.java:508)
-	at com.tetherfi.test.tmac.AgentTeamMgmtTest.DeleteAgentTeamManagementRecord(AgentTeamMgmtTest.java:269)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-	at org.testng.TestRunner.privateRun(TestRunner.java:770)
-	at org.testng.TestRunner.run(TestRunner.java:591)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-	at org.testng.TestNG.runSuites(TestNG.java:1032)
-	at org.testng.TestNG.run(TestNG.java:1000)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;.k-grid-CustomDelete&quot;}
-  (Session info: chrome=81.0.4044.122)
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
-Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
-System info: host: &apos;ADMIN&apos;, ip: &apos;192.168.43.128&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;9.0.4&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 81.0.4044.122, chrome: {chromedriverVersion: 80.0.3987.106 (f68069574609..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:63648}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 6444ec219045364ecb62c80e3266da84
-*** Element info: {Using=css selector, value=.k-grid-CustomDelete}
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.base/java.lang.reflect.Constructor.newInstance(Unknown Source)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:420)
-	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:431)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
-	at com.sun.proxy.$Proxy14.isDisplayed(Unknown Source)
-	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:314)
-	at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:43)
-	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:300)
-	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:297)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
-	... 32 more
-</pre></div></td>
-<td>85</td>
-<td>com.tetherfi.test.tmac.AgentTeamMgmtTest@14c93774</td></tr>
-<tr>
-<td title='com.tetherfi.test.tmac.AgentTeamMgmtTest.EditAgentTeamManagementRecord()'><b>EditAgentTeamManagementRecord</b><br>Test class: com.tetherfi.test.tmac.AgentTeamMgmtTest</td>
-<td><div><pre>org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
-  (Session info: chrome=81.0.4044.122)
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
-Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
-System info: host: &apos;ADMIN&apos;, ip: &apos;192.168.43.128&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;9.0.4&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 81.0.4044.122, chrome: {chromedriverVersion: 80.0.3987.106 (f68069574609..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:63648}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 6444ec219045364ecb62c80e3266da84
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.base/java.lang.reflect.Constructor.newInstance(Unknown Source)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
-	at org.openqa.selenium.remote.RemoteWebElement.isDisplayed(RemoteWebElement.java:326)
-	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:314)
-	at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:43)
-	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:300)
-	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:297)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
-	at com.tetherfi.pages.BasePage.waitUntilWebElementListIsVisible(BasePage.java:139)
-	at com.tetherfi.pages.BasePage.selectDropdownFromVisibleText(BasePage.java:335)
-	at com.tetherfi.pages.AgentTeamManagementPage.searchAgentTeamManagementRecord(AgentTeamManagementPage.java:472)
-	at com.tetherfi.pages.AgentTeamManagementPage.editAgentTeamManagementRecord(AgentTeamManagementPage.java:480)
-	at com.tetherfi.test.tmac.AgentTeamMgmtTest.EditAgentTeamManagementRecord(AgentTeamMgmtTest.java:179)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-	at org.testng.TestRunner.privateRun(TestRunner.java:770)
-	at org.testng.TestRunner.run(TestRunner.java:591)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-	at org.testng.TestNG.runSuites(TestNG.java:1032)
-	at org.testng.TestNG.run(TestNG.java:1000)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace1190115874", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1190115874'><pre>org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
-  (Session info: chrome=81.0.4044.122)
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
-Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
-System info: host: &apos;ADMIN&apos;, ip: &apos;192.168.43.128&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;9.0.4&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 81.0.4044.122, chrome: {chromedriverVersion: 80.0.3987.106 (f68069574609..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:63648}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 6444ec219045364ecb62c80e3266da84
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.base/java.lang.reflect.Constructor.newInstance(Unknown Source)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
-	at org.openqa.selenium.remote.RemoteWebElement.isDisplayed(RemoteWebElement.java:326)
-	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:314)
-	at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:43)
-	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:300)
-	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:297)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
-	at com.tetherfi.pages.BasePage.waitUntilWebElementListIsVisible(BasePage.java:139)
-	at com.tetherfi.pages.BasePage.selectDropdownFromVisibleText(BasePage.java:335)
-	at com.tetherfi.pages.AgentTeamManagementPage.searchAgentTeamManagementRecord(AgentTeamManagementPage.java:472)
-	at com.tetherfi.pages.AgentTeamManagementPage.editAgentTeamManagementRecord(AgentTeamManagementPage.java:480)
-	at com.tetherfi.test.tmac.AgentTeamMgmtTest.EditAgentTeamManagementRecord(AgentTeamMgmtTest.java:179)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:62)
+	at org.testng.internal.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:340)
+	at org.testng.internal.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:294)
+	at org.testng.internal.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:176)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:122)
 	at java.base/java.util.ArrayList.forEach(Unknown Source)
 	at org.testng.TestRunner.privateRun(TestRunner.java:770)
 	at org.testng.TestRunner.run(TestRunner.java:591)
@@ -490,1493 +166,143 @@ Session ID: 6444ec219045364ecb62c80e3266da84
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
-<td>2</td>
-<td>com.tetherfi.test.tmac.AgentTeamMgmtTest@14c93774</td></tr>
-<tr>
-<td title='com.tetherfi.test.tmac.AgentTeamMgmtTest.ExporttoExcelWithoutData()'><b>ExporttoExcelWithoutData</b><br>Test class: com.tetherfi.test.tmac.AgentTeamMgmtTest</td>
-<td><div><pre>java.lang.IndexOutOfBoundsException: Index 0 out-of-bounds for length 0
-	at java.base/jdk.internal.util.Preconditions.outOfBounds(Unknown Source)
-	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Unknown Source)
-	at java.base/jdk.internal.util.Preconditions.checkIndex(Unknown Source)
-	at java.base/java.util.Objects.checkIndex(Unknown Source)
-	at java.base/java.util.ArrayList.get(Unknown Source)
-	at java.base/jdk.internal.reflect.GeneratedMethodAccessor11.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementListHandler.invoke(LocatingElementListHandler.java:39)
-	at com.sun.proxy.$Proxy15.get(Unknown Source)
-	at com.tetherfi.pages.AgentTeamManagementPage.ExporttoExcelWithoutData(AgentTeamManagementPage.java:1012)
-	at com.tetherfi.test.tmac.AgentTeamMgmtTest.ExporttoExcelWithoutData(AgentTeamMgmtTest.java:394)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-	at org.testng.TestRunner.privateRun(TestRunner.java:770)
-	at org.testng.TestRunner.run(TestRunner.java:591)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-	at org.testng.TestNG.runSuites(TestNG.java:1032)
-	at org.testng.TestNG.run(TestNG.java:1000)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace1291931899", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1291931899'><pre>java.lang.IndexOutOfBoundsException: Index 0 out-of-bounds for length 0
-	at java.base/jdk.internal.util.Preconditions.outOfBounds(Unknown Source)
-	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Unknown Source)
-	at java.base/jdk.internal.util.Preconditions.checkIndex(Unknown Source)
-	at java.base/java.util.Objects.checkIndex(Unknown Source)
-	at java.base/java.util.ArrayList.get(Unknown Source)
-	at java.base/jdk.internal.reflect.GeneratedMethodAccessor11.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementListHandler.invoke(LocatingElementListHandler.java:39)
-	at com.sun.proxy.$Proxy15.get(Unknown Source)
-	at com.tetherfi.pages.AgentTeamManagementPage.ExporttoExcelWithoutData(AgentTeamManagementPage.java:1012)
-	at com.tetherfi.test.tmac.AgentTeamMgmtTest.ExporttoExcelWithoutData(AgentTeamMgmtTest.java:394)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-	at org.testng.TestRunner.privateRun(TestRunner.java:770)
-	at org.testng.TestRunner.run(TestRunner.java:591)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-	at org.testng.TestNG.runSuites(TestNG.java:1032)
-	at org.testng.TestNG.run(TestNG.java:1000)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div></td>
-<td>44</td>
-<td>com.tetherfi.test.tmac.AgentTeamMgmtTest@14c93774</td></tr>
-<tr>
-<td title='com.tetherfi.test.tmac.AgentTeamMgmtTest.SearchClearSearch()'><b>SearchClearSearch</b><br>Test class: com.tetherfi.test.tmac.AgentTeamMgmtTest</td>
-<td><div><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//div[text()=&apos;No records to display&apos;]&quot;}
-  (Session info: chrome=81.0.4044.122)
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
-Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
-System info: host: &apos;ADMIN&apos;, ip: &apos;192.168.43.128&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;9.0.4&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 81.0.4044.122, chrome: {chromedriverVersion: 80.0.3987.106 (f68069574609..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:63648}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 6444ec219045364ecb62c80e3266da84
-*** Element info: {Using=xpath, value=//div[text()=&apos;No records to display&apos;]}
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.base/java.lang.reflect.Constructor.newInstance(Unknown Source)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)
-	at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
-	at com.sun.proxy.$Proxy14.isDisplayed(Unknown Source)
-	at com.tetherfi.pages.AgentTeamManagementPage.verifyinvalidsearch(AgentTeamManagementPage.java:653)
-	at com.tetherfi.test.tmac.AgentTeamMgmtTest.SearchClearSearch(AgentTeamMgmtTest.java:294)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-	at org.testng.TestRunner.privateRun(TestRunner.java:770)
-	at org.testng.TestRunner.run(TestRunner.java:591)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-	at org.testng.TestNG.runSuites(TestNG.java:1032)
-	at org.testng.TestNG.run(TestNG.java:1000)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace2071006820", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace2071006820'><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//div[text()=&apos;No records to display&apos;]&quot;}
-  (Session info: chrome=81.0.4044.122)
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
-Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
-System info: host: &apos;ADMIN&apos;, ip: &apos;192.168.43.128&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;9.0.4&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 81.0.4044.122, chrome: {chromedriverVersion: 80.0.3987.106 (f68069574609..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:63648}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 6444ec219045364ecb62c80e3266da84
-*** Element info: {Using=xpath, value=//div[text()=&apos;No records to display&apos;]}
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.base/java.lang.reflect.Constructor.newInstance(Unknown Source)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)
-	at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
-	at com.sun.proxy.$Proxy14.isDisplayed(Unknown Source)
-	at com.tetherfi.pages.AgentTeamManagementPage.verifyinvalidsearch(AgentTeamManagementPage.java:653)
-	at com.tetherfi.test.tmac.AgentTeamMgmtTest.SearchClearSearch(AgentTeamMgmtTest.java:294)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-	at org.testng.TestRunner.privateRun(TestRunner.java:770)
-	at org.testng.TestRunner.run(TestRunner.java:591)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-	at org.testng.TestNG.runSuites(TestNG.java:1032)
-	at org.testng.TestNG.run(TestNG.java:1000)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div></td>
-<td>43</td>
-<td>com.tetherfi.test.tmac.AgentTeamMgmtTest@14c93774</td></tr>
-<tr>
-<td title='com.tetherfi.test.tmac.AgentTeamMgmtTest.VerifyArrowMoveForFirstAndLastPage()'><b>VerifyArrowMoveForFirstAndLastPage</b><br>Test class: com.tetherfi.test.tmac.AgentTeamMgmtTest</td>
-<td><div><pre>java.lang.AssertionError: arrow move for first and last page assertion failed did not expect to find [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:97)
-	at org.testng.Assert.failNotEquals(Assert.java:969)
-	at org.testng.Assert.assertTrue(Assert.java:43)
-	at com.tetherfi.test.tmac.AgentTeamMgmtTest.VerifyArrowMoveForFirstAndLastPage(AgentTeamMgmtTest.java:342)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-	at org.testng.TestRunner.privateRun(TestRunner.java:770)
-	at org.testng.TestRunner.run(TestRunner.java:591)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-	at org.testng.TestNG.runSuites(TestNG.java:1032)
-	at org.testng.TestNG.run(TestNG.java:1000)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace1481382360", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1481382360'><pre>java.lang.AssertionError: arrow move for first and last page assertion failed did not expect to find [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:97)
-	at org.testng.Assert.failNotEquals(Assert.java:969)
-	at org.testng.Assert.assertTrue(Assert.java:43)
-	at com.tetherfi.test.tmac.AgentTeamMgmtTest.VerifyArrowMoveForFirstAndLastPage(AgentTeamMgmtTest.java:342)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-	at org.testng.TestRunner.privateRun(TestRunner.java:770)
-	at org.testng.TestRunner.run(TestRunner.java:591)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-	at org.testng.TestNG.runSuites(TestNG.java:1032)
-	at org.testng.TestNG.run(TestNG.java:1000)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div></td>
-<td>1</td>
-<td>com.tetherfi.test.tmac.AgentTeamMgmtTest@14c93774</td></tr>
-<tr>
-<td title='com.tetherfi.test.tmac.AgentTeamMgmtTest.VerifyArrowMoveForPreviousAndNextPage()'><b>VerifyArrowMoveForPreviousAndNextPage</b><br>Test class: com.tetherfi.test.tmac.AgentTeamMgmtTest</td>
-<td><div><pre>java.lang.AssertionError: arrow move for previous and next page assertion failed did not expect to find [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:97)
-	at org.testng.Assert.failNotEquals(Assert.java:969)
-	at org.testng.Assert.assertTrue(Assert.java:43)
-	at com.tetherfi.test.tmac.AgentTeamMgmtTest.VerifyArrowMoveForPreviousAndNextPage(AgentTeamMgmtTest.java:337)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-	at org.testng.TestRunner.privateRun(TestRunner.java:770)
-	at org.testng.TestRunner.run(TestRunner.java:591)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-	at org.testng.TestNG.runSuites(TestNG.java:1032)
-	at org.testng.TestNG.run(TestNG.java:1000)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace95423842", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace95423842'><pre>java.lang.AssertionError: arrow move for previous and next page assertion failed did not expect to find [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:97)
-	at org.testng.Assert.failNotEquals(Assert.java:969)
-	at org.testng.Assert.assertTrue(Assert.java:43)
-	at com.tetherfi.test.tmac.AgentTeamMgmtTest.VerifyArrowMoveForPreviousAndNextPage(AgentTeamMgmtTest.java:337)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-	at org.testng.TestRunner.privateRun(TestRunner.java:770)
-	at org.testng.TestRunner.run(TestRunner.java:591)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-	at org.testng.TestNG.runSuites(TestNG.java:1032)
-	at org.testng.TestNG.run(TestNG.java:1000)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div></td>
-<td>1</td>
-<td>com.tetherfi.test.tmac.AgentTeamMgmtTest@14c93774</td></tr>
-<tr>
-<td title='com.tetherfi.test.tmac.AgentTeamMgmtTest.VerifyAuditTrialReportForDelete()'><b>VerifyAuditTrialReportForDelete</b><br>Test class: com.tetherfi.test.tmac.AgentTeamMgmtTest</td>
-<td><div><pre>java.lang.IndexOutOfBoundsException: Index 1 out-of-bounds for length 1
-	at java.base/jdk.internal.util.Preconditions.outOfBounds(Unknown Source)
-	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Unknown Source)
-	at java.base/jdk.internal.util.Preconditions.checkIndex(Unknown Source)
-	at java.base/java.util.Objects.checkIndex(Unknown Source)
-	at java.base/java.util.ArrayList.get(Unknown Source)
-	at com.tetherfi.pages.OCMReportsPage.getFirstRowDatafromTable1(OCMReportsPage.java:1287)
-	at com.tetherfi.pages.OCMReportsPage.verifyAgentTeamMgmtdelete(OCMReportsPage.java:1605)
-	at com.tetherfi.test.tmac.AgentTeamMgmtTest.VerifyAuditTrialReportForDelete(AgentTeamMgmtTest.java:285)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-	at org.testng.TestRunner.privateRun(TestRunner.java:770)
-	at org.testng.TestRunner.run(TestRunner.java:591)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-	at org.testng.TestNG.runSuites(TestNG.java:1032)
-	at org.testng.TestNG.run(TestNG.java:1000)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace237620160", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace237620160'><pre>java.lang.IndexOutOfBoundsException: Index 1 out-of-bounds for length 1
-	at java.base/jdk.internal.util.Preconditions.outOfBounds(Unknown Source)
-	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Unknown Source)
-	at java.base/jdk.internal.util.Preconditions.checkIndex(Unknown Source)
-	at java.base/java.util.Objects.checkIndex(Unknown Source)
-	at java.base/java.util.ArrayList.get(Unknown Source)
-	at com.tetherfi.pages.OCMReportsPage.getFirstRowDatafromTable1(OCMReportsPage.java:1287)
-	at com.tetherfi.pages.OCMReportsPage.verifyAgentTeamMgmtdelete(OCMReportsPage.java:1605)
-	at com.tetherfi.test.tmac.AgentTeamMgmtTest.VerifyAuditTrialReportForDelete(AgentTeamMgmtTest.java:285)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-	at org.testng.TestRunner.privateRun(TestRunner.java:770)
-	at org.testng.TestRunner.run(TestRunner.java:591)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-	at org.testng.TestNG.runSuites(TestNG.java:1032)
-	at org.testng.TestNG.run(TestNG.java:1000)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div></td>
-<td>193</td>
-<td>com.tetherfi.test.tmac.AgentTeamMgmtTest@14c93774</td></tr>
-<tr>
-<td title='com.tetherfi.test.tmac.AgentTeamMgmtTest.VerifyAuditTrialReportForUpdate()'><b>VerifyAuditTrialReportForUpdate</b><br>Test class: com.tetherfi.test.tmac.AgentTeamMgmtTest</td>
-<td><div><pre>org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
-  (Session info: chrome=81.0.4044.122)
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
-Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
-System info: host: &apos;ADMIN&apos;, ip: &apos;192.168.43.128&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;9.0.4&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 81.0.4044.122, chrome: {chromedriverVersion: 80.0.3987.106 (f68069574609..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:63648}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 6444ec219045364ecb62c80e3266da84
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.base/java.lang.reflect.Constructor.newInstance(Unknown Source)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
-	at org.openqa.selenium.remote.RemoteWebElement.isDisplayed(RemoteWebElement.java:326)
-	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:314)
-	at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:43)
-	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:300)
-	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:297)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
-	at com.tetherfi.pages.BasePage.waitUntilWebElementListIsVisible(BasePage.java:139)
-	at com.tetherfi.pages.BasePage.selectDropdownFromVisibleText(BasePage.java:335)
-	at com.tetherfi.pages.OCMReportsPage.booleansearchnew(OCMReportsPage.java:1160)
-	at com.tetherfi.pages.OCMReportsPage.verifyAgentTeamMgmtUpdate(OCMReportsPage.java:1551)
-	at com.tetherfi.test.tmac.AgentTeamMgmtTest.VerifyAuditTrialReportForUpdate(AgentTeamMgmtTest.java:195)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-	at org.testng.TestRunner.privateRun(TestRunner.java:770)
-	at org.testng.TestRunner.run(TestRunner.java:591)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-	at org.testng.TestNG.runSuites(TestNG.java:1032)
-	at org.testng.TestNG.run(TestNG.java:1000)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace446090936", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace446090936'><pre>org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
-  (Session info: chrome=81.0.4044.122)
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
-Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
-System info: host: &apos;ADMIN&apos;, ip: &apos;192.168.43.128&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;9.0.4&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 81.0.4044.122, chrome: {chromedriverVersion: 80.0.3987.106 (f68069574609..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:63648}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 6444ec219045364ecb62c80e3266da84
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.base/java.lang.reflect.Constructor.newInstance(Unknown Source)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
-	at org.openqa.selenium.remote.RemoteWebElement.isDisplayed(RemoteWebElement.java:326)
-	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:314)
-	at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:43)
-	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:300)
-	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:297)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
-	at com.tetherfi.pages.BasePage.waitUntilWebElementListIsVisible(BasePage.java:139)
-	at com.tetherfi.pages.BasePage.selectDropdownFromVisibleText(BasePage.java:335)
-	at com.tetherfi.pages.OCMReportsPage.booleansearchnew(OCMReportsPage.java:1160)
-	at com.tetherfi.pages.OCMReportsPage.verifyAgentTeamMgmtUpdate(OCMReportsPage.java:1551)
-	at com.tetherfi.test.tmac.AgentTeamMgmtTest.VerifyAuditTrialReportForUpdate(AgentTeamMgmtTest.java:195)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-	at org.testng.TestRunner.privateRun(TestRunner.java:770)
-	at org.testng.TestRunner.run(TestRunner.java:591)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-	at org.testng.TestNG.runSuites(TestNG.java:1032)
-	at org.testng.TestNG.run(TestNG.java:1000)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div></td>
-<td>26</td>
-<td>com.tetherfi.test.tmac.AgentTeamMgmtTest@14c93774</td></tr>
-<tr>
-<td title='com.tetherfi.test.tmac.AgentTeamMgmtTest.VerifySearchContains()'><b>VerifySearchContains</b><br>Test class: com.tetherfi.test.tmac.AgentTeamMgmtTest</td>
-<td><div><pre>org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element &lt;span class=&quot;k-icon k-i-arrow-60-right&quot;&gt;&lt;/span&gt; is not clickable at point (140, 552). Other element would receive the click: &lt;div class=&quot;k-pager-wrap k-grid-pager k-widget k-floatwrap&quot; data-role=&quot;pager&quot;&gt;...&lt;/div&gt;
-  (Session info: chrome=81.0.4044.122)
-Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
-System info: host: &apos;ADMIN&apos;, ip: &apos;192.168.43.128&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;9.0.4&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 81.0.4044.122, chrome: {chromedriverVersion: 80.0.3987.106 (f68069574609..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:63648}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 6444ec219045364ecb62c80e3266da84
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.base/java.lang.reflect.Constructor.newInstance(Unknown Source)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
-	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:84)
-	at jdk.internal.reflect.GeneratedMethodAccessor4.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
-	at com.sun.proxy.$Proxy14.click(Unknown Source)
-	at com.tetherfi.pages.AgentTeamManagementPage.gettable(AgentTeamManagementPage.java:720)
-	at com.tetherfi.pages.AgentTeamManagementPage.verifySearchContains(AgentTeamManagementPage.java:394)
-	at com.tetherfi.test.tmac.AgentTeamMgmtTest.VerifySearchContains(AgentTeamMgmtTest.java:225)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-	at org.testng.TestRunner.privateRun(TestRunner.java:770)
-	at org.testng.TestRunner.run(TestRunner.java:591)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-	at org.testng.TestNG.runSuites(TestNG.java:1032)
-	at org.testng.TestNG.run(TestNG.java:1000)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace1503764987", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1503764987'><pre>org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element &lt;span class=&quot;k-icon k-i-arrow-60-right&quot;&gt;&lt;/span&gt; is not clickable at point (140, 552). Other element would receive the click: &lt;div class=&quot;k-pager-wrap k-grid-pager k-widget k-floatwrap&quot; data-role=&quot;pager&quot;&gt;...&lt;/div&gt;
-  (Session info: chrome=81.0.4044.122)
-Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
-System info: host: &apos;ADMIN&apos;, ip: &apos;192.168.43.128&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;9.0.4&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 81.0.4044.122, chrome: {chromedriverVersion: 80.0.3987.106 (f68069574609..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:63648}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 6444ec219045364ecb62c80e3266da84
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.base/java.lang.reflect.Constructor.newInstance(Unknown Source)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
-	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:84)
-	at jdk.internal.reflect.GeneratedMethodAccessor4.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
-	at com.sun.proxy.$Proxy14.click(Unknown Source)
-	at com.tetherfi.pages.AgentTeamManagementPage.gettable(AgentTeamManagementPage.java:720)
-	at com.tetherfi.pages.AgentTeamManagementPage.verifySearchContains(AgentTeamManagementPage.java:394)
-	at com.tetherfi.test.tmac.AgentTeamMgmtTest.VerifySearchContains(AgentTeamMgmtTest.java:225)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-	at org.testng.TestRunner.privateRun(TestRunner.java:770)
-	at org.testng.TestRunner.run(TestRunner.java:591)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-	at org.testng.TestNG.runSuites(TestNG.java:1032)
-	at org.testng.TestNG.run(TestNG.java:1000)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div></td>
-<td>24</td>
-<td>com.tetherfi.test.tmac.AgentTeamMgmtTest@14c93774</td></tr>
-<tr>
-<td title='com.tetherfi.test.tmac.AgentTeamMgmtTest.VerifySearchDoesNotContains()'><b>VerifySearchDoesNotContains</b><br>Test class: com.tetherfi.test.tmac.AgentTeamMgmtTest</td>
-<td><div><pre>org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
-  (Session info: chrome=81.0.4044.122)
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
-Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
-System info: host: &apos;ADMIN&apos;, ip: &apos;192.168.43.128&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;9.0.4&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 81.0.4044.122, chrome: {chromedriverVersion: 80.0.3987.106 (f68069574609..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:63648}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 6444ec219045364ecb62c80e3266da84
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.base/java.lang.reflect.Constructor.newInstance(Unknown Source)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
-	at org.openqa.selenium.remote.RemoteWebElement.getText(RemoteWebElement.java:166)
-	at com.tetherfi.pages.AgentTeamManagementPage.gettable(AgentTeamManagementPage.java:713)
-	at com.tetherfi.pages.AgentTeamManagementPage.verifySearchDoesNotContains(AgentTeamManagementPage.java:414)
-	at com.tetherfi.test.tmac.AgentTeamMgmtTest.VerifySearchDoesNotContains(AgentTeamMgmtTest.java:234)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-	at org.testng.TestRunner.privateRun(TestRunner.java:770)
-	at org.testng.TestRunner.run(TestRunner.java:591)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-	at org.testng.TestNG.runSuites(TestNG.java:1032)
-	at org.testng.TestNG.run(TestNG.java:1000)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace552679824", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace552679824'><pre>org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
-  (Session info: chrome=81.0.4044.122)
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
-Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
-System info: host: &apos;ADMIN&apos;, ip: &apos;192.168.43.128&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;9.0.4&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 81.0.4044.122, chrome: {chromedriverVersion: 80.0.3987.106 (f68069574609..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:63648}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 6444ec219045364ecb62c80e3266da84
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.base/java.lang.reflect.Constructor.newInstance(Unknown Source)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
-	at org.openqa.selenium.remote.RemoteWebElement.getText(RemoteWebElement.java:166)
-	at com.tetherfi.pages.AgentTeamManagementPage.gettable(AgentTeamManagementPage.java:713)
-	at com.tetherfi.pages.AgentTeamManagementPage.verifySearchDoesNotContains(AgentTeamManagementPage.java:414)
-	at com.tetherfi.test.tmac.AgentTeamMgmtTest.VerifySearchDoesNotContains(AgentTeamMgmtTest.java:234)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-	at org.testng.TestRunner.privateRun(TestRunner.java:770)
-	at org.testng.TestRunner.run(TestRunner.java:591)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-	at org.testng.TestNG.runSuites(TestNG.java:1032)
-	at org.testng.TestNG.run(TestNG.java:1000)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div></td>
-<td>3</td>
-<td>com.tetherfi.test.tmac.AgentTeamMgmtTest@14c93774</td></tr>
-<tr>
-<td title='com.tetherfi.test.tmac.AgentTeamMgmtTest.VerifySearchEndsWith()'><b>VerifySearchEndsWith</b><br>Test class: com.tetherfi.test.tmac.AgentTeamMgmtTest</td>
-<td><div><pre>org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
-  (Session info: chrome=81.0.4044.122)
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
-Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
-System info: host: &apos;ADMIN&apos;, ip: &apos;192.168.43.128&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;9.0.4&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 81.0.4044.122, chrome: {chromedriverVersion: 80.0.3987.106 (f68069574609..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:63648}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 6444ec219045364ecb62c80e3266da84
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.base/java.lang.reflect.Constructor.newInstance(Unknown Source)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
-	at org.openqa.selenium.remote.RemoteWebElement.getText(RemoteWebElement.java:166)
-	at com.tetherfi.pages.AgentTeamManagementPage.gettable(AgentTeamManagementPage.java:713)
-	at com.tetherfi.pages.AgentTeamManagementPage.verifySearchEndsWith(AgentTeamManagementPage.java:456)
-	at com.tetherfi.test.tmac.AgentTeamMgmtTest.VerifySearchEndsWith(AgentTeamMgmtTest.java:252)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-	at org.testng.TestRunner.privateRun(TestRunner.java:770)
-	at org.testng.TestRunner.run(TestRunner.java:591)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-	at org.testng.TestNG.runSuites(TestNG.java:1032)
-	at org.testng.TestNG.run(TestNG.java:1000)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace234295524", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace234295524'><pre>org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
-  (Session info: chrome=81.0.4044.122)
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
-Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
-System info: host: &apos;ADMIN&apos;, ip: &apos;192.168.43.128&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;9.0.4&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 81.0.4044.122, chrome: {chromedriverVersion: 80.0.3987.106 (f68069574609..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:63648}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 6444ec219045364ecb62c80e3266da84
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.base/java.lang.reflect.Constructor.newInstance(Unknown Source)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
-	at org.openqa.selenium.remote.RemoteWebElement.getText(RemoteWebElement.java:166)
-	at com.tetherfi.pages.AgentTeamManagementPage.gettable(AgentTeamManagementPage.java:713)
-	at com.tetherfi.pages.AgentTeamManagementPage.verifySearchEndsWith(AgentTeamManagementPage.java:456)
-	at com.tetherfi.test.tmac.AgentTeamMgmtTest.VerifySearchEndsWith(AgentTeamMgmtTest.java:252)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-	at org.testng.TestRunner.privateRun(TestRunner.java:770)
-	at org.testng.TestRunner.run(TestRunner.java:591)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-	at org.testng.TestNG.runSuites(TestNG.java:1032)
-	at org.testng.TestNG.run(TestNG.java:1000)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div></td>
-<td>3</td>
-<td>com.tetherfi.test.tmac.AgentTeamMgmtTest@14c93774</td></tr>
-<tr>
-<td title='com.tetherfi.test.tmac.AgentTeamMgmtTest.VerifySearchIsNotEqualTo()'><b>VerifySearchIsNotEqualTo</b><br>Test class: com.tetherfi.test.tmac.AgentTeamMgmtTest</td>
-<td><div><pre>org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
-  (Session info: chrome=81.0.4044.122)
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
-Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
-System info: host: &apos;ADMIN&apos;, ip: &apos;192.168.43.128&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;9.0.4&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 81.0.4044.122, chrome: {chromedriverVersion: 80.0.3987.106 (f68069574609..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:63648}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 6444ec219045364ecb62c80e3266da84
-*** Element info: {Using=tag name, value=td}
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.base/java.lang.reflect.Constructor.newInstance(Unknown Source)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
-	at org.openqa.selenium.remote.RemoteWebElement.findElements(RemoteWebElement.java:204)
-	at org.openqa.selenium.remote.RemoteWebElement.findElementsByTagName(RemoteWebElement.java:281)
-	at org.openqa.selenium.By$ByTagName.findElements(By.java:312)
-	at org.openqa.selenium.remote.RemoteWebElement.findElements(RemoteWebElement.java:177)
-	at com.tetherfi.pages.AgentTeamManagementPage.gettable(AgentTeamManagementPage.java:706)
-	at com.tetherfi.pages.AgentTeamManagementPage.verifySearchIsNotEqualTo(AgentTeamManagementPage.java:372)
-	at com.tetherfi.test.tmac.AgentTeamMgmtTest.VerifySearchIsNotEqualTo(AgentTeamMgmtTest.java:216)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-	at org.testng.TestRunner.privateRun(TestRunner.java:770)
-	at org.testng.TestRunner.run(TestRunner.java:591)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-	at org.testng.TestNG.runSuites(TestNG.java:1032)
-	at org.testng.TestNG.run(TestNG.java:1000)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace2102522118", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace2102522118'><pre>org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
-  (Session info: chrome=81.0.4044.122)
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
-Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
-System info: host: &apos;ADMIN&apos;, ip: &apos;192.168.43.128&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;9.0.4&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 81.0.4044.122, chrome: {chromedriverVersion: 80.0.3987.106 (f68069574609..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:63648}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 6444ec219045364ecb62c80e3266da84
-*** Element info: {Using=tag name, value=td}
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.base/java.lang.reflect.Constructor.newInstance(Unknown Source)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
-	at org.openqa.selenium.remote.RemoteWebElement.findElements(RemoteWebElement.java:204)
-	at org.openqa.selenium.remote.RemoteWebElement.findElementsByTagName(RemoteWebElement.java:281)
-	at org.openqa.selenium.By$ByTagName.findElements(By.java:312)
-	at org.openqa.selenium.remote.RemoteWebElement.findElements(RemoteWebElement.java:177)
-	at com.tetherfi.pages.AgentTeamManagementPage.gettable(AgentTeamManagementPage.java:706)
-	at com.tetherfi.pages.AgentTeamManagementPage.verifySearchIsNotEqualTo(AgentTeamManagementPage.java:372)
-	at com.tetherfi.test.tmac.AgentTeamMgmtTest.VerifySearchIsNotEqualTo(AgentTeamMgmtTest.java:216)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-	at org.testng.TestRunner.privateRun(TestRunner.java:770)
-	at org.testng.TestRunner.run(TestRunner.java:591)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-	at org.testng.TestNG.runSuites(TestNG.java:1032)
-	at org.testng.TestNG.run(TestNG.java:1000)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div></td>
-<td>3</td>
-<td>com.tetherfi.test.tmac.AgentTeamMgmtTest@14c93774</td></tr>
-<tr>
-<td title='com.tetherfi.test.tmac.AgentTeamMgmtTest.VerifySearchStartsWith()'><b>VerifySearchStartsWith</b><br>Test class: com.tetherfi.test.tmac.AgentTeamMgmtTest</td>
-<td><div><pre>org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
-  (Session info: chrome=81.0.4044.122)
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
-Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
-System info: host: &apos;ADMIN&apos;, ip: &apos;192.168.43.128&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;9.0.4&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 81.0.4044.122, chrome: {chromedriverVersion: 80.0.3987.106 (f68069574609..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:63648}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 6444ec219045364ecb62c80e3266da84
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.base/java.lang.reflect.Constructor.newInstance(Unknown Source)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
-	at org.openqa.selenium.remote.RemoteWebElement.getText(RemoteWebElement.java:166)
-	at com.tetherfi.pages.AgentTeamManagementPage.gettable(AgentTeamManagementPage.java:713)
-	at com.tetherfi.pages.AgentTeamManagementPage.verifySearchStartsWith(AgentTeamManagementPage.java:435)
-	at com.tetherfi.test.tmac.AgentTeamMgmtTest.VerifySearchStartsWith(AgentTeamMgmtTest.java:243)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-	at org.testng.TestRunner.privateRun(TestRunner.java:770)
-	at org.testng.TestRunner.run(TestRunner.java:591)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-	at org.testng.TestNG.runSuites(TestNG.java:1032)
-	at org.testng.TestNG.run(TestNG.java:1000)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace1760123453", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1760123453'><pre>org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
-  (Session info: chrome=81.0.4044.122)
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
-Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
-System info: host: &apos;ADMIN&apos;, ip: &apos;192.168.43.128&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;9.0.4&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 81.0.4044.122, chrome: {chromedriverVersion: 80.0.3987.106 (f68069574609..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:63648}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 6444ec219045364ecb62c80e3266da84
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.base/java.lang.reflect.Constructor.newInstance(Unknown Source)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
-	at org.openqa.selenium.remote.RemoteWebElement.getText(RemoteWebElement.java:166)
-	at com.tetherfi.pages.AgentTeamManagementPage.gettable(AgentTeamManagementPage.java:713)
-	at com.tetherfi.pages.AgentTeamManagementPage.verifySearchStartsWith(AgentTeamManagementPage.java:435)
-	at com.tetherfi.test.tmac.AgentTeamMgmtTest.VerifySearchStartsWith(AgentTeamMgmtTest.java:243)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-	at org.testng.TestRunner.privateRun(TestRunner.java:770)
-	at org.testng.TestRunner.run(TestRunner.java:591)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-	at org.testng.TestNG.runSuites(TestNG.java:1032)
-	at org.testng.TestNG.run(TestNG.java:1000)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div></td>
-<td>3</td>
-<td>com.tetherfi.test.tmac.AgentTeamMgmtTest@14c93774</td></tr>
-<tr>
-<td title='com.tetherfi.test.tmac.AgentTeamMgmtTest.database()'><b>database</b><br>Test class: com.tetherfi.test.tmac.AgentTeamMgmtTest</td>
-<td><div><pre>org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
-  (Session info: chrome=81.0.4044.122)
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
-Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
-System info: host: &apos;ADMIN&apos;, ip: &apos;192.168.43.128&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;9.0.4&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 81.0.4044.122, chrome: {chromedriverVersion: 80.0.3987.106 (f68069574609..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:63648}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 6444ec219045364ecb62c80e3266da84
-*** Element info: {Using=tag name, value=td}
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.base/java.lang.reflect.Constructor.newInstance(Unknown Source)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
-	at org.openqa.selenium.remote.RemoteWebElement.findElements(RemoteWebElement.java:204)
-	at org.openqa.selenium.remote.RemoteWebElement.findElementsByTagName(RemoteWebElement.java:281)
-	at org.openqa.selenium.By$ByTagName.findElements(By.java:312)
-	at org.openqa.selenium.remote.RemoteWebElement.findElements(RemoteWebElement.java:177)
-	at com.tetherfi.pages.AgentTeamManagementPage.gettable(AgentTeamManagementPage.java:706)
-	at com.tetherfi.pages.AgentTeamManagementPage.verifyDatabase(AgentTeamManagementPage.java:687)
-	at com.tetherfi.test.tmac.AgentTeamMgmtTest.database(AgentTeamMgmtTest.java:323)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-	at org.testng.TestRunner.privateRun(TestRunner.java:770)
-	at org.testng.TestRunner.run(TestRunner.java:591)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-	at org.testng.TestNG.runSuites(TestNG.java:1032)
-	at org.testng.TestNG.run(TestNG.java:1000)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace1946378508", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1946378508'><pre>org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
-  (Session info: chrome=81.0.4044.122)
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
-Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
-System info: host: &apos;ADMIN&apos;, ip: &apos;192.168.43.128&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;9.0.4&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 81.0.4044.122, chrome: {chromedriverVersion: 80.0.3987.106 (f68069574609..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:63648}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 6444ec219045364ecb62c80e3266da84
-*** Element info: {Using=tag name, value=td}
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.base/java.lang.reflect.Constructor.newInstance(Unknown Source)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
-	at org.openqa.selenium.remote.RemoteWebElement.findElements(RemoteWebElement.java:204)
-	at org.openqa.selenium.remote.RemoteWebElement.findElementsByTagName(RemoteWebElement.java:281)
-	at org.openqa.selenium.By$ByTagName.findElements(By.java:312)
-	at org.openqa.selenium.remote.RemoteWebElement.findElements(RemoteWebElement.java:177)
-	at com.tetherfi.pages.AgentTeamManagementPage.gettable(AgentTeamManagementPage.java:706)
-	at com.tetherfi.pages.AgentTeamManagementPage.verifyDatabase(AgentTeamManagementPage.java:687)
-	at com.tetherfi.test.tmac.AgentTeamMgmtTest.database(AgentTeamMgmtTest.java:323)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-	at org.testng.TestRunner.privateRun(TestRunner.java:770)
-	at org.testng.TestRunner.run(TestRunner.java:591)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-	at org.testng.TestNG.runSuites(TestNG.java:1032)
-	at org.testng.TestNG.run(TestNG.java:1000)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div></td>
-<td>17</td>
-<td>com.tetherfi.test.tmac.AgentTeamMgmtTest@14c93774</td></tr>
-<tr>
-<td title='com.tetherfi.test.tmac.AgentTeamMgmtTest.searchPage()'><b>searchPage</b><br>Test class: com.tetherfi.test.tmac.AgentTeamMgmtTest</td>
-<td><div><pre>org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
-  (Session info: chrome=81.0.4044.122)
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
-Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
-System info: host: &apos;ADMIN&apos;, ip: &apos;192.168.43.128&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;9.0.4&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 81.0.4044.122, chrome: {chromedriverVersion: 80.0.3987.106 (f68069574609..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:63648}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 6444ec219045364ecb62c80e3266da84
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.base/java.lang.reflect.Constructor.newInstance(Unknown Source)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
-	at org.openqa.selenium.remote.RemoteWebElement.isDisplayed(RemoteWebElement.java:326)
-	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:314)
-	at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:43)
-	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:300)
-	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:297)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
-	at com.tetherfi.pages.BasePage.waitUntilWebElementListIsVisible(BasePage.java:139)
-	at com.tetherfi.pages.BasePage.selectDropdownFromVisibleText(BasePage.java:335)
-	at com.tetherfi.pages.AgentTeamManagementPage.clearAll(AgentTeamManagementPage.java:635)
-	at com.tetherfi.test.tmac.AgentTeamMgmtTest.searchPage(AgentTeamMgmtTest.java:204)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-	at org.testng.TestRunner.privateRun(TestRunner.java:770)
-	at org.testng.TestRunner.run(TestRunner.java:591)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-	at org.testng.TestNG.runSuites(TestNG.java:1032)
-	at org.testng.TestNG.run(TestNG.java:1000)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace380047492", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace380047492'><pre>org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
-  (Session info: chrome=81.0.4044.122)
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
-Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
-System info: host: &apos;ADMIN&apos;, ip: &apos;192.168.43.128&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;9.0.4&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 81.0.4044.122, chrome: {chromedriverVersion: 80.0.3987.106 (f68069574609..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:63648}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 6444ec219045364ecb62c80e3266da84
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.base/java.lang.reflect.Constructor.newInstance(Unknown Source)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
-	at org.openqa.selenium.remote.RemoteWebElement.isDisplayed(RemoteWebElement.java:326)
-	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:314)
-	at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:43)
-	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:300)
-	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:297)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
-	at com.tetherfi.pages.BasePage.waitUntilWebElementListIsVisible(BasePage.java:139)
-	at com.tetherfi.pages.BasePage.selectDropdownFromVisibleText(BasePage.java:335)
-	at com.tetherfi.pages.AgentTeamManagementPage.clearAll(AgentTeamManagementPage.java:635)
-	at com.tetherfi.test.tmac.AgentTeamMgmtTest.searchPage(AgentTeamMgmtTest.java:204)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-	at org.testng.TestRunner.privateRun(TestRunner.java:770)
-	at org.testng.TestRunner.run(TestRunner.java:591)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-	at org.testng.TestNG.runSuites(TestNG.java:1032)
-	at org.testng.TestNG.run(TestNG.java:1000)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div></td>
-<td>2</td>
-<td>com.tetherfi.test.tmac.AgentTeamMgmtTest@14c93774</td></tr>
-</table><p>
-<table width='100%' border='1' class='invocation-passed'>
-<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
-<tr><td><b>Test method</b></td>
-<td width="30%"><b>Exception</b></td>
-<td width="10%"><b>Time (seconds)</b></td>
-<td><b>Instance</b></td>
-</tr>
-<tr>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<td title='com.tetherfi.test.tmac.AgentTeamMgmtTest.AddDuplicateRecord()'><b>AddDuplicateRecord</b><br>Test class: com.tetherfi.test.tmac.AgentTeamMgmtTest</td>
-=======
-<td title='com.tetherfi.test.reports.OCMAudioVideoPlaybackReportTest.database()'><b>database</b><br>Test class: com.tetherfi.test.reports.OCMAudioVideoPlaybackReportTest</td>
->>>>>>> refs/remotes/origin/PalakReports
-<td></td>
-<<<<<<< HEAD
-<td>11</td>
-<td>com.tetherfi.test.tmac.AgentTeamMgmtTest@14c93774</td></tr>
-<tr>
-<td title='com.tetherfi.test.tmac.AgentTeamMgmtTest.AddNewAgentTeamManagementCancelRecord()'><b>AddNewAgentTeamManagementCancelRecord</b><br>Test class: com.tetherfi.test.tmac.AgentTeamMgmtTest</td>
-<td></td>
-<td>10</td>
-<td>com.tetherfi.test.tmac.AgentTeamMgmtTest@14c93774</td></tr>
-<tr>
-<td title='com.tetherfi.test.tmac.AgentTeamMgmtTest.AddNewAgentTeamManagementRecord()'><b>AddNewAgentTeamManagementRecord</b><br>Test class: com.tetherfi.test.tmac.AgentTeamMgmtTest</td>
-<td></td>
-<td>13</td>
-<td>com.tetherfi.test.tmac.AgentTeamMgmtTest@14c93774</td></tr>
-<tr>
-<td title='com.tetherfi.test.tmac.AgentTeamMgmtTest.AddNewCountryRecord()'><b>AddNewCountryRecord</b><br>Test class: com.tetherfi.test.tmac.AgentTeamMgmtTest</td>
-<td></td>
-<td>9</td>
-<td>com.tetherfi.test.tmac.AgentTeamMgmtTest@14c93774</td></tr>
-<tr>
-<td title='com.tetherfi.test.tmac.AgentTeamMgmtTest.AddNewDepartmentRecord()'><b>AddNewDepartmentRecord</b><br>Test class: com.tetherfi.test.tmac.AgentTeamMgmtTest</td>
-<td></td>
-<td>12</td>
-<td>com.tetherfi.test.tmac.AgentTeamMgmtTest@14c93774</td></tr>
-<tr>
-<td title='com.tetherfi.test.tmac.AgentTeamMgmtTest.AddNewDivisionRecord()'><b>AddNewDivisionRecord</b><br>Test class: com.tetherfi.test.tmac.AgentTeamMgmtTest</td>
-<td></td>
-<td>35</td>
-<td>com.tetherfi.test.tmac.AgentTeamMgmtTest@14c93774</td></tr>
-<tr>
-<td title='com.tetherfi.test.tmac.AgentTeamMgmtTest.AddRecordCountryBlank()'><b>AddRecordCountryBlank</b><br>Test class: com.tetherfi.test.tmac.AgentTeamMgmtTest</td>
-<td></td>
 <td>6</td>
-<td>com.tetherfi.test.tmac.AgentTeamMgmtTest@14c93774</td></tr>
+<td>com.tetherfi.test.reports.AgentHistoricalReportTest@12b5736c</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-skipped'>
+<tr><td colspan='4' align='center'><b>SKIPPED CONFIGURATIONS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
 <tr>
-<td title='com.tetherfi.test.tmac.AgentTeamMgmtTest.AddRecordDepartmentBlank()'><b>AddRecordDepartmentBlank</b><br>Test class: com.tetherfi.test.tmac.AgentTeamMgmtTest</td>
+<td title='com.tetherfi.test.reports.AgentHistoricalReportTest.startTestCase()'><b>startTestCase</b><br>Test class: com.tetherfi.test.reports.AgentHistoricalReportTest</td>
 <td></td>
-<td>10</td>
-<td>com.tetherfi.test.tmac.AgentTeamMgmtTest@14c93774</td></tr>
+<td>-1589788429</td>
+<td>com.tetherfi.test.reports.AgentHistoricalReportTest@12b5736c</td></tr>
 <tr>
-<td title='com.tetherfi.test.tmac.AgentTeamMgmtTest.AddRecordDivisionBlank()'><b>AddRecordDivisionBlank</b><br>Test class: com.tetherfi.test.tmac.AgentTeamMgmtTest</td>
+<td title='com.tetherfi.test.reports.AgentHistoricalReportTest.NavigateToOcmReportsPage()'><b>NavigateToOcmReportsPage</b><br>Test class: com.tetherfi.test.reports.AgentHistoricalReportTest</td>
 <td></td>
-<td>9</td>
-<td>com.tetherfi.test.tmac.AgentTeamMgmtTest@14c93774</td></tr>
+<td>-1589788430</td>
+<td>com.tetherfi.test.reports.AgentHistoricalReportTest@12b5736c</td></tr>
 <tr>
-<td title='com.tetherfi.test.tmac.AgentTeamMgmtTest.AddRecordTeamNameBlank()'><b>AddRecordTeamNameBlank</b><br>Test class: com.tetherfi.test.tmac.AgentTeamMgmtTest</td>
+<td title='com.tetherfi.test.reports.AgentHistoricalReportTest.afterEachMethod()'><b>afterEachMethod</b><br>Test class: com.tetherfi.test.reports.AgentHistoricalReportTest</td>
 <td></td>
-<td>11</td>
-<td>com.tetherfi.test.tmac.AgentTeamMgmtTest@14c93774</td></tr>
+<td>-1589788430</td>
+<td>com.tetherfi.test.reports.AgentHistoricalReportTest@12b5736c</td></tr>
 <tr>
-<td title='com.tetherfi.test.tmac.AgentTeamMgmtTest.AgentTeamManagementPage()'><b>AgentTeamManagementPage</b><br>Test class: com.tetherfi.test.tmac.AgentTeamMgmtTest</td>
+<td title='com.tetherfi.test.reports.AgentHistoricalReportTest.endTestCase()'><b>endTestCase</b><br>Test class: com.tetherfi.test.reports.AgentHistoricalReportTest</td>
 <td></td>
+<td>-1589788430</td>
+<td>com.tetherfi.test.reports.AgentHistoricalReportTest@12b5736c</td></tr>
+<tr>
+<td title='com.tetherfi.test.reports.AgentHistoricalReportTest.tearDown()'><b>tearDown</b><br>Test class: com.tetherfi.test.reports.AgentHistoricalReportTest</td>
+<td></td>
+<td>-1589788430</td>
+<td>com.tetherfi.test.reports.AgentHistoricalReportTest@12b5736c</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-skipped'>
+<tr><td colspan='4' align='center'><b>SKIPPED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.tetherfi.test.reports.AgentHistoricalReportTest.ShowOCMAgentHistoricalReport()'><b>ShowOCMAgentHistoricalReport</b><br>Test class: com.tetherfi.test.reports.AgentHistoricalReportTest</td>
+<td><div><pre>org.openqa.selenium.NoSuchSessionException: invalid session id
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;ADMIN&apos;, ip: &apos;192.168.1.4&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;9.0.4&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 81.0.4044.138, chrome: {chromedriverVersion: 80.0.3987.106 (f68069574609..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:53645}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: f0c4328c263ac965a36daa5f8e891d74
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.base/java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebDriver$RemoteWebDriverOptions$RemoteTimeouts.implicitlyWait(RemoteWebDriver.java:780)
+	at com.tetherfi.test.BaseTest.openApplication(BaseTest.java:41)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:62)
+	at org.testng.internal.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:340)
+	at org.testng.internal.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:294)
+	at org.testng.internal.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:176)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:122)
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+	at org.testng.TestRunner.privateRun(TestRunner.java:770)
+	at org.testng.TestRunner.run(TestRunner.java:591)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+	at org.testng.TestNG.runSuites(TestNG.java:1032)
+	at org.testng.TestNG.run(TestNG.java:1000)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div><a href='#' onClick='toggleBox("stack-trace246761244", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace246761244'><pre>org.openqa.selenium.NoSuchSessionException: invalid session id
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;ADMIN&apos;, ip: &apos;192.168.1.4&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;9.0.4&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 81.0.4044.138, chrome: {chromedriverVersion: 80.0.3987.106 (f68069574609..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:53645}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: f0c4328c263ac965a36daa5f8e891d74
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.base/java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebDriver$RemoteWebDriverOptions$RemoteTimeouts.implicitlyWait(RemoteWebDriver.java:780)
+	at com.tetherfi.test.BaseTest.openApplication(BaseTest.java:41)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:62)
+	at org.testng.internal.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:340)
+	at org.testng.internal.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:294)
+	at org.testng.internal.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:176)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:122)
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+	at org.testng.TestRunner.privateRun(TestRunner.java:770)
+	at org.testng.TestRunner.run(TestRunner.java:591)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+	at org.testng.TestNG.runSuites(TestNG.java:1032)
+	at org.testng.TestNG.run(TestNG.java:1000)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
 <td>0</td>
-<td>com.tetherfi.test.tmac.AgentTeamMgmtTest@14c93774</td></tr>
-<tr>
-<td title='com.tetherfi.test.tmac.AgentTeamMgmtTest.EditAgentTeamManagementCancelRecord()'><b>EditAgentTeamManagementCancelRecord</b><br>Test class: com.tetherfi.test.tmac.AgentTeamMgmtTest</td>
-<td></td>
-<td>5</td>
-<td>com.tetherfi.test.tmac.AgentTeamMgmtTest@14c93774</td></tr>
-<tr>
-<td title='com.tetherfi.test.tmac.AgentTeamMgmtTest.ExportToExcel()'><b>ExportToExcel</b><br>Test class: com.tetherfi.test.tmac.AgentTeamMgmtTest</td>
-<td></td>
-<td>2</td>
-<td>com.tetherfi.test.tmac.AgentTeamMgmtTest@14c93774</td></tr>
-<tr>
-<td title='com.tetherfi.test.tmac.AgentTeamMgmtTest.ExportToExcelData()'><b>ExportToExcelData</b><br>Test class: com.tetherfi.test.tmac.AgentTeamMgmtTest</td>
-<td></td>
-<td>9</td>
-<td>com.tetherfi.test.tmac.AgentTeamMgmtTest@14c93774</td></tr>
-<tr>
-<td title='com.tetherfi.test.tmac.AgentTeamMgmtTest.GroupBy()'><b>GroupBy</b><br>Test class: com.tetherfi.test.tmac.AgentTeamMgmtTest</td>
-<td></td>
-<td>3</td>
-<td>com.tetherfi.test.tmac.AgentTeamMgmtTest@14c93774</td></tr>
-<tr>
-<td title='com.tetherfi.test.tmac.AgentTeamMgmtTest.SortingByAscending()'><b>SortingByAscending</b><br>Test class: com.tetherfi.test.tmac.AgentTeamMgmtTest</td>
-<td></td>
-<td>12</td>
-<td>com.tetherfi.test.tmac.AgentTeamMgmtTest@14c93774</td></tr>
-<tr>
-<td title='com.tetherfi.test.tmac.AgentTeamMgmtTest.SortingByDescending()'><b>SortingByDescending</b><br>Test class: com.tetherfi.test.tmac.AgentTeamMgmtTest</td>
-<td></td>
-<td>12</td>
-<td>com.tetherfi.test.tmac.AgentTeamMgmtTest@14c93774</td></tr>
-<tr>
-<td title='com.tetherfi.test.tmac.AgentTeamMgmtTest.VerifyAuditTrialReportForCreate()'><b>VerifyAuditTrialReportForCreate</b><br>Test class: com.tetherfi.test.tmac.AgentTeamMgmtTest</td>
-<td></td>
-<td>49</td>
-<td>com.tetherfi.test.tmac.AgentTeamMgmtTest@14c93774</td></tr>
-<tr>
-<td title='com.tetherfi.test.tmac.AgentTeamMgmtTest.VerifyColumnsHeaderDisable()'><b>VerifyColumnsHeaderDisable</b><br>Test class: com.tetherfi.test.tmac.AgentTeamMgmtTest</td>
-<td></td>
-<td>5</td>
-<td>com.tetherfi.test.tmac.AgentTeamMgmtTest@14c93774</td></tr>
-<tr>
-<td title='com.tetherfi.test.tmac.AgentTeamMgmtTest.VerifyColumnsHeaderEnable()'><b>VerifyColumnsHeaderEnable</b><br>Test class: com.tetherfi.test.tmac.AgentTeamMgmtTest</td>
-<td></td>
-<td>4</td>
-<td>com.tetherfi.test.tmac.AgentTeamMgmtTest@14c93774</td></tr>
-<tr>
-<td title='com.tetherfi.test.tmac.AgentTeamMgmtTest.VerifyDropdownForAllTheColumns()'><b>VerifyDropdownForAllTheColumns</b><br>Test class: com.tetherfi.test.tmac.AgentTeamMgmtTest</td>
-=======
-<td title='com.tetherfi.test.reports.OCMAgentSummaryReportTest.quickInputMonth()'><b>quickInputMonth</b><br>Test class: com.tetherfi.test.reports.OCMAgentSummaryReportTest</td>
->>>>>>> refs/remotes/origin/PalakMay18th
-<td></td>
-<<<<<<< HEAD
-<td>7</td>
-<td>com.tetherfi.test.tmac.AgentTeamMgmtTest@14c93774</td></tr>
-<tr>
-<td title='com.tetherfi.test.tmac.AgentTeamMgmtTest.VerifyNumberOfItemsPerPageSelection()'><b>VerifyNumberOfItemsPerPageSelection</b><br>Test class: com.tetherfi.test.tmac.AgentTeamMgmtTest</td>
-<td></td>
-<td>15</td>
-<td>com.tetherfi.test.tmac.AgentTeamMgmtTest@14c93774</td></tr>
-<tr>
-<td title='com.tetherfi.test.tmac.AgentTeamMgmtTest.VerifyTotalNumberOfItemsPerPageDetails()'><b>VerifyTotalNumberOfItemsPerPageDetails</b><br>Test class: com.tetherfi.test.tmac.AgentTeamMgmtTest</td>
-<td></td>
-<td>0</td>
-<td>com.tetherfi.test.tmac.AgentTeamMgmtTest@14c93774</td></tr>
-=======
-<td>13</td>
-<td>com.tetherfi.test.reports.OCMAgentSummaryReportTest@5b20706</td></tr>
->>>>>>> refs/remotes/origin/PalakMay18th
-=======
-<td>52</td>
-<td>com.tetherfi.test.reports.OCMAudioVideoPlaybackReportTest@4ac86d6a</td></tr>
->>>>>>> refs/remotes/origin/PalakReports
+<td>com.tetherfi.test.reports.AgentHistoricalReportTest@12b5736c</td></tr>
 </table><p>
 </body>
 </html>
