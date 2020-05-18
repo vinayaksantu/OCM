@@ -35,8 +35,8 @@ import com.tetherfi.utility.Screenshot;
 public class FaxRoutingConfigurationTest extends BaseTest{
 	Screenshot screenshot=new Screenshot(driver);
 	FTPServer ftp=new FTPServer();
-	String filepath="\\\\172.16.2.16\\d$\\Products\\WindowsServices\\TFax\\RouteData";
-	String filepath1="\\\\\\\\172.16.2.16\\\\d$\\\\Products\\\\WindowsServices\\\\TFax\\\\RouteData\\20000\\Test";
+	String filepath="\\\\10.133.146.4\\d$\\Applications\\Tetherfi\\TFax\\RouteData";
+	String filepath1="\\\\10.133.146.4\\d$\\Applications\\Tetherfi\\TFax\\RouteData\\20000\\Test";
 	
 	@BeforeClass
     public void AddFaxLineConfigRecord() throws Exception {
@@ -145,7 +145,7 @@ public class FaxRoutingConfigurationTest extends BaseTest{
          Assert.assertTrue((ftp.FolderExist(filepath+"\\"+faxRoutingConfigDetails.getFaxLine()+"\\"+faxRoutingConfigDetails.getRouteData())));
     }
     
-    @Test(dependsOnMethods= {"VerifyRouteFolder"},priority=9)
+    //@Test(dependsOnMethods= {"VerifyRouteFolder"},priority=9)
     public void VerifyFaxInRouteFolder() throws Exception {
     	 HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
          homePage.navigateToOCMPage();
@@ -241,7 +241,7 @@ public class FaxRoutingConfigurationTest extends BaseTest{
         Assert.assertFalse(faxRoutingConfigurationPage.getErrorMsg());
     }
     
-    @Test(priority=17)//,dependsOnMethods = {"AddFaxRoutingConfigQueueRecord"})
+    @Test(priority=17,dependsOnMethods = {"AddFaxRoutingConfigQueueRecord"})
     public void EditFaxRoutingConfigRecord() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxRoutingConfigData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
@@ -318,7 +318,7 @@ public class FaxRoutingConfigurationTest extends BaseTest{
 
     }
     
-    @Test(dependsOnMethods = {"EditFaxRoutingConfigRecord"},priority=24)
+    @Test(priority=24)
     public void DeleteFaxRoutingConfigRecord() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxRoutingConfigData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);

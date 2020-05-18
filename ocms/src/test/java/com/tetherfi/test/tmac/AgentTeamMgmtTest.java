@@ -35,7 +35,6 @@ public class AgentTeamMgmtTest extends BaseTest {
         ocmHomePage.navigateToTab("TMAC");
         TmacPage tmacPage=PageFactory.createPageInstance(driver,TmacPage.class);
         Assert.assertTrue(tmacPage.isTMACPageDisplayed(),"TMAC page assertion failed");
-    	screenshot.captureScreen(driver, "TMAC Page","AgentTeamMgmtTest");
         tmacPage.navigateToAgentTeamManagementPage();
         AgentTeamManagementPage agentTeamManagementPage=PageFactory.createPageInstance(driver,AgentTeamManagementPage.class);
         Assert.assertTrue(agentTeamManagementPage.isAgentTeamManagementPageDisplayed(),"Agent Team Management Page assertion failed");

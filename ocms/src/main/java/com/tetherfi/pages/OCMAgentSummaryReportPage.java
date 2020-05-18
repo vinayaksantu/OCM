@@ -839,8 +839,9 @@ public class OCMAgentSummaryReportPage extends BasePage  {
 		boolean Status=false;
 		//Map<String, String> map=new HashMap<String,String>() ;
 		selectWebElement(searchbyfeatureTextBox);    
-		searchbyfeatureTextBox.sendKeys("1111");//agent id value
+		//searchbyfeatureTextBox.sendKeys("1111");//agent id value
 		selectDropdownFromVisibleText(searchbyfeaturelistBox,details.getSearchStr());
+		enterValueToTxtField(searchbyfeatureTextBox,details.getSearchStr());
 		waitForJqueryLoad(driver);
 		List<Map<String,String>> UI=getDataTable(); 
 		for (Map<String,String> map1: UI)

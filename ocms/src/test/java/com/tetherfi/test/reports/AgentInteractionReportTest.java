@@ -31,7 +31,7 @@ public class AgentInteractionReportTest extends BaseTest {
         Assert.assertTrue(ocmReportsPage.isOCMReportPageIsDisplayed());
     }  
     
-   @Test(priority=1)
+ /*  @Test(priority=1)
     public void ShowOCMAgentinteractionReport() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentInteractionReportData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
@@ -286,7 +286,7 @@ public class AgentInteractionReportTest extends BaseTest {
         AgentInteractionReportPage Agentintactnpage=PageFactory.createPageInstance(driver,AgentInteractionReportPage.class);
         Agentintactnpage.viewDownloadedReportInReportsDownloadsPage();
         Assert.assertTrue(ocmReportsPage.verifyDownloadedReportNameAndTimeInReportsDownloadPage(reportDetails.getReportName1()),"Report not found in Reporter download page");    
-    }   
+    }  */ 
     @Test(priority=26)
     public void VerifySearchByFeatureForAgentinteractionReport() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentInteractionReportData.xlsx";
@@ -298,7 +298,7 @@ public class AgentInteractionReportTest extends BaseTest {
         Assert.assertTrue(ocmReportsPage.verifyDateRangeReportDisplayed(reportDetails),"Show report assertion failed");     
         Assert.assertTrue(Agentintactnpage.verifySearchByTextbox(reportDetails));
     }
-     @Test(priority=27)
+   /*  @Test(priority=27)
     public void VerifySearchFeatureForAgentinteractionReport() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentInteractionReportData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);

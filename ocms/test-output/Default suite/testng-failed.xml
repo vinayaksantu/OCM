@@ -3,26 +3,49 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.tetherfi.test.reports.AgentInteractionReportTest">
+<<<<<<< HEAD
+      <class name="com.tetherfi.test.tmac.AgentTeamMgmtTest">
+=======
+      <class name="com.tetherfi.test.reports.OCMAgentSummaryReportTest">
+>>>>>>> refs/remotes/origin/PalakMay18th
         <methods>
-          <include name="afterEachMethod"/>
-          <include name="VerifySearchFeatureForAgentinteractionReport"/>
-          <include name="NavigateToOcmReportsPage"/>
+<<<<<<< HEAD
+          <include name="VerifySearchContains"/>
+          <include name="NavigateToAgentTeamManagementPage"/>
+          <include name="DeleteAgentTeamManagementCancelRecord"/>
+          <include name="VerifySearchIsNotEqualTo"/>
+          <include name="VerifyAuditTrialReportForUpdate"/>
+          <include name="VerifySearchStartsWith"/>
           <include name="endTestCase"/>
+          <include name="VerifyAuditTrialReportForDelete"/>
           <include name="tearDown"/>
-          <include name="VerifyTotalNumberOfItemsPerPageDetails"/>
-          <include name="SortingByDescending"/>
-          <include name="GroupBy"/>
+          <include name="ExporttoExcelWithoutData"/>
+          <include name="VerifyArrowMoveForPreviousAndNextPage"/>
+          <include name="DeleteAgentTeamManagementRecord"/>
+          <include name="SearchClearSearch"/>
+          <include name="VerifySearchDoesNotContains"/>
           <include name="startTestCase"/>
           <include name="openApplication"/>
-          <include name="ClearfiltersAdvSrch"/>
-          <include name="VerifySearchByFeatureForAgentinteractionReport"/>
-          <include name="SortingByAscending"/>
-          <include name="verifyAdvancedSearchinreportpage"/>
-          <include name="VerifyNumberOfItemsPerPageSelection"/>
-          <include name="VerifySearchStartsWith"/>
+          <include name="VerifySearchEndsWith"/>
+          <include name="afterEachMethod"/>
+          <include name="database"/>
+          <include name="searchPage"/>
+          <include name="EditAgentTeamManagementRecord"/>
+          <include name="VerifyArrowMoveForFirstAndLastPage"/>
+=======
+          <include name="startTestCase"/>
+          <include name="openApplication"/>
+          <include name="quickInputMonth"/>
+          <include name="endTestCase"/>
+          <include name="tearDown"/>
+          <include name="NavigateToOcmReportsPage"/>
+>>>>>>> refs/remotes/origin/PalakMay18th
         </methods>
-      </class> <!-- com.tetherfi.test.reports.AgentInteractionReportTest -->
+<<<<<<< HEAD
+      </class> <!-- com.tetherfi.test.tmac.AgentTeamMgmtTest -->
+=======
+      </class> <!-- com.tetherfi.test.reports.OCMAgentSummaryReportTest -->
+>>>>>>> refs/remotes/origin/PalakMay18th
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

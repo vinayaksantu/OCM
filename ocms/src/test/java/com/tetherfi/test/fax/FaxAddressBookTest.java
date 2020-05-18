@@ -714,7 +714,7 @@ public class FaxAddressBookTest extends BaseTest{
 
 	@Test(priority=65)
 	public void VerifyDragAndDropofAlreadyGroupedHeader() throws Exception {
-		FaxAddressBookPage faxAddressBookPage = PageFactory.createPageInstance(driver, FaxAddressBookPage.class);
+		FaxAddressBookPage faxAddressBookPage = PageFactory.createPageInstance(driver, FaxAddressBookPage.class);	
 		Thread.sleep(2000);
 		faxAddressBookPage.dragAddressBookColumntoGroup("Name");
 		faxAddressBookPage.dragAddressBookColumntoGroup("Name");
