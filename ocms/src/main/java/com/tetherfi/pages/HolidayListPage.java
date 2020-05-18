@@ -16,8 +16,6 @@ import com.tetherfi.model.ivr.OperatingHoursDetails;
 
 public class HolidayListPage extends BasePage{
 
-	
-
 	public HolidayListPage(WebDriver driver) {
 		super(driver);
 	}
@@ -566,6 +564,7 @@ public class HolidayListPage extends BasePage{
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Start Date");
         selectWebElement(selectSearchCol.get(1));
+        Thread.sleep(3000);
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is equal to");
         enterValueToTxtField(searchTextBox,startDate);
         selectWebElement(searchSearchBtn);

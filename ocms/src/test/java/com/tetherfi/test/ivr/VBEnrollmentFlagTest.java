@@ -45,7 +45,7 @@ public class VBEnrollmentFlagTest extends BaseTest {
     	screenshot.captureScreen("VBEnrollmentFlagTest","VbEnrollmentFlagPage");
     }
 	
-	@Test(priority=1)
+	/*@Test(priority=1)
 	public void VbEnrollmentFlagPage() {
         VbEnrollmentFlagPage VbEnrollmentFlagPage = PageFactory.createPageInstance(driver, VbEnrollmentFlagPage.class);
         Assert.assertTrue(VbEnrollmentFlagPage.VerifyLogo(),"Logo assertion failed");
@@ -71,7 +71,7 @@ public class VBEnrollmentFlagTest extends BaseTest {
     public void VerifyColumnsHeaderDisable() {
         VbEnrollmentFlagPage VbEnrollmentFlagPage = PageFactory.createPageInstance(driver, VbEnrollmentFlagPage.class);
         Assert.assertFalse(VbEnrollmentFlagPage.verifycolumnsHeaderDisabled(),"columns disabled assertion failed");
-    }
+    }*/
     
    @Test(priority=5)
     public void AddNewVBEnrollmentFlagRecord() throws Exception {
@@ -83,7 +83,7 @@ public class VBEnrollmentFlagTest extends BaseTest {
         Assert.assertEquals(VbEnrollmentFlagPage.verifySuccessMessage(),"Record Created Successfully", "Add New record assertion failed");
     }
     
-    @Test(priority=6,dependsOnMethods = "AddNewVBEnrollmentFlagRecord")
+    /*@Test(priority=6,dependsOnMethods = "AddNewVBEnrollmentFlagRecord")
     public void AddDuplicateVBEnrollmentFlagRecord() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\VBEnrollmentFlagData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -199,7 +199,7 @@ public class VBEnrollmentFlagTest extends BaseTest {
         VBEnrollmentFlagDetails VBEnrollmentFlagDetails = new VBEnrollmentFlagDetails(map);
         VbEnrollmentFlagPage VbEnrollmentFlagPage = PageFactory.createPageInstance(driver, VbEnrollmentFlagPage.class);
         Assert.assertTrue(VbEnrollmentFlagPage.verifySearchEndsWith(VBEnrollmentFlagDetails.getHotLineName()));
-	}
+	}*/
 	
     @Test(priority=18)
     public void EditVBEnrollmentFlagRecord() throws Exception {
@@ -211,7 +211,7 @@ public class VBEnrollmentFlagTest extends BaseTest {
         Assert.assertEquals(VbEnrollmentFlagPage.verifySuccessMessage(),"Record Updated Successfully","Edit record assertion failed");
     }
     
-    @Test(priority=19,dependsOnMethods="EditVBEnrollmentFlagRecord")
+    /*@Test(priority=19,dependsOnMethods="EditVBEnrollmentFlagRecord")
     public void VerifyAuditTrialReportForUpdate() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\VBEnrollmentFlagData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(0);	
@@ -351,6 +351,7 @@ public class VBEnrollmentFlagTest extends BaseTest {
         VbEnrollmentFlagPage.deleteVBEnrollmentFlagWithoutDeleteReasonRecord(VBEnrollmentFlagDetails);
         Assert.assertEquals(VbEnrollmentFlagPage.verifyErrorMessage(),"Please enter the delete reason","empty delete reason record assertion failed");
     }
+    
     @Test(priority=35)
     public void VerifyCancelBtnAtDeleteVBEnrollmentFlagRecord() throws Exception{
         VbEnrollmentFlagPage VbEnrollmentFlagPage = PageFactory.createPageInstance(driver, VbEnrollmentFlagPage.class);
@@ -359,8 +360,9 @@ public class VBEnrollmentFlagTest extends BaseTest {
         VbEnrollmentFlagPage.clickOnDeleteButton();
         VbEnrollmentFlagPage.clickOnDeleteCancelBtn();
         Assert.assertFalse(VbEnrollmentFlagPage.verifyDeleteContainer(), "Cancel Btn at Delete record assertion failed");
-    }
-    @Test(priority=36,dependsOnMethods = "VerifyCancelBtnAtDeleteVBEnrollmentFlagRecord")
+    }*/
+    
+    @Test(priority=36)//,dependsOnMethods = "VerifyCancelBtnAtDeleteVBEnrollmentFlagRecord")
     public void DeleteVBEnrollmentFlagRecord() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\VBEnrollmentFlagData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
@@ -370,7 +372,7 @@ public class VBEnrollmentFlagTest extends BaseTest {
         Assert.assertEquals(VbEnrollmentFlagPage.verifySuccessMessage(),"Record Deleted Successfully","delete record assertion failed");
     }
     
-    @Test(priority=37,dependsOnMethods= {"DeleteVBEnrollmentFlagRecord"})
+    /*@Test(priority=37,dependsOnMethods= {"DeleteVBEnrollmentFlagRecord"})
     public void VerifyAuditTrialReportForDelete() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\VBEnrollmentFlagData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(0);	
@@ -405,11 +407,9 @@ public class VBEnrollmentFlagTest extends BaseTest {
         VBEnrollmentFlagDetails VBEnrollmentFlagDetails = new VBEnrollmentFlagDetails(map);
         VbEnrollmentFlagPage VbEnrollmentFlagPage = PageFactory.createPageInstance(driver, VbEnrollmentFlagPage.class);
         Assert.assertTrue(VbEnrollmentFlagPage.ExporttoExcelWithoutData(VBEnrollmentFlagDetails));
-    }
+    }*/
     
   
-    
-	
 	 @AfterMethod
 	    public void afterEachMethod(Method method) throws InterruptedException {
 		        Screenshot screenshot=new Screenshot(driver);

@@ -135,6 +135,9 @@ public class OperatingHoursPage extends BasePage {
 	@FindBy(xpath="//i[@class='fas fa-compress']")
 	private WebElement minimize;
 	
+	@FindBy(id="footer")
+	private WebElement FooterButton;
+	
 	@FindBy(xpath="//span[@class='k-input']")
     private WebElement pagerSize;
     
@@ -316,6 +319,7 @@ public class OperatingHoursPage extends BasePage {
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is not equal to");
         enterValueToTxtField(searchTextBox,weekday);		
         selectWebElement(searchSearchBtn);
+        Thread.sleep(5000);
         waitUntilWebElementIsVisible(gridContent);
         List<Map<String,String>> UI=gettable(); 
         for (Map<String,String> map1: UI)
@@ -339,6 +343,7 @@ public class OperatingHoursPage extends BasePage {
         enterValueToTxtField(searchTextBox,weekday);		
         selectWebElement(searchSearchBtn);
         waitUntilWebElementIsVisible(gridContent);
+        Thread.sleep(5000);
         List<Map<String,String>> UI=gettable(); 
         for (Map<String,String> map1: UI)
         {   	
@@ -359,6 +364,7 @@ public class OperatingHoursPage extends BasePage {
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Does not contain");
         enterValueToTxtField(searchTextBox,weekday);		
         selectWebElement(searchSearchBtn);
+        Thread.sleep(5000);
         waitUntilWebElementIsVisible(gridContent);
         List<Map<String,String>> UI=gettable(); 
         for (Map<String,String> map1: UI)
@@ -381,6 +387,7 @@ public class OperatingHoursPage extends BasePage {
         enterValueToTxtField(searchTextBox,weekday);		
         selectWebElement(searchSearchBtn);
         waitUntilWebElementIsVisible(gridContent);
+        Thread.sleep(5000);
         List<Map<String,String>> UI=gettable(); 
         for (Map<String,String> map1: UI)
         {   	
@@ -402,6 +409,7 @@ public class OperatingHoursPage extends BasePage {
         enterValueToTxtField(searchTextBox,weekday);		
         selectWebElement(searchSearchBtn);
         waitUntilWebElementIsVisible(gridContent);
+        Thread.sleep(5000);
         List<Map<String,String>> UI=gettable(); 
         for (Map<String,String> map1: UI)
         {   	
@@ -506,12 +514,14 @@ public class OperatingHoursPage extends BasePage {
     	else 
     		return true;
     }
+    
     public boolean verifyRecordUpdated(){
         waitForJqueryLoad(driver);
         //if(errorMsg.size()>0){return false;}
         if(waitUntilTextToBePresentInWebElement(successmsg,"Record Updated Successfully"))
         {return true;}else{return false;}
     }
+    
     public boolean verifyRecordDeleted(){
           waitForJqueryLoad(driver);
        // if(errorMsg.size()>0){return false;}
@@ -562,6 +572,18 @@ public class OperatingHoursPage extends BasePage {
 		else 
 		{return false;}
 	}
+	
+	public boolean VerifyFooterInfo() {
+		selectWebElement(FooterButton);
+		waitForJqueryLoad(driver);
+		if(FooterButton.isDisplayed())
+		{
+			return true;
+		}
+		else 
+			return false; 
+	}
+		
 	public boolean minimizewindow() {
 		selectWebElement(minimize);
 		waitForJqueryLoad(driver);

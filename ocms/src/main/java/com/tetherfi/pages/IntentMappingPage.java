@@ -609,8 +609,10 @@ public class IntentMappingPage extends BasePage{
 	public void searchIntentMappingRecord(String vdn) throws Exception {
 		selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
+        Thread.sleep(3000);
         selectDropdownFromVisibleText(columnNameList,"VDN");
         selectWebElement(selectSearchCol.get(1));
+        Thread.sleep(3000);
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is equal to");
         enterValueToTxtField(searchTextBox,vdn);		
         selectWebElement(searchSearchBtn);
@@ -814,13 +816,14 @@ public class IntentMappingPage extends BasePage{
 	
 	public void editIntentMappingRecord(IntentMappingDetails details) throws Exception {
 		searchIntentMappingRecord(details.getVDN());
-		Thread.sleep(1000);
+		Thread.sleep(3000);
 		selectWebElement(editButton);
 		waitForLoad(driver);
-		selectWebElement(VDNText);
-		VDNTextbox.clear();
-		enterValueToTxtField(VDNTextbox,details.getUpdatedVDN());
-		enterValueToDropdownText(VDNTextbox, details.getUpdatedVDN());
+//		selectWebElement(VDNText);
+//		VDNTextbox.clear();
+//		selectWebElement(VDNTextbox);
+//		enterValueToTxtField(VDNTextbox,details.getUpdatedVDN());
+//		enterValueToDropdownText(VDNTextbox, details.getUpdatedVDN());
 		selectWebElement(ModifyReasonTextBox);
 		enterValueToTxtFieldWithoutClear(ModifyReasonTextBox,details.getModifyReason());
 		selectWebElement(saveButton);
@@ -869,7 +872,7 @@ public class IntentMappingPage extends BasePage{
 	
 	public void deleteIntentMappingRecord(IntentMappingDetails details) throws Exception {
 		searchIntentMappingRecord(details.getVDN());
-		Thread.sleep(1000);
+		Thread.sleep(3000);
         selectWebElement(deleteButton);
         waitForJqueryLoad(driver);
         enterValueToTxtFieldWithoutClear(deleteReasonTextBox,details.getDeleteReason());

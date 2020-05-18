@@ -55,11 +55,23 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>WorkCodeListTest</h2><table border='1' align="center">
 <tr>
+<<<<<<< HEAD
 <td>Tests passed/Failed/Skipped:</td><td>0/0/37</td>
+=======
+<td>Tests passed/Failed/Skipped:</td><td>24/8/0</td>
+>>>>>>> refs/remotes/origin/PalakReports
 </tr><tr>
+<<<<<<< HEAD
 <td>Started on:</td><td>Wed Apr 15 16:20:04 IST 2020</td>
+=======
+<td>Started on:</td><td>Thu Apr 23 11:41:50 IST 2020</td>
+>>>>>>> refs/remotes/origin/PalakReports
 </tr>
+<<<<<<< HEAD
 <tr><td>Total time:</td><td>50 seconds (50122 ms)</td>
+=======
+<tr><td>Total time:</td><td>784 seconds (784414 ms)</td>
+>>>>>>> refs/remotes/origin/PalakReports
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -75,27 +87,165 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
+<<<<<<< HEAD
 <td title='com.tetherfi.test.tmac.WorkCodeListTest.AddNewAgentTeamManagementRecord()'><b>AddNewAgentTeamManagementRecord</b><br>Test class: com.tetherfi.test.tmac.WorkCodeListTest</td>
 <td><div><pre>java.lang.AssertionError: Add New record assertion failed did not expect to find [true] but found [false]
 	at com.tetherfi.test.tmac.WorkCodeListTest.AddNewAgentTeamManagementRecord(WorkCodeListTest.java:51)
 	at java.base/java.util.ArrayList.forEach(Unknown Source)
 ... Removed 28 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1312690617", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
 <div class='stack-trace' id='stack-trace1312690617'><pre>java.lang.AssertionError: Add New record assertion failed did not expect to find [true] but found [false]
+=======
+<td title='com.tetherfi.test.sms.SmsResponseTemplateTest.DeleteRecordWithoutDeleteReason()'><b>DeleteRecordWithoutDeleteReason</b><br>Test class: com.tetherfi.test.sms.SmsResponseTemplateTest</td>
+<td><div><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator &apos;By.cssSelector: .k-grid-CustomDelete&apos; (tried for 30 second(s) with 500 milliseconds interval)
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
+	at com.tetherfi.pages.BasePage.waitUntilWebElementIsVisible(BasePage.java:128)
+	at com.tetherfi.pages.BasePage.selectWebElement(BasePage.java:194)
+	at com.tetherfi.pages.SmsResponseTemplatePageWMC.DeleteSmsResponseTemplateRecordWithoutDeleteReason(SmsResponseTemplatePageWMC.java:1401)
+	at com.tetherfi.test.sms.SmsResponseTemplateTest.DeleteRecordWithoutDeleteReason(SmsResponseTemplateTest.java:247)
+	at java.util.ArrayList.forEach(Unknown Source)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;.k-grid-CustomDelete&quot;}
+  (Session info: chrome=81.0.4044.113)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;DESKTOP-NJVBPFB&apos;, ip: &apos;192.168.225.65&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_181&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 81.0.4044.113, chrome: {chromedriverVersion: 80.0.3987.106 (f68069574609..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:62564}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: fe620a3303fdc53049039bb2da43e412
+*** Element info: {Using=css selector, value=.k-grid-CustomDelete}
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:420)
+	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:431)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at com.sun.proxy.$Proxy11.isDisplayed(Unknown Source)
+	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:314)
+	at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:43)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:300)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:297)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
+	... 32 more
+... Removed 31 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace641649995", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace641649995'><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator &apos;By.cssSelector: .k-grid-CustomDelete&apos; (tried for 30 second(s) with 500 milliseconds interval)
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
+	at com.tetherfi.pages.BasePage.waitUntilWebElementIsVisible(BasePage.java:128)
+	at com.tetherfi.pages.BasePage.selectWebElement(BasePage.java:194)
+	at com.tetherfi.pages.SmsResponseTemplatePageWMC.DeleteSmsResponseTemplateRecordWithoutDeleteReason(SmsResponseTemplatePageWMC.java:1401)
+	at com.tetherfi.test.sms.SmsResponseTemplateTest.DeleteRecordWithoutDeleteReason(SmsResponseTemplateTest.java:247)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.util.ArrayList.forEach(Unknown Source)
+	at org.testng.TestRunner.privateRun(TestRunner.java:770)
+	at org.testng.TestRunner.run(TestRunner.java:591)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+	at org.testng.TestNG.runSuites(TestNG.java:1032)
+	at org.testng.TestNG.run(TestNG.java:1000)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;.k-grid-CustomDelete&quot;}
+  (Session info: chrome=81.0.4044.113)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;DESKTOP-NJVBPFB&apos;, ip: &apos;192.168.225.65&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_181&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 81.0.4044.113, chrome: {chromedriverVersion: 80.0.3987.106 (f68069574609..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:62564}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: fe620a3303fdc53049039bb2da43e412
+*** Element info: {Using=css selector, value=.k-grid-CustomDelete}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:420)
+	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:431)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at com.sun.proxy.$Proxy11.isDisplayed(Unknown Source)
+	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:314)
+	at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:43)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:300)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:297)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
+	... 32 more
+</pre></div></td>
+<td>84</td>
+<td>com.tetherfi.test.sms.SmsResponseTemplateTest@4232c52b</td></tr>
+<tr>
+<td title='com.tetherfi.test.sms.SmsResponseTemplateTest.SortByAscending()'><b>SortByAscending</b><br>Test class: com.tetherfi.test.sms.SmsResponseTemplateTest</td>
+<td><div><pre>java.lang.AssertionError: did not expect to find [true] but found [false]
+	at com.tetherfi.test.sms.SmsResponseTemplateTest.SortByAscending(SmsResponseTemplateTest.java:311)
+	at java.util.ArrayList.forEach(Unknown Source)
+... Removed 31 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1110226180", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1110226180'><pre>java.lang.AssertionError: did not expect to find [true] but found [false]
+>>>>>>> refs/remotes/origin/PalakReports
 	at org.testng.Assert.fail(Assert.java:97)
 	at org.testng.Assert.failNotEquals(Assert.java:969)
 	at org.testng.Assert.assertTrue(Assert.java:43)
+<<<<<<< HEAD
 	at com.tetherfi.test.tmac.WorkCodeListTest.AddNewAgentTeamManagementRecord(WorkCodeListTest.java:51)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+=======
+	at org.testng.Assert.assertTrue(Assert.java:53)
+	at com.tetherfi.test.sms.SmsResponseTemplateTest.SortByAscending(SmsResponseTemplateTest.java:311)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+>>>>>>> refs/remotes/origin/PalakReports
 	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+<<<<<<< HEAD
 	at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:62)
 	at org.testng.internal.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:340)
 	at org.testng.internal.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:294)
 	at org.testng.internal.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:176)
 	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:122)
 	at java.base/java.util.ArrayList.forEach(Unknown Source)
+=======
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.util.ArrayList.forEach(Unknown Source)
+>>>>>>> refs/remotes/origin/PalakReports
 	at org.testng.TestRunner.privateRun(TestRunner.java:770)
 	at org.testng.TestRunner.run(TestRunner.java:591)
 	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
@@ -112,8 +262,462 @@ function toggleAllBoxes() {
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
+<<<<<<< HEAD
 <td>18</td>
 <td>com.tetherfi.test.tmac.WorkCodeListTest@69997e9d</td></tr>
+=======
+<td>9</td>
+<td>com.tetherfi.test.sms.SmsResponseTemplateTest@4232c52b</td></tr>
+<tr>
+<td title='com.tetherfi.test.sms.SmsResponseTemplateTest.SortByDescending()'><b>SortByDescending</b><br>Test class: com.tetherfi.test.sms.SmsResponseTemplateTest</td>
+<td><div><pre>java.lang.AssertionError: did not expect to find [true] but found [false]
+	at com.tetherfi.test.sms.SmsResponseTemplateTest.SortByDescending(SmsResponseTemplateTest.java:320)
+	at java.util.ArrayList.forEach(Unknown Source)
+... Removed 31 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace633757221", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace633757221'><pre>java.lang.AssertionError: did not expect to find [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:97)
+	at org.testng.Assert.failNotEquals(Assert.java:969)
+	at org.testng.Assert.assertTrue(Assert.java:43)
+	at org.testng.Assert.assertTrue(Assert.java:53)
+	at com.tetherfi.test.sms.SmsResponseTemplateTest.SortByDescending(SmsResponseTemplateTest.java:320)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.util.ArrayList.forEach(Unknown Source)
+	at org.testng.TestRunner.privateRun(TestRunner.java:770)
+	at org.testng.TestRunner.run(TestRunner.java:591)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+	at org.testng.TestNG.runSuites(TestNG.java:1032)
+	at org.testng.TestNG.run(TestNG.java:1000)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>9</td>
+<td>com.tetherfi.test.sms.SmsResponseTemplateTest@4232c52b</td></tr>
+<tr>
+<td title='com.tetherfi.test.sms.SmsResponseTemplateTest.VerifyArrowMoveForFirstAndLastPage()'><b>VerifyArrowMoveForFirstAndLastPage</b><br>Test class: com.tetherfi.test.sms.SmsResponseTemplateTest</td>
+<td><div><pre>org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element &lt;a aria-label=&quot;Go to the last page&quot; class=&quot;k-link k-pager-nav k-pager-last&quot; data-page=&quot;2&quot; href=&quot;#&quot; title=&quot;Go to the last page&quot; tabindex=&quot;-1&quot;&gt;...&lt;/a&gt; is not clickable at point (210, 514). Other element would receive the click: &lt;div class=&quot;theme-color&quot;&gt;...&lt;/div&gt;
+  (Session info: chrome=81.0.4044.113)
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;DESKTOP-NJVBPFB&apos;, ip: &apos;192.168.225.65&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_181&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 81.0.4044.113, chrome: {chromedriverVersion: 80.0.3987.106 (f68069574609..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:62564}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: fe620a3303fdc53049039bb2da43e412
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:84)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
+	at com.sun.proxy.$Proxy11.click(Unknown Source)
+	at com.tetherfi.pages.BasePage.selectWebElement(BasePage.java:198)
+	at com.tetherfi.pages.SmsResponseTemplatePageWMC.verifyArrowMoveForFirstAndLastPage(SmsResponseTemplatePageWMC.java:589)
+	at com.tetherfi.test.sms.SmsResponseTemplateTest.VerifyArrowMoveForFirstAndLastPage(SmsResponseTemplateTest.java:338)
+	at java.util.ArrayList.forEach(Unknown Source)
+... Removed 34 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1077424703", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1077424703'><pre>org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element &lt;a aria-label=&quot;Go to the last page&quot; class=&quot;k-link k-pager-nav k-pager-last&quot; data-page=&quot;2&quot; href=&quot;#&quot; title=&quot;Go to the last page&quot; tabindex=&quot;-1&quot;&gt;...&lt;/a&gt; is not clickable at point (210, 514). Other element would receive the click: &lt;div class=&quot;theme-color&quot;&gt;...&lt;/div&gt;
+  (Session info: chrome=81.0.4044.113)
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;DESKTOP-NJVBPFB&apos;, ip: &apos;192.168.225.65&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_181&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 81.0.4044.113, chrome: {chromedriverVersion: 80.0.3987.106 (f68069574609..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:62564}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: fe620a3303fdc53049039bb2da43e412
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:84)
+	at sun.reflect.GeneratedMethodAccessor6.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
+	at com.sun.proxy.$Proxy11.click(Unknown Source)
+	at com.tetherfi.pages.BasePage.selectWebElement(BasePage.java:198)
+	at com.tetherfi.pages.SmsResponseTemplatePageWMC.verifyArrowMoveForFirstAndLastPage(SmsResponseTemplatePageWMC.java:589)
+	at com.tetherfi.test.sms.SmsResponseTemplateTest.VerifyArrowMoveForFirstAndLastPage(SmsResponseTemplateTest.java:338)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.util.ArrayList.forEach(Unknown Source)
+	at org.testng.TestRunner.privateRun(TestRunner.java:770)
+	at org.testng.TestRunner.run(TestRunner.java:591)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+	at org.testng.TestNG.runSuites(TestNG.java:1032)
+	at org.testng.TestNG.run(TestNG.java:1000)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>1</td>
+<td>com.tetherfi.test.sms.SmsResponseTemplateTest@4232c52b</td></tr>
+<tr>
+<td title='com.tetherfi.test.sms.SmsResponseTemplateTest.VerifyArrowMoveForPreviousAndNextPage()'><b>VerifyArrowMoveForPreviousAndNextPage</b><br>Test class: com.tetherfi.test.sms.SmsResponseTemplateTest</td>
+<td><div><pre>org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element &lt;a aria-label=&quot;Go to the next page&quot; class=&quot;k-link k-pager-nav&quot; data-page=&quot;2&quot; href=&quot;#&quot; title=&quot;Go to the next page&quot; tabindex=&quot;-1&quot;&gt;...&lt;/a&gt; is not clickable at point (175, 514). Other element would receive the click: &lt;div class=&quot;theme-color&quot;&gt;...&lt;/div&gt;
+  (Session info: chrome=81.0.4044.113)
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;DESKTOP-NJVBPFB&apos;, ip: &apos;192.168.225.65&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_181&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 81.0.4044.113, chrome: {chromedriverVersion: 80.0.3987.106 (f68069574609..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:62564}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: fe620a3303fdc53049039bb2da43e412
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:84)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
+	at com.sun.proxy.$Proxy11.click(Unknown Source)
+	at com.tetherfi.pages.BasePage.selectWebElement(BasePage.java:198)
+	at com.tetherfi.pages.SmsResponseTemplatePageWMC.verifyArrowMoveForPreviousAndNextPage(SmsResponseTemplatePageWMC.java:574)
+	at com.tetherfi.test.sms.SmsResponseTemplateTest.VerifyArrowMoveForPreviousAndNextPage(SmsResponseTemplateTest.java:332)
+	at java.util.ArrayList.forEach(Unknown Source)
+... Removed 34 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace411212072", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace411212072'><pre>org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element &lt;a aria-label=&quot;Go to the next page&quot; class=&quot;k-link k-pager-nav&quot; data-page=&quot;2&quot; href=&quot;#&quot; title=&quot;Go to the next page&quot; tabindex=&quot;-1&quot;&gt;...&lt;/a&gt; is not clickable at point (175, 514). Other element would receive the click: &lt;div class=&quot;theme-color&quot;&gt;...&lt;/div&gt;
+  (Session info: chrome=81.0.4044.113)
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;DESKTOP-NJVBPFB&apos;, ip: &apos;192.168.225.65&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_181&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 81.0.4044.113, chrome: {chromedriverVersion: 80.0.3987.106 (f68069574609..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:62564}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: fe620a3303fdc53049039bb2da43e412
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:84)
+	at sun.reflect.GeneratedMethodAccessor6.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
+	at com.sun.proxy.$Proxy11.click(Unknown Source)
+	at com.tetherfi.pages.BasePage.selectWebElement(BasePage.java:198)
+	at com.tetherfi.pages.SmsResponseTemplatePageWMC.verifyArrowMoveForPreviousAndNextPage(SmsResponseTemplatePageWMC.java:574)
+	at com.tetherfi.test.sms.SmsResponseTemplateTest.VerifyArrowMoveForPreviousAndNextPage(SmsResponseTemplateTest.java:332)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.util.ArrayList.forEach(Unknown Source)
+	at org.testng.TestRunner.privateRun(TestRunner.java:770)
+	at org.testng.TestRunner.run(TestRunner.java:591)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+	at org.testng.TestNG.runSuites(TestNG.java:1032)
+	at org.testng.TestNG.run(TestNG.java:1000)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>2</td>
+<td>com.tetherfi.test.sms.SmsResponseTemplateTest@4232c52b</td></tr>
+<tr>
+<td title='com.tetherfi.test.sms.SmsResponseTemplateTest.VerifyAuditTrialReportForCreate()'><b>VerifyAuditTrialReportForCreate</b><br>Test class: com.tetherfi.test.sms.SmsResponseTemplateTest</td>
+<td><div><pre>org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
+  (Session info: chrome=81.0.4044.113)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;DESKTOP-NJVBPFB&apos;, ip: &apos;192.168.225.65&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_181&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 81.0.4044.113, chrome: {chromedriverVersion: 80.0.3987.106 (f68069574609..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:62564}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: fe620a3303fdc53049039bb2da43e412
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
+	at org.openqa.selenium.remote.RemoteWebElement.isDisplayed(RemoteWebElement.java:326)
+	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:314)
+	at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:43)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:300)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:297)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
+	at com.tetherfi.pages.BasePage.waitUntilWebElementListIsVisible(BasePage.java:135)
+	at com.tetherfi.pages.BasePage.selectDropdownFromVisibleText(BasePage.java:333)
+	at com.tetherfi.pages.OCMReportsPage.booleansearchnew(OCMReportsPage.java:1212)
+	at com.tetherfi.pages.OCMReportsPage.verifySmsResponseTemplateCreate(OCMReportsPage.java:5445)
+	at com.tetherfi.test.sms.SmsResponseTemplateTest.VerifyAuditTrialReportForCreate(SmsResponseTemplateTest.java:102)
+	at java.util.ArrayList.forEach(Unknown Source)
+... Removed 31 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace601728931", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace601728931'><pre>org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
+  (Session info: chrome=81.0.4044.113)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;DESKTOP-NJVBPFB&apos;, ip: &apos;192.168.225.65&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_181&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 81.0.4044.113, chrome: {chromedriverVersion: 80.0.3987.106 (f68069574609..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:62564}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: fe620a3303fdc53049039bb2da43e412
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
+	at org.openqa.selenium.remote.RemoteWebElement.isDisplayed(RemoteWebElement.java:326)
+	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:314)
+	at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:43)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:300)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:297)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
+	at com.tetherfi.pages.BasePage.waitUntilWebElementListIsVisible(BasePage.java:135)
+	at com.tetherfi.pages.BasePage.selectDropdownFromVisibleText(BasePage.java:333)
+	at com.tetherfi.pages.OCMReportsPage.booleansearchnew(OCMReportsPage.java:1212)
+	at com.tetherfi.pages.OCMReportsPage.verifySmsResponseTemplateCreate(OCMReportsPage.java:5445)
+	at com.tetherfi.test.sms.SmsResponseTemplateTest.VerifyAuditTrialReportForCreate(SmsResponseTemplateTest.java:102)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.util.ArrayList.forEach(Unknown Source)
+	at org.testng.TestRunner.privateRun(TestRunner.java:770)
+	at org.testng.TestRunner.run(TestRunner.java:591)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+	at org.testng.TestNG.runSuites(TestNG.java:1032)
+	at org.testng.TestNG.run(TestNG.java:1000)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>20</td>
+<td>com.tetherfi.test.sms.SmsResponseTemplateTest@4232c52b</td></tr>
+<tr>
+<td title='com.tetherfi.test.sms.SmsResponseTemplateTest.VerifyCancelBtnAtDeleteConfigRecord()'><b>VerifyCancelBtnAtDeleteConfigRecord</b><br>Test class: com.tetherfi.test.sms.SmsResponseTemplateTest</td>
+<td><div><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator &apos;By.cssSelector: .k-grid-CustomDelete&apos; (tried for 30 second(s) with 500 milliseconds interval)
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
+	at com.tetherfi.pages.BasePage.waitUntilWebElementIsVisible(BasePage.java:128)
+	at com.tetherfi.pages.BasePage.selectWebElement(BasePage.java:194)
+	at com.tetherfi.pages.SmsResponseTemplatePageWMC.clickOnDeleteButton(SmsResponseTemplatePageWMC.java:1410)
+	at com.tetherfi.test.sms.SmsResponseTemplateTest.VerifyCancelBtnAtDeleteConfigRecord(SmsResponseTemplateTest.java:257)
+	at java.util.ArrayList.forEach(Unknown Source)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;.k-grid-CustomDelete&quot;}
+  (Session info: chrome=81.0.4044.113)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;DESKTOP-NJVBPFB&apos;, ip: &apos;192.168.225.65&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_181&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 81.0.4044.113, chrome: {chromedriverVersion: 80.0.3987.106 (f68069574609..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:62564}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: fe620a3303fdc53049039bb2da43e412
+*** Element info: {Using=css selector, value=.k-grid-CustomDelete}
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:420)
+	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:431)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at com.sun.proxy.$Proxy11.isDisplayed(Unknown Source)
+	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:314)
+	at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:43)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:300)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:297)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
+	... 32 more
+... Removed 31 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace464277949", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace464277949'><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator &apos;By.cssSelector: .k-grid-CustomDelete&apos; (tried for 30 second(s) with 500 milliseconds interval)
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
+	at com.tetherfi.pages.BasePage.waitUntilWebElementIsVisible(BasePage.java:128)
+	at com.tetherfi.pages.BasePage.selectWebElement(BasePage.java:194)
+	at com.tetherfi.pages.SmsResponseTemplatePageWMC.clickOnDeleteButton(SmsResponseTemplatePageWMC.java:1410)
+	at com.tetherfi.test.sms.SmsResponseTemplateTest.VerifyCancelBtnAtDeleteConfigRecord(SmsResponseTemplateTest.java:257)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.util.ArrayList.forEach(Unknown Source)
+	at org.testng.TestRunner.privateRun(TestRunner.java:770)
+	at org.testng.TestRunner.run(TestRunner.java:591)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+	at org.testng.TestNG.runSuites(TestNG.java:1032)
+	at org.testng.TestNG.run(TestNG.java:1000)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;.k-grid-CustomDelete&quot;}
+  (Session info: chrome=81.0.4044.113)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;DESKTOP-NJVBPFB&apos;, ip: &apos;192.168.225.65&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_181&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 81.0.4044.113, chrome: {chromedriverVersion: 80.0.3987.106 (f68069574609..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:62564}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: fe620a3303fdc53049039bb2da43e412
+*** Element info: {Using=css selector, value=.k-grid-CustomDelete}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:420)
+	at org.openqa.selenium.By$ByCssSelector.findElement(By.java:431)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at com.sun.proxy.$Proxy11.isDisplayed(Unknown Source)
+	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:314)
+	at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:43)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:300)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:297)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
+	... 32 more
+</pre></div></td>
+<td>84</td>
+<td>com.tetherfi.test.sms.SmsResponseTemplateTest@4232c52b</td></tr>
+<tr>
+<td title='com.tetherfi.test.sms.SmsResponseTemplateTest.VerifyNumberOfItemsPerPageSelection()'><b>VerifyNumberOfItemsPerPageSelection</b><br>Test class: com.tetherfi.test.sms.SmsResponseTemplateTest</td>
+<td><div><pre>java.lang.AssertionError: Number of items per page assertion failed did not expect to find [true] but found [false]
+	at com.tetherfi.test.sms.SmsResponseTemplateTest.VerifyNumberOfItemsPerPageSelection(SmsResponseTemplateTest.java:350)
+	at java.util.ArrayList.forEach(Unknown Source)
+... Removed 30 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace943352023", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace943352023'><pre>java.lang.AssertionError: Number of items per page assertion failed did not expect to find [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:97)
+	at org.testng.Assert.failNotEquals(Assert.java:969)
+	at org.testng.Assert.assertTrue(Assert.java:43)
+	at com.tetherfi.test.sms.SmsResponseTemplateTest.VerifyNumberOfItemsPerPageSelection(SmsResponseTemplateTest.java:350)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.util.ArrayList.forEach(Unknown Source)
+	at org.testng.TestRunner.privateRun(TestRunner.java:770)
+	at org.testng.TestRunner.run(TestRunner.java:591)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+	at org.testng.TestNG.runSuites(TestNG.java:1032)
+	at org.testng.TestNG.run(TestNG.java:1000)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>1</td>
+<td>com.tetherfi.test.sms.SmsResponseTemplateTest@4232c52b</td></tr>
+>>>>>>> refs/remotes/origin/PalakReports
 </table><p>
 <table width='100%' border='1' class='invocation-skipped'>
 <tr><td colspan='4' align='center'><b>SKIPPED CONFIGURATIONS</b></td></tr>
@@ -881,6 +1485,7 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
+<<<<<<< HEAD
 <td title='com.tetherfi.test.tmac.WorkCodeListTest.DeleteWorkCodeListCancelRecord()'><b>DeleteWorkCodeListCancelRecord</b><br>Test class: com.tetherfi.test.tmac.WorkCodeListTest</td>
 <td><div><pre>java.lang.AssertionError: Add New record assertion failed did not expect to find [true] but found [false]
 	at com.tetherfi.test.tmac.WorkCodeListTest.AddNewAgentTeamManagementRecord(WorkCodeListTest.java:51)
@@ -1000,7 +1605,14 @@ function toggleAllBoxes() {
 </pre></div></td>
 <td>0</td>
 <td>com.tetherfi.test.tmac.WorkCodeListTest@69997e9d</td></tr>
+=======
+<td title='com.tetherfi.test.sms.SmsResponseTemplateTest.AddDuplicateSMSRecord()'><b>AddDuplicateSMSRecord</b><br>Test class: com.tetherfi.test.sms.SmsResponseTemplateTest</td>
+<td></td>
+<td>3</td>
+<td>com.tetherfi.test.sms.SmsResponseTemplateTest@4232c52b</td></tr>
+>>>>>>> refs/remotes/origin/PalakReports
 <tr>
+<<<<<<< HEAD
 <td title='com.tetherfi.test.tmac.WorkCodeListTest.ExportToExcelData()'><b>ExportToExcelData</b><br>Test class: com.tetherfi.test.tmac.WorkCodeListTest</td>
 <td><div><pre>java.lang.AssertionError: Add New record assertion failed did not expect to find [true] but found [false]
 	at com.tetherfi.test.tmac.WorkCodeListTest.AddNewAgentTeamManagementRecord(WorkCodeListTest.java:51)
@@ -1040,7 +1652,19 @@ function toggleAllBoxes() {
 </pre></div></td>
 <td>0</td>
 <td>com.tetherfi.test.tmac.WorkCodeListTest@69997e9d</td></tr>
+=======
+<td title='com.tetherfi.test.sms.SmsResponseTemplateTest.AddNewRecordWithoutEnable()'><b>AddNewRecordWithoutEnable</b><br>Test class: com.tetherfi.test.sms.SmsResponseTemplateTest</td>
+<td></td>
+<td>2</td>
+<td>com.tetherfi.test.sms.SmsResponseTemplateTest@4232c52b</td></tr>
 <tr>
+<td title='com.tetherfi.test.sms.SmsResponseTemplateTest.AddNewRecordWithoutICOMTemplateID()'><b>AddNewRecordWithoutICOMTemplateID</b><br>Test class: com.tetherfi.test.sms.SmsResponseTemplateTest</td>
+<td></td>
+<td>3</td>
+<td>com.tetherfi.test.sms.SmsResponseTemplateTest@4232c52b</td></tr>
+>>>>>>> refs/remotes/origin/PalakReports
+<tr>
+<<<<<<< HEAD
 <td title='com.tetherfi.test.tmac.WorkCodeListTest.ExporttoExcelWithoutData()'><b>ExporttoExcelWithoutData</b><br>Test class: com.tetherfi.test.tmac.WorkCodeListTest</td>
 <td><div><pre>java.lang.AssertionError: Add New record assertion failed did not expect to find [true] but found [false]
 	at com.tetherfi.test.tmac.WorkCodeListTest.AddNewAgentTeamManagementRecord(WorkCodeListTest.java:51)
@@ -1080,7 +1704,14 @@ function toggleAllBoxes() {
 </pre></div></td>
 <td>0</td>
 <td>com.tetherfi.test.tmac.WorkCodeListTest@69997e9d</td></tr>
+=======
+<td title='com.tetherfi.test.sms.SmsResponseTemplateTest.AddNewRecordWithoutIntent()'><b>AddNewRecordWithoutIntent</b><br>Test class: com.tetherfi.test.sms.SmsResponseTemplateTest</td>
+<td></td>
+<td>3</td>
+<td>com.tetherfi.test.sms.SmsResponseTemplateTest@4232c52b</td></tr>
+>>>>>>> refs/remotes/origin/PalakReports
 <tr>
+<<<<<<< HEAD
 <td title='com.tetherfi.test.tmac.WorkCodeListTest.GroupBy()'><b>GroupBy</b><br>Test class: com.tetherfi.test.tmac.WorkCodeListTest</td>
 <td><div><pre>java.lang.AssertionError: Add New record assertion failed did not expect to find [true] but found [false]
 	at com.tetherfi.test.tmac.WorkCodeListTest.AddNewAgentTeamManagementRecord(WorkCodeListTest.java:51)
@@ -1120,7 +1751,14 @@ function toggleAllBoxes() {
 </pre></div></td>
 <td>0</td>
 <td>com.tetherfi.test.tmac.WorkCodeListTest@69997e9d</td></tr>
+=======
+<td title='com.tetherfi.test.sms.SmsResponseTemplateTest.AddNewRecordWithoutText()'><b>AddNewRecordWithoutText</b><br>Test class: com.tetherfi.test.sms.SmsResponseTemplateTest</td>
+<td></td>
+<td>3</td>
+<td>com.tetherfi.test.sms.SmsResponseTemplateTest@4232c52b</td></tr>
+>>>>>>> refs/remotes/origin/PalakReports
 <tr>
+<<<<<<< HEAD
 <td title='com.tetherfi.test.tmac.WorkCodeListTest.SearchClearSearch()'><b>SearchClearSearch</b><br>Test class: com.tetherfi.test.tmac.WorkCodeListTest</td>
 <td><div><pre>java.lang.AssertionError: Add New record assertion failed did not expect to find [true] but found [false]
 	at com.tetherfi.test.tmac.WorkCodeListTest.AddNewAgentTeamManagementRecord(WorkCodeListTest.java:51)
@@ -1720,7 +2358,14 @@ function toggleAllBoxes() {
 </pre></div></td>
 <td>0</td>
 <td>com.tetherfi.test.tmac.WorkCodeListTest@69997e9d</td></tr>
+=======
+<td title='com.tetherfi.test.sms.SmsResponseTemplateTest.AddNewSMSRecord()'><b>AddNewSMSRecord</b><br>Test class: com.tetherfi.test.sms.SmsResponseTemplateTest</td>
+<td></td>
+<td>8</td>
+<td>com.tetherfi.test.sms.SmsResponseTemplateTest@4232c52b</td></tr>
+>>>>>>> refs/remotes/origin/PalakReports
 <tr>
+<<<<<<< HEAD
 <td title='com.tetherfi.test.tmac.WorkCodeListTest.VerifySearchStartsWith()'><b>VerifySearchStartsWith</b><br>Test class: com.tetherfi.test.tmac.WorkCodeListTest</td>
 <td><div><pre>java.lang.AssertionError: Add New record assertion failed did not expect to find [true] but found [false]
 	at com.tetherfi.test.tmac.WorkCodeListTest.AddNewAgentTeamManagementRecord(WorkCodeListTest.java:51)
@@ -2000,7 +2645,14 @@ function toggleAllBoxes() {
 </pre></div></td>
 <td>0</td>
 <td>com.tetherfi.test.tmac.WorkCodeListTest@69997e9d</td></tr>
+=======
+<td title='com.tetherfi.test.sms.SmsResponseTemplateTest.DeleteSmsResponseTemplateRecord()'><b>DeleteSmsResponseTemplateRecord</b><br>Test class: com.tetherfi.test.sms.SmsResponseTemplateTest</td>
+<td></td>
+<td>8</td>
+<td>com.tetherfi.test.sms.SmsResponseTemplateTest@4232c52b</td></tr>
+>>>>>>> refs/remotes/origin/PalakReports
 <tr>
+<<<<<<< HEAD
 <td title='com.tetherfi.test.tmac.WorkCodeListTest.addInvalidRecordWithoutWorkLevel()'><b>addInvalidRecordWithoutWorkLevel</b><br>Test class: com.tetherfi.test.tmac.WorkCodeListTest</td>
 <td><div><pre>java.lang.AssertionError: Add New record assertion failed did not expect to find [true] but found [false]
 	at com.tetherfi.test.tmac.WorkCodeListTest.AddNewAgentTeamManagementRecord(WorkCodeListTest.java:51)
@@ -2040,7 +2692,29 @@ function toggleAllBoxes() {
 </pre></div></td>
 <td>0</td>
 <td>com.tetherfi.test.tmac.WorkCodeListTest@69997e9d</td></tr>
+=======
+<td title='com.tetherfi.test.sms.SmsResponseTemplateTest.EditSmsResponseTemplateRecord()'><b>EditSmsResponseTemplateRecord</b><br>Test class: com.tetherfi.test.sms.SmsResponseTemplateTest</td>
+<td></td>
+<td>7</td>
+<td>com.tetherfi.test.sms.SmsResponseTemplateTest@4232c52b</td></tr>
 <tr>
+<td title='com.tetherfi.test.sms.SmsResponseTemplateTest.EditSmsTemplateRecordWithoutModifyReason()'><b>EditSmsTemplateRecordWithoutModifyReason</b><br>Test class: com.tetherfi.test.sms.SmsResponseTemplateTest</td>
+<td></td>
+<td>7</td>
+<td>com.tetherfi.test.sms.SmsResponseTemplateTest@4232c52b</td></tr>
+<tr>
+<td title='com.tetherfi.test.sms.SmsResponseTemplateTest.ExporttoExcelWithoutData()'><b>ExporttoExcelWithoutData</b><br>Test class: com.tetherfi.test.sms.SmsResponseTemplateTest</td>
+<td></td>
+<td>5</td>
+<td>com.tetherfi.test.sms.SmsResponseTemplateTest@4232c52b</td></tr>
+<tr>
+<td title='com.tetherfi.test.sms.SmsResponseTemplateTest.GroupBy()'><b>GroupBy</b><br>Test class: com.tetherfi.test.sms.SmsResponseTemplateTest</td>
+<td></td>
+<td>1</td>
+<td>com.tetherfi.test.sms.SmsResponseTemplateTest@4232c52b</td></tr>
+>>>>>>> refs/remotes/origin/PalakReports
+<tr>
+<<<<<<< HEAD
 <td title='com.tetherfi.test.tmac.WorkCodeListTest.addNewWorkGroupListCancelRecord()'><b>addNewWorkGroupListCancelRecord</b><br>Test class: com.tetherfi.test.tmac.WorkCodeListTest</td>
 <td><div><pre>java.lang.AssertionError: Add New record assertion failed did not expect to find [true] but found [false]
 	at com.tetherfi.test.tmac.WorkCodeListTest.AddNewAgentTeamManagementRecord(WorkCodeListTest.java:51)
@@ -2360,6 +3034,72 @@ function toggleAllBoxes() {
 </pre></div></td>
 <td>0</td>
 <td>com.tetherfi.test.tmac.WorkCodeListTest@69997e9d</td></tr>
+=======
+<td title='com.tetherfi.test.sms.SmsResponseTemplateTest.SearchClearSearch()'><b>SearchClearSearch</b><br>Test class: com.tetherfi.test.sms.SmsResponseTemplateTest</td>
+<td></td>
+<td>4</td>
+<td>com.tetherfi.test.sms.SmsResponseTemplateTest@4232c52b</td></tr>
+<tr>
+<td title='com.tetherfi.test.sms.SmsResponseTemplateTest.SmsResponseTemplatePage()'><b>SmsResponseTemplatePage</b><br>Test class: com.tetherfi.test.sms.SmsResponseTemplateTest</td>
+<td></td>
+<td>0</td>
+<td>com.tetherfi.test.sms.SmsResponseTemplateTest@4232c52b</td></tr>
+<tr>
+<td title='com.tetherfi.test.sms.SmsResponseTemplateTest.VerifyAddEmptyRecord()'><b>VerifyAddEmptyRecord</b><br>Test class: com.tetherfi.test.sms.SmsResponseTemplateTest</td>
+<td></td>
+<td>4</td>
+<td>com.tetherfi.test.sms.SmsResponseTemplateTest@4232c52b</td></tr>
+<tr>
+<td title='com.tetherfi.test.sms.SmsResponseTemplateTest.VerifyAuditTrialReportForDelete()'><b>VerifyAuditTrialReportForDelete</b><br>Test class: com.tetherfi.test.sms.SmsResponseTemplateTest</td>
+<td></td>
+<td>22</td>
+<td>com.tetherfi.test.sms.SmsResponseTemplateTest@4232c52b</td></tr>
+<tr>
+<td title='com.tetherfi.test.sms.SmsResponseTemplateTest.VerifyAuditTrialReportForUpdate()'><b>VerifyAuditTrialReportForUpdate</b><br>Test class: com.tetherfi.test.sms.SmsResponseTemplateTest</td>
+<td></td>
+<td>25</td>
+<td>com.tetherfi.test.sms.SmsResponseTemplateTest@4232c52b</td></tr>
+<tr>
+<td title='com.tetherfi.test.sms.SmsResponseTemplateTest.VerifyCancelBtnAtAddnewRecord()'><b>VerifyCancelBtnAtAddnewRecord</b><br>Test class: com.tetherfi.test.sms.SmsResponseTemplateTest</td>
+<td></td>
+<td>44</td>
+<td>com.tetherfi.test.sms.SmsResponseTemplateTest@4232c52b</td></tr>
+<tr>
+<td title='com.tetherfi.test.sms.SmsResponseTemplateTest.VerifyCancelBtnAtEditSmsResponseTemplateRecord()'><b>VerifyCancelBtnAtEditSmsResponseTemplateRecord</b><br>Test class: com.tetherfi.test.sms.SmsResponseTemplateTest</td>
+<td></td>
+<td>49</td>
+<td>com.tetherfi.test.sms.SmsResponseTemplateTest@4232c52b</td></tr>
+<tr>
+<td title='com.tetherfi.test.sms.SmsResponseTemplateTest.VerifyColumnsHeaderDisable()'><b>VerifyColumnsHeaderDisable</b><br>Test class: com.tetherfi.test.sms.SmsResponseTemplateTest</td>
+<td></td>
+<td>8</td>
+<td>com.tetherfi.test.sms.SmsResponseTemplateTest@4232c52b</td></tr>
+<tr>
+<td title='com.tetherfi.test.sms.SmsResponseTemplateTest.VerifyColumnsHeaderEnable()'><b>VerifyColumnsHeaderEnable</b><br>Test class: com.tetherfi.test.sms.SmsResponseTemplateTest</td>
+<td></td>
+<td>7</td>
+<td>com.tetherfi.test.sms.SmsResponseTemplateTest@4232c52b</td></tr>
+<tr>
+<td title='com.tetherfi.test.sms.SmsResponseTemplateTest.VerifyDropDownForAllColumns()'><b>VerifyDropDownForAllColumns</b><br>Test class: com.tetherfi.test.sms.SmsResponseTemplateTest</td>
+<td></td>
+<td>5</td>
+<td>com.tetherfi.test.sms.SmsResponseTemplateTest@4232c52b</td></tr>
+<tr>
+<td title='com.tetherfi.test.sms.SmsResponseTemplateTest.VerifyTotalNumberOfItemsPerPageDetails()'><b>VerifyTotalNumberOfItemsPerPageDetails</b><br>Test class: com.tetherfi.test.sms.SmsResponseTemplateTest</td>
+<td></td>
+<td>0</td>
+<td>com.tetherfi.test.sms.SmsResponseTemplateTest@4232c52b</td></tr>
+<tr>
+<td title='com.tetherfi.test.sms.SmsResponseTemplateTest.searchPage()'><b>searchPage</b><br>Test class: com.tetherfi.test.sms.SmsResponseTemplateTest</td>
+<td></td>
+<td>3</td>
+<td>com.tetherfi.test.sms.SmsResponseTemplateTest@4232c52b</td></tr>
+<tr>
+<td title='com.tetherfi.test.sms.SmsResponseTemplateTest.searchwithoutSearchTextbox()'><b>searchwithoutSearchTextbox</b><br>Test class: com.tetherfi.test.sms.SmsResponseTemplateTest</td>
+<td></td>
+<td>3</td>
+<td>com.tetherfi.test.sms.SmsResponseTemplateTest@4232c52b</td></tr>
+>>>>>>> refs/remotes/origin/PalakReports
 </table><p>
 </body>
 </html>

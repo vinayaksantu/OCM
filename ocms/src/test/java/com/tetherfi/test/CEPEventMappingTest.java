@@ -33,7 +33,7 @@ public class CEPEventMappingTest extends BaseTest {
          Assert.assertTrue(CepEventMappingPage.isCepEventMappingPageDisplayed(),"Cep Event Mapping assertion failed");
     }
     
-    @Test(priority=1)
+    /*@Test(priority=1)
     public void CepEventMappingPage() {
         CepEventMappingPage CepEventMappingPage=PageFactory.createPageInstance(driver,CepEventMappingPage.class);
     	Assert.assertTrue(CepEventMappingPage.VerifyLogo(),"Cep Event Mapping logo assertion failed");
@@ -59,7 +59,7 @@ public class CEPEventMappingTest extends BaseTest {
     public void VerifyColumnsHeaderDisable() {
     	CepEventMappingPage CepEventMappingPage=PageFactory.createPageInstance(driver,CepEventMappingPage.class);
         Assert.assertFalse(CepEventMappingPage.verifycolumnsHeaderDisabled(),"columns disabled assertion failed");
-    }
+    }*/
     
     @Test(priority=5)
     public void AddCepEventMappingRecord() throws Exception {
@@ -71,7 +71,7 @@ public class CEPEventMappingTest extends BaseTest {
         Assert.assertEquals(CepEventMappingPage.getSuccessMessage(),"Record Created Successfully","Add New record assertion failed");
     }
     
-    @Test(priority=6)
+    /*@Test(priority=6)
     public void VerifyAuditTrialReportForCreate() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\CepEventMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -152,7 +152,7 @@ public class CEPEventMappingTest extends BaseTest {
     	CepEventMappingPage CepEventMappingPage=PageFactory.createPageInstance(driver,CepEventMappingPage.class);
         CepEventMappingPage.addNewRecordWithoutIntent(CepEventMappingDetails);
         Assert.assertEquals(CepEventMappingPage.getMessage(),"Please provide a valid Intent","Invalid record assertion failed");
-    }
+    }*/
     
     @Test(priority=14)
     public void EditCepEventMappingRecord() throws Exception {
@@ -164,7 +164,7 @@ public class CEPEventMappingTest extends BaseTest {
         Assert.assertEquals(CepEventMappingPage.getSuccessMessage(),"Record Updated Successfully","Edit record assertion failed");
     }
     
-   	@Test(priority=15)
+   	/*@Test(priority=15)
     public void VerifyAuditTrialReportForUpdate() throws Exception {
    	 	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\CepEventMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
@@ -287,7 +287,7 @@ public class CEPEventMappingTest extends BaseTest {
     	CepEventMappingPage.clickOnDeleteButton();
     	CepEventMappingPage.clickOnDeleteCancelBtn();
     	Assert.assertFalse(CepEventMappingPage.verifyDeleteContainer(), "Cancel Btn at Delete record assertion failed");
-    }
+    }*/
 
     @Test(priority=28)
     public void DeleteRecord() throws Exception {
@@ -299,7 +299,7 @@ public class CEPEventMappingTest extends BaseTest {
     	Assert.assertEquals(CepEventMappingPage.getSuccessMessage(),"Record Deleted Successfully","Delete record assertion failed");
     }
     
-    @Test(priority=29)
+    /*@Test(priority=29)
     public void VerifyAuditTrialReportForDelete() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\CepEventMappingData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
@@ -400,8 +400,7 @@ public class CEPEventMappingTest extends BaseTest {
     	Map<String, String> map = new ExcelReader(filePath, "Queries").getTestData().get(0);
     	CepEventMappingDetails CepEventMappingDetails = new CepEventMappingDetails(map);
     	Assert.assertTrue(CepEventMappingPage.verifyDatabase(CepEventMappingDetails.getQuery()));
-
-    }
+    }*/
     
     @AfterMethod
     public void afterEachMethod(Method method) throws InterruptedException {

@@ -15,7 +15,6 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
 import com.tetherfi.model.report.ReportDetails;
-import com.tetherfi.model.user.CepEventMappingDetails;
 
 public class OCMAgentSummaryReportPage extends BasePage  {
 
@@ -37,10 +36,10 @@ public class OCMAgentSummaryReportPage extends BasePage  {
 
 	@FindBy(xpath="//a[text()='Agent Name']")
 	private WebElement AgentName;
-	
+
 	@FindBy(xpath="//a[text()='Supervisor Name']")
 	private WebElement SupevisorName;
-	
+
 	@FindBy(css=".k-grid-excel")
 	private WebElement exportPage;
 
@@ -149,19 +148,19 @@ public class OCMAgentSummaryReportPage extends BasePage  {
 
 	@FindBy(css = "span[aria-controls='1001sColumnName_listbox']")  //input[aria-owns='1001sColumnName_listbox']
 	private WebElement searchColDropdown;
-		
+
 	@FindBy(css="ul[id='1001sColumnName_listbox'] li")
 	private List<WebElement> searchColListBox;
-		
+
 	@FindBy(css = "span[aria-owns='1001sCriteria_listbox']")
 	private WebElement searchCriteriaDropdown;	
-	
+
 	@FindBy(css="ul[id='1001sCriteria_listbox'] li") 
 	private List<WebElement> searchCriteriaListbox;
-	
+
 	@FindBy(id = "1001sTextToSearch")
 	private WebElement searchTextBox;
-		
+
 	//@FindBy(css = ".modal-footer .k-button")//@FindBy(xpath="//*[@id=\"searchModel\"]/div/div/div[3]/button[1]")
 	@FindBy(xpath="//*[@id=\"searchModel\"]/div/div/div[3]/button[1]")
 	private WebElement searchCloseBtn;
@@ -190,27 +189,65 @@ public class OCMAgentSummaryReportPage extends BasePage  {
 
 	@FindBy(xpath="//div[@data-role='droptarget']")
 	private WebElement droptarget;
-	
+
 	@FindBy(xpath="//a[@class='k-button k-button-icontext k-grid-Download']")
 	private List<WebElement> downloadbuttonInReportDownloadpage;
-	
+
 	@FindBy(xpath="//a[@class='k-button k-button-icontext k-grid-CustomDelete']")
 	private List<WebElement> deleteReportinInReportDownloadpage;
-	
+
 	@FindBy(css = ".k-grid-CustomDelete")
-    private WebElement deleteButton;
-	
+	private WebElement deleteButton;
+
 	@FindBy(css="div[style='display: block; z-index: 10002; opacity: 0.5;']")
 	private WebElement deleteContainer;
-	
+
 	@FindBy(id = "yesButton")
 	private WebElement deleteYesBtn;
 
 	@FindBy(id = "noButton")
 	private WebElement deleteNoBtn;
-	
+
 	@FindBy(id = "ModifyReason1")
 	private WebElement deleteReasonTextBox;
+
+	@FindBy(id="gridDrillOne")
+	private WebElement DrillGridOneTable;
+
+	@FindBy(xpath="//div[@id='gridDrillOne']//span[@class='k-pager-info k-label']")
+	private WebElement drillGridOneItems;
+
+	@FindBy(xpath="//div[@id='gridDrillTwo']//span[@class='k-pager-info k-label']")
+	private WebElement drillGridTwoItems;
+
+	@FindBy(xpath="//table/tbody/tr")
+	private List<WebElement> MainReportRows;
+
+	@FindBy(xpath="//div[@id='gridDrillOne']//span[@class='k-input']")
+	private WebElement pagerSizeDrillGridOne;
+
+	@FindBy(xpath="//div[@id='gridDrillOne']//span[@class='k-icon k-i-arrow-60-right']")
+	private WebElement nextPageIconDrillOne;
+
+	@FindBy(xpath="(//SPAN[@class='k-icon k-i-arrow-60-right'])[3]")
+	private WebElement nextPageIconDrillTwo;
+
+	@FindBy(xpath="(//SPAN[@aria-hidden='true'][text()='×'][text()='×'])[1]")
+	private WebElement CloseDrillGridOne;
+
+	@FindBy(xpath="(//SPAN[@aria-hidden='true'][text()='×'][text()='×'])[3]")
+	private WebElement CloseDrillGridTwo;
+
+	@FindBy(xpath="//div[@id='gridDrillOne']//span[@class='k-icon k-i-arrow-end-left']")
+	private WebElement gotoFirstPageDrillOneIcon;
+
+	@FindBy(xpath="//div[@id='gridDrillOne']/div[4]/table/tbody/tr")
+	private List<WebElement> DrillOneReportRows;
+
+	@FindBy(id="gridDrillTwo")
+	private WebElement DrillGridTwoTable;
+
+
 
 	public void exportPage(){
 		emptyDownloadsDirectory(System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles");
@@ -230,7 +267,6 @@ public class OCMAgentSummaryReportPage extends BasePage  {
 			e.printStackTrace();
 		}
 	}
-	
 
 	private List<String> getColumnDatafromTable(String columnname){
 		List<String> list = new ArrayList<>();
@@ -663,7 +699,7 @@ public class OCMAgentSummaryReportPage extends BasePage  {
 		Boolean Status=verifyExportPageFileDownload(filePath, "OCMAgentSummaryReport");
 		return Status;
 	}
-	
+
 	public boolean verifyReportDownloadExcel(String filePath) {
 		final File folder = new File(filePath);
 		for (final File f : folder.listFiles()) {
@@ -682,11 +718,11 @@ public class OCMAgentSummaryReportPage extends BasePage  {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		
+
 		Boolean Status=verifyExportPageFileDownload(filePath,"OCMReportDownload");
 		return Status;
 	}
-	
+
 	/* void verifyReportDownloadExcelFileName(String filePath) {
 		final File folder = new File(filePath);
 		for (final File f : folder.listFiles()) {
@@ -697,14 +733,14 @@ public class OCMAgentSummaryReportPage extends BasePage  {
 				System.out.println(Fname);
 				//return Fname;
 				//f.delete();
-			
+
 			}
 		}
 	}*/
-	
-	
-/*	public boolean verifyExportPageFileDownloaded(String reportname){
-		
+
+
+	/*	public boolean verifyExportPageFileDownloaded(String reportname){
+
 		String rename = reportname.replaceAll(reportname, "OCMReportDownload");
 		return verifyExportPageFileDownload(System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles",rename);
 	}*/
@@ -1021,45 +1057,314 @@ public class OCMAgentSummaryReportPage extends BasePage  {
 					        }
 					        return header;
 					    }*/
-	
-	
+
+
 	public void clickOnDeleteButtonInReportDownloadsPage() {
-        selectWebElement(deleteReportinInReportDownloadpage.get(0));		
+		selectWebElement(deleteReportinInReportDownloadpage.get(0));		
 	}
 	public void clickOnDeleteButton() {
-        selectWebElement(deleteButton);		
+		selectWebElement(deleteButton);		
 	}
 
 	public void clickOnDeleteCancelBtn() {
-        selectWebElement(deleteNoBtn);		
+		selectWebElement(deleteNoBtn);		
 	}
 
 	public boolean verifyDeleteContainer() {
 		try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        return isElementExist(deleteContainer);
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		return isElementExist(deleteContainer);
 	}
-	
+
 	public void DeleteRecord() throws Exception {
-		
+
 		waitUntilWebElementIsVisible(deleteReportinInReportDownloadpage.get(0));
 		Thread.sleep(1000);
-        selectWebElement(deleteReportinInReportDownloadpage.get(0));
+		selectWebElement(deleteReportinInReportDownloadpage.get(0));
 		Thread.sleep(2000);
 		selectWebElement(deleteReasonTextBox);    
 		deleteReasonTextBox.sendKeys("Delete");
 		//enterValueToTxtFieldWithoutClear(deleteReasonTextBox,"Delete");
-        selectWebElement(deleteYesBtn);	
-	}
-	
-	public void qickInput() throws Exception {
-		
-		
+		selectWebElement(deleteYesBtn);	
 	}
 
+	public void quickInput() throws Exception {
+
+
+	}
+
+	public boolean verifyExportPageFileDownloaded(String reportname){
+		return verifyExportPageFileDownload(System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles",reportname);
+	}
+
+
+	public  boolean verifyExportReport() {
+		waitForJqueryLoad(driver);
+		if(waitUntilTextToBePresentInWebElement(errorMsg.get(0),"There is no record to export")) { 
+			return true;}
+		else if(waitUntilTextToBePresentInWebElement(successmsg,"Report Export is Initiated... Notification will be sent once Completed")) {
+			return true;}	
+		else {
+			return false;
+		}  		 	
+	}
+
+	public boolean verifyDatabase(String query,ReportDetails details) {
+		//get dates from xl - step 2
+		String reportbeforedate = details.getStartDate();
+		String reportafterdate=details.getEndDate();
+		//change date formats - step 3
+		reportbeforedate	=reportbeforedate.substring(6,10)+reportbeforedate.substring(3, 5)+reportbeforedate.substring(0, 2)+reportbeforedate.substring(11, 13)+reportbeforedate.substring(14, 16)+reportbeforedate.substring(17, 19);
+		reportafterdate	=reportafterdate.substring(6,10)+reportafterdate.substring(3, 5)+reportafterdate.substring(0, 2)+reportafterdate.substring(11, 13)+reportafterdate.substring(14, 16)+reportafterdate.substring(17, 19);
+		//Replace identifiers in query to formatted date - step 5
+		query=query.replaceAll("ReportBeforeDate",reportbeforedate );
+		query=query.replaceAll("ReportAfterDate",reportafterdate );
+		List<Map<String,String>> database=database(query);
+		System.out.println("Printing Query" +" "+query);		
+		System.out.println("Printing DB results" +" "+database);
+		List<Map<String,String>> UI=getDataTable(); 
+		System.out.println("Printing UI Results"+" "+UI);	
+		if(UI.equals(database))
+			return true;
+		else
+			return false;
+	}
+
+
+	/* private ArrayList HeadersfromTable(List<WebElement> e){
+					        ArrayList header=new ArrayList();
+					        for(int j=0;j<e.size();j++){
+					            scrollToElement(e.get(j));
+					            if(!e.get(j).getText().equals("")){header.add(e.get(j).getText());}
+					        }
+					        return header;
+					    }*/
+
+
+	public void sortAscAgentID() {
+		selectWebElement(headersDropdown.get(1));
+		waitForJqueryLoad(driver);
+		selectWebElement(sortAscending.get(0));
+		waitForJqueryLoad(driver);
+	}
+
+	public List<String> getAgents() {
+		int item=Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
+		int pagersize=Integer.valueOf(pagerSize.getText());
+		int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
+		List<String> AgentID = new ArrayList<>();
+		for(int k=0;k<=pages;k++){
+			waitUntilWebElementIsVisible(auditGridContent);
+			List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
+			List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
+			for(int i=1;i<rows.size();i++) {
+				List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
+				String col=null;
+				for(int j=0;j<headers.size();j++){
+					if(headers.get(j).getText().equals("Agent ID")){
+						col=cols.get(j).getText();
+						AgentID.add(col);
+					}
+				}
+			}
+			if(k!=pages)
+			{
+				nextPageIcon.click();
+				waitForJqueryLoad(driver);
+			}
+		}
+		return AgentID;
+	}
+
+	public void goToNextPage() {
+		nextPageIcon.click();
+		waitForLoad(driver);
+		waitForJqueryLoad(driver);
+		waitUntilWebElementIsVisible(DrillGridOneTable);
+	}
+
+	public void goToNextPageDrillOne() {
+		nextPageIconDrillOne.click();
+		waitForJqueryLoad(driver);
+	}
+
+	public void clickOnSkillIdRowOnMainReport(int rowNo) throws InterruptedException {
+		//Thread.sleep(2000);
+		MainReportRows.get(1).click();
+		waitForLoad(driver);
+		waitForJqueryLoad(driver);
+		waitUntilWebElementIsVisible(DrillGridOneTable);
+	}
+
+	public void clickOnDateRowOnDrillOneReport(int rowNo) throws InterruptedException {
+		//Thread.sleep(2000);
+		DrillOneReportRows.get(rowNo).click();
+		waitForLoad(driver);
+		waitForJqueryLoad(driver);
+		waitUntilWebElementIsVisible(DrillGridTwoTable);
+		//Thread.sleep(1000);
+	}
+
+	public void closeDrillOneReport() throws InterruptedException {
+		CloseDrillGridOne.click();
+		waitUntilWebElementIsVisible(gridContent);
+	}
+
+	private List<Map<String, String>> getDataTableDrillGridOne() {
+		int item=Integer.valueOf(drillGridOneItems.getText().split("of ")[1].split(" items")[0]);
+		int pagersize=Integer.valueOf(pagerSizeDrillGridOne.getText());
+		int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
+		List<Map<String,String>> arr=new ArrayList<Map<String,String>>();
+		for(int k=0;k<=pages;k++){
+			waitUntilWebElementIsVisible(DrillGridOneTable);
+			List<WebElement> rows=DrillGridOneTable.findElements(By.tagName("tr"));
+			List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
+			for(int i=1;i<rows.size();i++) {
+				Map<String,String> map = new HashMap<String,String>();
+				List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
+				String col=null;
+				for(int j=0;j<headers.size();j++){
+					if(headers.get(j).getText().equals("Service Level")){
+						col=cols.get(j).getText();
+						if(col.contains("."))
+							col=col;
+						else
+							col=col+".00";
+					}
+					else
+						col=cols.get(j).getText();
+					map.put(headers.get(j).getText(),col);
+				}
+				map.remove("");
+				arr.add(map);
+			}
+			if(k!=pages)
+			{
+				nextPageIconDrillOne.click();
+				waitForJqueryLoad(driver);
+				waitUntilWebElementIsVisible(DrillGridOneTable);
+			}
+		}
+		CloseDrillGridOne.click();
+		return arr;
+	}
+
+	private List<Map<String, String>> getDataTableDrillGridTwo() throws InterruptedException {
+		int item=Integer.valueOf(drillGridTwoItems.getText().split("of ")[1].split(" items")[0]);
+		int pagersize=24;
+		int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
+		List<Map<String,String>> arr=new ArrayList<Map<String,String>>();
+		for(int k=0;k<=pages;k++){
+			waitUntilWebElementIsVisible(DrillGridTwoTable);
+			List<WebElement> rows=DrillGridTwoTable.findElements(By.tagName("tr"));
+			List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
+			for(int i=1;i<rows.size();i++) {
+				Map<String,String> map = new HashMap<String,String>();
+				List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
+				String col=null;
+				for(int j=0;j<headers.size();j++){
+					if(headers.get(j).getText().equals("Service Level")){
+						col=cols.get(j).getText();
+						if(col.contains("."))
+							col=col;
+						else
+							col=col+".00";
+					}
+					else
+						col=cols.get(j).getText();
+					map.put(headers.get(j).getText(),col);
+				}
+				map.remove("");
+				arr.add(map);
+			}
+			if(k!=pages)
+			{
+				nextPageIconDrillTwo.click();
+				waitForJqueryLoad(driver);
+				waitUntilWebElementIsVisible(DrillGridTwoTable);
+			}
+		}
+		CloseDrillGridTwo.click();
+		//Thread.sleep(1000);
+		waitUntilWebElementIsVisible(DrillGridOneTable);
+		return arr;
+	}
+
+	public boolean verifyDatabaseDrillGridOne(String queryDrillGridOne,ReportDetails details, String AgentID) {
+		//get dates from xl - step 2
+		String reportbeforedate = details.getStartDate();
+		String reportafterdate=details.getEndDate();
+		//change date formats - step 3
+		reportbeforedate=reportbeforedate.substring(6,10)+"-"+reportbeforedate.substring(3, 5)+"-"+reportbeforedate.substring(0, 2)+" "+reportbeforedate.substring(11, 13)+":"+reportbeforedate.substring(14, 16)+":"+reportbeforedate.substring(17, 19);
+		reportafterdate=reportafterdate.substring(6,10)+"-"+reportafterdate.substring(3, 5)+"-"+reportafterdate.substring(0, 2)+" "+reportafterdate.substring(11, 13)+":"+reportafterdate.substring(14, 16)+":"+reportafterdate.substring(17, 19);
+		//Replace identifiers in query to formatted date - step 5
+		queryDrillGridOne=queryDrillGridOne.replaceAll("ReportBeforeDate",reportbeforedate);
+		queryDrillGridOne=queryDrillGridOne.replaceAll("ReportAfterDate",reportafterdate );
+		queryDrillGridOne=queryDrillGridOne.replaceAll("SkillIdCapturedFromUI", AgentID);
+		List<Map<String,String>> database=database(queryDrillGridOne);
+		//System.out.println("Printing Query" +" "+queryDrillGridOne);		
+		//System.out.println("Printing DB results" +" "+database);
+		List<Map<String,String>> UI=getDataTableDrillGridOne(); 
+		//System.out.println("Printing UI Results"+" "+UI);	
+		if(UI.equals(database))
+			return true;
+		else
+			return false;
+	}
+
+	public boolean verifyDatabaseDrillGridTwo(String queryDrillGridTwo,ReportDetails details, String inputDate, String SkillId) throws InterruptedException {
+		//get dates from xl - step 2
+		String reportbeforedate = details.getStartDate();
+		String reportafterdate=details.getEndDate();
+		//change date formats - step 3
+		reportbeforedate=inputDate.substring(6,10)+"-"+inputDate.substring(3, 5)+"-"+inputDate.substring(0, 2)+" 00:00:00";
+		reportafterdate=inputDate.substring(6,10)+"-"+inputDate.substring(3, 5)+"-"+inputDate.substring(0, 2)+" 23:59:59";
+		//Replace identifiers in query to formatted date - step 5
+		queryDrillGridTwo=queryDrillGridTwo.replaceAll("ReportBeforeDate",reportbeforedate);
+		queryDrillGridTwo=queryDrillGridTwo.replaceAll("ReportAfterDate",reportafterdate );
+		queryDrillGridTwo=queryDrillGridTwo.replaceAll("SkillIdCapturedFromUI", SkillId);
+		List<Map<String,String>> database=database(queryDrillGridTwo);
+		//System.out.println("Printing Query" +" "+queryDrillGridTwo);		
+		//System.out.println("Printing DB results" +" "+database);
+		List<Map<String,String>> UI=getDataTableDrillGridTwo(); 
+		//System.out.println("Printing UI Results"+" "+UI);	
+		if(UI.equals(database))
+			return true;
+		else
+			return false;
+	}
+
+	public List<String> getLogoutDates() {
+		int item=Integer.valueOf(drillGridOneItems.getText().split("of ")[1].split(" items")[0]);
+		int pagersize=Integer.valueOf(pagerSizeDrillGridOne.getText());
+		int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
+		List<String> LogoutDates = new ArrayList<>();
+		boolean moreThanOnePage = false;
+		for(int k=0;k<=pages;k++) {
+			waitUntilWebElementIsVisible(DrillGridOneTable);
+			List<WebElement> rows=DrillGridOneTable.findElements(By.tagName("tr"));
+			//List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
+			for(int i=1;i<rows.size();i++) {
+				List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
+				LogoutDates.add(cols.get(0).getText());
+			}
+			if(k!=pages)
+			{
+				nextPageIconDrillOne.click();
+				waitForJqueryLoad(driver);
+				moreThanOnePage = true;
+			}
+		}
+		if(moreThanOnePage == true) {
+			gotoFirstPageDrillOneIcon.click();
+			waitForJqueryLoad(driver);
+		}
+		//CloseDrillGridOne.click();
+		return LogoutDates;
+	}
 }
 
 

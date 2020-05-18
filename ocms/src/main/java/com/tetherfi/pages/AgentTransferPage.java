@@ -458,6 +458,14 @@ public class AgentTransferPage extends BasePage{
 				else
 				{return false;}
 		}
+		
+		public String getSuccessMessage() {
+			//		waitForJqueryLoad(driver);
+			if(successmsg.isDisplayed())
+				return successmsg.getText();
+			else{return errorMsg.get(0).getText();}	
+		}
+		
 
 		public void addRecordWithoutMenuId(AgentTransferDetails details) throws Exception {
 			selectWebElement(addNewAgentTransferBtn);

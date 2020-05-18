@@ -1,13 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Tetherfi Test Automation]" guice-stage="DEVELOPMENT">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Tetherfi Test Automation]">
   <listeners>
     <listener class-name="com.tetherfi.ExtentReportListener.ExtentReporterNG"/>
   </listeners>
+<<<<<<< HEAD
   <test thread-count="5" name="FaxAddressBookTest(failed)">
+=======
+  <test thread-count="5" name="VBEnrolement Flag(failed)">
+>>>>>>> refs/remotes/origin/PalakReports
     <classes>
+<<<<<<< HEAD
       <class name="com.tetherfi.test.fax.FaxAddressBookTest">
+=======
+      <class name="com.tetherfi.test.ivr.VBEnrollmentFlagTest">
+>>>>>>> refs/remotes/origin/PalakReports
         <methods>
+<<<<<<< HEAD
           <include name="SortingByAscending"/>
           <include name="VerifyRecipientTotalNumberOfItemsPerPageDetailsRecipient"/>
           <include name="SortingByDescending"/>
@@ -17,8 +26,11 @@
           <include name="DeleteRecipientRecord"/>
           <include name="VerifyCancelBtnAtDeleteAddressRecord"/>
           <include name="DeleteWithoutDeleteReasonAddressBookRecord"/>
+=======
+>>>>>>> refs/remotes/origin/PalakReports
           <include name="startTestCase"/>
           <include name="openApplication"/>
+<<<<<<< HEAD
           <include name="VerifyCancelBtnAtEditAddressBookRecord"/>
           <include name="EditWithoutModifyReasonAddressBookRecord"/>
           <include name="EditFaxAddressBookRecord"/>
@@ -31,8 +43,28 @@
           <include name="VerifyRecipientNumberOfItemsPerPageSelectionRecipient"/>
           <include name="NavigatetoFaxAddressPage"/>
           <include name="ExporttoExcelWithoutDataRecipient"/>
+=======
+          <include name="endTestCase"/>
+          <include name="afterEachMethod"/>
+          <include name="tearDown"/>
+          <include name="EditVBEnrollmentFlagRecord"/>
+          <include name="NavigateToVbEnrollmentFlagPage"/>
+        </methods>
+      </class> <!-- com.tetherfi.test.ivr.VBEnrollmentFlagTest -->
+    </classes>
+  </test> <!-- VBEnrolement Flag(failed) -->
+  <test thread-count="5" name="HolidayListTest(failed)">
+    <classes>
+      <class name="com.tetherfi.test.ivr.HolidayListTest">
+        <methods>
+          <include name="startTestCase"/>
+          <include name="afterEachMethod"/>
+          <include name="openApplication"/>
+          <include name="DeleteHolidayListRecord"/>
+>>>>>>> refs/remotes/origin/PalakReports
           <include name="endTestCase"/>
           <include name="tearDown"/>
+<<<<<<< HEAD
           <include name="afterEachMethod"/>
           <include name="AddNewRecipientRecordwithoutName2"/>
           <include name="AddNewRecipientRecord"/>
@@ -44,8 +76,21 @@
           <include name="VerifyDropdownForAllTheColumnsRecipient"/>
           <include name="DeleteAddressBookRecord"/>
           <include name="VerifyAuditTrialReportForFaxAddressBookUpdate"/>
+=======
+          <include name="editHolidayListRecord"/>
+          <include name="NavigateToHolidayListPage"/>
+          <include name="addNewHolidayListRecord"/>
+>>>>>>> refs/remotes/origin/PalakReports
         </methods>
+<<<<<<< HEAD
       </class> <!-- com.tetherfi.test.fax.FaxAddressBookTest -->
+=======
+      </class> <!-- com.tetherfi.test.ivr.HolidayListTest -->
+>>>>>>> refs/remotes/origin/PalakReports
     </classes>
+<<<<<<< HEAD
   </test> <!-- FaxAddressBookTest(failed) -->
+=======
+  </test> <!-- HolidayListTest(failed) -->
+>>>>>>> refs/remotes/origin/PalakReports
 </suite> <!-- Failed suite [Tetherfi Test Automation] -->

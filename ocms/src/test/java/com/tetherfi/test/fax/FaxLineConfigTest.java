@@ -62,6 +62,7 @@ public class FaxLineConfigTest extends BaseTest {
         faxLineConfigPage.addNewFaxLineConfigRecord(faxLineConfigDetails);
         Assert.assertEquals(faxLineConfigPage.getSuccessMessage(), "Record Created Successfully");
     }
+   
     @Test(dependsOnMethods = {"AddFaxLineConfigRecord"},priority=3)
     public void VerifyAuditTrialReportForCreate() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxLineConfigData.xlsx";
@@ -75,7 +76,7 @@ public class FaxLineConfigTest extends BaseTest {
         ReportDetails reportDetails= new ReportDetails(map1);
         ocmReportsPage.showReport(reportDetails);
         Assert.assertTrue(ocmReportsPage.verifyFaxLineConfigCreate(faxLineConfigDetails,"Create"));
-    	}
+    }
     
    @Test(priority=4)
     public void SendersLink() throws Exception {
@@ -120,8 +121,7 @@ public class FaxLineConfigTest extends BaseTest {
         FaxRoutingConfigurationPage faxRoutingConfigurationPage = PageFactory.createPageInstance(driver, FaxRoutingConfigurationPage.class);
         Assert.assertTrue(faxRoutingConfigurationPage.AddCancelRecord(faxRoutingConfigDetails));
         faxRoutingConfigurationPage.addNewFaxRoutingConfigRecord(faxRoutingConfigDetails);
-        Assert.assertEquals(faxRoutingConfigurationPage.getSuccessMessage(), "Record Created Successfully");
-    
+        Assert.assertEquals(faxRoutingConfigurationPage.getSuccessMessage(), "Record Created Successfully"); 
     }
     
     @Test(priority=7)

@@ -169,6 +169,7 @@ public class SendFaxTest extends BaseTest{
         sendFaxPage.addNewSendFaxRecordFileUpload(sendFaxDetails);
         Assert.assertEquals(sendFaxPage.getSuccessMessage(), "Send Fax Initiated successfully");
     }
+    
     @Test(priority=11)
     public void VerifyTiffFileInFolder() throws Exception {
         Assert.assertTrue(ftp.FileExist(filepath));

@@ -1,18 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <<<<<<< HEAD
+<<<<<<< HEAD
 <testng-results ignored="23" total="39" passed="5" failed="11" skipped="0">
 =======
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
 >>>>>>> refs/remotes/origin/PalakMay18th
+=======
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+>>>>>>> refs/remotes/origin/PalakReports
   <reporter-output>
   </reporter-output>
+<<<<<<< HEAD
 <<<<<<< HEAD
   <suite started-at="2020-04-27T18:15:37 IST" name="Failed suite [Default suite]" finished-at="2020-04-27T18:22:28 IST" duration-ms="410710">
 =======
   <suite started-at="2020-05-18T08:38:56 IST" name="Default suite" finished-at="2020-05-18T08:39:55 IST" duration-ms="58786">
 >>>>>>> refs/remotes/origin/PalakMay18th
+=======
+  <suite name="Default suite" duration-ms="121447" started-at="2020-05-18T09:44:08 IST" finished-at="2020-05-18T09:46:10 IST">
+>>>>>>> refs/remotes/origin/PalakReports
     <groups>
     </groups>
+<<<<<<< HEAD
 <<<<<<< HEAD
     <test started-at="2020-04-27T18:15:37 IST" name="Default test(failed)" finished-at="2020-04-27T18:22:28 IST" duration-ms="410710">
       <class name="com.tetherfi.test.tmac.AgentTeamMgmtTest">
@@ -22,22 +31,35 @@
       <class name="com.tetherfi.test.reports.OCMAgentSummaryReportTest">
         <test-method is-config="true" signature="openApplication()[pri:0, instance:com.tetherfi.test.reports.OCMAgentSummaryReportTest@5b20706]" started-at="2020-05-18T08:38:56 IST" name="openApplication" finished-at="2020-05-18T08:39:30 IST" duration-ms="33926" status="PASS">
 >>>>>>> refs/remotes/origin/PalakMay18th
+=======
+    <test name="Default test" duration-ms="121447" started-at="2020-05-18T09:44:08 IST" finished-at="2020-05-18T09:46:10 IST">
+      <class name="com.tetherfi.test.reports.OCMAudioVideoPlaybackReportTest">
+        <test-method status="PASS" signature="openApplication()[pri:0, instance:com.tetherfi.test.reports.OCMAudioVideoPlaybackReportTest@4ac86d6a]" name="openApplication" is-config="true" duration-ms="48795" started-at="2020-05-18T09:44:08 IST" finished-at="2020-05-18T09:44:57 IST">
+>>>>>>> refs/remotes/origin/PalakReports
           <reporter-output>
           </reporter-output>
         </test-method> <!-- openApplication -->
+<<<<<<< HEAD
 <<<<<<< HEAD
         <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.AgentTeamMgmtTest@14924f41]" started-at="2020-04-27T18:16:16 IST" name="startTestCase" finished-at="2020-04-27T18:16:16 IST" duration-ms="4" status="PASS">
 =======
         <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMAgentSummaryReportTest@5b20706]" started-at="2020-05-18T08:39:30 IST" name="startTestCase" finished-at="2020-05-18T08:39:30 IST" duration-ms="4" status="PASS">
 >>>>>>> refs/remotes/origin/PalakMay18th
+=======
+        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMAudioVideoPlaybackReportTest@4ac86d6a]" name="startTestCase" is-config="true" duration-ms="4" started-at="2020-05-18T09:44:57 IST" finished-at="2020-05-18T09:44:57 IST">
+>>>>>>> refs/remotes/origin/PalakReports
           <params>
             <param index="0">
               <value>
+<<<<<<< HEAD
 <<<<<<< HEAD
                 <![CDATA[public void com.tetherfi.test.tmac.AgentTeamMgmtTest.EditAgentTeamManagementRecord() throws java.lang.Exception]]>
 =======
                 <![CDATA[public void com.tetherfi.test.reports.OCMAgentSummaryReportTest.quickInputMonth() throws java.lang.Exception]]>
 >>>>>>> refs/remotes/origin/PalakMay18th
+=======
+                <![CDATA[public void com.tetherfi.test.reports.OCMAudioVideoPlaybackReportTest.database() throws java.lang.Exception]]>
+>>>>>>> refs/remotes/origin/PalakReports
               </value>
             </param>
           </params>
@@ -45,12 +67,17 @@
           </reporter-output>
         </test-method> <!-- startTestCase -->
 <<<<<<< HEAD
+<<<<<<< HEAD
         <test-method is-config="true" signature="NavigateToAgentTeamManagementPage()[pri:0, instance:com.tetherfi.test.tmac.AgentTeamMgmtTest@14924f41]" started-at="2020-04-27T18:16:16 IST" name="NavigateToAgentTeamManagementPage" finished-at="2020-04-27T18:16:59 IST" duration-ms="43336" status="PASS">
 =======
         <test-method is-config="true" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.OCMAgentSummaryReportTest@5b20706]" started-at="2020-05-18T08:39:30 IST" name="NavigateToOcmReportsPage" finished-at="2020-05-18T08:39:35 IST" duration-ms="5159" status="PASS">
 >>>>>>> refs/remotes/origin/PalakMay18th
+=======
+        <test-method status="PASS" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.OCMAudioVideoPlaybackReportTest@4ac86d6a]" name="NavigateToOcmReportsPage" is-config="true" duration-ms="5863" started-at="2020-05-18T09:44:57 IST" finished-at="2020-05-18T09:45:03 IST">
+>>>>>>> refs/remotes/origin/PalakReports
           <reporter-output>
           </reporter-output>
+<<<<<<< HEAD
 <<<<<<< HEAD
         </test-method> <!-- NavigateToAgentTeamManagementPage -->
         <test-method signature="EditAgentTeamManagementRecord()[pri:14, instance:com.tetherfi.test.tmac.AgentTeamMgmtTest@14924f41]" started-at="2020-04-27T18:16:59 IST" name="EditAgentTeamManagementRecord" finished-at="2020-04-27T18:17:16 IST" duration-ms="16342" status="PASS">
@@ -1095,31 +1122,52 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 ]]>
             </full-stacktrace>
           </exception> <!-- org.openqa.selenium.StaleElementReferenceException -->
+=======
+        </test-method> <!-- NavigateToOcmReportsPage -->
+        <test-method status="PASS" signature="database()[pri:38, instance:com.tetherfi.test.reports.OCMAudioVideoPlaybackReportTest@4ac86d6a]" name="database" duration-ms="52693" started-at="2020-05-18T09:45:03 IST" finished-at="2020-05-18T09:45:56 IST">
+>>>>>>> refs/remotes/origin/PalakReports
           <reporter-output>
           </reporter-output>
         </test-method> <!-- database -->
+<<<<<<< HEAD
         <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.AgentTeamMgmtTest@14924f41]" started-at="2020-04-27T18:21:55 IST" name="afterEachMethod" finished-at="2020-04-27T18:21:57 IST" duration-ms="1560" status="PASS">
           <params>
             <param index="0">
               <value>
                 <![CDATA[public void com.tetherfi.test.tmac.AgentTeamMgmtTest.database() throws java.lang.Exception]]>
+=======
+        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMAudioVideoPlaybackReportTest@4ac86d6a]" name="afterEachMethod" is-config="true" duration-ms="1982" started-at="2020-05-18T09:45:56 IST" finished-at="2020-05-18T09:45:58 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMAudioVideoPlaybackReportTest.database() throws java.lang.Exception]]>
+>>>>>>> refs/remotes/origin/PalakReports
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterEachMethod -->
+<<<<<<< HEAD
         <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.AgentTeamMgmtTest@14924f41]" started-at="2020-04-27T18:21:57 IST" name="endTestCase" finished-at="2020-04-27T18:21:57 IST" duration-ms="1" status="PASS">
           <params>
             <param index="0">
               <value>
                 <![CDATA[public void com.tetherfi.test.tmac.AgentTeamMgmtTest.database() throws java.lang.Exception]]>
+=======
+        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMAudioVideoPlaybackReportTest@4ac86d6a]" name="endTestCase" is-config="true" duration-ms="0" started-at="2020-05-18T09:45:58 IST" finished-at="2020-05-18T09:45:58 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMAudioVideoPlaybackReportTest.database() throws java.lang.Exception]]>
+>>>>>>> refs/remotes/origin/PalakReports
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- endTestCase -->
+<<<<<<< HEAD
         <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.tmac.AgentTeamMgmtTest@14924f41]" started-at="2020-04-27T18:21:57 IST" name="startTestCase" finished-at="2020-04-27T18:21:57 IST" duration-ms="1" status="PASS">
           <params>
             <param index="0">
@@ -1402,9 +1450,13 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 =======
         <test-method is-config="true" signature="tearDown()[pri:0, instance:com.tetherfi.test.reports.OCMAgentSummaryReportTest@5b20706]" started-at="2020-05-18T08:39:49 IST" name="tearDown" finished-at="2020-05-18T08:39:55 IST" duration-ms="5683" status="PASS">
 >>>>>>> refs/remotes/origin/PalakMay18th
+=======
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.tetherfi.test.reports.OCMAudioVideoPlaybackReportTest@4ac86d6a]" name="tearDown" is-config="true" duration-ms="12015" started-at="2020-05-18T09:45:58 IST" finished-at="2020-05-18T09:46:10 IST">
+>>>>>>> refs/remotes/origin/PalakReports
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
+<<<<<<< HEAD
 <<<<<<< HEAD
       </class> <!-- com.tetherfi.test.tmac.AgentTeamMgmtTest -->
     </test> <!-- Default test(failed) -->
@@ -1414,4 +1466,9 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 >>>>>>> refs/remotes/origin/PalakMay18th
+=======
+      </class> <!-- com.tetherfi.test.reports.OCMAudioVideoPlaybackReportTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+>>>>>>> refs/remotes/origin/PalakReports
 </testng-results>

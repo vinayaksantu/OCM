@@ -1,6 +1,5 @@
 package com.tetherfi.ExtentReportListener;
 
-import java.io.File;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -27,7 +26,7 @@ public class ExtentReporterNG implements IReporter{
 		/*extent = new ExtentReports(outputDirectory + File.separator
 				+ "ExtentReportTestResults.html", false);*/
 		
-		String extentReportFile = outputDirectory+"\\ExtentReports\\"+"SecondRunAddrBk.html";
+		String extentReportFile = outputDirectory+"\\ExtentReports\\"+"TMACChannel.html";
 		extent=new ExtentReports(extentReportFile,false);
 
 		for (ISuite suite : suites) {

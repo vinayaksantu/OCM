@@ -1,6 +1,7 @@
 package com.tetherfi.test.reports;
 import java.io.IOException;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -26,7 +27,7 @@ public class OCMAgentSummaryReportTest extends BaseTest {
     @BeforeMethod
     public void NavigateToOcmReportsPage() {
         HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
-        homePage.navigateToOcmIconImg();
+        homePage.navigateToOCMIconImg();
         homePage.navigateToOCMReportsPage();
         OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
         Assert.assertTrue(ocmReportsPage.isOCMReportPageIsDisplayed());
@@ -80,7 +81,7 @@ public class OCMAgentSummaryReportTest extends BaseTest {
     	ReportDetails reportDetails= new ReportDetails(map);
     	OCMReportsPage OCMReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
     	OCMReportsPage.exportReport(reportDetails);
-    	OCMReportsPage.viewDownloadedReportInReportsDownloadsPage();
+    	OCMReportsPage.viewDownloadedReportInReportDownloadsPage();
     	Assert.assertTrue(OCMReportsPage.verifyDownloadedReportNameAndTimeInReportsDownloadPage(reportDetails.getReportName()),"Report not found in Reporter download page");
     }  
    @Test(priority=6)
@@ -120,7 +121,7 @@ public class OCMAgentSummaryReportTest extends BaseTest {
     	Map<String, String> map = new ExcelReader(filePath,"ExportReportDateRange").getTestData().get(0);
     	ReportDetails reportDetails= new ReportDetails(map);
     	OCMReportsPage OCMReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
-    	OCMReportsPage.viewDownloadedReportInReportsDownloadsPage();
+    	OCMReportsPage.viewDownloadedReportInReportDownloadsPage();
     	Assert.assertTrue(OCMReportsPage.verifyDownloadedReportNameAndTimeInReportsDownloadPage(reportDetails.getReportName()),"Report not found in Reporter download page");
     }
     
@@ -468,7 +469,7 @@ public class OCMAgentSummaryReportTest extends BaseTest {
     	ReportDetails reportDetails= new ReportDetails(map);
     	OCMReportsPage OCMReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
     	OCMReportsPage.exportReport(reportDetails);
-    	OCMReportsPage.viewDownloadedReportInReportsDownloadsPage();
+    	OCMReportsPage.viewDownloadedReportInReportDownloadsPage();
     	Assert.assertTrue(OCMReportsPage.verifyDownloadedReportInReportsDownloadPage(reportDetails.getReportName()),"Report not found in Reporter download page");
     	String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles";
     	OCMAgentSummaryReportPage OCMAgentSummaryReportPage=PageFactory.createPageInstance(driver,OCMAgentSummaryReportPage.class);
@@ -712,10 +713,61 @@ public class OCMAgentSummaryReportTest extends BaseTest {
      	OCMReportsPage.quickInputforYear(reportDetails); 
     }
 
-    @AfterMethod
-    public void afterEachMethod(Method method) {
-    	screenshot.captureScreen("OCMSummRpt", method.getName());
-		driver.navigate().refresh();    	
-    }
+	@Test(priority=38, description="To verify report data against DB")
+	public void database1() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(0);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
+		ocmReportsPage.showReport(reportDetails);
+		OCMAgentSummaryReportPage AgentSummaryReportPage=PageFactory.createPageInstance(driver,OCMAgentSummaryReportPage.class);
+//		AgentSummaryReportPage.sortAscAgentID();
+		Assert.assertTrue(AgentSummaryReportPage.verifyDatabase(reportDetails.getQuery(), reportDetails),"Main Report Data Mismatch");
+		System.out.println("Main Report Data Match Successfull");
+		List<String> agentList = new ArrayList<>();
+		agentList = AgentSummaryReportPage.getAgents();
+		System.out.println(agentList);
+		int k=0;
+		for(int i=0;i<agentList.size();i++) {
+			if(k==10){
+				AgentSummaryReportPage.goToNextPage();
+				k=k-10;
+			}
+			AgentSummaryReportPage.clickOnSkillIdRowOnMainReport(k);
+			Assert.assertTrue(AgentSummaryReportPage.verifyDatabaseDrillGridOne(reportDetails.getQueryDrillGridOne(), reportDetails, agentList.get(i)),"Drill Grid One data mismatch for Skill Id " + agentList.get(i));
+			System.out.println("Drill Grid One data match successfull for Skill Id " + agentList.get(i));
+			k++;
+			Thread.sleep(1000);
+		}
+		List<String> LogoutDates = new ArrayList<>();
+		for(int i=0;i<agentList.size();i++) {
+			AgentSummaryReportPage.clickOnSkillIdRowOnMainReport(i);
+			Thread.sleep(1000);
+			LogoutDates = AgentSummaryReportPage.getLogoutDates();
+			//System.out.println(skillDates);
+			k=0;
+			for(int j=0;j<LogoutDates.size();j++) {
+				if(k==10){
+					AgentSummaryReportPage.goToNextPageDrillOne();
+					k=k-10;
+				}
+				AgentSummaryReportPage.clickOnDateRowOnDrillOneReport(k);
+				Assert.assertTrue(AgentSummaryReportPage.verifyDatabaseDrillGridTwo(reportDetails.getQueryDrillGridTwo(), reportDetails, LogoutDates.get(j), agentList.get(i)),"Drill Grid Two data mismatch for Skill Id " + agentList.get(i) + " and Date " + LogoutDates.get(j));
+				System.out.println("Drill Grid Two data match successfull for Skill Id " + agentList.get(i) + " and Date " + LogoutDates.get(j));
+				k++;
+				Thread.sleep(1000);
+			}
+			AgentSummaryReportPage.closeDrillOneReport();
+			Thread.sleep(1000);
+		}
+	}
+
+		
+	@AfterMethod
+	public void afterEachMethod(Method method) throws InterruptedException {
+		Screenshot screenshot=new Screenshot(driver);
+		screenshot.captureScreen("AgentSummaryReportTest",method.getName());
+		driver.navigate().refresh();
+	}
 
 }

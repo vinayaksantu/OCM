@@ -48,7 +48,7 @@ public class AgentSkillAssignmentTest extends BaseTest{
         AgentSkillAssignmentDetails agentSkillAssignmentDetails= new AgentSkillAssignmentDetails(map);
         AgentSkillAssignmentPage agentSkillAssignmentPage=PageFactory.createPageInstance(driver,AgentSkillAssignmentPage.class);
         agentSkillAssignmentPage.assignSkillToAgent(agentSkillAssignmentDetails);
-        Assert.assertTrue(agentSkillAssignmentPage.verifyRecordUpdated(),"Assign skill assertion failed");
+        Assert.assertTrue(agentSkillAssignmentPage.verifyRecordUpdated(),"Assign skill assignment failed");
     }
     
     @Test(priority=3)

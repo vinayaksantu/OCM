@@ -26,7 +26,8 @@ public class ReportDetails {
     private String query;
     private String getNumber;
     private String getdateType;
-
+    private String queryDrillGridOne;
+    private String queryDrillGridTwo;
     
 
     public ReportDetails(Map<String, String> map){
@@ -36,6 +37,8 @@ public class ReportDetails {
         reportType=readReportType(map);
         reportDate=readReportDate(map);
         query=readQuery(map);
+        queryDrillGridOne=readQueryDrillGridOne(map);
+        queryDrillGridTwo=readQueryDrillGridTwo(map);
         try {
             startDate=readStartDate(map);
         } catch (ParseException e) {
@@ -107,6 +110,7 @@ public class ReportDetails {
         }
         return value;
     }
+    
     private String readStartDate(Map<String, String> map) throws ParseException {
         String value=map.get("Start Date");
         if(value==null||value.equalsIgnoreCase("random.str")){
@@ -114,11 +118,13 @@ public class ReportDetails {
             Calendar c = Calendar.getInstance();
             c.setTime(dNow);
             c.add(Calendar.DATE,-18);//sub 6 months
+            c.add(Calendar.MONTH,-1);//sub 6 months
             SimpleDateFormat ft =new SimpleDateFormat ("dd-MM-yyyy HH:mm:ss");
             value=ft.format(c.getTime());
         }
         return value;
     }
+    
     private String readEndDate(Map<String, String> map) throws ParseException {
         String value=map.get("End Date");
         if(value==null||value.equalsIgnoreCase("random.str")){
@@ -170,7 +176,17 @@ public class ReportDetails {
 		String value=map.get("Query");
 		return value;
 	}
+    
+    private String readQueryDrillGridOne(Map<String, String> map) {
+		String value=map.get("QueryDrillGridOne");
+		return value;
+	}
 
+    private String readQueryDrillGridTwo(Map<String, String> map) {
+		String value=map.get("QueryDrillGridTwo");
+		return value;
+	}
+    
     public String getReportChannel() {
         return reportChannel;
     }
@@ -227,5 +243,12 @@ public class ReportDetails {
 	
 	public String getCalendarType() {
 		return getdateType;
+	}
+	public String getQueryDrillGridOne() {
+		return queryDrillGridOne;
+	}
+	public String getQueryDrillGridTwo() {
+		return queryDrillGridTwo;
+
 	}
 }

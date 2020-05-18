@@ -642,6 +642,7 @@ public class VipListManagementPage extends BasePage{
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Caller ID");
         selectWebElement(selectSearchCol.get(1));
+        Thread.sleep(3000);
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is equal to");
         enterValueToTxtField(searchTextBox,callerID);		
         selectWebElement(searchSearchBtn);
@@ -1089,6 +1090,7 @@ public class VipListManagementPage extends BasePage{
 	    }
 	public void editVIPListRecord(VipListManagementDetails details) throws Exception {
 		searchVipListManagementRecord(details.getCallerID());
+		Thread.sleep(3000);
 		selectWebElement(editButton);
 		waitForLoad(driver);
 		selectWebElement(fbHandleTextBox);
@@ -1113,6 +1115,7 @@ public class VipListManagementPage extends BasePage{
 	}
 	public void deleteVIPListManagementRecord(VipListManagementDetails details) throws Exception {
 		 searchVipListManagementRecord(details.getCallerID());
+		 Thread.sleep(3000);
 	        selectWebElement(deleteButton);
 	        enterValueToTxtFieldWithoutClear(deleteReasonTextBox,details.getDeleteReason());
 	        selectWebElement(deleteYesBtn);		

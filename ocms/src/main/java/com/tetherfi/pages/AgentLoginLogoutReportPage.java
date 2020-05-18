@@ -15,7 +15,6 @@ import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
-import com.google.common.collect.Maps;
 import com.tetherfi.model.report.ReportDetails;
 
 public class AgentLoginLogoutReportPage extends BasePage  {
@@ -723,14 +722,6 @@ public class AgentLoginLogoutReportPage extends BasePage  {
 		return arr;
 	}
 
-	private void substring(String col, int i, int j) {
-		// TODO Auto-generated method stub
-
-	}
-	private void substring() {
-		// TODO Auto-generated method stub
-
-	}
 	public void searchwithoutextsearch(ReportDetails details) {
 		selectWebElement(searchBtn);		
 		selectWebElement(searchColDropdown);  
@@ -821,6 +812,28 @@ public class AgentLoginLogoutReportPage extends BasePage  {
 		return Status;
 	}
 
+	public boolean verifyDatabase(String query,ReportDetails details) {
+		//get dates from xl - step 2
+		String reportbeforedate = details.getStartDate();
+		String reportafterdate=details.getEndDate();
+		//change date formats - step 3
+		reportbeforedate = reportbeforedate.substring(6,10)+reportbeforedate.substring(3, 5)+reportbeforedate.substring(0, 2)+reportbeforedate.substring(11, 13)+reportbeforedate.substring(14, 16)+reportbeforedate.substring(17, 19);
+		reportafterdate	=reportafterdate.substring(6,10)+reportafterdate.substring(3, 5)+reportafterdate.substring(0, 2)+reportafterdate.substring(11, 13)+reportafterdate.substring(14, 16)+reportafterdate.substring(17, 19);
+		//Replace identifiers in query to formatted date - step 5
+		query=query.replaceAll("ReportBeforeDate",reportbeforedate );
+		query=query.replaceAll("ReportAfterDate",reportafterdate );
+
+		List<Map<String,String>> database=database(query);
+		System.out.println(database);
+		List<Map<String,String>> UI=getDataTable(); 
+		System.out.println(UI);
+		if(UI.equals(database))
+			return true;
+		else
+			return false;
+	}	
+
+
 	public boolean verifySearchStartsWith(String description) throws Exception {
 		Boolean Status=false;
 		selectWebElement(searchBtn);
@@ -890,27 +903,6 @@ public class AgentLoginLogoutReportPage extends BasePage  {
 		}
 		return status;
 	}
-
-	public boolean verifyDatabase(String query,ReportDetails details) {
-		//get dates from xl - step 2
-		String reportbeforedate = details.getStartDate();
-		String reportafterdate=details.getEndDate();
-		//change date formats - step 3
-		reportbeforedate = reportbeforedate.substring(6,10)+reportbeforedate.substring(3, 5)+reportbeforedate.substring(0, 2)+reportbeforedate.substring(11, 13)+reportbeforedate.substring(14, 16)+reportbeforedate.substring(17, 19);
-		reportafterdate	=reportafterdate.substring(6,10)+reportafterdate.substring(3, 5)+reportafterdate.substring(0, 2)+reportafterdate.substring(11, 13)+reportafterdate.substring(14, 16)+reportafterdate.substring(17, 19);
-		//Replace identifiers in query to formatted date - step 5
-		query=query.replaceAll("ReportBeforeDate",reportbeforedate );
-		query=query.replaceAll("ReportAfterDate",reportafterdate );
-
-		List<Map<String,String>> database=database(query);
-		System.out.println(database);
-		List<Map<String,String>> UI=getDataTable(); 
-		System.out.println(UI);
-		if(UI.equals(database))
-			return true;
-		else
-			return false;
-	}			
 }
 
 

@@ -15,24 +15,24 @@ import com.tetherfi.model.user.DashboardColorCodeConfigDetails;
 import com.tetherfi.pages.DashboardColorCodeConfigPage;
 import com.tetherfi.pages.HomePage;
 import com.tetherfi.pages.OCMReportsPage;
-import com.tetherfi.pages.OCMAudioVideoReportPage;
+import com.tetherfi.pages.OCMAudioVideoPlaybackReportPage;
 import com.tetherfi.test.BaseTest;
 import com.tetherfi.utility.ExcelReader;
 import com.tetherfi.utility.PageFactory;
 import com.tetherfi.utility.Screenshot;
 
-public class OCMAudioVideoReportTest extends BaseTest {
+public class OCMAudioVideoPlaybackReportTest extends BaseTest {
 	Screenshot screenshot=new Screenshot(driver);
     @BeforeMethod
     public void NavigateToOcmReportsPage() {
         HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
-        homePage.navigateToOcmIconImg();
+        homePage.navigateToOCMIconImg();
         homePage.navigateToOCMReportsPage();
         OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
         Assert.assertTrue(ocmReportsPage.isOCMReportPageIsDisplayed());
     }
  
-    @Test(priority=1)
+    /*@Test(priority=1)
     public void ShowOCMAudioVideoReport() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoReport.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
@@ -414,20 +414,26 @@ public class OCMAudioVideoReportTest extends BaseTest {
   	  screenshot.captureScreen("OCMAudioVideoReport", "GroupBy");
   	  Assert.assertTrue(avpage.groupby());
       screenshot.captureScreen("OCMAudioVideoReport", "AlreadyGroupBy");
-    }
-/*    
+    }*/    
+    
     @Test(priority=38)
     public void database() throws Exception {
-   		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoReport.xlsx";
+   		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoPlaybackReport.xlsx";
    		Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(0);
    		ReportDetails reportDetails= new ReportDetails(map);
-   		OCMAudioVideoReportPage avpage=PageFactory.createPageInstance(driver,OCMAudioVideoReportPage.class);
-   		Assert.assertTrue(avpage.verifyDatabase(reportDetails.getQuery()));
-   }*/
+   		OCMReportsPage ocmReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
+   		ocmReportsPage.showReport(reportDetails);
+   		OCMAudioVideoPlaybackReportPage AudioVideoPlaybackReportPage=PageFactory.createPageInstance(driver,OCMAudioVideoPlaybackReportPage.class);
+   		Assert.assertTrue(AudioVideoPlaybackReportPage.verifyDatabase(reportDetails.getQuery(), reportDetails), "UI and DB data mismatch");
+   		System.out.println("Database Validation Completed Succesfully" +" : "+"UI and Database data is matched");
+    }
 
     
     @AfterMethod
-    public void afterEachMethod(Method method) {
-    	screenshot.captureScreen(driver, "", method.getName());
-    }
+	public void afterEachMethod(Method method) throws InterruptedException {
+		Screenshot screenshot=new Screenshot(driver);
+		screenshot.captureScreen("AgentAuxReportTest",method.getName());
+		driver.navigate().refresh();
+	}
+    
 }

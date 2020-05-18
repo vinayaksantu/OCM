@@ -54,6 +54,7 @@ public class IntroMessageAnnouncementTest{
         IntroMessageAnnouncementPage introMessageAnnouncementPage= PageFactory.createPageInstance(driver,IntroMessageAnnouncementPage.class);
         Assert.assertTrue(introMessageAnnouncementPage.isIntroMessageAnnouncementPageDisplayed(), "Operating hours page assertion failed");
     }
+    
     @Test(groups = { "Maker" })
     public void AddNewIntroMessageAnnouncementRecord() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntroMessageAnnouncementData.xlsx";
@@ -91,6 +92,7 @@ public class IntroMessageAnnouncementTest{
         Assert.assertTrue(introMessageAnnouncementPage.verifyTaskCompleteSuccessMessage(),"Task Complete record assertion failed");
         Assert.assertTrue(introMessageAnnouncementPage.verifyStatus("Approval Pending"),"approal status details failed");
     }
+    
     @Test(groups = { "Checker" },dependsOnMethods="EditIntroMessageAnnouncementRecord")
     public void ApproveforEditIntroMessageAnnouncementRecord() throws Exception {
         IntroMessageAnnouncementPage introMessageAnnouncementPage= PageFactory.createPageInstance(driver,IntroMessageAnnouncementPage.class);
@@ -98,6 +100,7 @@ public class IntroMessageAnnouncementTest{
         Assert.assertEquals(introMessageAnnouncementPage.verifySuccessMessage(),"All the data has been approved successfully!","Approve record assertion failed");
         Assert.assertTrue(introMessageAnnouncementPage.verifyReviewAuditTrail("Approved","Approve Edit"));
     }
+    
     @Test(groups = { "Maker" },dependsOnMethods = "ApproveforEditIntroMessageAnnouncementRecord")
     public void DeleteIntroMessageAnnouncementRecord() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntroMessageAnnouncementData.xlsx";
@@ -113,6 +116,7 @@ public class IntroMessageAnnouncementTest{
         Assert.assertTrue(introMessageAnnouncementPage.verifyTaskCompleteSuccessMessage(),"Task Complete record assertion failed");
         Assert.assertTrue(introMessageAnnouncementPage.verifyStatus("Approval Pending"),"approal status details failed");
     }
+    
     @Test(groups = { "Checker" },dependsOnMethods="DeleteIntroMessageAnnouncementRecord")
     public void ApproveforDeleteIntroMessageAnnouncementRecord() throws Exception {
         IntroMessageAnnouncementPage introMessageAnnouncementPage= PageFactory.createPageInstance(driver,IntroMessageAnnouncementPage.class);
@@ -120,6 +124,7 @@ public class IntroMessageAnnouncementTest{
         Assert.assertEquals(introMessageAnnouncementPage.verifySuccessMessage(),"All the data has been approved successfully!","Approve record assertion failed");
         Assert.assertTrue(introMessageAnnouncementPage.verifyReviewAuditTrail("Approved","Approve Delete"));
     }
+    
     @AfterMethod
     public void afterEachMethod(Method method){
     	screenshot.captureScreen(driver, "", method.getName());

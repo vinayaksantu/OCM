@@ -39,7 +39,7 @@ public class CallBackAnnouncementTest extends BaseTest {
         Assert.assertTrue(callbackAnnouncementPage.isCallbackAnnouncementPageDisplayed(), "CallBack Announcement page assertion failed");
     }
   
-    @Test(priority=1)
+    /*@Test(priority=1)
     public void CallbackAnnouncementPage() {
         CallbackAnnouncementPage callbackAnnouncementPage = PageFactory.createPageInstance(driver, CallbackAnnouncementPage.class);
     	Assert.assertTrue(callbackAnnouncementPage.verifylogo(),"CallBackAnnouncement logo assertion failed");
@@ -74,7 +74,7 @@ public class CallBackAnnouncementTest extends BaseTest {
         CallbackAnnouncementDetails callbackAnnouncementDetails = new CallbackAnnouncementDetails(map);
         CallbackAnnouncementPage callbackAnnouncementPage = PageFactory.createPageInstance(driver, CallbackAnnouncementPage.class);
         Assert.assertTrue(callbackAnnouncementPage.addnewCancel(callbackAnnouncementDetails), "Add new record cancel assertion failed");
-    }
+    }*/
     
     @Test(priority=6)
     public void AddNewCallbackAnnouncementRecord() throws Exception {
@@ -85,7 +85,8 @@ public class CallBackAnnouncementTest extends BaseTest {
         callbackAnnouncementPage.addNewCallbackAnnouncementRecord(callbackAnnouncementDetails);
         Assert.assertEquals(callbackAnnouncementPage.verifySuccessMessage(),"Record Created Successfully", "Add New record assertion failed");
     }
-   @Test(priority=7,dependsOnMethods ="AddNewCallbackAnnouncementRecord")
+   
+    /*@Test(priority=7,dependsOnMethods ="AddNewCallbackAnnouncementRecord")
     public void VerifyAuditTrialReportForCreate() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\CallbackAnnouncementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -192,7 +193,7 @@ public class CallBackAnnouncementTest extends BaseTest {
         CallbackAnnouncementDetails callbackAnnouncementDetails = new CallbackAnnouncementDetails(map);
         CallbackAnnouncementPage callbackAnnouncementPage = PageFactory.createPageInstance(driver, CallbackAnnouncementPage.class);
         Assert.assertTrue(callbackAnnouncementPage.verifySearchEndsWith(callbackAnnouncementDetails.getLanguage()));
-    }
+    }*/
     
     @Test(priority=18)//,dependsOnMethods = "AddDuplicateCallBackAnnouncementRecord")
     public void EditCallBackAnnouncementRecord() throws Exception {
@@ -204,7 +205,7 @@ public class CallBackAnnouncementTest extends BaseTest {
         Assert.assertEquals(callbackAnnouncementPage.verifySuccessMessage(),"Record Updated Successfully","Edit record assertion failed");
     }
     
-    @Test(priority=19)//,dependsOnMethods="EditCallBackAnnouncementRecord")
+    /*@Test(priority=19)//,dependsOnMethods="EditCallBackAnnouncementRecord")
     public void VerifyAuditTrialReportForUpdate() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\CallbackAnnouncementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(0);	
@@ -276,9 +277,9 @@ public class CallBackAnnouncementTest extends BaseTest {
          CallbackAnnouncementDetails callbackAnnouncementDetails = new CallbackAnnouncementDetails(map);
          CallbackAnnouncementPage callbackAnnouncementPage = PageFactory.createPageInstance(driver, CallbackAnnouncementPage.class);
          Assert.assertTrue(callbackAnnouncementPage.Canceldelete(callbackAnnouncementDetails), "Cancel Btn at Delete record assertion failed");
-    }
+    }*/
     
-    @Test(dependsOnMethods = {"VerifyCancelButtonDeleteRecord"},priority=26)
+    @Test(priority=26)
     public void DeleteCallbackAnnouncementRecord() throws Exception {
    	 	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\CallbackAnnouncementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
@@ -288,7 +289,7 @@ public class CallBackAnnouncementTest extends BaseTest {
         Assert.assertEquals(callbackAnnouncementPage.verifySuccessMessage(),"Record Deleted Successfully","delete record assertion failed");
     }
     
-    @Test(dependsOnMethods= {"DeleteCallbackAnnouncementRecord"},priority=27)
+    /*@Test(dependsOnMethods= {"DeleteCallbackAnnouncementRecord"},priority=27)
     public void VerifyAuditTrialReportForDelete() throws Exception {
    	 	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\CallbackAnnouncementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(0);	
@@ -401,7 +402,7 @@ public class CallBackAnnouncementTest extends BaseTest {
         CallbackAnnouncementPage callbackAnnouncementPage = PageFactory.createPageInstance(driver, CallbackAnnouncementPage.class);
         CallbackAnnouncementDetails callbackAnnouncementDetails = new CallbackAnnouncementDetails(map);
     	Assert.assertTrue(callbackAnnouncementPage.verifyDatabase(callbackAnnouncementDetails.getQuery()));
-    }
+    }*/
     
     @AfterMethod
     public void afterEachMethod(Method method){

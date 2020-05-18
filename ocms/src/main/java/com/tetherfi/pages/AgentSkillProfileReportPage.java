@@ -1,10 +1,5 @@
 package com.tetherfi.pages;
 
-import java.awt.Robot;
-import java.awt.Toolkit;
-import java.awt.datatransfer.Clipboard;
-import java.awt.datatransfer.StringSelection;
-import java.awt.event.KeyEvent;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -21,108 +16,117 @@ import org.openqa.selenium.support.FindBy;
 
 import com.tetherfi.model.report.ReportDetails;
 
-public class AgentAuxReportPage extends BasePage  {
+public class AgentSkillProfileReportPage extends BasePage  {
 	
-	  public AgentAuxReportPage(WebDriver driver) {
+	  public AgentSkillProfileReportPage(WebDriver driver) {
 	        super(driver);
 	    }
 	  
-	  @FindBy(xpath="//i[@class='fas fa-file-export']")
-	   private WebElement VEFImg;
-	  
-	  @FindBy(css=".ibox-title h5")
-	    private WebElement exportSchedulerTitle;
-	  
-	  @FindBy(css="a[href$='/ExportScheduler/Index'] div")
-	    private WebElement exportschedulerlinkonHomepg;
-	  
-	 @FindBy(xpath="//a[text()='Agent ID']")
-     private WebElement AgentId;
-	
-	@FindBy(css=".k-grid-excel")
-    private WebElement exportPage;
-	
-	@FindBy(xpath="//button[text()=' Scheduled Reports']")
-	private WebElement schRptsinAgent;
-	
-	@FindBy(xpath="//button[text()=' View Downloaded Reports']")
-	private WebElement viewDwnRptinAgntpg;
-	
-	@FindBy(css="button[onclick='onSelectExportAll()']")
-    private WebElement exportToCSV;
-	
-	@FindBy(css=".ibox-content")
-    private WebElement gridContent;
-	
-	@FindBy(css=".k-pager-info")
-    private WebElement pagerInfo;
-
-    @FindBy(css=".k-pager-sizes .k-input")
-    private WebElement pagerSize;
-
-    @FindBy(css=".k-i-more-vertical")
-    private List<WebElement> headersDropdown;
-
-    @FindBy(css=".k-sort-asc")
-    private List<WebElement> sortAscending;
-
-    @FindBy(css=".k-sort-desc")
-    private List<WebElement> sortDescending;
-    
-    @FindBy(css="a[aria-label='Go to the next page']")
-    private WebElement nextPageIcon;
-
-    @FindBy(css = ".k-pager-last")
-    private WebElement goToLastPage;
-
-    @FindBy(css = ".k-state-selected")
-    private WebElement pageNumber;
-
-     @FindBy(css=".k-pager-sizes .k-icon")
-    private WebElement pagerDropdown;
-
-    @FindBy(css=".k-animation-container ul li")
-    private List<WebElement> pageSizeListBox;
-    
-    @FindBy(css=".k-columns-item")
-    private List<WebElement> columns;
-
-    @FindBy(css=".fa-refresh")
-    private WebElement refreshBtn;
-    
-    @FindBy(css="div[style*='overflow: visible'] span[class^='k-link']")
-	private List<WebElement> headersColumns;
-	
-    @FindBy(css="th a[class='k-link']")
-   	private List<WebElement> headersText;
-    
-    @FindBy(css=".k-grid-pdf")
-    private WebElement exportToPDF;
-    
-    @FindBy(xpath="//div[@class='ibox float-e-margins fullscreen']")
-	private WebElement fullscreen;
-	
-	@FindBy(xpath="//i[@class='fas fa-expand']")
-	private WebElement maximize;
-	
-	@FindBy(xpath="//i[@class='fas fa-compress']")
-	private WebElement minimize;
-	
-	@FindBy(id="navbarheader")
-	private WebElement header;
-	
-	@FindBy(css=".k-grid-norecords-template")
-    private List<WebElement> norecords;
-	
-	   @FindBy(id="grid")
-	    private WebElement auditGridContent;
-	    
-	    @FindBy(css="#toast-container .toast-message")
-	    private WebElement successmsg;
-
-	    @FindBy(css="#toast-container .toast-error")
-	    private List<WebElement> errorMsg;
-	       
+		@FindBy(xpath="//i[@class='fas fa-file-export']")
+		private WebElement VEFImg;
+			  
+		@FindBy(css=".ibox-title h5")
+		private WebElement exportSchedulerTitle;
+		  
+		@FindBy(css="a[href$='/ExportScheduler/Index'] div")
+		 private WebElement exportschedulerlinkonHomepg;
+		  
+		@FindBy(xpath="//a[text()='Agent ID']")
+		private WebElement AgentId;
+		
+		@FindBy(css=".k-grid-excel")
+		private WebElement exportPage;
+		
+		@FindBy(xpath="//button[text()=' Scheduled Reports']")
+		private WebElement schRptsinAgent;
+		
+		@FindBy(xpath="//button[text()=' View Downloaded Reports']")
+		private WebElement viewDwnRptinAgntpg;
+		
+		@FindBy(css="button[onclick='onSelectExportAll()']")
+		private WebElement exportToCSV;
+		
+		@FindBy(css=".ibox-content")
+		private WebElement gridContent;
+		
+		@FindBy(css=".k-pager-info")
+		private WebElement pagerInfo;
+		
+		@FindBy(css=".k-pager-sizes .k-input")
+		private WebElement pagerSize;
+		
+		@FindBy(xpath="//div[@id='gridDrillOne']//span[@class='k-input']")
+		private WebElement pagerSizeDrillGridOne;
+		
+		@FindBy(css=".k-i-more-vertical")
+		private List<WebElement> headersDropdown;
+		
+		@FindBy(css=".k-sort-asc")
+		private List<WebElement> sortAscending;
+		
+		@FindBy(css=".k-sort-desc")
+		private List<WebElement> sortDescending;
+		
+		@FindBy(css="a[aria-label='Go to the next page']")
+		private WebElement nextPageIcon;
+		
+		@FindBy(xpath="//div[@id='gridDrillOne']//span[@class='k-icon k-i-arrow-60-right']")
+		private WebElement nextPageIconDrillOne;
+		
+		@FindBy(xpath="(//SPAN[@class='k-icon k-i-arrow-60-right'])[3]")
+		private WebElement nextPageIconDrillTwo;
+				
+		@FindBy(css = ".k-pager-last")
+		private WebElement goToLastPage;
+		
+		@FindBy(css = ".k-state-selected")
+		private WebElement pageNumber;
+		
+		 @FindBy(css=".k-pager-sizes .k-icon")
+		private WebElement pagerDropdown;
+		
+		@FindBy(css=".k-animation-container ul li")
+		private List<WebElement> pageSizeListBox;
+		
+		@FindBy(css=".k-columns-item")
+		private List<WebElement> columns;
+		
+		@FindBy(css=".fa-refresh")
+		private WebElement refreshBtn;
+		
+		@FindBy(css="div[style*='overflow: visible'] span[class^='k-link']")
+		private List<WebElement> headersColumns;
+		
+		@FindBy(css="th a[class='k-link']")
+		private List<WebElement> headersText;
+		
+		@FindBy(css=".k-grid-pdf")
+		private WebElement exportToPDF;
+		
+		@FindBy(xpath="//div[@class='ibox float-e-margins fullscreen']")
+		private WebElement fullscreen;
+		
+		@FindBy(xpath="//i[@class='fas fa-expand']")
+		private WebElement maximize;
+		
+		@FindBy(xpath="//i[@class='fas fa-compress']")
+		private WebElement minimize;
+		
+		@FindBy(id="navbarheader")
+		private WebElement header;
+		
+		@FindBy(css=".k-grid-norecords-template")
+		private List<WebElement> norecords;
+		
+		   @FindBy(id="grid")
+		private WebElement auditGridContent;
+		
+		@FindBy(css=".toast-message")
+		private WebElement successmsg;
+		
+		@FindBy(css="#toast-container .toast-error")
+		private List<WebElement> errorMsg;
+		   
 		@FindBy(css="a[aria-label='Go to the last page']")
 		private WebElement lastPageIcon;
 		
@@ -135,56 +139,94 @@ public class AgentAuxReportPage extends BasePage  {
 		@FindBy(xpath="//span[@class='k-pager-info k-label']")
 		private WebElement items;
 		
-		@FindBy(xpath="//button[@class='k-button k-button-icontext k-grid-excel']")		
-	    private WebElement exportpage;
+		@FindBy(xpath="//div[@id='gridDrillOne']//span[@class='k-pager-info k-label']")
+		private WebElement drillGridOneItems;
 		
-		//export to excel in AgentRptPage
+		@FindBy(xpath="//div[@id='gridDrillTwo']//span[@class='k-pager-info k-label']")
+		private WebElement drillGridTwoItems;
+		
+		@FindBy(xpath="//button[@class='k-button k-button-icontext k-grid-excel']")		
+		private WebElement exporttoexcel;
+		
+		//export to excel in AgentSkillHistorcRptPage
 		@FindBy(xpath="//button[@id='exportAllToExcel']")
 		private WebElement exportToExcel;
-		
-		 @FindBy(css = "span[aria-owns='autoCompleteTextbox_listbox']")
-		 private WebElement searchbyfeatureTextBox;
+
+		@FindBy(css = ".fa-search")
+		private WebElement searchBtn;
+
+		@FindBy(css = "span[aria-controls='1001sColumnName_listbox']")  //input[aria-owns='1001sColumnName_listbox']
+		private WebElement searchColDropdown;
+
+		@FindBy(css="ul[id='1001sColumnName_listbox'] li")
+		private List<WebElement> searchColListBox;
+
+		@FindBy(css = "span[aria-owns='1001sCriteria_listbox']")
+		private WebElement searchCriteriaDropdown;
+
+		@FindBy(css="ul[id='1001sCriteria_listbox'] li") 
+		private List<WebElement> searchCriteriaListbox;
+
+		@FindBy(id = "1001sTextToSearch")
+		private WebElement searchTextBox;
+
+		//@FindBy(css = ".modal-footer .k-button")//@FindBy(xpath="//*[@id=\"searchModel\"]/div/div/div[3]/button[1]")
+		@FindBy(xpath="//*[@id=\"searchModel\"]/div/div/div[3]/button[1]")
+		private WebElement searchCloseBtn;
+
+		@FindBy(css = ".modal-footer .button-danger-theme")
+		 private WebElement searchClearAllBtn;
+
+		@FindBy(css = ".modal-footer .button-theme")
+		private WebElement searchSearchBtn;
+
+		// @FindBy(css = "span[aria-owns='autoCompleteTextbox_listbox']")
+		@FindBy(id="autoCompleteTextbox")
+		private WebElement searchbyfeatureTextBox;
 
 		@FindBy(css = "ul[id='autoCompleteTextbox_listbox'] li")
 		private List<WebElement> searchbyfeaturelistBox;
+			    
+		@FindBy(xpath="//a[text()='Agent ID']")
+		private WebElement agentid;
+
+		 @FindBy(xpath="//p[@class='k-reset']")
+		private WebElement groupby;
+
+		@FindBy(xpath="//tbody/tr/td/p[@class='k-reset']/../../following-sibling::tr/td[9]")
+		private WebElement groupbyAgentId;
+
+		@FindBy(xpath="//div[@data-role='droptarget']")
+		private WebElement droptarget;
 		
-		@FindBy(css="ul[id='1001ColumnName_listbox'] li")
-		private List<WebElement> columnNameList1;
+		@FindBy(xpath="//table/tbody/tr/td[1]")
+		private WebElement FirstRowFirstCell;
 		
-		@FindBy(css="ul[id='1001Criteria_listbox'] li")
-		private List<WebElement> searchTypeList1;
+		@FindBy(xpath="//table/tbody/tr")
+		private List<WebElement> MainReportRows;
 		
-		@FindBy(css = ".fa-search")
-	    private WebElement searchBtn;
-
-		@FindBy(css = "span[aria-controls='1001sColumnName_listbox']")  //input[aria-owns='1001sColumnName_listbox']
-	    private WebElement searchColDropdown;
-
-	    @FindBy(css="ul[id='1001sColumnName_listbox'] li")
-	    private List<WebElement> searchColListBox;
-
-	    @FindBy(css = "span[aria-owns='1001sCriteria_listbox']")
-	    private WebElement searchCriteriaDropdown;
-
-	    @FindBy(css="ul[id='1001sCriteria_listbox'] li") 
-	    private List<WebElement> searchCriteriaListbox;
-
-	    @FindBy(id = "1001sTextToSearch")
-	    private WebElement searchTextBox;
-	    
-	    @FindBy(css = ".modal-footer .k-button")
-	    private WebElement searchCloseBtn;
-
-	    @FindBy(css = ".modal-footer .button-danger-theme")
-		 private WebElement searchClearAllBtn;
-
-	    @FindBy(css = ".modal-footer .button-theme")
-	    private WebElement searchSearchBtn;
-	    
-	    @FindBy(xpath="//button[@id='clearAll']")
-		private WebElement AdvsearchClearFilters;
-	    
-	    public void exportPage(){
+		@FindBy(xpath="//div[@id='gridDrillOne']/div[4]/table/tbody/tr/td[1]")
+		private WebElement DrillGridOneFirstCell;
+		
+		@FindBy(xpath="//div[@id='gridDrillOne']/div[4]/table/tbody/tr")
+		private List<WebElement> DrillOneReportRows;
+		
+		@FindBy(id="gridDrillOne")
+		private WebElement DrillGridOneTable;
+		
+		@FindBy(id="gridDrillTwo")
+		private WebElement DrillGridTwoTable;
+		
+		@FindBy(xpath="(//SPAN[@aria-hidden='true'][text()='×'][text()='×'])[1]")
+		private WebElement CloseDrillGridOne;
+		
+		@FindBy(xpath="(//SPAN[@aria-hidden='true'][text()='×'][text()='×'])[3]")
+		private WebElement CloseDrillGridTwo;
+		
+		@FindBy(xpath="//div[@id='gridDrillOne']//span[@class='k-icon k-i-arrow-end-left']")
+		private WebElement gotoFirstPageDrillOneIcon;
+		
+		public void exportPage(){
 	        emptyDownloadsDirectory(System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles");
 	        selectWebElement(exportPage);
 	        try {
@@ -389,19 +431,17 @@ private String getProperHeadersInGrid(String cname){
         for(int i=0;i<=pages;i++){
             List<WebElement> rows=gridContent.findElements(By.tagName("tr"));
             List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
-            for(int j=0;j<=rows.size()-1;j++){
+            for(int j=1;j<=rows.size()-1;j++){
                 List<WebElement> cols=rows.get(j).findElements(By.tagName("td"));
                 Map<String,String> map=new HashMap<>();
                 for(int k=0; k<cols.size();k++){
                    map.put(headers.get(k).getText(),cols.get(k).getText());
                 }
-                map.remove("");
                 maplist.add(map);
                 }
             if(i<pages){    nextPageIcon.click();
             waitForJqueryLoad(driver);}
             }
-        System.out.println(maplist);
         return maplist;
         }
     public boolean verifyDropDownOfAllHeaders() {
@@ -535,7 +575,7 @@ private String getProperHeadersInGrid(String cname){
         int pagersize=Integer.valueOf(pagerSize.getText());
         int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
 		List<Map<String,String>> arr=new ArrayList<Map<String,String>>();
-		//for(int k=0;k<=pages;k++){
+		for(int k=0;k<=pages;k++){
 		waitUntilWebElementIsVisible(auditGridContent);
 		List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
 		List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
@@ -543,26 +583,29 @@ private String getProperHeadersInGrid(String cname){
 		for(int i=1;i<rows.size();i++) {
 			Map<String,String> map = new HashMap<String,String>();
 			List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
-			for(int j=0;j<headers.size();j++) {
+			for(int j=1;j<headers.size();j++) {
 				scrollToElement(headers.get(j));
-				/*if(headers.get(j).getText().equals("Last Changed On")){
+				System.out.println(headers.get(j).getText());
+				if(headers.get(j).getText().equals("Last Changed On")){
 				col=cols.get(j).getText().substring(0,10);
 				}
-				else*/
+				else
 					col=cols.get(j).getText();
 				map.put(headers.get(j).getText(),col);
 			}
 			map.remove("");
 			arr.add(map);
 		}
-		/*if(k!=pages)
+		if(k!=pages)
 		{
 			nextPageIcon.click();
 			waitForJqueryLoad(driver);}
-		}*/
+		}
 			return arr;
 	}
-		
+	
+	
+	
 	public boolean verifyArrowMoveForPreviousAndNextPage(){
         boolean status=false;
         if(!nextPageIcon.getAttribute("class").contains("k-state-disabled")){
@@ -583,19 +626,18 @@ private String getProperHeadersInGrid(String cname){
         boolean status=false;
         if(!lastPageIcon.getAttribute("class").contains("k-state-disabled")){
             int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber));
-            System.out.println(pagenumber);
             selectWebElement(lastPageIcon);
             int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
-            System.out.println(nextnumber);
             selectWebElement(firstPageIcon);
             int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
-            System.out.println(previousnumber);
             if(nextnumber>pagenumber && pagenumber==previousnumber){status=true;}
         }else{
             System.out.println("previous and next page icon disabled");status=true;
         }
         return status;
     }
+	
+	
 	
     public boolean verifyTotalNumberOfItemsPerPageDetails(){
         String item = items.getText();
@@ -604,7 +646,7 @@ private String getProperHeadersInGrid(String cname){
     
     public void SortByAscending() {
 		selectWebElement(AgentId);
-		selectWebElement(exportpage);
+		selectWebElement(exporttoexcel);
 		try {
 			Thread.sleep(2000);
 		} catch (InterruptedException e) {
@@ -615,7 +657,7 @@ private String getProperHeadersInGrid(String cname){
 	public void SortByDescending() {
 		selectWebElement(AgentId);
 		selectWebElement(AgentId);
-		selectWebElement(exportpage);
+		selectWebElement(exporttoexcel);
 		try {
 			Thread.sleep(2000);
 		} catch (InterruptedException e) {
@@ -626,18 +668,18 @@ private String getProperHeadersInGrid(String cname){
 	public boolean verifyExportToExcel(String filePath) {
 		final File folder = new File(filePath);
 		for (final File f : folder.listFiles()) {
-		    if (f.getName().startsWith("OCMAgentAuxReport")) {
+		    if (f.getName().startsWith("OCMAgentSkillHistoricalReport")) {
 		        f.delete();
 		    }
 		}
-		selectWebElement(exportpage);
+		selectWebElement(exporttoexcel);
 		waitForJqueryLoad(driver);
 		try {
 			Thread.sleep(2000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		Boolean Status=verifyExportPageFileDownload(filePath, "OCMAgentAuxReport");
+		Boolean Status=verifyExportPageFileDownload(filePath, "OCMAgentSkillHistoricalReport");
 		return Status;
 	}
 	 public boolean verifyExportPageFileDownloaded(String reportname){
@@ -688,290 +730,384 @@ private String getProperHeadersInGrid(String cname){
 	 public void exportToExcel() {
 			selectWebElement(exportToExcel);
 		}
-	public boolean verifyReportExported(){
-        //waitForJqueryLoad(driver);
-  //     if(errorMsg.size()>0){return false;}
-        if(waitUntilTextToBePresentInWebElement(successmsg,"Report export is initiated... Notification will be sent once completed"))
-        {return true;}else{return false;}
-    }
-	
-	/*public void verifySearchByTextbox() throws Exception{		
-	selectWebElement(searchbyfeatureTextBox);    
-    enterValueToTxtFieldWithoutClear(searchbyfeatureTextBox,searchbyfeaturelistBox.get(0));
-    waitForJqueryLoad(driver);
-    List<Map<String,String>> UI=getDataTable(); 
-    for (Map<String,String> map1: UI)
-    {   	
-		if(map1.equals(map))
-    	Status= false;
-    	else 
-    		Status= true;
-}
-    return Status;	
-}
-}*/
-
-	
-	public void searchwithoutextsearch(ReportDetails details) {
-		   selectWebElement(searchBtn);		
-		   selectWebElement(searchColDropdown);  
-		    selectDropdownFromVisibleText(searchColListBox,details.getColname());  
+	 
+	 public boolean verifyReportExported(){
+	        if(waitUntilTextToBePresentInWebElement(successmsg,"Report export is initiated... Notification will be sent once completed"))
+	        {return true;}else{return false;}
+	    }
+	 
+	 public boolean verifySearchIsEqualTo(String details) throws Exception {
+			Boolean Status=false;
+			Map<String, String> map=new HashMap<String,String>() ;
+			//map.put("Agent Name", details);
+			selectWebElement(searchBtn);	
+			selectWebElement(searchColDropdown);  
+		    selectDropdownFromVisibleText(searchColListBox,"Agent ID");  
 		    waitForJqueryLoad(driver);
 		    selectWebElement(searchCriteriaDropdown);
-		    selectDropdownFromVisibleText(searchCriteriaListbox,details.getColtype());		   
+		    selectDropdownFromVisibleText(searchCriteriaListbox,"Is equal to");		   
 		    waitForJqueryLoad(driver);    
-		    selectWebElement(searchSearchBtn);	
-		    selectWebElement(searchCloseBtn);		
-	}
-	public boolean verifyAdvanceSearch(ReportDetails reportDetails) {
-		Boolean Status=false;
-		List<Map<String,String>>UI=getDataTable();
-		for(Map<String,String> map1:UI)
-		{
-			System.out.println(map1.get("Agent Name"));
-			if(map1.get("Agent Name").equalsIgnoreCase(reportDetails.getSearchStr()))
-				Status= true;
-			else 
-				Status =false;
-		}
-		return Status;
-	}
-	
-	public void ClearFiltersAdvSrch() {
-		selectWebElement(AdvsearchClearFilters);		
-	}
-	
-	private List<Map<String, String>> getDataTable() {
-		int item=Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
-        int pagersize=Integer.valueOf(pagerSize.getText());
-        int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
-		List<Map<String,String>> arr=new ArrayList<Map<String,String>>();
-		for(int k=0;k<=pages;k++){
-		waitUntilWebElementIsVisible(auditGridContent);
-		List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
-		List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
-		for(int i=1;i<rows.size();i++) {
-			Map<String,String> map = new HashMap<String,String>();
-			List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
-			String col=null;
-			for(int j=0;j<headers.size();j++){
-				if(j==6) {
-					int timeinsecs=0;
-					String Auxtime=cols.get(j).getText();
-					//System.out.println(Auxtime);
-					String[] substring =Auxtime.split(":",3);
-					for (String a :  substring) 
-					{   //System.out.println(a); 
-					int hours = Integer.parseInt(substring[0]);
-					int minutes=Integer.parseInt(substring[1]);
-					int seconds=Integer.parseInt(substring[2]);
-					timeinsecs=hours*60*60+minutes*60+seconds;								
-					}		
-					// System.out.println(timeinsecs);
-					 col=String.valueOf(timeinsecs);
-					//map.put(headers.get(j).getText(),col);
-					//System.out.println(substring);
-					//=substring[0] * 60 * 60 + substring[1] * 60 + substring[2]); 
-					//sytem.out.println("seconds="+seconds);
-				}
-				
-				else
-				{
-					col=cols.get(j).getText();
-				}
-				map.put(headers.get(j).getText(),col);
-				
-				//System.out.println(col);
-			}
-			
-			map.remove("");
-			arr.add(map);
-		}
-		if(k!=pages)
-		{
-			nextPageIcon.click();
-			waitForJqueryLoad(driver);}
-		}
-			return arr;
-	}
-	
-	public boolean verifySearchIsNotEqualTo(String details) throws Exception {
-		Boolean Status=false;
-		Map<String, String> map=new HashMap<String,String>() ;
-		map.put("Agent Name", details);
-		selectWebElement(searchBtn);	
-		selectWebElement(searchColDropdown);  
-	    selectDropdownFromVisibleText(searchColListBox,"Agent Name");  
-	    waitForJqueryLoad(driver);
-	    selectWebElement(searchCriteriaDropdown);
-	    selectDropdownFromVisibleText(searchCriteriaListbox,"Is not equal to");		   
-	    waitForJqueryLoad(driver);    
-        enterValueToTxtField(searchTextBox,details);
-        selectWebElement(searchSearchBtn);
-        waitForJqueryLoad(driver);
-        //waitUntilWebElementIsVisible(gridContent);
-        List<Map<String,String>> UI=getDataTable(); 
-        for (Map<String,String> map1: UI)
-        {   	
-			if(map1.equals(map))
-        	Status= false;
-        	else 
-        		Status= true;
-	}
-        return Status;	
-	}
-	public String getMessage() {
-		if(errorMsg.size()>0){return errorMsg.get(0).getText();}
-        else {
-         return successmsg.getText();}
-	}
-	public String getSuccessMessage() {
-		if(successmsg.isDisplayed()){
-			return successmsg.getText();}
-        else {
-        	return errorMsg.get(0).getText();}
-	}
-	public boolean verifySearchContains(String description) throws Exception {
-		Boolean Status=false;		
-		selectWebElement(searchBtn);
-		selectWebElement(searchColDropdown);  
-	    selectDropdownFromVisibleText(searchColListBox,"Agent Name");  
-	    waitForJqueryLoad(driver);
-	    selectWebElement(searchCriteriaDropdown);
-	    selectDropdownFromVisibleText(searchCriteriaListbox,"Contains");		   
-	    waitForJqueryLoad(driver);    
-        enterValueToTxtField(searchTextBox,description);
-        selectWebElement(searchSearchBtn);
-        waitForJqueryLoad(driver);
-        //waitUntilWebElementIsVisible(gridContent);
-        List<Map<String,String>> UI=getDataTable(); 
-        for (Map<String,String> map1: UI)
-        {   	
-			if(map1.get("Agent Name").toUpperCase().contains(description.toUpperCase()))
-        	Status= true;
-        	else 
-        		Status= false;
-	}
-        return Status;
-	}
-	
-	public boolean verifySearchDoesNotContains(String description) throws Exception {
-		Boolean Status=false;
-		selectWebElement(searchBtn);
-		selectWebElement(searchColDropdown);  
-	    selectDropdownFromVisibleText(searchColListBox,"Agent Name");  
-	    waitForJqueryLoad(driver);
-	    selectWebElement(searchCriteriaDropdown);
-	    selectDropdownFromVisibleText(searchCriteriaListbox,"Does not contain");		   
-	    waitForJqueryLoad(driver);    
-        enterValueToTxtField(searchTextBox,description);
-        selectWebElement(searchSearchBtn);
-        waitForJqueryLoad(driver);
-        //waitUntilWebElementIsVisible(gridContent);
-        List<Map<String,String>> UI=getDataTable(); 
-        for (Map<String,String> map1: UI)
-        {   	
-			if(!map1.get("Agent Name").toLowerCase().contains(description.toLowerCase()))
-        	Status= true;
-        	else 
-        		Status= false;
-	}
-        return Status;
-	}
-	
-	public boolean verifySearchStartsWith(String description) throws Exception {
-		Boolean Status=false;
-		selectWebElement(searchBtn);
-		selectWebElement(searchColDropdown); 
-		selectDropdownFromVisibleText(searchColListBox,"Agent Name");  
-		    waitForJqueryLoad(driver);
-		    selectWebElement(searchCriteriaDropdown);
-		    selectDropdownFromVisibleText(searchCriteriaListbox,"Starts with");		   
-		    waitForJqueryLoad(driver);    
-	        enterValueToTxtField(searchTextBox,description);        
+	        enterValueToTxtField(searchTextBox,details);
 	        selectWebElement(searchSearchBtn);
 	        waitForJqueryLoad(driver);
-        //waitUntilWebElementIsVisible(gridContent);
-        List<Map<String,String>> UI=getDataTable(); 
-        for (Map<String,String> map1: UI)
-        {   	
-			if(map1.get("Agent Name").toLowerCase().startsWith(description.toLowerCase()))
-        	Status= true;
-        	else 
-        		Status= false;
-	}
-        return Status;
-	}
-	public boolean verifySearchEndsWith(String description) throws Exception {
-		Boolean Status=false;
-		selectWebElement(searchBtn);
-		selectWebElement(searchColDropdown); 
-		selectDropdownFromVisibleText(searchColListBox,"Agent Name");  
-	    waitForJqueryLoad(driver);
-	    selectWebElement(searchCriteriaDropdown);
-	    selectDropdownFromVisibleText(searchCriteriaListbox,"Ends with");		   
-	    waitForJqueryLoad(driver);    
-        enterValueToTxtField(searchTextBox,description);        
-        selectWebElement(searchSearchBtn);
-        waitForJqueryLoad(driver);
-        // waitUntilWebElementIsVisible(gridContent);
-        List<Map<String,String>> UI=getDataTable(); 
-        for (Map<String,String> map1: UI)
-        {   	
-			if(map1.get("Agent Name").toUpperCase().endsWith(description.toUpperCase()))
-        	Status= true;
-        	else 
-        		Status= false;
-	}
-        return Status;
-	}
-	public void verifySearchClear(ReportDetails details) {
-		   selectWebElement(searchBtn);		
-		   selectWebElement(searchColDropdown);  
-		    selectDropdownFromVisibleText(searchColListBox,details.getColname());  
+	        //waitUntilWebElementIsVisible(gridContent);
+	        List<Map<String,String>> UI=getDataTable(); 
+	        for (Map<String,String> map1: UI)
+	        {   	
+	        	if(map1.get("Agent ID").equals(details))
+	        	Status= true;
+	        	else 
+	        		Status= false;
+		}
+	        return Status;	
+		}
+	 public boolean verifySearchIsNotEqualTo(String details) throws Exception {
+			Boolean Status=false;
+			Map<String, String> map=new HashMap<String,String>() ;
+			map.put("Agent ID", details);
+			selectWebElement(searchBtn);	
+			selectWebElement(searchColDropdown);  
+		    selectDropdownFromVisibleText(searchColListBox,"Agent ID");  
 		    waitForJqueryLoad(driver);
 		    selectWebElement(searchCriteriaDropdown);
-		    selectDropdownFromVisibleText(searchCriteriaListbox,details.getColtype());		   
+		    selectDropdownFromVisibleText(searchCriteriaListbox,"Is not equal to");		   
 		    waitForJqueryLoad(driver);    
-		    selectWebElement(searchClearAllBtn);	
-		    //selectWebElement(searchCloseBtn);		
-	}
-	
-	public boolean verifyJsonDataForgridColumnHidden(Map<String,String> jsonmap){
-		System.out.println(jsonmap);
-        boolean status=false;
-        for(WebElement e: headersText){
-            scrollToElement(e);
-            if(jsonmap.get(e.getText()).equalsIgnoreCase("false")){status=true;}else{
-                System.out.println("Header "+e.getText()+"is hidden in JSON configuration file");status=false;break;}
-        }
-        return status;
-    }
-	
-	public boolean verifyDatabase(String query,ReportDetails details) {
-		//get dates from xl - step 2
-	String reportbeforedate = details.getStartDate();
-	String reportafterdate=details.getEndDate();
-	   //change date formats - step 3
-	reportbeforedate	=reportbeforedate.substring(6,10)+reportbeforedate.substring(3, 5)+reportbeforedate.substring(0, 2)+reportbeforedate.substring(11, 13)+reportbeforedate.substring(14, 16)+reportbeforedate.substring(17, 19);
-	reportafterdate	=reportafterdate.substring(6,10)+reportafterdate.substring(3, 5)+reportafterdate.substring(0, 2)+reportafterdate.substring(11, 13)+reportafterdate.substring(14, 16)+reportafterdate.substring(17, 19);
-		//Replace identifiers in query to formatted date - step 5
-	query=query.replaceAll("ReportBeforeDate",reportbeforedate );
-	query=query.replaceAll("ReportAfterDate",reportafterdate );
-	
-		List<Map<String,String>> database=database(query);
-		//System.out.println("Printing Database values");
-		System.out.println(database);
-		List<Map<String,String>> UI=getDataTable(); 
-		//System.out.println("Printing UI values");
-		System.out.println(UI);
-		if(UI.equals(database))
-			return true;
-		else
-			return false;
-	}			
-
-
+	        enterValueToTxtField(searchTextBox,details);
+	        selectWebElement(searchSearchBtn);
+	        waitForJqueryLoad(driver);
+	        //waitUntilWebElementIsVisible(gridContent);
+	        List<Map<String,String>> UI=getDataTable(); 
+	        for (Map<String,String> map1: UI)
+	        {   	
+				if(map1.equals(map))
+	        	Status= false;
+	        	else 
+	        		Status= true;
+		}
+	        return Status;	
+		}
+	 private List<Map<String, String>> getDataTable() {
+			int item=Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
+	        int pagersize=Integer.valueOf(pagerSize.getText());
+	        int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
+			List<Map<String,String>> arr=new ArrayList<Map<String,String>>();
+			for(int k=0;k<=pages;k++){
+			waitUntilWebElementIsVisible(auditGridContent);
+			List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
+			List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
+			for(int i=1;i<rows.size();i++) {
+				Map<String,String> map = new HashMap<String,String>();
+				List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
+				String col=null;
+				for(int j=0;j<headers.size();j++){
+					if(headers.get(j).getText().equals("Service Level")){
+						col=cols.get(j).getText();
+						if(col.contains("."))
+							col=col;
+						else
+							col=col+".00";
+						}
+					else
+						col=cols.get(j).getText();
+					map.put(headers.get(j).getText(),col);
+				}
+				map.remove("");
+				arr.add(map);
+			}
+			if(k!=pages)
+			{
+				nextPageIcon.click();
+				waitForJqueryLoad(driver);
+			}
+			}
+				return arr;
+		}
+	 
+	 private List<Map<String, String>> getDataTableDrillGridOne() {
+		 	int item=Integer.valueOf(drillGridOneItems.getText().split("of ")[1].split(" items")[0]);
+	        int pagersize=Integer.valueOf(pagerSizeDrillGridOne.getText());
+	        int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
+		 	List<Map<String,String>> arr=new ArrayList<Map<String,String>>();
+		 	for(int k=0;k<=pages;k++){
+		 	waitUntilWebElementIsVisible(DrillGridOneTable);
+			List<WebElement> rows=DrillGridOneTable.findElements(By.tagName("tr"));
+			List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
+			for(int i=1;i<rows.size();i++) {
+				Map<String,String> map = new HashMap<String,String>();
+				List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
+				String col=null;
+				for(int j=0;j<headers.size();j++){
+					if(headers.get(j).getText().equals("Service Level")){
+						col=cols.get(j).getText();
+						if(col.contains("."))
+							col=col;
+						else
+							col=col+".00";
+						}
+					else
+						col=cols.get(j).getText();
+					map.put(headers.get(j).getText(),col);
+				}
+				map.remove("");
+				arr.add(map);
+			}
+			if(k!=pages)
+			{
+				nextPageIconDrillOne.click();
+				waitForJqueryLoad(driver);
+				waitUntilWebElementIsVisible(DrillGridOneTable);
+			}
+			}
+				CloseDrillGridOne.click();
+				return arr;
+		}
+	 	
+	 private List<Map<String, String>> getDataTableDrillGridTwo() throws InterruptedException {
+		 	int item=Integer.valueOf(drillGridTwoItems.getText().split("of ")[1].split(" items")[0]);
+		 	int pagersize=24;
+	        int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
+			List<Map<String,String>> arr=new ArrayList<Map<String,String>>();
+			for(int k=0;k<=pages;k++){
+			waitUntilWebElementIsVisible(DrillGridTwoTable);
+			List<WebElement> rows=DrillGridTwoTable.findElements(By.tagName("tr"));
+			List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
+			for(int i=1;i<rows.size();i++) {
+				Map<String,String> map = new HashMap<String,String>();
+				List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
+				String col=null;
+				for(int j=0;j<headers.size();j++){
+					if(headers.get(j).getText().equals("Service Level")){
+						col=cols.get(j).getText();
+						if(col.contains("."))
+							col=col;
+						else
+							col=col+".00";
+						}
+					else
+						col=cols.get(j).getText();
+					map.put(headers.get(j).getText(),col);
+				}
+				map.remove("");
+				arr.add(map);
+			}
+			if(k!=pages)
+			{
+				nextPageIconDrillTwo.click();
+				waitForJqueryLoad(driver);
+				waitUntilWebElementIsVisible(DrillGridTwoTable);
+			}
+			}
+				CloseDrillGridTwo.click();
+				//Thread.sleep(1000);
+				waitUntilWebElementIsVisible(DrillGridOneTable);
+				return arr;
+		}
+	 
+		public boolean verifySearchByTextbox(ReportDetails details) throws Exception{	
+		 boolean Status=false;
+		 Map<String, String> map=new HashMap<String,String>() ;
+		 selectWebElement(searchbyfeatureTextBox);    
+		 searchbyfeatureTextBox.sendKeys("CIFMurali");//given an identification value
+		 selectDropdownFromVisibleText(searchbyfeaturelistBox,details.getSearchStr());
+		 waitForJqueryLoad(driver);
+		 List<Map<String,String>> UI=getDataTable(); 
+		 for (Map<String,String> map1: UI)
+		 {   	
+				if(map1.get("Agent ID").equals(details.getSearchStr()))
+		 	Status= true;
+		 	else 
+		 		Status= false;
+		}
+		 return Status;	
+		}
+		 
+		public boolean verifySearchContains(String description) throws Exception {
+				Boolean Status=false;		
+				selectWebElement(searchBtn);
+				selectWebElement(searchColDropdown);  
+			    selectDropdownFromVisibleText(searchColListBox,"Agent ID");  
+			    waitForJqueryLoad(driver);
+			    selectWebElement(searchCriteriaDropdown);
+			    selectDropdownFromVisibleText(searchCriteriaListbox,"Contains");		   
+			    waitForJqueryLoad(driver);    
+		        enterValueToTxtField(searchTextBox,description);
+		        selectWebElement(searchSearchBtn);
+		        waitForJqueryLoad(driver);
+		        //waitUntilWebElementIsVisible(gridContent);
+		        List<Map<String,String>> UI=getDataTable(); 
+		        for (Map<String,String> map1: UI)
+		        {   	
+					if(map1.get("Agent ID").toUpperCase().contains(description.toUpperCase()))
+		        	Status= true;
+		        	else 
+		        		Status= false;
+			}
+		        return Status;
+			}
+			
+			public boolean verifySearchDoesNotContains(String description) throws Exception {
+				Boolean Status=false;
+				selectWebElement(searchBtn);
+				selectWebElement(searchColDropdown);  
+			    selectDropdownFromVisibleText(searchColListBox,"Agent ID");  
+			    waitForJqueryLoad(driver);
+			    selectWebElement(searchCriteriaDropdown);
+			    selectDropdownFromVisibleText(searchCriteriaListbox,"Does not contain");		   
+			    waitForJqueryLoad(driver);    
+		        enterValueToTxtField(searchTextBox,description);
+		        selectWebElement(searchSearchBtn);
+		        waitForJqueryLoad(driver);
+		        //waitUntilWebElementIsVisible(gridContent);
+		        List<Map<String,String>> UI=getDataTable(); 
+		        for (Map<String,String> map1: UI)
+		        {   	
+					if(!map1.get("Agent ID").toLowerCase().contains(description.toLowerCase()))
+		        	Status= true;
+		        	else 
+		        		Status= false;
+			}
+		        return Status;
+			}
+			
+			public boolean verifySearchStartsWith(String description) throws Exception {
+				Boolean Status=false;
+				selectWebElement(searchBtn);
+				selectWebElement(searchColDropdown); 
+				selectDropdownFromVisibleText(searchColListBox,"Agent ID");  
+				    waitForJqueryLoad(driver);
+				    selectWebElement(searchCriteriaDropdown);
+				    selectDropdownFromVisibleText(searchCriteriaListbox,"Starts with");		   
+				    waitForJqueryLoad(driver);    
+			        enterValueToTxtField(searchTextBox,description);        
+			        selectWebElement(searchSearchBtn);
+			        waitForJqueryLoad(driver);
+		        //waitUntilWebElementIsVisible(gridContent);
+		        List<Map<String,String>> UI=getDataTable(); 
+		        for (Map<String,String> map1: UI)
+		        {   	
+					if(map1.get("Agent ID").toLowerCase().startsWith(description.toLowerCase()))
+		        	Status= true;
+		        	else 
+		        		Status= false;
+			}
+		        return Status;
+			}
+			public boolean verifySearchEndsWith(String description) throws Exception {
+				Boolean Status=false;
+				selectWebElement(searchBtn);
+				selectWebElement(searchColDropdown); 
+				selectDropdownFromVisibleText(searchColListBox,"Agent ID");  
+			    waitForJqueryLoad(driver);
+			    selectWebElement(searchCriteriaDropdown);
+			    selectDropdownFromVisibleText(searchCriteriaListbox,"Ends with");		   
+			    waitForJqueryLoad(driver);    
+		        enterValueToTxtField(searchTextBox,description);        
+		        selectWebElement(searchSearchBtn);
+		        waitForJqueryLoad(driver);
+		        // waitUntilWebElementIsVisible(gridContent);
+		        List<Map<String,String>> UI=getDataTable(); 
+		        for (Map<String,String> map1: UI)
+		        {   	
+					if(map1.get("Agent ID").toUpperCase().endsWith(description.toUpperCase()))
+		        	Status= true;
+		        	else 
+		        		Status= false;
+			}
+		        return Status;
+			}
+			public void verifySearchClear(ReportDetails details) {
+				   selectWebElement(searchBtn);		
+				   selectWebElement(searchColDropdown);  
+				    selectDropdownFromVisibleText(searchColListBox,details.getColname());  
+				    waitForJqueryLoad(driver);
+				    selectWebElement(searchCriteriaDropdown);
+				    selectDropdownFromVisibleText(searchCriteriaListbox,details.getColtype());		   
+				    waitForJqueryLoad(driver);    
+				    selectWebElement(searchClearAllBtn);	
+				    //selectWebElement(searchCloseBtn);		
+			}
+			public boolean verifyAdvanceSearch(ReportDetails reportDetails) throws Exception {
+				Boolean Status=false;
+				List<Map<String,String>>UI=getDataTable();
+				for(Map<String,String> map1:UI)
+				{
+					System.out.println(map1.get("Agent ID"));
+					if(map1.get("Agent ID").equalsIgnoreCase(reportDetails.getSearchStr()))
+						Status= true;
+					else 
+						Status =false;
+				}
+				return Status;
+			}
+			public void searchwithoutextsearch(ReportDetails details) {
+				   selectWebElement(searchBtn);		
+				   selectWebElement(searchColDropdown);  
+				    selectDropdownFromVisibleText(searchColListBox,details.getColname());  
+				    waitForJqueryLoad(driver);
+				    selectWebElement(searchCriteriaDropdown);
+				    selectDropdownFromVisibleText(searchCriteriaListbox,details.getColtype());		   
+				    waitForJqueryLoad(driver);    
+				    selectWebElement(searchSearchBtn);	
+				    selectWebElement(searchCloseBtn);		
+			}			
+			public String getSuccessMessage() {
+				if(successmsg.isDisplayed()){
+					return successmsg.getText();}
+		        else {
+		        	return errorMsg.get(0).getText();}
+			}			
+			public boolean verifyDatabase(String query) {
+				List<Map<String,String>> database=database(query);
+				System.out.println(database);
+				List<Map<String,String>> UI=getDataTable(); 
+				System.out.println(UI);
+				if(UI.equals(database))
+					return true;
+				else
+					return false;
+			}
+			
+			public boolean groupby() {
+					DragandDrop(agentid,droptarget);
+					try {
+						Thread.sleep(1000);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+					if(groupby.getText().split(": ")[1].equals(groupbyAgentId.getText()))
+					{return true;}
+					else
+						return false;		
+				}
+			 
+			 public boolean verifyDatabase(String query,ReportDetails details) {
+					//get dates from xl - step 2
+					String reportbeforedate = details.getStartDate();
+					String reportafterdate=details.getEndDate();
+					//change date formats - step 3
+					reportbeforedate=reportbeforedate.substring(6,10)+"-"+reportbeforedate.substring(3, 5)+"-"+reportbeforedate.substring(0, 2)+" "+reportbeforedate.substring(11, 13)+":"+reportbeforedate.substring(14, 16)+":"+reportbeforedate.substring(17, 19);
+					reportafterdate=reportafterdate.substring(6,10)+"-"+reportafterdate.substring(3, 5)+"-"+reportafterdate.substring(0, 2)+" "+reportafterdate.substring(11, 13)+":"+reportafterdate.substring(14, 16)+":"+reportafterdate.substring(17, 19);
+					//Replace identifiers in query to formatted date - step 5
+					query=query.replaceAll("ReportBeforeDate",reportbeforedate );
+					query=query.replaceAll("ReportAfterDate",reportafterdate );
+					List<Map<String,String>> database=database(query);
+					//System.out.println("Printing Query" +" "+query);		
+					//System.out.println("Printing DB results" +" "+database);
+					List<Map<String,String>> UI=getDataTable(); 
+					//System.out.println("Printing UI Results"+" "+UI);	
+					if(UI.equals(database))
+						return true;
+					else
+						return false;
+				}
+			 
+			 public void sortAscSkillName() {
+				 selectWebElement(headersDropdown.get(0));
+				 waitForJqueryLoad(driver);
+				 selectWebElement(sortAscending.get(0));
+				 waitForJqueryLoad(driver);
+			 }
+	 
 }
 
 

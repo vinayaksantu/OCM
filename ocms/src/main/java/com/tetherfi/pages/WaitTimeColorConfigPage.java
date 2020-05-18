@@ -83,6 +83,9 @@ public class WaitTimeColorConfigPage extends BasePage {
 	@FindBy(xpath="//div[@class='ibox float-e-margins fullscreen'")
 	private WebElement fullscreen;
 
+	 @FindBy(id="footer")
+	 private WebElement FooterButton;
+	
 	@FindBy(xpath="//i[@class='fas fa-compress']")
 	private WebElement minimize;
 
@@ -199,9 +202,13 @@ public class WaitTimeColorConfigPage extends BasePage {
     
     @FindBy(css=".k-pager-numbers .k-state-selected")
     private WebElement pageNumber;
-    @FindBy(css="a[aria-label='Go to the next page']")
-    private WebElement nextPageIcon;
     
+    @FindBy(css="a[aria-label='Go to the next page']")
+    private WebElement nextPageIcon1;
+    
+    @FindBy(xpath="//a[@title='Go to the next page']")
+    private WebElement nextPageIcon;
+     
     @FindBy(css="a[aria-label='Go to the last page']")
     private WebElement lastPageIcon;
     
@@ -280,7 +287,6 @@ public class WaitTimeColorConfigPage extends BasePage {
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is not equal to");
         enterValueToTxtField(searchTextBox,colorcode);		
         selectWebElement(searchSearchBtn);
-        Thread.sleep(1000);
         waitUntilWebElementIsVisible(gridContent);
         List<Map<String,String>> UI=gettable(); 
         for (Map<String,String> map1: UI)
@@ -304,7 +310,6 @@ public class WaitTimeColorConfigPage extends BasePage {
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Contains");
         enterValueToTxtField(searchTextBox,colorcode);		
         selectWebElement(searchSearchBtn);
-        Thread.sleep(1000);
         waitUntilWebElementIsVisible(gridContent);
         List<Map<String,String>> UI=gettable(); 
         for (Map<String,String> map1: UI)
@@ -326,7 +331,6 @@ public class WaitTimeColorConfigPage extends BasePage {
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Does not contain");
         enterValueToTxtField(searchTextBox,colorcode);		
         selectWebElement(searchSearchBtn);
-        Thread.sleep(1000);
         waitUntilWebElementIsVisible(gridContent);
         List<Map<String,String>> UI=gettable(); 
         for (Map<String,String> map1: UI)
@@ -349,7 +353,7 @@ public class WaitTimeColorConfigPage extends BasePage {
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Starts with");
         enterValueToTxtField(searchTextBox,colorcode);		
         selectWebElement(searchSearchBtn);
-        Thread.sleep(1000);
+
         waitUntilWebElementIsVisible(gridContent);
         List<Map<String,String>> UI=gettable(); 
         for (Map<String,String> map1: UI)
@@ -372,7 +376,6 @@ public class WaitTimeColorConfigPage extends BasePage {
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Ends with");
         enterValueToTxtField(searchTextBox,colorcode);		
         selectWebElement(searchSearchBtn);
-        Thread.sleep(1000);
         waitUntilWebElementIsVisible(gridContent);
         List<Map<String,String>> UI=gettable(); 
         for (Map<String,String> map1: UI)
@@ -801,7 +804,8 @@ public class WaitTimeColorConfigPage extends BasePage {
         String item = items.getText();
         return item.matches("(\\d.*) - (\\d.*) of (\\d.*) items");
     }
-	public void addRecordWithoutStartTime(WaitTimeColorConfigDetails details) throws Exception {
+	
+    public void addRecordWithoutStartTime(WaitTimeColorConfigDetails details) throws Exception {
 		selectWebElement(addNewWaitTimeColorConfigRecordBtn);
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(popupContent);
@@ -814,6 +818,7 @@ public class WaitTimeColorConfigPage extends BasePage {
         selectWebElement(saveBtn);
         selectWebElement(cancelBtn);
 	}
+	
 	public boolean verifymessage() {
 		waitUntilWebElementListIsVisible(errorMsg);									 
 		if(errorMsg.size()>0)
@@ -821,6 +826,7 @@ public class WaitTimeColorConfigPage extends BasePage {
 		else 
 			return true;
 	}
+	
 	public void addRecordWithoutEndTime(WaitTimeColorConfigDetails details) throws Exception {
 		selectWebElement(addNewWaitTimeColorConfigRecordBtn);
         waitForJqueryLoad(driver);
@@ -834,6 +840,7 @@ public class WaitTimeColorConfigPage extends BasePage {
         selectWebElement(saveBtn);
         selectWebElement(cancelBtn);	
 	}
+	
 	public boolean verifyDropDownOfAllHeaders() {
         boolean status = false;
         try {for (WebElement ele : headersDropdown) {
@@ -998,5 +1005,18 @@ public class WaitTimeColorConfigPage extends BasePage {
 			return successmsg.getText();}
         else {
          return errorMsg.get(0).getText();}
-	}	
+	}
+	
+	public boolean VerifyFooterInfo() {
+		selectWebElement(FooterButton);
+		waitForJqueryLoad(driver);
+		if(FooterButton.isDisplayed())
+		{
+			return true;
+		}
+		else 
+			return false; 
+	}
+	
+		
 }

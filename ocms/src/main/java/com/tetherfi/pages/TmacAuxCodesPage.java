@@ -342,6 +342,7 @@ public class TmacAuxCodesPage extends BasePage {
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Name");
         selectWebElement(selectSearchCol.get(1));
+        Thread.sleep(4000);
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Contains");
         enterValueToTxtField(searchTextBox,name);
         selectWebElement(searchSearchBtn);

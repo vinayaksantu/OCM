@@ -35,7 +35,7 @@ public class SkillConfigurationTest extends BaseTest{
          Assert.assertTrue(skillConfigurationPage.isSkillConfigurationPageDisplayed(),"Skill Configuration assertion failed");
     }     
      
-    @Test(priority=1)
+    /*@Test(priority=1)
     public void SkillConfigurationPage() {
         SkillConfigurationPage skillConfigurationPage=PageFactory.createPageInstance(driver,SkillConfigurationPage.class);
     	Assert.assertTrue(skillConfigurationPage.verifylogo(),"Skill Configuration logo assertion failed");
@@ -61,7 +61,7 @@ public class SkillConfigurationTest extends BaseTest{
     public void VerifyColumnsHeaderDisable() {
     	SkillConfigurationPage skillConfigurationPage=PageFactory.createPageInstance(driver,SkillConfigurationPage.class);
         Assert.assertFalse(skillConfigurationPage.verifycolumnsHeaderDisabled(),"columns disabled assertion failed");
-    }
+    }*/
     
     @Test(priority=5)
     public void AddSkillConfigurationRecord() throws Exception {
@@ -75,7 +75,7 @@ public class SkillConfigurationTest extends BaseTest{
         Assert.assertEquals(skillConfigurationPage.getMessage(),"Record Created Successfully","Add New record assertion failed");
     }
     
-   @Test(priority=6)
+   /*@Test(priority=6)
     public void VerifyAuditTrialReportForCreate() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillConfigurationData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);
@@ -174,8 +174,6 @@ public class SkillConfigurationTest extends BaseTest{
     	Assert.assertTrue(skillConfigurationPage.verifySearchIsNotEqualTo(skillConfigurationDetails.getSkillName()));
     }
     
-   
-    
     @Test(priority=15)
     public void VerifySearchContains() throws Exception {
    	 	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillConfigurationData.xlsx";
@@ -220,7 +218,7 @@ public class SkillConfigurationTest extends BaseTest{
         SkillConfigurationDetails skillConfigurationDetails = new SkillConfigurationDetails(map);
     	SkillConfigurationPage skillConfigurationPage=PageFactory.createPageInstance(driver,SkillConfigurationPage.class);
         Assert.assertTrue(skillConfigurationPage.editcancel(skillConfigurationDetails));
-    }
+    }*/
     
     @Test(priority=20)
     public void EditSkillConfigurationRecord() throws Exception {
@@ -232,7 +230,7 @@ public class SkillConfigurationTest extends BaseTest{
         Assert.assertEquals(skillConfigurationPage.getMessage(),"Record Updated Successfully","Edit record assertion failed");
     }
     
-   	@Test(priority=21)
+   	/*@Test(priority=21)
     public void VerifyAuditTrialReportForUpdate() throws Exception {
    	 	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillConfigurationData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(1);
@@ -301,7 +299,7 @@ public class SkillConfigurationTest extends BaseTest{
      	 SkillConfigurationPage skillConfigurationPage=PageFactory.createPageInstance(driver,SkillConfigurationPage.class);
          Assert.assertTrue(skillConfigurationPage.verifydeleteNo(skillConfigurationDetails));
          screenshot.captureScreen(driver, "Delete No","SkillConfigurationTest");
-    }
+    }*/
     
     
     @Test(priority=27)
@@ -314,7 +312,7 @@ public class SkillConfigurationTest extends BaseTest{
      	 Assert.assertEquals(skillConfigurationPage.getMessage(),"Record Deleted Successfully","Delete record assertion failed");
          screenshot.captureScreen(driver, "Deleted Successfully","SkillConfigurationTest");  
     }
-    
+
     @Test(priority=28)
     public void VerifyAuditTrialReportForDelete() throws Exception {
  	 	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillConfigurationData.xlsx";
@@ -378,6 +376,7 @@ public class SkillConfigurationTest extends BaseTest{
         List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
         Assert.assertTrue(skillConfigurationPage.verifyexportToExcelSheet(maplist));
     }
+    
     @Test(priority=33)
     public void SortingByDescending() throws IOException {
     	SkillConfigurationPage skillConfigurationPage=PageFactory.createPageInstance(driver,SkillConfigurationPage.class);

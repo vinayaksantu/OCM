@@ -165,16 +165,19 @@ public class IvrPage extends BasePage {
 		waitUntilWebElementIsClickable(vipListManagement);
 		selectWebElement(vipListManagement);		
 	}
+	
 	public void navigateToVbEnrollmentFlagPage() {
 		scrollToElement(vbEnrollmentFlag);
 		waitUntilWebElementIsClickable(vbEnrollmentFlag);
 		selectWebElement(vbEnrollmentFlag);			
 	}
+	
 	public void navigateToProductPromotionsPage() {
 		waitUntilWebElementIsClickable(productPromotions);
 		selectWebElement(productPromotions);			
 	}
 	public void navigateToIntentMappingPage() {
+//		scrollToElement(intentMapping);
 		waitUntilWebElementIsClickable(intentMapping);
 		selectWebElement(intentMapping);		
 	}

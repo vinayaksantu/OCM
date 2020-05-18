@@ -34,20 +34,10 @@ public class FaxAddressBookPage extends BasePage {
 
 	@FindBy(css="#create")
 	private WebElement addNewFaxAddressRecordBtn;
-<<<<<<< HEAD
 	
-=======
-
-	//@FindBy(id="FirstName")
->>>>>>> refs/remotes/origin/PalakMay18th
 	@FindBy(id="Name1")
 	private WebElement firstNameTxtbox;
-<<<<<<< HEAD
-	
-=======
 
-	//@FindBy(id="LastName")
->>>>>>> refs/remotes/origin/PalakMay18th
 	@FindBy(id="Name2")
 	private WebElement lastNameTxtbox;
 

@@ -1,25 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Failed suite [Failed suite [Failed suite [Tetherfi Test Automation]]]]" guice-stage="DEVELOPMENT">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Failed suite [Failed suite [Failed suite [Tetherfi Test Automation]]]]">
   <listeners>
     <listener class-name="com.tetherfi.ExtentReportListener.ExtentReporterNG"/>
   </listeners>
+<<<<<<< HEAD
   <test thread-count="5" name="FaxTemplateCreateTest(failed)(failed)(failed)(failed)">
+=======
+  <test thread-count="5" name="SMSResponseTemplateWMC(failed)(failed)(failed)(failed)">
+>>>>>>> refs/remotes/origin/PalakReports
     <classes>
+<<<<<<< HEAD
       <class name="com.tetherfi.test.fax.FaxTemplateCreateTest">
+=======
+      <class name="com.tetherfi.test.tmac.WaitTimeColorConfigTest">
+>>>>>>> refs/remotes/origin/PalakReports
         <methods>
+<<<<<<< HEAD
           <include name="VerifyAuditTrailReportForApprove"/>
           <include name="NavigateToFaxTemplatePage"/>
           <include name="VerifyAuditTrailReportForApproveRecord"/>
           <include name="ApproveForAddNewFaxTemplateRecord"/>
           <include name="VerifyAuditTrailReportForSendForApproval"/>
+=======
+          <include name="SortingByAscending"/>
+          <include name="NavigateToWaitTimeColorConfigPage"/>
+          <include name="endTestCase"/>
+          <include name="tearDown"/>
+          <include name="VerifySearchContains"/>
+          <include name="VerifySearchStartsWith"/>
+          <include name="VerifySearchIsNotEqualTo"/>
+          <include name="startTestCase"/>
+>>>>>>> refs/remotes/origin/PalakReports
           <include name="afterEachMethod"/>
+<<<<<<< HEAD
           <include name="VerifyApprovedDataSectionAfterApproval"/>
           <include name="VerifySendForApprovalAddNewApproveRecord"/>
           <include name="addDuplicateRecord"/>
           <include name="VerifyAuditTrailDataForApproveRecord"/>
+=======
+          <include name="openApplication"/>
+          <include name="EditWaitTimeColorConfigCancelRecord"/>
+          <include name="database"/>
+          <include name="VerifySearchDoesNotContains"/>
+          <include name="VerifySearchEndsWith"/>
+          <include name="SortingByDescending"/>
+>>>>>>> refs/remotes/origin/PalakReports
         </methods>
+<<<<<<< HEAD
       </class> <!-- com.tetherfi.test.fax.FaxTemplateCreateTest -->
+=======
+      </class> <!-- com.tetherfi.test.tmac.WaitTimeColorConfigTest -->
+>>>>>>> refs/remotes/origin/PalakReports
     </classes>
+<<<<<<< HEAD
   </test> <!-- FaxTemplateCreateTest(failed)(failed)(failed)(failed) -->
+=======
+  </test> <!-- SMSResponseTemplateWMC(failed)(failed)(failed)(failed) -->
+>>>>>>> refs/remotes/origin/PalakReports
 </suite> <!-- Failed suite [Failed suite [Failed suite [Failed suite [Tetherfi Test Automation]]]] -->

@@ -205,7 +205,6 @@ public class IVRCallTraceReportTest extends BaseTest {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
-
         OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
         ocmReportsPage.showReport(reportDetails);
         Assert.assertTrue(ocmReportsPage.verifyDateRangeReportDisplayed(reportDetails),"Show report assertion failed");
@@ -216,7 +215,6 @@ public class IVRCallTraceReportTest extends BaseTest {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
-
         OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
         ocmReportsPage.showReport(reportDetails);
         Assert.assertTrue(ocmReportsPage.verifyDateRangeReportDisplayed(reportDetails),"Show report assertion failed");

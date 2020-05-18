@@ -24,12 +24,13 @@ public class OCMChatAgentPerformanceReportTest extends BaseTest {
     @BeforeMethod
     public void NavigateToOcmReportsPage() {
         HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
-        homePage.navigateToOcmIconImg();
+        homePage.navigateToOCMIconImg();
         homePage.navigateToOCMReportsPage();
         OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
         Assert.assertTrue(ocmReportsPage.isOCMReportPageIsDisplayed());
     }  
-    @Test(priority=1)
+    
+    /*@Test(priority=1)
     public void ShowOCMChatAgentPerformanceReport() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMChatAgentPerformanceReport.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
@@ -75,7 +76,7 @@ public class OCMChatAgentPerformanceReportTest extends BaseTest {
         Map<String, String> map = new ExcelReader(filePath,"ExportReport").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
         OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
-        ocmReportsPage.viewDownloadedReportInReportsDownloadsPage();
+        ocmReportsPage.viewDownloadedReportInReportDownloadsPage();
         Assert.assertTrue(ocmReportsPage.verifyDownloadedReportNameAndTimeInReportsDownloadPage(reportDetails.getReportName()),"Report not found in Reporter download page");
     }
        
@@ -115,7 +116,7 @@ public class OCMChatAgentPerformanceReportTest extends BaseTest {
         Map<String, String> map = new ExcelReader(filePath,"ExportReportDateRange").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
         OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
-        ocmReportsPage.viewDownloadedReportInReportsDownloadsPage();
+        ocmReportsPage.viewDownloadedReportInReportDownloadsPage();
         Assert.assertTrue(ocmReportsPage.verifyDownloadedReportNameAndTimeInReportsDownloadPage(reportDetails.getReportName()),"Report not found in Reporter download page");
     } 
     @Test(priority=10)
@@ -133,7 +134,7 @@ public class OCMChatAgentPerformanceReportTest extends BaseTest {
         Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
     	OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
-        ocmReportsPage.ClearHomepgDrpDown(reportDetails);
+        ocmReportsPage.clearAllFilters(reportDetails);
     }      
     @Test(priority=12)
 	public void OCMWindow() throws Exception {
@@ -417,19 +418,40 @@ public class OCMChatAgentPerformanceReportTest extends BaseTest {
   	  screenshot.captureScreen("OCMChtAgntPfmReport", "GroupBy");
   	  Assert.assertTrue(agntPfmPage.groupby());
       screenshot.captureScreen("OCMChtAgntPfmReport", "AlreadyGroupBy");
-    }
+    }*/
     
-    @Test(priority=38)
+    @Test(priority=38, description="To verify main page details of report")
     public void database() throws Exception {
-   		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMChatAgentPerformanceReport.xlsx";
+   		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMChatAgentPerformanceReportData.xlsx";
    		Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(0);
    		ReportDetails reportDetails= new ReportDetails(map);
-   		OCMChatAgentPerformanceReportPage agntPfmPage=PageFactory.createPageInstance(driver,OCMChatAgentPerformanceReportPage.class);
-   		Assert.assertTrue(agntPfmPage.verifyDatabase(reportDetails.getQuery()));
-   }*/
-      
+		OCMReportsPage ocmReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
+		ocmReportsPage.showReport(reportDetails);
+   		OCMChatAgentPerformanceReportPage ChatAgentPerformanceReport=PageFactory.createPageInstance(driver,OCMChatAgentPerformanceReportPage.class);
+   		Assert.assertTrue(ChatAgentPerformanceReport.verifyDatabase(reportDetails.getQuery(),reportDetails));
+   }
+       
+    /*@Test(priority=39, description="To verify number of chats transferred in drill down report")
+    public void VerifyDrillDownData() throws Exception {
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMChatAgentPerformanceReport.xlsx";
+    	Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(0);
+    	ReportDetails reportDetails= new ReportDetails(map);
+    	OCMReportsPage ocmReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
+    	ocmReportsPage.showReport(reportDetails);
+    	OCMChatAgentPerformanceReportPage ChatAgentPerformanceReport=PageFactory.createPageInstance(driver,OCMChatAgentPerformanceReportPage.class);    	
+    	ChatAgentPerformanceReport.SearchByAgent("9999");
+    	Assert.assertTrue(ChatAgentPerformanceReport.verifyDrillDownData(reportDetails.getQuery(), reportDetails));
+    }*/
+
+    
+    
+    
     @AfterMethod
-    public void afterEachMethod(Method method) {
-    	screenshot.captureScreen(driver, "", method.getName());
-    }
+	public void afterEachMethod(Method method) throws InterruptedException {
+		Screenshot screenshot=new Screenshot(driver);
+		screenshot.captureScreen("OCMChatAgentPerformanceReportTest",method.getName());
+		driver.navigate().refresh();
+	}
+    
+    
 }

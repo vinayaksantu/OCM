@@ -26,16 +26,17 @@ public class ChatAgentPerformanceReportTest extends BaseTest{
         OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
         Assert.assertTrue(ocmReportsPage.isOCMReportPageIsDisplayed());
     }
+    
     @Test
     public void ShowChatAgentPerformanceReport() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatAgentPerformanceReportData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
-
         OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
         ocmReportsPage.showReport(reportDetails);
         Assert.assertTrue(ocmReportsPage.verifyReportDisplayed(reportDetails),"Show report assertion failed");
     }
+    
     @Test(dependsOnMethods ="ShowChatAgentPerformanceReport")
     public void ShowChatAgentPerformanceReportInNewTab() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatAgentPerformanceReportData.xlsx";
@@ -78,16 +79,17 @@ public class ChatAgentPerformanceReportTest extends BaseTest{
         Assert.assertTrue(ocmReportsPage.verifyDownloadedReportNameInNotificationPan(reportDetails.getReportName()),"Reporter name not found in notification tab");
         Assert.assertTrue(ocmReportsPage.verifyDownloadedReportGeneratedTime(),"Reporter date not found in notification tab");
     }
+    
     @Test(dependsOnMethods ="ExportChatAgentPerformanceReport")
     public void ViewDownloadedChatAgentPerformanceReportInReportsDownloadPage() throws IOException {
-        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatAgentPerformanceReportData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath,"ExportReport").getTestData().get(0);
-        ReportDetails reportDetails= new ReportDetails(map);
-
-        OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
-        ocmReportsPage.viewDownloadedReportInReportsDownloadsPage();
-        Assert.assertTrue(ocmReportsPage.verifyDownloadedReportNameAndTimeInReportsDownloadPage(reportDetails.getReportName()),"Report not found in Reporter download page");
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatAgentPerformanceReportData.xlsx";
+    	Map<String, String> map = new ExcelReader(filePath,"ExportReport").getTestData().get(0);
+    	ReportDetails reportDetails= new ReportDetails(map);
+    	OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
+    	ocmReportsPage.viewDownloadedReportInReportsDownloadsPage();
+    	Assert.assertTrue(ocmReportsPage.verifyDownloadedReportNameAndTimeInReportsDownloadPage(reportDetails.getReportName()),"Report not found in Reporter download page");
     }
+    
     @Test
     public void ShowChatAgentPerformanceReportForDateRange() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatAgentPerformanceReportData.xlsx";
@@ -178,50 +180,51 @@ public class ChatAgentPerformanceReportTest extends BaseTest{
         ocmReportsPage.scheduledReports();
         Assert.assertTrue(ocmReportsPage.verifyScheduleReport(),"Scheduled report at reports page assertion failed");
     }
+    
     @Test(dependsOnMethods ="ShowChatAgentPerformanceReport")
     public void VerifySortingForChatAgentPerformanceReport() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatAgentPerformanceReportData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
-
         OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
         ocmReportsPage.showReport(reportDetails);
         Assert.assertTrue(ocmReportsPage.verifyDateRangeReportDisplayed(reportDetails),"Show report assertion failed");
         Assert.assertTrue(ocmReportsPage.verifySorting());
     }
+    
     @Test(dependsOnMethods ="ShowChatAgentPerformanceReport")
     public void VerifySearchByFeatureForChatAgentPerformanceReport() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatAgentPerformanceReportData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
-
         OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
         ocmReportsPage.showReport(reportDetails);
         Assert.assertTrue(ocmReportsPage.verifyDateRangeReportDisplayed(reportDetails),"Show report assertion failed");
         Assert.assertTrue(ocmReportsPage.verifySearchByTextbox());
     }
+    
     @Test(dependsOnMethods ="ShowChatAgentPerformanceReportForDateRange")
     public void VerifySearchFeatureForChatAgentPerformanceReport() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatAgentPerformanceReportData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
-
         OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
         ocmReportsPage.showReport(reportDetails);
         Assert.assertTrue(ocmReportsPage.verifyDateRangeReportDisplayed(reportDetails),"Show report assertion failed");
         Assert.assertTrue(ocmReportsPage.verifySearchByColumnValue());
     }
+    
     @Test(dependsOnMethods ="ShowChatAgentPerformanceReportForDateRange")
     public void VerifySearchContainsForChatAgentPerformanceReport() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatAgentPerformanceReportData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
         ReportDetails reportDetails= new ReportDetails(map);
-
         OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
         ocmReportsPage.showReport(reportDetails);
         Assert.assertTrue(ocmReportsPage.verifyDateRangeReportDisplayed(reportDetails),"Show report assertion failed");
         Assert.assertTrue(ocmReportsPage.verifySearchContainsColumnValue());
     }
+    
     @AfterMethod
     public void afterEachMethod(Method method) {
     	screenshot.captureScreen(driver, "", method.getName());

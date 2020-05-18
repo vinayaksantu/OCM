@@ -91,7 +91,7 @@ public class ChatTemplatesTest {
 	    driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
       }
     
-    @Test(priority=1,groups= {"OCM"})
+    /*@Test(priority=1,groups= {"OCM"})
 	public void ChatTemplatePage() {
         ChatTemplatesPage ChatTemplatePage = PageFactory.createPageInstance(driver, ChatTemplatesPage.class);
         Assert.assertTrue(ChatTemplatePage.VerifyLogo(),"Logo assertion failed");
@@ -165,7 +165,7 @@ public class ChatTemplatesTest {
     public void VerifyMainsColumnsHeaderDisable() throws Exception {
     	 ChatTemplatesPage chatTemplatesPage = PageFactory.createPageInstance(driver, ChatTemplatesPage.class);
          Assert.assertFalse(chatTemplatesPage.verifycolumnsHeaderDisabled(),"columns disabled assertion failed");
-    }
+    }*/
     
     @Test(priority=11,groups= {"OCM"})
     public void AddNewDepartmentRecord() throws Exception {
@@ -179,7 +179,7 @@ public class ChatTemplatesTest {
         Assert.assertTrue(chatTemplatesPage.verifyNewRecordCreated(),"Add New record assertion failed");
     }
     
-    @Test(priority=12,groups= {"OCM"})//,dependsOnMethods = "AddNewDepartmentRecord")
+    /*@Test(priority=12,groups= {"OCM"})//,dependsOnMethods = "AddNewDepartmentRecord")
     public void AddDuplicateDepartmentRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"CreateDepartment").getTestData().get(0);
@@ -255,7 +255,7 @@ public class ChatTemplatesTest {
         ChatTemplatesPage.clickOnAddDepartmentRecord();
         ChatTemplatesPage.clickOnCancelBtn();
         Assert.assertFalse(ChatTemplatesPage.verifyEditFormContainer(), "Cancel Btn at Add record assertion failed");
-	}
+	}*/
     
     @Test(priority=19,groups= {"OCM"})//,dependsOnMethods = "AddNewDepartmentRecord")
     public void AddNewGroupsRecord() throws Exception {
@@ -269,7 +269,7 @@ public class ChatTemplatesTest {
         Assert.assertTrue(chatTemplatesPage.verifyNewRecordCreated(),"Add New record assertion failed");
     }
     
-    @Test(priority=20,groups= {"OCM"})//,dependsOnMethods = "AddNewGroupsRecord")
+    /*@Test(priority=20,groups= {"OCM"})//,dependsOnMethods = "AddNewGroupsRecord")
     public void AddDuplicateGroupsRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"CreateGroup").getTestData().get(0);
@@ -345,7 +345,7 @@ public class ChatTemplatesTest {
         ChatTemplatesPage.clickOnAddGroupRecord();
         ChatTemplatesPage.clickOnCancelBtn();
         Assert.assertFalse(ChatTemplatesPage.verifyEditFormContainer(), "Cancel Btn at Add record assertion failed");
-	}
+	}*/
     
     @Test(priority=27,groups= {"OCM"})//,dependsOnMethods = "AddNewGroupsRecord")
     public void AddNewChatTemplatesRecord() throws Exception {
@@ -357,7 +357,7 @@ public class ChatTemplatesTest {
         Assert.assertTrue(chatTemplatesPage.verifyNewRecordCreated(),"Add New record assertion failed");
     }
     
-    @Test(priority=28,groups= {"OCM"})//,dependsOnMethods = "AddNewChatTemplatesRecord")
+    /*@Test(priority=28,groups= {"OCM"})//,dependsOnMethods = "AddNewChatTemplatesRecord")
     public void AddDuplicateChatTemplatesRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -726,7 +726,7 @@ public class ChatTemplatesTest {
         tmacPopupPage.clickOnChatTemplate();
         Assert.assertTrue(tmacPopupPage.ChatTemplate(ChatTemplatesDetails));
         tmacPopupPage.disconnectchat();
-	}
+	}*/
 	
     
     @Test(priority=70,groups= {"OCM"})//,dependsOnMethods = "AddNewChatTemplatesRecord")
@@ -739,7 +739,7 @@ public class ChatTemplatesTest {
         Assert.assertTrue(chatTemplatesPage.verifyRecordUpdated(),"Edit record assertion failed");
     }
     
-    @Test(priority=71,groups= {"OCM"},dependsOnMethods="EditChatTemplatesRecord")
+    /*@Test(priority=71,groups= {"OCM"},dependsOnMethods="EditChatTemplatesRecord")
     public void VerifyAuditTrialReportForUpdate() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
@@ -772,7 +772,7 @@ public class ChatTemplatesTest {
         chatTemplatePage .clickOnEditButton();
         chatTemplatePage .clickOnCancelBtn();
         Assert.assertFalse(chatTemplatePage .verifyEditFormContainer(), "Cancel Btn at Edit record assertion failed");
-    }
+    }*/
     
     @Test(priority=74,groups= {"OCM"})//,dependsOnMethods = "AddNewChatTemplatesRecord")
     public void EditGroupRecord() throws Exception {
@@ -786,7 +786,7 @@ public class ChatTemplatesTest {
         Assert.assertTrue(chatTemplatesPage.verifyRecordUpdated(),"Edit record assertion failed");
     }
     
-    @Test(priority=75,groups= {"OCM"})//,dependsOnMethods="EditGroupRecord")
+    /*@Test(priority=75,groups= {"OCM"})//,dependsOnMethods="EditGroupRecord")
     public void VerifyAuditTrialReportForGroupUpdate() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"EditGroup").getTestData().get(0);
@@ -831,7 +831,7 @@ public class ChatTemplatesTest {
          ChatTemplatesPage chatTemplatesPage = PageFactory.createPageInstance(driver,ChatTemplatesPage.class);
          chatTemplatesPage.clickOnAddRecord();
          Assert.assertFalse(chatTemplatesPage.VerifyGroupDropdown(chatTemplateDetails));
-     }
+     }*/
     
     @Test(priority=80,groups= {"OCM"})
     public void EditDepartmentRecord() throws Exception {
@@ -845,7 +845,7 @@ public class ChatTemplatesTest {
         Assert.assertTrue(chatTemplatesPage.verifyRecordUpdated(),"Edit record assertion failed");
     }
     
-    @Test(priority=81,groups= {"OCM"})//,dependsOnMethods="EditDepartmentRecord")
+    /*@Test(priority=81,groups= {"OCM"})//,dependsOnMethods="EditDepartmentRecord")
     public void VerifyAuditTrialReportForDepartmentUpdate() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"EditDepartment").getTestData().get(0);
@@ -978,7 +978,8 @@ public class ChatTemplatesTest {
         chatTemplatesPage.clickOnDeleteButton();
         chatTemplatesPage.clickOnDeleteCancelBtn();
         Assert.assertFalse(chatTemplatesPage.verifyDeleteContainer(), "Cancel Btn at Delete record assertion failed");
-    }
+    }*/
+    
     @Test(priority=94,groups= {"OCM"})//dependsOnMethods = "EditChatTemplatesRecord")
     public void DeleteChatTemplatesRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
@@ -989,7 +990,7 @@ public class ChatTemplatesTest {
         Assert.assertTrue(chatTemplatesPage.verifyRecordDeleted(),"Delete record assertion failed");
     }
     
-    @Test(priority=95,groups= {"OCM"})//,dependsOnMethods= {"DeleteChatTemplatesRecord"})
+    /*@Test(priority=95,groups= {"OCM"})//,dependsOnMethods= {"DeleteChatTemplatesRecord"})
     public void VerifyAuditTrialReportForDelete() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
@@ -1195,7 +1196,7 @@ public class ChatTemplatesTest {
        ChatTemplateDetails chatTemplateDetails= new ChatTemplateDetails(map);
        ChatTemplatesPage chatTemplatesPage = PageFactory.createPageInstance(driver,ChatTemplatesPage.class);
        Assert.assertTrue(chatTemplatesPage.verifyDatabase(chatTemplateDetails.getQuery()));
-   }
+   }*/
 
    
     @AfterMethod

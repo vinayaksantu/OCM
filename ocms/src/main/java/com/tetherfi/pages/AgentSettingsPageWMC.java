@@ -111,13 +111,56 @@ public class AgentSettingsPageWMC extends BasePage{
     @FindBy(css="span[aria-owns='CrmName_listbox']")
     private WebElement crmnameDropdown;
 
-    @FindBy(css="ul[id='CrmName_listbox'] li")
-    private List<WebElement> crmnameListBox;
 
+    /*private List<Map<String, String>> getAllDatafromTable(int uitable){
+        int items=Integer.valueOf(pagerInfo.get(uitable).getText().split("of ")[1].split(" items")[0]);
+        int pagersize=Integer.valueOf(pagerSize.get(uitable).getText());
+        int pages=(items%pagersize==0)?items/pagersize-1:items/pagersize;
+        List<Map<String, String>> maplist = new ArrayList<Map<String, String>>();
+        for(int i=0;i<=pages;i++){
+            List<WebElement> rows=gridContent1.findElements(By.tagName("tr"));
+            waitForWebElementIgnoringStaleException(rows.get(0));
+            List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
+            for(int j=1;j<=rows.size()-1;j++){
+                List<WebElement> cols=rows.get(j).findElements(By.tagName("td"));
+                Map<String,String> map=new HashMap<>();
+                for(int k=0; k<cols.size();k++){
+				for(int z=0;z<3;z++){
+                        try{map.put(headers.get(k).getText(),cols.get(k).getText());break;}catch (Exception e){e.printStackTrace();}
+                    }
+                }
+                maplist.add(map);
+            }
+            if(i<pages){nextPageIcon.get(uitable).click();
+            waitForJqueryLoad(driver);}
+        }
+        return maplist;
+    }*/
+    
+    /*public boolean verifySearcedContentsDisplayed(String val){
+    boolean status=false;
+    List<Map<String, String>> record=getAllDatafromTable(2);
+    for(Map<String, String> map:record){
+    for(String e:map.keySet()){
+        if(e.equals("Lan ID")&&map.get(e).equals(val)){status=true;break;}
+    }if(!status){break;}}
+    return status;
+    }*/
+    
+
+    /*@FindBy(css="ul[id='CrmName_listbox'] li")
+    private List<WebElement> crmnameListBox;*/
+
+    @FindBy(css="ul#CrmName_listbox>li:nth-of-type(2)")
+    private List<WebElement> crmnameListBox;
+    
     @FindBy(css="span[aria-owns='TextChatGreetingTemplateID_listbox']")
     private WebElement texttemplatenameDropdown;
 
-    @FindBy(css="ul[id='TextChatGreetingTemplateID_listbox'] li")
+    /*@FindBy(css="ul[id='TextChatGreetingTemplateID_listbox'] li")
+    private List<WebElement> texttemplatenameListBox;*/
+    
+    @FindBy(css="ul#TextChatGreetingTemplateID_listbox>li:nth-of-type(2)")
     private List<WebElement> texttemplatenameListBox;
 
     @FindBy(css="input[title='Total Audio Chat Tabs Allowed']")
@@ -245,6 +288,9 @@ public class AgentSettingsPageWMC extends BasePage{
     
     @FindBy(xpath="//i[@class='fas fa-expand']")
     private WebElement maximize;
+    
+    @FindBy(id="footer")
+    private WebElement FooterButton;
     
     @FindBy(xpath="//i[@class='fas fa-compress']")
     private WebElement minimize;
@@ -596,10 +642,10 @@ public class AgentSettingsPageWMC extends BasePage{
         selectProfile(details.getProfile(),details.getSupervisor());
         selectWebElement(accessroleDropdown);
         selectDropdownFromVisibleText(accessroleListBox,details.getAccessRole());
-       // selectWebElement(crmnameDropdown);
-        //selectDropdownFromVisibleText(crmnameListBox,details.getCrmName());
-//        selectWebElement(texttemplatenameDropdown);
-//        selectDropdownFromVisibleText(texttemplatenameListBox,details.getTextTemplateName());
+        selectWebElement(crmnameDropdown);
+        selectDropdownFromVisibleText(crmnameListBox,details.getCrmName());
+        selectWebElement(texttemplatenameDropdown);
+        selectDropdownFromVisibleText(texttemplatenameListBox,details.getTextTemplateName());
         navigateToTab("Channel Count & Features");
         selectFeaturesToBeSelected(details.getFeaturestobeSeleted());
         selectWebElement(numericTextbox.get(1));
@@ -719,14 +765,14 @@ public class AgentSettingsPageWMC extends BasePage{
     
     public void DeleteAgentSettingsRecord(AgentSettingsDetails details) throws Exception {
         searchAgentSettingsRecord(details.getUsername());
+        Thread.sleep(8000);
+        selectWebElement(deleteBtn);
         Thread.sleep(2000);
-        btnClick(deleteBtn);
         selectWebElement(deleteReasonTextBox);
         enterValueToTxtFieldWithoutClear(deleteReasonTextBox,details.getDeleteReason());
         selectWebElement(yesBtn);
         }
     
-
     public void deleteSupervisorRecordWhenAssignedToAgent(String username) throws Exception {
         selectWebElement(agentSettingsTabs.get(1));
         selectWebElement(makeAgentSettingsChanges);
@@ -1533,6 +1579,17 @@ return status;
 		selectWebElement(minimize);
 		waitForJqueryLoad(driver);
 		if(header.isDisplayed())
+		{
+			return true;
+		}
+		else 
+			return false; 
+	}
+	
+	public boolean VerifyFooterInfo() {
+		selectWebElement(FooterButton);
+		waitForJqueryLoad(driver);
+		if(FooterButton.isDisplayed())
 		{
 			return true;
 		}

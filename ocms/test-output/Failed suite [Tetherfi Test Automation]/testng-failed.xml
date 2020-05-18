@@ -1,23 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Failed suite [Tetherfi Test Automation]]" guice-stage="DEVELOPMENT">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Failed suite [Tetherfi Test Automation]]">
   <listeners>
     <listener class-name="com.tetherfi.ExtentReportListener.ExtentReporterNG"/>
   </listeners>
+<<<<<<< HEAD
   <test thread-count="5" name="SmsResponseTemplateDeleteTest(failed)(failed)">
+=======
+  <test thread-count="5" name="SMSResponseTemplateWMC(failed)(failed)">
+>>>>>>> refs/remotes/origin/PalakReports
     <classes>
+<<<<<<< HEAD
       <class name="com.tetherfi.test.sms.SmsResponseTemplateDeleteTest">
+=======
+      <class name="com.tetherfi.test.tmac.WaitTimeColorConfigTest">
+>>>>>>> refs/remotes/origin/PalakReports
         <methods>
+<<<<<<< HEAD
           <include name="VerifySendForApprovalForDeleteRecord"/>
+=======
+          <include name="SortingByAscending"/>
+          <include name="NavigateToWaitTimeColorConfigPage"/>
+          <include name="endTestCase"/>
+          <include name="tearDown"/>
+          <include name="VerifySearchContains"/>
+          <include name="VerifySearchStartsWith"/>
+          <include name="VerifySearchIsNotEqualTo"/>
+          <include name="startTestCase"/>
+>>>>>>> refs/remotes/origin/PalakReports
           <include name="afterEachMethod"/>
+<<<<<<< HEAD
           <include name="ApproveforDeleteSmsResponseTemplateRecord"/>
           <include name="NavigateToSmsResponseTemplatePage"/>
           <include name="VerifyAuditTrailReportForSendForApprove"/>
           <include name="VerifyAuditTrailReportForApprove"/>
           <include name="DeleteSmsResponseTemplateRecord"/>
           <include name="VerifyAuditTrailDataForDeleteSmsResponseTemplateRecord"/>
+=======
+          <include name="openApplication"/>
+          <include name="EditWaitTimeColorConfigCancelRecord"/>
+          <include name="database"/>
+          <include name="VerifySearchDoesNotContains"/>
+          <include name="VerifySearchEndsWith"/>
+          <include name="SortingByDescending"/>
+>>>>>>> refs/remotes/origin/PalakReports
         </methods>
+<<<<<<< HEAD
       </class> <!-- com.tetherfi.test.sms.SmsResponseTemplateDeleteTest -->
+=======
+      </class> <!-- com.tetherfi.test.tmac.WaitTimeColorConfigTest -->
+>>>>>>> refs/remotes/origin/PalakReports
     </classes>
+<<<<<<< HEAD
   </test> <!-- SmsResponseTemplateDeleteTest(failed)(failed) -->
+=======
+  </test> <!-- SMSResponseTemplateWMC(failed)(failed) -->
+>>>>>>> refs/remotes/origin/PalakReports
 </suite> <!-- Failed suite [Failed suite [Tetherfi Test Automation]] -->

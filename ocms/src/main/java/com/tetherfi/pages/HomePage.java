@@ -65,7 +65,9 @@ public class HomePage extends BasePage{
         selectWebElement(ocmreportsTab);
     }
 
-    public void navigateToOcmIconImg(){selectWebElement(ocmIconImg);}
+    public void navigateToOCMIconImg(){
+    	selectWebElement(ocmIconImg);
+    }
 
     public void navigateToDashBoard(){selectWebElement(continueToDashboardBtn.get(0));}
     

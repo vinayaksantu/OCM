@@ -11,10 +11,24 @@
 			class-name="com.tetherfi.ExtentReportListener.ExtentReporterNG" />
 	</listeners>
      
+<<<<<<< HEAD
      <test name="FaxAddressBookTest" parallel="false">
+=======
+     <test name="VBEnrolement Flag" parallel="false">
+>>>>>>> refs/remotes/origin/PalakReports
       <classes>  
+<<<<<<< HEAD
            <class name="com.tetherfi.test.fax.FaxAddressBookTest"/> 
+=======
+           <class name="com.tetherfi.test.ivr.VBEnrollmentFlagTest"/> 
+>>>>>>> refs/remotes/origin/PalakReports
             </classes>
      </test>
-              
+   
+     <test name="HolidayListTest" parallel="false">
+      <classes>  
+           <class name="com.tetherfi.test.ivr.HolidayListTest"/> 
+            </classes>
+     </test>
+               
 </suite>
