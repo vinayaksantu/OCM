@@ -711,12 +711,11 @@ public class OCMAgentSummaryReportTest extends BaseTest {
      	OCMReportsPage OCMReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);  
      	OCMReportsPage.quickInputforYear(reportDetails); 
     }
-
-
     
     @AfterMethod
     public void afterEachMethod(Method method) {
-    	screenshot.captureScreen(driver, "OCMSummRpt", method.getName());
+    	screenshot.captureScreen("OCMSummRpt", method.getName());
+		driver.navigate().refresh();    	
     }
 
 
