@@ -149,7 +149,7 @@ public class IvrConfigDeleteTest {
 	public void RejectforDeleteIvrConfigRecord() throws Exception {
 		IvrConfigPage ivrConfigPage = PageFactory.createPageInstance(driver, IvrConfigPage.class);
 		ivrConfigPage.clickOnReject("Reject Deleted");
-		Assert.assertFalse(ivrConfigPage.getErrorMsg(),"Reject Assertion Failed");
+		Assert.assertFalse(ivrConfigPage.verifyMessage(),"Reject Assertion Failed");
 		Assert.assertTrue(ivrConfigPage.verifyReviewAuditTrail("Rejected","Reject Deleted"));	
 	}
 	
@@ -170,38 +170,59 @@ public class IvrConfigDeleteTest {
 	
 	@Test(priority=10,groups= {"Maker"})
 	public void DeleteIvrConfigRecord() throws Exception {
-    String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IvrConfigData.xlsx";
-    Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(0);
-    IvrConfigDetails IvrConfigDetails=new IvrConfigDetails(map);
-    IvrConfigPage ivrConfigPage = PageFactory.createPageInstance(driver, IvrConfigPage.class);
-    ivrConfigPage.deleteIvrConfigRecord(IvrConfigDetails);
-    Assert.assertEquals(ivrConfigPage.getSuccessMessage(),"Record Deleted Successfully");	
+        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IvrConfigData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(0);
+        IvrConfigDetails IvrConfigDetails=new IvrConfigDetails(map);
+        IvrConfigPage ivrConfigPage = PageFactory.createPageInstance(driver, IvrConfigPage.class);
+        ivrConfigPage.deleteIvrConfigRecord(IvrConfigDetails);
+        Assert.assertEquals(ivrConfigPage.getSuccessMessage(),"Record Deleted Successfully");	
 	}
 	
 	@Test(priority=11,groups= {"Maker"})
 	public void VerifyAuditTrialReportForDelete() throws Exception {
-		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IvrConfigData.xlsx";
-		Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(0);
-		IvrConfigDetails IvrConfigDetails=new IvrConfigDetails(map);
-		HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
-        homePage.navigateToOCMReportsPage();
-        OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver, OCMReportsPage.class);
-        String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AuditTrailReportData.xlsx";
-        Map<String, String> map1 = new ExcelReader(filePath1,"Show").getTestData().get(0);
-        ReportDetails reportDetails= new ReportDetails(map1);
-        ocmReportsPage.showReport(reportDetails);	
-        Assert.assertTrue(ocmReportsPage.verifyIvrConfigdelete(IvrConfigDetails, "Maker Delete"));			
+			String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IvrConfigData.xlsx";
+			Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(0);
+			IvrConfigDetails IvrConfigDetails=new IvrConfigDetails(map);
+			HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
+	        homePage.navigateToOCMReportsPage();
+	        OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver, OCMReportsPage.class);
+	        String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AuditTrailReportData.xlsx";
+	        Map<String, String> map1 = new ExcelReader(filePath1,"Show").getTestData().get(0);
+	        ReportDetails reportDetails= new ReportDetails(map1);
+	        ocmReportsPage.showReport(reportDetails);	
+	        Assert.assertTrue(ocmReportsPage.verifyIvrConfigdelete(IvrConfigDetails, "Maker Delete"));			
 	}
 	
-	@Test(priority=12, groups= {"Checker"})
+	@Test(groups = { "Maker" },priority=12)//,dependsOnMethods="DeleteIvrConfigRecord")
+    public void VerifyAuditTrailDataForAddNewIvrConfigRecord() throws Exception {
+		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IvrConfigData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(0);
+        IvrConfigDetails IvrConfigDetails=new IvrConfigDetails(map);
+        IvrConfigPage ivrConfigpage=PageFactory.createPageInstance(driver, IvrConfigPage.class);
+        ivrConfigpage.selectIvrConfigAuditTrailTab();
+        Assert.assertTrue(ivrConfigpage.verifyAuditTrail(IvrConfigDetails, "MakerDelete", "New"), "Audit trail details failed");
+    }
+	
+	@Test(priority=13,groups= {"Maker"})
+	public void VerifySendForApprovalForDeleteApproveNewRecord() throws Exception {
+		IvrConfigPage ivrConfigPage = PageFactory.createPageInstance(driver, IvrConfigPage.class);
+		ivrConfigPage.selectIvrConfigAuditTrailTab();
+		ivrConfigPage.selectRecord();
+		ivrConfigPage.sendForAprroval("Sent");
+		Assert.assertTrue(ivrConfigPage.verifyStatus("Approval Pending"),"Approval Status Details Failed");	
+	}
+	
+	
+	
+	@Test(priority=14, groups= {"Checker"})
 	public void ApproveForDeleteIvrConfigRecord() throws Exception {
     IvrConfigPage ivrConfigPage = PageFactory.createPageInstance(driver, IvrConfigPage.class);	
 	ivrConfigPage.clickOnApprove("Approve Deleted");
-	Assert.assertEquals(ivrConfigPage.getSuccessMessage(),"All the data has been approved successfully!","Approve record assertion failed");
+	Assert.assertTrue(ivrConfigPage.verifyMessage());
     Assert.assertTrue(ivrConfigPage.verifyReviewAuditTrail("Approve", "Approve Deleted")); 
 	}
 	
-	@Test(priority=13, groups= {"Maker"})
+	@Test(priority=15, groups= {"Maker"})
 	public void VerifyAuditTrailReportForApprove() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IvrConfigData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(0);

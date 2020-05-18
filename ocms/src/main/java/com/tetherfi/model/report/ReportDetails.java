@@ -24,6 +24,8 @@ public class ReportDetails {
     private String searchStr;
     private String reportName1;
     private String query;
+    private String getNumber;
+    private String getdateType;
 
     
 
@@ -49,7 +51,19 @@ public class ReportDetails {
         colname=readColname(map);
         coltype=readColType(map);
         searchStr=readSearchStr(map);
+        getNumber=readGetNumber(map);
+        getdateType=readCalendarType(map);
     }
+    
+    private String readCalendarType(Map<String, String> map) {
+    	String value=map.get("GetCalendarType");
+    	return value;
+    }
+    private String readGetNumber(Map<String, String> map) {
+    	String value=map.get("GetNumber");
+    	return value;
+    }
+    
     private String readReportName1(Map<String, String> map) {
     	String value=map.get("Report Name1");
         if(value==null||value.equalsIgnoreCase("random.str")){
@@ -99,7 +113,7 @@ public class ReportDetails {
             Date dNow = new Date( );
             Calendar c = Calendar.getInstance();
             c.setTime(dNow);
-            c.add(Calendar.MONTH,-1);//sub 6 months
+            c.add(Calendar.DATE,-18);//sub 6 months
             SimpleDateFormat ft =new SimpleDateFormat ("dd-MM-yyyy HH:mm:ss");
             value=ft.format(c.getTime());
         }
@@ -108,9 +122,15 @@ public class ReportDetails {
     private String readEndDate(Map<String, String> map) throws ParseException {
         String value=map.get("End Date");
         if(value==null||value.equalsIgnoreCase("random.str")){
-            DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+        	Date dNow = new Date( );
+            Calendar c = Calendar.getInstance();
+            c.setTime(dNow);
+            c.add(Calendar.DATE,-17);//sub 6 months
+            SimpleDateFormat ft =new SimpleDateFormat ("dd-MM-yyyy HH:mm:ss");
+            value=ft.format(c.getTime());
+            /*DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
             Date date=new Date();
-            value= dateFormat.format(date);
+            value= dateFormat.format(date);*/
         }
         return value;
     }
@@ -199,5 +219,13 @@ public class ReportDetails {
 	}
 	public String getQuery() {
 		return query;
+	}
+	
+	public String getNumber() {
+		return getNumber;
+	}
+	
+	public String getCalendarType() {
+		return getdateType;
 	}
 }

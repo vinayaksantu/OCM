@@ -581,6 +581,7 @@ public class RoleBasedAccessManagementTest extends BaseTest {
 		Assert.assertTrue(RoleBasedAccessManagementWMCPage.DeleteCancel(userDetails));
 	}
 
+
 	@Test(priority=58)
 	public void VerifyDeleteRoleBasedAccessManagementWithoutModifyReason() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\RoleBasedAccessManagementData.xlsx";
@@ -631,4 +632,5 @@ public class RoleBasedAccessManagementTest extends BaseTest {
 		screenshot.captureScreen("RoleBasedAccessManagementWMCTest",method.getName());
 		driver.navigate().refresh();
 	}
+    
 }

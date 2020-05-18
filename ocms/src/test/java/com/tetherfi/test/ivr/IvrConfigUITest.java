@@ -98,12 +98,12 @@ public class IvrConfigUITest extends BaseTest{
 		Assert.assertFalse(ivrConfigPage.verifycolumnsHeaderDisabled(), "Columns header assertion failed");
 		}
 	
-	/*@Test(priority=8)
+	@Test(priority=8)
 	public void VerfiyArrowMoveForPreviousAndNextPage() {
 		IvrConfigPage ivrConfigPage =PageFactory.createPageInstance(driver, IvrConfigPage.class);
 		ivrConfigPage.selectIvrConfigAuditTrailTab();
 		ivrConfigPage.selectMakeIvrConfigChanges();
-		Assert.assertTrue(ivrConfigPage.verifyArrowMoveForPreviousAndNextPage(1),"Arrow move for Previous and next page assertion failed");
+		Assert.assertTrue(ivrConfigPage.verifyArrowMoveForPreviousAndNextPage(2),"Arrow move for Previous and next page assertion failed");
 	}
 	
 	@Test(priority=9)
@@ -111,7 +111,7 @@ public class IvrConfigUITest extends BaseTest{
 		IvrConfigPage ivrConfigPage =PageFactory.createPageInstance(driver, IvrConfigPage.class);
 		ivrConfigPage.selectIvrConfigAuditTrailTab();
 		ivrConfigPage.selectMakeIvrConfigChanges();
-		Assert.assertTrue(ivrConfigPage.verifyArrowMoveForFirstAndLastPage(1), "Arrow move for first and last page assertion failed");	
+		Assert.assertTrue(ivrConfigPage.verifyArrowMoveForFirstAndLastPage(2), "Arrow move for first and last page assertion failed");	
 	}
 	
 	@Test(priority=10)
@@ -119,15 +119,15 @@ public class IvrConfigUITest extends BaseTest{
 		IvrConfigPage ivrConfigPage=PageFactory.createPageInstance(driver, IvrConfigPage.class);
 		ivrConfigPage.selectIvrConfigAuditTrailTab();
 		ivrConfigPage.selectMakeIvrConfigChanges();
-		Assert.assertTrue(ivrConfigPage.verifyNumberOfItemsPerPage(1), "Number of Items per page details assertion failed");		
-	}*/
+		Assert.assertTrue(ivrConfigPage.verifyNumberOfItemsPerPage(2), "Number of Items per page details assertion failed");		
+	}
 	
 	@Test(priority=11)
 	public void VerifyTotalNumberOfItemsPerPageDetails() {
 		IvrConfigPage ivrConfigPage=PageFactory.createPageInstance(driver, IvrConfigPage.class);
 		ivrConfigPage.selectIvrConfigAuditTrailTab();
 		ivrConfigPage.selectMakeIvrConfigChanges();
-		Assert.assertTrue(ivrConfigPage.verifyTotalNumberOfItemsPerPageDetails(1),"Total number of items per page assertion failes");
+		Assert.assertTrue(ivrConfigPage.verifyTotalNumberOfItemsPerPageDetails(2),"Total number of items per page assertion failes");
 	}
 	
 	@Test(priority=12)
@@ -166,7 +166,7 @@ public class IvrConfigUITest extends BaseTest{
 		ivrConfigPage.selectIvrConfigAuditTrailTab();;
 		ivrConfigPage.selectMakeIvrConfigChanges();
 		ivrConfigPage.SortByAscending();
-		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Ivr Config(1).xlsx";
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\IVR Config (1).xlsx";
 		List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
 		Assert.assertTrue(ivrConfigPage.verifyexportToExcelSheet(maplist));		
 	}
@@ -177,7 +177,7 @@ public class IvrConfigUITest extends BaseTest{
 		ivrConfigPage.selectIvrConfigAuditTrailTab();
 		ivrConfigPage.selectMakeIvrConfigChanges();
 		ivrConfigPage.SortByDescending();
-		String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\IVR Config(2).xslx";
+		String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\IVR Config (2).xlsx";
 		List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
 		Assert.assertTrue(ivrConfigPage.verifyexportToExcelSheet(maplist));			
 	}

@@ -159,6 +159,10 @@ public class OCMHomePage extends BasePage {
 		selectWebElement(cepEventMapping);
 	}
 
+	public void navigateToReportsDownloadPage() {
+		selectWebElement(reportDownloads);
+		
+	}
 	public void navigateToExportSchedulerPage() {
 		selectWebElement(exportScheduler);
 	}
@@ -185,7 +189,7 @@ public class OCMHomePage extends BasePage {
 		selectWebElement(reportDesigner);
 	}
 
-	public void navigateToReportDownloadsPage() {
+	public void navigateToReportDownloadPage() {
 		selectWebElement(reportDownloads);
 	}
 

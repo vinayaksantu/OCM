@@ -11,9 +11,9 @@
 			class-name="com.tetherfi.ExtentReportListener.ExtentReporterNG" />
 	</listeners>
      
-     <test name="WorkCodeListTest" parallel="false">
+     <test name="FaxAddressBookTest" parallel="false">
       <classes>  
-           <class name="com.tetherfi.test.tmac.WorkCodeListTest"/> 
+           <class name="com.tetherfi.test.fax.FaxAddressBookTest"/> 
             </classes>
      </test>
               

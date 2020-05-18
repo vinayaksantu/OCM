@@ -492,7 +492,11 @@ public class FaxTemplatePage extends BasePage{
 	    
 	    public boolean verifyTotalNumberOfItemsPerPageDetails(int z){
 	        String item = items.get(z).getText();
-	        return item.matches("(\\d.) - (\\d.) of (\\d.*) items");
+	        System.out.println(item);
+	        if( item.matches("(\\d.*) - (\\d.*) of (\\d.*) items"))
+	        return true;
+	        else 
+	        	return false;
 	    }
 	    
 	    public boolean verifyNumberOfItemsPerPage(int z) {
@@ -509,7 +513,7 @@ public class FaxTemplatePage extends BasePage{
 	                    int totalItems = Integer.valueOf(items.get(z).getText().split("of ")[1].split(" items")[0]);
 	                    int pagersize = Integer.valueOf(pagerSize.get(z).getText());
 	                    int pages = (totalItems % pagersize == 0) ? item / pagersize : item / pagersize+1;
-	                    int totalRows=(gridContent.findElements(By.tagName("tr")).size());
+	                    int totalRows=(gridContent.findElements(By.tagName("tr")).size()-1);
 	                    selectWebElement(lastPageIcon.get(z));
 	                    waitForJqueryLoad(driver);
 	                    int lastPageNumber = Integer.valueOf(pageNumber.get(z).getText());
@@ -590,6 +594,7 @@ public class FaxTemplatePage extends BasePage{
 			selectWebElement(searchLink);
 	        selectWebElement(selectSearchColumn.get(0));
 	        selectDropdownFromVisibleText(columnNameList,"Template Name");
+	        Thread.sleep(1000);
 	        selectWebElement(selectSearchColumn.get(1));
 	        selectDropdownFromVisibleText(searchTypeList,"Is equal to");
 	        enterValueToTxtField(searchText.get(0),templatename);
@@ -673,7 +678,7 @@ public class FaxTemplatePage extends BasePage{
 				Map<String,String> map = new HashMap<String,String>();
 				List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
 				String col=null;
-				for(int j=0;j<headers.size();j++){
+				for(int j=1;j<headers.size();j++){
 					scrollToElement(headers.get(j));
 					if(headers.get(j).getText().equals("Last Changed On")){
 						col=cols.get(j).getText().substring(11);
@@ -1063,7 +1068,7 @@ public class FaxTemplatePage extends BasePage{
 		public void clickonReject(String comment) throws Exception {
 			 selectWebElement(FaxTemplateTabs.get(1));
 		        try {
-		            Thread.sleep(3000);
+		            Thread.sleep(5000);
 		        } catch (InterruptedException e) {
 		            e.printStackTrace();
 		        }

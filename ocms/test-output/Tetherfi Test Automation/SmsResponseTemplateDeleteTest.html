@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>SmsResponseTemplateDeleteTest</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>15/1/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>8/4/4</td>
 </tr><tr>
-<td>Started on:</td><td>Thu Mar 12 12:13:13 IST 2020</td>
+<td>Started on:</td><td>Thu Apr 16 13:12:05 IST 2020</td>
 </tr>
-<tr><td>Total time:</td><td>880 seconds (880259 ms)</td>
+<tr><td>Total time:</td><td>690 seconds (690083 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -75,6 +75,102 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
+<td title='com.tetherfi.test.sms.SmsResponseTemplateDeleteTest.RejectforDeleteSmsResponseTemplateRecord()'><b>RejectforDeleteSmsResponseTemplateRecord</b><br>Test class: com.tetherfi.test.sms.SmsResponseTemplateDeleteTest</td>
+<td><div><pre>java.lang.AssertionError: did not expect to find [true] but found [false]
+	at com.tetherfi.test.sms.SmsResponseTemplateDeleteTest.RejectforDeleteSmsResponseTemplateRecord(SmsResponseTemplateDeleteTest.java:143)
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+... Removed 31 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace2040052638", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace2040052638'><pre>java.lang.AssertionError: did not expect to find [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:97)
+	at org.testng.Assert.failNotEquals(Assert.java:969)
+	at org.testng.Assert.assertTrue(Assert.java:43)
+	at org.testng.Assert.assertTrue(Assert.java:53)
+	at com.tetherfi.test.sms.SmsResponseTemplateDeleteTest.RejectforDeleteSmsResponseTemplateRecord(SmsResponseTemplateDeleteTest.java:143)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+	at org.testng.TestRunner.privateRun(TestRunner.java:770)
+	at org.testng.TestRunner.run(TestRunner.java:591)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+	at org.testng.TestNG.runSuites(TestNG.java:1032)
+	at org.testng.TestNG.run(TestNG.java:1000)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>12</td>
+<td>com.tetherfi.test.sms.SmsResponseTemplateDeleteTest@92d1782</td></tr>
+<tr>
+<td title='com.tetherfi.test.sms.SmsResponseTemplateDeleteTest.VerifyAuditTrailReportForSendForApprove()'><b>VerifyAuditTrailReportForSendForApprove</b><br>Test class: com.tetherfi.test.sms.SmsResponseTemplateDeleteTest</td>
+<td><div><pre>java.lang.IndexOutOfBoundsException: Index 1 out-of-bounds for length 1
+	at java.base/jdk.internal.util.Preconditions.outOfBounds(Unknown Source)
+	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Unknown Source)
+	at java.base/jdk.internal.util.Preconditions.checkIndex(Unknown Source)
+	at java.base/java.util.Objects.checkIndex(Unknown Source)
+	at java.base/java.util.ArrayList.get(Unknown Source)
+	at com.tetherfi.pages.OCMReportsPage.getFirstRowDatafromTable1(OCMReportsPage.java:1290)
+	at com.tetherfi.pages.OCMReportsPage.verifySmsResponseTemplateDelete(OCMReportsPage.java:5524)
+	at com.tetherfi.test.sms.SmsResponseTemplateDeleteTest.VerifyAuditTrailReportForSendForApprove(SmsResponseTemplateDeleteTest.java:217)
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+... Removed 27 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace694544590", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace694544590'><pre>java.lang.IndexOutOfBoundsException: Index 1 out-of-bounds for length 1
+	at java.base/jdk.internal.util.Preconditions.outOfBounds(Unknown Source)
+	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Unknown Source)
+	at java.base/jdk.internal.util.Preconditions.checkIndex(Unknown Source)
+	at java.base/java.util.Objects.checkIndex(Unknown Source)
+	at java.base/java.util.ArrayList.get(Unknown Source)
+	at com.tetherfi.pages.OCMReportsPage.getFirstRowDatafromTable1(OCMReportsPage.java:1290)
+	at com.tetherfi.pages.OCMReportsPage.verifySmsResponseTemplateDelete(OCMReportsPage.java:5524)
+	at com.tetherfi.test.sms.SmsResponseTemplateDeleteTest.VerifyAuditTrailReportForSendForApprove(SmsResponseTemplateDeleteTest.java:217)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+	at org.testng.TestRunner.privateRun(TestRunner.java:770)
+	at org.testng.TestRunner.run(TestRunner.java:591)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+	at org.testng.TestNG.runSuites(TestNG.java:1032)
+	at org.testng.TestNG.run(TestNG.java:1000)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>28</td>
+<td>com.tetherfi.test.sms.SmsResponseTemplateDeleteTest@92d1782</td></tr>
+<tr>
 <td title='com.tetherfi.test.sms.SmsResponseTemplateDeleteTest.VerifyAuditTrialReportForDelete()'><b>VerifyAuditTrialReportForDelete</b><br>Test class: com.tetherfi.test.sms.SmsResponseTemplateDeleteTest</td>
 <td><div><pre>java.lang.IndexOutOfBoundsException: Index 1 out-of-bounds for length 1
 	at java.base/jdk.internal.util.Preconditions.outOfBounds(Unknown Source)
@@ -82,19 +178,19 @@ function toggleAllBoxes() {
 	at java.base/jdk.internal.util.Preconditions.checkIndex(Unknown Source)
 	at java.base/java.util.Objects.checkIndex(Unknown Source)
 	at java.base/java.util.ArrayList.get(Unknown Source)
-	at com.tetherfi.pages.OCMReportsPage.getFirstRowDatafromTable1(OCMReportsPage.java:1282)
-	at com.tetherfi.pages.OCMReportsPage.verifySmsResponseTemplateDelete(OCMReportsPage.java:5516)
+	at com.tetherfi.pages.OCMReportsPage.getFirstRowDatafromTable1(OCMReportsPage.java:1290)
+	at com.tetherfi.pages.OCMReportsPage.verifySmsResponseTemplateDelete(OCMReportsPage.java:5524)
 	at com.tetherfi.test.sms.SmsResponseTemplateDeleteTest.VerifyAuditTrialReportForDelete(SmsResponseTemplateDeleteTest.java:183)
 	at java.base/java.util.ArrayList.forEach(Unknown Source)
-... Removed 27 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace859941838", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace859941838'><pre>java.lang.IndexOutOfBoundsException: Index 1 out-of-bounds for length 1
+... Removed 27 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace102362407", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace102362407'><pre>java.lang.IndexOutOfBoundsException: Index 1 out-of-bounds for length 1
 	at java.base/jdk.internal.util.Preconditions.outOfBounds(Unknown Source)
 	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Unknown Source)
 	at java.base/jdk.internal.util.Preconditions.checkIndex(Unknown Source)
 	at java.base/java.util.Objects.checkIndex(Unknown Source)
 	at java.base/java.util.ArrayList.get(Unknown Source)
-	at com.tetherfi.pages.OCMReportsPage.getFirstRowDatafromTable1(OCMReportsPage.java:1282)
-	at com.tetherfi.pages.OCMReportsPage.verifySmsResponseTemplateDelete(OCMReportsPage.java:5516)
+	at com.tetherfi.pages.OCMReportsPage.getFirstRowDatafromTable1(OCMReportsPage.java:1290)
+	at com.tetherfi.pages.OCMReportsPage.verifySmsResponseTemplateDelete(OCMReportsPage.java:5524)
 	at com.tetherfi.test.sms.SmsResponseTemplateDeleteTest.VerifyAuditTrialReportForDelete(SmsResponseTemplateDeleteTest.java:183)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
@@ -125,7 +221,49 @@ function toggleAllBoxes() {
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
-<td>31</td>
+<td>28</td>
+<td>com.tetherfi.test.sms.SmsResponseTemplateDeleteTest@92d1782</td></tr>
+<tr>
+<td title='com.tetherfi.test.sms.SmsResponseTemplateDeleteTest.VerifyRevertForDeleteRecord()'><b>VerifyRevertForDeleteRecord</b><br>Test class: com.tetherfi.test.sms.SmsResponseTemplateDeleteTest</td>
+<td><div><pre>java.lang.AssertionError: approval status details failed did not expect to find [true] but found [false]
+	at com.tetherfi.test.sms.SmsResponseTemplateDeleteTest.VerifyRevertForDeleteRecord(SmsResponseTemplateDeleteTest.java:101)
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+... Removed 30 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace265066522", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace265066522'><pre>java.lang.AssertionError: approval status details failed did not expect to find [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:97)
+	at org.testng.Assert.failNotEquals(Assert.java:969)
+	at org.testng.Assert.assertTrue(Assert.java:43)
+	at com.tetherfi.test.sms.SmsResponseTemplateDeleteTest.VerifyRevertForDeleteRecord(SmsResponseTemplateDeleteTest.java:101)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+	at org.testng.TestRunner.privateRun(TestRunner.java:770)
+	at org.testng.TestRunner.run(TestRunner.java:591)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+	at org.testng.TestNG.runSuites(TestNG.java:1032)
+	at org.testng.TestNG.run(TestNG.java:1000)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>10</td>
 <td>com.tetherfi.test.sms.SmsResponseTemplateDeleteTest@92d1782</td></tr>
 </table><p>
 <table width='100%' border='1' class='invocation-passed'>
@@ -136,14 +274,9 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.tetherfi.test.sms.SmsResponseTemplateDeleteTest.ApproveforDeleteSmsResponseTemplateRecord()'><b>ApproveforDeleteSmsResponseTemplateRecord</b><br>Test class: com.tetherfi.test.sms.SmsResponseTemplateDeleteTest</td>
-<td></td>
-<td>13</td>
-<td>com.tetherfi.test.sms.SmsResponseTemplateDeleteTest@92d1782</td></tr>
-<tr>
 <td title='com.tetherfi.test.sms.SmsResponseTemplateDeleteTest.DeleteCancelSmsResponseTemplateRecord()'><b>DeleteCancelSmsResponseTemplateRecord</b><br>Test class: com.tetherfi.test.sms.SmsResponseTemplateDeleteTest</td>
 <td></td>
-<td>8</td>
+<td>9</td>
 <td>com.tetherfi.test.sms.SmsResponseTemplateDeleteTest@92d1782</td></tr>
 <tr>
 <td title='com.tetherfi.test.sms.SmsResponseTemplateDeleteTest.DeleteRecord()'><b>DeleteRecord</b><br>Test class: com.tetherfi.test.sms.SmsResponseTemplateDeleteTest</td>
@@ -153,52 +286,22 @@ function toggleAllBoxes() {
 <tr>
 <td title='com.tetherfi.test.sms.SmsResponseTemplateDeleteTest.DeleteSmsResponseTemplateRecord()'><b>DeleteSmsResponseTemplateRecord</b><br>Test class: com.tetherfi.test.sms.SmsResponseTemplateDeleteTest</td>
 <td></td>
-<td>14</td>
+<td>12</td>
 <td>com.tetherfi.test.sms.SmsResponseTemplateDeleteTest@92d1782</td></tr>
 <tr>
 <td title='com.tetherfi.test.sms.SmsResponseTemplateDeleteTest.DeleteWithoutModifyReasonRecord()'><b>DeleteWithoutModifyReasonRecord</b><br>Test class: com.tetherfi.test.sms.SmsResponseTemplateDeleteTest</td>
 <td></td>
-<td>11</td>
+<td>12</td>
 <td>com.tetherfi.test.sms.SmsResponseTemplateDeleteTest@92d1782</td></tr>
 <tr>
 <td title='com.tetherfi.test.sms.SmsResponseTemplateDeleteTest.RejectDeleteRecord()'><b>RejectDeleteRecord</b><br>Test class: com.tetherfi.test.sms.SmsResponseTemplateDeleteTest</td>
 <td></td>
-<td>13</td>
-<td>com.tetherfi.test.sms.SmsResponseTemplateDeleteTest@92d1782</td></tr>
-<tr>
-<td title='com.tetherfi.test.sms.SmsResponseTemplateDeleteTest.RejectforDeleteSmsResponseTemplateRecord()'><b>RejectforDeleteSmsResponseTemplateRecord</b><br>Test class: com.tetherfi.test.sms.SmsResponseTemplateDeleteTest</td>
-<td></td>
-<td>12</td>
+<td>14</td>
 <td>com.tetherfi.test.sms.SmsResponseTemplateDeleteTest@92d1782</td></tr>
 <tr>
 <td title='com.tetherfi.test.sms.SmsResponseTemplateDeleteTest.VerifyAuditTrailDataForDeleteSmsResponseTemplateRecord()'><b>VerifyAuditTrailDataForDeleteSmsResponseTemplateRecord</b><br>Test class: com.tetherfi.test.sms.SmsResponseTemplateDeleteTest</td>
 <td></td>
 <td>6</td>
-<td>com.tetherfi.test.sms.SmsResponseTemplateDeleteTest@92d1782</td></tr>
-<tr>
-<td title='com.tetherfi.test.sms.SmsResponseTemplateDeleteTest.VerifyAuditTrailReportForApprove()'><b>VerifyAuditTrailReportForApprove</b><br>Test class: com.tetherfi.test.sms.SmsResponseTemplateDeleteTest</td>
-<td></td>
-<td>26</td>
-<td>com.tetherfi.test.sms.SmsResponseTemplateDeleteTest@92d1782</td></tr>
-<tr>
-<td title='com.tetherfi.test.sms.SmsResponseTemplateDeleteTest.VerifyAuditTrailReportForReject()'><b>VerifyAuditTrailReportForReject</b><br>Test class: com.tetherfi.test.sms.SmsResponseTemplateDeleteTest</td>
-<td></td>
-<td>27</td>
-<td>com.tetherfi.test.sms.SmsResponseTemplateDeleteTest@92d1782</td></tr>
-<tr>
-<td title='com.tetherfi.test.sms.SmsResponseTemplateDeleteTest.VerifyAuditTrailReportForSendForApprove()'><b>VerifyAuditTrailReportForSendForApprove</b><br>Test class: com.tetherfi.test.sms.SmsResponseTemplateDeleteTest</td>
-<td></td>
-<td>28</td>
-<td>com.tetherfi.test.sms.SmsResponseTemplateDeleteTest@92d1782</td></tr>
-<tr>
-<td title='com.tetherfi.test.sms.SmsResponseTemplateDeleteTest.VerifyAuditTrialReportForRevertDelete()'><b>VerifyAuditTrialReportForRevertDelete</b><br>Test class: com.tetherfi.test.sms.SmsResponseTemplateDeleteTest</td>
-<td></td>
-<td>28</td>
-<td>com.tetherfi.test.sms.SmsResponseTemplateDeleteTest@92d1782</td></tr>
-<tr>
-<td title='com.tetherfi.test.sms.SmsResponseTemplateDeleteTest.VerifyRevertForDeleteRecord()'><b>VerifyRevertForDeleteRecord</b><br>Test class: com.tetherfi.test.sms.SmsResponseTemplateDeleteTest</td>
-<td></td>
-<td>11</td>
 <td>com.tetherfi.test.sms.SmsResponseTemplateDeleteTest@92d1782</td></tr>
 <tr>
 <td title='com.tetherfi.test.sms.SmsResponseTemplateDeleteTest.VerifySendForApprovalForDeleteNewRecord()'><b>VerifySendForApprovalForDeleteNewRecord</b><br>Test class: com.tetherfi.test.sms.SmsResponseTemplateDeleteTest</td>
@@ -208,7 +311,127 @@ function toggleAllBoxes() {
 <tr>
 <td title='com.tetherfi.test.sms.SmsResponseTemplateDeleteTest.VerifySendForApprovalForDeleteRecord()'><b>VerifySendForApprovalForDeleteRecord</b><br>Test class: com.tetherfi.test.sms.SmsResponseTemplateDeleteTest</td>
 <td></td>
-<td>10</td>
+<td>12</td>
+<td>com.tetherfi.test.sms.SmsResponseTemplateDeleteTest@92d1782</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-skipped'>
+<tr><td colspan='4' align='center'><b>SKIPPED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.tetherfi.test.sms.SmsResponseTemplateDeleteTest.ApproveforDeleteSmsResponseTemplateRecord()'><b>ApproveforDeleteSmsResponseTemplateRecord</b><br>Test class: com.tetherfi.test.sms.SmsResponseTemplateDeleteTest</td>
+<td><div><pre>java.lang.Throwable: Method SmsResponseTemplateDeleteTest.ApproveforDeleteSmsResponseTemplateRecord()[pri:15, instance:com.tetherfi.test.sms.SmsResponseTemplateDeleteTest@92d1782] depends on not successfully finished methods
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+... Removed 18 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace505181281", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace505181281'><pre>java.lang.Throwable: Method SmsResponseTemplateDeleteTest.ApproveforDeleteSmsResponseTemplateRecord()[pri:15, instance:com.tetherfi.test.sms.SmsResponseTemplateDeleteTest@92d1782] depends on not successfully finished methods
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:99)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+	at org.testng.TestRunner.privateRun(TestRunner.java:770)
+	at org.testng.TestRunner.run(TestRunner.java:591)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+	at org.testng.TestNG.runSuites(TestNG.java:1032)
+	at org.testng.TestNG.run(TestNG.java:1000)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>com.tetherfi.test.sms.SmsResponseTemplateDeleteTest@92d1782</td></tr>
+<tr>
+<td title='com.tetherfi.test.sms.SmsResponseTemplateDeleteTest.VerifyAuditTrailReportForApprove()'><b>VerifyAuditTrailReportForApprove</b><br>Test class: com.tetherfi.test.sms.SmsResponseTemplateDeleteTest</td>
+<td><div><pre>java.lang.Throwable: Method SmsResponseTemplateDeleteTest.VerifyAuditTrailReportForApprove()[pri:16, instance:com.tetherfi.test.sms.SmsResponseTemplateDeleteTest@92d1782] depends on not successfully finished methods
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+... Removed 18 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1453685309", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1453685309'><pre>java.lang.Throwable: Method SmsResponseTemplateDeleteTest.VerifyAuditTrailReportForApprove()[pri:16, instance:com.tetherfi.test.sms.SmsResponseTemplateDeleteTest@92d1782] depends on not successfully finished methods
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:99)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+	at org.testng.TestRunner.privateRun(TestRunner.java:770)
+	at org.testng.TestRunner.run(TestRunner.java:591)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+	at org.testng.TestNG.runSuites(TestNG.java:1032)
+	at org.testng.TestNG.run(TestNG.java:1000)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>com.tetherfi.test.sms.SmsResponseTemplateDeleteTest@92d1782</td></tr>
+<tr>
+<td title='com.tetherfi.test.sms.SmsResponseTemplateDeleteTest.VerifyAuditTrailReportForReject()'><b>VerifyAuditTrailReportForReject</b><br>Test class: com.tetherfi.test.sms.SmsResponseTemplateDeleteTest</td>
+<td><div><pre>java.lang.Throwable: Method SmsResponseTemplateDeleteTest.VerifyAuditTrailReportForReject()[pri:9, instance:com.tetherfi.test.sms.SmsResponseTemplateDeleteTest@92d1782] depends on not successfully finished methods
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+... Removed 18 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1124470878", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1124470878'><pre>java.lang.Throwable: Method SmsResponseTemplateDeleteTest.VerifyAuditTrailReportForReject()[pri:9, instance:com.tetherfi.test.sms.SmsResponseTemplateDeleteTest@92d1782] depends on not successfully finished methods
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:99)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+	at org.testng.TestRunner.privateRun(TestRunner.java:770)
+	at org.testng.TestRunner.run(TestRunner.java:591)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+	at org.testng.TestNG.runSuites(TestNG.java:1032)
+	at org.testng.TestNG.run(TestNG.java:1000)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>com.tetherfi.test.sms.SmsResponseTemplateDeleteTest@92d1782</td></tr>
+<tr>
+<td title='com.tetherfi.test.sms.SmsResponseTemplateDeleteTest.VerifyAuditTrialReportForRevertDelete()'><b>VerifyAuditTrialReportForRevertDelete</b><br>Test class: com.tetherfi.test.sms.SmsResponseTemplateDeleteTest</td>
+<td><div><pre>java.lang.Throwable: Method SmsResponseTemplateDeleteTest.VerifyAuditTrialReportForRevertDelete()[pri:5, instance:com.tetherfi.test.sms.SmsResponseTemplateDeleteTest@92d1782] depends on not successfully finished methods
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+... Removed 18 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace286752288", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace286752288'><pre>java.lang.Throwable: Method SmsResponseTemplateDeleteTest.VerifyAuditTrialReportForRevertDelete()[pri:5, instance:com.tetherfi.test.sms.SmsResponseTemplateDeleteTest@92d1782] depends on not successfully finished methods
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:99)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+	at org.testng.TestRunner.privateRun(TestRunner.java:770)
+	at org.testng.TestRunner.run(TestRunner.java:591)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+	at org.testng.TestNG.runSuites(TestNG.java:1032)
+	at org.testng.TestNG.run(TestNG.java:1000)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
 <td>com.tetherfi.test.sms.SmsResponseTemplateDeleteTest@92d1782</td></tr>
 </table><p>
 </body>

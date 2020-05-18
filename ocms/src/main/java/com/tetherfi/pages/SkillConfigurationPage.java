@@ -213,6 +213,12 @@ public class SkillConfigurationPage extends BasePage {
     @FindBy(xpath="//a[text()='Skill ID']")
     private WebElement SkillID;
     
+    @FindBy(xpath="//span[@aria-controls='1001sColumnName_listbox']")
+    private WebElement selectSearchColumn;
+    
+    @FindBy(xpath="//span[@aria-owns='1001sCriteria_listbox']")
+    private WebElement condition;
+    
     public boolean isSkillConfigurationPageDisplayed() {
         waitForLoad(driver);
         waitForJqueryLoad(driver);
@@ -335,7 +341,7 @@ public class SkillConfigurationPage extends BasePage {
 		selectWebElement(SkillID);
 		List<Map<String,String>> database=database(query);
 		System.out.println(database);
-		List<Map<String,String>> UI=gettable(); 
+		List<Map<String,String>> UI=gettable1(); 
 		System.out.println(UI);
 		if(UI.equals(database))
 			return true;
@@ -343,7 +349,7 @@ public class SkillConfigurationPage extends BasePage {
 			return false;
 	}
 	
-	public List<Map<String, String>> gettable() {
+	public List<Map<String, String>> gettable1() {
 		int item=Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
         int pagersize=Integer.valueOf(pagerSize.getText());
         int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
@@ -403,9 +409,9 @@ public class SkillConfigurationPage extends BasePage {
 	}
 	private void searchSkillConfigurationRecord(String skillID) throws Exception {
 		selectWebElement(searchBtn);
-        selectWebElement(selectSearchCol.get(0));
+        selectWebElement(selectSearchColumn);
         selectDropdownFromVisibleText(columnNameList,"Skill ID");
-        selectWebElement(selectSearchCol.get(1));
+        selectWebElement(condition);
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is equal to");
         enterValueToTxtField(searchTextBox,skillID);
         selectWebElement(searchSearchBtn);
@@ -442,6 +448,11 @@ public class SkillConfigurationPage extends BasePage {
         int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
         selectWebElement(previousPageIcon);
         int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
+        try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
         if(nextnumber==(pagenumber+1) && pagenumber==previousnumber){status=true;}
         }else{
             System.out.println("previous and next page icon disabled");status=true;
@@ -455,6 +466,11 @@ public class SkillConfigurationPage extends BasePage {
             selectWebElement(lastPageIcon);
             int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
             selectWebElement(firstPageIcon);
+            try {
+    			Thread.sleep(1000);
+    		} catch (InterruptedException e) {
+    			e.printStackTrace();
+    		}
             int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
             if(nextnumber>pagenumber && pagenumber==previousnumber){status=true;}
         }else{
@@ -612,7 +628,7 @@ public class SkillConfigurationPage extends BasePage {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		enterValueToTxtField(deleteReasonTextBox,details.getDeleteReason());
+		enterValueToTxtFieldWithoutClear(deleteReasonTextBox,details.getDeleteReason());
 		selectWebElement(nobtn);
 		if(rowdata.getText().equals(details.getSkillName()))
 				return true;
@@ -808,12 +824,13 @@ public class SkillConfigurationPage extends BasePage {
 		Map<String, String> map=new HashMap<String,String>() ;
 		map.put("Skill Name", skillname);
 		selectWebElement(searchBtn);
-        selectWebElement(selectSearchCol.get(0));
+        selectWebElement(selectSearchColumn);
         selectDropdownFromVisibleText(columnNameList,"Skill Name");
-        selectWebElement(selectSearchCol.get(1));
+        selectWebElement(condition);
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is not equal to");
         enterValueToTxtField(searchTextBox,skillname);		
         selectWebElement(searchSearchBtn);
+        Thread.sleep(1000);
         waitUntilWebElementIsVisible(gridContent);
         List<Map<String,String>> UI=gettable(); 
         for (Map<String,String> map1: UI)
@@ -830,12 +847,13 @@ public class SkillConfigurationPage extends BasePage {
 	public boolean verifySearchContains(String skillname) throws Exception {
 		Boolean Status=false;
 		selectWebElement(searchBtn);
-        selectWebElement(selectSearchCol.get(0));
+        selectWebElement(selectSearchColumn);
         selectDropdownFromVisibleText(columnNameList,"Skill Name");
-        selectWebElement(selectSearchCol.get(1));
+        selectWebElement(condition);
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Contains");
         enterValueToTxtField(searchTextBox,skillname);		
         selectWebElement(searchSearchBtn);
+        Thread.sleep(1000);
         waitUntilWebElementIsVisible(gridContent);
         List<Map<String,String>> UI=gettable(); 
         for (Map<String,String> map1: UI)
@@ -850,12 +868,13 @@ public class SkillConfigurationPage extends BasePage {
 	public boolean verifySearchDoesNotContains(String skillname) throws Exception {
 		Boolean Status=false;
 		selectWebElement(searchBtn);
-        selectWebElement(selectSearchCol.get(0));
+        selectWebElement(selectSearchColumn);
         selectDropdownFromVisibleText(columnNameList,"Skill Name");
-        selectWebElement(selectSearchCol.get(1));
+        selectWebElement(condition);
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Does not contain");
         enterValueToTxtField(searchTextBox,skillname);		
         selectWebElement(searchSearchBtn);
+        Thread.sleep(1000);
         waitUntilWebElementIsVisible(gridContent);
         List<Map<String,String>> UI=gettable(); 
         for (Map<String,String> map1: UI)
@@ -871,12 +890,13 @@ public class SkillConfigurationPage extends BasePage {
 	public boolean verifySearchStartsWith(String skillname) throws Exception {
 		Boolean Status=false;
 		selectWebElement(searchBtn);
-        selectWebElement(selectSearchCol.get(0));
+        selectWebElement(selectSearchColumn);
         selectDropdownFromVisibleText(columnNameList,"Skill Name");
-        selectWebElement(selectSearchCol.get(1));
+        selectWebElement(condition);
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Starts with");
         enterValueToTxtField(searchTextBox,skillname);		
         selectWebElement(searchSearchBtn);
+        Thread.sleep(1000);
         waitUntilWebElementIsVisible(gridContent);
         List<Map<String,String>> UI=gettable(); 
         for (Map<String,String> map1: UI)
@@ -892,12 +912,13 @@ public class SkillConfigurationPage extends BasePage {
 	public boolean verifySearchEndsWith(String skillname) throws Exception {
 		Boolean Status=false;
 		selectWebElement(searchBtn);
-        selectWebElement(selectSearchCol.get(0));
+        selectWebElement(selectSearchColumn);
         selectDropdownFromVisibleText(columnNameList,"Skill Name");
-        selectWebElement(selectSearchCol.get(1));
+        selectWebElement(condition);
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Ends with");
         enterValueToTxtField(searchTextBox,skillname);		
         selectWebElement(searchSearchBtn);
+        Thread.sleep(1000);
         waitUntilWebElementIsVisible(gridContent);
         List<Map<String,String>> UI=gettable(); 
         for (Map<String,String> map1: UI)
@@ -961,6 +982,40 @@ public class SkillConfigurationPage extends BasePage {
 		enterValueToTxtFieldWithoutClear(deleteReasonTextBox,details.getDeleteReason());
 		selectWebElement(yesBtn);		
 	}
+	
+	 public List<Map<String, String>> gettable() {
+			int item=Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
+	        int pagersize=Integer.valueOf(pagerSize.getText());
+	        int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
+			List<Map<String,String>> arr=new ArrayList<Map<String,String>>();
+			for(int k=0;k<=pages;k++){
+
+			waitUntilWebElementIsVisible(auditGridContent);
+			List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
+			List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
+			for(int i=1;i<rows.size();i++) {
+				Map<String,String> map = new HashMap<String,String>();
+				List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
+				String col=null;
+				for(int j=1;j<headers.size();j++){
+					scrollToElement(headers.get(j));
+					/*if(headers.get(j).getText().equals("Last Changed On")){
+						col=cols.get(j).getText().substring(11);
+						}
+					else*/
+						col=cols.get(j).getText();
+					map.put(headers.get(j).getText(),col);
+				}
+				map.remove("");
+				arr.add(map);
+			}
+			if(k!=pages)
+			{
+				nextPageIcon.click();
+				waitForJqueryLoad(driver);}
+			}
+				return arr;
+		}
 
 	
 }

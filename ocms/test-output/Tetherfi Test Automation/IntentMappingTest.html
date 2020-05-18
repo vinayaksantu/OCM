@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>IntentMappingTest</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>35/6/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>34/7/0</td>
 </tr><tr>
-<td>Started on:</td><td>Wed Mar 11 11:23:49 IST 2020</td>
+<td>Started on:</td><td>Tue Mar 31 12:06:55 IST 2020</td>
 </tr>
-<tr><td>Total time:</td><td>883 seconds (883448 ms)</td>
+<tr><td>Total time:</td><td>770 seconds (770014 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -75,15 +75,74 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.tetherfi.test.ivr.IntentMappingTest.AddRecordWithoutProduct()'><b>AddRecordWithoutProduct</b><br>Test class: com.tetherfi.test.ivr.IntentMappingTest</td>
+<td title='com.tetherfi.test.ivr.IntentMappingTest.EditIntentMappingRecord()'><b>EditIntentMappingRecord</b><br>Test class: com.tetherfi.test.ivr.IntentMappingTest</td>
+<td><div><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of [[ChromeDriver: chrome on WINDOWS (b8657b22c7f5f6828a029946c2ba1f71)] -&gt; id: VDN] (tried for 30 second(s) with 500 milliseconds interval)
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;DESKTOP-O6A5C2O&apos;, ip: &apos;10.0.75.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;9.0.4&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 80.0.3987.149, chrome: {chromedriverVersion: 79.0.3945.36 (3582db32b3389..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:61175}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: b8657b22c7f5f6828a029946c2ba1f71
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
+	at com.tetherfi.pages.BasePage.waitUntilWebElementIsVisible(BasePage.java:127)
+	at com.tetherfi.pages.BasePage.enterValueToTxtField(BasePage.java:150)
+	at com.tetherfi.pages.IntentMappingPage.editIntentMappingRecord(IntentMappingPage.java:822)
+	at com.tetherfi.test.ivr.IntentMappingTest.EditIntentMappingRecord(IntentMappingTest.java:204)
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+... Removed 27 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1179656308", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1179656308'><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of [[ChromeDriver: chrome on WINDOWS (b8657b22c7f5f6828a029946c2ba1f71)] -&gt; id: VDN] (tried for 30 second(s) with 500 milliseconds interval)
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;DESKTOP-O6A5C2O&apos;, ip: &apos;10.0.75.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;9.0.4&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 80.0.3987.149, chrome: {chromedriverVersion: 79.0.3945.36 (3582db32b3389..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:61175}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: b8657b22c7f5f6828a029946c2ba1f71
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
+	at com.tetherfi.pages.BasePage.waitUntilWebElementIsVisible(BasePage.java:127)
+	at com.tetherfi.pages.BasePage.enterValueToTxtField(BasePage.java:150)
+	at com.tetherfi.pages.IntentMappingPage.editIntentMappingRecord(IntentMappingPage.java:822)
+	at com.tetherfi.test.ivr.IntentMappingTest.EditIntentMappingRecord(IntentMappingTest.java:204)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+	at org.testng.TestRunner.privateRun(TestRunner.java:770)
+	at org.testng.TestRunner.run(TestRunner.java:591)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+	at org.testng.TestNG.runSuites(TestNG.java:1032)
+	at org.testng.TestNG.run(TestNG.java:1000)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>34</td>
+<td>com.tetherfi.test.ivr.IntentMappingTest@1b410308</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.IntentMappingTest.VerifyArrowMoveForFirstAndLastPage()'><b>VerifyArrowMoveForFirstAndLastPage</b><br>Test class: com.tetherfi.test.ivr.IntentMappingTest</td>
 <td><div><pre>org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
-  (Session info: chrome=78.0.3904.70)
+  (Session info: chrome=80.0.3987.149)
 For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
 Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
 System info: host: &apos;DESKTOP-O6A5C2O&apos;, ip: &apos;10.0.75.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;9.0.4&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.70, chrome: {chromedriverVersion: 78.0.3904.105 (60e2d8774a81..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:49205}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: f275ec6acb4f3ebd39e567357bc67929
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 80.0.3987.149, chrome: {chromedriverVersion: 79.0.3945.36 (3582db32b3389..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:61175}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: b8657b22c7f5f6828a029946c2ba1f71
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
@@ -91,26 +150,22 @@ Session ID: f275ec6acb4f3ebd39e567357bc67929
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
 	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
-	at org.openqa.selenium.remote.RemoteWebElement.isDisplayed(RemoteWebElement.java:326)
-	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:314)
-	at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:43)
-	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:300)
-	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:297)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
-	at com.tetherfi.pages.BasePage.waitUntilWebElementListIsVisible(BasePage.java:139)
-	at com.tetherfi.pages.BasePage.selectDropdownFromVisibleText(BasePage.java:335)
-	at com.tetherfi.pages.IntentMappingPage.addRecordWithoutProduct(IntentMappingPage.java:887)
-	at com.tetherfi.test.ivr.IntentMappingTest.AddRecordWithoutProduct(IntentMappingTest.java:126)
+	at org.openqa.selenium.remote.RemoteWebElement.getText(RemoteWebElement.java:166)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
+	at com.sun.proxy.$Proxy16.getText(Unknown Source)
+	at com.tetherfi.pages.BasePage.getTextFromWebElement(BasePage.java:281)
+	at com.tetherfi.pages.IntentMappingPage.verifyArrowMoveForFirstAndLastPage(IntentMappingPage.java:420)
+	at com.tetherfi.test.ivr.IntentMappingTest.VerifyArrowMoveForFirstAndLastPage(IntentMappingTest.java:402)
 	at java.base/java.util.ArrayList.forEach(Unknown Source)
-... Removed 31 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1110995944", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1110995944'><pre>org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
-  (Session info: chrome=78.0.3904.70)
+... Removed 34 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace2134282358", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace2134282358'><pre>org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
+  (Session info: chrome=80.0.3987.149)
 For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
 Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
 System info: host: &apos;DESKTOP-O6A5C2O&apos;, ip: &apos;10.0.75.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;9.0.4&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.70, chrome: {chromedriverVersion: 78.0.3904.105 (60e2d8774a81..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:49205}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: f275ec6acb4f3ebd39e567357bc67929
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 80.0.3987.149, chrome: {chromedriverVersion: 79.0.3945.36 (3582db32b3389..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:61175}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: b8657b22c7f5f6828a029946c2ba1f71
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
@@ -122,16 +177,15 @@ Session ID: f275ec6acb4f3ebd39e567357bc67929
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
 	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
-	at org.openqa.selenium.remote.RemoteWebElement.isDisplayed(RemoteWebElement.java:326)
-	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:314)
-	at org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:43)
-	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:300)
-	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:297)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
-	at com.tetherfi.pages.BasePage.waitUntilWebElementListIsVisible(BasePage.java:139)
-	at com.tetherfi.pages.BasePage.selectDropdownFromVisibleText(BasePage.java:335)
-	at com.tetherfi.pages.IntentMappingPage.addRecordWithoutProduct(IntentMappingPage.java:887)
-	at com.tetherfi.test.ivr.IntentMappingTest.AddRecordWithoutProduct(IntentMappingTest.java:126)
+	at org.openqa.selenium.remote.RemoteWebElement.getText(RemoteWebElement.java:166)
+	at jdk.internal.reflect.GeneratedMethodAccessor11.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
+	at com.sun.proxy.$Proxy16.getText(Unknown Source)
+	at com.tetherfi.pages.BasePage.getTextFromWebElement(BasePage.java:281)
+	at com.tetherfi.pages.IntentMappingPage.verifyArrowMoveForFirstAndLastPage(IntentMappingPage.java:420)
+	at com.tetherfi.test.ivr.IntentMappingTest.VerifyArrowMoveForFirstAndLastPage(IntentMappingTest.java:402)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -161,36 +215,61 @@ Session ID: f275ec6acb4f3ebd39e567357bc67929
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
-<td>2</td>
+<td>0</td>
 <td>com.tetherfi.test.ivr.IntentMappingTest@1b410308</td></tr>
 <tr>
-<td title='com.tetherfi.test.ivr.IntentMappingTest.EditIntentMappingRecord()'><b>EditIntentMappingRecord</b><br>Test class: com.tetherfi.test.ivr.IntentMappingTest</td>
-<td><div><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of [[ChromeDriver: chrome on XP (f275ec6acb4f3ebd39e567357bc67929)] -&gt; id: VDN] (tried for 30 second(s) with 500 milliseconds interval)
+<td title='com.tetherfi.test.ivr.IntentMappingTest.VerifyArrowMoveForPreviousAndNextPage()'><b>VerifyArrowMoveForPreviousAndNextPage</b><br>Test class: com.tetherfi.test.ivr.IntentMappingTest</td>
+<td><div><pre>org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
+  (Session info: chrome=80.0.3987.149)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
 Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
 System info: host: &apos;DESKTOP-O6A5C2O&apos;, ip: &apos;10.0.75.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;9.0.4&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.70, chrome: {chromedriverVersion: 78.0.3904.105 (60e2d8774a81..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:49205}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: f275ec6acb4f3ebd39e567357bc67929
-	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
-	at com.tetherfi.pages.BasePage.waitUntilWebElementIsVisible(BasePage.java:127)
-	at com.tetherfi.pages.BasePage.enterValueToTxtField(BasePage.java:150)
-	at com.tetherfi.pages.IntentMappingPage.editIntentMappingRecord(IntentMappingPage.java:822)
-	at com.tetherfi.test.ivr.IntentMappingTest.EditIntentMappingRecord(IntentMappingTest.java:204)
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 80.0.3987.149, chrome: {chromedriverVersion: 79.0.3945.36 (3582db32b3389..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:61175}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: b8657b22c7f5f6828a029946c2ba1f71
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
+	at org.openqa.selenium.remote.RemoteWebElement.getText(RemoteWebElement.java:166)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
+	at com.sun.proxy.$Proxy16.getText(Unknown Source)
+	at com.tetherfi.pages.BasePage.getTextFromWebElement(BasePage.java:281)
+	at com.tetherfi.pages.IntentMappingPage.verifyArrowMoveForPreviousAndNextPage(IntentMappingPage.java:406)
+	at com.tetherfi.test.ivr.IntentMappingTest.VerifyArrowMoveForPreviousAndNextPage(IntentMappingTest.java:396)
 	at java.base/java.util.ArrayList.forEach(Unknown Source)
-... Removed 27 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1846659720", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1846659720'><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of [[ChromeDriver: chrome on XP (f275ec6acb4f3ebd39e567357bc67929)] -&gt; id: VDN] (tried for 30 second(s) with 500 milliseconds interval)
+... Removed 34 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace704029614", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace704029614'><pre>org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
+  (Session info: chrome=80.0.3987.149)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
 Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
 System info: host: &apos;DESKTOP-O6A5C2O&apos;, ip: &apos;10.0.75.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;9.0.4&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.70, chrome: {chromedriverVersion: 78.0.3904.105 (60e2d8774a81..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:49205}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: f275ec6acb4f3ebd39e567357bc67929
-	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
-	at com.tetherfi.pages.BasePage.waitUntilWebElementIsVisible(BasePage.java:127)
-	at com.tetherfi.pages.BasePage.enterValueToTxtField(BasePage.java:150)
-	at com.tetherfi.pages.IntentMappingPage.editIntentMappingRecord(IntentMappingPage.java:822)
-	at com.tetherfi.test.ivr.IntentMappingTest.EditIntentMappingRecord(IntentMappingTest.java:204)
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 80.0.3987.149, chrome: {chromedriverVersion: 79.0.3945.36 (3582db32b3389..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:61175}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: b8657b22c7f5f6828a029946c2ba1f71
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.base/java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
+	at org.openqa.selenium.remote.RemoteWebElement.getText(RemoteWebElement.java:166)
+	at jdk.internal.reflect.GeneratedMethodAccessor11.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
+	at com.sun.proxy.$Proxy16.getText(Unknown Source)
+	at com.tetherfi.pages.BasePage.getTextFromWebElement(BasePage.java:281)
+	at com.tetherfi.pages.IntentMappingPage.verifyArrowMoveForPreviousAndNextPage(IntentMappingPage.java:406)
+	at com.tetherfi.test.ivr.IntentMappingTest.VerifyArrowMoveForPreviousAndNextPage(IntentMappingTest.java:396)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -220,7 +299,7 @@ Session ID: f275ec6acb4f3ebd39e567357bc67929
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
-<td>36</td>
+<td>1</td>
 <td>com.tetherfi.test.ivr.IntentMappingTest@1b410308</td></tr>
 <tr>
 <td title='com.tetherfi.test.ivr.IntentMappingTest.VerifyAuditTrialReportForUpdate()'><b>VerifyAuditTrialReportForUpdate</b><br>Test class: com.tetherfi.test.ivr.IntentMappingTest</td>
@@ -230,19 +309,19 @@ Session ID: f275ec6acb4f3ebd39e567357bc67929
 	at java.base/jdk.internal.util.Preconditions.checkIndex(Unknown Source)
 	at java.base/java.util.Objects.checkIndex(Unknown Source)
 	at java.base/java.util.ArrayList.get(Unknown Source)
-	at com.tetherfi.pages.OCMReportsPage.getFirstRowDatafromTable1(OCMReportsPage.java:1282)
-	at com.tetherfi.pages.OCMReportsPage.verifyIntentMappingUpdate(OCMReportsPage.java:4129)
+	at com.tetherfi.pages.OCMReportsPage.getFirstRowDatafromTable1(OCMReportsPage.java:1290)
+	at com.tetherfi.pages.OCMReportsPage.verifyIntentMappingUpdate(OCMReportsPage.java:4137)
 	at com.tetherfi.test.ivr.IntentMappingTest.VerifyAuditTrialReportForUpdate(IntentMappingTest.java:220)
 	at java.base/java.util.ArrayList.forEach(Unknown Source)
-... Removed 27 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace776574910", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace776574910'><pre>java.lang.IndexOutOfBoundsException: Index 1 out-of-bounds for length 1
+... Removed 27 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1701206075", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1701206075'><pre>java.lang.IndexOutOfBoundsException: Index 1 out-of-bounds for length 1
 	at java.base/jdk.internal.util.Preconditions.outOfBounds(Unknown Source)
 	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Unknown Source)
 	at java.base/jdk.internal.util.Preconditions.checkIndex(Unknown Source)
 	at java.base/java.util.Objects.checkIndex(Unknown Source)
 	at java.base/java.util.ArrayList.get(Unknown Source)
-	at com.tetherfi.pages.OCMReportsPage.getFirstRowDatafromTable1(OCMReportsPage.java:1282)
-	at com.tetherfi.pages.OCMReportsPage.verifyIntentMappingUpdate(OCMReportsPage.java:4129)
+	at com.tetherfi.pages.OCMReportsPage.getFirstRowDatafromTable1(OCMReportsPage.java:1290)
+	at com.tetherfi.pages.OCMReportsPage.verifyIntentMappingUpdate(OCMReportsPage.java:4137)
 	at com.tetherfi.test.ivr.IntentMappingTest.VerifyAuditTrialReportForUpdate(IntentMappingTest.java:220)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
@@ -273,7 +352,7 @@ Session ID: f275ec6acb4f3ebd39e567357bc67929
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
-<td>29</td>
+<td>23</td>
 <td>com.tetherfi.test.ivr.IntentMappingTest@1b410308</td></tr>
 <tr>
 <td title='com.tetherfi.test.ivr.IntentMappingTest.VerifyCancelBtnAtDeleteIntentMappingRecord()'><b>VerifyCancelBtnAtDeleteIntentMappingRecord</b><br>Test class: com.tetherfi.test.ivr.IntentMappingTest</td>
@@ -286,13 +365,13 @@ Session ID: f275ec6acb4f3ebd39e567357bc67929
 	at com.tetherfi.test.ivr.IntentMappingTest.VerifyCancelBtnAtDeleteIntentMappingRecord(IntentMappingTest.java:316)
 	at java.base/java.util.ArrayList.forEach(Unknown Source)
 Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;.k-grid-CustomDelete&quot;}
-  (Session info: chrome=78.0.3904.70)
+  (Session info: chrome=80.0.3987.149)
 For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
 Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
 System info: host: &apos;DESKTOP-O6A5C2O&apos;, ip: &apos;10.0.75.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;9.0.4&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.70, chrome: {chromedriverVersion: 78.0.3904.105 (60e2d8774a81..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:49205}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: f275ec6acb4f3ebd39e567357bc67929
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 80.0.3987.149, chrome: {chromedriverVersion: 79.0.3945.36 (3582db32b3389..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:61175}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: b8657b22c7f5f6828a029946c2ba1f71
 *** Element info: {Using=css selector, value=.k-grid-CustomDelete}
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
@@ -313,8 +392,8 @@ Session ID: f275ec6acb4f3ebd39e567357bc67929
 	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:297)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
 	... 32 more
-... Removed 31 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1965966446", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1965966446'><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator &apos;By.cssSelector: .k-grid-CustomDelete&apos; (tried for 30 second(s) with 500 milliseconds interval)
+... Removed 31 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1436150228", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1436150228'><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator &apos;By.cssSelector: .k-grid-CustomDelete&apos; (tried for 30 second(s) with 500 milliseconds interval)
 	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
 	at com.tetherfi.pages.BasePage.waitUntilWebElementIsVisible(BasePage.java:127)
@@ -350,13 +429,13 @@ Session ID: f275ec6acb4f3ebd39e567357bc67929
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;.k-grid-CustomDelete&quot;}
-  (Session info: chrome=78.0.3904.70)
+  (Session info: chrome=80.0.3987.149)
 For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
 Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
 System info: host: &apos;DESKTOP-O6A5C2O&apos;, ip: &apos;10.0.75.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;9.0.4&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.70, chrome: {chromedriverVersion: 78.0.3904.105 (60e2d8774a81..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:49205}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: f275ec6acb4f3ebd39e567357bc67929
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 80.0.3987.149, chrome: {chromedriverVersion: 79.0.3945.36 (3582db32b3389..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:61175}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: b8657b22c7f5f6828a029946c2ba1f71
 *** Element info: {Using=css selector, value=.k-grid-CustomDelete}
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
@@ -382,7 +461,7 @@ Session ID: f275ec6acb4f3ebd39e567357bc67929
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
 	... 32 more
 </pre></div></td>
-<td>85</td>
+<td>83</td>
 <td>com.tetherfi.test.ivr.IntentMappingTest@1b410308</td></tr>
 <tr>
 <td title='com.tetherfi.test.ivr.IntentMappingTest.VerifyCancelBtnAtEditRecord()'><b>VerifyCancelBtnAtEditRecord</b><br>Test class: com.tetherfi.test.ivr.IntentMappingTest</td>
@@ -395,13 +474,13 @@ Session ID: f275ec6acb4f3ebd39e567357bc67929
 	at com.tetherfi.test.ivr.IntentMappingTest.VerifyCancelBtnAtEditRecord(IntentMappingTest.java:193)
 	at java.base/java.util.ArrayList.forEach(Unknown Source)
 Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;.k-grid-edit&quot;}
-  (Session info: chrome=78.0.3904.70)
+  (Session info: chrome=80.0.3987.149)
 For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
 Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
 System info: host: &apos;DESKTOP-O6A5C2O&apos;, ip: &apos;10.0.75.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;9.0.4&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.70, chrome: {chromedriverVersion: 78.0.3904.105 (60e2d8774a81..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:49205}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: f275ec6acb4f3ebd39e567357bc67929
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 80.0.3987.149, chrome: {chromedriverVersion: 79.0.3945.36 (3582db32b3389..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:61175}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: b8657b22c7f5f6828a029946c2ba1f71
 *** Element info: {Using=css selector, value=.k-grid-edit}
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
 	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
@@ -422,8 +501,8 @@ Session ID: f275ec6acb4f3ebd39e567357bc67929
 	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:297)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
 	... 32 more
-... Removed 31 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1865252428", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1865252428'><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator &apos;By.cssSelector: .k-grid-edit&apos; (tried for 30 second(s) with 500 milliseconds interval)
+... Removed 31 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace999191474", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace999191474'><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator &apos;By.cssSelector: .k-grid-edit&apos; (tried for 30 second(s) with 500 milliseconds interval)
 	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
 	at com.tetherfi.pages.BasePage.waitUntilWebElementIsVisible(BasePage.java:127)
@@ -459,13 +538,13 @@ Session ID: f275ec6acb4f3ebd39e567357bc67929
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;.k-grid-edit&quot;}
-  (Session info: chrome=78.0.3904.70)
+  (Session info: chrome=80.0.3987.149)
 For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
 Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
 System info: host: &apos;DESKTOP-O6A5C2O&apos;, ip: &apos;10.0.75.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;9.0.4&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.70, chrome: {chromedriverVersion: 78.0.3904.105 (60e2d8774a81..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:49205}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: f275ec6acb4f3ebd39e567357bc67929
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 80.0.3987.149, chrome: {chromedriverVersion: 79.0.3945.36 (3582db32b3389..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:61175}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: b8657b22c7f5f6828a029946c2ba1f71
 *** Element info: {Using=css selector, value=.k-grid-edit}
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
@@ -491,62 +570,19 @@ Session ID: f275ec6acb4f3ebd39e567357bc67929
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
 	... 32 more
 </pre></div></td>
-<td>85</td>
+<td>83</td>
 <td>com.tetherfi.test.ivr.IntentMappingTest@1b410308</td></tr>
 <tr>
-<td title='com.tetherfi.test.ivr.IntentMappingTest.VerifySearchStartsWith()'><b>VerifySearchStartsWith</b><br>Test class: com.tetherfi.test.ivr.IntentMappingTest</td>
-<td><div><pre>org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
-  (Session info: chrome=78.0.3904.70)
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
-Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
-System info: host: &apos;DESKTOP-O6A5C2O&apos;, ip: &apos;10.0.75.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;9.0.4&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.70, chrome: {chromedriverVersion: 78.0.3904.105 (60e2d8774a81..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:49205}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: f275ec6acb4f3ebd39e567357bc67929
-*** Element info: {Using=tag name, value=td}
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
-	at org.openqa.selenium.remote.RemoteWebElement.findElements(RemoteWebElement.java:204)
-	at org.openqa.selenium.remote.RemoteWebElement.findElementsByTagName(RemoteWebElement.java:281)
-	at org.openqa.selenium.By$ByTagName.findElements(By.java:312)
-	at org.openqa.selenium.remote.RemoteWebElement.findElements(RemoteWebElement.java:177)
-	at com.tetherfi.pages.IntentMappingPage.gettable(IntentMappingPage.java:370)
-	at com.tetherfi.pages.IntentMappingPage.verifySearchStartsWith(IntentMappingPage.java:768)
-	at com.tetherfi.test.ivr.IntentMappingTest.VerifySearchStartsWith(IntentMappingTest.java:256)
+<td title='com.tetherfi.test.ivr.IntentMappingTest.VerifyColumnsHeaderEnable()'><b>VerifyColumnsHeaderEnable</b><br>Test class: com.tetherfi.test.ivr.IntentMappingTest</td>
+<td><div><pre>java.lang.AssertionError: columns enabled assertion failed did not expect to find [true] but found [false]
+	at com.tetherfi.test.ivr.IntentMappingTest.VerifyColumnsHeaderEnable(IntentMappingTest.java:66)
 	at java.base/java.util.ArrayList.forEach(Unknown Source)
-... Removed 31 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1408565546", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1408565546'><pre>org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
-  (Session info: chrome=78.0.3904.70)
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
-Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
-System info: host: &apos;DESKTOP-O6A5C2O&apos;, ip: &apos;10.0.75.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;9.0.4&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.70, chrome: {chromedriverVersion: 78.0.3904.105 (60e2d8774a81..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:49205}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: f275ec6acb4f3ebd39e567357bc67929
-*** Element info: {Using=tag name, value=td}
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.base/java.lang.reflect.Constructor.newInstance(Unknown Source)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
-	at org.openqa.selenium.remote.RemoteWebElement.findElements(RemoteWebElement.java:204)
-	at org.openqa.selenium.remote.RemoteWebElement.findElementsByTagName(RemoteWebElement.java:281)
-	at org.openqa.selenium.By$ByTagName.findElements(By.java:312)
-	at org.openqa.selenium.remote.RemoteWebElement.findElements(RemoteWebElement.java:177)
-	at com.tetherfi.pages.IntentMappingPage.gettable(IntentMappingPage.java:370)
-	at com.tetherfi.pages.IntentMappingPage.verifySearchStartsWith(IntentMappingPage.java:768)
-	at com.tetherfi.test.ivr.IntentMappingTest.VerifySearchStartsWith(IntentMappingTest.java:256)
+... Removed 30 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace635472955", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace635472955'><pre>java.lang.AssertionError: columns enabled assertion failed did not expect to find [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:97)
+	at org.testng.Assert.failNotEquals(Assert.java:969)
+	at org.testng.Assert.assertTrue(Assert.java:43)
+	at com.tetherfi.test.ivr.IntentMappingTest.VerifyColumnsHeaderEnable(IntentMappingTest.java:66)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -576,7 +612,7 @@ Session ID: f275ec6acb4f3ebd39e567357bc67929
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
-<td>4</td>
+<td>0</td>
 <td>com.tetherfi.test.ivr.IntentMappingTest@1b410308</td></tr>
 </table><p>
 <table width='100%' border='1' class='invocation-passed'>
@@ -589,52 +625,57 @@ Session ID: f275ec6acb4f3ebd39e567357bc67929
 <tr>
 <td title='com.tetherfi.test.ivr.IntentMappingTest.AddDuplicateIntentMappingRecord()'><b>AddDuplicateIntentMappingRecord</b><br>Test class: com.tetherfi.test.ivr.IntentMappingTest</td>
 <td></td>
-<td>9</td>
+<td>7</td>
 <td>com.tetherfi.test.ivr.IntentMappingTest@1b410308</td></tr>
 <tr>
 <td title='com.tetherfi.test.ivr.IntentMappingTest.AddEmptyRecord()'><b>AddEmptyRecord</b><br>Test class: com.tetherfi.test.ivr.IntentMappingTest</td>
 <td></td>
-<td>1</td>
+<td>2</td>
 <td>com.tetherfi.test.ivr.IntentMappingTest@1b410308</td></tr>
 <tr>
 <td title='com.tetherfi.test.ivr.IntentMappingTest.AddNewIntentMappingRecord()'><b>AddNewIntentMappingRecord</b><br>Test class: com.tetherfi.test.ivr.IntentMappingTest</td>
 <td></td>
-<td>10</td>
+<td>8</td>
 <td>com.tetherfi.test.ivr.IntentMappingTest@1b410308</td></tr>
 <tr>
 <td title='com.tetherfi.test.ivr.IntentMappingTest.AddRecordWithoutIntentTalent()'><b>AddRecordWithoutIntentTalent</b><br>Test class: com.tetherfi.test.ivr.IntentMappingTest</td>
 <td></td>
-<td>7</td>
+<td>5</td>
 <td>com.tetherfi.test.ivr.IntentMappingTest@1b410308</td></tr>
 <tr>
 <td title='com.tetherfi.test.ivr.IntentMappingTest.AddRecordWithoutLanguage()'><b>AddRecordWithoutLanguage</b><br>Test class: com.tetherfi.test.ivr.IntentMappingTest</td>
 <td></td>
-<td>9</td>
+<td>7</td>
+<td>com.tetherfi.test.ivr.IntentMappingTest@1b410308</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.IntentMappingTest.AddRecordWithoutProduct()'><b>AddRecordWithoutProduct</b><br>Test class: com.tetherfi.test.ivr.IntentMappingTest</td>
+<td></td>
+<td>7</td>
 <td>com.tetherfi.test.ivr.IntentMappingTest@1b410308</td></tr>
 <tr>
 <td title='com.tetherfi.test.ivr.IntentMappingTest.AddRecordWithoutSegment()'><b>AddRecordWithoutSegment</b><br>Test class: com.tetherfi.test.ivr.IntentMappingTest</td>
 <td></td>
-<td>9</td>
+<td>7</td>
 <td>com.tetherfi.test.ivr.IntentMappingTest@1b410308</td></tr>
 <tr>
 <td title='com.tetherfi.test.ivr.IntentMappingTest.AddRecordWithoutVDN()'><b>AddRecordWithoutVDN</b><br>Test class: com.tetherfi.test.ivr.IntentMappingTest</td>
 <td></td>
-<td>9</td>
+<td>7</td>
 <td>com.tetherfi.test.ivr.IntentMappingTest@1b410308</td></tr>
 <tr>
 <td title='com.tetherfi.test.ivr.IntentMappingTest.DeleteIntentMappingRecord()'><b>DeleteIntentMappingRecord</b><br>Test class: com.tetherfi.test.ivr.IntentMappingTest</td>
 <td></td>
-<td>6</td>
+<td>4</td>
 <td>com.tetherfi.test.ivr.IntentMappingTest@1b410308</td></tr>
 <tr>
 <td title='com.tetherfi.test.ivr.IntentMappingTest.DeleteWithoutDeleteReasonRecord()'><b>DeleteWithoutDeleteReasonRecord</b><br>Test class: com.tetherfi.test.ivr.IntentMappingTest</td>
 <td></td>
-<td>5</td>
+<td>4</td>
 <td>com.tetherfi.test.ivr.IntentMappingTest@1b410308</td></tr>
 <tr>
 <td title='com.tetherfi.test.ivr.IntentMappingTest.EditWithoutModifyReasonRecord()'><b>EditWithoutModifyReasonRecord</b><br>Test class: com.tetherfi.test.ivr.IntentMappingTest</td>
 <td></td>
-<td>6</td>
+<td>4</td>
 <td>com.tetherfi.test.ivr.IntentMappingTest@1b410308</td></tr>
 <tr>
 <td title='com.tetherfi.test.ivr.IntentMappingTest.ExportToExcel()'><b>ExportToExcel</b><br>Test class: com.tetherfi.test.ivr.IntentMappingTest</td>
@@ -644,7 +685,7 @@ Session ID: f275ec6acb4f3ebd39e567357bc67929
 <tr>
 <td title='com.tetherfi.test.ivr.IntentMappingTest.ExportToExcelData()'><b>ExportToExcelData</b><br>Test class: com.tetherfi.test.ivr.IntentMappingTest</td>
 <td></td>
-<td>7</td>
+<td>4</td>
 <td>com.tetherfi.test.ivr.IntentMappingTest@1b410308</td></tr>
 <tr>
 <td title='com.tetherfi.test.ivr.IntentMappingTest.ExporttoExcelWithoutData()'><b>ExporttoExcelWithoutData</b><br>Test class: com.tetherfi.test.ivr.IntentMappingTest</td>
@@ -654,7 +695,7 @@ Session ID: f275ec6acb4f3ebd39e567357bc67929
 <tr>
 <td title='com.tetherfi.test.ivr.IntentMappingTest.GroupBy()'><b>GroupBy</b><br>Test class: com.tetherfi.test.ivr.IntentMappingTest</td>
 <td></td>
-<td>3</td>
+<td>2</td>
 <td>com.tetherfi.test.ivr.IntentMappingTest@1b410308</td></tr>
 <tr>
 <td title='com.tetherfi.test.ivr.IntentMappingTest.IntentMappingPage()'><b>IntentMappingPage</b><br>Test class: com.tetherfi.test.ivr.IntentMappingTest</td>
@@ -664,37 +705,27 @@ Session ID: f275ec6acb4f3ebd39e567357bc67929
 <tr>
 <td title='com.tetherfi.test.ivr.IntentMappingTest.SearchClearSearch()'><b>SearchClearSearch</b><br>Test class: com.tetherfi.test.ivr.IntentMappingTest</td>
 <td></td>
-<td>5</td>
+<td>4</td>
 <td>com.tetherfi.test.ivr.IntentMappingTest@1b410308</td></tr>
 <tr>
 <td title='com.tetherfi.test.ivr.IntentMappingTest.SortingByAscending()'><b>SortingByAscending</b><br>Test class: com.tetherfi.test.ivr.IntentMappingTest</td>
 <td></td>
-<td>8</td>
+<td>6</td>
 <td>com.tetherfi.test.ivr.IntentMappingTest@1b410308</td></tr>
 <tr>
 <td title='com.tetherfi.test.ivr.IntentMappingTest.SortingByDescending()'><b>SortingByDescending</b><br>Test class: com.tetherfi.test.ivr.IntentMappingTest</td>
 <td></td>
-<td>8</td>
-<td>com.tetherfi.test.ivr.IntentMappingTest@1b410308</td></tr>
-<tr>
-<td title='com.tetherfi.test.ivr.IntentMappingTest.VerifyArrowMoveForFirstAndLastPage()'><b>VerifyArrowMoveForFirstAndLastPage</b><br>Test class: com.tetherfi.test.ivr.IntentMappingTest</td>
-<td></td>
-<td>1</td>
-<td>com.tetherfi.test.ivr.IntentMappingTest@1b410308</td></tr>
-<tr>
-<td title='com.tetherfi.test.ivr.IntentMappingTest.VerifyArrowMoveForPreviousAndNextPage()'><b>VerifyArrowMoveForPreviousAndNextPage</b><br>Test class: com.tetherfi.test.ivr.IntentMappingTest</td>
-<td></td>
-<td>1</td>
+<td>6</td>
 <td>com.tetherfi.test.ivr.IntentMappingTest@1b410308</td></tr>
 <tr>
 <td title='com.tetherfi.test.ivr.IntentMappingTest.VerifyAuditTrialReportForCreate()'><b>VerifyAuditTrialReportForCreate</b><br>Test class: com.tetherfi.test.ivr.IntentMappingTest</td>
 <td></td>
-<td>29</td>
+<td>25</td>
 <td>com.tetherfi.test.ivr.IntentMappingTest@1b410308</td></tr>
 <tr>
 <td title='com.tetherfi.test.ivr.IntentMappingTest.VerifyAuditTrialReportForDelete()'><b>VerifyAuditTrialReportForDelete</b><br>Test class: com.tetherfi.test.ivr.IntentMappingTest</td>
 <td></td>
-<td>28</td>
+<td>23</td>
 <td>com.tetherfi.test.ivr.IntentMappingTest@1b410308</td></tr>
 <tr>
 <td title='com.tetherfi.test.ivr.IntentMappingTest.VerifyCancelBtnAtAddRecord()'><b>VerifyCancelBtnAtAddRecord</b><br>Test class: com.tetherfi.test.ivr.IntentMappingTest</td>
@@ -704,42 +735,42 @@ Session ID: f275ec6acb4f3ebd39e567357bc67929
 <tr>
 <td title='com.tetherfi.test.ivr.IntentMappingTest.VerifyColumnsHeaderDisable()'><b>VerifyColumnsHeaderDisable</b><br>Test class: com.tetherfi.test.ivr.IntentMappingTest</td>
 <td></td>
-<td>5</td>
-<td>com.tetherfi.test.ivr.IntentMappingTest@1b410308</td></tr>
-<tr>
-<td title='com.tetherfi.test.ivr.IntentMappingTest.VerifyColumnsHeaderEnable()'><b>VerifyColumnsHeaderEnable</b><br>Test class: com.tetherfi.test.ivr.IntentMappingTest</td>
-<td></td>
 <td>4</td>
 <td>com.tetherfi.test.ivr.IntentMappingTest@1b410308</td></tr>
 <tr>
 <td title='com.tetherfi.test.ivr.IntentMappingTest.VerifyDropdownForAllTheColumns()'><b>VerifyDropdownForAllTheColumns</b><br>Test class: com.tetherfi.test.ivr.IntentMappingTest</td>
 <td></td>
-<td>7</td>
+<td>45</td>
 <td>com.tetherfi.test.ivr.IntentMappingTest@1b410308</td></tr>
 <tr>
 <td title='com.tetherfi.test.ivr.IntentMappingTest.VerifyNumberOfItemsPerPageSelection()'><b>VerifyNumberOfItemsPerPageSelection</b><br>Test class: com.tetherfi.test.ivr.IntentMappingTest</td>
 <td></td>
-<td>10</td>
+<td>9</td>
 <td>com.tetherfi.test.ivr.IntentMappingTest@1b410308</td></tr>
 <tr>
 <td title='com.tetherfi.test.ivr.IntentMappingTest.VerifySearchContains()'><b>VerifySearchContains</b><br>Test class: com.tetherfi.test.ivr.IntentMappingTest</td>
 <td></td>
-<td>6</td>
+<td>4</td>
 <td>com.tetherfi.test.ivr.IntentMappingTest@1b410308</td></tr>
 <tr>
 <td title='com.tetherfi.test.ivr.IntentMappingTest.VerifySearchDoesNotContains()'><b>VerifySearchDoesNotContains</b><br>Test class: com.tetherfi.test.ivr.IntentMappingTest</td>
 <td></td>
-<td>8</td>
+<td>5</td>
 <td>com.tetherfi.test.ivr.IntentMappingTest@1b410308</td></tr>
 <tr>
 <td title='com.tetherfi.test.ivr.IntentMappingTest.VerifySearchEndsWith()'><b>VerifySearchEndsWith</b><br>Test class: com.tetherfi.test.ivr.IntentMappingTest</td>
 <td></td>
-<td>4</td>
+<td>3</td>
 <td>com.tetherfi.test.ivr.IntentMappingTest@1b410308</td></tr>
 <tr>
 <td title='com.tetherfi.test.ivr.IntentMappingTest.VerifySearchIsNotEqualTo()'><b>VerifySearchIsNotEqualTo</b><br>Test class: com.tetherfi.test.ivr.IntentMappingTest</td>
 <td></td>
-<td>10</td>
+<td>7</td>
+<td>com.tetherfi.test.ivr.IntentMappingTest@1b410308</td></tr>
+<tr>
+<td title='com.tetherfi.test.ivr.IntentMappingTest.VerifySearchStartsWith()'><b>VerifySearchStartsWith</b><br>Test class: com.tetherfi.test.ivr.IntentMappingTest</td>
+<td></td>
+<td>4</td>
 <td>com.tetherfi.test.ivr.IntentMappingTest@1b410308</td></tr>
 <tr>
 <td title='com.tetherfi.test.ivr.IntentMappingTest.VerifyTotalNumberOfItemsPerPageDetails()'><b>VerifyTotalNumberOfItemsPerPageDetails</b><br>Test class: com.tetherfi.test.ivr.IntentMappingTest</td>
@@ -749,17 +780,17 @@ Session ID: f275ec6acb4f3ebd39e567357bc67929
 <tr>
 <td title='com.tetherfi.test.ivr.IntentMappingTest.database()'><b>database</b><br>Test class: com.tetherfi.test.ivr.IntentMappingTest</td>
 <td></td>
-<td>6</td>
+<td>4</td>
 <td>com.tetherfi.test.ivr.IntentMappingTest@1b410308</td></tr>
 <tr>
 <td title='com.tetherfi.test.ivr.IntentMappingTest.searchPage()'><b>searchPage</b><br>Test class: com.tetherfi.test.ivr.IntentMappingTest</td>
 <td></td>
-<td>4</td>
+<td>3</td>
 <td>com.tetherfi.test.ivr.IntentMappingTest@1b410308</td></tr>
 <tr>
 <td title='com.tetherfi.test.ivr.IntentMappingTest.searchwithoutSearchTextbox()'><b>searchwithoutSearchTextbox</b><br>Test class: com.tetherfi.test.ivr.IntentMappingTest</td>
 <td></td>
-<td>4</td>
+<td>2</td>
 <td>com.tetherfi.test.ivr.IntentMappingTest@1b410308</td></tr>
 </table><p>
 </body>

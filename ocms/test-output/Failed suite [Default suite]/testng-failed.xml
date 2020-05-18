@@ -3,8 +3,13 @@
 <suite name="Failed suite [Failed suite [Default suite]]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)(failed)">
     <classes>
+<<<<<<< HEAD
       <class name="com.tetherfi.test.tmac.AgentTeamMgmtTest">
+=======
+      <class name="com.tetherfi.test.fax.FaxAddressBookTest">
+>>>>>>> refs/remotes/origin/PalakMay18th
         <methods>
+<<<<<<< HEAD
           <include name="VerifySearchContains"/>
           <include name="NavigateToAgentTeamManagementPage"/>
           <include name="VerifySearchIsNotEqualTo"/>
@@ -16,14 +21,49 @@
           <include name="ExporttoExcelWithoutData"/>
           <include name="VerifyArrowMoveForPreviousAndNextPage"/>
           <include name="VerifySearchDoesNotContains"/>
+=======
+          <include name="AddressBookSortingByAscending"/>
+          <include name="VerifyRecipientTotalNumberOfItemsPerPageDetailsRecipient"/>
+          <include name="VerifyAuditTrialReportForDelete"/>
+          <include name="DeleteRecipientRecord"/>
+>>>>>>> refs/remotes/origin/PalakMay18th
           <include name="startTestCase"/>
           <include name="openApplication"/>
+<<<<<<< HEAD
           <include name="VerifySearchEndsWith"/>
           <include name="afterEachMethod"/>
           <include name="database"/>
           <include name="VerifyArrowMoveForFirstAndLastPage"/>
+=======
+          <include name="VerifyAddressBookColumnsHeaderEnable"/>
+          <include name="VerifyAuditTrailReportForAddressCreate"/>
+          <include name="AddressBookExportToExcelData"/>
+          <include name="VerifyAuditTrailReportForCreate"/>
+          <include name="VerifyAuditTrialReportForAddressBookDelete"/>
+          <include name="VerifyRecipientNumberOfItemsPerPageSelectionRecipient"/>
+          <include name="NavigatetoFaxAddressPage"/>
+          <include name="EditRecipientWithoutModifyReasonRecord"/>
+          <include name="endTestCase"/>
+          <include name="tearDown"/>
+          <include name="afterEachMethod"/>
+          <include name="DeleteRecepientWithoutDeleteReasonRecord"/>
+          <include name="AddNewRecipientRecord"/>
+          <include name="VerifyAuditTrialReportForRecipientUpdate"/>
+          <include name="AddressBookSortingByDescending"/>
+          <include name="EditRecipientRecord"/>
+          <include name="ExportToExcelData"/>
+          <include name="VerifyCancelBtnAtDeleteRecepientRecord"/>
+          <include name="VerifyNumberOfItemsPerPageSelection"/>
+          <include name="VerifyRecipientCancelBtnAtEditRecord"/>
+          <include name="VerifyDropdownForAllTheColumnsRecipient"/>
+          <include name="VerifyAuditTrialReportForFaxAddressBookUpdate"/>
+>>>>>>> refs/remotes/origin/PalakMay18th
         </methods>
+<<<<<<< HEAD
       </class> <!-- com.tetherfi.test.tmac.AgentTeamMgmtTest -->
+=======
+      </class> <!-- com.tetherfi.test.fax.FaxAddressBookTest -->
+>>>>>>> refs/remotes/origin/PalakMay18th
     </classes>
   </test> <!-- Default test(failed)(failed) -->
 </suite> <!-- Failed suite [Failed suite [Default suite]] -->

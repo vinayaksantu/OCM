@@ -199,7 +199,7 @@ public class WaitTimeColorConfigTest extends BaseTest {
    @Test(priority=16)
    public void searchPage() throws Exception{
 	   String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\WaitTimeColorConfigData.xlsx";
-       Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
+       Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);
        WaitTimeColorConfigDetails waitTimeColorConfigDetails = new WaitTimeColorConfigDetails(map);
        WaitTimeColorConfigPage waitTimeColorConfigPage=PageFactory.createPageInstance(driver,WaitTimeColorConfigPage.class);
        Assert.assertFalse(waitTimeColorConfigPage.clearAll(waitTimeColorConfigDetails),"ClearAll Assertion Failed");
@@ -212,7 +212,7 @@ public class WaitTimeColorConfigTest extends BaseTest {
    public void SearchClearSearch() throws Exception
    {
 	   String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\WaitTimeColorConfigData.xlsx";
-       Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
+       Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);
        WaitTimeColorConfigDetails waitTimeColorConfigDetails = new WaitTimeColorConfigDetails(map);
        WaitTimeColorConfigPage waitTimeColorConfigPage=PageFactory.createPageInstance(driver,WaitTimeColorConfigPage.class);
        Assert.assertTrue(waitTimeColorConfigPage.verifyinvalidsearch(waitTimeColorConfigDetails), "InvalidSearchAssertionFailed");

@@ -720,7 +720,7 @@ public class AgentInteractionReportPage extends BasePage  {
 			map.put("Agent Name", details);
 			selectWebElement(searchBtn);	
 			selectWebElement(searchColDropdown);  
-		    selectDropdownFromVisibleText(searchColListBox,"Agent ID");  
+		    selectDropdownFromVisibleText(searchColListBox,"Agent Name");  
 		    waitForJqueryLoad(driver);
 		    selectWebElement(searchCriteriaDropdown);
 		    selectDropdownFromVisibleText(searchCriteriaListbox,"Is not equal to");		   
@@ -769,15 +769,16 @@ public class AgentInteractionReportPage extends BasePage  {
 	 
 		public boolean verifySearchByTextbox(ReportDetails details) throws Exception{	
 		 boolean Status=false;
-		 Map<String, String> map=new HashMap<String,String>() ;
+		 //Map<String, String> map=new HashMap<String,String>() ;
 		 selectWebElement(searchbyfeatureTextBox);    
-		 searchbyfeatureTextBox.sendKeys("90003");//given an identification value
+		 searchbyfeatureTextBox.sendKeys("666");//given an identification value
 		 selectDropdownFromVisibleText(searchbyfeaturelistBox,details.getSearchStr());
+		 enterValueToTxtField(searchbyfeatureTextBox,details.getSearchStr());
 		 waitForJqueryLoad(driver);
 		 List<Map<String,String>> UI=getDataTable(); 
 		 for (Map<String,String> map1: UI)
 		 {   	
-				if(map1.get("Agent Name").equals(details.getSearchStr()))	
+				if(map1.get("Agent ID").equals(details.getSearchStr()))	
 		 	    Status= true;
 		 	else 
 		 		Status= false;

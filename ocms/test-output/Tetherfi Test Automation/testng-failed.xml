@@ -4,38 +4,48 @@
   <listeners>
     <listener class-name="com.tetherfi.ExtentReportListener.ExtentReporterNG"/>
   </listeners>
-  <test thread-count="5" name="WaitTimeColorConfigTest(failed)">
+  <test thread-count="5" name="FaxAddressBookTest(failed)">
     <classes>
-      <class name="com.tetherfi.test.tmac.WaitTimeColorConfigTest">
+      <class name="com.tetherfi.test.fax.FaxAddressBookTest">
         <methods>
           <include name="SortingByAscending"/>
-          <include name="VerifyColumnsHeaderEnable"/>
-          <include name="DeleteCancelRecord"/>
-          <include name="DeleteRecord"/>
+          <include name="VerifyRecipientTotalNumberOfItemsPerPageDetailsRecipient"/>
+          <include name="SortingByDescending"/>
+          <include name="VerifyAuditTrialReportForDelete"/>
+          <include name="AddNewFaxAddressBookRecord"/>
+          <include name="verifyAddressBookdatabase"/>
+          <include name="DeleteRecipientRecord"/>
+          <include name="VerifyCancelBtnAtDeleteAddressRecord"/>
+          <include name="DeleteWithoutDeleteReasonAddressBookRecord"/>
           <include name="startTestCase"/>
           <include name="openApplication"/>
-          <include name="database"/>
-          <include name="VerifyArrowMoveForFirstAndLastPage"/>
-          <include name="SortingByDescending"/>
-          <include name="GroupBy"/>
-          <include name="VerifyAuditTrialReportForDelete"/>
-          <include name="ExporttoExcelWithoutData"/>
-          <include name="VerifyArrowMoveForPreviousAndNextPage"/>
-          <include name="NavigateToWaitTimeColorConfigPage"/>
+          <include name="VerifyCancelBtnAtEditAddressBookRecord"/>
+          <include name="EditWithoutModifyReasonAddressBookRecord"/>
+          <include name="EditFaxAddressBookRecord"/>
+          <include name="VerifyAddressBookColumnsHeaderEnable"/>
+          <include name="VerifyAuditTrailReportForAddressCreate"/>
+          <include name="AddressBookExportToExcelData"/>
+          <include name="VerifyAuditTrailReportForCreate"/>
+          <include name="AddNewRecordWithoutName"/>
+          <include name="VerifyAuditTrialReportForAddressBookDelete"/>
+          <include name="VerifyRecipientNumberOfItemsPerPageSelectionRecipient"/>
+          <include name="NavigatetoFaxAddressPage"/>
+          <include name="ExporttoExcelWithoutDataRecipient"/>
           <include name="endTestCase"/>
           <include name="tearDown"/>
-          <include name="VerifyAuditTrialReportForUpdate"/>
-          <include name="VerifyDropdownForAllTheColumns"/>
+          <include name="afterEachMethod"/>
+          <include name="AddNewRecipientRecordwithoutName2"/>
+          <include name="AddNewRecipientRecord"/>
+          <include name="SearchRecipientClearSearch"/>
+          <include name="AddNewRecordWithoutFaxLine"/>
+          <include name="AddNewDuplicateRecord"/>
           <include name="ExportToExcelData"/>
           <include name="VerifyNumberOfItemsPerPageSelection"/>
-          <include name="afterEachMethod"/>
-          <include name="ExportToExcel"/>
-          <include name="searchPage"/>
-          <include name="VerifyColumnsHeaderDisable"/>
-          <include name="VerifyTotalNumberOfItemsPerPageDetails"/>
-          <include name="SearchClearSearch"/>
+          <include name="VerifyDropdownForAllTheColumnsRecipient"/>
+          <include name="DeleteAddressBookRecord"/>
+          <include name="VerifyAuditTrialReportForFaxAddressBookUpdate"/>
         </methods>
-      </class> <!-- com.tetherfi.test.tmac.WaitTimeColorConfigTest -->
+      </class> <!-- com.tetherfi.test.fax.FaxAddressBookTest -->
     </classes>
-  </test> <!-- WaitTimeColorConfigTest(failed) -->
+  </test> <!-- FaxAddressBookTest(failed) -->
 </suite> <!-- Failed suite [Tetherfi Test Automation] -->

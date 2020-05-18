@@ -181,7 +181,7 @@ public class AgentSettingsDeleteTest {
 		 Assert.assertTrue(agentSettingsPage.verifyAuditTrail(agentSettingsDetails, "MakerDelete", "New"), "Audit trail details failed");
     }
     
-    @Test(groups = { "Maker" },priority=12)//,dependsOnMethods="VerifyAuditTrailDataForDeleteAgentSettingsRecord")
+    @Test(groups = { "Maker" },priority=12,dependsOnMethods="VerifyAuditTrailDataForDeleteAgentSettingsRecord")
     public void VerifySendForApprovalForDeleteRecord() throws Exception {
     	AgentSettingsNewDesignPage agentSettingsPage = PageFactory.createPageInstance(driver, AgentSettingsNewDesignPage.class);
     	agentSettingsPage.selectAgentSettingsAuditTrailTab();
@@ -206,7 +206,7 @@ public class AgentSettingsDeleteTest {
     }
     
     
-	@Test(priority=14,groups = { "Checker" })//,dependsOnMethods="VerifyAuditTrailReportForSendForApprove")
+	@Test(priority=14,groups = { "Checker" },dependsOnMethods="VerifyAuditTrailReportForSendForApprove")
     public void ApproveforDeleteAgentSettingsRecord() throws Exception{
 		 AgentSettingsNewDesignPage agentSettingsPage = PageFactory.createPageInstance(driver, AgentSettingsNewDesignPage.class);
 		 agentSettingsPage.clickonApprove("Approve Deleted");

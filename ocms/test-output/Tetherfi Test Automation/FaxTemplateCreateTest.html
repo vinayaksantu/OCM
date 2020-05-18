@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>FaxTemplateCreateTest</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>10/4/8</td>
+<td>Tests passed/Failed/Skipped:</td><td>9/0/0</td>
 </tr><tr>
-<td>Started on:</td><td>Wed Mar 04 11:08:05 IST 2020</td>
+<td>Started on:</td><td>Wed Mar 18 01:01:34 IST 2020</td>
 </tr>
-<tr><td>Total time:</td><td>807 seconds (807475 ms)</td>
+<tr><td>Total time:</td><td>539 seconds (539537 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -67,225 +67,6 @@ function toggleAllBoxes() {
 </tr>
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
-<table width='100%' border='1' class='invocation-failed'>
-<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
-<tr><td><b>Test method</b></td>
-<td width="30%"><b>Exception</b></td>
-<td width="10%"><b>Time (seconds)</b></td>
-<td><b>Instance</b></td>
-</tr>
-<tr>
-<td title='com.tetherfi.test.fax.FaxTemplateCreateTest.VerifyAddRecordWithOutContent()'><b>VerifyAddRecordWithOutContent</b><br>Test class: com.tetherfi.test.fax.FaxTemplateCreateTest</td>
-<td><div><pre>org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
-  (Session info: chrome=78.0.3904.70)
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
-Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
-System info: host: &apos;DESKTOP-O6A5C2O&apos;, ip: &apos;10.0.75.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;9.0.4&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.70, chrome: {chromedriverVersion: 78.0.3904.105 (60e2d8774a81..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:53911}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: bf46d217ba623c19903b5daeb934839f
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
-	at org.openqa.selenium.remote.RemoteWebElement.sendKeys(RemoteWebElement.java:106)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
-	at com.sun.proxy.$Proxy14.sendKeys(Unknown Source)
-	at com.tetherfi.pages.BasePage.enterValueToTxtField(BasePage.java:153)
-	at com.tetherfi.pages.FaxTemplatePage.addWithoutContent(FaxTemplatePage.java:982)
-	at com.tetherfi.test.fax.FaxTemplateCreateTest.VerifyAddRecordWithOutContent(FaxTemplateCreateTest.java:109)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-... Removed 35 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace403854043", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace403854043'><pre>org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
-  (Session info: chrome=78.0.3904.70)
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
-Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
-System info: host: &apos;DESKTOP-O6A5C2O&apos;, ip: &apos;10.0.75.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;9.0.4&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.70, chrome: {chromedriverVersion: 78.0.3904.105 (60e2d8774a81..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:53911}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: bf46d217ba623c19903b5daeb934839f
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.base/java.lang.reflect.Constructor.newInstance(Unknown Source)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
-	at org.openqa.selenium.remote.RemoteWebElement.sendKeys(RemoteWebElement.java:106)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
-	at com.sun.proxy.$Proxy14.sendKeys(Unknown Source)
-	at com.tetherfi.pages.BasePage.enterValueToTxtField(BasePage.java:153)
-	at com.tetherfi.pages.FaxTemplatePage.addWithoutContent(FaxTemplatePage.java:982)
-	at com.tetherfi.test.fax.FaxTemplateCreateTest.VerifyAddRecordWithOutContent(FaxTemplateCreateTest.java:109)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-	at org.testng.TestRunner.privateRun(TestRunner.java:770)
-	at org.testng.TestRunner.run(TestRunner.java:591)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-	at org.testng.TestNG.runSuites(TestNG.java:1032)
-	at org.testng.TestNG.run(TestNG.java:1000)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div></td>
-<td>2</td>
-<td>com.tetherfi.test.fax.FaxTemplateCreateTest@3a3ed300</td></tr>
-<tr>
-<td title='com.tetherfi.test.fax.FaxTemplateCreateTest.VerifyAuditTrailReportForApproveRecord()'><b>VerifyAuditTrailReportForApproveRecord</b><br>Test class: com.tetherfi.test.fax.FaxTemplateCreateTest</td>
-<td><div><pre>java.lang.AssertionError: Audit Trail Assertion Failed did not expect to find [true] but found [false]
-	at com.tetherfi.test.fax.FaxTemplateCreateTest.VerifyAuditTrailReportForApproveRecord(FaxTemplateCreateTest.java:230)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-... Removed 30 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace536304705", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace536304705'><pre>java.lang.AssertionError: Audit Trail Assertion Failed did not expect to find [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:97)
-	at org.testng.Assert.failNotEquals(Assert.java:969)
-	at org.testng.Assert.assertTrue(Assert.java:43)
-	at com.tetherfi.test.fax.FaxTemplateCreateTest.VerifyAuditTrailReportForApproveRecord(FaxTemplateCreateTest.java:230)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-	at org.testng.TestRunner.privateRun(TestRunner.java:770)
-	at org.testng.TestRunner.run(TestRunner.java:591)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-	at org.testng.TestNG.runSuites(TestNG.java:1032)
-	at org.testng.TestNG.run(TestNG.java:1000)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div></td>
-<td>27</td>
-<td>com.tetherfi.test.fax.FaxTemplateCreateTest@3a3ed300</td></tr>
-<tr>
-<td title='com.tetherfi.test.fax.FaxTemplateCreateTest.VerifyAuditTrailReportForRejectRecord()'><b>VerifyAuditTrailReportForRejectRecord</b><br>Test class: com.tetherfi.test.fax.FaxTemplateCreateTest</td>
-<td><div><pre>java.lang.AssertionError: Audit Trail Assertion Failed did not expect to find [true] but found [false]
-	at com.tetherfi.test.fax.FaxTemplateCreateTest.VerifyAuditTrailReportForRejectRecord(FaxTemplateCreateTest.java:196)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-... Removed 30 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1250559531", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1250559531'><pre>java.lang.AssertionError: Audit Trail Assertion Failed did not expect to find [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:97)
-	at org.testng.Assert.failNotEquals(Assert.java:969)
-	at org.testng.Assert.assertTrue(Assert.java:43)
-	at com.tetherfi.test.fax.FaxTemplateCreateTest.VerifyAuditTrailReportForRejectRecord(FaxTemplateCreateTest.java:196)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-	at org.testng.TestRunner.privateRun(TestRunner.java:770)
-	at org.testng.TestRunner.run(TestRunner.java:591)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-	at org.testng.TestNG.runSuites(TestNG.java:1032)
-	at org.testng.TestNG.run(TestNG.java:1000)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div></td>
-<td>28</td>
-<td>com.tetherfi.test.fax.FaxTemplateCreateTest@3a3ed300</td></tr>
-<tr>
-<td title='com.tetherfi.test.fax.FaxTemplateCreateTest.VerifyAuditTrailReportForRevertRecord()'><b>VerifyAuditTrailReportForRevertRecord</b><br>Test class: com.tetherfi.test.fax.FaxTemplateCreateTest</td>
-<td><div><pre>java.lang.AssertionError: Audit Trail Assertion Failed did not expect to find [true] but found [false]
-	at com.tetherfi.test.fax.FaxTemplateCreateTest.VerifyAuditTrailReportForRevertRecord(FaxTemplateCreateTest.java:154)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-... Removed 30 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1113096558", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1113096558'><pre>java.lang.AssertionError: Audit Trail Assertion Failed did not expect to find [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:97)
-	at org.testng.Assert.failNotEquals(Assert.java:969)
-	at org.testng.Assert.assertTrue(Assert.java:43)
-	at com.tetherfi.test.fax.FaxTemplateCreateTest.VerifyAuditTrailReportForRevertRecord(FaxTemplateCreateTest.java:154)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-	at org.testng.TestRunner.privateRun(TestRunner.java:770)
-	at org.testng.TestRunner.run(TestRunner.java:591)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-	at org.testng.TestNG.runSuites(TestNG.java:1032)
-	at org.testng.TestNG.run(TestNG.java:1000)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div></td>
-<td>33</td>
-<td>com.tetherfi.test.fax.FaxTemplateCreateTest@3a3ed300</td></tr>
-</table><p>
 <table width='100%' border='1' class='invocation-passed'>
 <tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
 <tr><td><b>Test method</b></td>
@@ -294,287 +75,50 @@ Session ID: bf46d217ba623c19903b5daeb934839f
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.tetherfi.test.fax.FaxTemplateCreateTest.AddRejectRecord()'><b>AddRejectRecord</b><br>Test class: com.tetherfi.test.fax.FaxTemplateCreateTest</td>
+<td title='com.tetherfi.test.fax.FaxTemplateCreateTest.ApproveForAddNewFaxTemplateRecord()'><b>ApproveForAddNewFaxTemplateRecord</b><br>Test class: com.tetherfi.test.fax.FaxTemplateCreateTest</td>
 <td></td>
-<td>9</td>
-<td>com.tetherfi.test.fax.FaxTemplateCreateTest@3a3ed300</td></tr>
+<td>15</td>
+<td>com.tetherfi.test.fax.FaxTemplateCreateTest@315105f</td></tr>
 <tr>
-<td title='com.tetherfi.test.fax.FaxTemplateCreateTest.AddRevertRecord()'><b>AddRevertRecord</b><br>Test class: com.tetherfi.test.fax.FaxTemplateCreateTest</td>
-<td></td>
-<td>8</td>
-<td>com.tetherfi.test.fax.FaxTemplateCreateTest@3a3ed300</td></tr>
-<tr>
-<td title='com.tetherfi.test.fax.FaxTemplateCreateTest.RejectForAddNewFaxTemplateRecord()'><b>RejectForAddNewFaxTemplateRecord</b><br>Test class: com.tetherfi.test.fax.FaxTemplateCreateTest</td>
-<td></td>
-<td>12</td>
-<td>com.tetherfi.test.fax.FaxTemplateCreateTest@3a3ed300</td></tr>
-<tr>
-<td title='com.tetherfi.test.fax.FaxTemplateCreateTest.VerifyAddCancelButton()'><b>VerifyAddCancelButton</b><br>Test class: com.tetherfi.test.fax.FaxTemplateCreateTest</td>
-<td></td>
-<td>3</td>
-<td>com.tetherfi.test.fax.FaxTemplateCreateTest@3a3ed300</td></tr>
-<tr>
-<td title='com.tetherfi.test.fax.FaxTemplateCreateTest.VerifyAddRecordWithOutTemplateName()'><b>VerifyAddRecordWithOutTemplateName</b><br>Test class: com.tetherfi.test.fax.FaxTemplateCreateTest</td>
-<td></td>
-<td>6</td>
-<td>com.tetherfi.test.fax.FaxTemplateCreateTest@3a3ed300</td></tr>
-<tr>
-<td title='com.tetherfi.test.fax.FaxTemplateCreateTest.VerifyAddRecordWithOutTemplateType()'><b>VerifyAddRecordWithOutTemplateType</b><br>Test class: com.tetherfi.test.fax.FaxTemplateCreateTest</td>
-<td></td>
-<td>5</td>
-<td>com.tetherfi.test.fax.FaxTemplateCreateTest@3a3ed300</td></tr>
-<tr>
-<td title='com.tetherfi.test.fax.FaxTemplateCreateTest.VerifyApprovedDataSectionWithOutApproval()'><b>VerifyApprovedDataSectionWithOutApproval</b><br>Test class: com.tetherfi.test.fax.FaxTemplateCreateTest</td>
+<td title='com.tetherfi.test.fax.FaxTemplateCreateTest.VerifyApprovedDataSectionAfterApproval()'><b>VerifyApprovedDataSectionAfterApproval</b><br>Test class: com.tetherfi.test.fax.FaxTemplateCreateTest</td>
 <td></td>
 <td>4</td>
-<td>com.tetherfi.test.fax.FaxTemplateCreateTest@3a3ed300</td></tr>
+<td>com.tetherfi.test.fax.FaxTemplateCreateTest@315105f</td></tr>
 <tr>
-<td title='com.tetherfi.test.fax.FaxTemplateCreateTest.VerifyRevertforAddNewRecord()'><b>VerifyRevertforAddNewRecord</b><br>Test class: com.tetherfi.test.fax.FaxTemplateCreateTest</td>
+<td title='com.tetherfi.test.fax.FaxTemplateCreateTest.VerifyAuditTrailDataForApproveRecord()'><b>VerifyAuditTrailDataForApproveRecord</b><br>Test class: com.tetherfi.test.fax.FaxTemplateCreateTest</td>
+<td></td>
+<td>6</td>
+<td>com.tetherfi.test.fax.FaxTemplateCreateTest@315105f</td></tr>
+<tr>
+<td title='com.tetherfi.test.fax.FaxTemplateCreateTest.VerifyAuditTrailReportForApprove()'><b>VerifyAuditTrailReportForApprove</b><br>Test class: com.tetherfi.test.fax.FaxTemplateCreateTest</td>
+<td></td>
+<td>32</td>
+<td>com.tetherfi.test.fax.FaxTemplateCreateTest@315105f</td></tr>
+<tr>
+<td title='com.tetherfi.test.fax.FaxTemplateCreateTest.VerifyAuditTrailReportForApproveRecord()'><b>VerifyAuditTrailReportForApproveRecord</b><br>Test class: com.tetherfi.test.fax.FaxTemplateCreateTest</td>
+<td></td>
+<td>32</td>
+<td>com.tetherfi.test.fax.FaxTemplateCreateTest@315105f</td></tr>
+<tr>
+<td title='com.tetherfi.test.fax.FaxTemplateCreateTest.VerifyAuditTrailReportForSendForApproval()'><b>VerifyAuditTrailReportForSendForApproval</b><br>Test class: com.tetherfi.test.fax.FaxTemplateCreateTest</td>
+<td></td>
+<td>30</td>
+<td>com.tetherfi.test.fax.FaxTemplateCreateTest@315105f</td></tr>
+<tr>
+<td title='com.tetherfi.test.fax.FaxTemplateCreateTest.VerifySendForApprovalAddNewApproveRecord()'><b>VerifySendForApprovalAddNewApproveRecord</b><br>Test class: com.tetherfi.test.fax.FaxTemplateCreateTest</td>
 <td></td>
 <td>10</td>
-<td>com.tetherfi.test.fax.FaxTemplateCreateTest@3a3ed300</td></tr>
-<tr>
-<td title='com.tetherfi.test.fax.FaxTemplateCreateTest.VerifySendForApprovalAddNewRecord()'><b>VerifySendForApprovalAddNewRecord</b><br>Test class: com.tetherfi.test.fax.FaxTemplateCreateTest</td>
-<td></td>
-<td>10</td>
-<td>com.tetherfi.test.fax.FaxTemplateCreateTest@3a3ed300</td></tr>
+<td>com.tetherfi.test.fax.FaxTemplateCreateTest@315105f</td></tr>
 <tr>
 <td title='com.tetherfi.test.fax.FaxTemplateCreateTest.addApproveRecord()'><b>addApproveRecord</b><br>Test class: com.tetherfi.test.fax.FaxTemplateCreateTest</td>
 <td></td>
 <td>10</td>
-<td>com.tetherfi.test.fax.FaxTemplateCreateTest@3a3ed300</td></tr>
-</table><p>
-<table width='100%' border='1' class='invocation-skipped'>
-<tr><td colspan='4' align='center'><b>SKIPPED TESTS</b></td></tr>
-<tr><td><b>Test method</b></td>
-<td width="30%"><b>Exception</b></td>
-<td width="10%"><b>Time (seconds)</b></td>
-<td><b>Instance</b></td>
-</tr>
-<tr>
-<td title='com.tetherfi.test.fax.FaxTemplateCreateTest.ApproveForAddNewFaxTemplateRecord()'><b>ApproveForAddNewFaxTemplateRecord</b><br>Test class: com.tetherfi.test.fax.FaxTemplateCreateTest</td>
-<td><div><pre>java.lang.Throwable: Method FaxTemplateCreateTest.ApproveForAddNewFaxTemplateRecord()[pri:19, instance:com.tetherfi.test.fax.FaxTemplateCreateTest@3a3ed300] depends on not successfully finished methods
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-... Removed 18 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace389443515", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace389443515'><pre>java.lang.Throwable: Method FaxTemplateCreateTest.ApproveForAddNewFaxTemplateRecord()[pri:19, instance:com.tetherfi.test.fax.FaxTemplateCreateTest@3a3ed300] depends on not successfully finished methods
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:99)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-	at org.testng.TestRunner.privateRun(TestRunner.java:770)
-	at org.testng.TestRunner.run(TestRunner.java:591)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-	at org.testng.TestNG.runSuites(TestNG.java:1032)
-	at org.testng.TestNG.run(TestNG.java:1000)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div></td>
-<td>0</td>
-<td>com.tetherfi.test.fax.FaxTemplateCreateTest@3a3ed300</td></tr>
-<tr>
-<td title='com.tetherfi.test.fax.FaxTemplateCreateTest.VerifyApprovedDataSectionAfterApproval()'><b>VerifyApprovedDataSectionAfterApproval</b><br>Test class: com.tetherfi.test.fax.FaxTemplateCreateTest</td>
-<td><div><pre>java.lang.Throwable: Method FaxTemplateCreateTest.VerifyApprovedDataSectionAfterApproval()[pri:21, instance:com.tetherfi.test.fax.FaxTemplateCreateTest@3a3ed300] depends on not successfully finished methods
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-... Removed 18 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1020763415", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1020763415'><pre>java.lang.Throwable: Method FaxTemplateCreateTest.VerifyApprovedDataSectionAfterApproval()[pri:21, instance:com.tetherfi.test.fax.FaxTemplateCreateTest@3a3ed300] depends on not successfully finished methods
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:99)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-	at org.testng.TestRunner.privateRun(TestRunner.java:770)
-	at org.testng.TestRunner.run(TestRunner.java:591)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-	at org.testng.TestNG.runSuites(TestNG.java:1032)
-	at org.testng.TestNG.run(TestNG.java:1000)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div></td>
-<td>0</td>
-<td>com.tetherfi.test.fax.FaxTemplateCreateTest@3a3ed300</td></tr>
-<tr>
-<td title='com.tetherfi.test.fax.FaxTemplateCreateTest.VerifyAuditTrailDataForApproveRecord()'><b>VerifyAuditTrailDataForApproveRecord</b><br>Test class: com.tetherfi.test.fax.FaxTemplateCreateTest</td>
-<td><div><pre>java.lang.Throwable: Method FaxTemplateCreateTest.VerifyAuditTrailDataForApproveRecord()[pri:16, instance:com.tetherfi.test.fax.FaxTemplateCreateTest@3a3ed300] depends on not successfully finished methods
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-... Removed 18 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace463064874", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace463064874'><pre>java.lang.Throwable: Method FaxTemplateCreateTest.VerifyAuditTrailDataForApproveRecord()[pri:16, instance:com.tetherfi.test.fax.FaxTemplateCreateTest@3a3ed300] depends on not successfully finished methods
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:99)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-	at org.testng.TestRunner.privateRun(TestRunner.java:770)
-	at org.testng.TestRunner.run(TestRunner.java:591)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-	at org.testng.TestNG.runSuites(TestNG.java:1032)
-	at org.testng.TestNG.run(TestNG.java:1000)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div></td>
-<td>0</td>
-<td>com.tetherfi.test.fax.FaxTemplateCreateTest@3a3ed300</td></tr>
-<tr>
-<td title='com.tetherfi.test.fax.FaxTemplateCreateTest.VerifyAuditTrailReportForApprove()'><b>VerifyAuditTrailReportForApprove</b><br>Test class: com.tetherfi.test.fax.FaxTemplateCreateTest</td>
-<td><div><pre>java.lang.Throwable: Method FaxTemplateCreateTest.VerifyAuditTrailReportForApprove()[pri:20, instance:com.tetherfi.test.fax.FaxTemplateCreateTest@3a3ed300] depends on not successfully finished methods
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-... Removed 18 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1764507369", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1764507369'><pre>java.lang.Throwable: Method FaxTemplateCreateTest.VerifyAuditTrailReportForApprove()[pri:20, instance:com.tetherfi.test.fax.FaxTemplateCreateTest@3a3ed300] depends on not successfully finished methods
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:99)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-	at org.testng.TestRunner.privateRun(TestRunner.java:770)
-	at org.testng.TestRunner.run(TestRunner.java:591)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-	at org.testng.TestNG.runSuites(TestNG.java:1032)
-	at org.testng.TestNG.run(TestNG.java:1000)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div></td>
-<td>0</td>
-<td>com.tetherfi.test.fax.FaxTemplateCreateTest@3a3ed300</td></tr>
-<tr>
-<td title='com.tetherfi.test.fax.FaxTemplateCreateTest.VerifyAuditTrailReportForSendForApproval()'><b>VerifyAuditTrailReportForSendForApproval</b><br>Test class: com.tetherfi.test.fax.FaxTemplateCreateTest</td>
-<td><div><pre>java.lang.Throwable: Method FaxTemplateCreateTest.VerifyAuditTrailReportForSendForApproval()[pri:18, instance:com.tetherfi.test.fax.FaxTemplateCreateTest@3a3ed300] depends on not successfully finished methods
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-... Removed 18 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace2044672077", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace2044672077'><pre>java.lang.Throwable: Method FaxTemplateCreateTest.VerifyAuditTrailReportForSendForApproval()[pri:18, instance:com.tetherfi.test.fax.FaxTemplateCreateTest@3a3ed300] depends on not successfully finished methods
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:99)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-	at org.testng.TestRunner.privateRun(TestRunner.java:770)
-	at org.testng.TestRunner.run(TestRunner.java:591)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-	at org.testng.TestNG.runSuites(TestNG.java:1032)
-	at org.testng.TestNG.run(TestNG.java:1000)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div></td>
-<td>0</td>
-<td>com.tetherfi.test.fax.FaxTemplateCreateTest@3a3ed300</td></tr>
-<tr>
-<td title='com.tetherfi.test.fax.FaxTemplateCreateTest.VerifyRecordAfterRejection()'><b>VerifyRecordAfterRejection</b><br>Test class: com.tetherfi.test.fax.FaxTemplateCreateTest</td>
-<td><div><pre>java.lang.Throwable: Method FaxTemplateCreateTest.VerifyRecordAfterRejection()[pri:13, instance:com.tetherfi.test.fax.FaxTemplateCreateTest@3a3ed300] depends on not successfully finished methods
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-... Removed 18 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace809714491", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace809714491'><pre>java.lang.Throwable: Method FaxTemplateCreateTest.VerifyRecordAfterRejection()[pri:13, instance:com.tetherfi.test.fax.FaxTemplateCreateTest@3a3ed300] depends on not successfully finished methods
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:99)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-	at org.testng.TestRunner.privateRun(TestRunner.java:770)
-	at org.testng.TestRunner.run(TestRunner.java:591)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-	at org.testng.TestNG.runSuites(TestNG.java:1032)
-	at org.testng.TestNG.run(TestNG.java:1000)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div></td>
-<td>0</td>
-<td>com.tetherfi.test.fax.FaxTemplateCreateTest@3a3ed300</td></tr>
-<tr>
-<td title='com.tetherfi.test.fax.FaxTemplateCreateTest.VerifySendForApprovalAddNewApproveRecord()'><b>VerifySendForApprovalAddNewApproveRecord</b><br>Test class: com.tetherfi.test.fax.FaxTemplateCreateTest</td>
-<td><div><pre>java.lang.Throwable: Method FaxTemplateCreateTest.VerifySendForApprovalAddNewApproveRecord()[pri:17, instance:com.tetherfi.test.fax.FaxTemplateCreateTest@3a3ed300] depends on not successfully finished methods
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-... Removed 18 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace747586866", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace747586866'><pre>java.lang.Throwable: Method FaxTemplateCreateTest.VerifySendForApprovalAddNewApproveRecord()[pri:17, instance:com.tetherfi.test.fax.FaxTemplateCreateTest@3a3ed300] depends on not successfully finished methods
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:99)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-	at org.testng.TestRunner.privateRun(TestRunner.java:770)
-	at org.testng.TestRunner.run(TestRunner.java:591)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-	at org.testng.TestNG.runSuites(TestNG.java:1032)
-	at org.testng.TestNG.run(TestNG.java:1000)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div></td>
-<td>0</td>
-<td>com.tetherfi.test.fax.FaxTemplateCreateTest@3a3ed300</td></tr>
+<td>com.tetherfi.test.fax.FaxTemplateCreateTest@315105f</td></tr>
 <tr>
 <td title='com.tetherfi.test.fax.FaxTemplateCreateTest.addDuplicateRecord()'><b>addDuplicateRecord</b><br>Test class: com.tetherfi.test.fax.FaxTemplateCreateTest</td>
-<td><div><pre>java.lang.Throwable: Method FaxTemplateCreateTest.addDuplicateRecord()[pri:22, instance:com.tetherfi.test.fax.FaxTemplateCreateTest@3a3ed300] depends on not successfully finished methods
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-... Removed 18 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1445004784", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1445004784'><pre>java.lang.Throwable: Method FaxTemplateCreateTest.addDuplicateRecord()[pri:22, instance:com.tetherfi.test.fax.FaxTemplateCreateTest@3a3ed300] depends on not successfully finished methods
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:99)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-	at org.testng.TestRunner.privateRun(TestRunner.java:770)
-	at org.testng.TestRunner.run(TestRunner.java:591)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-	at org.testng.TestNG.runSuites(TestNG.java:1032)
-	at org.testng.TestNG.run(TestNG.java:1000)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div></td>
-<td>0</td>
-<td>com.tetherfi.test.fax.FaxTemplateCreateTest@3a3ed300</td></tr>
+<td></td>
+<td>8</td>
+<td>com.tetherfi.test.fax.FaxTemplateCreateTest@315105f</td></tr>
 </table><p>
 </body>
 </html>

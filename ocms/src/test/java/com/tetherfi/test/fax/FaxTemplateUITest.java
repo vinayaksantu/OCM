@@ -116,7 +116,7 @@ public class FaxTemplateUITest extends BaseTest{
 		FaxTemplatePage faxTemplatePage=PageFactory.createPageInstance(driver, FaxTemplatePage.class);
 		faxTemplatePage.selectFaxTemplateAuditTrailTab();
 		faxTemplatePage.selectMakeFaxTemplateChanges();
-		Assert.assertTrue(faxTemplatePage.verifyTotalNumberOfItemsPerPageDetails(3), "Number of Items assertion Failed");
+		Assert.assertTrue(faxTemplatePage.verifyTotalNumberOfItemsPerPageDetails(2), "Number of Items assertion Failed");
 	}
 	
 	@Test(priority=11)

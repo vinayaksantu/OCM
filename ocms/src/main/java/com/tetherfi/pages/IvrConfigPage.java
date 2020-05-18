@@ -172,7 +172,7 @@ public class IvrConfigPage extends BasePage {
 	private WebElement clearsearch;
 	
 	@FindBy(css=".k-pager-numbers .k-state-selected")
-	private WebElement pageNumber;
+	private List<WebElement> pageNumber;
 	
 	@FindBy(xpath="//a[text()='Parameter']")
 	private List<WebElement> parameter;
@@ -181,7 +181,7 @@ public class IvrConfigPage extends BasePage {
 	private List<WebElement> lastPageIcon;
 		    
 	@FindBy(css=".k-pager-sizes .k-icon")
-	private WebElement pagerDropdown;
+	private List<WebElement>pagerDropdown;
 		    
 	@FindBy(css=".k-animation-container ul li")
 	private List<WebElement> pageSizeListBox;
@@ -334,13 +334,7 @@ public class IvrConfigPage extends BasePage {
         selectDropdownFromVisibleText(valueListBox,details.getValue());
         valueDropdown.sendKeys(Keys.TAB);
         selectWebElement(saveButton);
-        try {
-        	selectWebElement(cancelBtn);
-        }
-        catch(Exception e)
-        {
-        	e.printStackTrace();
-        }
+        
     }
     
     public void searchIvrConfigRecord(String Parameter) throws Exception {
@@ -587,7 +581,7 @@ public class IvrConfigPage extends BasePage {
 	
 	public List<Map<String, String>> gettable() {
 		int item=Integer.valueOf(items.get(0).getText().split("of ")[1].split(" items")[0]);
-        int pagersize=Integer.valueOf(pagerSize.getText());
+        int pagersize=Integer.valueOf(pagerSize.get(0).getText());
         int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
 		List<Map<String,String>> arr=new ArrayList<Map<String,String>>();
 		for(int k=0;k<=pages;k++){
@@ -612,7 +606,7 @@ public class IvrConfigPage extends BasePage {
 		}
 		if(k!=pages)
 		{
-			nextPageIcon.click();
+			nextPageIcon.get(0).click();
 			waitForJqueryLoad(driver);}
 		}
 			return arr;
@@ -653,11 +647,11 @@ public class IvrConfigPage extends BasePage {
 	public boolean verifyArrowMoveForPreviousAndNextPage(int i){
         boolean status=false;
         if(!nextPageIcon.get(i).getAttribute("class").contains("k-state-disabled")){
-        int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber));
+        int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber.get(2)));
         selectWebElement(nextPageIcon.get(i));
-        int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
+        int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber.get(2)));
         selectWebElement(previousPageIcon);
-        int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
+        int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber.get(2)));
         if(nextnumber==(pagenumber+1) && pagenumber==previousnumber){status=true;}
         }else{
             System.out.println("previous and next page icon disabled");status=true;
@@ -668,11 +662,11 @@ public class IvrConfigPage extends BasePage {
 	public boolean verifyArrowMoveForFirstAndLastPage(int i){
         boolean status=false;
         if(!lastPageIcon.get(i).getAttribute("class").contains("k-state-disabled")){
-            int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber));
+            int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber.get(2)));
             selectWebElement(lastPageIcon.get(i));
-            int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
+            int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber.get(2)));
             selectWebElement(firstPageIcon.get(i));
-            int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
+            int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber.get(2)));
             if(nextnumber>pagenumber && pagenumber==previousnumber){status=true;}
         }else{
             System.out.println("previous and next page icon disabled");status=true;
@@ -684,26 +678,26 @@ public class IvrConfigPage extends BasePage {
         boolean status = false;
         try {
           //  if (norecords.size() <= 0) {
-                int item = Integer.valueOf(items.get(0).getText().split("of ")[1].split(" items")[0]);
-                selectWebElement(pagerDropdown);
+                int item = Integer.valueOf(items.get(z).getText().split("of ")[1].split(" items")[0]);
+                selectWebElement(pagerDropdown.get(z));
                 Thread.sleep(1500);
                 for (int i = 0; i < pageSizeListBox.size(); i++) {
                     if(Integer.valueOf(pageSizeListBox.get(i).getText())>item){continue;}
                     selectDropdownFromVisibleText(pageSizeListBox, pageSizeListBox.get(i).getText());
                     waitForJqueryLoad(driver);
-                    int totalItems = Integer.valueOf(items.get(0).getText().split("of ")[1].split(" items")[0]);
+                    int totalItems = Integer.valueOf(items.get(z).getText().split("of ")[1].split(" items")[0]);
                     int pagersize = Integer.valueOf(pagerSize.get(z).getText());
                     int pages = (totalItems % pagersize == 0) ? item / pagersize : item / pagersize+1;
                     int totalRows=(gridContent.findElements(By.tagName("tr")).size());
                     selectWebElement(lastPageIcon.get(z));
                     waitForJqueryLoad(driver);
-                    int lastPageNumber = Integer.valueOf(pageNumber.getText());
+                    int lastPageNumber = Integer.valueOf(pageNumber.get(z).getText());
                     if (item == totalItems && pages == lastPageNumber&&totalRows==pagersize) {
                         status = true;
                     } else {System.out.println(items+":"+totalItems+"\t"+pages+":"+lastPageNumber+"\t"+totalRows+":"+pagersize);
                         status = false;
                         break;
-                    }selectWebElement(pagerDropdown);Thread.sleep(1500);
+                    }selectWebElement(pagerDropdown.get(z));Thread.sleep(1500);
                 }
            // }
         } catch (Exception e) {
@@ -986,6 +980,11 @@ public class IvrConfigPage extends BasePage {
 		selectWebElement(ivrConfigTab.get(1));
 		selectWebElement(makeIVRConfigChanges);
 		selectWebElement(addNewRecordBtn);
+		 try {
+	            Thread.sleep(3000);
+	        } catch (InterruptedException e) {
+	            e.printStackTrace();
+	        }
 		waitForJqueryLoad(driver);
 		selectWebElement(valueDropdown);
 		selectDropdownFromVisibleText(selectValue,details.getValue());
@@ -996,6 +995,11 @@ public class IvrConfigPage extends BasePage {
 		selectWebElement(ivrConfigTab.get(1));
 		selectWebElement(makeIVRConfigChanges);
 		selectWebElement(addNewRecordBtn);
+		 try {
+	            Thread.sleep(3000);
+	        } catch (InterruptedException e) {
+	            e.printStackTrace();
+	        }
 		waitForJqueryLoad(driver);
 		selectWebElement(parameterDropdown);
 		selectDropdownFromVisibleText(selectParameter,details.getParameter());
@@ -1124,6 +1128,7 @@ public class IvrConfigPage extends BasePage {
 		selectWebElement(gridsearchLink);
         selectWebElement(selectSearchColumn.get(0));
         selectDropdownFromVisibleText(columnNameList,"Parameter");
+        Thread.sleep(1000);
         selectWebElement(selectSearchColumn.get(1));
         selectDropdownFromVisibleText(searchTypeList,"Is equal to");
         enterValueToTxtField(searchText.get(0),parameter);

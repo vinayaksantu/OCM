@@ -21,7 +21,7 @@ import java.util.concurrent.TimeUnit;
 
 public class FaxSendersTest extends BaseTest {
 	Screenshot screenshot=new Screenshot(driver);
-    @BeforeClass
+   // @BeforeClass
     public void AddFaxLineConfigRecord() throws Exception {
         HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
         homePage.navigateToOCMPage();

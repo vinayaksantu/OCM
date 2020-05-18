@@ -221,7 +221,7 @@ public class FaxLineConfigTest extends BaseTest {
         Assert.assertFalse(faxLineConfigPage.getErrorMessage());
     }
     
-    @Test(dependsOnMethods = {"AddFaxLineConfigRecord"},priority=17)
+    @Test(/*dependsOnMethods = {"AddFaxLineConfigRecord"},*/priority=17)
     public void EditFaxLineConfigRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxLineConfigData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);

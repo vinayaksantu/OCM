@@ -3,8 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
+<<<<<<< HEAD
       <class name="com.tetherfi.test.tmac.AgentTeamMgmtTest">
+=======
+      <class name="com.tetherfi.test.reports.OCMAgentSummaryReportTest">
+>>>>>>> refs/remotes/origin/PalakMay18th
         <methods>
+<<<<<<< HEAD
           <include name="VerifySearchContains"/>
           <include name="NavigateToAgentTeamManagementPage"/>
           <include name="DeleteAgentTeamManagementCancelRecord"/>
@@ -27,8 +32,20 @@
           <include name="searchPage"/>
           <include name="EditAgentTeamManagementRecord"/>
           <include name="VerifyArrowMoveForFirstAndLastPage"/>
+=======
+          <include name="startTestCase"/>
+          <include name="openApplication"/>
+          <include name="quickInputMonth"/>
+          <include name="endTestCase"/>
+          <include name="tearDown"/>
+          <include name="NavigateToOcmReportsPage"/>
+>>>>>>> refs/remotes/origin/PalakMay18th
         </methods>
+<<<<<<< HEAD
       </class> <!-- com.tetherfi.test.tmac.AgentTeamMgmtTest -->
+=======
+      </class> <!-- com.tetherfi.test.reports.OCMAgentSummaryReportTest -->
+>>>>>>> refs/remotes/origin/PalakMay18th
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

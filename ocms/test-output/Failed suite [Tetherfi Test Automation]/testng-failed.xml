@@ -4,19 +4,20 @@
   <listeners>
     <listener class-name="com.tetherfi.ExtentReportListener.ExtentReporterNG"/>
   </listeners>
-  <test thread-count="5" name="RoleBasedAccessManagementCreateTest(failed)(failed)">
+  <test thread-count="5" name="SmsResponseTemplateDeleteTest(failed)(failed)">
     <classes>
-      <class name="com.tetherfi.test.RoleBasedAccessManagementCreateTest">
+      <class name="com.tetherfi.test.sms.SmsResponseTemplateDeleteTest">
         <methods>
-          <include name="VerifyAuditTrailDataForAddNewNewRoleBasedAccessManagementRecord"/>
-          <include name="VerifyAuditTrailReportForSendForApproval"/>
-          <include name="VerifyRecordApprovedDataSectionafterApproval"/>
-          <include name="NavigateToNewRoleBasedAccessManagementPage"/>
-          <include name="VerifySendForApprovalForAddNewNewRoleBasedAccessManagementRecord"/>
+          <include name="VerifySendForApprovalForDeleteRecord"/>
           <include name="afterEachMethod"/>
-          <include name="ApproveforAddNewNewRoleBasedAccessManagementRecord"/>
+          <include name="ApproveforDeleteSmsResponseTemplateRecord"/>
+          <include name="NavigateToSmsResponseTemplatePage"/>
+          <include name="VerifyAuditTrailReportForSendForApprove"/>
+          <include name="VerifyAuditTrailReportForApprove"/>
+          <include name="DeleteSmsResponseTemplateRecord"/>
+          <include name="VerifyAuditTrailDataForDeleteSmsResponseTemplateRecord"/>
         </methods>
-      </class> <!-- com.tetherfi.test.RoleBasedAccessManagementCreateTest -->
+      </class> <!-- com.tetherfi.test.sms.SmsResponseTemplateDeleteTest -->
     </classes>
-  </test> <!-- RoleBasedAccessManagementCreateTest(failed)(failed) -->
+  </test> <!-- SmsResponseTemplateDeleteTest(failed)(failed) -->
 </suite> <!-- Failed suite [Failed suite [Tetherfi Test Automation]] -->

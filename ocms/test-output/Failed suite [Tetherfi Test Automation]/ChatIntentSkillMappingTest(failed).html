@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>ChatIntentSkillMappingTest(failed)</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>1/8/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>3/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Thu Feb 06 15:01:58 IST 2020</td>
+<td>Started on:</td><td>Fri Mar 13 20:29:58 IST 2020</td>
 </tr>
-<tr><td>Total time:</td><td>261 seconds (261920 ms)</td>
+<tr><td>Total time:</td><td>102 seconds (102555 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -75,161 +75,16 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.tetherfi.test.chat.ChatIntentSkillMappingTest.AddNewChatIntentSkillMappingRecord()'><b>AddNewChatIntentSkillMappingRecord</b><br>Test class: com.tetherfi.test.chat.ChatIntentSkillMappingTest</td>
-<td><div><pre>java.lang.AssertionError: Add New record assertion failed expected [Record Created Successfully] but found [Record Creation Failed, Already Exist]
-	at com.tetherfi.test.chat.ChatIntentSkillMappingTest.AddNewChatIntentSkillMappingRecord(ChatIntentSkillMappingTest.java:72)
+<td title='com.tetherfi.test.chat.ChatIntentSkillMappingTest.VerifyCancelBtnAtEditRecord()'><b>VerifyCancelBtnAtEditRecord</b><br>Test class: com.tetherfi.test.chat.ChatIntentSkillMappingTest</td>
+<td><div><pre>java.lang.AssertionError: Cancel Btn at Edit record assertion failed did not expect to find [false] but found [true]
+	at com.tetherfi.test.chat.ChatIntentSkillMappingTest.VerifyCancelBtnAtEditRecord(ChatIntentSkillMappingTest.java:175)
 	at java.base/java.util.ArrayList.forEach(Unknown Source)
-... Removed 31 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace677928783", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace677928783'><pre>java.lang.AssertionError: Add New record assertion failed expected [Record Created Successfully] but found [Record Creation Failed, Already Exist]
-	at org.testng.Assert.fail(Assert.java:97)
-	at org.testng.Assert.assertEqualsImpl(Assert.java:136)
-	at org.testng.Assert.assertEquals(Assert.java:118)
-	at org.testng.Assert.assertEquals(Assert.java:575)
-	at com.tetherfi.test.chat.ChatIntentSkillMappingTest.AddNewChatIntentSkillMappingRecord(ChatIntentSkillMappingTest.java:72)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-	at org.testng.TestRunner.privateRun(TestRunner.java:770)
-	at org.testng.TestRunner.run(TestRunner.java:591)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-	at org.testng.TestNG.runSuites(TestNG.java:1032)
-	at org.testng.TestNG.run(TestNG.java:1000)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div></td>
-<td>8</td>
-<td>com.tetherfi.test.chat.ChatIntentSkillMappingTest@73a0f2b</td></tr>
-<tr>
-<td title='com.tetherfi.test.chat.ChatIntentSkillMappingTest.AddRecordWithoutSegment()'><b>AddRecordWithoutSegment</b><br>Test class: com.tetherfi.test.chat.ChatIntentSkillMappingTest</td>
-<td><div><pre>java.lang.AssertionError: Add invalid record assertion failed expected [Record Created Successfully] but found [Record Creation Failed, Already Exist]
-	at com.tetherfi.test.chat.ChatIntentSkillMappingTest.AddRecordWithoutSegment(ChatIntentSkillMappingTest.java:416)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-... Removed 31 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1900341041", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1900341041'><pre>java.lang.AssertionError: Add invalid record assertion failed expected [Record Created Successfully] but found [Record Creation Failed, Already Exist]
-	at org.testng.Assert.fail(Assert.java:97)
-	at org.testng.Assert.assertEqualsImpl(Assert.java:136)
-	at org.testng.Assert.assertEquals(Assert.java:118)
-	at org.testng.Assert.assertEquals(Assert.java:575)
-	at com.tetherfi.test.chat.ChatIntentSkillMappingTest.AddRecordWithoutSegment(ChatIntentSkillMappingTest.java:416)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-	at org.testng.TestRunner.privateRun(TestRunner.java:770)
-	at org.testng.TestRunner.run(TestRunner.java:591)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-	at org.testng.TestNG.runSuites(TestNG.java:1032)
-	at org.testng.TestNG.run(TestNG.java:1000)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div></td>
-<td>11</td>
-<td>com.tetherfi.test.chat.ChatIntentSkillMappingTest@73a0f2b</td></tr>
-<tr>
-<td title='com.tetherfi.test.chat.ChatIntentSkillMappingTest.ExporttoExcelWithoutData()'><b>ExporttoExcelWithoutData</b><br>Test class: com.tetherfi.test.chat.ChatIntentSkillMappingTest</td>
-<td><div><pre>java.lang.IndexOutOfBoundsException: Index 0 out-of-bounds for length 0
-	at java.base/jdk.internal.util.Preconditions.outOfBounds(Unknown Source)
-	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Unknown Source)
-	at java.base/jdk.internal.util.Preconditions.checkIndex(Unknown Source)
-	at java.base/java.util.Objects.checkIndex(Unknown Source)
-	at java.base/java.util.ArrayList.get(Unknown Source)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementListHandler.invoke(LocatingElementListHandler.java:39)
-	at com.sun.proxy.$Proxy17.get(Unknown Source)
-	at com.tetherfi.pages.ChatIntentSkillMappingPage.ExporttoExcelWithoutData(ChatIntentSkillMappingPage.java:593)
-	at com.tetherfi.test.chat.ChatIntentSkillMappingTest.ExporttoExcelWithoutData(ChatIntentSkillMappingTest.java:345)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-... Removed 30 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1144825146", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1144825146'><pre>java.lang.IndexOutOfBoundsException: Index 0 out-of-bounds for length 0
-	at java.base/jdk.internal.util.Preconditions.outOfBounds(Unknown Source)
-	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Unknown Source)
-	at java.base/jdk.internal.util.Preconditions.checkIndex(Unknown Source)
-	at java.base/java.util.Objects.checkIndex(Unknown Source)
-	at java.base/java.util.ArrayList.get(Unknown Source)
-	at java.base/jdk.internal.reflect.GeneratedMethodAccessor6.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementListHandler.invoke(LocatingElementListHandler.java:39)
-	at com.sun.proxy.$Proxy17.get(Unknown Source)
-	at com.tetherfi.pages.ChatIntentSkillMappingPage.ExporttoExcelWithoutData(ChatIntentSkillMappingPage.java:593)
-	at com.tetherfi.test.chat.ChatIntentSkillMappingTest.ExporttoExcelWithoutData(ChatIntentSkillMappingTest.java:345)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-	at org.testng.TestRunner.privateRun(TestRunner.java:770)
-	at org.testng.TestRunner.run(TestRunner.java:591)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-	at org.testng.TestNG.runSuites(TestNG.java:1032)
-	at org.testng.TestNG.run(TestNG.java:1000)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div></td>
-<td>45</td>
-<td>com.tetherfi.test.chat.ChatIntentSkillMappingTest@73a0f2b</td></tr>
-<tr>
-<td title='com.tetherfi.test.chat.ChatIntentSkillMappingTest.SortingByAscending()'><b>SortingByAscending</b><br>Test class: com.tetherfi.test.chat.ChatIntentSkillMappingTest</td>
-<td><div><pre>java.lang.AssertionError: did not expect to find [true] but found [false]
-	at com.tetherfi.test.chat.ChatIntentSkillMappingTest.SortingByAscending(ChatIntentSkillMappingTest.java:354)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-... Removed 31 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace362668818", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace362668818'><pre>java.lang.AssertionError: did not expect to find [true] but found [false]
+... Removed 30 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace142322666", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace142322666'><pre>java.lang.AssertionError: Cancel Btn at Edit record assertion failed did not expect to find [false] but found [true]
 	at org.testng.Assert.fail(Assert.java:97)
 	at org.testng.Assert.failNotEquals(Assert.java:969)
-	at org.testng.Assert.assertTrue(Assert.java:43)
-	at org.testng.Assert.assertTrue(Assert.java:53)
-	at com.tetherfi.test.chat.ChatIntentSkillMappingTest.SortingByAscending(ChatIntentSkillMappingTest.java:354)
+	at org.testng.Assert.assertFalse(Assert.java:65)
+	at com.tetherfi.test.chat.ChatIntentSkillMappingTest.VerifyCancelBtnAtEditRecord(ChatIntentSkillMappingTest.java:175)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -259,175 +114,7 @@ function toggleAllBoxes() {
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
-<td>7</td>
-<td>com.tetherfi.test.chat.ChatIntentSkillMappingTest@73a0f2b</td></tr>
-<tr>
-<td title='com.tetherfi.test.chat.ChatIntentSkillMappingTest.SortingByDescending()'><b>SortingByDescending</b><br>Test class: com.tetherfi.test.chat.ChatIntentSkillMappingTest</td>
-<td><div><pre>java.lang.AssertionError: did not expect to find [true] but found [false]
-	at com.tetherfi.test.chat.ChatIntentSkillMappingTest.SortingByDescending(ChatIntentSkillMappingTest.java:363)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-... Removed 31 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1067360446", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1067360446'><pre>java.lang.AssertionError: did not expect to find [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:97)
-	at org.testng.Assert.failNotEquals(Assert.java:969)
-	at org.testng.Assert.assertTrue(Assert.java:43)
-	at org.testng.Assert.assertTrue(Assert.java:53)
-	at com.tetherfi.test.chat.ChatIntentSkillMappingTest.SortingByDescending(ChatIntentSkillMappingTest.java:363)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-	at org.testng.TestRunner.privateRun(TestRunner.java:770)
-	at org.testng.TestRunner.run(TestRunner.java:591)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-	at org.testng.TestNG.runSuites(TestNG.java:1032)
-	at org.testng.TestNG.run(TestNG.java:1000)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div></td>
-<td>7</td>
-<td>com.tetherfi.test.chat.ChatIntentSkillMappingTest@73a0f2b</td></tr>
-<tr>
-<td title='com.tetherfi.test.chat.ChatIntentSkillMappingTest.VerifyAuditTrialReportForCreate()'><b>VerifyAuditTrialReportForCreate</b><br>Test class: com.tetherfi.test.chat.ChatIntentSkillMappingTest</td>
-<td><div><pre>java.lang.NullPointerException
-	at com.tetherfi.pages.OCMReportsPage.verifyChatIntentSkillMappingCreate(OCMReportsPage.java:4361)
-	at com.tetherfi.test.chat.ChatIntentSkillMappingTest.VerifyAuditTrialReportForCreate(ChatIntentSkillMappingTest.java:97)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-... Removed 27 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1837787090", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1837787090'><pre>java.lang.NullPointerException
-	at com.tetherfi.pages.OCMReportsPage.verifyChatIntentSkillMappingCreate(OCMReportsPage.java:4361)
-	at com.tetherfi.test.chat.ChatIntentSkillMappingTest.VerifyAuditTrialReportForCreate(ChatIntentSkillMappingTest.java:97)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-	at org.testng.TestRunner.privateRun(TestRunner.java:770)
-	at org.testng.TestRunner.run(TestRunner.java:591)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-	at org.testng.TestNG.runSuites(TestNG.java:1032)
-	at org.testng.TestNG.run(TestNG.java:1000)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div></td>
-<td>23</td>
-<td>com.tetherfi.test.chat.ChatIntentSkillMappingTest@73a0f2b</td></tr>
-<tr>
-<td title='com.tetherfi.test.chat.ChatIntentSkillMappingTest.VerifyAuditTrialReportForDelete()'><b>VerifyAuditTrialReportForDelete</b><br>Test class: com.tetherfi.test.chat.ChatIntentSkillMappingTest</td>
-<td><div><pre>java.lang.NullPointerException
-	at com.tetherfi.pages.OCMReportsPage.verifyChatIntentSkillMappingdelete(OCMReportsPage.java:4463)
-	at com.tetherfi.test.chat.ChatIntentSkillMappingTest.VerifyAuditTrialReportForDelete(ChatIntentSkillMappingTest.java:323)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-... Removed 27 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace675210724", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace675210724'><pre>java.lang.NullPointerException
-	at com.tetherfi.pages.OCMReportsPage.verifyChatIntentSkillMappingdelete(OCMReportsPage.java:4463)
-	at com.tetherfi.test.chat.ChatIntentSkillMappingTest.VerifyAuditTrialReportForDelete(ChatIntentSkillMappingTest.java:323)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-	at org.testng.TestRunner.privateRun(TestRunner.java:770)
-	at org.testng.TestRunner.run(TestRunner.java:591)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-	at org.testng.TestNG.runSuites(TestNG.java:1032)
-	at org.testng.TestNG.run(TestNG.java:1000)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div></td>
-<td>22</td>
-<td>com.tetherfi.test.chat.ChatIntentSkillMappingTest@73a0f2b</td></tr>
-<tr>
-<td title='com.tetherfi.test.chat.ChatIntentSkillMappingTest.VerifyAuditTrialReportForUpdate()'><b>VerifyAuditTrialReportForUpdate</b><br>Test class: com.tetherfi.test.chat.ChatIntentSkillMappingTest</td>
-<td><div><pre>java.lang.AssertionError: did not expect to find [true] but found [false]
-	at com.tetherfi.test.chat.ChatIntentSkillMappingTest.VerifyAuditTrialReportForUpdate(ChatIntentSkillMappingTest.java:200)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-... Removed 31 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace811756064", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace811756064'><pre>java.lang.AssertionError: did not expect to find [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:97)
-	at org.testng.Assert.failNotEquals(Assert.java:969)
-	at org.testng.Assert.assertTrue(Assert.java:43)
-	at org.testng.Assert.assertTrue(Assert.java:53)
-	at com.tetherfi.test.chat.ChatIntentSkillMappingTest.VerifyAuditTrialReportForUpdate(ChatIntentSkillMappingTest.java:200)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-	at org.testng.TestRunner.privateRun(TestRunner.java:770)
-	at org.testng.TestRunner.run(TestRunner.java:591)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-	at org.testng.TestNG.runSuites(TestNG.java:1032)
-	at org.testng.TestNG.run(TestNG.java:1000)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div></td>
-<td>23</td>
+<td>9</td>
 <td>com.tetherfi.test.chat.ChatIntentSkillMappingTest@73a0f2b</td></tr>
 </table><p>
 <table width='100%' border='1' class='invocation-passed'>
@@ -438,9 +125,19 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.tetherfi.test.chat.ChatIntentSkillMappingTest.AddRecordWithoutSubSegment()'><b>AddRecordWithoutSubSegment</b><br>Test class: com.tetherfi.test.chat.ChatIntentSkillMappingTest</td>
+<td title='com.tetherfi.test.chat.ChatIntentSkillMappingTest.DeleteIntentSkillMappingRecord()'><b>DeleteIntentSkillMappingRecord</b><br>Test class: com.tetherfi.test.chat.ChatIntentSkillMappingTest</td>
 <td></td>
-<td>15</td>
+<td>8</td>
+<td>com.tetherfi.test.chat.ChatIntentSkillMappingTest@73a0f2b</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatIntentSkillMappingTest.SearchClearSearch()'><b>SearchClearSearch</b><br>Test class: com.tetherfi.test.chat.ChatIntentSkillMappingTest</td>
+<td></td>
+<td>5</td>
+<td>com.tetherfi.test.chat.ChatIntentSkillMappingTest@73a0f2b</td></tr>
+<tr>
+<td title='com.tetherfi.test.chat.ChatIntentSkillMappingTest.VerifyAuditTrialReportForDelete()'><b>VerifyAuditTrialReportForDelete</b><br>Test class: com.tetherfi.test.chat.ChatIntentSkillMappingTest</td>
+<td></td>
+<td>24</td>
 <td>com.tetherfi.test.chat.ChatIntentSkillMappingTest@73a0f2b</td></tr>
 </table><p>
 </body>
