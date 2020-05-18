@@ -421,9 +421,12 @@ public class OCMAudioVideoPlaybackReportTest extends BaseTest {
    		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoPlaybackReport.xlsx";
    		Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(0);
    		ReportDetails reportDetails= new ReportDetails(map);
+   		OCMReportsPage ocmReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
+   		ocmReportsPage.showReport(reportDetails);
    		OCMAudioVideoPlaybackReportPage AudioVideoPlaybackReportPage=PageFactory.createPageInstance(driver,OCMAudioVideoPlaybackReportPage.class);
-   		Assert.assertTrue(AudioVideoPlaybackReportPage.verifyDatabase(reportDetails.getQuery()));
-   }
+   		Assert.assertTrue(AudioVideoPlaybackReportPage.verifyDatabase(reportDetails.getQuery(), reportDetails), "UI and DB data mismatch");
+   		System.out.println("Database Validation Completed Succesfully" +" : "+"UI and Database data is matched");
+    }
 
     
     @AfterMethod

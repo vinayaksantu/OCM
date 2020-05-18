@@ -2,61 +2,61 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="121963" started-at="2020-05-13T13:25:39 IST" finished-at="2020-05-13T13:27:41 IST">
+  <suite name="Default suite" duration-ms="121447" started-at="2020-05-18T09:44:08 IST" finished-at="2020-05-18T09:46:10 IST">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="121963" started-at="2020-05-13T13:25:39 IST" finished-at="2020-05-13T13:27:41 IST">
-      <class name="com.tetherfi.test.reports.OCMAgentAuxReportTest">
-        <test-method status="PASS" signature="openApplication()[pri:0, instance:com.tetherfi.test.reports.OCMAgentAuxReportTest@4ac86d6a]" name="openApplication" is-config="true" duration-ms="32155" started-at="2020-05-13T13:25:39 IST" finished-at="2020-05-13T13:26:11 IST">
+    <test name="Default test" duration-ms="121447" started-at="2020-05-18T09:44:08 IST" finished-at="2020-05-18T09:46:10 IST">
+      <class name="com.tetherfi.test.reports.OCMAudioVideoPlaybackReportTest">
+        <test-method status="PASS" signature="openApplication()[pri:0, instance:com.tetherfi.test.reports.OCMAudioVideoPlaybackReportTest@4ac86d6a]" name="openApplication" is-config="true" duration-ms="48795" started-at="2020-05-18T09:44:08 IST" finished-at="2020-05-18T09:44:57 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- openApplication -->
-        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMAgentAuxReportTest@4ac86d6a]" name="startTestCase" is-config="true" duration-ms="4" started-at="2020-05-13T13:26:11 IST" finished-at="2020-05-13T13:26:11 IST">
+        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMAudioVideoPlaybackReportTest@4ac86d6a]" name="startTestCase" is-config="true" duration-ms="4" started-at="2020-05-18T09:44:57 IST" finished-at="2020-05-18T09:44:57 IST">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.reports.OCMAgentAuxReportTest.database() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.reports.OCMAudioVideoPlaybackReportTest.database() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startTestCase -->
-        <test-method status="PASS" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.OCMAgentAuxReportTest@4ac86d6a]" name="NavigateToOcmReportsPage" is-config="true" duration-ms="5983" started-at="2020-05-13T13:26:11 IST" finished-at="2020-05-13T13:26:17 IST">
+        <test-method status="PASS" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.OCMAudioVideoPlaybackReportTest@4ac86d6a]" name="NavigateToOcmReportsPage" is-config="true" duration-ms="5863" started-at="2020-05-18T09:44:57 IST" finished-at="2020-05-18T09:45:03 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- NavigateToOcmReportsPage -->
-        <test-method status="PASS" signature="database()[pri:39, instance:com.tetherfi.test.reports.OCMAgentAuxReportTest@4ac86d6a]" name="database" duration-ms="61164" started-at="2020-05-13T13:26:17 IST" finished-at="2020-05-13T13:27:19 IST">
+        <test-method status="PASS" signature="database()[pri:38, instance:com.tetherfi.test.reports.OCMAudioVideoPlaybackReportTest@4ac86d6a]" name="database" duration-ms="52693" started-at="2020-05-18T09:45:03 IST" finished-at="2020-05-18T09:45:56 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- database -->
-        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMAgentAuxReportTest@4ac86d6a]" name="afterEachMethod" is-config="true" duration-ms="1927" started-at="2020-05-13T13:27:19 IST" finished-at="2020-05-13T13:27:21 IST">
+        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMAudioVideoPlaybackReportTest@4ac86d6a]" name="afterEachMethod" is-config="true" duration-ms="1982" started-at="2020-05-18T09:45:56 IST" finished-at="2020-05-18T09:45:58 IST">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.reports.OCMAgentAuxReportTest.database() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.reports.OCMAudioVideoPlaybackReportTest.database() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterEachMethod -->
-        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMAgentAuxReportTest@4ac86d6a]" name="endTestCase" is-config="true" duration-ms="0" started-at="2020-05-13T13:27:21 IST" finished-at="2020-05-13T13:27:21 IST">
+        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMAudioVideoPlaybackReportTest@4ac86d6a]" name="endTestCase" is-config="true" duration-ms="0" started-at="2020-05-18T09:45:58 IST" finished-at="2020-05-18T09:45:58 IST">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.reports.OCMAgentAuxReportTest.database() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.reports.OCMAudioVideoPlaybackReportTest.database() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- endTestCase -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.tetherfi.test.reports.OCMAgentAuxReportTest@4ac86d6a]" name="tearDown" is-config="true" duration-ms="20589" started-at="2020-05-13T13:27:21 IST" finished-at="2020-05-13T13:27:41 IST">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.tetherfi.test.reports.OCMAudioVideoPlaybackReportTest@4ac86d6a]" name="tearDown" is-config="true" duration-ms="12015" started-at="2020-05-18T09:45:58 IST" finished-at="2020-05-18T09:46:10 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.tetherfi.test.reports.OCMAgentAuxReportTest -->
+      </class> <!-- com.tetherfi.test.reports.OCMAudioVideoPlaybackReportTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
