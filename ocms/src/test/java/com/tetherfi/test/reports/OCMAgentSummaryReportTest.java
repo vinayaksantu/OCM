@@ -711,21 +711,11 @@ public class OCMAgentSummaryReportTest extends BaseTest {
      	OCMReportsPage OCMReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);  
      	OCMReportsPage.quickInputforYear(reportDetails); 
     }
-    
+
     @AfterMethod
     public void afterEachMethod(Method method) {
     	screenshot.captureScreen("OCMSummRpt", method.getName());
 		driver.navigate().refresh();    	
     }
-
-
-	
-	
-	/*@AfterMethod
-	public void afterEachMethod(Method method) throws InterruptedException {
-		Screenshot screenshot=new Screenshot(driver);
-		screenshot.captureScreen("AgentSummaryReportTest",method.getName());
-		driver.navigate().refresh();
-	}*/
 
 }
