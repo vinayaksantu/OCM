@@ -83,7 +83,7 @@ public class OCMAgentSummaryReportTest extends BaseTest {
     	OCMReportsPage.viewDownloadedReportInReportsDownloadsPage();
     	Assert.assertTrue(OCMReportsPage.verifyDownloadedReportNameAndTimeInReportsDownloadPage(reportDetails.getReportName()),"Report not found in Reporter download page");
     }  
-  /*  @Test(priority=6)
+   @Test(priority=6)
     public void ShowOCMAgentSummaryReportForDateRange() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -313,7 +313,7 @@ public class OCMAgentSummaryReportTest extends BaseTest {
     	OCMAgentSummaryReportPage OCMAgentSummaryReportPage=PageFactory.createPageInstance(driver,OCMAgentSummaryReportPage.class);
     	OCMAgentSummaryReportPage.viewDownloadedReportInReportsDownloadsPage();
     	Assert.assertTrue(OCMReportsPage.verifyDownloadedReportNameAndTimeInReportsDownloadPage(reportDetails.getReportName()),"Report not found in Reporter download page");    
-    }*/
+    }
       
     @Test(priority=26)
     public void VerifySearchByFeatureForAgentSummaryReport() throws Exception {
@@ -327,7 +327,7 @@ public class OCMAgentSummaryReportTest extends BaseTest {
     	Assert.assertTrue(OCMAgentSummaryReportPage.verifySearchByTextbox(reportDetails));
     }
     
-  /*  @Test(priority=27)
+    @Test(priority=27)
     public void VerifySearchFeatureForAgentSummaryReport() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -476,7 +476,7 @@ public class OCMAgentSummaryReportTest extends BaseTest {
     	
     }
     
- /*   @Test(priority=40)
+    @Test(priority=40)
     public void verifyDownloadedExcelfile() throws Exception{
     	OCMAgentSummaryReportPage OCMAgentSummaryReportPage=PageFactory.createPageInstance(driver,OCMAgentSummaryReportPage.class);
     	String filePath2 = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles";
@@ -529,7 +529,7 @@ public class OCMAgentSummaryReportTest extends BaseTest {
     	CepEventMappingPage CepEventMappingPage=PageFactory.createPageInstance(driver,CepEventMappingPage.class);
     	CepEventMappingPage.deleteCEPEventMappingRecord(CepEventMappingDetails);
     	Assert.assertEquals(CepEventMappingPage.getSuccessMessage(),"Record Deleted Successfully","Delete record assertion failed");
-    }
+    }*/
 
     @Test(priority=42)
     public void verifyAdvancedSearchinreportpageSearchNotEqualTo() throws Exception {
@@ -653,14 +653,66 @@ public class OCMAgentSummaryReportTest extends BaseTest {
      }
     
     @Test(priority=54)
-    public void quickinput() throws Exception{
+    public void quickinputforSeconds() throws Exception{
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
      	Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(6);
      	ReportDetails reportDetails= new ReportDetails(map);
      	OCMReportsPage OCMReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);  
-     	OCMReportsPage.dateconvert(reportDetails);
-    	
-    }*/
+     	OCMReportsPage.quickInputforSeconds(reportDetails);  	
+    }
+    
+    @Test(priority=55)
+    public void quickInputforMinutes() throws Exception{
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
+     	Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(6);
+     	ReportDetails reportDetails= new ReportDetails(map);
+     	OCMReportsPage OCMReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);  
+     	OCMReportsPage.quickInputforMinutes(reportDetails);  	
+    }
+    @Test(priority=56)
+    public void quickInputforhour() throws Exception{
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
+     	Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(6);
+     	ReportDetails reportDetails= new ReportDetails(map);
+     	OCMReportsPage OCMReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);  
+     	OCMReportsPage.quickInputforhours(reportDetails); 
+    }
+    @Test(priority=57)
+    public void quickInputforDay() throws Exception{
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
+     	Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(6);
+     	ReportDetails reportDetails= new ReportDetails(map);
+     	OCMReportsPage OCMReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);  
+     	OCMReportsPage.quickInputforDay(reportDetails); 
+    }
+    @Test(priority=58)
+    public void quickInputforWeek() throws Exception{
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
+     	Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(6);
+     	ReportDetails reportDetails= new ReportDetails(map);
+     	OCMReportsPage OCMReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);  
+     	OCMReportsPage.quickInputforWeek(reportDetails); 
+    }
+    
+    @Test(priority=59)
+    public void quickInputMonth() throws Exception{
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
+     	Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(11);
+     	ReportDetails reportDetails= new ReportDetails(map);
+     	OCMReportsPage OCMReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);  
+     	OCMReportsPage.quickInputforMonth(reportDetails); 
+    }
+    
+    @Test(priority=60)
+    public void quickInputforYear() throws Exception{
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
+     	Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(12);
+     	ReportDetails reportDetails= new ReportDetails(map);
+     	OCMReportsPage OCMReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);  
+     	OCMReportsPage.quickInputforYear(reportDetails); 
+    }
+
+
     
     @AfterMethod
     public void afterEachMethod(Method method) {
