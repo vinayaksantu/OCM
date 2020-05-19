@@ -28,7 +28,7 @@ public class AgentHistoricalReportTest extends BaseTest {
 		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
 		Assert.assertTrue(ocmReportsPage.isOCMReportPageIsDisplayed());
 	}
-/*
+
 	@Test(priority=1,description="To verify Show Report for Single Date")
     public void ShowOCMAgentHistoricalReport() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
@@ -432,7 +432,8 @@ public class AgentHistoricalReportTest extends BaseTest {
 		AgentHistoricalReportPage agentHistoricalPage=PageFactory.createPageInstance(driver,AgentHistoricalReportPage.class);
 		Assert.assertTrue(agentHistoricalPage.verifySearchEndsWith(reportDetails.getSearchStr()));
 	}
-	/*@Test(priority=38,description="To verify search Clear Search")
+	
+	@Test(priority=38,description="To verify search Clear Search")
 	public void SearchClearSearch() throws Exception{
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(2);
@@ -475,7 +476,7 @@ public class AgentHistoricalReportTest extends BaseTest {
 		screenshot.captureScreen("OCMAgentHistoricalReport", "GroupBy");
 		Assert.assertTrue(agentHistoricalPage.groupby());
 		screenshot.captureScreen("OCMAgentHistoricalReport", "AlreadyGroupBy");
-	}*/
+	}
 	
 	@Test(priority=42,description="To verify Advance Search Not Equal To")
     public void verifyAdvancedSearchinreportpageSearchNotEqualTo() throws Exception {
