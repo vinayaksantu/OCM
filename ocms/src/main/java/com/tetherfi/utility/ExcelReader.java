@@ -75,7 +75,7 @@ public class ExcelReader {
                   value=dateFormat.format(date);
             	}
             	else{
-            	value = String.valueOf(cell.getNumericCellValue());
+            	value = String.valueOf(cell.getRawValue());
 				}
             } else if(type == CellType.BOOLEAN){value = String.valueOf(cell.getBooleanCellValue());}
 		}else{
@@ -102,6 +102,29 @@ public class ExcelReader {
         row = xssfSheet.getRow(0);
         int lastCellNum=row.getLastCellNum();
         for (int k = 1; k <= rowCount; k++) {
+            map = new HashMap<String, String>();
+            for (int j = 0; j < lastCellNum; j++) {
+            	String str=readCellData(k, j);
+            	if(str!=null)
+            	{
+            		str=str.trim();
+            	}
+                map.put(readCellData(i, j), str);
+            }
+            mapList.add(map);
+        }
+
+        return mapList;
+
+    }
+    public List<Map<String, String>> getExcelData() {
+        List<Map<String, String>> mapList = new ArrayList<Map<String, String>>();
+        int rowCount = xssfSheet.getLastRowNum();
+        Map<String, String> map;
+        int i = 1;
+        row = xssfSheet.getRow(1);
+        int lastCellNum=row.getLastCellNum();
+        for (int k = 2; k <= rowCount; k++) {
             map = new HashMap<String, String>();
             for (int j = 0; j < lastCellNum; j++) {
             	String str=readCellData(k, j);

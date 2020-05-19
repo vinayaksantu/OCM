@@ -196,7 +196,7 @@ public class AgentHistoricalReportPage extends BasePage  {
 	@FindBy(xpath="//p[@class='k-reset']")
 	private WebElement groupby;
 
-	@FindBy(xpath="//tbody/tr/td/p[@class='k-reset']/../../following-sibling::tr/td[9]")
+	@FindBy(xpath="//tbody/tr/td/p[@class='k-reset']/../../following-sibling::tr/td[2]")
 	private WebElement groupbyAgentId;
 
 	@FindBy(xpath="//div[@data-role='droptarget']")
@@ -559,7 +559,7 @@ public class AgentHistoricalReportPage extends BasePage  {
 			for(int i=1;i<rows.size();i++) {
 				Map<String,String> map = new HashMap<String,String>();
 				List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
-				for(int j=1;j<headers.size();j++) {
+				for(int j=0;j<headers.size();j++) {
 					scrollToElement(headers.get(j));
 					System.out.println(headers.get(j).getText());
 					if(headers.get(j).getText().equals("Last Changed On")){
@@ -572,10 +572,6 @@ public class AgentHistoricalReportPage extends BasePage  {
 				map.remove("");
 				arr.add(map);
 			}
-			if(k!=pages)
-			{
-				nextPageIcon.click();
-				waitForJqueryLoad(driver);}
 		}
 		return arr;
 	}
@@ -817,17 +813,16 @@ public class AgentHistoricalReportPage extends BasePage  {
 	
 	
 	
-	public boolean verifySearchByTextbox(ReportDetails details) throws Exception{	
+	public boolean verifySearchByTextbox(ReportDetails details) throws Exception{
 		boolean Status=false;
-		Map<String, String> map=new HashMap<String,String>() ;
-		selectWebElement(searchbyfeatureTextBox);    
-		searchbyfeatureTextBox.sendKeys("50094");//given an identification value
-		selectDropdownFromVisibleText(searchbyfeaturelistBox,details.getSearchStr());
+		selectWebElement(searchbyfeatureTextBox);
+		enterValueToTxtFieldWithoutClear(searchbyfeatureTextBox,details.getSearchStr());
+		selectDropdownFromVisibleText(searchbyfeaturelistBox,details.getSearchStr());		
 		waitForJqueryLoad(driver);
 		List<Map<String,String>> UI=getDataTable(); 
 		for (Map<String,String> map1: UI)
 		{   	
-			if(map1.get("Agent Name").equals(details.getSearchStr()))
+			if(map1.get("Agent ID").equals(details.getSearchStr()))
 				Status= true;
 			else 
 				Status= false;
@@ -851,7 +846,7 @@ public class AgentHistoricalReportPage extends BasePage  {
 		List<Map<String,String>> UI=getDataTable(); 
 		for (Map<String,String> map1: UI)
 		{   	
-			if(map1.get("Agent ID").toUpperCase().contains(description.toUpperCase()))
+			if(map1.get("Agent Name").toUpperCase().contains(description.toUpperCase()))
 				Status= true;
 			else 
 				Status= false;
@@ -870,12 +865,11 @@ public class AgentHistoricalReportPage extends BasePage  {
 		waitForJqueryLoad(driver);    
 		enterValueToTxtField(searchTextBox,description);
 		selectWebElement(searchSearchBtn);
-		waitForJqueryLoad(driver);
-		//waitUntilWebElementIsVisible(gridContent);
+		waitForJqueryLoad(driver);		
 		List<Map<String,String>> UI=getDataTable(); 
 		for (Map<String,String> map1: UI)
 		{   	
-			if(!map1.get("Agent ID").toLowerCase().contains(description.toLowerCase()))
+			if(!map1.get("Agent Name").toLowerCase().contains(description.toLowerCase()))
 				Status= true;
 			else 
 				Status= false;
@@ -899,7 +893,7 @@ public class AgentHistoricalReportPage extends BasePage  {
 		List<Map<String,String>> UI=getDataTable(); 
 		for (Map<String,String> map1: UI)
 		{   	
-			if(map1.get("Agent ID").toLowerCase().startsWith(description.toLowerCase()))
+			if(map1.get("Agent Name").toLowerCase().startsWith(description.toLowerCase()))
 				Status= true;
 			else 
 				Status= false;
@@ -922,7 +916,7 @@ public class AgentHistoricalReportPage extends BasePage  {
 		List<Map<String,String>> UI=getDataTable(); 
 		for (Map<String,String> map1: UI)
 		{   	
-			if(map1.get("Agent ID").toUpperCase().endsWith(description.toUpperCase()))
+			if(map1.get("Agent Name").toUpperCase().endsWith(description.toUpperCase()))
 				Status= true;
 			else 
 				Status= false;
@@ -942,11 +936,12 @@ public class AgentHistoricalReportPage extends BasePage  {
 	}
 	public boolean verifyAdvanceSearch(ReportDetails reportDetails) throws Exception {
 		Boolean Status=false;
+		waitForJqueryLoad(driver);
 		List<Map<String,String>>UI=getDataTable();
 		for(Map<String,String> map1:UI)
 		{
-			System.out.println(map1.get("Agent ID"));
-			if(map1.get("Agent ID").equalsIgnoreCase(reportDetails.getSearchStr()))
+			System.out.println(map1.get("Agent Name"));
+			if(map1.get("Agent Name").equalsIgnoreCase(reportDetails.getSearchStr()))
 				Status= true;
 			else 
 				Status =false;
@@ -1128,6 +1123,76 @@ public class AgentHistoricalReportPage extends BasePage  {
 		}
 			CloseDrillGridOne.click();
 			return arr;
+	}
+	public boolean verifyAdvanceSearchNotEqualsTo(ReportDetails reportDetails) {
+		Boolean Status=false;
+		waitForJqueryLoad(driver);
+		List<Map<String,String>>UI=getDataTable();
+		for(Map<String,String> map1:UI)
+		{
+			System.out.println(map1.get("Agent Name"));
+			if(map1.get("Agent Name").equalsIgnoreCase(reportDetails.getSearchStr()))
+				Status= false;
+			else 
+				Status =true;
+		}
+		return Status;
+	}
+	public boolean verifyAdvanceSearchContains(ReportDetails reportDetails) {
+		Boolean Status=false;
+		waitForJqueryLoad(driver);
+		List<Map<String,String>>UI=getDataTable();
+		for(Map<String,String> map1:UI)
+		{
+			System.out.println(map1.get("Agent Name"));
+			if(map1.get("Agent Name").toLowerCase().contains(reportDetails.getSearchStr().toLowerCase()))
+				Status= true;
+			else 
+				Status =false;
+		}
+		return Status;
+	}
+	public boolean verifyAdvanceSearchDoesNotContains(ReportDetails reportDetails) {
+		Boolean Status=false;
+		waitForJqueryLoad(driver);
+		List<Map<String,String>>UI=getDataTable();
+		for(Map<String,String> map1:UI)
+		{
+			System.out.println(map1.get("Agent Name"));
+			if(!map1.get("Agent Name").toLowerCase().contains(reportDetails.getSearchStr().toLowerCase()))
+				Status= true;
+			else 
+				Status =false;
+		}
+		return Status;
+	}
+	public boolean verifyAdvanceSearchStartsWith(ReportDetails reportDetails) {
+		Boolean Status=false;
+		waitForJqueryLoad(driver);
+		List<Map<String,String>>UI=getDataTable();
+		for(Map<String,String> map1:UI)
+		{
+			System.out.println(map1.get("Agent Name"));
+			if(map1.get("Agent Name").toLowerCase().startsWith(reportDetails.getSearchStr().toLowerCase()))
+				Status= true;
+			else 
+				Status =false;
+		}
+		return Status;
+	}
+	public boolean verifyAdvanceSearchEndsWith(ReportDetails reportDetails) {
+		Boolean Status=false;
+		waitForJqueryLoad(driver);
+		List<Map<String,String>>UI=getDataTable();
+		for(Map<String,String> map1:UI)
+		{
+			System.out.println(map1.get("Agent Name"));
+			if(map1.get("Agent Name").toLowerCase().endsWith(reportDetails.getSearchStr().toLowerCase()))
+				Status= true;
+			else 
+				Status =false;
+		}
+		return Status;
 	}
 
 	

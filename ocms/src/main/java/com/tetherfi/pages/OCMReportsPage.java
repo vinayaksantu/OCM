@@ -38,6 +38,8 @@ import com.tetherfi.model.user.SkillConfigurationDetails;
 import com.tetherfi.model.user.TdmThresholdConfigDetails;
 import com.tetherfi.model.user.UserDetails;
 import com.tetherfi.model.user.UserRoleMappingDetails;
+import com.tetherfi.utility.ExcelReader;
+import com.tetherfi.utility.PageFactory;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.poi.util.SystemOutLogger;
@@ -46,6 +48,8 @@ import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
+import java.io.File;
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -55,7 +59,7 @@ public class OCMReportsPage extends BasePage {
 	public OCMReportsPage(WebDriver driver) {
 		super(driver);
 	}
-	
+
 	@FindBy(id = "OCMReportsli")
 	private WebElement ocmReportsTab;
 
@@ -324,6 +328,9 @@ public class OCMReportsPage extends BasePage {
 
 	@FindBy(css="#number")
 	private WebElement getNumberTxtbox1;
+	
+	@FindBy(xpath="//span[@class='k-pager-info k-label']")
+	private WebElement items;
 
 	//@FindBy(css=".k-widget.k-numerictextbox")
 	//@FindBy(xpath="//input[@class='k-formatted-value k-input']//following-sibling::input[@id='number']")
@@ -342,6 +349,9 @@ public class OCMReportsPage extends BasePage {
 
 	@FindBy(xpath="//button[@id='applyData']")//button[@id='applyData']
 	private WebElement applyDataBtn;
+
+	@FindBy(xpath="//a[@class='k-button k-button-icontext k-grid-Download']")
+	private List<WebElement> downloadBtn;
 
 
 	public boolean isShowButtonsDisplayed() {
@@ -374,9 +384,9 @@ public class OCMReportsPage extends BasePage {
 		chooseReport(details);
 		if(details.getAdvancedsearch().equalsIgnoreCase("Yes")){chooseAdvancedSearchNew(details);}
 		selectWebElement(showReportBtn.get(0));
-		waitForLoad(driver);
+		//waitForLoad(driver);
 		waitForJqueryLoad(driver);
-		waitUntilWebElementIsVisible(gridBoxContent);
+		//waitUntilWebElementIsVisible(gridBoxContent);
 	}
 
 	public void chooseAdvancedSearchNew(ReportDetails details){
@@ -447,6 +457,14 @@ public class OCMReportsPage extends BasePage {
 	}
 
 	public boolean verifyDownloadedReportNameAndTimeInReportsDownloadPage(String reportname){
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles";
+		final File folder = new File(filePath);
+		for (final File f : folder.listFiles()) {
+			if (f.getName().endsWith(".xlsx")) {
+				f.delete();
+			}
+		}
+		selectWebElement(downloadBtn.get(0));
 		String pattern = "dd/MM/yyyy";
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
 		String date = simpleDateFormat.format(new Date());
@@ -7384,10 +7402,76 @@ public class OCMReportsPage extends BasePage {
 	}
 	public void ClearAdvFilters(ReportDetails details) throws Exception {
 		chooseReport(details);
-		chooseAdvancedSearch(details);
+		chooseAdvancedSearchNew(details);
 		waitUntilWebElementIsClickable(ClearAllFiltersAdvSrch);
 		selectWebElement(ClearAllFiltersAdvSrch);		
 	}
 
+
+	public boolean verifyExportedSheet(String pattern, String SheetName) throws Exception {	
+		List<Map<String,String>> UI=getdata(); 
+   		List<Map<String, String>> maplist = new ExcelReader(getdownloadedData(pattern),SheetName).getExcelData();
+		System.out.println(UI);
+		System.out.println(maplist);
+		if(UI.equals(maplist))
+			return true;
+		else
+			return false;
+	}
+	
+	private String getdownloadedData(String pattern)
+	{
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles";
+		File downloadsDir = new File(filePath);
+		File[] downloadDirFiles = downloadsDir.listFiles();
+		String actualName = null;
+		for (File file : downloadDirFiles) {
+			actualName = file.getName();
+			System.out.println(actualName);
+			if (actualName.startsWith(pattern)) {
+			filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\"+actualName;
+			break;
+			}
+		}
+		System.out.println(filePath);
+
+		return filePath;
+	}
+
+	private List<Map<String,String>> getdata() throws Exception{
+		int item=Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
+		int pagersize=Integer.valueOf(pagerSize.getText());
+		int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
+		List<Map<String,String>> arr=new ArrayList<Map<String,String>>();
+		for(int k=0;k<=pages;k++){
+			waitUntilWebElementIsVisible(auditGridContent);
+			List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
+			List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
+			String col=null;
+			for(int i=1;i<rows.size();i++) {
+				Map<String,String> map = new HashMap<String,String>();
+				List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
+				for(int j=0;j<headers.size();j++) {
+					scrollToElement(headers.get(j));
+					col=cols.get(j).getText();
+					map.put(headers.get(j).getText(),col);
+					Thread.sleep(1000);
+				}
+				map.remove("");
+				arr.add(map);
+			}
+			if(k!=pages)
+			{
+				nextPageIcon.click();
+				waitForJqueryLoad(driver);}
+		}
+		return arr;
+	}
+
+	public void ClearHomepgDrpDown(ReportDetails details) throws Exception {
+			chooseReport(details);
+			waitUntilWebElementIsClickable(ClearAll);
+			selectWebElement(ClearAll);
+			}
 }
 
