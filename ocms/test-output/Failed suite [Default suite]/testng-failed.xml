@@ -1,97 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [Failed suite [Default suite]]">
+<suite name="Failed suite [Failed suite [Default suite]]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)(failed)">
     <classes>
-<<<<<<< HEAD
-<<<<<<< HEAD
-      <class name="com.tetherfi.test.tmac.AgentTeamMgmtTest">
-=======
-      <class name="com.tetherfi.test.fax.FaxAddressBookTest">
->>>>>>> refs/remotes/origin/PalakMay18th
-=======
-      <class name="com.tetherfi.test.tmac.AgentSettingsTest">
->>>>>>> refs/remotes/origin/PalakReports
+      <class name="com.tetherfi.test.reports.AgentHistoricalReportTest">
         <methods>
-<<<<<<< HEAD
-<<<<<<< HEAD
-          <include name="VerifySearchContains"/>
-          <include name="NavigateToAgentTeamManagementPage"/>
-          <include name="VerifySearchIsNotEqualTo"/>
-          <include name="VerifyAuditTrialReportForUpdate"/>
-          <include name="VerifySearchStartsWith"/>
-          <include name="endTestCase"/>
-          <include name="VerifyAuditTrialReportForDelete"/>
-          <include name="tearDown"/>
-          <include name="ExporttoExcelWithoutData"/>
-          <include name="VerifyArrowMoveForPreviousAndNextPage"/>
-          <include name="VerifySearchDoesNotContains"/>
-=======
-          <include name="AddressBookSortingByAscending"/>
-          <include name="VerifyRecipientTotalNumberOfItemsPerPageDetailsRecipient"/>
-          <include name="VerifyAuditTrialReportForDelete"/>
-          <include name="DeleteRecipientRecord"/>
->>>>>>> refs/remotes/origin/PalakMay18th
-=======
           <include name="VerifyNumberOfItemsPerPageSelection"/>
-          <include name="ExportToExcelData"/>
-          <include name="DeleteAgentSettingsRecord"/>
-          <include name="endTestCase"/>
-          <include name="VerifiySortByAscending"/>
-          <include name="tearDown"/>
-          <include name="VerifyArrowMoveForPreviousAndNextPage"/>
-          <include name="VerifySearchDoesNotContains"/>
->>>>>>> refs/remotes/origin/PalakReports
           <include name="startTestCase"/>
           <include name="openApplication"/>
-<<<<<<< HEAD
-<<<<<<< HEAD
-          <include name="VerifySearchEndsWith"/>
-          <include name="afterEachMethod"/>
-          <include name="database"/>
-          <include name="VerifyArrowMoveForFirstAndLastPage"/>
-=======
-          <include name="VerifyAddressBookColumnsHeaderEnable"/>
-          <include name="VerifyAuditTrailReportForAddressCreate"/>
-          <include name="AddressBookExportToExcelData"/>
-          <include name="VerifyAuditTrailReportForCreate"/>
-          <include name="VerifyAuditTrialReportForAddressBookDelete"/>
-          <include name="VerifyRecipientNumberOfItemsPerPageSelectionRecipient"/>
-          <include name="NavigatetoFaxAddressPage"/>
-          <include name="EditRecipientWithoutModifyReasonRecord"/>
+          <include name="VerifyArrowMoveForPreviousAndNextPageForDrillDownOne"/>
+          <include name="NavigateToOcmReportsPage"/>
           <include name="endTestCase"/>
           <include name="tearDown"/>
           <include name="afterEachMethod"/>
-          <include name="DeleteRecepientWithoutDeleteReasonRecord"/>
-          <include name="AddNewRecipientRecord"/>
-          <include name="VerifyAuditTrialReportForRecipientUpdate"/>
-          <include name="AddressBookSortingByDescending"/>
-          <include name="EditRecipientRecord"/>
-          <include name="ExportToExcelData"/>
-          <include name="VerifyCancelBtnAtDeleteRecepientRecord"/>
-          <include name="VerifyNumberOfItemsPerPageSelection"/>
-          <include name="VerifyRecipientCancelBtnAtEditRecord"/>
-          <include name="VerifyDropdownForAllTheColumnsRecipient"/>
-          <include name="VerifyAuditTrialReportForFaxAddressBookUpdate"/>
->>>>>>> refs/remotes/origin/PalakMay18th
-=======
-          <include name="NavigateToAgentSettingsPage"/>
-          <include name="afterEachMethod"/>
-          <include name="VerifyArrowMoveForFirstAndLastPage"/>
-          <include name="VerifySearchStartsWith"/>
-          <include name="VerifiySortByDescending"/>
-          <include name="VerifyAuditTrailReportForDelete"/>
->>>>>>> refs/remotes/origin/PalakReports
         </methods>
-<<<<<<< HEAD
-<<<<<<< HEAD
-      </class> <!-- com.tetherfi.test.tmac.AgentTeamMgmtTest -->
-=======
-      </class> <!-- com.tetherfi.test.fax.FaxAddressBookTest -->
->>>>>>> refs/remotes/origin/PalakMay18th
-=======
-      </class> <!-- com.tetherfi.test.tmac.AgentSettingsTest -->
->>>>>>> refs/remotes/origin/PalakReports
+      </class> <!-- com.tetherfi.test.reports.AgentHistoricalReportTest -->
     </classes>
   </test> <!-- Default test(failed)(failed) -->
 </suite> <!-- Failed suite [Failed suite [Default suite]] -->
