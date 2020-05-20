@@ -8,13 +8,9 @@
           <include name="startTestCase"/>
           <include name="openApplication"/>
           <include name="NavigateToOcmReportsPage"/>
-          <include name="verifyAdvancedSearchinreportpageSearchDoesnotcontains"/>
-          <include name="verifyAdvancedSearchinreportpageSearchStartswith"/>
-          <include name="verifyAdvancedSearchinreportpageSearchEndswith"/>
+          <include name="VerifyArrowMoveForPreviousAndNextPageForDrillDowntwo"/>
           <include name="endTestCase"/>
           <include name="tearDown"/>
-          <include name="verifyAdvancedSearchinreportpageSearchcontains"/>
-          <include name="verifyAdvancedSearchinreportpageSearchNotEqualTo"/>
           <include name="afterEachMethod"/>
         </methods>
       </class> <!-- com.tetherfi.test.reports.AgentHistoricalReportTest -->

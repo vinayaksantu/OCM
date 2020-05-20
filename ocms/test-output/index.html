@@ -24,7 +24,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite, 5 failed tests</span>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -49,7 +49,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\admin pc\AppData\Local\Temp\testng-eclipse--118045991\testng-customsuite.xml</span>
+                    <span>C:\Users\admin pc\AppData\Local\Temp\testng-eclipse-1514163953\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -91,7 +91,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">5 methods, 5 failed,   </span>
+                    <span class="method-stats">1 method, 1 failed,   </span>
                   </li>
                   <li>
                     <span class="method-list-title failed">Failed methods</span>
@@ -102,27 +102,7 @@
                     <div class="method-list-content failed suite-Default_suite">
                       <span>
                         <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.tetherfi.test.reports.AgentHistoricalReportTest" class="method navigator-link" hash-for-method="verifyAdvancedSearchinreportpageSearchDoesnotcontains">verifyAdvancedSearchinreportpageSearchDoesnotcontains</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.tetherfi.test.reports.AgentHistoricalReportTest" class="method navigator-link" hash-for-method="verifyAdvancedSearchinreportpageSearchEndswith">verifyAdvancedSearchinreportpageSearchEndswith</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.tetherfi.test.reports.AgentHistoricalReportTest" class="method navigator-link" hash-for-method="verifyAdvancedSearchinreportpageSearchNotEqualTo">verifyAdvancedSearchinreportpageSearchNotEqualTo</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.tetherfi.test.reports.AgentHistoricalReportTest" class="method navigator-link" hash-for-method="verifyAdvancedSearchinreportpageSearchStartswith">verifyAdvancedSearchinreportpageSearchStartswith</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="com.tetherfi.test.reports.AgentHistoricalReportTest" class="method navigator-link" hash-for-method="verifyAdvancedSearchinreportpageSearchcontains">verifyAdvancedSearchinreportpageSearchcontains</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="com.tetherfi.test.reports.AgentHistoricalReportTest" class="method navigator-link" hash-for-method="VerifyArrowMoveForPreviousAndNextPageForDrillDowntwo">VerifyArrowMoveForPreviousAndNextPageForDrillDowntwo</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content failed suite-Default_suite -->
@@ -145,12 +125,32 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="verifyAdvancedSearchinreportpageSearchDoesnotcontains">
-                  </a> <!-- verifyAdvancedSearchinreportpageSearchDoesnotcontains -->
-                  <span class="method-name">verifyAdvancedSearchinreportpageSearchDoesnotcontains</span>
-                  <div class="stack-trace">java.lang.NullPointerException
-	at com.tetherfi.utility.ExcelReader.getTestData(ExcelReader.java:99)
-	at com.tetherfi.test.reports.AgentHistoricalReportTest.verifyAdvancedSearchinreportpageSearchDoesnotcontains(AgentHistoricalReportTest.java:505)
+                  <a name="VerifyArrowMoveForPreviousAndNextPageForDrillDowntwo">
+                  </a> <!-- VerifyArrowMoveForPreviousAndNextPageForDrillDowntwo -->
+                  <span class="method-name">VerifyArrowMoveForPreviousAndNextPageForDrillDowntwo</span>
+                  <div class="stack-trace">org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
+  (Session info: chrome=81.0.4044.138)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;ADMIN&apos;, ip: &apos;192.168.1.4&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;9.0.4&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 81.0.4044.138, chrome: {chromedriverVersion: 80.0.3987.106 (f68069574609..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:55175}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: dfc0ddcd736c3485abc779d0a30c3928
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.base/java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:84)
+	at com.tetherfi.pages.BasePage.selectWebElement(BasePage.java:198)
+	at com.tetherfi.pages.AgentHistoricalReportPage.verifyArrowMoveForPreviousAndNextPageForDrillDowntwo(AgentHistoricalReportPage.java:1528)
+	at com.tetherfi.test.reports.AgentHistoricalReportTest.VerifyArrowMoveForPreviousAndNextPageForDrillDowntwo(AgentHistoricalReportTest.java:599)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -182,173 +182,7 @@
 
 </div> <!-- stack-trace -->
                   <em>
-(To verify Advance Search DoesNot Contains)                  </em>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="verifyAdvancedSearchinreportpageSearchEndswith">
-                  </a> <!-- verifyAdvancedSearchinreportpageSearchEndswith -->
-                  <span class="method-name">verifyAdvancedSearchinreportpageSearchEndswith</span>
-                  <div class="stack-trace">java.lang.NullPointerException
-	at com.tetherfi.utility.ExcelReader.getTestData(ExcelReader.java:99)
-	at com.tetherfi.test.reports.AgentHistoricalReportTest.verifyAdvancedSearchinreportpageSearchEndswith(AgentHistoricalReportTest.java:527)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-	at org.testng.TestRunner.privateRun(TestRunner.java:770)
-	at org.testng.TestRunner.run(TestRunner.java:591)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-	at org.testng.TestNG.runSuites(TestNG.java:1032)
-	at org.testng.TestNG.run(TestNG.java:1000)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-
-</div> <!-- stack-trace -->
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="verifyAdvancedSearchinreportpageSearchNotEqualTo">
-                  </a> <!-- verifyAdvancedSearchinreportpageSearchNotEqualTo -->
-                  <span class="method-name">verifyAdvancedSearchinreportpageSearchNotEqualTo</span>
-                  <div class="stack-trace">java.lang.NullPointerException
-	at com.tetherfi.utility.ExcelReader.getTestData(ExcelReader.java:99)
-	at com.tetherfi.test.reports.AgentHistoricalReportTest.verifyAdvancedSearchinreportpageSearchNotEqualTo(AgentHistoricalReportTest.java:483)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-	at org.testng.TestRunner.privateRun(TestRunner.java:770)
-	at org.testng.TestRunner.run(TestRunner.java:591)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-	at org.testng.TestNG.runSuites(TestNG.java:1032)
-	at org.testng.TestNG.run(TestNG.java:1000)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-
-</div> <!-- stack-trace -->
-                  <em>
-(To verify Advance Search Not Equal To)                  </em>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="verifyAdvancedSearchinreportpageSearchStartswith">
-                  </a> <!-- verifyAdvancedSearchinreportpageSearchStartswith -->
-                  <span class="method-name">verifyAdvancedSearchinreportpageSearchStartswith</span>
-                  <div class="stack-trace">java.lang.NullPointerException
-	at com.tetherfi.utility.ExcelReader.getTestData(ExcelReader.java:99)
-	at com.tetherfi.test.reports.AgentHistoricalReportTest.verifyAdvancedSearchinreportpageSearchStartswith(AgentHistoricalReportTest.java:516)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-	at org.testng.TestRunner.privateRun(TestRunner.java:770)
-	at org.testng.TestRunner.run(TestRunner.java:591)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-	at org.testng.TestNG.runSuites(TestNG.java:1032)
-	at org.testng.TestNG.run(TestNG.java:1000)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-
-</div> <!-- stack-trace -->
-                  <em>
-(To verify Advance Search Starts With)                  </em>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="verifyAdvancedSearchinreportpageSearchcontains">
-                  </a> <!-- verifyAdvancedSearchinreportpageSearchcontains -->
-                  <span class="method-name">verifyAdvancedSearchinreportpageSearchcontains</span>
-                  <div class="stack-trace">java.lang.NullPointerException
-	at com.tetherfi.utility.ExcelReader.getTestData(ExcelReader.java:99)
-	at com.tetherfi.test.reports.AgentHistoricalReportTest.verifyAdvancedSearchinreportpageSearchcontains(AgentHistoricalReportTest.java:494)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(Unknown Source)
-	at org.testng.TestRunner.privateRun(TestRunner.java:770)
-	at org.testng.TestRunner.run(TestRunner.java:591)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-	at org.testng.TestNG.runSuites(TestNG.java:1032)
-	at org.testng.TestNG.run(TestNG.java:1000)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-
-</div> <!-- stack-trace -->
-                  <em>
-(To verify Advance Search Contains)                  </em>
+(To Verify Arrow move for Previous and Next page for Drill Down two)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -356,7 +190,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\admin pc\AppData\Local\Temp\testng-eclipse--118045991\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\admin pc\AppData\Local\Temp\testng-eclipse-1514163953\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -405,32 +239,16 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(5);
+data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'verifyAdvancedSearchinreportpageSearchNotEqualTo')
+data.setCell(0, 1, 'VerifyArrowMoveForPreviousAndNextPageForDrillDowntwo')
 data.setCell(0, 2, 'com.tetherfi.test.reports.AgentHistoricalReportTest')
-data.setCell(0, 3, 15);
-data.setCell(1, 0, 1)
-data.setCell(1, 1, 'verifyAdvancedSearchinreportpageSearchStartswith')
-data.setCell(1, 2, 'com.tetherfi.test.reports.AgentHistoricalReportTest')
-data.setCell(1, 3, 4);
-data.setCell(2, 0, 2)
-data.setCell(2, 1, 'verifyAdvancedSearchinreportpageSearchcontains')
-data.setCell(2, 2, 'com.tetherfi.test.reports.AgentHistoricalReportTest')
-data.setCell(2, 3, 3);
-data.setCell(3, 0, 3)
-data.setCell(3, 1, 'verifyAdvancedSearchinreportpageSearchDoesnotcontains')
-data.setCell(3, 2, 'com.tetherfi.test.reports.AgentHistoricalReportTest')
-data.setCell(3, 3, 3);
-data.setCell(4, 0, 4)
-data.setCell(4, 1, 'verifyAdvancedSearchinreportpageSearchEndswith')
-data.setCell(4, 2, 'com.tetherfi.test.reports.AgentHistoricalReportTest')
-data.setCell(4, 3, 2);
+data.setCell(0, 3, 56391);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 27 ms</span>
+              <span class="suite-total-time">Total running time: 56 seconds</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -462,120 +280,30 @@ return data;
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-class before -->
               <div class="configuration-method before">
-                <span class="method-name">startTestCase(public void com.tetherfi.test.reports.AgentHistoricalReportTest.verifyAdvancedSearchinreportpageSear...)</span>
-                <span class="method-start">16070 ms</span>
+                <span class="method-name">startTestCase(public void com.tetherfi.test.reports.AgentHistoricalReportTest.VerifyArrowMoveForPreviousAndNextPag...)</span>
+                <span class="method-start">17767 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">NavigateToOcmReportsPage</span>
-                <span class="method-start">16075 ms</span>
+                <span class="method-start">17772 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
-                <span class="method-name">verifyAdvancedSearchinreportpageSearchNotEqualTo</span>
-                <span class="method-start">20795 ms</span>
+                <span class="method-name">VerifyArrowMoveForPreviousAndNextPageForDrillDowntwo</span>
+                <span class="method-start">22618 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">afterEachMethod(public void com.tetherfi.test.reports.AgentHistoricalReportTest.verifyAdvancedSearchinreportpageSear...)</span>
-                <span class="method-start">20817 ms</span>
+                <span class="method-name">afterEachMethod(public void com.tetherfi.test.reports.AgentHistoricalReportTest.VerifyArrowMoveForPreviousAndNextPag...)</span>
+                <span class="method-start">79013 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method after">
-                <span class="method-name">endTestCase(public void com.tetherfi.test.reports.AgentHistoricalReportTest.verifyAdvancedSearchinreportpageSear...)</span>
-                <span class="method-start">25389 ms</span>
-              </div> <!-- configuration-method after -->
-              <div class="configuration-method before">
-                <span class="method-name">startTestCase(public void com.tetherfi.test.reports.AgentHistoricalReportTest.verifyAdvancedSearchinreportpageSear...)</span>
-                <span class="method-start">25394 ms</span>
-              </div> <!-- configuration-method before -->
-              <div class="configuration-method before">
-                <span class="method-name">NavigateToOcmReportsPage</span>
-                <span class="method-start">25395 ms</span>
-              </div> <!-- configuration-method before -->
-              <div class="test-method">
-                <img src="failed.png">
-                </img>
-                <span class="method-name">verifyAdvancedSearchinreportpageSearchcontains</span>
-                <span class="method-start">30102 ms</span>
-              </div> <!-- test-method -->
-              <div class="configuration-method after">
-                <span class="method-name">afterEachMethod(public void com.tetherfi.test.reports.AgentHistoricalReportTest.verifyAdvancedSearchinreportpageSear...)</span>
-                <span class="method-start">30108 ms</span>
-              </div> <!-- configuration-method after -->
-              <div class="configuration-method after">
-                <span class="method-name">endTestCase(public void com.tetherfi.test.reports.AgentHistoricalReportTest.verifyAdvancedSearchinreportpageSear...)</span>
-                <span class="method-start">34203 ms</span>
-              </div> <!-- configuration-method after -->
-              <div class="configuration-method before">
-                <span class="method-name">startTestCase(public void com.tetherfi.test.reports.AgentHistoricalReportTest.verifyAdvancedSearchinreportpageSear...)</span>
-                <span class="method-start">34205 ms</span>
-              </div> <!-- configuration-method before -->
-              <div class="configuration-method before">
-                <span class="method-name">NavigateToOcmReportsPage</span>
-                <span class="method-start">34206 ms</span>
-              </div> <!-- configuration-method before -->
-              <div class="test-method">
-                <img src="failed.png">
-                </img>
-                <span class="method-name">verifyAdvancedSearchinreportpageSearchDoesnotcontains</span>
-                <span class="method-start">37869 ms</span>
-              </div> <!-- test-method -->
-              <div class="configuration-method after">
-                <span class="method-name">afterEachMethod(public void com.tetherfi.test.reports.AgentHistoricalReportTest.verifyAdvancedSearchinreportpageSear...)</span>
-                <span class="method-start">37874 ms</span>
-              </div> <!-- configuration-method after -->
-              <div class="configuration-method after">
-                <span class="method-name">endTestCase(public void com.tetherfi.test.reports.AgentHistoricalReportTest.verifyAdvancedSearchinreportpageSear...)</span>
-                <span class="method-start">42432 ms</span>
-              </div> <!-- configuration-method after -->
-              <div class="configuration-method before">
-                <span class="method-name">startTestCase(public void com.tetherfi.test.reports.AgentHistoricalReportTest.verifyAdvancedSearchinreportpageSear...)</span>
-                <span class="method-start">42433 ms</span>
-              </div> <!-- configuration-method before -->
-              <div class="configuration-method before">
-                <span class="method-name">NavigateToOcmReportsPage</span>
-                <span class="method-start">42434 ms</span>
-              </div> <!-- configuration-method before -->
-              <div class="test-method">
-                <img src="failed.png">
-                </img>
-                <span class="method-name">verifyAdvancedSearchinreportpageSearchStartswith</span>
-                <span class="method-start">47568 ms</span>
-              </div> <!-- test-method -->
-              <div class="configuration-method after">
-                <span class="method-name">afterEachMethod(public void com.tetherfi.test.reports.AgentHistoricalReportTest.verifyAdvancedSearchinreportpageSear...)</span>
-                <span class="method-start">47574 ms</span>
-              </div> <!-- configuration-method after -->
-              <div class="configuration-method after">
-                <span class="method-name">endTestCase(public void com.tetherfi.test.reports.AgentHistoricalReportTest.verifyAdvancedSearchinreportpageSear...)</span>
-                <span class="method-start">52062 ms</span>
-              </div> <!-- configuration-method after -->
-              <div class="configuration-method before">
-                <span class="method-name">startTestCase(public void com.tetherfi.test.reports.AgentHistoricalReportTest.verifyAdvancedSearchinreportpageSear...)</span>
-                <span class="method-start">52064 ms</span>
-              </div> <!-- configuration-method before -->
-              <div class="configuration-method before">
-                <span class="method-name">NavigateToOcmReportsPage</span>
-                <span class="method-start">52065 ms</span>
-              </div> <!-- configuration-method before -->
-              <div class="test-method">
-                <img src="failed.png">
-                </img>
-                <span class="method-name">verifyAdvancedSearchinreportpageSearchEndswith</span>
-                <span class="method-start">55646 ms</span>
-              </div> <!-- test-method -->
-              <div class="configuration-method after">
-                <span class="method-name">afterEachMethod(public void com.tetherfi.test.reports.AgentHistoricalReportTest.verifyAdvancedSearchinreportpageSear...)</span>
-                <span class="method-start">55651 ms</span>
-              </div> <!-- configuration-method after -->
-              <div class="configuration-method after">
-                <span class="method-name">endTestCase(public void com.tetherfi.test.reports.AgentHistoricalReportTest.verifyAdvancedSearchinreportpageSear...)</span>
-                <span class="method-start">58806 ms</span>
+                <span class="method-name">endTestCase(public void com.tetherfi.test.reports.AgentHistoricalReportTest.VerifyArrowMoveForPreviousAndNextPag...)</span>
+                <span class="method-start">81102 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-class after">
-                <img src="failed.png">
-                </img>
                 <span class="method-name">tearDown</span>
-                <span class="method-start">58808 ms</span>
+                <span class="method-start">81107 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

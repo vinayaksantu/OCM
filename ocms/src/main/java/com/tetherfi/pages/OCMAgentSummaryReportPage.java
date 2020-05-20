@@ -247,8 +247,66 @@ public class OCMAgentSummaryReportPage extends BasePage  {
 	@FindBy(id="gridDrillTwo")
 	private WebElement DrillGridTwoTable;
 
+    @FindBy(xpath="//div[@id='searchRadioGroup']")
+    private WebElement advancedsearchBtn;
+    
+    @FindBy(css = "span[aria-owns='1001ColumnName_listbox']")
+	private WebElement searchColDropdownAdvSrchReportPage;
+   
+    
+    @FindBy(css = "span[aria-owns='1002ColumnName_listbox']")
+	private WebElement searchColDropdownAdvSrchReportPage1;		
+    
+    @FindBy(css="ul[id='1001ColumnName_listbox'] li")
+	private List<WebElement> searchColListBoxAdvSrchReportPage;
+    
+    @FindBy(css="ul[id='1002ColumnName_listbox'] li")
+	private List<WebElement> searchColListBoxAdvSrchReportPage1;
+    
 
+	@FindBy(css = "span[aria-owns='1001Criteria_listbox']")
+	private WebElement searchCriteriaDropdownAdvSrch;
+	
+	@FindBy(css = "span[aria-owns='1002Criteria_listbox']")
+	private WebElement searchCriteriaDropdownAdvSrch1;
 
+	@FindBy(css="ul[id='1001Criteria_listbox'] li") 
+	private List<WebElement> searchCriteriaListboxAdvSrch;
+	
+	@FindBy(css="ul[id='1002Criteria_listbox'] li") 
+	private List<WebElement> searchCriteriaListboxAdvSrch1;
+
+	@FindBy(id = "1001TextToSearch")
+	private WebElement searchTextBoxAdvSrch;
+	
+	@FindBy(id = "1002TextToSearch")
+	private WebElement searchTextBoxAdvSrch1;
+	
+	@FindBy(id="1001AddButton")
+    private WebElement searchAddCriteriaBtn;
+	
+	@FindBy(xpath="//label[@for='1001RadioAND']")
+    private WebElement andradiobtn;
+	
+	@FindBy(xpath="//label[@for='1001RadioOR']")
+    private WebElement orradiobtn;
+	
+	@FindBy(css = ".k-Show")
+	private List<WebElement> showReportBtn;
+	
+	@FindBy(id = "grid")
+	private WebElement gridBoxContent;
+	
+	@FindBy(xpath="//tbody/tr/td[2]")
+	private WebElement rowdata;
+	
+	@FindBy(xpath="//tbody/tr[2]/td[1]")
+    private WebElement rowdatatwo;
+	
+	@FindBy(id="tGrid")
+    private WebElement Grid;
+	
+	
 	public void exportPage(){
 		emptyDownloadsDirectory(System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles");
 		selectWebElement(exportPage);
@@ -795,8 +853,6 @@ public class OCMAgentSummaryReportPage extends BasePage  {
 
 	public boolean verifySearchIsEqualTo(String details) throws Exception {
 		Boolean Status=false;
-		Map<String, String> map=new HashMap<String,String>() ;
-		//map.put("Agent Name", details);
 		selectWebElement(searchBtn);	
 		selectWebElement(searchColDropdown);  
 		selectDropdownFromVisibleText(searchColListBox,"Agent Name");  
@@ -1365,6 +1421,80 @@ public class OCMAgentSummaryReportPage extends BasePage  {
 		//CloseDrillGridOne.click();
 		return LogoutDates;
 	}
+	public Boolean advancedSearchAddCriteria(ReportDetails details) throws Exception {
+		Boolean Status=false;	
+		selectWebElement(advancedsearchBtn);
+		selectWebElement(searchColDropdownAdvSrchReportPage);
+		Thread.sleep(2000);
+		selectDropdownFromVisibleText(searchColListBoxAdvSrchReportPage,"Agent Name");
+		Thread.sleep(2000);
+		selectWebElement(searchCriteriaDropdownAdvSrch);
+		selectDropdownFromVisibleText(searchCriteriaListboxAdvSrch,"Is equal to");
+		enterValueToTxtField(searchTextBoxAdvSrch,details.getSearchStr());
+		selectWebElement(searchAddCriteriaBtn);
+        moveToElement(andradiobtn);
+        selectWebElement(andradiobtn);
+        try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+        selectWebElement(searchColDropdownAdvSrchReportPage1);
+		Thread.sleep(2000);
+		selectDropdownFromVisibleText(searchColListBoxAdvSrchReportPage1,"Agent Name");
+		Thread.sleep(2000);
+		selectWebElement(searchCriteriaDropdownAdvSrch1);
+		selectDropdownFromVisibleText(searchCriteriaListboxAdvSrch1,"Contains");
+		enterValueToTxtField(searchTextBoxAdvSrch1,details.getSearchStr1());
+		selectWebElement(showReportBtn.get(0));
+		waitForLoad(driver);
+		waitForJqueryLoad(driver);
+		waitUntilWebElementIsVisible(gridBoxContent);
+		Thread.sleep(2000);
+		if(rowdata.getText().equals(details.getSearchStr())) {
+			Status=true;
+		}
+		return Status;	
+		
+	}
+	public Boolean advancedSearchORCriteria(ReportDetails details) throws Exception {
+		Boolean Status=false;	
+		selectWebElement(advancedsearchBtn);
+		selectWebElement(searchColDropdownAdvSrchReportPage);
+		Thread.sleep(2000);
+		selectDropdownFromVisibleText(searchColListBoxAdvSrchReportPage,"Agent Name");
+		Thread.sleep(2000);
+		selectWebElement(searchCriteriaDropdownAdvSrch);
+		selectDropdownFromVisibleText(searchCriteriaListboxAdvSrch,"Is equal to");
+		enterValueToTxtField(searchTextBoxAdvSrch,details.getSearchStr());
+		selectWebElement(searchAddCriteriaBtn);
+        moveToElement(orradiobtn);
+        selectWebElement(orradiobtn);
+        try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+        selectWebElement(searchColDropdownAdvSrchReportPage1);
+		Thread.sleep(2000);
+		selectDropdownFromVisibleText(searchColListBoxAdvSrchReportPage1,"Agent ID");
+		Thread.sleep(2000);
+		selectWebElement(searchCriteriaDropdownAdvSrch1);
+		selectDropdownFromVisibleText(searchCriteriaListboxAdvSrch1,"Starts with");
+		enterValueToTxtField(searchTextBoxAdvSrch1,details.getSearchStr2());
+		selectWebElement(showReportBtn.get(0));
+		waitForLoad(driver);
+		waitForJqueryLoad(driver);
+		waitUntilWebElementIsVisible(gridBoxContent);
+		Thread.sleep(3000);
+		List<WebElement> rows=Grid.findElements(By.tagName("tr"));	
+        for(WebElement e:rows)
+        {
+        	if(rowdata.getText().equals(details.getSearchStr())||rowdatatwo.getText().contains(details.getSearchStr2()))
+        		Status=true;
+        }
+		return Status;	
+		
+	}
 }
-
 

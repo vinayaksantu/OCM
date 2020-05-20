@@ -28,6 +28,11 @@ public class ReportDetails {
     private String getdateType;
     private String queryDrillGridOne;
     private String queryDrillGridTwo;
+    private String filterDate;
+    private String interval;
+    private String searchStr1;
+    private String searchStr2;
+
     
 
     public ReportDetails(Map<String, String> map){
@@ -56,9 +61,39 @@ public class ReportDetails {
         searchStr=readSearchStr(map);
         getNumber=readGetNumber(map);
         getdateType=readCalendarType(map);
+        filterDate=readFilterDate(map);
+        interval=readInterval(map);
+        searchStr1=readSearchStr1(map);
+        searchStr2=readSearchStr2(map);
+
+        
     }
-    
-    private String readCalendarType(Map<String, String> map) {
+    private String readSearchStr1(Map<String, String> map) {
+        String value=map.get("Search String1");
+        if(value==null||value.equalsIgnoreCase("random.str")){
+            value="Null";
+        }
+        return value;
+    }
+	private String readSearchStr2(Map<String, String> map) {
+        String value=map.get("Search String2");
+        if(value==null||value.equalsIgnoreCase("random.str")){
+            value="Null";
+        }
+        return value;
+    }
+
+    private String readInterval(Map<String, String> map) {
+    	String value=map.get("Interval");
+    	return value;
+	}
+
+	private String readFilterDate(Map<String, String> map) {
+    	String value=map.get("Filter Date");
+    	return value;
+	}
+
+	private String readCalendarType(Map<String, String> map) {
     	String value=map.get("GetCalendarType");
     	return value;
     }
@@ -250,4 +285,20 @@ public class ReportDetails {
 		return queryDrillGridTwo;
 
 	}
+
+	public String getFilterDate() {
+		return filterDate;
+	}
+
+	public String getInterval() {
+		return interval;
+	}
+	
+	public String getSearchStr1() {
+        return searchStr1;
+    }
+    public String getSearchStr2() {
+        return searchStr2;
+    }
+
 }

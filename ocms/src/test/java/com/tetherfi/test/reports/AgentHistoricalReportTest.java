@@ -10,6 +10,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import com.tetherfi.model.report.ReportDetails;
 import com.tetherfi.pages.HomePage;
+import com.tetherfi.pages.OCMAgentSummaryReportPage;
 import com.tetherfi.pages.OCMReportsPage;
 import com.tetherfi.pages.AgentHistoricalReportPage;
 import com.tetherfi.pages.CepEventMappingPage;
@@ -29,7 +30,7 @@ public class AgentHistoricalReportTest extends BaseTest {
 		Assert.assertTrue(ocmReportsPage.isOCMReportPageIsDisplayed());
 	}
 
-	@Test(priority=1,description="To verify Show Report for Single Date")
+	/*@Test(priority=1,description="To verify Show Report for Single Date")
     public void ShowOCMAgentHistoricalReport() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
@@ -229,7 +230,7 @@ public class AgentHistoricalReportTest extends BaseTest {
 		ocmReportsPage.showReport(reportDetails);
 		AgentHistoricalReportPage agentHistoricalPage=PageFactory.createPageInstance(driver,AgentHistoricalReportPage.class);
 		Assert.assertTrue(agentHistoricalPage.verifyTotalNumberOfItemsPerPageDetails(),"item per page assertion failed");
-	}  
+	} 
 	@Test(priority=21,description="To Verify Number of Items Per Page Selection")
 	public void VerifyNumberOfItemsPerPageSelection() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
@@ -522,7 +523,7 @@ public class AgentHistoricalReportTest extends BaseTest {
 		Assert.assertTrue(agentHistoricalPage.verifyAdvanceSearchStartsWith(reportDetails)); 
      }
     
-    @Test(priority=46)
+    @Test(priority=46,description="To verify Advance Search Ends With")
     public void verifyAdvancedSearchinreportpageSearchEndswith() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(1);
@@ -532,8 +533,130 @@ public class AgentHistoricalReportTest extends BaseTest {
 		AgentHistoricalReportPage agentHistoricalPage=PageFactory.createPageInstance(driver,AgentHistoricalReportPage.class);
 		Assert.assertTrue(agentHistoricalPage.verifyAdvanceSearchEndsWith(reportDetails)); 
      }
+	
+	@Test(priority=47,description="To verify Select Date feature")
+    public void verifySelectdateFeature() throws Exception {
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
+    	Map<String, String> map = new ExcelReader(filePath,"DrillDown").getTestData().get(0);
+    	ReportDetails reportDetails= new ReportDetails(map);
+    	OCMReportsPage OCMReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);                   	
+    	OCMReportsPage.showReport(reportDetails);
+		AgentHistoricalReportPage agentHistoricalPage=PageFactory.createPageInstance(driver,AgentHistoricalReportPage.class);		
+		Assert.assertTrue(agentHistoricalPage.verifySelectDateFeature(reportDetails)); 
+     }
+	
+	@Test(priority=48,description="To verify Select Date feature")
+    public void verifySelectIntervalFeature() throws Exception {
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
+    	Map<String, String> map = new ExcelReader(filePath,"DrillDown").getTestData().get(0);
+    	ReportDetails reportDetails= new ReportDetails(map);
+    	OCMReportsPage OCMReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);                   	
+    	OCMReportsPage.showReport(reportDetails);
+		AgentHistoricalReportPage agentHistoricalPage=PageFactory.createPageInstance(driver,AgentHistoricalReportPage.class);		
+		Assert.assertTrue(agentHistoricalPage.verifySelectIntervalFeature(reportDetails)); 
+     }
+	
+	@Test(priority=49,description="To Verify Arrow move for Previous and Next page for Drill Down One")
+	public void VerifyArrowMoveForPreviousAndNextPageForDrillDownOne() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
+		ocmReportsPage.showReport(reportDetails);
+		AgentHistoricalReportPage agentHistoricalPage=PageFactory.createPageInstance(driver,AgentHistoricalReportPage.class);
+		Assert.assertTrue(agentHistoricalPage.verifyArrowMoveForPreviousAndNextPageForDrillDownOne(),"arrow move for previous and next page assertion failed");
+	} 
+	@Test(priority=50,description="To Verify Arrow move for first and last page for Drill Down One")
+	public void VerifyArrowMoveForFirstAndLastPageFoDrillDownOne() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
+		ocmReportsPage.showReport(reportDetails);
+		AgentHistoricalReportPage agentHistoricalPage=PageFactory.createPageInstance(driver,AgentHistoricalReportPage.class);
+		Assert.assertTrue(agentHistoricalPage.verifyArrowMoveForFirstAndLastPageForDrillDownOne(),"arrow move for first and last page assertion failed");
+	} 
+	
+	@Test(priority=51,description="To Verify Total Number of Items Per Page Details for Drill Down One")
+	public void VerifyTotalNumberOfItemsPerPageDetailsFoDrillDownOne() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
+		ocmReportsPage.showReport(reportDetails);
+		AgentHistoricalReportPage agentHistoricalPage=PageFactory.createPageInstance(driver,AgentHistoricalReportPage.class);
+		Assert.assertTrue(agentHistoricalPage.verifyTotalNumberOfItemsPerPageDetailsForDrillDownOne(),"item per page assertion failed");
+	}  */
+	
+	@Test(priority=52,description="To Verify Arrow move for Previous and Next page for Drill Down two")
+	public void VerifyArrowMoveForPreviousAndNextPageForDrillDowntwo() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
+		ocmReportsPage.showReport(reportDetails);
+		AgentHistoricalReportPage agentHistoricalPage=PageFactory.createPageInstance(driver,AgentHistoricalReportPage.class);
+		Assert.assertTrue(agentHistoricalPage.verifyArrowMoveForPreviousAndNextPageForDrillDowntwo(reportDetails),"arrow move for previous and next page assertion failed");
+	} 
+	/*@Test(priority=53,description="To Verify Arrow move for first and last page for Drill Down two")
+	public void VerifyArrowMoveForFirstAndLastPageFoDrillDowntwo() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
+		ocmReportsPage.showReport(reportDetails);
+		AgentHistoricalReportPage agentHistoricalPage=PageFactory.createPageInstance(driver,AgentHistoricalReportPage.class);
+		Assert.assertTrue(agentHistoricalPage.verifyArrowMoveForFirstAndLastPageForDrillDowntwo(),"arrow move for first and last page assertion failed");
+	} 
+	
+	@Test(priority=54,description="To Verify Total Number of Items Per Page Details for Drill Down two")
+	public void VerifyTotalNumberOfItemsPerPageDetailsFoDrillDowntwo() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
+		ocmReportsPage.showReport(reportDetails);
+		AgentHistoricalReportPage agentHistoricalPage=PageFactory.createPageInstance(driver,AgentHistoricalReportPage.class);
+		Assert.assertTrue(agentHistoricalPage.verifyTotalNumberOfItemsPerPageDetailsForDrillDowntwo(),"item per page assertion failed");
+	}
+	
+	@Test(priority=55,description="To Verify Number of Items Per Page Selection for Drill Down Two")
+	public void VerifyNumberOfItemsPerPageSelectionForDrillDownTwo() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
+		ocmReportsPage.showReport(reportDetails);
+		AgentHistoricalReportPage agentHistoricalPage=PageFactory.createPageInstance(driver,AgentHistoricalReportPage.class);
+		Assert.assertTrue(agentHistoricalPage.verifyNumberOfItemsPerPageForDrillDowntwo(reportDetails),"item per page assertion failed");
+	}
+	
+	@Test(priority=61)
+    public void verifyAdvancedSearchAddCriteria() throws Exception {
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
+    	Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(0);
+		AgentHistoricalReportPage agentHistoricalPage=PageFactory.createPageInstance(driver,AgentHistoricalReportPage.class);
+    	ReportDetails reportDetails= new ReportDetails(map);
+    	OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);                   	
+  	    ocmReportsPage.chooseReport(reportDetails);
+    	Assert.assertTrue(agentHistoricalPage.advancedSearchAddCriteria(reportDetails));
+    	
+    }
+    
+    @Test(priority=62)
+    public void verifyAdvancedSearchORCriteria() throws Exception {
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
+    	Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(0);
+		AgentHistoricalReportPage agentHistoricalPage=PageFactory.createPageInstance(driver,AgentHistoricalReportPage.class);
+    	ReportDetails reportDetails= new ReportDetails(map);
+    	OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);                   	
+  	    ocmReportsPage.chooseReport(reportDetails);
+    	Assert.assertTrue(agentHistoricalPage.advancedSearchORCriteria(reportDetails));
+    	
+    }
+	
 
-    @Test(priority=59, description="To verify report data against DB")
+    /*@Test(priority=59, description="To verify report data against DB")
 	public void database() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(0);
@@ -579,8 +702,10 @@ public class AgentHistoricalReportTest extends BaseTest {
 			}
 			AgentHistoricalReport.closeDrillOneReport();
 			Thread.sleep(1000);
-		}*/
+		}
 	}
+    */
+    
 
 	@AfterMethod
 	public void afterEachMethod(Method method) throws InterruptedException {

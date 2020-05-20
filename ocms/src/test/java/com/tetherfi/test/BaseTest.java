@@ -5,7 +5,11 @@ import com.tetherfi.pages.LoginPage;
 import com.tetherfi.utility.BrowserFactory;
 import com.tetherfi.utility.ExcelReader;
 import com.tetherfi.utility.PageFactory;
+
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
@@ -38,8 +42,23 @@ public class BaseTest {
             driver.close();
             e.printStackTrace();
         }
-        driver.manage().timeouts().implicitlyWait(40,TimeUnit.SECONDS);
-    }
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, 20);
+            ExpectedCondition<Boolean> pageLoadCondition = new
+                    ExpectedCondition<Boolean>() 
+            			{
+                        public Boolean apply(WebDriver driver) 
+                        {
+                            return ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete");
+                        }
+                    };
+            wait.until(pageLoadCondition);
+        }
+        catch(Exception e)
+        {
+      	  e.printStackTrace();
+        }
+        }
     
     @BeforeMethod
         public void startTestCase(Method method){

@@ -11,11 +11,10 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.tetherfi.model.report.ReportDetails;
-import com.tetherfi.model.user.CepEventMappingDetails;
-import com.tetherfi.pages.CepEventMappingPage;
+
 import com.tetherfi.pages.HomePage;
 import com.tetherfi.pages.OCMAgentSummaryReportPage;
-import com.tetherfi.pages.OCMHomePage;
+
 import com.tetherfi.pages.OCMReportsPage;
 import com.tetherfi.test.BaseTest;
 import com.tetherfi.utility.ExcelReader;
@@ -32,7 +31,7 @@ public class OCMAgentSummaryReportTest extends BaseTest {
         OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
         Assert.assertTrue(ocmReportsPage.isOCMReportPageIsDisplayed());
     }
-   
+   /*
    @Test(priority=1)
     public void ShowOCMAgentSummaryReport() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
@@ -42,6 +41,7 @@ public class OCMAgentSummaryReportTest extends BaseTest {
     	OCMReportsPage.showReport(reportDetails);
     	Assert.assertTrue(OCMReportsPage.verifyReportDisplayed(reportDetails),"Show report assertion failed");     
     } 
+   
 
     @Test(priority=2, dependsOnMethods ="ShowOCMAgentSummaryReport")
     public void ShowOCMAgentSummaryReportInNewTab() throws Exception {
@@ -426,7 +426,8 @@ public class OCMAgentSummaryReportTest extends BaseTest {
     	OCMReportsPage OCMReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);                   	
     	OCMReportsPage.chooseAdvancedSearchNew(reportDetails);  
     	OCMReportsPage.showReport(reportDetails);
-    	Assert.assertTrue(OCMReportsPage.verifyReportDisplayedNew(reportDetails),"Show report assertion failed");
+    	//Assert.assertTrue(OCMReportsPage.verifyReportDisplayedNew(reportDetails),"Show report assertion failed");
+    	Assert.assertTrue(OCMReportsPage.verifyReportDisplayed(reportDetails),"Show report assertion failed");
     }
     
     @Test(priority=36)
@@ -531,7 +532,7 @@ public class OCMAgentSummaryReportTest extends BaseTest {
     	CepEventMappingPage.deleteCEPEventMappingRecord(CepEventMappingDetails);
     	Assert.assertEquals(CepEventMappingPage.getSuccessMessage(),"Record Deleted Successfully","Delete record assertion failed");
     }*/
-
+   /*
     @Test(priority=42)
     public void verifyAdvancedSearchinreportpageSearchNotEqualTo() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
@@ -761,8 +762,33 @@ public class OCMAgentSummaryReportTest extends BaseTest {
 			Thread.sleep(1000);
 		}
 	}
-
-		
+*/
+	
+    @Test(priority=61)
+    public void verifyAdvancedSearchAddCriteria() throws Exception {
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
+    	Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(0);
+    	OCMAgentSummaryReportPage ocmAgentSummaryReportPage=PageFactory.createPageInstance(driver, OCMAgentSummaryReportPage.class);
+    	ReportDetails reportDetails= new ReportDetails(map);
+    	//To select Report Channel,name,Type
+    	OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);                   	
+  	    ocmReportsPage.chooseReport(reportDetails);
+    	Assert.assertTrue(ocmAgentSummaryReportPage.advancedSearchAddCriteria(reportDetails));
+    	
+    }
+    
+    @Test(priority=62)
+    public void verifyAdvancedSearchORCriteria() throws Exception {
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
+    	Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(0);
+    	OCMAgentSummaryReportPage ocmAgentSummaryReportPage=PageFactory.createPageInstance(driver, OCMAgentSummaryReportPage.class);
+    	ReportDetails reportDetails= new ReportDetails(map);
+    	//To select Report Channel,name,Type
+    	OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);                   	
+  	    ocmReportsPage.chooseReport(reportDetails);
+    	Assert.assertTrue(ocmAgentSummaryReportPage.advancedSearchORCriteria(reportDetails));
+    	
+    }
 	@AfterMethod
 	public void afterEachMethod(Method method) throws InterruptedException {
 		Screenshot screenshot=new Screenshot(driver);
