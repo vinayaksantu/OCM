@@ -54,6 +54,9 @@ public class AgentHistoricalReportPage extends BasePage  {
 	
 	@FindBy(xpath="//div[@id='gridDrillOne']//span[@class='k-pager-info k-label']")
 	private WebElement pagerInfoDrillOne;
+	
+	@FindBy(xpath="//div[@id='gridDrillTwo']//span[@class='k-pager-info k-label']")
+	private WebElement pagerInfoDrillTwo;
 
 	@FindBy(css=".k-pager-sizes .k-input")
 	private WebElement pagerSize;
@@ -85,6 +88,9 @@ public class AgentHistoricalReportPage extends BasePage  {
 	@FindBy(xpath="//div[@id='gridDrillOne']//span[@class='k-input']")
 	private WebElement pagerSizeDrillGridOne;
 	
+	@FindBy(xpath="//div[@id='gridDrillOne']//span[@class='k-input']")
+	private WebElement pagerSizeDrillGridTwo;
+	
 	@FindBy(xpath="//div[@id='gridDrillOne']//span[@class='k-icon k-i-arrow-60-right']")
 	private WebElement nextPageIconDrillOne;
 	
@@ -108,6 +114,9 @@ public class AgentHistoricalReportPage extends BasePage  {
 
 	@FindBy(css=".k-animation-container ul li")
 	private List<WebElement> pageSizeListBox;
+	
+	@FindBy(css="ul[id='d571e4b0-a124-4e72-b306-b5333dae5e56_listbox'] li")
+	private List<WebElement> pageSizeListBoxDrillTwo; 
 
 	@FindBy(css=".k-columns-item")
 	private List<WebElement> columns;
@@ -159,6 +168,12 @@ public class AgentHistoricalReportPage extends BasePage  {
 	
 	@FindBy(xpath="//div[@id='gridDrillOne']//span[@class='k-icon k-i-arrow-end-right']")
 	private WebElement lastPageIconDrillOne;
+	
+	@FindBy(xpath="//div[@id='gridDrillTwo']//span[@class='k-icon k-i-arrow-end-left']")
+	private WebElement firstPageIconDrillTwo;
+	
+	@FindBy(xpath="//div[@id='gridDrillTwo']//span[@class='k-icon k-i-arrow-end-right']")
+	private WebElement lastPageIconDrillTwo;
 
 	@FindBy(css="a[aria-label='Go to the previous page']")
 	private WebElement previousPageIcon;
@@ -172,6 +187,36 @@ public class AgentHistoricalReportPage extends BasePage  {
 	//export to excel in AgentHistRptPage
 	@FindBy(xpath="//button[@id='exportAllToExcel']")
 	private WebElement exportToExcel;
+	
+	@FindBy(xpath="//div[@id='gridDrillOne']//button[@title='Search']")
+	private WebElement drillOneSearchBtn;
+	
+	@FindBy(xpath="//div[@id='searchDrillOneForm']//input[@placeholder='Select column']")
+	private WebElement drillOneSearchColDropdown;
+	
+	@FindBy(css="ul[id='5926sColumnName_listbox'] li")
+	private List<WebElement> drillOneSearchColListBox;
+	
+	@FindBy(css="span[aria-owns='5926sCriteria_listbox']")
+	private WebElement drillOneSearchCriteriaDropdown;
+	
+	@FindBy(css="ul[id='5926sCriteria_listbox'] li")
+	private List<WebElement> drillOneSearchCriteriaListbox;
+	
+	@FindBy(id="5926sTextToSearch")
+	private WebElement drillOneSearchTextbox;
+	
+	@FindBy(xpath="//div[@id='gridDivSearchOneFooter']//button[@title='Search']")
+	private WebElement drillOneSearchSearchBtn;
+	
+	@FindBy(xpath="//div[@id='gridDivSearchOneFooter']//button[text()='Clear All']")
+	private WebElement drillOneSearchClearAllbtn;
+	
+	@FindBy(xpath="//div[@id='gridDivSearchOneFooter']//button[text()='Back']")
+	private WebElement drillOneSearchBackbtn;
+	
+	@FindBy(xpath="//div[@id='gridDivSearchOneFooter']//button[text()='Close']")
+	private WebElement drillOneSearchClosebtn;
 
 	@FindBy(css = ".fa-search")
 	private WebElement searchBtn;
@@ -294,12 +339,6 @@ public class AgentHistoricalReportPage extends BasePage  {
 	
 	@FindBy(id = "grid")
 	private WebElement gridBoxContent;
-	
-	@FindBy(xpath="//tbody/tr/td[2]")
-	private WebElement rowdata;
-	
-	@FindBy(xpath="//tbody/tr[2]/td[1]")
-    private WebElement rowdatatwo;
 	
 	@FindBy(id="tGrid")
     private WebElement Grid;
@@ -918,7 +957,8 @@ public class AgentHistoricalReportPage extends BasePage  {
 		boolean Status=false;
 		selectWebElement(searchbyfeatureTextBox);
 		enterValueToTxtFieldWithoutClear(searchbyfeatureTextBox,details.getSearchStr());
-		selectDropdownFromVisibleText(searchbyfeaturelistBox,details.getSearchStr());		
+		selectDropdownFromVisibleText(searchbyfeaturelistBox,details.getSearchStr());	
+		Thread.sleep(2000);
 		waitForJqueryLoad(driver);
 		List<Map<String,String>> UI=getDataTable(); 
 		for (Map<String,String> map1: UI)
@@ -1024,7 +1064,8 @@ public class AgentHistoricalReportPage extends BasePage  {
 		}
 		return Status;
 	}
-	public void verifySearchClear(ReportDetails details) {
+	public boolean verifySearchClear(ReportDetails details) {
+		Boolean Status= false;
 		selectWebElement(searchBtn);		
 		selectWebElement(searchColDropdown);  
 		selectDropdownFromVisibleText(searchColListBox,details.getColname());  
@@ -1033,7 +1074,12 @@ public class AgentHistoricalReportPage extends BasePage  {
 		selectDropdownFromVisibleText(searchCriteriaListbox,details.getColtype());		   
 		waitForJqueryLoad(driver);    
 		selectWebElement(searchClearAllBtn);	
-		//selectWebElement(searchCloseBtn);		
+		selectWebElement(searchCloseBtn);	
+		if(auditGridContent.isDisplayed())
+			Status= true;
+		else
+			Status=false;
+		return Status;	
 	}
 	public boolean verifyAdvanceSearch(ReportDetails reportDetails) throws Exception {
 		Boolean Status=false;
@@ -1351,8 +1397,14 @@ public class AgentHistoricalReportPage extends BasePage  {
 		waitForJqueryLoad(driver);
 		waitUntilWebElementIsVisible(gridBoxContent);
 		Thread.sleep(2000);
-		if(rowdata.getText().equals(details.getSearchStr())) {
-			Status=true;
+		List<Map<String,String>>UI=getDataTable();
+		for(Map<String,String> map1:UI)
+		{
+			System.out.println(map1.get("Agent Name"));
+			if(map1.get("Agent Name").toLowerCase().equals(details.getSearchStr().toLowerCase()) &&map1.get("Agent Name").toLowerCase().contains(details.getSearchStr1().toLowerCase()))
+				Status= true;
+			else 
+				Status =false;
 		}
 		return Status;	
 		
@@ -1377,7 +1429,7 @@ public class AgentHistoricalReportPage extends BasePage  {
 		}
         selectWebElement(searchColDropdownAdvSrchReportPage1);
 		Thread.sleep(2000);
-		selectDropdownFromVisibleText(searchColListBoxAdvSrchReportPage1,"Agent ID");
+		selectDropdownFromVisibleText(searchColListBoxAdvSrchReportPage1,"Team Name");
 		Thread.sleep(2000);
 		selectWebElement(searchCriteriaDropdownAdvSrch1);
 		selectDropdownFromVisibleText(searchCriteriaListboxAdvSrch1,"Starts with");
@@ -1388,11 +1440,15 @@ public class AgentHistoricalReportPage extends BasePage  {
 		waitUntilWebElementIsVisible(gridBoxContent);
 		Thread.sleep(3000);
 		List<WebElement> rows=Grid.findElements(By.tagName("tr"));	
-        for(WebElement e:rows)
-        {
-        	if(rowdata.getText().equals(details.getSearchStr())||rowdatatwo.getText().contains(details.getSearchStr2()))
-        		Status=true;
-        }
+		List<Map<String,String>>UI=getDataTable();
+		for(Map<String,String> map1:UI)
+		{
+			System.out.println(map1.get("Agent Name"));
+			if(map1.get("Agent Name").toLowerCase().equals(details.getSearchStr().toLowerCase())|| map1.get("Team Name").toLowerCase().startsWith(details.getSearchStr2().toLowerCase()))
+				Status= true;
+			else 
+				Status =false;
+		}
 		return Status;	
 		
 	}
@@ -1449,33 +1505,36 @@ public class AgentHistoricalReportPage extends BasePage  {
 		selectWebElement(searchSearchBtn);
 		waitForJqueryLoad(driver);
 	}
-	public boolean verifyArrowMoveForPreviousAndNextPageForDrillDownOne() throws InterruptedException {
+	public boolean verifyArrowMoveForPreviousAndNextPageForDrillDownOne(ReportDetails reportDetails) throws Exception {
+		searchReport(reportDetails);
 		selectWebElement(rows.get(0));
 		Thread.sleep(2000);
 		boolean status=false;
 		Thread.sleep(2000);
 		if(!nextPageIconDrillOne.isEnabled()){
-			int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber.get(1)));
+			int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumberDrillOne));
 			selectWebElement(nextPageIconDrillOne);
-			int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber.get(1)));
+			Thread.sleep(2000);
+			int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumberDrillOne));
 			selectWebElement(previousPageIconDrillOne);
-			int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber.get(1)));
+			int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumberDrillOne));
 			if(nextnumber==(pagenumber+1) && pagenumber==previousnumber){status=true;}
 		}else{
 			System.out.println("previous and next page icon disabled");status=true;
 		}
 		return status;
 	}
-	public boolean verifyArrowMoveForFirstAndLastPageForDrillDownOne() throws InterruptedException {
+	public boolean verifyArrowMoveForFirstAndLastPageForDrillDownOne(ReportDetails reportDetails) throws Exception {
+		searchReport(reportDetails);
 		selectWebElement(rows.get(0));
 		Thread.sleep(2000);
 		boolean status=false;
-		if(!lastPageIconDrillOne.isEnabled()){
-			int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber.get(1)));
+		if(lastPageIconDrillOne.isEnabled()){
+			int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumberDrillOne));
 			selectWebElement(lastPageIconDrillOne);
-			int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber.get(1)));
+			int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumberDrillOne));
 			selectWebElement(firstPageIconDrillOne);
-			int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber.get(1)));
+			int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumberDrillOne));
 			if(nextnumber>pagenumber && pagenumber==previousnumber){status=true;}
 		}else{
 			System.out.println("previous and next page icon disabled");status=true;
@@ -1537,6 +1596,7 @@ public class AgentHistoricalReportPage extends BasePage  {
 			int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumberDrilltwo));
 			System.out.println(pagenumber);
 			selectWebElement(nextPageIconDrillTwo);
+			Thread.sleep(1000);
 			int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumberDrilltwo));
 			System.out.println(nextnumber);
 			selectWebElement(previousPageIconDrillTwo);
@@ -1547,6 +1607,250 @@ public class AgentHistoricalReportPage extends BasePage  {
 			System.out.println("previous and next page icon disabled");status=true;
 		}
 		return status;
+	}
+	public boolean verifyArrowMoveForFirstAndLastPageForDrillDowntwo(ReportDetails reportDetails) throws Exception {
+		searchReport(reportDetails);
+		selectWebElement(rows.get(0));
+		Thread.sleep(2000);
+		List<WebElement> rows=DrillGridOneTable.findElements(By.tagName("tr"));
+		List<WebElement> cols=rows.get(1).findElements(By.tagName("td"));
+		selectWebElement(cols.get(0));
+		Thread.sleep(2000);
+		boolean status=false;
+		if(lastPageIconDrillTwo.isEnabled()){
+			int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumberDrilltwo));
+			selectWebElement(lastPageIconDrillTwo);
+			Thread.sleep(2000);
+			int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumberDrilltwo));
+			selectWebElement(firstPageIconDrillTwo);
+			Thread.sleep(2000);
+			int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumberDrilltwo));
+			if(nextnumber>pagenumber && pagenumber==previousnumber){status=true;}
+		}else{
+			System.out.println("previous and next page icon disabled");status=true;
+		}
+		return status;
+	}
+	public boolean verifyTotalNumberOfItemsPerPageDetailsForDrillDowntwo() throws InterruptedException {
+		selectWebElement(rows.get(0));
+		Thread.sleep(2000);
+		List<WebElement> rows=DrillGridOneTable.findElements(By.tagName("tr"));
+		List<WebElement> cols=rows.get(1).findElements(By.tagName("td"));
+		selectWebElement(cols.get(0));
+		Thread.sleep(2000);
+		String item = drillGridTwoItems.getText();
+		return item.matches("(\\d.*) - (\\d.*) of (\\d.*) items");
+	}
+	public boolean verifyNumberOfItemsPerPageForDrillDowntwo(ReportDetails reportDetails) throws Exception {
+		selectWebElement(rows.get(0));
+		Thread.sleep(2000);
+		List<WebElement> rows=DrillGridOneTable.findElements(By.tagName("tr"));
+		List<WebElement> cols=rows.get(1).findElements(By.tagName("td"));
+		selectWebElement(cols.get(0));
+		Thread.sleep(2000);
+		boolean status = false;
+		try {
+			if (norecords.size() <= 0) {
+				int items = Integer.valueOf(pagerInfoDrillTwo.getText().split("of ")[1].split(" items")[0]);
+				selectWebElement(pagerDropdown.get(2));
+				Thread.sleep(1500);
+				for (int i = 0; i < pageSizeListBoxDrillTwo.size(); i++) {
+					if(Integer.valueOf(pageSizeListBoxDrillTwo.get(i).getText())>items){continue;}
+					selectDropdownFromVisibleText(pageSizeListBoxDrillTwo, pageSizeListBoxDrillTwo.get(i).getText());
+					waitForJqueryLoad(driver);
+					int totalItems = Integer.valueOf(pagerInfoDrillTwo.getText().split("of ")[1].split(" items")[0]);
+					int pagersize = Integer.valueOf(pagerSizeDrillGridTwo.getText());
+					int pages = (totalItems % pagersize == 0) ? items / pagersize : items / pagersize+1;
+					int totalRows=(gridContent.findElements(By.tagName("tr")).size())-1;
+					selectWebElement(lastPageIconDrillTwo);
+					waitForJqueryLoad(driver);
+					int lastPageNumber = Integer.valueOf(pageNumberDrilltwo.getText());
+					if (items == totalItems && pages == lastPageNumber&&totalRows==pagersize) {
+						status = true;
+					} else {System.out.println(items+":"+totalItems+"\t"+pages+":"+lastPageNumber+"\t"+totalRows+":"+pagersize);
+					status = false;
+					break;
+					}selectWebElement(pagerDropdown.get(2));Thread.sleep(1500);
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} return status;
+	}
+	
+	public boolean verifyDrillOneSearchIsEqualTo(String details) throws Exception {
+		selectWebElement(rows.get(0));
+		Boolean Status=false;
+		selectWebElement(drillOneSearchBtn);	
+		selectWebElement(drillOneSearchColDropdown);  
+		selectDropdownFromVisibleText(drillOneSearchColListBox,"Agent ID");  
+		waitForJqueryLoad(driver);
+		selectWebElement(searchCriteriaDropdown);
+		selectDropdownFromVisibleText(drillOneSearchCriteriaListbox,"Is equal to");		   
+		waitForJqueryLoad(driver);    
+		enterValueToTxtField(drillOneSearchTextbox,details);
+		selectWebElement(drillOneSearchSearchBtn);
+		waitForJqueryLoad(driver);
+		List<Map<String,String>> UI=getDataTableDrillGridOne(); 
+		for (Map<String,String> map1: UI)
+		{   	
+			if(map1.get("Agent ID").equals(details))
+				Status= true;
+			else 
+				Status= false;
+		}
+		return Status;	
+	}
+	public boolean verifyDrillOneSearchIsNotEqualTo(String details) throws Exception {
+		selectWebElement(rows.get(0));
+		Boolean Status=false;
+		selectWebElement(searchBtn);	
+		selectWebElement(searchColDropdown);  
+		selectDropdownFromVisibleText(searchColListBox,"Agent Name");  
+		waitForJqueryLoad(driver);
+		selectWebElement(searchCriteriaDropdown);
+		selectDropdownFromVisibleText(searchCriteriaListbox,"Is not equal to");		   
+		waitForJqueryLoad(driver);    
+		enterValueToTxtField(searchTextBox,details);
+		selectWebElement(searchSearchBtn);
+		waitForJqueryLoad(driver);
+		//waitUntilWebElementIsVisible(gridContent);
+		List<Map<String,String>> UI=getDataTableDrillGridOne(); 
+		for (Map<String,String> map1: UI)
+		{   	
+			if(map1.get("Agent Name").equals(details))
+				Status= false;
+			else 
+				Status= true;
+		}
+		return Status;	
+	}
+
+	public boolean verifyDrillOneSearchContains(String description) throws Exception {
+		selectWebElement(rows.get(0));
+		Boolean Status=false;		
+		selectWebElement(drillOneSearchBtn);
+		selectWebElement(drillOneSearchColDropdown);  
+		selectDropdownFromVisibleText(drillOneSearchColListBox,"Agent Name");  
+		waitForJqueryLoad(driver);
+		selectWebElement(drillOneSearchCriteriaDropdown);
+		selectDropdownFromVisibleText(drillOneSearchCriteriaListbox,"Contains");		   
+		waitForJqueryLoad(driver);    
+		enterValueToTxtField(drillOneSearchTextbox,description);
+		selectWebElement(drillOneSearchSearchBtn);
+		waitForJqueryLoad(driver);
+		List<Map<String,String>> UI=getDataTableDrillGridOne(); 
+		for (Map<String,String> map1: UI)
+		{   	
+			if(map1.get("Agent Name").toUpperCase().contains(description.toUpperCase()))
+				Status= true;
+			else 
+				Status= false;
+		}
+		return Status;
+	}
+
+	public boolean verifyDrillOneSearchDoesNotContains(String description) throws Exception {
+		selectWebElement(rows.get(0));
+		Boolean Status=false;
+		selectWebElement(drillOneSearchBtn);
+		selectWebElement(drillOneSearchColDropdown);  
+		selectDropdownFromVisibleText(drillOneSearchColListBox,"Agent Name");  
+		waitForJqueryLoad(driver);
+		selectWebElement(drillOneSearchCriteriaDropdown);
+		selectDropdownFromVisibleText(drillOneSearchCriteriaListbox,"Does not contain");		   
+		waitForJqueryLoad(driver);    
+		enterValueToTxtField(drillOneSearchTextbox,description);
+		selectWebElement(drillOneSearchSearchBtn);
+		waitForJqueryLoad(driver);		
+		List<Map<String,String>> UI=getDataTableDrillGridOne(); 
+		for (Map<String,String> map1: UI)
+		{   	
+			if(!map1.get("Agent Name").toLowerCase().contains(description.toLowerCase()))
+				Status= true;
+			else 
+				Status= false;
+		}
+		return Status;
+	}
+
+	public boolean verifyDrillOneSearchStartsWith(String description) throws Exception {
+		selectWebElement(rows.get(0));
+		Boolean Status=false;
+		selectWebElement(drillOneSearchBtn);
+		selectWebElement(drillOneSearchColDropdown); 
+		selectDropdownFromVisibleText(drillOneSearchColListBox,"Agent Name");  
+		waitForJqueryLoad(driver);
+		selectWebElement(drillOneSearchCriteriaDropdown);
+		selectDropdownFromVisibleText(drillOneSearchCriteriaListbox,"Starts with");		   
+		waitForJqueryLoad(driver);    
+		enterValueToTxtField(drillOneSearchTextbox,description);        
+		selectWebElement(drillOneSearchSearchBtn);
+		waitForJqueryLoad(driver);
+		//waitUntilWebElementIsVisible(gridContent);
+		List<Map<String,String>> UI=getDataTableDrillGridOne(); 
+		for (Map<String,String> map1: UI)
+		{   	
+			if(map1.get("Agent Name").toLowerCase().startsWith(description.toLowerCase()))
+				Status= true;
+			else 
+				Status= false;
+		}
+		return Status;
+	}
+	public boolean verifyDrillOneSearchEndsWith(String description) throws Exception {
+		selectWebElement(rows.get(0));
+		Boolean Status=false;
+		selectWebElement(drillOneSearchBtn);
+		selectWebElement(drillOneSearchColDropdown); 
+		selectDropdownFromVisibleText(drillOneSearchColListBox,"Agent Name");  
+		waitForJqueryLoad(driver);
+		selectWebElement(drillOneSearchCriteriaDropdown);
+		selectDropdownFromVisibleText(drillOneSearchCriteriaListbox,"Ends with");		   
+		waitForJqueryLoad(driver);    
+		enterValueToTxtField(drillOneSearchTextbox,description);        
+		selectWebElement(drillOneSearchSearchBtn);
+		waitForJqueryLoad(driver);
+		List<Map<String,String>> UI=getDataTable(); 
+		for (Map<String,String> map1: UI)
+		{   	
+			if(map1.get("Agent Name").toUpperCase().endsWith(description.toUpperCase()))
+				Status= true;
+			else 
+				Status= false;
+		}
+		return Status;
+	}
+	public boolean verifyDrillOneSearchClearBackButton(ReportDetails details) {
+		selectWebElement(rows.get(0));
+		Boolean Status= false;
+		selectWebElement(drillOneSearchBtn);		
+		selectWebElement(drillOneSearchColDropdown);  
+		selectDropdownFromVisibleText(drillOneSearchColListBox,details.getColname());  
+		waitForJqueryLoad(driver);
+		selectWebElement(drillOneSearchCriteriaDropdown);
+		selectDropdownFromVisibleText(drillOneSearchCriteriaListbox,details.getColtype());		   
+		waitForJqueryLoad(driver);    
+		selectWebElement(drillOneSearchClearAllbtn);	
+		selectWebElement(drillOneSearchBackbtn);
+		if(DrillGridOneTable.isDisplayed())
+			Status= true;
+		else
+			Status=false;
+		return Status;		
+	}
+	public void searchwithoutDrillOnetextsearch(ReportDetails details) {
+		selectWebElement(rows.get(0));
+		selectWebElement(drillOneSearchBtn);		
+		selectWebElement(drillOneSearchColDropdown);  
+		selectDropdownFromVisibleText(drillOneSearchColListBox,details.getColname());  
+		waitForJqueryLoad(driver);
+		selectWebElement(drillOneSearchCriteriaDropdown);
+		selectDropdownFromVisibleText(drillOneSearchCriteriaListbox,details.getColtype());		   
+		waitForJqueryLoad(driver);    
+		selectWebElement(drillOneSearchSearchBtn);	
+		selectWebElement(drillOneSearchClosebtn);
+		
 	}
 	
 

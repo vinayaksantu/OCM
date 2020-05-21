@@ -1,128 +1,144 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
+<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2020-05-20T17:28:06 IST" name="Default suite" finished-at="2020-05-20T17:29:41 IST" duration-ms="94068">
+  <suite started-at="2020-05-21T18:39:59 IST" name="Default suite" finished-at="2020-05-21T18:42:14 IST" duration-ms="135652">
     <groups>
     </groups>
-    <test started-at="2020-05-20T17:28:06 IST" name="Default test" finished-at="2020-05-20T17:29:41 IST" duration-ms="94068">
-      <class name="com.tetherfi.test.reports.AgentHistoricalReportTest">
-        <test-method is-config="true" signature="openApplication()[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@56476c16]" started-at="2020-05-20T17:28:07 IST" name="openApplication" finished-at="2020-05-20T17:28:24 IST" duration-ms="17731" status="PASS">
+    <test started-at="2020-05-21T18:39:59 IST" name="Default test" finished-at="2020-05-21T18:42:14 IST" duration-ms="135652">
+      <class name="com.tetherfi.test.reports.SkillHistoricalReportTest">
+        <test-method is-config="true" signature="openApplication()[pri:0, instance:com.tetherfi.test.reports.SkillHistoricalReportTest@695c938d]" started-at="2020-05-21T18:39:59 IST" name="openApplication" finished-at="2020-05-21T18:40:41 IST" duration-ms="42004" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- openApplication -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@56476c16]" started-at="2020-05-20T17:28:24 IST" name="startTestCase" finished-at="2020-05-20T17:28:24 IST" duration-ms="4" status="PASS">
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.SkillHistoricalReportTest@695c938d]" started-at="2020-05-21T18:40:41 IST" name="startTestCase" finished-at="2020-05-21T18:40:41 IST" duration-ms="3" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.reports.AgentHistoricalReportTest.VerifyArrowMoveForPreviousAndNextPageForDrillDowntwo() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.reports.SkillHistoricalReportTest.VerifyArrowMoveForPreviousAndNextPageForDrillDownOne() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@56476c16]" started-at="2020-05-20T17:28:24 IST" name="NavigateToOcmReportsPage" finished-at="2020-05-20T17:28:29 IST" duration-ms="4842" status="PASS">
+        <test-method is-config="true" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.SkillHistoricalReportTest@695c938d]" started-at="2020-05-21T18:40:41 IST" name="NavigateToOcmReportsPage" finished-at="2020-05-21T18:40:47 IST" duration-ms="5724" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- NavigateToOcmReportsPage -->
-        <test-method signature="VerifyArrowMoveForPreviousAndNextPageForDrillDowntwo()[pri:52, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@56476c16]" started-at="2020-05-20T17:28:29 IST" name="VerifyArrowMoveForPreviousAndNextPageForDrillDowntwo" description="To Verify Arrow move for Previous and Next page for Drill Down two" finished-at="2020-05-20T17:29:26 IST" duration-ms="56391" status="FAIL">
-          <exception class="org.openqa.selenium.StaleElementReferenceException">
-            <message>
-              <![CDATA[stale element reference: element is not attached to the page document
-  (Session info: chrome=81.0.4044.138)
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'ADMIN', ip: '192.168.1.4', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '9.0.4'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 81.0.4044.138, chrome: {chromedriverVersion: 80.0.3987.106 (f68069574609..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:55175}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: dfc0ddcd736c3485abc779d0a30c3928]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
-  (Session info: chrome=81.0.4044.138)
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'ADMIN', ip: '192.168.1.4', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '9.0.4'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 81.0.4044.138, chrome: {chromedriverVersion: 80.0.3987.106 (f68069574609..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:55175}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: dfc0ddcd736c3485abc779d0a30c3928
-at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
-at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-at java.base/java.lang.reflect.Constructor.newInstance(Unknown Source)
-at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
-at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:84)
-at com.tetherfi.pages.BasePage.selectWebElement(BasePage.java:198)
-at com.tetherfi.pages.AgentHistoricalReportPage.verifyArrowMoveForPreviousAndNextPageForDrillDowntwo(AgentHistoricalReportPage.java:1528)
-at com.tetherfi.test.reports.AgentHistoricalReportTest.VerifyArrowMoveForPreviousAndNextPageForDrillDowntwo(AgentHistoricalReportTest.java:599)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(Unknown Source)
-at org.testng.TestRunner.privateRun(TestRunner.java:770)
-at org.testng.TestRunner.run(TestRunner.java:591)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-at org.testng.TestNG.runSuites(TestNG.java:1032)
-at org.testng.TestNG.run(TestNG.java:1000)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.StaleElementReferenceException -->
+        <test-method signature="VerifyArrowMoveForPreviousAndNextPageForDrillDownOne()[pri:51, instance:com.tetherfi.test.reports.SkillHistoricalReportTest@695c938d]" started-at="2020-05-21T18:40:47 IST" name="VerifyArrowMoveForPreviousAndNextPageForDrillDownOne" description="To Verify Arrow move for Previous and Next page for Drill Down One" finished-at="2020-05-21T18:41:14 IST" duration-ms="27463" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- VerifyArrowMoveForPreviousAndNextPageForDrillDowntwo -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@56476c16]" started-at="2020-05-20T17:29:26 IST" name="afterEachMethod" finished-at="2020-05-20T17:29:28 IST" duration-ms="2089" status="PASS">
+        </test-method> <!-- VerifyArrowMoveForPreviousAndNextPageForDrillDownOne -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.SkillHistoricalReportTest@695c938d]" started-at="2020-05-21T18:41:14 IST" name="afterEachMethod" finished-at="2020-05-21T18:41:17 IST" duration-ms="3031" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.reports.AgentHistoricalReportTest.VerifyArrowMoveForPreviousAndNextPageForDrillDowntwo() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.reports.SkillHistoricalReportTest.VerifyArrowMoveForPreviousAndNextPageForDrillDownOne() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@56476c16]" started-at="2020-05-20T17:29:28 IST" name="endTestCase" finished-at="2020-05-20T17:29:28 IST" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.SkillHistoricalReportTest@695c938d]" started-at="2020-05-21T18:41:17 IST" name="endTestCase" finished-at="2020-05-21T18:41:17 IST" duration-ms="1" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.reports.AgentHistoricalReportTest.VerifyArrowMoveForPreviousAndNextPageForDrillDowntwo() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.reports.SkillHistoricalReportTest.VerifyArrowMoveForPreviousAndNextPageForDrillDownOne() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@56476c16]" started-at="2020-05-20T17:29:28 IST" name="tearDown" finished-at="2020-05-20T17:29:41 IST" duration-ms="12905" status="PASS">
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.SkillHistoricalReportTest@695c938d]" started-at="2020-05-21T18:41:17 IST" name="startTestCase" finished-at="2020-05-21T18:41:17 IST" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.SkillHistoricalReportTest.VerifyArrowMoveForFirstAndLastPageFoDrillDownOne() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method is-config="true" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.SkillHistoricalReportTest@695c938d]" started-at="2020-05-21T18:41:17 IST" name="NavigateToOcmReportsPage" finished-at="2020-05-21T18:41:23 IST" duration-ms="5814" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToOcmReportsPage -->
+        <test-method signature="VerifyArrowMoveForFirstAndLastPageFoDrillDownOne()[pri:52, instance:com.tetherfi.test.reports.SkillHistoricalReportTest@695c938d]" started-at="2020-05-21T18:41:23 IST" name="VerifyArrowMoveForFirstAndLastPageFoDrillDownOne" description="To Verify Arrow move for first and last page for Drill Down One" finished-at="2020-05-21T18:41:44 IST" duration-ms="20939" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyArrowMoveForFirstAndLastPageFoDrillDownOne -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.SkillHistoricalReportTest@695c938d]" started-at="2020-05-21T18:41:44 IST" name="afterEachMethod" finished-at="2020-05-21T18:41:46 IST" duration-ms="1893" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.SkillHistoricalReportTest.VerifyArrowMoveForFirstAndLastPageFoDrillDownOne() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.SkillHistoricalReportTest@695c938d]" started-at="2020-05-21T18:41:46 IST" name="endTestCase" finished-at="2020-05-21T18:41:46 IST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.SkillHistoricalReportTest.VerifyArrowMoveForFirstAndLastPageFoDrillDownOne() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.SkillHistoricalReportTest@695c938d]" started-at="2020-05-21T18:41:46 IST" name="startTestCase" finished-at="2020-05-21T18:41:46 IST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.SkillHistoricalReportTest.VerifyTotalNumberOfItemsPerPageDetailsFoDrillDownOne() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method is-config="true" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.SkillHistoricalReportTest@695c938d]" started-at="2020-05-21T18:41:46 IST" name="NavigateToOcmReportsPage" finished-at="2020-05-21T18:41:51 IST" duration-ms="5588" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToOcmReportsPage -->
+        <test-method signature="VerifyTotalNumberOfItemsPerPageDetailsFoDrillDownOne()[pri:53, instance:com.tetherfi.test.reports.SkillHistoricalReportTest@695c938d]" started-at="2020-05-21T18:41:51 IST" name="VerifyTotalNumberOfItemsPerPageDetailsFoDrillDownOne" description="To Verify Total Number of Items Per Page Details for Drill Down One" finished-at="2020-05-21T18:42:09 IST" duration-ms="17277" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyTotalNumberOfItemsPerPageDetailsFoDrillDownOne -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.SkillHistoricalReportTest@695c938d]" started-at="2020-05-21T18:42:09 IST" name="afterEachMethod" finished-at="2020-05-21T18:42:11 IST" duration-ms="2550" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.SkillHistoricalReportTest.VerifyTotalNumberOfItemsPerPageDetailsFoDrillDownOne() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.SkillHistoricalReportTest@695c938d]" started-at="2020-05-21T18:42:11 IST" name="endTestCase" finished-at="2020-05-21T18:42:11 IST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.SkillHistoricalReportTest.VerifyTotalNumberOfItemsPerPageDetailsFoDrillDownOne() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.tetherfi.test.reports.SkillHistoricalReportTest@695c938d]" started-at="2020-05-21T18:42:11 IST" name="tearDown" finished-at="2020-05-21T18:42:14 IST" duration-ms="3270" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.tetherfi.test.reports.AgentHistoricalReportTest -->
+      </class> <!-- com.tetherfi.test.reports.SkillHistoricalReportTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

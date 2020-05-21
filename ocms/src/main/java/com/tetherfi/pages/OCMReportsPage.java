@@ -300,6 +300,9 @@ public class OCMReportsPage extends BasePage {
 
 	@FindBy(css = "span[aria-owns='1001ColumnName_listbox']")
 	private WebElement searchColDropdownAdvSrchReportPage;
+	
+	@FindBy(xpath="//input[@placeholder='text to search...']")
+	private WebElement textToSearch;
 
 	@FindBy(css="ul[id='1001ColumnName_listbox'] li")
 	private List<WebElement> searchColListBoxAdvSrchReportPage;
@@ -7400,11 +7403,18 @@ public class OCMReportsPage extends BasePage {
 
 
 	}
-	public void ClearAdvFilters(ReportDetails details) throws Exception {
+	public  boolean ClearAdvFilters(ReportDetails details) throws Exception {
+		boolean status=false;
 		chooseReport(details);
 		chooseAdvancedSearchNew(details);
 		waitUntilWebElementIsClickable(ClearAllFiltersAdvSrch);
-		selectWebElement(ClearAllFiltersAdvSrch);		
+		selectWebElement(ClearAllFiltersAdvSrch);
+		if(textToSearch.isEnabled())
+			status=false;
+		else
+			status=true;
+		return status;
+			
 	}
 
 
