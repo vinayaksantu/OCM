@@ -3,18 +3,17 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.tetherfi.test.reports.SkillHistoricalReportTest">
+      <class name="com.tetherfi.test.reports.AgentHistoricalReportTest">
         <methods>
-          <include name="VerifyTotalNumberOfItemsPerPageDetailsFoDrillDowntwo"/>
+          <include name="VerifyDrillOneSearchEqualsToFeature"/>
           <include name="startTestCase"/>
           <include name="openApplication"/>
+          <include name="NavigateToOcmReportsPage"/>
           <include name="endTestCase"/>
           <include name="tearDown"/>
           <include name="afterEachMethod"/>
-          <include name="NavigateToOcmReportsPage"/>
-          <include name="VerifyArrowMoveForFirstAndLastPageFoDrillDowntwo"/>
         </methods>
-      </class> <!-- com.tetherfi.test.reports.SkillHistoricalReportTest -->
+      </class> <!-- com.tetherfi.test.reports.AgentHistoricalReportTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

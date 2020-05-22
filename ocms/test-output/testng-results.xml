@@ -1,144 +1,194 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2020-05-21T18:39:59 IST" name="Default suite" finished-at="2020-05-21T18:42:14 IST" duration-ms="135652">
+  <suite started-at="2020-05-22T12:10:17 IST" name="Default suite" finished-at="2020-05-22T12:11:09 IST" duration-ms="51468">
     <groups>
     </groups>
-    <test started-at="2020-05-21T18:39:59 IST" name="Default test" finished-at="2020-05-21T18:42:14 IST" duration-ms="135652">
-      <class name="com.tetherfi.test.reports.SkillHistoricalReportTest">
-        <test-method is-config="true" signature="openApplication()[pri:0, instance:com.tetherfi.test.reports.SkillHistoricalReportTest@695c938d]" started-at="2020-05-21T18:39:59 IST" name="openApplication" finished-at="2020-05-21T18:40:41 IST" duration-ms="42004" status="PASS">
+    <test started-at="2020-05-22T12:10:17 IST" name="Default test" finished-at="2020-05-22T12:11:09 IST" duration-ms="51468">
+      <class name="com.tetherfi.test.reports.AgentHistoricalReportTest">
+        <test-method is-config="true" signature="openApplication()[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@497b560e]" started-at="2020-05-22T12:10:17 IST" name="openApplication" finished-at="2020-05-22T12:10:33 IST" duration-ms="15344" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- openApplication -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.SkillHistoricalReportTest@695c938d]" started-at="2020-05-21T18:40:41 IST" name="startTestCase" finished-at="2020-05-21T18:40:41 IST" duration-ms="3" status="PASS">
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@497b560e]" started-at="2020-05-22T12:10:33 IST" name="startTestCase" finished-at="2020-05-22T12:10:33 IST" duration-ms="3" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.reports.SkillHistoricalReportTest.VerifyArrowMoveForPreviousAndNextPageForDrillDownOne() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.reports.AgentHistoricalReportTest.VerifyDrillOneSearchEqualsToFeature() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.SkillHistoricalReportTest@695c938d]" started-at="2020-05-21T18:40:41 IST" name="NavigateToOcmReportsPage" finished-at="2020-05-21T18:40:47 IST" duration-ms="5724" status="PASS">
+        <test-method is-config="true" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@497b560e]" started-at="2020-05-22T12:10:33 IST" name="NavigateToOcmReportsPage" finished-at="2020-05-22T12:10:37 IST" duration-ms="4704" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- NavigateToOcmReportsPage -->
-        <test-method signature="VerifyArrowMoveForPreviousAndNextPageForDrillDownOne()[pri:51, instance:com.tetherfi.test.reports.SkillHistoricalReportTest@695c938d]" started-at="2020-05-21T18:40:47 IST" name="VerifyArrowMoveForPreviousAndNextPageForDrillDownOne" description="To Verify Arrow move for Previous and Next page for Drill Down One" finished-at="2020-05-21T18:41:14 IST" duration-ms="27463" status="PASS">
+        <test-method signature="VerifyDrillOneSearchEqualsToFeature()[pri:56, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@497b560e]" started-at="2020-05-22T12:10:37 IST" name="VerifyDrillOneSearchEqualsToFeature" description="To verify DrillOne search equals" finished-at="2020-05-22T12:11:05 IST" duration-ms="27905" status="FAIL">
+          <exception class="org.openqa.selenium.ElementClickInterceptedException">
+            <message>
+              <![CDATA[element click intercepted: Element <span class="k-icon k-i-arrow-60-down"></span> is not clickable at point (699, 156). Other element would receive the click: <span title="Please select the criteria" class="k-widget k-dropdown" unselectable="on" role="listbox" aria-haspopup="true" aria-expanded="false" aria-owns="5607sCriteria_listbox" aria-live="polite" aria-disabled="true" style="">...</span>
+  (Session info: chrome=81.0.4044.138)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'ADMIN', ip: '192.168.1.4', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '9.0.4'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 81.0.4044.138, chrome: {chromedriverVersion: 80.0.3987.106 (f68069574609..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:60602}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 316e258a61890608755809aaadc6aa61]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <span class="k-icon k-i-arrow-60-down"></span> is not clickable at point (699, 156). Other element would receive the click: <span title="Please select the criteria" class="k-widget k-dropdown" unselectable="on" role="listbox" aria-haspopup="true" aria-expanded="false" aria-owns="5607sCriteria_listbox" aria-live="polite" aria-disabled="true" style="">...</span>
+  (Session info: chrome=81.0.4044.138)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'ADMIN', ip: '192.168.1.4', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '9.0.4'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 81.0.4044.138, chrome: {chromedriverVersion: 80.0.3987.106 (f68069574609..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:60602}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 316e258a61890608755809aaadc6aa61
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+at java.base/java.lang.reflect.Constructor.newInstance(Unknown Source)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
+at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:84)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
+at com.sun.proxy.$Proxy14.click(Unknown Source)
+at com.tetherfi.pages.BasePage.selectWebElement(BasePage.java:198)
+at com.tetherfi.pages.AgentHistoricalReportPage.verifyDrillOneSearchIsEqualTo(AgentHistoricalReportPage.java:1690)
+at com.tetherfi.test.reports.AgentHistoricalReportTest.VerifyDrillOneSearchEqualsToFeature(AgentHistoricalReportTest.java:656)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.ElementClickInterceptedException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- VerifyArrowMoveForPreviousAndNextPageForDrillDownOne -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.SkillHistoricalReportTest@695c938d]" started-at="2020-05-21T18:41:14 IST" name="afterEachMethod" finished-at="2020-05-21T18:41:17 IST" duration-ms="3031" status="PASS">
+        </test-method> <!-- VerifyDrillOneSearchEqualsToFeature -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@497b560e]" started-at="2020-05-22T12:11:05 IST" name="afterEachMethod" finished-at="2020-05-22T12:11:07 IST" duration-ms="2113" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.reports.SkillHistoricalReportTest.VerifyArrowMoveForPreviousAndNextPageForDrillDownOne() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.reports.AgentHistoricalReportTest.VerifyDrillOneSearchEqualsToFeature() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.SkillHistoricalReportTest@695c938d]" started-at="2020-05-21T18:41:17 IST" name="endTestCase" finished-at="2020-05-21T18:41:17 IST" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@497b560e]" started-at="2020-05-22T12:11:07 IST" name="endTestCase" finished-at="2020-05-22T12:11:07 IST" duration-ms="0" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.reports.SkillHistoricalReportTest.VerifyArrowMoveForPreviousAndNextPageForDrillDownOne() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.reports.AgentHistoricalReportTest.VerifyDrillOneSearchEqualsToFeature() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.SkillHistoricalReportTest@695c938d]" started-at="2020-05-21T18:41:17 IST" name="startTestCase" finished-at="2020-05-21T18:41:17 IST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.reports.SkillHistoricalReportTest.VerifyArrowMoveForFirstAndLastPageFoDrillDownOne() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.SkillHistoricalReportTest@695c938d]" started-at="2020-05-21T18:41:17 IST" name="NavigateToOcmReportsPage" finished-at="2020-05-21T18:41:23 IST" duration-ms="5814" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToOcmReportsPage -->
-        <test-method signature="VerifyArrowMoveForFirstAndLastPageFoDrillDownOne()[pri:52, instance:com.tetherfi.test.reports.SkillHistoricalReportTest@695c938d]" started-at="2020-05-21T18:41:23 IST" name="VerifyArrowMoveForFirstAndLastPageFoDrillDownOne" description="To Verify Arrow move for first and last page for Drill Down One" finished-at="2020-05-21T18:41:44 IST" duration-ms="20939" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- VerifyArrowMoveForFirstAndLastPageFoDrillDownOne -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.SkillHistoricalReportTest@695c938d]" started-at="2020-05-21T18:41:44 IST" name="afterEachMethod" finished-at="2020-05-21T18:41:46 IST" duration-ms="1893" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.reports.SkillHistoricalReportTest.VerifyArrowMoveForFirstAndLastPageFoDrillDownOne() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.SkillHistoricalReportTest@695c938d]" started-at="2020-05-21T18:41:46 IST" name="endTestCase" finished-at="2020-05-21T18:41:46 IST" duration-ms="1" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.reports.SkillHistoricalReportTest.VerifyArrowMoveForFirstAndLastPageFoDrillDownOne() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.SkillHistoricalReportTest@695c938d]" started-at="2020-05-21T18:41:46 IST" name="startTestCase" finished-at="2020-05-21T18:41:46 IST" duration-ms="1" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.reports.SkillHistoricalReportTest.VerifyTotalNumberOfItemsPerPageDetailsFoDrillDownOne() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.SkillHistoricalReportTest@695c938d]" started-at="2020-05-21T18:41:46 IST" name="NavigateToOcmReportsPage" finished-at="2020-05-21T18:41:51 IST" duration-ms="5588" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NavigateToOcmReportsPage -->
-        <test-method signature="VerifyTotalNumberOfItemsPerPageDetailsFoDrillDownOne()[pri:53, instance:com.tetherfi.test.reports.SkillHistoricalReportTest@695c938d]" started-at="2020-05-21T18:41:51 IST" name="VerifyTotalNumberOfItemsPerPageDetailsFoDrillDownOne" description="To Verify Total Number of Items Per Page Details for Drill Down One" finished-at="2020-05-21T18:42:09 IST" duration-ms="17277" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- VerifyTotalNumberOfItemsPerPageDetailsFoDrillDownOne -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.SkillHistoricalReportTest@695c938d]" started-at="2020-05-21T18:42:09 IST" name="afterEachMethod" finished-at="2020-05-21T18:42:11 IST" duration-ms="2550" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.reports.SkillHistoricalReportTest.VerifyTotalNumberOfItemsPerPageDetailsFoDrillDownOne() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.SkillHistoricalReportTest@695c938d]" started-at="2020-05-21T18:42:11 IST" name="endTestCase" finished-at="2020-05-21T18:42:11 IST" duration-ms="1" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.tetherfi.test.reports.SkillHistoricalReportTest.VerifyTotalNumberOfItemsPerPageDetailsFoDrillDownOne() throws java.lang.Exception]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.tetherfi.test.reports.SkillHistoricalReportTest@695c938d]" started-at="2020-05-21T18:42:11 IST" name="tearDown" finished-at="2020-05-21T18:42:14 IST" duration-ms="3270" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@497b560e]" started-at="2020-05-22T12:11:07 IST" name="tearDown" finished-at="2020-05-22T12:11:09 IST" duration-ms="1285" status="FAIL">
+          <exception class="org.openqa.selenium.NoSuchWindowException">
+            <message>
+              <![CDATA[no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=81.0.4044.138)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'ADMIN', ip: '192.168.1.4', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '9.0.4'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 81.0.4044.138, chrome: {chromedriverVersion: 80.0.3987.106 (f68069574609..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:60602}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 316e258a61890608755809aaadc6aa61]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=81.0.4044.138)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'ADMIN', ip: '192.168.1.4', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '9.0.4'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 81.0.4044.138, chrome: {chromedriverVersion: 80.0.3987.106 (f68069574609..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:60602}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 316e258a61890608755809aaadc6aa61
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+at java.base/java.lang.reflect.Constructor.newInstance(Unknown Source)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:609)
+at org.openqa.selenium.remote.RemoteWebDriver.close(RemoteWebDriver.java:442)
+at com.tetherfi.test.BaseTest.tearDown(BaseTest.java:81)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:62)
+at org.testng.internal.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:340)
+at org.testng.internal.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:294)
+at org.testng.internal.TestMethodWorker.invokeAfterClassMethods(TestMethodWorker.java:217)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:130)
+at java.base/java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchWindowException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.tetherfi.test.reports.SkillHistoricalReportTest -->
+      </class> <!-- com.tetherfi.test.reports.AgentHistoricalReportTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
