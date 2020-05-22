@@ -191,19 +191,19 @@ public class AgentHistoricalReportPage extends BasePage  {
 	@FindBy(xpath="//div[@id='gridDrillOne']//button[@title='Search']")
 	private WebElement drillOneSearchBtn;
 	
-	@FindBy(xpath="//div[@id='searchDrillOneForm']//input[@placeholder='Select column']")
+	@FindBy(xpath="/html/body/div[35]/div/div/div[4]/div[2]/form/div[1]/span/span/span[3]/span")
 	private WebElement drillOneSearchColDropdown;
 	
-	@FindBy(css="ul[id='5926sColumnName_listbox'] li")
+	@FindBy(xpath="/html/body/div[50]/div/div[2]/ul")
 	private List<WebElement> drillOneSearchColListBox;
 	
-	@FindBy(css="span[aria-owns='5926sCriteria_listbox']")
+	@FindBy(xpath="/html/body/div[35]/div/div/div[4]/div[2]/form/div[2]/span/span/span[2]/span")
 	private WebElement drillOneSearchCriteriaDropdown;
 	
-	@FindBy(css="ul[id='5926sCriteria_listbox'] li")
-	private List<WebElement> drillOneSearchCriteriaListbox;
+	@FindBy(xpath="/html/body/div[49]/div/div[2]/ul/li")
+	private WebElement drillOneSearchCriteriaListbox;
 	
-	@FindBy(id="5926sTextToSearch")
+	@FindBy(id="/html/body/div[35]/div/div/div[4]/div[2]/form/div[3]/input")
 	private WebElement drillOneSearchTextbox;
 	
 	@FindBy(xpath="//div[@id='gridDivSearchOneFooter']//button[@title='Search']")
@@ -1683,10 +1683,12 @@ public class AgentHistoricalReportPage extends BasePage  {
 		Boolean Status=false;
 		selectWebElement(drillOneSearchBtn);	
 		selectWebElement(drillOneSearchColDropdown);  
-		selectDropdownFromVisibleText(drillOneSearchColListBox,"Agent ID");  
+		Thread.sleep(1000);
+//		selectWebElement(drillOneSearchColListBox);  
+		selectDropdownFromVisibleText(drillOneSearchColListBox,"Agent ID");
 		waitForJqueryLoad(driver);
-		selectWebElement(searchCriteriaDropdown);
-		selectDropdownFromVisibleText(drillOneSearchCriteriaListbox,"Is equal to");		   
+		selectWebElement(drillOneSearchCriteriaDropdown);
+		selectDropdownFromVisibleText(searchCriteriaListbox,"Is equal to");		   
 		waitForJqueryLoad(driver);    
 		enterValueToTxtField(drillOneSearchTextbox,details);
 		selectWebElement(drillOneSearchSearchBtn);

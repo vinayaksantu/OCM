@@ -593,7 +593,7 @@ public class SkillHistoricalReportTest extends BaseTest {
 		Assert.assertTrue(skillHistoricalPage.verifyTotalNumberOfItemsPerPageDetailsForDrillDownOne(),"item per page assertion failed");
 	}  
 	
-	/*@Test(priority=54,description="To Verify Arrow move for Previous and Next page for Drill Down two")
+	@Test(priority=54,description="To Verify Arrow move for Previous and Next page for Drill Down two")
 	public void VerifyArrowMoveForPreviousAndNextPageForDrillDowntwo() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillHistoricalReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);

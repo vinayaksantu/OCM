@@ -30,7 +30,7 @@ public class AgentHistoricalReportTest extends BaseTest {
 		Assert.assertTrue(ocmReportsPage.isOCMReportPageIsDisplayed());
 	}
 
-	@Test(priority=1,description="To verify Show Report for Single Date")
+	/*@Test(priority=1,description="To verify Show Report for Single Date")
     public void ShowOCMAgentHistoricalReport() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
@@ -642,6 +642,7 @@ public class AgentHistoricalReportTest extends BaseTest {
 		AgentHistoricalReportPage agentHistoricalPage=PageFactory.createPageInstance(driver,AgentHistoricalReportPage.class);
 		Assert.assertTrue(agentHistoricalPage.verifyTotalNumberOfItemsPerPageDetailsForDrillDowntwo(),"item per page assertion failed");
 	}
+	*/
 	
 	@Test(priority=56,description="To verify DrillOne search equals")
 	public void VerifyDrillOneSearchEqualsToFeature() throws Exception {
@@ -655,7 +656,7 @@ public class AgentHistoricalReportTest extends BaseTest {
 		Assert.assertTrue(agentHistoricalPage.verifyDrillOneSearchIsEqualTo(reportDetails.getSearchStr1()));
 	}     
 	
-	@Test(priority=57,description="To verify DrillOne search without providing data in searchbox")
+	/*@Test(priority=57,description="To verify DrillOne search without providing data in searchbox")
 	public void searchwithoutDrillOneSearchTextbox() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
