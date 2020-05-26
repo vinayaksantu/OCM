@@ -1,19 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
-  <test thread-count="5" name="Default test(failed)">
+<suite name="Failed suite [Failed suite [Default suite]]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Default test(failed)(failed)">
     <classes>
       <class name="com.tetherfi.test.reports.AgentHistoricalReportTest">
         <methods>
-          <include name="VerifyDrillOneSearchEqualsToFeature"/>
+          <include name="SortingByDescending"/>
+          <include name="VerifySearchByFeatureForAgentHistoricalReport"/>
+          <include name="SortingByAscending"/>
+          <include name="VerifyArrowMoveForFirstAndLastPageFoDrillDownOne"/>
+          <include name="NavigateToOcmReportsPage"/>
+          <include name="verifyAdvancedSearchinreportpageSearchStartswith"/>
+          <include name="ShowOcmAgentHistoricalReportInNewTab"/>
+          <include name="VerifyExportedPage"/>
+          <include name="endTestCase"/>
+          <include name="VerifyArrowMoveForFirstAndLastPageFoDrillDowntwo"/>
+          <include name="tearDown"/>
+          <include name="verifyAdvancedSearchORCriteria"/>
+          <include name="afterEachMethod"/>
+          <include name="VerifyNumberOfItemsPerPageSelection"/>
+          <include name="VerifySearchStartsWith"/>
           <include name="startTestCase"/>
           <include name="openApplication"/>
-          <include name="NavigateToOcmReportsPage"/>
-          <include name="endTestCase"/>
-          <include name="tearDown"/>
-          <include name="afterEachMethod"/>
+          <include name="VerifyArrowMoveForPreviousAndNextPageForDrillDownOne"/>
+          <include name="VerifyArrowMoveForPreviousAndNextPageForDrillDowntwo"/>
+          <include name="ExportPage"/>
+          <include name="verifyAdvancedSearchinreportpageSearchcontains"/>
+          <include name="GroupBy"/>
         </methods>
       </class> <!-- com.tetherfi.test.reports.AgentHistoricalReportTest -->
     </classes>
-  </test> <!-- Default test(failed) -->
-</suite> <!-- Failed suite [Default suite] -->
+  </test> <!-- Default test(failed)(failed) -->
+</suite> <!-- Failed suite [Failed suite [Default suite]] -->

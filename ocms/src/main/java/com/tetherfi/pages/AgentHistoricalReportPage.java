@@ -6,6 +6,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -201,7 +202,7 @@ public class AgentHistoricalReportPage extends BasePage  {
 	private WebElement drillOneSearchCriteriaDropdown;
 	
 	@FindBy(xpath="/html/body/div[49]/div/div[2]/ul/li")
-	private WebElement drillOneSearchCriteriaListbox;
+	private List<WebElement> drillOneSearchCriteriaListbox;
 	
 	@FindBy(id="/html/body/div[35]/div/div/div[4]/div[2]/form/div[3]/input")
 	private WebElement drillOneSearchTextbox;
@@ -388,35 +389,35 @@ public class AgentHistoricalReportPage extends BasePage  {
 				List<String> l1 = getColumnDatafromTable(headers.get(j).getText());
 				//System.out.println(l1);
 				List<String> temp = l1;
-				Collections.sort(temp);
-				//System.out.println(temp);
+				temp=temp.stream().sorted().collect(Collectors.toList());
+				System.out.println(temp);
 				selectWebElement(headersDropdown.get(k));
 				waitForJqueryLoad(driver);
 				selectWebElement(sortAscending.get(k));
 				waitForJqueryLoad(driver);
 				List<String> l2 = getColumnDatafromTable(headers.get(j).getText());
-				//System.out.println(l2);
+				System.out.println(l2);
 				if (l2.equals(temp)) {/*System.out.println("sorting works fine");*/status = true;}else{status=false;}
 				if(status){}else{System.out.println("Ascending sorting failed for column name:"+headers.get(j).getText()+"\n"+l2);break;}
-				/*descending sort code*/
+			}/*descending sort code
 				status=false;
 				temp = l1;
-				Collections.sort(temp,Collections.reverseOrder());
+				temp.stream().sort(temp,Collections.reverseOrder());
 				//System.out.println(temp);
 				selectWebElement(headersDropdown.get(k));
 				waitForJqueryLoad(driver);
 				selectWebElement(sortDescending.get(k));
 				waitForJqueryLoad(driver);
 				k++;
-				List<String> l3 = getColumnDatafromTable(headers.get(j).getText());
+				List<Object> l3 = getColumnDatafromTable(headers.get(j).getText());
 				//System.out.println(l3);
 				if (l3.equals(temp)) {/*System.out.println("sorting works fine");*/status = true;}
-				if(status){}else{System.out.println("Descending sorting failed for column name:"+headers.get(j).getText()+"\n"+l3);break;}
-			}
+				//if(status){}else{System.out.println("Descending sorting failed for column name:"+headers.get(j).getText()+"\n"+l3);break;}
+			/*}
 			if(status){}else{break;}
 			nextPageIcon.click();
 			waitForJqueryLoad(driver);
-		}
+		}*/
 		return status;
 	}
 
@@ -848,7 +849,7 @@ public class AgentHistoricalReportPage extends BasePage  {
 		//map.put("Agent Name", details);
 		selectWebElement(searchBtn);	
 		selectWebElement(searchColDropdown);  
-		selectDropdownFromVisibleText(searchColListBox,"Agent ID");  
+		selectDropdownFromVisibleText(searchColListBox,"Agent Name");  
 		waitForJqueryLoad(driver);
 		selectWebElement(searchCriteriaDropdown);
 		selectDropdownFromVisibleText(searchCriteriaListbox,"Is equal to");		   
@@ -860,7 +861,7 @@ public class AgentHistoricalReportPage extends BasePage  {
 		List<Map<String,String>> UI=getDataTable(); 
 		for (Map<String,String> map1: UI)
 		{   	
-			if(map1.get("Agent ID").equals(details))
+			if(map1.get("Agent Name").equals(details))
 				Status= true;
 			else 
 				Status= false;
@@ -873,7 +874,7 @@ public class AgentHistoricalReportPage extends BasePage  {
 		map.put("Agent ID", details);
 		selectWebElement(searchBtn);	
 		selectWebElement(searchColDropdown);  
-		selectDropdownFromVisibleText(searchColListBox,"Agent ID");  
+		selectDropdownFromVisibleText(searchColListBox,"Agent Name");  
 		waitForJqueryLoad(driver);
 		selectWebElement(searchCriteriaDropdown);
 		selectDropdownFromVisibleText(searchCriteriaListbox,"Is not equal to");		   
@@ -1496,7 +1497,7 @@ public class AgentHistoricalReportPage extends BasePage  {
 	private void searchReport(ReportDetails reportDetails) throws Exception {
 		selectWebElement(searchBtn);	
 		selectWebElement(searchColDropdown);  
-		selectDropdownFromVisibleText(searchColListBox,"Agent ID");  
+		selectDropdownFromVisibleText(searchColListBox,"Agent Name");  
 		waitForJqueryLoad(driver);
 		selectWebElement(searchCriteriaDropdown);
 		selectDropdownFromVisibleText(searchCriteriaListbox,"Is equal to");		   

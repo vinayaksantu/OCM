@@ -1,50 +1,1207 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
+<testng-results ignored="35" total="56" passed="7" failed="14" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2020-05-22T12:10:17 IST" name="Default suite" finished-at="2020-05-22T12:11:09 IST" duration-ms="51468">
+  <suite started-at="2020-05-26T14:11:33 IST" name="Failed suite [Default suite]" finished-at="2020-05-26T14:36:00 IST" duration-ms="1467193">
     <groups>
     </groups>
-    <test started-at="2020-05-22T12:10:17 IST" name="Default test" finished-at="2020-05-22T12:11:09 IST" duration-ms="51468">
+    <test started-at="2020-05-26T14:11:33 IST" name="Default test(failed)" finished-at="2020-05-26T14:36:00 IST" duration-ms="1467193">
       <class name="com.tetherfi.test.reports.AgentHistoricalReportTest">
-        <test-method is-config="true" signature="openApplication()[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@497b560e]" started-at="2020-05-22T12:10:17 IST" name="openApplication" finished-at="2020-05-22T12:10:33 IST" duration-ms="15344" status="PASS">
+        <test-method is-config="true" signature="openApplication()[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:11:33 IST" name="openApplication" finished-at="2020-05-26T14:11:48 IST" duration-ms="15165" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- openApplication -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@497b560e]" started-at="2020-05-22T12:10:33 IST" name="startTestCase" finished-at="2020-05-22T12:10:33 IST" duration-ms="3" status="PASS">
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:11:48 IST" name="startTestCase" finished-at="2020-05-26T14:11:48 IST" duration-ms="2" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.reports.AgentHistoricalReportTest.VerifyDrillOneSearchEqualsToFeature() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.reports.AgentHistoricalReportTest.ShowOcmAgentHistoricalReportInNewTab() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@497b560e]" started-at="2020-05-22T12:10:33 IST" name="NavigateToOcmReportsPage" finished-at="2020-05-22T12:10:37 IST" duration-ms="4704" status="PASS">
+        <test-method is-config="true" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:11:48 IST" name="NavigateToOcmReportsPage" finished-at="2020-05-26T14:11:52 IST" duration-ms="4515" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- NavigateToOcmReportsPage -->
-        <test-method signature="VerifyDrillOneSearchEqualsToFeature()[pri:56, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@497b560e]" started-at="2020-05-22T12:10:37 IST" name="VerifyDrillOneSearchEqualsToFeature" description="To verify DrillOne search equals" finished-at="2020-05-22T12:11:05 IST" duration-ms="27905" status="FAIL">
-          <exception class="org.openqa.selenium.ElementClickInterceptedException">
+        <test-method signature="ShowOcmAgentHistoricalReportInNewTab()[pri:2, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:11:52 IST" name="ShowOcmAgentHistoricalReportInNewTab" description="To verify Show Report in New Tab for Single Date" finished-at="2020-05-26T14:12:03 IST" duration-ms="10976" status="FAIL">
+          <exception class="java.lang.IndexOutOfBoundsException">
             <message>
-              <![CDATA[element click intercepted: Element <span class="k-icon k-i-arrow-60-down"></span> is not clickable at point (699, 156). Other element would receive the click: <span title="Please select the criteria" class="k-widget k-dropdown" unselectable="on" role="listbox" aria-haspopup="true" aria-expanded="false" aria-owns="5607sCriteria_listbox" aria-live="polite" aria-disabled="true" style="">...</span>
-  (Session info: chrome=81.0.4044.138)
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'ADMIN', ip: '192.168.1.4', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '9.0.4'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 81.0.4044.138, chrome: {chromedriverVersion: 80.0.3987.106 (f68069574609..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:60602}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 316e258a61890608755809aaadc6aa61]]>
+              <![CDATA[Index 0 out-of-bounds for length 0]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <span class="k-icon k-i-arrow-60-down"></span> is not clickable at point (699, 156). Other element would receive the click: <span title="Please select the criteria" class="k-widget k-dropdown" unselectable="on" role="listbox" aria-haspopup="true" aria-expanded="false" aria-owns="5607sCriteria_listbox" aria-live="polite" aria-disabled="true" style="">...</span>
+              <![CDATA[java.lang.IndexOutOfBoundsException: Index 0 out-of-bounds for length 0
+at java.base/jdk.internal.util.Preconditions.outOfBounds(Unknown Source)
+at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Unknown Source)
+at java.base/jdk.internal.util.Preconditions.checkIndex(Unknown Source)
+at java.base/java.util.Objects.checkIndex(Unknown Source)
+at java.base/java.util.ArrayList.get(Unknown Source)
+at com.tetherfi.pages.BasePage.switchToNewWindow(BasePage.java:413)
+at com.tetherfi.pages.OCMReportsPage.showReportInNewPage(OCMReportsPage.java:409)
+at com.tetherfi.test.reports.AgentHistoricalReportTest.ShowOcmAgentHistoricalReportInNewTab(AgentHistoricalReportTest.java:47)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.IndexOutOfBoundsException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ShowOcmAgentHistoricalReportInNewTab -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:12:03 IST" name="afterEachMethod" finished-at="2020-05-26T14:12:08 IST" duration-ms="4285" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.AgentHistoricalReportTest.ShowOcmAgentHistoricalReportInNewTab() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:12:08 IST" name="endTestCase" finished-at="2020-05-26T14:12:08 IST" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.AgentHistoricalReportTest.ShowOcmAgentHistoricalReportInNewTab() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method is-config="true" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:12:08 IST" name="NavigateToOcmReportsPage" finished-at="2020-05-26T14:12:12 IST" duration-ms="4755" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToOcmReportsPage -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:12:08 IST" name="startTestCase" finished-at="2020-05-26T14:12:08 IST" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.AgentHistoricalReportTest.VerifyNumberOfItemsPerPageSelection() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method signature="VerifyNumberOfItemsPerPageSelection()[pri:21, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:12:12 IST" name="VerifyNumberOfItemsPerPageSelection" description="To Verify Number of Items Per Page Selection" finished-at="2020-05-26T14:12:41 IST" duration-ms="28658" status="FAIL">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[item per page assertion failed did not expect to find [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: item per page assertion failed did not expect to find [true] but found [false]
+at org.testng.Assert.fail(Assert.java:97)
+at org.testng.Assert.failNotEquals(Assert.java:969)
+at org.testng.Assert.assertTrue(Assert.java:43)
+at com.tetherfi.test.reports.AgentHistoricalReportTest.VerifyNumberOfItemsPerPageSelection(AgentHistoricalReportTest.java:240)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyNumberOfItemsPerPageSelection -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:12:41 IST" name="afterEachMethod" finished-at="2020-05-26T14:12:43 IST" duration-ms="1728" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.AgentHistoricalReportTest.VerifyNumberOfItemsPerPageSelection() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:12:43 IST" name="endTestCase" finished-at="2020-05-26T14:12:43 IST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.AgentHistoricalReportTest.VerifyNumberOfItemsPerPageSelection() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:12:43 IST" name="startTestCase" finished-at="2020-05-26T14:12:43 IST" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.AgentHistoricalReportTest.ExportPage() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method is-config="true" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:12:43 IST" name="NavigateToOcmReportsPage" finished-at="2020-05-26T14:13:05 IST" duration-ms="22349" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToOcmReportsPage -->
+        <test-method signature="ExportPage()[pri:22, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:13:05 IST" name="ExportPage" description="To Verify Export Page Button" finished-at="2020-05-26T14:13:44 IST" duration-ms="39399" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ExportPage -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:13:44 IST" name="afterEachMethod" finished-at="2020-05-26T14:13:46 IST" duration-ms="1766" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.AgentHistoricalReportTest.ExportPage() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:13:46 IST" name="endTestCase" finished-at="2020-05-26T14:13:46 IST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.AgentHistoricalReportTest.ExportPage() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:13:46 IST" name="startTestCase" finished-at="2020-05-26T14:13:46 IST" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.AgentHistoricalReportTest.VerifyExportedPage() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method is-config="true" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:13:46 IST" name="NavigateToOcmReportsPage" finished-at="2020-05-26T14:14:04 IST" duration-ms="17590" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToOcmReportsPage -->
+        <test-method signature="VerifyExportedPage()[pri:23, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:14:04 IST" name="VerifyExportedPage" description="To Verify Exported Page Against UI" finished-at="2020-05-26T14:14:36 IST" depends-on-methods="com.tetherfi.test.reports.AgentHistoricalReportTest.ExportPage" duration-ms="31836" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyExportedPage -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:14:36 IST" name="afterEachMethod" finished-at="2020-05-26T14:14:37 IST" duration-ms="1639" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.AgentHistoricalReportTest.VerifyExportedPage() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:14:37 IST" name="endTestCase" finished-at="2020-05-26T14:14:37 IST" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.AgentHistoricalReportTest.VerifyExportedPage() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:14:37 IST" name="startTestCase" finished-at="2020-05-26T14:14:37 IST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.AgentHistoricalReportTest.SortingByAscending() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method is-config="true" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:14:37 IST" name="NavigateToOcmReportsPage" finished-at="2020-05-26T14:14:58 IST" duration-ms="20253" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToOcmReportsPage -->
+        <test-method signature="SortingByAscending()[pri:24, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:14:58 IST" name="SortingByAscending" description="To Verify Sort By Ascending" finished-at="2020-05-26T14:15:26 IST" depends-on-methods="com.tetherfi.test.reports.AgentHistoricalReportTest.VerifyExportedPage" duration-ms="28274" status="FAIL">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+at com.tetherfi.utility.ExcelReader.getTestData(ExcelReader.java:99)
+at com.tetherfi.test.reports.AgentHistoricalReportTest.SortingByAscending(AgentHistoricalReportTest.java:280)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NullPointerException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SortingByAscending -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:15:26 IST" name="afterEachMethod" finished-at="2020-05-26T14:15:52 IST" duration-ms="26114" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.AgentHistoricalReportTest.SortingByAscending() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:15:52 IST" name="endTestCase" finished-at="2020-05-26T14:15:52 IST" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.AgentHistoricalReportTest.SortingByAscending() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:15:52 IST" name="startTestCase" finished-at="2020-05-26T14:15:52 IST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.AgentHistoricalReportTest.SortingByDescending() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method is-config="true" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:15:52 IST" name="NavigateToOcmReportsPage" finished-at="2020-05-26T14:16:07 IST" duration-ms="15449" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToOcmReportsPage -->
+        <test-method signature="SortingByDescending()[pri:25, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:16:07 IST" name="SortingByDescending" description="To Verify Sort By Descending" finished-at="2020-05-26T14:16:35 IST" depends-on-methods="com.tetherfi.test.reports.AgentHistoricalReportTest.VerifyExportedPage" duration-ms="28012" status="FAIL">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+at com.tetherfi.utility.ExcelReader.getTestData(ExcelReader.java:99)
+at com.tetherfi.test.reports.AgentHistoricalReportTest.SortingByDescending(AgentHistoricalReportTest.java:294)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NullPointerException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SortingByDescending -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:16:35 IST" name="afterEachMethod" finished-at="2020-05-26T14:17:00 IST" duration-ms="24077" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.AgentHistoricalReportTest.SortingByDescending() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:17:00 IST" name="endTestCase" finished-at="2020-05-26T14:17:00 IST" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.AgentHistoricalReportTest.SortingByDescending() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:17:00 IST" name="startTestCase" finished-at="2020-05-26T14:17:00 IST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.AgentHistoricalReportTest.VerifySearchByFeatureForAgentHistoricalReport() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method is-config="true" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:17:00 IST" name="NavigateToOcmReportsPage" finished-at="2020-05-26T14:17:29 IST" duration-ms="29331" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToOcmReportsPage -->
+        <test-method signature="VerifySearchByFeatureForAgentHistoricalReport()[pri:30, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:17:29 IST" name="VerifySearchByFeatureForAgentHistoricalReport" description="To verify search by feature" finished-at="2020-05-26T14:18:17 IST" duration-ms="47691" status="FAIL">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[did not expect to find [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: did not expect to find [true] but found [false]
+at org.testng.Assert.fail(Assert.java:97)
+at org.testng.Assert.failNotEquals(Assert.java:969)
+at org.testng.Assert.assertTrue(Assert.java:43)
+at org.testng.Assert.assertTrue(Assert.java:53)
+at com.tetherfi.test.reports.AgentHistoricalReportTest.VerifySearchByFeatureForAgentHistoricalReport(AgentHistoricalReportTest.java:354)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifySearchByFeatureForAgentHistoricalReport -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:18:17 IST" name="afterEachMethod" finished-at="2020-05-26T14:18:18 IST" duration-ms="1711" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.AgentHistoricalReportTest.VerifySearchByFeatureForAgentHistoricalReport() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:18:18 IST" name="endTestCase" finished-at="2020-05-26T14:18:18 IST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.AgentHistoricalReportTest.VerifySearchByFeatureForAgentHistoricalReport() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:18:18 IST" name="startTestCase" finished-at="2020-05-26T14:18:18 IST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.AgentHistoricalReportTest.VerifySearchEqualsToFeature() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method is-config="true" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:18:18 IST" name="NavigateToOcmReportsPage" finished-at="2020-05-26T14:18:31 IST" duration-ms="12616" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToOcmReportsPage -->
+        <test-method signature="VerifySearchEqualsToFeature()[pri:31, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:18:31 IST" name="VerifySearchEqualsToFeature" description="To verify search equals" finished-at="2020-05-26T14:19:22 IST" duration-ms="51360" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifySearchEqualsToFeature -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:19:22 IST" name="afterEachMethod" finished-at="2020-05-26T14:19:30 IST" duration-ms="7941" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.AgentHistoricalReportTest.VerifySearchEqualsToFeature() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:19:30 IST" name="endTestCase" finished-at="2020-05-26T14:19:30 IST" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.AgentHistoricalReportTest.VerifySearchEqualsToFeature() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:19:30 IST" name="startTestCase" finished-at="2020-05-26T14:19:30 IST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.AgentHistoricalReportTest.VerifySearchDoesNotContains() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method is-config="true" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:19:30 IST" name="NavigateToOcmReportsPage" finished-at="2020-05-26T14:19:51 IST" duration-ms="20415" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToOcmReportsPage -->
+        <test-method signature="VerifySearchDoesNotContains()[pri:35, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:19:51 IST" name="VerifySearchDoesNotContains" description="To verify search doesnotContains" finished-at="2020-05-26T14:20:45 IST" duration-ms="54280" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifySearchDoesNotContains -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:20:45 IST" name="afterEachMethod" finished-at="2020-05-26T14:20:47 IST" duration-ms="2319" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.AgentHistoricalReportTest.VerifySearchDoesNotContains() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:20:47 IST" name="endTestCase" finished-at="2020-05-26T14:20:47 IST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.AgentHistoricalReportTest.VerifySearchDoesNotContains() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method is-config="true" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:20:47 IST" name="NavigateToOcmReportsPage" finished-at="2020-05-26T14:21:02 IST" duration-ms="14523" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToOcmReportsPage -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:20:47 IST" name="startTestCase" finished-at="2020-05-26T14:20:47 IST" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.AgentHistoricalReportTest.VerifySearchStartsWith() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method signature="VerifySearchStartsWith()[pri:36, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:21:02 IST" name="VerifySearchStartsWith" description="To verify search StartsWith" finished-at="2020-05-26T14:21:54 IST" duration-ms="51909" status="FAIL">
+          <exception class="java.lang.ArrayIndexOutOfBoundsException">
+            <message>
+              <![CDATA[1]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.ArrayIndexOutOfBoundsException: 1
+at com.tetherfi.pages.AgentHistoricalReportPage.getDataTable(AgentHistoricalReportPage.java:927)
+at com.tetherfi.pages.AgentHistoricalReportPage.verifySearchStartsWith(AgentHistoricalReportPage.java:1035)
+at com.tetherfi.test.reports.AgentHistoricalReportTest.VerifySearchStartsWith(AgentHistoricalReportTest.java:422)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.ArrayIndexOutOfBoundsException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifySearchStartsWith -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:21:54 IST" name="afterEachMethod" finished-at="2020-05-26T14:21:56 IST" duration-ms="2160" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.AgentHistoricalReportTest.VerifySearchStartsWith() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:21:56 IST" name="endTestCase" finished-at="2020-05-26T14:21:56 IST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.AgentHistoricalReportTest.VerifySearchStartsWith() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:21:56 IST" name="startTestCase" finished-at="2020-05-26T14:21:56 IST" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.AgentHistoricalReportTest.GroupBy() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method is-config="true" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:21:56 IST" name="NavigateToOcmReportsPage" finished-at="2020-05-26T14:22:13 IST" duration-ms="17106" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToOcmReportsPage -->
+        <test-method signature="GroupBy()[pri:41, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:22:13 IST" name="GroupBy" finished-at="2020-05-26T14:22:39 IST" duration-ms="25912" status="FAIL">
+          <exception class="org.openqa.selenium.NoSuchElementException">
+            <message>
+              <![CDATA[no such element: Unable to locate element: {"method":"xpath","selector":"//p[@class='k-reset']"}
   (Session info: chrome=81.0.4044.138)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
 Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
 System info: host: 'ADMIN', ip: '192.168.1.4', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '9.0.4'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 81.0.4044.138, chrome: {chromedriverVersion: 80.0.3987.106 (f68069574609..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:60602}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 316e258a61890608755809aaadc6aa61
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 81.0.4044.138, chrome: {chromedriverVersion: 80.0.3987.106 (f68069574609..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:59372}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 616622d54ec436b99b62227f7fac84d6
+*** Element info: {Using=xpath, value=//p[@class='k-reset']}]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//p[@class='k-reset']"}
+  (Session info: chrome=81.0.4044.138)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'ADMIN', ip: '192.168.1.4', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '9.0.4'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 81.0.4044.138, chrome: {chromedriverVersion: 80.0.3987.106 (f68069574609..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:59372}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 616622d54ec436b99b62227f7fac84d6
+*** Element info: {Using=xpath, value=//p[@class='k-reset']}
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+at java.base/java.lang.reflect.Constructor.newInstance(Unknown Source)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)
+at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+at com.sun.proxy.$Proxy14.getText(Unknown Source)
+at com.tetherfi.pages.AgentHistoricalReportPage.groupby(AgentHistoricalReportPage.java:1136)
+at com.tetherfi.test.reports.AgentHistoricalReportTest.GroupBy(AgentHistoricalReportTest.java:474)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- GroupBy -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:22:39 IST" name="afterEachMethod" finished-at="2020-05-26T14:22:53 IST" duration-ms="14069" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.AgentHistoricalReportTest.GroupBy() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:22:53 IST" name="endTestCase" finished-at="2020-05-26T14:22:53 IST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.AgentHistoricalReportTest.GroupBy() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method is-config="true" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:22:53 IST" name="NavigateToOcmReportsPage" finished-at="2020-05-26T14:23:09 IST" duration-ms="16344" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToOcmReportsPage -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:22:53 IST" name="startTestCase" finished-at="2020-05-26T14:22:53 IST" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.AgentHistoricalReportTest.verifyAdvancedSearchinreportpageSearchcontains() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method signature="verifyAdvancedSearchinreportpageSearchcontains()[pri:43, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:23:09 IST" name="verifyAdvancedSearchinreportpageSearchcontains" description="To verify Advance Search Contains" finished-at="2020-05-26T14:23:53 IST" duration-ms="44220" status="FAIL">
+          <exception class="java.lang.ArrayIndexOutOfBoundsException">
+            <message>
+              <![CDATA[1]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.ArrayIndexOutOfBoundsException: 1
+at com.tetherfi.pages.AgentHistoricalReportPage.getDataTable(AgentHistoricalReportPage.java:927)
+at com.tetherfi.pages.AgentHistoricalReportPage.verifyAdvanceSearchContains(AgentHistoricalReportPage.java:1318)
+at com.tetherfi.test.reports.AgentHistoricalReportTest.verifyAdvancedSearchinreportpageSearchcontains(AgentHistoricalReportTest.java:499)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.ArrayIndexOutOfBoundsException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyAdvancedSearchinreportpageSearchcontains -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:23:53 IST" name="afterEachMethod" finished-at="2020-05-26T14:23:55 IST" duration-ms="1663" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.AgentHistoricalReportTest.verifyAdvancedSearchinreportpageSearchcontains() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:23:55 IST" name="endTestCase" finished-at="2020-05-26T14:23:55 IST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.AgentHistoricalReportTest.verifyAdvancedSearchinreportpageSearchcontains() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:23:55 IST" name="startTestCase" finished-at="2020-05-26T14:23:55 IST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.AgentHistoricalReportTest.verifyAdvancedSearchinreportpageSearchStartswith() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method is-config="true" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:23:55 IST" name="NavigateToOcmReportsPage" finished-at="2020-05-26T14:24:19 IST" duration-ms="24331" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToOcmReportsPage -->
+        <test-method signature="verifyAdvancedSearchinreportpageSearchStartswith()[pri:45, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:24:19 IST" name="verifyAdvancedSearchinreportpageSearchStartswith" description="To verify Advance Search Starts With" finished-at="2020-05-26T14:25:08 IST" duration-ms="48067" status="FAIL">
+          <exception class="java.lang.ArrayIndexOutOfBoundsException">
+            <message>
+              <![CDATA[1]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.ArrayIndexOutOfBoundsException: 1
+at com.tetherfi.pages.AgentHistoricalReportPage.getDataTable(AgentHistoricalReportPage.java:927)
+at com.tetherfi.pages.AgentHistoricalReportPage.verifyAdvanceSearchStartsWith(AgentHistoricalReportPage.java:1346)
+at com.tetherfi.test.reports.AgentHistoricalReportTest.verifyAdvancedSearchinreportpageSearchStartswith(AgentHistoricalReportTest.java:521)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.ArrayIndexOutOfBoundsException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyAdvancedSearchinreportpageSearchStartswith -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:25:08 IST" name="afterEachMethod" finished-at="2020-05-26T14:25:09 IST" duration-ms="1684" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.AgentHistoricalReportTest.verifyAdvancedSearchinreportpageSearchStartswith() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:25:09 IST" name="endTestCase" finished-at="2020-05-26T14:25:09 IST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.AgentHistoricalReportTest.verifyAdvancedSearchinreportpageSearchStartswith() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:25:09 IST" name="startTestCase" finished-at="2020-05-26T14:25:09 IST" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.AgentHistoricalReportTest.verifyAdvancedSearchAddCriteria() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method is-config="true" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:25:09 IST" name="NavigateToOcmReportsPage" finished-at="2020-05-26T14:25:40 IST" duration-ms="30608" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToOcmReportsPage -->
+        <test-method signature="verifyAdvancedSearchAddCriteria()[pri:47, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:25:40 IST" name="verifyAdvancedSearchAddCriteria" finished-at="2020-05-26T14:26:32 IST" duration-ms="52441" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyAdvancedSearchAddCriteria -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:26:32 IST" name="afterEachMethod" finished-at="2020-05-26T14:26:34 IST" duration-ms="1827" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.AgentHistoricalReportTest.verifyAdvancedSearchAddCriteria() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:26:34 IST" name="endTestCase" finished-at="2020-05-26T14:26:34 IST" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.AgentHistoricalReportTest.verifyAdvancedSearchAddCriteria() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:26:34 IST" name="startTestCase" finished-at="2020-05-26T14:26:34 IST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.AgentHistoricalReportTest.verifyAdvancedSearchORCriteria() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method is-config="true" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:26:34 IST" name="NavigateToOcmReportsPage" finished-at="2020-05-26T14:27:03 IST" duration-ms="28656" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToOcmReportsPage -->
+        <test-method signature="verifyAdvancedSearchORCriteria()[pri:48, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:27:03 IST" name="verifyAdvancedSearchORCriteria" finished-at="2020-05-26T14:27:57 IST" duration-ms="54563" status="FAIL">
+          <exception class="org.openqa.selenium.StaleElementReferenceException">
+            <message>
+              <![CDATA[stale element reference: element is not attached to the page document
+  (Session info: chrome=81.0.4044.138)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'ADMIN', ip: '192.168.1.4', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '9.0.4'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 81.0.4044.138, chrome: {chromedriverVersion: 80.0.3987.106 (f68069574609..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:59372}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 616622d54ec436b99b62227f7fac84d6]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
+  (Session info: chrome=81.0.4044.138)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'ADMIN', ip: '192.168.1.4', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '9.0.4'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 81.0.4044.138, chrome: {chromedriverVersion: 80.0.3987.106 (f68069574609..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:59372}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 616622d54ec436b99b62227f7fac84d6
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+at java.base/java.lang.reflect.Constructor.newInstance(Unknown Source)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
+at org.openqa.selenium.remote.RemoteWebElement.getText(RemoteWebElement.java:166)
+at com.tetherfi.pages.AgentHistoricalReportPage.getDataTable(AgentHistoricalReportPage.java:941)
+at com.tetherfi.pages.AgentHistoricalReportPage.advancedSearchORCriteria(AgentHistoricalReportPage.java:1444)
+at com.tetherfi.test.reports.AgentHistoricalReportTest.verifyAdvancedSearchORCriteria(AgentHistoricalReportTest.java:554)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.StaleElementReferenceException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyAdvancedSearchORCriteria -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:27:57 IST" name="afterEachMethod" finished-at="2020-05-26T14:27:59 IST" duration-ms="1834" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.AgentHistoricalReportTest.verifyAdvancedSearchORCriteria() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:27:59 IST" name="endTestCase" finished-at="2020-05-26T14:27:59 IST" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.AgentHistoricalReportTest.verifyAdvancedSearchORCriteria() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:27:59 IST" name="startTestCase" finished-at="2020-05-26T14:27:59 IST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.AgentHistoricalReportTest.verifySelectdateFeature() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method is-config="true" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:27:59 IST" name="NavigateToOcmReportsPage" finished-at="2020-05-26T14:28:13 IST" duration-ms="13988" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToOcmReportsPage -->
+        <test-method signature="verifySelectdateFeature()[pri:49, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:28:13 IST" name="verifySelectdateFeature" description="To verify Select Date feature" finished-at="2020-05-26T14:29:21 IST" duration-ms="67514" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifySelectdateFeature -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:29:21 IST" name="afterEachMethod" finished-at="2020-05-26T14:29:22 IST" duration-ms="1720" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.AgentHistoricalReportTest.verifySelectdateFeature() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:29:22 IST" name="endTestCase" finished-at="2020-05-26T14:29:22 IST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.AgentHistoricalReportTest.verifySelectdateFeature() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method is-config="true" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:29:22 IST" name="NavigateToOcmReportsPage" finished-at="2020-05-26T14:29:37 IST" duration-ms="14278" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToOcmReportsPage -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:29:22 IST" name="startTestCase" finished-at="2020-05-26T14:29:22 IST" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.AgentHistoricalReportTest.verifySelectIntervalFeature() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method signature="verifySelectIntervalFeature()[pri:50, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:29:37 IST" name="verifySelectIntervalFeature" description="To verify Select Date feature" finished-at="2020-05-26T14:30:39 IST" duration-ms="62069" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifySelectIntervalFeature -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:30:39 IST" name="afterEachMethod" finished-at="2020-05-26T14:30:41 IST" duration-ms="1853" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.AgentHistoricalReportTest.verifySelectIntervalFeature() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:30:41 IST" name="endTestCase" finished-at="2020-05-26T14:30:41 IST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.AgentHistoricalReportTest.verifySelectIntervalFeature() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method is-config="true" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:30:41 IST" name="NavigateToOcmReportsPage" finished-at="2020-05-26T14:30:58 IST" duration-ms="17400" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToOcmReportsPage -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:30:41 IST" name="startTestCase" finished-at="2020-05-26T14:30:41 IST" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.AgentHistoricalReportTest.VerifyArrowMoveForPreviousAndNextPageForDrillDownOne() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method signature="VerifyArrowMoveForPreviousAndNextPageForDrillDownOne()[pri:51, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:30:58 IST" name="VerifyArrowMoveForPreviousAndNextPageForDrillDownOne" description="To Verify Arrow move for Previous and Next page for Drill Down One" finished-at="2020-05-26T14:31:50 IST" duration-ms="51626" status="FAIL">
+          <exception class="org.openqa.selenium.StaleElementReferenceException">
+            <message>
+              <![CDATA[stale element reference: element is not attached to the page document
+  (Session info: chrome=81.0.4044.138)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'ADMIN', ip: '192.168.1.4', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '9.0.4'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 81.0.4044.138, chrome: {chromedriverVersion: 80.0.3987.106 (f68069574609..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:59372}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 616622d54ec436b99b62227f7fac84d6]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
+  (Session info: chrome=81.0.4044.138)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'ADMIN', ip: '192.168.1.4', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '9.0.4'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 81.0.4044.138, chrome: {chromedriverVersion: 80.0.3987.106 (f68069574609..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:59372}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 616622d54ec436b99b62227f7fac84d6
 at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
 at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
@@ -57,15 +1214,114 @@ at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverComman
 at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
 at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
 at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:84)
+at com.tetherfi.pages.BasePage.selectWebElement(BasePage.java:198)
+at com.tetherfi.pages.AgentHistoricalReportPage.verifyArrowMoveForPreviousAndNextPageForDrillDownOne(AgentHistoricalReportPage.java:1511)
+at com.tetherfi.test.reports.AgentHistoricalReportTest.VerifyArrowMoveForPreviousAndNextPageForDrillDownOne(AgentHistoricalReportTest.java:588)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 at java.base/java.lang.reflect.Method.invoke(Unknown Source)
-at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
-at com.sun.proxy.$Proxy14.click(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.StaleElementReferenceException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyArrowMoveForPreviousAndNextPageForDrillDownOne -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:31:50 IST" name="afterEachMethod" finished-at="2020-05-26T14:31:51 IST" duration-ms="1821" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.AgentHistoricalReportTest.VerifyArrowMoveForPreviousAndNextPageForDrillDownOne() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:31:51 IST" name="endTestCase" finished-at="2020-05-26T14:31:51 IST" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.AgentHistoricalReportTest.VerifyArrowMoveForPreviousAndNextPageForDrillDownOne() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method is-config="true" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:31:51 IST" name="NavigateToOcmReportsPage" finished-at="2020-05-26T14:32:07 IST" duration-ms="15876" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToOcmReportsPage -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:31:51 IST" name="startTestCase" finished-at="2020-05-26T14:31:51 IST" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.AgentHistoricalReportTest.VerifyArrowMoveForFirstAndLastPageFoDrillDownOne() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method signature="VerifyArrowMoveForFirstAndLastPageFoDrillDownOne()[pri:52, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:32:07 IST" name="VerifyArrowMoveForFirstAndLastPageFoDrillDownOne" description="To Verify Arrow move for first and last page for Drill Down One" finished-at="2020-05-26T14:32:58 IST" duration-ms="50872" status="FAIL">
+          <exception class="org.openqa.selenium.ElementClickInterceptedException">
+            <message>
+              <![CDATA[element click intercepted: Element <td class="" role="gridcell">...</td> is not clickable at point (62, 235). Other element would receive the click: <div class="k-loading-image"></div>
+  (Session info: chrome=81.0.4044.138)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'ADMIN', ip: '192.168.1.4', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '9.0.4'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 81.0.4044.138, chrome: {chromedriverVersion: 80.0.3987.106 (f68069574609..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:59372}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 616622d54ec436b99b62227f7fac84d6]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <td class="" role="gridcell">...</td> is not clickable at point (62, 235). Other element would receive the click: <div class="k-loading-image"></div>
+  (Session info: chrome=81.0.4044.138)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'ADMIN', ip: '192.168.1.4', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '9.0.4'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 81.0.4044.138, chrome: {chromedriverVersion: 80.0.3987.106 (f68069574609..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:59372}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 616622d54ec436b99b62227f7fac84d6
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+at java.base/java.lang.reflect.Constructor.newInstance(Unknown Source)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
+at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:84)
 at com.tetherfi.pages.BasePage.selectWebElement(BasePage.java:198)
-at com.tetherfi.pages.AgentHistoricalReportPage.verifyDrillOneSearchIsEqualTo(AgentHistoricalReportPage.java:1690)
-at com.tetherfi.test.reports.AgentHistoricalReportTest.VerifyDrillOneSearchEqualsToFeature(AgentHistoricalReportTest.java:656)
+at com.tetherfi.pages.AgentHistoricalReportPage.verifyArrowMoveForFirstAndLastPageForDrillDownOne(AgentHistoricalReportPage.java:1530)
+at com.tetherfi.test.reports.AgentHistoricalReportTest.VerifyArrowMoveForFirstAndLastPageFoDrillDownOne(AgentHistoricalReportTest.java:598)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -99,50 +1355,63 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
           </exception> <!-- org.openqa.selenium.ElementClickInterceptedException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- VerifyDrillOneSearchEqualsToFeature -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@497b560e]" started-at="2020-05-22T12:11:05 IST" name="afterEachMethod" finished-at="2020-05-22T12:11:07 IST" duration-ms="2113" status="PASS">
+        </test-method> <!-- VerifyArrowMoveForFirstAndLastPageFoDrillDownOne -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:32:58 IST" name="afterEachMethod" finished-at="2020-05-26T14:33:10 IST" duration-ms="12273" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.reports.AgentHistoricalReportTest.VerifyDrillOneSearchEqualsToFeature() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.reports.AgentHistoricalReportTest.VerifyArrowMoveForFirstAndLastPageFoDrillDownOne() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@497b560e]" started-at="2020-05-22T12:11:07 IST" name="endTestCase" finished-at="2020-05-22T12:11:07 IST" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:33:10 IST" name="endTestCase" finished-at="2020-05-26T14:33:10 IST" duration-ms="1" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.reports.AgentHistoricalReportTest.VerifyDrillOneSearchEqualsToFeature() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.reports.AgentHistoricalReportTest.VerifyArrowMoveForFirstAndLastPageFoDrillDownOne() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@497b560e]" started-at="2020-05-22T12:11:07 IST" name="tearDown" finished-at="2020-05-22T12:11:09 IST" duration-ms="1285" status="FAIL">
-          <exception class="org.openqa.selenium.NoSuchWindowException">
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:33:10 IST" name="startTestCase" finished-at="2020-05-26T14:33:10 IST" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.AgentHistoricalReportTest.VerifyArrowMoveForPreviousAndNextPageForDrillDowntwo() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method is-config="true" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:33:10 IST" name="NavigateToOcmReportsPage" finished-at="2020-05-26T14:33:27 IST" duration-ms="16735" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToOcmReportsPage -->
+        <test-method signature="VerifyArrowMoveForPreviousAndNextPageForDrillDowntwo()[pri:54, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:33:27 IST" name="VerifyArrowMoveForPreviousAndNextPageForDrillDowntwo" description="To Verify Arrow move for Previous and Next page for Drill Down two" finished-at="2020-05-26T14:34:25 IST" duration-ms="57743" status="FAIL">
+          <exception class="org.openqa.selenium.ElementClickInterceptedException">
             <message>
-              <![CDATA[no such window: target window already closed
-from unknown error: web view not found
+              <![CDATA[element click intercepted: Element <td class="" role="gridcell">...</td> is not clickable at point (62, 235). Other element would receive the click: <div class="k-loading-image"></div>
   (Session info: chrome=81.0.4044.138)
 Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
 System info: host: 'ADMIN', ip: '192.168.1.4', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '9.0.4'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 81.0.4044.138, chrome: {chromedriverVersion: 80.0.3987.106 (f68069574609..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:60602}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 316e258a61890608755809aaadc6aa61]]>
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 81.0.4044.138, chrome: {chromedriverVersion: 80.0.3987.106 (f68069574609..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:59372}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 616622d54ec436b99b62227f7fac84d6]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
-from unknown error: web view not found
+              <![CDATA[org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <td class="" role="gridcell">...</td> is not clickable at point (62, 235). Other element would receive the click: <div class="k-loading-image"></div>
   (Session info: chrome=81.0.4044.138)
 Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
 System info: host: 'ADMIN', ip: '192.168.1.4', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '9.0.4'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 81.0.4044.138, chrome: {chromedriverVersion: 80.0.3987.106 (f68069574609..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:60602}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 316e258a61890608755809aaadc6aa61
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 81.0.4044.138, chrome: {chromedriverVersion: 80.0.3987.106 (f68069574609..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:59372}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 616622d54ec436b99b62227f7fac84d6
 at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
 at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
@@ -153,19 +1422,23 @@ at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCo
 at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
 at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
 at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:609)
-at org.openqa.selenium.remote.RemoteWebDriver.close(RemoteWebDriver.java:442)
-at com.tetherfi.test.BaseTest.tearDown(BaseTest.java:81)
+at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
+at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:84)
+at com.tetherfi.pages.BasePage.selectWebElement(BasePage.java:198)
+at com.tetherfi.pages.AgentHistoricalReportPage.verifyArrowMoveForPreviousAndNextPageForDrillDowntwo(AgentHistoricalReportPage.java:1588)
+at com.tetherfi.test.reports.AgentHistoricalReportTest.VerifyArrowMoveForPreviousAndNextPageForDrillDowntwo(AgentHistoricalReportTest.java:620)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
 at java.base/java.lang.reflect.Method.invoke(Unknown Source)
 at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:62)
-at org.testng.internal.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:340)
-at org.testng.internal.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:294)
-at org.testng.internal.TestMethodWorker.invokeAfterClassMethods(TestMethodWorker.java:217)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:130)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
 at java.base/java.util.ArrayList.forEach(Unknown Source)
 at org.testng.TestRunner.privateRun(TestRunner.java:770)
 at org.testng.TestRunner.run(TestRunner.java:591)
@@ -184,11 +1457,142 @@ at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 ]]>
             </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.NoSuchWindowException -->
+          </exception> <!-- org.openqa.selenium.ElementClickInterceptedException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyArrowMoveForPreviousAndNextPageForDrillDowntwo -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:34:25 IST" name="afterEachMethod" finished-at="2020-05-26T14:34:27 IST" duration-ms="2379" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.AgentHistoricalReportTest.VerifyArrowMoveForPreviousAndNextPageForDrillDowntwo() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:34:27 IST" name="endTestCase" finished-at="2020-05-26T14:34:27 IST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.AgentHistoricalReportTest.VerifyArrowMoveForPreviousAndNextPageForDrillDowntwo() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:34:27 IST" name="startTestCase" finished-at="2020-05-26T14:34:27 IST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.AgentHistoricalReportTest.VerifyArrowMoveForFirstAndLastPageFoDrillDowntwo() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method is-config="true" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:34:27 IST" name="NavigateToOcmReportsPage" finished-at="2020-05-26T14:34:45 IST" duration-ms="17233" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToOcmReportsPage -->
+        <test-method signature="VerifyArrowMoveForFirstAndLastPageFoDrillDowntwo()[pri:55, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:34:45 IST" name="VerifyArrowMoveForFirstAndLastPageFoDrillDowntwo" description="To Verify Arrow move for first and last page for Drill Down two" finished-at="2020-05-26T14:35:36 IST" duration-ms="51566" status="FAIL">
+          <exception class="org.openqa.selenium.ElementClickInterceptedException">
+            <message>
+              <![CDATA[element click intercepted: Element <td class="" role="gridcell">...</td> is not clickable at point (62, 235). Other element would receive the click: <div class="k-loading-image"></div>
+  (Session info: chrome=81.0.4044.138)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'ADMIN', ip: '192.168.1.4', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '9.0.4'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 81.0.4044.138, chrome: {chromedriverVersion: 80.0.3987.106 (f68069574609..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:59372}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 616622d54ec436b99b62227f7fac84d6]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <td class="" role="gridcell">...</td> is not clickable at point (62, 235). Other element would receive the click: <div class="k-loading-image"></div>
+  (Session info: chrome=81.0.4044.138)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'ADMIN', ip: '192.168.1.4', os.name: 'Windows 8.1', os.arch: 'amd64', os.version: '6.3', java.version: '9.0.4'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 81.0.4044.138, chrome: {chromedriverVersion: 80.0.3987.106 (f68069574609..., userDataDir: C:\Users\ADMINP~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:59372}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 616622d54ec436b99b62227f7fac84d6
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+at java.base/java.lang.reflect.Constructor.newInstance(Unknown Source)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
+at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:84)
+at com.tetherfi.pages.BasePage.selectWebElement(BasePage.java:198)
+at com.tetherfi.pages.AgentHistoricalReportPage.verifyArrowMoveForFirstAndLastPageForDrillDowntwo(AgentHistoricalReportPage.java:1614)
+at com.tetherfi.test.reports.AgentHistoricalReportTest.VerifyArrowMoveForFirstAndLastPageFoDrillDowntwo(AgentHistoricalReportTest.java:630)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.ElementClickInterceptedException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyArrowMoveForFirstAndLastPageFoDrillDowntwo -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:35:36 IST" name="afterEachMethod" finished-at="2020-05-26T14:35:44 IST" duration-ms="7914" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.AgentHistoricalReportTest.VerifyArrowMoveForFirstAndLastPageFoDrillDowntwo() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:35:44 IST" name="endTestCase" finished-at="2020-05-26T14:35:44 IST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.AgentHistoricalReportTest.VerifyArrowMoveForFirstAndLastPageFoDrillDowntwo() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.tetherfi.test.reports.AgentHistoricalReportTest@f29353f]" started-at="2020-05-26T14:35:44 IST" name="tearDown" finished-at="2020-05-26T14:36:00 IST" duration-ms="15712" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
       </class> <!-- com.tetherfi.test.reports.AgentHistoricalReportTest -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+    </test> <!-- Default test(failed) -->
+  </suite> <!-- Failed suite [Default suite] -->
 </testng-results>

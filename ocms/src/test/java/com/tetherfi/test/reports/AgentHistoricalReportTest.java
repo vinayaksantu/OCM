@@ -10,10 +10,8 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import com.tetherfi.model.report.ReportDetails;
 import com.tetherfi.pages.HomePage;
-import com.tetherfi.pages.OCMAgentSummaryReportPage;
 import com.tetherfi.pages.OCMReportsPage;
 import com.tetherfi.pages.AgentHistoricalReportPage;
-import com.tetherfi.pages.CepEventMappingPage;
 import com.tetherfi.test.BaseTest;
 import com.tetherfi.utility.ExcelReader;
 import com.tetherfi.utility.PageFactory;
@@ -30,7 +28,7 @@ public class AgentHistoricalReportTest extends BaseTest {
 		Assert.assertTrue(ocmReportsPage.isOCMReportPageIsDisplayed());
 	}
 
-	/*@Test(priority=1,description="To verify Show Report for Single Date")
+	@Test(priority=1,description="To verify Show Report for Single Date")
     public void ShowOCMAgentHistoricalReport() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
@@ -347,7 +345,7 @@ public class AgentHistoricalReportTest extends BaseTest {
 	@Test(priority=30,description="To verify search by feature")
 	public void VerifySearchByFeatureForAgentHistoricalReport() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
+		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(4);
 		ReportDetails reportDetails= new ReportDetails(map);
 		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
 		ocmReportsPage.showReport(reportDetails);
@@ -416,7 +414,7 @@ public class AgentHistoricalReportTest extends BaseTest {
 	@Test(priority=36,description="To verify search StartsWith")
 	public void  VerifySearchStartsWith() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(4);
+		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(3);
 		ReportDetails reportDetails= new ReportDetails(map);
 		OCMReportsPage ocmReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
 		ocmReportsPage.showReport(reportDetails);  
@@ -426,7 +424,7 @@ public class AgentHistoricalReportTest extends BaseTest {
 	@Test(priority=37,description="To verify search EndsWith")
 	public void  VerifySearchEndsWith() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(5);
+		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(2);
 		ReportDetails reportDetails= new ReportDetails(map);
 		OCMReportsPage ocmReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
 		ocmReportsPage.showReport(reportDetails);  
@@ -642,7 +640,18 @@ public class AgentHistoricalReportTest extends BaseTest {
 		AgentHistoricalReportPage agentHistoricalPage=PageFactory.createPageInstance(driver,AgentHistoricalReportPage.class);
 		Assert.assertTrue(agentHistoricalPage.verifyTotalNumberOfItemsPerPageDetailsForDrillDowntwo(),"item per page assertion failed");
 	}
-	*/
+	/*
+	@Test(priority=56,description="To verify DrillOne search equals")
+	public void VerifyDrillOneSearchEqualsToFeature() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
+		ocmReportsPage.showReport(reportDetails);
+		AgentHistoricalReportPage agentHistoricalPage=PageFactory.createPageInstance(driver,AgentHistoricalReportPage.class);
+		Assert.assertTrue(agentHistoricalPage.verifySorting());
+	}  
+	
 	
 	@Test(priority=56,description="To verify DrillOne search equals")
 	public void VerifyDrillOneSearchEqualsToFeature() throws Exception {
@@ -656,7 +665,7 @@ public class AgentHistoricalReportTest extends BaseTest {
 		Assert.assertTrue(agentHistoricalPage.verifyDrillOneSearchIsEqualTo(reportDetails.getSearchStr1()));
 	}     
 	
-	/*@Test(priority=57,description="To verify DrillOne search without providing data in searchbox")
+	@Test(priority=57,description="To verify DrillOne search without providing data in searchbox")
 	public void searchwithoutDrillOneSearchTextbox() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -733,19 +742,6 @@ public class AgentHistoricalReportTest extends BaseTest {
 		Assert.assertTrue(agentHistoricalPage.verifyDrillOneSearchClearBackButton(reportDetails));  
 		
 	}
-	
-	/*@Test(priority=55,description="To Verify Number of Items Per Page Selection for Drill Down Two")
-	public void VerifyNumberOfItemsPerPageSelectionForDrillDownTwo() throws Exception {
-		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
-		ReportDetails reportDetails= new ReportDetails(map);
-		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
-		ocmReportsPage.showReport(reportDetails);
-		AgentHistoricalReportPage agentHistoricalPage=PageFactory.createPageInstance(driver,AgentHistoricalReportPage.class);
-		Assert.assertTrue(agentHistoricalPage.verifySorting(),"item per page assertion failed");
-	}*/
-	
-	
 	
 
     /*@Test(priority=59, description="To verify report data against DB")

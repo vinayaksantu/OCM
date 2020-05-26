@@ -6,6 +6,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -344,7 +345,54 @@ public class AgentSkillHistoricalReportPage extends BasePage  {
 		}
 		return list;
 	}
+	
 	public boolean verifySorting() {
+		boolean status=false;
+		int items = Integer.valueOf(pagerInfo.getText().split("of ")[1].split(" items")[0]);
+		int pagersize = Integer.valueOf(pagerSize.getText());
+		int pages=(items%pagersize==0)?items/pagersize-1:items/pagersize;
+		for (int i = 0; i <= pages; i++) {
+			List<WebElement> rows=gridContent.findElements(By.tagName("tr"));
+			List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
+			int k=0;
+			for(int j=0;j<headers.size();j++){
+				if(headers.get(j).getText().equals("")||headers.get(j).getText().equals(" ")){continue;}
+				List<String> l1 = getColumnDatafromTable(headers.get(j).getText());
+				//System.out.println(l1);
+				List<String> temp = l1;
+				temp=temp.stream().sorted().collect(Collectors.toList());
+				System.out.println(temp);
+				selectWebElement(headersDropdown.get(k));
+				waitForJqueryLoad(driver);
+				selectWebElement(sortAscending.get(k));
+				waitForJqueryLoad(driver);
+				k++;
+				List<String> l2 = getColumnDatafromTable(headers.get(j).getText());
+				System.out.println(l2);
+				if (l2.equals(temp)) {/*System.out.println("sorting works fine");*/status = true;}else{status=false;}
+				if(status){}else{System.out.println("Ascending sorting failed for column name:"+headers.get(j).getText()+"\n"+l2);break;}
+			}/*descending sort code
+				status=false;
+				temp = l1;
+				temp.stream().sort(temp,Collections.reverseOrder());
+				//System.out.println(temp);
+				selectWebElement(headersDropdown.get(k));
+				waitForJqueryLoad(driver);
+				selectWebElement(sortDescending.get(k));
+				waitForJqueryLoad(driver);
+				k++;
+				List<Object> l3 = getColumnDatafromTable(headers.get(j).getText());
+				//System.out.println(l3);
+				if (l3.equals(temp)) {/*System.out.println("sorting works fine");*/status = true;}
+				//if(status){}else{System.out.println("Descending sorting failed for column name:"+headers.get(j).getText()+"\n"+l3);break;}
+			/*}
+			if(status){}else{break;}
+			nextPageIcon.click();
+			waitForJqueryLoad(driver);
+		}*/
+		return status;
+	}
+	/*public boolean verifySorting() {
 		boolean status=false;
 		int items = Integer.valueOf(pagerInfo.getText().split("of ")[1].split(" items")[0]);
 		int pagersize = Integer.valueOf(pagerSize.getText());
@@ -366,10 +414,10 @@ public class AgentSkillHistoricalReportPage extends BasePage  {
 				waitForJqueryLoad(driver);
 				List<String> l2 = getColumnDatafromTable(headers.get(j).getText());
 				//System.out.println(l2);
-				if (l2.equals(temp)) {/*System.out.println("sorting works fine");*/status = true;}else{status=false;}
-				if(status){}else{System.out.println("Ascending sorting failed for column name:"+headers.get(j).getText()+"\n"+l2);break;}
+		//		if (l2.equals(temp)) {/*System.out.println("sorting works fine");*///status = true;}else{status=false;}
+				/*if(status){}else{System.out.println("Ascending sorting failed for column name:"+headers.get(j).getText()+"\n"+l2);break;}
 				/*descending sort code*/
-				status=false;
+				/*status=false;
 				temp = l1;
 				Collections.sort(temp,Collections.reverseOrder());
 				//System.out.println(temp);
@@ -380,8 +428,8 @@ public class AgentSkillHistoricalReportPage extends BasePage  {
 				k++;
 				List<String> l3 = getColumnDatafromTable(headers.get(j).getText());
 				//System.out.println(l3);
-				if (l3.equals(temp)) {/*System.out.println("sorting works fine");*/status = true;}
-				if(status){}else{System.out.println("Descending sorting failed for column name:"+headers.get(j).getText()+"\n"+l3);break;}
+				/*if (l3.equals(temp)) {/*System.out.println("sorting works fine");*///status = true;}
+			/*	if(status){}else{System.out.println("Descending sorting failed for column name:"+headers.get(j).getText()+"\n"+l3);break;}
 			}
 			if(status){}else{break;}
 			nextPageIcon.click();
@@ -389,7 +437,7 @@ public class AgentSkillHistoricalReportPage extends BasePage  {
 		}
 		return status;
 	}
-
+*/
 	private String getProperHeadersInGrid(String cname){
 		List<WebElement> rows=gridContent.findElements(By.tagName("tr"));
 		List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
