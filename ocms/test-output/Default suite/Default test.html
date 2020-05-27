@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Default test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>2/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Wed May 27 13:30:10 IST 2020</td>
+<td>Started on:</td><td>Wed May 27 17:24:26 IST 2020</td>
 </tr>
-<tr><td>Total time:</td><td>73 seconds (73102 ms)</td>
+<tr><td>Total time:</td><td>245 seconds (245324 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -75,12 +75,13 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.tetherfi.test.reports.SkillHistoricalReportTest.database()'><b>database</b><br>Test class: com.tetherfi.test.reports.SkillHistoricalReportTest<br>Test method: To verify report data against DB</td>
-<td><div><pre>java.lang.AssertionError: Main Report Data Mismatch did not expect to find [true] but found [false]
+<td title='com.tetherfi.test.reports.OCMAgentInteractionReportTest.VerifyViewDownloadedOcmAgentInteractionReportInReportsDownloadPage()'><b>VerifyViewDownloadedOcmAgentInteractionReportInReportsDownloadPage</b><br>Test class: com.tetherfi.test.reports.OCMAgentInteractionReportTest<br>Test method: To verification of exported excel in Report downloads</td>
+<td><div><pre>java.lang.AssertionError: did not expect to find [true] but found [false]
 	at org.testng.Assert.fail(Assert.java:97)
 	at org.testng.Assert.failNotEquals(Assert.java:969)
 	at org.testng.Assert.assertTrue(Assert.java:43)
-	at com.tetherfi.test.reports.SkillHistoricalReportTest.database(SkillHistoricalReportTest.java:648)
+	at org.testng.Assert.assertTrue(Assert.java:53)
+	at com.tetherfi.test.reports.OCMAgentInteractionReportTest.VerifyViewDownloadedOcmAgentInteractionReportInReportsDownloadPage(OCMAgentInteractionReportTest.java:93)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -109,12 +110,13 @@ function toggleAllBoxes() {
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace540331691", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace540331691'><pre>java.lang.AssertionError: Main Report Data Mismatch did not expect to find [true] but found [false]
+</pre></div><a href='#' onClick='toggleBox("stack-trace1801262220", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1801262220'><pre>java.lang.AssertionError: did not expect to find [true] but found [false]
 	at org.testng.Assert.fail(Assert.java:97)
 	at org.testng.Assert.failNotEquals(Assert.java:969)
 	at org.testng.Assert.assertTrue(Assert.java:43)
-	at com.tetherfi.test.reports.SkillHistoricalReportTest.database(SkillHistoricalReportTest.java:648)
+	at org.testng.Assert.assertTrue(Assert.java:53)
+	at com.tetherfi.test.reports.OCMAgentInteractionReportTest.VerifyViewDownloadedOcmAgentInteractionReportInReportsDownloadPage(OCMAgentInteractionReportTest.java:93)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -144,8 +146,26 @@ function toggleAllBoxes() {
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
-<td>45</td>
-<td>com.tetherfi.test.reports.SkillHistoricalReportTest@1acb74ad</td></tr>
+<td>148</td>
+<td>com.tetherfi.test.reports.OCMAgentInteractionReportTest@2ee48610</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.tetherfi.test.reports.OCMAgentInteractionReportTest.ExportOcmAgentInteractionReport()'><b>ExportOcmAgentInteractionReport</b><br>Test class: com.tetherfi.test.reports.OCMAgentInteractionReportTest<br>Test method: To verify Export Report on OCM Reports Page</td>
+<td></td>
+<td>36</td>
+<td>com.tetherfi.test.reports.OCMAgentInteractionReportTest@2ee48610</td></tr>
+<tr>
+<td title='com.tetherfi.test.reports.OCMAgentInteractionReportTest.ViewDownloadedOcmAgentInteractionReportInReportsDownloadPage()'><b>ViewDownloadedOcmAgentInteractionReportInReportsDownloadPage</b><br>Test class: com.tetherfi.test.reports.OCMAgentInteractionReportTest<br>Test method: To verify view download in Report downloads</td>
+<td></td>
+<td>6</td>
+<td>com.tetherfi.test.reports.OCMAgentInteractionReportTest@2ee48610</td></tr>
 </table><p>
 </body>
 </html>

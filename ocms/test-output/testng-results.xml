@@ -1,42 +1,125 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
+<testng-results ignored="0" total="3" passed="2" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2020-05-27T13:30:10 IST" name="Default suite" finished-at="2020-05-27T13:31:23 IST" duration-ms="73102">
+  <suite started-at="2020-05-27T17:24:26 IST" name="Default suite" finished-at="2020-05-27T17:28:31 IST" duration-ms="245324">
     <groups>
     </groups>
-    <test started-at="2020-05-27T13:30:10 IST" name="Default test" finished-at="2020-05-27T13:31:23 IST" duration-ms="73102">
-      <class name="com.tetherfi.test.reports.SkillHistoricalReportTest">
-        <test-method is-config="true" signature="openApplication()[pri:0, instance:com.tetherfi.test.reports.SkillHistoricalReportTest@1acb74ad]" started-at="2020-05-27T13:30:10 IST" name="openApplication" finished-at="2020-05-27T13:30:30 IST" duration-ms="19788" status="PASS">
+    <test started-at="2020-05-27T17:24:26 IST" name="Default test" finished-at="2020-05-27T17:28:31 IST" duration-ms="245324">
+      <class name="com.tetherfi.test.reports.OCMAgentInteractionReportTest">
+        <test-method is-config="true" signature="openApplication()[pri:0, instance:com.tetherfi.test.reports.OCMAgentInteractionReportTest@2ee48610]" started-at="2020-05-27T17:24:26 IST" name="openApplication" finished-at="2020-05-27T17:24:43 IST" duration-ms="16544" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- openApplication -->
-        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.SkillHistoricalReportTest@1acb74ad]" started-at="2020-05-27T13:30:30 IST" name="startTestCase" finished-at="2020-05-27T13:30:30 IST" duration-ms="3" status="PASS">
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMAgentInteractionReportTest@2ee48610]" started-at="2020-05-27T17:24:43 IST" name="startTestCase" finished-at="2020-05-27T17:24:43 IST" duration-ms="3" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.reports.SkillHistoricalReportTest.database() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.reports.OCMAgentInteractionReportTest.ExportOcmAgentInteractionReport() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startTestCase -->
-        <test-method is-config="true" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.SkillHistoricalReportTest@1acb74ad]" started-at="2020-05-27T13:30:30 IST" name="NavigateToOcmReportsPage" finished-at="2020-05-27T13:30:32 IST" duration-ms="2342" status="PASS">
+        <test-method is-config="true" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.OCMAgentInteractionReportTest@2ee48610]" started-at="2020-05-27T17:24:43 IST" name="NavigateToOcmReportsPage" finished-at="2020-05-27T17:24:47 IST" duration-ms="4034" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- NavigateToOcmReportsPage -->
-        <test-method signature="database()[pri:38, instance:com.tetherfi.test.reports.SkillHistoricalReportTest@1acb74ad]" started-at="2020-05-27T13:30:32 IST" name="database" description="To verify report data against DB" finished-at="2020-05-27T13:31:18 IST" duration-ms="45669" status="FAIL">
+        <test-method signature="ExportOcmAgentInteractionReport()[pri:4, instance:com.tetherfi.test.reports.OCMAgentInteractionReportTest@2ee48610]" started-at="2020-05-27T17:24:47 IST" name="ExportOcmAgentInteractionReport" description="To verify Export Report on OCM Reports Page" finished-at="2020-05-27T17:25:23 IST" duration-ms="36080" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ExportOcmAgentInteractionReport -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMAgentInteractionReportTest@2ee48610]" started-at="2020-05-27T17:25:23 IST" name="afterEachMethod" finished-at="2020-05-27T17:25:27 IST" duration-ms="3848" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMAgentInteractionReportTest.ExportOcmAgentInteractionReport() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMAgentInteractionReportTest@2ee48610]" started-at="2020-05-27T17:25:27 IST" name="endTestCase" finished-at="2020-05-27T17:25:27 IST" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMAgentInteractionReportTest.ExportOcmAgentInteractionReport() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMAgentInteractionReportTest@2ee48610]" started-at="2020-05-27T17:25:27 IST" name="startTestCase" finished-at="2020-05-27T17:25:27 IST" duration-ms="2" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMAgentInteractionReportTest.ViewDownloadedOcmAgentInteractionReportInReportsDownloadPage() throws java.io.IOException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method is-config="true" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.OCMAgentInteractionReportTest@2ee48610]" started-at="2020-05-27T17:25:27 IST" name="NavigateToOcmReportsPage" finished-at="2020-05-27T17:25:33 IST" duration-ms="6801" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToOcmReportsPage -->
+        <test-method signature="ViewDownloadedOcmAgentInteractionReportInReportsDownloadPage()[pri:5, instance:com.tetherfi.test.reports.OCMAgentInteractionReportTest@2ee48610]" started-at="2020-05-27T17:25:33 IST" name="ViewDownloadedOcmAgentInteractionReportInReportsDownloadPage" description="To verify view download in Report downloads" finished-at="2020-05-27T17:25:40 IST" depends-on-methods="com.tetherfi.test.reports.OCMAgentInteractionReportTest.ExportOcmAgentInteractionReport" duration-ms="6870" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ViewDownloadedOcmAgentInteractionReportInReportsDownloadPage -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMAgentInteractionReportTest@2ee48610]" started-at="2020-05-27T17:25:40 IST" name="afterEachMethod" finished-at="2020-05-27T17:25:42 IST" duration-ms="1831" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMAgentInteractionReportTest.ViewDownloadedOcmAgentInteractionReportInReportsDownloadPage() throws java.io.IOException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMAgentInteractionReportTest@2ee48610]" started-at="2020-05-27T17:25:42 IST" name="endTestCase" finished-at="2020-05-27T17:25:42 IST" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMAgentInteractionReportTest.ViewDownloadedOcmAgentInteractionReportInReportsDownloadPage() throws java.io.IOException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method is-config="true" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMAgentInteractionReportTest@2ee48610]" started-at="2020-05-27T17:25:42 IST" name="startTestCase" finished-at="2020-05-27T17:25:42 IST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMAgentInteractionReportTest.VerifyViewDownloadedOcmAgentInteractionReportInReportsDownloadPage() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method is-config="true" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.OCMAgentInteractionReportTest@2ee48610]" started-at="2020-05-27T17:25:42 IST" name="NavigateToOcmReportsPage" finished-at="2020-05-27T17:25:48 IST" duration-ms="6014" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToOcmReportsPage -->
+        <test-method signature="VerifyViewDownloadedOcmAgentInteractionReportInReportsDownloadPage()[pri:6, instance:com.tetherfi.test.reports.OCMAgentInteractionReportTest@2ee48610]" started-at="2020-05-27T17:25:48 IST" name="VerifyViewDownloadedOcmAgentInteractionReportInReportsDownloadPage" description="To verification of exported excel in Report downloads" finished-at="2020-05-27T17:28:17 IST" depends-on-methods="com.tetherfi.test.reports.OCMAgentInteractionReportTest.ViewDownloadedOcmAgentInteractionReportInReportsDownloadPage" duration-ms="148652" status="FAIL">
           <exception class="java.lang.AssertionError">
             <message>
-              <![CDATA[Main Report Data Mismatch did not expect to find [true] but found [false]]]>
+              <![CDATA[did not expect to find [true] but found [false]]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: Main Report Data Mismatch did not expect to find [true] but found [false]
+              <![CDATA[java.lang.AssertionError: did not expect to find [true] but found [false]
 at org.testng.Assert.fail(Assert.java:97)
 at org.testng.Assert.failNotEquals(Assert.java:969)
 at org.testng.Assert.assertTrue(Assert.java:43)
-at com.tetherfi.test.reports.SkillHistoricalReportTest.database(SkillHistoricalReportTest.java:648)
+at org.testng.Assert.assertTrue(Assert.java:53)
+at com.tetherfi.test.reports.OCMAgentInteractionReportTest.VerifyViewDownloadedOcmAgentInteractionReportInReportsDownloadPage(OCMAgentInteractionReportTest.java:93)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -70,34 +153,34 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
           </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- database -->
-        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.SkillHistoricalReportTest@1acb74ad]" started-at="2020-05-27T13:31:18 IST" name="afterEachMethod" finished-at="2020-05-27T13:31:19 IST" duration-ms="1626" status="PASS">
+        </test-method> <!-- VerifyViewDownloadedOcmAgentInteractionReportInReportsDownloadPage -->
+        <test-method is-config="true" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMAgentInteractionReportTest@2ee48610]" started-at="2020-05-27T17:28:17 IST" name="afterEachMethod" finished-at="2020-05-27T17:28:19 IST" duration-ms="2204" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.reports.SkillHistoricalReportTest.database() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.reports.OCMAgentInteractionReportTest.VerifyViewDownloadedOcmAgentInteractionReportInReportsDownloadPage() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterEachMethod -->
-        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.SkillHistoricalReportTest@1acb74ad]" started-at="2020-05-27T13:31:19 IST" name="endTestCase" finished-at="2020-05-27T13:31:19 IST" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMAgentInteractionReportTest@2ee48610]" started-at="2020-05-27T17:28:19 IST" name="endTestCase" finished-at="2020-05-27T17:28:19 IST" duration-ms="1" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.reports.SkillHistoricalReportTest.database() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.reports.OCMAgentInteractionReportTest.VerifyViewDownloadedOcmAgentInteractionReportInReportsDownloadPage() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- endTestCase -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.tetherfi.test.reports.SkillHistoricalReportTest@1acb74ad]" started-at="2020-05-27T13:31:19 IST" name="tearDown" finished-at="2020-05-27T13:31:23 IST" duration-ms="3591" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.tetherfi.test.reports.OCMAgentInteractionReportTest@2ee48610]" started-at="2020-05-27T17:28:19 IST" name="tearDown" finished-at="2020-05-27T17:28:31 IST" duration-ms="12318" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.tetherfi.test.reports.SkillHistoricalReportTest -->
+      </class> <!-- com.tetherfi.test.reports.OCMAgentInteractionReportTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
