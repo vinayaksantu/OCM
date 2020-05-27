@@ -34,7 +34,7 @@ public class SkillHistoricalReportTest extends BaseTest {
 		Assert.assertTrue(ocmReportsPage.isOCMReportPageIsDisplayed());
 	}
 
-	/*@Test(priority=1)
+	@Test(priority=1)
     public void ShowOCMSkillhistoricalReport() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillHistoricalReportData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
@@ -147,7 +147,39 @@ public class SkillHistoricalReportTest extends BaseTest {
 		ocmReportsPage.scheduleReport(reportDetails);
 		Assert.assertTrue(ocmReportsPage.verifyScheduleReport(),"Schedule report assertion failed");
 	}
-	@Test(priority=13)
+	
+	@Test(priority=13,description="Delete record in Reports Download without Delete reason for date range")
+	public void DeleteWithoutDeleteReasonRecordinReportsDownloadforDateRange() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentLoginLogoutReportData.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
+		ocmReportsPage.viewDownloadedReportInReportDownloadsPage();    	
+		ocmReportsPage.deleteWithoutDeleteReason(reportDetails);
+		Assert.assertEquals(ocmReportsPage.getSuccessMessage(),"Please enter the delete reason","empty delete reason record assertion failed");
+	}
+
+	@Test(priority=14,description="Cancel Button in Reports Download Delete Button")
+	public void VerifyCancelBtnAtReportsDownloadDeleteBtnForDateRange() throws Exception{
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentLoginLogoutReportData.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
+		ocmReportsPage.viewDownloadedReportInReportDownloadsPage();    	
+		ocmReportsPage.deletecancelButton(reportDetails);
+		Assert.assertFalse(ocmReportsPage.verifyDeleteContainer(), "Cancel Btn at Delete record assertion failed");
+	}
+	@Test(priority=15,description="Delete Record at Reports download Button")
+	public void DeleteRecord() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentLoginLogoutReportData.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
+		ocmReportsPage.viewDownloadedReportInReportDownloadsPage();
+		ocmReportsPage.deleteRecordAtReportsDownloadsPage(reportDetails);
+		Assert.assertEquals(ocmReportsPage.getSuccessMessage(),"Report Deleted","Delete record assertion failed");
+	}
+	@Test(priority=16)
 	public void ClearAll() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillHistoricalReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
@@ -155,7 +187,7 @@ public class SkillHistoricalReportTest extends BaseTest {
 		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
 		ocmReportsPage.ClearHomepgDrpDown(reportDetails);
 	}
-	@Test(priority=14)
+	@Test(priority=17)
 	public void OCMWindow() throws Exception {	
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillHistoricalReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -168,7 +200,7 @@ public class SkillHistoricalReportTest extends BaseTest {
 		Assert.assertTrue(skillHistoricalPage.minimizewindow(), "Restored Assertion Failed");
 		screenshot.captureScreen("OCMAgentSkillhistoricalReport","Minimize");	
 	} 
-	@Test(priority=15)
+	@Test(priority=18)
 	public void VerifyDropdownForAllTheColumns() throws Exception {		
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillHistoricalReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -178,7 +210,7 @@ public class SkillHistoricalReportTest extends BaseTest {
 		AgentSkillHistoricalReportPage skillHistoricalPage=PageFactory.createPageInstance(driver,AgentSkillHistoricalReportPage.class);
 		Assert.assertTrue(skillHistoricalPage.verifyDropDownOfAllHeaders(), "Columns dropdown assertion failed");
 	}   
-	@Test(priority=16)
+	@Test(priority=19)
 	public void VerifyColumnsHeaderEnable() throws Exception {  	
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillHistoricalReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -188,7 +220,7 @@ public class SkillHistoricalReportTest extends BaseTest {
 		AgentSkillHistoricalReportPage skillHistoricalPage=PageFactory.createPageInstance(driver,AgentSkillHistoricalReportPage.class);
 		Assert.assertTrue(skillHistoricalPage.verifycolumnsHeaderEnabled(),"columns enabled assertion failed");
 	}  
-	@Test(priority=17)
+	@Test(priority=20)
 	public void VerifyColumnsHeaderDisable() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillHistoricalReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -198,7 +230,7 @@ public class SkillHistoricalReportTest extends BaseTest {
 		AgentSkillHistoricalReportPage skillHistoricalPage=PageFactory.createPageInstance(driver,AgentSkillHistoricalReportPage.class);
 		Assert.assertFalse(skillHistoricalPage.verifycolumnsHeaderDisabled(),"columns disabled assertion failed");
 	} 
-	@Test(priority=18)
+	@Test(priority=21)
 	public void VerifyArrowMoveForPreviousAndNextPage() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillHistoricalReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -208,7 +240,7 @@ public class SkillHistoricalReportTest extends BaseTest {
 		AgentSkillHistoricalReportPage skillHistoricalPage=PageFactory.createPageInstance(driver,AgentSkillHistoricalReportPage.class);
 		Assert.assertTrue(skillHistoricalPage.verifyArrowMoveForPreviousAndNextPage(),"arrow move for previous and next page assertion failed");
 	}    
-	@Test(priority=19)
+	@Test(priority=22)
 	public void VerifyArrowMoveForFirstAndLastPage() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillHistoricalReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -218,7 +250,7 @@ public class SkillHistoricalReportTest extends BaseTest {
 		AgentSkillHistoricalReportPage skillHistoricalPage=PageFactory.createPageInstance(driver,AgentSkillHistoricalReportPage.class);
 		Assert.assertTrue(skillHistoricalPage.verifyArrowMoveForFirstAndLastPage(),"arrow move for first and last page assertion failed");
 	}  
-	@Test(priority=20)
+	@Test(priority=23)
 	public void VerifyTotalNumberOfItemsPerPageDetails() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillHistoricalReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -228,7 +260,7 @@ public class SkillHistoricalReportTest extends BaseTest {
 		AgentSkillHistoricalReportPage skillHistoricalPage=PageFactory.createPageInstance(driver,AgentSkillHistoricalReportPage.class);
 		Assert.assertTrue(skillHistoricalPage.verifyTotalNumberOfItemsPerPageDetails(),"item per page assertion failed");
 	}  
-	@Test(priority=21)
+	@Test(priority=24)
 	public void VerifyNumberOfItemsPerPageSelection() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillHistoricalReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -238,7 +270,7 @@ public class SkillHistoricalReportTest extends BaseTest {
 		AgentSkillHistoricalReportPage skillHistoricalPage=PageFactory.createPageInstance(driver,AgentSkillHistoricalReportPage.class);
 		Assert.assertTrue(skillHistoricalPage.verifyNumberOfItemsPerPage(),"item per page assertion failed");
 	}  
-	@Test(priority=22)
+	@Test(priority=25)
 	public void ExportPage() throws Exception
 	{
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillHistoricalReportData.xlsx";
@@ -250,7 +282,7 @@ public class SkillHistoricalReportTest extends BaseTest {
 		AgentSkillHistoricalReportPage skillHistoricalPage=PageFactory.createPageInstance(driver,AgentSkillHistoricalReportPage.class);
 		Assert.assertTrue(skillHistoricalPage.verifyExportToExcel(filePath1));
 	}
-	@Test(priority=23,dependsOnMethods="ExportPage",description="To Verify Exported Page Against UI")
+	@Test(priority=26,dependsOnMethods="ExportPage",description="To Verify Exported Page Against UI")
 	public void VerifyExportedPage() throws Exception
 	{
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillHistoricalReportData.xlsx";
@@ -263,33 +295,8 @@ public class SkillHistoricalReportTest extends BaseTest {
 		AgentSkillHistoricalReportPage skillHistoricalPage=PageFactory.createPageInstance(driver,AgentSkillHistoricalReportPage.class);
 		Assert.assertTrue(skillHistoricalPage.verifyexportToExcelSheet(maplist));
 	}
-	@Test(priority=24)
-	public void SortingByAscending() throws Exception {
-		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillHistoricalReportData.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
-		ReportDetails reportDetails= new ReportDetails(map);
-		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
-		ocmReportsPage.showReport(reportDetails);
-		AgentSkillHistoricalReportPage skillHistoricalPage=PageFactory.createPageInstance(driver,AgentSkillHistoricalReportPage.class);
-		skillHistoricalPage.SortByAscending();
-		String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\OCMSkillhistoricalReport (1).xlsx";
-		List<Map<String, String>> maplist = new ExcelReader(filePath1,"Sheet1").getTestData();
-		Assert.assertTrue(skillHistoricalPage.verifyexportToExcelSheet(maplist));
-	}    
-	@Test(priority=25)
-	public void SortingByDescending() throws Exception {
-		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillHistoricalReportData.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
-		ReportDetails reportDetails= new ReportDetails(map);
-		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
-		ocmReportsPage.showReport(reportDetails);        
-		AgentSkillHistoricalReportPage skillHistoricalPage=PageFactory.createPageInstance(driver,AgentSkillHistoricalReportPage.class);
-		skillHistoricalPage.SortByDescending();
-		String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\OCMSkillhistoricalReport (2).xlsx";
-		List<Map<String, String>> maplist = new ExcelReader(filePath1,"Sheet1").getTestData();
-		Assert.assertTrue(skillHistoricalPage.verifyexportToExcelSheet(maplist));
-	}
-	@Test(priority=26)
+	
+	@Test(priority=27)
 	public void SchedulereportinskillHistoricalPage() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillHistoricalReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ExportReport").getTestData().get(0);
@@ -301,7 +308,7 @@ public class SkillHistoricalReportTest extends BaseTest {
 		Assert.assertTrue(skillHistoricalPage.isExportSchedulerPageDisplayed(), "ExportScheduler page assertion failed");
 	}
 	
-	@Test(priority=27)
+	@Test(priority=28)
 	public void ExportToExcelForAgentSkillhistoricalReport() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillHistoricalReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -313,7 +320,7 @@ public class SkillHistoricalReportTest extends BaseTest {
 		agntloginlogoutPage.exportToExcel();
 		Assert.assertTrue(agntloginlogoutPage.verifyReportExported(),"export report assertion failed");
 	}   
-	@Test(priority=28,dependsOnMethods ="ExportToExcelForAgentSkillhistoricalReport")
+	@Test(priority=29,dependsOnMethods ="ExportToExcelForAgentSkillhistoricalReport")
 	public void ViewDownloadedOcmAgentSkillhistoricalReportInReportsDownloadPageinAgentSkillhistoricalPg() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillHistoricalReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ExportReport").getTestData().get(0);
@@ -325,7 +332,7 @@ public class SkillHistoricalReportTest extends BaseTest {
 		Assert.assertTrue(ocmReportsPage.verifyDownloadedReportNameAndTimeInReportsDownloadPage(reportDetails.getReportName()),"Report not found in Reporter download page");    
 	}      
 	
-	@Test(priority=29,dependsOnMethods ="ViewDownloadedOcmAgentSkillhistoricalReportInReportsDownloadPageinAgentSkillhistoricalPg",description="To verification of exported excel in Report downloads")
+	@Test(priority=30,dependsOnMethods ="ViewDownloadedOcmAgentSkillhistoricalReportInReportsDownloadPageinAgentSkillhistoricalPg",description="To verification of exported excel in Report downloads")
 	public void VerifyViewDownloadedOcmSkillHistoricalReportInReportsDownloadPageInMainPage() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillHistoricalReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
@@ -335,7 +342,7 @@ public class SkillHistoricalReportTest extends BaseTest {
 		Assert.assertTrue(ocmReportsPage.verifyExportedSheet("OCMReportDownload","OCM Skill Historical Repor"));	
 	}  
 	 
-	@Test(priority=30)
+	@Test(priority=31)
 	public void VerifySearchByFeatureForAgentSkillhistoricalReport() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillHistoricalReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -346,7 +353,7 @@ public class SkillHistoricalReportTest extends BaseTest {
 		Assert.assertTrue(ocmReportsPage.verifyDateRangeReportDisplayed(reportDetails),"Show report assertion failed");     
 		Assert.assertTrue(skillHistoricalPage.verifySearchByTextbox(reportDetails));
 	}
-	@Test(priority=31)
+	@Test(priority=32)
 	public void VerifySearchEqualsToSkillhistoricalReport() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillHistoricalReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -356,7 +363,7 @@ public class SkillHistoricalReportTest extends BaseTest {
 		AgentSkillHistoricalReportPage skillHistoricalPage=PageFactory.createPageInstance(driver,AgentSkillHistoricalReportPage.class);
 		Assert.assertTrue(skillHistoricalPage.verifySearchIsEqualTo(reportDetails.getSearchStr()));
 	}     
-	@Test(priority=32)
+	@Test(priority=33)
 	public void searchwithoutSearchTextbox() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillHistoricalReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -367,7 +374,7 @@ public class SkillHistoricalReportTest extends BaseTest {
 		skillHistoricalPage.searchwithoutextsearch(reportDetails);
 		Assert.assertEquals(skillHistoricalPage.getSuccessMessage(),"Please enter the text to search or remove the filter", "Add invalid record assertion failed");
 	}  
-	@Test(priority=33)
+	@Test(priority=34)
 	public void VerifySearchIsNotEqualTo() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillHistoricalReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -377,7 +384,7 @@ public class SkillHistoricalReportTest extends BaseTest {
 		AgentSkillHistoricalReportPage skillHistoricalPage=PageFactory.createPageInstance(driver,AgentSkillHistoricalReportPage.class);
 		Assert.assertTrue(skillHistoricalPage.verifySearchIsNotEqualTo(reportDetails.getSearchStr()));
 	}   
-	@Test(priority=34)
+	@Test(priority=35)
 	public void  VerifySearchContains() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillHistoricalReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(1);
@@ -387,7 +394,7 @@ public class SkillHistoricalReportTest extends BaseTest {
 		AgentSkillHistoricalReportPage skillHistoricalPage=PageFactory.createPageInstance(driver,AgentSkillHistoricalReportPage.class);
 		Assert.assertTrue(skillHistoricalPage.verifySearchContains(reportDetails.getSearchStr()));
 	}   
-	@Test(priority=35)
+	@Test(priority=36)
 	public void  VerifySearchDoesNotContains() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillHistoricalReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(1);
@@ -397,7 +404,7 @@ public class SkillHistoricalReportTest extends BaseTest {
 		AgentSkillHistoricalReportPage skillHistoricalPage=PageFactory.createPageInstance(driver,AgentSkillHistoricalReportPage.class);
 		Assert.assertTrue(skillHistoricalPage.verifySearchDoesNotContains(reportDetails.getSearchStr())); 
 	}    
-	@Test(priority=36)
+	@Test(priority=37)
 	public void  VerifySearchStartsWith() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillHistoricalReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(1);
@@ -407,7 +414,7 @@ public class SkillHistoricalReportTest extends BaseTest {
 		AgentSkillHistoricalReportPage skillHistoricalPage=PageFactory.createPageInstance(driver,AgentSkillHistoricalReportPage.class);
 		Assert.assertTrue(skillHistoricalPage.verifySearchStartsWith(reportDetails.getSearchStr()));
 	}
-	@Test(priority=37)
+	@Test(priority=38)
 	public void  VerifySearchEndsWith() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillHistoricalReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(2);
@@ -417,7 +424,7 @@ public class SkillHistoricalReportTest extends BaseTest {
 		AgentSkillHistoricalReportPage skillHistoricalPage=PageFactory.createPageInstance(driver,AgentSkillHistoricalReportPage.class);
 		Assert.assertTrue(skillHistoricalPage.verifySearchEndsWith(reportDetails.getSearchStr()));
 	}
-	@Test(priority=38)
+	@Test(priority=39)
 	public void SearchClearSearch() throws Exception{
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillHistoricalReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(2);
@@ -428,7 +435,7 @@ public class SkillHistoricalReportTest extends BaseTest {
 		Assert.assertTrue(skillHistoricalPage.verifySearchClear(reportDetails));    	
 	}
 	
-	@Test(priority=39)
+	@Test(priority=40)
 	public void verifyAdvancedSearchinreportpage() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillHistoricalReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(0);
@@ -438,7 +445,7 @@ public class SkillHistoricalReportTest extends BaseTest {
 		ocmReportsPage.showReport(reportDetails);
 		Assert.assertTrue(skillHistoricalPage.verifyAdvanceSearch(reportDetails));            
 	}
-	@Test(priority=40)
+	@Test(priority=41)
 	public void ClearfiltersAdvSrch() throws Exception{ 	
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillHistoricalReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(0);
@@ -447,7 +454,7 @@ public class SkillHistoricalReportTest extends BaseTest {
 		Assert.assertTrue(ocmReportsPage.ClearAdvFilters(reportDetails));
 	} 
 
-	@Test(priority=41)
+	@Test(priority=42)
 	public void GroupBy() throws Exception{
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillHistoricalReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -461,7 +468,7 @@ public class SkillHistoricalReportTest extends BaseTest {
 		screenshot.captureScreen("OCMAgentSkillhistoricalReport", "AlreadyGroupBy");
 	}	
 	
-	@Test(priority=42)
+	@Test(priority=43)
     public void verifyAdvancedSearchAddCriteria() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillHistoricalReportData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(0);
@@ -472,7 +479,7 @@ public class SkillHistoricalReportTest extends BaseTest {
     	Assert.assertTrue(skillHistoricalPage.advancedSearchAddCriteria(reportDetails));   	
     }
     
-    @Test(priority=43)
+    @Test(priority=44)
     public void verifyAdvancedSearchORCriteria() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillHistoricalReportData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(0);
@@ -483,7 +490,7 @@ public class SkillHistoricalReportTest extends BaseTest {
     	Assert.assertTrue(skillHistoricalPage.advancedSearchORCriteria(reportDetails));
     }
     
-    @Test(priority=44,description="To verify Advance Search Not Equal To")
+    @Test(priority=45,description="To verify Advance Search Not Equal To")
     public void verifyAdvancedSearchinreportpageSearchNotEqualTo() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillHistoricalReportData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(1);
@@ -494,7 +501,7 @@ public class SkillHistoricalReportTest extends BaseTest {
 		Assert.assertTrue(skillHistoricalPage.verifyAdvanceSearchNotEqualsTo(reportDetails)); 
     }
     
-    @Test(priority=45,description="To verify Advance Search Contains")
+    @Test(priority=46,description="To verify Advance Search Contains")
     public void verifyAdvancedSearchinreportpageSearchcontains() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillHistoricalReportData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(2);
@@ -505,7 +512,7 @@ public class SkillHistoricalReportTest extends BaseTest {
 		Assert.assertTrue(skillHistoricalPage.verifyAdvanceSearchContains(reportDetails)); 
     }
     
-    @Test(priority=46,description="To verify Advance Search DoesNot Contains")
+    @Test(priority=47,description="To verify Advance Search DoesNot Contains")
     public void verifyAdvancedSearchinreportpageSearchDoesnotcontains() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillHistoricalReportData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(3);
@@ -516,7 +523,7 @@ public class SkillHistoricalReportTest extends BaseTest {
 		Assert.assertTrue(skillHistoricalPage.verifyAdvanceSearchDoesNotContains(reportDetails)); 
      }
 
-    @Test(priority=47,description="To verify Advance Search Starts With")
+    @Test(priority=48,description="To verify Advance Search Starts With")
     public void verifyAdvancedSearchinreportpageSearchStartswith() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillHistoricalReportData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(4);
@@ -527,7 +534,7 @@ public class SkillHistoricalReportTest extends BaseTest {
 		Assert.assertTrue(skillHistoricalPage.verifyAdvanceSearchStartsWith(reportDetails)); 
      }
     
-    @Test(priority=48,description="To verify Advance Search Ends With")
+    @Test(priority=49,description="To verify Advance Search Ends With")
     public void verifyAdvancedSearchinreportpageSearchEndswith() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillHistoricalReportData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(5);
@@ -539,7 +546,7 @@ public class SkillHistoricalReportTest extends BaseTest {
      }
     
 	
-	@Test(priority=49,description="To verify Select Date feature")
+	@Test(priority=50,description="To verify Select Date feature")
     public void verifySelectdateFeature() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillHistoricalReportData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath,"DrillDown").getTestData().get(0);
@@ -550,7 +557,7 @@ public class SkillHistoricalReportTest extends BaseTest {
 		Assert.assertTrue(skillHistoricalPage.verifySelectDateFeature(reportDetails)); 
      }
 	
-	@Test(priority=50,description="To verify Select Date feature")
+	@Test(priority=51,description="To verify Select Date feature")
     public void verifySelectIntervalFeature() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillHistoricalReportData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath,"DrillDown").getTestData().get(0);
@@ -561,7 +568,7 @@ public class SkillHistoricalReportTest extends BaseTest {
 		Assert.assertTrue(skillHistoricalPage.verifySelectIntervalFeature(reportDetails)); 
      }
 	
-	@Test(priority=51,description="To Verify Arrow move for Previous and Next page for Drill Down One")
+	@Test(priority=52,description="To Verify Arrow move for Previous and Next page for Drill Down One")
 	public void VerifyArrowMoveForPreviousAndNextPageForDrillDownOne() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillHistoricalReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -571,7 +578,7 @@ public class SkillHistoricalReportTest extends BaseTest {
 		AgentSkillHistoricalReportPage skillHistoricalPage=PageFactory.createPageInstance(driver,AgentSkillHistoricalReportPage.class);
 		Assert.assertTrue(skillHistoricalPage.verifyArrowMoveForPreviousAndNextPageForDrillDownOne(reportDetails),"arrow move for previous and next page assertion failed");
 	} 
-	@Test(priority=52,description="To Verify Arrow move for first and last page for Drill Down One")
+	@Test(priority=53,description="To Verify Arrow move for first and last page for Drill Down One")
 	public void VerifyArrowMoveForFirstAndLastPageFoDrillDownOne() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillHistoricalReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -582,7 +589,7 @@ public class SkillHistoricalReportTest extends BaseTest {
 		Assert.assertTrue(skillHistoricalPage.verifyArrowMoveForFirstAndLastPageForDrillDownOne(reportDetails),"arrow move for first and last page assertion failed");
 	} 
 	
-	@Test(priority=53,description="To Verify Total Number of Items Per Page Details for Drill Down One")
+	@Test(priority=54,description="To Verify Total Number of Items Per Page Details for Drill Down One")
 	public void VerifyTotalNumberOfItemsPerPageDetailsFoDrillDownOne() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillHistoricalReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -593,7 +600,7 @@ public class SkillHistoricalReportTest extends BaseTest {
 		Assert.assertTrue(skillHistoricalPage.verifyTotalNumberOfItemsPerPageDetailsForDrillDownOne(),"item per page assertion failed");
 	}  
 	
-	@Test(priority=54,description="To Verify Arrow move for Previous and Next page for Drill Down two")
+	@Test(priority=55,description="To Verify Arrow move for Previous and Next page for Drill Down two")
 	public void VerifyArrowMoveForPreviousAndNextPageForDrillDowntwo() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillHistoricalReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -603,7 +610,7 @@ public class SkillHistoricalReportTest extends BaseTest {
 		AgentSkillHistoricalReportPage skillHistoricalPage=PageFactory.createPageInstance(driver,AgentSkillHistoricalReportPage.class);
 		Assert.assertTrue(skillHistoricalPage.verifyArrowMoveForPreviousAndNextPageForDrillDowntwo(reportDetails),"arrow move for previous and next page assertion failed");
 	} 
-	@Test(priority=55,description="To Verify Arrow move for first and last page for Drill Down two")
+	@Test(priority=56,description="To Verify Arrow move for first and last page for Drill Down two")
 	public void VerifyArrowMoveForFirstAndLastPageFoDrillDowntwo() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillHistoricalReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -614,7 +621,7 @@ public class SkillHistoricalReportTest extends BaseTest {
 		Assert.assertTrue(skillHistoricalPage.verifyArrowMoveForFirstAndLastPageForDrillDowntwo(reportDetails),"arrow move for first and last page assertion failed");
 	} 
 	
-	@Test(priority=56,description="To Verify Total Number of Items Per Page Details for Drill Down two")
+	@Test(priority=57,description="To Verify Total Number of Items Per Page Details for Drill Down two")
 	public void VerifyTotalNumberOfItemsPerPageDetailsFoDrillDowntwo() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillHistoricalReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -625,8 +632,8 @@ public class SkillHistoricalReportTest extends BaseTest {
 		Assert.assertTrue(skillHistoricalPage.verifyTotalNumberOfItemsPerPageDetailsForDrillDowntwo(),"item per page assertion failed");
 	}
 
-	@Test(priority=56,description="To Verify Total Number of Items Per Page Details for Drill Down two")
-	public void VerifyTotalNumberOfItemsPerPageDetailsFoDrillDowntwo() throws Exception {
+	@Test(priority=58,description="To Verify Ascending and Descending order")
+	public void VerifySorting() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillHistoricalReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
 		ReportDetails reportDetails= new ReportDetails(map);
@@ -635,8 +642,8 @@ public class SkillHistoricalReportTest extends BaseTest {
 		AgentSkillHistoricalReportPage skillHistoricalPage=PageFactory.createPageInstance(driver,AgentSkillHistoricalReportPage.class);
 		Assert.assertTrue(skillHistoricalPage.verifySorting(),"item per page assertion failed");
 	}
-*/
-	@Test(priority=38, description="To verify report data against DB")
+	
+	@Test(priority=59, description="To verify report data against DB")
 	public void database() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillHistoricalReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(0);

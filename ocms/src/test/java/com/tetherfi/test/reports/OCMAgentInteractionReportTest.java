@@ -611,7 +611,6 @@ public class OCMAgentInteractionReportTest extends BaseTest {
 		JSONReader json= new JSONReader(destinationFilePath);
 		Assert.assertTrue(agentInteractionPage.verifyJsonDataForgridColumnHidden(json.getJsonGridColumnTitleKeyDataForReports("Hidden")),"JSON data grid column hidden assertion failed");  	
 	}
-
     
     @Test(priority=38)
     public void database() throws Exception {
@@ -623,7 +622,6 @@ public class OCMAgentInteractionReportTest extends BaseTest {
     	OCMAgentInteractionReportPage AgentInteractionReportPage =PageFactory.createPageInstance(driver,OCMAgentInteractionReportPage.class);
     	Assert.assertTrue(AgentInteractionReportPage.verifyDatabase(reportDetails.getQuery(), reportDetails));
     }
-
     
     @AfterMethod
 	public void afterEachMethod(Method method) throws InterruptedException {
