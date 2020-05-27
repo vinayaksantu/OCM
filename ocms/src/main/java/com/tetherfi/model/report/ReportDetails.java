@@ -32,6 +32,7 @@ public class ReportDetails {
     private String interval;
     private String searchStr1;
     private String searchStr2;
+    private String getDeleteReason;
 
     
 
@@ -65,9 +66,15 @@ public class ReportDetails {
         interval=readInterval(map);
         searchStr1=readSearchStr1(map);
         searchStr2=readSearchStr2(map);
-
+        getDeleteReason=readDeleteReason(map);
         
     }
+    
+    private String readDeleteReason(Map<String, String> map) {
+    	String value=map.get("DeleteReason");
+    	return value;
+    }
+
     private String readSearchStr1(Map<String, String> map) {
         String value=map.get("Search String1");
         if(value==null||value.equalsIgnoreCase("random.str")){
@@ -300,5 +307,10 @@ public class ReportDetails {
     public String getSearchStr2() {
         return searchStr2;
     }
+    
+    public String getDeleteReason() {
+		return getDeleteReason;
+	}
+
 
 }

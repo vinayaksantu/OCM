@@ -300,7 +300,7 @@ public class OCMReportsPage extends BasePage {
 
 	@FindBy(css = "span[aria-owns='1001ColumnName_listbox']")
 	private WebElement searchColDropdownAdvSrchReportPage;
-	
+
 	@FindBy(xpath="//input[@placeholder='text to search...']")
 	private WebElement textToSearch;
 
@@ -327,19 +327,13 @@ public class OCMReportsPage extends BasePage {
 
 	//@FindBy(xpath="//input[@class='k-formatted-value k-input']")
 	@FindBy(css=".k-widget .k-state-default .k-formatted-value")
-	private WebElement getNumberTxtbox;
+	private List<WebElement> getNumberTxtbox;
 
 	@FindBy(css="#number")
 	private WebElement getNumberTxtbox1;
-	
+
 	@FindBy(xpath="//span[@class='k-pager-info k-label']")
 	private WebElement items;
-
-	//@FindBy(css=".k-widget.k-numerictextbox")
-	//@FindBy(xpath="//input[@class='k-formatted-value k-input']//following-sibling::input[@id='number']")
-	//private WebElement getNumberTxtbox;
-
-
 
 	@FindBy(xpath="//span[@class='k-icon k-i-arrow-60-up']")
 	private WebElement increasearrow;
@@ -355,6 +349,25 @@ public class OCMReportsPage extends BasePage {
 
 	@FindBy(xpath="//a[@class='k-button k-button-icontext k-grid-Download']")
 	private List<WebElement> downloadBtn;
+	
+	@FindBy(id = "yesButton")
+	private WebElement deleteYesBtn;
+
+	@FindBy(id = "noButton")
+	private WebElement deleteNoBtn;
+	
+	@FindBy(id = "ModifyReason1")
+	private WebElement deleteReasonTextBox;
+	
+	@FindBy(xpath="//a[@class='k-button k-button-icontext k-grid-CustomDelete']")
+	private List<WebElement> deleteReportinInReportDownloadpage;
+	
+	@FindBy(css="div[style='display: block; z-index: 10002; opacity: 0.5;']")
+	private WebElement deleteContainer;
+	
+	@FindBy(xpath="//button[@class='swal-button swal-button--confirm swal-button--danger']")
+	private WebElement alertOk;
+
 
 
 	public boolean isShowButtonsDisplayed() {
@@ -907,414 +920,6 @@ public class OCMReportsPage extends BasePage {
 
 	}
 
-	public void quickInputforSeconds(ReportDetails details) throws Exception {
-
-		waitUntilWebElementIsVisible(formContents);
-		try {
-			Thread.sleep(5000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		selectWebElement(reportChannelDropdown);
-		selectDropdownFromVisibleText(reportChannelListBox, details.getReportChannel());
-		waitForJqueryLoad(driver);
-		selectWebElement(reportNameDropdown);
-		selectDropdownFromVisibleText(reportNameListbox, details.getReportName());
-		waitForJqueryLoad(driver);
-		selectWebElement(reportTypeDropdown);
-		selectDropdownFromVisibleText(reportTypeListbox, details.getReportType());
-		if(details.getReportType().equalsIgnoreCase("Date Range")){
-			selectWebElement(quickInputBtn);
-			//Thread.sleep(1000);
-			/*waitUntilWebElementIsVisible(getNumberTxtbox);
-
-        selectWebElement(getNumberTxtbox1);
-        enterValueToTxtField(getNumberTxtbox, details.getNumber());
-        enterValueToTxtField(getNumberTxtbox1, details.getNumber());
-        //selectWebElement(increasearrow);
-        //selectWebElement(increasearrow);*/
-			//clickOn(getNumberTxtbox);
-			//Thread.sleep(2000);
-			//selectWebElement(increasearrow);
-			// //clickOn(getNumberTxtbox1);
-			//enterValueToTxtField(getNumberTxtbox, details.getNumber());
-			System.out.println(details.getNumber());
-			int num=Integer.parseInt(details.getNumber());
-			selectWebElement(numberDropdown);
-			selectDropdownFromVisibleText(NumberTypeListbox,details.getCalendarType());
-			System.out.println(details.getCalendarType());       
-			selectWebElement(applyDataBtn);                         
-			String str1;//=details.getStartDate();
-			//details.getStartDate()=
-			Date dNow = new Date( );
-			Calendar c = Calendar.getInstance();
-			c.setTime(dNow);
-			//c.add(Calendar.DATE);//sub 6 months
-			System.out.println(dNow);
-			//String str2 = dNow;
-			SimpleDateFormat ft =new SimpleDateFormat ("dd-MM-yyyy HH:mm:ss");
-			str1=ft.format(c.getTime());
-			System.out.println(str1);
-			String year=str1.substring(6,10);
-			String month=str1.substring(3,5);
-			String day=str1.substring(0,2);
-			String hours=str1.substring(11,13);
-			String minutes=str1.substring(14,16);
-			String secs=str1.substring(17,19);   	
-			String fomattedEndDate=year+month+day+" "+hours+minutes+secs;
-			Integer	secs1=Integer.parseInt(secs) - num ;
-			secs=Integer.toString(secs1);
-			String fomattedStartDate =year+month+day+" "+hours+minutes+secs;//20200514 160732      
-			enterValueToTxtField(startDate,fomattedStartDate);
-			enterValueToTxtField(endDate,fomattedEndDate);         	    	
-			System.out.println(year);
-			System.out.println("month:"+ month);
-			System.out.println("day:"+day);
-			System.out.println(hours);
-			System.out.println(minutes);
-			System.out.println(secs);}       
-		waitUntilWebElementIsVisible(showReportBtn.get(0));
-		selectWebElement(showReportBtn.get(0));  	
-
-	}
-	public void quickInputforMinutes(ReportDetails details) throws Exception {
-
-		waitUntilWebElementIsVisible(formContents);
-		try {
-			Thread.sleep(5000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		selectWebElement(reportChannelDropdown);
-		selectDropdownFromVisibleText(reportChannelListBox, details.getReportChannel());
-		waitForJqueryLoad(driver);
-		selectWebElement(reportNameDropdown);
-		selectDropdownFromVisibleText(reportNameListbox, details.getReportName());
-		waitForJqueryLoad(driver);
-		selectWebElement(reportTypeDropdown);
-		selectDropdownFromVisibleText(reportTypeListbox, details.getReportType());
-		if(details.getReportType().equalsIgnoreCase("Date Range")){
-			selectWebElement(quickInputBtn);
-			System.out.println(details.getNumber());
-			int num=Integer.parseInt(details.getNumber());
-			selectWebElement(numberDropdown);
-			selectDropdownFromVisibleText(NumberTypeListbox,details.getCalendarType());
-			System.out.println(details.getCalendarType());       
-			selectWebElement(applyDataBtn);                         
-			String str1;
-			Date dNow = new Date( );
-			Calendar c = Calendar.getInstance();
-			c.setTime(dNow);
-			System.out.println(dNow);
-			//String str2 = dNow;
-			SimpleDateFormat ft =new SimpleDateFormat ("dd-MM-yyyy HH:mm:ss");
-			str1=ft.format(c.getTime());
-			System.out.println(str1);
-			String year=str1.substring(6,10);
-			String month=str1.substring(3,5);
-			String day=str1.substring(0,2);
-			String hours=str1.substring(11,13);
-			String minutes=str1.substring(14,16);
-			String secs=str1.substring(17,19);   	
-			String fomattedEndDate=year+month+day+" "+hours+minutes+secs;
-			Integer	minutes1=Integer.parseInt(minutes) - num ;
-			minutes=Integer.toString(minutes1);
-			String fomattedStartDate =year+month+day+" "+hours+minutes+secs;//20200514 160732      
-			enterValueToTxtField(startDate,fomattedStartDate);
-			enterValueToTxtField(endDate,fomattedEndDate);         	    	
-			System.out.println(year);
-			System.out.println("month:"+ month);
-			System.out.println("day:"+day);
-			System.out.println("hours"+hours);
-			System.out.println(minutes);
-			System.out.println(secs);}       
-		waitUntilWebElementIsVisible(showReportBtn.get(0));
-		selectWebElement(showReportBtn.get(0));  	 	  		
-	}
-	public void quickInputforhours(ReportDetails details) throws Exception {
-
-		waitUntilWebElementIsVisible(formContents);
-		try {
-			Thread.sleep(5000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		selectWebElement(reportChannelDropdown);
-		selectDropdownFromVisibleText(reportChannelListBox, details.getReportChannel());
-		waitForJqueryLoad(driver);
-		selectWebElement(reportNameDropdown);
-		selectDropdownFromVisibleText(reportNameListbox, details.getReportName());
-		waitForJqueryLoad(driver);
-		selectWebElement(reportTypeDropdown);
-		selectDropdownFromVisibleText(reportTypeListbox, details.getReportType());
-		if(details.getReportType().equalsIgnoreCase("Date Range")){
-			selectWebElement(quickInputBtn);
-			System.out.println(details.getNumber());
-			int num=Integer.parseInt(details.getNumber());
-			selectWebElement(numberDropdown);
-			selectDropdownFromVisibleText(NumberTypeListbox,details.getCalendarType());
-			System.out.println(details.getCalendarType());       
-			selectWebElement(applyDataBtn);                         
-			String str1;
-			Date dNow = new Date( );
-			Calendar c = Calendar.getInstance();
-			c.setTime(dNow);
-			System.out.println(dNow);
-			//c.add(Calendar.DATE);
-			//String str2 = dNow;
-			SimpleDateFormat ft =new SimpleDateFormat ("dd-MM-yyyy HH:mm:ss");
-			str1=ft.format(c.getTime());
-			System.out.println(str1);
-			String year=str1.substring(6,10);
-			String month=str1.substring(3,5);
-			String day=str1.substring(0,2);
-			String hours=str1.substring(11,13);
-			String minutes=str1.substring(14,16);
-			String secs=str1.substring(17,19);   	
-			String fomattedEndDate=year+month+day+" "+hours+minutes+secs;
-			Integer	hours1=Integer.parseInt(hours) - num ;
-			hours=Integer.toString(hours1);
-			String fomattedStartDate =year+month+day+" "+hours+minutes+secs;//20200514 160732      
-			enterValueToTxtField(startDate,fomattedStartDate);
-			enterValueToTxtField(endDate,fomattedEndDate);         	    	
-			System.out.println(year);
-			System.out.println("month:"+ month);
-			System.out.println("day:"+day);
-			System.out.println("hours"+hours);
-			System.out.println(minutes);
-			System.out.println(secs);}       
-		waitUntilWebElementIsVisible(showReportBtn.get(0));
-		selectWebElement(showReportBtn.get(0));  	
-
-	}	
-	public void quickInputforDay(ReportDetails details) throws Exception {
-
-		waitUntilWebElementIsVisible(formContents);
-		try {
-			Thread.sleep(5000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		selectWebElement(reportChannelDropdown);
-		selectDropdownFromVisibleText(reportChannelListBox, details.getReportChannel());
-		waitForJqueryLoad(driver);
-		selectWebElement(reportNameDropdown);
-		selectDropdownFromVisibleText(reportNameListbox, details.getReportName());
-		waitForJqueryLoad(driver);
-		selectWebElement(reportTypeDropdown);
-		selectDropdownFromVisibleText(reportTypeListbox, details.getReportType());
-		if(details.getReportType().equalsIgnoreCase("Date Range")){
-			selectWebElement(quickInputBtn);
-			System.out.println(details.getNumber());
-			int num=Integer.parseInt(details.getNumber());
-			selectWebElement(numberDropdown);
-			selectDropdownFromVisibleText(NumberTypeListbox,details.getCalendarType());
-			System.out.println(details.getCalendarType());       
-			selectWebElement(applyDataBtn);                         
-			String str1;
-			Date dNow = new Date( );
-			Calendar c = Calendar.getInstance();
-			c.setTime(dNow);
-			System.out.println(dNow);
-			c.add(Calendar.DAY_OF_MONTH,-num);
-			//String str2 = dNow;
-			SimpleDateFormat ft =new SimpleDateFormat ("dd-MM-yyyy HH:mm:ss");
-			str1=ft.format(c.getTime());
-			System.out.println(str1);
-			String year=str1.substring(6,10);
-			String month=str1.substring(3,5);
-			String day=str1.substring(0,2);
-			String hours=str1.substring(11,13);
-			String minutes=str1.substring(14,16);
-			String secs=str1.substring(17,19);   	
-			String fomattedEndDate=year+month+day+" "+hours+minutes+secs;
-			Integer	day1=Integer.parseInt(day) - num ;
-			day=Integer.toString(day1);
-			String fomattedStartDate =year+month+day+" "+hours+minutes+secs;//20200514 160732      
-			enterValueToTxtField(startDate,fomattedStartDate);
-			enterValueToTxtField(endDate,fomattedEndDate);         	    	
-			System.out.println(year);
-			System.out.println("month:"+ month);
-			System.out.println("day:"+day);
-			System.out.println("hours"+hours);
-			System.out.println(minutes);
-			System.out.println(secs);}       
-		waitUntilWebElementIsVisible(showReportBtn.get(0));
-		selectWebElement(showReportBtn.get(0));  	
-
-	}
-	public void quickInputforWeek(ReportDetails details) throws Exception {
-
-		waitUntilWebElementIsVisible(formContents);
-		try {
-			Thread.sleep(5000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		selectWebElement(reportChannelDropdown);
-		selectDropdownFromVisibleText(reportChannelListBox, details.getReportChannel());
-		waitForJqueryLoad(driver);
-		selectWebElement(reportNameDropdown);
-		selectDropdownFromVisibleText(reportNameListbox, details.getReportName());
-		waitForJqueryLoad(driver);
-		selectWebElement(reportTypeDropdown);
-		selectDropdownFromVisibleText(reportTypeListbox, details.getReportType());
-		if(details.getReportType().equalsIgnoreCase("Date Range")){
-			selectWebElement(quickInputBtn);
-			System.out.println(details.getNumber());
-			int num=Integer.parseInt(details.getNumber());
-			selectWebElement(numberDropdown);
-			selectDropdownFromVisibleText(NumberTypeListbox,details.getCalendarType());
-			System.out.println(details.getCalendarType());       
-			selectWebElement(applyDataBtn);                         
-			String str1;
-			Date dNow = new Date( );
-			Calendar c = Calendar.getInstance();
-			c.setTime(dNow);
-			System.out.println(dNow);
-			c.add(Calendar.WEEK_OF_MONTH,-num);
-			//String str2 = dNow;
-			SimpleDateFormat ft =new SimpleDateFormat ("dd-MM-yyyy HH:mm:ss");
-			str1=ft.format(c.getTime());
-			System.out.println(str1);
-			String year=str1.substring(6,10);
-			String month=str1.substring(3,5);
-			String day=str1.substring(0,2);
-			String hours=str1.substring(11,13);
-			String minutes=str1.substring(14,16);
-			String secs=str1.substring(17,19);   	
-			String fomattedEndDate=year+month+day+" "+hours+minutes+secs;
-			Integer	hours1=Integer.parseInt(hours) - num ;
-			hours=Integer.toString(hours1);
-			String fomattedStartDate =year+month+day+" "+hours+minutes+secs;//20200514 160732      
-			enterValueToTxtField(startDate,fomattedStartDate);
-			enterValueToTxtField(endDate,fomattedEndDate);         	    	
-			System.out.println(year);
-			System.out.println("month:"+ month);
-			System.out.println("day:"+day);
-			System.out.println("hours"+hours);
-			System.out.println(minutes);
-			System.out.println(secs);}       
-		waitUntilWebElementIsVisible(showReportBtn.get(0));
-		selectWebElement(showReportBtn.get(0));  	
-
-	}
-
-	public void quickInputforMonth(ReportDetails details) throws Exception {
-
-		waitUntilWebElementIsVisible(formContents);
-		try {
-			Thread.sleep(5000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		selectWebElement(reportChannelDropdown);
-		selectDropdownFromVisibleText(reportChannelListBox, details.getReportChannel());
-		waitForJqueryLoad(driver);
-		selectWebElement(reportNameDropdown);
-		selectDropdownFromVisibleText(reportNameListbox, details.getReportName());
-		waitForJqueryLoad(driver);
-		selectWebElement(reportTypeDropdown);
-		selectDropdownFromVisibleText(reportTypeListbox, details.getReportType());
-		if(details.getReportType().equalsIgnoreCase("Date Range")){
-			selectWebElement(quickInputBtn);
-			System.out.println(details.getNumber());
-			int num=Integer.parseInt(details.getNumber());
-			waitUntilWebElementIsVisible(numberDropdown);
-			selectWebElement(numberDropdown);
-			//Thread.sleep(1000);
-			selectDropdownFromVisibleText(NumberTypeListbox,details.getCalendarType());
-			System.out.println(details.getCalendarType());       
-			selectWebElement(applyDataBtn);                         
-			String str1;
-			Date dNow = new Date( );
-			Calendar c = Calendar.getInstance();
-			c.setTime(dNow);
-			System.out.println(dNow);
-			c.add(Calendar.MONTH,-num);
-			//String str2 = dNow;
-			SimpleDateFormat ft =new SimpleDateFormat ("dd-MM-yyyy HH:mm:ss");
-			str1=ft.format(c.getTime());
-			System.out.println(str1);
-			String year=str1.substring(6,10);
-			String month=str1.substring(3,5);
-			String day=str1.substring(0,2);
-			String hours=str1.substring(11,13);
-			String minutes=str1.substring(14,16);
-			String secs=str1.substring(17,19);   	
-			String fomattedEndDate=year+month+day+" "+hours+minutes+secs;
-			Integer	month1=Integer.parseInt(month) - num ;
-			month=Integer.toString(month1);
-			String fomattedStartDate =year+month+day+" "+hours+minutes+secs;//20200514 160732      
-			enterValueToTxtField(startDate,fomattedStartDate);
-			enterValueToTxtField(endDate,fomattedEndDate);         	    	
-			System.out.println(year);
-			System.out.println("month:"+ month);
-			System.out.println("day:"+day);
-			System.out.println("hours"+hours);
-			System.out.println(minutes);
-			System.out.println(secs);}       
-		waitUntilWebElementIsVisible(showReportBtn.get(0));
-		selectWebElement(showReportBtn.get(0));  	
-
-	}
-	public void quickInputforYear(ReportDetails details) throws Exception {
-
-		waitUntilWebElementIsVisible(formContents);
-		try {
-			Thread.sleep(5000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		selectWebElement(reportChannelDropdown);
-		selectDropdownFromVisibleText(reportChannelListBox, details.getReportChannel());
-		waitForJqueryLoad(driver);
-		selectWebElement(reportNameDropdown);
-		selectDropdownFromVisibleText(reportNameListbox, details.getReportName());
-		waitForJqueryLoad(driver);
-		selectWebElement(reportTypeDropdown);
-		selectDropdownFromVisibleText(reportTypeListbox, details.getReportType());
-		if(details.getReportType().equalsIgnoreCase("Date Range")){
-			selectWebElement(quickInputBtn);
-			System.out.println(details.getNumber());
-			int num=Integer.parseInt(details.getNumber());
-			selectWebElement(numberDropdown);
-			Thread.sleep(1000);
-			selectDropdownFromVisibleText(NumberTypeListbox,details.getCalendarType());
-			System.out.println(details.getCalendarType());       
-			selectWebElement(applyDataBtn);                         
-			String str1;
-			Date dNow = new Date( );
-			Calendar c = Calendar.getInstance();
-			c.setTime(dNow);
-			System.out.println(dNow);
-			c.add(Calendar.YEAR,-num);
-			//String str2 = dNow;
-			SimpleDateFormat ft =new SimpleDateFormat ("dd-MM-yyyy HH:mm:ss");
-			str1=ft.format(c.getTime());
-			System.out.println(str1);
-			String year=str1.substring(6,10);
-			String month=str1.substring(3,5);
-			String day=str1.substring(0,2);
-			String hours=str1.substring(11,13);
-			String minutes=str1.substring(14,16);
-			String secs=str1.substring(17,19);   	
-			String fomattedEndDate=year+month+day+" "+hours+minutes+secs;
-			Integer	year1=Integer.parseInt(year) - num ;
-			year=Integer.toString(year1);
-			String fomattedStartDate =year+month+day+" "+hours+minutes+secs;//20200514 160732      
-			enterValueToTxtField(startDate,fomattedStartDate);
-			enterValueToTxtField(endDate,fomattedEndDate);         	    	
-			System.out.println(year);
-			System.out.println("month:"+ month);
-			System.out.println("day:"+day);
-			System.out.println("hours"+hours);
-			System.out.println(minutes);
-			System.out.println(secs);}       
-		waitUntilWebElementIsVisible(showReportBtn.get(0));
-		selectWebElement(showReportBtn.get(0));  	
-
-	}
 
 
 	public String formatDate(String date){
@@ -7414,13 +7019,13 @@ public class OCMReportsPage extends BasePage {
 		else
 			status=true;
 		return status;
-			
+
 	}
 
 
 	public boolean verifyExportedSheet(String pattern, String SheetName) throws Exception {	
 		List<Map<String,String>> UI=getdata(); 
-   		List<Map<String, String>> maplist = new ExcelReader(getdownloadedData(pattern),SheetName).getExcelData();
+		List<Map<String, String>> maplist = new ExcelReader(getdownloadedData(pattern),SheetName).getExcelData();
 		System.out.println(UI);
 		System.out.println(maplist);
 		if(UI.equals(maplist))
@@ -7428,7 +7033,7 @@ public class OCMReportsPage extends BasePage {
 		else
 			return false;
 	}
-	
+
 	private String getdownloadedData(String pattern)
 	{
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles";
@@ -7439,8 +7044,8 @@ public class OCMReportsPage extends BasePage {
 			actualName = file.getName();
 			System.out.println(actualName);
 			if (actualName.startsWith(pattern)) {
-			filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\"+actualName;
-			break;
+				filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\"+actualName;
+				break;
 			}
 		}
 		System.out.println(filePath);
@@ -7479,9 +7084,480 @@ public class OCMReportsPage extends BasePage {
 	}
 
 	public void ClearHomepgDrpDown(ReportDetails details) throws Exception {
-			chooseReport(details);
-			waitUntilWebElementIsClickable(ClearAll);
-			selectWebElement(ClearAll);
-			}
+		chooseReport(details);
+		waitUntilWebElementIsClickable(ClearAll);
+		selectWebElement(ClearAll);
+	}
+
+	public void deleteWithoutDeleteReason(ReportDetails details) throws Exception {
+
+		waitUntilWebElementIsVisible(deleteReportinInReportDownloadpage.get(0));
+		selectWebElement(deleteReportinInReportDownloadpage.get(0));
+		waitForJqueryLoad(driver);
+		selectWebElement(deleteYesBtn);
+		selectWebElement(deleteNoBtn);
+	}
+	public void deletecancelButton(ReportDetails details) throws Exception{	
+		waitUntilWebElementIsVisible(deleteReportinInReportDownloadpage.get(0));
+		selectWebElement(deleteReportinInReportDownloadpage.get(0));
+		selectWebElement(deleteNoBtn);
+	}
+	public void deleteRecordAtReportsDownloadsPage(ReportDetails details) throws Exception {
+
+		waitUntilWebElementIsVisible(deleteReportinInReportDownloadpage.get(0));
+		selectWebElement(deleteReportinInReportDownloadpage.get(0));
+		waitForJqueryLoad(driver);
+		enterValueToTxtFieldWithoutClear(deleteReasonTextBox,details.getDeleteReason());
+		selectWebElement(deleteYesBtn);	
+		selectWebElement(alertOk);
+	}
+	public boolean verifyDeleteContainer() {
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		return isElementExist(deleteContainer);
+	}
+	public void quickInputWithoutNumber(ReportDetails details) throws Exception {
+
+		waitUntilWebElementIsVisible(formContents);
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		selectWebElement(reportChannelDropdown);
+		selectDropdownFromVisibleText(reportChannelListBox, details.getReportChannel());
+		waitForJqueryLoad(driver);
+		selectWebElement(reportNameDropdown);
+		selectDropdownFromVisibleText(reportNameListbox, details.getReportName());
+		waitForJqueryLoad(driver);
+		selectWebElement(quickInputBtn);
+		System.out.println(details.getNumber());
+		int num=Integer.parseInt(details.getNumber());
+		waitUntilWebElementIsVisible(numberDropdown);
+		selectWebElement(numberDropdown);
+		selectDropdownFromVisibleText(NumberTypeListbox,details.getCalendarType());
+		System.out.println(details.getCalendarType());       
+		selectWebElement(applyDataBtn);                         
+	}  	
+
+	public void quickInputforSeconds(ReportDetails details) throws Exception {
+
+		Boolean status=false;
+		waitUntilWebElementIsVisible(formContents);
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		selectWebElement(reportChannelDropdown);
+		selectDropdownFromVisibleText(reportChannelListBox, details.getReportChannel());
+		waitForJqueryLoad(driver);
+		selectWebElement(reportNameDropdown);
+		selectDropdownFromVisibleText(reportNameListbox, details.getReportName());
+		waitForJqueryLoad(driver);
+		selectWebElement(quickInputBtn);
+		Thread.sleep(1000);
+		selectWebElement(getNumberTxtbox.get(1));
+		enterValueToTxtFieldWithoutClear(getNumberTxtbox1, details.getNumber());
+		waitUntilWebElementIsVisible(numberDropdown);
+		selectWebElement(numberDropdown);
+		selectDropdownFromVisibleText(NumberTypeListbox,details.getCalendarType());
+		System.out.println(details.getCalendarType());    
+		System.out.println(details.getNumber());
+		Date dNow = new Date( );
+		Calendar c = Calendar.getInstance();
+		c.setTime(dNow);
+		System.out.println(dNow);
+		int num=Integer.parseInt(details.getNumber());         
+		selectWebElement(applyDataBtn);                         
+		String str1;
+		String StartDate=startDate.getText();
+		System.out.println(StartDate);
+		c.add(Calendar.SECOND,-num);
+		//String str2 = dNow;
+		SimpleDateFormat ft =new SimpleDateFormat ("dd-MM-yyyy HH:mm:ss");
+		str1=ft.format(c.getTime());
+		System.out.println(str1);
+		String year=str1.substring(6,10);
+		String month=str1.substring(3,5);
+		String day=str1.substring(0,2);
+		String hours=str1.substring(11,13);
+		String minutes=str1.substring(14,16);
+		String secs=str1.substring(17,19); 
+		String fomattedStartDate =year+month+day+" "+hours+minutes+secs;//20200514 160732  
+		/*if (StartDate.equals(fomattedStartDate))
+        	status =true;
+        else
+        status= false;
+       return status;*/
+
+		waitUntilWebElementIsVisible(showReportBtn.get(0));
+		selectWebElement(showReportBtn.get(0));  	
+
+	}
+	public void quickInputforMinutes(ReportDetails details) throws Exception {
+
+		waitUntilWebElementIsVisible(formContents);
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		selectWebElement(reportChannelDropdown);
+		selectDropdownFromVisibleText(reportChannelListBox, details.getReportChannel());
+		waitForJqueryLoad(driver);
+		selectWebElement(reportNameDropdown);
+		selectDropdownFromVisibleText(reportNameListbox, details.getReportName());
+		waitForJqueryLoad(driver);
+		selectWebElement(quickInputBtn);
+		Thread.sleep(1000);
+		selectWebElement(getNumberTxtbox.get(1));
+		enterValueToTxtFieldWithoutClear(getNumberTxtbox1, details.getNumber());
+		waitUntilWebElementIsVisible(numberDropdown);
+		selectWebElement(numberDropdown);
+		selectDropdownFromVisibleText(NumberTypeListbox,details.getCalendarType());
+		System.out.println(details.getCalendarType());    
+		System.out.println(details.getNumber());
+		int num=Integer.parseInt(details.getNumber());
+		String str1;  
+		selectWebElement(applyDataBtn);                             
+		Date dNow = new Date( );
+		Calendar c = Calendar.getInstance();
+		c.setTime(dNow);
+		System.out.println(dNow);
+		c.add(Calendar.MINUTE,-num);
+		//String str2 = dNow;
+		SimpleDateFormat ft =new SimpleDateFormat ("dd-MM-yyyy HH:mm:ss");
+		str1=ft.format(c.getTime());
+		System.out.println(str1);
+		String year=str1.substring(6,10);
+		String month=str1.substring(3,5);
+		String day=str1.substring(0,2);
+		String hours=str1.substring(11,13);
+		String minutes=str1.substring(14,16);
+		String secs=str1.substring(17,19);   	
+		String fomattedStartDate =year+month+day+" "+hours+minutes+secs;//20200514 160732      
+		enterValueToTxtField(startDate,fomattedStartDate);         	    	
+
+		waitUntilWebElementIsVisible(showReportBtn.get(0));
+		selectWebElement(showReportBtn.get(0));	
+
+	}
+
+
+	public void quickInputforhours(ReportDetails details) throws Exception {
+		waitUntilWebElementIsVisible(formContents);
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		selectWebElement(reportChannelDropdown);
+		selectDropdownFromVisibleText(reportChannelListBox, details.getReportChannel());
+		waitForJqueryLoad(driver);
+		selectWebElement(reportNameDropdown);
+		selectDropdownFromVisibleText(reportNameListbox, details.getReportName());
+		waitForJqueryLoad(driver);
+		selectWebElement(reportTypeDropdown);
+		selectWebElement(quickInputBtn);
+		Thread.sleep(1000);
+		selectWebElement(getNumberTxtbox.get(1));
+		enterValueToTxtFieldWithoutClear(getNumberTxtbox1, details.getNumber());
+		waitUntilWebElementIsVisible(numberDropdown);
+		selectWebElement(numberDropdown);
+		selectDropdownFromVisibleText(NumberTypeListbox,details.getCalendarType());
+		System.out.println(details.getCalendarType());    
+		System.out.println(details.getNumber());
+		int num=Integer.parseInt(details.getNumber());
+		String str1;  
+		selectWebElement(applyDataBtn);                              
+		Date dNow = new Date( );
+		Calendar c = Calendar.getInstance();
+		c.setTime(dNow);
+		System.out.println(dNow);
+		c.add(Calendar.HOUR,-num);
+		//String str2 = dNow;
+		SimpleDateFormat ft =new SimpleDateFormat ("dd-MM-yyyy HH:mm:ss");
+		str1=ft.format(c.getTime());
+		System.out.println(str1);
+		String year=str1.substring(6,10);
+		String month=str1.substring(3,5);
+		String day=str1.substring(0,2);
+		String hours=str1.substring(11,13);
+		String minutes=str1.substring(14,16);
+		String secs=str1.substring(17,19);   	
+		String fomattedStartDate =year+month+day+" "+hours+minutes+secs;//20200514 160732      
+		enterValueToTxtField(startDate,fomattedStartDate);       
+		waitUntilWebElementIsVisible(showReportBtn.get(0));
+		selectWebElement(showReportBtn.get(0));
+
+	}	
+	public void quickInputforDay(ReportDetails details) throws Exception {
+
+		waitUntilWebElementIsVisible(formContents);
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		selectWebElement(reportChannelDropdown);
+		selectDropdownFromVisibleText(reportChannelListBox, details.getReportChannel());
+		waitForJqueryLoad(driver);
+		selectWebElement(reportNameDropdown);
+		selectDropdownFromVisibleText(reportNameListbox, details.getReportName());
+		waitForJqueryLoad(driver);
+		selectWebElement(reportTypeDropdown);
+		selectWebElement(quickInputBtn);
+		Thread.sleep(1000);
+		selectWebElement(getNumberTxtbox.get(1));
+		enterValueToTxtFieldWithoutClear(getNumberTxtbox1, details.getNumber());
+		waitUntilWebElementIsVisible(numberDropdown);
+		selectWebElement(numberDropdown);
+		selectDropdownFromVisibleText(NumberTypeListbox,details.getCalendarType());
+		System.out.println(details.getCalendarType());    
+		System.out.println(details.getNumber());
+		int num=Integer.parseInt(details.getNumber());
+		String str1; 
+		selectWebElement(applyDataBtn);                                
+		Date dNow = new Date( );
+		Calendar c = Calendar.getInstance();
+		c.setTime(dNow);
+		System.out.println(dNow);
+		c.add(Calendar.DATE,-num);
+		//String str2 = dNow;
+		SimpleDateFormat ft =new SimpleDateFormat ("dd-MM-yyyy HH:mm:ss");
+		str1=ft.format(c.getTime());
+		System.out.println(str1);
+		String year=str1.substring(6,10);
+		String month=str1.substring(3,5);
+		String day=str1.substring(0,2);
+		String hours=str1.substring(11,13);
+		String minutes=str1.substring(14,16);
+		String secs=str1.substring(17,19);   	
+		String fomattedStartDate =year+month+day+" "+hours+minutes+secs;//20200514 160732      
+		enterValueToTxtField(startDate,fomattedStartDate);          
+		waitUntilWebElementIsVisible(showReportBtn.get(0));
+		selectWebElement(showReportBtn.get(0)); 
+	}
+	public void quickInputforInvalidDay(ReportDetails details) throws Exception {
+
+		waitUntilWebElementIsVisible(formContents);
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		selectWebElement(reportChannelDropdown);
+		selectDropdownFromVisibleText(reportChannelListBox, details.getReportChannel());
+		waitForJqueryLoad(driver);
+		selectWebElement(reportNameDropdown);
+		selectDropdownFromVisibleText(reportNameListbox, details.getReportName());
+		waitForJqueryLoad(driver);
+		selectWebElement(reportTypeDropdown);        
+		selectWebElement(quickInputBtn);
+		Thread.sleep(1000);
+		selectWebElement(getNumberTxtbox.get(1));
+		enterValueToTxtFieldWithoutClear(getNumberTxtbox1, details.getNumber());
+		waitUntilWebElementIsVisible(numberDropdown);
+		selectWebElement(numberDropdown);
+		selectDropdownFromVisibleText(NumberTypeListbox,details.getCalendarType());
+		System.out.println(details.getCalendarType());    
+		System.out.println(details.getNumber());
+		int num=Integer.parseInt(details.getNumber());          
+		selectWebElement(applyDataBtn);                         
+		String str1;
+		Date dNow = new Date( );
+		Calendar c = Calendar.getInstance();
+		c.setTime(dNow);
+		System.out.println(dNow);
+		c.add(Calendar.DATE,-num);
+		//String str2 = dNow;
+		SimpleDateFormat ft =new SimpleDateFormat ("dd-MM-yyyy HH:mm:ss");
+		str1=ft.format(c.getTime());
+		System.out.println(str1);
+		String year=str1.substring(6,10);
+		String month=str1.substring(3,5);
+		String day=str1.substring(0,2);
+		String hours=str1.substring(11,13);
+		String minutes=str1.substring(14,16);
+		String secs=str1.substring(17,19);   	
+		String fomattedStartDate =year+month+day+" "+hours+minutes+secs;//20200514 160732      
+		//enterValueToTxtField(startDate,fomattedStartDate);
+		enterValueToTxtField(startDate,str1);
+		Date dNow1 = new Date( );
+		Calendar c1 = Calendar.getInstance();
+		c.setTime(dNow1);
+		System.out.println(dNow1);
+		//c.add(Calendar.DATE,-num);
+		String str2;
+		SimpleDateFormat ft1 =new SimpleDateFormat ("dd-MM-yyyy HH:mm:ss");
+		str2=ft1.format(c.getTime());
+		//enterValueToTxtField(endDate,str2);
+		System.out.println("enddate:"+str2);
+		String year1=str2.substring(6,10);
+		String month1=str2.substring(3,5);
+		String day2=str2.substring(0,2);
+		String hours1=str2.substring(11,13);
+		String minutes1=str2.substring(14,16);
+		String secs1=str2.substring(17,19);
+		String fomattedEndDate=year1+month1+day2+" "+hours1+minutes1+secs1;
+		enterValueToTxtField(endDate,fomattedEndDate);         	    	              
+		waitUntilWebElementIsVisible(showReportBtn.get(0));
+		selectWebElement(showReportBtn.get(0));  	
+
+	}
+	public void quickInputforWeek(ReportDetails details) throws Exception {
+
+		waitUntilWebElementIsVisible(formContents);
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		selectWebElement(reportChannelDropdown);
+		selectDropdownFromVisibleText(reportChannelListBox, details.getReportChannel());
+		waitForJqueryLoad(driver);
+		selectWebElement(reportNameDropdown);
+		selectDropdownFromVisibleText(reportNameListbox, details.getReportName());
+		waitForJqueryLoad(driver);
+		selectWebElement(reportTypeDropdown);
+		selectWebElement(quickInputBtn);
+		Thread.sleep(1000);
+		selectWebElement(getNumberTxtbox.get(1));
+		enterValueToTxtFieldWithoutClear(getNumberTxtbox1, details.getNumber());
+		waitUntilWebElementIsVisible(numberDropdown);
+		selectWebElement(numberDropdown);
+		selectDropdownFromVisibleText(NumberTypeListbox,details.getCalendarType());
+		System.out.println(details.getCalendarType());    
+		System.out.println(details.getNumber());
+		int num=Integer.parseInt(details.getNumber());
+		String str1;  
+		selectWebElement(applyDataBtn);                               
+		Date dNow = new Date( );
+		Calendar c = Calendar.getInstance();
+		c.setTime(dNow);
+		System.out.println(dNow);
+		c.add(Calendar.WEEK_OF_MONTH,-num);
+		//String str2 = dNow;
+		SimpleDateFormat ft =new SimpleDateFormat ("dd-MM-yyyy HH:mm:ss");
+		str1=ft.format(c.getTime());
+		System.out.println(str1);
+		String year=str1.substring(6,10);
+		String month=str1.substring(3,5);
+		String day=str1.substring(0,2);
+		String hours=str1.substring(11,13);
+		String minutes=str1.substring(14,16);
+		String secs=str1.substring(17,19);   	
+		String fomattedStartDate =year+month+day+" "+hours+minutes+secs;//20200514 160732      
+		enterValueToTxtField(startDate,fomattedStartDate);
+		waitUntilWebElementIsVisible(showReportBtn.get(0));
+		selectWebElement(showReportBtn.get(0));  	
+
+	}
+
+	public void quickInputforMonth(ReportDetails details) throws Exception {
+
+		waitUntilWebElementIsVisible(formContents);
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		selectWebElement(reportChannelDropdown);
+		selectDropdownFromVisibleText(reportChannelListBox, details.getReportChannel());
+		waitForJqueryLoad(driver);
+		selectWebElement(reportNameDropdown);
+		selectDropdownFromVisibleText(reportNameListbox, details.getReportName());
+		waitForJqueryLoad(driver);
+		selectWebElement(reportTypeDropdown);        
+		selectWebElement(quickInputBtn);
+		Thread.sleep(1000);
+		selectWebElement(getNumberTxtbox.get(1));
+		enterValueToTxtFieldWithoutClear(getNumberTxtbox1, details.getNumber());
+		waitUntilWebElementIsVisible(numberDropdown);
+		selectWebElement(numberDropdown);
+		selectDropdownFromVisibleText(NumberTypeListbox,details.getCalendarType());
+		System.out.println(details.getCalendarType());    
+		System.out.println(details.getNumber());
+		int num=Integer.parseInt(details.getNumber());          
+		selectWebElement(applyDataBtn);                         
+		String str1;
+		Date dNow = new Date( );
+		Calendar c = Calendar.getInstance();
+		c.setTime(dNow);
+		System.out.println(dNow);
+		c.add(Calendar.MONTH,-num);
+		//String str2 = dNow;
+		SimpleDateFormat ft =new SimpleDateFormat ("dd-MM-yyyy HH:mm:ss");
+		str1=ft.format(c.getTime());
+		System.out.println(str1);
+		String year=str1.substring(6,10);
+		String month=str1.substring(3,5);
+		String day=str1.substring(0,2);
+		String hours=str1.substring(11,13);
+		String minutes=str1.substring(14,16);
+		String secs=str1.substring(17,19);   	
+		String fomattedStartDate =year+month+day+" "+hours+minutes+secs;//20200514 160732      
+		enterValueToTxtField(startDate,fomattedStartDate);		
+		waitUntilWebElementIsVisible(showReportBtn.get(0));
+		selectWebElement(showReportBtn.get(0));  	
+
+	}
+	public void quickInputforYear(ReportDetails details) throws Exception {
+
+		waitUntilWebElementIsVisible(formContents);
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		selectWebElement(reportChannelDropdown);
+		selectDropdownFromVisibleText(reportChannelListBox, details.getReportChannel());
+		waitForJqueryLoad(driver);
+		selectWebElement(reportNameDropdown);
+		selectDropdownFromVisibleText(reportNameListbox, details.getReportName());
+		waitForJqueryLoad(driver);
+		selectWebElement(reportTypeDropdown);
+		selectWebElement(quickInputBtn);
+		Thread.sleep(1000);
+		selectWebElement(getNumberTxtbox.get(1));
+		enterValueToTxtFieldWithoutClear(getNumberTxtbox1, details.getNumber());
+		waitUntilWebElementIsVisible(numberDropdown);
+		selectWebElement(numberDropdown);
+		selectDropdownFromVisibleText(NumberTypeListbox,details.getCalendarType());
+		System.out.println(details.getCalendarType());    
+		System.out.println(details.getNumber());
+		int num=Integer.parseInt(details.getNumber());
+		String str1;  
+		selectWebElement(applyDataBtn);                              
+		Date dNow = new Date( );
+		Calendar c = Calendar.getInstance();
+		c.setTime(dNow);
+		System.out.println(dNow);
+		c.add(Calendar.YEAR,-num);
+		//String str2 = dNow;
+		SimpleDateFormat ft =new SimpleDateFormat ("dd-MM-yyyy HH:mm:ss");
+		str1=ft.format(c.getTime());
+		System.out.println(str1);
+		String year=str1.substring(6,10);
+		String month=str1.substring(3,5);
+		String day=str1.substring(0,2);
+		String hours=str1.substring(11,13);
+		String minutes=str1.substring(14,16);
+		String secs=str1.substring(17,19);   	
+		String fomattedStartDate =year+month+day+" "+hours+minutes+secs;//20200514 160732      
+		enterValueToTxtField(startDate,fomattedStartDate);       
+		waitUntilWebElementIsVisible(showReportBtn.get(0));
+		selectWebElement(showReportBtn.get(0));  	
+
+	}
+
+
+
+
+
 }
 

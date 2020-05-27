@@ -623,7 +623,7 @@ public class SkillHistoricalReportTest extends BaseTest {
 		ocmReportsPage.showReport(reportDetails);
 		AgentSkillHistoricalReportPage skillHistoricalPage=PageFactory.createPageInstance(driver,AgentSkillHistoricalReportPage.class);
 		Assert.assertTrue(skillHistoricalPage.verifyTotalNumberOfItemsPerPageDetailsForDrillDowntwo(),"item per page assertion failed");
-	}*/
+	}
 
 	@Test(priority=56,description="To Verify Total Number of Items Per Page Details for Drill Down two")
 	public void VerifyTotalNumberOfItemsPerPageDetailsFoDrillDowntwo() throws Exception {
@@ -635,8 +635,8 @@ public class SkillHistoricalReportTest extends BaseTest {
 		AgentSkillHistoricalReportPage skillHistoricalPage=PageFactory.createPageInstance(driver,AgentSkillHistoricalReportPage.class);
 		Assert.assertTrue(skillHistoricalPage.verifySorting(),"item per page assertion failed");
 	}
-
-	/*@Test(priority=38, description="To verify report data against DB")
+*/
+	@Test(priority=38, description="To verify report data against DB")
 	public void database() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillHistoricalReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(0);
@@ -683,7 +683,7 @@ public class SkillHistoricalReportTest extends BaseTest {
 			agtSkillHistoricalPage.closeDrillOneReport();
 			Thread.sleep(1000);
 		}
-	}*/
+	}
 
 
 	@AfterMethod

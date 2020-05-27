@@ -5,33 +5,13 @@
     <classes>
       <class name="com.tetherfi.test.reports.AgentHistoricalReportTest">
         <methods>
-          <include name="VerifyArrowMoveForFirstAndLastPageFoDrillDownOne"/>
-          <include name="VerifySearchEqualsToFeature"/>
-          <include name="ShowOcmAgentHistoricalReportInNewTab"/>
-          <include name="VerifyExportedPage"/>
-          <include name="VerifySearchDoesNotContains"/>
-          <include name="VerifyArrowMoveForFirstAndLastPageFoDrillDowntwo"/>
-          <include name="afterEachMethod"/>
-          <include name="VerifyNumberOfItemsPerPageSelection"/>
-          <include name="verifySelectIntervalFeature"/>
-          <include name="VerifySearchStartsWith"/>
           <include name="startTestCase"/>
           <include name="openApplication"/>
-          <include name="verifyAdvancedSearchinreportpageSearchcontains"/>
-          <include name="verifyAdvancedSearchAddCriteria"/>
-          <include name="GroupBy"/>
-          <include name="SortingByDescending"/>
-          <include name="VerifySearchByFeatureForAgentHistoricalReport"/>
-          <include name="verifySelectdateFeature"/>
-          <include name="SortingByAscending"/>
           <include name="NavigateToOcmReportsPage"/>
-          <include name="verifyAdvancedSearchinreportpageSearchStartswith"/>
           <include name="endTestCase"/>
           <include name="tearDown"/>
-          <include name="verifyAdvancedSearchORCriteria"/>
-          <include name="VerifyArrowMoveForPreviousAndNextPageForDrillDownOne"/>
-          <include name="VerifyArrowMoveForPreviousAndNextPageForDrillDowntwo"/>
-          <include name="ExportPage"/>
+          <include name="database"/>
+          <include name="afterEachMethod"/>
         </methods>
       </class> <!-- com.tetherfi.test.reports.AgentHistoricalReportTest -->
     </classes>
