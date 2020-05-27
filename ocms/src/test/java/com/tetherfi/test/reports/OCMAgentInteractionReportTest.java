@@ -111,7 +111,6 @@ public class OCMAgentInteractionReportTest extends BaseTest {
     	ReportDetails reportDetails= new ReportDetails(map);
     	OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
 		ocmReportsPage.viewDownloadedReportInReportDownloadsPage();
-    	//AgentInteractionReportPage agentInteractionPage=PageFactory.createPageInstance(driver,AgentInteractionReportPage.class);
 		ocmReportsPage.deletecancelButton(reportDetails);
     	Assert.assertFalse(ocmReportsPage.verifyDeleteContainer(), "Cancel Btn at Delete record assertion failed");
     }
@@ -612,7 +611,7 @@ public class OCMAgentInteractionReportTest extends BaseTest {
 		Assert.assertTrue(agentInteractionPage.verifyJsonDataForgridColumnHidden(json.getJsonGridColumnTitleKeyDataForReports("Hidden")),"JSON data grid column hidden assertion failed");  	
 	}
     
-    @Test(priority=38)
+    @Test(priority=55)
     public void database() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentInteractionReportData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(0);

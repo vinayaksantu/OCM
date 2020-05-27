@@ -79,7 +79,7 @@ public class ExcelReader {
 				}
             } else if(type == CellType.BOOLEAN){value = String.valueOf(cell.getBooleanCellValue());}
 		}else{
-            value=null;
+            value="";
         }
         return value;
         }

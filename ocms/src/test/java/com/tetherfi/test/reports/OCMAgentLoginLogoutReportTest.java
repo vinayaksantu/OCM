@@ -709,7 +709,7 @@ public class OCMAgentLoginLogoutReportTest extends BaseTest {
 		Assert.assertTrue(agntloginlogoutPage.verifyJsonDataForgridColumnHidden(json.getJsonGridColumnTitleKeyDataForReports("Hidden")),"JSON data grid column hidden assertion failed");  	
 	}
 
-	@Test(priority=39)
+	@Test(priority=66)
 	public void database() throws Exception{
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentLoginLogoutReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath, "Queries").getTestData().get(0);

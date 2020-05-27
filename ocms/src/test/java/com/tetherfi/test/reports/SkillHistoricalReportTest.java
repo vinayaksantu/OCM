@@ -150,7 +150,7 @@ public class SkillHistoricalReportTest extends BaseTest {
 	
 	@Test(priority=13,description="Delete record in Reports Download without Delete reason for date range")
 	public void DeleteWithoutDeleteReasonRecordinReportsDownloadforDateRange() throws Exception {
-		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentLoginLogoutReportData.xlsx";
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillHistoricalReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
 		ReportDetails reportDetails= new ReportDetails(map);
 		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
@@ -161,7 +161,7 @@ public class SkillHistoricalReportTest extends BaseTest {
 
 	@Test(priority=14,description="Cancel Button in Reports Download Delete Button")
 	public void VerifyCancelBtnAtReportsDownloadDeleteBtnForDateRange() throws Exception{
-		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentLoginLogoutReportData.xlsx";
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillHistoricalReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
 		ReportDetails reportDetails= new ReportDetails(map);
 		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
@@ -171,7 +171,7 @@ public class SkillHistoricalReportTest extends BaseTest {
 	}
 	@Test(priority=15,description="Delete Record at Reports download Button")
 	public void DeleteRecord() throws Exception {
-		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentLoginLogoutReportData.xlsx";
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillHistoricalReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
 		ReportDetails reportDetails= new ReportDetails(map);
 		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
