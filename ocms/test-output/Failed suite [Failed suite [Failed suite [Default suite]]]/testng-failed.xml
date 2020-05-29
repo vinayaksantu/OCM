@@ -3,22 +3,27 @@
 <suite name="Failed suite [Failed suite [Failed suite [Failed suite [Default suite]]]]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)(failed)(failed)(failed)">
     <classes>
-      <class name="com.tetherfi.test.tmac.TmacBroadCastMsgTest">
+      <class name="com.tetherfi.test.reports.SkillHistoricalReportTest">
         <methods>
+          <include name="ViewDownloadedOcmSkillhistoricalReportInReportsDownloadPage"/>
+          <include name="VerifyNumberOfItemsPerPageSelection"/>
+          <include name="ExportOcmSkillhistoricalReport"/>
+          <include name="endTestCase"/>
+          <include name="ViewDownloadedOcmAgentSkillhistoricalReportInReportsDownloadPageinAgentSkillhistoricalPg"/>
+          <include name="tearDown"/>
+          <include name="VerifySorting"/>
+          <include name="ViewDownloadedOcmAgentSkillhistoricalReportInReportsDownloadPageDateRange"/>
           <include name="startTestCase"/>
           <include name="openApplication"/>
-          <include name="VerifyColumnsHeaderEnable"/>
+          <include name="VerifyViewDownloadedOcmSkillHistoricalReportInReportsDownloadPage"/>
+          <include name="ExportToExcelForAgentSkillhistoricalReport"/>
+          <include name="VerifyViewDownloadedOcmSkillHistoricalReportInReportsDownloadPageInMainPage"/>
+          <include name="VerifyViewDownloadedOcmSkillHistoricalReportInReportsDownloadPageDateRange"/>
+          <include name="DeleteRecord"/>
           <include name="afterEachMethod"/>
-          <include name="VerifyAuditTrailReportForUpdate"/>
-          <include name="VerifySearchStartsWith"/>
-          <include name="endTestCase"/>
-          <include name="tearDown"/>
-          <include name="EditTmacBroadCastMsg"/>
-          <include name="SortingByAscending"/>
-          <include name="SortingByDescending"/>
-          <include name="NavigateToTmacBroadcastMsgPage"/>
+          <include name="NavigateToOcmReportsPage"/>
         </methods>
-      </class> <!-- com.tetherfi.test.tmac.TmacBroadCastMsgTest -->
+      </class> <!-- com.tetherfi.test.reports.SkillHistoricalReportTest -->
     </classes>
   </test> <!-- Default test(failed)(failed)(failed)(failed) -->
 </suite> <!-- Failed suite [Failed suite [Failed suite [Failed suite [Default suite]]]] -->

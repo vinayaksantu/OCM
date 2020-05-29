@@ -3,27 +3,27 @@
 <suite name="Failed suite [Failed suite [Failed suite [Failed suite [Failed suite [Default suite]]]]]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)(failed)(failed)(failed)(failed)">
     <classes>
-      <class name="com.tetherfi.test.ivr.BranchManagementCreateTest">
+      <class name="com.tetherfi.test.reports.SkillHistoricalReportTest">
         <methods>
-          <include name="VerifyAuditTrailReportForApprove"/>
-          <include name="VerifyAuditTrailDataForAddNewBranchManagementRecord"/>
-          <include name="VerifyApprovedDataSectionWithoutApproval"/>
-          <include name="VerifyAuditTrailReportForReject"/>
-          <include name="AddRejectRecord"/>
-          <include name="AddRevertRecord"/>
+          <include name="ViewDownloadedOcmSkillhistoricalReportInReportsDownloadPage"/>
+          <include name="VerifyNumberOfItemsPerPageSelection"/>
+          <include name="ExportOcmSkillhistoricalReport"/>
+          <include name="endTestCase"/>
+          <include name="ViewDownloadedOcmAgentSkillhistoricalReportInReportsDownloadPageinAgentSkillhistoricalPg"/>
+          <include name="tearDown"/>
+          <include name="VerifySorting"/>
+          <include name="ViewDownloadedOcmAgentSkillhistoricalReportInReportsDownloadPageDateRange"/>
+          <include name="startTestCase"/>
+          <include name="openApplication"/>
+          <include name="VerifyViewDownloadedOcmSkillHistoricalReportInReportsDownloadPage"/>
+          <include name="ExportToExcelForAgentSkillhistoricalReport"/>
+          <include name="VerifyViewDownloadedOcmSkillHistoricalReportInReportsDownloadPageInMainPage"/>
+          <include name="VerifyViewDownloadedOcmSkillHistoricalReportInReportsDownloadPageDateRange"/>
+          <include name="DeleteRecord"/>
           <include name="afterEachMethod"/>
-          <include name="VerifyRecordApprovedDataSectionafterApproval"/>
-          <include name="NavigateToBranchManagementPage"/>
-          <include name="VerifyRecordAfterRejection"/>
-          <include name="VerifyRevertForAddNewRecord"/>
-          <include name="ApproveforAddNewBranchManagementRecord"/>
-          <include name="RejectforAddNewBranchManagementRecord"/>
-          <include name="VerifySendForApprovalForAddNewRecord"/>
-          <include name="VerifyAuditTrailReportForSendForApproval"/>
-          <include name="VerifyAuditTrailReportForRevert"/>
-          <include name="VerifySendForApprovalForAddNewBranchManagementRecord"/>
+          <include name="NavigateToOcmReportsPage"/>
         </methods>
-      </class> <!-- com.tetherfi.test.ivr.BranchManagementCreateTest -->
+      </class> <!-- com.tetherfi.test.reports.SkillHistoricalReportTest -->
     </classes>
   </test> <!-- Default test(failed)(failed)(failed)(failed)(failed) -->
 </suite> <!-- Failed suite [Failed suite [Failed suite [Failed suite [Failed suite [Default suite]]]]] -->

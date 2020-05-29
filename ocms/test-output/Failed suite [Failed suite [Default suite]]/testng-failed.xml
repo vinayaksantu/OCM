@@ -3,27 +3,27 @@
 <suite name="Failed suite [Failed suite [Failed suite [Default suite]]]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)(failed)(failed)">
     <classes>
-      <class name="com.tetherfi.test.reports.AgentHistoricalReportTest">
+      <class name="com.tetherfi.test.reports.SkillHistoricalReportTest">
         <methods>
-          <include name="SortingByDescending"/>
-          <include name="VerifySearchByFeatureForAgentHistoricalReport"/>
-          <include name="SortingByAscending"/>
-          <include name="VerifyArrowMoveForFirstAndLastPageFoDrillDownOne"/>
-          <include name="VerifySearchEqualsToFeature"/>
-          <include name="NavigateToOcmReportsPage"/>
-          <include name="ShowOcmAgentHistoricalReportInNewTab"/>
-          <include name="VerifyExportedPage"/>
+          <include name="ViewDownloadedOcmSkillhistoricalReportInReportsDownloadPage"/>
+          <include name="VerifyNumberOfItemsPerPageSelection"/>
+          <include name="ExportOcmSkillhistoricalReport"/>
           <include name="endTestCase"/>
+          <include name="ViewDownloadedOcmAgentSkillhistoricalReportInReportsDownloadPageinAgentSkillhistoricalPg"/>
           <include name="tearDown"/>
-          <include name="afterEachMethod"/>
-          <include name="VerifySearchIsNotEqualTo"/>
+          <include name="VerifySorting"/>
+          <include name="ViewDownloadedOcmAgentSkillhistoricalReportInReportsDownloadPageDateRange"/>
           <include name="startTestCase"/>
           <include name="openApplication"/>
-          <include name="VerifyArrowMoveForPreviousAndNextPageForDrillDowntwo"/>
-          <include name="ExportPage"/>
-          <include name="GroupBy"/>
+          <include name="VerifyViewDownloadedOcmSkillHistoricalReportInReportsDownloadPage"/>
+          <include name="ExportToExcelForAgentSkillhistoricalReport"/>
+          <include name="VerifyViewDownloadedOcmSkillHistoricalReportInReportsDownloadPageInMainPage"/>
+          <include name="VerifyViewDownloadedOcmSkillHistoricalReportInReportsDownloadPageDateRange"/>
+          <include name="DeleteRecord"/>
+          <include name="afterEachMethod"/>
+          <include name="NavigateToOcmReportsPage"/>
         </methods>
-      </class> <!-- com.tetherfi.test.reports.AgentHistoricalReportTest -->
+      </class> <!-- com.tetherfi.test.reports.SkillHistoricalReportTest -->
     </classes>
   </test> <!-- Default test(failed)(failed)(failed) -->
 </suite> <!-- Failed suite [Failed suite [Failed suite [Default suite]]] -->
