@@ -311,7 +311,7 @@ public class OCMAgentSummaryReportPage extends BasePage  {
 			List<WebElement> rows=gridContent.findElements(By.tagName("tr"));
 			List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
 			int k=0;
-			for(int j=0;j<headers.size();j++){
+			for(int j=0;j<2;j++){
 				if(headers.get(j).getText().equals("")||headers.get(j).getText().equals(" ")){continue;}
 				List<String> l1 = getColumnDatafromTable(headers.get(j).getText());
 				//System.out.println(l1);

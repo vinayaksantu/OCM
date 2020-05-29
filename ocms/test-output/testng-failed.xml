@@ -3,34 +3,17 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.tetherfi.test.reports.OCMAgentAuxReportTest">
+      <class name="com.tetherfi.test.reports.SkillProfileReportTest">
         <methods>
-          <include name="ExportOCMAgentAuxReport"/>
-          <include name="VerifyArrowMoveForFirstAndLastPage"/>
-          <include name="ViewDownloadedOcmAgentAuxReportInReportsDownloadPageinAgentAuxPg"/>
-          <include name="NavigateToOcmReportsPage"/>
-          <include name="afterEachMethod"/>
-          <include name="DeleteRecordAtReportsDownload"/>
-          <include name="database"/>
-          <include name="VerifyExportedPage"/>
-          <include name="VerifyViewDownloadedOcmAgentAuxReportInReportsDownloadPage"/>
-          <include name="endTestCase"/>
-          <include name="SortingByAscending"/>
-          <include name="tearDown"/>
-          <include name="ViewDownloadedOcmAgentAuxReportInReportsDownloadPage"/>
-          <include name="SortingByDescending"/>
-          <include name="GroupBy"/>
           <include name="startTestCase"/>
           <include name="openApplication"/>
-          <include name="ExportPage"/>
-          <include name="VerifyArrowMoveForPreviousAndNextPage"/>
-          <include name="VerifySearchByFeatureForAgentAuxReport"/>
-          <include name="verifyAdvancedSearchinreportpageSearchEndswith"/>
-          <include name="ExportToExcelForAgentAuxReport"/>
-          <include name="VerifyJsonDataForColumnNames"/>
-          <include name="DeleteRecordforSingleDate"/>
+          <include name="endTestCase"/>
+          <include name="tearDown"/>
+          <include name="NavigateToOcmReportsPage"/>
+          <include name="afterEachMethod"/>
+          <include name="VerifySorting"/>
         </methods>
-      </class> <!-- com.tetherfi.test.reports.OCMAgentAuxReportTest -->
+      </class> <!-- com.tetherfi.test.reports.SkillProfileReportTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

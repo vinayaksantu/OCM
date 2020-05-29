@@ -9,6 +9,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import com.tetherfi.model.report.ReportDetails;
 import com.tetherfi.pages.HomePage;
+import com.tetherfi.pages.OCMAgentAuxReportPage;
 import com.tetherfi.pages.OCMAgentLoginLogoutReportPage;
 import com.tetherfi.pages.OCMReportsPage;
 import com.tetherfi.test.BaseTest;
@@ -330,33 +331,7 @@ public class OCMAgentLoginLogoutReportTest extends BaseTest {
 		Assert.assertTrue(agntloginlogoutPage.verifyexportToExcelSheet(maplist));
 	}
 
-	@Test(priority=30,dependsOnMethods="VerifyExportedPage",description="To Verify Sort By Ascending")
-	public void SortingByAscending() throws Exception {
-		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentLoginLogoutReportData.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
-		ReportDetails reportDetails= new ReportDetails(map);
-		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
-		ocmReportsPage.showReport(reportDetails);
-		OCMAgentLoginLogoutReportPage agntloginlogoutPage=PageFactory.createPageInstance(driver,OCMAgentLoginLogoutReportPage.class);
-		agntloginlogoutPage.SortByAscending();
-		String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\OCMAgentLoginLogoutReport (1).xlsx";
-		List<Map<String, String>> maplist = new ExcelReader(filePath1,"Sheet1").getTestData();
-		Assert.assertTrue(agntloginlogoutPage.verifyexportToExcelSheet(maplist));
-	}  
-	@Test(priority=31,dependsOnMethods="VerifyExportedPage",description="To Verify Sort By Descending")
-	public void SortingByDescending() throws Exception {
-		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentLoginLogoutReportData.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
-		ReportDetails reportDetails= new ReportDetails(map);
-		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
-		ocmReportsPage.showReport(reportDetails);    
-		OCMAgentLoginLogoutReportPage agntloginlogoutPage=PageFactory.createPageInstance(driver,OCMAgentLoginLogoutReportPage.class);
-		agntloginlogoutPage.SortByDescending();
-		String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\OCMAgentLoginLogoutReport (2).xlsx";
-		List<Map<String, String>> maplist = new ExcelReader(filePath1,"Sheet1").getTestData();
-		Assert.assertTrue(agntloginlogoutPage.verifyexportToExcelSheet(maplist));
-	}
-	@Test(priority=32,description="Scheduled report button in Login Logout report page")
+	@Test(priority=30,description="Scheduled report button in Login Logout report page")
 	public void SchedulereportinAgentLoginLogoutReportPage() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentLoginLogoutReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ExportReport").getTestData().get(0);
@@ -368,7 +343,7 @@ public class OCMAgentLoginLogoutReportTest extends BaseTest {
 		Assert.assertTrue(agntloginlogoutPage.isExportSchedulerPageDisplayed(), "ExportScheduler page assertion failed");
 		screenshot.captureScreen("AgentLoginLogoutReportTest","ExportSchedulerPage");
 	}
-	@Test(priority=33,description="Export to excel button in login logout Report page")
+	@Test(priority=31,description="Export to excel button in login logout Report page")
 	public void ExportToExcelForAgentloginReport() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentLoginLogoutReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -380,7 +355,7 @@ public class OCMAgentLoginLogoutReportTest extends BaseTest {
 		agntloginlogoutPage.exportToExcel();
 		Assert.assertTrue(agntloginlogoutPage.verifyReportExported(),"export report assertion failed");
 	}
-	@Test(priority=34,dependsOnMethods ="ExportToExcelForAgentloginReport")
+	@Test(priority=32,dependsOnMethods ="ExportToExcelForAgentloginReport")
 	public void ViewDownloadedOcmAgentLoginLogoutReportInReportsDownloadPageinAgentLoginLogoutPg() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentLoginLogoutReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ExportReport").getTestData().get(0);
@@ -391,7 +366,7 @@ public class OCMAgentLoginLogoutReportTest extends BaseTest {
 		agntloginlogoutPage.viewDownloadedReportInReportsDownloadsPage();
 		Assert.assertTrue(ocmReportsPage.verifyDownloadedReportNameAndTimeInReportsDownloadPage(reportDetails.getReportName()),"Report not found in Reporter download page");   
 	}          
-	@Test(priority=35,description="Search by feature")//has one error
+	@Test(priority=33,description="Search by feature")//has one error
 	public void VerifySearchByFeatureForAgentLoginLogoutReport() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentLoginLogoutReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -402,7 +377,7 @@ public class OCMAgentLoginLogoutReportTest extends BaseTest {
 		OCMAgentLoginLogoutReportPage agntloginlogoutPage=PageFactory.createPageInstance(driver,OCMAgentLoginLogoutReportPage.class);
 		Assert.assertTrue(agntloginlogoutPage.verifySearchByTextbox(reportDetails));
 	}
-	@Test(priority=36,description="Verify the search Is equal to criteria")
+	@Test(priority=34,description="Verify the search Is equal to criteria")
 	public void VerifySearchFeatureForIsEqualtoReport() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentLoginLogoutReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -413,7 +388,7 @@ public class OCMAgentLoginLogoutReportTest extends BaseTest {
 		OCMAgentLoginLogoutReportPage agntloginlogoutPage=PageFactory.createPageInstance(driver,OCMAgentLoginLogoutReportPage.class);
 		Assert.assertTrue(agntloginlogoutPage.verifySearchEqualTo(reportDetails.getSearchStr()));				
 	}
-	@Test(priority=37,description="Verify the search Is not equal to criteria")
+	@Test(priority=35,description="Verify the search Is not equal to criteria")
 	public void VerifySearchIsNotEqualTo() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentLoginLogoutReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(1);
@@ -423,7 +398,7 @@ public class OCMAgentLoginLogoutReportTest extends BaseTest {
 		OCMAgentLoginLogoutReportPage agntloginlogoutPage=PageFactory.createPageInstance(driver,OCMAgentLoginLogoutReportPage.class);
 		Assert.assertTrue(agntloginlogoutPage.verifySearchIsNotEqualTo(reportDetails.getSearchStr()));
 	}   
-	@Test(priority=38,description="Verify the search contains criteria")
+	@Test(priority=36,description="Verify the search contains criteria")
 	public void  VerifySearchContains() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentLoginLogoutReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(2);
@@ -433,7 +408,7 @@ public class OCMAgentLoginLogoutReportTest extends BaseTest {
 		OCMAgentLoginLogoutReportPage agntloginlogoutPage=PageFactory.createPageInstance(driver,OCMAgentLoginLogoutReportPage.class);
 		Assert.assertTrue(agntloginlogoutPage.verifySearchContains(reportDetails));
 	}   
-	@Test(priority=39,description="Verify the Does not contain criteria")
+	@Test(priority=37,description="Verify the Does not contain criteria")
 	public void  VerifySearchDoesNotContains() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentLoginLogoutReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(2);
@@ -443,7 +418,7 @@ public class OCMAgentLoginLogoutReportTest extends BaseTest {
 		OCMAgentLoginLogoutReportPage agntloginlogoutPage=PageFactory.createPageInstance(driver,OCMAgentLoginLogoutReportPage.class);
 		Assert.assertTrue(agntloginlogoutPage.verifySearchDoesNotContains(reportDetails.getSearchStr())); 
 	}  
-	@Test(priority=40,description="Verify the search starts with criteria")
+	@Test(priority=38,description="Verify the search starts with criteria")
 	public void  VerifySearchStartsWith() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentLoginLogoutReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(3);
@@ -453,7 +428,7 @@ public class OCMAgentLoginLogoutReportTest extends BaseTest {
 		OCMAgentLoginLogoutReportPage agntloginlogoutPage=PageFactory.createPageInstance(driver,OCMAgentLoginLogoutReportPage.class);
 		Assert.assertTrue(agntloginlogoutPage.verifySearchStartsWith(reportDetails.getSearchStr()));
 	}
-	@Test(priority=41,description="Verify the search Ends with criteria")
+	@Test(priority=39,description="Verify the search Ends with criteria")
 	public void  VerifySearchEndsWith() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentLoginLogoutReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(2);
@@ -463,7 +438,7 @@ public class OCMAgentLoginLogoutReportTest extends BaseTest {
 		OCMAgentLoginLogoutReportPage agntloginlogoutPage=PageFactory.createPageInstance(driver,OCMAgentLoginLogoutReportPage.class);
 		Assert.assertTrue(agntloginlogoutPage.verifySearchEndsWith(reportDetails.getSearchStr()));
 	}
-	@Test(priority=42,description="Searc without search text")
+	@Test(priority=40,description="Searc without search text")
 	public void searchwithoutSearchTextbox() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentLoginLogoutReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -474,7 +449,7 @@ public class OCMAgentLoginLogoutReportTest extends BaseTest {
 		agntloginlogoutPage.searchwithoutextsearch(reportDetails);
 		Assert.assertEquals(agntloginlogoutPage.getSuccessMessage(),"Please enter the text to search or remove the filter", "Add invalid record assertion failed");
 	}
-	@Test(priority=43,description="Clear search functionality")
+	@Test(priority=41,description="Clear search functionality")
 	public void ClearSearch() throws Exception{
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentLoginLogoutReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(2);
@@ -485,7 +460,7 @@ public class OCMAgentLoginLogoutReportTest extends BaseTest {
 		Assert.assertTrue(agntloginlogoutPage.verifySearchClear(reportDetails));    	
 	} 	
 
-	@Test(priority=44,description="Advance search on reports page for Is equal to Criteria")
+	@Test(priority=42,description="Advance search on reports page for Is equal to Criteria")
 	public void verifyAdvancedSearchinreportpage() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentLoginLogoutReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(0);
@@ -495,7 +470,7 @@ public class OCMAgentLoginLogoutReportTest extends BaseTest {
 		OCMAgentLoginLogoutReportPage agntloginlogoutPage=PageFactory.createPageInstance(driver,OCMAgentLoginLogoutReportPage.class);
 		Assert.assertTrue(agntloginlogoutPage.verifyAdvanceSearch(reportDetails));
 	}
-	@Test(priority=45,description="Advance search on reports page for Is not equal to Criteria")
+	@Test(priority=43,description="Advance search on reports page for Is not equal to Criteria")
 	public void verifyAdvancedSearchinreportpageSearchNotEqualTo() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentLoginLogoutReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(1);
@@ -507,7 +482,7 @@ public class OCMAgentLoginLogoutReportTest extends BaseTest {
 		Assert.assertTrue(agntloginlogoutPage.verifyAdvanceSearchIsNotEqualTo(reportDetails));   	
 	}
 
-	@Test(priority=46,description="Advance search on reports page for Contains Criteria")
+	@Test(priority=44,description="Advance search on reports page for Contains Criteria")
 	public void verifyAdvancedSearchinreportpageSearchcontains() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentLoginLogoutReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(2);
@@ -519,7 +494,7 @@ public class OCMAgentLoginLogoutReportTest extends BaseTest {
 		Assert.assertTrue(agntloginlogoutPage.verifyAdvanceSearchContains(reportDetails));    	
 	}
 
-	@Test(priority=47,description="Advance search on reports page for Does not Contain Criteria")
+	@Test(priority=45,description="Advance search on reports page for Does not Contain Criteria")
 	public void verifyAdvancedSearchinreportpageSearchDoesnotcontains() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentLoginLogoutReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(3);
@@ -531,7 +506,7 @@ public class OCMAgentLoginLogoutReportTest extends BaseTest {
 		Assert.assertTrue(agntloginlogoutPage.verifyAdvanceSearchDoesNotContains(reportDetails));   
 	}
 
-	@Test(priority=48,description="Advance search on reports page for Starts with Criteria")
+	@Test(priority=46,description="Advance search on reports page for Starts with Criteria")
 	public void verifyAdvancedSearchinreportpageSearchStartswith() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentLoginLogoutReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(4);
@@ -543,7 +518,7 @@ public class OCMAgentLoginLogoutReportTest extends BaseTest {
 		Assert.assertTrue(agntloginlogoutPage.verifyAdvanceSearchStartsWith(reportDetails)); 	
 	}
 
-	@Test(priority=49,description="Advance search on reports page for Ends with Criteria")
+	@Test(priority=47,description="Advance search on reports page for Ends with Criteria")
 	public void verifyAdvancedSearchinreportpageSearchEndswith() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentLoginLogoutReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(5);
@@ -554,7 +529,7 @@ public class OCMAgentLoginLogoutReportTest extends BaseTest {
 		OCMReportsPage.showReport(reportDetails);
 		Assert.assertTrue(agntloginlogoutPage.verifyAdvanceSearchEndsWith(reportDetails));
 	}
-	@Test(priority=50,description="Advance search with And Condition")
+	@Test(priority=48,description="Advance search with And Condition")
 	public void verifyAdvancedSearchANDCriteria() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentLoginLogoutReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(0);
@@ -565,7 +540,7 @@ public class OCMAgentLoginLogoutReportTest extends BaseTest {
 		ocmReportsPage.chooseReport(reportDetails);
 		Assert.assertTrue(agntloginlogoutPage.advancedSearchANDCriteria(reportDetails));   	
 	}
-	@Test(priority=51,description="Advance search with OR Condition")
+	@Test(priority=49,description="Advance search with OR Condition")
 	public void verifyAdvancedSearchORCriteria() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentLoginLogoutReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(0);
@@ -577,7 +552,7 @@ public class OCMAgentLoginLogoutReportTest extends BaseTest {
 		Assert.assertTrue(agntloginlogoutPage.advancedSearchORCriteria(reportDetails));
 
 	}
-	@Test(priority=52,description="Clear filters for Advance search")
+	@Test(priority=50,description="Clear filters for Advance search")
 	public void ClearfiltersAdvSrch() throws Exception{ 	
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentLoginLogoutReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(0);
@@ -586,7 +561,7 @@ public class OCMAgentLoginLogoutReportTest extends BaseTest {
 		Assert.assertTrue(OCMReportsPage.ClearAdvFilters(reportDetails));
 	} 
 
-	@Test(priority=53,description="Group By fuctionality")
+	@Test(priority=51,description="Group By fuctionality")
 	public void GroupBy() throws Exception{
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentLoginLogoutReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -600,7 +575,7 @@ public class OCMAgentLoginLogoutReportTest extends BaseTest {
 		screenshot.captureScreen("AgentloginlogoutPage1", "AlreadyGroupBy");
 	}
 
-	@Test(priority=54,description="Quick Input Functionality for seconds")
+	@Test(priority=52,description="Quick Input Functionality for seconds")
 	public void quickinputforSeconds() throws Exception{
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentLoginLogoutReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(6);
@@ -609,7 +584,7 @@ public class OCMAgentLoginLogoutReportTest extends BaseTest {
 		OCMReportsPage.quickInputforSeconds(reportDetails);  
 
 	}
-	@Test(priority=55,description="Quick Input Functionality without number field")
+	@Test(priority=53,description="Quick Input Functionality without number field")
 	public void quickinputwithoutNumber() throws Exception{
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentLoginLogoutReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(6);
@@ -617,7 +592,7 @@ public class OCMAgentLoginLogoutReportTest extends BaseTest {
 		OCMReportsPage OCMReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);  
 		OCMReportsPage.quickInputWithoutNumber(reportDetails);  	
 	}
-	@Test(priority=56,description="Quick Input Functionality for Minutes")
+	@Test(priority=54,description="Quick Input Functionality for Minutes")
 	public void quickInputforMinutes() throws Exception{
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentLoginLogoutReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(7);
@@ -625,7 +600,7 @@ public class OCMAgentLoginLogoutReportTest extends BaseTest {
 		OCMReportsPage OCMReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);  
 		OCMReportsPage.quickInputforMinutes(reportDetails);
 	}
-	@Test(priority=57,description="Quick Input Functionality for Hours")
+	@Test(priority=55,description="Quick Input Functionality for Hours")
 	public void quickInputforhour() throws Exception{
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentLoginLogoutReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(8);
@@ -633,7 +608,7 @@ public class OCMAgentLoginLogoutReportTest extends BaseTest {
 		OCMReportsPage OCMReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);  
 		OCMReportsPage.quickInputforhours(reportDetails); 
 	}
-	@Test(priority=58,description="Quick Input Functionality for Days")
+	@Test(priority=55,description="Quick Input Functionality for Days")
 	public void quickInputforDay() throws Exception{
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentLoginLogoutReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(9);
@@ -642,7 +617,7 @@ public class OCMAgentLoginLogoutReportTest extends BaseTest {
 		OCMReportsPage.quickInputforDay(reportDetails); 
 	}
 
-	@Test(priority=59,description="Quick Input Functionality for Invalid Date Range")
+	@Test(priority=56,description="Quick Input Functionality for Invalid Date Range")
 	public void quickInputforInvalidDateRange() throws Exception{
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentLoginLogoutReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(9);
@@ -651,7 +626,7 @@ public class OCMAgentLoginLogoutReportTest extends BaseTest {
 		OCMReportsPage.quickInputforInvalidDay(reportDetails); 
 		Assert.assertEquals(OCMReportsPage.getSuccessMessage(),"You have selected an Invalid Date Range! Please select a range within 24 month(s)");
 	}
-	@Test(priority=60,description="Quick Input Functionality for Week")
+	@Test(priority=57,description="Quick Input Functionality for Week")
 	public void quickInputforWeek() throws Exception{
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentLoginLogoutReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(10);
@@ -660,7 +635,7 @@ public class OCMAgentLoginLogoutReportTest extends BaseTest {
 		OCMReportsPage.quickInputforWeek(reportDetails); 
 	}
 
-	@Test(priority=61,description="Quick Input Functionality for Month")
+	@Test(priority=58,description="Quick Input Functionality for Month")
 	public void quickInputMonth() throws Exception{
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentLoginLogoutReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(11);
@@ -668,7 +643,7 @@ public class OCMAgentLoginLogoutReportTest extends BaseTest {
 		OCMReportsPage OCMReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);  
 		OCMReportsPage.quickInputforMonth(reportDetails); 
 	}
-	@Test(priority=62,description="Quick Input Functionality for invalid month")
+	@Test(priority=59,description="Quick Input Functionality for invalid month")
 	public void quickInputforInvalidMonth() throws Exception{
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentLoginLogoutReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(13);
@@ -678,7 +653,7 @@ public class OCMAgentLoginLogoutReportTest extends BaseTest {
 		Assert.assertEquals(OCMReportsPage.getSuccessMessage(),"You have selected an Invalid Date Range! Please select a range within 24 month(s)");
 	}
 
-	@Test(priority=63,description="Quick Input Functionality for Year")
+	@Test(priority=60,description="Quick Input Functionality for Year")
 	public void quickInputforYear() throws Exception{
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentLoginLogoutReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(12);
@@ -686,7 +661,7 @@ public class OCMAgentLoginLogoutReportTest extends BaseTest {
 		OCMReportsPage OCMReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);  
 		OCMReportsPage.quickInputforYear(reportDetails); 
 	}
-	@Test(priority=64,description="Quick Input Functionality for invalid Year")
+	@Test(priority=61,description="Quick Input Functionality for invalid Year")
 	public void quickInputforInvalidYear() throws Exception{
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentLoginLogoutReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(14);
@@ -696,7 +671,7 @@ public class OCMAgentLoginLogoutReportTest extends BaseTest {
 		Assert.assertEquals(OCMReportsPage.getSuccessMessage(),"You have selected an Invalid Date Range! Please select a range within 24 month(s)");
 	}
 
-	@Test(priority=65,description="Verify the column headers against the Json File ")
+	@Test(priority=62,description="Verify the column headers against the Json File ")
 	public void VerifyJsonDataForColumnNames() throws Exception{
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentLoginLogoutReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -709,7 +684,7 @@ public class OCMAgentLoginLogoutReportTest extends BaseTest {
 		Assert.assertTrue(agntloginlogoutPage.verifyJsonDataForgridColumnHidden(json.getJsonGridColumnTitleKeyDataForReports("Hidden")),"JSON data grid column hidden assertion failed");  	
 	}
 
-	@Test(priority=66)
+	@Test(priority=63)
 	public void database() throws Exception{
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentLoginLogoutReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath, "Queries").getTestData().get(0);
@@ -718,6 +693,17 @@ public class OCMAgentLoginLogoutReportTest extends BaseTest {
 		ocmReportsPage.showReport(reportDetails);
 		OCMAgentLoginLogoutReportPage agentLoginLogoutPage=PageFactory.createPageInstance(driver,OCMAgentLoginLogoutReportPage.class);
 		Assert.assertTrue(agentLoginLogoutPage.verifyDatabase(reportDetails.getQuery(),reportDetails));
+	}
+	
+	@Test(priority=64,description="To Verify Ascending and Descending order")
+	public void VerifySorting() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentLoginLogoutReportData.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
+		ocmReportsPage.showReport(reportDetails);
+		OCMAgentLoginLogoutReportPage agentLoginLogoutPage=PageFactory.createPageInstance(driver,OCMAgentLoginLogoutReportPage.class);
+		Assert.assertTrue(agentLoginLogoutPage.verifySorting(),"Sorting assertion failed");
 	}
 
 	@AfterMethod

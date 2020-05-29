@@ -10,6 +10,7 @@ import org.testng.annotations.Test;
 import com.tetherfi.model.report.ReportDetails;
 import com.tetherfi.pages.HomePage;
 import com.tetherfi.pages.OCMAgentInteractionReportPage;
+import com.tetherfi.pages.OCMChatInteractionReportPage;
 import com.tetherfi.pages.OCMReportsPage;
 import com.tetherfi.test.BaseTest;
 import com.tetherfi.utility.ExcelReader;
@@ -329,33 +330,7 @@ public class OCMAgentInteractionReportTest extends BaseTest {
 		Assert.assertTrue(agentInteractionPage.verifyexportToExcelSheet(maplist));
 	}
 	
-	@Test(priority=30,dependsOnMethods="VerifyExportedPage",description="To Verify Sort By Ascending")
-	public void SortingByAscending() throws Exception {
-		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentInteractionReportData.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
-		ReportDetails reportDetails= new ReportDetails(map);
-		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
-		ocmReportsPage.showReport(reportDetails);
-		OCMAgentInteractionReportPage agentInteractionPage=PageFactory.createPageInstance(driver,OCMAgentInteractionReportPage.class);
-		agentInteractionPage.SortByAscending();
-		String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\OCMAgentInteractionReport (1).xlsx";
-		List<Map<String, String>> maplist = new ExcelReader(filePath1,"Sheet1").getTestData();
-		Assert.assertTrue(agentInteractionPage.verifyexportToExcelSheet(maplist));
-	}  
-	@Test(priority=31,dependsOnMethods="VerifyExportedPage",description="To Verify Sort By Descending")
-	public void SortingByDescending() throws Exception {
-		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentInteractionReportData.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
-		ReportDetails reportDetails= new ReportDetails(map);
-		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
-		ocmReportsPage.showReport(reportDetails);    
-		OCMAgentInteractionReportPage agentInteractionPage=PageFactory.createPageInstance(driver,OCMAgentInteractionReportPage.class);
-		agentInteractionPage.SortByDescending();
-		String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\OCMAgentInteractionReport (2).xlsx";
-		List<Map<String, String>> maplist = new ExcelReader(filePath1,"Sheet1").getTestData();
-		Assert.assertTrue(agentInteractionPage.verifyexportToExcelSheet(maplist));
-	}
-	@Test(priority=32,description="Scheduled report button in Agent Interaction report page")
+	@Test(priority=30,description="Scheduled report button in Agent Interaction report page")
 	public void SchedulereportinAgentInteractionReportPage() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentInteractionReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ExportReport").getTestData().get(0);
@@ -367,7 +342,7 @@ public class OCMAgentInteractionReportTest extends BaseTest {
 		Assert.assertTrue(agentInteractionPage.isExportSchedulerPageDisplayed(), "ExportScheduler page assertion failed");
 		screenshot.captureScreen("AgentInteractionReportTest","ExportSchedulerPage");
 	}
-	@Test(priority=33,description="Export to excel button in Report page")
+	@Test(priority=31,description="Export to excel button in Report page")
 	public void ExportToExcel() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentInteractionReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -379,7 +354,7 @@ public class OCMAgentInteractionReportTest extends BaseTest {
 		agentInteractionPage.exportToExcel();
 		Assert.assertTrue(agentInteractionPage.verifyReportExported(),"export report assertion failed");
 	}
-	@Test(priority=34,dependsOnMethods ="ExportToExcel")
+	@Test(priority=32,dependsOnMethods ="ExportToExcel")
 	public void ViewDownloadedOcmAgentInteractionReportInReportsDownloadPageinAgentInteractionPg() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentInteractionReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ExportReport").getTestData().get(0);
@@ -390,7 +365,7 @@ public class OCMAgentInteractionReportTest extends BaseTest {
 		agentInteractionPage.viewDownloadedReportInReportsDownloadsPage();
 		Assert.assertTrue(ocmReportsPage.verifyDownloadedReportNameAndTimeInReportsDownloadPage(reportDetails.getReportName()),"Report not found in Reporter download page");   
 	}          
-	@Test(priority=35,description="Search by feature")
+	@Test(priority=33,description="Search by feature")
 	public void VerifySearchByFeatureForAgentInteractionReport() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentInteractionReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(5);
@@ -401,7 +376,7 @@ public class OCMAgentInteractionReportTest extends BaseTest {
 		OCMAgentInteractionReportPage agentInteractionPage=PageFactory.createPageInstance(driver,OCMAgentInteractionReportPage.class);
 		Assert.assertTrue(agentInteractionPage.verifySearchByTextbox(reportDetails));
 	}
-	@Test(priority=36,description="Verify the search Is equal to criteria")
+	@Test(priority=34,description="Verify the search Is equal to criteria")
 	public void VerifySearchFeatureForIsEqualtoReport() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentInteractionReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -412,7 +387,7 @@ public class OCMAgentInteractionReportTest extends BaseTest {
 		OCMAgentInteractionReportPage agentInteractionPage=PageFactory.createPageInstance(driver,OCMAgentInteractionReportPage.class);
 		Assert.assertTrue(agentInteractionPage.verifySearchIsEqualTo(reportDetails.getSearchStr()));				
 	}
-	@Test(priority=37,description="Verify the search Is not equal to criteria")
+	@Test(priority=35,description="Verify the search Is not equal to criteria")
 	public void VerifySearchIsNotEqualTo() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentInteractionReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(1);
@@ -422,7 +397,7 @@ public class OCMAgentInteractionReportTest extends BaseTest {
 		OCMAgentInteractionReportPage agentInteractionPage=PageFactory.createPageInstance(driver,OCMAgentInteractionReportPage.class);
 		Assert.assertTrue(agentInteractionPage.verifySearchIsNotEqualTo(reportDetails.getSearchStr()));
 	}   
-	@Test(priority=38,description="Verify the search contains criteria")
+	@Test(priority=36,description="Verify the search contains criteria")
 	public void  VerifySearchContains() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentInteractionReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(2);
@@ -432,7 +407,7 @@ public class OCMAgentInteractionReportTest extends BaseTest {
 		OCMAgentInteractionReportPage agentInteractionPage=PageFactory.createPageInstance(driver,OCMAgentInteractionReportPage.class);
 		Assert.assertTrue(agentInteractionPage.verifySearchContains(reportDetails.getSearchStr()));
 	}   
-	@Test(priority=39,description="Verify the Does not contain criteria")
+	@Test(priority=37,description="Verify the Does not contain criteria")
 	public void  VerifySearchDoesNotContains() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentInteractionReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(2);
@@ -442,7 +417,7 @@ public class OCMAgentInteractionReportTest extends BaseTest {
 		OCMAgentInteractionReportPage agentInteractionPage=PageFactory.createPageInstance(driver,OCMAgentInteractionReportPage.class);
 		Assert.assertTrue(agentInteractionPage.verifySearchDoesNotContains(reportDetails.getSearchStr())); 
 	}  
-	@Test(priority=40,description="Verify the search starts with criteria")
+	@Test(priority=38,description="Verify the search starts with criteria")
 	public void  VerifySearchStartsWith() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentInteractionReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(3);
@@ -452,7 +427,7 @@ public class OCMAgentInteractionReportTest extends BaseTest {
 		OCMAgentInteractionReportPage agentInteractionPage=PageFactory.createPageInstance(driver,OCMAgentInteractionReportPage.class);
 		Assert.assertTrue(agentInteractionPage.verifySearchStartsWith(reportDetails.getSearchStr()));
 	}
-	@Test(priority=41,description="Verify the search Ends with criteria")
+	@Test(priority=39,description="Verify the search Ends with criteria")
 	public void  VerifySearchEndsWith() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentInteractionReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(4);
@@ -462,7 +437,7 @@ public class OCMAgentInteractionReportTest extends BaseTest {
 		OCMAgentInteractionReportPage agentInteractionPage=PageFactory.createPageInstance(driver,OCMAgentInteractionReportPage.class);
 		Assert.assertTrue(agentInteractionPage.verifySearchEndsWith(reportDetails.getSearchStr()));
 	}
-	@Test(priority=42,description="Searc without search text")
+	@Test(priority=40,description="Searc without search text")
 	public void searchwithoutSearchTextbox() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentInteractionReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -473,7 +448,7 @@ public class OCMAgentInteractionReportTest extends BaseTest {
 		agentInteractionPage.searchwithoutextsearch(reportDetails);
 		Assert.assertEquals(agentInteractionPage.getSuccessMessage(),"Please enter the text to search or remove the filter", "Add invalid record assertion failed");
 	}
-	@Test(priority=43,description="Clear search functionality")
+	@Test(priority=41,description="Clear search functionality")
 	public void ClearSearch() throws Exception{
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentInteractionReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(2);
@@ -484,7 +459,7 @@ public class OCMAgentInteractionReportTest extends BaseTest {
 		Assert.assertTrue(agentInteractionPage.verifySearchClear(reportDetails));    	
 	} 	
 		
-	@Test(priority=44,description="Advance search on reports page for Is equal to Criteria")
+	@Test(priority=42,description="Advance search on reports page for Is equal to Criteria")
 	public void verifyAdvancedSearchinreportpage() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentInteractionReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(0);
@@ -494,7 +469,7 @@ public class OCMAgentInteractionReportTest extends BaseTest {
 		OCMAgentInteractionReportPage agentInteractionPage=PageFactory.createPageInstance(driver,OCMAgentInteractionReportPage.class);
 		Assert.assertTrue(agentInteractionPage.verifyAdvanceSearch(reportDetails));
 	}
-	@Test(priority=45,description="Advance search on reports page for Is not equal to Criteria")
+	@Test(priority=43,description="Advance search on reports page for Is not equal to Criteria")
     public void verifyAdvancedSearchinreportpageSearchNotEqualTo() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentInteractionReportData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(1);
@@ -506,7 +481,7 @@ public class OCMAgentInteractionReportTest extends BaseTest {
     	Assert.assertTrue(agentInteractionPage.verifyAdvanceSearchIsNotEqualTo(reportDetails));   	
     }
     
-   @Test(priority=46,description="Advance search on reports page for Contains Criteria")
+   @Test(priority=44,description="Advance search on reports page for Contains Criteria")
     public void verifyAdvancedSearchinreportpageSearchcontains() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentInteractionReportData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(2);
@@ -518,7 +493,7 @@ public class OCMAgentInteractionReportTest extends BaseTest {
     	Assert.assertTrue(agentInteractionPage.verifyAdvanceSearchContains(reportDetails));    	
     }
     
-    @Test(priority=47,description="Advance search on reports page for Does not Contain Criteria")
+    @Test(priority=45,description="Advance search on reports page for Does not Contain Criteria")
     public void verifyAdvancedSearchinreportpageSearchDoesnotcontains() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentInteractionReportData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(3);
@@ -530,7 +505,7 @@ public class OCMAgentInteractionReportTest extends BaseTest {
     	Assert.assertTrue(agentInteractionPage.verifyAdvanceSearchDoesNotContains(reportDetails));   
     }
 
-  	@Test(priority=48,description="Advance search on reports page for Starts with Criteria")
+  	@Test(priority=46,description="Advance search on reports page for Starts with Criteria")
     public void verifyAdvancedSearchinreportpageSearchStartswith() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentInteractionReportData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(4);
@@ -542,7 +517,7 @@ public class OCMAgentInteractionReportTest extends BaseTest {
     	Assert.assertTrue(agentInteractionPage.verifyAdvanceSearchStartsWith(reportDetails)); 	
     }
     
-    @Test(priority=49,description="Advance search on reports page for Ends with Criteria")
+    @Test(priority=47,description="Advance search on reports page for Ends with Criteria")
     public void verifyAdvancedSearchinreportpageSearchEndswith() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentInteractionReportData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(5);
@@ -553,7 +528,7 @@ public class OCMAgentInteractionReportTest extends BaseTest {
     	OCMReportsPage.showReport(reportDetails);
     	Assert.assertTrue(agentInteractionPage.verifyAdvanceSearchEndsWith(reportDetails));
     }
-	@Test(priority=50,description="Advance search with And Condition")
+	@Test(priority=48,description="Advance search with And Condition")
     public void verifyAdvancedSearchANDCriteria() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentInteractionReportData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(0);
@@ -564,7 +539,7 @@ public class OCMAgentInteractionReportTest extends BaseTest {
   	    ocmReportsPage.chooseReport(reportDetails);
     	Assert.assertTrue(agentInteractionPage.advancedSearchANDCriteria(reportDetails));   	
     }
-    @Test(priority=51,description="Advance search with OR Condition")
+    @Test(priority=49,description="Advance search with OR Condition")
     public void verifyAdvancedSearchORCriteria() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentInteractionReportData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(0);
@@ -575,7 +550,7 @@ public class OCMAgentInteractionReportTest extends BaseTest {
   	    ocmReportsPage.chooseReport(reportDetails);
     	Assert.assertTrue(agentInteractionPage.advancedSearchORCriteria(reportDetails));    	
   }
-    @Test(priority=52,description="Clear filters for Advance search")
+    @Test(priority=50,description="Clear filters for Advance search")
     public void ClearfiltersAdvSrch() throws Exception{ 	
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentInteractionReportData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(0);
@@ -584,7 +559,7 @@ public class OCMAgentInteractionReportTest extends BaseTest {
     	Assert.assertTrue(OCMReportsPage.ClearAdvFilters(reportDetails));
     } 
     
-    @Test(priority=53)
+    @Test(priority=51)
     public void GroupBy() throws Exception{
 	   String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentInteractionReportData.xlsx";
 	  Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -598,7 +573,7 @@ public class OCMAgentInteractionReportTest extends BaseTest {
       screenshot.captureScreen("OCMAgentInteractionComplete", "AlreadyGroupBy");
     }
 	
-    @Test(priority=54,description="Verify the column headers against the Json File ")
+    @Test(priority=52,description="Verify the column headers against the Json File ")
 	public void VerifyJsonDataForColumnNames() throws Exception{
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentInteractionReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -611,7 +586,7 @@ public class OCMAgentInteractionReportTest extends BaseTest {
 		Assert.assertTrue(agentInteractionPage.verifyJsonDataForgridColumnHidden(json.getJsonGridColumnTitleKeyDataForReports("Hidden")),"JSON data grid column hidden assertion failed");  	
 	}
     
-    @Test(priority=55)
+    @Test(priority=53)
     public void database() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentInteractionReportData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(0);
@@ -621,6 +596,17 @@ public class OCMAgentInteractionReportTest extends BaseTest {
     	OCMAgentInteractionReportPage AgentInteractionReportPage =PageFactory.createPageInstance(driver,OCMAgentInteractionReportPage.class);
     	Assert.assertTrue(AgentInteractionReportPage.verifyDatabase(reportDetails.getQuery(), reportDetails));
     }
+    
+    @Test(priority=54,description="To Verify Ascending and Descending order")
+	public void VerifySorting() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentInteractionReportData.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
+		ocmReportsPage.showReport(reportDetails);
+    	OCMAgentInteractionReportPage AgentInteractionReportPage =PageFactory.createPageInstance(driver,OCMAgentInteractionReportPage.class);
+		Assert.assertTrue(AgentInteractionReportPage.verifySorting(),"Sorting assertion failed");
+	}
     
     @AfterMethod
 	public void afterEachMethod(Method method) throws InterruptedException {

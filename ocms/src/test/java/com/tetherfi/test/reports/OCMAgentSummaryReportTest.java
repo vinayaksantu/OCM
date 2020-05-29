@@ -10,7 +10,9 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import com.tetherfi.model.report.ReportDetails;
 import com.tetherfi.pages.HomePage;
+import com.tetherfi.pages.OCMAgentAuxReportPage;
 import com.tetherfi.pages.OCMAgentSummaryReportPage;
+import com.tetherfi.pages.OCMChatInteractionReportPage;
 import com.tetherfi.pages.OCMHomePage;
 import com.tetherfi.pages.OCMReportsPage;
 import com.tetherfi.test.BaseTest;
@@ -347,35 +349,8 @@ public class OCMAgentSummaryReportTest extends BaseTest {
 		OCMAgentSummaryReportPage OCMAgentSummaryReportPage=PageFactory.createPageInstance(driver,OCMAgentSummaryReportPage.class);
 		Assert.assertTrue(OCMAgentSummaryReportPage.verifyexportToExcelSheet(maplist));
 	}
-	@Test(priority=30,dependsOnMethods="VerifyExportedPage",description="To Verify Sort By Ascending")
-	public void SortingByAscending() throws Exception {
-		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
-		ReportDetails reportDetails= new ReportDetails(map);
-		OCMReportsPage OCMReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
-		OCMReportsPage.showReport(reportDetails);
-		OCMAgentSummaryReportPage OCMAgentSummaryReportPage=PageFactory.createPageInstance(driver,OCMAgentSummaryReportPage.class);
-		OCMAgentSummaryReportPage.SortByAscending();
-		String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\OCMAgentSummaryReport (1).xlsx";
-		List<Map<String, String>> maplist = new ExcelReader(filePath1,"Sheet1").getTestData();
-		Assert.assertTrue(OCMAgentSummaryReportPage.verifyexportToExcelSheet(maplist));
-	}
-
-	@Test(priority=31,dependsOnMethods="VerifyExportedPage",description="To Verify Sort By Descending")
-	public void SortingByDescending() throws Exception {
-		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
-		ReportDetails reportDetails= new ReportDetails(map);
-		OCMReportsPage OCMReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
-		OCMReportsPage.showReport(reportDetails);        
-		OCMAgentSummaryReportPage OCMAgentSummaryReportPage=PageFactory.createPageInstance(driver,OCMAgentSummaryReportPage.class);
-		OCMAgentSummaryReportPage.SortByDescending();
-		String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\OCMAgentSummaryReport (2).xlsx";
-		List<Map<String, String>> maplist = new ExcelReader(filePath1,"Sheet1").getTestData();    	
-		Assert.assertTrue(OCMAgentSummaryReportPage.verifyexportToExcelSheet(maplist));
-	}
-
-	@Test(priority=32,description="Scheduled report button in Login Logout report page")
+	
+	@Test(priority=30,description="Scheduled report button in Login Logout report page")
 	public void SchedulereportinOCMAgentSummaryReportPage() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ExportReport").getTestData().get(0);
@@ -385,10 +360,9 @@ public class OCMAgentSummaryReportTest extends BaseTest {
 		OCMAgentSummaryReportPage OCMAgentSummaryReportPage=PageFactory.createPageInstance(driver,OCMAgentSummaryReportPage.class);
 		OCMAgentSummaryReportPage.navigateToExportSchedulerPage();    
 		Assert.assertTrue(OCMAgentSummaryReportPage.isExportSchedulerPageDisplayed(), "ExportScheduler page assertion failed");
-		screenshot.captureScreen("OCMAgentSummaryReportTest","ExportSchedulerPage");    	 
 	}
 
-	@Test(priority=33,description="Export to excel button in summary Report page")
+	@Test(priority=31,description="Export to excel button in summary Report page")
 	public void ExportToExcelForAgentSummaryReport() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -401,7 +375,7 @@ public class OCMAgentSummaryReportTest extends BaseTest {
 		Assert.assertTrue(OCMAgentSummaryReportPage.verifyReportExported(),"export report assertion failed");
 	} 
 
-	@Test(priority=34,dependsOnMethods ="ExportToExcelForAgentSummaryReport",description="Verify the view Downloaded report in Agent summary report page")
+	@Test(priority=32,dependsOnMethods ="ExportToExcelForAgentSummaryReport",description="Verify the view Downloaded report in Agent summary report page")
 	public void ViewDownloadedOcmAgentSummaryReportInReportsDownloadPageinAgentSummaryPg() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ExportReport").getTestData().get(0);
@@ -413,7 +387,7 @@ public class OCMAgentSummaryReportTest extends BaseTest {
 		Assert.assertTrue(OCMReportsPage.verifyDownloadedReportNameAndTimeInReportsDownloadPage(reportDetails.getReportName()),"Report not found in Reporter download page");    
 	}
 
-	@Test(priority=35,description="Search by feature")
+	@Test(priority=33,description="Search by feature")
 	public void VerifySearchByFeatureForAgentSummaryReport() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(5);
@@ -425,7 +399,7 @@ public class OCMAgentSummaryReportTest extends BaseTest {
 		Assert.assertTrue(OCMAgentSummaryReportPage.verifySearchByTextbox(reportDetails));
 	}
 
-	@Test(priority=36,description="Verify the search Is equal to criteria")
+	@Test(priority=34,description="Verify the search Is equal to criteria")
 	public void VerifySearchFeatureForAgentSummaryReport() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -436,7 +410,7 @@ public class OCMAgentSummaryReportTest extends BaseTest {
 		Assert.assertTrue(OCMReportsPage.verifyDateRangeReportDisplayed(reportDetails),"Show report assertion failed");
 		Assert.assertTrue(OCMAgentSummaryReportPage.verifySearchIsEqualTo(reportDetails.getSearchStr()));
 	}
-	@Test(priority=37,description="Verify the search Is not equal to criteria")
+	@Test(priority=35,description="Verify the search Is not equal to criteria")
 	public void VerifySearchIsNotEqualTo() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(1);
@@ -447,7 +421,7 @@ public class OCMAgentSummaryReportTest extends BaseTest {
 		Assert.assertTrue(OCMAgentSummaryReportPage.verifySearchIsNotEqualTo(reportDetails.getSearchStr()));
 	}
 
-	@Test(priority=38,description="Verify the search contains criteria")
+	@Test(priority=36,description="Verify the search contains criteria")
 	public void  VerifySearchContains() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(2);
@@ -458,7 +432,7 @@ public class OCMAgentSummaryReportTest extends BaseTest {
 		Assert.assertTrue(OCMAgentSummaryReportPage.verifySearchContains(reportDetails.getSearchStr()));
 	}
 
-	@Test(priority=39,description="Verify the Does not contain criteria")
+	@Test(priority=37,description="Verify the Does not contain criteria")
 	public void  VerifySearchDoesNotContains() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(2);
@@ -469,7 +443,7 @@ public class OCMAgentSummaryReportTest extends BaseTest {
 		Assert.assertTrue(OCMAgentSummaryReportPage.verifySearchDoesNotContains(reportDetails.getSearchStr())); 
 	}
 
-	@Test(priority=40,description="Verify the search starts with criteria")
+	@Test(priority=38,description="Verify the search starts with criteria")
 	public void  VerifySearchStartsWith() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(3);
@@ -480,7 +454,7 @@ public class OCMAgentSummaryReportTest extends BaseTest {
 		Assert.assertTrue(OCMAgentSummaryReportPage.verifySearchStartsWith(reportDetails.getSearchStr()));
 	}
 
-	@Test(priority=41,description="Verify the search Ends with criteria")
+	@Test(priority=39,description="Verify the search Ends with criteria")
 	public void  VerifySearchEndsWith() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(4);
@@ -491,7 +465,7 @@ public class OCMAgentSummaryReportTest extends BaseTest {
 		Assert.assertTrue(OCMAgentSummaryReportPage.verifySearchEndsWith(reportDetails.getSearchStr()));
 	}
 
-	@Test(priority=42,description="Search without search text")
+	@Test(priority=40,description="Search without search text")
 	public void searchwithoutSearchTextbox() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -503,7 +477,7 @@ public class OCMAgentSummaryReportTest extends BaseTest {
 		Assert.assertEquals(OCMAgentSummaryReportPage.getSuccessMessage(),"Please enter the text to search or remove the filter", "Add invalid record assertion failed");
 	}
 
-	@Test(priority=43,description="Clear search functionality")
+	@Test(priority=41,description="Clear search functionality")
 	public void SearchClear() throws Exception{
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(2);
@@ -514,7 +488,7 @@ public class OCMAgentSummaryReportTest extends BaseTest {
 		Assert.assertTrue(OCMAgentSummaryReportPage.verifySearchClear(reportDetails));    	
 	}
 
-	@Test(priority=44,description="Advance search on reports page for Is equal to Criteria")
+	@Test(priority=42,description="Advance search on reports page for Is equal to Criteria")
 	public void verifyAdvancedSearchinreportpageSearchEqualTo() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(0);
@@ -525,7 +499,7 @@ public class OCMAgentSummaryReportTest extends BaseTest {
 		OCMReportsPage.showReport(reportDetails);
 		Assert.assertTrue(OCMAgentSummaryReportPage.verifyAdvanceSearchIsEqualTo(reportDetails));
 	}
-	@Test(priority=45,description="Advance search on reports page for Is not equal to Criteria")
+	@Test(priority=43,description="Advance search on reports page for Is not equal to Criteria")
 	public void verifyAdvancedSearchinreportpageSearchNotEqualTo() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(1);
@@ -538,7 +512,7 @@ public class OCMAgentSummaryReportTest extends BaseTest {
 
 	}
 
-	@Test(priority=46,description="Advance search on reports page for Contains Criteria")
+	@Test(priority=44,description="Advance search on reports page for Contains Criteria")
 	public void verifyAdvancedSearchinreportpageSearchcontains() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(2);
@@ -550,7 +524,7 @@ public class OCMAgentSummaryReportTest extends BaseTest {
 		Assert.assertTrue(OCMAgentSummaryReportPage.verifyAdvanceSearchContains(reportDetails));    	
 	}
 
-	@Test(priority=47,description="Advance search on reports page for Does not Contain Criteria")
+	@Test(priority=45,description="Advance search on reports page for Does not Contain Criteria")
 	public void verifyAdvancedSearchinreportpageSearchDoesnotcontains() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(3);
@@ -562,7 +536,7 @@ public class OCMAgentSummaryReportTest extends BaseTest {
 		Assert.assertTrue(OCMAgentSummaryReportPage.verifyAdvanceSearchDoesNotContains(reportDetails));   
 	}
 
-	@Test(priority=48,description="Advance search on reports page for Starts with Criteria")
+	@Test(priority=46,description="Advance search on reports page for Starts with Criteria")
 	public void verifyAdvancedSearchinreportpageSearchStartswith() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(4);
@@ -574,7 +548,7 @@ public class OCMAgentSummaryReportTest extends BaseTest {
 		Assert.assertTrue(OCMAgentSummaryReportPage.verifyAdvanceSearchStartsWith(reportDetails)); 	
 	}
 
-	@Test(priority=49,description="Advance search on reports page for Ends with Criteria")
+	@Test(priority=47,description="Advance search on reports page for Ends with Criteria")
 	public void verifyAdvancedSearchinreportpageSearchEndswith() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(5);
@@ -587,7 +561,7 @@ public class OCMAgentSummaryReportTest extends BaseTest {
 
 	}
 
-	@Test(priority=50,description="Advance search with And Condition")
+	@Test(priority=48,description="Advance search with And Condition")
 	public void verifyAdvancedSearchANDCriteria() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(0);
@@ -599,7 +573,7 @@ public class OCMAgentSummaryReportTest extends BaseTest {
 		Assert.assertTrue(OCMAgentSummaryReportPage.advancedSearchANDCriteria(reportDetails));   	
 	}
 	
-	@Test(priority=51,description="Advance search with OR Condition")
+	@Test(priority=49,description="Advance search with OR Condition")
 	public void verifyAdvancedSearchORCriteria() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(0);
@@ -611,7 +585,7 @@ public class OCMAgentSummaryReportTest extends BaseTest {
 		Assert.assertTrue(OCMAgentSummaryReportPage.advancedSearchORCriteria(reportDetails));
 
 	}
-	@Test(priority=52,description="Clear filters for Advance search")
+	@Test(priority=50,description="Clear filters for Advance search")
 	public void ClearfiltersAdvSrch() throws Exception{ 	
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(0);
@@ -620,7 +594,7 @@ public class OCMAgentSummaryReportTest extends BaseTest {
 		Assert.assertTrue(OCMReportsPage.ClearAdvFilters(reportDetails));
 	} 
 
-	@Test(priority=53,description="Group By fuctionality")
+	@Test(priority=51,description="Group By fuctionality")
 	public void GroupBy() throws Exception{
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -634,7 +608,7 @@ public class OCMAgentSummaryReportTest extends BaseTest {
 		screenshot.captureScreen("OCMAgentSummaryReport", "AlreadyGroupBy");
 	}
 	
-	@Test(priority=54,description="Verify the column headers against the Json File ")
+	@Test(priority=52,description="Verify the column headers against the Json File ")
 	public void VerifyJsonDataForColumnNames() throws Exception{
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -646,8 +620,20 @@ public class OCMAgentSummaryReportTest extends BaseTest {
 		JSONReader json= new JSONReader(destinationFilePath);
 		Assert.assertTrue(OCMAgentSummaryReportPage.verifyJsonDataForgridColumnHidden(json.getJsonGridColumnTitleKeyDataForReports("Hidden")),"JSON data grid column hidden assertion failed");  	
 	}
+	
+	@Test(priority=53,description="To Verify Ascending and Descending order")
+	public void VerifySorting() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
+		ocmReportsPage.showReport(reportDetails);
+		OCMAgentSummaryReportPage OCMAgentSummaryReportPage=PageFactory.createPageInstance(driver,OCMAgentSummaryReportPage.class);
+		Assert.assertTrue(OCMAgentSummaryReportPage.verifySorting(),"Sorting assertion failed");
+	}
 
-	/*@Test(priority=55, description="To verify report data against DB")
+
+	/*@Test(priority=54, description="To verify report data against DB")
 	public void database1() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(0);

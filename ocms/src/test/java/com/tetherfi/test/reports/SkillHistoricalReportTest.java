@@ -84,7 +84,7 @@ public class SkillHistoricalReportTest extends BaseTest {
    @Test(priority=6,dependsOnMethods ="ViewDownloadedOcmSkillhistoricalReportInReportsDownloadPage",description="To verification of exported excel in Report downloads")
 	public void VerifyViewDownloadedOcmSkillHistoricalReportInReportsDownloadPage() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillHistoricalReportData.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
+		Map<String, String> map = new ExcelReader(filePath,"ExportReport").getTestData().get(0);
 		ReportDetails reportDetails= new ReportDetails(map);
 		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
 		ocmReportsPage.showReport(reportDetails);
@@ -132,7 +132,7 @@ public class SkillHistoricalReportTest extends BaseTest {
 	@Test(priority=11,dependsOnMethods ="ViewDownloadedOcmAgentSkillhistoricalReportInReportsDownloadPageDateRange",description="To verification of exported excel in Report downloads")
 	public void VerifyViewDownloadedOcmSkillHistoricalReportInReportsDownloadPageDateRange() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillHistoricalReportData.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
+		Map<String, String> map = new ExcelReader(filePath,"ExportReportDateRange").getTestData().get(0);
 		ReportDetails reportDetails= new ReportDetails(map);
 		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
 		ocmReportsPage.showReport(reportDetails);
@@ -335,7 +335,7 @@ public class SkillHistoricalReportTest extends BaseTest {
 	@Test(priority=30,dependsOnMethods ="ViewDownloadedOcmAgentSkillhistoricalReportInReportsDownloadPageinAgentSkillhistoricalPg",description="To verification of exported excel in Report downloads")
 	public void VerifyViewDownloadedOcmSkillHistoricalReportInReportsDownloadPageInMainPage() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillHistoricalReportData.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
+		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
 		ReportDetails reportDetails= new ReportDetails(map);
 		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
 		ocmReportsPage.showReport(reportDetails);
@@ -643,7 +643,7 @@ public class SkillHistoricalReportTest extends BaseTest {
 		Assert.assertTrue(skillHistoricalPage.verifySorting(),"item per page assertion failed");
 	}
 	
-	@Test(priority=59, description="To verify report data against DB")
+	/*@Test(priority=59, description="To verify report data against DB")
 	public void database() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillHistoricalReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(0);
@@ -690,7 +690,7 @@ public class SkillHistoricalReportTest extends BaseTest {
 			agtSkillHistoricalPage.closeDrillOneReport();
 			Thread.sleep(1000);
 		}
-	}
+	}*/
 
 
 	@AfterMethod

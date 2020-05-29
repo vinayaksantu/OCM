@@ -141,7 +141,7 @@ public class OCMReportsPage extends BasePage {
 	@FindBy(id="clearAllSearch")
 	private WebElement clearAll;
 
-	@FindBy(css=".toast-message")
+	@FindBy(css="#toast-container .toast-success .toast-message")
 	private WebElement successmsg;
 
 	@FindBy(css="#toast-container .toast-error")
