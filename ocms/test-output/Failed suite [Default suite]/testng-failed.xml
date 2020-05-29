@@ -3,32 +3,26 @@
 <suite name="Failed suite [Failed suite [Default suite]]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)(failed)">
     <classes>
-      <class name="com.tetherfi.test.reports.AgentHistoricalReportTest">
+      <class name="com.tetherfi.test.reports.OCMAgentSummaryReportTest">
         <methods>
+          <include name="DeleteRecordAtReportsDownload"/>
           <include name="SortingByDescending"/>
-          <include name="VerifySearchByFeatureForAgentHistoricalReport"/>
           <include name="SortingByAscending"/>
-          <include name="VerifyArrowMoveForFirstAndLastPageFoDrillDownOne"/>
-          <include name="NavigateToOcmReportsPage"/>
-          <include name="verifyAdvancedSearchinreportpageSearchStartswith"/>
-          <include name="ShowOcmAgentHistoricalReportInNewTab"/>
           <include name="VerifyExportedPage"/>
           <include name="endTestCase"/>
-          <include name="VerifyArrowMoveForFirstAndLastPageFoDrillDowntwo"/>
           <include name="tearDown"/>
-          <include name="verifyAdvancedSearchORCriteria"/>
-          <include name="afterEachMethod"/>
-          <include name="VerifyNumberOfItemsPerPageSelection"/>
-          <include name="VerifySearchStartsWith"/>
+          <include name="NavigateToOcmReportsPage"/>
+          <include name="VerifySearchByFeatureForAgentSummaryReport"/>
+          <include name="GroupBy"/>
           <include name="startTestCase"/>
           <include name="openApplication"/>
-          <include name="VerifyArrowMoveForPreviousAndNextPageForDrillDownOne"/>
-          <include name="VerifyArrowMoveForPreviousAndNextPageForDrillDowntwo"/>
+          <include name="afterEachMethod"/>
           <include name="ExportPage"/>
-          <include name="verifyAdvancedSearchinreportpageSearchcontains"/>
-          <include name="GroupBy"/>
+          <include name="verifyAdvancedSearchinreportpageSearchEndswith"/>
+          <include name="DeleteRecordforSingleDate"/>
+          <include name="VerifyJsonDataForColumnNames"/>
         </methods>
-      </class> <!-- com.tetherfi.test.reports.AgentHistoricalReportTest -->
+      </class> <!-- com.tetherfi.test.reports.OCMAgentSummaryReportTest -->
     </classes>
   </test> <!-- Default test(failed)(failed) -->
 </suite> <!-- Failed suite [Failed suite [Default suite]] -->
