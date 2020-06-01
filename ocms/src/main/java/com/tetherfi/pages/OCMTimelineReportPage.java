@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -297,6 +298,7 @@ public class OCMTimelineReportPage extends BasePage  {
 	private WebElement drillGridTwoItems;
 
 
+
 	public void exportPage(){
 		emptyDownloadsDirectory(System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles");
 		selectWebElement(exportPage);
@@ -337,7 +339,7 @@ public class OCMTimelineReportPage extends BasePage  {
 			List<WebElement> rows=gridContent.findElements(By.tagName("tr"));
 			List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
 			int k=0;
-			for(int j=0;j<headers.size();j++){
+			for(int j=0;j<2;j++){
 				if(headers.get(j).getText().equals("")||headers.get(j).getText().equals(" ")){continue;}
 				List<String> l1 = getColumnDatafromTable(headers.get(j).getText());
 				//System.out.println(l1);
@@ -654,7 +656,7 @@ public class OCMTimelineReportPage extends BasePage  {
 		for(int i=1;i<rows.size();i++) {
 			Map<String,String> map = new HashMap<String,String>();
 			List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
-			for(int j=0;j<headers.size();j++) {
+			for(int j=1;j<headers.size();j++) {
 				scrollToElement(headers.get(j));
 				/*System.out.println(headers.get(j).getText());
 						if(headers.get(j).getText().equals("Last Changed On")){
