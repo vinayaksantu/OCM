@@ -204,9 +204,9 @@ public class OCMChatbotInteractionreportTest extends BaseTest {
         ocmReportsPage.showReport(reportDetails);      
         OCMChatbotInteractionReportPage ChatbotInteractionPage=PageFactory.createPageInstance(driver,OCMChatbotInteractionReportPage.class);             
         Assert.assertTrue(ChatbotInteractionPage.maximizewindow(),"Fullscreen Assertion Failed"); 
-    	screenshot.captureScreen(driver,"OCMChatbotInteractionReport","Maximize");
+    	screenshot.captureScreen("OCMChatbotInteractionReport","Maximize");
     	Assert.assertTrue(ChatbotInteractionPage.minimizewindow(), "Restored Assertion Failed");
-    	screenshot.captureScreen(driver,"OCMChatbotInteractionReport","Minimize");	
+    	screenshot.captureScreen("OCMChatbotInteractionReport","Minimize");	
     }
 	
     @Test(priority=18,description="To Verify Dropdown for All the Columns")

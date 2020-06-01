@@ -31,7 +31,7 @@ public class UserRoleMappingTest extends BaseTest {
         agentTeamManagementPage.addNewAgentTeamManagementRecord(userRoleMappingDetails.getLevel(),userRoleMappingDetails.getCountry(),userRoleMappingDetails.getDivision(),userRoleMappingDetails.getDepartment(),userRoleMappingDetails.getTeamName());
         Assert.assertTrue(agentTeamManagementPage.verifyMessage(),"Add New record assertion failed");
         driver.navigate().refresh();
-        homePage.navigateToOcmIconImg();
+        homePage.navigateToOCMIconImg();
     }
     
     @BeforeMethod
@@ -86,7 +86,7 @@ public class UserRoleMappingTest extends BaseTest {
     @AfterClass
     public void DeleteAgentTeamManagementRecord() throws Exception {
         HomePage homePage= PageFactory.createPageInstance(driver,HomePage.class);
-        homePage.navigateToOcmIconImg();
+        homePage.navigateToOCMIconImg();
         homePage.navigateToOCMPage();
         OCMHomePage ocmHomePage = PageFactory.createPageInstance(driver,OCMHomePage.class);
         Assert.assertTrue(ocmHomePage.isOCMHomePageIsDisplayed(),"OCM HOME Page assertion failed");

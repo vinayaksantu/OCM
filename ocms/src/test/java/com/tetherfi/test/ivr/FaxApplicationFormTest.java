@@ -42,17 +42,17 @@ public class FaxApplicationFormTest extends BaseTest {
         ivrPage.navigateToFaxApplicationFormPage();
         FaxApplicationFormPage faxApplicationFormPage = PageFactory.createPageInstance(driver, FaxApplicationFormPage.class);
         Assert.assertTrue(faxApplicationFormPage.isFaxApplicationFormPageDisplayed(), "Fax application form page assertion failed");
-    	screenshot.captureScreen(driver,"FaxApplicationForm Page","FaxApplicationFormTest");
+    	screenshot.captureScreen("FaxApplicationFormTest","FaxApplicationForm Page");
     }
     
-    /*@Test(priority=1)
+    @Test(priority=1)
     public void FaxApplicationFormPage() {
         FaxApplicationFormPage faxApplicationFormPage = PageFactory.createPageInstance(driver, FaxApplicationFormPage.class);
     	Assert.assertTrue(faxApplicationFormPage.verifylogo(),"CallBackAnnouncement logo assertion failed");
     	Assert.assertTrue(faxApplicationFormPage .maximizewindow(),"Fullscreen Assertion Failed"); 
-    	screenshot.captureScreen(driver,"maximize window","FaxApplicationFormTest");
+    	screenshot.captureScreen("FaxApplicationFormTest","maximize window");
     	Assert.assertTrue(faxApplicationFormPage .minimizewindow(), "Restored Assertion Failed");
-    	screenshot.captureScreen(driver,"minimize window","FaxApplicationFormTest");
+    	screenshot.captureScreen("FaxApplicationFormTest","minimize window");
     }
     
     @Test(priority=2)
@@ -71,7 +71,7 @@ public class FaxApplicationFormTest extends BaseTest {
     public void VerifyColumnsHeaderDisable() {
         FaxApplicationFormPage faxApplicationFormPage = PageFactory.createPageInstance(driver, FaxApplicationFormPage.class);
         Assert.assertFalse(faxApplicationFormPage.verifycolumnsHeaderDisabled(),"columns disabled assertion failed");
-    }*/
+    }
     
     @Test(priority=5)
     public void AddNewFaxApplicationFormRecord() throws Exception {
@@ -86,7 +86,7 @@ public class FaxApplicationFormTest extends BaseTest {
 
     }
     
-    /*@Test(priority=6,dependsOnMethods ="AddNewFaxApplicationFormRecord")
+    @Test(priority=6,dependsOnMethods ="AddNewFaxApplicationFormRecord")
     public void VerifyAuditTrialReportForCreate() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxApplicationFormData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -159,7 +159,7 @@ public class FaxApplicationFormTest extends BaseTest {
         FaxApplicationFormPage faxApplicationFormPage = PageFactory.createPageInstance(driver, FaxApplicationFormPage.class);
         faxApplicationFormPage.addNewFaxApplicationFormWithoutStatus(faxApplicationFormDetails);
         Assert.assertTrue(faxApplicationFormPage.verifyErrorMessage(), "Add New record assertion failed");
-    }*/
+    }
     
     @Test(priority=13)//,dependsOnMethods = "AddNewFaxApplicationFormRecord")
     public void EditFaxApplicationFormRecord() throws Exception {
@@ -171,7 +171,7 @@ public class FaxApplicationFormTest extends BaseTest {
         Assert.assertEquals(faxApplicationFormPage.verifySuccessMessage(),"Record Updated Successfully","Edit record assertion failed");
     }
     
-    /*@Test(priority=14,dependsOnMethods="EditFaxApplicationFormRecord")
+    @Test(priority=14,dependsOnMethods="EditFaxApplicationFormRecord")
     public void VerifyAuditTrialReportForUpdate() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxApplicationFormData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(0);	
@@ -243,7 +243,7 @@ public class FaxApplicationFormTest extends BaseTest {
          FaxApplicationFormDetails faxApplicationFormDetails = new FaxApplicationFormDetails(map);
          FaxApplicationFormPage faxApplicationFormPage = PageFactory.createPageInstance(driver, FaxApplicationFormPage.class);
          Assert.assertTrue(faxApplicationFormPage.Canceldelete(faxApplicationFormDetails), "Cancel Btn at Delete record assertion failed");
-    }*/
+    }
     
     @Test(priority=21)
     public void DeleteFaxApplicationFormRecord() throws Exception {
@@ -255,7 +255,7 @@ public class FaxApplicationFormTest extends BaseTest {
          Assert.assertEquals(faxApplicationFormPage.verifySuccessMessage(),"Record Deleted Successfully","delete record assertion failed");
     }
     
-    /*@Test(priority=22,dependsOnMethods= {"DeleteFaxApplicationFormRecord"})
+    @Test(priority=22,dependsOnMethods= {"DeleteFaxApplicationFormRecord"})
     public void VerifyAuditTrialReportForDelete() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxApplicationFormData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(0);	
@@ -413,7 +413,7 @@ public class FaxApplicationFormTest extends BaseTest {
         FaxApplicationFormPage faxApplicationFormPage = PageFactory.createPageInstance(driver, FaxApplicationFormPage.class);
         FaxApplicationFormDetails faxApplicationFormDetails = new FaxApplicationFormDetails(map);
     	Assert.assertTrue(faxApplicationFormPage.verifyDatabase(faxApplicationFormDetails.getQuery()));
-    }*/
+    }
     
     @AfterMethod
     public void afterEachMethod(Method method) throws InterruptedException {

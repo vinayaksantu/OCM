@@ -48,7 +48,7 @@ public class CmDataSyncTest extends BaseTest {
     @AfterMethod
     public void afterEachMethod(Method method) throws InterruptedException {
         Screenshot screenshot=new Screenshot(driver);
-        screenshot.captureScreen(driver,method.getName(),"CmDataSyncTest");
+        screenshot.captureScreen("CmDataSyncTest",method.getName());
     }
 
 }

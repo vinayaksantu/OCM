@@ -38,17 +38,17 @@ public class TmacTransferListE2E extends BaseTest {
 	        ocmHomePage.navigateToTab("TMAC");
 	        TmacPage tmacPage = PageFactory.createPageInstance(driver, TmacPage.class);
 	        Assert.assertTrue(tmacPage.isTMACPageDisplayed(), "tmac page assertion failed");
-	        screenshot.captureScreen(driver, "TMAC Page","TmacTransferListTest");
+	        screenshot.captureScreen("TmacTransferListTest", "TMAC Page");
 	        tmacPage.navigateToTmacTranferListPage();
 	        TmacTransferListPage tmacTransferListPage  = PageFactory.createPageInstance(driver, TmacTransferListPage.class);
 	        Assert.assertTrue(tmacTransferListPage.isTmacTransferListPageDisplayed(), "TmacTransferList page assertion failed");
-	        screenshot.captureScreen(driver, "TMACTransferList Page","TmacTransferListTest");
+	        screenshot.captureScreen("TmacTransferListTest", "TMACTransferList Page");
 	    }
 	
 	@Test(priority=1)
     public void verifyBlindSkillListOnTmac() throws Exception
     { 
-		/*TmacTransferListPage tmacTransferListPage  = PageFactory.createPageInstance(driver, TmacTransferListPage.class);
+		TmacTransferListPage tmacTransferListPage  = PageFactory.createPageInstance(driver, TmacTransferListPage.class);
 		tmacTransferListPage.navigateToTab("TMAC Blind Transfer");
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\TmacTransferListData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "ConsulCreate").getTestData().get(8);
@@ -62,7 +62,7 @@ public class TmacTransferListE2E extends BaseTest {
     	map = new ExcelReader(filePath, "ConsulCreate").getTestData().get(10);
         tmacTransferListDetails=new TmacTransferListDetails(map);
     	tmacTransferListPage.addNewTmacConsultTransferList(tmacTransferListDetails);
-    	Assert.assertTrue(tmacTransferListPage.verifyNewRecordCreated(),"Add New record assertion failed");*/
+    	Assert.assertTrue(tmacTransferListPage.verifyNewRecordCreated(),"Add New record assertion failed");
     	driver.close();
         String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\LoginData.xlsx";
 
@@ -82,7 +82,7 @@ public class TmacTransferListE2E extends BaseTest {
 		TmacUserDetails tmacUserDetails=new TmacUserDetails(map2);
         loginPage.logintotmac(tmacUserDetails.getLanID(),tmacUserDetails.getStation());
         Assert.assertTrue(loginPage.verifyUserLogged(),"Tmac login failed");
-        screenshot.captureScreen(driver, "Tmaclogin", "TmacBroadCastMsgE2E");
+        screenshot.captureScreen("TmacTransferListTest", "Tmaclogin");
         loginPage.switchToNewWindow();
         Assert.assertTrue(loginPage.isTmacPopUpDisplayed(),"TMAC popup not displayed");
         TmacPopupPage tmacPopupPage= PageFactory.createPageInstance(driver,TmacPopupPage.class);

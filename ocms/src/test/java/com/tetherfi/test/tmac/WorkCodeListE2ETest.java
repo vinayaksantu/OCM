@@ -75,11 +75,11 @@ public class WorkCodeListE2ETest {
 	                 ocmHomePage.navigateToTab("TMAC");
 	                 TmacPage tmacPage = PageFactory.createPageInstance(driver, TmacPage.class);
 	                 Assert.assertTrue(tmacPage.isTMACPageDisplayed(), "tmac page assertion failed");
-	                 screenshot.captureScreen(driver, "TMAC Page","WorkCodeListTest");
+	                 screenshot.captureScreen("WorkCodeListTest", "TMAC Page");
 	                 tmacPage.navigateToWorkCodeListPage();
 	                 WorkCodeListPage workCodeListPage  = PageFactory.createPageInstance(driver, WorkCodeListPage.class);
 	                 Assert.assertTrue(workCodeListPage.isWorkCodeListPageDisplayed(), "WorkCodeList page assertion failed");
-	                 screenshot.captureScreen(driver, "WorkCodeList Page","WorkCodeListE2ETest");
+	                 screenshot.captureScreen("WorkCodeListTest", "WorkCodeList Page");
 	                 }
 	        else {
 	        	 String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\LoginData.xlsx";

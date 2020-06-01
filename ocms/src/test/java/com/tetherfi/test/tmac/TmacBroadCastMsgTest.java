@@ -37,7 +37,7 @@ public class TmacBroadCastMsgTest extends BaseTest {
         agentTeamManagementPage.addNewAgentTeamManagementRecord(tmacBroadCastMsgDetails.getLevel(),tmacBroadCastMsgDetails.getCountry(),tmacBroadCastMsgDetails.getDivision(),tmacBroadCastMsgDetails.getDepartment(),tmacBroadCastMsgDetails.getTeamName());
         Assert.assertTrue(agentTeamManagementPage.verifyMessage(),"Add New record assertion failed");
         driver.navigate().refresh();
-        homePage.navigateToOcmIconImg();
+        homePage.navigateToOCMIconImg();
     }
     @BeforeMethod
     public void NavigateToTmacBroadcastMsgPage()  {
@@ -48,7 +48,6 @@ public class TmacBroadCastMsgTest extends BaseTest {
         ocmHomePage.navigateToTab("TMAC");
         TmacPage tmacPage = PageFactory.createPageInstance(driver, TmacPage.class);
         Assert.assertTrue(tmacPage.isTMACPageDisplayed(), "tmac page assertion failed");
-        screenshot.captureScreen(driver, "TMAC Page","TmacBroadCastMsgTest");
         tmacPage.navigateToTmacBroadcastMsgPage();
         TmacBroadCastMsgPage tmacBroadCastMsgPage  = PageFactory.createPageInstance(driver, TmacBroadCastMsgPage.class);
         Assert.assertTrue(tmacBroadCastMsgPage.isTmacBroadcastMsgPageDisplayed(), "TMAC Broadcast page assertion failed");
@@ -267,9 +266,9 @@ public class TmacBroadCastMsgTest extends BaseTest {
     {
         TmacBroadCastMsgPage tmacBroadCastMsgPage  = PageFactory.createPageInstance(driver, TmacBroadCastMsgPage.class);
     	Assert.assertTrue(tmacBroadCastMsgPage.groupby());
-        screenshot.captureScreen(driver, "GroupBy","TmacBroadCastMsgTest");
+        screenshot.captureScreen("TmacBroadCastMsgTest", "GroupBy");
     	Assert.assertTrue(tmacBroadCastMsgPage.groupby());
-        screenshot.captureScreen(driver, "AlreadyGroupBy","TmacBroadCastMsgTest");
+        screenshot.captureScreen("TmacBroadCastMsgTest", "AlreadyGroupBy");
     }
     
     @Test(priority=23)

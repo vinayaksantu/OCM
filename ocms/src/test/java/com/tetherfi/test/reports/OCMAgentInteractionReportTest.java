@@ -231,9 +231,9 @@ public class OCMAgentInteractionReportTest extends BaseTest {
 		ocmReportsPage.showReport(reportDetails);        
 		OCMAgentInteractionReportPage agentInteractionPage=PageFactory.createPageInstance(driver,OCMAgentInteractionReportPage.class);                   
 		Assert.assertTrue(agentInteractionPage.maximizewindow(),"Fullscreen Assertion Failed"); 
-		screenshot.captureScreen(driver,"OCMAgentInteractionComplete","Maximize");
+		screenshot.captureScreen("OCMAgentInteractionComplete","Maximize");
 		Assert.assertTrue(agentInteractionPage.minimizewindow(), "Restored Assertion Failed");
-		screenshot.captureScreen(driver,"OCMAgentInteractionComplete","Minimize");	
+		screenshot.captureScreen("OCMAgentInteractionComplete","Minimize");	
 	}
 	@Test(priority=21,description="Verify dropdown of all the coulnm headers")
 	public void VerifyDropdownForAllTheColumns() throws Exception {		

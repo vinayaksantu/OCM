@@ -37,7 +37,7 @@ public class IvrConfigUITest extends BaseTest{
         ivrPage.navigateToIvrConfigPage();
         IvrConfigPage ivrConfigPage = PageFactory.createPageInstance(driver, IvrConfigPage.class);
         Assert.assertTrue(ivrConfigPage.isIvrConfigPageDisplayed(), "Ivr config page assertion failed");
-    	screenshot.captureScreen(driver,"IvrConfigPage","IvrConfigTest");
+    	screenshot.captureScreen("IvrConfigTest","IvrConfigPage");
 		}
 
 	@Test(priority=1)
@@ -45,9 +45,9 @@ public class IvrConfigUITest extends BaseTest{
 		IvrConfigPage ivrConfigPage = PageFactory.createPageInstance(driver, IvrConfigPage.class);
 		Assert.assertTrue(ivrConfigPage.verifylogo(),"CallBackAnnouncement logo assertion failed");
 		Assert.assertTrue(ivrConfigPage.maximizewindow(),"Fullscreen Assertion Failed"); 
-		screenshot.captureScreen(driver,"maximize window","IvrConfigTest");
+		screenshot.captureScreen("IvrConfigTest","maximize window");
 		Assert.assertTrue(ivrConfigPage.minimizewindow(), "Restored Assertion Failed");
-		screenshot.captureScreen(driver,"minimize window","IvrConfigTest");
+		screenshot.captureScreen("IvrConfigTest","minimize window");
 	}		
 
 	@Test(priority=2)
@@ -216,7 +216,6 @@ public class IvrConfigUITest extends BaseTest{
 	public void SearchWithoutSearchTextBox() throws IOException {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IvrConfigData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Invalid").getTestData().get(0);
-		IvrConfigDetails IvrConfigDetails=new IvrConfigDetails(map);
 		IvrConfigPage ivrConfigPage=PageFactory.createPageInstance(driver, IvrConfigPage.class);
 		ivrConfigPage.searchwithoutextsearch();
 		Assert.assertEquals(ivrConfigPage.getSuccessMessage(), "Please enter the text to search or remove the filter");

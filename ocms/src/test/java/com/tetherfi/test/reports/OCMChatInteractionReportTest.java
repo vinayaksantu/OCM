@@ -230,9 +230,9 @@ public class OCMChatInteractionReportTest extends BaseTest {
 		ocmReportsPage.showReport(reportDetails);        
 		OCMChatInteractionReportPage ChatInteractionPage=PageFactory.createPageInstance(driver,OCMChatInteractionReportPage.class);                   
 		Assert.assertTrue(ChatInteractionPage.maximizewindow(),"Fullscreen Assertion Failed"); 
-		screenshot.captureScreen(driver,"OCMChatInteraction","Maximize");
+		screenshot.captureScreen("OCMChatInteraction","Maximize");
 		Assert.assertTrue(ChatInteractionPage.minimizewindow(), "Restored Assertion Failed");
-		screenshot.captureScreen(driver,"OCMChatInteraction","Minimize");	
+		screenshot.captureScreen("OCMChatInteraction","Minimize");	
 	}
 	@Test(priority=21,description="Verify dropdown of all the coulnm headers")
 	public void VerifyDropdownForAllTheColumns() throws Exception {		

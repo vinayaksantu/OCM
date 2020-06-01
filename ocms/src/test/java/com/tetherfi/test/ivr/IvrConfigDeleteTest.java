@@ -68,7 +68,7 @@ public class IvrConfigDeleteTest {
         ivrPage.navigateToIvrConfigPage();
         IvrConfigPage ivrConfigPage = PageFactory.createPageInstance(driver, IvrConfigPage.class);
         Assert.assertTrue(ivrConfigPage.isIvrConfigPageDisplayed(), "Ivr config page assertion failed");
-        screenshot.captureScreen(driver,"IvrConfigPage","IvrConfigTest");
+        screenshot.captureScreen("IvrConfigTest","IvrConfigPage");
     	driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);  
 }
 	

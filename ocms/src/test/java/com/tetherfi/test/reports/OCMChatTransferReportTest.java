@@ -140,9 +140,9 @@ public class OCMChatTransferReportTest extends BaseTest {
         ocmReportsPage.showReport(reportDetails);    
         OCMChatTransferReportPage chatintactnpage=PageFactory.createPageInstance(driver,OCMChatTransferReportPage.class);             
         Assert.assertTrue(chatintactnpage.maximizewindow(),"Fullscreen Assertion Failed"); 
-    	screenshot.captureScreen(driver,"OCMChatTransferReport","Maximize");
+    	screenshot.captureScreen("OCMChatTransferReport","Maximize");
     	Assert.assertTrue(chatintactnpage.minimizewindow(), "Restored Assertion Failed");
-    	screenshot.captureScreen(driver,"OCMChatTransferReport","Minimize");	
+    	screenshot.captureScreen("OCMChatTransferReport","Minimize");	
     } 
 	@Test(priority=13)
     public void VerifyDropdownForAllTheColumns() throws Exception {		

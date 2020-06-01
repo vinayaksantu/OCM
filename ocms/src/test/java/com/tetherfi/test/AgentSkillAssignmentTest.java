@@ -114,9 +114,9 @@ public class AgentSkillAssignmentTest extends BaseTest{
     {
         AgentSkillAssignmentPage agentSkillAssignmentPage=PageFactory.createPageInstance(driver,AgentSkillAssignmentPage.class);
     	Assert.assertTrue(agentSkillAssignmentPage.groupby());
-        screenshot.captureScreen(driver, "GroupBy","AgentSkillAssignmentTest");
+        screenshot.captureScreen("GroupBy","AgentSkillAssignmentTest");
     	Assert.assertTrue(agentSkillAssignmentPage.groupby());
-        screenshot.captureScreen(driver, "AlreadyGroupBy","AgentSkillAssignmentTest");
+        screenshot.captureScreen("AlreadyGroupBy","AgentSkillAssignmentTest");
     }
     
     @Test(priority=12)

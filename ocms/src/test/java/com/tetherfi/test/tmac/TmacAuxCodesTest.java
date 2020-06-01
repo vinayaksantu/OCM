@@ -97,7 +97,7 @@ public class TmacAuxCodesTest extends BaseTest {
     	 TmacAuxCodesPage tmacAuxCodesPage=PageFactory.createPageInstance(driver, TmacAuxCodesPage.class);
     	 tmacAuxCodesPage.addRecordWithoutStatus(tmacAuxCodesDetails);
     	 Assert.assertFalse(tmacAuxCodesPage.errormessage(), "Add Record without Status Assertion Failed");
-     }*/
+     }
      
      @Test(priority=7)
      public void AddNewTmacAuxCodesRecord() throws Exception {
@@ -109,7 +109,7 @@ public class TmacAuxCodesTest extends BaseTest {
     	 Assert.assertTrue(tmacAuxCodesPage.verifymessage(), "Record Creation assertion failed");
      }
      
-     /*@Test(priority=8,dependsOnMethods="AddNewTmacAuxCodesRecord")
+     @Test(priority=8,dependsOnMethods="AddNewTmacAuxCodesRecord")
      public void verifyAuditTrailReportForCreate() throws Exception {
     	 String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacAuxCodesData.xlsx";
     	 Map<String, String>map=new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -151,7 +151,7 @@ public class TmacAuxCodesTest extends BaseTest {
     	 TmacAuxCodesPage tmacAuxCodesPage=PageFactory.createPageInstance(driver, TmacAuxCodesPage.class);
     	 tmacAuxCodesPage.EditRecordWithoutModifyReason(tmacAuxCodesDetails);
     	 Assert.assertFalse(tmacAuxCodesPage.errormessage(), "Without ModifyReason Record assertion failed");
-     }*/
+     }
      
      @Test(priority=12)
      public void verifyEditRecord() throws Exception {
@@ -163,7 +163,7 @@ public class TmacAuxCodesTest extends BaseTest {
          Assert.assertTrue(tmacAuxCodesPage.verifymessage(), "Edit Assrtion failed");
      }
      
-     /*@Test(priority=13,dependsOnMethods="verifyEditRecord")
+     @Test(priority=13,dependsOnMethods="verifyEditRecord")
      public void verifyAuditTrailReportForUpdate() throws Exception {
     	 String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacAuxCodesData.xlsx";
     	 Map<String, String>map=new ExcelReader(filePath,"Edit").getTestData().get(0);
@@ -183,7 +183,6 @@ public class TmacAuxCodesTest extends BaseTest {
     	 String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles";
     	 TmacAuxCodesPage tmacAuxCodesPage=PageFactory.createPageInstance(driver, TmacAuxCodesPage.class);
     	 Assert.assertTrue(tmacAuxCodesPage.ExportToExcelButton(filePath), "Export Button assertion failed");
-    	 screenshot.captureScreen(driver, filePath, "TmacAuxCodes");
      }
      
      @Test(priority=15,dependsOnMethods="ExportToExcelButton")
@@ -289,7 +288,7 @@ public class TmacAuxCodesTest extends BaseTest {
     	 TmacAuxCodesPage tmacAuxCodesPage=PageFactory.createPageInstance(driver, com.tetherfi.pages.TmacAuxCodesPage.class);
     	 tmacAuxCodesPage.DeleteWithoutReason(tmacAuxCodesDetails);
     	 Assert.assertFalse(tmacAuxCodesPage.errormessage(), "Delete without Delete Reason Failed");
-     }*/
+     }
      
      @Test(priority=29)
      public void DeleteTmacAuxCodesRecord() throws Exception {
@@ -301,7 +300,7 @@ public class TmacAuxCodesTest extends BaseTest {
     	 Assert.assertTrue(tmacAuxCodesPage.verifymessage(), "Delete Assertion Failed");
      }
      
-     /*@Test(priority=30,dependsOnMethods="DeleteTmacAuxCodesRecord")
+     @Test(priority=30,dependsOnMethods="DeleteTmacAuxCodesRecord")
      public void verifyAuditTrailReportForDelete() throws Exception {
     	 String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacAuxCodesData.xlsx";
     	 Map<String, String>map=new ExcelReader(filePath,"Delete").getTestData().get(0);
@@ -350,7 +349,7 @@ public class TmacAuxCodesTest extends BaseTest {
     	 TmacAuxCodesDetails tmacAuxCodesdetails=new TmacAuxCodesDetails(map);
     	 TmacAuxCodesPage tmacAuxCodesPage=PageFactory.createPageInstance(driver, TmacAuxCodesPage.class);
     	 Assert.assertTrue(tmacAuxCodesPage.verifySearchStartsWith(tmacAuxCodesdetails.getCode()), "Search assertion Failed");
-     }*/
+     }
      
      @Test(priority=35)
      public void SearchEndsWith() throws Exception {
@@ -359,19 +358,8 @@ public class TmacAuxCodesTest extends BaseTest {
     	 TmacAuxCodesDetails tmacAuxCodesdetails=new TmacAuxCodesDetails(map);
     	 TmacAuxCodesPage tmacAuxCodesPage=PageFactory.createPageInstance(driver, TmacAuxCodesPage.class);
     	 Assert.assertTrue(tmacAuxCodesPage.verifySearchEndsWith(tmacAuxCodesdetails.getCode()), "Search assertion Failed");
-<<<<<<< HEAD
      }
-     
-     
-     
-     
-     
-     
-     
-=======
-     }*/
-          
->>>>>>> refs/remotes/origin/PalakReports
+
      @AfterMethod()
      public void AfterEachMethod(Method method) {
     	 Screenshot screenshot=new Screenshot(driver);

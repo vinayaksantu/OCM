@@ -232,9 +232,9 @@ public class OCMAgentLoginLogoutReportTest extends BaseTest {
 		ocmReportsPage.showReport(reportDetails);        
 		OCMAgentLoginLogoutReportPage agntloginlogoutPage=PageFactory.createPageInstance(driver,OCMAgentLoginLogoutReportPage.class);                   
 		Assert.assertTrue(agntloginlogoutPage.maximizewindow(),"Fullscreen Assertion Failed"); 
-		screenshot.captureScreen(driver,"AgentLoginLogoutReport","Maximize");
+		screenshot.captureScreen("AgentLoginLogoutReport","Maximize");
 		Assert.assertTrue(agntloginlogoutPage.minimizewindow(), "Restored Assertion Failed");
-		screenshot.captureScreen(driver,"AgentLoginLogoutReport","Minimize");	
+		screenshot.captureScreen("AgentLoginLogoutReport","Minimize");	
 	}
 	@Test(priority=21,description="Verify dropdown of all the coulnm headers")
 	public void VerifyDropdownForAllTheColumns() throws Exception {		

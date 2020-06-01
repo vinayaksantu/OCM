@@ -35,7 +35,7 @@ public class SkillConfigurationTest extends BaseTest{
          Assert.assertTrue(skillConfigurationPage.isSkillConfigurationPageDisplayed(),"Skill Configuration assertion failed");
     }     
      
-    /*@Test(priority=1)
+    @Test(priority=1)
     public void SkillConfigurationPage() {
         SkillConfigurationPage skillConfigurationPage=PageFactory.createPageInstance(driver,SkillConfigurationPage.class);
     	Assert.assertTrue(skillConfigurationPage.verifylogo(),"Skill Configuration logo assertion failed");
@@ -61,7 +61,7 @@ public class SkillConfigurationTest extends BaseTest{
     public void VerifyColumnsHeaderDisable() {
     	SkillConfigurationPage skillConfigurationPage=PageFactory.createPageInstance(driver,SkillConfigurationPage.class);
         Assert.assertFalse(skillConfigurationPage.verifycolumnsHeaderDisabled(),"columns disabled assertion failed");
-    }*/
+    }
     
     @Test(priority=5)
     public void AddSkillConfigurationRecord() throws Exception {
@@ -75,7 +75,7 @@ public class SkillConfigurationTest extends BaseTest{
         Assert.assertEquals(skillConfigurationPage.getMessage(),"Record Created Successfully","Add New record assertion failed");
     }
     
-   /*@Test(priority=6)
+    @Test(priority=6)
     public void VerifyAuditTrialReportForCreate() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillConfigurationData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);
@@ -218,7 +218,7 @@ public class SkillConfigurationTest extends BaseTest{
         SkillConfigurationDetails skillConfigurationDetails = new SkillConfigurationDetails(map);
     	SkillConfigurationPage skillConfigurationPage=PageFactory.createPageInstance(driver,SkillConfigurationPage.class);
         Assert.assertTrue(skillConfigurationPage.editcancel(skillConfigurationDetails));
-    }*/
+    }
     
     @Test(priority=20)
     public void EditSkillConfigurationRecord() throws Exception {
@@ -310,7 +310,7 @@ public class SkillConfigurationTest extends BaseTest{
      	 SkillConfigurationPage skillConfigurationPage=PageFactory.createPageInstance(driver,SkillConfigurationPage.class);
      	 skillConfigurationPage.deleteWaitTimeColorConfigRecord(skillConfigurationDetails);
      	 Assert.assertEquals(skillConfigurationPage.getMessage(),"Record Deleted Successfully","Delete record assertion failed");
-         screenshot.captureScreen(driver, "Deleted Successfully","SkillConfigurationTest");  
+         screenshot.captureScreen("Deleted Successfully","SkillConfigurationTest");  
     }
 
     @Test(priority=28)
@@ -326,7 +326,7 @@ public class SkillConfigurationTest extends BaseTest{
         ReportDetails reportDetails= new ReportDetails(map1);
         ocmReportsPage.showReport(reportDetails);
         Assert.assertTrue(ocmReportsPage.verifySkillConfigurationdelete(skillConfigurationDetails,"Delete"));
-        screenshot.captureScreen(driver, "VerifyAuditTrialReportForUpdate","SkillConfigurationTest");
+        screenshot.captureScreen("VerifyAuditTrialReportForUpdate","SkillConfigurationTest");
     }
     
     @Test(priority=29)
@@ -353,9 +353,9 @@ public class SkillConfigurationTest extends BaseTest{
         SkillConfigurationDetails skillConfigurationDetails = new SkillConfigurationDetails(map);
         SkillConfigurationPage skillConfigurationPage=PageFactory.createPageInstance(driver,SkillConfigurationPage.class);
         Assert.assertTrue(skillConfigurationPage.verifyinvalidsearch(skillConfigurationDetails), "InvalidSearchAssertionFailed");
-        screenshot.captureScreen(driver, "Invalid Search", "WaitTimeColorConfigTest");
+        screenshot.captureScreen("Invalid Search", "WaitTimeColorConfigTest");
         Assert.assertTrue(skillConfigurationPage.verifyclearsearch(), "ClearSearch Assertion Failed");
-        screenshot.captureScreen(driver, "Clear Search", "SkillConfigurationTest");
+        screenshot.captureScreen("Clear Search", "SkillConfigurationTest");
     }
     
     @Test(priority=31)

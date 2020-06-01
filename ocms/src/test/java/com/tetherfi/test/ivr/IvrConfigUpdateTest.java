@@ -72,7 +72,7 @@ public class IvrConfigUpdateTest {
         ivrPage.navigateToIvrConfigPage();
         IvrConfigPage ivrConfigPage = PageFactory.createPageInstance(driver, IvrConfigPage.class);
         Assert.assertTrue(ivrConfigPage.isIvrConfigPageDisplayed(), "Ivr config page assertion failed");
-        screenshot.captureScreen(driver,"IvrConfigPage","IvrConfigTest");
+        screenshot.captureScreen("IvrConfigTest","IvrConfigPage");
     	driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);    
 	}
 	
@@ -257,7 +257,7 @@ public class IvrConfigUpdateTest {
 	 @AfterMethod
 	    public void afterEachMethod(Method method){
 	    	Screenshot screenshot=new Screenshot(driver);
-	        screenshot.captureScreen("TMACTransferListTest",method.getName());
+	        screenshot.captureScreen("IvrConfigTest",method.getName());
 	        driver.navigate().refresh();
 	        HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
 	        homePage.userLogout();

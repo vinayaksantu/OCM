@@ -159,9 +159,9 @@ public class OCMChatInteractionChatbotReportTest extends BaseTest {
         OCMChatInteractionChatbotReportPage smsPage=PageFactory.createPageInstance(driver,OCMChatInteractionChatbotReportPage.class);
                 
         Assert.assertTrue(smsPage.maximizewindow(),"Fullscreen Assertion Failed"); 
-    	screenshot.captureScreen(driver,"OCMChatInteractionChatbotReport","Maximize");
+    	screenshot.captureScreen("OCMChatInteractionChatbotReport","Maximize");
     	Assert.assertTrue(smsPage.minimizewindow(), "Restored Assertion Failed");
-    	screenshot.captureScreen(driver,"OCMChatInteractionChatbotReport","Minimize");	
+    	screenshot.captureScreen("OCMChatInteractionChatbotReport","Minimize");	
     }
 	
 	@Test(priority=12)

@@ -60,6 +60,6 @@ public class LogfileDownloaderTest extends BaseTest {
     @AfterMethod
     public void afterEachMethod(Method method) {
         Screenshot screenshot=new Screenshot(driver);
-        screenshot.captureScreen(driver,method.getName(),"LogfileDownloaderTest");
+        screenshot.captureScreen("LogfileDownloaderTest",method.getName());
     }
 }

@@ -31,6 +31,6 @@ public class ChatDashboardTest extends BaseTest {
     }
     @AfterMethod
     public void afterEachMethod(Method method) {
-    	screenshot.captureScreen(driver, "", method.getName());
+    	screenshot.captureScreen("ChatDashboard", method.getName());
     }
 }

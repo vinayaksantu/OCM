@@ -695,9 +695,9 @@ public class AgentSkillAssignmentNewTest extends BaseTest {
 	public void GroupBy(){
 	    AgentSkillAssignmentNewPage agentSkillAssignmentNewPage=PageFactory.createPageInstance(driver,AgentSkillAssignmentNewPage.class);
 	    Assert.assertTrue(agentSkillAssignmentNewPage.groupby());
-	    screenshot.captureScreen(driver, "GroupBy","AgentSkillAssignmentNewTest");
+	    screenshot.captureScreen( "GroupBy","AgentSkillAssignmentNewTest");
 	    Assert.assertTrue(agentSkillAssignmentNewPage.groupby());
-	    screenshot.captureScreen(driver, "AlreadyGroupBy","AgentSkillAssignmentNewTest");
+	    screenshot.captureScreen("AlreadyGroupBy","AgentSkillAssignmentNewTest");
 	}
 	    
 	@Test(priority=66)

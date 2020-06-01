@@ -377,7 +377,7 @@ public class ExportSchedulerTest extends BaseTest {
     	ExportSchedulerDetails ExportSchedulerDetails = new ExportSchedulerDetails(map);
     	ExportSchedulerPage ExportSchedulerPage=PageFactory.createPageInstance(driver,ExportSchedulerPage.class);
     	Assert.assertFalse(ExportSchedulerPage.clearAll(ExportSchedulerDetails),"ClearAll Assertion Failed");
-    	screenshot.captureScreen(driver, "clearall","ExportSchedulerTest");
+    	screenshot.captureScreen("clearall","ExportSchedulerTest");
     	Assert.assertTrue(ExportSchedulerPage.verifyclose());
     }
        

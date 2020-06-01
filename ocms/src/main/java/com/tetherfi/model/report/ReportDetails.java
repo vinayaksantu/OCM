@@ -33,7 +33,7 @@ public class ReportDetails {
     private String searchStr1;
     private String searchStr2;
     private String getDeleteReason;
-
+    private String faxline;
     
 
     public ReportDetails(Map<String, String> map){
@@ -67,10 +67,15 @@ public class ReportDetails {
         searchStr1=readSearchStr1(map);
         searchStr2=readSearchStr2(map);
         getDeleteReason=readDeleteReason(map);
-        
+        faxline=readFaxline(map);
     }
     
-    private String readDeleteReason(Map<String, String> map) {
+    private String readFaxline(Map<String, String> map) {
+    	String value=map.get("Fax Line");
+    	return value;
+	}
+
+	private String readDeleteReason(Map<String, String> map) {
     	String value=map.get("DeleteReason");
     	return value;
     }
@@ -310,6 +315,10 @@ public class ReportDetails {
     
     public String getDeleteReason() {
 		return getDeleteReason;
+	}
+
+	public String getFaxLine() {
+		return faxline;
 	}
 
 

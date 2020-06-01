@@ -34,11 +34,11 @@ public class TmacBroadCastMsgE2E extends BaseTest {
 	        ocmHomePage.navigateToTab("TMAC");
 	        TmacPage tmacPage = PageFactory.createPageInstance(driver, TmacPage.class);
 	        Assert.assertTrue(tmacPage.isTMACPageDisplayed(), "tmac page assertion failed");
-	        screenshot.captureScreen(driver, "TMAC Page","TmacBroadCastMsgTest");
+	        screenshot.captureScreen("TmacBroadCastMsgTest", "TMAC Page");
 	        tmacPage.navigateToTmacBroadcastMsgPage();
 	        TmacBroadCastMsgPage tmacBroadCastMsgPage  = PageFactory.createPageInstance(driver, TmacBroadCastMsgPage.class);
 	        Assert.assertTrue(tmacBroadCastMsgPage.isTmacBroadcastMsgPageDisplayed(), "TmacBroadcastmessage page assertion failed");
-	        screenshot.captureScreen(driver, "TMACBroadcastMsg Page","TmacBroadCastMsgTest");
+	        screenshot.captureScreen("TmacBroadCastMsgTest", "TMACBroadcastMsg Page");
 	    }
 	
 	@Test(priority=1)
@@ -50,7 +50,7 @@ public class TmacBroadCastMsgE2E extends BaseTest {
     	TmacBroadCastMsgPage tmacBroadCastMsgPage  = PageFactory.createPageInstance(driver, TmacBroadCastMsgPage.class);
     	tmacBroadCastMsgPage.addTmacBroadcastMsg(tmacBroadCastMsgDetails);
     	Assert.assertTrue(tmacBroadCastMsgPage.verifyNewRecordCreated(),"add record assertion failed");
-    	screenshot.captureScreen(driver, "Record Created Successfully","TmacBroadCastMsgTest");
+    	screenshot.captureScreen("TmacBroadCastMsgTest", "Record Created Successfully");
     	driver.close();
         String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\LoginData.xlsx";
 
@@ -70,7 +70,7 @@ public class TmacBroadCastMsgE2E extends BaseTest {
 		TmacUserDetails tmacUserDetails=new TmacUserDetails(map2);
         loginPage.logintotmac(tmacUserDetails.getLanID(),tmacUserDetails.getStation());
         Assert.assertTrue(loginPage.verifyUserLogged(),"Tmac login failed");
-        screenshot.captureScreen(driver, "Tmaclogin", "TmacBroadCastMsgE2E");
+        screenshot.captureScreen("TmacBroadCastMsgTest", "Tmaclogin");
         loginPage.switchToNewWindow();
         Assert.assertTrue(loginPage.isTmacPopUpDisplayed(),"TMAC popup not displayed");
         TmacLoginPage TmacPage = PageFactory.createPageInstance(driver,TmacLoginPage.class);
@@ -86,7 +86,7 @@ public class TmacBroadCastMsgE2E extends BaseTest {
         TmacBroadCastMsgPage tmacBroadCastMsgPage  = PageFactory.createPageInstance(driver, TmacBroadCastMsgPage.class);
         tmacBroadCastMsgPage.editTmacBroadcastMsg(tmacBroadCastMsgDetails);
         Assert.assertTrue(tmacBroadCastMsgPage.verifyRecordUpdated(),"Record Updated assertion failed");
-        screenshot.captureScreen(driver, "Updated Record","TmacBroadCastMsgTest");
+        screenshot.captureScreen("TmacBroadCastMsgTest", "Updated Record");
 	driver.close();
     String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\LoginData.xlsx";
 
@@ -106,7 +106,7 @@ public class TmacBroadCastMsgE2E extends BaseTest {
 		TmacUserDetails tmacUserDetails=new TmacUserDetails(map2);
 		loginPage.logintotmac(tmacUserDetails.getLanID(),tmacUserDetails.getStation());
 		Assert.assertTrue(loginPage.verifyUserLogged(),"Tmac login failed");
-		screenshot.captureScreen(driver, "Tmaclogin", "TmacBroadCastMsgE2E");
+		screenshot.captureScreen("TmacBroadCastMsgTest", "Tmaclogin");
 		loginPage.switchToNewWindow();
 		Assert.assertTrue(loginPage.isTmacPopUpDisplayed(),"TMAC popup not displayed");
 		TmacLoginPage TmacPage = PageFactory.createPageInstance(driver,TmacLoginPage.class);
@@ -123,7 +123,7 @@ public class TmacBroadCastMsgE2E extends BaseTest {
 	        TmacBroadCastMsgPage tmacBroadCastMsgPage  = PageFactory.createPageInstance(driver, TmacBroadCastMsgPage.class);
 	        tmacBroadCastMsgPage.editTmacBroadcastMsg(tmacBroadCastMsgDetails);
 	        Assert.assertTrue(tmacBroadCastMsgPage.verifyRecordUpdated(),"Record Updated assertion failed");
-	        screenshot.captureScreen(driver, "Updated Record","TmacBroadCastMsgTest");
+	        screenshot.captureScreen("TmacBroadCastMsgTest", "Updated Record");
 	        Thread.sleep(2000);
 	        driver.close();
 	        String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\LoginData.xlsx";
@@ -144,7 +144,7 @@ public class TmacBroadCastMsgE2E extends BaseTest {
 			TmacUserDetails tmacUserDetails=new TmacUserDetails(map2);
 			loginPage.logintotmac(tmacUserDetails.getLanID(),tmacUserDetails.getStation());
 			Assert.assertTrue(loginPage.verifyUserLogged(),"Tmac login failed");
-			screenshot.captureScreen(driver, "Tmaclogin", "TmacBroadCastMsgE2E");
+			screenshot.captureScreen("TmacBroadCastMsgTest", "Tmaclogin");
 			loginPage.switchToNewWindow();
 			Assert.assertTrue(loginPage.isTmacPopUpDisplayed(),"TMAC popup not displayed");
 			TmacLoginPage TmacPage = PageFactory.createPageInstance(driver,TmacLoginPage.class);

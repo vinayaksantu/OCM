@@ -50,7 +50,7 @@ public class WorkCodeListTest extends BaseTest{
         agentTeamManagementPage.addNewAgentTeamManagementRecord(workCodeListDetails.getLevel(),workCodeListDetails.getCountry(),workCodeListDetails.getDivision(),workCodeListDetails.getDepartment(),workCodeListDetails.getTeamName());
         Assert.assertTrue(agentTeamManagementPage.verifyMessage(),"Add New record assertion failed");
         driver.navigate().refresh();
-        homePage.navigateToOcmIconImg();
+        homePage.navigateToOCMIconImg();
     }
     
     @BeforeMethod
@@ -339,9 +339,9 @@ public class WorkCodeListTest extends BaseTest{
     {
     	WorkCodeListPage workCodeListPage  = PageFactory.createPageInstance(driver, WorkCodeListPage.class);
     	Assert.assertTrue(workCodeListPage.groupby());
-    	screenshot.captureScreen(driver, "GroupBy", "WorkCodeListTest");
+    	screenshot.captureScreen("WorkCodeListTest", "GroupBy");
     	Assert.assertTrue(workCodeListPage.groupby());
-    	screenshot.captureScreen(driver, "AlreadyGroupBy", "WorkCodeListTest");	
+    	screenshot.captureScreen("WorkCodeListTest", "AlreadyGroupBy");	
     }
     @Test(priority=28)
     public void VerifyArrowMoveForPreviousAndNextPage() {
@@ -364,7 +364,6 @@ public class WorkCodeListTest extends BaseTest{
     public void VerifyNumberOfItemsPerPageSelection() {
     	WorkCodeListPage workCodeListPage  = PageFactory.createPageInstance(driver, WorkCodeListPage.class);
         Assert.assertTrue(workCodeListPage.verifyNumberOfItemsPerPage(),"item per page assertion failed");
-        screenshot.captureScreen(driver, "VerifyNumberOfItemsPerPageSelection","WorkCodeListTest");
 
     }
     @Test(priority=32)

@@ -43,9 +43,9 @@ public class BranchManagementUITest extends BaseTest{
         BranchManagementPage branchManagementPage = PageFactory.createPageInstance(driver, BranchManagementPage.class);
     	Assert.assertTrue(branchManagementPage.verifylogo(),"BranchManagement logo assertion failed");
     	Assert.assertTrue(branchManagementPage.maximizewindow(),"Fullscreen Assertion Failed"); 
-    	screenshot.captureScreen(driver,"maximize window","BranchManagementTest");
+    	screenshot.captureScreen("BranchManagementTest","maximize window");
     	Assert.assertTrue(branchManagementPage.minimizewindow(), "Restored Assertion Failed");
-    	screenshot.captureScreen(driver,"minimize window","BranchManagementTest");
+    	screenshot.captureScreen("BranchManagementTest","minimize window");
     }
 	
 	@Test(priority=2)
@@ -157,7 +157,7 @@ public class BranchManagementUITest extends BaseTest{
     	Map<String, String> map = new ExcelReader(filePath,"Invalid").getTestData().get(5);
         BranchManagementDetails branchManagementDetails = new BranchManagementDetails(map);
         Assert.assertTrue(branchManagementPage.ExporttoExcelWithoutData(branchManagementDetails));
-        screenshot.captureScreen( driver,"ExporttoExcelWithoutData", "BranchManagementTest");
+        screenshot.captureScreen("BranchManagementTest","ExporttoExcelWithoutData");
        }
     
     @Test(priority=15)
@@ -217,9 +217,9 @@ public class BranchManagementUITest extends BaseTest{
     	BranchManagementPage branchManagementPage = PageFactory.createPageInstance(driver, BranchManagementPage.class);
         BranchManagementDetails branchManagementDetails = new BranchManagementDetails(map);
     	Assert.assertFalse(branchManagementPage.clearAll(branchManagementDetails),"ClearAll Assertion Failed");
-    	screenshot.captureScreen(driver, "clearall","BranchManagementTest");
+    	screenshot.captureScreen("BranchManagementTest", "clearall");
         Assert.assertTrue(branchManagementPage.verifyclose());
-        screenshot.captureScreen(driver, "SearchClose","BranchManagementTest");
+        screenshot.captureScreen("BranchManagementTest", "SearchClose");
     }
     
     @Test(priority=21)
@@ -230,7 +230,7 @@ public class BranchManagementUITest extends BaseTest{
         BranchManagementDetails branchManagementDetails = new BranchManagementDetails(map);
         branchManagementPage.searchwithoutextsearch(branchManagementDetails);
     	Assert.assertFalse(branchManagementPage.getErrorMsg());
-    	screenshot.captureScreen(driver, "searchwithoutSearchTextbox()","BranchManagementTest");
+    	screenshot.captureScreen("BranchManagementTest", "searchwithoutSearchTextbox()");
     }
     
     @Test(priority=22)
@@ -241,9 +241,9 @@ public class BranchManagementUITest extends BaseTest{
     	BranchManagementPage branchManagementPage = PageFactory.createPageInstance(driver, BranchManagementPage.class);
         BranchManagementDetails branchManagementDetails = new BranchManagementDetails(map);
         Assert.assertTrue(branchManagementPage.verifyApprovedSectionData(branchManagementDetails),"invalidsearchwithwrongdata");
-        screenshot.captureScreen(driver,"Invalid Search with wrong data", "BranchManagementTest");
+        screenshot.captureScreen("BranchManagementTest","Invalid Search with wrong data");
         Assert.assertTrue(branchManagementPage.verifyclearsearch(), "Clear All Assertion Failed");
-        screenshot.captureScreen( driver,"Clear Search", "BranchManagementTest");
+        screenshot.captureScreen("BranchManagementTest","Clear Search");
     }
 	
 	@Test(priority=23)

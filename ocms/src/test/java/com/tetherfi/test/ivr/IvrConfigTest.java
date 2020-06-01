@@ -37,7 +37,7 @@ public class IvrConfigTest extends BaseTest {
 		ivrPage.navigateToIvrConfigPage();
 		IvrConfigPageWMC ivrConfigPageWMC = PageFactory.createPageInstance(driver, IvrConfigPageWMC.class);
 		Assert.assertTrue(ivrConfigPageWMC.isIvrConfigPageDisplayed(), "Ivr config page assertion failed");
-		screenshot.captureScreen(driver,"IvrConfigPageWMC","IvrConfigTest");
+		screenshot.captureScreen("IvrConfigTest","IvrConfigPageWMC");
 	}
 
 	@Test(priority=1)
@@ -149,7 +149,7 @@ public class IvrConfigTest extends BaseTest {
 		Assert.assertEquals(ivrConfigPageWMC.getSuccessMessage(),"Record Updated Successfully","Edit record assertion failed");
 	}
 
-	/*@Test(priority=13)//,dependsOnMethods="EditIvrConfigRecord")
+	@Test(priority=13)//,dependsOnMethods="EditIvrConfigRecord")
 	public void VerifyAuditTrialReportForUpdate() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IvrConfigData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(0);	
@@ -236,7 +236,7 @@ public class IvrConfigTest extends BaseTest {
 		ivrConfigPageWMC.clickOnDeleteButton(IvrConfigDetails);
 		ivrConfigPageWMC.clickOnDeleteCancelBtn();
 		Assert.assertFalse(ivrConfigPageWMC.verifyDeleteContainer(), "Cancel Btn at Delete record assertion failed");
-	}*/
+	}
 
 	@Test(priority=22)
 	public void DeleteIvrConfigRecord() throws Exception {
@@ -248,7 +248,7 @@ public class IvrConfigTest extends BaseTest {
 		Assert.assertEquals(ivrConfigPageWMC.getSuccessMessage(),"Record Deleted Successfully","delete record assertion failed");
 	}
 
-	/*@Test(priority=23)//,dependsOnMethods= {"DeleteIvrConfigRecord"})
+	@Test(priority=23)//,dependsOnMethods= {"DeleteIvrConfigRecord"})
 	public void VerifyAuditTrialReportForDelete() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IvrConfigData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(0);	
@@ -382,7 +382,7 @@ public class IvrConfigTest extends BaseTest {
         IvrConfigDetails ivrConfigDetails = new IvrConfigDetails(map);
         IvrConfigPageWMC ivrConfigPageWMC=PageFactory.createPageInstance(driver, IvrConfigPageWMC.class);
         Assert.assertTrue(ivrConfigPageWMC.verifySearchEndsWith(ivrConfigDetails.getParameter()), "Search Assertion Failed");
-    }*/
+    }
 	
 	@AfterMethod
 	public void afterEachMethod(Method method) throws InterruptedException {

@@ -200,9 +200,9 @@ public class OCMAudioVideoPlaybackReportTest extends BaseTest {
 		OCMReportsPage.showReport(reportDetails);    
 		OCMAudioVideoPlaybackReportPage OCMAudioVideoPlaybackReportPage=PageFactory.createPageInstance(driver,OCMAudioVideoPlaybackReportPage.class);             
 		Assert.assertTrue(OCMAudioVideoPlaybackReportPage.maximizewindow(),"Fullscreen Assertion Failed"); 
-		screenshot.captureScreen(driver,"OCMAudioVideoPlaybackReport","Maximize");
+		screenshot.captureScreen("OCMAudioVideoPlaybackReport","Maximize");
 		Assert.assertTrue(OCMAudioVideoPlaybackReportPage.minimizewindow(), "Restored Assertion Failed");
-		screenshot.captureScreen(driver,"OCMAudioVideoPlaybackReport","Minimize");	
+		screenshot.captureScreen("OCMAudioVideoPlaybackReport","Minimize");	
 	}
 
 	@Test(priority=18,description="Verify dropdown of all the coulnm headers")

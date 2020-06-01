@@ -127,7 +127,7 @@ public class IntroMessageAnnouncementTest{
     
     @AfterMethod
     public void afterEachMethod(Method method){
-    	screenshot.captureScreen(driver, "", method.getName());
+    	screenshot.captureScreen("IntroMessageAnnouncementTest", method.getName());
         driver.navigate().refresh();
         HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
         homePage.userLogout();

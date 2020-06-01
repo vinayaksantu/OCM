@@ -35,16 +35,16 @@ public class UserManagementTest extends BaseTest{
         Assert.assertTrue(userManagementPage.isUserManagementPageDisplayed(),"User management assertion failed");
     }
     
-    /*@Test(priority=1)
+    @Test(priority=1)
     public void UserManagementPage(){
         UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
     	Assert.assertTrue(userManagementPage.verifylogo(),"User Management logo assertion failed");
         Assert.assertTrue(userManagementPage.verifygridcontent(),"Grid Container assertion failed");
     	Assert.assertTrue(userManagementPage.maximizewindow(),"Fullscreen Assertion Failed"); 
-    	screenshot.captureScreen(driver, "Maximize Window","UserManagementTest");
+    	screenshot.captureScreen("Maximize Window","UserManagementTest");
     	Assert.assertTrue(userManagementPage.minimizewindow(), "Restored Assertion Failed");
-    	screenshot.captureScreen(driver, "Minimize Window","UserManagementTest");
-    }*/
+    	screenshot.captureScreen("Minimize Window","UserManagementTest");
+    }
     
     @Test(priority=2)
     public void AddNewUserManagementRecord() throws Exception {
@@ -90,13 +90,13 @@ public class UserManagementTest extends BaseTest{
         UserDetails userDetails=new UserDetails(map);
         UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
         Assert.assertTrue(userManagementPage.editcancel(userDetails.getUpdatedUserId(),userDetails.getModifyReason(),userDetails.getUserId()), "Edit record cancel assertion failed");
-   		screenshot.captureScreen(driver, "Edit Cancel","UserManagementTest");
+   		screenshot.captureScreen("UserManagementTest", "Edit Cancel");
         userManagementPage.editUserManagementRecord(userDetails.getUpdatedUserId(),userDetails.getModifyReason(),userDetails.getUserId());
         Assert.assertTrue(userManagementPage.verifyRecordUpdated(),"Edit record assertion failed");
-   		screenshot.captureScreen(driver, "Record Updated","UserManagementTest");
+   		screenshot.captureScreen("UserManagementTest","Record Updated");
     }
     
-    /*@Test(priority=5)
+    @Test(priority=5)
     public void EditInvalidUserManagementRecord() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\UserManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(1);
@@ -210,13 +210,13 @@ public class UserManagementTest extends BaseTest{
         UserDetails userDetails=new UserDetails(map);
         UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
         Assert.assertTrue(userManagementPage.deleteUserManagementRecordNoBtn(userDetails.getUserId(),userDetails.getDeleteReason()));
-        screenshot.captureScreen(driver, "deleteUserManagementRecordNoBtn", "UserManagementTest");
+        screenshot.captureScreen("deleteUserManagementRecordNoBtn", "UserManagementTest");
         userManagementPage.deleteUserManagementRecord(userDetails.getUserId(),userDetails.getDeleteReason());
         Assert.assertTrue(userManagementPage.verifyRecordDeleted(),"Delete record assertion failed");
-        screenshot.captureScreen(driver, "deleteUserManagementRecord", "UserManagementTest");
+        screenshot.captureScreen("deleteUserManagementRecord", "UserManagementTest");
     }
    
-   /*@Test(priority=15)
+    @Test(priority=15)
     public void ExportToExcel() throws Exception
     {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles";
@@ -443,9 +443,9 @@ public class UserManagementTest extends BaseTest{
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(3);
         UserDetails userDetails=new UserDetails(map);
         Assert.assertTrue(userManagementPage.verifyotherapplicationcancelchanges(userDetails));
-        screenshot.captureScreen(driver,"verifycancelchanges", "UserManagementTest");
+        screenshot.captureScreen( "UserManagementTest","verifycancelchanges");
         Assert.assertTrue(userManagementPage.verifyotherapplicationsavechanges());
-        screenshot.captureScreen(driver,"verifysavechanges", "UserManagementTest");
+        screenshot.captureScreen("UserManagementTest","verifysavechanges");
     }
     
     @Test(priority=40)
@@ -456,15 +456,15 @@ public class UserManagementTest extends BaseTest{
         UserDetails userDetails=new UserDetails(map);
         Assert.assertTrue(userManagementPage.verifyotherapplicationunsuccessfullcancelchanges(userDetails));
         Assert.assertTrue(userManagementPage.verifyotherapplicationunsuccessfullsavechanges());
-        screenshot.captureScreen(driver,"Verifyunsuccefullchanges", "UserManagementTest");
+        screenshot.captureScreen("UserManagementTest","Verifyunsuccefullchanges");
         Assert.assertTrue(userManagementPage.verifyclosebutton());
-    }*/
+    }
     
     @AfterMethod
     public void afterEachMethod(ITestResult result,Method method){
       	 if(ITestResult.FAILURE==result.getStatus()){
       		 try{
-      			 screenshot.captureScreen(driver, method.getName(),"UserManagementTest");
+      			 screenshot.captureScreen("UserManagementTest",method.getName());
       		 }
       		catch (Exception e){
       		 System.out.println("Exception while taking screenshot "+e.getMessage());

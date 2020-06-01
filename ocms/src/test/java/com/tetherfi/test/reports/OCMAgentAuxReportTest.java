@@ -242,9 +242,9 @@ public class OCMAgentAuxReportTest extends BaseTest {
 		OCMReportsPage.showReport(reportDetails);    
 		OCMAgentAuxReportPage OCMAgentAuxReportPage=PageFactory.createPageInstance(driver,OCMAgentAuxReportPage.class);             
 		Assert.assertTrue(OCMAgentAuxReportPage.maximizewindow(),"Fullscreen Assertion Failed"); 
-		screenshot.captureScreen(driver,"OCMAgentAuxReport","Maximize");
+		screenshot.captureScreen("OCMAgentAuxReport","Maximize");
 		Assert.assertTrue(OCMAgentAuxReportPage.minimizewindow(), "Restored Assertion Failed");
-		screenshot.captureScreen(driver,"OCMAgentAuxReport","Minimize");	
+		screenshot.captureScreen("OCMAgentAuxReport","Minimize");	
 	}
 
 	@Test(priority=21,description="Verify dropdown of all the coulnm headers")
