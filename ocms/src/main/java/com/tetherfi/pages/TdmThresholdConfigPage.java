@@ -24,6 +24,15 @@ public class TdmThresholdConfigPage extends BasePage{
 	@FindBy(css="#DrillReportNameLbl")
 	private WebElement TdmThresholdConfigThresholdPopup;
 	
+	@FindBy(id="addRule")
+	private WebElement RoleCheckBox;
+	
+	@FindBy(id="checkAll")
+	private WebElement RoleCheckAllBox;
+
+	@FindBy(xpath="//button[text()='Add Rules']")
+	private WebElement addRules;
+	
 	@FindBy(xpath="//i[@class='fas fa-tasks']")
 	private WebElement DMImg;
 	    
@@ -69,7 +78,7 @@ public class TdmThresholdConfigPage extends BasePage{
 	@FindBy(css="th a[class='k-header-column-menu']")
 	private List<WebElement> headersDropdown;
 	
-	@FindBy(css="#gridDetails th a[class='k-header-column-menu']")
+	@FindBy(xpath="//a[text()='Aux Code From']/preceding-sibling::a")
 	private List<WebElement> popupHeadersDropdown;
 	    
 	@FindBy(css="div[style*='overflow: visible'] span[class^='k-link']")
@@ -102,7 +111,7 @@ public class TdmThresholdConfigPage extends BasePage{
 	@FindBy(xpath="//div[@data-role='droptarget']")
 	private WebElement droptarget;
 		    
-	@FindBy(xpath="//tbody/tr/td/p[@class='k-reset']/../../following-sibling::tr/td[3]")
+	@FindBy(xpath="//tbody/tr/td/p[@class='k-reset']/../../following-sibling::tr/td[4]")
 	private WebElement groupbyTeamName;
 	
 	@FindBy(css = ".fa-search")
@@ -122,6 +131,12 @@ public class TdmThresholdConfigPage extends BasePage{
 
 	@FindBy(id = "1001sTextToSearch")
 	private WebElement searchTextBox;
+	
+	@FindBy(id="1001sAddButton")
+	private WebElement plusbutton;
+	
+	@FindBy(xpath="//label[@for='1001sRadioOR']")
+	private WebElement orradiobtn;
 
 	@FindBy(css = "#1001sAddButton .k-i-add")
 	private WebElement searchAddCriteriaBtn;
@@ -144,14 +159,22 @@ public class TdmThresholdConfigPage extends BasePage{
 	@FindBy(xpath="//i[@class='fas fa-sync']")
 	private WebElement clearsearch;
 	
-	@FindBy(id="create")
+	@FindBy(css="#gridDetails .k-grid-add")
 	private WebElement addButton;
 	
-	@FindBy(id="createone")
-	private WebElement popupSaveBtn;
+	@FindBy(css="#multiTeamGridDetails .k-grid-add")
+	private WebElement multipleRecordAddBtn;
+	
+	@FindBy(css=".k-button-icontext#createone")
+	private List<WebElement> popupSaveBtn;
+	
+	@FindBy(xpath="//button[text()='Confirm']")
+	private WebElement confirmBtn;
+	
+	
 	
 	@FindBy(css=".k-grid-cancel-changes")
-    private WebElement cancelBtn;
+    private List<WebElement> cancelBtn;
 	
 	@FindBy(xpath="span[text()='×']")
 	private WebElement closeBtn;
@@ -172,6 +195,9 @@ public class TdmThresholdConfigPage extends BasePage{
 	@FindBy(css="ul[id='AuxCodeTo_listbox'] li")
 	private List<WebElement> auxCodeToListbox;
 	
+	@FindBy(xpath="//td[@class='editableFiled k-edit-cell']")
+	private WebElement UpdateAuxCodeForm;
+	
 	@FindBy(id="Threshold")
 	private WebElement thresholdTextbox;
 	
@@ -189,6 +215,18 @@ public class TdmThresholdConfigPage extends BasePage{
 
 	@FindBy(id="yesButton")
 	private List<WebElement> saveBtn;
+	
+	@FindBy(xpath="//*[@id='gridDetails']/div[3]/table/tbody/tr/td[3]")
+	private List<WebElement> auxCodeForm;
+	
+	@FindBy(css="ul[id='1002sColumnName_listbox'] li")
+	private List<WebElement> columnNameListtwo;
+	
+	@FindBy(css="ul[id='1002sCriteria_listbox'] li")
+	private List<WebElement> searchTypeListtwo;
+
+	@FindBy(id="1002sTextToSearch")
+	private WebElement searchTextBoxtwo;
 	
 	
 
@@ -362,11 +400,40 @@ public class TdmThresholdConfigPage extends BasePage{
 			selectWebElement(searchBtn);
 	        selectWebElement(selectSearchCol.get(0));
 	        selectDropdownFromVisibleText(columnNameList,"Team Name");
+	        Thread.sleep(1000);
 	        selectWebElement(selectSearchCol.get(1));
 	        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is equal to");
-	        enterValueToTxtField(searchTextBox,teamName);		
+	        enterValueToTxtFieldWithoutClear(searchTextBox,teamName);		
 	        selectWebElement(searchSearchBtn);
 	        waitUntilWebElementIsVisible(gridContent);
+		}
+		
+		public void searchMultipleTdmThresholdConfig(String teamName1, String teamName2) throws Exception
+		{
+			System.out.println(teamName1);
+			System.out.println(teamName2);
+			selectWebElement(searchBtn);
+			waitForJqueryLoad(driver);
+			selectWebElement(selectSearchCol.get(0));
+			selectDropdownFromVisibleText(columnNameList,"Team Name");
+			Thread.sleep(1000);
+			selectWebElement(selectSearchCol.get(1));
+			selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is equal to");
+			enterValueToTxtFieldWithoutClear(searchTextBox,teamName1);
+			selectWebElement(plusbutton);
+			moveToElement(orradiobtn);
+			selectWebElement(orradiobtn);
+			Thread.sleep(2000);
+			selectWebElement(selectSearchCol.get(2));
+			selectDropdownFromVisibleTextContains(columnNameListtwo,"Team Name");
+			Thread.sleep(1000);
+			selectWebElement(selectSearchCol.get(3));
+			selectDropdownFromVisibleText(searchTypeListtwo,"Is equal to");
+			enterValueToTxtFieldWithoutClear(searchTextBoxtwo,teamName2);
+			selectWebElement(searchSearchBtn);
+			Thread.sleep(1000);
+			waitForJqueryLoad(driver);
+			waitUntilWebElementIsVisible(gridContent);
 		}
 
 		public void SortByAscending() {
@@ -391,6 +458,7 @@ public class TdmThresholdConfigPage extends BasePage{
 		}
 		
 		public boolean groupby() {
+			waitForJqueryLoad(driver);
 			DragandDrop(TeamName,droptarget);
 			try {
 				Thread.sleep(1000);
@@ -568,50 +636,41 @@ public class TdmThresholdConfigPage extends BasePage{
 	        	}
 			return status;
 		}
-		public boolean verifyPopupColumnsHeaderEnabled(){
-			boolean status=false;
-			try{
-				for(WebElement ele:popupHeadersDropdown) {
-					scrollToElement(ele);
-					if (!ele.isDisplayed()) {
-						continue;
-					}
-					else {
-						try {
-							selectWebElement(ele);
-							Thread.sleep(1000);
-							selectWebElement(headersColumns.get(2));
-							Thread.sleep(1000);
-						} catch (InterruptedException e) {
-							e.printStackTrace();
-						}
-						for (int i = 3; i <headersColumns.size(); i++) {
-							WebElement checkbox = headersColumns.get(i).findElement(By.tagName("input"));
-							checkbox.click();
-							if (checkbox.isSelected()) {
-							} else {
-								checkbox.click();
-							}
-							for (WebElement ele1 : headersText) {
-								if (ele1.getText().equals(headersColumns.get(i).getText())) {
-									status = true;
-									break;
-								}
-							}
-							if (status) {
-							} else {
-								break;
-							}
-						}
-					}
-					break;
-				}
-			}
-			catch (Exception e) {
-				e.printStackTrace();
-			}
-			return status;
-		}
+		public boolean verifyPopupColumnsHeaderEnabled() throws Exception{
+	        boolean status=false;
+	        WebElement ele= popupHeadersDropdown.get(0);
+	        Thread.sleep(1000);
+	        System.out.println(ele.getText());
+	            if(ele.isDisplayed()){
+	                try {
+	                    selectWebElement(ele);
+	                    Thread.sleep(1000);
+	                    selectWebElement(headersColumns.get(2));
+	                    Thread.sleep(1000);
+	                } catch (InterruptedException e) {
+	                    e.printStackTrace();
+	                }
+	                for (int i = 3; i <headersColumns.size(); i++) {
+	                    WebElement checkbox = headersColumns.get(i).findElement(By.tagName("input"));
+	                    checkbox.click();
+	                    if (checkbox.isSelected()) {
+	                    } else {
+	                        checkbox.click();
+	                    }
+	                    for (WebElement ele1 : headersText) {
+	                        if (ele1.getText().equals(headersColumns.get(i).getText())) {
+	                            status = true;
+	                            break;
+	                        }
+	                    }
+	                    if (status) {
+	                    } else {
+	                        break;
+	                    }
+	                }
+	            }
+	        return status;
+	    }
 		
 		public void searchwithoutextsearch() {
 			selectWebElement(searchBtn);
@@ -623,6 +682,8 @@ public class TdmThresholdConfigPage extends BasePage{
 			selectWebElement(searchClose);		
 		}
 		
+		
+		
 		public String getMessage() {
 			if(errorMsg.size()>0){return errorMsg.get(0).getText();}
 	        else {
@@ -631,6 +692,13 @@ public class TdmThresholdConfigPage extends BasePage{
 		}
 		
 		public String getSuccessMessage() {
+			if(successmsg.isDisplayed()){
+				return successmsg.getText();}
+	        else {
+	        	return errorMsg.get(0).getText();}
+		}
+		
+		public String VerifyErrorMessage() {
 			if(successmsg.isDisplayed()){
 				return successmsg.getText();}
 	        else {
@@ -681,12 +749,27 @@ public class TdmThresholdConfigPage extends BasePage{
 
 		public boolean verifyTdmThresholdConfigThresholdDetailsPage(TdmThresholdConfigDetails details) throws Exception {
 			searchTdmThresholdConfig(details.getTeamName());
-            List<WebElement> row=gridContent.findElements(By.tagName("tr"));
-            List<WebElement>column=row.get(0).findElements(By.tagName("td"));
-            Thread.sleep(1000);
-			selectWebElement(column.get(2));
+            waitForJqueryLoad(driver);
+			selectWebElement(RoleCheckBox);
+			selectWebElement(addRules);
 			return TdmThresholdConfigThresholdPopup.isEnabled();
 		}
+		
+		public boolean verifyTdmThresholdConfigThresholdDetailsPageBySelectingMultipleRecords(TdmThresholdConfigDetails details) throws Exception {
+			searchMultipleTdmThresholdConfig(details.getTeamName1(),details.getTeamName2());
+            waitForJqueryLoad(driver);
+			selectWebElement(RoleCheckAllBox);
+			selectWebElement(addRules);
+			return TdmThresholdConfigThresholdPopup.isEnabled();
+		}
+		 
+		/*public boolean VerifyAuxCodes(TdmThresholdConfigDetails details) {
+			waitForJqueryLoad(driver);
+			selectWebElement(UpdateAuxCodeForm);
+			List<WebElement> auxCodes=auxCodeForm;
+			
+		}*/
+		
 
 		public boolean verifyaddNewRowButton() {
 			waitForJqueryLoad(driver);
@@ -695,12 +778,12 @@ public class TdmThresholdConfigPage extends BasePage{
 
 		public boolean verifysaveButton() {
 			waitForJqueryLoad(driver);
-			return popupSaveBtn.isEnabled();
+			return popupSaveBtn.get(0).isEnabled();
 		}
 
 		public boolean verifycancelbutton() {
 			waitForJqueryLoad(driver);
-			return cancelBtn.isEnabled();
+			return cancelBtn.get(0).isEnabled();
 		}
 
 		public boolean verifyCloseButton() {
@@ -709,6 +792,27 @@ public class TdmThresholdConfigPage extends BasePage{
 			closeBtn.click();
 			waitForJqueryLoad(driver);
 			return gridContent.isDisplayed();
+		}
+		
+		public boolean verifyThresholdDetailsPageDataAfterMultiRecordUpdate(TdmThresholdConfigDetails details) throws Exception {
+			searchTdmThresholdConfig(details.getTeamName1());
+            waitForJqueryLoad(driver);
+			selectWebElement(RoleCheckBox);
+			selectWebElement(addRules);
+			Thread.sleep(2000);
+			List<WebElement> rows=auxCodeForm;
+			for(int i=0;i<rows.size();i++)
+			if(rows.get(i).getText().equalsIgnoreCase(details.getAuxCodeFrom()))
+			     rows.get(i).click();
+			driver.findElement(By.xpath("//*[@id='gridDetails']/div[3]/table/tbody/tr/td[5]")).click();
+			Thread.sleep(1000);
+			System.out.println(thresholdTextbox.getText());
+			if(thresholdTextbox.getText().equals(details.getUpdatedThreshold()))
+				return true;
+			else
+				return false;
+			
+			
 		}
 
 		public void addNewRow(TdmThresholdConfigDetails details) throws Exception {
@@ -724,7 +828,7 @@ public class TdmThresholdConfigPage extends BasePage{
 			statusChange.click();
 			driver.findElement(By.xpath("//*[@id='gridDetails']/div[3]/table/tbody/tr/td[8]")).click();
 			allowNotification.click();
-			selectWebElement(popupSaveBtn);
+			selectWebElement(popupSaveBtn.get(0));
 	        enterValueToTxtFieldWithoutClear(modifyReasonTextBox,details.getModifyReason());
 	        selectWebElement(saveBtn.get(2));
 		}
@@ -732,22 +836,53 @@ public class TdmThresholdConfigPage extends BasePage{
 		
 		public void updateNewRow(TdmThresholdConfigDetails details) throws Exception {
 			Thread.sleep(2000);
-			driver.findElement(By.xpath("//*[@id='gridDetails']/div[3]/table/tbody/tr/td[7]")).click();
-			statusChange.click();
-			driver.findElement(By.xpath("//*[@id='gridDetails']/div[3]/table/tbody/tr/td[8]")).click();
-			allowNotification.click();
-			selectWebElement(popupSaveBtn);
+			List<WebElement> rows=auxCodeForm;
+			for(int i=0;i<rows.size();i++)
+			if(rows.get(i).getText().equalsIgnoreCase(details.getAuxCodeFrom()))
+			     rows.get(i).click();
+			selectWebElement(UpdateAuxCodeForm);
+			System.out.println(details.getUpdatedAuxCodeForm());
+			selectDropdownFromVisibleText(auxCodeFromListbox,details.getUpdatedAuxCodeForm());	
+			selectWebElement(popupSaveBtn.get(0));
 	        enterValueToTxtFieldWithoutClear(modifyReasonTextBox,details.getModifyReason());
 	        selectWebElement(saveBtn.get(2));
 		}
 		
 		public void deleteNewRow(TdmThresholdConfigDetails details) throws Exception {
 			Thread.sleep(2000);
-			driver.findElement(By.xpath("//*[@id='gridDetails']/div[3]/table/tbody/tr/td[6]")).click();
+			List<WebElement> rows=auxCodeForm;
+			for(int i=0;i<rows.size();i++)
+			if(rows.get(i).getText().equalsIgnoreCase(details.getUpdatedAuxCodeForm()))
+			     rows.get(i).click();
+			selectWebElement(UpdateAuxCodeForm);
+			selectDropdownFromVisibleText(auxCodeFromListbox,details.getDeleteAuxCodeForm());
+			driver.findElement(By.xpath("//*[@id='gridDetails']/div[3]/table/tbody/tr[3]/td[6]")).click();
 			deleteChange.click();
-			selectWebElement(popupSaveBtn);
+			selectWebElement(popupSaveBtn.get(0));
 	        enterValueToTxtFieldWithoutClear(modifyReasonTextBox,details.getModifyReason());
 	        selectWebElement(saveBtn.get(2));
+		}
+		
+		public void addNewRowForMultipleRecords(TdmThresholdConfigDetails details) throws Exception {
+			waitForJqueryLoad(driver);
+			selectWebElement(multipleRecordAddBtn);
+			selectWebElement(auxCodeFromDropDown);
+			selectDropdownFromVisibleText(auxCodeFromListbox,details.getAuxCodeFrom());
+			driver.findElement(By.xpath("//*[@id=\"multiTeamGridDetails\"]/div[3]/table/tbody/tr[1]/td[4]")).click();
+			selectWebElement(auxCodeToDropDown);
+			selectDropdownFromVisibleText(auxCodeToListbox,details.getAuxCodeTo());	
+			driver.findElement(By.xpath("//*[@id=\"multiTeamGridDetails\"]/div[3]/table/tbody/tr[1]/td[5]")).click();
+			enterValueToTxtField(thresholdTextbox,details.getUpdatedThreshold());
+			driver.findElement(By.xpath("//*[@id=\"multiTeamGridDetails\"]/div[3]/table/tbody/tr[1]/td[7]")).click();
+			statusChange.click();
+			driver.findElement(By.xpath("//*[@id=\"multiTeamGridDetails\"]/div[3]/table/tbody/tr[1]/td[8]")).click();
+			allowNotification.click();
+			selectWebElement(popupSaveBtn.get(1));
+			selectWebElement(confirmBtn);
+			waitForJqueryLoad(driver);
+	        enterValueToTxtFieldWithoutClear(modifyReasonTextBox,details.getModifyReason());
+	        selectWebElement(saveBtn.get(2));
+	        
 		}
 
 		public boolean verifyDatabase(String query) {
@@ -798,10 +933,12 @@ public class TdmThresholdConfigPage extends BasePage{
 			selectWebElement(searchBtn);
 	        selectWebElement(selectSearchCol.get(0));
 	        selectDropdownFromVisibleText(columnNameList,"Team Name");
+	        Thread.sleep(1000);
 	        selectWebElement(selectSearchCol.get(1));
 	        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is not equal to");
 	        enterValueToTxtField(searchTextBox,teamName);		
 	        selectWebElement(searchSearchBtn);
+	        waitForJqueryLoad(driver);
 	        waitUntilWebElementIsVisible(gridContent);
 	        List<Map<String,String>> UI=gettable(); 
 	        for (Map<String,String> map1: UI)
@@ -820,10 +957,12 @@ public class TdmThresholdConfigPage extends BasePage{
 			selectWebElement(searchBtn);
 	        selectWebElement(selectSearchCol.get(0));
 	        selectDropdownFromVisibleText(columnNameList,"Team Name");
+	        Thread.sleep(1000);
 	        selectWebElement(selectSearchCol.get(1));
 	        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Contains");
 	        enterValueToTxtField(searchTextBox,teamName);		
 	        selectWebElement(searchSearchBtn);
+	        waitForJqueryLoad(driver);
 	        waitUntilWebElementIsVisible(gridContent);
 	        List<Map<String,String>> UI=gettable(); 
 	        for (Map<String,String> map1: UI)
@@ -841,10 +980,12 @@ public class TdmThresholdConfigPage extends BasePage{
 			selectWebElement(searchBtn);
 	        selectWebElement(selectSearchCol.get(0));
 	        selectDropdownFromVisibleText(columnNameList,"Team Name");
+	        Thread.sleep(1000);
 	        selectWebElement(selectSearchCol.get(1));
 	        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Does not contain");
 	        enterValueToTxtField(searchTextBox,teamName);		
 	        selectWebElement(searchSearchBtn);
+	        waitForJqueryLoad(driver);
 	        waitUntilWebElementIsVisible(gridContent);
 	        List<Map<String,String>> UI=gettable(); 
 	        for (Map<String,String> map1: UI)
@@ -862,10 +1003,12 @@ public class TdmThresholdConfigPage extends BasePage{
 			selectWebElement(searchBtn);
 	        selectWebElement(selectSearchCol.get(0));
 	        selectDropdownFromVisibleText(columnNameList,"Team Name");
+	        Thread.sleep(1000);
 	        selectWebElement(selectSearchCol.get(1));
 	        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Starts with");
 	        enterValueToTxtField(searchTextBox,teamName);		
 	        selectWebElement(searchSearchBtn);
+	        waitForJqueryLoad(driver);
 	        waitUntilWebElementIsVisible(gridContent);
 	        List<Map<String,String>> UI=gettable(); 
 	        for (Map<String,String> map1: UI)
@@ -883,10 +1026,12 @@ public class TdmThresholdConfigPage extends BasePage{
 			selectWebElement(searchBtn);
 	        selectWebElement(selectSearchCol.get(0));
 	        selectDropdownFromVisibleText(columnNameList,"Team Name");
+	        Thread.sleep(1000);
 	        selectWebElement(selectSearchCol.get(1));
 	        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Ends with");
 	        enterValueToTxtField(searchTextBox,teamName);		
 	        selectWebElement(searchSearchBtn);
+	        waitForJqueryLoad(driver);
 	        waitUntilWebElementIsVisible(gridContent);
 	        List<Map<String,String>> UI=gettable(); 
 	        for (Map<String,String> map1: UI)
@@ -898,4 +1043,145 @@ public class TdmThresholdConfigPage extends BasePage{
 		}
 	        return Status;
 		}
+		
+		public void verifyTdmThresholdConfigThresholdDetailsPageSaveChanges(TdmThresholdConfigDetails details) throws Exception {
+			searchTdmThresholdConfig(details.getTeamName());
+            waitForJqueryLoad(driver);
+			selectWebElement(RoleCheckBox);
+			selectWebElement(addRules);
+			if(TdmThresholdConfigThresholdPopup.isEnabled())
+				selectWebElement(popupSaveBtn.get(0));
+				
+		}
+		
+		public void verifyTdmThresholdConfigThresholdDetailsPageSaveChangesAfterAddRow(TdmThresholdConfigDetails details) throws Exception {
+			searchTdmThresholdConfig(details.getTeamName());
+            waitForJqueryLoad(driver);
+			selectWebElement(RoleCheckBox);
+			selectWebElement(addRules);
+			if(TdmThresholdConfigThresholdPopup.isEnabled())
+				selectWebElement(addButton);
+				selectWebElement(popupSaveBtn.get(0));
+				
+		}
+		
+		public void verifyTdmThresholdConfigThresholdDetailsPageSaveChangesAfterAddRowandAuxCodesFrom(TdmThresholdConfigDetails details) throws Exception {
+			searchTdmThresholdConfig(details.getTeamName());
+            waitForJqueryLoad(driver);
+			selectWebElement(RoleCheckBox);
+			selectWebElement(addRules);
+			if(TdmThresholdConfigThresholdPopup.isEnabled())
+				selectWebElement(addButton);
+			    selectWebElement(auxCodeFromDropDown);
+			    selectDropdownFromVisibleText(auxCodeFromListbox,details.getAuxCodeFrom());
+				selectWebElement(popupSaveBtn.get(0));
+				
+		}
+		
+		public boolean VerifyAuxCodeToWhenAuxCodeFromisONCallHold(TdmThresholdConfigDetails details) throws Exception {
+			searchTdmThresholdConfig(details.getTeamName());
+            waitForJqueryLoad(driver);
+			selectWebElement(RoleCheckBox);
+			selectWebElement(addRules);
+			if(TdmThresholdConfigThresholdPopup.isEnabled())
+				selectWebElement(addButton);
+			    selectWebElement(auxCodeFromDropDown);
+			    selectDropdownFromVisibleText(auxCodeFromListbox,details.getAuxCodeFrom());
+			    driver.findElement(By.xpath("//*[@id='gridDetails']/div[3]/table/tbody/tr/td[4]")).click();
+				if(auxCodeToDropDown.getText().equalsIgnoreCase(details.getAuxCodeTo()))
+					return true;
+				else
+					return false;
+		}
+		
+		public boolean VerifyDefaultValueofThreshhold(TdmThresholdConfigDetails details) throws Exception {
+			searchTdmThresholdConfig(details.getTeamName());
+            waitForJqueryLoad(driver);
+			selectWebElement(RoleCheckBox);
+			selectWebElement(addRules);
+			if(TdmThresholdConfigThresholdPopup.isEnabled())
+				selectWebElement(addButton);
+			selectWebElement(auxCodeFromDropDown);
+			selectDropdownFromVisibleText(auxCodeFromListbox,details.getAuxCodeFrom());
+			driver.findElement(By.xpath("//*[@id='gridDetails']/div[3]/table/tbody/tr/td[4]")).click();
+			selectWebElement(auxCodeToDropDown);
+			selectDropdownFromVisibleText(auxCodeToListbox,details.getAuxCodeTo());	
+			String threshHold=driver.findElement(By.xpath("//*[@id='gridDetails']/div[3]/table/tbody/tr/td[5]")).getText();
+			System.out.println(threshHold);
+				if(threshHold.equalsIgnoreCase("0"))
+					return true;
+				else
+					return false;
+		}
+		
+		public boolean VerifyDefaultValueofDelete(TdmThresholdConfigDetails details) throws Exception {
+			searchTdmThresholdConfig(details.getTeamName());
+            waitForJqueryLoad(driver);
+			selectWebElement(RoleCheckBox);
+			selectWebElement(addRules);
+			if(TdmThresholdConfigThresholdPopup.isEnabled())
+				selectWebElement(addButton);
+			    waitUntilWebElementIsVisible(auxCodeFromDropDown);
+			    selectWebElement(auxCodeFromDropDown);
+			    selectDropdownFromVisibleText(auxCodeFromListbox,details.getAuxCodeFrom());
+			   String delete= driver.findElement(By.xpath("//*[@id='gridDetails']/div[3]/table/tbody/tr/td[6]")).getText();
+				if(delete.equalsIgnoreCase("false"))
+					return true;
+				else
+					return false;
+		}
+		
+		public boolean VerifyDefaultValueofAllowstatusChange(TdmThresholdConfigDetails details) throws Exception {
+			searchTdmThresholdConfig(details.getTeamName());
+            waitForJqueryLoad(driver);
+			selectWebElement(RoleCheckBox);
+			selectWebElement(addRules);
+			if(TdmThresholdConfigThresholdPopup.isEnabled())
+				selectWebElement(addButton);
+			    selectWebElement(auxCodeFromDropDown);
+			    selectDropdownFromVisibleText(auxCodeFromListbox,details.getAuxCodeFrom());
+			   String delete= driver.findElement(By.xpath("//*[@id='gridDetails']/div[3]/table/tbody/tr/td[7]")).getText();
+				if(delete.equalsIgnoreCase("false"))
+					return true;
+				else
+					return false;
+		}
+		
+		public boolean VerifyDefaultValueofAllowNotification(TdmThresholdConfigDetails details) throws Exception {
+			searchTdmThresholdConfig(details.getTeamName());
+            waitForJqueryLoad(driver);
+			selectWebElement(RoleCheckBox);
+			selectWebElement(addRules);
+			if(TdmThresholdConfigThresholdPopup.isEnabled())
+				selectWebElement(addButton);
+			    selectWebElement(auxCodeFromDropDown);
+			    selectDropdownFromVisibleText(auxCodeFromListbox,details.getAuxCodeFrom());
+			   String delete= driver.findElement(By.xpath("//*[@id='gridDetails']/div[3]/table/tbody/tr/td[8]")).getText();
+				if(delete.equalsIgnoreCase("false"))
+					return true;
+				else
+					return false;
+		}
+		
+		public void VerifyAvalableAuxCodeToforOnCallHold(TdmThresholdConfigDetails details) throws Exception {
+			searchTdmThresholdConfig(details.getTeamName());
+            waitForJqueryLoad(driver);
+			selectWebElement(RoleCheckBox);
+			selectWebElement(addRules);
+			if(TdmThresholdConfigThresholdPopup.isEnabled())
+			selectWebElement(addButton);
+			selectWebElement(auxCodeFromDropDown);
+			selectDropdownFromVisibleText(auxCodeFromListbox,details.getAuxCodeFrom());
+			driver.findElement(By.xpath("//*[@id='gridDetails']/div[3]/table/tbody/tr/td[4]")).click();
+			selectWebElement(auxCodeToDropDown);
+			selectDropdownFromVisibleText(auxCodeToListbox,details.getAuxCodeTo());	
+		}
+		
+		public void VerifyAddRulesButtonwithoutSelectingRecord() {
+			waitForJqueryLoad(driver);
+			selectWebElement(addRules);
+		}
+		
+		
+		
 }

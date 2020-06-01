@@ -23,6 +23,7 @@ public class FaxTemplateDetails {
     private String updatedLogo;
     private String updatedUploadDoc;
     private String query;
+    private String pdfFile;
     
     public FaxTemplateDetails(Map<String,String> map) {
         templateName=readTemplateName(map);
@@ -44,9 +45,15 @@ public class FaxTemplateDetails {
         updatedLogo=readUpdatedLogo(map);
         updatedUploadDoc=readUpdatedUploadDoc(map);
         query=readQuery(map);
+        pdfFile=readPdfFile(map);
     }
 
-    private String readTemplateType(Map<String, String> map) {
+    private String readPdfFile(Map<String, String> map) {
+    	String value=map.get("PDF File");
+		return value;
+	}
+
+	private String readTemplateType(Map<String, String> map) {
 		String value=map.get("Template Type");
 		if(value==null){
             value= "santu";}
@@ -239,6 +246,10 @@ public class FaxTemplateDetails {
 
 	public String getQuery() {
 		return query;
+	}
+	
+	public String getPDFFile() {
+		return pdfFile;
 	}
 }
 

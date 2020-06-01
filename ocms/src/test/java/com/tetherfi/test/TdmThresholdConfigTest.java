@@ -12,12 +12,13 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.tetherfi.model.fax.FaxAddressBookDetails;
+import com.tetherfi.model.ivr.AdhocOptionEnhancementDetails;
 import com.tetherfi.model.report.ReportDetails;
 import com.tetherfi.model.user.CepEventMappingDetails;
 import com.tetherfi.model.user.TdmThresholdConfigDetails;
 
 import com.tetherfi.pages.TdmThresholdConfigPage;
-
+import com.tetherfi.pages.AdhocOptionEnhancementPage;
 import com.tetherfi.pages.HomePage;
 import com.tetherfi.pages.OCMHomePage;
 import com.tetherfi.pages.OCMReportsPage;
@@ -39,7 +40,7 @@ Screenshot screenshot=new Screenshot(driver);
 	     Assert.assertTrue(tdmThresholdConfigPage.isTdmThresholdConfigPageDisplayed(), "TDM Threshold Config page assertion failed");
 	}
 	
-	/*@Test(priority=1)
+	@Test(priority=1)
     public void TdmThresholdConfigPage() {
 		TdmThresholdConfigPage TdmThresholdConfigPage = PageFactory.createPageInstance(driver, TdmThresholdConfigPage.class);
     	Assert.assertTrue(TdmThresholdConfigPage.verifylogo(),"FaxSenderslogo assertion failed");
@@ -68,7 +69,7 @@ Screenshot screenshot=new Screenshot(driver);
 	}
 	
 	@Test(priority=5)
-	public void VerifyTeamsAssignToAgents() throws IOException {
+	public void VerifyTeamsAssignToAgentswithDataBase() throws IOException {
 		TdmThresholdConfigPage TdmThresholdConfigPage = PageFactory.createPageInstance(driver, TdmThresholdConfigPage.class);
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TdmThresholdConfigData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Queries").getTestData().get(0);
@@ -94,7 +95,7 @@ Screenshot screenshot=new Screenshot(driver);
     @Test(priority=8)
     public void VerifySearchIsNotEqualTo() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TdmThresholdConfigData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
+        Map<String, String> map = new ExcelReader(filePath,"Search").getTestData().get(0);
         TdmThresholdConfigDetails TdmThresholdConfigDetails = new TdmThresholdConfigDetails(map);
 		TdmThresholdConfigPage TdmThresholdConfigPage = PageFactory.createPageInstance(driver, TdmThresholdConfigPage.class);
         Assert.assertTrue(TdmThresholdConfigPage.verifySearchIsNotEqualTo(TdmThresholdConfigDetails.getTeamName()));
@@ -103,7 +104,7 @@ Screenshot screenshot=new Screenshot(driver);
     @Test(priority=9)
     public void VerifySearchContains() throws Exception{
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TdmThresholdConfigData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(2);
+        Map<String, String> map = new ExcelReader(filePath,"Search").getTestData().get(1);
         TdmThresholdConfigDetails TdmThresholdConfigDetails = new TdmThresholdConfigDetails(map);
 		TdmThresholdConfigPage TdmThresholdConfigPage = PageFactory.createPageInstance(driver, TdmThresholdConfigPage.class);
         Assert.assertTrue(TdmThresholdConfigPage.verifySearchContains(TdmThresholdConfigDetails.getTeamName())); 
@@ -112,7 +113,7 @@ Screenshot screenshot=new Screenshot(driver);
     @Test(priority=10)
     public void VerifySearchDoesNotContains() throws Exception{
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TdmThresholdConfigData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(3);
+        Map<String, String> map = new ExcelReader(filePath,"Search").getTestData().get(1);
         TdmThresholdConfigDetails TdmThresholdConfigDetails = new TdmThresholdConfigDetails(map);
 		TdmThresholdConfigPage TdmThresholdConfigPage = PageFactory.createPageInstance(driver, TdmThresholdConfigPage.class);
         Assert.assertTrue(TdmThresholdConfigPage.verifySearchDoesNotContains(TdmThresholdConfigDetails.getTeamName())); 
@@ -121,7 +122,7 @@ Screenshot screenshot=new Screenshot(driver);
     @Test(priority=11)
     public void VerifySearchStartsWith() throws Exception{
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TdmThresholdConfigData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(4);
+        Map<String, String> map = new ExcelReader(filePath,"Search").getTestData().get(2);
         TdmThresholdConfigDetails TdmThresholdConfigDetails = new TdmThresholdConfigDetails(map);
 		TdmThresholdConfigPage TdmThresholdConfigPage = PageFactory.createPageInstance(driver, TdmThresholdConfigPage.class);
         Assert.assertTrue(TdmThresholdConfigPage.verifySearchStartsWith(TdmThresholdConfigDetails.getTeamName())); 
@@ -130,7 +131,7 @@ Screenshot screenshot=new Screenshot(driver);
     @Test(priority=12)
     public void VerifySearchEndsWith() throws Exception{
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TdmThresholdConfigData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(5);
+        Map<String, String> map = new ExcelReader(filePath,"Search").getTestData().get(3);
         TdmThresholdConfigDetails TdmThresholdConfigDetails = new TdmThresholdConfigDetails(map);
 		TdmThresholdConfigPage TdmThresholdConfigPage = PageFactory.createPageInstance(driver, TdmThresholdConfigPage.class);
         Assert.assertTrue(TdmThresholdConfigPage.verifySearchEndsWith(TdmThresholdConfigDetails.getTeamName())); 
@@ -140,7 +141,7 @@ Screenshot screenshot=new Screenshot(driver);
     public void SearchClearSearch() throws Exception
     {
   	 	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TdmThresholdConfigData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);
+        Map<String, String> map = new ExcelReader(filePath,"Search").getTestData().get(1);
         TdmThresholdConfigDetails TdmThresholdConfigDetails = new TdmThresholdConfigDetails(map);
 		TdmThresholdConfigPage TdmThresholdConfigPage = PageFactory.createPageInstance(driver, TdmThresholdConfigPage.class);
         Assert.assertTrue(TdmThresholdConfigPage.verifyinvalidsearchwithwrongdata(TdmThresholdConfigDetails), "InvalidSearchAssertionFailed");
@@ -149,16 +150,27 @@ Screenshot screenshot=new Screenshot(driver);
     }
     
     @Test(priority=14)
+    public void searchPage() throws Exception {
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TdmThresholdConfigData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
+        TdmThresholdConfigDetails TdmThresholdConfigDetails = new TdmThresholdConfigDetails(map);
+		TdmThresholdConfigPage TdmThresholdConfigPage = PageFactory.createPageInstance(driver, TdmThresholdConfigPage.class);
+        Assert.assertFalse(TdmThresholdConfigPage.clearAll(TdmThresholdConfigDetails),"ClearAll Assertion Failed");
+        screenshot.captureScreen("TdmThresholdConfigTest","clearall");
+        Assert.assertTrue(TdmThresholdConfigPage.verifyclose());
+    }
+    
+    @Test(priority=15)
     public void ExporttoExcelWithoutData() throws Exception
     {
 		TdmThresholdConfigPage TdmThresholdConfigPage = PageFactory.createPageInstance(driver, TdmThresholdConfigPage.class);
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\TdmThresholdConfigData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(1);
+        Map<String, String> map = new ExcelReader(filePath, "Search").getTestData().get(1);
         TdmThresholdConfigDetails TdmThresholdConfigDetails = new TdmThresholdConfigDetails(map);
         Assert.assertTrue(TdmThresholdConfigPage.ExporttoExcelWithoutData(TdmThresholdConfigDetails));
     }
   
-    @Test(priority=15)
+    @Test(priority=16)
     public void SortingByAscending() throws IOException {
 		TdmThresholdConfigPage TdmThresholdConfigPage = PageFactory.createPageInstance(driver, TdmThresholdConfigPage.class);
 		TdmThresholdConfigPage.SortByAscending();
@@ -167,7 +179,7 @@ Screenshot screenshot=new Screenshot(driver);
         Assert.assertTrue(TdmThresholdConfigPage.verifyexportToExcelSheet(maplist));
     }
     
-    @Test(priority=16)
+    @Test(priority=17)
     public void SortingByDescending() throws IOException {
 		TdmThresholdConfigPage TdmThresholdConfigPage = PageFactory.createPageInstance(driver, TdmThresholdConfigPage.class);
 		TdmThresholdConfigPage.SortByDescending();
@@ -176,7 +188,7 @@ Screenshot screenshot=new Screenshot(driver);
         Assert.assertTrue(TdmThresholdConfigPage.verifyexportToExcelSheet(maplist));
     }
 	
-    @Test(priority=17)
+    @Test(priority=18)
     public void GroupBy()
     {
 		TdmThresholdConfigPage TdmThresholdConfigPage = PageFactory.createPageInstance(driver, TdmThresholdConfigPage.class);
@@ -186,37 +198,37 @@ Screenshot screenshot=new Screenshot(driver);
         screenshot.captureScreen("TdmThresholdConfigTest", "AlreadyGroupBy");
     }
     
-    @Test(priority=18)
+    @Test(priority=19)
     public void VerifyArrowMoveForPreviousAndNextPage() {
 		TdmThresholdConfigPage TdmThresholdConfigPage = PageFactory.createPageInstance(driver, TdmThresholdConfigPage.class);
     	Assert.assertTrue(TdmThresholdConfigPage.verifyArrowMoveForPreviousAndNextPage(),"arrow move for previous and next page assertion failed");
     }
     
-    @Test(priority=19)
+    @Test(priority=20)
     public void VerifyArrowMoveForFirstAndLastPage() {
 		TdmThresholdConfigPage TdmThresholdConfigPage = PageFactory.createPageInstance(driver, TdmThresholdConfigPage.class);
         Assert.assertTrue(TdmThresholdConfigPage.verifyArrowMoveForFirstAndLastPage(),"arrow move for first and last page assertion failed");
     }
-    @Test(priority=20)
+    @Test(priority=21)
     public void VerifyTotalNumberOfItemsPerPageDetails() {
 		TdmThresholdConfigPage TdmThresholdConfigPage = PageFactory.createPageInstance(driver, TdmThresholdConfigPage.class);
         Assert.assertTrue(TdmThresholdConfigPage.verifyTotalNumberOfItemsPerPageDetails(),"item per page assertion failed");
     }
     
-    @Test(priority=21)
+    @Test(priority=22)
     public void VerifyNumberOfItemsPerPageSelection() {
 		TdmThresholdConfigPage TdmThresholdConfigPage = PageFactory.createPageInstance(driver, TdmThresholdConfigPage.class);
         Assert.assertTrue(TdmThresholdConfigPage.verifyNumberOfItemsPerPage(),"item per page assertion failed");
     }
     
-    @Test(priority=22)
+    @Test(priority=23)
     public void searchwithoutSearchTextbox() throws IOException {
 		TdmThresholdConfigPage TdmThresholdConfigPage = PageFactory.createPageInstance(driver, TdmThresholdConfigPage.class);
 		TdmThresholdConfigPage.searchwithoutextsearch();
         Assert.assertEquals(TdmThresholdConfigPage.getMessage(),"Please enter the text to search or remove the filter", "Add invalid record assertion failed");
     }
 	
-	@Test(priority=23)
+	@Test(priority=24)
 	public void VerifyTdmThresholdConfigThresholdDetailsPage() throws Exception {
 		TdmThresholdConfigPage TdmThresholdConfigPage = PageFactory.createPageInstance(driver, TdmThresholdConfigPage.class);
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TdmThresholdConfigData.xlsx";
@@ -228,7 +240,7 @@ Screenshot screenshot=new Screenshot(driver);
         Assert.assertTrue(TdmThresholdConfigPage.verifycancelbutton());
 	}
     
-	@Test(priority=24)
+	@Test(priority=25)
 	public void VerifyTdmThresholdConfigLabelsEnabled() throws Exception {
 		TdmThresholdConfigPage TdmThresholdConfigPage = PageFactory.createPageInstance(driver, TdmThresholdConfigPage.class);
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TdmThresholdConfigData.xlsx";
@@ -238,7 +250,7 @@ Screenshot screenshot=new Screenshot(driver);
         Assert.assertTrue(TdmThresholdConfigPage.verifyPopupColumnsHeaderEnabled(),"columns enabled assertion failed");
 	}
 	
-	@Test(priority=25)
+	@Test(priority=26)
 	public void VerifyTdmThresholdConfigLabelsDiabled() throws Exception {
 		TdmThresholdConfigPage TdmThresholdConfigPage = PageFactory.createPageInstance(driver, TdmThresholdConfigPage.class);
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TdmThresholdConfigData.xlsx";
@@ -246,9 +258,104 @@ Screenshot screenshot=new Screenshot(driver);
         TdmThresholdConfigDetails TdmThresholdConfigDetails = new TdmThresholdConfigDetails(map);
         Assert.assertTrue(TdmThresholdConfigPage.verifyTdmThresholdConfigThresholdDetailsPage(TdmThresholdConfigDetails),"threshold popup displayed");
         Assert.assertFalse(TdmThresholdConfigPage.verifyPopupColumnsHeaderDisabled(),"columns enabled assertion failed");
-	}*/
+	}
 	
-	@Test(priority=26)
+	//@Test(priority=27)
+	public void VerifyAuxCodeswithTMACAuxCodesModule() throws Exception {
+		TdmThresholdConfigPage TdmThresholdConfigPage = PageFactory.createPageInstance(driver, TdmThresholdConfigPage.class);
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TdmThresholdConfigData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
+        TdmThresholdConfigDetails TdmThresholdConfigDetails = new TdmThresholdConfigDetails(map);
+        Assert.assertTrue(TdmThresholdConfigPage.verifyTdmThresholdConfigThresholdDetailsPage(TdmThresholdConfigDetails),"threshold popup displayed");
+        
+	}
+	
+	@Test(priority=28)
+	public void VerifySaveChangesButtonWithoutUpdate() throws Exception {
+		TdmThresholdConfigPage TdmThresholdConfigPage = PageFactory.createPageInstance(driver, TdmThresholdConfigPage.class);
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TdmThresholdConfigData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
+        TdmThresholdConfigDetails TdmThresholdConfigDetails = new TdmThresholdConfigDetails(map);
+        TdmThresholdConfigPage.verifyTdmThresholdConfigThresholdDetailsPageSaveChanges(TdmThresholdConfigDetails);
+        Assert.assertEquals(TdmThresholdConfigPage.VerifyErrorMessage(), "No rows has been changed", "Save Changes Buttons Assertion Failed");
+	}
+	
+	@Test(priority=29)
+	public void VerifySaveChangesButtonAfterAddNewRow() throws Exception {
+		TdmThresholdConfigPage TdmThresholdConfigPage = PageFactory.createPageInstance(driver, TdmThresholdConfigPage.class);
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TdmThresholdConfigData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
+        TdmThresholdConfigDetails TdmThresholdConfigDetails = new TdmThresholdConfigDetails(map);
+        TdmThresholdConfigPage.verifyTdmThresholdConfigThresholdDetailsPageSaveChangesAfterAddRow(TdmThresholdConfigDetails);
+        Assert.assertEquals(TdmThresholdConfigPage.VerifyErrorMessage(), "Please Provide Aux Code From, Aux Code To", "Save Changes Buttons Assertion Failed");
+	}
+	
+	@Test(priority=30)
+	public void VerifySaveChangesButtonAfterAddNewRowandAuxCodeFrom() throws Exception {
+		TdmThresholdConfigPage TdmThresholdConfigPage = PageFactory.createPageInstance(driver, TdmThresholdConfigPage.class);
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TdmThresholdConfigData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
+        TdmThresholdConfigDetails TdmThresholdConfigDetails = new TdmThresholdConfigDetails(map);
+        TdmThresholdConfigPage.verifyTdmThresholdConfigThresholdDetailsPageSaveChangesAfterAddRowandAuxCodesFrom(TdmThresholdConfigDetails);
+        Assert.assertEquals(TdmThresholdConfigPage.VerifyErrorMessage(), "Please Provide Aux Code To", "Save Changes Buttons Assertion Failed");
+	}
+	
+	@Test(priority=31)
+	public void VerifyAuxCodeToWhenAuxCodeFromisONCallHold() throws Exception {
+		TdmThresholdConfigPage TdmThresholdConfigPage = PageFactory.createPageInstance(driver, TdmThresholdConfigPage.class);
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TdmThresholdConfigData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);
+        TdmThresholdConfigDetails TdmThresholdConfigDetails = new TdmThresholdConfigDetails(map);
+        Assert.assertTrue(TdmThresholdConfigPage.VerifyAuxCodeToWhenAuxCodeFromisONCallHold(TdmThresholdConfigDetails), "AuxCodeToAssertion Failed");
+	}
+	
+	@Test(priority=32)
+	public void VerifyDefaultValueofThreshHold() throws Exception {
+		TdmThresholdConfigPage TdmThresholdConfigPage = PageFactory.createPageInstance(driver, TdmThresholdConfigPage.class);
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TdmThresholdConfigData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);
+        TdmThresholdConfigDetails TdmThresholdConfigDetails = new TdmThresholdConfigDetails(map);
+        Assert.assertTrue(TdmThresholdConfigPage.VerifyDefaultValueofThreshhold(TdmThresholdConfigDetails), "AuxCodeToAssertion Failed");
+	}
+	
+	@Test(priority=33)
+	public void VerifyDefaultValueofDelete() throws Exception {
+		TdmThresholdConfigPage TdmThresholdConfigPage = PageFactory.createPageInstance(driver, TdmThresholdConfigPage.class);
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TdmThresholdConfigData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);
+        TdmThresholdConfigDetails TdmThresholdConfigDetails = new TdmThresholdConfigDetails(map);
+        Assert.assertTrue(TdmThresholdConfigPage.VerifyDefaultValueofDelete(TdmThresholdConfigDetails), "AuxCodeToAssertion Failed");
+	}
+	
+	@Test(priority=34)
+	public void VerifyDefaultValueofAllowStatusChange() throws Exception {
+		TdmThresholdConfigPage TdmThresholdConfigPage = PageFactory.createPageInstance(driver, TdmThresholdConfigPage.class);
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TdmThresholdConfigData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);
+        TdmThresholdConfigDetails TdmThresholdConfigDetails = new TdmThresholdConfigDetails(map);
+        Assert.assertTrue(TdmThresholdConfigPage.VerifyDefaultValueofAllowstatusChange(TdmThresholdConfigDetails), "AuxCodeToAssertion Failed");
+	}
+	
+	@Test(priority=35)
+	public void VerifyDefaultValueofAllowNotification() throws Exception {
+		TdmThresholdConfigPage TdmThresholdConfigPage = PageFactory.createPageInstance(driver, TdmThresholdConfigPage.class);
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TdmThresholdConfigData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);
+        TdmThresholdConfigDetails TdmThresholdConfigDetails = new TdmThresholdConfigDetails(map);
+        Assert.assertTrue(TdmThresholdConfigPage.VerifyDefaultValueofAllowstatusChange(TdmThresholdConfigDetails), "AuxCodeToAssertion Failed");
+	}
+	
+	@Test(priority=36)
+	public void VerifyAvailableAuxCodeToForOnCallHold() throws Exception {
+		TdmThresholdConfigPage TdmThresholdConfigPage = PageFactory.createPageInstance(driver, TdmThresholdConfigPage.class);
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TdmThresholdConfigData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(2);
+        TdmThresholdConfigDetails TdmThresholdConfigDetails = new TdmThresholdConfigDetails(map);
+        TdmThresholdConfigPage.VerifyAvalableAuxCodeToforOnCallHold(TdmThresholdConfigDetails);
+        Assert.assertEquals(TdmThresholdConfigPage.VerifyErrorMessage(), "Please select different Aux code", "Available Aux Code assertion failed");
+	}
+	
+	@Test(priority=37)
 	public void addNewRow() throws Exception {
 		TdmThresholdConfigPage TdmThresholdConfigPage = PageFactory.createPageInstance(driver, TdmThresholdConfigPage.class);
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TdmThresholdConfigData.xlsx";
@@ -259,7 +366,7 @@ Screenshot screenshot=new Screenshot(driver);
         Assert.assertEquals(TdmThresholdConfigPage.getSuccessMessage(),"Record Creation Successfully");
 	}
 	
-	/*@Test(priority=27,dependsOnMethods = "addNewRow")
+	@Test(priority=38)//dependsOnMethods = "addNewRow")
     public void VerifyAuditTrailReportForCreate() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\TdmThresholdConfigData.xlsx";
 	    Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -272,9 +379,9 @@ Screenshot screenshot=new Screenshot(driver);
 	    ReportDetails reportDetails= new ReportDetails(map1);
 	    ocmReportsPage.showReport(reportDetails);
         Assert.assertTrue(ocmReportsPage.verifyTdmThresholdConfigCreate(TdmThresholdConfigDetails,"Create"),"Audit Trail report assertion failed");
-    }*/
+    }
 	
-	@Test(priority=28)
+	@Test(priority=39)
 	public void UpdateNewRow() throws Exception {
 		TdmThresholdConfigPage TdmThresholdConfigPage = PageFactory.createPageInstance(driver, TdmThresholdConfigPage.class);
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TdmThresholdConfigData.xlsx";
@@ -285,7 +392,7 @@ Screenshot screenshot=new Screenshot(driver);
         Assert.assertEquals(TdmThresholdConfigPage.getSuccessMessage(),"Record Updated Successfully");
 	}
 	
-	/*@Test(priority=29,dependsOnMethods = "UpdateNewRow")
+	@Test(priority=40)//,dependsOnMethods = "UpdateNewRow")
     public void VerifyAuditTrailReportForUpdate() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\TdmThresholdConfigData.xlsx";
 	    Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -298,9 +405,9 @@ Screenshot screenshot=new Screenshot(driver);
 	    ReportDetails reportDetails= new ReportDetails(map1);
 	    ocmReportsPage.showReport(reportDetails);
         Assert.assertTrue(ocmReportsPage.verifyTdmThresholdConfigUpdate(TdmThresholdConfigDetails,"Update"),"Audit Trail report assertion failed");
-    }*/
+    }
 	
-	@Test(priority=30)
+	@Test(priority=41)
 	public void DeleteNewRow() throws Exception {
 		TdmThresholdConfigPage TdmThresholdConfigPage = PageFactory.createPageInstance(driver, TdmThresholdConfigPage.class);
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TdmThresholdConfigData.xlsx";
@@ -311,7 +418,7 @@ Screenshot screenshot=new Screenshot(driver);
         Assert.assertEquals(TdmThresholdConfigPage.getSuccessMessage(),"Record Updated Successfully");
 	}
 	
-	/*@Test(priority=31,dependsOnMethods = "DeleteNewRow")
+	@Test(priority=42)//dependsOnMethods = "DeleteNewRow")
     public void VerifyAuditTrailReportForDelete() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\TdmThresholdConfigData.xlsx";
 	    Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -323,8 +430,41 @@ Screenshot screenshot=new Screenshot(driver);
 	    Map<String, String> map1 = new ExcelReader(filePath1,"Show").getTestData().get(0);
 	    ReportDetails reportDetails= new ReportDetails(map1);
 	    ocmReportsPage.showReport(reportDetails);
-        Assert.assertTrue(ocmReportsPage.verifyTdmThresholdConfigDelete(TdmThresholdConfigDetails,"Create"),"Audit Trail report assertion failed");
-    }*/
+        Assert.assertTrue(ocmReportsPage.verifyTdmThresholdConfigDelete(TdmThresholdConfigDetails,"Update"),"Audit Trail report assertion failed");
+    }
+    
+	@Test(priority=43)
+	public void VerifyUpdateExistingRecordBySelectingMultipleRecords() throws Exception {
+		TdmThresholdConfigPage TdmThresholdConfigPage= PageFactory.createPageInstance(driver, TdmThresholdConfigPage.class);
+		String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TdmThresholdConfigData.xlsx";
+		Map<String,String>map=new ExcelReader(filePath,"Create").getTestData().get(0);
+		TdmThresholdConfigDetails TdmThresholdConfigDetails=new TdmThresholdConfigDetails(map);
+		Assert.assertTrue(TdmThresholdConfigPage.verifyTdmThresholdConfigThresholdDetailsPageBySelectingMultipleRecords(TdmThresholdConfigDetails),"threshold popup displayed");
+		TdmThresholdConfigPage.addNewRowForMultipleRecords(TdmThresholdConfigDetails);
+		Assert.assertEquals(TdmThresholdConfigPage.getSuccessMessage(),"Record Updated Successfully");
+	}
+	
+    @Test(priority=44)
+    public void verifyThresholdDetailsPageDataAfterMultiRecordUpdate() throws Exception {
+    	TdmThresholdConfigPage TdmThresholdConfigPage= PageFactory.createPageInstance(driver, TdmThresholdConfigPage.class);
+		String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TdmThresholdConfigData.xlsx";
+		Map<String,String>map=new ExcelReader(filePath,"Create").getTestData().get(0);
+		TdmThresholdConfigDetails TdmThresholdConfigDetails=new TdmThresholdConfigDetails(map);
+		Assert.assertTrue(TdmThresholdConfigPage.verifyThresholdDetailsPageDataAfterMultiRecordUpdate(TdmThresholdConfigDetails), "MultipleRecord updating Assertion Failed");
+    }
+    
+    @Test(priority=45)
+    public void verifyAddRulesButtonWithoutSelectingRecord() throws Exception {
+    	TdmThresholdConfigPage TdmThresholdConfigPage= PageFactory.createPageInstance(driver, TdmThresholdConfigPage.class);
+		String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TdmThresholdConfigData.xlsx";
+		Map<String,String>map=new ExcelReader(filePath,"Create").getTestData().get(0);
+		TdmThresholdConfigDetails TdmThresholdConfigDetails=new TdmThresholdConfigDetails(map);
+		TdmThresholdConfigPage.VerifyAddRulesButtonwithoutSelectingRecord();
+		Assert.assertEquals(TdmThresholdConfigPage.getSuccessMessage(),"There are no records selected");
+    }
+    
+    
+    
 	
 	@AfterMethod
 	    public void afterEachMethod(Method method) {

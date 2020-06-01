@@ -632,8 +632,17 @@ public class OCMAgentSummaryReportTest extends BaseTest {
 		Assert.assertTrue(OCMAgentSummaryReportPage.verifySorting(),"Sorting assertion failed");
 	}
 
+	@Test(priority=54,dependsOnMethods ="ViewDownloadedOcmAgentSummaryReportInReportsDownloadPageinAgentSummaryPg",description="To verification of exported excel in Report downloads")
+	public void VerifyViewDownloadedinOcmAgentSummaryReportPage() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentLoginLogoutReportData.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
+		ocmReportsPage.showReport(reportDetails);
+		Assert.assertTrue(ocmReportsPage.verifyExportedSheet("OCMReportDownload","OCM Agent Summary Report"));		
+	}
 
-	/*@Test(priority=54, description="To verify report data against DB")
+	/*@Test(priority=55, description="To verify report data against DB")
 	public void database1() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(0);

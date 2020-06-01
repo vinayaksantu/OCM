@@ -1,25 +1,19 @@
 package com.tetherfi.pages;
 
 import java.io.File;
-import java.io.UnsupportedEncodingException;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
-
-import com.tetherfi.model.ivr.AdhocOptionEnhancementDetails;
-import com.tetherfi.model.ivr.CallbackAnnouncementDetails;
 import com.tetherfi.model.tmac.AgentSettingsDetails;
-import com.tetherfi.model.user.AgentSkillAssignmentDetails;
+
 import com.tetherfi.model.user.AgentSkillAssignmentNewDetails;
 
 public class AgentSkillAssignmentNewPage extends BasePage {
@@ -468,6 +462,7 @@ public class AgentSkillAssignmentNewPage extends BasePage {
 		}catch(InterruptedException e) {
 			e.printStackTrace();
 		}*/
+		waitForJqueryLoad(driver);
 		waitForJqueryLoad(driver);
 		return AgentSkillAssignment.isEnabled();
 	}

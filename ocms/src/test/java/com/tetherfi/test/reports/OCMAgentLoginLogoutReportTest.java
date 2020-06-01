@@ -705,6 +705,16 @@ public class OCMAgentLoginLogoutReportTest extends BaseTest {
 		OCMAgentLoginLogoutReportPage agentLoginLogoutPage=PageFactory.createPageInstance(driver,OCMAgentLoginLogoutReportPage.class);
 		Assert.assertTrue(agentLoginLogoutPage.verifySorting(),"Sorting assertion failed");
 	}
+	
+	@Test(priority=65,dependsOnMethods ="ViewDownloadedOcmAgentLoginLogoutReportInReportsDownloadPageinAgentLoginLogoutPg",description="To verification of exported excel in Report downloads")
+	public void VerifyViewDownloadedinOcmAgentLoginLogoutReportPage() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentLoginLogoutReportData.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
+		ocmReportsPage.showReport(reportDetails);
+		Assert.assertTrue(ocmReportsPage.verifyExportedSheet("OCMReportDownload","OCM Agent Login Logout Rep"));		
+	}
 
 	@AfterMethod
 	public void afterEachMethod(Method method) throws InterruptedException {

@@ -642,6 +642,17 @@ public class OCMAgentAuxReportTest extends BaseTest {
 		OCMAgentAuxReportPage AgentAuxReportPage=PageFactory.createPageInstance(driver,OCMAgentAuxReportPage.class);
 		Assert.assertTrue(AgentAuxReportPage.verifySorting(),"Sorting assertion failed");
 	}
+	
+	@Test(priority=55,dependsOnMethods ="ViewDownloadedOcmAgentAuxReportInReportsDownloadPageinAgentAuxPg",description="To verification of exported excel in Report downloads")
+	public void VerifyViewDownloadedinOcmAgentAuxReportPage() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentAuxReportData.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
+		ocmReportsPage.showReport(reportDetails);
+		Assert.assertTrue(ocmReportsPage.verifyExportedSheet("OCMReportDownload","Agent Aux Report"));		
+	}
+
 
 	@AfterMethod
 	public void afterEachMethod(Method method) throws InterruptedException {

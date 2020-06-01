@@ -589,6 +589,15 @@ public class OCMAudioVideoPlaybackReportTest extends BaseTest {
 		screenshot.captureScreen("OCMAudioVideoPlaybackReport", "AlreadyGroupBy");
 	}
 
+	@Test(priority=51,dependsOnMethods ="ViewDownloadedOcmAudioVideoPlaybackReportInReportsDownloadPageinAudioVideoPlaybackPg",description="To verification of exported excel in Report downloads")
+	public void VerifyViewDownloadedinOcmAudioVideoPlaybackReportPage() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoPlaybackReport.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
+		ocmReportsPage.showReport(reportDetails);
+		Assert.assertTrue(ocmReportsPage.verifyExportedSheet("OCMReportDownload","OCM Audio Video Playback R"));		
+	}
     
     @AfterMethod
     public void afterEachMethod(Method method) {

@@ -47,9 +47,9 @@ public class AgentSkillAssignmentNewTest extends BaseTest {
         AgentSkillAssignmentNewPage agentSkillAssignmentNewPage=PageFactory.createPageInstance(driver,AgentSkillAssignmentNewPage.class);
     	Assert.assertTrue(agentSkillAssignmentNewPage.verifylogo(),"Skill Configuration logo assertion failed");
     	Assert.assertTrue(agentSkillAssignmentNewPage.maximizewindow(),"Fullscreen Assertion Failed"); 
-    	screenshot.captureScreen("maximize window","AgentSkillAssignmentNewTest");
+    	screenshot.captureScreen("AgentSkillAssignmentNewTest","maximize window");
     	Assert.assertTrue(agentSkillAssignmentNewPage .minimizewindow(), "Restored Assertion Failed");
-    	screenshot.captureScreen("minimize window","AgentSkillAssignmentNewTest");
+    	screenshot.captureScreen("AgentSkillAssignmentNewTest","minimize window");
     }
 	
 	@Test(priority=2)
@@ -310,7 +310,7 @@ public class AgentSkillAssignmentNewTest extends BaseTest {
         Assert.assertTrue(agentSkillAssignmentNewPage.verifyRecordUpdated(),"Assign skill assertion failed");
     }
     
-	 /*@Test(priority=28)
+	// @Test(priority=28)
 	 public void verifyAuditTrailReportForUpdate() throws Exception {
 		 String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentSkillAssignmentNewData.xlsx";
     	 Map<String, String>map=new ExcelReader(filePath,"Edit").getTestData().get(0);
@@ -323,7 +323,7 @@ public class AgentSkillAssignmentNewTest extends BaseTest {
          ReportDetails reportDetails= new ReportDetails(map2);
          ocmReportsPage.showReport(reportDetails);
          Assert.assertTrue(ocmReportsPage.verifyAgentSkillAssignUpdate(agentSkillAssignmentNewDetails, "Update"), "Update Audit Trail Assertion Failed"); 
-     }*/
+     }
     
 	@Test(priority=29)
 	public void verifyMultiSkillSaveButtonWithOutAssigningSkills() throws Exception {
@@ -579,7 +579,7 @@ public class AgentSkillAssignmentNewTest extends BaseTest {
 		Assert.assertTrue(agentSkillAssignmentNewPage.verifyRecordUpdated(),"Assign skill assertion failed");
 	}
 	
-	 /*@Test(priority=53)
+	// @Test(priority=53)
 	 public void verifyAuditTrailReportForMultiSkillUpdate() throws Exception {
 		 String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentSkillAssignmentNewData.xlsx";
     	 Map<String, String>map=new ExcelReader(filePath,"Edit").getTestData().get(0);
@@ -592,7 +592,7 @@ public class AgentSkillAssignmentNewTest extends BaseTest {
          ReportDetails reportDetails= new ReportDetails(map2);
          ocmReportsPage.showReport(reportDetails);
          Assert.assertTrue(ocmReportsPage.verifyMultiAgentSkillAssignUpdate(agentSkillAssignmentNewDetails, "Update"), "Update Audit Trail Assertion Failed"); 
-     }*/
+     }
 	
 	@Test(priority=54)
     public void ExportToExcel() throws Exception {
@@ -601,13 +601,13 @@ public class AgentSkillAssignmentNewTest extends BaseTest {
         Assert.assertTrue(agentSkillAssignmentNewPage.verifyExportToExcel(filePath));
     }
     
-    /*@Test(priority=55)
+    //@Test(priority=55)
     public void ExportToExcelData() throws Exception {	
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Agent Skill Assignment.xlsx";
     	List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestDataForAgentSettings();
     	AgentSkillAssignmentNewPage agentSkillAssignmentNewPage = PageFactory.createPageInstance(driver, AgentSkillAssignmentNewPage.class);
     	Assert.assertTrue(agentSkillAssignmentNewPage.verifyexportToExcelSheet(maplist));	
-    }*/
+    }
     
     @Test(priority=56)
     public void ExporttoExcelWithoutData() throws Exception {
@@ -695,9 +695,9 @@ public class AgentSkillAssignmentNewTest extends BaseTest {
 	public void GroupBy(){
 	    AgentSkillAssignmentNewPage agentSkillAssignmentNewPage=PageFactory.createPageInstance(driver,AgentSkillAssignmentNewPage.class);
 	    Assert.assertTrue(agentSkillAssignmentNewPage.groupby());
-	    screenshot.captureScreen( "GroupBy","AgentSkillAssignmentNewTest");
+	    screenshot.captureScreen("AgentSkillAssignmentNewTest","GroupBy");
 	    Assert.assertTrue(agentSkillAssignmentNewPage.groupby());
-	    screenshot.captureScreen("AlreadyGroupBy","AgentSkillAssignmentNewTest");
+	    screenshot.captureScreen("AgentSkillAssignmentNewTest","AlreadyGroupBy");
 	}
 	    
 	@Test(priority=66)

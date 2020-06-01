@@ -603,6 +603,16 @@ public class OCMChatInteractionReportTest extends BaseTest {
 		OCMChatInteractionReportPage ChatInteractionPage=PageFactory.createPageInstance(driver,OCMChatInteractionReportPage.class);
 		Assert.assertTrue(ChatInteractionPage.verifySorting(),"Sorting assertion failed");
 	}
+	
+	@Test(priority=54,dependsOnMethods ="ViewDownloadedOcmChatInteractionReportInReportsDownloadPageinChatInteractionPg",description="To verification of exported excel in Report downloads")
+	public void VerifyViewDownloadedinOcmChatInteractionReportPage() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatInteractionReportData.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
+		ocmReportsPage.showReport(reportDetails);
+		Assert.assertTrue(ocmReportsPage.verifyExportedSheet("OCMReportDownload","OCM Chat Interaction Repor"));		
+	}
 
 	@AfterMethod
 	public void afterEachMethod(Method method) {
