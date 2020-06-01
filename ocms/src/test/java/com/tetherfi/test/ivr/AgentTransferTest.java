@@ -39,13 +39,13 @@ public class AgentTransferTest extends BaseTest{
         ocmHomePage.navigateToTab("IVR");
         IvrPage ivrPage = PageFactory.createPageInstance(driver, IvrPage.class);
         Assert.assertTrue(ivrPage.isIVRPageDisplayed(), "ivr page assertion failed");
-        screenshot.captureScreen(driver, "IVR Page","AgentTransferTest");
+        screenshot.captureScreen("IVR Page","AgentTransferTest");
         ivrPage.navigateToAgentTransferPage();
         AgentTransferPage agentTransferPage = PageFactory.createPageInstance(driver, AgentTransferPage.class);
         Assert.assertTrue(agentTransferPage.isAgentTransferPageDisplayed(), "Holiday List page assertion failed");
     }
-	
-	/*@Test(priority=1)
+
+	@Test(priority=1)
 	public void AgentTransferPage() {
         AgentTransferPage agentTransferPage = PageFactory.createPageInstance(driver, AgentTransferPage.class);
     	Assert.assertTrue(agentTransferPage.verifylogo(),"Agent transfer logo assertion failed");
@@ -81,7 +81,7 @@ public class AgentTransferTest extends BaseTest{
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         AgentTransferDetails agentTransferDetails=new AgentTransferDetails (map);
         Assert.assertTrue(agentTransferPage.addCancel(agentTransferDetails), "Add cancel assertion failed");
-	}*/
+	}
 	
 	@Test(priority=6)
 	public void addNewAgentTransferRecord() throws Exception {
@@ -93,7 +93,7 @@ public class AgentTransferTest extends BaseTest{
         Assert.assertEquals(agentTransferPage.getSuccessMessage(),"Record Created Successfully", "Record creation assertion failed" );
 	}
 	
-	/*@Test(priority=7)
+	@Test(priority=7)
     public void VerifyAuditTrialReportForCreate() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentTransferData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -195,7 +195,7 @@ public class AgentTransferTest extends BaseTest{
   		Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(0);
         AgentTransferDetails agentTransferDetails=new AgentTransferDetails (map);
         Assert.assertTrue(agentTransferPage.editCancelbtn(agentTransferDetails));
-	}*/
+	}
 	
 	@Test(priority=17)//,dependsOnMethods = ("addNewHolidayListRecord"))
   	public void editAgentTransferRecord() throws Exception {
@@ -207,7 +207,7 @@ public class AgentTransferTest extends BaseTest{
         Assert.assertTrue(agentTransferPage.verifymessage(), "Record updation assertion failed" );
   	}
 	
-	/*@Test(priority=18)
+	@Test(priority=18)
     public void VerifyAuditTrialReportForUpdate() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentTransferData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(0);	
@@ -321,7 +321,7 @@ public class AgentTransferTest extends BaseTest{
         Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
         AgentTransferDetails agentTransferDetails=new AgentTransferDetails (map);
         Assert.assertTrue(agentTransferPage.verifydeleteNo(agentTransferDetails));
-	}*/
+	}
 	
 	@Test(priority=30)//,dependsOnMethods = ("editHolidayListRecord"))
     public void DeleteAgentTransferRecord() throws Exception {
@@ -333,7 +333,7 @@ public class AgentTransferTest extends BaseTest{
         Assert.assertTrue(agentTransferPage.verifymessage(),"delete record assertion failed");
         }
 	
-	/*@Test(priority=31)
+	@Test(priority=31)
     public void ExporttoExcelWithoutData() throws Exception
     {
 		AgentTransferPage agentTransferPage = PageFactory.createPageInstance(driver, AgentTransferPage.class);
@@ -396,7 +396,7 @@ public class AgentTransferTest extends BaseTest{
     public void VerifyNumberOfItemsPerPageSelection() {
         AgentTransferPage agentTransferPage = PageFactory.createPageInstance(driver, AgentTransferPage.class);
         Assert.assertTrue(agentTransferPage.verifyNumberOfItemsPerPage(),"item per page assertion failed");
-    }*/
+    }
     
     @AfterMethod
     public void afterEachMethod(Method method){

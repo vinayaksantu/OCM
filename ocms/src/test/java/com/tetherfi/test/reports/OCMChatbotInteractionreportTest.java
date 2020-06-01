@@ -418,7 +418,7 @@ public class OCMChatbotInteractionreportTest extends BaseTest {
       	ocmReportsPage.showReport(reportDetails);  
         OCMChatbotInteractionReportPage ChatbotInteractionPage=PageFactory.createPageInstance(driver,OCMChatbotInteractionReportPage.class);
     	Assert.assertTrue(ChatbotInteractionPage.verifySearchContains(reportDetails.getSearchStr()));
-    }   
+    }  
     
     @Test(priority=36,description="To verify search doesnotContains")
     public void  VerifySearchDoesNotContains() throws Exception {
@@ -597,7 +597,7 @@ public class OCMChatbotInteractionreportTest extends BaseTest {
       
     @AfterMethod
     public void afterEachMethod(Method method) {
-    	screenshot.captureScreen(driver, "", method.getName());
+    	screenshot.captureScreen("OCMChatbotInteractionreportTest", method.getName());
     	driver.navigate().refresh();
     }
 }

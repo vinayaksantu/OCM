@@ -371,9 +371,9 @@ public class SendFaxTest extends BaseTest{
     {
         SendFaxPage sendFaxPage = PageFactory.createPageInstance(driver, SendFaxPage.class);
     	Assert.assertTrue(sendFaxPage.groupby());
-        screenshot.captureScreen(driver, "GroupBy","SendFaxTest");
+        screenshot.captureScreen("GroupBy","SendFaxTest");
     	Assert.assertTrue(sendFaxPage.groupby());
-        screenshot.captureScreen(driver, "AlreadyGroupBy","SendFaxTest");
+        screenshot.captureScreen( "AlreadyGroupBy","SendFaxTest");
     }
     
     @Test(priority=32)

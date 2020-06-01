@@ -463,8 +463,6 @@ Screenshot screenshot=new Screenshot(driver);
 		Assert.assertEquals(TdmThresholdConfigPage.getSuccessMessage(),"There are no records selected");
     }
     
-    
-    
 	
 	@AfterMethod
 	    public void afterEachMethod(Method method) {
