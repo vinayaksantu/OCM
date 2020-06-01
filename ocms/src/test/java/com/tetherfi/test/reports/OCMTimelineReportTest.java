@@ -77,7 +77,7 @@ public class OCMTimelineReportTest extends BaseTest {
 		Map<String, String> map = new ExcelReader(filePath,"ExportReport").getTestData().get(0);
 		ReportDetails reportDetails= new ReportDetails(map);
 		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
-		ocmReportsPage.viewDownloadedReportInReportsDownloadsPage();
+		ocmReportsPage.viewDownloadedReportInReportDownloadsPage();
 		Assert.assertTrue(ocmReportsPage.verifyDownloadedReportNameAndTimeInReportsDownloadPage(reportDetails.getReportName()),"Report not found in Reporter download page");
 	} 
 
@@ -172,7 +172,7 @@ public class OCMTimelineReportTest extends BaseTest {
 		Map<String, String> map = new ExcelReader(filePath,"ExportReportDateRange").getTestData().get(0);
 		ReportDetails reportDetails= new ReportDetails(map);
 		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
-		ocmReportsPage.viewDownloadedReportInReportsDownloadsPage();
+		ocmReportsPage.viewDownloadedReportInReportDownloadsPage();
 		Assert.assertTrue(ocmReportsPage.verifyDownloadedReportNameAndTimeInReportsDownloadPage(reportDetails.getReportName()),"Report not found in Reporter download page");
 	}
 

@@ -671,7 +671,7 @@ public class AgentHistoricalReportTest extends BaseTest {
 		Assert.assertTrue(agentHistoricalPage.verifySorting(),"Sorting assertion failed");
 	}
 	
-	@Test(priority=60, description="To verify report data against DB")
+	/*@Test(priority=60, description="To verify report data against DB")
 	public void database() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(0);
@@ -825,7 +825,7 @@ public class AgentHistoricalReportTest extends BaseTest {
 
 
 	
-	}
+//	}
 
 	@AfterMethod
 	public void afterEachMethod(Method method) throws InterruptedException {

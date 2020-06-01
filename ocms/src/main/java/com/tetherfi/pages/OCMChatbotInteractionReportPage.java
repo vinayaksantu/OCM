@@ -27,7 +27,7 @@ public class OCMChatbotInteractionReportPage extends BasePage  {
   
  @FindBy(css=".ibox-title h5")
   private WebElement exportSchedulerTitle;
-s  
+
  @FindBy(css="a[href$='/ExportScheduler/Inde	x'] div")
   private WebElement exportschedulerlinkonHomepg;
   
@@ -155,7 +155,10 @@ private List<WebElement> searchCriteriaListbox;
 @FindBy(id = "1001sTextToSearch")
 private WebElement searchTextBox;
 
-@FindBy(css = ".modal-footer .k-button")
+/*@FindBy(css = ".modal-footer .k-button")
+private WebElement searchCloseBtn;*/
+
+@FindBy(xpath="//*[@id=\"searchModel\"]/div/div/div[3]/button[1]")
 private WebElement searchCloseBtn;
 
 @FindBy(css = ".modal-footer .button-danger-theme")
@@ -171,15 +174,72 @@ private WebElement searchbyfeatureTextBox;
 @FindBy(css = "ul[id='autoCompleteTextbox_listbox'] li")
 private List<WebElement> searchbyfeaturelistBox;
 
-    
-/* @FindBy(xpath="//p[@class='k-reset']")
+@FindBy(xpath="//p[@class='k-reset']")
 private WebElement groupby;
 
-@FindBy(xpath="//tbody/tr/td/p[@class='k-reset']/../../following-sibling::tr/td[8]/div")
+/*@FindBy(xpath="//tbody/tr/td/p[@class='k-reset']/../../following-sibling::tr/td[8]/div")
 private WebElement groupbycolor;*/
 
 @FindBy(xpath="//div[@data-role='droptarget']")
 private WebElement droptarget;
+
+@FindBy(xpath="//a[text()='Agent ID']")
+private WebElement agentId;
+
+@FindBy(xpath="//tbody/tr/td/p[@class='k-reset']/../../following-sibling::tr/td[7]")
+private WebElement groupbyAgentid;
+
+@FindBy(xpath="//div[@id='searchRadioGroup']")
+private WebElement advancedsearchBtn;
+
+@FindBy(css = "span[aria-owns='1001ColumnName_listbox']")
+private WebElement searchColDropdownAdvSrchReportPage;
+
+@FindBy(css="ul[id='1001ColumnName_listbox'] li")
+private List<WebElement> searchColListBoxAdvSrchReportPage;
+ 
+@FindBy(css = "span[aria-owns='1001Criteria_listbox']")
+private WebElement searchCriteriaDropdownAdvSrch;
+
+@FindBy(css="ul[id='1001Criteria_listbox'] li") 
+private List<WebElement> searchCriteriaListboxAdvSrch;
+
+@FindBy(id = "1001TextToSearch")
+private WebElement searchTextBoxAdvSrch;
+
+@FindBy(id="1001AddButton")
+private WebElement searchAddCriteriaBtn;
+
+@FindBy(xpath="//label[@for='1001RadioAND']")
+private WebElement andradiobtn;
+
+@FindBy(css = "span[aria-owns='1002ColumnName_listbox']")
+private WebElement searchColDropdownAdvSrchReportPage1;	
+
+@FindBy(css="ul[id='1002ColumnName_listbox'] li")
+private List<WebElement> searchColListBoxAdvSrchReportPage1;
+
+@FindBy(css = "span[aria-owns='1002Criteria_listbox']")
+private WebElement searchCriteriaDropdownAdvSrch1;
+
+@FindBy(css="ul[id='1002Criteria_listbox'] li") 
+private List<WebElement> searchCriteriaListboxAdvSrch1;
+
+@FindBy(id = "1002TextToSearch")
+private WebElement searchTextBoxAdvSrch1;
+
+@FindBy(css = ".k-Show")
+private List<WebElement> showReportBtn;
+
+@FindBy(id = "grid")
+private WebElement gridBoxContent;
+
+@FindBy(id="tGrid")
+private WebElement Grid;
+
+@FindBy(xpath="//label[@for='1001RadioOR']")
+private WebElement orradiobtn;
+
 
 
 public void exportPage(){
@@ -222,7 +282,7 @@ for (int i = 0; i <= pages; i++) {
     List<WebElement> rows=gridContent.findElements(By.tagName("tr"));
 List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
 int k=0;
-for(int j=0;j<headers.size();j++){
+for(int j=0;j<2;j++){
 if(headers.get(j).getText().equals("")||headers.get(j).getText().equals(" ")){continue;}
 List<String> l1 = getColumnDatafromTable(headers.get(j).getText());
 //System.out.println(l1);
@@ -498,6 +558,7 @@ public boolean verifycolumnsHeaderEnabled(){
 }
 
 public boolean maximizewindow() {
+	waitForJqueryLoad(driver);
 	selectWebElement(maximize);
 	waitForJqueryLoad(driver);
 	if(fullscreen.isEnabled())
@@ -507,6 +568,7 @@ public boolean maximizewindow() {
 }
 
 public boolean minimizewindow() {
+	waitForJqueryLoad(driver);
 	selectWebElement(minimize);
 	waitForJqueryLoad(driver);
 	if(header.isDisplayed())
@@ -565,8 +627,10 @@ public boolean verifyArrowMoveForPreviousAndNextPage(){
     if(!nextPageIcon.getAttribute("class").contains("k-state-disabled")){
 int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 selectWebElement(nextPageIcon);
+waitForJqueryLoad(driver);
 int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 selectWebElement(previousPageIcon);
+waitForJqueryLoad(driver);
 int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 if(nextnumber==(pagenumber+1) && pagenumber==previousnumber){status=true;}
 }else{
@@ -581,8 +645,10 @@ public boolean verifyArrowMoveForFirstAndLastPage(){
     if(!lastPageIcon.getAttribute("class").contains("k-state-disabled")){
     int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber));
     selectWebElement(lastPageIcon);
+    waitForJqueryLoad(driver);
     int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
     selectWebElement(firstPageIcon);
+    waitForJqueryLoad(driver);
     int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
     if(nextnumber>pagenumber && pagenumber==previousnumber){status=true;}
 }else{
@@ -598,9 +664,10 @@ public boolean verifyTotalNumberOfItemsPerPageDetails(){
 
 public void SortByAscending() {
 	selectWebElement(sessionid);
+	waitForJqueryLoad(driver);
 	selectWebElement(exporttoexcel);
 	try {
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 	} catch (InterruptedException e) {
 		e.printStackTrace();
 	}
@@ -608,10 +675,12 @@ public void SortByAscending() {
 
 public void SortByDescending() {
 	selectWebElement(sessionid);
+	waitForJqueryLoad(driver);
 	selectWebElement(sessionid);
+	waitForJqueryLoad(driver);
 	selectWebElement(exporttoexcel);
 	try {
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 	} catch (InterruptedException e) {
 		e.printStackTrace();
 	}
@@ -692,7 +761,7 @@ Boolean Status=verifyExportPageFileDownload(filePath, "OCMChatbotInteractionRepo
 			//map.put("Agent Name", details);
 			selectWebElement(searchBtn);	
 			selectWebElement(searchColDropdown);  
-		    selectDropdownFromVisibleText(searchColListBox,"Agent Name");  
+		    selectDropdownFromVisibleText(searchColListBox,"Identification");  
 		    waitForJqueryLoad(driver);
 		    selectWebElement(searchCriteriaDropdown);
 		    selectDropdownFromVisibleText(searchCriteriaListbox,"Is equal to");		   
@@ -704,7 +773,7 @@ Boolean Status=verifyExportPageFileDownload(filePath, "OCMChatbotInteractionRepo
 	        List<Map<String,String>> UI=getDataTable(); 
 	        for (Map<String,String> map1: UI)
 	        {   	
-	        	if(map1.get("Agent Name").equals(details))
+	        	if(map1.get("Identification").equals(details))
 	        	Status= true;
 	        	else 
 	        		Status= false;
@@ -768,13 +837,14 @@ Boolean Status=verifyExportPageFileDownload(filePath, "OCMChatbotInteractionRepo
 		 boolean Status=false;
 		 Map<String, String> map=new HashMap<String,String>() ;
 		 selectWebElement(searchbyfeatureTextBox);    
-		 searchbyfeatureTextBox.sendKeys("Palak Garg");//Replace by identification
+		 enterValueToTxtFieldWithoutClear(searchbyfeatureTextBox,details.getSearchStr());
+		/* searchbyfeatureTextBox.sendKeys("Palak Garg");//Replace by identification*/
 		 selectDropdownFromVisibleText(searchbyfeaturelistBox,details.getSearchStr());
 		 waitForJqueryLoad(driver);
 		 List<Map<String,String>> UI=getDataTable(); 
 		 for (Map<String,String> map1: UI)
 		 {   	
-				if(map1.get("Agent Name").equals(details.getSearchStr()))
+				if(map1.get("Identification").equals(details.getSearchStr()))
 		 	Status= true;
 		 	else 
 		 		Status= false;
@@ -929,19 +999,178 @@ Boolean Status=verifyExportPageFileDownload(filePath, "OCMChatbotInteractionRepo
 				else
 					return false;
 			}
+			
 			public boolean groupby() {
-				DragandDrop(menu,droptarget);
+				DragandDrop(agentId,droptarget);
+				waitForJqueryLoad(driver);
 				try {
 					Thread.sleep(1000);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
-				if(groupby.getText().split(": ")[1].equals(groupbymenu.getText()))
+				System.out.println(groupby.getText()+groupbyAgentid.getText());
+				if(groupby.getText().split(": ")[1].equals(groupbyAgentid.getText()))
 				{return true;}
 				else
 					return false;		
 			}
+			
+			public Boolean advancedSearchAndCriteria(ReportDetails details) throws Exception {
+				Boolean Status=false;	
+				selectWebElement(advancedsearchBtn);
+				selectWebElement(searchColDropdownAdvSrchReportPage);
+				Thread.sleep(2000);
+				selectDropdownFromVisibleText(searchColListBoxAdvSrchReportPage,"Agent ID");
+				Thread.sleep(2000);
+				selectWebElement(searchCriteriaDropdownAdvSrch);
+				selectDropdownFromVisibleText(searchCriteriaListboxAdvSrch,"Is equal to");
+				enterValueToTxtField(searchTextBoxAdvSrch,details.getSearchStr());
+				selectWebElement(searchAddCriteriaBtn);
+		        moveToElement(andradiobtn);
+		        selectWebElement(andradiobtn);
+		        try {
+					Thread.sleep(2000);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+		        selectWebElement(searchColDropdownAdvSrchReportPage1);
+				Thread.sleep(2000);
+				selectDropdownFromVisibleText(searchColListBoxAdvSrchReportPage1,"Agent ID");
+				Thread.sleep(2000);
+				selectWebElement(searchCriteriaDropdownAdvSrch1);
+				selectDropdownFromVisibleText(searchCriteriaListboxAdvSrch1,"Contains");
+				enterValueToTxtField(searchTextBoxAdvSrch1,details.getSearchStr1());
+				selectWebElement(showReportBtn.get(0));
+				waitForLoad(driver);
+				waitForJqueryLoad(driver);
+				waitUntilWebElementIsVisible(gridBoxContent);
+				Thread.sleep(4000);
+				List<Map<String,String>>UI=getDataTable();
+				for(Map<String,String> map1:UI)
+				{
+					System.out.println(map1.get("Agent Name"));
+					if(map1.get("Agent ID").toLowerCase().equals(details.getSearchStr().toLowerCase()) &&map1.get("Agent ID").toLowerCase().contains(details.getSearchStr1().toLowerCase()))
+						Status= true;
+					else 
+						Status =false;
+				}
+				return Status;	
+				
+			}
 
+			public Boolean advancedSearchORCriteria(ReportDetails details) throws Exception {
+				Boolean Status=false;	
+				selectWebElement(advancedsearchBtn);
+				selectWebElement(searchColDropdownAdvSrchReportPage);
+				Thread.sleep(2000);
+				selectDropdownFromVisibleText(searchColListBoxAdvSrchReportPage,"Agent ID");
+				Thread.sleep(2000);
+				selectWebElement(searchCriteriaDropdownAdvSrch);
+				selectDropdownFromVisibleText(searchCriteriaListboxAdvSrch,"Is equal to");
+				enterValueToTxtField(searchTextBoxAdvSrch,details.getSearchStr());
+				selectWebElement(searchAddCriteriaBtn);
+		        moveToElement(orradiobtn);
+		        selectWebElement(orradiobtn);
+		        try {
+					Thread.sleep(2000);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+		        selectWebElement(searchColDropdownAdvSrchReportPage1);
+				Thread.sleep(2000);
+				selectDropdownFromVisibleText(searchColListBoxAdvSrchReportPage1,"Agent Name");
+				Thread.sleep(2000);
+				selectWebElement(searchCriteriaDropdownAdvSrch1);
+				selectDropdownFromVisibleText(searchCriteriaListboxAdvSrch1,"Starts with");
+				enterValueToTxtField(searchTextBoxAdvSrch1,details.getSearchStr2());
+				selectWebElement(showReportBtn.get(0));
+				waitForLoad(driver);
+				waitForJqueryLoad(driver);
+				waitUntilWebElementIsVisible(gridBoxContent);
+				Thread.sleep(3000);
+				List<WebElement> rows=Grid.findElements(By.tagName("tr"));	
+				List<Map<String,String>>UI=getDataTable();
+				for(Map<String,String> map1:UI)
+				{
+					if(map1.get("Agent ID").toLowerCase().equals(details.getSearchStr().toLowerCase())|| map1.get("Agent Name").toLowerCase().startsWith(details.getSearchStr2().toLowerCase()))
+						Status= true;
+					else 
+						Status =false;
+				}
+				return Status;	
+				
+			}
+			
+			public boolean verifyAdvanceSearchNotEqualsTo(ReportDetails reportDetails) {
+				Boolean Status=false;
+				waitForJqueryLoad(driver);
+				List<Map<String,String>>UI=getDataTable();
+				for(Map<String,String> map1:UI)
+				{
+					System.out.println(map1.get("Agent Name"));
+					if(map1.get("Agent Name").equalsIgnoreCase(reportDetails.getSearchStr()))
+						Status= false;
+					else 
+						Status =true;
+				}
+				return Status;
+			}
+			public boolean verifyAdvanceSearchContains(ReportDetails reportDetails) {
+				Boolean Status=false;
+				waitForJqueryLoad(driver);
+				List<Map<String,String>>UI=getDataTable();
+				for(Map<String,String> map1:UI)
+				{
+					System.out.println(map1.get("Agent Name"));
+					if(map1.get("Agent Name").toLowerCase().contains(reportDetails.getSearchStr().toLowerCase()))
+						Status= true;
+					else 
+						Status =false;
+				}
+				return Status;
+			}
+			public boolean verifyAdvanceSearchDoesNotContains(ReportDetails reportDetails) {
+				Boolean Status=false;
+				waitForJqueryLoad(driver);
+				List<Map<String,String>>UI=getDataTable();
+				for(Map<String,String> map1:UI)
+				{
+					System.out.println(map1.get("Agent Name"));
+					if(!map1.get("Agent Name").toLowerCase().contains(reportDetails.getSearchStr().toLowerCase()))
+						Status= true;
+					else 
+						Status =false;
+				}
+				return Status;
+			}
+			public boolean verifyAdvanceSearchStartsWith(ReportDetails reportDetails) {
+				Boolean Status=false;
+				waitForJqueryLoad(driver);
+				List<Map<String,String>>UI=getDataTable();
+				for(Map<String,String> map1:UI)
+				{
+					System.out.println(map1.get("Agent Name"));
+					if(map1.get("Agent Name").toLowerCase().startsWith(reportDetails.getSearchStr().toLowerCase()))
+						Status= true;
+					else 
+						Status =false;
+				}
+				return Status;
+			}
+			public boolean verifyAdvanceSearchEndsWith(ReportDetails reportDetails) {
+				Boolean Status=false;
+				waitForJqueryLoad(driver);
+				List<Map<String,String>>UI=getDataTable();
+				for(Map<String,String> map1:UI)
+				{
+					System.out.println(map1.get("Agent Name"));
+					if(map1.get("Agent Name").toLowerCase().endsWith(reportDetails.getSearchStr().toLowerCase()))
+						Status= true;
+					else 
+						Status =false;
+				}
+				return Status;
+			}
 }
 
 
