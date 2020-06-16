@@ -929,18 +929,7 @@ Boolean Status=verifyExportPageFileDownload(filePath, "OCM Chat Host Transaction
 				else
 					return false;
 			}
-			public boolean groupby() {
-				DragandDrop(menu,droptarget);
-				try {
-					Thread.sleep(1000);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-				if(groupby.getText().split(": ")[1].equals(groupbymenu.getText()))
-				{return true;}
-				else
-					return false;		
-			}
+			
 
 }
 
