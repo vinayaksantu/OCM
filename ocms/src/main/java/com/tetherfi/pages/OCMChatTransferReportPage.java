@@ -31,8 +31,8 @@ public class OCMChatTransferReportPage extends BasePage  {
 	@FindBy(css="a[href$='/ExportScheduler/Inde	x'] div")
 	private WebElement exportschedulerlinkonHomepg;
 
-	@FindBy(xpath="//a[text()='Session ID']")
-	private WebElement sessionid;
+	@FindBy(xpath="//a[text()='User ID']")
+	private WebElement userid;
 
 	@FindBy(css=".k-grid-excel")
 	private WebElement exportPage;
@@ -174,11 +174,11 @@ public class OCMChatTransferReportPage extends BasePage  {
 	@FindBy(xpath="//p[@class='k-reset']")
 	private WebElement groupby;
 
-	@FindBy(xpath="//a[text()='UCID']")
-	private WebElement ucId;
+	@FindBy(xpath="//a[text()='Last Menu']")
+	private WebElement lastMenu;
 	
-	@FindBy(xpath="//tbody/tr/td/p[@class='k-reset']/../../following-sibling::tr/td[2]")
-	private WebElement groupbyUCId;
+	@FindBy(xpath="//tbody/tr/td/p[@class='k-reset']/../../following-sibling::tr/td[6]")
+	private WebElement groupbylastMenu;
 
 	@FindBy(xpath="//div[@data-role='droptarget']")
 	private WebElement droptarget;
@@ -601,7 +601,7 @@ public class OCMChatTransferReportPage extends BasePage  {
 	}
 
 	public void SortByAscending() {
-		selectWebElement(sessionid);
+		selectWebElement(userid);
 		selectWebElement(exporttoexcel);
 		try {
 			Thread.sleep(2000);
@@ -611,8 +611,8 @@ public class OCMChatTransferReportPage extends BasePage  {
 	}
 
 	public void SortByDescending() {
-		selectWebElement(sessionid);
-		selectWebElement(sessionid);
+		selectWebElement(userid);
+		selectWebElement(userid);
 		selectWebElement(exporttoexcel);
 		try {
 			Thread.sleep(2000);
@@ -718,7 +718,7 @@ public class OCMChatTransferReportPage extends BasePage  {
 	public boolean verifySearchIsNotEqualTo(String details) throws Exception {
 		Boolean Status=false;
 		Map<String, String> map=new HashMap<String,String>() ;
-		map.put("Agent Name", details);
+		map.put("UCID", details);
 		selectWebElement(searchBtn);	
 		selectWebElement(searchColDropdown);  
 		selectDropdownFromVisibleText(searchColListBox,"UCID");  
@@ -777,7 +777,7 @@ public class OCMChatTransferReportPage extends BasePage  {
 		List<Map<String,String>> UI=getDataTable(); 
 		for (Map<String,String> map1: UI)
 		{   	
-			if(map1.get("Agent Name").equals(details.getSearchStr()))
+			if(map1.get("UCID").equals(details.getSearchStr()))
 				Status= true;
 			else 
 				Status= false;
@@ -939,13 +939,13 @@ public class OCMChatTransferReportPage extends BasePage  {
 			return false;
 	}
 	public boolean groupby() {
-		DragandDrop(ucId,droptarget);
+		DragandDrop(lastMenu,droptarget);
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		if(groupby.getText().split(": ")[1].equals(groupbyUCId.getText()))
+		if(groupby.getText().split(": ")[1].equals(groupbylastMenu.getText()))
 		{return true;}
 		else
 			return false;		
