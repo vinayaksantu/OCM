@@ -586,14 +586,18 @@ public class OCMChatbotInteractionreportTest extends BaseTest {
 		Assert.assertTrue(ChatbotInteractionPage.verifySorting(),"item per page assertion failed");
 	}
     
-   /* @Test(priority=38)
+    @Test(priority=51, description="To verify chatbot interaction report data against DB")
     public void database() throws Exception {
-   		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMChatbotInteractionReport.xlsx";
-   		Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(0);
-   		ReportDetails reportDetails= new ReportDetails(map);
-   		OCMChatbotInteractionReportPage ChatbotInteractionPage=PageFactory.createPageInstance(driver,OCMChatbotInteractionReportPage.class);
-   		Assert.assertTrue(ChatbotInteractionPage.verifyDatabase(reportDetails.getQuery()));
-   }*/
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMChatbotInteractionReport.xlsx";
+    	Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(0);
+    	ReportDetails reportDetails= new ReportDetails(map);
+    	OCMReportsPage ocmReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
+    	ocmReportsPage.showReport(reportDetails);
+    	OCMChatbotInteractionReportPage ChatbotInteractionReportPage=PageFactory.createPageInstance(driver,OCMChatbotInteractionReportPage.class);
+    	Assert.assertTrue(ChatbotInteractionReportPage.verifyDatabase(reportDetails.getQuery(),reportDetails),"UI and Database data mismatch");
+    	System.out.println("Database Validation Completed Succesfully" +" : "+"UI and Database data is matched");    
+    }
+   
       
     @AfterMethod
     public void afterEachMethod(Method method) {

@@ -5,18 +5,22 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Action;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+
 import com.tetherfi.model.report.ReportDetails;
 
-public class OCMFaxSentDetailsReportPage extends BasePage  {
+public class FaxReceivedDetailsReportPage extends BasePage  {
 
-	public OCMFaxSentDetailsReportPage(WebDriver driver) {
+	public FaxReceivedDetailsReportPage(WebDriver driver) {
 		super(driver);
 	}
-	
+
 	@FindBy(xpath="//i[@class='fas fa-file-export']")
 	private WebElement VEFImg;
 
@@ -26,8 +30,8 @@ public class OCMFaxSentDetailsReportPage extends BasePage  {
 	@FindBy(css="a[href$='/ExportScheduler/Index'] div")
 	private WebElement exportschedulerlinkonHomepg;
 
-	@FindBy(xpath="//a[text()='Sender Number']")
-	private WebElement SenderNumber;
+	@FindBy(xpath="//a[text()='Fax Line']")
+	private WebElement FaxLine;
 
 	@FindBy(css=".k-grid-excel")
 	private WebElement exportPage;
@@ -46,10 +50,10 @@ public class OCMFaxSentDetailsReportPage extends BasePage  {
 
 	@FindBy(css=".k-pager-info")
 	private WebElement pagerInfo;
-	
+
 	@FindBy(xpath="//div[@id='gridDrillOne']//span[@class='k-pager-info k-label']")
 	private WebElement pagerInfoDrillOne;
-	
+
 	@FindBy(xpath="//div[@id='gridDrillTwo']//span[@class='k-pager-info k-label']")
 	private WebElement pagerInfoDrillTwo;
 
@@ -70,37 +74,37 @@ public class OCMFaxSentDetailsReportPage extends BasePage  {
 
 	@FindBy(id="gridDrillOne")
 	private WebElement DrillGridOneTable1;
-	
+
 	@FindBy(xpath="(//SPAN[@aria-hidden='true'][text()='×'][text()='×'])[1]")
 	private WebElement CloseDrillGridOne;
-	
+
 	@FindBy(xpath="//div[@id='gridDrillOne']//span[@class='k-pager-info k-label']")
 	private WebElement drillGridOneItems1;
-	
+
 	@FindBy(xpath="//table/tbody/tr")
 	private List<WebElement> MainReportRows;
-	
+
 	@FindBy(xpath="//div[@id='gridDrillOne']//span[@class='k-input']")
 	private WebElement pagerSizeDrillGridOne;
-	
+
 	@FindBy(xpath="//div[@id='gridDrillOne']//span[@class='k-input']")
 	private WebElement pagerSizeDrillGridTwo;
-	
+
 	@FindBy(xpath="//div[@id='gridDrillOne']//span[@class='k-icon k-i-arrow-60-right']")
 	private WebElement nextPageIconDrillOne1;
-	
+
 	@FindBy(xpath="//div[@id='gridDrillOne']//a[@aria-label='Go to the previous page']")
 	private WebElement previousPageIconDrillOne;
-	
+
 	@FindBy(css = ".k-pager-last")
 	private WebElement goToLastPage;
-	
+
 	@FindBy(xpath="//div[@id='gridDrillOne']//span[@class='k-state-selected']")
 	private WebElement pageNumberDrillOne;
-	
+
 	@FindBy(xpath="//div[@id='gridDrillTwo']//span[@class='k-state-selected']")
 	private WebElement pageNumberDrilltwo;
-	
+
 	@FindBy(css=".k-state-selected")
 	private List<WebElement> pageNumber;
 
@@ -109,7 +113,7 @@ public class OCMFaxSentDetailsReportPage extends BasePage  {
 
 	@FindBy(css=".k-animation-container ul li")
 	private List<WebElement> pageSizeListBox;
-	
+
 	@FindBy(css="ul[id='d571e4b0-a124-4e72-b306-b5333dae5e56_listbox'] li")
 	private List<WebElement> pageSizeListBoxDrillTwo; 
 
@@ -157,16 +161,16 @@ public class OCMFaxSentDetailsReportPage extends BasePage  {
 
 	@FindBy(css="a[aria-label='Go to the first page']")
 	private WebElement firstPageIcon;
-	
+
 	@FindBy(xpath="//div[@id='gridDrillOne']//span[@class='k-icon k-i-arrow-end-left']")
 	private WebElement firstPageIconDrillOne;
-	
+
 	@FindBy(xpath="//div[@id='gridDrillOne']//span[@class='k-icon k-i-arrow-end-right']")
 	private WebElement lastPageIconDrillOne;
-	
+
 	@FindBy(xpath="//div[@id='gridDrillTwo']//span[@class='k-icon k-i-arrow-end-left']")
 	private WebElement firstPageIconDrillTwo;
-	
+
 	@FindBy(xpath="//div[@id='gridDrillTwo']//span[@class='k-icon k-i-arrow-end-right']")
 	private WebElement lastPageIconDrillTwo;
 
@@ -179,46 +183,46 @@ public class OCMFaxSentDetailsReportPage extends BasePage  {
 	@FindBy(xpath="//button[@class='k-button k-button-icontext k-grid-excel']")		
 	private WebElement exporttoexcel;
 
-	//export to excel in FaxSentPage
+	//export to excel in FaxreceivedPage
 	@FindBy(xpath="//button[@id='exportAllToExcel']")
 	private WebElement exportToExcel;
-	
+
 	@FindBy(xpath="//div[@id='gridDrillOne']//button[@title='Search']")
 	private WebElement drillOneSearchBtn;
-	
+
 	@FindBy(xpath="//div[@id='searchDrillOneForm']//input[@placeholder='Select column']")
 	private WebElement drillOneSearchColDropdown;
-	
+
 	@FindBy(css="ul[id='5926sColumnName_listbox'] li")
 	private List<WebElement> drillOneSearchColListBox;
-	
+
 	@FindBy(css="span[aria-owns='5926sCriteria_listbox']")
 	private WebElement drillOneSearchCriteriaDropdown;
-	
+
 	@FindBy(css="ul[id='5926sCriteria_listbox'] li")
 	private List<WebElement> drillOneSearchCriteriaListbox;
-	
+
 	@FindBy(id="5926sTextToSearch")
 	private WebElement drillOneSearchTextbox;
-	
+
 	@FindBy(xpath="//div[@id='gridDivSearchOneFooter']//button[@title='Search']")
 	private WebElement drillOneSearchSearchBtn;
-	
+
 	@FindBy(xpath="//div[@id='gridDivSearchOneFooter']//button[text()='Clear All']")
 	private WebElement drillOneSearchClearAllbtn;
-	
+
 	@FindBy(xpath="//div[@id='gridDivSearchOneFooter']//button[text()='Back']")
 	private WebElement drillOneSearchBackbtn;
-	
+
 	@FindBy(xpath="//div[@id='gridDivSearchOneFooter']//button[text()='Close']")
 	private WebElement drillOneSearchClosebtn;
 
 	@FindBy(css = ".fa-search")
 	private WebElement searchBtn;
-	
+
 	@FindBy(css="ul[id='interval_listbox'] li")
 	private List<WebElement> intervalInputListBox;
-	
+
 	@FindBy(css="span[aria-controls='interval_listbox']")
 	private WebElement intervalInput;
 
@@ -254,106 +258,125 @@ public class OCMFaxSentDetailsReportPage extends BasePage  {
 	@FindBy(css = "ul[id='autoCompleteTextbox_listbox'] li")
 	private List<WebElement> searchbyfeaturelistBox;
 
-	@FindBy(xpath="//a[text()='Sender Number']")
-	private WebElement SenderNumber1;
+	@FindBy(xpath="//a[text()='Fax Line']")
+	private WebElement FaxLine1;
 
 	@FindBy(xpath="//p[@class='k-reset']")
 	private WebElement groupby;
 
 	@FindBy(xpath="//tbody/tr/td/p[@class='k-reset']/../../following-sibling::tr/td[2]")
-	private WebElement groupbySenderNumber;
+	private WebElement groupbyFaxLine;
 
 	@FindBy(xpath="//div[@data-role='droptarget']")
 	private WebElement droptarget;
-	
+
 	@FindBy(id="filterdate")
 	private WebElement filterDate;
-	
+
 	@FindBy(xpath="//table/tbody/tr/td")
 	private List<WebElement> rows;
-	
+
 	@FindBy(id="gridDrillOne")
 	private WebElement DrillGridOneTable;
-	
+
 	@FindBy(xpath="(//SPAN[@aria-hidden='true'][text()='×'][text()='×'])[3]")
 	private WebElement CloseDrillGridTwo;
-	
-	@FindBy(xpath="s")
+
+	@FindBy(xpath="//div[@id='gridDrillOne']//span[@class='k-pager-info k-label']")
 	private WebElement drillGridOneItems;
-	
+
 	@FindBy(xpath="(//div[@id='gridDrillOne']//span[@class='k-icon k-i-arrow-60-right'])")
 	private WebElement nextPageIconDrillOne;
-	
+
 	@FindBy(xpath="(//div[@id='gridDrillTwo']//span[@class='k-icon k-i-arrow-60-left'])")
 	private WebElement previousPageIconDrillTwo;
-	
+
 	@FindBy(css = "span[aria-owns='1001ColumnName_listbox']")
 	private WebElement searchColDropdownAdvSrchReportPage;
-   
+
 	@FindBy(xpath="//div[@id='searchRadioGroup']")
-    private WebElement advancedsearchBtn;
-	
-    @FindBy(css = "span[aria-owns='1002ColumnName_listbox']")
+	private WebElement advancedsearchBtn;
+
+	@FindBy(css = "span[aria-owns='1002ColumnName_listbox']") 
 	private WebElement searchColDropdownAdvSrchReportPage1;		
-    
-    @FindBy(css="ul[id='1001ColumnName_listbox'] li")
+
+	@FindBy(css="ul[id='1001ColumnName_listbox'] li")
 	private List<WebElement> searchColListBoxAdvSrchReportPage;
-    
-    @FindBy(css="ul[id='1002ColumnName_listbox'] li")
+
+	@FindBy(css="ul[id='1002ColumnName_listbox'] li")
 	private List<WebElement> searchColListBoxAdvSrchReportPage1;
-    
+
 	@FindBy(css = "span[aria-owns='1001Criteria_listbox']")
 	private WebElement searchCriteriaDropdownAdvSrch;
-	
+
 	@FindBy(css = "span[aria-owns='1002Criteria_listbox']")
 	private WebElement searchCriteriaDropdownAdvSrch1;
 
 	@FindBy(css="ul[id='1001Criteria_listbox'] li") 
 	private List<WebElement> searchCriteriaListboxAdvSrch;
-	
+
 	@FindBy(css="ul[id='1002Criteria_listbox'] li") 
 	private List<WebElement> searchCriteriaListboxAdvSrch1;
 
 	@FindBy(id = "1001TextToSearch")
 	private WebElement searchTextBoxAdvSrch;
-	
+
 	@FindBy(id = "1002TextToSearch")
 	private WebElement searchTextBoxAdvSrch1;
-	
+
 	@FindBy(id="1001AddButton")
-    private WebElement searchAddCriteriaBtn;
-	
+	private WebElement searchAddCriteriaBtn;
+
 	@FindBy(xpath="//label[@for='1001RadioAND']")
-    private WebElement andradiobtn;
-	
+	private WebElement andradiobtn;
+
 	@FindBy(xpath="//label[@for='1001RadioOR']")
-    private WebElement orradiobtn;
-	
+	private WebElement orradiobtn;
+
 	@FindBy(css = ".k-Show")
 	private List<WebElement> showReportBtn;
-	
+
 	@FindBy(id = "grid")
 	private WebElement gridBoxContent;
-	
+
 	@FindBy(id="tGrid")
-    private WebElement Grid;
-	
+	private WebElement Grid;
+
 	@FindBy(xpath="//tbody/tr[1]/td[1]")
 	private WebElement rowdata;
-	
+
 	@FindBy(xpath="//tbody/tr[1]/td[2]")
-    private WebElement rowdatatwo;
-	
+	private WebElement rowdatatwo;
+
 	@FindBy(id="labelDrillOne")
-	private WebElement DrillGridforSenderNumber;
-	
+	private WebElement DrillGridforFaxLine;
+
 	@FindBy(xpath="//button[@id='drillSearchClose']")
 	private WebElement DrillClose;
-	
-	@FindBy(xpath="//div[@id='gridDrillOne']/div[4]/table/tbody/tr/td[12]")
-	private WebElement drillGridPreviewButton;
 
-	
+	@FindBy(xpath="//button[@id='printbulk']")
+	private WebElement bulkprintButton;
+
+	@FindBy(xpath="//input[@id='checkFax']")
+	private List<WebElement> checkboxBeforePreview;
+
+	@FindBy(xpath="//button[text()='Yes']")
+	private WebElement yesBtn;
+
+	@FindBy(xpath="//button[text()='Cancel']")
+	private WebElement CancelBtn;
+
+	@FindBy(xpath="//div[@id='gridDrillOne']/div[4]/table/tbody/tr/td[22]")
+	private WebElement drillGridPrintButton;
+
+	@FindBy(xpath="//div[@id='gridDrillOne']/div[4]/table/tbody/tr/td[20]")
+	private WebElement drillGridPreviewOrignalButton;
+
+	@FindBy(xpath="//div[@id='gridDrillOne']/div[4]/table/tbody/tr/td[21]")
+	private WebElement drillGridPreviewAnnotatedButton;
+
+
+
 	public boolean maximizewindow() {
 		selectWebElement(maximize);
 		waitForJqueryLoad(driver);
@@ -541,7 +564,7 @@ public class OCMFaxSentDetailsReportPage extends BasePage  {
 	public boolean verifyExportToExcel(String filePath) {
 		final File folder = new File(filePath);
 		for (final File f : folder.listFiles()) {
-			if (f.getName().startsWith("OCMFaxSentDetailsReport")) {
+			if (f.getName().startsWith("OCMFaxReceivedDetailsReport")) {
 				f.delete();
 			}
 		}
@@ -552,7 +575,7 @@ public class OCMFaxSentDetailsReportPage extends BasePage  {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		Boolean Status=verifyExportPageFileDownload(filePath, "OCMFaxSentDetailsReport");
+		Boolean Status=verifyExportPageFileDownload(filePath, "OCMFaxReceivedDetailsReport");
 		return Status;
 	}
 	private List<Map<String,String>> getdata(){
@@ -595,7 +618,7 @@ public class OCMFaxSentDetailsReportPage extends BasePage  {
 			return false;
 	}
 	public void SortByAscending() {
-		selectWebElement(SenderNumber);
+		selectWebElement(FaxLine);
 		selectWebElement(exporttoexcel);
 		try {
 			Thread.sleep(2000);
@@ -604,8 +627,8 @@ public class OCMFaxSentDetailsReportPage extends BasePage  {
 		}
 	}
 	public void SortByDescending() {
-		selectWebElement(SenderNumber);
-		selectWebElement(SenderNumber);
+		selectWebElement(FaxLine);
+		selectWebElement(FaxLine);
 		selectWebElement(exporttoexcel);
 		try {
 			Thread.sleep(2000);
@@ -644,34 +667,34 @@ public class OCMFaxSentDetailsReportPage extends BasePage  {
 	}
 	private List<Map<String, String>> getDataTable() {
 		int item=Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
-        int pagersize=Integer.valueOf(pagerSize.getText());
-        int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
+		int pagersize=Integer.valueOf(pagerSize.getText());
+		int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
 		List<Map<String,String>> arr=new ArrayList<Map<String,String>>();
 		for(int k=0;k<=pages;k++){
-		waitUntilWebElementIsVisible(auditGridContent);
-		List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
-		List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
-		for(int i=1;i<rows.size();i++) {
-			Map<String,String> map = new HashMap<String,String>();
-			List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
-			String col=null;
-			for(int j=0;j<headers.size();j++){
-				scrollToElement(headers.get(j));
-				col=cols.get(j).getText();
-				map.put(headers.get(j).getText(),col);
+			waitUntilWebElementIsVisible(auditGridContent);
+			List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
+			List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
+			for(int i=1;i<rows.size();i++) {
+				Map<String,String> map = new HashMap<String,String>();
+				List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
+				String col=null;
+				for(int j=0;j<headers.size();j++){
+					scrollToElement(headers.get(j));
+					col=cols.get(j).getText();
+					map.put(headers.get(j).getText(),col);
+				}
+				map.remove("");
+				arr.add(map);
 			}
-			map.remove("");
-			arr.add(map);
+			if(k!=pages)
+			{
+				nextPageIcon.click();
+				waitForJqueryLoad(driver);}
 		}
-		if(k!=pages)
-		{
-			nextPageIcon.click();
-			waitForJqueryLoad(driver);}
-		}
-			return arr;
+		return arr;
 	}
-	
-	
+
+
 	public boolean verifySearchByTextbox(ReportDetails details) throws Exception{
 		boolean Status=false;
 		selectWebElement(searchbyfeatureTextBox);
@@ -683,7 +706,7 @@ public class OCMFaxSentDetailsReportPage extends BasePage  {
 		List<Map<String,String>> UI=getDataTable(); 
 		for (Map<String,String> map1: UI)
 		{  		
-			if(map1.get("Sender Number").equals(details.getSearchStr()))
+			if(map1.get("Fax Line").equals(details.getSearchStr()))
 				Status= true;
 			else 
 				Status= false;
@@ -695,7 +718,7 @@ public class OCMFaxSentDetailsReportPage extends BasePage  {
 		//map.put("Agent Name", details);
 		selectWebElement(searchBtn);	
 		selectWebElement(searchColDropdown);  
-		selectDropdownFromVisibleText(searchColListBox,"Sender Number");  
+		selectDropdownFromVisibleText(searchColListBox,"Fax Line");  
 		waitForJqueryLoad(driver);
 		selectWebElement(searchCriteriaDropdown);
 		selectDropdownFromVisibleText(searchCriteriaListbox,"Is equal to");		   
@@ -707,7 +730,7 @@ public class OCMFaxSentDetailsReportPage extends BasePage  {
 		List<Map<String,String>> UI=getDataTable(); 
 		for (Map<String,String> map1: UI)
 		{   	
-			if(map1.get("Sender Number").equals(details))
+			if(map1.get("Fax Line").equals(details))
 				Status= true;
 			else 
 				Status= false;
@@ -717,10 +740,10 @@ public class OCMFaxSentDetailsReportPage extends BasePage  {
 	public boolean verifySearchIsNotEqualTo(String details) throws Exception {
 		Boolean Status=false;
 		Map<String, String> map=new HashMap<String,String>() ;
-		map.put("Sender Number", details);
+		map.put("Fax Line", details);
 		selectWebElement(searchBtn);	
 		selectWebElement(searchColDropdown);  
-		selectDropdownFromVisibleText(searchColListBox,"Sender Number");  
+		selectDropdownFromVisibleText(searchColListBox,"Fax line");  
 		waitForJqueryLoad(driver);
 		selectWebElement(searchCriteriaDropdown);
 		selectDropdownFromVisibleText(searchCriteriaListbox,"Is not equal to");		   
@@ -761,7 +784,7 @@ public class OCMFaxSentDetailsReportPage extends BasePage  {
 		Boolean Status=false;		
 		selectWebElement(searchBtn);
 		selectWebElement(searchColDropdown);  
-		selectDropdownFromVisibleText(searchColListBox,"Sender Number");  
+		selectDropdownFromVisibleText(searchColListBox,"Fax Line");  
 		waitForJqueryLoad(driver);
 		selectWebElement(searchCriteriaDropdown);
 		selectDropdownFromVisibleText(searchCriteriaListbox,"Contains");		   
@@ -773,7 +796,7 @@ public class OCMFaxSentDetailsReportPage extends BasePage  {
 		List<Map<String,String>> UI=getDataTable(); 
 		for (Map<String,String> map1: UI)
 		{   	
-			if(map1.get("Sender Number").contains(description))
+			if(map1.get("Fax Line").contains(description))
 				Status= true;
 			else 
 				Status= false;
@@ -785,7 +808,7 @@ public class OCMFaxSentDetailsReportPage extends BasePage  {
 		Boolean Status=false;
 		selectWebElement(searchBtn);
 		selectWebElement(searchColDropdown);  
-		selectDropdownFromVisibleText(searchColListBox,"Sender Number");  
+		selectDropdownFromVisibleText(searchColListBox,"Fax Line");  
 		waitForJqueryLoad(driver);
 		selectWebElement(searchCriteriaDropdown);
 		selectDropdownFromVisibleText(searchCriteriaListbox,"Does not contain");		   
@@ -796,7 +819,7 @@ public class OCMFaxSentDetailsReportPage extends BasePage  {
 		List<Map<String,String>> UI=getDataTable(); 
 		for (Map<String,String> map1: UI)
 		{   	
-			if(!map1.get("Sender Number").contains(description))
+			if(!map1.get("Fax Line").contains(description))
 				Status= true;
 			else 
 				Status= false;
@@ -831,7 +854,7 @@ public class OCMFaxSentDetailsReportPage extends BasePage  {
 		Boolean Status=false;
 		selectWebElement(searchBtn);
 		selectWebElement(searchColDropdown); 
-		selectDropdownFromVisibleText(searchColListBox,"Sender Number");  
+		selectDropdownFromVisibleText(searchColListBox,"Fax Line");  
 		waitForJqueryLoad(driver);
 		selectWebElement(searchCriteriaDropdown);
 		selectDropdownFromVisibleText(searchCriteriaListbox,"Ends with");		   
@@ -843,7 +866,7 @@ public class OCMFaxSentDetailsReportPage extends BasePage  {
 		List<Map<String,String>> UI=getDataTable(); 
 		for (Map<String,String> map1: UI)
 		{   	
-			if(map1.get("Sender Number").endsWith(description))
+			if(map1.get("Fax Line").endsWith(description))
 				Status= true;
 			else 
 				Status= false;
@@ -872,7 +895,7 @@ public class OCMFaxSentDetailsReportPage extends BasePage  {
 		selectWebElement(advancedsearchBtn);
 		selectWebElement(searchColDropdownAdvSrchReportPage);
 		Thread.sleep(2000);
-		selectDropdownFromVisibleText(searchColListBoxAdvSrchReportPage,"Sender Number");
+		selectDropdownFromVisibleText(searchColListBoxAdvSrchReportPage,"Fax Line");
 		Thread.sleep(2000);
 		selectWebElement(searchCriteriaDropdownAdvSrch);
 		selectDropdownFromVisibleText(searchCriteriaListboxAdvSrch,"Is equal to");
@@ -882,8 +905,8 @@ public class OCMFaxSentDetailsReportPage extends BasePage  {
 		List<Map<String,String>>UI=getDataTable();
 		for(Map<String,String> map1:UI)
 		{
-			System.out.println(map1.get("Sender Number "));
-			if(map1.get("Sender Number").equals(reportDetails.getSearchStr()))
+			System.out.println(map1.get("Fax Line "));
+			if(map1.get("Fax Line").equals(reportDetails.getSearchStr()))
 				Status= true;
 			else 
 				Status =false;
@@ -893,11 +916,11 @@ public class OCMFaxSentDetailsReportPage extends BasePage  {
 	public boolean verifyAdvanceSearchNotEqualsTo(String reportDetails) throws Exception {
 		Boolean Status=false;
 		Map<String, String> map=new HashMap<String,String>() ;
-		map.put("Sender Number", reportDetails);
+		map.put("Fax Line", reportDetails);
 		selectWebElement(advancedsearchBtn);
 		selectWebElement(searchColDropdownAdvSrchReportPage);
 		Thread.sleep(2000);
-		selectDropdownFromVisibleText(searchColListBoxAdvSrchReportPage,"Sender Number");
+		selectDropdownFromVisibleText(searchColListBoxAdvSrchReportPage,"Fax Line");
 		Thread.sleep(2000);
 		selectWebElement(searchCriteriaDropdownAdvSrch);
 		selectDropdownFromVisibleText(searchCriteriaListboxAdvSrch,"Is not equal to");
@@ -919,7 +942,7 @@ public class OCMFaxSentDetailsReportPage extends BasePage  {
 		selectWebElement(advancedsearchBtn);
 		selectWebElement(searchColDropdownAdvSrchReportPage);
 		Thread.sleep(2000);
-		selectDropdownFromVisibleText(searchColListBoxAdvSrchReportPage,"Sender Number");
+		selectDropdownFromVisibleText(searchColListBoxAdvSrchReportPage,"Fax Line");
 		Thread.sleep(2000);
 		selectWebElement(searchCriteriaDropdownAdvSrch);
 		selectDropdownFromVisibleText(searchCriteriaListboxAdvSrch,"Contains");
@@ -929,8 +952,8 @@ public class OCMFaxSentDetailsReportPage extends BasePage  {
 		List<Map<String,String>>UI=getDataTable();
 		for(Map<String,String> map1:UI)
 		{
-			System.out.println(map1.get("Sender Number "));
-			if(map1.get("Sender Number").contains(reportDetails.getSearchStr()))
+			System.out.println(map1.get("Fax Line "));
+			if(map1.get("Fax Line").contains(reportDetails.getSearchStr()))
 				Status= true;
 			else 
 				Status =false;
@@ -942,7 +965,7 @@ public class OCMFaxSentDetailsReportPage extends BasePage  {
 		selectWebElement(advancedsearchBtn);
 		selectWebElement(searchColDropdownAdvSrchReportPage);
 		Thread.sleep(2000);
-		selectDropdownFromVisibleText(searchColListBoxAdvSrchReportPage,"Sender Number");
+		selectDropdownFromVisibleText(searchColListBoxAdvSrchReportPage,"Fax Line");
 		Thread.sleep(2000);
 		selectWebElement(searchCriteriaDropdownAdvSrch);
 		selectDropdownFromVisibleText(searchCriteriaListboxAdvSrch,"Does not contain");
@@ -952,8 +975,8 @@ public class OCMFaxSentDetailsReportPage extends BasePage  {
 		List<Map<String,String>>UI=getDataTable();
 		for(Map<String,String> map1:UI)
 		{
-			System.out.println(map1.get("Sender Number "));
-			if(!map1.get("Sender Number").contains(reportDetails.getSearchStr()))
+			System.out.println(map1.get("Fax Line "));
+			if(!map1.get("Fax Line").contains(reportDetails.getSearchStr()))
 				Status= true;
 			else 
 				Status =false;
@@ -975,7 +998,7 @@ public class OCMFaxSentDetailsReportPage extends BasePage  {
 		List<Map<String,String>>UI=getDataTable();
 		for(Map<String,String> map1:UI)
 		{
-			//System.out.println(map1.get("Sender Number "));
+			//System.out.println(map1.get("Fax Line "));
 			if(map1.get("Count").startsWith(reportDetails.getSearchStr()))
 				Status= true;
 			else 
@@ -988,7 +1011,7 @@ public class OCMFaxSentDetailsReportPage extends BasePage  {
 		selectWebElement(advancedsearchBtn);
 		selectWebElement(searchColDropdownAdvSrchReportPage);
 		Thread.sleep(2000);
-		selectDropdownFromVisibleText(searchColListBoxAdvSrchReportPage,"Sender Number");
+		selectDropdownFromVisibleText(searchColListBoxAdvSrchReportPage,"Fax Line");
 		Thread.sleep(2000);
 		selectWebElement(searchCriteriaDropdownAdvSrch);
 		selectDropdownFromVisibleText(searchCriteriaListboxAdvSrch,"Ends with");
@@ -998,8 +1021,8 @@ public class OCMFaxSentDetailsReportPage extends BasePage  {
 		List<Map<String,String>>UI=getDataTable();
 		for(Map<String,String> map1:UI)
 		{
-			//System.out.println(map1.get("Sender Number "));
-			if(map1.get("Sender Number").endsWith(reportDetails.getSearchStr()))
+			//System.out.println(map1.get("Fax Line "));
+			if(map1.get("Fax Line").endsWith(reportDetails.getSearchStr()))
 				Status= true;
 			else 
 				Status =false;
@@ -1011,22 +1034,22 @@ public class OCMFaxSentDetailsReportPage extends BasePage  {
 		selectWebElement(advancedsearchBtn);
 		selectWebElement(searchColDropdownAdvSrchReportPage);
 		Thread.sleep(2000);
-		selectDropdownFromVisibleText(searchColListBoxAdvSrchReportPage,"Sender Number");
+		selectDropdownFromVisibleText(searchColListBoxAdvSrchReportPage,"Fax Line");
 		Thread.sleep(2000);
 		selectWebElement(searchCriteriaDropdownAdvSrch);
 		selectDropdownFromVisibleText(searchCriteriaListboxAdvSrch,"Is equal to");
 		enterValueToTxtField(searchTextBoxAdvSrch,details.getSearchStr());	
 		selectWebElement(searchAddCriteriaBtn);
-        moveToElement(andradiobtn);
-        selectWebElement(andradiobtn);
-        try {
+		moveToElement(andradiobtn);
+		selectWebElement(andradiobtn);
+		try {
 			Thread.sleep(2000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-        selectWebElement(searchColDropdownAdvSrchReportPage1);
+		selectWebElement(searchColDropdownAdvSrchReportPage1);
 		Thread.sleep(2000);
-		selectDropdownFromVisibleText(searchColListBoxAdvSrchReportPage1,"Sender Number");
+		selectDropdownFromVisibleText(searchColListBoxAdvSrchReportPage1,"Fax Line");
 		Thread.sleep(2000);
 		selectWebElement(searchCriteriaDropdownAdvSrch1);
 		selectDropdownFromVisibleText(searchCriteriaListboxAdvSrch1,"Contains");
@@ -1041,22 +1064,22 @@ public class OCMFaxSentDetailsReportPage extends BasePage  {
 			Status=true;
 		}
 		return Status;	
-		
+
 	}
 	public Boolean advancedSearchORCriteria(ReportDetails details) throws Exception {
 		Boolean Status=false;	
 		selectWebElement(advancedsearchBtn);
 		selectWebElement(searchColDropdownAdvSrchReportPage);
 		Thread.sleep(2000);
-		selectDropdownFromVisibleText(searchColListBoxAdvSrchReportPage,"Sender Number");
+		selectDropdownFromVisibleText(searchColListBoxAdvSrchReportPage,"Fax Line");
 		Thread.sleep(2000);
 		selectWebElement(searchCriteriaDropdownAdvSrch);
 		selectDropdownFromVisibleText(searchCriteriaListboxAdvSrch,"Is equal to");
 		enterValueToTxtField(searchTextBoxAdvSrch,details.getSearchStr());
 		selectWebElement(searchAddCriteriaBtn);
-        moveToElement(orradiobtn);
-        selectWebElement(orradiobtn);
-        try {
+		moveToElement(orradiobtn);
+		selectWebElement(orradiobtn);
+		try {
 			Thread.sleep(2000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
@@ -1074,78 +1097,78 @@ public class OCMFaxSentDetailsReportPage extends BasePage  {
 		waitUntilWebElementIsVisible(gridBoxContent);
 		Thread.sleep(3000);
 		List<WebElement> rows=Grid.findElements(By.tagName("tr"));	
-        for(WebElement e:rows)
-        {
-        	if(rowdata.getText().equals(details.getSearchStr())||rowdatatwo.getText().startsWith(details.getSearchStr2()))
-        		Status=true;
-        }
+		for(WebElement e:rows)
+		{
+			if(rowdata.getText().equals(details.getSearchStr())||rowdatatwo.getText().startsWith(details.getSearchStr2()))
+				Status=true;
+		}
 		return Status;	
-		
+
 	}
 	public boolean groupby() {
-		DragandDrop(SenderNumber1,droptarget);
+		DragandDrop(FaxLine1,droptarget);
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		if(groupby.getText().split(": ")[1].equals(groupbySenderNumber.getText()))
+		if(groupby.getText().split(": ")[1].equals(groupbyFaxLine.getText()))
 		{return true;}
 		else
 			return false;		
 	}
 	private List<Map<String, String>> getDataTableDrillGridTwo() throws InterruptedException {
-	 	int item=Integer.valueOf(drillGridOneItems1.getText().split("of ")[1].split(" items")[0]);
-	 	int pagersize=24;
-        int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
+		int item=Integer.valueOf(drillGridOneItems1.getText().split("of ")[1].split(" items")[0]);
+		int pagersize=24;
+		int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
 		List<Map<String,String>> arr=new ArrayList<Map<String,String>>();
 		for(int k=0;k<=pages;k++){
-		waitUntilWebElementIsVisible(DrillGridOneTable1);
-		List<WebElement> rows=DrillGridOneTable1.findElements(By.tagName("tr"));
-		List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
-		for(int i=1;i<rows.size();i++) {
-			Map<String,String> map = new HashMap<String,String>();
-			List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
-			String col=null;
-			for(int j=0;j<headers.size();j++){
-				col=cols.get(j).getText();
-				map.put(headers.get(j).getText(),col);
+			waitUntilWebElementIsVisible(DrillGridOneTable1);
+			List<WebElement> rows=DrillGridOneTable1.findElements(By.tagName("tr"));
+			List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
+			for(int i=1;i<rows.size();i++) {
+				Map<String,String> map = new HashMap<String,String>();
+				List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
+				String col=null;
+				for(int j=0;j<headers.size();j++){
+					col=cols.get(j).getText();
+					map.put(headers.get(j).getText(),col);
+				}
+				map.remove("");
+				arr.add(map);
 			}
-			map.remove("");
-			arr.add(map);
+			if(k!=pages)
+			{
+				nextPageIconDrillOne1.click();
+				waitForJqueryLoad(driver);
+				waitUntilWebElementIsVisible(DrillGridOneTable1);
+			}
 		}
-		if(k!=pages)
-		{
-			nextPageIconDrillOne1.click();
-			waitForJqueryLoad(driver);
-			waitUntilWebElementIsVisible(DrillGridOneTable1);
-		}
-		}
-			CloseDrillGridTwo.click();
-			//Thread.sleep(1000);
-			waitUntilWebElementIsVisible(DrillGridOneTable1);
-			return arr;
+		CloseDrillGridTwo.click();
+		//Thread.sleep(1000);
+		waitUntilWebElementIsVisible(DrillGridOneTable1);
+		return arr;
 	}
-	
-	
-	public boolean SenderNumberDrillGrid(ReportDetails reportDetails) throws Exception{
+
+
+	public boolean FaxLineDrillGrid(ReportDetails reportDetails) throws Exception{
 		boolean status=false;
 		searchReport(reportDetails);
 		Thread.sleep(4000);
 		selectWebElement(rows.get(0));
 		Thread.sleep(2000);
 		waitForJqueryLoad(driver);
-			if(DrillGridforSenderNumber.isDisplayed())
-				status= true;
-			selectWebElement(DrillClose);	
-			return status;
+		if(DrillGridforFaxLine.isDisplayed())
+			status= true;
+		selectWebElement(DrillClose);	
+		return status;
 
 	}
-	
+
 	private void searchReport(ReportDetails reportDetails) throws Exception {
 		selectWebElement(searchBtn);	
 		selectWebElement(searchColDropdown);  
-		selectDropdownFromVisibleText(searchColListBox,"Sender Number");  
+		selectDropdownFromVisibleText(searchColListBox,"Fax Line");  
 		waitForJqueryLoad(driver);
 		selectWebElement(searchCriteriaDropdown);
 		selectDropdownFromVisibleText(searchCriteriaListbox,"Is equal to");		   
@@ -1200,12 +1223,42 @@ public class OCMFaxSentDetailsReportPage extends BasePage  {
 		String item = drillGridOneItems.getText();
 		return item.matches("(\\d.*) - (\\d.*) of (\\d.*) items");
 	}
+	public boolean verifyBulkPrintButtonwithoutrows(ReportDetails reportDetails) throws Exception {
+		selectWebElement(rows.get(0));
+		Thread.sleep(2000);
+		boolean status=false;
+		Thread.sleep(2000);
+		selectWebElement(bulkprintButton);
+		waitUntilWebElementIsVisible(successmsg);
+		if(successmsg.getText().equalsIgnoreCase("Please select rows for bulk print"))
+			status=true;
+		else
+			status=false;
+		return status;
+	}
+	public boolean verifyBulkPrintButtonwithrowsData(ReportDetails reportDetails) throws Exception {
+		selectWebElement(rows.get(0));
+		Thread.sleep(2000);
+		boolean status=false;
+		Thread.sleep(2000);
+		selectWebElement(checkboxBeforePreview.get(0));
+		selectWebElement(checkboxBeforePreview.get(1));
+		selectWebElement(bulkprintButton);
+		selectWebElement(yesBtn);
+		waitUntilWebElementIsVisible(successmsg);
+		if(successmsg.getText().equalsIgnoreCase("Please Wait..!"))
+			status=true;
+		else
+			status=false;
+		return status;
+	}
+
 	public boolean verifyPreviewOrignalButton(ReportDetails reportDetails) throws Exception {
 		selectWebElement(rows.get(0));
 		Thread.sleep(2000);
 		boolean status=false;
 		Thread.sleep(2000);
-		selectWebElement(drillGridPreviewButton);
+		selectWebElement(drillGridPreviewOrignalButton);
 		waitUntilWebElementIsVisible(successmsg);
 		if(successmsg.getText().equalsIgnoreCase("Please wait until previewing"))
 			status=true;
@@ -1213,4 +1266,45 @@ public class OCMFaxSentDetailsReportPage extends BasePage  {
 			status=false;
 		return status;
 	}
+	public boolean verifyPreviewAnnotatedButton(ReportDetails reportDetails) throws Exception {
+		selectWebElement(rows.get(0));
+		Thread.sleep(2000);
+		boolean status=false;
+		Thread.sleep(2000);
+		selectWebElement(drillGridPreviewAnnotatedButton);
+		waitUntilWebElementIsVisible(successmsg);
+		if(successmsg.getText().equalsIgnoreCase("Please wait until previewing"))
+			status=true;
+		else
+			status=false;
+		return status;
+	}
+	public boolean verifyPrintButton(ReportDetails reportDetails) throws Exception {
+		selectWebElement(rows.get(0));
+		Thread.sleep(2000);
+		boolean status=false;
+		Thread.sleep(2000);
+		selectWebElement(drillGridPrintButton);
+		selectWebElement(yesBtn);
+		waitUntilWebElementIsVisible(successmsg);
+		if(successmsg.getText().equalsIgnoreCase("Please Wait..!"))
+			status=true;
+		else
+			status=false;
+		return status;
+	}
+	public boolean verifyAlertCancelButton(ReportDetails reportDetails) throws Exception {
+		selectWebElement(rows.get(0));
+		Thread.sleep(2000);
+		boolean status=false;
+		Thread.sleep(2000);
+		selectWebElement(drillGridPrintButton);
+		selectWebElement(CancelBtn);		
+		if(DrillGridOneTable.isDisplayed())
+			status=true;
+		else
+			status=false;
+		return status;
+	}
+
 }

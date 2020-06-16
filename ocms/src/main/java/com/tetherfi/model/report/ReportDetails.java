@@ -34,6 +34,8 @@ public class ReportDetails {
     private String searchStr2;
     private String getDeleteReason;
     private String faxline;
+    private String orgUnitID;
+    
     
 
     public ReportDetails(Map<String, String> map){
@@ -68,6 +70,7 @@ public class ReportDetails {
         searchStr2=readSearchStr2(map);
         getDeleteReason=readDeleteReason(map);
         faxline=readFaxline(map);
+        orgUnitID=readOrgUnitID(map);
     }
     
     private String readFaxline(Map<String, String> map) {
@@ -233,6 +236,14 @@ public class ReportDetails {
 		return value;
 	}
     
+    public String readOrgUnitID(Map<String,String> map){
+        String value=map.get("OrgUnitID");
+        if(value==null||value.equalsIgnoreCase("random.str")){
+            value= RandomStringUtils.randomAlphabetic(10);
+        }
+        return value;
+    }
+    
     public String getReportChannel() {
         return reportChannel;
     }
@@ -321,5 +332,8 @@ public class ReportDetails {
 		return faxline;
 	}
 
+	public String getOrgUnitID() {
+		return orgUnitID;
+	}
 
 }

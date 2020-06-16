@@ -614,6 +614,21 @@ public class OCMChatInteractionReportTest extends BaseTest {
 		Assert.assertTrue(ocmReportsPage.verifyExportedSheet("OCMReportDownload","OCM Chat Interaction Repor"));		
 	}
 
+	@Test(priority=55,description="To verify the Chat Interaction Report UI data against DB")
+    public void database() throws Exception {
+   		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMChatInteractionReportData.xlsx";
+   		Map<String, String> map = new ExcelReader(filePath, "Queries").getTestData().get(0);
+		ReportDetails reportDetails= new ReportDetails(map); 
+		OCMReportsPage ocmReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
+		ocmReportsPage.showReport(reportDetails);	
+   		OCMChatInteractionReportPage chatInteractionReportPage=PageFactory.createPageInstance(driver,OCMChatInteractionReportPage.class);
+		Assert.assertTrue(chatInteractionReportPage.verifyDatabase(reportDetails.getQuery(),reportDetails),"UI and Database data mismatch");
+   		System.out.println("Database Validation Completed Succesfully" +" : "+"UI and Database data is matched"); 
+   }
+
+	
+	
+	
 	@AfterMethod
 	public void afterEachMethod(Method method) {
 		screenshot.captureScreen("ChatInterationReport", method.getName());

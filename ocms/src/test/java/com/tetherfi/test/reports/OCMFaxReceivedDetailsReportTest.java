@@ -495,7 +495,161 @@ public class OCMFaxReceivedDetailsReportTest extends BaseTest {
 		OCMFaxReceivedDetailsReportPage faxReceivedDetailsReportPage=PageFactory.createPageInstance(driver,OCMFaxReceivedDetailsReportPage.class);
 		Assert.assertTrue(faxReceivedDetailsReportPage.verifyDrillDownOne(reportDetails),"arrow move for previous and next page assertion failed");
 	} 
+	
+	@Test(priority=45,description="To Verify Drill DownGrid for faxline")
+	public void VerifyDrillDownforFaxLine() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxReceivedDetailsReport.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
+		ocmReportsPage.showReport(reportDetails);
+		OCMFaxReceivedDetailsReportPage faxReceivedDetailsReportPage=PageFactory.createPageInstance(driver,OCMFaxReceivedDetailsReportPage.class);
+		Assert.assertTrue(faxReceivedDetailsReportPage.FaxLineDrillGrid(reportDetails),"Drill down error");
+	} 
 
+	@Test(priority=46,description="To Verify Arrow move for first and last page for Drill Down One")
+	public void VerifyArrowMoveForFirstAndLastPageFoDrillDownOne() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxReceivedDetailsReport.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
+		ocmReportsPage.showReport(reportDetails);
+		OCMFaxReceivedDetailsReportPage faxReceivedDetailsReportPage=PageFactory.createPageInstance(driver,OCMFaxReceivedDetailsReportPage.class);
+		Assert.assertTrue(faxReceivedDetailsReportPage.verifyArrowMoveForFirstAndLastPageForDrillDownOne(reportDetails),"arrow move for first and last page assertion failed");
+	} 
+	@Test(priority=47,description="To Verify Total Number of Items Per Page Details for Drill Down One")
+	public void VerifyTotalNumberOfItemsPerPageDetailsFoDrillDownOne() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxReceivedDetailsReport.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
+		ocmReportsPage.showReport(reportDetails);
+		OCMFaxReceivedDetailsReportPage faxReceivedDetailsReportPage=PageFactory.createPageInstance(driver,OCMFaxReceivedDetailsReportPage.class);
+		Assert.assertTrue(faxReceivedDetailsReportPage.verifyTotalNumberOfItemsPerPageDetailsForDrillDownOne(),"item per page assertion failed");
+	}
+	@Test(priority=48,description="To Verify Bulk print button without selecting a row data")
+	public void VerifyBulkPrintButtoninDrilldownwithoutRow() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxReceivedDetailsReport.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
+		ocmReportsPage.showReport(reportDetails);
+		OCMFaxReceivedDetailsReportPage faxReceivedDetailsReportPage=PageFactory.createPageInstance(driver,OCMFaxReceivedDetailsReportPage.class);
+		Assert.assertTrue(faxReceivedDetailsReportPage.verifyBulkPrintButtonwithoutrows(reportDetails),"BulkPrint error message");
+	} 
+	@Test(priority=49,description="To Verify Bulk print button with row data")
+	public void VerifyBulkPrintButtoninDrilldown() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxReceivedDetailsReport.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
+		ocmReportsPage.showReport(reportDetails);
+		OCMFaxReceivedDetailsReportPage faxReceivedDetailsReportPage=PageFactory.createPageInstance(driver,OCMFaxReceivedDetailsReportPage.class);
+		Assert.assertTrue(faxReceivedDetailsReportPage.verifyBulkPrintButtonwithrowsData(reportDetails),"BulkPrint with data error message");
+	}
+	@Test(priority=50,description="To Verify Preview Original button in drill down grid")
+	public void VerifyPreviewOriginalButtoninDrillDown() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxReceivedDetailsReport.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
+		ocmReportsPage.showReport(reportDetails);
+		OCMFaxReceivedDetailsReportPage faxReceivedDetailsReportPage=PageFactory.createPageInstance(driver,OCMFaxReceivedDetailsReportPage.class);
+		Assert.assertTrue(faxReceivedDetailsReportPage.verifyPreviewOrignalButton(reportDetails),"Preview original error message");
+	} 
+
+	@Test(priority=51,description="To Verify Preview Annotated button in drill down grid")
+	public void VerifyPreviewAnnotatedButtoninDrillDown() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxReceivedDetailsReport.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
+		ocmReportsPage.showReport(reportDetails);
+		OCMFaxReceivedDetailsReportPage faxReceivedDetailsReportPage=PageFactory.createPageInstance(driver,OCMFaxReceivedDetailsReportPage.class);
+		Assert.assertTrue(faxReceivedDetailsReportPage.verifyPreviewAnnotatedButton(reportDetails),"Preview annotated error message");
+	} 
+	@Test(priority=52,description="To Verify Print button in drill down grid")
+	public void VerifyPrintButtoninDrillDown() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxReceivedDetailsReport.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
+		ocmReportsPage.showReport(reportDetails);
+		OCMFaxReceivedDetailsReportPage faxReceivedDetailsReportPage=PageFactory.createPageInstance(driver,OCMFaxReceivedDetailsReportPage.class);
+		Assert.assertTrue(faxReceivedDetailsReportPage.verifyPrintButton(reportDetails),"Print error message");
+	} 
+	@Test(priority=53,description="To Verify Print Cancel button in drill down grid")
+	public void VerifyAlertCancelButtoninDrillDown() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxReceivedDetailsReport.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
+		ocmReportsPage.showReport(reportDetails);
+		OCMFaxReceivedDetailsReportPage faxReceivedDetailsReportPage=PageFactory.createPageInstance(driver,OCMFaxReceivedDetailsReportPage.class);
+		Assert.assertTrue(faxReceivedDetailsReportPage.verifyAlertCancelButton(reportDetails),"Cancelbutton assertion error message");
+	} 
+	@Test(priority=54,description="Delete record in Reports Download without Delete reason for date range")
+	public void DeleteWithoutDeleteReasonRecordinReportsDownloadforDateRange() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxReceivedDetailsReport.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
+		ocmReportsPage.viewDownloadedReportInReportDownloadsPage();    	
+		ocmReportsPage.deleteWithoutDeleteReason(reportDetails);
+		Assert.assertEquals(ocmReportsPage.getSuccessMessage(),"Please enter the delete reason","empty delete reason record assertion failed");
+	}
+
+	@Test(priority=55,description="Cancel Button in Reports Download Delete Button")
+	public void VerifyCancelBtnAtReportsDownloadDeleteBtnForDateRange() throws Exception{
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxReceivedDetailsReport.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
+		ocmReportsPage.viewDownloadedReportInReportDownloadsPage();    	
+		ocmReportsPage.deletecancelButton(reportDetails);
+		Assert.assertFalse(ocmReportsPage.verifyDeleteContainer(), "Cancel Btn at Delete record assertion failed");
+	}
+	@Test(priority=56,description="Delete Record at Reports download Button")
+	public void DeleteRecordAtReportsDownload() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxReceivedDetailsReport.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
+		ocmReportsPage.viewDownloadedReportInReportDownloadsPage();
+		ocmReportsPage.deleteRecordAtReportsDownloadsPage(reportDetails);
+		Assert.assertEquals(ocmReportsPage.getSuccessMessage(),"Report Deleted","Delete record assertion failed");
+	}
+
+
+	@Test(priority=57, description="To verify fax received details report UI data against DB")
+    public void database() throws Exception {
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxReceivedDetailsReport.xlsx";
+    	Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(0);
+    	ReportDetails reportDetails= new ReportDetails(map);
+    	OCMReportsPage ocmReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
+    	ocmReportsPage.showReport(reportDetails);
+		OCMFaxReceivedDetailsReportPage faxReceivedDetailsReportPage=PageFactory.createPageInstance(driver,OCMFaxReceivedDetailsReportPage.class);
+		Assert.assertTrue(faxReceivedDetailsReportPage.verifyDatabase(reportDetails.getQuery(),reportDetails,reportDetails.getOrgUnitID()),"Main report data mismatch");
+		System.out.println("Main Report Data Match Successfull");
+		List<String> faxLineList = new ArrayList<>();
+		faxLineList=faxReceivedDetailsReportPage.getFaxLineList();
+		System.out.println(faxLineList);
+		int k=0;
+    	for (int i=0;i<faxLineList.size();i++) {
+    		if(k==10) {
+    			faxReceivedDetailsReportPage.goToNextPage();
+    			k=k-10;
+    		}
+    		faxReceivedDetailsReportPage.clickOnFaxLineRowOnMainReport(k);
+    		Assert.assertTrue(faxReceivedDetailsReportPage.verifyDatabaseDrillGridOne(reportDetails.getQueryDrillGridOne(), reportDetails, faxLineList.get(i)),"Drill Grid One data mismatch for Fax Line" + faxLineList.get(i));
+    		System.out.println("Drill Grid One data match successfull for Fax Line" + faxLineList.get(i));
+    		k++;
+    		Thread.sleep(1000);	
+    	}
+	}
+	
+	
+	
 	@AfterMethod
 	public void afterEachMethod(Method method) throws InterruptedException {
 		Screenshot screenshot=new Screenshot(driver);

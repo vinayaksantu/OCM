@@ -1,6 +1,7 @@
 package com.tetherfi.test.reports;
 import java.io.IOException;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import org.testng.Assert;
@@ -612,15 +613,34 @@ public class OCMTimelineReportTest extends BaseTest {
 		Assert.assertTrue(TimelinePage.verifySorting(),"item per page assertion failed");
 	}
 
-	//@Test(priority=38)
-	public void database() throws Exception {
-		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMTimelineReport.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(0);
-		ReportDetails reportDetails= new ReportDetails(map);
-		OCMTimelineReportPage TimelinePage=PageFactory.createPageInstance(driver,OCMTimelineReportPage.class);
-		Assert.assertTrue(TimelinePage.verifyDatabase(reportDetails.getQuery()));
-	}
 
+	@Test(priority=54,description="To verify OCM TimeLine report UI data against DB")
+    public void database() throws Exception {
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMTimelineReport.xlsx";
+    	Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(0);
+    	ReportDetails reportDetails= new ReportDetails(map);
+    	OCMReportsPage ocmReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
+    	ocmReportsPage.showReport(reportDetails);
+    	OCMTimelineReportPage TimeLineReportPage=PageFactory.createPageInstance(driver,OCMTimelineReportPage.class);
+    	Assert.assertTrue(TimeLineReportPage.verifyDatabase(reportDetails.getQuery(),reportDetails),"Main report data mismatch");
+    	System.out.println("Main Report Data Match Successfull");	    
+    	List<String> agentList = new ArrayList<>();
+    	agentList=TimeLineReportPage.getAgents();
+    	System.out.println(agentList); 
+    	int k=0;
+    	for (int i=0;i<agentList.size();i++) {
+    		if(k==10) {
+    			TimeLineReportPage.goToNextPage();
+    			k=k-10;
+    		}
+    		TimeLineReportPage.clickOnAgentIdRowOnMainReport(k);
+    		Assert.assertTrue(TimeLineReportPage.verifyDatabaseDrillGridOne(reportDetails.getQueryDrillGridOne(), reportDetails, agentList.get(i)),"Drill Grid One data mismatch for Skill Id " + agentList.get(i));
+    		System.out.println("Drill Grid One data match successfull for Agent Id " + agentList.get(i));
+    		k++;
+    		Thread.sleep(1000);			
+    	}
+    }
+	
 	@AfterMethod
 	public void afterEachMethod(Method method) {
 		screenshot.captureScreen("OCMTimelineReportTest", method.getName());

@@ -586,18 +586,7 @@ public class OCMAgentInteractionReportTest extends BaseTest {
 		Assert.assertTrue(agentInteractionPage.verifyJsonDataForgridColumnHidden(json.getJsonGridColumnTitleKeyDataForReports("Hidden")),"JSON data grid column hidden assertion failed");  	
 	}
     
-    @Test(priority=53)
-    public void database() throws Exception {
-    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentInteractionReportData.xlsx";
-    	Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(0);
-    	ReportDetails reportDetails= new ReportDetails(map);
-    	OCMReportsPage ocmReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
-    	ocmReportsPage.showReport(reportDetails);
-    	OCMAgentInteractionReportPage AgentInteractionReportPage =PageFactory.createPageInstance(driver,OCMAgentInteractionReportPage.class);
-    	Assert.assertTrue(AgentInteractionReportPage.verifyDatabase(reportDetails.getQuery(), reportDetails));
-    }
-    
-    @Test(priority=54,description="To Verify Ascending and Descending order")
+    @Test(priority=53,description="To Verify Ascending and Descending order")
 	public void VerifySorting() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentInteractionReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
@@ -607,6 +596,21 @@ public class OCMAgentInteractionReportTest extends BaseTest {
     	OCMAgentInteractionReportPage AgentInteractionReportPage =PageFactory.createPageInstance(driver,OCMAgentInteractionReportPage.class);
 		Assert.assertTrue(AgentInteractionReportPage.verifySorting(),"Sorting assertion failed");
 	}
+    
+    @Test(priority=54, description="To verify Agent Interaction Report UI data against DB")
+    public void database() throws Exception {
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentInteractionReportData.xlsx";
+    	Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(0);
+    	ReportDetails reportDetails= new ReportDetails(map);
+    	OCMReportsPage ocmReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
+    	ocmReportsPage.showReport(reportDetails);
+    	OCMAgentInteractionReportPage AgentInteractionReportPage =PageFactory.createPageInstance(driver,OCMAgentInteractionReportPage.class);
+    	Assert.assertTrue(AgentInteractionReportPage.verifyDatabase(reportDetails.getQuery(), reportDetails));
+    	System.out.println("Database Validation Completed Succesfully" +" : "+"UI and Database data is matched");
+    }
+    
+    
+    
     
     @AfterMethod
 	public void afterEachMethod(Method method) throws InterruptedException {

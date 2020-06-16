@@ -3,17 +3,33 @@
 <suite name="Failed suite [Failed suite [Default suite]]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)(failed)">
     <classes>
-      <class name="com.tetherfi.test.reports.SkillProfileReportTest">
+      <class name="com.tetherfi.test.reports.OCMChatbotInteractionreportTest">
         <methods>
+          <include name="NavigateToOcmReportsPage"/>
+          <include name="ViewDownloadedChatbotInteractionReportInReportsDownloadPageinChatbotInteractionPg"/>
+          <include name="afterEachMethod"/>
+          <include name="VerifyViewDownloadedOcmChatbotInteractionReportInReportsDownloadPage"/>
+          <include name="DeleteWithoutDeleteReasonRecordinReportsDownload"/>
+          <include name="VerifySearchEqualsFeatureForChatbotInteractionReport"/>
+          <include name="endTestCase"/>
+          <include name="VerifyExportedPage"/>
+          <include name="ViewDownloadedChatbotInteractionReportInReportsDownloadPageDateRange"/>
+          <include name="tearDown"/>
+          <include name="VerifySearchByFeatureForChatbotInteractionReport"/>
+          <include name="VerifySearchEndsWith"/>
+          <include name="VerifyViewDownloadedOcmChatbotInteractionReportInReportsDownloadDateRangePage"/>
+          <include name="ExportToExcelForChatbotInteractionReport"/>
           <include name="startTestCase"/>
           <include name="openApplication"/>
-          <include name="endTestCase"/>
-          <include name="tearDown"/>
-          <include name="NavigateToOcmReportsPage"/>
-          <include name="VerifySearchByFeatureForAgentSkillProfileReport"/>
-          <include name="afterEachMethod"/>
+          <include name="ExportPage"/>
+          <include name="VerifySorting"/>
+          <include name="VerifyViewDownloadedOcmChatbotInteractionReportInReportsDownload"/>
+          <include name="verifyAdvancedSearchinreportpage"/>
+          <include name="ExportChatbotInteractionReportDateRange"/>
+          <include name="DeleteRecord"/>
+          <include name="VerifySearchIsNotEqualTo"/>
         </methods>
-      </class> <!-- com.tetherfi.test.reports.SkillProfileReportTest -->
+      </class> <!-- com.tetherfi.test.reports.OCMChatbotInteractionreportTest -->
     </classes>
   </test> <!-- Default test(failed)(failed) -->
 </suite> <!-- Failed suite [Failed suite [Default suite]] -->

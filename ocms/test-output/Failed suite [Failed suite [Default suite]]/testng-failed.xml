@@ -3,27 +3,33 @@
 <suite name="Failed suite [Failed suite [Failed suite [Default suite]]]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)(failed)(failed)">
     <classes>
-      <class name="com.tetherfi.test.reports.SkillHistoricalReportTest">
+      <class name="com.tetherfi.test.reports.OCMChatbotInteractionreportTest">
         <methods>
-          <include name="ViewDownloadedOcmSkillhistoricalReportInReportsDownloadPage"/>
-          <include name="VerifyNumberOfItemsPerPageSelection"/>
-          <include name="ExportOcmSkillhistoricalReport"/>
+          <include name="NavigateToOcmReportsPage"/>
+          <include name="ViewDownloadedChatbotInteractionReportInReportsDownloadPageinChatbotInteractionPg"/>
+          <include name="afterEachMethod"/>
+          <include name="VerifyViewDownloadedOcmChatbotInteractionReportInReportsDownloadPage"/>
+          <include name="DeleteWithoutDeleteReasonRecordinReportsDownload"/>
+          <include name="VerifySearchEqualsFeatureForChatbotInteractionReport"/>
           <include name="endTestCase"/>
-          <include name="ViewDownloadedOcmAgentSkillhistoricalReportInReportsDownloadPageinAgentSkillhistoricalPg"/>
+          <include name="VerifyExportedPage"/>
+          <include name="ViewDownloadedChatbotInteractionReportInReportsDownloadPageDateRange"/>
           <include name="tearDown"/>
-          <include name="VerifySorting"/>
-          <include name="ViewDownloadedOcmAgentSkillhistoricalReportInReportsDownloadPageDateRange"/>
+          <include name="VerifySearchByFeatureForChatbotInteractionReport"/>
+          <include name="VerifySearchEndsWith"/>
+          <include name="VerifyViewDownloadedOcmChatbotInteractionReportInReportsDownloadDateRangePage"/>
+          <include name="ExportToExcelForChatbotInteractionReport"/>
           <include name="startTestCase"/>
           <include name="openApplication"/>
-          <include name="VerifyViewDownloadedOcmSkillHistoricalReportInReportsDownloadPage"/>
-          <include name="ExportToExcelForAgentSkillhistoricalReport"/>
-          <include name="VerifyViewDownloadedOcmSkillHistoricalReportInReportsDownloadPageInMainPage"/>
-          <include name="VerifyViewDownloadedOcmSkillHistoricalReportInReportsDownloadPageDateRange"/>
+          <include name="ExportPage"/>
+          <include name="VerifySorting"/>
+          <include name="VerifyViewDownloadedOcmChatbotInteractionReportInReportsDownload"/>
+          <include name="verifyAdvancedSearchinreportpage"/>
+          <include name="ExportChatbotInteractionReportDateRange"/>
           <include name="DeleteRecord"/>
-          <include name="afterEachMethod"/>
-          <include name="NavigateToOcmReportsPage"/>
+          <include name="VerifySearchIsNotEqualTo"/>
         </methods>
-      </class> <!-- com.tetherfi.test.reports.SkillHistoricalReportTest -->
+      </class> <!-- com.tetherfi.test.reports.OCMChatbotInteractionreportTest -->
     </classes>
   </test> <!-- Default test(failed)(failed)(failed) -->
 </suite> <!-- Failed suite [Failed suite [Failed suite [Default suite]]] -->

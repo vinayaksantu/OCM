@@ -1,6 +1,7 @@
 package com.tetherfi.test.reports;
 import java.io.IOException;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -642,15 +643,16 @@ public class OCMAgentSummaryReportTest extends BaseTest {
 		Assert.assertTrue(ocmReportsPage.verifyExportedSheet("OCMReportDownload","OCM Agent Summary Report"));		
 	}
 
-	/*@Test(priority=55, description="To verify report data against DB")
-	public void database1() throws Exception {
+	@Test(priority=55, description="To verify report data against DB")
+	public void database() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(0);
 		ReportDetails reportDetails= new ReportDetails(map);
 		OCMReportsPage ocmReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
 		ocmReportsPage.showReport(reportDetails);
 		OCMAgentSummaryReportPage AgentSummaryReportPage=PageFactory.createPageInstance(driver,OCMAgentSummaryReportPage.class);
-//		AgentSummaryReportPage.sortAscAgentID();
+		AgentSummaryReportPage.sortAscAgentID();
+		Thread.sleep(3000);
 		Assert.assertTrue(AgentSummaryReportPage.verifyDatabase(reportDetails.getQuery(), reportDetails),"Main Report Data Mismatch");
 		System.out.println("Main Report Data Match Successfull");
 		List<String> agentList = new ArrayList<>();
@@ -662,18 +664,18 @@ public class OCMAgentSummaryReportTest extends BaseTest {
 				AgentSummaryReportPage.goToNextPage();
 				k=k-10;
 			}
-			AgentSummaryReportPage.clickOnSkillIdRowOnMainReport(k);
+			AgentSummaryReportPage.clickOnAgentIdRowOnMainReport(k);
 			Assert.assertTrue(AgentSummaryReportPage.verifyDatabaseDrillGridOne(reportDetails.getQueryDrillGridOne(), reportDetails, agentList.get(i)),"Drill Grid One data mismatch for Skill Id " + agentList.get(i));
-			System.out.println("Drill Grid One data match successfull for Skill Id " + agentList.get(i));
+			System.out.println("Drill Grid One data match successfull for Agent Id " + agentList.get(i));
 			k++;
 			Thread.sleep(1000);
 		}
-		List<String> LogoutDates = new ArrayList<>();
+		/*List<String> LogoutDates = new ArrayList<>();
 		for(int i=0;i<agentList.size();i++) {
-			AgentSummaryReportPage.clickOnSkillIdRowOnMainReport(i);
+			AgentSummaryReportPage.clickOnAgentIdRowOnMainReport(i);
 			Thread.sleep(1000);
 			LogoutDates = AgentSummaryReportPage.getLogoutDates();
-			//System.out.println(skillDates);
+			System.out.println(LogoutDates);
 			k=0;
 			for(int j=0;j<LogoutDates.size();j++) {
 				if(k==10){
@@ -688,10 +690,11 @@ public class OCMAgentSummaryReportTest extends BaseTest {
 			}
 			AgentSummaryReportPage.closeDrillOneReport();
 			Thread.sleep(1000);
-		}
+		}*/
 	}
-*/
 
+	
+	
 	@AfterMethod
 	public void afterEachMethod(Method method) throws InterruptedException {
 		Screenshot screenshot=new Screenshot(driver);

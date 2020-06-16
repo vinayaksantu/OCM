@@ -500,7 +500,6 @@ public class SkillProfileReportTest extends BaseTest {
 		Assert.assertTrue(skillProfilePage.advancedSearchORCriteria(reportDetails));    	
 	}
 
-
 	@Test(priority=47, description="To verify main page details of Skill Profile report")
 	public void database() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillProfileReportData.xlsx";
@@ -513,6 +512,7 @@ public class SkillProfileReportTest extends BaseTest {
 		Assert.assertTrue(agtSkillProfilePage.verifyDatabase(reportDetails.getQuery(), reportDetails),"Main Report Data Mismatch");
 		System.out.println("Main Report Data Match Successfull");
 	}
+	
 
 	@AfterMethod
 	public void afterEachMethod(Method method) {

@@ -95,6 +95,9 @@ public class AgentHistoricalReportPage extends BasePage  {
 	@FindBy(xpath="//div[@id='gridDrillOne']//span[@class='k-icon k-i-arrow-60-right']")
 	private WebElement nextPageIconDrillOne;
 	
+	@FindBy(xpath="//div[@id='gridDrillOne']//span[@class='k-icon k-i-arrow-end-left']")
+	private WebElement gotoFirstPageDrillOneIcon;
+	
 	@FindBy(xpath="//div[@id='gridDrillOne']//a[@aria-label='Go to the previous page']")
 	private WebElement previousPageIconDrillOne;
 	
@@ -280,6 +283,9 @@ public class AgentHistoricalReportPage extends BasePage  {
 	
 	@FindBy(id="gridDrillTwo")
 	private WebElement DrillGridTwoTable;
+	
+	@FindBy(xpath="//div[@id='gridDrillOne']/div[4]/table/tbody/tr")
+	private List<WebElement> DrillOneReportRows;
 	
 	@FindBy(xpath="(//SPAN[@aria-hidden='true'][text()='×'][text()='×'])[3]")
 	private WebElement CloseDrillGridTwo;
@@ -1168,7 +1174,8 @@ public class AgentHistoricalReportPage extends BasePage  {
 			return false;
 	}
 	
-	public List<String> getAgents() {
+
+	public List<String> getAgents() throws Exception {
 		int item=Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
         int pagersize=Integer.valueOf(pagerSize.getText());
         int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
@@ -1181,7 +1188,9 @@ public class AgentHistoricalReportPage extends BasePage  {
 			List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
 			String col=null;
 			for(int j=0;j<headers.size();j++){
-				if(headers.get(j).getText().equals("Agent Name")){
+				scrollToElement(headers.get(j));
+//				Thread.sleep(1000);
+				if(headers.get(j).getText().equals("Agent ID")){
 					col=cols.get(j).getText();
 					agents.add(col);
 					}
@@ -1189,12 +1198,62 @@ public class AgentHistoricalReportPage extends BasePage  {
 		}
 		if(k!=pages)
 		{
+//			Thread.sleep(1000);
 			nextPageIcon.click();
 			waitForJqueryLoad(driver);
 		}
 		}
 		return agents;
 	}
+	
+	public List<String> getAgentDates() {
+		int item=Integer.valueOf(drillGridOneItems.getText().split("of ")[1].split(" items")[0]);
+        int pagersize=Integer.valueOf(pagerSizeDrillGridOne.getText());
+        int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
+		List<String> agentDates = new ArrayList<>();
+		boolean moreThanOnePage = false;
+		for(int k=0;k<=pages;k++) {
+			waitUntilWebElementIsVisible(DrillGridOneTable);
+			List<WebElement> rows=DrillGridOneTable.findElements(By.tagName("tr"));
+			//List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
+			for(int i=1;i<rows.size();i++) {
+				List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
+				agentDates.add(cols.get(0).getText());
+			}
+			if(k!=pages)
+			{
+				nextPageIconDrillOne.click();
+				waitForJqueryLoad(driver);
+				moreThanOnePage = true;
+			}
+		}
+		if(moreThanOnePage == true) {
+			gotoFirstPageDrillOneIcon.click();
+			waitForJqueryLoad(driver);
+		}
+		//CloseDrillGridOne.click();
+		return agentDates;
+	}
+	
+	public void goToNextPageDrillOne() {
+		nextPageIconDrillOne.click();
+		waitForJqueryLoad(driver);
+	}
+	
+	public void clickOnDateRowOnDrillOneReport(int rowNo) throws InterruptedException {
+		//Thread.sleep(2000);
+		DrillOneReportRows.get(rowNo).click();
+		waitForLoad(driver);
+		waitForJqueryLoad(driver);
+		waitUntilWebElementIsVisible(DrillGridTwoTable);
+		//Thread.sleep(1000);
+	}
+	
+	public void closeDrillOneReport() throws InterruptedException {
+		CloseDrillGridOne.click();
+		waitUntilWebElementIsVisible(gridContent);
+	}
+	
 	
 	public void goToNextPage() {
 		nextPageIcon.click();
@@ -1234,6 +1293,28 @@ public class AgentHistoricalReportPage extends BasePage  {
 			return false;
 	}
 
+	public boolean verifyDatabaseDrillGridTwo(String queryDrillGridTwo,ReportDetails details, String inputDate, String AgentId) throws InterruptedException {
+		//get dates from xl - step 2
+		String reportbeforedate = details.getStartDate();
+		String reportafterdate=details.getEndDate();
+		//change date formats - step 3
+		reportbeforedate=inputDate.substring(6,10)+"-"+inputDate.substring(3, 5)+"-"+inputDate.substring(0, 2)+" 00:00:00";
+		reportafterdate=inputDate.substring(6,10)+"-"+inputDate.substring(3, 5)+"-"+inputDate.substring(0, 2)+" 23:59:59";
+		//Replace identifiers in query to formatted date - step 5
+		queryDrillGridTwo=queryDrillGridTwo.replaceAll("ReportBeforeDate",reportbeforedate);
+		queryDrillGridTwo=queryDrillGridTwo.replaceAll("ReportAfterDate",reportafterdate );
+		queryDrillGridTwo=queryDrillGridTwo.replaceAll("AgentIdCapturedFromUI", AgentId);
+		List<Map<String,String>> database=database(queryDrillGridTwo);
+		System.out.println("Printing Query" +" "+queryDrillGridTwo);		
+		System.out.println("Printing DB results" +" "+database);
+		List<Map<String,String>> UI=getDataTableDrillGridTwo(); 
+		System.out.println("Printing UI Results"+" "+UI);	
+		if(UI.equals(database))
+			return true;
+		else
+			return false;
+	}
+	
 	
 	private List<Map<String, String>> getDataTableDrillGridOne() {
 	 	int item=Integer.valueOf(drillGridOneItems.getText().split("of ")[1].split(" items")[0]);

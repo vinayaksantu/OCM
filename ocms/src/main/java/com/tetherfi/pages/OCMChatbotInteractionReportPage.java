@@ -805,33 +805,7 @@ private WebElement groupbycolor;*/
 		}
 		return Status;	
 	}
-	private List<Map<String, String>> getDataTable() {
-		int item=Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
-		int pagersize=Integer.valueOf(pagerSize.getText());
-		int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
-		List<Map<String,String>> arr=new ArrayList<Map<String,String>>();
-		for(int k=0;k<=pages;k++){
-			waitUntilWebElementIsVisible(auditGridContent);
-			List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
-			List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
-			for(int i=1;i<rows.size();i++) {
-				Map<String,String> map = new HashMap<String,String>();
-				List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
-				String col=null;
-				for(int j=0;j<headers.size();j++){
-					col=cols.get(j).getText();
-					map.put(headers.get(j).getText(),col);
-				}
-				map.remove("");
-				arr.add(map);
-			}
-			if(k!=pages)
-			{
-				nextPageIcon.click();
-				waitForJqueryLoad(driver);}
-		}
-		return arr;
-	}
+	
 
 	public boolean verifySearchByTextbox(ReportDetails details) throws Exception{	
 		boolean Status=false;
@@ -995,16 +969,7 @@ private WebElement groupbycolor;*/
 			return errorMsg.get(0).getText();}
 	}
 
-	public boolean verifyDatabase(String query) {
-		List<Map<String,String>> database=database(query);
-		System.out.println(database);
-		List<Map<String,String>> UI=getDataTable(); 
-		System.out.println(UI);
-		if(UI.equals(database))
-			return true;
-		else
-			return false;
-	}
+
 
 	public boolean groupby() {
 		DragandDrop(agentId,droptarget);
@@ -1107,7 +1072,7 @@ private WebElement groupbycolor;*/
 
 	}
 
-	public boolean verifyAdvanceSearchNotEqualsTo(ReportDetails reportDetails) {
+	public boolean verifyAdvanceSearchNotEqualsTo(ReportDetails reportDetails) throws Exception {
 		Boolean Status=false;
 		waitForJqueryLoad(driver);
 		List<Map<String,String>>UI=getDataTable();
@@ -1121,7 +1086,7 @@ private WebElement groupbycolor;*/
 		}
 		return Status;
 	}
-	public boolean verifyAdvanceSearchContains(ReportDetails reportDetails) {
+	public boolean verifyAdvanceSearchContains(ReportDetails reportDetails) throws Exception {
 		Boolean Status=false;
 		waitForJqueryLoad(driver);
 		List<Map<String,String>>UI=getDataTable();
@@ -1135,7 +1100,7 @@ private WebElement groupbycolor;*/
 		}
 		return Status;
 	}
-	public boolean verifyAdvanceSearchDoesNotContains(ReportDetails reportDetails) {
+	public boolean verifyAdvanceSearchDoesNotContains(ReportDetails reportDetails) throws Exception {
 		Boolean Status=false;
 		waitForJqueryLoad(driver);
 		List<Map<String,String>>UI=getDataTable();
@@ -1149,7 +1114,7 @@ private WebElement groupbycolor;*/
 		}
 		return Status;
 	}
-	public boolean verifyAdvanceSearchStartsWith(ReportDetails reportDetails) {
+	public boolean verifyAdvanceSearchStartsWith(ReportDetails reportDetails) throws Exception {
 		Boolean Status=false;
 		waitForJqueryLoad(driver);
 		List<Map<String,String>>UI=getDataTable();
@@ -1163,7 +1128,7 @@ private WebElement groupbycolor;*/
 		}
 		return Status;
 	}
-	public boolean verifyAdvanceSearchEndsWith(ReportDetails reportDetails) {
+	public boolean verifyAdvanceSearchEndsWith(ReportDetails reportDetails) throws Exception {
 		Boolean Status=false;
 		waitForJqueryLoad(driver);
 		List<Map<String,String>>UI=getDataTable();
@@ -1177,6 +1142,63 @@ private WebElement groupbycolor;*/
 		}
 		return Status;
 	}
+	
+	private List<Map<String, String>> getDataTable() throws InterruptedException {
+		int item=Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
+		int pagersize=Integer.valueOf(pagerSize.getText());
+		int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
+		List<Map<String,String>> arr=new ArrayList<Map<String,String>>();
+		for(int k=0;k<=pages;k++){
+			waitUntilWebElementIsVisible(auditGridContent);
+			List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
+			List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
+			for(int i=1;i<rows.size();i++) {
+				Map<String,String> map = new HashMap<String,String>();
+				List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
+				String col=null;
+				for(int j=0;j<headers.size();j++){
+					scrollToElement(headers.get(j));
+					if(headers.get(j).getText().equals("")){
+						col=cols.get(j).getText().substring(0);
+					}
+					else
+						col=cols.get(j).getText();
+					map.put(headers.get(j).getText(),col);
+				}
+				map.remove("");
+				arr.add(map);
+			}
+			if(k!=pages)
+			{
+				Thread.sleep(3000);
+				nextPageIcon.click();
+				waitForJqueryLoad(driver);}
+		}
+		return arr;
+	}
+	
+	public boolean verifyDatabase(String query,ReportDetails details) throws InterruptedException {
+		//get dates from xl - step 2
+		String reportbeforedate = details.getStartDate();
+		String reportafterdate=details.getEndDate();
+		//change date formats - step 3
+		reportbeforedate	=reportbeforedate.substring(6,10)+reportbeforedate.substring(3, 5)+reportbeforedate.substring(0, 2)+reportbeforedate.substring(11, 13)+reportbeforedate.substring(14, 16)+reportbeforedate.substring(17, 19);
+		reportafterdate	=reportafterdate.substring(6,10)+reportafterdate.substring(3, 5)+reportafterdate.substring(0, 2)+reportafterdate.substring(11, 13)+reportafterdate.substring(14, 16)+reportafterdate.substring(17, 19);
+		//Replace identifiers in query to formatted date - step 5
+		query=query.replaceAll("ReportBeforeDate",reportbeforedate );
+		query=query.replaceAll("ReportAfterDate",reportafterdate );
+		List<Map<String,String>> database=database(query);
+		System.out.println("Printing Query" +" "+query);		
+		System.out.println("Printing DB results" +" "+database);
+		List<Map<String,String>> UI=getDataTable(); 
+		System.out.println("Printing UI Results"+" "+UI);	
+		if(UI.equals(database))
+			return true;
+		else
+			return false;
+	}
+
+	
 }
 
 

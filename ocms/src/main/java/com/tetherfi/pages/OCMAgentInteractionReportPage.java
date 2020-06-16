@@ -1177,18 +1177,6 @@ public class OCMAgentInteractionReportPage extends BasePage  {
 	}
 
 
-
-	/*public boolean verifyDatabase(String query) {
-				List<Map<String,String>> database=database(query);
-				System.out.println(database);
-				List<Map<String,String>> UI=getDataTable(); 
-				System.out.println(UI);
-				if(UI.equals(database))
-					return true;
-				else
-					return false;
-			}*/
-
 	public boolean verifyDatabase(String query,ReportDetails details) {
 		//get dates from xl - step 2
 		String reportbeforedate = details.getStartDate();
@@ -1209,6 +1197,9 @@ public class OCMAgentInteractionReportPage extends BasePage  {
 		else
 			return false;
 	}
+
+	
+
 
 }
 

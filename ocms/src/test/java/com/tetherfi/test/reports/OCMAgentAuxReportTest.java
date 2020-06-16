@@ -619,20 +619,8 @@ public class OCMAgentAuxReportTest extends BaseTest {
 		JSONReader json= new JSONReader(destinationFilePath);
 		Assert.assertTrue(OCMAgentAuxReportPage.verifyJsonDataForgridColumnHidden(json.getJsonGridColumnTitleKeyDataForReports("Hidden")),"JSON data grid column hidden assertion failed");  	
 	}
-
-	@Test(priority=53)
-	public void database() throws Exception{
-		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentAuxReportData.xlsx";
-		Map<String, String> map = new ExcelReader(filePath, "Queries").getTestData().get(0);
-		ReportDetails reportDetails= new ReportDetails(map); 
-		OCMReportsPage ocmReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
-		ocmReportsPage.showReport(reportDetails);
-		OCMAgentAuxReportPage AgentAuxReportPage=PageFactory.createPageInstance(driver,OCMAgentAuxReportPage.class);
-		Assert.assertTrue(AgentAuxReportPage.verifyDatabase(reportDetails.getQuery(),reportDetails),"UI and Database data mismatch");
-		System.out.println("Database Validation Completed Succesfully" +" : "+"UI and Database data is matched");	
-	}
 	
-	@Test(priority=54,description="To Verify Ascending and Descending order")
+	@Test(priority=53,description="To Verify Ascending and Descending order")
 	public void VerifySorting() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentAuxReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
@@ -643,7 +631,7 @@ public class OCMAgentAuxReportTest extends BaseTest {
 		Assert.assertTrue(AgentAuxReportPage.verifySorting(),"Sorting assertion failed");
 	}
 	
-	@Test(priority=55,dependsOnMethods ="ViewDownloadedOcmAgentAuxReportInReportsDownloadPageinAgentAuxPg",description="To verification of exported excel in Report downloads")
+	@Test(priority=54,dependsOnMethods ="ViewDownloadedOcmAgentAuxReportInReportsDownloadPageinAgentAuxPg",description="To verification of exported excel in Report downloads")
 	public void VerifyViewDownloadedinOcmAgentAuxReportPage() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentAuxReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -653,6 +641,21 @@ public class OCMAgentAuxReportTest extends BaseTest {
 		Assert.assertTrue(ocmReportsPage.verifyExportedSheet("OCMReportDownload","Agent Aux Report"));		
 	}
 
+	@Test(priority=55, description="To verify UI data against DB")
+	public void database() throws Exception{
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentAuxReportData.xlsx";
+		Map<String, String> map = new ExcelReader(filePath, "Queries").getTestData().get(0);
+		ReportDetails reportDetails= new ReportDetails(map); 
+		OCMReportsPage ocmReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
+		ocmReportsPage.showReport(reportDetails);
+		OCMAgentAuxReportPage AgentAuxReportPage=PageFactory.createPageInstance(driver,OCMAgentAuxReportPage.class);
+		Assert.assertTrue(AgentAuxReportPage.verifyDatabase(reportDetails.getQuery(),reportDetails),"UI and Database data mismatch");
+       System.out.println("Database Validation Completed Succesfully" +" : "+"UI and Database data is matched");	
+	}
+	
+	
+	
+	
 
 	@AfterMethod
 	public void afterEachMethod(Method method) throws InterruptedException {

@@ -671,15 +671,15 @@ public class AgentHistoricalReportTest extends BaseTest {
 		Assert.assertTrue(agentHistoricalPage.verifySorting(),"Sorting assertion failed");
 	}
 	
-	/*@Test(priority=60, description="To verify report data against DB")
+	@Test(priority=38, description="To verify Agent Historical report UI data against DB")
 	public void database() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(0);
 		ReportDetails reportDetails= new ReportDetails(map);
 		OCMReportsPage ocmReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
 		ocmReportsPage.showReport(reportDetails);
-		AgentHistoricalReportPage AgentHistoricalReport=PageFactory.createPageInstance(driver,AgentHistoricalReportPage.class);
-		AgentHistoricalReport.sortAscAgentName();;
+   		AgentHistoricalReportPage AgentHistoricalReport=PageFactory.createPageInstance(driver,AgentHistoricalReportPage.class);
+   		AgentHistoricalReport.sortAscAgentName();;
 		Assert.assertTrue(AgentHistoricalReport.verifyDatabase(reportDetails.getQuery(), reportDetails),"Main Report Data Mismatch");
 		System.out.println("Main Report Data Match Successfull");
 		List<String> agentList = new ArrayList<>();
@@ -687,6 +687,7 @@ public class AgentHistoricalReportTest extends BaseTest {
 		System.out.println(agentList);
 		int k=0;
 		for(int i=0;i<agentList.size();i++) {
+			System.out.println(agentList.size());
 			if(k==10){
 				AgentHistoricalReport.goToNextPage();
 				k=k-10;
@@ -697,28 +698,30 @@ public class AgentHistoricalReportTest extends BaseTest {
 			k++;
 			Thread.sleep(1000);
 		}
-		/*List<String> skillDates = new ArrayList<>();
-		for(int i=0;i<skillList.size();i++) {
-			AgentHistoricalReport.clickOnSkillIdRowOnMainReport(i);
+		List<String> agentDates = new ArrayList<>();
+		for(int i=0;i<agentList.size();i++) {
+			AgentHistoricalReport.clickOnAgentIdRowOnMainReport(i);
 			Thread.sleep(1000);
-			skillDates = AgentHistoricalReport.getSkillDates();
-			//System.out.println(skillDates);
+			agentDates = AgentHistoricalReport.getAgentDates();
+			System.out.println(agentDates);
 			k=0;
-			for(int j=0;j<skillDates.size();j++) {
+			for(int j=0;j<agentDates.size();j++) {
 				if(k==10){
 					AgentHistoricalReport.goToNextPageDrillOne();
 					k=k-10;
 				}
 				AgentHistoricalReport.clickOnDateRowOnDrillOneReport(k);
-				Assert.assertTrue(AgentHistoricalReport.verifyDatabaseDrillGridTwo(reportDetails.getQueryDrillGridTwo(), reportDetails, skillDates.get(j), skillList.get(i)),"Drill Grid Two data mismatch for Skill Id " + skillList.get(i) + " and Date " + skillDates.get(j));
-				System.out.println("Drill Grid Two data match successfull for Skill Id " + skillList.get(i) + " and Date " + skillDates.get(j));
+				Assert.assertTrue(AgentHistoricalReport.verifyDatabaseDrillGridTwo(reportDetails.getQueryDrillGridTwo(), reportDetails, agentDates.get(j), agentList.get(i)),"Drill Grid Two data mismatch for Skill Id " + agentList.get(i) + " and Date " + agentDates.get(j));
+				System.out.println("Drill Grid Two data match successfull for Agent Id " + agentList.get(i) + " and Date " + agentDates.get(j));
 				k++;
 				Thread.sleep(1000);
 			}
 			AgentHistoricalReport.closeDrillOneReport();
 			Thread.sleep(1000);
-		}*/
-
+		}
+	}
+	
+	 
 		/*
 	@Test(priority=61,description="To verify DrillOne search equals")
 	public void VerifyDrillOneSearchEqualsToFeature() throws Exception {

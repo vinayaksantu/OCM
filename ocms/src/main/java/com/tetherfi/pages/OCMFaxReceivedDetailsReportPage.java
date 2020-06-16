@@ -348,6 +348,32 @@ public class OCMFaxReceivedDetailsReportPage extends BasePage  {
 	@FindBy(xpath="//tbody/tr[1]/td[2]")
     private WebElement rowdatatwo;
 	
+	@FindBy(id="labelDrillOne")
+	private WebElement DrillGridforFaxLine;
+
+	@FindBy(xpath="//button[@id='drillSearchClose']")
+	private WebElement DrillClose;
+
+	@FindBy(xpath="//button[@id='printbulk']")
+	private WebElement bulkprintButton;
+
+	@FindBy(xpath="//input[@id='checkFax']")
+	private List<WebElement> checkboxBeforePreview;
+
+	@FindBy(xpath="//button[text()='Yes']")
+	private WebElement yesBtn;
+
+	@FindBy(xpath="//button[text()='Cancel']")
+	private WebElement CancelBtn;
+
+	@FindBy(xpath="//div[@id='gridDrillOne']/div[4]/table/tbody/tr/td[22]")
+	private WebElement drillGridPrintButton;
+
+	@FindBy(xpath="//div[@id='gridDrillOne']/div[4]/table/tbody/tr/td[20]")
+	private WebElement drillGridPreviewOrignalButton;
+
+	@FindBy(xpath="//div[@id='gridDrillOne']/div[4]/table/tbody/tr/td[21]")
+	private WebElement drillGridPreviewAnnotatedButton;
 	
 	public boolean maximizewindow() {
 		selectWebElement(maximize);
@@ -1141,7 +1167,291 @@ public class OCMFaxReceivedDetailsReportPage extends BasePage  {
 		return Status;	
 	}
 	
+	public boolean verifyDatabase(String query,ReportDetails details, String OrgUnitID) throws InterruptedException {
+		//get dates from xl - step 2
+		String reportbeforedate = details.getStartDate();
+		String reportafterdate=details.getEndDate();
+		//change date formats - step 3
+		reportbeforedate=reportbeforedate.substring(6,10)+"-"+reportbeforedate.substring(3, 5)+"-"+reportbeforedate.substring(0, 2)+" "+reportbeforedate.substring(11, 13)+":"+reportbeforedate.substring(14, 16)+":"+reportbeforedate.substring(17, 19);
+		reportafterdate=reportafterdate.substring(6,10)+"-"+reportafterdate.substring(3, 5)+"-"+reportafterdate.substring(0, 2)+" "+reportafterdate.substring(11, 13)+":"+reportafterdate.substring(14, 16)+":"+reportafterdate.substring(17, 19);
+		//Replace identifiers in query to formatted date - step 5
+		query=query.replaceAll("ReportBeforeDate",reportbeforedate );
+		query=query.replaceAll("ReportAfterDate",reportafterdate );
+		query=query.replaceAll("OrgUnitID", OrgUnitID);
+		List<Map<String,String>> database=database(query);
+		System.out.println("Printing Query" +" "+query);		
+		System.out.println("Printing DB results" +" "+database);
+		List<Map<String,String>> UI=getDataTable(); 
+		System.out.println("Printing UI Results"+" "+UI);	
+		if(UI.equals(database))
+			return true;
+		else
+			return false;
+	}
 	
-	
+	public List<String> getFaxLineList() throws Exception {
+		int item=Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
+		int pagersize=Integer.valueOf(pagerSize.getText());
+		int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
+		List<String> faxLineList = new ArrayList<>();
+		for(int k=0;k<=pages;k++){
+			waitUntilWebElementIsVisible(auditGridContent);
+			List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
+			List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
+			for(int i=1;i<rows.size();i++) {
+				List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
+				String col=null;
+				for(int j=0;j<headers.size();j++){
+					if(headers.get(j).getText().equals("Fax Line")){
+						col=cols.get(j).getText();
+						faxLineList.add(col);
+					}
+				}
+			}
+			if(k!=pages)
+			{
+				Thread.sleep(3000);
+				nextPageIcon.click();
+				waitForJqueryLoad(driver);
+			}
+		}
+		return faxLineList;
+	}
 
+	public void goToNextPage() throws InterruptedException {
+		Thread.sleep(3000);
+		nextPageIcon.click();
+		waitForLoad(driver);
+		waitForJqueryLoad(driver);
+		waitUntilWebElementIsVisible(DrillGridOneTable);
+	}
+	
+	public void clickOnFaxLineRowOnMainReport(int rowNo) throws InterruptedException {
+		//Thread.sleep(2000);
+		MainReportRows.get(rowNo).click();
+		waitForLoad(driver);
+		waitForJqueryLoad(driver);
+		waitUntilWebElementIsVisible(DrillGridOneTable);
+	}
+	
+	private List<Map<String, String>> getDataTableDrillGridOne() throws Exception {
+	 	int item=Integer.valueOf(drillGridOneItems.getText().split("of ")[1].split(" items")[0]);
+        int pagersize=Integer.valueOf(pagerSizeDrillGridOne.getText());
+        int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
+	 	List<Map<String,String>> arr=new ArrayList<Map<String,String>>();
+	 	for(int k=0;k<=pages;k++){
+	 	waitUntilWebElementIsVisible(DrillGridOneTable);
+		List<WebElement> rows=DrillGridOneTable.findElements(By.tagName("tr"));
+		List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
+		for(int i=1;i<rows.size();i++) {
+			Map<String,String> map = new HashMap<String,String>();
+			List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
+			String col=null;
+			for(int j=0;j<headers.size();j++){
+				if(headers.get(j).getText().equals("")){
+					col=cols.get(j).getText();
+					if(col.contains("."))
+						col=col;
+					else
+						col=col+".00";
+					}
+				else
+					col=cols.get(j).getText();
+				map.put(headers.get(j).getText(),col);
+			}
+			map.remove("");
+			arr.add(map);
+		}
+		if(k!=pages)
+		{
+			Thread.sleep(3000);
+			nextPageIconDrillOne.click();
+			waitForJqueryLoad(driver);
+			waitUntilWebElementIsVisible(DrillGridOneTable);
+		}
+		}
+			CloseDrillGridOne.click();
+			return arr;
+	}	
+	
+	public boolean verifyDatabaseDrillGridOne(String queryDrillGridOne,ReportDetails details, String FaxLine) throws Exception {
+		//get dates from xl - step 2
+		String reportbeforedate = details.getStartDate();
+		String reportafterdate=details.getEndDate();
+		//change date formats - step 3
+		reportbeforedate=reportbeforedate.substring(6,10)+"-"+reportbeforedate.substring(3, 5)+"-"+reportbeforedate.substring(0, 2)+" "+reportbeforedate.substring(11, 13)+":"+reportbeforedate.substring(14, 16)+":"+reportbeforedate.substring(17, 19);
+		reportafterdate=reportafterdate.substring(6,10)+"-"+reportafterdate.substring(3, 5)+"-"+reportafterdate.substring(0, 2)+" "+reportafterdate.substring(11, 13)+":"+reportafterdate.substring(14, 16)+":"+reportafterdate.substring(17, 19);
+		//Replace identifiers in query to formatted date - step 5
+		queryDrillGridOne=queryDrillGridOne.replaceAll("ReportBeforeDate",reportbeforedate);
+		queryDrillGridOne=queryDrillGridOne.replaceAll("ReportAfterDate",reportafterdate );
+		queryDrillGridOne=queryDrillGridOne.replaceAll("FaxLineCapturedFromUI", FaxLine);
+		List<Map<String,String>> database=database(queryDrillGridOne);
+		System.out.println("Printing Query" +" "+queryDrillGridOne);		
+		System.out.println("Printing DB results" +" "+database);
+		List<Map<String,String>> UI=getDataTableDrillGridOne(); 
+		System.out.println("Printing UI Results"+" "+UI);	
+		if(UI.equals(database))
+			return true;
+		else
+			return false;
+	}
+	
+	public boolean verifyArrowMoveForPreviousAndNextPageForDrillDownOne(ReportDetails reportDetails) throws Exception {
+		selectWebElement(rows.get(0));
+		Thread.sleep(2000);
+		boolean status=false;
+		Thread.sleep(2000);
+		if(nextPageIconDrillOne.isEnabled()){
+			int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumberDrillOne));
+			System.out.println(pagenumber);
+			selectWebElement(nextPageIconDrillOne);
+			Thread.sleep(1000);
+			int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumberDrillOne));
+			System.out.println(nextnumber);
+			selectWebElement(previousPageIconDrillOne);
+			Thread.sleep(1000);
+			int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumberDrillOne));
+			System.out.println(previousnumber);
+			if(nextnumber==(pagenumber+1) && pagenumber==previousnumber){status=true;}
+		}else{
+			System.out.println("previous and next page icon disabled");status=true;
+		}
+		return status;
+	}
+	public boolean verifyArrowMoveForFirstAndLastPageForDrillDownOne(ReportDetails reportDetails) throws Exception {
+		selectWebElement(rows.get(0));
+		Thread.sleep(2000);
+		boolean status=false;
+		if(lastPageIconDrillOne.isEnabled()){
+			int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumberDrillOne));
+			selectWebElement(lastPageIconDrillOne);
+			Thread.sleep(2000);
+			int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumberDrillOne));
+			selectWebElement(firstPageIconDrillOne);
+			Thread.sleep(2000);
+			int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumberDrillOne));
+			if(nextnumber>pagenumber && pagenumber==previousnumber){status=true;}
+		}else{
+			System.out.println("previous and next page icon disabled");status=true;
+		}
+		return status;
+	}
+	public boolean verifyTotalNumberOfItemsPerPageDetailsForDrillDownOne() throws InterruptedException {
+		selectWebElement(rows.get(0));
+		Thread.sleep(2000);
+		String item = drillGridOneItems.getText();
+		return item.matches("(\\d.*) - (\\d.*) of (\\d.*) items");
+	}
+	public boolean verifyBulkPrintButtonwithoutrows(ReportDetails reportDetails) throws Exception {
+		selectWebElement(rows.get(0));
+		Thread.sleep(2000);
+		boolean status=false;
+		Thread.sleep(2000);
+		selectWebElement(bulkprintButton);
+		waitUntilWebElementIsVisible(successmsg);
+		if(successmsg.getText().equalsIgnoreCase("Please select rows for bulk print"))
+			status=true;
+		else
+			status=false;
+		return status;
+	}
+	public boolean verifyBulkPrintButtonwithrowsData(ReportDetails reportDetails) throws Exception {
+		selectWebElement(rows.get(0));
+		Thread.sleep(2000);
+		boolean status=false;
+		Thread.sleep(2000);
+		selectWebElement(checkboxBeforePreview.get(0));
+		selectWebElement(checkboxBeforePreview.get(1));
+		selectWebElement(bulkprintButton);
+		selectWebElement(yesBtn);
+		waitUntilWebElementIsVisible(successmsg);
+		if(successmsg.getText().equalsIgnoreCase("Please Wait..!"))
+			status=true;
+		else
+			status=false;
+		return status;
+	}
+
+	public boolean verifyPreviewOrignalButton(ReportDetails reportDetails) throws Exception {
+		selectWebElement(rows.get(0));
+		Thread.sleep(2000);
+		boolean status=false;
+		Thread.sleep(2000);
+		selectWebElement(drillGridPreviewOrignalButton);
+		waitUntilWebElementIsVisible(successmsg);
+		if(successmsg.getText().equalsIgnoreCase("Please wait until previewing"))
+			status=true;
+		else
+			status=false;
+		return status;
+	}
+	public boolean verifyPreviewAnnotatedButton(ReportDetails reportDetails) throws Exception {
+		selectWebElement(rows.get(0));
+		Thread.sleep(2000);
+		boolean status=false;
+		Thread.sleep(2000);
+		selectWebElement(drillGridPreviewAnnotatedButton);
+		waitUntilWebElementIsVisible(successmsg);
+		if(successmsg.getText().equalsIgnoreCase("Please wait until previewing"))
+			status=true;
+		else
+			status=false;
+		return status;
+	}
+	public boolean verifyPrintButton(ReportDetails reportDetails) throws Exception {
+		selectWebElement(rows.get(0));
+		Thread.sleep(2000);
+		boolean status=false;
+		Thread.sleep(2000);
+		selectWebElement(drillGridPrintButton);
+		selectWebElement(yesBtn);
+		waitUntilWebElementIsVisible(successmsg);
+		if(successmsg.getText().equalsIgnoreCase("Please Wait..!"))
+			status=true;
+		else
+			status=false;
+		return status;
+	}
+	public boolean verifyAlertCancelButton(ReportDetails reportDetails) throws Exception {
+		selectWebElement(rows.get(0));
+		Thread.sleep(2000);
+		boolean status=false;
+		Thread.sleep(2000);
+		selectWebElement(drillGridPrintButton);
+		selectWebElement(CancelBtn);		
+		if(DrillGridOneTable.isDisplayed())
+			status=true;
+		else
+			status=false;
+		return status;
+	}
+	
+	public boolean FaxLineDrillGrid(ReportDetails reportDetails) throws Exception{
+		boolean status=false;
+		searchReport(reportDetails);
+		Thread.sleep(4000);
+		selectWebElement(rows.get(0));
+		Thread.sleep(2000);
+		waitForJqueryLoad(driver);
+		if(DrillGridforFaxLine.isDisplayed())
+			status= true;
+		selectWebElement(DrillClose);	
+		return status;
+
+	}
+
+	private void searchReport(ReportDetails reportDetails) throws Exception {
+		selectWebElement(searchBtn);	
+		selectWebElement(searchColDropdown);  
+		selectDropdownFromVisibleText(searchColListBox,"Fax Line");  
+		waitForJqueryLoad(driver);
+		selectWebElement(searchCriteriaDropdown);
+		selectDropdownFromVisibleText(searchCriteriaListbox,"Is equal to");		   
+		waitForJqueryLoad(driver);    
+		enterValueToTxtField(searchTextBox,reportDetails.getSearchStr());
+		selectWebElement(searchSearchBtn);
+		waitForJqueryLoad(driver);
+	}
+	
+	
 }
