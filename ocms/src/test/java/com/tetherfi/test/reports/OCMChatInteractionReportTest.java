@@ -36,7 +36,7 @@ public class OCMChatInteractionReportTest extends BaseTest {
 		ftp.transferFileFromRemote(remoteFilePath,destinationFilePath);
 	}
 
-	@Test(priority=1,description="To verify Show Report for Single Date")
+	/*@Test(priority=1,description="To verify Show Report for Single Date")
 	public void ShowChatInteractionReport() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatInteractionReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
@@ -612,11 +612,11 @@ public class OCMChatInteractionReportTest extends BaseTest {
 		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
 		ocmReportsPage.showReport(reportDetails);
 		Assert.assertTrue(ocmReportsPage.verifyExportedSheet("OCMReportDownload","OCM Chat Interaction Repor"));		
-	}
+	}*/
 
 	@Test(priority=55,description="To verify the Chat Interaction Report UI data against DB")
     public void database() throws Exception {
-   		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMChatInteractionReportData.xlsx";
+   		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatInteractionReportData.xlsx";
    		Map<String, String> map = new ExcelReader(filePath, "Queries").getTestData().get(0);
 		ReportDetails reportDetails= new ReportDetails(map); 
 		OCMReportsPage ocmReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);

@@ -37,7 +37,7 @@ public class OCMAgentInteractionReportTest extends BaseTest {
 		ftp.transferFileFromRemote(remoteFilePath,destinationFilePath);
 	}
 
-	@Test(priority=1,description="To verify Show Report for Single Date")
+	/*@Test(priority=1,description="To verify Show Report for Single Date")
 	public void ShowAgentInteractionReport() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentInteractionReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
@@ -595,7 +595,7 @@ public class OCMAgentInteractionReportTest extends BaseTest {
 		ocmReportsPage.showReport(reportDetails);
     	OCMAgentInteractionReportPage AgentInteractionReportPage =PageFactory.createPageInstance(driver,OCMAgentInteractionReportPage.class);
 		Assert.assertTrue(AgentInteractionReportPage.verifySorting(),"Sorting assertion failed");
-	}
+	}*/
     
     @Test(priority=54, description="To verify Agent Interaction Report UI data against DB")
     public void database() throws Exception {

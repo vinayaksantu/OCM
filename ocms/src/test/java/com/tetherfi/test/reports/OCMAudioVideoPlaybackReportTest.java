@@ -28,7 +28,7 @@ public class OCMAudioVideoPlaybackReportTest extends BaseTest {
 		Assert.assertTrue(ocmReportsPage.isOCMReportPageIsDisplayed());
 	}
 
-	@Test(priority=1,description="To verify Show Report for Single Date")
+	/*@Test(priority=1,description="To verify Show Report for Single Date")
 	public void ShowOCMAudioVideoPlaybackReport() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoPlaybackReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
@@ -597,7 +597,7 @@ public class OCMAudioVideoPlaybackReportTest extends BaseTest {
 		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
 		ocmReportsPage.showReport(reportDetails);
 		Assert.assertTrue(ocmReportsPage.verifyExportedSheet("OCMReportDownload","OCM Audio Video Playback R"));		
-	}
+	}*/
 
 	@Test(priority=52,description="To verify Audio Video Playback report UI data against DB")
 	public void database() throws Exception {

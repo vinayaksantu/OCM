@@ -39,7 +39,7 @@ public class OCMAgentAuxReportTest extends BaseTest {
 		ftp.transferFileFromRemote(remoteFilePath,destinationFilePath);
 	}
 
-	@Test(priority=1,description="To verify Show Report for Single Date")
+	/*@Test(priority=1,description="To verify Show Report for Single Date")
 	public void ShowOCMAgentAuxReport() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentAuxReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
@@ -639,7 +639,7 @@ public class OCMAgentAuxReportTest extends BaseTest {
 		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
 		ocmReportsPage.showReport(reportDetails);
 		Assert.assertTrue(ocmReportsPage.verifyExportedSheet("OCMReportDownload","Agent Aux Report"));		
-	}
+	}*/
 
 	@Test(priority=55, description="To verify UI data against DB")
 	public void database() throws Exception{
@@ -653,10 +653,6 @@ public class OCMAgentAuxReportTest extends BaseTest {
        System.out.println("Database Validation Completed Succesfully" +" : "+"UI and Database data is matched");	
 	}
 	
-	
-	
-	
-
 	@AfterMethod
 	public void afterEachMethod(Method method) throws InterruptedException {
 		Screenshot screenshot=new Screenshot(driver);

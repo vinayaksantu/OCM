@@ -31,7 +31,7 @@ public class OCMChatTransferReportTest extends BaseTest {
         Assert.assertTrue(ocmReportsPage.isOCMReportPageIsDisplayed());
     }
     
-    @Test(priority=1)
+    /*@Test(priority=1)
     public void ShowOCMChatTransferReport() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMChatTransferReport.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
@@ -442,7 +442,23 @@ public class OCMChatTransferReportTest extends BaseTest {
 		ocmReportsPage.viewDownloadedReportInReportDownloadsPage();
 		ocmReportsPage.deleteRecordAtReportsDownloadsPage(reportDetails);
 		Assert.assertEquals(ocmReportsPage.getSuccessMessage(),"Report Deleted","Delete record assertion failed");
+	}*/
+    
+//    Open defect : PRDOCM-58485
+    @Test(priority=43,description="To verify Chat Transfer report UI data against DB")
+	public void database() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMChatTransferReport.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(0);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
+		ocmReportsPage.showReport(reportDetails);
+		OCMChatTransferReportPage ChatTransferReportPage=PageFactory.createPageInstance(driver,OCMChatTransferReportPage.class);
+		Assert.assertTrue(ChatTransferReportPage.verifyDatabase(reportDetails.getQuery(), reportDetails), "Main report Data Mismatch");   		
+		System.out.println("Database Validation Completed Succesfully" +" : "+"UI and Database data is matched"); 		
 	}
+    
+    
+    
     
     @AfterMethod
     public void afterEachMethod(Method method) {

@@ -1,6 +1,7 @@
 package com.tetherfi.test.reports;
 import java.io.IOException;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -29,7 +30,7 @@ public class OCMFaxSentDetailsReportTest extends BaseTest {
 		Assert.assertTrue(ocmReportsPage.isOCMReportPageIsDisplayed());
 	}
 
-	@Test(priority=1,description="To verify Show Report for Single Date")
+	/*@Test(priority=1,description="To verify Show Report for Single Date")
 	public void ShowOCMFaxSentDetailsReport() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxSentDetailsReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
@@ -109,7 +110,7 @@ public class OCMFaxSentDetailsReportTest extends BaseTest {
 		Assert.assertTrue(ocmReportsPage.verifyExportedSheet("OCMReportDownload","Fax Sent Detail Report"));	
 	} */
 
-	@Test(priority=9,description="To verify Export Scheduler on OCM Reports Page for Date Range")
+	/*@Test(priority=9,description="To verify Export Scheduler on OCM Reports Page for Date Range")
 	public void ScheduleOCMFaxSentDetailsReportforDateRange() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxSentDetailsReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ExportReportDateRange").getTestData().get(0);
@@ -529,8 +530,43 @@ public class OCMFaxSentDetailsReportTest extends BaseTest {
 		ocmReportsPage.viewDownloadedReportInReportDownloadsPage();
 		ocmReportsPage.deleteRecordAtReportsDownloadsPage(reportDetails);
 		Assert.assertEquals(ocmReportsPage.getSuccessMessage(),"Report Deleted","Delete record assertion failed");
+	}*/
+
+	
+	@Test(priority=49, description="To verify fax sent details report UI data against DB")
+	public void database() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxSentDetailsReport.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(0);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
+		ocmReportsPage.showReport(reportDetails);
+		OCMFaxSentDetailsReportPage faxSentDetailsReportPage=PageFactory.createPageInstance(driver,OCMFaxSentDetailsReportPage.class);
+		Assert.assertTrue(faxSentDetailsReportPage.verifyDatabase(reportDetails.getQuery(),reportDetails,reportDetails.getOrgUnitID()),"Main report data mismatch");	
+		System.out.println("Main Report Data Match Successfull");
+		List<String> senderNumberList = new ArrayList<>();
+		senderNumberList=faxSentDetailsReportPage.getsenderNumberList();
+		System.out.println(senderNumberList);
+		int k=0;
+    	for (int i=0;i<senderNumberList.size();i++) {
+    		if(k==10) {
+    			faxSentDetailsReportPage.goToNextPage();
+    			k=k-10;
+    		}
+    		faxSentDetailsReportPage.clickOnFaxLineRowOnMainReport(k);
+    		Assert.assertTrue(faxSentDetailsReportPage.verifyDatabaseDrillGridOne(reportDetails.getQueryDrillGridOne(), reportDetails, senderNumberList.get(i)),"Drill Grid One data mismatch for Sender Number" + senderNumberList.get(i));
+    		System.out.println("Drill Grid One data match successfull for Sender Number" + senderNumberList.get(i));
+    		k++;
+    		Thread.sleep(1000);	
+    	}
 	}
 
+	
+	
+	
+	
+	
+	
+	
 	@AfterMethod
 	public void afterEachMethod(Method method) throws InterruptedException {
 		Screenshot screenshot=new Screenshot(driver);

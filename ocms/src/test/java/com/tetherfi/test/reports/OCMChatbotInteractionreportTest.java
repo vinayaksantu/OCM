@@ -30,7 +30,7 @@ public class OCMChatbotInteractionreportTest extends BaseTest {
         Assert.assertTrue(ocmReportsPage.isOCMReportPageIsDisplayed());
     }
   
-    @Test(priority=1,description="To verify Show Report for Single Date")
+    /*@Test(priority=1,description="To verify Show Report for Single Date")
     public void ShowOCMChatbotInteractionReport() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMChatbotInteractionReport.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
@@ -584,7 +584,7 @@ public class OCMChatbotInteractionreportTest extends BaseTest {
 		ocmReportsPage.showReport(reportDetails);
 		OCMChatbotInteractionReportPage ChatbotInteractionPage=PageFactory.createPageInstance(driver,OCMChatbotInteractionReportPage.class);
 		Assert.assertTrue(ChatbotInteractionPage.verifySorting(),"item per page assertion failed");
-	}
+	}*/
     
     @Test(priority=51, description="To verify chatbot interaction report data against DB")
     public void database() throws Exception {

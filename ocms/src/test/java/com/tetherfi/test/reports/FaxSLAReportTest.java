@@ -27,7 +27,7 @@ public class FaxSLAReportTest extends BaseTest {
 		Assert.assertTrue(ocmReportsPage.isOCMReportPageIsDisplayed());
 	}
 
-	@Test(priority=1,description="To verify Show Report for Single Date")
+	/*@Test(priority=1,description="To verify Show Report for Single Date")
 	public void ShowOCMFaxSLAReport() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxSLAReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
@@ -107,7 +107,7 @@ public class FaxSLAReportTest extends BaseTest {
 		Assert.assertTrue(ocmReportsPage.verifyExportedSheet("OCMReportDownload","Fax SLA Report"));	
 	} */
 
-	@Test(priority=9,description="To verify Export Scheduler on OCM Reports Page for Date Range")
+	/*@Test(priority=9,description="To verify Export Scheduler on OCM Reports Page for Date Range")
 	public void ScheduleOCMFaxSLAReportforDateRange() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxSLAReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ExportReportDateRange").getTestData().get(0);
@@ -430,8 +430,9 @@ public class FaxSLAReportTest extends BaseTest {
 		ReportDetails reportDetails= new ReportDetails(map);
 		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);                   
 		Assert.assertTrue(ocmReportsPage.ClearAdvFilters(reportDetails));
-	}
-	@Test(priority=40)
+	}*/
+	
+	/*@Test(priority=40)
 	public void GroupBy() throws Exception{
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxSLAReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -475,8 +476,22 @@ public class FaxSLAReportTest extends BaseTest {
 		ocmReportsPage.viewDownloadedReportInReportDownloadsPage();
 		ocmReportsPage.deleteRecordAtReportsDownloadsPage(reportDetails);
 		Assert.assertEquals(ocmReportsPage.getSuccessMessage(),"Report Deleted","Delete record assertion failed");
-	}
+	}*/
 
+	@Test(priority=44, description="To verify fax SLA Report details UI data against DB")
+	public void database() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxSLAReport.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(0);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
+		ocmReportsPage.showReport(reportDetails);
+		FaxSLAReportPage FaxSLAReportPage=PageFactory.createPageInstance(driver,FaxSLAReportPage.class);
+		Assert.assertTrue(FaxSLAReportPage.verifyDatabase(reportDetails.getQuery(),reportDetails,reportDetails.getOrgUnitID()),"Main report data mismatch");
+		System.out.println("Main Report Data Match Successfull");
+	}
+	
+	
+	
 	@AfterMethod
 	public void afterEachMethod(Method method) throws InterruptedException {
 		Screenshot screenshot=new Screenshot(driver);

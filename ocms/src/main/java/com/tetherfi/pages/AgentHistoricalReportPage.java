@@ -929,34 +929,8 @@ public class AgentHistoricalReportPage extends BasePage  {
 	}*/
 
 	
-	private List<Map<String, String>> getDataTable() {
-		int item=Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
-        int pagersize=Integer.valueOf(pagerSize.getText());
-        int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
-		List<Map<String,String>> arr=new ArrayList<Map<String,String>>();
-		for(int k=0;k<=pages;k++){
-		waitUntilWebElementIsVisible(auditGridContent);
-		List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
-		List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
-		for(int i=1;i<rows.size();i++) {
-			Map<String,String> map = new HashMap<String,String>();
-			List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
-			String col=null;
-			for(int j=0;j<headers.size();j++){
-				scrollToElement(headers.get(j));
-				col=cols.get(j).getText();
-				map.put(headers.get(j).getText(),col);
-			}
-			map.remove("");
-			arr.add(map);
-		}
-		if(k!=pages)
-		{
-			nextPageIcon.click();
-			waitForJqueryLoad(driver);}
-		}
-			return arr;
-	}
+	
+	
 	
 	
 	
@@ -1121,16 +1095,7 @@ public class AgentHistoricalReportPage extends BasePage  {
 			return errorMsg.get(0).getText();}
 	}
 
-	public boolean verifyDatabase(String query) {
-		List<Map<String,String>> database=database(query);
-		System.out.println(database);
-		List<Map<String,String>> UI=getDataTable(); 
-		System.out.println(UI);
-		if(UI.equals(database))
-			return true;
-		else
-			return false;
-	}
+
 
 	public boolean groupby() {
 		DragandDrop(agentid,droptarget);
@@ -1145,15 +1110,17 @@ public class AgentHistoricalReportPage extends BasePage  {
 			return false;		
 	}
 
+	
 	public void sortAscAgentName() {
-		
 		selectWebElement(headersDropdown.get(1));
 		waitForJqueryLoad(driver);
 		selectWebElement(sortAscending.get(0));
 		waitForJqueryLoad(driver);
-	}	
+	}
+	
 
-	public boolean verifyDatabase(String query,ReportDetails details) {
+
+	public boolean verifyDatabase(String query,ReportDetails details) throws Exception {
 		//get dates from xl - step 2
 		String reportbeforedate = details.getStartDate();
 		String reportafterdate=details.getEndDate();
@@ -1173,6 +1140,37 @@ public class AgentHistoricalReportPage extends BasePage  {
 		else
 			return false;
 	}
+	
+	private List<Map<String, String>> getDataTable() throws Exception {
+		int item=Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
+        int pagersize=Integer.valueOf(pagerSize.getText());
+        int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
+		List<Map<String,String>> arr=new ArrayList<Map<String,String>>();
+		for(int k=0;k<=pages;k++){
+		waitUntilWebElementIsVisible(auditGridContent);
+		List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
+		List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
+		for(int i=1;i<rows.size();i++) {
+			Map<String,String> map = new HashMap<String,String>();
+			List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
+			String col=null;
+			for(int j=0;j<headers.size();j++){
+				scrollToElement(headers.get(j));
+				col=cols.get(j).getText();
+				map.put(headers.get(j).getText(),col);
+			}
+			map.remove("");
+			arr.add(map);
+		}
+		if(k!=pages)
+		{
+			Thread.sleep(5000);
+			nextPageIcon.click();
+			waitForJqueryLoad(driver);}
+		}
+			return arr;
+	}
+	
 	
 
 	public List<String> getAgents() throws Exception {
@@ -1380,7 +1378,7 @@ public class AgentHistoricalReportPage extends BasePage  {
 			return arr;
 	}
 	
-	public boolean verifyAdvanceSearchNotEqualsTo(ReportDetails reportDetails) {
+	public boolean verifyAdvanceSearchNotEqualsTo(ReportDetails reportDetails) throws Exception {
 		Boolean Status=false;
 		waitForJqueryLoad(driver);
 		List<Map<String,String>>UI=getDataTable();
@@ -1394,7 +1392,7 @@ public class AgentHistoricalReportPage extends BasePage  {
 		}
 		return Status;
 	}
-	public boolean verifyAdvanceSearchContains(ReportDetails reportDetails) {
+	public boolean verifyAdvanceSearchContains(ReportDetails reportDetails) throws Exception {
 		Boolean Status=false;
 		waitForJqueryLoad(driver);
 		List<Map<String,String>>UI=getDataTable();
@@ -1408,7 +1406,7 @@ public class AgentHistoricalReportPage extends BasePage  {
 		}
 		return Status;
 	}
-	public boolean verifyAdvanceSearchDoesNotContains(ReportDetails reportDetails) {
+	public boolean verifyAdvanceSearchDoesNotContains(ReportDetails reportDetails) throws Exception {
 		Boolean Status=false;
 		waitForJqueryLoad(driver);
 		List<Map<String,String>>UI=getDataTable();
@@ -1422,7 +1420,7 @@ public class AgentHistoricalReportPage extends BasePage  {
 		}
 		return Status;
 	}
-	public boolean verifyAdvanceSearchStartsWith(ReportDetails reportDetails) {
+	public boolean verifyAdvanceSearchStartsWith(ReportDetails reportDetails) throws Exception {
 		Boolean Status=false;
 		waitForJqueryLoad(driver);
 		List<Map<String,String>>UI=getDataTable();
@@ -1436,7 +1434,7 @@ public class AgentHistoricalReportPage extends BasePage  {
 		}
 		return Status;
 	}
-	public boolean verifyAdvanceSearchEndsWith(ReportDetails reportDetails) {
+	public boolean verifyAdvanceSearchEndsWith(ReportDetails reportDetails) throws Exception {
 		Boolean Status=false;
 		waitForJqueryLoad(driver);
 		List<Map<String,String>>UI=getDataTable();

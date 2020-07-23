@@ -31,7 +31,7 @@ public class OCMFaxReceivedDetailsReportTest extends BaseTest {
 		Assert.assertTrue(ocmReportsPage.isOCMReportPageIsDisplayed());
 	}
 
-	@Test(priority=1,description="To verify Show Report for Single Date")
+	/*@Test(priority=1,description="To verify Show Report for Single Date")
 	public void ShowOCMFaxReceivedDetailsReport() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxReceivedDetailsReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
@@ -111,7 +111,7 @@ public class OCMFaxReceivedDetailsReportTest extends BaseTest {
 		Assert.assertTrue(ocmReportsPage.verifyExportedSheet("OCMReportDownload","Fax Received Detail Report"));	
 	} */
 
-	@Test(priority=9,description="To verify Export Scheduler on OCM Reports Page for Date Range")
+	/*@Test(priority=9,description="To verify Export Scheduler on OCM Reports Page for Date Range")
 	public void ScheduleOCMFaxReceivedDetailsReportforDateRange() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxReceivedDetailsReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ExportReportDateRange").getTestData().get(0);
@@ -618,7 +618,7 @@ public class OCMFaxReceivedDetailsReportTest extends BaseTest {
 		ocmReportsPage.viewDownloadedReportInReportDownloadsPage();
 		ocmReportsPage.deleteRecordAtReportsDownloadsPage(reportDetails);
 		Assert.assertEquals(ocmReportsPage.getSuccessMessage(),"Report Deleted","Delete record assertion failed");
-	}
+	}*/
 
 
 	@Test(priority=57, description="To verify fax received details report UI data against DB")
