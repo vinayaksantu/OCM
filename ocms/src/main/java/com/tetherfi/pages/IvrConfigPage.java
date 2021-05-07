@@ -168,7 +168,7 @@ public class IvrConfigPage extends BasePage {
 	@FindBy(xpath="//div[text()='No records to display']")
 	private WebElement norecords;
 	    
-	@FindBy(xpath="//i[@class='fas fa-sync']")
+	@FindBy(xpath="//i[@class='fas fa-sync fa-spin']")
 	private WebElement clearsearch;
 	
 	@FindBy(css=".k-pager-numbers .k-state-selected")
@@ -288,8 +288,8 @@ public class IvrConfigPage extends BasePage {
 	 @FindBy(css="ul[id='1001sCriteria_listbox'] li")
 	 private List<WebElement> searchTypeList;
 	 
-	 @FindBy(css=".modal-body .form-inline .form-group .k-textbox")
-	 private List<WebElement> searchText;
+	 @FindBy(id="1001sTextToSearch")
+	 private WebElement searchText;
 	 
 	 @FindBy(css="#tcheckerGrid .k-grid-content")
 	 private WebElement approvedgridcontent;
@@ -311,6 +311,9 @@ public class IvrConfigPage extends BasePage {
 	 
 	 @FindBy(xpath="//a[text()='Value']")
 	 private List<WebElement> value;
+	 
+	 @FindBy(id="tdrillgrid")
+	 private WebElement tgrid;
 	 
     public boolean isIvrConfigPageDisplayed() {
         waitForLoad(driver);
@@ -847,7 +850,7 @@ public class IvrConfigPage extends BasePage {
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is equal to");
         enterValueToTxtField(searchTextBox,details.getParameter());
         selectWebElement(clearall);
-		if(searchText.get(0).isEnabled())
+		if(searchText.isEnabled())
         	return true;
         else
 		return false;
@@ -1131,7 +1134,7 @@ public class IvrConfigPage extends BasePage {
         Thread.sleep(1000);
         selectWebElement(selectSearchColumn.get(1));
         selectDropdownFromVisibleText(searchTypeList,"Is equal to");
-        enterValueToTxtField(searchText.get(0),parameter);
+        enterValueToTxtField(searchText,parameter);
         selectInvisibleWebElement(searchSearchBtn);
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(approvedgridcontent);		
@@ -1181,15 +1184,42 @@ public class IvrConfigPage extends BasePage {
 		selectWebElement(yesBtn);
 		selectWebElement(noBtn);
 	}
+	
+	private Map<String, String> getFirstRowDatafromPreviewPopup() {
+		Map<String,String> map = new HashMap<>();
+        waitUntilWebElementIsVisible(auditGridContent);
+        List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
+        List<WebElement> cols=rows.get(1).findElements(By.tagName("td"));
+        List<WebElement> preview= cols.get(1).findElements(By.tagName("a"));
+        preview.get(0).click();
+        waitUntilWebElementIsVisible(tgrid);
+        List<WebElement> gridrows=tgrid.findElements(By.tagName("tr"));
+        List<WebElement> gridheaders = gridrows.get(0).findElements(By.tagName("th"));
+        List<WebElement> gridcols=gridrows.get(1).findElements(By.tagName("td"));     
+        for(int j=0;j<gridheaders.size();j++){
+            scrollToElement(gridheaders.get(j));
+            for(int i=0;i<gridcols.size();i++) {
+            	System.out.println(gridheaders.get(j).getText());
+                try{
+                	map.put(gridheaders.get(j).getText(), gridcols.get(j).getText());
+                break;
+                }
+                catch (Exception e){e.printStackTrace();}
+            }
+        }
+        return map;
+	}
+
 	public boolean verifyAuditTrail(IvrConfigDetails ivrConfigDetails, String Transaction, String Status) {
 		boolean stat=false;
 		Map<String,String> firstRowData=getFirstRowDatafromTable();
+		Map<String,String> popupRowData=getFirstRowDatafromPreviewPopup();
 		if(firstRowData.get("Transaction").equalsIgnoreCase(Transaction)) {
 			if(firstRowData.get("Status").equalsIgnoreCase(Status)) {
-				if(firstRowData.get("Function").equalsIgnoreCase("IVR Config")){
+				if(firstRowData.get("Function Name").equalsIgnoreCase("IVR Config")){
 					if(Transaction.equals("MakerCreate")){
 						Map<String,String> newvalues=new HashMap<>();
-                        String[] d=firstRowData.get("New Values").split("\n");
+                        String[] d=popupRowData.get("New Values").split("\n");
                         for(String e:d){
                             String[]f=e.split(":",2);
                             if(f.length>1){newvalues.put(f[0],f[1]);}
@@ -1221,12 +1251,15 @@ public class IvrConfigPage extends BasePage {
 	public boolean verifyAuditTrailUpdate(IvrConfigDetails details, String Transaction,String Status) {
 		boolean stat=false;
         Map<String,String> firstRowData=getFirstRowDatafromTable();
+		Map<String,String> popupRowData=getFirstRowDatafromPreviewPopup();
+
+
         if(firstRowData.get("Transaction").equalsIgnoreCase(Transaction)){
             if(firstRowData.get("Status").equalsIgnoreCase(Status)){
-                if(firstRowData.get("Function").equalsIgnoreCase("IVR Config")){
+                if(firstRowData.get("Function Name").equalsIgnoreCase("IVR Config")){
                        if(Transaction.equals("MakerUpdate")){
                            Map<String,String> newvalues=new HashMap<>();
-                            String[] d=firstRowData.get("New Values").split("\n");
+                            String[] d=popupRowData.get("New Values").split("\n");
                             for(String e:d){
                                 String[]f=e.split(":",2);
                                 if(f.length>1){newvalues.put(f[0],f[1]);}
@@ -1247,7 +1280,7 @@ public class IvrConfigPage extends BasePage {
 	private boolean verifyUpdatedNewValues(IvrConfigDetails details, Map<String, String> newvalues) {
 		boolean status=false;
 		if (newvalues.get("Parameter").equals(details.getUpdatedParameter())){
-			if (newvalues.get("Value").equals(details.getValue())){
+			if (newvalues.get("Value").equals(details.getUpdatedValue())){
 				status=true;
 			}
 			else {System.out.println("Parameter Data Mismatch");}

@@ -122,11 +122,9 @@ public class FaxAddressBookPage extends BasePage {
 	@FindBy(id="tgrid")
 	private WebElement auditGridAddressContent;
 
-	//@FindBy(xpath="//a[text()='First Name']")
 	@FindBy(xpath="//a[text()='Name1']")
 	private WebElement FirstName;
 
-	//@FindBy(xpath="//a[text()='Last Name']")
 	@FindBy(xpath="//a[text()='Name2']")
 	private WebElement LastName;
 
@@ -145,15 +143,9 @@ public class FaxAddressBookPage extends BasePage {
 	@FindBy(xpath="//div[text()='No records to display']")
 	private WebElement norecords;
 
-	@FindBy(xpath="//i[@class='fas fa-sync']")
+	@FindBy(xpath="//i[@class='fas fa-sync fa-spin']")
 	private WebElement clearsearch;
 
-	//@FindBy(css = ".k-grid-edit")
-	//private WebElement editButton;
-
-	//@FindBy(css=".k-grid-edit")
-	//@FindBy(css="k-button k-button-icontext k-grid-edit k-state-border-down")
-	//@FindBy(xpath="//a[@class='k-button k-button-icontext k-grid-edit k-state-border-down']")
 	@FindBy(css="#tdrillgrid .k-grid-edit")
 	private WebElement editBtn;
 
@@ -201,8 +193,8 @@ public class FaxAddressBookPage extends BasePage {
 	@FindBy(css="ul[id='1001sCriteria_listbox'] li")
 	private List<WebElement> searchTypeList;
 
-	@FindBy(css=".modal-body .form-inline .form-group .k-textbox")
-	private List<WebElement> searchText;
+	@FindBy(id = "1001sTextToSearch")
+    private WebElement searchTextBox;
 
 	@FindBy(css=".modal-footer .k-primary")
 	private WebElement searchBtn;
@@ -222,8 +214,8 @@ public class FaxAddressBookPage extends BasePage {
 	@FindBy(id="Name")
 	private WebElement NameTextbox;
 
-	//@FindBy(css="input[aria-owns='RecipientIds_taglist RecipientIds_listbox']")
-	@FindBy(xpath="//div[@class='k-multiselect-wrap k-floatwrap']")
+	@FindBy(css="input[aria-owns='RecipientIds_taglist RecipientIds_listbox']")
+	//@FindBy(xpath="//div[@class='k-multiselect-wrap k-floatwrap']")
 	//@FindBy(xpath="//div[@class='k-widget k-multiselect k-multiselect-clearable']")
 	private List<WebElement> RecipientDropdown;
 
@@ -940,7 +932,7 @@ public class FaxAddressBookPage extends BasePage {
 		selectDropdownFromVisibleText(columnNameList,"Name1");
 		selectWebElement(selectSearchColumn.get(1));
 		selectDropdownFromVisibleText(searchTypeList,"Is equal to");
-		enterValueToTxtFieldWithoutClear(searchText.get(0),details.getfirstName());
+		enterValueToTxtFieldWithoutClear(searchTextBox,details.getfirstName());
 		selectWebElement(searchBtn);
 		waitForJqueryLoad(driver);
 		waitUntilWebElementIsVisible(gridcontent);		
@@ -955,7 +947,7 @@ public class FaxAddressBookPage extends BasePage {
 		selectDropdownFromVisibleText(columnNameList,"Name1");
 		selectWebElement(selectSearchColumn.get(1));
 		selectDropdownFromVisibleText(searchTypeList,"Is equal to");
-		enterValueToTxtFieldWithoutClear(searchText.get(0),details.getfirstName());
+		enterValueToTxtFieldWithoutClear(searchTextBox,details.getfirstName());
 		selectWebElement(searchBtn);
 		waitForJqueryLoad(driver);
 		waitUntilWebElementIsVisible(gridcontent);	
@@ -979,7 +971,7 @@ public class FaxAddressBookPage extends BasePage {
 		Thread.sleep(1000);
 		selectWebElement(selectSearchColumn.get(1));
 		selectDropdownFromVisibleText(searchTypeList,"Is not equal to");
-		enterValueToTxtField(searchText.get(0),details.getlastName());		
+		enterValueToTxtField(searchTextBox,details.getlastName());		
 		selectWebElement(searchBtn);
 		waitUntilWebElementIsVisible(gridcontent);
 		List<Map<String,String>> UI=gettable(); 
@@ -1001,7 +993,7 @@ public class FaxAddressBookPage extends BasePage {
 		Thread.sleep(1000);
 		selectWebElement(selectSearchColumn.get(1));
 		selectDropdownFromVisibleText(searchTypeList,"Contains");
-		enterValueToTxtField(searchText.get(0),details.getfirstName());		
+		enterValueToTxtField(searchTextBox,details.getfirstName());		
 		selectWebElement(searchBtn);
 		waitUntilWebElementIsVisible(gridcontent);
 		List<Map<String,String>> UI=gettable(); 
@@ -1023,7 +1015,7 @@ public class FaxAddressBookPage extends BasePage {
 		selectWebElement(selectSearchColumn.get(1));
 		Thread.sleep(1000);
 		selectDropdownFromVisibleText(searchTypeList,"Does not contain");
-		enterValueToTxtField(searchText.get(0),details.getfirstName());		
+		enterValueToTxtField(searchTextBox,details.getfirstName());		
 		selectWebElement(searchBtn);
 		waitUntilWebElementIsVisible(gridcontent);
 		List<Map<String,String>> UI=gettable(); 
@@ -1045,7 +1037,7 @@ public class FaxAddressBookPage extends BasePage {
 		Thread.sleep(1000);
 		selectWebElement(selectSearchColumn.get(1));
 		selectDropdownFromVisibleText(searchTypeList,"Starts with");
-		enterValueToTxtField(searchText.get(0),details.getNumber());		
+		enterValueToTxtField(searchTextBox,details.getNumber());		
 		selectWebElement(searchBtn);
 		waitUntilWebElementIsVisible(gridcontent);
 		List<Map<String,String>> UI=gettable(); 
@@ -1067,7 +1059,7 @@ public class FaxAddressBookPage extends BasePage {
 		Thread.sleep(1000);
 		selectWebElement(selectSearchColumn.get(1));
 		selectDropdownFromVisibleText(searchTypeList,"Ends with");
-		enterValueToTxtField(searchText.get(0),details.getNumber());		
+		enterValueToTxtField(searchTextBox,details.getNumber());		
 		selectWebElement(searchBtn);
 		waitUntilWebElementIsVisible(gridcontent);
 		List<Map<String,String>> UI=gettable(); 
@@ -1098,8 +1090,6 @@ public class FaxAddressBookPage extends BasePage {
 	public void deleteRecipientWithoutDeleteReasonRecord(FaxAddressBookDetails details) throws Exception {
 		int item=Integer.valueOf(items.get(0).getText().split("of ")[1].split(" items")[0]);
 		searchRecipientRecord(details);
-		//waitUntilWebElementIsVisible(deleteRecordButton.get(item));
-		//selectWebElement(deleteRecordButton.get(item));
 		waitUntilWebElementIsVisible(deleteButton);
 		selectWebElement(deleteButton);	
 		waitForJqueryLoad(driver);
@@ -1145,9 +1135,9 @@ public class FaxAddressBookPage extends BasePage {
 		selectDropdownFromVisibleText(columnNameList,"Fax Number");
 		selectWebElement(selectSearchColumn.get(1));
 		selectDropdownFromVisibleText(searchTypeList,"Is equal to");
-		enterValueToTxtFieldWithoutClear(searchText.get(0),details.getNumber());
+		enterValueToTxtFieldWithoutClear(searchTextBox,details.getNumber());
 		selectWebElement(clearall);
-		if(searchText.get(0).isEnabled())
+		if(searchTextBox.isEnabled())
 			return true;
 		else
 			return false;
@@ -1184,9 +1174,9 @@ public class FaxAddressBookPage extends BasePage {
 		selectDropdownFromVisibleText(columnNameList,"Name");
 		selectWebElement(selectSearchColumn.get(1));
 		selectDropdownFromVisibleText(searchTypeList,"Is equal to");
-		enterValueToTxtFieldWithoutClear(searchText.get(0),details.getName());
+		enterValueToTxtFieldWithoutClear(searchTextBox,details.getName());
 		selectWebElement(clearall);
-		if(searchText.get(0).isEnabled())
+		if(searchTextBox.isEnabled())
 			return true;
 		else
 			return false;
@@ -1215,7 +1205,7 @@ public class FaxAddressBookPage extends BasePage {
 		selectDropdownFromVisibleText(columnNameList,"Name");
 		selectWebElement(selectSearchColumn.get(1));
 		selectDropdownFromVisibleText(searchTypeList,"Is equal to");
-		enterValueToTxtFieldWithoutClear(searchText.get(0),details.getName());
+		enterValueToTxtFieldWithoutClear(searchTextBox,details.getName());
 		selectWebElement(searchBtn);
 		waitForJqueryLoad(driver);
 		waitUntilWebElementIsVisible(auditGridAddressContent);		
@@ -1230,7 +1220,7 @@ public class FaxAddressBookPage extends BasePage {
 		selectDropdownFromVisibleText(columnNameList,"Name");
 		selectWebElement(selectSearchColumn.get(1));
 		selectDropdownFromVisibleText(searchTypeList,"Is equal to");
-		enterValueToTxtFieldWithoutClear(searchText.get(0),details.getName());
+		enterValueToTxtFieldWithoutClear(searchTextBox,details.getName());
 		selectWebElement(searchBtn);
 		waitForJqueryLoad(driver);
 		Thread.sleep(2000);
@@ -1255,7 +1245,7 @@ public class FaxAddressBookPage extends BasePage {
 		Thread.sleep(1000);
 		selectWebElement(selectSearchColumn.get(1));
 		selectDropdownFromVisibleText(searchTypeList,"Is not equal to");
-		enterValueToTxtField(searchText.get(0),details.getName());		
+		enterValueToTxtField(searchTextBox,details.getName());		
 		selectWebElement(searchBtn);
 		waitUntilWebElementIsVisible(auditGridAddressContent);
 		List<Map<String,String>> UI=getAddressBookdata(); 
@@ -1277,7 +1267,7 @@ public class FaxAddressBookPage extends BasePage {
 		Thread.sleep(1000);
 		selectWebElement(selectSearchColumn.get(1));
 		selectDropdownFromVisibleText(searchTypeList,"Contains");
-		enterValueToTxtField(searchText.get(0),details.getName());		
+		enterValueToTxtField(searchTextBox,details.getName());		
 		selectWebElement(searchBtn);
 		waitUntilWebElementIsVisible(auditGridAddressContent);
 		List<Map<String,String>> UI=getAddressBookdata(); 
@@ -1299,7 +1289,7 @@ public class FaxAddressBookPage extends BasePage {
 		selectWebElement(selectSearchColumn.get(1));
 		Thread.sleep(1000);
 		selectDropdownFromVisibleText(searchTypeList,"Does not contain");
-		enterValueToTxtField(searchText.get(0),details.getName());		
+		enterValueToTxtField(searchTextBox,details.getName());		
 		selectWebElement(searchBtn);
 		waitUntilWebElementIsVisible(auditGridAddressContent);
 		List<Map<String,String>> UI=getAddressBookdata(); 
@@ -1321,7 +1311,7 @@ public class FaxAddressBookPage extends BasePage {
 		Thread.sleep(1000);
 		selectWebElement(selectSearchColumn.get(1));
 		selectDropdownFromVisibleText(searchTypeList,"Starts with");
-		enterValueToTxtField(searchText.get(0),details.getFaxLine());		
+		enterValueToTxtField(searchTextBox,details.getFaxLine());		
 		selectWebElement(searchBtn);
 		waitUntilWebElementIsVisible(auditGridAddressContent);
 		List<Map<String,String>> UI=getAddressBookdata(); 
@@ -1343,7 +1333,7 @@ public class FaxAddressBookPage extends BasePage {
 		Thread.sleep(1000);
 		selectWebElement(selectSearchColumn.get(1));
 		selectDropdownFromVisibleText(searchTypeList,"Ends with");
-		enterValueToTxtField(searchText.get(0),details.getFaxLine());		
+		enterValueToTxtField(searchTextBox,details.getFaxLine());		
 		selectWebElement(searchBtn);
 		waitUntilWebElementIsVisible(auditGridAddressContent);
 		List<Map<String,String>> UI=getAddressBookdata(); 
@@ -1373,9 +1363,9 @@ public class FaxAddressBookPage extends BasePage {
 		selectWebElement(FaxLineDropdown);
 		selectDropdownFromVisibleText(FaxLineListbox,details.getFaxLine());
 		enterValueToTxtField(NameTextbox,details.getName());
-		selectWebElement(RecipientDropdown.get(1));
+		selectWebElement(RecipientDropdown.get(0));
 		selectMultipleDropdownFromVisibleText(RecipientListbox,details.getRecipient());
-		selectWebElement(RecipientDropdown.get(1));
+		selectWebElement(RecipientDropdown.get(0));
 		selectMultipleDropdownFromVisibleText(RecipientListbox,details.getRecipient1());
 		selectWebElement(saveBtn);
 		/*try {

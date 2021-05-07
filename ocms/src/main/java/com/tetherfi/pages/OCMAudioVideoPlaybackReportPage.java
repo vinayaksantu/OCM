@@ -133,7 +133,6 @@ public class OCMAudioVideoPlaybackReportPage extends BasePage  {
 	@FindBy(xpath="//button[@class='k-button k-button-icontext k-grid-excel']")		
 	private WebElement exporttoexcel;
 
-	//export to excel in AgentRptPage
 	@FindBy(xpath="//button[@id='exportAllToExcel']")
 	private WebElement exportToExcel;
 
@@ -177,7 +176,7 @@ public class OCMAudioVideoPlaybackReportPage extends BasePage  {
 	@FindBy(xpath="//p[@class='k-reset']")
 	private WebElement groupby;
 
-	@FindBy(xpath="//tbody/tr/td/p[@class='k-reset']/../../following-sibling::tr/td[6]")
+	@FindBy(xpath="//tbody/tr/td/p[@class='k-reset']/../../following-sibling::tr/td[10]")
 	private WebElement groupbyChannel;
 
 	@FindBy(xpath="//div[@data-role='droptarget']")
@@ -280,40 +279,40 @@ public class OCMAudioVideoPlaybackReportPage extends BasePage  {
 		for (int i = 0; i <= pages; i++) {
 			List<WebElement> rows=gridContent.findElements(By.tagName("tr"));
 			List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
-			int k=0;
-			for(int j=0;j<2;j++){
+			int k=2;
+			for(int j=8;j<10;j++){
 				if(headers.get(j).getText().equals("")||headers.get(j).getText().equals(" ")){continue;}
 				List<String> l1 = getColumnDatafromTable(headers.get(j).getText());
 				//System.out.println(l1);
 				List<String> temp = l1;
 				Collections.sort(temp);
-				//System.out.println(temp);
+				System.out.println(temp);
 				selectWebElement(headersDropdown.get(k));
 				waitForJqueryLoad(driver);
-				selectWebElement(sortAscending.get(k));
+				selectWebElement(sortAscending.get(k-2));
 				waitForJqueryLoad(driver);
 				List<String> l2 = getColumnDatafromTable(headers.get(j).getText());
-				//System.out.println(l2);
+				System.out.println(l2);
 				if (l2.equals(temp)) {/*System.out.println("sorting works fine");*/status = true;}else{status=false;}
 				if(status){}else{System.out.println("Ascending sorting failed for column name:"+headers.get(j).getText()+"\n"+l2);break;}
 				/*descending sort code*/
 				status=false;
 				temp = l1;
 				Collections.sort(temp,Collections.reverseOrder());
-				//System.out.println(temp);
+				System.out.println(temp);
 				selectWebElement(headersDropdown.get(k));
 				waitForJqueryLoad(driver);
-				selectWebElement(sortDescending.get(k));
+				selectWebElement(sortDescending.get(k-2));
 				waitForJqueryLoad(driver);
 				k++;
 				List<String> l3 = getColumnDatafromTable(headers.get(j).getText());
-				//System.out.println(l3);
+				System.out.println(l3);
 				if (l3.equals(temp)) {/*System.out.println("sorting works fine");*/status = true;}
 				if(status){}else{System.out.println("Descending sorting failed for column name:"+headers.get(j).getText()+"\n"+l3);break;}
 			}
-			if(status){}else{break;}
+			/*if(status){}else{break;}
 			nextPageIcon.click();
-			waitForJqueryLoad(driver);
+			waitForJqueryLoad(driver);*/
 		}
 		return status;
 	}
@@ -621,13 +620,15 @@ public class OCMAudioVideoPlaybackReportPage extends BasePage  {
 
 
 
-	public boolean verifyArrowMoveForPreviousAndNextPage(){
+	public boolean verifyArrowMoveForPreviousAndNextPage() throws Exception{
 		boolean status=false;
 		if(!nextPageIcon.getAttribute("class").contains("k-state-disabled")){
 			int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 			selectWebElement(nextPageIcon);
+			Thread.sleep(2000);
 			int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 			selectWebElement(previousPageIcon);
+			Thread.sleep(2000);
 			int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 			if(nextnumber==(pagenumber+1) && pagenumber==previousnumber){status=true;}
 		}else{
@@ -637,13 +638,15 @@ public class OCMAudioVideoPlaybackReportPage extends BasePage  {
 	}
 
 
-	public boolean verifyArrowMoveForFirstAndLastPage(){
+	public boolean verifyArrowMoveForFirstAndLastPage() throws Exception{
 		boolean status=false;
 		if(!lastPageIcon.getAttribute("class").contains("k-state-disabled")){
 			int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 			selectWebElement(lastPageIcon);
+			Thread.sleep(2000);
 			int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 			selectWebElement(firstPageIcon);
+			Thread.sleep(2000);
 			int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 			if(nextnumber>pagenumber && pagenumber==previousnumber){status=true;}
 		}else{
@@ -651,7 +654,7 @@ public class OCMAudioVideoPlaybackReportPage extends BasePage  {
 		}
 		return status;
 	}
-
+	
 	public boolean verifyTotalNumberOfItemsPerPageDetails(){
 		String item = items.getText();
 		return item.matches("(\\d.*) - (\\d.*) of (\\d.*) items");
@@ -833,10 +836,13 @@ public class OCMAudioVideoPlaybackReportPage extends BasePage  {
 	
 
 	public boolean verifySearchByTextbox(ReportDetails details) throws Exception{	
+		waitForJqueryLoad(driver);
 		boolean Status=false;		
 		selectWebElement(searchbyfeatureTextBox);    		
 		enterValueToTxtFieldWithoutClear(searchbyfeatureTextBox,details.getSearchStr());
+		Thread.sleep(2000);
 		selectDropdownFromVisibleText(searchbyfeaturelistBox,details.getSearchStr());	
+		Thread.sleep(2000);
 		waitForJqueryLoad(driver);
 		List<Map<String,String>> UI=getDataTable(); 
 		for (Map<String,String> map1: UI)
@@ -1067,22 +1073,23 @@ public class OCMAudioVideoPlaybackReportPage extends BasePage  {
 		List<Map<String,String>>UI=getDataTable();
 		for(Map<String,String> map1:UI)
 		{
-			System.out.println(map1.get("Agent ID"));
-			if(map1.get("Agent ID").toLowerCase().startsWith(reportDetails.getSearchStr()))				
+			System.out.println(map1.get("Agent Name"));
+			if(map1.get("Agent Name").toLowerCase().startsWith(reportDetails.getSearchStr()))				
 				Status= true;
 			else 
 				Status =false;
 		}
 		return Status;
 	}
+	
 	public boolean verifyAdvanceSearchEndsWith(ReportDetails reportDetails) throws Exception {
 		Boolean Status=false;
 		waitForJqueryLoad(driver);
 		List<Map<String,String>>UI=getDataTable();
 		for(Map<String,String> map1:UI)
 		{
-			System.out.println(map1.get("Agent ID"));
-			if(map1.get("Agent ID").toLowerCase().endsWith(reportDetails.getSearchStr()))				
+			System.out.println(map1.get("Supervisor Name"));
+			if(map1.get("Supervisor Name").toLowerCase().contains(reportDetails.getSearchStr()))				
 				Status= true;
 			else 
 				Status =false;
@@ -1118,12 +1125,17 @@ public class OCMAudioVideoPlaybackReportPage extends BasePage  {
 		waitForLoad(driver);
 		waitForJqueryLoad(driver);
 		waitUntilWebElementIsVisible(gridBoxContent);
-		Thread.sleep(2000);
-		if(rowdata.getText().equals(details.getSearchStr()) && rowdata.getText().contains(details.getSearchStr1())) {
-			Status=true;
+		Thread.sleep(5000);
+		List<Map<String,String>>UI=getDataTable();
+		for(Map<String,String> map1:UI)
+		{
+			System.out.println(map1.get("Agent Name"));
+			if(map1.get("Agent Name").toLowerCase().equals(details.getSearchStr().toLowerCase()) &&map1.get("Agent Name").toLowerCase().contains(details.getSearchStr1().toLowerCase()))
+				Status= true;
+			else 
+				Status =false;
 		}
-		return Status;	
-
+		return Status;
 	}
 	public Boolean advancedSearchORCriteria(ReportDetails details) throws Exception {
 		Boolean Status=false;	
@@ -1154,14 +1166,17 @@ public class OCMAudioVideoPlaybackReportPage extends BasePage  {
 		waitForLoad(driver);
 		waitForJqueryLoad(driver);
 		waitUntilWebElementIsVisible(gridBoxContent);
-		Thread.sleep(3000);
-		List<WebElement> rows=Grid.findElements(By.tagName("tr"));	
-		for(WebElement e:rows)
+		Thread.sleep(2000);
+		List<Map<String,String>>UI=getDataTable();
+		for(Map<String,String> map1:UI)
 		{
-			if(rowdata.getText().equals(details.getSearchStr())||rowdatatwo.getText().contains(details.getSearchStr2()))
-				Status=true;
+			System.out.println(map1.get("Agent Name"));
+			if(map1.get("Agent Name").toLowerCase().equals(details.getSearchStr().toLowerCase()) &&map1.get("Agent ID").toLowerCase().startsWith(details.getSearchStr1().toLowerCase()))
+				Status= true;
+			else 
+				Status =false;
 		}
-		return Status;	
+		return Status;
 
 	}
 

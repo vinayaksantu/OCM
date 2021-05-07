@@ -42,12 +42,12 @@ public class EmailTemplateTest extends BaseTest{
 	        ocmHomePage.navigateToTab("Email");
 	        EmailPage EmailPage = PageFactory.createPageInstance(driver,EmailPage.class);
 	        Assert.assertTrue(EmailPage.isEmailPageDisplayed(),"Email page assertion failed");
-	        EmailPage.navigateToEmailTemplatesPage();
+	        EmailPage.navigateToEmailTemplatePage();
 	        EmailTemplatePage EmailTemplatePage = PageFactory.createPageInstance(driver,EmailTemplatePage.class);
 	        Assert.assertTrue(EmailTemplatePage.isEmailTemplatePageDisplayed(),"Email Template page assertion failed");
       }
     
-   /* @Test(priority=1)
+   @Test(priority=1)
 	public void EmailTemplatePage() {
         EmailTemplatePage EmailTemplatePage = PageFactory.createPageInstance(driver, EmailTemplatePage.class);
         Assert.assertTrue(EmailTemplatePage.VerifyLogo(),"Logo assertion failed");
@@ -680,7 +680,7 @@ public class EmailTemplateTest extends BaseTest{
         EmailTemplatePage.clickOnCancelBtn();
         Assert.assertTrue(EmailTemplatePage.verifyGroupGrid(), "Cancel Btn at Add record assertion failed");
 	}
-    */
+    
     @Test(priority=70)//,dependsOnMethods = "AddNewGroupsRecord")
     public void AddNewEmailTemplateRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\EmailTemplateData.xlsx";

@@ -46,10 +46,11 @@ public class RoleBasedAccessManagementCreateTest {
         else
             map= new ExcelReader(filePath,"Login").getTestData().get(0);
         try{driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);}catch (TimeoutException e){e.printStackTrace();driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);}
+        LoginPage loginPage=PageFactory.createPageInstance(driver,LoginPage.class);
+        loginPage.overrideSecurityConcern();
         if(map.get("LoginType").equals("Custom")){
-            LoginPage loginPage=PageFactory.createPageInstance(driver,LoginPage.class);
             Assert.assertTrue(loginPage.isLoginPageDisplayed(),"Login page not loaded");
-            loginPage.login(map.get("Username"),map.get("Password"));
+			loginPage.login(map.get("Username"),map.get("Password"),map.get("EmailId"));
             Thread.sleep(5000);
         }
         HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
@@ -109,7 +110,7 @@ public class RoleBasedAccessManagementCreateTest {
         Assert.assertTrue(roleBasedAccessManagementPage.verifyApprovedSectionData(userDetails));
 	}
 	
-	@Test(groups = { "Maker" },priority=6,dependsOnMethods = "VerifyApprovedDataSectionWithoutApproval")
+	@Test(groups = { "Maker" },priority=6)
     public void VerifyAuditTrailReportForRevert() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\RoleBasedAccessManagementData.xlsx";
 	    Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -210,7 +211,7 @@ public class RoleBasedAccessManagementCreateTest {
         Assert.assertTrue(roleBasedAccessManagementPage.verifyAuditTrail(userDetails, "MakerCreate", "New"), "Audit trail details failed");
     }
     
-    @Test(groups = { "Maker" },priority=15,dependsOnMethods="VerifyAuditTrailDataForAddNewNewRoleBasedAccessManagementRecord")
+    @Test(groups = { "Maker" },priority=15)
     public void VerifySendForApprovalForAddNewNewRoleBasedAccessManagementRecord() throws Exception {
         RoleBasedAccessManagementPage roleBasedAccessManagementPage=PageFactory.createPageInstance(driver,RoleBasedAccessManagementPage.class);
        	roleBasedAccessManagementPage.selectRoleBasedAccessManagementAuditTrailTab();
@@ -234,7 +235,7 @@ public class RoleBasedAccessManagementCreateTest {
         Assert.assertTrue(ocmReportsPage.verifyRoleBasedAccessManagementCreate(userDetails, "MakerSendToApproval"),"Audit Trail report assertion failed");
     }
     
-	@Test(groups = { "Checker" },priority=17,dependsOnMethods="VerifyAuditTrailReportForSendForApproval")
+	@Test(groups = { "Checker" },priority=17)
     public void ApproveforAddNewNewRoleBasedAccessManagementRecord() throws Exception{
         RoleBasedAccessManagementPage roleBasedAccessManagementPage=PageFactory.createPageInstance(driver,RoleBasedAccessManagementPage.class);
        	roleBasedAccessManagementPage.clickonApprove("Approve Create");
@@ -266,7 +267,7 @@ public class RoleBasedAccessManagementCreateTest {
         Assert.assertTrue(roleBasedAccessManagementPage.verifyApprovedSectionDataafterapproval(userDetails));
     }
     
-    @Test(groups = { "Maker" },priority=20)//,dependsOnMethods="AddNewNewRoleBasedAccessManagementRecord")
+    @Test(groups = { "Maker" },priority=20,enabled=false)//,dependsOnMethods="AddNewNewRoleBasedAccessManagementRecord")
     public void AddDuplicateRecord() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\RoleBasedAccessManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);

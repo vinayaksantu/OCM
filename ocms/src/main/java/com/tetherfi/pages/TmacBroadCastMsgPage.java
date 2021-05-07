@@ -3,6 +3,8 @@ package com.tetherfi.pages;
 
 import com.tetherfi.model.tmac.TmacBroadCastMsgDetails;
 import com.tetherfi.model.tmac.WorkCodeListDetails;
+
+import org.apache.poi.util.SystemOutLogger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -100,7 +102,7 @@ public class TmacBroadCastMsgPage extends BasePage {
 	@FindBy(xpath="//div[text()='No records to display']")
 	private WebElement norecords;
  
-	@FindBy(xpath="//i[@class='fas fa-sync']")
+	@FindBy(xpath="//i[@class='fas fa-sync fa-spin']")
 	private WebElement clearsearch;
 
     @FindBy(css = ".fa-search")
@@ -210,6 +212,9 @@ public class TmacBroadCastMsgPage extends BasePage {
     
     @FindBy(css="th a[class='k-link']")
     private List<WebElement> headersText;
+    
+    @FindBy(xpath="//a[text()='Message']")
+    private WebElement MessageColumn;
 
     public boolean isTmacBroadcastMsgPageDisplayed() {
         waitForLoad(driver);
@@ -222,8 +227,9 @@ public class TmacBroadCastMsgPage extends BasePage {
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Message");
         selectWebElement(selectSearchCol.get(1));
+        Thread.sleep(1000);
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Contains");
-        enterValueToTxtField(searchTextBox,message);
+        enterValueToTxtFieldWithoutClear(searchTextBox,message);
         selectWebElement(searchSearchBtn);
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(gridContent);
@@ -237,10 +243,12 @@ public class TmacBroadCastMsgPage extends BasePage {
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Message");
         selectWebElement(selectSearchCol.get(1));
+        Thread.sleep(1000);
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is not equal to");
         enterValueToTxtField(searchTextBox,message);		
         selectWebElement(searchSearchBtn);
         waitUntilWebElementIsVisible(gridContent);
+        Thread.sleep(5000);
         List<Map<String,String>> UI=gettable(); 
         for (Map<String,String> map1: UI)
         {   	
@@ -259,10 +267,12 @@ public class TmacBroadCastMsgPage extends BasePage {
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Message");
         selectWebElement(selectSearchCol.get(1));
+        Thread.sleep(1000);
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Contains");
         enterValueToTxtField(searchTextBox,message);		
         selectWebElement(searchSearchBtn);
         waitUntilWebElementIsVisible(gridContent);
+        Thread.sleep(3000);
         List<Map<String,String>> UI=gettable(); 
         for (Map<String,String> map1: UI)
         {   	
@@ -273,6 +283,7 @@ public class TmacBroadCastMsgPage extends BasePage {
 	}
         return Status;
 	}
+    
 	public boolean verifySearchDoesNotContains(String message) throws Exception {
 		Boolean Status=false;
 		selectWebElement(searchBtn);
@@ -282,6 +293,7 @@ public class TmacBroadCastMsgPage extends BasePage {
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Does not contain");
         enterValueToTxtField(searchTextBox,message);		
         selectWebElement(searchSearchBtn);
+        Thread.sleep(3000);
         waitUntilWebElementIsVisible(gridContent);
         List<Map<String,String>> UI=gettable(); 
         for (Map<String,String> map1: UI)
@@ -300,10 +312,12 @@ public class TmacBroadCastMsgPage extends BasePage {
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Message");
         selectWebElement(selectSearchCol.get(1));
+        Thread.sleep(1000);
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Starts with");
         enterValueToTxtField(searchTextBox,message);		
         selectWebElement(searchSearchBtn);
         waitUntilWebElementIsVisible(gridContent);
+        Thread.sleep(3000);
         List<Map<String,String>> UI=gettable(); 
         for (Map<String,String> map1: UI)
         {   	
@@ -321,10 +335,12 @@ public class TmacBroadCastMsgPage extends BasePage {
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Message");
         selectWebElement(selectSearchCol.get(1));
+        Thread.sleep(1000);
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Ends with");
         enterValueToTxtField(searchTextBox,message);		
         selectWebElement(searchSearchBtn);
         waitUntilWebElementIsVisible(gridContent);
+        Thread.sleep(3000);
         List<Map<String,String>> UI=gettable(); 
         for (Map<String,String> map1: UI)
         {   	
@@ -535,6 +551,7 @@ public class TmacBroadCastMsgPage extends BasePage {
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Message");
         selectWebElement(selectSearchCol.get(1));
+        Thread.sleep(1000);
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Contains");
         enterValueToTxtField(searchTextBox,tmacBroadCastMsgDetails.getMessage());
         selectWebElement(clearall);
@@ -671,9 +688,11 @@ public class TmacBroadCastMsgPage extends BasePage {
 			return true;
 	}
 
-	public boolean verifyDatabase(String query) {
+	public boolean verifyDatabase(String query) throws Exception {
+		selectWebElement(MessageColumn);
 		List<Map<String,String>> database=database(query);
 		System.out.println(database);
+		Thread.sleep(5000);
 		List<Map<String,String>> UI=gettable(); 
 		System.out.println(UI);
 		if(UI.equals(database))
@@ -682,13 +701,13 @@ public class TmacBroadCastMsgPage extends BasePage {
 			return false;
 	}
 
-	private List<Map<String,String>> gettable(){
+	private List<Map<String,String>> gettable() throws Exception{
+		Thread.sleep(4000);
 		int item=Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
         int pagersize=Integer.valueOf(pagerSize.getText());
         int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
 		List<Map<String,String>> arr=new ArrayList<Map<String,String>>();
 		for(int k=0;k<=pages;k++){
-
 		waitUntilWebElementIsVisible(auditGridContent);
 		List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
 		List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
@@ -749,7 +768,7 @@ public class TmacBroadCastMsgPage extends BasePage {
 	public boolean verifyExportToExcel(String filepath) {
 		final File folder = new File(filepath);
 		for (final File f : folder.listFiles()) {
-		    if (f.getName().startsWith("TMAC Broadcast Message")) {
+		    if (f.getName().startsWith("Agent Broadcast Message")) {
 		        f.delete();
 		    }
 		}
@@ -761,7 +780,7 @@ public class TmacBroadCastMsgPage extends BasePage {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		Boolean Status=verifyExportPageFileDownload(filepath, "TMAC Broadcast Message");
+		Boolean Status=verifyExportPageFileDownload(filepath, "Agent Broadcast Message");
 		return Status;
 	}
 		
@@ -785,13 +804,16 @@ public class TmacBroadCastMsgPage extends BasePage {
 		else
 			return false;		
 	}
-	public boolean verifyArrowMoveForPreviousAndNextPage(){
+	public boolean verifyArrowMoveForPreviousAndNextPage() throws Exception{
         boolean status=false;
         if(!nextPageIcon.getAttribute("class").contains("k-state-disabled")){
+        Thread.sleep(1000);
         int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber));
         selectInvisibleWebElement(nextPageIcon);
+    	Thread.sleep(1000);
         int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
         selectInvisibleWebElement(previousPageIcon);
+    	Thread.sleep(1000);
         int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
         if(nextnumber==(pagenumber+1) && pagenumber==previousnumber){status=true;}
         }else{
@@ -799,13 +821,16 @@ public class TmacBroadCastMsgPage extends BasePage {
         }
         return status;
 	}
-	public boolean verifyArrowMoveForFirstAndLastPage(){
+	public boolean verifyArrowMoveForFirstAndLastPage() throws Exception{
         boolean status=false;
         if(!lastPageIcon.getAttribute("class").contains("k-state-disabled")){
+        	Thread.sleep(1000);
             int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber));
             selectInvisibleWebElement(lastPageIcon);
+        	Thread.sleep(1000);
             int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
             selectInvisibleWebElement(firstPageIcon);
+        	Thread.sleep(1000);
             int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
             if(nextnumber>pagenumber && pagenumber==previousnumber){status=true;}
         }else{

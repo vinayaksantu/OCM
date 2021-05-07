@@ -9,20 +9,14 @@ import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
 import com.tetherfi.model.report.ReportDetails;
 import com.tetherfi.model.tmac.AgentSettingsDetails;
-import com.tetherfi.model.tmac.TmacAuxCodesDetails;
-import com.tetherfi.model.tmac.TmacBroadCastMsgDetails;
-import com.tetherfi.model.user.AgentSkillAssignmentDetails;
 import com.tetherfi.model.user.AgentSkillAssignmentNewDetails;
-import com.tetherfi.pages.AdhocOptionEnhancementPage;
 import com.tetherfi.pages.AgentSkillAssignmentNewPage;
-import com.tetherfi.pages.AgentSkillAssignmentPage;
 import com.tetherfi.pages.HomePage;
 import com.tetherfi.pages.OCMHomePage;
 import com.tetherfi.pages.OCMReportsPage;
-import com.tetherfi.pages.TmacBroadCastMsgPage;
+import com.tetherfi.pages.TmacPage;
 import com.tetherfi.utility.ExcelReader;
 import com.tetherfi.utility.PageFactory;
 import com.tetherfi.utility.Screenshot;
@@ -35,8 +29,11 @@ public class AgentSkillAssignmentNewTest extends BaseTest {
 		HomePage homePage=PageFactory.createPageInstance(driver, HomePage.class);
 		homePage.navigateToOCMPage();
 		OCMHomePage ocmHomePage=PageFactory.createPageInstance(driver, OCMHomePage.class);
-		Assert.assertTrue(ocmHomePage.isOCMHomePageIsDisplayed(), "HomePage Assertion Failed");
-		ocmHomePage.navigateToAgentSkillAssignmentPage();
+		Assert.assertTrue(ocmHomePage.isOCMHomePageIsDisplayed(), "OCM HOME Page assertion failed");
+		ocmHomePage.navigateToTab("TMAC");
+		TmacPage tmacPage = PageFactory.createPageInstance(driver,TmacPage.class);
+		Assert.assertTrue(tmacPage.isTMACPageDisplayed(),"TMAC page assertion failed");
+		tmacPage.navigateToAgentSkillAssignmentPage();
 		AgentSkillAssignmentNewPage agentSkillAssignmentNewPage=PageFactory.createPageInstance(driver, AgentSkillAssignmentNewPage.class);
 		Assert.assertTrue(agentSkillAssignmentNewPage.isAgentSkillAssignmentPageIsDisplayed(), "Agent Skill Assignment assertion Failed ");
 	}
@@ -58,7 +55,7 @@ public class AgentSkillAssignmentNewTest extends BaseTest {
 		Assert.assertTrue(agentSkillAssignmentNewPage.verifyEditAgentListRecordButton(), "Edit Agent Skill Assertion Failed");
 	}
 	
-	@Test(priority=3)
+	/*@Test(priority=3)
 	public void VerifyAddNewRecordInAgentSettings() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentSkillAssignmentNewData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -67,7 +64,7 @@ public class AgentSkillAssignmentNewTest extends BaseTest {
 		agentSkillAssignmentNewPage.verifyEditAgentListRecordButton();
 		agentSkillAssignmentNewPage.addNewAgentSettingsRecord(agentSettingsDetails);
 		Assert.assertEquals(agentSkillAssignmentNewPage.verifySuccessMessage(), "Record Created Successfully","Create Assertion failed");
-	}
+	}*/
 	
 	@Test(priority=4)
 	public void VerifyArrowDropDownData() throws Exception {
@@ -310,7 +307,7 @@ public class AgentSkillAssignmentNewTest extends BaseTest {
         Assert.assertTrue(agentSkillAssignmentNewPage.verifyRecordUpdated(),"Assign skill assertion failed");
     }
     
-	// @Test(priority=28)
+	@Test(priority=28)
 	 public void verifyAuditTrailReportForUpdate() throws Exception {
 		 String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentSkillAssignmentNewData.xlsx";
     	 Map<String, String>map=new ExcelReader(filePath,"Edit").getTestData().get(0);
@@ -579,7 +576,7 @@ public class AgentSkillAssignmentNewTest extends BaseTest {
 		Assert.assertTrue(agentSkillAssignmentNewPage.verifyRecordUpdated(),"Assign skill assertion failed");
 	}
 	
-	// @Test(priority=53)
+	@Test(priority=53)
 	 public void verifyAuditTrailReportForMultiSkillUpdate() throws Exception {
 		 String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentSkillAssignmentNewData.xlsx";
     	 Map<String, String>map=new ExcelReader(filePath,"Edit").getTestData().get(0);
@@ -604,7 +601,7 @@ public class AgentSkillAssignmentNewTest extends BaseTest {
     //@Test(priority=55)
     public void ExportToExcelData() throws Exception {	
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Agent Skill Assignment.xlsx";
-    	List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestDataForAgentSettings();
+    	List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getExcelData();
     	AgentSkillAssignmentNewPage agentSkillAssignmentNewPage = PageFactory.createPageInstance(driver, AgentSkillAssignmentNewPage.class);
     	Assert.assertTrue(agentSkillAssignmentNewPage.verifyexportToExcelSheet(maplist));	
     }

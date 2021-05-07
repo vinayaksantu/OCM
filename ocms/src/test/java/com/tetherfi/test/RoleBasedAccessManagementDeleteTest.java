@@ -43,10 +43,11 @@ public class RoleBasedAccessManagementDeleteTest {
         else
             map= new ExcelReader(filePath,"Login").getTestData().get(0);
         try{driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);}catch (TimeoutException e){e.printStackTrace();driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);}
+        LoginPage loginPage=PageFactory.createPageInstance(driver,LoginPage.class);
+        loginPage.overrideSecurityConcern();
         if(map.get("LoginType").equals("Custom")){
-            LoginPage loginPage=PageFactory.createPageInstance(driver,LoginPage.class);
             Assert.assertTrue(loginPage.isLoginPageDisplayed(),"Login page not loaded");
-            loginPage.login(map.get("Username"),map.get("Password"));
+			loginPage.login(map.get("Username"),map.get("Password"),map.get("EmailId"));
             Thread.sleep(5000);
         }
         HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
@@ -58,7 +59,7 @@ public class RoleBasedAccessManagementDeleteTest {
         Assert.assertTrue(RoleBasedAccessManagementPage.isRoleBasedAccessManagementPageDisplayed(), "SMS Response Template page assertion failed");
     }
 	
-	/*@Test(groups= {"Maker"}, priority=1)
+	@Test(groups= {"Maker"}, priority=1)
 	public void DeleteCancelRoleBasedAccessManagementRecord() throws Exception {
 		 String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\RoleBasedAccessManagementData.xlsx";
 	     Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(0);
@@ -151,7 +152,7 @@ public class RoleBasedAccessManagementDeleteTest {
 	    ReportDetails reportDetails= new ReportDetails(map1);
 	    ocmReportsPage.showReport(reportDetails);
         Assert.assertTrue(ocmReportsPage.verifyRoleBasedAccessManagementDelete(UserDetails, "CheckerReject"),"Audit Trail report assertion failed");
-    }*/
+    }
     
 	@Test(groups= {"Maker"},priority=10)
 	public void DeleteRoleBasedAccessManagementRecord() throws Exception {

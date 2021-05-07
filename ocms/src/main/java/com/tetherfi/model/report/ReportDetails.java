@@ -12,6 +12,7 @@ import java.util.Map;
 public class ReportDetails {
 
     private String reportChannel;
+    private String reportChannel1;
     private String reportName;
     private String reportType;
     private String reportDate;
@@ -36,10 +37,9 @@ public class ReportDetails {
     private String faxline;
     private String orgUnitID;
     
-    
-
     public ReportDetails(Map<String, String> map){
         reportChannel=readReportChannel(map);
+        reportChannel1=readReportChannel1(map);
         reportName=readReportname(map);
         reportName1=readReportName1(map);
         reportType=readReportType(map);
@@ -221,6 +221,13 @@ public class ReportDetails {
         }
         return value;
     }
+    private String readReportChannel1(Map<String, String> map) {
+        String value=map.get("Report Channel1");
+        if(value==null||value.equalsIgnoreCase("random.str")){
+            value= RandomStringUtils.randomAlphabetic(10);
+        }
+        return value;
+    }
     private String readQuery(Map<String, String> map) {
 		String value=map.get("Query");
 		return value;
@@ -246,6 +253,10 @@ public class ReportDetails {
     
     public String getReportChannel() {
         return reportChannel;
+    }
+    
+    public String getReportChannel1() {
+        return reportChannel1;
     }
 
     public String getReportName() {

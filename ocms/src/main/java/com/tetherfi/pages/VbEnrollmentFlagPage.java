@@ -119,7 +119,7 @@ public class VbEnrollmentFlagPage extends BasePage {
 	@FindBy(xpath="//div[text()='No records to display']")
 	private WebElement norecords;
 		    
-	@FindBy(xpath="//i[@class='fas fa-sync']")
+	@FindBy(xpath="//i[@class='fas fa-sync fa-spin']")
 	private WebElement clearsearch;
 		
 	@FindBy(css=".k-pager-numbers .k-state-selected")
@@ -179,16 +179,16 @@ public class VbEnrollmentFlagPage extends BasePage {
 	@FindBy(css = "#toast-container .toast-error .toast-message")
 	private List<WebElement> errorMsg;
 	
-	@FindBy(id="DNIS")
+	@FindBy(id="Dnis")
 	private WebElement DNISTextbox;
 	
-	@FindBy(id="HotlineName")
+	@FindBy(id="HotLineName")
 	private WebElement HotLineNameTextBox;
 	    
-	@FindBy(css="span[aria-owns='EnrollmentFlag_listbox']")
+	@FindBy(css="span[aria-owns='EnRollmentFlag_listbox']")
 	private WebElement EnrollmentFlagDropdown;
 	
-	@FindBy(css="ul[id='EnrollmentFlag_listbox'] li")
+	@FindBy(css="ul[id='EnRollmentFlag_listbox'] li")
 	private List<WebElement> EnrollmentFlagListbox;
 	
 	public boolean isVbEnrollmentFlagPageDisplayed() {
@@ -313,7 +313,7 @@ public class VbEnrollmentFlagPage extends BasePage {
 		}
 			return arr;
 	}
-	public boolean verifyDatabase(String query) {
+	public boolean verifyDatabase(String query) throws Exception {
 		List<Map<String,String>> database=database(query);
 		System.out.println(database);
 		List<Map<String,String>> UI=gettable(); 
@@ -324,7 +324,8 @@ public class VbEnrollmentFlagPage extends BasePage {
 			return false;
 	}
 	
-	public List<Map<String, String>> gettable() {
+	public List<Map<String, String>> gettable() throws Exception {
+		Thread.sleep(4000);
 		int item=Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
         int pagersize=Integer.valueOf(pagerSize.getText());
         int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
@@ -365,13 +366,16 @@ public class VbEnrollmentFlagPage extends BasePage {
 			return arr;
 	}
 	
-	public boolean verifyArrowMoveForPreviousAndNextPage(){
+	public boolean verifyArrowMoveForPreviousAndNextPage() throws Exception{
         boolean status=false;
         if(!nextPageIcon.getAttribute("class").contains("k-state-disabled")){
+        	Thread.sleep(2000);
         int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber));
         selectWebElement(nextPageIcon);
+    	Thread.sleep(2000);
         int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
         selectWebElement(previousPageIcon);
+    	Thread.sleep(2000);
         int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
         if(nextnumber==(pagenumber+1) && pagenumber==previousnumber){status=true;}
         }else{
@@ -379,13 +383,16 @@ public class VbEnrollmentFlagPage extends BasePage {
         }
         return status;
 	}
-	public boolean verifyArrowMoveForFirstAndLastPage(){
+	public boolean verifyArrowMoveForFirstAndLastPage() throws Exception{
         boolean status=false;
         if(!lastPageIcon.getAttribute("class").contains("k-state-disabled")){
+        	Thread.sleep(2000);
             int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber));
             selectWebElement(lastPageIcon);
+        	Thread.sleep(2000);
             int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
             selectWebElement(firstPageIcon);
+        	Thread.sleep(2000);
             int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
             if(nextnumber>pagenumber && pagenumber==previousnumber){status=true;}
         }else{

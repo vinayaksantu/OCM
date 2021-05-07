@@ -111,7 +111,7 @@ public class DashboardColorCodeConfigTest extends BaseTest {
        Assert.assertEquals(dshccpage.verifymessage(),"Record Creation Failed, Already Exist","Duplicate Assertion failed");
    }
     
-    @Test(priority=9)
+    @Test(priority=9,enabled=false)
     public void VerifyAuditTrialReportForCreate() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\DashboardColourConfig.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -155,7 +155,7 @@ public class DashboardColorCodeConfigTest extends BaseTest {
         Assert.assertEquals(dshccpage.getSuccessMessage(),"Record updated successfully","Edit record assertion failed");
     }
    	
-   	@Test(priority=13)
+   	@Test(priority=13,enabled=false)
     public void VerifyAuditTrialReportForUpdate() throws Exception {
 	   String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\DashboardColourConfig.xlsx";
        Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
@@ -331,7 +331,7 @@ public class DashboardColorCodeConfigTest extends BaseTest {
 	  Assert.assertEquals(dshccpage.verifymessage(),"Please enter the delete reason","empty delete reason record assertion failed");
   }
  
-  @Test(priority=34)
+  @Test(priority=34,enabled=false)
   public void DeleteRecord() throws Exception {
 	  String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\DashboardColourConfig.xlsx";
 	  Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);

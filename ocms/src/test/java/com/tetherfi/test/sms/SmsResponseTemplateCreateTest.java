@@ -46,11 +46,12 @@ public class SmsResponseTemplateCreateTest {
             map= new ExcelReader(filePath,"Login").getTestData().get(1);
         else
             map= new ExcelReader(filePath,"Login").getTestData().get(0);
-        try{driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);}catch (TimeoutException e){e.printStackTrace();driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);}
+        try{driver.get("https://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);}catch (TimeoutException e){e.printStackTrace();driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);}
+        LoginPage loginPage=PageFactory.createPageInstance(driver,LoginPage.class);
+        loginPage.overrideSecurityConcern();
         if(map.get("LoginType").equals("Custom")){
-            LoginPage loginPage=PageFactory.createPageInstance(driver,LoginPage.class);
             Assert.assertTrue(loginPage.isLoginPageDisplayed(),"Login page not loaded");
-            loginPage.login(map.get("Username"),map.get("Password"));
+			loginPage.login(map.get("Username"),map.get("Password"),map.get("EmailId"));
             Thread.sleep(5000);
         }
         HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
@@ -207,7 +208,8 @@ public class SmsResponseTemplateCreateTest {
         SmsResponseTemplatePage SmsResponseTemplatePage = PageFactory.createPageInstance(driver, SmsResponseTemplatePage.class);
         Assert.assertTrue(SmsResponseTemplatePage.verifyApprovedSectionData(SmsResponseTemplateDetails));
     }
-	@Test(groups = { "Maker" },priority=15)
+	
+    @Test(groups = { "Maker" },priority=15)
     public void AddNewSmsResponseTemplateRecord() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\SmsResponseTemplateData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -232,7 +234,7 @@ public class SmsResponseTemplateCreateTest {
         Assert.assertTrue(ocmReportsPage.verifySmsResponseTemplateCreate(SmsResponseTemplateDetails, "MakerCreate"),"Audit Trail report assertion failed");
     }
     
-    @Test(groups = { "Maker" },priority=17,dependsOnMethods="AddNewSmsResponseTemplateRecord")
+    @Test(groups = { "Maker" },priority=17)//,dependsOnMethods="AddNewSmsResponseTemplateRecord")
     public void VerifyAuditTrailDataForAddNewSmsResponseTemplateRecord() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\SmsResponseTemplateData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);

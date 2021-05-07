@@ -170,7 +170,7 @@ public class WorkCodeListPage extends BasePage{
     @FindBy(xpath="//div[text()='No records to display']")
     private WebElement norecords;
     
-    @FindBy(xpath="//i[@class='fas fa-sync']")
+    @FindBy(xpath="//i[@class='fas fa-sync fa-spin']")
     private WebElement clearsearch;
 
     @FindBy(xpath="//a[@class='k-button k-button-icontext k-grid-CustomDelete']")
@@ -255,8 +255,18 @@ public class WorkCodeListPage extends BasePage{
         if(!nextPageIcon.getAttribute("class").contains("k-state-disabled")){
         int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber));
         selectWebElement(nextPageIcon);
+        try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
         int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
         selectWebElement(previousPageIcon);
+        try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
         int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
         if(nextnumber==(pagenumber+1) && pagenumber==previousnumber){status=true;}
         }else{
@@ -269,8 +279,18 @@ public class WorkCodeListPage extends BasePage{
         if(!lastPageIcon.getAttribute("class").contains("k-state-disabled")){
             int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber));
             selectWebElement(lastPageIcon);
+            try {
+    			Thread.sleep(3000);
+    		} catch (InterruptedException e) {
+    			e.printStackTrace();
+    		}
             int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
             selectWebElement(firstPageIcon);
+            try {
+    			Thread.sleep(3000);
+    		} catch (InterruptedException e) {
+    			e.printStackTrace();
+    		}
             int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
             if(nextnumber>pagenumber && pagenumber==previousnumber){status=true;}
         }else{
@@ -313,6 +333,7 @@ public class WorkCodeListPage extends BasePage{
 
 	public void addNewWorkGroup(WorkCodeListDetails details) throws Exception {
 		selectWebElement(addnewrecordbtn);
+		Thread.sleep(1000);
 		chooseWorkLevel(details);
 		enterValueToTxtField(addnametextbox,details.getName());
 		selectWebElement(savebtn);
@@ -350,8 +371,9 @@ public class WorkCodeListPage extends BasePage{
 			else
 			{return false;}
 	}
-	public boolean errormessage() {
-		waitUntilWebElementListIsVisible(errorMsg);
+	public boolean errormessage() throws Exception {
+		Thread.sleep(1000);
+		//waitUntilWebElementListIsVisible(errorMsg);
 		if(errorMsg.size()>0)
 			return false;
 		else 
@@ -540,6 +562,7 @@ public class WorkCodeListPage extends BasePage{
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Name");
         selectWebElement(selectSearchCol.get(1));
+        Thread.sleep(1000);
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Starts with");
         enterValueToTxtField(searchTextBox,name);		
         selectWebElement(searchSearchBtn);
@@ -561,6 +584,7 @@ public class WorkCodeListPage extends BasePage{
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Name");
         selectWebElement(selectSearchCol.get(1));
+        Thread.sleep(1000);
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Ends with");
         enterValueToTxtField(searchTextBox,name);		
         selectWebElement(searchSearchBtn);
@@ -615,6 +639,7 @@ public class WorkCodeListPage extends BasePage{
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Name");
         selectWebElement(selectSearchCol.get(1));
+        Thread.sleep(1000);
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is equal to");
         enterValueToTxtField(searchTextBox,details.getName());
         selectWebElement(clearall);
@@ -761,7 +786,7 @@ public class WorkCodeListPage extends BasePage{
 			return arr;
 	}
 
-	public boolean verifyDatabase(String  query) {
+	public boolean verifyDatabase(String  query) throws Exception {
 		List<Map<String,String>> database=database(query);
 		System.out.println(database);
 		List<Map<String,String>> UI=gettable(); 
@@ -785,7 +810,8 @@ public class WorkCodeListPage extends BasePage{
 	
 	
 
-	private List<Map<String, String>> gettable() {
+	private List<Map<String, String>> gettable() throws Exception {
+		Thread.sleep(5000);
 		int item=Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
         int pagersize=Integer.valueOf(pagerSize.getText());
         int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
@@ -989,6 +1015,11 @@ public class WorkCodeListPage extends BasePage{
 			searchWorkcodeList(workcodeListDetails.getName());
 			waitForJqueryLoad(driver);
 			selectWebElement(exporttoexcel);
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 			if(errorMsg.get(0).getText().equals("There is no record to export"))
 				return true;
 			else

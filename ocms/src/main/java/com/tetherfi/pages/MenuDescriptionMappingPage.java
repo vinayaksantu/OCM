@@ -120,7 +120,7 @@ public class MenuDescriptionMappingPage extends BasePage {
 	@FindBy(xpath="//div[text()='No Records to Display']")
 	private WebElement norecords;
 	    
-	@FindBy(xpath="//i[@class='fas fa-sync']")
+	@FindBy(xpath="//i[@class='fas fa-sync fa-spin']")
 	private WebElement clearsearch;
 	
 	@FindBy(css=".k-pager-numbers .k-state-selected")
@@ -311,7 +311,8 @@ public class MenuDescriptionMappingPage extends BasePage {
 		}
 			return arr;
 	}
-	public boolean verifyDatabase(String query) {
+	
+	public boolean verifyDatabase(String query) throws Exception {
 		List<Map<String,String>> database=database(query);
 		System.out.println(database);
 		List<Map<String,String>> UI=gettable(); 
@@ -322,7 +323,8 @@ public class MenuDescriptionMappingPage extends BasePage {
 			return false;
 	}
 	
-	public List<Map<String, String>> gettable() {
+	public List<Map<String, String>> gettable() throws Exception {
+		Thread.sleep(6000);
 		int item=Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
         int pagersize=Integer.valueOf(pagerSize.getText());
         int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
@@ -338,10 +340,7 @@ public class MenuDescriptionMappingPage extends BasePage {
 			String col=null;
 			for(int j=1;j<headers.size();j++){
 				scrollToElement(headers.get(j));
-				if(headers.get(j).getText().equals("Last Changed On")){
-					col=cols.get(j).getText().substring(11);
-					}
-				else if(headers.get(j).getText().equals("Inclusion Flag")||headers.get(j).getText().equals("Exclusion Flag")){
+				if(headers.get(j).getText().equals("Inclusion Flag")||headers.get(j).getText().equals("Exclusion Flag")){
 					col=cols.get(j).getText();
 					if(col.equals("Yes"))
 						col="Y";
@@ -377,13 +376,16 @@ public class MenuDescriptionMappingPage extends BasePage {
         }
         return status;
 	}
-	public boolean verifyArrowMoveForFirstAndLastPage(){
+	public boolean verifyArrowMoveForFirstAndLastPage() throws Exception{
         boolean status=false;
         if(!lastPageIcon.getAttribute("class").contains("k-state-disabled")){
+        	Thread.sleep(2000);
             int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber));
             selectWebElement(lastPageIcon);
+        	Thread.sleep(2000);
             int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
             selectWebElement(firstPageIcon);
+        	Thread.sleep(2000);
             int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
             if(nextnumber>pagenumber && pagenumber==previousnumber){status=true;}
         }else{

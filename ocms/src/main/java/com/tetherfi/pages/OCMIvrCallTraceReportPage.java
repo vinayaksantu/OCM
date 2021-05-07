@@ -50,12 +50,6 @@ public class OCMIvrCallTraceReportPage extends BasePage  {
 	@FindBy(css=".ibox-content")
 	private WebElement gridContent;
 
-	@FindBy(css=".k-pager-info")
-	private WebElement pagerInfo;
-
-	@FindBy(css=".k-pager-sizes .k-input")
-	private WebElement pagerSize;
-
 	@FindBy(css=".k-i-more-vertical")
 	private List<WebElement> headersDropdown;
 
@@ -67,6 +61,9 @@ public class OCMIvrCallTraceReportPage extends BasePage  {
 
 	@FindBy(css="a[aria-label='Go to the next page']")
 	private WebElement nextPageIcon;
+	
+	@FindBy(xpath="//table/tbody/tr")
+	private List<WebElement> MainReportRows;
 
 	@FindBy(css = ".k-pager-last")
 	private WebElement goToLastPage;
@@ -130,6 +127,12 @@ public class OCMIvrCallTraceReportPage extends BasePage  {
 
 	@FindBy(xpath="//span[@class='k-pager-info k-label']")
 	private WebElement items;
+	
+	@FindBy(css=".k-pager-sizes .k-input")
+	private WebElement pagerSize;
+	
+	@FindBy(css=".k-pager-info")
+    private WebElement pagerInfo;
 
 	@FindBy(xpath="//button[@class='k-button k-button-icontext k-grid-excel']")		
 	private WebElement exporttoexcel;
@@ -172,8 +175,6 @@ public class OCMIvrCallTraceReportPage extends BasePage  {
 
 	@FindBy(css = "ul[id='autoCompleteTextbox_listbox'] li")
 	private List<WebElement> searchbyfeaturelistBox;
-
-
 
 	@FindBy(xpath="//p[@class='k-reset']")
 	private WebElement groupby;
@@ -268,7 +269,20 @@ public class OCMIvrCallTraceReportPage extends BasePage  {
 	@FindBy(xpath="//div[@id='CallFlowGrid']")
 	private WebElement callFlowGrid;
 
-
+	@FindBy(id="MenuTraversalGrid")
+	private WebElement DrillGridOneTable;
+	
+	@FindBy(id="panel-1")
+	private WebElement MenuTraversalPanel;
+	
+	@FindBy(id="MenuTraversalGrid")
+	private WebElement MenuTraversalTable;
+	
+	@FindBy(xpath="//*[@id=\"popupcallflow\"]/div/div/div[1]/button/span[1]")
+	private WebElement CloseDrillGridOne;
+	
+	@FindBy(xpath="//div[@id='gridDrillOne']//span[@class='k-icon k-i-arrow-60-right']")
+	private WebElement nextPageIconDrillOne;
 
 	@FindBy(xpath="//table/tbody/tr/td")
 	private List<WebElement> rows;
@@ -1156,16 +1170,7 @@ public class OCMIvrCallTraceReportPage extends BasePage  {
 			return errorMsg.get(0).getText();}
 	}
 
-	public boolean verifyDatabase(String query) {
-		List<Map<String,String>> database=database(query);
-		System.out.println(database);
-		List<Map<String,String>> UI=getDataTable(); 
-		System.out.println(UI);
-		if(UI.equals(database))
-			return true;
-		else
-			return false;
-	}
+	
 	public boolean groupby() {
 		DragandDrop(callerId,droptarget);
 		try {
@@ -1230,6 +1235,176 @@ public class OCMIvrCallTraceReportPage extends BasePage  {
 			status=false;
 		return status;
 	}
+
+
+	public boolean verifyDatabase(String query,ReportDetails details) throws Exception {
+		//get dates from xl - step 2
+		String reportbeforedate = details.getStartDate();
+		String reportafterdate=details.getEndDate();
+		//change date formats - step 3
+		reportbeforedate=reportbeforedate.substring(6,10)+"-"+reportbeforedate.substring(3, 5)+"-"+reportbeforedate.substring(0, 2)+" "+reportbeforedate.substring(11, 13)+":"+reportbeforedate.substring(14, 16)+":"+reportbeforedate.substring(17, 19);
+		reportafterdate=reportafterdate.substring(6,10)+"-"+reportafterdate.substring(3, 5)+"-"+reportafterdate.substring(0, 2)+" "+reportafterdate.substring(11, 13)+":"+reportafterdate.substring(14, 16)+":"+reportafterdate.substring(17, 19);
+		//Replace identifiers in query to formatted date - step 5
+		query=query.replaceAll("ReportBeforeDate",reportbeforedate );
+		query=query.replaceAll("ReportAfterDate",reportafterdate );
+		List<Map<String,String>> database=database(query);
+		System.out.println("Printing Query" +" "+query);		
+		System.out.println("Printing DB results" +" "+database);
+		Thread.sleep(3000);
+		List<Map<String,String>> UI=getDataTable1(); 
+		System.out.println("Printing UI Results"+" "+UI);	
+		if(UI.equals(database))
+			return true;
+		else
+			return false;
+	}
+	
+	
+	private List<Map<String, String>> getDataTable1() {
+		int item=Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
+        int pagersize=Integer.valueOf(pagerSize.getText());
+        int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
+		List<Map<String,String>> arr=new ArrayList<Map<String,String>>();
+		for(int k=0;k<=pages;k++){
+		waitUntilWebElementIsVisible(auditGridContent);
+		List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
+		List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
+		for(int i=1;i<rows.size();i++) {
+			Map<String,String> map = new HashMap<String,String>();
+			List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
+			String col=null;
+			for(int j=0;j<headers.size();j++){
+				scrollToElement(headers.get(j));
+				col=cols.get(j).getText();
+				map.put(headers.get(j).getText(),col);
+			}
+			map.remove("");
+			arr.add(map);
+		}
+		if(k!=pages)
+		{
+			nextPageIcon.click();
+			waitForJqueryLoad(driver);}
+		}
+			return arr;
+	}
+	
+
+	public List<String> getUCID() throws InterruptedException {
+		int item=Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
+        int pagersize=Integer.valueOf(pagerSize.getText());
+        int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
+		List<String> UCID = new ArrayList<>();
+		for(int k=0;k<=pages;k++){
+		waitUntilWebElementIsVisible(auditGridContent);
+		List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
+		List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
+		for(int i=1;i<rows.size();i++) {
+			List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
+			String col=null;
+			for(int j=0;j<headers.size();j++){
+				scrollToElement(headers.get(j));
+				if(headers.get(j).getText().equals("UCID")){
+					col=cols.get(j).getText();
+					UCID.add(col);
+					}
+			}
+		}
+		if(k!=pages)
+		{
+			Thread.sleep(1000);
+			nextPageIcon.click();
+			waitForJqueryLoad(driver);
+		}
+		}
+		return UCID;
+	}
+
+	public void goToNextPage() {
+		nextPageIcon.click();
+		waitForLoad(driver);
+        waitForJqueryLoad(driver);
+        waitUntilWebElementIsVisible(DrillGridOneTable);
+	}
+	
+	
+	public void clickOnUCIDRowOnMainReport(int rowNo) throws InterruptedException {
+		Thread.sleep(3000);
+		MainReportRows.get(rowNo).click();
+		waitForLoad(driver);
+        waitForJqueryLoad(driver);
+//        selectWebElement(MenuTraversalPanel);
+//        waitUntilWebElementIsVisible(MenuTraversalTable);  
+	}
+
+	public boolean verifyDatabaseDrillGridOne(String queryDrillGridOne,ReportDetails details, String UCID) {
+		//get dates from xl - step 2
+		String reportbeforedate = details.getStartDate();
+		String reportafterdate=details.getEndDate();
+		//change date formats - step 3
+		reportbeforedate=reportbeforedate.substring(6,10)+"-"+reportbeforedate.substring(3, 5)+"-"+reportbeforedate.substring(0, 2)+" "+reportbeforedate.substring(11, 13)+":"+reportbeforedate.substring(14, 16)+":"+reportbeforedate.substring(17, 19);
+		reportafterdate=reportafterdate.substring(6,10)+"-"+reportafterdate.substring(3, 5)+"-"+reportafterdate.substring(0, 2)+" "+reportafterdate.substring(11, 13)+":"+reportafterdate.substring(14, 16)+":"+reportafterdate.substring(17, 19);
+		//Replace identifiers in query to formatted date - step 5
+		queryDrillGridOne=queryDrillGridOne.replaceAll("ReportBeforeDate",reportbeforedate);
+		queryDrillGridOne=queryDrillGridOne.replaceAll("ReportAfterDate",reportafterdate );
+		queryDrillGridOne=queryDrillGridOne.replaceAll("UCIDCapturedFromUI", UCID);
+		List<Map<String,String>> database=database(queryDrillGridOne);
+		System.out.println("Printing Query" +" "+queryDrillGridOne);		
+		System.out.println("Printing DB results" +" "+database);
+		List<Map<String,String>> UI=getDataTableDrillGridOne(); 
+		System.out.println("Printing UI Results"+" "+UI);	
+		if(UI.equals(database))
+			return true;
+		else
+			return false;
+	}
+	
+	private List<Map<String, String>> getDataTableDrillGridOne() {
+		scrollvertically();
+//		waitUntilWebElementIsClickable(drillGridOneItems);
+//		waitUntilWebElementIsVisible(drillGridOneItems);
+		selectWebElement(MenuTraversalPanel);
+		waitUntilWebElementIsVisible(MenuTraversalTable);  
+	 	int item=Integer.valueOf(pagerInfo.getText().split("of ")[1].split(" items")[0]);
+        int pagersize=Integer.valueOf(pagerSize.getText());
+        int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
+	 	List<Map<String,String>> arr=new ArrayList<Map<String,String>>();
+	 	for(int k=0;k<=pages;k++){
+	 	waitUntilWebElementIsVisible(DrillGridOneTable);
+		List<WebElement> rows=DrillGridOneTable.findElements(By.tagName("tr"));
+		List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
+		for(int i=1;i<rows.size();i++) {
+			Map<String,String> map = new HashMap<String,String>();
+			List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
+			String col=null;
+			for(int j=0;j<headers.size();j++){
+				scrollToElement(headers.get(j)); 
+				if(headers.get(j).getText().equals("")){					
+					col=cols.get(j).getText();
+					if(col.contains("."))
+						col=col;
+					else
+						col=col+".00";
+					}
+				else
+					col=cols.get(j).getText();
+				map.put(headers.get(j).getText(),col);
+			}
+			map.remove("");
+			arr.add(map);
+		}
+		if(k!=pages)
+		{
+			nextPageIconDrillOne.click();
+			waitForJqueryLoad(driver);
+			waitUntilWebElementIsVisible(DrillGridOneTable);
+		}
+		}
+	 	selectWebElement(MenuTraversalPanel);
+			CloseDrillGridOne.click();
+			return arr;
+	}
+	
 }
 
 

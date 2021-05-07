@@ -622,15 +622,15 @@ private WebElement groupbycolor;*/
 		return arr;
 	}
 
-	public boolean verifyArrowMoveForPreviousAndNextPage(){
+	public boolean verifyArrowMoveForPreviousAndNextPage() throws Exception{
 		boolean status=false;
 		if(!nextPageIcon.getAttribute("class").contains("k-state-disabled")){
 			int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 			selectWebElement(nextPageIcon);
-			waitForJqueryLoad(driver);
+			Thread.sleep(2000);
 			int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 			selectWebElement(previousPageIcon);
-			waitForJqueryLoad(driver);
+			Thread.sleep(2000);
 			int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 			if(nextnumber==(pagenumber+1) && pagenumber==previousnumber){status=true;}
 		}else{
@@ -640,15 +640,15 @@ private WebElement groupbycolor;*/
 	}
 
 
-	public boolean verifyArrowMoveForFirstAndLastPage(){
+	public boolean verifyArrowMoveForFirstAndLastPage() throws Exception{
 		boolean status=false;
 		if(!lastPageIcon.getAttribute("class").contains("k-state-disabled")){
 			int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 			selectWebElement(lastPageIcon);
-			waitForJqueryLoad(driver);
+			Thread.sleep(2000);
 			int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 			selectWebElement(firstPageIcon);
-			waitForJqueryLoad(driver);
+			Thread.sleep(2000);
 			int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 			if(nextnumber>pagenumber && pagenumber==previousnumber){status=true;}
 		}else{
@@ -656,6 +656,7 @@ private WebElement groupbycolor;*/
 		}
 		return status;
 	}
+	
 
 	public boolean verifyTotalNumberOfItemsPerPageDetails(){
 		String item = items.getText();
@@ -812,8 +813,9 @@ private WebElement groupbycolor;*/
 		Map<String, String> map=new HashMap<String,String>() ;
 		selectWebElement(searchbyfeatureTextBox);    
 		enterValueToTxtFieldWithoutClear(searchbyfeatureTextBox,details.getSearchStr());
-		/* searchbyfeatureTextBox.sendKeys("Palak Garg");//Replace by identification*/
+		Thread.sleep(3000);
 		selectDropdownFromVisibleText(searchbyfeaturelistBox,details.getSearchStr());
+		Thread.sleep(3000);
 		waitForJqueryLoad(driver);
 		List<Map<String,String>> UI=getDataTable(); 
 		for (Map<String,String> map1: UI)

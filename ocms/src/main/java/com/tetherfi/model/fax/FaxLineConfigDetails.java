@@ -94,9 +94,6 @@ public class FaxLineConfigDetails {
 
     public String readDescription(Map<String,String> map){
         String value=map.get("Description");
-        if(value==null||value.equalsIgnoreCase("random.str")){
-            value= RandomStringUtils.randomAlphabetic(7);
-        }
         return value;
     }
 

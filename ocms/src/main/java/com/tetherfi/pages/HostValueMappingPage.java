@@ -145,8 +145,8 @@ public class HostValueMappingPage extends BasePage {
     @FindBy(css="ul[id='1001sCriteria_listbox'] li")
     private List<WebElement> searchTypeList;
 
-    @FindBy(css=".modal-body .form-inline .form-group .k-textbox")
-    private List<WebElement> searchText;
+    @FindBy(id="1001sTextToSearch")
+    private WebElement searchText;
 
     @FindBy(css=".modal-footer .k-primary")
     private WebElement searchBtn;
@@ -199,7 +199,7 @@ public class HostValueMappingPage extends BasePage {
     @FindBy(xpath="//button[text()='Close']")
     private WebElement searchClose;
     
-    @FindBy(xpath="//i[@class='fas fa-sync']")
+    @FindBy(xpath="//i[@class='fas fa-sync fa-spin']")
     private WebElement clearsearch;
     
     @FindBy(id="tabstripfaxtemplateMakerChecker")
@@ -276,6 +276,9 @@ public class HostValueMappingPage extends BasePage {
     
     @FindBy(id="submitUndoChangesMakerComment")
     private WebElement revertSubmitMakerComments;
+    
+    @FindBy(id="tdrillgrid")
+    private WebElement tgrid;
 	
 	
 	public boolean isHostValueMappingPageDisplayed() {
@@ -399,7 +402,7 @@ public class HostValueMappingPage extends BasePage {
 	}
 
 	public boolean verifyAuditTrailDataTableHeaders() {
-		ArrayList<String> Expected=new ArrayList<String>(Arrays.asList(" ","Request Id", "Transaction", "Function", "Status", "User Id", "Submission DateTime", "Maker Comments", "Old Values", "New Values", "Reviewed By","Review DateTime", "Checker Comments"));
+		ArrayList<String> Expected=new ArrayList<String>(Arrays.asList(" ","Request Id", "Transaction", "Function", "Status", "User Id", "Submission DateTime", "Maker Comments", "Reviewed By","Review DateTime", "Checker Comments"));
         ArrayList Actual = getHeadersfromTable(auditTrailTableHeaders);
         System.out.println(Actual);
         Collections.sort(Expected);Collections.sort(Actual);
@@ -689,7 +692,7 @@ public class HostValueMappingPage extends BasePage {
         selectDropdownFromVisibleText(columnNameList,"Description");
         selectWebElement(selectSearchColumn.get(1));
         selectDropdownFromVisibleText(searchTypeList,"Is equal to");
-        enterValueToTxtField(searchText.get(0),hostData);
+        enterValueToTxtField(searchText,hostData);
         selectWebElement(searchBtn);
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(gridContent);			
@@ -701,9 +704,9 @@ public class HostValueMappingPage extends BasePage {
         selectDropdownFromVisibleText(columnNameList,"Description");
         selectWebElement(selectSearchColumn.get(1));
         selectDropdownFromVisibleText(searchTypeList,"Is equal to");
-        enterValueToTxtField(searchText.get(0),details.getDescription());
+        enterValueToTxtField(searchText,details.getDescription());
 	    selectWebElement(clearall);
-			if(searchText.get(0).isEnabled())
+			if(searchText.isEnabled())
 	        	return true;
 	        else
 			return false;
@@ -783,7 +786,7 @@ public class HostValueMappingPage extends BasePage {
         Thread.sleep(500);
         selectWebElement(selectSearchColumn.get(1));
         selectDropdownFromVisibleText(searchTypeList,"Is equal to");
-        enterValueToTxtField(searchText.get(0),hostData);
+        enterValueToTxtField(searchText,hostData);
         selectWebElement(searchBtn);
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(approvedgridcontent);		
@@ -875,16 +878,43 @@ public class HostValueMappingPage extends BasePage {
         fileUploader.uploadFile(System.getProperty("user.dir") + "\\src\\test\\resources\\FileUpload\\" + hostValueMappingDetails.getWaveFile());
         selectWebElement(saveBtn);
 	}
+	
+	private Map<String, String> getFirstRowDatafromPreviewPopup() {
+		Map<String,String> map = new HashMap<>();
+        waitUntilWebElementIsVisible(auditGridContent);
+        List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
+        List<WebElement> cols=rows.get(1).findElements(By.tagName("td"));
+        List<WebElement> preview= cols.get(1).findElements(By.tagName("a"));
+        preview.get(0).click();
+        waitUntilWebElementIsVisible(tgrid);
+        List<WebElement> gridrows=tgrid.findElements(By.tagName("tr"));
+        List<WebElement> gridheaders = gridrows.get(0).findElements(By.tagName("th"));
+        List<WebElement> gridcols=gridrows.get(1).findElements(By.tagName("td"));     
+        for(int j=0;j<gridheaders.size();j++){
+            scrollToElement(gridheaders.get(j));
+            for(int i=0;i<gridcols.size();i++) {
+            	System.out.println(gridheaders.get(j).getText());
+                try{
+                	map.put(gridheaders.get(j).getText(), gridcols.get(j).getText());
+                break;
+                }
+                catch (Exception e){e.printStackTrace();}
+            }
+        }
+        return map;
+	}
 
 	public boolean verifyAuditTrail(HostValueMappingDetails hostValueMappingDetails, String Transaction, String Status) {
 		boolean stat=false;
         Map<String,String> firstRowData=getFirstRowDatafromTable();
+        Map<String,String> popupRowData=getFirstRowDatafromPreviewPopup();
+
         if(firstRowData.get("Transaction").equalsIgnoreCase(Transaction)){
             if(firstRowData.get("Status").equalsIgnoreCase(Status)){
-                if(firstRowData.get("Function").equalsIgnoreCase("Host Value Mapping")){
+                if(firstRowData.get("Function Name").equalsIgnoreCase("Host Value Mapping")){
                        if(Transaction.equals("MakerCreate")){
                            Map<String,String> newvalues=new HashMap<>();
-                            String[] d=firstRowData.get("New Values").split("\n");
+                            String[] d=popupRowData.get("New Values").split("\n");
                             for(String e:d){
                                 String[]f=e.split(":",2);
                                 if(f.length>1){newvalues.put(f[0],f[1]);}
@@ -979,14 +1009,14 @@ public class HostValueMappingPage extends BasePage {
 	public void clickonApprove(String comment) throws Exception {
 		selectWebElement(HostValueMappingTabs.get(1));
         try {
-            Thread.sleep(3000);
+            Thread.sleep(5000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
         selectRecord();
         clickOn(approveBtn);
         selectWebElement(checkerReason);
-        enterValueToTxtField(checkerReason,comment);
+        enterValueToTxtFieldWithoutClear(checkerReason,comment);
         try {
             Thread.sleep(4000);
         } catch (InterruptedException e) {
@@ -1149,14 +1179,14 @@ public class HostValueMappingPage extends BasePage {
 	public void clickonReject(String comment) throws Exception {
 		 selectWebElement(HostValueMappingTabs.get(1));
 	        try {
-	            Thread.sleep(3000);
+	            Thread.sleep(5000);
 	        } catch (InterruptedException e) {
 	            e.printStackTrace();
 	        }
 	        selectRecord();
 	        clickOn(rejectBtn);
 	        selectWebElement(checkerReason);
-	        enterValueToTxtField(checkerReason,comment);
+	        enterValueToTxtFieldWithoutClear(checkerReason,comment);
 	        try {
 	            Thread.sleep(3000);
 	        } catch (InterruptedException e) {
@@ -1203,12 +1233,14 @@ public class HostValueMappingPage extends BasePage {
 	public boolean verifyAuditTrailUpdate(HostValueMappingDetails details, String Transaction,String Status) {
 		boolean stat=false;
         Map<String,String> firstRowData=getFirstRowDatafromTable();
+        Map<String,String> popupRowData=getFirstRowDatafromPreviewPopup();
+
         if(firstRowData.get("Transaction").equalsIgnoreCase(Transaction)){
             if(firstRowData.get("Status").equalsIgnoreCase(Status)){
-                if(firstRowData.get("Function").equalsIgnoreCase("Host Value Mapping")){
+                if(firstRowData.get("Function Name").equalsIgnoreCase("Host Value Mapping")){
                        if(Transaction.equals("MakerUpdate")){
                            Map<String,String> newvalues=new HashMap<>();
-                            String[] d=firstRowData.get("New Values").split("\n");
+                            String[] d=popupRowData.get("New Values").split("\n");
                             for(String e:d){
                                 String[]f=e.split(":",2);
                                 if(f.length>1){newvalues.put(f[0],f[1]);}
@@ -1305,7 +1337,7 @@ public class HostValueMappingPage extends BasePage {
         Map<String,String> firstRowData=getFirstRowDatafromTable();
         if(firstRowData.get("Transaction").equalsIgnoreCase(Transaction)){
             if(firstRowData.get("Status").equalsIgnoreCase(Status)){
-                if(firstRowData.get("Function").equalsIgnoreCase("Host Value Mapping")){
+                if(firstRowData.get("Function Name").equalsIgnoreCase("Host Value Mapping")){
                        stat=true;
                 }else{System.out.println("Data mismatch:"+firstRowData.get("Function")+"\t"+"RoleManagement");}
             }else{System.out.println("Data mismatch:"+firstRowData.get("Status")+"\t"+Status);}

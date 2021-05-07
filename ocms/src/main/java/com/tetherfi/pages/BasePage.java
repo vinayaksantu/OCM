@@ -11,6 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import com.tetherfi.constants.Constants;
 import com.tetherfi.utility.DatabaseConnector;
 
+import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.Toolkit;
 import java.awt.datatransfer.Clipboard;
@@ -18,6 +19,7 @@ import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -296,6 +298,10 @@ public class BasePage {
     ((JavascriptExecutor)driver).executeScript("window.scrollBy(250,0)");
     }
 
+    public void scrollvertically () {
+    ((JavascriptExecutor) driver).executeScript("window.scrollBy(0,250)", "");
+    }
+    
     public boolean checkPageLoadStatus() {
         boolean result = false;
         JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -314,7 +320,9 @@ public class BasePage {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].click();", element);
     }
+    
 
+    
     public void scrollingToBottomofAPage() {
         ((JavascriptExecutor) driver)
                 .executeScript("window.scrollTo(0, document.body.scrollHeight)");
@@ -368,6 +376,7 @@ public class BasePage {
             }
         }
     }
+    
     public boolean verifyFilePresentInFolder(String filepath, String pattern){
         File downloadsDir = new File(filepath);
         File[] downloadDirFiles = downloadsDir.listFiles();
@@ -445,7 +454,7 @@ public class BasePage {
             return false;
         }
     }
-    public List<Map<String,String>> database(String query){
+    public List<Map<String,String>> database(String query) {
 		DatabaseConnector dc=new DatabaseConnector();
 		dc.connectToDataBase(Constants.db_name);
 		ResultSet rs=dc.executeQuery(query);
@@ -511,6 +520,22 @@ public class BasePage {
 			sb.append(str1);
 		return sb.toString();	
 	}
+
+    public void CancelDialog() throws AWTException {
+    Robot r = new Robot();
+    r.keyPress(KeyEvent.VK_ESCAPE);
+    r.keyRelease(KeyEvent.VK_ESCAPE);
+    }
     
+    public List<String> database1(String query)
+	{
+		DatabaseConnector dc=new DatabaseConnector();
+		dc.connectToDataBase(Constants.db_name);
+		ResultSet rs=dc.executeQuery(query);
+		List<String> dbdata=dc.getResultSetInList(rs);
+		dc.closeDbConnection();
+		return dbdata;
+	}
     
+
 }

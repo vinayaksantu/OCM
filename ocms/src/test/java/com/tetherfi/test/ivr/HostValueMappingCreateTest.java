@@ -1,6 +1,5 @@
 package com.tetherfi.test.ivr;
 
-import java.io.IOException;
 import java.lang.reflect.Method;
 import java.util.Map;
 
@@ -45,11 +44,12 @@ public class HostValueMappingCreateTest {
             map= new ExcelReader(filePath,"Login").getTestData().get(1);
         else
             map= new ExcelReader(filePath,"Login").getTestData().get(0);
-        try{driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);}catch (TimeoutException e){e.printStackTrace();driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);}
+        try{driver.get("https://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);}catch (TimeoutException e){e.printStackTrace();driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);}
+        LoginPage loginPage=PageFactory.createPageInstance(driver,LoginPage.class);
+        loginPage.overrideSecurityConcern();
         if(map.get("LoginType").equals("Custom")){
-            LoginPage loginPage=PageFactory.createPageInstance(driver,LoginPage.class);
             Assert.assertTrue(loginPage.isLoginPageDisplayed(),"Login page not loaded");
-            loginPage.login(map.get("Username"),map.get("Password"));
+			loginPage.login(map.get("Username"),map.get("Password"),map.get("EmailId"));
             Thread.sleep(5000);
         }
         HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
@@ -63,7 +63,7 @@ public class HostValueMappingCreateTest {
         HostValueMappingPage hostValueMappingPage = PageFactory.createPageInstance(driver, HostValueMappingPage.class);
         Assert.assertTrue(hostValueMappingPage.isHostValueMappingPageDisplayed(), "Branch Management page assertion failed");
     }
-	/*
+
 	@Test(groups= {"Maker"},priority=1)
     public void VerifyAddCancelButton() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\HostValueMappingData.xlsx";
@@ -103,7 +103,7 @@ public class HostValueMappingCreateTest {
         Assert.assertEquals(HostValueMappingPage.getErrorMsg(),HostValueMappingDetails.getErrorMsg3());
     }
     
-    @Test(groups = { "Maker" },priority=5)
+   /* @Test(groups = { "Maker" },priority=5)
     public void VerifyAddRecordWithoutStatus() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\HostValueMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -111,7 +111,7 @@ public class HostValueMappingCreateTest {
         HostValueMappingPage HostValueMappingPage = PageFactory.createPageInstance(driver, HostValueMappingPage.class);
         HostValueMappingPage.addwithoutStatus(HostValueMappingDetails);
         Assert.assertEquals(HostValueMappingPage.getErrorMsg(),HostValueMappingDetails.getErrorMsg4());
-    }
+    }*/
     
     @Test(groups = { "Maker" },priority=6)
     public void VerifyAddRecordWithoutDescription() throws Exception {
@@ -183,7 +183,7 @@ public class HostValueMappingCreateTest {
         HostValueMappingPage HostValueMappingPage = PageFactory.createPageInstance(driver, HostValueMappingPage.class);
         HostValueMappingPage.addNewHostValueMappingRecord(HostValueMappingDetails);
         Assert.assertEquals(HostValueMappingPage.getSuccessMessage(), "Record created successfully");
-       }*/
+       }
 	
 	@Test(groups = { "Maker" },priority=13,dependsOnMethods="AddRejectRecord")
     public void VerifySendForApprovalForAddNewRecord() throws Exception {
@@ -194,7 +194,7 @@ public class HostValueMappingCreateTest {
         Assert.assertTrue(HostValueMappingPage.verifyStatus("Approval Pending"),"approal status details failed");
     }
     
-    @Test(groups = { "Checker" },priority=14,dependsOnMethods="VerifySendForApprovalForAddNewRecord")
+    @Test(groups = { "Checker" },priority=14)//,dependsOnMethods="VerifySendForApprovalForAddNewRecord")
     public void RejectforAddNewHostValueMappingRecord() throws Exception{
         HostValueMappingPage HostValueMappingPage = PageFactory.createPageInstance(driver, HostValueMappingPage.class);
         HostValueMappingPage.clickonReject("Reject Created");
@@ -260,7 +260,7 @@ public class HostValueMappingCreateTest {
         Assert.assertTrue(HostValueMappingPage.verifyAuditTrail(HostValueMappingDetails, "MakerCreate", "New"), "Audit trail details failed");
     }
     
-    @Test(groups = { "Maker" },priority=20,dependsOnMethods="VerifyAuditTrailDataForAddNewHostValueMappingRecord")
+    @Test(groups = { "Maker" },priority=20)//,dependsOnMethods="VerifyAuditTrailDataForAddNewHostValueMappingRecord")
     public void VerifySendForApprovalForAddNewHostValueMappingRecord() throws Exception {
        	HostValueMappingPage HostValueMappingPage = PageFactory.createPageInstance(driver, HostValueMappingPage.class);
        	HostValueMappingPage.selectHostValueMappingAuditTrailTab();

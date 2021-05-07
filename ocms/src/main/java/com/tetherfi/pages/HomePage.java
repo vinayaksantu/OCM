@@ -3,8 +3,6 @@ package com.tetherfi.pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.testng.Assert;
-
 import com.tetherfi.utility.BrowserFactory;
 import com.tetherfi.utility.ExcelReader;
 import com.tetherfi.utility.PageFactory;
@@ -22,8 +20,8 @@ public class HomePage extends BasePage{
     @FindBy(id="profiledropdown")
     private WebElement profileDropDown;
 
-    @FindBy(css=".btn-primary")
-    private List<WebElement> profileDropdownbtns;
+    @FindBy(xpath="//i[@class='fal fa-sign-out-alt']")
+    private WebElement logoutBtn;
 
     @FindBy(css=".middle-box H2")
     private WebElement welcomeMsg;
@@ -31,7 +29,10 @@ public class HomePage extends BasePage{
     /*@FindBy(id="OCMli")
     private WebElement ocmTab;*/
     
-    @FindBy(xpath="//a[@class='OCM-sidebar-toggle white-color']")
+   /* @FindBy(id="OCMli")
+    private WebElement ocmTab;*/
+    
+    @FindBy(xpath="//i[@class='navbar-icons fal fa-desktop']")
     private WebElement ocmTab;
 
     @FindBy(id="OCMReportsli")
@@ -43,8 +44,8 @@ public class HomePage extends BasePage{
     public void userLogout(){
         waitUntilWebElementIsClickable(profileDropDown);
         selectWebElement(profileDropDown);
-        waitUntilWebElementIsClickable(profileDropdownbtns.get(1));
-        selectWebElement(profileDropdownbtns.get(1));
+        waitUntilWebElementIsClickable(logoutBtn);
+        selectWebElement(logoutBtn);
     }
 
     public boolean verifyHomePageTitle(){
@@ -81,7 +82,7 @@ public class HomePage extends BasePage{
             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
             if(map.get("LoginType").equals("Custom")){
                 LoginPage loginPage=PageFactory.createPageInstance(driver,LoginPage.class);
-                loginPage.login(map.get("Username"),map.get("Password"));
+                loginPage.login(map.get("Username"),map.get("Password"),map.get("EmailId"));
                 Thread.sleep(5000);
             }
       

@@ -7,6 +7,7 @@ import org.openqa.selenium.support.FindBy;
 
 import com.tetherfi.model.user.UserDetails;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -40,7 +41,7 @@ public class UserManagementPage extends BasePage {
     @FindBy(css=".toast-message")
     private WebElement successmsg;
 
-    @FindBy(css="#toast-container .toast-error")
+    @FindBy(css="#toast-container .toast-error .toast-message")
     private List<WebElement> errorMsg;
 
     @FindBy(css=".search-link")
@@ -91,6 +92,12 @@ public class UserManagementPage extends BasePage {
     @FindBy(id="checkAll")
     private List<WebElement> checkallAccess;
     
+    @FindBy(id="checkAllReport")
+    private WebElement checkAllReport;
+    
+    @FindBy(id="checkAllDashboard")
+    private WebElement checkAllDashboard;
+    
     @FindBy(id="checkAllAddAccess")
     private List<WebElement> checkalladdaccess;
     
@@ -102,6 +109,9 @@ public class UserManagementPage extends BasePage {
     
     @FindBy(id="checkAllExportAccess")
     private List<WebElement> checkallexportaccess;
+    
+    @FindBy(id="checkAllReportExportAccess")
+    private WebElement checkAllReportExportAccess;
     
     @FindBy(id="checkAll")
     private List <WebElement> accessAll;
@@ -115,7 +125,7 @@ public class UserManagementPage extends BasePage {
     @FindBy(id="ModifyReasonUser")
     private WebElement userModifyReasontxtbox;
     
-    @FindBy(xpath="//div[@class='modal inmodal fade in' ]/div/div/div/button[@class='close']")
+    @FindBy(xpath="//div[@class='modal-dialog modal-lg animated bounceInRight' ]/div/div/div/button[@class='close']")
     private WebElement pbuaclose;
     
     @FindBy(xpath="//i[@class='fas fa-expand']")
@@ -145,7 +155,7 @@ public class UserManagementPage extends BasePage {
 	@FindBy(xpath="//button[text()='Close']")
 	private WebElement searchClose;
     
-	@FindBy(xpath="//i[@class='fas fa-sync']")
+	@FindBy(xpath="//i[@class='fas fa-sync fa-spin']")
 	private WebElement clearsearch;
 
 	@FindBy(css=".k-grid-content")
@@ -241,13 +251,20 @@ public class UserManagementPage extends BasePage {
 	@FindBy(xpath="//span[text()='Reports']")
 	private WebElement navigatetoreports;
 	
-	@FindBy(xpath="//span[text()='Dashboard']")
+	@FindBy(xpath="//span[text()='Dashboards']")
 	private WebElement navigatetodashboard;
+	
 	@FindBy(id="checkAllOtherApplications")
     private WebElement checkallotherapplication;
 	
+	@FindBy(id="checkAllAdminPagesChecker")
+	private WebElement checkAllAdminPagesChecker;
+	
 	@FindBy(xpath="//span[text()='Other Applications']")
 	private WebElement navigatetootherapplication;
+	
+	@FindBy(xpath="//span[text()='Admin Pages Checker']")
+	private WebElement navigatetoAdminPagesChecker;
 	
 	@FindBy(css = ".modal-body .form-inline .form-group .k-select")
 	private List<WebElement> selectSearchCol;
@@ -341,7 +358,7 @@ public class UserManagementPage extends BasePage {
         selectDropdownFromVisibleText(columnNameList,"User Id");
         selectWebElement(selectSearchColumn.get(1));
         selectDropdownFromVisibleText(searchTypeList,"Is equal to");
-        enterValueToTxtField(searchText.get(0),UserID);
+        enterValueToTxtField(searchTextBox,UserID);		
         selectWebElement(searchSearchBtn);
         waitForJqueryLoad(driver);
     }
@@ -455,7 +472,7 @@ public class UserManagementPage extends BasePage {
     public void deleteUserManagementRecord(String username, String reason) throws Exception {
         searchUserManagementRecord(username);
         selectWebElement(deleteBtn);
-        enterValueToTxtField(deleteReasonTextBox,reason);
+        enterValueToTxtFieldWithoutClear(deleteReasonTextBox,reason);
         selectWebElement(yesBtn);
     }
     public boolean verifyNewRecordCreated(){
@@ -651,9 +668,9 @@ public class UserManagementPage extends BasePage {
         selectDropdownFromVisibleText(columnNameList,"User Id");
         selectWebElement(selectSearchColumn.get(1));
         selectDropdownFromVisibleText(searchTypeList,"Is equal to");
-        enterValueToTxtField(searchText.get(0),userDetails.getUserId());
+        enterValueToTxtField(searchTextBox,userDetails.getUserId());		
         selectWebElement(clearall);
-        if(searchText.get(0).isEnabled())
+        if(searchTextBox.isEnabled())
         	return true;
         else
 		return false;
@@ -921,7 +938,13 @@ public class UserManagementPage extends BasePage {
         }
         return status;
     }
-    public boolean verifyExportToExcel(String filePath) {
+    public boolean verifyExportToExcel(String filePath) {   	
+    	final File folder = new File(filePath);
+		for (final File f : folder.listFiles()) {
+		    if (f.getName().startsWith("User Management")) {
+		        f.delete();
+		    }
+		}
 		selectWebElement(exporttoexcel);
 		waitForJqueryLoad(driver);
 		try {
@@ -1047,8 +1070,9 @@ public class UserManagementPage extends BasePage {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		if(pagebaseduseraccess.isDisplayed())
+		if(pagebaseduseraccess.isDisplayed()) {
 			return true;
+		}
 		else
 		return false;
 	}
@@ -1109,18 +1133,21 @@ public class UserManagementPage extends BasePage {
 		else
 		return true;
 	}		
-	public boolean verifysavechanges() throws Exception {
-		waitForJqueryLoad(driver);
+	public boolean verifysavechanges(UserDetails userDetails) throws Exception {
+		searchUserManagementRecord(userDetails.getUserId());
+		selectWebElement(rowdata);
+		Thread.sleep(1000);
 		Boolean Status=false;
 		selectWebElement(checkallAccess.get(0));
 		selectWebElement(saveaccess.get(0));
 		if(modifypopup.isDisplayed())
-		{	Status=true;
+		{	
 			selectWebElement(userModifyReasontxtbox);
 			Thread.sleep(1000);
-			enterValueToTxtField(userModifyReasontxtbox,"Modified");
+			enterValueToTxtFieldWithoutClear(userModifyReasontxtbox,"Modified");
 			Thread.sleep(1000);
 			clickOn(useryesBtn);
+			Status=true;
 		}
 		return Status;
 	}	
@@ -1135,7 +1162,10 @@ public class UserManagementPage extends BasePage {
 		return false;
 	}
 	
-	public boolean verifyunsuccessfullsavechanges() throws Exception{
+	public boolean verifyunsuccessfullsavechanges(UserDetails userDetails) throws Exception{
+		searchUserManagementRecord(userDetails.getUserId());									 
+		selectWebElement(rowdata);
+		Thread.sleep(1000);	
 		selectWebElement(saveaccess.get(0));
 		if(changesMsg.getText().equals("No rows has been changed"))
 			return true;
@@ -1149,11 +1179,11 @@ public class UserManagementPage extends BasePage {
 		Thread.sleep(1000);
 		selectWebElement(navigatetoreports);
 		Boolean Status=false;
-		selectWebElement(checkallAccess.get(1));
-		if(checkallAccess.get(1).isSelected())
+		selectWebElement(checkAllReport);
+		if(checkAllReport.isSelected())
 		{
-			selectWebElement(checkallexportaccess.get(1));
-			if(checkallexportaccess.get(1).isSelected())
+			selectWebElement(checkAllReportExportAccess);
+			if(checkAllReportExportAccess.isSelected())
 			{
 				Status=true;
 			}
@@ -1167,25 +1197,29 @@ public class UserManagementPage extends BasePage {
 		Thread.sleep(1000);
 		selectWebElement(navigatetoreports);
 		Thread.sleep(1000);
-		selectWebElement(checkallAccess.get(1));
-		selectWebElement(pbuacancel.get(1));
+		selectWebElement(checkAllReport);
+		selectWebElement(pbuacancel.get(2));
 		Thread.sleep(1000);
-		if(checkallAccess.get(1).isSelected())
+		if(checkAllReport.isSelected())
 			return false;
 		else
 		return true;
 	}
 
-	public boolean verifyReportssavechanges() throws Exception {
-		waitForJqueryLoad(driver);
-		Boolean Status=false;
-		selectWebElement(checkallAccess.get(1));
-		selectWebElement(saveaccess.get(1));
+	public boolean verifyReportssavechanges(UserDetails userDetails) throws Exception {
+		Boolean Status =false;
+		searchUserManagementRecord(userDetails.getUserId());
+		selectWebElement(rowdata);
+		Thread.sleep(1000);
+		selectWebElement(navigatetoreports);
+		Thread.sleep(1000);
+		selectWebElement(checkAllReport);
+		selectWebElement(saveaccess.get(2));
 		if(modifypopup.isDisplayed())
 		{	Status=true;
 			selectWebElement(userModifyReasontxtbox);
 			Thread.sleep(1000);
-			enterValueToTxtField(userModifyReasontxtbox,"Modified");
+			enterValueToTxtFieldWithoutClear(userModifyReasontxtbox,"Modified");
 			Thread.sleep(1000);
 			clickOn(useryesBtn);
 		}
@@ -1197,15 +1231,19 @@ public class UserManagementPage extends BasePage {
 		selectWebElement(rowdata);
 		Thread.sleep(1000);	
 		selectWebElement(navigatetoreports);
-		selectWebElement(pbuacancel.get(1));
+		selectWebElement(pbuacancel.get(2));
 		if(changesMsg.getText().equals("No rows has been changed"))
 			return true;
 		else
 		return false;
 	}
 
-	public boolean verifyreportsunsuccessfullsavechanges() {
-		selectWebElement(saveaccess.get(1));
+	public boolean verifyreportsunsuccessfullsavechanges(UserDetails userDetails) throws Exception {
+		searchUserManagementRecord(userDetails.getUserId());
+		selectWebElement(rowdata);
+		Thread.sleep(1000);	
+		selectWebElement(navigatetoreports);
+		selectWebElement(saveaccess.get(2));
 		if(changesMsg.getText().equals("No rows has been changed"))
 			return true;
 		else
@@ -1218,14 +1256,10 @@ public class UserManagementPage extends BasePage {
 		Thread.sleep(1000);
 		selectWebElement(navigatetodashboard);
 		Boolean Status=false;
-		selectWebElement(checkallAccess.get(2));
-		if(checkallAccess.get(2).isSelected())
+		selectWebElement(checkAllDashboard);
+		if(checkAllDashboard.isSelected())
 		{
-			selectWebElement(checkallexportaccess.get(2));
-			if(checkallexportaccess.get(2).isSelected())
-			{
 				Status=true;
-			}
 		}
 		return Status;
 	}
@@ -1237,27 +1271,31 @@ public class UserManagementPage extends BasePage {
 		Thread.sleep(1000);
 		selectWebElement(navigatetodashboard);
 		Thread.sleep(1000);
-		selectWebElement(checkallAccess.get(2));
-		selectWebElement(pbuacancel.get(2));
+		selectWebElement(checkAllDashboard);
+		selectWebElement(pbuacancel.get(3));
 		Thread.sleep(1000);
-		if(checkallAccess.get(2).isSelected())
+		if(checkAllDashboard.isSelected())
 			return false;
 		else
 		return true;
 	}
 
-	public boolean verifyDashboardsavechanges() throws Exception {
+	public boolean verifyDashboardsavechanges(UserDetails userDetails) throws Exception {
+		searchUserManagementRecord(userDetails.getUserId());
+		selectWebElement(rowdata);
+		selectWebElement(navigatetodashboard);
 		waitForJqueryLoad(driver);
 		Boolean Status=false;
-		selectWebElement(checkallAccess.get(2));
-		selectWebElement(saveaccess.get(2));
+		selectWebElement(checkAllDashboard);
+		selectWebElement(saveaccess.get(3));
 		if(modifypopup.isDisplayed())
-		{	Status=true;
+		{	
 			selectWebElement(userModifyReasontxtbox);
 			Thread.sleep(1000);
-			enterValueToTxtField(userModifyReasontxtbox,"Modified");
+			enterValueToTxtFieldWithoutClear(userModifyReasontxtbox,"Modified");
 			Thread.sleep(1000);
 			clickOn(useryesBtn);
+			Status=true;
 		}
 		return Status;
 	}
@@ -1267,15 +1305,19 @@ public class UserManagementPage extends BasePage {
 		selectWebElement(rowdata);
 		Thread.sleep(1000);	
 		selectWebElement(navigatetodashboard);
-		selectWebElement(pbuacancel.get(2));
+		selectWebElement(pbuacancel.get(3));
 		if(changesMsg.getText().equals("No rows has been changed"))
 			return true;
 		else
 		return false;
 	}
 
-	public boolean verifydashboardunsuccessfullsavechanges() {
-		selectWebElement(saveaccess.get(2));
+	public boolean verifydashboardunsuccessfullsavechanges(UserDetails userDetails) throws Exception {
+		searchUserManagementRecord(userDetails.getUserId());
+		selectWebElement(rowdata);
+		Thread.sleep(1000);	
+		selectWebElement(navigatetodashboard);
+		selectWebElement(saveaccess.get(3));
 		if(changesMsg.getText().equals("No rows has been changed"))
 			return true;
 		else
@@ -1304,7 +1346,7 @@ public class UserManagementPage extends BasePage {
 		selectWebElement(navigatetootherapplication);
 		Thread.sleep(1000);
 		selectWebElement(checkallotherapplication);
-		selectWebElement(pbuacancel.get(3));
+		selectWebElement(pbuacancel.get(4));
 		Thread.sleep(1000);
 		if(checkallotherapplication.isSelected())
 			return false;
@@ -1312,18 +1354,24 @@ public class UserManagementPage extends BasePage {
 		return true;
 	}
 
-	public boolean verifyotherapplicationsavechanges() throws Exception {
+	public boolean verifyotherapplicationsavechanges(UserDetails userDetails) throws Exception {
+		searchUserManagementRecord(userDetails.getUserId());
+		selectWebElement(rowdata);
+		Thread.sleep(1000);
+		selectWebElement(navigatetootherapplication);
+		Thread.sleep(1000);
 		waitForJqueryLoad(driver);
 		Boolean Status=false;
 		selectWebElement(checkallotherapplication);
-		selectWebElement(saveaccess.get(3));
+		selectWebElement(saveaccess.get(4));
 		if(modifypopup.isDisplayed())
-		{	Status=true;
+		{	
 			selectWebElement(userModifyReasontxtbox);
 			Thread.sleep(1000);
-			enterValueToTxtField(userModifyReasontxtbox,"Modified");
+			enterValueToTxtFieldWithoutClear(userModifyReasontxtbox,"Modified");
 			Thread.sleep(1000);
 			clickOn(useryesBtn);
+			Status=true;
 		}
 		return Status;
 	}
@@ -1333,15 +1381,19 @@ public class UserManagementPage extends BasePage {
 		selectWebElement(rowdata);
 		Thread.sleep(1000);	
 		selectWebElement(navigatetootherapplication);
-		selectWebElement(pbuacancel.get(3));
+		selectWebElement(pbuacancel.get(4));
 		if(changesMsg.getText().equals("No rows has been changed"))
 			return true;
 		else
 		return false;
 	}
 
-	public boolean verifyotherapplicationunsuccessfullsavechanges() {
-		selectWebElement(saveaccess.get(3));
+	public boolean verifyotherapplicationunsuccessfullsavechanges(UserDetails userDetails) throws Exception {
+		searchUserManagementRecord(userDetails.getUserId());
+		selectWebElement(rowdata);
+		Thread.sleep(1000);	
+		selectWebElement(navigatetootherapplication);
+		selectWebElement(saveaccess.get(4));
 		if(changesMsg.getText().equals("No rows has been changed"))
 			return true;
 		else
@@ -1499,6 +1551,83 @@ public class UserManagementPage extends BasePage {
 		Thread.sleep(1000);
 		selectWebElement(useryesBtn);
 		
+	}
+
+	public boolean verifyAdminPagesCheckerunsuccessfullsavechanges(UserDetails userDetails) throws Exception {
+		searchUserManagementRecord(userDetails.getUserId());
+		selectWebElement(rowdata);
+		Thread.sleep(1000);	
+		selectWebElement(navigatetoAdminPagesChecker);
+		selectWebElement(saveaccess.get(1));
+		if(changesMsg.getText().equals("No rows has been changed"))
+			return true;
+		else
+		return false;
+	}
+
+	public boolean verifyAdminPagesCheckercheckbox(UserDetails userDetails) throws Exception {
+		searchUserManagementRecord(userDetails.getUserId());
+		selectWebElement(rowdata);
+		Thread.sleep(1000);
+		selectWebElement(navigatetoAdminPagesChecker);
+		Boolean Status=false;
+		selectWebElement(checkAllAdminPagesChecker);
+		if(checkAllAdminPagesChecker.isSelected())
+			{
+				Status=true;
+			}
+		return Status;
+	}
+	
+
+	public boolean verifyAdminPagesCheckercancelchanges(UserDetails userDetails) throws Exception {
+		searchUserManagementRecord(userDetails.getUserId());
+		selectWebElement(rowdata);
+		Thread.sleep(1000);
+		selectWebElement(navigatetoAdminPagesChecker);
+		Thread.sleep(1000);
+		selectWebElement(checkAllAdminPagesChecker);
+		selectWebElement(pbuacancel.get(1));
+		Thread.sleep(1000);
+		if(checkAllAdminPagesChecker.isSelected())
+			return false;
+		else
+		return true;
+	}
+	
+
+	public boolean verifyAdminPagesCheckersavechanges(UserDetails userDetails) throws Exception {
+		searchUserManagementRecord(userDetails.getUserId());
+		selectWebElement(rowdata);
+		Thread.sleep(1000);
+		selectWebElement(navigatetoAdminPagesChecker);
+		Thread.sleep(1000);
+		waitForJqueryLoad(driver);
+		Boolean Status=false;
+		selectWebElement(checkAllAdminPagesChecker);
+		selectWebElement(saveaccess.get(1));
+		if(modifypopup.isDisplayed())
+		{	
+			selectWebElement(userModifyReasontxtbox);
+			Thread.sleep(1000);
+			enterValueToTxtFieldWithoutClear(userModifyReasontxtbox,"Modified");
+			Thread.sleep(1000);
+			clickOn(useryesBtn);
+			Status=true;
+		}
+		return Status;
+	}
+
+	public boolean verifyAdminPagesCheckerunsuccessfullcancelchanges(UserDetails userDetails) throws Exception {
+		searchUserManagementRecord(userDetails.getUserId());
+		selectWebElement(rowdata);
+		Thread.sleep(1000);	
+		selectWebElement(navigatetoAdminPagesChecker);
+		selectWebElement(pbuacancel.get(1));
+		if(changesMsg.getText().equals("No rows has been changed"))
+			return true;
+		else
+			return false;
 	}
 	
 }

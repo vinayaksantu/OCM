@@ -8,6 +8,7 @@ import java.util.Map;
 import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -25,7 +26,7 @@ import com.tetherfi.utility.Screenshot;
 
 public class FaxApplicationFormTest extends BaseTest {
 	Screenshot screenshot=new Screenshot(driver);
-    @BeforeMethod
+    @BeforeClass
     public void NavigateToFaxApplicationFormPage() throws Exception {
     	try {
 			Thread.sleep(500);
@@ -42,7 +43,6 @@ public class FaxApplicationFormTest extends BaseTest {
         ivrPage.navigateToFaxApplicationFormPage();
         FaxApplicationFormPage faxApplicationFormPage = PageFactory.createPageInstance(driver, FaxApplicationFormPage.class);
         Assert.assertTrue(faxApplicationFormPage.isFaxApplicationFormPageDisplayed(), "Fax application form page assertion failed");
-    	screenshot.captureScreen("FaxApplicationFormTest","FaxApplicationForm Page");
     }
     
     @Test(priority=1)
@@ -86,7 +86,7 @@ public class FaxApplicationFormTest extends BaseTest {
 
     }
     
-    @Test(priority=6,dependsOnMethods ="AddNewFaxApplicationFormRecord")
+    @Test(priority=6,dependsOnMethods ="AddNewFaxApplicationFormRecord",enabled=false)
     public void VerifyAuditTrialReportForCreate() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxApplicationFormData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -108,7 +108,7 @@ public class FaxApplicationFormTest extends BaseTest {
         FaxApplicationFormDetails faxApplicationFormDetails = new FaxApplicationFormDetails(map);
         FaxApplicationFormPage faxApplicationFormPage = PageFactory.createPageInstance(driver, FaxApplicationFormPage.class);
         faxApplicationFormPage.addNewFaxApplicationFormRecord(faxApplicationFormDetails);
-        Assert.assertEquals(faxApplicationFormPage.verifySuccessMessage(),"Record Creation Failed, Already Exist", "Duplicate record assertion failed");
+        Assert.assertTrue(faxApplicationFormPage.verifyErrorMessage(), "Duplicate record assertion failed");
     }
     
     @Test(priority=8)
@@ -171,7 +171,7 @@ public class FaxApplicationFormTest extends BaseTest {
         Assert.assertEquals(faxApplicationFormPage.verifySuccessMessage(),"Record Updated Successfully","Edit record assertion failed");
     }
     
-    @Test(priority=14,dependsOnMethods="EditFaxApplicationFormRecord")
+    @Test(priority=14,dependsOnMethods="EditFaxApplicationFormRecord",enabled=false)
     public void VerifyAuditTrialReportForUpdate() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxApplicationFormData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(0);	
@@ -255,7 +255,7 @@ public class FaxApplicationFormTest extends BaseTest {
          Assert.assertEquals(faxApplicationFormPage.verifySuccessMessage(),"Record Deleted Successfully","delete record assertion failed");
     }
     
-    @Test(priority=22,dependsOnMethods= {"DeleteFaxApplicationFormRecord"})
+    @Test(priority=22,dependsOnMethods= {"DeleteFaxApplicationFormRecord"},enabled=false)
     public void VerifyAuditTrialReportForDelete() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxApplicationFormData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(0);	
@@ -278,7 +278,7 @@ public class FaxApplicationFormTest extends BaseTest {
         Assert.assertTrue(faxApplicationFormPage.verifyExportToExcel(filePath));
     }
     
-    @Test(priority=24)
+    @Test(priority=24,dependsOnMethods={"ExportToExcel"})
     public void ExportToExcelData() throws Exception
     {	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Fax Application Form.xlsx";
     	List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();

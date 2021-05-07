@@ -153,7 +153,7 @@ public class SkillConfigurationPage extends BasePage {
     @FindBy(xpath="//div[text()='No records to display']")
     private WebElement norecords;
     
-    @FindBy(xpath="//i[@class='fas fa-sync']")
+    @FindBy(xpath="//i[@class='fas fa-sync fa-spin']")
     private WebElement clearsearch;
     
     @FindBy(xpath="//a[@class='k-button k-bare k-button-icon k-window-action']")
@@ -372,13 +372,13 @@ public class SkillConfigurationPage extends BasePage {
 					}
 				else if(headers.get(j).getText().equals("Skill Priority")) {
 					if(cols.get(j).getText().equals("Top"))
-						col="1";
+						col="3";
 					else if(cols.get(j).getText().equals("High"))
 						col="2";
 					else if(cols.get(j).getText().equals("Medium"))
-						col="3";
+						col="1";
 					else 
-						col="4";
+						col="0";
 				}
 				else
 					col=cols.get(j).getText();
@@ -971,7 +971,7 @@ public class SkillConfigurationPage extends BasePage {
         selectWebElement(saveBtn);
 	}
 
-	public void deleteWaitTimeColorConfigRecord(SkillConfigurationDetails details) throws Exception {
+	public void deleteSkillConfigRecord(SkillConfigurationDetails details) throws Exception {
 		searchSkillConfigurationRecord(details.getSkillID());		
     	selectWebElement(deleteButton);
 		try {

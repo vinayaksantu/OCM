@@ -29,11 +29,42 @@ public class TmacPage extends BasePage {
     
     @FindBy(css="a[href$='/AgentAuxCodes/Index']")
     private WebElement tmacAuxCodes;
-
     
     @FindBy(css="a[href$='/WorkcodeList/Index']")
     private WebElement workCodeList;
+    
+    @FindBy(css="a[href$='/SlotScheduler/Index']")
+    private WebElement slotScheduler;
+    
+    @FindBy(css="a[href$='/Attributes/Index']")
+    private WebElement attributes;
+    
+    @FindBy(css="a[href$='/AttributeAssignment/Index']")
+    private WebElement attributeAssignment;
+    
+    @FindBy(css="a[href$='/AgentSkillAssignment/Index']")
+    private WebElement agentSkillAssignment;
+    
+    @FindBy(css="a[href$='/SurveyRuleConfiguration/Index']")
+    private WebElement surveyRuleConfiguration;
+    
+    @FindBy(css="a[href$='/SkillTemplate/Index']")
+    private WebElement skillTemplate;
+    
+	@FindBy(css="a[href$='/SkillConfiguration/Index'] div")
+    private WebElement skillConfiguration;
 
+	@FindBy(css="a[href$='/AgentTemplate/Index']")
+    private WebElement agentTemplate;
+	
+	@FindBy(css="a[href$='/AgentSkillTemplateAssignment/Index']")
+    private WebElement agentSkillScheduler;
+
+
+	public void navigateToAgentTemplatePage() {
+		 waitUntilWebElementIsClickable(agentTemplate);
+	     selectWebElement(agentTemplate);
+	}
     public boolean isTMACPageDisplayed() {
         boolean status=false;
         waitForLoad(driver);
@@ -47,6 +78,9 @@ public class TmacPage extends BasePage {
         }
         return status;
     }
+    
+
+    
     public void navigateToAgentSettingsPage(){
         selectWebElement(agentSettings);
     }
@@ -76,4 +110,43 @@ public class TmacPage extends BasePage {
         waitUntilWebElementIsClickable(tmacAuxCodes);
         selectWebElement(tmacAuxCodes);
     }
+	public void navigateToSlotSchedulerPage() {
+		 waitUntilWebElementIsClickable(slotScheduler);
+	     selectWebElement(slotScheduler);
+	}
+	
+	public void navigateToAttributesPage() {
+		 waitUntilWebElementIsClickable(attributes);
+	     selectWebElement(attributes);
+	}
+	
+	public void navigateToAttributeAssignmentPage() {
+		 waitUntilWebElementIsClickable(attributeAssignment);
+	     selectWebElement(attributeAssignment);
+	}
+	
+	public void navigateToAgentSkillAssignmentPage() {
+		 waitUntilWebElementIsClickable(agentSkillAssignment);
+	     selectWebElement(agentSkillAssignment);
+	}
+	
+	public void navigateToSurveyRuleConfigurationPage() {
+		 waitUntilWebElementIsClickable(surveyRuleConfiguration);
+	     selectWebElement(surveyRuleConfiguration);
+	}
+	
+	public void navigateToSkillTemplatePage() {
+		 waitUntilWebElementIsClickable(skillTemplate);
+	     selectWebElement(skillTemplate);
+	}
+	
+	public void navigateToSkillConfigurationPage(){selectWebElement(skillConfiguration);}
+	
+	public void navigateToAgentSkillSchedulerPage() {
+		 waitUntilWebElementIsClickable(agentSkillScheduler);
+	     selectWebElement(agentSkillScheduler);
+	}
+	
+
+
 }

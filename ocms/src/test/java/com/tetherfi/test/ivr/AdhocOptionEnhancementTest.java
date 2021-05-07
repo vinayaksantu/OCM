@@ -14,6 +14,7 @@ import com.tetherfi.utility.Screenshot;
 import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -24,7 +25,7 @@ import java.util.Map;
 
 public class AdhocOptionEnhancementTest extends BaseTest {
 	Screenshot screenshot=new Screenshot(driver);
-    @BeforeMethod
+    @BeforeClass
     public void NavigateToAdhocOptionEnhancementPage() throws Exception {
     	try {
 			Thread.sleep(500);
@@ -43,7 +44,7 @@ public class AdhocOptionEnhancementTest extends BaseTest {
         Assert.assertTrue(adhocOptionEnhancementPage.isAdhocOptionEnhancementPageDisplayed(), "adhoc option enhancement page assertion failed");
     }
     
-   @Test(priority=1)
+   /*@Test(priority=1)
     public void AdhocOptionEnhancementPage() {
         AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);
     	Assert.assertTrue(adhocOptionEnhancementPage.verifylogo(),"AdhocOptionEnhancement logo assertion failed");
@@ -63,7 +64,415 @@ public class AdhocOptionEnhancementTest extends BaseTest {
         Assert.assertEquals(adhocOptionEnhancementPage.verifySuccessMessage(),"Record Created Successfully", "Add New record assertion failed");
     }
    
-    /*@Test(dependsOnMethods ="AddNewAdhocOptionEnhancementRecord", priority=3)
+   
+    @Test(dependsOnMethods = "AddNewAdhocOptionEnhancementRecord",priority=3)
+    public void AddDuplicateAdhocOptionEnhancementRecord() throws Exception {
+        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AdhocOptionEnhancementData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
+        AdhocOptionEnhancementDetails adhocOptionEnhancementDetails = new AdhocOptionEnhancementDetails(map);
+        AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);
+        adhocOptionEnhancementPage.addNewAdhocOptionEnhancementRecord(adhocOptionEnhancementDetails);
+        Assert.assertEquals(adhocOptionEnhancementPage.verifyErrorMessage(),"Duplicate Record", "Duplicate record assertion failed");
+    }
+    
+    @Test(dependsOnMethods = "AddDuplicateAdhocOptionEnhancementRecord",priority=4)
+    public void AddNewAdhocOptionEnhancementwithdifferentLangvageRecord() throws Exception {
+        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AdhocOptionEnhancementData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(1);
+        AdhocOptionEnhancementDetails adhocOptionEnhancementDetails = new AdhocOptionEnhancementDetails(map);
+        AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);
+        adhocOptionEnhancementPage.addNewAdhocOptionEnhancementRecord(adhocOptionEnhancementDetails);
+        Assert.assertEquals(adhocOptionEnhancementPage.verifySuccessMessage(),"Record Created Successfully", "Add New record assertion failed");
+    }
+    
+    @Test(priority=5)
+    public void AddEmptyAdhocOptionEnhancementRecord() throws IOException, Exception {
+        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AdhocOptionEnhancementData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
+        AdhocOptionEnhancementDetails adhocOptionEnhancementDetails = new AdhocOptionEnhancementDetails(map);
+        AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);
+        adhocOptionEnhancementPage.addNewAdhocOptionEnhancementInvalidRecord(adhocOptionEnhancementDetails);
+        Assert.assertEquals(adhocOptionEnhancementPage.verifyErrorMessage(),"Please Provide Promotion Number, Promotion Description, Language, Direct Transfer Enabled, Intent, Status, Promotion Details Wav File, Promotion Name Wav File", "Empty record assertion failed");
+    }
+    @Test(priority=6)
+    public void AddAdhocOptionEnhancementRecordWithoutPromotionalNumber() throws IOException, Exception {
+        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AdhocOptionEnhancementData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
+        AdhocOptionEnhancementDetails adhocOptionEnhancementDetails = new AdhocOptionEnhancementDetails(map);
+        AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);
+        adhocOptionEnhancementPage.addNewRecordwithoutPromotionNumber(adhocOptionEnhancementDetails);
+        Assert.assertEquals(adhocOptionEnhancementPage.verifyErrorMessage(),"Please Provide Promotion Number");
+    }
+    
+    @Test(priority=7)
+    public void AddAdhocOptionEnhancementRecordWithoutPromotionalDescription() throws IOException, Exception {
+        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AdhocOptionEnhancementData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
+        AdhocOptionEnhancementDetails adhocOptionEnhancementDetails = new AdhocOptionEnhancementDetails(map);
+        AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);
+     	adhocOptionEnhancementPage.addNewRecordwithoutPromotiondescription(adhocOptionEnhancementDetails);
+        Assert.assertEquals(adhocOptionEnhancementPage.verifyErrorMessage(),"Please Provide Promotion Description");
+    }  
+    
+    @Test(priority=8)
+    public void AddAdhocOptionEnhancementRecordWithoutLanguage() throws IOException, Exception {
+        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AdhocOptionEnhancementData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
+        AdhocOptionEnhancementDetails adhocOptionEnhancementDetails = new AdhocOptionEnhancementDetails(map);
+        AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);
+        adhocOptionEnhancementPage.addNewRecordwithoutLanguage(adhocOptionEnhancementDetails);
+        Assert.assertEquals(adhocOptionEnhancementPage.verifyErrorMessage(),"Please Provide Language");
+    }
+    
+    @Test(priority=9)
+    public void AddAdhocOptionEnhancementRecordWithoutDirectTransfer() throws IOException, Exception {
+        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AdhocOptionEnhancementData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
+        AdhocOptionEnhancementDetails adhocOptionEnhancementDetails = new AdhocOptionEnhancementDetails(map);
+        AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);
+        adhocOptionEnhancementPage.addNewRecordwithoutDirectTransferEnabled(adhocOptionEnhancementDetails);
+        Assert.assertEquals(adhocOptionEnhancementPage.verifyErrorMessage(),"Please Provide Direct Transfer Enabled");
+    }
+    
+    @Test(priority=10)
+    public void AddAdhocOptionEnhancementRecordWithoutPromotionNameWavfile() throws IOException, Exception {
+        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AdhocOptionEnhancementData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
+        AdhocOptionEnhancementDetails adhocOptionEnhancementDetails = new AdhocOptionEnhancementDetails(map);
+        AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);
+    	adhocOptionEnhancementPage.addNewRecordwithoutpromotionnamewavfile(adhocOptionEnhancementDetails);
+        Assert.assertEquals(adhocOptionEnhancementPage.verifyErrorMessage(),"Please Provide Promotion Name Wav File");
+    }
+    
+    @Test(priority=11)
+    public void AddAdhocOptionEnhancementRecordWithoutPromotionDetailsWavfile() throws IOException, Exception {
+        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AdhocOptionEnhancementData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
+        AdhocOptionEnhancementDetails adhocOptionEnhancementDetails = new AdhocOptionEnhancementDetails(map);
+        AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);       
+    	adhocOptionEnhancementPage.addNewRecordwithoutpromotiondetailswavfile(adhocOptionEnhancementDetails);
+        Assert.assertEquals(adhocOptionEnhancementPage.verifyErrorMessage(),"Please Provide Promotion Details Wav File");
+    }
+    
+    @Test(priority=12)
+    public void AddEmptyAdhocOptionEnhancementRecordWithoutIntent() throws IOException, Exception {
+        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AdhocOptionEnhancementData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
+        AdhocOptionEnhancementDetails adhocOptionEnhancementDetails = new AdhocOptionEnhancementDetails(map);
+        AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);       
+    	adhocOptionEnhancementPage.addNewRecordwithoutIntent(adhocOptionEnhancementDetails);
+        Assert.assertEquals(adhocOptionEnhancementPage.verifyErrorMessage(),"Please Provide Intent");
+    }
+    
+    @Test(priority=13)
+    public void AddAdhocOptionEnhancementRecordWithoutStatus() throws IOException, Exception {
+        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AdhocOptionEnhancementData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
+        AdhocOptionEnhancementDetails adhocOptionEnhancementDetails = new AdhocOptionEnhancementDetails(map);
+        AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);         	
+        adhocOptionEnhancementPage.addNewRecordwithoutStatus(adhocOptionEnhancementDetails);
+        Assert.assertEquals(adhocOptionEnhancementPage.verifyErrorMessage(),"Please Provide Status");   
+    }
+    
+    @Test(priority=14)
+    public void VerifyCancelButtonAtAddAdhocOptionEnhancementRecord() throws IOException {
+        AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);
+        adhocOptionEnhancementPage.clickonAddNewRecord();
+        adhocOptionEnhancementPage.clickOnCancelBtn();
+        Assert.assertFalse(adhocOptionEnhancementPage.verifyEditFormContainer(),"Cancel Btn at Add record assertion failed");
+    }
+    @Test(priority=15)
+    public void VerifySearchIsNotEqualTo()  throws Exception {
+        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AdhocOptionEnhancementData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
+        AdhocOptionEnhancementDetails adhocOptionEnhancementDetails=new AdhocOptionEnhancementDetails(map);
+        AdhocOptionEnhancementPage adhocOptionEnhancementPage= PageFactory.createPageInstance(driver,AdhocOptionEnhancementPage.class);
+        Assert.assertTrue(adhocOptionEnhancementPage.verifySearchIsNotEqualTo(adhocOptionEnhancementDetails.getPromotionalDescription()));
+    }
+    
+    @Test(priority=16)
+    public void VerifySearchContains() throws Exception {
+        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AdhocOptionEnhancementData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(3);
+        AdhocOptionEnhancementDetails adhocOptionEnhancementDetails=new AdhocOptionEnhancementDetails(map);
+        AdhocOptionEnhancementPage adhocOptionEnhancementPage= PageFactory.createPageInstance(driver,AdhocOptionEnhancementPage.class);
+        Assert.assertTrue(adhocOptionEnhancementPage.verifySearchContains(adhocOptionEnhancementDetails.getPromotionalDescription()));
+    }
+    
+    @Test(priority=17)
+    public void  VerifySearchDoesNotContains() throws Exception {
+        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AdhocOptionEnhancementData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(3);
+        AdhocOptionEnhancementDetails adhocOptionEnhancementDetails=new AdhocOptionEnhancementDetails(map);
+        AdhocOptionEnhancementPage adhocOptionEnhancementPage= PageFactory.createPageInstance(driver,AdhocOptionEnhancementPage.class);
+        Assert.assertTrue(adhocOptionEnhancementPage.verifySearchDoesNotContains(adhocOptionEnhancementDetails.getPromotionalDescription()));
+    }
+    
+    @Test(priority=18)
+    public void  VerifySearchStartsWith() throws Exception {
+        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AdhocOptionEnhancementData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(3);
+        AdhocOptionEnhancementDetails adhocOptionEnhancementDetails=new AdhocOptionEnhancementDetails(map);
+        AdhocOptionEnhancementPage adhocOptionEnhancementPage= PageFactory.createPageInstance(driver,AdhocOptionEnhancementPage.class);
+        Assert.assertTrue(adhocOptionEnhancementPage.verifySearchStartsWith(adhocOptionEnhancementDetails.getPromotionalDescription()));
+    }
+    
+    @Test(priority=19)
+    public void  VerifySearchEndsWith() throws Exception {
+        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AdhocOptionEnhancementData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(4);
+        AdhocOptionEnhancementDetails adhocOptionEnhancementDetails=new AdhocOptionEnhancementDetails(map);
+        AdhocOptionEnhancementPage adhocOptionEnhancementPage= PageFactory.createPageInstance(driver,AdhocOptionEnhancementPage.class);
+        Assert.assertTrue(adhocOptionEnhancementPage.verifySearchEndsWith(adhocOptionEnhancementDetails.getPromotionalDescription()));
+    }
+    
+    @Test(priority=20)
+    public void EditAdhocOptionEnhancementRecord() throws Exception {
+        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AdhocOptionEnhancementData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
+        AdhocOptionEnhancementDetails adhocOptionEnhancementDetails=new AdhocOptionEnhancementDetails(map);
+        AdhocOptionEnhancementPage adhocOptionEnhancementPage= PageFactory.createPageInstance(driver,AdhocOptionEnhancementPage.class);
+        adhocOptionEnhancementPage.editAdhocOptionEnhancementRecord(adhocOptionEnhancementDetails);
+        Assert.assertEquals(adhocOptionEnhancementPage.verifySuccessMessage(),"Record Updated Successfully","Edit record assertion failed");
+    }
+       
+    @Test(priority=21)
+    public void EditEmptyAdhocOptionEnhancementRecord() throws Exception {
+        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AdhocOptionEnhancementData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Invalid").getTestData().get(1);
+        AdhocOptionEnhancementDetails adhocOptionEnhancementDetails=new AdhocOptionEnhancementDetails(map);
+        AdhocOptionEnhancementPage adhocOptionEnhancementPage= PageFactory.createPageInstance(driver,AdhocOptionEnhancementPage.class);
+        adhocOptionEnhancementPage.editAdhocOptionEnhancementRecord(adhocOptionEnhancementDetails);
+        Assert.assertEquals(adhocOptionEnhancementPage.verifySuccessMessage(),"Please Provide Promotion Description, Intent","Edit empty record assertion failed");
+    }
+    
+    @Test(priority=22)
+    public void EditWithoutModifyReasonAdhocOptionEnhancementRecord() throws Exception {
+        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AdhocOptionEnhancementData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
+        AdhocOptionEnhancementDetails adhocOptionEnhancementDetails=new AdhocOptionEnhancementDetails(map);
+        AdhocOptionEnhancementPage adhocOptionEnhancementPage= PageFactory.createPageInstance(driver,AdhocOptionEnhancementPage.class);
+        adhocOptionEnhancementPage.editRecordWithoutModifyReason(adhocOptionEnhancementDetails);
+        Assert.assertEquals(adhocOptionEnhancementPage.verifySuccessMessage(),"Please enter the modify reason","Edit without modify reason record assertion failed");
+    }
+    
+    @Test(priority=23)
+    public void VerifyCancelButtonAtEditAdhocOptionEnhancementRecord() throws IOException, Exception {
+        AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);
+        adhocOptionEnhancementPage.searchAdhocOptionEnhancementRecord("Promotion Number","4");
+        Thread.sleep(2000);
+        adhocOptionEnhancementPage.clickOnEditButton();
+        adhocOptionEnhancementPage.clickOnCancelBtn();
+        Assert.assertFalse(adhocOptionEnhancementPage.verifyEditFormContainer(), "Cancel Btn at Edit record assertion failed");
+    }
+    
+    @Test(priority=24)
+    public void ExportToExcel() throws Exception
+    {
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles";
+        AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);
+        Assert.assertTrue(adhocOptionEnhancementPage.verifyExportToExcel(filePath));
+    }
+    
+    @Test(priority=25)
+    public void ExportToExcelData() throws Exception
+    {	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Adhoc Option Enhancement.xlsx";
+    	List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
+    	AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);
+    	Assert.assertTrue(adhocOptionEnhancementPage.verifyexportToExcelSheet(maplist));	
+    }
+    
+    @Test(priority=26)
+    public void SortingByAscending() throws IOException {
+        AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);
+        adhocOptionEnhancementPage.SortByAscending();
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Adhoc Option Enhancement (1).xlsx";
+        List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
+        Assert.assertTrue(adhocOptionEnhancementPage.verifyexportToExcelSheet(maplist));
+    }
+    
+    @Test(priority=27)
+    public void SortingByDescending() throws IOException {
+        AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);
+        adhocOptionEnhancementPage.SortByDescending();
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Adhoc Option Enhancement (2).xlsx";
+        List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
+        Assert.assertTrue(adhocOptionEnhancementPage.verifyexportToExcelSheet(maplist));
+    }
+    
+    @Test(priority=28)
+    public void GroupBy()
+    {
+        AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);
+    	Assert.assertTrue(adhocOptionEnhancementPage.groupby());
+        screenshot.captureScreen("AdhocOptionEnhancementTest", "GroupBy");
+    	Assert.assertTrue(adhocOptionEnhancementPage.groupby());
+        screenshot.captureScreen("AdhocOptionEnhancementTest","AlreadyGroupBy");
+    }
+    
+    @Test(priority=29)
+    public void VerifyArrowMoveForPreviousAndNextPage() throws Exception {
+        AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);
+    	Assert.assertTrue(adhocOptionEnhancementPage.verifyArrowMoveForPreviousAndNextPage(),"arrow move for previous and next page assertion failed");
+    }
+    
+    @Test(priority=30)
+    public void VerifyArrowMoveForFirstAndLastPage() throws Exception {
+        AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);
+        Assert.assertTrue(adhocOptionEnhancementPage.verifyArrowMoveForFirstAndLastPage(),"arrow move for first and last page assertion failed");
+    }
+    
+    @Test(priority=31)
+    public void VerifyTotalNumberOfItemsPerPageDetails() {
+        AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);
+        Assert.assertTrue(adhocOptionEnhancementPage.verifyTotalNumberOfItemsPerPageDetails(),"item per page assertion failed");
+    }
+    
+    @Test(priority=32)
+    public void VerifyNumberOfItemsPerPageSelection() {
+        AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);
+        Assert.assertTrue(adhocOptionEnhancementPage.verifyNumberOfItemsPerPage(),"item per page assertion failed");
+    }
+    
+    @Test(priority=33)
+    public void VerifyDropdownForAllTheColumns() {
+        AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);
+        Assert.assertTrue(adhocOptionEnhancementPage.verifyDropDownOfAllHeaders(), "Columns dropdown assertion failed");
+    }
+    
+    @Test(priority=34)
+    public void VerifyColumnsHeaderEnable() {
+        AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);
+        Assert.assertTrue(adhocOptionEnhancementPage.verifycolumnsHeaderEnabled(),"columns enabled assertion failed");
+    }
+    
+    @Test(priority=35)
+    public void VerifyColumnsHeaderDisable() {
+        AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);
+        Assert.assertFalse(adhocOptionEnhancementPage.verifycolumnsHeaderDisabled(),"columns disabled assertion failed");
+    }
+    
+    @Test(priority=36)
+    public void database() throws Exception {
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AdhocOptionEnhancementData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(0);
+        AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);
+        AdhocOptionEnhancementDetails adhocOptionEnhancementDetails=new AdhocOptionEnhancementDetails(map);
+    	Assert.assertTrue(adhocOptionEnhancementPage.verifyDatabase(adhocOptionEnhancementDetails.getQuery()));
+    }
+    
+   @Test(priority=37)
+    public void DeleteWithoutDeleteReasonInAdhocOptionEnhancementRecord() throws Exception {
+        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AdhocOptionEnhancementData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Invalid").getTestData().get(3);
+        AdhocOptionEnhancementDetails adhocOptionEnhancementDetails=new AdhocOptionEnhancementDetails(map);
+        AdhocOptionEnhancementPage adhocOptionEnhancementPage= PageFactory.createPageInstance(driver,AdhocOptionEnhancementPage.class);
+        adhocOptionEnhancementPage.deleteAdhocOptionEnhancementRecord(adhocOptionEnhancementDetails);
+        Assert.assertEquals(adhocOptionEnhancementPage.verifySuccessMessage(),"Please enter the delete reason","delete record assertion failed");
+    }
+    
+    @Test(priority=38)
+    public void VerifyCancelButtonInDeleteAdhocOptionEnhancementRecord() throws Exception {
+        AdhocOptionEnhancementPage adhocOptionEnhancementPage= PageFactory.createPageInstance(driver,AdhocOptionEnhancementPage.class);
+        adhocOptionEnhancementPage.searchAdhocOptionEnhancementRecord("Promotion Number","4");
+        Thread.sleep(2000);
+        adhocOptionEnhancementPage.clickOnDeleteButton();
+        adhocOptionEnhancementPage.clickOnDeleteCancelBtn();
+        Assert.assertFalse(adhocOptionEnhancementPage.verifyDeleteContainer(), "Cancel Btn at Delete record assertion failed");
+    }
+    
+    @Test(priority=39)//,dependsOnMethods= {"EditAdhocOptionEnhancementRecord"})
+    public void DeleteAdhocOptionEnhancementRecord() throws Exception {
+        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AdhocOptionEnhancementData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
+        AdhocOptionEnhancementDetails adhocOptionEnhancementDetails=new AdhocOptionEnhancementDetails(map);
+        AdhocOptionEnhancementPage adhocOptionEnhancementPage= PageFactory.createPageInstance(driver,AdhocOptionEnhancementPage.class);
+        adhocOptionEnhancementPage.deleteAdhocOptionEnhancementRecord(adhocOptionEnhancementDetails);
+        Assert.assertEquals(adhocOptionEnhancementPage.verifySuccessMessage(),"Record Deleted Successfully","delete record assertion failed");
+    }
+     
+    @Test(priority=40)
+    public void searchPage() throws Exception {
+        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AdhocOptionEnhancementData.xlsx";
+    	Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);
+        AdhocOptionEnhancementDetails adhocOptionEnhancementDetails=new AdhocOptionEnhancementDetails(map);
+    	AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);
+        Assert.assertFalse(adhocOptionEnhancementPage.clearAll(adhocOptionEnhancementDetails),"ClearAll Assertion Failed");
+        screenshot.captureScreen("AdhocOptionEnhancementTest","clearall");
+        Assert.assertTrue(adhocOptionEnhancementPage.verifyclose());
+    }
+    @Test(priority=41)
+    public void searchwithoutSearchTextbox() throws IOException {
+        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AdhocOptionEnhancementData.xlsx";
+    	Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);
+        AdhocOptionEnhancementDetails adhocOptionEnhancementDetails=new AdhocOptionEnhancementDetails(map);
+    	AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);
+    	adhocOptionEnhancementPage.searchwithoutextsearch(adhocOptionEnhancementDetails);
+    	Assert.assertEquals(adhocOptionEnhancementPage.verifyErrorMessage(),"Please enter the text to search or remove the filter");
+    }
+    
+    @Test(priority=42)
+    public void ValidANDBooleanSearch() throws Exception {
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AdhocOptionEnhancementData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);
+        AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);
+        AdhocOptionEnhancementDetails adhocOptionEnhancementDetails=new AdhocOptionEnhancementDetails(map);
+        Assert.assertTrue(adhocOptionEnhancementPage.validAndBooleanSearch(adhocOptionEnhancementDetails));
+    }
+    
+    @Test(priority=43)
+    public void ValiORBooleanSearch() throws Exception {
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AdhocOptionEnhancementData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);
+        AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);
+        AdhocOptionEnhancementDetails adhocOptionEnhancementDetails=new AdhocOptionEnhancementDetails(map);
+        Assert.assertTrue(adhocOptionEnhancementPage.validORBooleanSearch(adhocOptionEnhancementDetails));
+    }
+    
+    @Test(priority=44)
+    public void InvalidBooleanSearchwithoutSearchTextbox() throws Exception {
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AdhocOptionEnhancementData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);
+        AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);
+        AdhocOptionEnhancementDetails adhocOptionEnhancementDetails=new AdhocOptionEnhancementDetails(map);
+        adhocOptionEnhancementPage.InvalidBooleanSearchwithoutSearchTextbox(adhocOptionEnhancementDetails);
+        Assert.assertEquals(adhocOptionEnhancementPage.verifyErrorMessage(),"Please enter the text to search or remove the filter");
+    }
+    
+    @Test(priority=45)
+    public void InvalidBooleanSearchwithoutSearchTextbox1() throws Exception {
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AdhocOptionEnhancementData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);
+        AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);
+        AdhocOptionEnhancementDetails adhocOptionEnhancementDetails=new AdhocOptionEnhancementDetails(map);
+        adhocOptionEnhancementPage.InvalidBooleanSearchwithoutSearchTextbox1(adhocOptionEnhancementDetails);
+        Assert.assertEquals(adhocOptionEnhancementPage.verifyErrorMessage(),"Please enter the text to search or remove the filter"); 
+    }
+    
+    @Test(priority=46)
+    public void SearchClearSearch() throws Exception
+    {
+        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AdhocOptionEnhancementData.xlsx";
+    	Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(1);
+        AdhocOptionEnhancementDetails adhocOptionEnhancementDetails=new AdhocOptionEnhancementDetails(map);
+    	AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);
+    	adhocOptionEnhancementPage.deleteAdhocOptionEnhancementRecord(adhocOptionEnhancementDetails);
+    	Assert.assertTrue(adhocOptionEnhancementPage.verifyinvalidsearchwithwrongdata(adhocOptionEnhancementDetails),"invalidsearchwithwrongdata");
+        screenshot.captureScreen("AdhocOptionEnhancementTest","Invalid Search");
+        Assert.assertTrue(adhocOptionEnhancementPage.verifyclearsearch(), "Clear All Assertion Failed");
+    }
+    
+    @Test(priority=47)
+    public void ExporttoExcelWithoutData() throws Exception
+    {
+        AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);
+    	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AdhocOptionEnhancementData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(0);
+        AdhocOptionEnhancementDetails adhocOptionEnhancementDetails=new AdhocOptionEnhancementDetails(map);
+        Assert.assertTrue(adhocOptionEnhancementPage.ExporttoExcelWithoutData(adhocOptionEnhancementDetails));
+    }
+    
+    @Test(dependsOnMethods ="AddNewAdhocOptionEnhancementRecord", priority=48,enabled=true)
     public void VerifyAuditTrialReportForCreate() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AdhocOptionEnhancementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -77,179 +486,8 @@ public class AdhocOptionEnhancementTest extends BaseTest {
         ocmReportsPage.showReport(reportDetails);
         Assert.assertTrue(ocmReportsPage.verifyAdhocOptionEnhancementCreate(adhocOptionEnhancementDetails,"Create"));
     }
-   
-    @Test(dependsOnMethods = "AddNewAdhocOptionEnhancementRecord",priority=4)
-    public void AddDuplicateAdhocOptionEnhancementRecord() throws Exception {
-        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AdhocOptionEnhancementData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
-        AdhocOptionEnhancementDetails adhocOptionEnhancementDetails = new AdhocOptionEnhancementDetails(map);
-        AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);
-        adhocOptionEnhancementPage.addNewAdhocOptionEnhancementRecord(adhocOptionEnhancementDetails);
-        Assert.assertEquals(adhocOptionEnhancementPage.verifyErrorMessage(),"Duplicate Record", "Duplicate record assertion failed");
-    }
     
-    @Test(dependsOnMethods = "AddDuplicateAdhocOptionEnhancementRecord",priority=5)
-    public void AddNewAdhocOptionEnhancementwithdifferentLangvageRecord() throws Exception {
-        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AdhocOptionEnhancementData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(1);
-        AdhocOptionEnhancementDetails adhocOptionEnhancementDetails = new AdhocOptionEnhancementDetails(map);
-        AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);
-        adhocOptionEnhancementPage.addNewAdhocOptionEnhancementRecord(adhocOptionEnhancementDetails);
-        Assert.assertEquals(adhocOptionEnhancementPage.verifySuccessMessage(),"Record Created Successfully", "Add New record assertion failed");
-    }
-    
-    @Test(priority=6)
-    public void AddEmptyAdhocOptionEnhancementRecord() throws IOException, Exception {
-        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AdhocOptionEnhancementData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
-        AdhocOptionEnhancementDetails adhocOptionEnhancementDetails = new AdhocOptionEnhancementDetails(map);
-        AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);
-        adhocOptionEnhancementPage.addNewAdhocOptionEnhancementInvalidRecord(adhocOptionEnhancementDetails);
-        Assert.assertEquals(adhocOptionEnhancementPage.verifyErrorMessage(),"Please Provide Promotion Number, Promotion Description, Language, Direct Transfer Enabled, Intent, Status, Promotion Details Wav File, Promotion Name Wav File", "Empty record assertion failed");
-    }
-    @Test(priority=7)
-    public void AddAdhocOptionEnhancementRecordWithoutPromotionalNumber() throws IOException, Exception {
-        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AdhocOptionEnhancementData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
-        AdhocOptionEnhancementDetails adhocOptionEnhancementDetails = new AdhocOptionEnhancementDetails(map);
-        AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);
-        adhocOptionEnhancementPage.addNewRecordwithoutPromotionNumber(adhocOptionEnhancementDetails);
-        Assert.assertEquals(adhocOptionEnhancementPage.verifyErrorMessage(),"Please Provide Promotion Number");
-    }
-    
-    @Test(priority=8)
-    public void AddAdhocOptionEnhancementRecordWithoutPromotionalDescription() throws IOException, Exception {
-        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AdhocOptionEnhancementData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
-        AdhocOptionEnhancementDetails adhocOptionEnhancementDetails = new AdhocOptionEnhancementDetails(map);
-        AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);
-     	adhocOptionEnhancementPage.addNewRecordwithoutPromotiondescription(adhocOptionEnhancementDetails);
-        Assert.assertEquals(adhocOptionEnhancementPage.verifyErrorMessage(),"Please Provide Promotion Description");
-    }  
-    
-    @Test(priority=9)
-    public void AddAdhocOptionEnhancementRecordWithoutLanguage() throws IOException, Exception {
-        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AdhocOptionEnhancementData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
-        AdhocOptionEnhancementDetails adhocOptionEnhancementDetails = new AdhocOptionEnhancementDetails(map);
-        AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);
-        adhocOptionEnhancementPage.addNewRecordwithoutLanguage(adhocOptionEnhancementDetails);
-        Assert.assertEquals(adhocOptionEnhancementPage.verifyErrorMessage(),"Please Provide Language");
-    }
-    
-    @Test(priority=10)
-    public void AddAdhocOptionEnhancementRecordWithoutDirectTransfer() throws IOException, Exception {
-        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AdhocOptionEnhancementData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
-        AdhocOptionEnhancementDetails adhocOptionEnhancementDetails = new AdhocOptionEnhancementDetails(map);
-        AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);
-        adhocOptionEnhancementPage.addNewRecordwithoutDirectTransferEnabled(adhocOptionEnhancementDetails);
-        Assert.assertEquals(adhocOptionEnhancementPage.verifyErrorMessage(),"Please Provide Direct Transfer Enabled");
-    }
-    
-    @Test(priority=11)
-    public void AddAdhocOptionEnhancementRecordWithoutPromotionNameWavfile() throws IOException, Exception {
-        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AdhocOptionEnhancementData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
-        AdhocOptionEnhancementDetails adhocOptionEnhancementDetails = new AdhocOptionEnhancementDetails(map);
-        AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);
-    	adhocOptionEnhancementPage.addNewRecordwithoutpromotionnamewavfile(adhocOptionEnhancementDetails);
-        Assert.assertEquals(adhocOptionEnhancementPage.verifyErrorMessage(),"Please Provide Promotion Name Wav File");
-    }
-    
-    @Test(priority=12)
-    public void AddAdhocOptionEnhancementRecordWithoutPromotionDetailsWavfile() throws IOException, Exception {
-        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AdhocOptionEnhancementData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
-        AdhocOptionEnhancementDetails adhocOptionEnhancementDetails = new AdhocOptionEnhancementDetails(map);
-        AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);       
-    	adhocOptionEnhancementPage.addNewRecordwithoutpromotiondetailswavfile(adhocOptionEnhancementDetails);
-        Assert.assertEquals(adhocOptionEnhancementPage.verifyErrorMessage(),"Please Provide Promotion Details Wav File");
-    }
-    
-    @Test(priority=13)
-    public void AddEmptyAdhocOptionEnhancementRecordWithoutIntent() throws IOException, Exception {
-        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AdhocOptionEnhancementData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
-        AdhocOptionEnhancementDetails adhocOptionEnhancementDetails = new AdhocOptionEnhancementDetails(map);
-        AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);       
-    	adhocOptionEnhancementPage.addNewRecordwithoutIntent(adhocOptionEnhancementDetails);
-        Assert.assertEquals(adhocOptionEnhancementPage.verifyErrorMessage(),"Please Provide Intent");
-    }
-    
-    @Test(priority=14)
-    public void AddAdhocOptionEnhancementRecordWithoutStatus() throws IOException, Exception {
-        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AdhocOptionEnhancementData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
-        AdhocOptionEnhancementDetails adhocOptionEnhancementDetails = new AdhocOptionEnhancementDetails(map);
-        AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);         	
-        adhocOptionEnhancementPage.addNewRecordwithoutStatus(adhocOptionEnhancementDetails);
-        Assert.assertEquals(adhocOptionEnhancementPage.verifyErrorMessage(),"Please Provide Status");   
-    }
-    
-    @Test(priority=15)
-    public void VerifyCancelButtonAtAddAdhocOptionEnhancementRecord() throws IOException {
-        AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);
-        adhocOptionEnhancementPage.clickonAddNewRecord();
-        adhocOptionEnhancementPage.clickOnCancelBtn();
-        Assert.assertFalse(adhocOptionEnhancementPage.verifyEditFormContainer(),"Cancel Btn at Add record assertion failed");
-    }
-    @Test(priority=16)
-    public void VerifySearchIsNotEqualTo()  throws Exception {
-        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AdhocOptionEnhancementData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
-        AdhocOptionEnhancementDetails adhocOptionEnhancementDetails=new AdhocOptionEnhancementDetails(map);
-        AdhocOptionEnhancementPage adhocOptionEnhancementPage= PageFactory.createPageInstance(driver,AdhocOptionEnhancementPage.class);
-        Assert.assertTrue(adhocOptionEnhancementPage.verifySearchIsNotEqualTo(adhocOptionEnhancementDetails.getPromotionalDescription()));
-    }
-    
-    @Test(priority=17)
-    public void VerifySearchContains() throws Exception {
-        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AdhocOptionEnhancementData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(3);
-        AdhocOptionEnhancementDetails adhocOptionEnhancementDetails=new AdhocOptionEnhancementDetails(map);
-        AdhocOptionEnhancementPage adhocOptionEnhancementPage= PageFactory.createPageInstance(driver,AdhocOptionEnhancementPage.class);
-        Assert.assertTrue(adhocOptionEnhancementPage.verifySearchContains(adhocOptionEnhancementDetails.getPromotionalDescription()));
-    }
-    
-    @Test(priority=18)
-    public void  VerifySearchDoesNotContains() throws Exception {
-        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AdhocOptionEnhancementData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(3);
-        AdhocOptionEnhancementDetails adhocOptionEnhancementDetails=new AdhocOptionEnhancementDetails(map);
-        AdhocOptionEnhancementPage adhocOptionEnhancementPage= PageFactory.createPageInstance(driver,AdhocOptionEnhancementPage.class);
-        Assert.assertTrue(adhocOptionEnhancementPage.verifySearchDoesNotContains(adhocOptionEnhancementDetails.getPromotionalDescription()));
-    }
-    
-    @Test(priority=19)
-    public void  VerifySearchStartsWith() throws Exception {
-        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AdhocOptionEnhancementData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(3);
-        AdhocOptionEnhancementDetails adhocOptionEnhancementDetails=new AdhocOptionEnhancementDetails(map);
-        AdhocOptionEnhancementPage adhocOptionEnhancementPage= PageFactory.createPageInstance(driver,AdhocOptionEnhancementPage.class);
-        Assert.assertTrue(adhocOptionEnhancementPage.verifySearchStartsWith(adhocOptionEnhancementDetails.getPromotionalDescription()));
-    }
-    
-    @Test(priority=20)
-    public void  VerifySearchEndsWith() throws Exception {
-        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AdhocOptionEnhancementData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(4);
-        AdhocOptionEnhancementDetails adhocOptionEnhancementDetails=new AdhocOptionEnhancementDetails(map);
-        AdhocOptionEnhancementPage adhocOptionEnhancementPage= PageFactory.createPageInstance(driver,AdhocOptionEnhancementPage.class);
-        Assert.assertTrue(adhocOptionEnhancementPage.verifySearchEndsWith(adhocOptionEnhancementDetails.getPromotionalDescription()));
-    }*/
-    
-    @Test(priority=21)
-    public void EditAdhocOptionEnhancementRecord() throws Exception {
-        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AdhocOptionEnhancementData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
-        AdhocOptionEnhancementDetails adhocOptionEnhancementDetails=new AdhocOptionEnhancementDetails(map);
-        AdhocOptionEnhancementPage adhocOptionEnhancementPage= PageFactory.createPageInstance(driver,AdhocOptionEnhancementPage.class);
-        adhocOptionEnhancementPage.editAdhocOptionEnhancementRecord(adhocOptionEnhancementDetails);
-        Assert.assertEquals(adhocOptionEnhancementPage.verifySuccessMessage(),"Record Updated Successfully","Edit record assertion failed");
-    }
-    
-    /*@Test(dependsOnMethods="EditAdhocOptionEnhancementRecord",priority=22)
+    @Test(dependsOnMethods="EditAdhocOptionEnhancementRecord",priority=49,enabled=true)
     public void VerifyAuditTrialReportForUpdate() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AdhocOptionEnhancementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(0);	
@@ -264,162 +502,7 @@ public class AdhocOptionEnhancementTest extends BaseTest {
         Assert.assertTrue(ocmReportsPage.verifyAdhocOptionEnhancementUpdate(adhocOptionEnhancementDetails,"Update"));
     }
     
-    @Test(priority=23)
-    public void EditEmptyAdhocOptionEnhancementRecord() throws Exception {
-        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AdhocOptionEnhancementData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath,"Invalid").getTestData().get(1);
-        AdhocOptionEnhancementDetails adhocOptionEnhancementDetails=new AdhocOptionEnhancementDetails(map);
-        AdhocOptionEnhancementPage adhocOptionEnhancementPage= PageFactory.createPageInstance(driver,AdhocOptionEnhancementPage.class);
-        adhocOptionEnhancementPage.editAdhocOptionEnhancementRecord(adhocOptionEnhancementDetails);
-        Assert.assertEquals(adhocOptionEnhancementPage.verifySuccessMessage(),"Please Provide Promotion Description, Intent","Edit empty record assertion failed");
-    }
-    
-    @Test(priority=24)
-    public void EditWithoutModifyReasonAdhocOptionEnhancementRecord() throws Exception {
-        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AdhocOptionEnhancementData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
-        AdhocOptionEnhancementDetails adhocOptionEnhancementDetails=new AdhocOptionEnhancementDetails(map);
-        AdhocOptionEnhancementPage adhocOptionEnhancementPage= PageFactory.createPageInstance(driver,AdhocOptionEnhancementPage.class);
-        adhocOptionEnhancementPage.editRecordWithoutModifyReason(adhocOptionEnhancementDetails);
-        Assert.assertEquals(adhocOptionEnhancementPage.verifySuccessMessage(),"Please enter the modify reason","Edit without modify reason record assertion failed");
-    }
-    
-    @Test(priority=25)
-    public void VerifyCancelButtonAtEditAdhocOptionEnhancementRecord() throws IOException, Exception {
-        AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);
-        adhocOptionEnhancementPage.searchAdhocOptionEnhancementRecord("Promotion Number","4");
-        Thread.sleep(2000);
-        adhocOptionEnhancementPage.clickOnEditButton();
-        adhocOptionEnhancementPage.clickOnCancelBtn();
-        Assert.assertFalse(adhocOptionEnhancementPage.verifyEditFormContainer(), "Cancel Btn at Edit record assertion failed");
-    }
-    
-    @Test(priority=26)
-    public void ExportToExcel() throws Exception
-    {
-    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles";
-        AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);
-        Assert.assertTrue(adhocOptionEnhancementPage.verifyExportToExcel(filePath));
-    }
-    
-    @Test(priority=27)
-    public void ExportToExcelData() throws Exception
-    {	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Adhoc Option Enhancement.xlsx";
-    	List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
-    	AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);
-    	Assert.assertTrue(adhocOptionEnhancementPage.verifyexportToExcelSheet(maplist));	
-    }
-    
-    @Test(priority=28)
-    public void SortingByAscending() throws IOException {
-        AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);
-        adhocOptionEnhancementPage.SortByAscending();
-    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Adhoc Option Enhancement (1).xlsx";
-        List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
-        Assert.assertTrue(adhocOptionEnhancementPage.verifyexportToExcelSheet(maplist));
-    }
-    
-    @Test(priority=29)
-    public void SortingByDescending() throws IOException {
-        AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);
-        adhocOptionEnhancementPage.SortByDescending();
-    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Adhoc Option Enhancement (2).xlsx";
-        List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
-        Assert.assertTrue(adhocOptionEnhancementPage.verifyexportToExcelSheet(maplist));
-    }
-    
-    @Test(priority=30)
-    public void GroupBy()
-    {
-        AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);
-    	Assert.assertTrue(adhocOptionEnhancementPage.groupby());
-        screenshot.captureScreen("AdhocOptionEnhancementTest", "GroupBy");
-    	Assert.assertTrue(adhocOptionEnhancementPage.groupby());
-        screenshot.captureScreen("AdhocOptionEnhancementTest","AlreadyGroupBy");
-    }
-    
-    @Test(priority=31)
-    public void VerifyArrowMoveForPreviousAndNextPage() {
-        AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);
-    	Assert.assertTrue(adhocOptionEnhancementPage.verifyArrowMoveForPreviousAndNextPage(),"arrow move for previous and next page assertion failed");
-    }
-    
-    @Test(priority=32)
-    public void VerifyArrowMoveForFirstAndLastPage() {
-        AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);
-        Assert.assertTrue(adhocOptionEnhancementPage.verifyArrowMoveForFirstAndLastPage(),"arrow move for first and last page assertion failed");
-    }
-    
-    @Test(priority=33)
-    public void VerifyTotalNumberOfItemsPerPageDetails() {
-        AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);
-        Assert.assertTrue(adhocOptionEnhancementPage.verifyTotalNumberOfItemsPerPageDetails(),"item per page assertion failed");
-    }
-    
-    @Test(priority=34)
-    public void VerifyNumberOfItemsPerPageSelection() {
-        AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);
-        Assert.assertTrue(adhocOptionEnhancementPage.verifyNumberOfItemsPerPage(),"item per page assertion failed");
-    }
-    
-    @Test(priority=35)
-    public void VerifyDropdownForAllTheColumns() {
-        AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);
-        Assert.assertTrue(adhocOptionEnhancementPage.verifyDropDownOfAllHeaders(), "Columns dropdown assertion failed");
-    }
-    
-    @Test(priority=36)
-    public void VerifyColumnsHeaderEnable() {
-        AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);
-        Assert.assertTrue(adhocOptionEnhancementPage.verifycolumnsHeaderEnabled(),"columns enabled assertion failed");
-    }
-    
-    @Test(priority=37)
-    public void VerifyColumnsHeaderDisable() {
-        AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);
-        Assert.assertFalse(adhocOptionEnhancementPage.verifycolumnsHeaderDisabled(),"columns disabled assertion failed");
-    }
-    
-    @Test(priority=38)
-    public void database() throws Exception {
-    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AdhocOptionEnhancementData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(0);
-        AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);
-        AdhocOptionEnhancementDetails adhocOptionEnhancementDetails=new AdhocOptionEnhancementDetails(map);
-    	Assert.assertTrue(adhocOptionEnhancementPage.verifyDatabase(adhocOptionEnhancementDetails.getQuery()));
-    }
-    
-    @Test(priority=39)
-    public void DeleteWithoutDeleteReasonInAdhocOptionEnhancementRecord() throws Exception {
-        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AdhocOptionEnhancementData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath,"Invalid").getTestData().get(3);
-        AdhocOptionEnhancementDetails adhocOptionEnhancementDetails=new AdhocOptionEnhancementDetails(map);
-        AdhocOptionEnhancementPage adhocOptionEnhancementPage= PageFactory.createPageInstance(driver,AdhocOptionEnhancementPage.class);
-        adhocOptionEnhancementPage.deleteAdhocOptionEnhancementRecord(adhocOptionEnhancementDetails);
-        Assert.assertEquals(adhocOptionEnhancementPage.verifySuccessMessage(),"Please enter the delete reason","delete record assertion failed");
-    }
-    
-    @Test(priority=40)
-    public void VerifyCancelButtonInDeleteAdhocOptionEnhancementRecord() throws Exception {
-        AdhocOptionEnhancementPage adhocOptionEnhancementPage= PageFactory.createPageInstance(driver,AdhocOptionEnhancementPage.class);
-        adhocOptionEnhancementPage.searchAdhocOptionEnhancementRecord("Promotion Number","4");
-        Thread.sleep(2000);
-        adhocOptionEnhancementPage.clickOnDeleteButton();
-        adhocOptionEnhancementPage.clickOnDeleteCancelBtn();
-        Assert.assertFalse(adhocOptionEnhancementPage.verifyDeleteContainer(), "Cancel Btn at Delete record assertion failed");
-    }*/
-    
-    @Test(priority=41)//,dependsOnMethods= {"EditAdhocOptionEnhancementRecord"})
-    public void DeleteAdhocOptionEnhancementRecord() throws Exception {
-        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AdhocOptionEnhancementData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
-        AdhocOptionEnhancementDetails adhocOptionEnhancementDetails=new AdhocOptionEnhancementDetails(map);
-        AdhocOptionEnhancementPage adhocOptionEnhancementPage= PageFactory.createPageInstance(driver,AdhocOptionEnhancementPage.class);
-        adhocOptionEnhancementPage.deleteAdhocOptionEnhancementRecord(adhocOptionEnhancementDetails);
-        Assert.assertEquals(adhocOptionEnhancementPage.verifySuccessMessage(),"Record Deleted Successfully","delete record assertion failed");
-    }
-    
-    /*@Test(dependsOnMethods= {"DeleteAdhocOptionEnhancementRecord"},priority=42)
+    @Test(dependsOnMethods= {"DeleteAdhocOptionEnhancementRecord"},priority=50,enabled=true)
     public void VerifyAuditTrialReportForDelete() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AdhocOptionEnhancementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(0);	
@@ -433,88 +516,7 @@ public class AdhocOptionEnhancementTest extends BaseTest {
         ocmReportsPage.showReport(reportDetails);
         Assert.assertTrue(ocmReportsPage.verifyAdhocOptionEnhancementdelete(adhocOptionEnhancementDetails,"Delete"));
     }
-     
-    @Test(priority=43)
-    public void searchPage() throws Exception {
-        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AdhocOptionEnhancementData.xlsx";
-    	Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);
-        AdhocOptionEnhancementDetails adhocOptionEnhancementDetails=new AdhocOptionEnhancementDetails(map);
-    	AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);
-        Assert.assertFalse(adhocOptionEnhancementPage.clearAll(adhocOptionEnhancementDetails),"ClearAll Assertion Failed");
-        screenshot.captureScreen("AdhocOptionEnhancementTest","clearall");
-        Assert.assertTrue(adhocOptionEnhancementPage.verifyclose());
-    }
-    @Test(priority=44)
-    public void searchwithoutSearchTextbox() throws IOException {
-        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AdhocOptionEnhancementData.xlsx";
-    	Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);
-        AdhocOptionEnhancementDetails adhocOptionEnhancementDetails=new AdhocOptionEnhancementDetails(map);
-    	AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);
-    	adhocOptionEnhancementPage.searchwithoutextsearch(adhocOptionEnhancementDetails);
-    	Assert.assertEquals(adhocOptionEnhancementPage.verifyErrorMessage(),"Please enter the text to search or remove the filter");
-    }
-    
-    @Test(priority=45)
-    public void ValidANDBooleanSearch() throws Exception {
-    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AdhocOptionEnhancementData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);
-        AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);
-        AdhocOptionEnhancementDetails adhocOptionEnhancementDetails=new AdhocOptionEnhancementDetails(map);
-        Assert.assertTrue(adhocOptionEnhancementPage.validAndBooleanSearch(adhocOptionEnhancementDetails));
-    }
-    
-    @Test(priority=46)
-    public void ValiORBooleanSearch() throws Exception {
-    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AdhocOptionEnhancementData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);
-        AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);
-        AdhocOptionEnhancementDetails adhocOptionEnhancementDetails=new AdhocOptionEnhancementDetails(map);
-        Assert.assertTrue(adhocOptionEnhancementPage.validORBooleanSearch(adhocOptionEnhancementDetails));
-    }
-    
-    @Test(priority=47)
-    public void InvalidBooleanSearchwithoutSearchTextbox() throws Exception {
-    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AdhocOptionEnhancementData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);
-        AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);
-        AdhocOptionEnhancementDetails adhocOptionEnhancementDetails=new AdhocOptionEnhancementDetails(map);
-        adhocOptionEnhancementPage.InvalidBooleanSearchwithoutSearchTextbox(adhocOptionEnhancementDetails);
-        Assert.assertEquals(adhocOptionEnhancementPage.verifyErrorMessage(),"Please enter the text to search or remove the filter");
-    }
-    
-    @Test(priority=48)
-    public void InvalidBooleanSearchwithoutSearchTextbox1() throws Exception {
-    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AdhocOptionEnhancementData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);
-        AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);
-        AdhocOptionEnhancementDetails adhocOptionEnhancementDetails=new AdhocOptionEnhancementDetails(map);
-        adhocOptionEnhancementPage.InvalidBooleanSearchwithoutSearchTextbox1(adhocOptionEnhancementDetails);
-        Assert.assertEquals(adhocOptionEnhancementPage.verifyErrorMessage(),"Please enter the text to search or remove the filter"); 
-    }
-    
-    @Test(priority=49)
-    public void SearchClearSearch() throws Exception
-    {
-        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AdhocOptionEnhancementData.xlsx";
-    	Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(1);
-        AdhocOptionEnhancementDetails adhocOptionEnhancementDetails=new AdhocOptionEnhancementDetails(map);
-    	AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);
-    	adhocOptionEnhancementPage.deleteAdhocOptionEnhancementRecord(adhocOptionEnhancementDetails);
-    	Assert.assertTrue(adhocOptionEnhancementPage.verifyinvalidsearchwithwrongdata(adhocOptionEnhancementDetails),"invalidsearchwithwrongdata");
-        screenshot.captureScreen("AdhocOptionEnhancementTest","Invalid Search");
-        Assert.assertTrue(adhocOptionEnhancementPage.verifyclearsearch(), "Clear All Assertion Failed");
-    }
-    
-    @Test(priority=50)
-    public void ExporttoExcelWithoutData() throws Exception
-    {
-        AdhocOptionEnhancementPage adhocOptionEnhancementPage = PageFactory.createPageInstance(driver, AdhocOptionEnhancementPage.class);
-    	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AdhocOptionEnhancementData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(0);
-        AdhocOptionEnhancementDetails adhocOptionEnhancementDetails=new AdhocOptionEnhancementDetails(map);
-        Assert.assertTrue(adhocOptionEnhancementPage.ExporttoExcelWithoutData(adhocOptionEnhancementDetails));
-    }*/  
-    
+    */
     @AfterMethod
     public void afterEachMethod(Method method) throws InterruptedException {
     	Screenshot screenshot=new Screenshot(driver);

@@ -623,6 +623,7 @@ public class OCMTimelineReportPage extends BasePage  {
 		return status;
 	}
 
+	
 	public boolean maximizewindow() {
 		selectWebElement(maximize);
 		waitForJqueryLoad(driver);
@@ -687,13 +688,15 @@ public class OCMTimelineReportPage extends BasePage  {
 
 	}
 
-	public boolean verifyArrowMoveForPreviousAndNextPage(){
+	public boolean verifyArrowMoveForPreviousAndNextPage() throws Exception{
 		boolean status=false;
 		if(!nextPageIcon.getAttribute("class").contains("k-state-disabled")){
 			int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber));
+			Thread.sleep(3000);
 			selectWebElement(nextPageIcon);
 			waitForJqueryLoad(driver);
 			int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
+			Thread.sleep(3000);
 			selectWebElement(previousPageIcon);
 			waitForJqueryLoad(driver);
 			int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
@@ -705,11 +708,13 @@ public class OCMTimelineReportPage extends BasePage  {
 	}
 
 
-	public boolean verifyArrowMoveForFirstAndLastPage(){
+	public boolean verifyArrowMoveForFirstAndLastPage() throws Exception{
 		boolean status=false;
 		if(!lastPageIcon.getAttribute("class").contains("k-state-disabled")){
 			int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber));
+			Thread.sleep(3000);
 			selectWebElement(lastPageIcon);
+			Thread.sleep(3000);
 			waitForJqueryLoad(driver);
 			int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 			selectWebElement(firstPageIcon);
@@ -943,10 +948,12 @@ public class OCMTimelineReportPage extends BasePage  {
 		}
 		return Status;	
 	}
+	
 	public boolean verifySearchByTextbox(ReportDetails details) throws Exception{	
 		boolean Status=false;
 		selectWebElement(searchbyfeatureTextBox);
 		enterValueToTxtFieldWithoutClear(searchbyfeatureTextBox,details.getSearchStr());
+		Thread.sleep(3000);
 		selectDropdownFromVisibleText(searchbyfeaturelistBox,details.getSearchStr());	
 		Thread.sleep(2000);
 		waitUntilWebElementIsVisible(gridContent);
@@ -960,6 +967,7 @@ public class OCMTimelineReportPage extends BasePage  {
 		}
 		return Status;	
 	}
+	
 	public boolean verifySearchIsEqualTo(String details) throws Exception {
 		Boolean Status=false;
 		Map<String, String> map=new HashMap<String,String>() ;
@@ -1020,6 +1028,7 @@ public class OCMTimelineReportPage extends BasePage  {
 		}
 		return arr;
 	}
+	
 
 	
 	
@@ -1383,6 +1392,7 @@ public class OCMTimelineReportPage extends BasePage  {
 			return false;
 	}
 
+
 	public List<String> getAgents() throws Exception {
 		int item=Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
 		int pagersize=Integer.valueOf(pagerSize.getText());
@@ -1470,9 +1480,6 @@ public class OCMTimelineReportPage extends BasePage  {
 	}
 
 	
-	
-	
-	
 	public boolean verifyDatabaseDrillGridOne(String queryDrillGridOne,ReportDetails details, String AgentId) throws Exception {
 		//get dates from xl - step 2
 		String reportbeforedate = details.getStartDate();
@@ -1486,14 +1493,17 @@ public class OCMTimelineReportPage extends BasePage  {
 		queryDrillGridOne=queryDrillGridOne.replaceAll("AgentIdCapturedFromUI", AgentId);
 		List<Map<String,String>> database=database(queryDrillGridOne);
 		System.out.println("Printing Query" +" "+queryDrillGridOne);		
-//		System.out.println("Printing DB results" +" "+database);
+		System.out.println("Printing DB results" +" "+database);
+		Thread.sleep(5000);
 		List<Map<String,String>> UI=getDataTableDrillGridOne(); 
-		//System.out.println("Printing UI Results"+" "+UI);	
+		System.out.println("Printing UI Results"+" "+UI);	
 		if(UI.equals(database))
 			return true;
 		else
 			return false;
 	}
+	
+	
 
 	
 }

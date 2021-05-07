@@ -7,14 +7,12 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
-
 import com.tetherfi.model.report.ReportDetails;
 
 public class OCMChatInteractionReportPage extends BasePage  {
@@ -282,38 +280,38 @@ public class OCMChatInteractionReportPage extends BasePage  {
 		for (int i = 0; i <= pages; i++) {
 			List<WebElement> rows=gridContent.findElements(By.tagName("tr"));
 			List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
-			int k=0;
-			for(int j=0;j<2;j++){
+			int k=3;
+			for(int j=3;j<4;j++){
 				if(headers.get(j).getText().equals("")||headers.get(j).getText().equals(" ")){continue;}
 				List<String> l1 = getColumnDatafromTable(headers.get(j).getText());
 				//System.out.println(l1);
 				List<String> temp = l1;
 				Collections.sort(temp);
-				//System.out.println(temp);
+				System.out.println(temp);
 				selectWebElement(headersDropdown.get(k));
 				waitForJqueryLoad(driver);
-				selectWebElement(sortAscending.get(k));
+				selectWebElement(sortAscending.get(k-3));
 				waitForJqueryLoad(driver);
 				List<String> l2 = getColumnDatafromTable(headers.get(j).getText());
-				//System.out.println(l2);
+				System.out.println(l2);
 				if (l2.equals(temp)) {/*System.out.println("sorting works fine");*/status = true;}else{status=false;}
 				if(status){}else{System.out.println("Ascending sorting failed for column name:"+headers.get(j).getText()+"\n"+l2);break;}
 				/*descending sort code*/
 				status=false;
 				temp = l1;
 				Collections.sort(temp,Collections.reverseOrder());
-				//System.out.println(temp);
+				System.out.println(temp);
 				selectWebElement(headersDropdown.get(k));
 				waitForJqueryLoad(driver);
-				selectWebElement(sortDescending.get(k));
+				selectWebElement(sortDescending.get(k-3));
 				waitForJqueryLoad(driver);
 				k++;
 				List<String> l3 = getColumnDatafromTable(headers.get(j).getText());
-				//System.out.println(l3);
+				System.out.println(l3);
 				if (l3.equals(temp)) {/*System.out.println("sorting works fine");*/status = true;}
 				if(status){}else{System.out.println("Descending sorting failed for column name:"+headers.get(j).getText()+"\n"+l3);break;}
 			}
-			if(status){}else{break;}
+			if(i!=pages)
 			nextPageIcon.click();
 			waitForJqueryLoad(driver);
 		}
@@ -333,7 +331,7 @@ public class OCMChatInteractionReportPage extends BasePage  {
 			if (norecords.size() <= 0) {
 				int items = Integer.valueOf(pagerInfo.getText().split("of ")[1].split(" items")[0]);
 				selectWebElement(pagerDropdown);
-				Thread.sleep(1500);
+				Thread.sleep(2500);
 				for (int i = 0; i < pageSizeListBox.size(); i++) {
 					if(Integer.valueOf(pageSizeListBox.get(i).getText())>items){continue;}
 					selectDropdownFromVisibleText(pageSizeListBox, pageSizeListBox.get(i).getText());
@@ -577,17 +575,17 @@ public class OCMChatInteractionReportPage extends BasePage  {
 		else 
 			return false; 
 	}
-	public boolean verifyexportToExcelSheet(List<Map<String, String>> maplist) {
-		List<Map<String,String>> UI=getdata(); 
-		System.out.println(UI);
-		System.out.println(maplist);
+	public boolean verifyexportToExcelSheet(List<Map<String, String>> maplist) throws Exception {
+		List<Map<String,String>> UI=getData(); 
+		System.out.println("Ui is"+UI);
+		System.out.println("Maplist is"+maplist);
 		if(UI.equals(maplist))
 			return true;
 		else
 			return false;
 	}
 
-	private List<Map<String,String>> getdata(){
+	private List<Map<String,String>> getData(){
 		int item=Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
 		int pagersize=Integer.valueOf(pagerSize.getText());
 		int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
@@ -602,26 +600,26 @@ public class OCMChatInteractionReportPage extends BasePage  {
 				List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
 				for(int j=1;j<headers.size();j++) {
 					scrollToElement(headers.get(j));
-					System.out.println(headers.get(j).getText());
-
 					col=cols.get(j).getText();
-					map.put(headers.get(j).getText(),col);
+					map.put(headers.get(j).getText().trim(),col);
 				}
 				map.remove("");
 				arr.add(map);
 			}
-
 		}
 		return arr;
 	}
 
-	public boolean verifyArrowMoveForPreviousAndNextPage(){
+	public boolean verifyArrowMoveForPreviousAndNextPage() throws Exception{
 		boolean status=false;
 		if(!nextPageIcon.getAttribute("class").contains("k-state-disabled")){
+			Thread.sleep(4000);
 			int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 			selectWebElement(nextPageIcon);
+			Thread.sleep(4000);
 			int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 			selectWebElement(previousPageIcon);
+			Thread.sleep(4000);
 			int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 			if(nextnumber==(pagenumber+1) && pagenumber==previousnumber){status=true;}
 		}else{
@@ -631,13 +629,16 @@ public class OCMChatInteractionReportPage extends BasePage  {
 	}
 
 
-	public boolean verifyArrowMoveForFirstAndLastPage(){
+	public boolean verifyArrowMoveForFirstAndLastPage() throws Exception{
 		boolean status=false;
 		if(!lastPageIcon.getAttribute("class").contains("k-state-disabled")){
+			Thread.sleep(3000);
 			int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 			selectWebElement(lastPageIcon);
+			Thread.sleep(3000);
 			int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 			selectWebElement(firstPageIcon);
+			Thread.sleep(3000);
 			int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 			if(nextnumber>pagenumber && pagenumber==previousnumber){status=true;}
 		}else{
@@ -699,10 +700,8 @@ public class OCMChatInteractionReportPage extends BasePage  {
 		{return errorMsg.get(0).getText();}
 		else{waitUntilWebElementIsVisible(successmsg);return successmsg.getText();}
 	}
-	/* public void scheduleReport(ReportDetails details) throws Exception{
-    chooseReport(details);
-    selectWebElement(schRptsinAgent);
-}*/
+	
+	
 	public boolean VerifyLogo() {
 		if(VEFImg.isDisplayed())
 			return true;
@@ -780,7 +779,6 @@ public class OCMChatInteractionReportPage extends BasePage  {
 		enterValueToTxtField(searchTextBox,details);
 		selectWebElement(searchSearchBtn);
 		waitForJqueryLoad(driver);
-		//waitUntilWebElementIsVisible(gridContent);
 		List<Map<String,String>> UI=getDataTable(); 
 		for (Map<String,String> map1: UI)
 		{   	
@@ -791,7 +789,6 @@ public class OCMChatInteractionReportPage extends BasePage  {
 		}
 		return Status;	
 	}
-	
 	
 	private List<Map<String, String>> getDataTable() throws InterruptedException {
 		 int item=Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
@@ -827,15 +824,11 @@ public class OCMChatInteractionReportPage extends BasePage  {
 		 return arr;
 	 }
 
-	
-	
-
 	public boolean verifySearchByTextbox(ReportDetails details) throws Exception{	
 		boolean Status=false;
-		//Map<String, String> map=new HashMap<String,String>() ;
 		selectWebElement(searchbyfeatureTextBox);    
-		//searchbyfeatureTextBox.sendKeys("CIFMurali");//given an identification value
 		enterValueToTxtFieldWithoutClear(searchbyfeatureTextBox,details.getSearchStr());
+		Thread.sleep(3000);
 		selectDropdownFromVisibleText(searchbyfeaturelistBox,details.getSearchStr());	
 		waitForJqueryLoad(driver);
 		List<Map<String,String>> UI=getDataTable(); 
@@ -885,7 +878,6 @@ public class OCMChatInteractionReportPage extends BasePage  {
 		enterValueToTxtField(searchTextBox,description);
 		selectWebElement(searchSearchBtn);
 		waitForJqueryLoad(driver);
-		//waitUntilWebElementIsVisible(gridContent);
 		List<Map<String,String>> UI=getDataTable(); 
 		for (Map<String,String> map1: UI)
 		{   	
@@ -909,7 +901,6 @@ public class OCMChatInteractionReportPage extends BasePage  {
 		enterValueToTxtField(searchTextBox,description);        
 		selectWebElement(searchSearchBtn);
 		waitForJqueryLoad(driver);
-		//waitUntilWebElementIsVisible(gridContent);
 		List<Map<String,String>> UI=getDataTable(); 
 		for (Map<String,String> map1: UI)
 		{   	
@@ -920,6 +911,7 @@ public class OCMChatInteractionReportPage extends BasePage  {
 		}
 		return Status;
 	}
+	
 	public boolean verifySearchEndsWith(String description) throws Exception {
 		Boolean Status=false;
 		selectWebElement(searchBtn);
@@ -1036,8 +1028,7 @@ public class OCMChatInteractionReportPage extends BasePage  {
 		List<Map<String,String>>UI=getDataTable();
 		for(Map<String,String> map1:UI)
 		{
-			System.out.println(map1.get("Agent ID"));
-			if(!map1.get("Agent ID").toLowerCase().endsWith(reportDetails.getSearchStr()))				
+			if(map1.get("Agent ID").toLowerCase().endsWith(reportDetails.getSearchStr()))				
 				Status= true;
 			else 
 				Status =false;
@@ -1074,11 +1065,16 @@ public class OCMChatInteractionReportPage extends BasePage  {
 		waitForLoad(driver);
 		waitForJqueryLoad(driver);
 		waitUntilWebElementIsVisible(gridBoxContent);
-		Thread.sleep(2000);
-		if(rowdata.getText().equals(details.getSearchStr()) && rowdata.getText().contains(details.getSearchStr1())) {
-			Status=true;
+		List<Map<String,String>>UI=getDataTable();
+		for(Map<String,String> map1:UI)
+		{
+			System.out.println(map1.get("Agent Name"));
+			if(map1.get("Chat End Reason").toLowerCase().equals(details.getSearchStr().toLowerCase()) &&map1.get("Agent ID").toLowerCase().contains(details.getSearchStr1().toLowerCase()))
+				Status= true;
+			else 
+				Status =false;
 		}
-		return Status;	
+		return Status;
 
 	}
 	public Boolean advancedSearchORCriteria(ReportDetails details) throws Exception {
@@ -1111,15 +1107,17 @@ public class OCMChatInteractionReportPage extends BasePage  {
 		waitForJqueryLoad(driver);
 		waitUntilWebElementIsVisible(gridBoxContent);
 		Thread.sleep(3000);
-		List<WebElement> rows=Grid.findElements(By.tagName("tr"));	
-		for(WebElement e:rows)
+		List<Map<String,String>>UI=getDataTable();
+		for(Map<String,String> map1:UI)
 		{
-			if(rowdata.getText().equals(details.getSearchStr())||rowdatatwo.getText().startsWith(details.getSearchStr2()))
-				Status=true;
+			if(map1.get("Chat End Reason").toLowerCase().equals(details.getSearchStr().toLowerCase()) ||map1.get("Agent ID").toLowerCase().startsWith(details.getSearchStr1().toLowerCase()))
+				Status= true;
+			else 
+				Status =false;
 		}
-		return Status;	
-
+		return Status;
 	}
+	
 	public void searchwithoutextsearch(ReportDetails details) {
 		selectWebElement(searchBtn);		
 		selectWebElement(searchColDropdown);  
@@ -1143,7 +1141,7 @@ public class OCMChatInteractionReportPage extends BasePage  {
 	public boolean groupby() {
 		DragandDrop(agentid,droptarget);
 		try {
-			Thread.sleep(1000);
+			Thread.sleep(3000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
@@ -1184,6 +1182,13 @@ public class OCMChatInteractionReportPage extends BasePage  {
 			return false;
 	}
 	
+	
+	public void sortAscStartDateTime() {		
+		selectWebElement(headersDropdown.get(3));
+		waitForJqueryLoad(driver);
+		selectWebElement(sortAscending.get(0));
+		waitForJqueryLoad(driver);
+	}
 	
 	
 	

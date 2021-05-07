@@ -4,18 +4,11 @@ import com.tetherfi.constants.Constants;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.firefox.FirefoxBinary;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxOptions;
-import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.ie.InternetExplorerOptions;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
@@ -50,6 +43,7 @@ public class BrowserFactory {
           //options.addArguments("--no-sandbox");
           //options.addArguments("--allow-insecure-localhost");
           //options.addArguments("window-size=1200x600");
+          options.addArguments("--allow-running-insecure-content");
           DesiredCapabilities capabilities=getDesiredCapForDriver(browserType);
           String exePath = Constants.chromeDriverPath+"chromedriver.exe";
           System.setProperty("webdriver.chrome.driver", exePath);

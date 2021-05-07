@@ -250,7 +250,7 @@ public class TmacAuxCodesPage extends BasePage {
 		selectWebElement(addNewTmacAuxCodeRecord);
 		Thread.sleep(1000);
 		selectWebElement(value);
-		enterValueToTxtFieldWithoutClear(valueText,details.getValue());
+		enterValueToTxtBox1(valueText,details.getValue());
 		enterValueToTxtField(name,details.getName());
 		enterValueToTxtField(code,details.getCode());
 		selectWebElement(statusDropDown);
@@ -277,7 +277,7 @@ public class TmacAuxCodesPage extends BasePage {
 		selectWebElement(addNewTmacAuxCodeRecord);
 		Thread.sleep(1000);
 		selectWebElement(value);
-		enterValueToTxtFieldWithoutClear(valueText,details.getValue());
+		enterValueToTxtBox1(valueText,details.getValue());
 		enterValueToTxtField(code,details.getCode());
 		selectWebElement(statusDropDown);
 		selectDropdownFromVisibleText(statusDropDownList,details.getStatus());
@@ -289,7 +289,7 @@ public class TmacAuxCodesPage extends BasePage {
 		selectWebElement(addNewTmacAuxCodeRecord);
 		Thread.sleep(1000);
 		selectWebElement(value);
-		enterValueToTxtFieldWithoutClear(valueText,details.getValue());
+		enterValueToTxtBox1(valueText,details.getValue());
 		enterValueToTxtField(name,details.getName());
 		selectWebElement(statusDropDown);
 		selectDropdownFromVisibleText(statusDropDownList,details.getStatus());
@@ -301,7 +301,7 @@ public class TmacAuxCodesPage extends BasePage {
 		selectWebElement(addNewTmacAuxCodeRecord);
 		Thread.sleep(1000);
 		selectWebElement(value);
-		enterValueToTxtFieldWithoutClear(valueText,details.getValue());
+		enterValueToTxtField(valueText,details.getValue());
 		enterValueToTxtField(name,details.getName());
 		enterValueToTxtField(code,details.getCode());
 		selectWebElement(saveButton);
@@ -310,9 +310,9 @@ public class TmacAuxCodesPage extends BasePage {
 	
 	public void addNewTmacAuxCodesRecord(TmacAuxCodesDetails details) throws Exception {
 		selectWebElement(addNewTmacAuxCodeRecord);
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		selectWebElement(value);
-		enterValueToTxtFieldWithoutClear(valueText,details.getValue());
+		enterValueToTxtBox1(valueText,details.getValue());
 		enterValueToTxtField(name,details.getName());
 		enterValueToTxtField(code,details.getCode());
 		selectWebElement(statusDropDown);
@@ -382,7 +382,7 @@ public class TmacAuxCodesPage extends BasePage {
     	searchTmacAuxCodes(details.getName());
     	selectWebElement(editButton);
     	waitForJqueryLoad(driver);
-    	enterValueToTxtField(name,details.getUpdatedName());
+    	enterValueToTxtBox1(name,details.getUpdatedName());
     	selectWebElement(statusDropDown);
     	selectDropdownFromVisibleText(statusDropDownList,details.getUpdatedStatus());
     	enterValueToTxtFieldWithoutClear(modifyReason,details.getModifyReason());
@@ -392,7 +392,7 @@ public class TmacAuxCodesPage extends BasePage {
     public boolean ExportToExcelButton(String filePath) {
     	final File folder=new File(filePath);
     	for(final File f : folder.listFiles()) {
-    		if(f.getName().startsWith("TMAC Aux Codes")) {
+    		if(f.getName().startsWith("Agent Aux Codes")) {
     			f.delete();
     		}
     	}
@@ -403,7 +403,7 @@ public class TmacAuxCodesPage extends BasePage {
     	}catch(InterruptedException e) {
     		e.printStackTrace();
     	}
-    	Boolean Status=verifyExportPageFileDownload(filePath,"TMAC Aux Codes");
+    	Boolean Status=verifyExportPageFileDownload(filePath,"Agent Aux Codes");
     	return Status;
     }
 
@@ -433,17 +433,9 @@ public class TmacAuxCodesPage extends BasePage {
     			  for(int j=1;j<headers.size();j++) {
     				  scrollToElement(headers.get(j));
     				  System.out.println(headers.get(j).getText());
-    				  if(headers.get(j).getText().equals("Value"))
-    				  {
-    					  col=cols.get(j).getText()+".0";
-    					  System.out.println(col);
-    					  map.put(headers.get(j).getText(),col);
-    				  }
-    				  else {
     				  col=cols.get(j).getText();
     				  map.put(headers.get(j).getText(),col);
     				  }
-    			  }
     			  map.remove("");
     			  arr.add(map);
     		}
@@ -460,6 +452,11 @@ public class TmacAuxCodesPage extends BasePage {
     	searchTmacAuxCodes(details.getName());
     	waitForJqueryLoad(driver);
     	selectWebElement(exportButton);
+    	try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
     	if(errorMsg.get(0).getText().equals("There is no record to export"))
     		return true;
     	else
@@ -510,8 +507,18 @@ public class TmacAuxCodesPage extends BasePage {
         if(!nextPageIcon.getAttribute("class").contains("k-state-disabled")){
         int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber));
         selectWebElement(nextPageIcon);
+        try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
         int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
         selectWebElement(previousPageIcon);
+        try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
         int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
         if(nextnumber==(pagenumber+1) && pagenumber==previousnumber){status=true;}
         }else{
@@ -524,8 +531,18 @@ public class TmacAuxCodesPage extends BasePage {
         if(!lastPageIcon.getAttribute("class").contains("k-state-disabled")){
             int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber));
             selectWebElement(lastPageIcon);
+            try {
+    			Thread.sleep(3000);
+    		} catch (InterruptedException e) {
+    			e.printStackTrace();
+    		}
             int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
             selectWebElement(firstPageIcon);
+            try {
+    			Thread.sleep(3000);
+    		} catch (InterruptedException e) {
+    			e.printStackTrace();
+    		}
             int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
             if(nextnumber>pagenumber && pagenumber==previousnumber){status=true;}
         }else{
@@ -830,7 +847,8 @@ public class TmacAuxCodesPage extends BasePage {
 	        return Status;
 		 
 	 }
-	 public List<Map<String, String>> gettable() {
+	 public List<Map<String, String>> gettable() throws Exception {
+		 Thread.sleep(4000);
 			int item=Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
 	        int pagersize=Integer.valueOf(pagerSize.getText());
 	        int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;

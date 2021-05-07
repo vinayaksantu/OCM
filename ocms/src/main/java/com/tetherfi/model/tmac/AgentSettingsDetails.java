@@ -39,6 +39,9 @@ public class AgentSettingsDetails {
     private String modifyReason;
     private  String deleteReason;
     private String UpdatedFirstName;
+    private String getFilenameToImport;
+    private String getattribute;
+
 
     public AgentSettingsDetails(Map<String,String> map){
     	OrgUnit=readOrgUnit(map);
@@ -74,7 +77,21 @@ public class AgentSettingsDetails {
         supervisor=readSupervisor(map);
         modifyReason=readModifyReason(map);
         deleteReason=readDeleteReason(map);
+        getFilenameToImport=readFilename(map);
+        getattribute=readAttribute(map);
+
     }
+    
+    private String readAttribute(Map<String, String> map) {
+    	String value=map.get("Attribute");
+		return value;
+	}
+
+    private String readFilename(Map<String, String> map) {
+    	String value=map.get("Filename");
+		return value;
+	}
+
 
     private String readOrgUnit(Map<String, String> map) {
     	String value=map.get("OrgUnit");
@@ -320,6 +337,15 @@ public class AgentSettingsDetails {
     public String getUsername(){return username;}
     public String getFirstname() {return firstname;}
     public String getLastname() {return lastname;}
+    
+    public String getattribute() {
+    	return getattribute;
+    }
+    
+    public String getfilename() {
+    	return getFilenameToImport;
+    }
+   
 
     public String getAccessRole() {
         return accessRole;

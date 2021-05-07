@@ -1,6 +1,5 @@
 package com.tetherfi.test.ivr;
 
-import java.io.IOException;
 import java.lang.reflect.Method;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
@@ -14,14 +13,12 @@ import org.testng.annotations.Test;
 
 import com.tetherfi.model.ivr.IvrConfigDetails;
 import com.tetherfi.model.report.ReportDetails;
-import com.tetherfi.model.sms.SmsResponseTemplateDetails;
 import com.tetherfi.pages.HomePage;
 import com.tetherfi.pages.IvrConfigPage;
 import com.tetherfi.pages.IvrPage;
 import com.tetherfi.pages.LoginPage;
 import com.tetherfi.pages.OCMHomePage;
 import com.tetherfi.pages.OCMReportsPage;
-import com.tetherfi.pages.SmsResponseTemplatePage;
 import com.tetherfi.utility.BrowserFactory;
 import com.tetherfi.utility.ExcelReader;
 import com.tetherfi.utility.PageFactory;
@@ -49,15 +46,16 @@ public class IvrConfigCreateTest {
             map= new ExcelReader(filePath,"Login").getTestData().get(1);
         else
             map= new ExcelReader(filePath,"Login").getTestData().get(0);
-        try{driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);}
+        try{driver.get("https://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);}
         catch (TimeoutException e)
         
         {e.printStackTrace();
         }
+        LoginPage loginPage=PageFactory.createPageInstance(driver,LoginPage.class);
+        loginPage.overrideSecurityConcern();
         if(map.get("LoginType").equals("Custom")){
-            LoginPage loginPage=PageFactory.createPageInstance(driver,LoginPage.class);
             Assert.assertTrue(loginPage.isLoginPageDisplayed(),"Login page not loaded");
-            loginPage.login(map.get("Username"),map.get("Password"));
+			loginPage.login(map.get("Username"),map.get("Password"),map.get("EmailId"));
             Thread.sleep(5000);		
 	}
         HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);

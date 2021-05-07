@@ -98,10 +98,10 @@ public class ChatTemplatesPage extends BasePage {
     @FindBy(css=".k-grid-cancel")
     private WebElement cancelBtn;
 
-    @FindBy(css=".toast-message")
+    @FindBy(css="#toast-container .toast-success .toast-message")
     private WebElement successmsg;
 
-    @FindBy(css="#toast-container .toast-error")
+    @FindBy(css="#toast-container .toast-error .toast-message")
     private List<WebElement> errorMsg;
 
     @FindBy(css=".search-link")
@@ -116,8 +116,8 @@ public class ChatTemplatesPage extends BasePage {
     @FindBy(css="ul[id='1001sCriteria_listbox'] li")
     private List<WebElement> searchTypeList;
 
-    @FindBy(css=".modal-body .form-inline .form-group .k-textbox")
-    private List<WebElement> searchText;
+    @FindBy(id="1001sTextToSearch")
+    private WebElement searchText;
 
     @FindBy(css=".modal-footer .k-primary")
     private WebElement searchBtn;
@@ -131,7 +131,7 @@ public class ChatTemplatesPage extends BasePage {
 	@FindBy(xpath="//div[text()='No records to display']")
 	private WebElement norecords;
 		    
-	@FindBy(xpath="//i[@class='fas fa-sync']")
+	@FindBy(xpath="//i[@class='fas fa-sync fa-spin']")
 	private WebElement clearsearch;
 
     @FindBy(css=".k-grid-edit")
@@ -444,7 +444,7 @@ public class ChatTemplatesPage extends BasePage {
         selectDropdownFromVisibleText(columnNameList,"Name");
         selectWebElement(selectSearchColumn.get(1));
         selectDropdownFromVisibleText(searchTypeList,"Is equal to");
-        enterValueToTxtField(searchText.get(0),name);
+        enterValueToTxtField(searchText,name);
         selectWebElement(searchBtn);
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(gridContent);
@@ -474,7 +474,7 @@ public class ChatTemplatesPage extends BasePage {
         selectWebElement(yesBtn);
     }
     public boolean verifyNewRecordCreated(){
-        waitForJqueryLoad(driver);
+        //waitForJqueryLoad(driver);
        // if(errorMsg.size()>0){return false;}
         if(waitUntilTextToBePresentInWebElement(successmsg,"Record Created Successfully"))
         {return true;}else{return false;}
@@ -523,7 +523,7 @@ public class ChatTemplatesPage extends BasePage {
         selectDropdownFromVisibleText(columnNameList,"Name");
         selectWebElement(selectSearchColumn.get(1));
         selectDropdownFromVisibleText(searchTypeList,"Is equal to");
-        enterValueToTxtField(searchText.get(0),name);
+        enterValueToTxtField(searchText,name);
         selectWebElement(searchBtn);
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(departmentsGridContent);
@@ -581,7 +581,7 @@ public class ChatTemplatesPage extends BasePage {
         selectDropdownFromVisibleText(columnNameList,"Name");
         selectWebElement(selectSearchColumn.get(1));
         selectDropdownFromVisibleText(searchTypeList,"Is equal to");
-        enterValueToTxtField(searchText.get(0),name);
+        enterValueToTxtField(searchText,name);
         selectWebElement(searchBtn);
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(groupsGridContent);
@@ -645,8 +645,8 @@ public class ChatTemplatesPage extends BasePage {
     	return exporttoexcel.get(2).isDisplayed() && exporttoexcel.get(2).isEnabled();
     }
     
-    public String getMessage(){
-        waitForJqueryLoad(driver);
+    public String getMessage() throws Exception{
+        Thread.sleep(1000);
         if(errorMsg.size()>0){return errorMsg.get(0).getText();}
         else {return successmsg.getText();}
     }
@@ -1095,7 +1095,7 @@ public class ChatTemplatesPage extends BasePage {
 		public boolean verifyGroupsExportToExcel(String filePath) {
 			final File folder = new File(filePath);
 			for (final File f : folder.listFiles()) {
-			    if (f.getName().startsWith("ChatTemplates")) {
+			    if (f.getName().startsWith("ChatTemplate")) {
 			        f.delete();
 			    }
 			}
@@ -1417,9 +1417,9 @@ public class ChatTemplatesPage extends BasePage {
 		        selectDropdownFromVisibleText(columnNameList,"Name");
 		        selectWebElement(selectSearchColumn.get(1));
 		        selectDropdownFromVisibleText(searchTypeList,"Is equal to");
-		        enterValueToTxtField(searchText.get(0),chatTemplateDetails.getName());
+		        enterValueToTxtField(searchText,chatTemplateDetails.getName());
 		        selectWebElement(clearall);
-				if(searchText.get(0).isEnabled())
+				if(searchText.isEnabled())
 		        	return true;
 		        else
 				return false;
@@ -1430,9 +1430,9 @@ public class ChatTemplatesPage extends BasePage {
 		        selectDropdownFromVisibleText(columnNameList,"Name");
 		        selectWebElement(selectSearchColumn.get(1));
 		        selectDropdownFromVisibleText(searchTypeList,"Is equal to");
-		        enterValueToTxtField(searchText.get(0),chatTemplateDetails.getGroupName());
+		        enterValueToTxtField(searchText,chatTemplateDetails.getGroupName());
 		        selectWebElement(clearall);
-				if(searchText.get(0).isEnabled())
+				if(searchText.isEnabled())
 		        	return true;
 		        else
 				return false;
@@ -1443,9 +1443,9 @@ public class ChatTemplatesPage extends BasePage {
 		        selectDropdownFromVisibleText(columnNameList,"Name");
 		        selectWebElement(selectSearchColumn.get(1));
 		        selectDropdownFromVisibleText(searchTypeList,"Is equal to");
-		        enterValueToTxtField(searchText.get(0),chatTemplateDetails.getDepartmentName());
+		        enterValueToTxtField(searchText,chatTemplateDetails.getDepartmentName());
 		        selectWebElement(clearall);
-				if(searchText.get(0).isEnabled())
+				if(searchText.isEnabled())
 		        	return true;
 		        else
 				return false;

@@ -1,6 +1,7 @@
 package com.tetherfi.test.reports;
 import java.io.IOException;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import org.testng.Assert;
@@ -17,15 +18,16 @@ import com.tetherfi.utility.PageFactory;
 import com.tetherfi.utility.Screenshot;
 public class OCMIVRCallTraceReportTest extends BaseTest {
 	Screenshot screenshot=new Screenshot(driver);
-    @BeforeMethod
-    public void NavigateToOcmReportsPage() {
-        HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
-        homePage.navigateToOCMIconImg();
-        homePage.navigateToOCMReportsPage();
-        OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
-        Assert.assertTrue(ocmReportsPage.isOCMReportPageIsDisplayed());
-    }  
-    @Test(priority=1,description="To verify Show Report for Single Date")
+	@BeforeMethod
+	public void NavigateToOcmReportsPage() {
+		HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
+		homePage.navigateToOCMIconImg();
+		homePage.navigateToOCMReportsPage();
+		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
+		Assert.assertTrue(ocmReportsPage.isOCMReportPageIsDisplayed());
+	}  
+
+	@Test(priority=1,description="To verify Show Report for Single Date")
 	public void ShowOCMIvrCallTraceReport() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
@@ -87,7 +89,7 @@ public class OCMIVRCallTraceReportTest extends BaseTest {
 		Assert.assertTrue(ocmReportsPage.verifyExportedSheet("OCMReportDownload","OCM IVR Call Trace Report"));	
 	}
 
-	
+
 	@Test(priority=7,description="To verify Show Report for Date Range")
 	public void ShowOCMIvrCallTraceReportForDateRange() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
@@ -305,7 +307,7 @@ public class OCMIVRCallTraceReportTest extends BaseTest {
 		OCMIvrCallTraceReportPage OCMIvrCallTraceReportPage=PageFactory.createPageInstance(driver,OCMIvrCallTraceReportPage.class);
 		Assert.assertTrue(OCMIvrCallTraceReportPage.verifyexportToExcelSheet(maplist));
 	}
-	
+
 	@Test(priority=27,description="Scheduled report button in IvrCallTrace report page")
 	public void SchedulereportinOCMIvrCallTraceReportPage() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
@@ -342,7 +344,7 @@ public class OCMIVRCallTraceReportTest extends BaseTest {
 		OCMIvrCallTraceReportPage.viewDownloadedReportInReportsDownloadsPage();
 		Assert.assertTrue(OCMReportsPage.verifyDownloadedReportNameAndTimeInReportsDownloadPage(reportDetails.getReportName()),"Report not found in Reporter download page");    
 	}
-	
+
 	@Test(priority=30,dependsOnMethods ="ViewDownloadedOcmIvrCallTraceReportInReportsDownloadPageDateRange",description="To verification of exported excel in Report downloads")
 	public void VerifyViewDownloadedOcmIvrCallTraceReportInReportsDownloadIvrCallTracePg() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
@@ -363,7 +365,7 @@ public class OCMIVRCallTraceReportTest extends BaseTest {
 		OCMIvrCallTraceReportPage OCMIvrCallTraceReportPage=PageFactory.createPageInstance(driver,OCMIvrCallTraceReportPage.class);
 		Assert.assertTrue(OCMIvrCallTraceReportPage.verifySorting(),"item per page assertion failed");
 	}
-	
+
 	@Test(priority=32,description="Search by feature")
 	public void VerifySearchByFeatureForIvrCallTraceReport() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
@@ -486,7 +488,7 @@ public class OCMIVRCallTraceReportTest extends BaseTest {
 		ocmReportsPage.chooseReport(reportDetails);
 		Assert.assertTrue(OCMIvrCallTraceReportPage.advancedSearchANDCriteria(reportDetails));   	
 	}
-		
+
 	@Test(priority=42,description="Advance search with OR Condition")
 	public void verifyAdvancedSearchORCriteria() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
@@ -520,7 +522,7 @@ public class OCMIVRCallTraceReportTest extends BaseTest {
 		Assert.assertTrue(OCMIvrCallTraceReportPage.groupby());
 		screenshot.captureScreen("OCMIvrCallTraceReport", "AlreadyGroupBy");
 	}
-	
+
 	@Test(priority=45,description="To Verify Menu traversal in drill down grid")
 	public void VerifyDrillDownMenuTraversal() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
@@ -541,6 +543,7 @@ public class OCMIVRCallTraceReportTest extends BaseTest {
 		OCMIvrCallTraceReportPage OCMIvrCallTraceReportPage=PageFactory.createPageInstance(driver,OCMIvrCallTraceReportPage.class);
 		Assert.assertTrue(OCMIvrCallTraceReportPage.verifyCallflowDiagram(reportDetails),"Call flow error");
 	} 
+
 	@Test(priority=47,description="To Verify Call flow Grid in drill down Page")
 	public void VerifyCallFlowGrid() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
@@ -551,9 +554,39 @@ public class OCMIVRCallTraceReportTest extends BaseTest {
 		OCMIvrCallTraceReportPage OCMIvrCallTraceReportPage=PageFactory.createPageInstance(driver,OCMIvrCallTraceReportPage.class);
 		Assert.assertTrue(OCMIvrCallTraceReportPage.verifyCallflowGrid(reportDetails),"Call flow grid error");
 	}
+
+	@Test(priority=48, description="To verify IVR call Trace report UI data against DB")
+	public void database() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(0);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
+		ocmReportsPage.showReport(reportDetails);
+		OCMIvrCallTraceReportPage ivrCallTraceReportPage=PageFactory.createPageInstance(driver, OCMIvrCallTraceReportPage.class);
+		Assert.assertTrue(ivrCallTraceReportPage.verifyDatabase(reportDetails.getQuery(), reportDetails),"Main Report Data Mismatch");    
+		System.out.println("Main Report Data Match Successfull");
+		List<String> UCIDList = new ArrayList<>();
+		UCIDList=ivrCallTraceReportPage.getUCID();
+//		System.out.println("List of UCID's is"+ UCIDList);
+		int k=0;
+		for (int i=0;i<UCIDList.size();i++) {
+//			System.out.println(UCIDList.size());
+			if(k==10) {
+				ivrCallTraceReportPage.goToNextPage();
+				k=k-10;			
+			}
+			ivrCallTraceReportPage.clickOnUCIDRowOnMainReport(k);
+			Assert.assertTrue(ivrCallTraceReportPage.verifyDatabaseDrillGridOne(reportDetails.getQueryDrillGridOne(), reportDetails, UCIDList.get(i)),"Menu Traversal Grid data mismatch for UCID" + UCIDList.get(i));
+			System.out.println("Menu Traversal Data match Successful for UCID" + " : "+ UCIDList.get(i));
+		}
+	}
+
 	
-		 @AfterMethod
-		 public void afterEachMethod(Method method) {
-		    	screenshot.captureScreen("IVRCalltraceReport", method.getName());
-		 }
+
+	@AfterMethod
+	public void afterEachMethod(Method method) throws InterruptedException {
+		Screenshot screenshot=new Screenshot(driver);
+		screenshot.captureScreen("IVRCallTraceReportTest",method.getName());
+		driver.navigate().refresh();
+	}
 }

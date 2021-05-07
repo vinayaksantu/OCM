@@ -374,12 +374,14 @@ public class AgentSettingsTest extends BaseTest{
 		AgentSettingsPageWMC agentSettingsPagewmc=PageFactory.createPageInstance(driver, AgentSettingsPageWMC.class);
 		Assert.assertTrue(agentSettingsPagewmc.verifySearchEndsWith(agentSettingsDetails.getFirstname()));
 	}
+	
 	@AfterMethod
 	public void afterEachMethod(Method method) throws InterruptedException {
 		Screenshot screenshot=new Screenshot(driver);
 		screenshot.captureScreen("AgentSettingsTest",method.getName());
 		driver.navigate().refresh();
 	}	
+	
 }
 
 

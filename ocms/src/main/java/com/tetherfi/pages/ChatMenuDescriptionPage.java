@@ -41,7 +41,7 @@ public class ChatMenuDescriptionPage extends BasePage{
 	@FindBy(css=".k-edit-form-container .k-grid-update")
     private WebElement saveBtn;
 
-    @FindBy(css=".toast-message")
+    @FindBy(css="#toast-container .toast-success .toast-message")
     private WebElement successmsg;
 
     @FindBy(css="#toast-container .toast-error .toast-message")
@@ -140,7 +140,7 @@ public class ChatMenuDescriptionPage extends BasePage{
 	@FindBy(xpath="//div[text()='No Records to Display']")
 	private WebElement norecords;
 		    
-	@FindBy(xpath="//i[@class='fas fa-sync']")
+	@FindBy(xpath="//i[@class='fas fa-sync fa-spin']")
 	private WebElement clearsearch;
 		
 	@FindBy(css=".k-pager-numbers .k-state-selected")
@@ -336,7 +336,7 @@ public class ChatMenuDescriptionPage extends BasePage{
 		}
 			return arr;
 	}
-	public boolean verifyDatabase(String query) {
+	public boolean verifyDatabase(String query) throws Exception {
 		List<Map<String,String>> database=database(query);
 		System.out.println(database);
 		List<Map<String,String>> UI=gettable(); 
@@ -347,7 +347,8 @@ public class ChatMenuDescriptionPage extends BasePage{
 			return false;
 	}
 	
-	public List<Map<String, String>> gettable() {
+	public List<Map<String, String>> gettable() throws Exception {
+		Thread.sleep(4000);
 		int item=Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
         int pagersize=Integer.valueOf(pagerSize.getText());
         int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
@@ -553,9 +554,9 @@ public class ChatMenuDescriptionPage extends BasePage{
         selectDropdownFromVisibleText(columnNameList,"Menu Id");
         selectWebElement(selectSearchColumn.get(1));
         selectDropdownFromVisibleText(searchTypeList,"Is equal to");
-        enterValueToTxtField(searchText.get(0),details.getMenuId());
+        enterValueToTxtField(searchTextBox,details.getMenuId());
         selectWebElement(clearall);
-		if(searchText.get(0).isEnabled())
+		if(searchTextBox.isEnabled())
         	return true;
         else
 		return false;
@@ -595,7 +596,7 @@ public class ChatMenuDescriptionPage extends BasePage{
         selectDropdownFromVisibleText(columnNameList,"Menu Id");
         selectWebElement(selectSearchColumn.get(1));
         selectDropdownFromVisibleText(searchTypeList,"Is equal to");
-        enterValueToTxtField(searchText.get(0),menuId);
+        enterValueToTxtField(searchTextBox,menuId);
         selectWebElement(searchSearchBtn);		
 	}
 
@@ -611,6 +612,7 @@ public class ChatMenuDescriptionPage extends BasePage{
 		searchChatMenuDescriptionRecord(details.getMenuId());
 		waitForJqueryLoad(driver);
 		selectWebElement(exporttoexcel);
+		Thread.sleep(1000);
 		if(errorMsg.get(0).getText().equals("There is no record to export"))
 			return true;
 		else
@@ -776,7 +778,9 @@ public class ChatMenuDescriptionPage extends BasePage{
 	public void addRecordWithoutMenuID(ChatMenuDescriptionDetails details) throws Exception {
 		selectWebElement(addNewChatMenuDescriptionBtn);
 		waitForJqueryLoad(driver);
+		Thread.sleep(1000);
 		enterValueToTxtFieldWithoutClear(MenuNameTextbox,details.getMenuName());
+		Thread.sleep(1000);
 		enterValueToTxtFieldWithoutClear(IntentTextbox,details.getIntent());
 		selectWebElement(saveBtn);	
 		selectWebElement(cancelBtn);

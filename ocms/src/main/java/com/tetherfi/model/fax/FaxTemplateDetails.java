@@ -24,6 +24,7 @@ public class FaxTemplateDetails {
     private String updatedUploadDoc;
     private String query;
     private String pdfFile;
+    private String image;
     
     public FaxTemplateDetails(Map<String,String> map) {
         templateName=readTemplateName(map);
@@ -46,9 +47,15 @@ public class FaxTemplateDetails {
         updatedUploadDoc=readUpdatedUploadDoc(map);
         query=readQuery(map);
         pdfFile=readPdfFile(map);
+        image=readImage(map);
     }
 
-    private String readPdfFile(Map<String, String> map) {
+    private String readImage(Map<String, String> map) {
+    	String value=map.get("Image");
+		return value;
+	}
+
+	private String readPdfFile(Map<String, String> map) {
     	String value=map.get("PDF File");
 		return value;
 	}
@@ -250,6 +257,10 @@ public class FaxTemplateDetails {
 	
 	public String getPDFFile() {
 		return pdfFile;
+	}
+	
+	public String getImage() {
+		return image;
 	}
 }
 

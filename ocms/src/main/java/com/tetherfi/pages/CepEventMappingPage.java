@@ -59,7 +59,7 @@ public class CepEventMappingPage extends BasePage {
 	@FindBy(css = "#1001sAddButton .k-i-add")
 	private WebElement searchAddCriteriaBtn;
 
-	@FindBy(css="#toast-container .toast-message")
+	@FindBy(css="#toast-container .toast-success .toast-message")
 	private WebElement successmsg;
 	    
 	@FindBy(css = ".modal-footer .button-theme")
@@ -122,7 +122,7 @@ public class CepEventMappingPage extends BasePage {
 	@FindBy(xpath="//div[text()='No records to display']")
 	private WebElement norecords;
 		    
-	@FindBy(xpath="//i[@class='fas fa-sync']")
+	@FindBy(xpath="//i[@class='fas fa-sync fa-spin']")
 	private WebElement clearsearch;
 		
 	@FindBy(css=".k-pager-numbers .k-state-selected")
@@ -320,7 +320,7 @@ public class CepEventMappingPage extends BasePage {
 		}
 			return arr;
 	}
-	public boolean verifyDatabase(String query) {
+	public boolean verifyDatabase(String query) throws Exception {
 		List<Map<String,String>> database=database(query);
 		System.out.println(database);
 		List<Map<String,String>> UI=gettable(); 
@@ -331,7 +331,8 @@ public class CepEventMappingPage extends BasePage {
 			return false;
 	}
 	
-	public List<Map<String, String>> gettable() {
+	public List<Map<String, String>> gettable() throws Exception {
+		Thread.sleep(4000);
 		int item=Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
         int pagersize=Integer.valueOf(pagerSize.getText());
         int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
@@ -539,6 +540,7 @@ public class CepEventMappingPage extends BasePage {
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"CEP Event");
         selectWebElement(selectSearchCol.get(1));
+        Thread.sleep(2000);
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is equal to");
         enterValueToTxtField(searchTextBox,cepEventMappingDetails.getCepEvent());
         selectWebElement(clearall);
@@ -809,6 +811,7 @@ public class CepEventMappingPage extends BasePage {
 	public void editCepEventMappingRecord(CepEventMappingDetails details) throws Exception {
 		searchCepEventMapping(details.getCepEvent());
 		waitUntilWebElementIsVisible(editButton);
+		Thread.sleep(2000);
 		selectWebElement(editButton);
 		waitForJqueryLoad(driver);
 		Thread.sleep(3000);
@@ -822,6 +825,7 @@ public class CepEventMappingPage extends BasePage {
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"CEP Event");
         selectWebElement(selectSearchCol.get(1));
+        Thread.sleep(2000);
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is equal to");
         enterValueToTxtField(searchTextBox,cepEvent);		
         selectWebElement(searchSearchBtn);		
@@ -829,6 +833,7 @@ public class CepEventMappingPage extends BasePage {
 	public void editCepEventMappingRecordWithoutModifyReason(CepEventMappingDetails details) throws Exception {
 		searchCepEventMapping(details.getCepEvent());
 		waitUntilWebElementIsClickable(editButton);
+		Thread.sleep(2000);
 		selectWebElement(editButton);
 		waitForJqueryLoad(driver);
 		enterValueToTxtField(DescriptionTextbox,details.getUpdatedDescription());

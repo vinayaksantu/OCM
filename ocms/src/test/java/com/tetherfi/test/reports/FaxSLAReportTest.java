@@ -28,7 +28,7 @@ public class FaxSLAReportTest extends BaseTest {
 	}
 
 	/*@Test(priority=1,description="To verify Show Report for Single Date")
-	public void ShowOCMFaxSLAReport() throws Exception {
+	public void ShowReport() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxSLAReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
 		ReportDetails reportDetails= new ReportDetails(map);
@@ -36,8 +36,9 @@ public class FaxSLAReportTest extends BaseTest {
 		ocmReportsPage.showReport(reportDetails);
 		Assert.assertTrue(ocmReportsPage.verifyReportDisplayed(reportDetails),"Show report assertion failed");     
 	}
+	
 	@Test(priority=2,description="To verify Show Report in New Tab for Single Date")
-	public void ShowOCMFaxSLAReportInNewTab() throws Exception {
+	public void ShowReportInNewPage() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxSLAReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowInNewPage").getTestData().get(0);
 		ReportDetails reportDetails= new ReportDetails(map);
@@ -46,95 +47,109 @@ public class FaxSLAReportTest extends BaseTest {
 		Assert.assertTrue(ocmReportsPage.verifyReportDisplayed(reportDetails),"show report in new tab assertion failed");
 		ocmReportsPage.switchBackToParentWindow();
 	}
-	@Test(priority=3,description="To verify Show Report for Date Range")
-	public void ShowOCMFaxSLAReportForDateRange() throws Exception {
+	
+	@Test(priority=3,description="To verify search equals")
+	public void VerifySearchIsEqualTo() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxSLAReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
 		ReportDetails reportDetails= new ReportDetails(map);
 		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
 		ocmReportsPage.showReport(reportDetails);
+		FaxSLAReportPage faxSlaPage=PageFactory.createPageInstance(driver,FaxSLAReportPage.class);
 		Assert.assertTrue(ocmReportsPage.verifyDateRangeReportDisplayed(reportDetails),"Show report assertion failed");
-	} 
-
-	@Test(priority=4,description="To verify Show Report for Date Range in New Tab")
-	public void ShowOCMFaxSLAReportInNewTabDateRange() throws Exception {
-		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxSLAReport.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
-		ReportDetails reportDetails= new ReportDetails(map);
-		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
-		ocmReportsPage.showReportInNewPage(reportDetails);
-		Assert.assertTrue(ocmReportsPage.verifyDateRangeReportDisplayed(reportDetails),"show report in new tab assertion failed");
-		ocmReportsPage.switchBackToParentWindow();
+		Assert.assertTrue(faxSlaPage.verifySearchIsEqualTo(reportDetails.getSearchStr()));
 	}
-	@Test(priority=5,description="To verify Export Scheduler on OCM Reports Page")
-	public void ShowExportSchedulerOCMFaxSLAReport() throws Exception {
+	
+	@Test(priority=4,description="To verify search IsNotEquals")
+	public void VerifySearchIsNotEqualTo() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxSLAReport.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"ExportReport").getTestData().get(0);
+		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(1);
 		ReportDetails reportDetails= new ReportDetails(map);
-		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
-		ocmReportsPage.scheduleReport(reportDetails);
-		Assert.assertTrue(ocmReportsPage.verifyScheduleReport(),"Schedule report assertion failed");
+		OCMReportsPage ocmReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
+		ocmReportsPage.showReport(reportDetails);  
+		FaxSLAReportPage faxSlaPage=PageFactory.createPageInstance(driver,FaxSLAReportPage.class);
+		Assert.assertTrue(faxSlaPage.verifySearchIsNotEqualTo(reportDetails.getSearchStr()));
+	}
+
+	@Test(priority=5,description="To verify search Contains")
+	public void  VerifySearchContains() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxSLAReport.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(2);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
+		ocmReportsPage.showReport(reportDetails);  
+		FaxSLAReportPage faxSlaPage=PageFactory.createPageInstance(driver,FaxSLAReportPage.class);
+		Assert.assertTrue(faxSlaPage.verifySearchContains(reportDetails.getSearchStr()));
+	}   
+
+	@Test(priority=6,description="To verify search doesnotContains")
+	public void  VerifySearchDoesNotContains() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxSLAReport.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(4);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
+		ocmReportsPage.showReport(reportDetails);  
+		FaxSLAReportPage faxSlaPage=PageFactory.createPageInstance(driver,FaxSLAReportPage.class);
+		Assert.assertTrue(faxSlaPage.verifySearchDoesNotContains(reportDetails.getSearchStr())); 
 	}  
 
-	@Test(priority=6,description="To verify Export Report on OCM Reports Page")
-	public void ExportOCMFaxSLAReport() throws Exception {
+	@Test(priority=7,description="To verify search StartsWith")
+	public void  VerifySearchStartsWith() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxSLAReport.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"ExportReport").getTestData().get(0);
+		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(3);
 		ReportDetails reportDetails= new ReportDetails(map);
-		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
-		ocmReportsPage.exportReport(reportDetails);
-		Assert.assertTrue(ocmReportsPage.verifyReportExported(),"export report assertion failed");
+		OCMReportsPage ocmReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
+		ocmReportsPage.showReport(reportDetails);  
+		FaxSLAReportPage faxSlaPage=PageFactory.createPageInstance(driver,FaxSLAReportPage.class);
+		Assert.assertTrue(faxSlaPage.verifySearchStartsWith(reportDetails.getSearchStr()));
+	}
+	
+	@Test(priority=8,description="To verify search EndsWith")
+	public void  VerifySearchEndsWith() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxSLAReport.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(5);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
+		ocmReportsPage.showReport(reportDetails);  
+		FaxSLAReportPage faxSlaPage=PageFactory.createPageInstance(driver,FaxSLAReportPage.class);
+		Assert.assertTrue(faxSlaPage.verifySearchEndsWith(reportDetails.getSearchStr()));
 	}
 
-	@Test(priority=7,dependsOnMethods ="ExportOCMFaxSLAReport",description="To verify view download in Report downloads")
-	public void ViewDownloadedInReportsDownloadPage() throws IOException {
+	@Test(priority=9,description="To verify search by feature")
+	public void VerifySearchByFeature() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxSLAReport.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"ExportReport").getTestData().get(0);
-		ReportDetails reportDetails= new ReportDetails(map);
-		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
-		ocmReportsPage.viewDownloadedReportInReportDownloadsPage();
-		Assert.assertTrue(ocmReportsPage.verifyDownloadedReportNameAndTimeInReportsDownloadPage(reportDetails.getReportName1()),"Report not found in Reporter download page");
-	} 
-	/*
-   //non automatable
-	@Test(priority=8,dependsOnMethods ="ViewDownloadedOCMFaxSLAReportInReportsDownloadPage",description="To verification of exported excel in Report downloads")
-	public void VerifyViewDownloadedOCMFaxSLAReport() throws Exception {
-		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxSLAReport.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"ExportReport").getTestData().get(0);
+		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
 		ReportDetails reportDetails= new ReportDetails(map);
 		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
 		ocmReportsPage.showReport(reportDetails);
-		Assert.assertTrue(ocmReportsPage.verifyExportedSheet("OCMReportDownload","Fax SLA Report"));	
-	} */
+		FaxSLAReportPage faxSlaPage=PageFactory.createPageInstance(driver,FaxSLAReportPage.class);
+		Assert.assertTrue(faxSlaPage.verifySearchByTextbox(reportDetails),"Search report assertion failed");
+	}      
 
-	/*@Test(priority=9,description="To verify Export Scheduler on OCM Reports Page for Date Range")
-	public void ScheduleOCMFaxSLAReportforDateRange() throws Exception {
+	@Test(priority=10,description="To verify search without providing data in searchbox")
+	public void searchwithoutSearchTextbox() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxSLAReport.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"ExportReportDateRange").getTestData().get(0);
+		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
 		ReportDetails reportDetails= new ReportDetails(map);
-		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
-		ocmReportsPage.scheduleReport(reportDetails);
-		Assert.assertTrue(ocmReportsPage.verifyScheduleReport(),"Schedule report assertion failed");
+		OCMReportsPage ocmReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
+		ocmReportsPage.showReport(reportDetails);
+		FaxSLAReportPage faxSlaPage=PageFactory.createPageInstance(driver,FaxSLAReportPage.class);
+		faxSlaPage.searchwithoutextsearch(reportDetails);
+		Assert.assertEquals(faxSlaPage.getSuccessMessage(),"Please enter the text to search or remove the filter", "Add invalid record assertion failed");
 	}
-	@Test(priority=10,description="To verify Export Report on OCM Reports Page for Date Range")
-	public void ExportOCMFaxSLAReportDateRange() throws Exception {
+	
+	@Test(priority=11,description="To verify search Clear Search")
+	public void SearchClearSearch() throws Exception{
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxSLAReport.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"ExportReportDateRange").getTestData().get(0);
+		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
 		ReportDetails reportDetails= new ReportDetails(map);
-		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
-		ocmReportsPage.exportReport(reportDetails);
-		Assert.assertTrue(ocmReportsPage.verifyReportExported(),"export report assertion failed");
-	} 
-	@Test(priority=11,dependsOnMethods ="ExportOCMFaxSLAReportDateRange",description="To verify view download in Report downloads")
-	public void ViewDownloadedReportInReportsDownloadPageDateRange() throws IOException {
-		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxSLAReport.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"ExportReportDateRange").getTestData().get(0);
-		ReportDetails reportDetails= new ReportDetails(map);
-		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
-		ocmReportsPage.viewDownloadedReportInReportDownloadsPage();
-		Assert.assertTrue(ocmReportsPage.verifyDownloadedReportNameAndTimeInReportsDownloadPage(reportDetails.getReportName1()),"Report not found in Reporter download page");
+		OCMReportsPage ocmReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
+		ocmReportsPage.showReport(reportDetails);  
+		FaxSLAReportPage faxSlaPage=PageFactory.createPageInstance(driver,FaxSLAReportPage.class);
+		Assert.assertTrue(faxSlaPage.verifySearchClear(reportDetails));    	
 	}
-	@Test(priority=12,description="To verfiy clear all button")
+	
+	@Test(priority=12,description="To verify clear all button")
 	public void ClearAll() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxSLAReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
@@ -143,7 +158,201 @@ public class FaxSLAReportTest extends BaseTest {
 		ocmReportsPage.ClearHomepgDrpDown(reportDetails);
 		Assert.assertEquals(ocmReportsPage.getSuccessMessage(),"Filters cleared successfully!","Invalid filter assertion");
 	}
-	@Test(priority=13,description="To Verify OCM Window Maximize minimize")
+	
+	@Test(priority=13,description="To verify Advance Search Equals")
+	public void verifyAdvancedSearchEquals() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxSLAReport.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(0);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);       
+		FaxSLAReportPage faxSlaPage=PageFactory.createPageInstance(driver,FaxSLAReportPage.class);        
+		ocmReportsPage.chooseReport(reportDetails);
+		Assert.assertTrue(faxSlaPage.verifyAdvanceSearch(reportDetails));            
+	}
+
+	@Test(priority=14,description="Advance search OR Criteria")
+	public void verifyAdvancedSearchORCriteria() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxSLAReport.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(0);
+		FaxSLAReportPage faxSlaPage=PageFactory.createPageInstance(driver, FaxSLAReportPage.class);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);                   	
+		ocmReportsPage.chooseReport(reportDetails);
+		Assert.assertTrue(faxSlaPage.advancedSearchORCriteria(reportDetails));
+	}
+	
+	@Test(priority=15,description="Advance search with And Condition")
+	public void verifyAdvancedSearchANDCriteria() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxSLAReport.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(0);
+		FaxSLAReportPage FaxSLAReportPage=PageFactory.createPageInstance(driver,FaxSLAReportPage.class);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);                   	
+		ocmReportsPage.chooseReport(reportDetails);
+		Assert.assertTrue(FaxSLAReportPage.advancedSearchANDCriteria(reportDetails));   	
+	}
+	
+	@Test(priority=16,description="Clear filters for advance search")
+	public void ClearAdvSrchFilters() throws Exception{ 	
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxSLAReport.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(0);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);                   
+		Assert.assertTrue(ocmReportsPage.ClearAdvFilters(reportDetails));
+	}
+	
+	@Test(priority=17,description="To Verify Arrow move for Previous and Next page")
+	public void VerifyArrowMoveForPreviousAndNextPage() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxSLAReport.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
+		ocmReportsPage.showReport(reportDetails);
+		FaxSLAReportPage faxSlaPage=PageFactory.createPageInstance(driver,FaxSLAReportPage.class);
+		Assert.assertTrue(faxSlaPage.verifyArrowMoveForPreviousAndNextPage(),"arrow move for previous and next page assertion failed");
+	} 
+	
+	@Test(priority=18,description="Verify Pagination, Move to First and Last Page")
+	public void VerifyArrowMoveForFirstAndLastPage() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxSLAReport.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage OCMReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
+		OCMReportsPage.showReport(reportDetails);
+		FaxSLAReportPage faxSlaPage=PageFactory.createPageInstance(driver,FaxSLAReportPage.class);
+		Assert.assertTrue(faxSlaPage.verifyArrowMoveForFirstAndLastPage(),"arrow move for first and last page assertion failed");
+	}
+	
+	@Test(priority=19,description="To Verify Total Number of Items Per Page Details")
+	public void VerifyTotalNumberOfItemsPerPageDetails() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxSLAReport.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
+		ocmReportsPage.showReport(reportDetails);
+		FaxSLAReportPage faxSlaPage=PageFactory.createPageInstance(driver,FaxSLAReportPage.class);
+		Assert.assertTrue(faxSlaPage.verifyTotalNumberOfItemsPerPageDetails(),"item per page assertion failed");
+	}
+	
+	@Test(priority=34,description="To Verify Number of Items Per Page Selection")
+	public void VerifyNumberOfItemsPerPageSelection() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxSLAReport.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
+		ocmReportsPage.showReport(reportDetails);
+		FaxSLAReportPage faxSlaPage=PageFactory.createPageInstance(driver,FaxSLAReportPage.class);
+		Assert.assertTrue(faxSlaPage.verifyNumberOfItemsPerPage(),"item per page assertion failed");
+	}*/
+	
+	
+	@Test(priority=17, description="To verify fax SLA Report details UI data against DB")
+	public void database() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxSLAReport.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(0);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
+		ocmReportsPage.showReport(reportDetails);
+		FaxSLAReportPage faxSLAReportPage=PageFactory.createPageInstance(driver,FaxSLAReportPage.class);
+		faxSLAReportPage.sortAscRouteDateTime();
+		Assert.assertTrue(faxSLAReportPage.verifyDatabase(reportDetails.getQuery(),reportDetails,reportDetails.getOrgUnitID()),"Main report data mismatch");
+		System.out.println("Main Report Data Match Successfull");
+	}
+ 
+	/*@Test(priority=18,description="To verify Show Report for Date Range")
+	public void ShowReportForDateRange() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxSLAReport.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
+		ocmReportsPage.showReport(reportDetails);
+		Assert.assertTrue(ocmReportsPage.verifyDateRangeReportDisplayed(reportDetails),"Show report assertion failed");
+	} 
+
+	@Test(priority=19,description="To verify Show Report for Date Range in New Tab")
+	public void ShowReportInNewPageForDateRange() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxSLAReport.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
+		ocmReportsPage.showReportInNewPage(reportDetails);
+		Assert.assertTrue(ocmReportsPage.verifyDateRangeReportDisplayed(reportDetails),"show report in new tab assertion failed");
+		ocmReportsPage.switchBackToParentWindow();
+	}
+	
+	@Test(priority=20,description="To verify Export Scheduler on OCM Reports Page")
+	public void ShowExportSchedulerOCMFaxSLAReport() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxSLAReport.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"ExportReport").getTestData().get(0);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
+		ocmReportsPage.scheduleReport(reportDetails);
+		Assert.assertTrue(ocmReportsPage.verifyScheduleReport(),"Schedule report assertion failed");
+	}
+	
+	@Test(priority=21,description="To verify Export Report on OCM Reports Page")
+	public void ExportReport() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxSLAReport.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"ExportReport").getTestData().get(0);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
+		ocmReportsPage.exportReport(reportDetails);
+		Assert.assertTrue(ocmReportsPage.verifyReportExported(),"export report assertion failed");
+	}
+
+	@Test(priority=22,dependsOnMethods ="ExportReport",description="To verify view download in Report downloads")
+	public void ViewDownloadedReportInReportsDownloadPage() throws IOException {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxSLAReport.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"ExportReport").getTestData().get(0);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
+		ocmReportsPage.viewDownloadedReportInReportDownloadsPage();
+		Assert.assertTrue(ocmReportsPage.verifyDownloadedReportNameAndTimeInReportsDownloadPage(reportDetails.getReportName1()),"Report not found in Reporter download page");
+	} 
+	
+//	Time is missing in Excel values, implement in future.
+	@Test(priority=23,enabled=false,dependsOnMethods ="ViewDownloadedReportInReportsDownloadPage",description="To verification of exported excel in Report downloads")
+	public void VerifyDownloadedOCMFaxSLAReport() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxSLAReport.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"ExportReport").getTestData().get(0);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
+		ocmReportsPage.showReport(reportDetails);
+		Assert.assertTrue(ocmReportsPage.verifyExportedSheet("OCMReportDownload","Fax SLA Report"));	
+	}
+
+	@Test(priority=24,description="To verify Export Scheduler on OCM Reports Page for Date Range")
+	public void ScheduleReportforDateRange() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxSLAReport.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"ExportReportDateRange").getTestData().get(0);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
+		ocmReportsPage.scheduleReport(reportDetails);
+		Assert.assertTrue(ocmReportsPage.verifyScheduleReport(),"Schedule report assertion failed");
+	}
+ 
+	@Test(priority=25,description="To verify Export Report on OCM Reports Page for Date Range")
+	public void ExportReportForDateRange() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxSLAReport.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"ExportReportDateRange").getTestData().get(0);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
+		ocmReportsPage.exportReport(reportDetails);
+		Assert.assertTrue(ocmReportsPage.verifyReportExported(),"export report assertion failed");
+	} 
+	
+	@Test(priority=26,dependsOnMethods ="ExportReportForDateRange",description="To verify view download in Report downloads")
+	public void ViewDownloadedReportInReportsDownloadPageForDateRange() throws IOException {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxSLAReport.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"ExportReportDateRange").getTestData().get(0);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
+		ocmReportsPage.viewDownloadedReportInReportDownloadsPage();
+		Assert.assertTrue(ocmReportsPage.verifyDownloadedReportNameAndTimeInReportsDownloadPage(reportDetails.getReportName1()),"Report not found in Reporter download page");
+	}
+	
+//	Add exported excel data validation test case		
+	@Test(priority=27,description="To Verify OCM Window Maximize minimize")
 	public void OCMWindow() throws Exception {	
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxSLAReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -156,7 +365,8 @@ public class FaxSLAReportTest extends BaseTest {
 		Assert.assertTrue(faxSlaPage.minimizewindow(), "Restored Assertion Failed");
 		screenshot.captureScreen("FaxSLAReportPage","Minimize");	
 	} 
-	@Test(priority=14,description="To Verify Dropdown for All the Columns")
+	
+	@Test(priority=28,description="To Verify Dropdown for All the Columns")
 	public void VerifyDropdownForAllTheColumns() throws Exception {		
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxSLAReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -166,8 +376,9 @@ public class FaxSLAReportTest extends BaseTest {
 		FaxSLAReportPage faxSlaPage=PageFactory.createPageInstance(driver,FaxSLAReportPage.class);
 		Assert.assertTrue(faxSlaPage.verifyDropDownOfAllHeaders(), "Columns dropdown assertion failed");
 	}  
-	@Test(priority=15,description="To Verify Columns Headers are Enabled")
-	public void VerifyColumnsHeaderEnable() throws Exception {  	
+	
+	@Test(priority=29,description="To Verify Columns Headers are Enabled")
+	public void VerifyColumnsHeaderEnabled() throws Exception {  	
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxSLAReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
 		ReportDetails reportDetails= new ReportDetails(map);		
@@ -176,8 +387,9 @@ public class FaxSLAReportTest extends BaseTest {
 		FaxSLAReportPage faxSlaPage=PageFactory.createPageInstance(driver,FaxSLAReportPage.class);
 		Assert.assertTrue(faxSlaPage.verifycolumnsHeaderEnabled(),"columns enabled assertion failed");
 	}  
-	@Test(priority=16,description="To Verify Columns Headers are Disabled")
-	public void VerifyColumnsHeaderDisable() throws Exception {
+	
+	@Test(priority=30,description="To Verify Columns Headers are Disabled")
+	public void VerifyColumnsHeaderDisabled() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxSLAReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
 		ReportDetails reportDetails= new ReportDetails(map);
@@ -185,40 +397,10 @@ public class FaxSLAReportTest extends BaseTest {
 		ocmReportsPage.showReport(reportDetails);
 		FaxSLAReportPage faxSlaPage=PageFactory.createPageInstance(driver,FaxSLAReportPage.class);
 		Assert.assertFalse(faxSlaPage.verifycolumnsHeaderDisabled(),"columns disabled assertion failed");
-	} 
-	@Test(priority=17,description="To Verify Arrow move for Previous and Next page")
-	public void VerifyArrowMoveForPreviousAndNextPage() throws Exception {
-		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxSLAReport.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
-		ReportDetails reportDetails= new ReportDetails(map);
-		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
-		ocmReportsPage.showReport(reportDetails);
-		FaxSLAReportPage faxSlaPage=PageFactory.createPageInstance(driver,FaxSLAReportPage.class);
-		Assert.assertTrue(faxSlaPage.verifyArrowMoveForPreviousAndNextPage(),"arrow move for previous and next page assertion failed");
-	} 
-	@Test(priority=18,description="To Verify Total Number of Items Per Page Details")
-	public void VerifyTotalNumberOfItemsPerPageDetails() throws Exception {
-		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxSLAReport.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
-		ReportDetails reportDetails= new ReportDetails(map);
-		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
-		ocmReportsPage.showReport(reportDetails);
-		FaxSLAReportPage faxSlaPage=PageFactory.createPageInstance(driver,FaxSLAReportPage.class);
-		Assert.assertTrue(faxSlaPage.verifyTotalNumberOfItemsPerPageDetails(),"item per page assertion failed");
-	} 
-	@Test(priority=19,description="To Verify Number of Items Per Page Selection")
-	public void VerifyNumberOfItemsPerPageSelection() throws Exception {
-		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxSLAReport.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
-		ReportDetails reportDetails= new ReportDetails(map);
-		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
-		ocmReportsPage.showReport(reportDetails);
-		FaxSLAReportPage faxSlaPage=PageFactory.createPageInstance(driver,FaxSLAReportPage.class);
-		Assert.assertTrue(faxSlaPage.verifyNumberOfItemsPerPage(),"item per page assertion failed");
-	} 
-	@Test(priority=20,description="To Verify Export Page Button")
-	public void ExportPage() throws Exception
-	{
+	}  
+ 
+	@Test(priority=35,description="To Verify Export Page Button")
+	public void ExportPage() throws Exception{
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxSLAReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
 		ReportDetails reportDetails= new ReportDetails(map);
@@ -228,9 +410,9 @@ public class FaxSLAReportTest extends BaseTest {
 		FaxSLAReportPage faxSlaPage=PageFactory.createPageInstance(driver,FaxSLAReportPage.class);
 		Assert.assertTrue(faxSlaPage.verifyExportToExcel(filePath1));
 	}
-	@Test(priority=21,dependsOnMethods="ExportPage",description="To Verify Exported Page Against UI")
-	public void VerifyExportedPage() throws Exception
-	{
+ 
+	@Test(priority=36,dependsOnMethods="ExportPage",description="To Verify Exported Page Against UI")
+	public void VerifyExportedPage() throws Exception{
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxSLAReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
 		ReportDetails reportDetails= new ReportDetails(map);
@@ -241,7 +423,9 @@ public class FaxSLAReportTest extends BaseTest {
 		FaxSLAReportPage faxSlaPage=PageFactory.createPageInstance(driver,FaxSLAReportPage.class);
 		Assert.assertTrue(faxSlaPage.verifyexportToExcelSheet(maplist));
 	}
-	@Test(priority=22,dependsOnMethods="VerifyExportedPage",description="To Verify Sort By Ascending")
+	
+	//Known issue in sorting 
+	@Test(priority=37,dependsOnMethods="VerifyExportedPage",description="To Verify Sort By Ascending")
 	public void SortingByAscending() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxSLAReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -254,7 +438,8 @@ public class FaxSLAReportTest extends BaseTest {
 		List<Map<String, String>> maplist = new ExcelReader(filePath1,"Sheet1").getTestData();
 		Assert.assertTrue(faxSlaPage.verifyexportToExcelSheet(maplist));
 	}   
-	@Test(priority=23,dependsOnMethods="VerifyExportedPage",description="To Verify Sort By Descending")
+	//Known issue in sorting 
+	@Test(priority=38,dependsOnMethods="VerifyExportedPage",description="To Verify Sort By Descending")
 	public void SortingByDescending() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxSLAReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -267,7 +452,8 @@ public class FaxSLAReportTest extends BaseTest {
 		List<Map<String, String>> maplist = new ExcelReader(filePath1,"Sheet1").getTestData();
 		Assert.assertTrue(faxSlaPage.verifyexportToExcelSheet(maplist));
 	}
-	@Test(priority=24,description="To Verify Schedule Report button on Main Page")
+	
+	@Test(priority=39,description="To Verify Schedule Report button on FaxSlaReport Page")
 	public void SchedulereportinFaxSLAReportPage() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxSLAReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ExportReport").getTestData().get(0);
@@ -278,8 +464,9 @@ public class FaxSLAReportTest extends BaseTest {
 		faxSlaPage.navigateToExportSchedulerPage();    
 		Assert.assertTrue(faxSlaPage.isExportSchedulerPageDisplayed(), "ExportScheduler page assertion failed");
 	}
-	@Test(priority=25,description="To Verify Export Excel button on Main Page")
-	public void ExportToExcelForOCMFaxSLAReport() throws Exception {
+	
+	@Test(priority=40,description="To Export the data using Export To Excel Functionality")
+	public void ExportToExcel() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxSLAReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
 		ReportDetails reportDetails= new ReportDetails(map);
@@ -290,173 +477,31 @@ public class FaxSLAReportTest extends BaseTest {
 		faxSlaPage.exportToExcel();
 		Assert.assertTrue(faxSlaPage.verifyReportExported(),"export report assertion failed");
 	} 
-	@Test(priority=26,dependsOnMethods ="ExportToExcelForOCMFaxSLAReport",description="To Verify View Download button on Main Page")
-	public void ViewDownloadedReportInReportsDownloadPageinFaxSLAPage() throws Exception {
+	
+	@Test(priority=41,dependsOnMethods ="ExportToExcel",description="To Verify View Download button on FaxSlaReport Page")
+	public void ViewExportedDataInReportsDownloadPage() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxSLAReport.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"ExportReport").getTestData().get(0);
+		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
 		ReportDetails reportDetails= new ReportDetails(map);
 		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
 		ocmReportsPage.showReport(reportDetails);  
 		FaxSLAReportPage faxSlaPage=PageFactory.createPageInstance(driver,FaxSLAReportPage.class);
 		faxSlaPage.viewDownloadedReportInReportsDownloadsPage();
-		Assert.assertTrue(ocmReportsPage.verifyDownloadedReportNameAndTimeInReportsDownloadPage(reportDetails.getReportName1()),"Report not found in Reporter download page");    
+		Assert.assertTrue(ocmReportsPage.verifyDownloadedReportNameAndTimeInReportsDownloadPage(reportDetails.getReportName()),"Report not found in Reporter download page");    
 	} 
-	@Test(priority=27,description="To verify search by feature")
-	public void VerifySearchByFeatureForFaxSentReport() throws Exception {
-		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxSLAReport.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
-		ReportDetails reportDetails= new ReportDetails(map);
-		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
-		ocmReportsPage.showReport(reportDetails);
-		FaxSLAReportPage faxSlaPage=PageFactory.createPageInstance(driver,FaxSLAReportPage.class);
-		Assert.assertTrue(ocmReportsPage.verifyDateRangeReportDisplayed(reportDetails),"Show report assertion failed");     
-		Assert.assertTrue(faxSlaPage.verifySearchByTextbox(reportDetails),"Search report assertion failed");
-	} 
-	@Test(priority=28,description="To verify search equals")
-	public void VerifySearchEqualsToFeature() throws Exception {
-		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxSLAReport.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
-		ReportDetails reportDetails= new ReportDetails(map);
-		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
-		ocmReportsPage.showReport(reportDetails);
-		FaxSLAReportPage faxSlaPage=PageFactory.createPageInstance(driver,FaxSLAReportPage.class);
-		Assert.assertTrue(ocmReportsPage.verifyDateRangeReportDisplayed(reportDetails),"Show report assertion failed");
-		Assert.assertTrue(faxSlaPage.verifySearchIsEqualTo(reportDetails.getSearchStr()));
-	}     
-
-	@Test(priority=29,description="To verify search without providing data in searchbox")
-	public void searchwithoutSearchTextbox() throws Exception {
-		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxSLAReport.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
-		ReportDetails reportDetails= new ReportDetails(map);
-		OCMReportsPage ocmReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
-		ocmReportsPage.showReport(reportDetails);
-		FaxSLAReportPage faxSlaPage=PageFactory.createPageInstance(driver,FaxSLAReportPage.class);
-		faxSlaPage.searchwithoutextsearch(reportDetails);
-		Assert.assertEquals(faxSlaPage.getSuccessMessage(),"Please enter the text to search or remove the filter", "Add invalid record assertion failed");
-	}  
-
-	@Test(priority=30,description="To verify search IsNotEquals")
-	public void VerifySearchIsNotEqualTo() throws Exception {
-		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxSLAReport.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(1);
-		ReportDetails reportDetails= new ReportDetails(map);
-		OCMReportsPage ocmReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
-		ocmReportsPage.showReport(reportDetails);  
-		FaxSLAReportPage faxSlaPage=PageFactory.createPageInstance(driver,FaxSLAReportPage.class);
-		Assert.assertTrue(faxSlaPage.verifySearchIsNotEqualTo(reportDetails.getSearchStr()));
-	}  
-
-	@Test(priority=31,description="To verify search Contains")
-	public void  VerifySearchContains() throws Exception {
-		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxSLAReport.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(2);
-		ReportDetails reportDetails= new ReportDetails(map);
-		OCMReportsPage ocmReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
-		ocmReportsPage.showReport(reportDetails);  
-		FaxSLAReportPage faxSlaPage=PageFactory.createPageInstance(driver,FaxSLAReportPage.class);
-		Assert.assertTrue(faxSlaPage.verifySearchContains(reportDetails.getSearchStr()));
-	}   
-
-	@Test(priority=32,description="To verify search doesnotContains")
-	public void  VerifySearchDoesNotContains() throws Exception {
-		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxSLAReport.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(2);
-		ReportDetails reportDetails= new ReportDetails(map);
-		OCMReportsPage ocmReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
-		ocmReportsPage.showReport(reportDetails);  
-		FaxSLAReportPage faxSlaPage=PageFactory.createPageInstance(driver,FaxSLAReportPage.class);
-		Assert.assertTrue(faxSlaPage.verifySearchDoesNotContains(reportDetails.getSearchStr())); 
-	}  
-
-	@Test(priority=33,description="To verify search StartsWith")
-	public void  VerifySearchStartsWith() throws Exception {
-		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxSLAReport.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(3);
-		ReportDetails reportDetails= new ReportDetails(map);
-		OCMReportsPage ocmReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
-		ocmReportsPage.showReport(reportDetails);  
-		FaxSLAReportPage faxSlaPage=PageFactory.createPageInstance(driver,FaxSLAReportPage.class);
-		Assert.assertTrue(faxSlaPage.verifySearchStartsWith(reportDetails.getSearchStr()));
-	}
-	@Test(priority=34,description="To verify search EndsWith")
-	public void  VerifySearchEndsWith() throws Exception {
-		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxSLAReport.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(3);
-		ReportDetails reportDetails= new ReportDetails(map);
-		OCMReportsPage ocmReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
-		ocmReportsPage.showReport(reportDetails);  
-		FaxSLAReportPage faxSlaPage=PageFactory.createPageInstance(driver,FaxSLAReportPage.class);
-		Assert.assertTrue(faxSlaPage.verifySearchEndsWith(reportDetails.getSearchStr()));
-	}
-
-	@Test(priority=35,description="To verify search Clear Search")
-	public void SearchClearSearch() throws Exception{
-		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxSLAReport.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
-		ReportDetails reportDetails= new ReportDetails(map);
-		OCMReportsPage ocmReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
-		ocmReportsPage.showReport(reportDetails);  
-		FaxSLAReportPage faxSlaPage=PageFactory.createPageInstance(driver,FaxSLAReportPage.class);
-		Assert.assertTrue(faxSlaPage.verifySearchClear(reportDetails));    	
-	}
-	@Test(priority=36,description="To verify Advance Search Equals")
-	public void verifyAdvancedSearchEquals() throws Exception {
-		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxSLAReport.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(0);
-		ReportDetails reportDetails= new ReportDetails(map);
-		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);       
-		FaxSLAReportPage faxSlaPage=PageFactory.createPageInstance(driver,FaxSLAReportPage.class);        
-		ocmReportsPage.chooseReport(reportDetails);
-		Assert.assertTrue(faxSlaPage.verifyAdvanceSearch(reportDetails));            
-	}
-
-	@Test(priority=38,description="Advance search OR Criteria")
-	public void verifyAdvancedSearchORCriteria() throws Exception {
-		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxSLAReport.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(0);
-		FaxSLAReportPage faxSlaPage=PageFactory.createPageInstance(driver, FaxSLAReportPage.class);
-		ReportDetails reportDetails= new ReportDetails(map);
-		//To select Report Channel,name,Type
-		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);                   	
-		ocmReportsPage.chooseReport(reportDetails);
-		Assert.assertTrue(faxSlaPage.advancedSearchORCriteria(reportDetails));
-
-	}
-	@Test(priority=39,description="Clear filters for advance search")
-	public void ClearfiltersAdvSrch() throws Exception{ 	
-		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxSLAReport.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(0);
-		ReportDetails reportDetails= new ReportDetails(map);
-		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);                   
-		Assert.assertTrue(ocmReportsPage.ClearAdvFilters(reportDetails));
-	}*/
 	
-	/*@Test(priority=40)
-	public void GroupBy() throws Exception{
-		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxSLAReport.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
-		ReportDetails reportDetails= new ReportDetails(map);
-		OCMReportsPage ocmReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
-		ocmReportsPage.showReport(reportDetails);
-		FaxSLAReportPage faxSlaPage=PageFactory.createPageInstance(driver,FaxSLAReportPage.class);
-		Assert.assertTrue(faxSlaPage.groupby());
-		screenshot.captureScreen("faxSLAReport", "GroupBy");
-		Assert.assertTrue(faxSlaPage.groupby());
-		screenshot.captureScreen("faxSLAReport", "AlreadyGroupBy");
-	}
-	@Test(priority=41,description="Delete record in Reports Download without Delete reason for date range")
+//	Add exported excel data vs UI Data validation test case 
+	@Test(priority=42,description="Delete record in Reports Download without Delete reason for date range")
 	public void DeleteWithoutDeleteReasonRecordinReportsDownloadforDateRange() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxSLAReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
 		ReportDetails reportDetails= new ReportDetails(map);
 		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
 		ocmReportsPage.viewDownloadedReportInReportDownloadsPage();    	
-		ocmReportsPage.deleteWithoutDeleteReason(reportDetails);
-		Assert.assertEquals(ocmReportsPage.getSuccessMessage(),"Please enter the delete reason","empty delete reason record assertion failed");
+		Assert.assertTrue(ocmReportsPage.deleteWithoutDeleteReason(reportDetails),"empty delete reason record assertion failed");																																	 
 	}
 
-	@Test(priority=42,description="Cancel Button in Reports Download Delete Button")
+	@Test(priority=43,description="Cancel Button in Reports Download Delete Button")
 	public void VerifyCancelBtnAtReportsDownloadDeleteBtnForDateRange() throws Exception{
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxSLAReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -467,35 +512,34 @@ public class FaxSLAReportTest extends BaseTest {
 		Assert.assertFalse(ocmReportsPage.verifyDeleteContainer(), "Cancel Btn at Delete record assertion failed");
 	}
 	
-	@Test(priority=43,description="Delete Record at Reports download Button")
+	@Test(priority=44,description="Delete Record at Reports download Button")
 	public void DeleteRecordAtReportsDownload() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxSLAReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
 		ReportDetails reportDetails= new ReportDetails(map);
 		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
-		ocmReportsPage.viewDownloadedReportInReportDownloadsPage();
-		ocmReportsPage.deleteRecordAtReportsDownloadsPage(reportDetails);
-		Assert.assertEquals(ocmReportsPage.getSuccessMessage(),"Report Deleted","Delete record assertion failed");
-	}*/
-
-	@Test(priority=44, description="To verify fax SLA Report details UI data against DB")
-	public void database() throws Exception {
+		ocmReportsPage.viewDownloadedReportInReportDownloadsPage();																   
+		Assert.assertTrue(ocmReportsPage.deleteRecordAtReportsDownloadsPage(reportDetails),"Delete record assertion failed");		
+	}
+	
+	@Test(priority=45)
+	public void GroupBy() throws Exception{
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxSLAReport.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(0);
+		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
 		ReportDetails reportDetails= new ReportDetails(map);
 		OCMReportsPage ocmReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
 		ocmReportsPage.showReport(reportDetails);
-		FaxSLAReportPage FaxSLAReportPage=PageFactory.createPageInstance(driver,FaxSLAReportPage.class);
-		Assert.assertTrue(FaxSLAReportPage.verifyDatabase(reportDetails.getQuery(),reportDetails,reportDetails.getOrgUnitID()),"Main report data mismatch");
-		System.out.println("Main Report Data Match Successfull");
-	}
-	
-	
-	
+		FaxSLAReportPage faxSlaPage=PageFactory.createPageInstance(driver,FaxSLAReportPage.class);
+		Assert.assertTrue(faxSlaPage.groupby());
+		screenshot.captureScreen("FaxSLAReportReexecution", "GroupBy");
+		Assert.assertTrue(faxSlaPage.groupby());
+		screenshot.captureScreen("FaxSLAReportReexecution", "AlreadyGroupBy");
+	}*/
+
 	@AfterMethod
 	public void afterEachMethod(Method method) throws InterruptedException {
 		Screenshot screenshot=new Screenshot(driver);
-		screenshot.captureScreen("OCMFaxSLAReportFailedCases",method.getName());
+		screenshot.captureScreen("FaxSLAReportV3.4.3.14",method.getName());
 		driver.navigate().refresh();
 	}
 

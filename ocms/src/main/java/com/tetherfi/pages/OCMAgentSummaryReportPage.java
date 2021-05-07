@@ -15,7 +15,6 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
 import com.tetherfi.model.report.ReportDetails;
-import com.tetherfi.model.user.CepEventMappingDetails;
 
 public class OCMAgentSummaryReportPage extends BasePage  {
 
@@ -91,6 +90,9 @@ public class OCMAgentSummaryReportPage extends BasePage  {
 	
 	@FindBy(xpath="//div[@id='gridDrillOne']//span[@class='k-icon k-i-arrow-60-right']")
 	private WebElement nextPageIconDrillOne;
+	
+	@FindBy(xpath="//div[@id='gridDrillOne']//span[@class='k-icon k-i-arrow-end-left']")
+	private WebElement gotoFirstPageDrillOneIcon;
 	
 	@FindBy(xpath="//table/tbody/tr")
 	private List<WebElement> MainReportRows;
@@ -278,6 +280,7 @@ public class OCMAgentSummaryReportPage extends BasePage  {
 
 	@FindBy(css = ".k-Show")
 	private List<WebElement> showReportBtn;
+	
 	@FindBy(xpath="//tbody/tr/td[2]")
 	private WebElement rowdata;
 
@@ -290,7 +293,52 @@ public class OCMAgentSummaryReportPage extends BasePage  {
 	@FindBy(id = "grid")
 	private WebElement gridBoxContent;
 
+	@FindBy(xpath="//div[@id='gridDrillOne']/div[4]/table/tbody/tr")
+	private List<WebElement> DrillOneReportRows;
+	
+	@FindBy(id="gridDrillTwo")
+	private WebElement DrillGridTwoTable;
 
+	@FindBy(xpath="(//SPAN[@class='k-icon k-i-arrow-60-right'])[3]")
+	private WebElement nextPageIconDrillTwo;
+	
+	@FindBy(xpath="(//SPAN[@aria-hidden='true'][text()='×'][text()='×'])[3]")
+	private WebElement CloseDrillGridTwo;
+	
+	@FindBy(xpath="//table/tbody/tr/td[1]")
+	private WebElement FirstRowFirstCell;
+
+	@FindBy(xpath="//div[@id='gridDrillOne']/div[4]/table/tbody/tr/td[1]")
+	private WebElement DrillGridOneFirstCell;
+	
+	@FindBy(xpath="//table/tbody/tr/td")
+	private List<WebElement> rows;
+	
+	@FindBy(xpath="//div[@id='gridDrillOne']//span[@class='k-state-selected']")
+	private WebElement pageNumberDrillOne;
+	
+	@FindBy(xpath="//div[@id='gridDrillTwo']//span[@class='k-state-selected']")
+	private WebElement pageNumberDrilltwo;
+	
+	@FindBy(xpath="//div[@id='gridDrillTwo']//span[@class='k-icon k-i-arrow-end-left']")
+	private WebElement firstPageIconDrillTwo;
+	
+	@FindBy(xpath="//div[@id='gridDrillTwo']//span[@class='k-icon k-i-arrow-end-right']")
+	private WebElement lastPageIconDrillTwo;
+	
+	@FindBy(xpath="(//div[@id='gridDrillTwo']//span[@class='k-icon k-i-arrow-60-left'])")
+	private WebElement previousPageIconDrillTwo;
+	
+	@FindBy(xpath="//div[@id='gridDrillOne']//span[@class='k-icon k-i-arrow-end-left']")
+	private WebElement firstPageIconDrillOne;
+	
+	@FindBy(xpath="//div[@id='gridDrillOne']//span[@class='k-icon k-i-arrow-end-right']")
+	private WebElement lastPageIconDrillOne;
+	
+	@FindBy(xpath="//div[@id='gridDrillOne']//a[@aria-label='Go to the previous page']")
+	private WebElement previousPageIconDrillOne;	
+
+	
 	public void exportPage(){
 		emptyDownloadsDirectory(System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles");
 		selectWebElement(exportPage);
@@ -738,6 +786,7 @@ public class OCMAgentSummaryReportPage extends BasePage  {
 		Boolean Status=verifyExportPageFileDownload(filePath, "OCMAgentSummaryReport");
 		return Status;
 	}
+	
 
 	public boolean verifyReportDownloadExcel(String filePath) {
 		final File folder = new File(filePath);
@@ -1167,7 +1216,7 @@ public class OCMAgentSummaryReportPage extends BasePage  {
 		waitForJqueryLoad(driver);
 		waitUntilWebElementIsVisible(gridBoxContent);
 		Thread.sleep(3000);
-		List<WebElement> rows=Grid.findElements(By.tagName("tr"));	
+		List<WebElement> rows=Grid.findElements(By.tagName("tr"));			
 		for(WebElement e:rows)
 		{
 			if(rowdata.getText().equals(details.getSearchStr())||rowdatatwo.getText().contains(details.getSearchStr2()))
@@ -1218,15 +1267,7 @@ public class OCMAgentSummaryReportPage extends BasePage  {
 		else
 			return false;		
 	}	
-	/* private ArrayList HeadersfromTable(List<WebElement> e){
-					        ArrayList header=new ArrayList();
-					        for(int j=0;j<e.size();j++){
-					            scrollToElement(e.get(j));
-					            if(!e.get(j).getText().equals("")){header.add(e.get(j).getText());}
-					        }
-					        return header;
-					    }*/
-
+	
 
 	public void clickOnDeleteButtonInReportDownloadsPage() {
 		selectWebElement(deleteReportinInReportDownloadpage.get(0));		
@@ -1291,7 +1332,7 @@ public class OCMAgentSummaryReportPage extends BasePage  {
 			List<Map<String,String>> database=database(query);
 			System.out.println("Printing Query" +" "+query);		
 			System.out.println("Printing DB results" +" "+database);
-			List<Map<String,String>> UI=getDataTable(); 
+			List<Map<String,String>> UI=getDataTable1(); 
 			System.out.println("Printing UI Results"+" "+UI);	
 			if(UI.equals(database))
 				return true;
@@ -1407,9 +1448,197 @@ public class OCMAgentSummaryReportPage extends BasePage  {
 		}
 
 
+		public List<String> getLogoutDates() {
+			int item=Integer.valueOf(drillGridOneItems.getText().split("of ")[1].split(" items")[0]);
+	        int pagersize=Integer.valueOf(pagerSizeDrillGridOne.getText());
+	        int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
+			List<String> LogoutDates = new ArrayList<>();
+			boolean moreThanOnePage = false;
+			for(int k=0;k<=pages;k++) {
+				waitUntilWebElementIsVisible(DrillGridOneTable);
+				List<WebElement> rows=DrillGridOneTable.findElements(By.tagName("tr"));
+				//List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
+				for(int i=1;i<rows.size();i++) {
+					List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
+					LogoutDates.add(cols.get(0).getText());
+				}
+				if(k!=pages)
+				{
+					nextPageIconDrillOne.click();
+					waitForJqueryLoad(driver);
+					moreThanOnePage = true;
+				}
+			}
+			if(moreThanOnePage == true) {
+				gotoFirstPageDrillOneIcon.click();
+				waitForJqueryLoad(driver);
+			}
+			//CloseDrillGridOne.click();
+			return LogoutDates;
+		}
 		
 		
+		public void goToNextPageDrillOne() {
+			nextPageIconDrillOne.click();
+			waitForJqueryLoad(driver);
+		}
 		
+		public void clickOnDateRowOnDrillOneReport(int rowNo) throws InterruptedException {
+			//Thread.sleep(2000);
+			DrillOneReportRows.get(rowNo).click();
+			waitForLoad(driver);
+			waitForJqueryLoad(driver);
+			waitUntilWebElementIsVisible(DrillGridTwoTable);
+			//Thread.sleep(1000);
+		}
+		
+		public void closeDrillOneReport() throws InterruptedException {
+			CloseDrillGridOne.click();
+			waitUntilWebElementIsVisible(gridContent);
+		}
+
+		public boolean verifyDatabaseDrillGridTwo(String queryDrillGridTwo,ReportDetails details, String inputDate, String AgentId) throws InterruptedException {
+			//get dates from xl - step 2
+			String reportbeforedate = details.getStartDate();
+			String reportafterdate=details.getEndDate();
+			//change date formats - step 3
+			reportbeforedate=inputDate.substring(6,10)+"-"+inputDate.substring(3, 5)+"-"+inputDate.substring(0, 2)+" 00:00:00";
+			reportafterdate=inputDate.substring(6,10)+"-"+inputDate.substring(3, 5)+"-"+inputDate.substring(0, 2)+" 23:59:59";
+			//Replace identifiers in query to formatted date - step 5
+			queryDrillGridTwo=queryDrillGridTwo.replaceAll("ReportBeforeDate",reportbeforedate);
+			queryDrillGridTwo=queryDrillGridTwo.replaceAll("ReportAfterDate",reportafterdate );
+			queryDrillGridTwo=queryDrillGridTwo.replaceAll("AgentIdCapturedFromUI", AgentId);
+			List<Map<String,String>> database=database(queryDrillGridTwo);
+			//System.out.println("Printing Query" +" "+queryDrillGridTwo);		
+			//System.out.println("Printing DB results" +" "+database);
+			List<Map<String,String>> UI=getDataTableDrillGridTwo(); 
+			//System.out.println("Printing UI Results"+" "+UI);	
+			if(UI.equals(database))
+				return true;
+			else
+				return false;
+		}
+
+		
+		private List<Map<String, String>> getDataTableDrillGridTwo() throws InterruptedException {
+		 	int item=Integer.valueOf(drillGridTwoItems.getText().split("of ")[1].split(" items")[0]);
+		 	int pagersize=24;
+	        int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
+			List<Map<String,String>> arr=new ArrayList<Map<String,String>>();
+			for(int k=0;k<=pages;k++){
+			waitUntilWebElementIsVisible(DrillGridTwoTable);
+			List<WebElement> rows=DrillGridTwoTable.findElements(By.tagName("tr"));
+			List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
+			for(int i=1;i<rows.size();i++) {
+				Map<String,String> map = new HashMap<String,String>();
+				List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
+				String col=null;
+				for(int j=0;j<headers.size();j++){
+					if(headers.get(j).getText().equals("Service Level")){
+						col=cols.get(j).getText();
+						if(col.contains("."))
+							col=col;
+						else
+							col=col+".00";
+						}
+					else
+						col=cols.get(j).getText();
+					map.put(headers.get(j).getText(),col);
+				}
+				map.remove("");
+				arr.add(map);
+			}
+			if(k!=pages)
+			{
+				nextPageIconDrillTwo.click();
+				waitForJqueryLoad(driver);
+				waitUntilWebElementIsVisible(DrillGridTwoTable);
+			}
+			}
+				CloseDrillGridTwo.click();
+				//Thread.sleep(1000);
+				waitUntilWebElementIsVisible(DrillGridOneTable);
+				return arr;
+		}
+
+
+		private List<Map<String, String>> getDataTable1() {
+			int item=Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
+	        int pagersize=Integer.valueOf(pagerSize.getText());
+	        int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
+			List<Map<String,String>> arr=new ArrayList<Map<String,String>>();
+			for(int k=0;k<=pages;k++){
+			waitUntilWebElementIsVisible(auditGridContent);
+			List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
+			List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
+			for(int i=1;i<rows.size();i++) {
+				Map<String,String> map = new HashMap<String,String>();
+				List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
+				String col=null;
+				for(int j=0;j<headers.size();j++){
+					scrollToElement(headers.get(j));
+					col=cols.get(j).getText();
+					map.put(headers.get(j).getText(),col);
+				}
+				map.remove("");
+				arr.add(map);
+			}
+			if(k!=pages)
+			{
+				nextPageIcon.click();
+				waitForJqueryLoad(driver);}
+			}
+				return arr;
+		}
+		public boolean verifyArrowMoveForPreviousAndNextPageForDrillDownOne(ReportDetails reportDetails) throws Exception {
+			selectWebElement(rows.get(0));
+			Thread.sleep(2000);
+			boolean status=false;
+			Thread.sleep(2000);
+			if(nextPageIconDrillOne.isEnabled()){
+				int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumberDrillOne));
+				System.out.println(pagenumber);
+				selectWebElement(nextPageIconDrillOne);
+				Thread.sleep(1000);
+				int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumberDrillOne));
+				System.out.println(nextnumber);
+				selectWebElement(previousPageIconDrillOne);
+				Thread.sleep(1000);
+				int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumberDrillOne));
+				System.out.println(previousnumber);
+				if(nextnumber==(pagenumber+1) && pagenumber==previousnumber){status=true;}
+			}else{
+				System.out.println("previous and next page icon disabled");status=true;
+			}
+			return status;
+		}
+
+		public boolean verifyArrowMoveForFirstAndLastPageForDrillDownOne(ReportDetails reportDetails) throws Exception {
+			selectWebElement(rows.get(0));
+			Thread.sleep(2000);
+			boolean status=false;
+			if(lastPageIconDrillOne.isEnabled()){
+				int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumberDrillOne));
+				selectWebElement(lastPageIconDrillOne);
+				Thread.sleep(2000);
+				int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumberDrillOne));
+				selectWebElement(firstPageIconDrillOne);
+				Thread.sleep(2000);
+				int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumberDrillOne));
+				if(nextnumber>pagenumber && pagenumber==previousnumber){status=true;}
+			}else{
+				System.out.println("previous and next page icon disabled");status=true;
+			}
+			return status;
+		}
+		public boolean verifyTotalNumberOfItemsPerPageDetailsForDrillDownOne() throws InterruptedException {
+			selectWebElement(rows.get(0));
+			Thread.sleep(2000);
+			String item = drillGridOneItems.getText();
+			return item.matches("(\\d.*) - (\\d.*) of (\\d.*) items");
+		}
+
+
 }
 
 

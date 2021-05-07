@@ -120,8 +120,8 @@ public class NewUserRoleMappingPage extends BasePage {
     @FindBy(css="ul[id='1001sCriteria_listbox'] li")
     private List<WebElement> searchTypeList;
 
-    @FindBy(css=".modal-body .form-inline .form-group .k-textbox")
-    private List<WebElement> searchText;
+    @FindBy(id="1001sTextToSearch")
+    private WebElement searchText;
 
     @FindBy(css=".modal-footer .k-primary")
     private WebElement popupSearchBtn;
@@ -289,7 +289,7 @@ public class NewUserRoleMappingPage extends BasePage {
     @FindBy(xpath="//button[text()='Close']")
     private WebElement searchClose;
     
-    @FindBy(xpath="//i[@class='fas fa-sync']")
+    @FindBy(xpath="//i[@class='fas fa-sync fa-spin']")
     private WebElement clearsearch;
     
     @FindBy(id="tabstripfaxtemplateMakerChecker")
@@ -345,6 +345,10 @@ public class NewUserRoleMappingPage extends BasePage {
     
     @FindBy(css="#userGrid")
     private WebElement auditGrid;
+    
+    @FindBy(id="tdrillgrid")
+    private WebElement tgrid;
+
 
     public boolean isUserRoleMappingPageDisplayed() throws InterruptedException {
         waitForLoad(driver);
@@ -354,6 +358,7 @@ public class NewUserRoleMappingPage extends BasePage {
     public void addNewUserRoleMappingRecord(UserRoleMappingDetails details) throws Exception {
     	selectWebElement(UserRoleMappingTabs.get(1));
 		selectWebElement(makeUserRoleMappingChanges);
+		waitForJqueryLoad(driver);
         selectWebElement(addNewUserRoleMappingRecordBtn);
         selectWebElement(firstnameTextBox);
         enterValueToTxtField(firstnameTextBox,details.getFirstname());
@@ -572,7 +577,7 @@ public class NewUserRoleMappingPage extends BasePage {
         selectDropdownFromVisibleText(columnNameList,"Lan ID");
         selectWebElement(selectSearchColumn.get(1));
         selectDropdownFromVisibleText(searchTypeList,"Is equal to");
-        enterValueToTxtField(searchText.get(0),bankUsername);
+        enterValueToTxtField(searchText,bankUsername);
         selectWebElement(popupSearchBtn);
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(gridContent);
@@ -580,6 +585,7 @@ public class NewUserRoleMappingPage extends BasePage {
     public void editUserRoleMappingRecord(UserRoleMappingDetails details) throws Exception {
     	selectWebElement(UserRoleMappingTabs.get(1));
 		selectWebElement(makeUserRoleMappingChanges);
+		waitForJqueryLoad(driver);
         searchUserRoleMappingRecord(details.getBankUserName());
         selectWebElement(editBtn);
         waitForJqueryLoad(driver);
@@ -1088,9 +1094,9 @@ public class NewUserRoleMappingPage extends BasePage {
         selectDropdownFromVisibleText(columnNameList,"Lan ID");
         selectWebElement(selectSearchColumn.get(1));
         selectDropdownFromVisibleText(searchTypeList,"Is equal to");
-        enterValueToTxtField(searchText.get(0),details.getBankUserName());
+        enterValueToTxtField(searchText,details.getBankUserName());
 	    selectWebElement(clearall);
-			if(searchText.get(0).isEnabled())
+			if(searchText.isEnabled())
 	        	return true;
 	        else
 			return false;
@@ -1173,7 +1179,7 @@ public class NewUserRoleMappingPage extends BasePage {
         selectDropdownFromVisibleText(columnNameList,"Lan ID");
         selectWebElement(selectSearchColumn.get(1));
         selectDropdownFromVisibleText(searchTypeList,"Is equal to");
-        enterValueToTxtField(searchText.get(0),LanId);
+        enterValueToTxtField(searchText,LanId);
         selectWebElement(popupSearchBtn);
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(approvedgridcontent);		
@@ -1238,16 +1244,42 @@ public class NewUserRoleMappingPage extends BasePage {
 		return false;
 	}
 
+	private Map<String, String> getFirstRowDatafromPreviewPopup() {
+		Map<String,String> map = new HashMap<>();
+        waitUntilWebElementIsVisible(auditGridContent);
+        List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
+        List<WebElement> cols=rows.get(1).findElements(By.tagName("td"));
+        List<WebElement> preview= cols.get(1).findElements(By.tagName("a"));
+        preview.get(0).click();
+        waitUntilWebElementIsVisible(tgrid);
+        List<WebElement> gridrows=tgrid.findElements(By.tagName("tr"));
+        List<WebElement> gridheaders = gridrows.get(0).findElements(By.tagName("th"));
+        List<WebElement> gridcols=gridrows.get(1).findElements(By.tagName("td"));     
+        for(int j=0;j<gridheaders.size();j++){
+            scrollToElement(gridheaders.get(j));
+            for(int i=0;i<gridcols.size();i++) {
+            	System.out.println(gridheaders.get(j).getText());
+                try{
+                	map.put(gridheaders.get(j).getText(), gridcols.get(j).getText());
+                break;
+                }
+                catch (Exception e){e.printStackTrace();}
+            }
+        }
+        return map;
+	}
+
 
 	public boolean verifyAuditTrail(UserRoleMappingDetails UserRoleMappingDetails, String Transaction, String Status) {
 		boolean stat=false;
         Map<String,String> firstRowData=getFirstRowDatafromTable();
+        Map<String,String> popupRowData=getFirstRowDatafromPreviewPopup();
         if(firstRowData.get("Transaction").equalsIgnoreCase(Transaction)){
             if(firstRowData.get("Status").equalsIgnoreCase(Status)){
-                if(firstRowData.get("Function").equalsIgnoreCase("User Role Mapping")){
+                if(firstRowData.get("Function Name").equalsIgnoreCase("User Role Mapping")){
                        if(Transaction.equals("MakerCreate")){
                            Map<String,String> newvalues=new HashMap<>();
-                            String[] d=firstRowData.get("New Values").split("\n");
+                            String[] d=popupRowData.get("New Values").split("\n");
                             for(String e:d){
                                 String[]f=e.split(":",2);
                                 if(f.length>1){newvalues.put(f[0],f[1]);}
@@ -1341,7 +1373,7 @@ public class NewUserRoleMappingPage extends BasePage {
 
 	public boolean verifyStatus(String status) {
 		try {
-            Thread.sleep(3000);
+            Thread.sleep(5000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -1352,7 +1384,7 @@ public class NewUserRoleMappingPage extends BasePage {
 	public void clickonApprove(String comment) throws Exception {
 		selectWebElement(UserRoleMappingTabs.get(1));
         try {
-            Thread.sleep(3000);
+            Thread.sleep(5000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -1398,7 +1430,7 @@ public class NewUserRoleMappingPage extends BasePage {
 	public void clickonReject(String comment) throws Exception {
 		 selectWebElement(UserRoleMappingTabs.get(1));
 	        try {
-	            Thread.sleep(3000);
+	            Thread.sleep(5000);
 	        } catch (InterruptedException e) {
 	            e.printStackTrace();
 	        }
@@ -1437,12 +1469,13 @@ public class NewUserRoleMappingPage extends BasePage {
 	public boolean verifyAuditTrailUpdate(UserRoleMappingDetails details, String Transaction,String Status) {
 		boolean stat=false;
         Map<String,String> firstRowData=getFirstRowDatafromTable();
+        Map<String,String> popupRowData=getFirstRowDatafromPreviewPopup();
         if(firstRowData.get("Transaction").equalsIgnoreCase(Transaction)){
             if(firstRowData.get("Status").equalsIgnoreCase(Status)){
-                if(firstRowData.get("Function").equalsIgnoreCase("User Role Mapping")){
+                if(firstRowData.get("Function Name").equalsIgnoreCase("User Role Mapping")){
                        if(Transaction.equals("MakerUpdate")){
                            Map<String,String> newvalues=new HashMap<>();
-                            String[] d=firstRowData.get("New Values").split("\n");
+                            String[] d=popupRowData.get("New Values").split("\n");
                             for(String e:d){
                                 String[]f=e.split(":",2);
                                 if(f.length>1){newvalues.put(f[0],f[1]);}
@@ -1599,7 +1632,8 @@ public class NewUserRoleMappingPage extends BasePage {
 	        btnClick(editFormSaveBtn);			
 		}
 		
-		public List<Map<String, String>> gettable1() {
+		public List<Map<String, String>> gettable1() throws Exception {
+			Thread.sleep(3000);
 			int item=Integer.valueOf(items.get(2).getText().split("of ")[1].split(" items")[0]);
 	        int pagersize=Integer.valueOf(pagerSize.get(2).getText());
 	        int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;

@@ -36,7 +36,8 @@ public class SkillProfileReportTest extends BaseTest {
         ocmReportsPage.showReport(reportDetails);
         Assert.assertTrue(ocmReportsPage.verifyReportDisplayed(reportDetails),"Show report assertion failed");     
     }      
-    @Test(priority=2)
+    
+	@Test(priority=2)
     public void ShowOcmAgentSkillProfileReportInNewTab() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillProfileReportData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ShowInNewPage").getTestData().get(0);
@@ -46,6 +47,7 @@ public class SkillProfileReportTest extends BaseTest {
         Assert.assertTrue(ocmReportsPage.verifyReportDisplayed(reportDetails),"show report in new tab assertion failed");
         ocmReportsPage.switchBackToParentWindow();
     }
+    
     @Test(priority=3)
     public void ScheduleOCMAgentSkillProfileReport() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillProfileReportData.xlsx";
@@ -55,6 +57,7 @@ public class SkillProfileReportTest extends BaseTest {
         ocmReportsPage.scheduleReport(reportDetails);
         Assert.assertTrue(ocmReportsPage.verifyScheduleReport(),"Schedule report assertion failed");
     }   
+    
     @Test(priority=4)
     public void ExportOcmAgentSkillProfileReport() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillProfileReportData.xlsx";
@@ -64,7 +67,8 @@ public class SkillProfileReportTest extends BaseTest {
         ocmReportsPage.exportReport(reportDetails);
         Assert.assertTrue(ocmReportsPage.verifyReportExported(),"export report assertion failed");
     }
-   @Test(priority=5,dependsOnMethods ="ExportOcmAgentSkillProfileReport")
+   
+    @Test(priority=5,dependsOnMethods ="ExportOcmAgentSkillProfileReport")
     public void ViewDownloadedOcmAgentSkillProfileReportInReportsDownloadPage() throws IOException {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillProfileReportData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"ExportReport").getTestData().get(0);
@@ -92,7 +96,7 @@ public class SkillProfileReportTest extends BaseTest {
 		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
 		ocmReportsPage.viewDownloadedReportInReportDownloadsPage();   	
 		ocmReportsPage.deleteWithoutDeleteReason(reportDetails);
-		Assert.assertEquals(ocmReportsPage.getSuccessMessage(),"Please enter the delete reason","empty delete reason record assertion failed");
+		Assert.assertTrue(ocmReportsPage.deleteWithoutDeleteReason(reportDetails),"empty delete reason record assertion failed");
 	}
 
 	@Test(priority=8,description="Cancel Button in Reports Download Delete Button")
@@ -254,7 +258,8 @@ public class SkillProfileReportTest extends BaseTest {
 		AgentSkillProfileReportPage skillProfilePage=PageFactory.createPageInstance(driver,AgentSkillProfileReportPage.class);
 		Assert.assertTrue(skillProfilePage.verifyTotalNumberOfItemsPerPageDetails(),"item per page assertion failed");
 	}  
-	@Test(priority=25)
+	
+	@Test(priority=25,enabled=false)
 	public void VerifyNumberOfItemsPerPageSelection() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillProfileReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -264,9 +269,9 @@ public class SkillProfileReportTest extends BaseTest {
 		AgentSkillProfileReportPage skillProfilePage=PageFactory.createPageInstance(driver,AgentSkillProfileReportPage.class);
 		Assert.assertTrue(skillProfilePage.verifyNumberOfItemsPerPage(),"item per page assertion failed");
 	} 
+	
 	@Test(priority=26)
-	public void ExportPage() throws Exception
-	{
+	public void ExportPage() throws Exception{
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillProfileReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
 		ReportDetails reportDetails= new ReportDetails(map);
@@ -468,7 +473,7 @@ public class SkillProfileReportTest extends BaseTest {
 		screenshot.captureScreen("OCMAgentSkillProfileReport", "AlreadyGroupBy");
 	}
 	
-	@Test(priority=44,description="To Verify Ascending and Descending order")
+	@Test(priority=44,enabled=false,description="To Verify Ascending and Descending order")
 	public void VerifySorting() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillProfileReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
@@ -489,6 +494,7 @@ public class SkillProfileReportTest extends BaseTest {
 		ocmReportsPage.chooseReport(reportDetails);
 		Assert.assertTrue(skillProfilePage.advancedSearchANDCriteria(reportDetails));   	
 	}
+	
 	@Test(priority=46,description="Advance search with OR Condition")
 	public void verifyAdvancedSearchORCriteria() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillProfileReportData.xlsx";
@@ -500,7 +506,7 @@ public class SkillProfileReportTest extends BaseTest {
 		Assert.assertTrue(skillProfilePage.advancedSearchORCriteria(reportDetails));    	
 	}
 
-	@Test(priority=47, description="To verify main page details of Skill Profile report")
+	@Test(priority=0, description="To verify main page details of Skill Profile report")
 	public void database() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillProfileReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(0);
@@ -508,12 +514,10 @@ public class SkillProfileReportTest extends BaseTest {
 		OCMReportsPage ocmReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
 		ocmReportsPage.showReport(reportDetails);
 		AgentSkillProfileReportPage agtSkillProfilePage=PageFactory.createPageInstance(driver,AgentSkillProfileReportPage.class);
-		agtSkillProfilePage.sortAscSkillName();
 		Assert.assertTrue(agtSkillProfilePage.verifyDatabase(reportDetails.getQuery(), reportDetails),"Main Report Data Mismatch");
 		System.out.println("Main Report Data Match Successfull");
 	}
 	
-
 	@AfterMethod
 	public void afterEachMethod(Method method) {
 		screenshot.captureScreen("Skill Profile Report", method.getName());

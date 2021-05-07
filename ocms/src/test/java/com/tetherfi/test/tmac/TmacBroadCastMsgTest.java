@@ -4,7 +4,6 @@ import com.tetherfi.model.report.ReportDetails;
 import com.tetherfi.model.tmac.TmacBroadCastMsgDetails;
 import com.tetherfi.pages.*;
 import com.tetherfi.test.BaseTest;
-import com.tetherfi.test.reports.AuditTrailReportTest;
 import com.tetherfi.utility.ExcelReader;
 import com.tetherfi.utility.PageFactory;
 import com.tetherfi.utility.Screenshot;
@@ -81,7 +80,7 @@ public class TmacBroadCastMsgTest extends BaseTest {
         Assert.assertTrue(tmacBroadCastMsgPage.verifyNewRecordCreated(),"add record assertion failed");
     }
     
-    @Test(dependsOnMethods = {"AddNewTmacBroadCastMsg"},priority=4)
+    @Test(dependsOnMethods = {"AddNewTmacBroadCastMsg"},priority=4,enabled=true)
     public void VerifyAuditTrialReportForCreate() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacBroadcastMsgData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -96,7 +95,7 @@ public class TmacBroadCastMsgTest extends BaseTest {
         Assert.assertTrue(ocmReportsPage.verifyTmacBroadcastMsgCreate(tmacBroadCastMsgDetails,"Create"));
         
     }
-   @Test(priority=5)
+   @Test(priority=5,enabled=false)
     public void AddDuplicateRecord() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacBroadcastMsgData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -152,7 +151,7 @@ public class TmacBroadCastMsgTest extends BaseTest {
         Assert.assertTrue(tmacBroadCastMsgPage.verifyRecordUpdated(),"Record Updated assertion failed");
     }
     
-    @Test(dependsOnMethods = {"EditTmacBroadCastMsg"}, priority=11)
+    @Test(dependsOnMethods = {"EditTmacBroadCastMsg"}, priority=11,enabled=true)
     	public void VerifyAuditTrailReportForUpdate() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacBroadcastMsgData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
@@ -226,10 +225,9 @@ public class TmacBroadCastMsgTest extends BaseTest {
     }
     
     @Test(priority=18)
-    public void SearchClearSearch() throws Exception
-    {
+    public void SearchClearSearch() throws Exception{
     String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacBroadcastMsgData.xlsx";
-    Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(2);
+    Map<String, String> map = new ExcelReader(filePath,"Invalid").getTestData().get(4);
     TmacBroadCastMsgDetails tmacBroadCastMsgDetails=new TmacBroadCastMsgDetails(map);
     TmacBroadCastMsgPage tmacBroadCastMsgPage  = PageFactory.createPageInstance(driver, TmacBroadCastMsgPage.class);
     Assert.assertTrue(tmacBroadCastMsgPage.verifyinvalidsearch(tmacBroadCastMsgDetails), "InvalidSearchAssertionFailed");
@@ -246,7 +244,7 @@ public class TmacBroadCastMsgTest extends BaseTest {
     
     @Test(priority=20)
     public void ExportToExcelData() throws Exception
-    {String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\TMAC Broadcast Message.xlsx";
+    {String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Agent Broadcast Message.xlsx";
     List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
     TmacBroadCastMsgPage tmacBroadCastMsgPage  = PageFactory.createPageInstance(driver, TmacBroadCastMsgPage.class);
     Assert.assertTrue(tmacBroadCastMsgPage.verifyexportToExcelSheet(maplist));	
@@ -272,13 +270,13 @@ public class TmacBroadCastMsgTest extends BaseTest {
     }
     
     @Test(priority=23)
-    public void VerifyArrowMoveForPreviousAndNextPage() {
+    public void VerifyArrowMoveForPreviousAndNextPage() throws Exception {
         TmacBroadCastMsgPage tmacBroadCastMsgPage  = PageFactory.createPageInstance(driver, TmacBroadCastMsgPage.class);
     	Assert.assertTrue(tmacBroadCastMsgPage.verifyArrowMoveForPreviousAndNextPage(),"arrow move for previous and next page assertion failed");
     }
     
     @Test(priority=24)
-    public void VerifyArrowMoveForFirstAndLastPage() {
+    public void VerifyArrowMoveForFirstAndLastPage() throws Exception {
         TmacBroadCastMsgPage tmacBroadCastMsgPage  = PageFactory.createPageInstance(driver, TmacBroadCastMsgPage.class);
         Assert.assertTrue(tmacBroadCastMsgPage.verifyArrowMoveForFirstAndLastPage(),"arrow move for first and last page assertion failed");
     }
@@ -312,7 +310,7 @@ public class TmacBroadCastMsgTest extends BaseTest {
     public void SortingByAscending() throws Exception {
         TmacBroadCastMsgPage tmacBroadCastMsgPage  = PageFactory.createPageInstance(driver, TmacBroadCastMsgPage.class);
         tmacBroadCastMsgPage.SortByAscending();
-    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\TMAC Broadcast Message (1).xlsx";
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Agent Broadcast Message (1).xlsx";
         List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
         Assert.assertTrue(tmacBroadCastMsgPage.verifyexportToExcelSheet(maplist));	
         }
@@ -320,7 +318,7 @@ public class TmacBroadCastMsgTest extends BaseTest {
     public void SortingByDescending() throws Exception {
         TmacBroadCastMsgPage tmacBroadCastMsgPage  = PageFactory.createPageInstance(driver, TmacBroadCastMsgPage.class);
         tmacBroadCastMsgPage.SortByDescending();
-    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\TMAC Broadcast Message (2).xlsx";
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Agent Broadcast Message (2).xlsx";
         List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
         Assert.assertTrue(tmacBroadCastMsgPage.verifyexportToExcelSheet(maplist));	
         }

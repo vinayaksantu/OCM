@@ -28,7 +28,7 @@ public class AgentHistoricalReportTest extends BaseTest {
 		Assert.assertTrue(ocmReportsPage.isOCMReportPageIsDisplayed());
 	}
 
-	/*@Test(priority=1,description="To verify Show Report for Single Date")
+	@Test(priority=1,description="To verify Show Report for Single Date")
 	public void ShowOCMAgentHistoricalReport() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
@@ -57,7 +57,7 @@ public class AgentHistoricalReportTest extends BaseTest {
 		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
 		ocmReportsPage.scheduleReport(reportDetails);
 		Assert.assertTrue(ocmReportsPage.verifyScheduleReport(),"Schedule report assertion failed");
-	}  
+	}
 
 	@Test(priority=4,description="To verify Export Report on OCM Reports Page")
 	public void ExportOcmAgentHistoricalReport() throws Exception {
@@ -107,10 +107,10 @@ public class AgentHistoricalReportTest extends BaseTest {
 		ReportDetails reportDetails= new ReportDetails(map);
 		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
 		ocmReportsPage.viewDownloadedReportInReportDownloadsPage();
-		//AgentHistoricalReportPage agntloginlogoutPage=PageFactory.createPageInstance(driver,AgentHistoricalReportPage.class);
 		ocmReportsPage.deletecancelButton(reportDetails);
 		Assert.assertFalse(ocmReportsPage.verifyDeleteContainer(), "Cancel Btn at Delete record assertion failed");
 	}
+	
 	@Test(priority=9,description="Delete Record at Reports download Button")
 	public void DeleteRecordforSingleDate() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
@@ -201,7 +201,6 @@ public class AgentHistoricalReportTest extends BaseTest {
 		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
 		ocmReportsPage.ClearHomepgDrpDown(reportDetails);
 		Assert.assertEquals(ocmReportsPage.getSuccessMessage(),"Filters cleared successfully!","Invalid filter assertion");
-
 	}
 
 	@Test(priority=18,description="To Verify OCM Window Maximize minimize")
@@ -227,6 +226,7 @@ public class AgentHistoricalReportTest extends BaseTest {
 		AgentHistoricalReportPage agentHistoricalPage=PageFactory.createPageInstance(driver,AgentHistoricalReportPage.class);
 		Assert.assertTrue(agentHistoricalPage.verifyDropDownOfAllHeaders(), "Columns dropdown assertion failed");
 	}   
+	
 	@Test(priority=20,description="To Verify Columns Headers are Enabled")
 	public void VerifyColumnsHeaderEnable() throws Exception {  	
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
@@ -236,7 +236,8 @@ public class AgentHistoricalReportTest extends BaseTest {
 		ocmReportsPage.showReport(reportDetails);	
 		AgentHistoricalReportPage agentHistoricalPage=PageFactory.createPageInstance(driver,AgentHistoricalReportPage.class);
 		Assert.assertTrue(agentHistoricalPage.verifycolumnsHeaderEnabled(),"columns enabled assertion failed");
-	}  
+	}
+	
 	@Test(priority=21,description="To Verify Columns Headers are Disabled")
 	public void VerifyColumnsHeaderDisable() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
@@ -289,8 +290,7 @@ public class AgentHistoricalReportTest extends BaseTest {
 	} 
 
 	@Test(priority=26,description="To Verify Export Page Button")
-	public void ExportPage() throws Exception
-	{
+	public void ExportPage() throws Exception{
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
 		ReportDetails reportDetails= new ReportDetails(map);
@@ -302,8 +302,7 @@ public class AgentHistoricalReportTest extends BaseTest {
 	}
 
 	@Test(priority=27,dependsOnMethods="ExportPage",description="To Verify Exported Page Against UI")
-	public void VerifyExportedPage() throws Exception
-	{
+	public void VerifyExportedPage() throws Exception{
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
 		ReportDetails reportDetails= new ReportDetails(map);
@@ -606,6 +605,7 @@ public class AgentHistoricalReportTest extends BaseTest {
 		AgentHistoricalReportPage agentHistoricalPage=PageFactory.createPageInstance(driver,AgentHistoricalReportPage.class);
 		Assert.assertTrue(agentHistoricalPage.verifyArrowMoveForPreviousAndNextPageForDrillDownOne(reportDetails),"arrow move for previous and next page assertion failed");
 	} 
+
 	@Test(priority=54,description="To Verify Arrow move for first and last page for Drill Down One")
 	public void VerifyArrowMoveForFirstAndLastPageFoDrillDownOne() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
@@ -618,7 +618,7 @@ public class AgentHistoricalReportTest extends BaseTest {
 	} 
 
 	@Test(priority=55,description="To Verify Total Number of Items Per Page Details for Drill Down One")
-	public void VerifyTotalNumberOfItemsPerPageDetailsFoDrillDownOne() throws Exception {
+	public void VerifyTotalNumberOfItemsPerPageDetailsDrillDownOne() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
 		ReportDetails reportDetails= new ReportDetails(map);
@@ -669,10 +669,60 @@ public class AgentHistoricalReportTest extends BaseTest {
 		ocmReportsPage.showReport(reportDetails);
 		AgentHistoricalReportPage agentHistoricalPage=PageFactory.createPageInstance(driver,AgentHistoricalReportPage.class);
 		Assert.assertTrue(agentHistoricalPage.verifySorting(),"Sorting assertion failed");
-	}*/
-	
-	/*@Test(priority=61,description="To verify DrillOne search equals")
-	public void VerifyDrillOneSearchEqualsToFeature() throws Exception {
+	}
+
+	@Test(priority=60, description="To verify Agent Historical report UI data against DB")
+	public void database() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(0);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
+		ocmReportsPage.showReport(reportDetails);
+		AgentHistoricalReportPage AgentHistoricalReport=PageFactory.createPageInstance(driver,AgentHistoricalReportPage.class);
+		AgentHistoricalReport.sortAscAgentName();;
+		Assert.assertTrue(AgentHistoricalReport.verifyDatabase(reportDetails.getQuery(), reportDetails),"Main Report Data Mismatch");
+		System.out.println("Main Report Data Match Successfull");
+		List<String> agentList = new ArrayList<>();
+		agentList = AgentHistoricalReport.getAgents();
+		System.out.println(agentList);
+		int k=0;
+		for(int i=0;i<agentList.size();i++) {
+			System.out.println(agentList.size());
+			if(k==10){
+				AgentHistoricalReport.goToNextPage();
+				k=k-10;
+			}
+			AgentHistoricalReport.clickOnAgentIdRowOnMainReport(k);
+			Assert.assertTrue(AgentHistoricalReport.verifyDatabaseDrillGridOne(reportDetails.getQueryDrillGridOne(), reportDetails, agentList.get(i)),"Drill Grid One data mismatch for Agent Id " + agentList.get(i));
+			System.out.println("Drill Grid One data match successfull for Agent Id " + agentList.get(i));
+			k++;
+			Thread.sleep(1000);
+		}
+		List<String> agentDates = new ArrayList<>();
+		for(int i=0;i<agentList.size();i++) {
+			AgentHistoricalReport.clickOnAgentIdRowOnMainReport(i);
+			Thread.sleep(1000);
+			agentDates = AgentHistoricalReport.getAgentDates();
+			System.out.println(agentDates);
+			k=0;
+			for(int j=0;j<agentDates.size();j++) {
+				if(k==10){
+					AgentHistoricalReport.goToNextPageDrillOne();
+					k=k-10;
+				}
+				AgentHistoricalReport.clickOnDateRowOnDrillOneReport(k);
+				Assert.assertTrue(AgentHistoricalReport.verifyDatabaseDrillGridTwo(reportDetails.getQueryDrillGridTwo(), reportDetails, agentDates.get(j), agentList.get(i)),"Drill Grid Two data mismatch for Skill Id " + agentList.get(i) + " and Date " + agentDates.get(j));
+				System.out.println("Drill Grid Two data match successfull for Agent Id " + agentList.get(i) + " and Date " + agentDates.get(j));
+				k++;
+				Thread.sleep(1000);
+			}
+			AgentHistoricalReport.closeDrillOneReport();
+			Thread.sleep(1000);
+		}
+	}
+
+	@Test(priority=61,description="To verify DrillOne sorting")
+	public void VerifyDrillOneSorting() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
 		ReportDetails reportDetails= new ReportDetails(map);
@@ -750,6 +800,7 @@ public class AgentHistoricalReportTest extends BaseTest {
 		AgentHistoricalReportPage agentHistoricalPage=PageFactory.createPageInstance(driver,AgentHistoricalReportPage.class);
 		Assert.assertTrue(agentHistoricalPage.verifyDrillOneSearchStartsWith(reportDetails.getSearchStr()));
 	}
+	
 	@Test(priority=68,description="To verify drillOne search EndsWith")
 	public void  VerifyDrillOneSearchEndsWith() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
@@ -770,64 +821,7 @@ public class AgentHistoricalReportTest extends BaseTest {
 		ocmReportsPage.showReport(reportDetails);  
 		AgentHistoricalReportPage agentHistoricalPage=PageFactory.createPageInstance(driver,AgentHistoricalReportPage.class);
 		Assert.assertTrue(agentHistoricalPage.verifyDrillOneSearchClearBackButton(reportDetails));  
-
 	}
-*/
-	
-	
-	 @Test(priority=38, description="To verify Agent Historical report UI data against DB")
-		public void database() throws Exception {
-			String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
-			Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(0);
-			ReportDetails reportDetails= new ReportDetails(map);
-			OCMReportsPage ocmReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
-			ocmReportsPage.showReport(reportDetails);
-	   		AgentHistoricalReportPage AgentHistoricalReport=PageFactory.createPageInstance(driver,AgentHistoricalReportPage.class);
-	   		AgentHistoricalReport.sortAscAgentName();;
-			Assert.assertTrue(AgentHistoricalReport.verifyDatabase(reportDetails.getQuery(), reportDetails),"Main Report Data Mismatch");
-			System.out.println("Main Report Data Match Successfull");
-			List<String> agentList = new ArrayList<>();
-			agentList = AgentHistoricalReport.getAgents();
-			System.out.println(agentList);
-			int k=0;
-			for(int i=0;i<agentList.size();i++) {
-				System.out.println(agentList.size());
-				if(k==10){
-					AgentHistoricalReport.goToNextPage();
-					k=k-10;
-				}
-				AgentHistoricalReport.clickOnAgentIdRowOnMainReport(k);
-				Assert.assertTrue(AgentHistoricalReport.verifyDatabaseDrillGridOne(reportDetails.getQueryDrillGridOne(), reportDetails, agentList.get(i)),"Drill Grid One data mismatch for Agent Id " + agentList.get(i));
-				System.out.println("Drill Grid One data match successfull for Agent Id " + agentList.get(i));
-				k++;
-				Thread.sleep(1000);
-			}
-			List<String> agentDates = new ArrayList<>();
-			for(int i=0;i<agentList.size();i++) {
-				AgentHistoricalReport.clickOnAgentIdRowOnMainReport(i);
-				Thread.sleep(1000);
-				agentDates = AgentHistoricalReport.getAgentDates();
-				System.out.println(agentDates);
-				k=0;
-				for(int j=0;j<agentDates.size();j++) {
-					if(k==10){
-						AgentHistoricalReport.goToNextPageDrillOne();
-						k=k-10;
-					}
-					AgentHistoricalReport.clickOnDateRowOnDrillOneReport(k);
-					Assert.assertTrue(AgentHistoricalReport.verifyDatabaseDrillGridTwo(reportDetails.getQueryDrillGridTwo(), reportDetails, agentDates.get(j), agentList.get(i)),"Drill Grid Two data mismatch for Skill Id " + agentList.get(i) + " and Date " + agentDates.get(j));
-					System.out.println("Drill Grid Two data match successfull for Agent Id " + agentList.get(i) + " and Date " + agentDates.get(j));
-					k++;
-					Thread.sleep(1000);
-				}
-				AgentHistoricalReport.closeDrillOneReport();
-				Thread.sleep(1000);
-			}
-		}
-
-
-	
-//	}
 
 	@AfterMethod
 	public void afterEachMethod(Method method) throws InterruptedException {

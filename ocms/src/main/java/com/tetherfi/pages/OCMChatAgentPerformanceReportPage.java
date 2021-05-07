@@ -1,12 +1,15 @@
 package com.tetherfi.pages;
 
 import java.io.File;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -172,8 +175,6 @@ public class OCMChatAgentPerformanceReportPage extends BasePage  {
 	@FindBy(css = "ul[id='autoCompleteTextbox_listbox'] li")
 	private List<WebElement> searchbyfeaturelistBox;
 
-
-
 	@FindBy(xpath="//a[text()='Agent Name']")
 	private WebElement agentname;
 
@@ -303,6 +304,15 @@ public class OCMChatAgentPerformanceReportPage extends BasePage  {
 		}
 		return list;
 	}
+	
+	public class SortIgnoreCase implements Comparator<Object> {
+        public int compare(Object o1, Object o2) {
+            String s1 = (String) o1;
+            String s2 = (String) o2;
+            return s1.toLowerCase().compareTo(s2.toLowerCase());
+        }
+    }
+	
 	public boolean verifySorting() {
 		boolean status=false;
 		int items = Integer.valueOf(pagerInfo.getText().split("of ")[1].split(" items")[0]);
@@ -311,17 +321,17 @@ public class OCMChatAgentPerformanceReportPage extends BasePage  {
 		for (int i = 0; i <= pages; i++) {
 			List<WebElement> rows=gridContent.findElements(By.tagName("tr"));
 			List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
-			int k=0;
-			for(int j=0;j<2;j++){
+			int k=1;
+			for(int j=1;j<2;j++){
 				if(headers.get(j).getText().equals("")||headers.get(j).getText().equals(" ")){continue;}
 				List<String> l1 = getColumnDatafromTable(headers.get(j).getText());
-				//System.out.println(l1);
+				System.out.println(l1);
 				List<String> temp = l1;
-				Collections.sort(temp);
+				Collections.sort(temp,new SortIgnoreCase());
 				//System.out.println(temp);
 				selectWebElement(headersDropdown.get(k));
 				waitForJqueryLoad(driver);
-				selectWebElement(sortAscending.get(k));
+				selectWebElement(sortAscending.get(k-1));
 				waitForJqueryLoad(driver);
 				List<String> l2 = getColumnDatafromTable(headers.get(j).getText());
 				//System.out.println(l2);
@@ -330,21 +340,22 @@ public class OCMChatAgentPerformanceReportPage extends BasePage  {
 				/*descending sort code*/
 				status=false;
 				temp = l1;
-				Collections.sort(temp,Collections.reverseOrder());
-				//System.out.println(temp);
+				temp.sort(String.CASE_INSENSITIVE_ORDER.reversed());
+				System.out.println(temp);
 				selectWebElement(headersDropdown.get(k));
 				waitForJqueryLoad(driver);
-				selectWebElement(sortDescending.get(k));
+				selectWebElement(sortDescending.get(k-1));
 				waitForJqueryLoad(driver);
 				k++;
 				List<String> l3 = getColumnDatafromTable(headers.get(j).getText());
-				//System.out.println(l3);
-				if (l3.equals(temp)) {/*System.out.println("sorting works fine");*/status = true;}
+				System.out.println(l3);
+				if (l3.equals(temp)) {System.out.println("sorting works fine");status = true;}
 				if(status){}else{System.out.println("Descending sorting failed for column name:"+headers.get(j).getText()+"\n"+l3);break;}
 			}
 			if(status){}else{break;}
+			 if(i!=pages) {
 			nextPageIcon.click();
-			waitForJqueryLoad(driver);
+			waitForJqueryLoad(driver);}
 		}
 		return status;
 	}
@@ -629,7 +640,7 @@ public class OCMChatAgentPerformanceReportPage extends BasePage  {
 			for(int i=1;i<rows.size();i++) {
 				Map<String,String> map = new HashMap<String,String>();
 				List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
-				for(int j=1;j<headers.size();j++) {
+				for(int j=0;j<headers.size();j++) {
 					scrollToElement(headers.get(j));
 					System.out.println(headers.get(j).getText());
 					if(headers.get(j).getText().equals("Last Changed On")){
@@ -854,7 +865,7 @@ public class OCMChatAgentPerformanceReportPage extends BasePage  {
 		return arr;
 	}
 
-	public boolean verifySearchByTextbox(ReportDetails details) throws Exception{	
+	/*public boolean verifySearchByTextbox(ReportDetails details) throws Exception{	
 		boolean Status=false;	 
 		selectWebElement(searchbyfeatureTextBox);    
 		enterValueToTxtFieldWithoutClear(searchbyfeatureTextBox,details.getSearchStr());
@@ -869,8 +880,28 @@ public class OCMChatAgentPerformanceReportPage extends BasePage  {
 				Status= false;
 		}
 		return Status;	
-	}
+	}*/
 
+	public boolean verifySearchByTextbox(ReportDetails details) throws Exception{	
+		boolean Status=false;
+		selectWebElement(searchbyfeatureTextBox);
+		enterValueToTxtFieldWithoutClear(searchbyfeatureTextBox,details.getSearchStr());
+		Thread.sleep(2000);
+		selectDropdownFromVisibleText(searchbyfeaturelistBox,details.getSearchStr());	
+		Thread.sleep(2000);
+		waitUntilWebElementIsVisible(gridContent);
+		List<Map<String,String>> UI=getDataTable(); 
+		for (Map<String,String> map1: UI)
+		{ 
+			if(map1.get("Agent ID").equals(details.getSearchStr()))
+				Status= true;
+			else 
+				Status= false;
+		}
+		return Status;	
+	}
+	
+	
 	public boolean verifySearchContains(String description) throws Exception {
 		Boolean Status=false;		
 		selectWebElement(searchBtn);
@@ -1014,17 +1045,6 @@ public class OCMChatAgentPerformanceReportPage extends BasePage  {
 			return errorMsg.get(0).getText();}
 	}
 
-	public boolean verifyDatabase(String query) {
-		List<Map<String,String>> database=database(query);
-		System.out.println(database);
-		List<Map<String,String>> UI=getDataTable(); 
-		System.out.println(UI);
-		if(UI.equals(database))
-			return true;
-		else
-			return false;
-	}
-
 	public boolean groupby() {
 		DragandDrop(agentname,droptarget);
 		try {
@@ -1085,11 +1105,12 @@ public class OCMChatAgentPerformanceReportPage extends BasePage  {
 		{
 			System.out.println(map1.get("Average Handle Time"));
 			//if(map1.get("Average Handle Time")(reportDetails.getSearchStr()))	
-			String uiData=AvgHandleData.getText();
-			String exceldata=reportDetails.getSearchStr();
-			int uidatavalue=Integer.parseInt(uiData);
-			int exceldatavlue=Integer.parseInt(exceldata);			
-			if( uidatavalue > exceldatavlue )
+			String uiData=map1.get("Average Handle Time");
+			  DateFormat  formatter = new SimpleDateFormat("HH:mm:ss"); 
+		      Date date = (Date) formatter.parse(uiData); 
+		      Long uidatavalue=date.getTime();
+		      Date date1 = (Date) formatter.parse(reportDetails.getSearchStr()); 		
+			if( uidatavalue>date1.getTime() )
 				Status= true;
 			else 
 				Status =false;
@@ -1104,11 +1125,12 @@ public class OCMChatAgentPerformanceReportPage extends BasePage  {
 		{
 			System.out.println(map1.get("Average ACW Time"));
 			//if(map1.get("Average Handle Time")(reportDetails.getSearchStr()))	
-			String uiData=AvgAcwTime.getText();
-			String exceldata=reportDetails.getSearchStr();
-			int uidatavalue=Integer.parseInt(uiData);
-			int exceldatavlue=Integer.parseInt(exceldata);			
-			if( uidatavalue < exceldatavlue )
+			String uiData=map1.get("Average ACW Time");
+			DateFormat  formatter = new SimpleDateFormat("HH:mm:ss"); 
+		      Date date = (Date) formatter.parse(uiData); 
+		      Long uidatavalue=date.getTime();
+		      Date date1 = (Date) formatter.parse(reportDetails.getSearchStr()); 		
+			if( uidatavalue<date1.getTime() )
 				Status= true;
 			else 
 				Status =false;
@@ -1156,8 +1178,8 @@ public class OCMChatAgentPerformanceReportPage extends BasePage  {
 			}
 
 		return status;
-
 	}
+	
 	public boolean ChatsConferencedDrillGrid(ReportDetails reportDetails) throws Exception{
 		boolean status=false;
 		searchReport(reportDetails);
@@ -1199,6 +1221,60 @@ public class OCMChatAgentPerformanceReportPage extends BasePage  {
 		selectWebElement(searchSearchBtn);
 		waitForJqueryLoad(driver);
 	}
+
+
+	public boolean verifyDatabase(String query,ReportDetails details) {
+		//get dates from xl - step 2
+		String reportbeforedate = details.getStartDate();
+		String reportafterdate=details.getEndDate();
+		//change date formats - step 3
+		reportbeforedate	=reportbeforedate.substring(6,10)+reportbeforedate.substring(3, 5)+reportbeforedate.substring(0, 2)+reportbeforedate.substring(11, 13)+reportbeforedate.substring(14, 16)+reportbeforedate.substring(17, 19);
+		reportafterdate	=reportafterdate.substring(6,10)+reportafterdate.substring(3, 5)+reportafterdate.substring(0, 2)+reportafterdate.substring(11, 13)+reportafterdate.substring(14, 16)+reportafterdate.substring(17, 19);
+		//Replace identifiers in query to formatted date - step 5
+		query=query.replaceAll("ReportBeforeDate",reportbeforedate );
+		query=query.replaceAll("ReportAfterDate",reportafterdate );
+		List<Map<String,String>> database=database(query);
+		System.out.println(query);		
+		System.out.println(database);
+		List<Map<String,String>> UI=getDataTable1(); 
+		System.out.println(UI);	
+		if(UI.equals(database))
+			return true;
+		else
+			return false;
+	}
+
+	private List<Map<String, String>> getDataTable1() {
+		int item=Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
+		int pagersize=Integer.valueOf(pagerSize.getText());
+		int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
+		List<Map<String,String>> arr=new ArrayList<Map<String,String>>();
+		for(int k=0;k<=pages;k++){
+			waitUntilWebElementIsVisible(auditGridContent);
+			List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
+			List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
+			for(int i=1;i<rows.size();i++) {
+				Map<String,String> map = new HashMap<String,String>();
+				List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
+				String col=null;
+				for(int j=0;j<headers.size();j++){
+					col=cols.get(j).getText();
+					map.put(headers.get(j).getText(),col);
+				}
+				map.remove("");
+				arr.add(map);
+			}
+			if(k!=pages)
+			{
+				nextPageIcon.click();
+				waitForJqueryLoad(driver);}
+		}
+		return arr;
+	}
+
+
+
+
 }
 
 

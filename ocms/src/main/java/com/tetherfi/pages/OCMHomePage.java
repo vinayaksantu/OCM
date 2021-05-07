@@ -57,9 +57,6 @@ public class OCMHomePage extends BasePage {
     
     @FindBy(css="a[href$='/AgentSkillAssignment/Index'] div")
     private WebElement agentSkillAssignment;
-	
-	@FindBy(css="a[href$='/SkillConfiguration/Index'] div")
-    private WebElement skillConfiguration;
 
     @FindBy(css="a[href$='/QueryBrowser/Index'] div")
     private WebElement queryBrowser;
@@ -105,6 +102,15 @@ public class OCMHomePage extends BasePage {
     
     @FindBy(css="a[href$='/DashboardColorCodeConfig/Index'] div")
     private WebElement DashboardColorConfig;
+    
+    @FindBy(css="a[href$='/IwMasterAccessMatrix/Index'] div")
+	private WebElement IwMasterAccessMatrix;
+
+	@FindBy(css="a[href$='/IwRoleBasedAccessMatrix/Index'] div")
+	private WebElement IwRoleBasedAccessMatrix;
+	
+	@FindBy(css="a[href$='/UserOnboarding/Index'] div")
+	private WebElement userOnBoarding;
 
     public boolean isOCMHomePageIsDisplayed() {
         waitForLoad(driver);
@@ -130,8 +136,6 @@ public class OCMHomePage extends BasePage {
     public void navigateToWebConfigurationPage(){selectWebElement(webConfiguration);}
     public void navigateToLogfileDownloader(){selectWebElement(logfileDownloader);}
     public void navigateToCMDataSyncPage(){ selectWebElement(cmDataSync); }
-    public void navigateToAgentSkillAssignmentPage(){selectWebElement(agentSkillAssignment);}
-	public void navigateToSkillConfigurationPage(){selectWebElement(skillConfiguration);}
     public void navigateToQueryBrowserPage(){selectWebElement(queryBrowser);}
     public void navigateToSMSResponseTemplatePage(){selectWebElement(smsResponseTemplate);}
     public void navigateToApplicationAccessControlPage(){selectWebElement(applicationAccessControl);}
@@ -212,7 +216,19 @@ public class OCMHomePage extends BasePage {
 	public void navigateToDashboardColorConfigPage(){
         selectWebElement(DashboardColorConfig);
     }
-	
+
+	public void navigateToIwMasterAccessMatrixPage(){
+		selectWebElement(IwMasterAccessMatrix);
+	}
+
+	public void navigateToIwRoleBasedAccessMatrixPage(){
+		selectWebElement(IwRoleBasedAccessMatrix);
+	}
+
+	public void navigateToUserOnBoardingPage(){
+		scrollToElement(userOnBoarding);
+		selectWebElement(userOnBoarding);
+	}
 	
 	
 }

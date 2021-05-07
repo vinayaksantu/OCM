@@ -40,11 +40,15 @@ public class AgentSettingsCreateTest {
             map= new ExcelReader(filePath,"Login").getTestData().get(1);
         else
             map= new ExcelReader(filePath,"Login").getTestData().get(0);
-        try{driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);}catch (TimeoutException e){e.printStackTrace();driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);}
+        try{driver.get("https://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);}
+        catch (TimeoutException e){
+        	e.printStackTrace();
+        	driver.get("https://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);}
+        LoginPage loginPage=PageFactory.createPageInstance(driver,LoginPage.class);
+        loginPage.overrideSecurityConcern();
         if(map.get("LoginType").equals("Custom")){
-            LoginPage loginPage=PageFactory.createPageInstance(driver,LoginPage.class);
             Assert.assertTrue(loginPage.isLoginPageDisplayed(),"Login page not loaded");
-            loginPage.login(map.get("Username"),map.get("Password"));
+			loginPage.login(map.get("Username"),map.get("Password"),map.get("EmailId"));
             Thread.sleep(5000);
         }
         HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
@@ -227,7 +231,7 @@ public class AgentSettingsCreateTest {
         AgentSettingsDetails agentSettingsDetails = new AgentSettingsDetails(map);
         AgentSettingsNewDesignPage agentSettingsPage = PageFactory.createPageInstance(driver, AgentSettingsNewDesignPage.class);
         agentSettingsPage.addNewAgentSettingsRecord(agentSettingsDetails);
-        Assert.assertEquals(agentSettingsPage.verifySuccessMessage(),"Duplicate Lan ID", "Add Duplicate record assertion failed");
+        Assert.assertEquals(agentSettingsPage.verifyErrorMessage(),"Record Creation Failed", "Add Duplicate record assertion failed");
     }
     
     @Test(groups = { "Maker" },priority=16)//,dependsOnMethods = "AddNewSupervisorRecord")
@@ -237,7 +241,7 @@ public class AgentSettingsCreateTest {
         AgentSettingsDetails agentSettingsDetails = new AgentSettingsDetails(map);
         AgentSettingsNewDesignPage agentSettingsPage = PageFactory.createPageInstance(driver, AgentSettingsNewDesignPage.class);
         agentSettingsPage.addNewAgentSettingsRecord(agentSettingsDetails);
-        Assert.assertEquals(agentSettingsPage.verifySuccessMessage(),"Duplicate Avaya Login ID", "Add Duplicate record assertion failed");
+        Assert.assertEquals(agentSettingsPage.verifyErrorMessage(),"Record Creation Failed", "Add Duplicate record assertion failed");
     }
     
     @Test(groups = { "Maker" },priority=17)//,dependsOnMethods = "ApproveforAddNewSupervisorRecord")
@@ -254,7 +258,6 @@ public class AgentSettingsCreateTest {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentSettingsData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(1);
         AgentSettingsDetails agentSettingsDetails = new AgentSettingsDetails(map);
-
         AgentSettingsNewDesignPage agentSettingsPage = PageFactory.createPageInstance(driver, AgentSettingsNewDesignPage.class);
         agentSettingsPage.addNewAgentSettingsRecord(agentSettingsDetails);
         Assert.assertEquals(agentSettingsPage.getSuccessMessage(), "Record Created Successfully");
@@ -276,6 +279,22 @@ public class AgentSettingsCreateTest {
         Assert.assertTrue(agentSettingsPage.verifyMessage());
         Assert.assertTrue(agentSettingsPage.verifyReviewAuditTrail("Approved","Approve Create"));
     }
+    
+    @Test(groups = { "Checker" },priority=21)//,dependsOnMethods = "ApproveforAddNewAgentSettingRecord")
+    public void VerifyAuditTrailReportForAgentApprove() throws Exception {
+		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentSettingsData.xlsx";
+	    Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);
+	    AgentSettingsDetails agentSettingsDetails = new AgentSettingsDetails(map);
+	    HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
+	    homePage.navigateToOCMReportsPage();
+	    OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver, OCMReportsPage.class);
+	    String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AuditTrailReportData.xlsx";
+	    Map<String, String> map1 = new ExcelReader(filePath1,"Show").getTestData().get(0);
+	    ReportDetails reportDetails= new ReportDetails(map1);
+	    ocmReportsPage.showReport(reportDetails);
+        Assert.assertTrue(ocmReportsPage.verifyAuditTrailReportDisplayed(agentSettingsDetails, "CheckerApprove"),"Audit Trail report assertion failed");
+    }
+   
       
    @AfterMethod
     public void afterEachMethod(Method method){

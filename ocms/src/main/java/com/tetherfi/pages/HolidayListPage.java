@@ -194,7 +194,7 @@ public class HolidayListPage extends BasePage{
     @FindBy(xpath="//div[text()='No records to display']")
     private WebElement norecords;
     
-    @FindBy(xpath="//i[@class='fas fa-sync']")
+    @FindBy(xpath="//i[@class='fas fa-sync fa-spin']")
     private WebElement clearsearch;
     
 	public boolean isHolidayListPageDisplayed() {
@@ -729,7 +729,7 @@ public class HolidayListPage extends BasePage{
 		enterValueToTxtField(startTimeTextbox,details.getStartTime());
 		enterValueToTxtField(endDateTextbox,details.getEndDate());
 		waitUntilWebElementIsClickable(vdnTextbox);
-		enterValueToTxtField(vdnTextbox,details.getVdn());
+		enterValueToTxtFieldWithoutClear(vdnTextbox,details.getVdn());
 		selectWebElement(savebtn);
 		selectWebElement(cancelbtn);			
 	}

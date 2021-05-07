@@ -54,7 +54,7 @@ public class TmacTransferListE2E extends BaseTest {
         Map<String, String> map = new ExcelReader(filePath, "ConsulCreate").getTestData().get(8);
         TmacTransferListDetails tmacTransferListDetails=new TmacTransferListDetails(map);
     	tmacTransferListPage.addNewTmacConsultTransferList(tmacTransferListDetails);
-    	Assert.assertTrue(tmacTransferListPage.verifyNewRecordCreated(),"Add New record assertion failed");
+    	/*Assert.assertTrue(tmacTransferListPage.verifyNewRecordCreated(),"Add New record assertion failed");
     	map = new ExcelReader(filePath, "ConsulCreate").getTestData().get(9);
         tmacTransferListDetails=new TmacTransferListDetails(map);
     	tmacTransferListPage.addNewTmacConsultTransferList(tmacTransferListDetails);
@@ -63,7 +63,7 @@ public class TmacTransferListE2E extends BaseTest {
         tmacTransferListDetails=new TmacTransferListDetails(map);
     	tmacTransferListPage.addNewTmacConsultTransferList(tmacTransferListDetails);
     	Assert.assertTrue(tmacTransferListPage.verifyNewRecordCreated(),"Add New record assertion failed");
-    	driver.close();
+    	*/driver.close();
         String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\LoginData.xlsx";
 
     	try {
@@ -112,7 +112,7 @@ public class TmacTransferListE2E extends BaseTest {
             driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
             if(map.get("LoginType").equals("Custom")){
                 LoginPage loginPage=PageFactory.createPageInstance(driver,LoginPage.class);
-                loginPage.login(map.get("Username"),map.get("Password"));
+				loginPage.login(map.get("Username"),map.get("Password"),map.get("EmailId"));
                 Thread.sleep(5000);
             }
             HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);

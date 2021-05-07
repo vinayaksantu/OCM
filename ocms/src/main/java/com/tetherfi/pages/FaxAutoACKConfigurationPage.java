@@ -172,7 +172,7 @@ public class FaxAutoACKConfigurationPage extends BasePage {
     @FindBy(xpath="//div[text()='No records to display']")
     private WebElement norecords;
     
-    @FindBy(xpath="//i[@class='fas fa-sync']")
+    @FindBy(xpath="//i[@class='fas fa-sync fa-spin']")
     private WebElement clearsearch;
     
     @FindBy(css="span[aria-owns='DNIS_listbox']")

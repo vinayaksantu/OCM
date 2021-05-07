@@ -47,11 +47,12 @@ protected WebDriver driver;
 			map=new ExcelReader(filePath,"Login").getTestData().get(1);
 		else
 			map=new ExcelReader(filePath,"Login").getTestData().get(0);
-		try {driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);}catch (TimeoutException e){e.printStackTrace();driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);}
-	    if(map.get("LoginType").equals("Custom")) {
-	    	LoginPage loginPage=PageFactory.createPageInstance(driver,LoginPage.class);
+		try {driver.get("https://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);}catch (TimeoutException e){e.printStackTrace();driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);}
+		LoginPage loginPage=PageFactory.createPageInstance(driver,LoginPage.class);
+        loginPage.overrideSecurityConcern();
+		if(map.get("LoginType").equals("Custom")) {
             Assert.assertTrue(loginPage.isLoginPageDisplayed(),"Login page not loaded");
-            loginPage.login(map.get("Username"),map.get("Password"));
+			loginPage.login(map.get("Username"),map.get("Password"),map.get("EmailId"));
             Thread.sleep(5000);
         }
 	    HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
@@ -249,7 +250,7 @@ protected WebDriver driver;
 	 @AfterMethod
 	 public void afterEachMethod(Method method) {
 		 Screenshot screenshot=new Screenshot(driver);
-		 screenshot.captureScreen("FaxTemplateCreateTest", method.getName());
+		 screenshot.captureScreen("FaxTemplateUpdateTest", method.getName());
 		 driver.navigate().refresh();
 		 HomePage homepage=PageFactory.createPageInstance(driver, HomePage.class);
 		 homepage.userLogout();

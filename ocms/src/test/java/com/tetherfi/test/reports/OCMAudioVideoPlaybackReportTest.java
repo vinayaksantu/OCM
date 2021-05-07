@@ -1,4 +1,3 @@
-
 package com.tetherfi.test.reports;
 import java.io.IOException;
 import java.lang.reflect.Method;
@@ -28,7 +27,7 @@ public class OCMAudioVideoPlaybackReportTest extends BaseTest {
 		Assert.assertTrue(ocmReportsPage.isOCMReportPageIsDisplayed());
 	}
 
-	/*@Test(priority=1,description="To verify Show Report for Single Date")
+	@Test(priority=1,description="To verify Show Report for Single Date")
 	public void ShowOCMAudioVideoPlaybackReport() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoPlaybackReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
@@ -49,7 +48,19 @@ public class OCMAudioVideoPlaybackReportTest extends BaseTest {
 		OCMReportsPage.switchBackToParentWindow();
 	} 
 
-	@Test(priority=3,description="To verify Export Scheduler on OCM Reports Page")
+	@Test(priority=3,description="To verify Audio Video Playback report UI data against DB")
+	public void database() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoPlaybackReport.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(0);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
+		ocmReportsPage.showReport(reportDetails);
+		OCMAudioVideoPlaybackReportPage AudioVideoPlaybackReportPage=PageFactory.createPageInstance(driver,OCMAudioVideoPlaybackReportPage.class);
+		Assert.assertTrue(AudioVideoPlaybackReportPage.verifyDatabase(reportDetails.getQuery(), reportDetails), "UI and DB data mismatch");
+		System.out.println("Database Validation Completed Succesfully" +" : "+"UI and Database data is matched");
+	}
+	
+	@Test(priority=4,description="To verify Export Scheduler on OCM Reports Page")
 	public void ScheduleOCMAudioVideoPlaybackReport() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoPlaybackReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ExportReport").getTestData().get(0);
@@ -59,7 +70,7 @@ public class OCMAudioVideoPlaybackReportTest extends BaseTest {
 		Assert.assertTrue(OCMReportsPage.verifyScheduleReport(),"Schedule report assertion failed");
 	} 
 
-	@Test(priority=4,description="To verify Export Report on OCM Reports Page")
+	@Test(priority=5,description="To verify Export Report on OCM Reports Page")
 	public void ExportOCMAudioVideoPlaybackReport() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoPlaybackReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ExportReport").getTestData().get(0);
@@ -69,7 +80,7 @@ public class OCMAudioVideoPlaybackReportTest extends BaseTest {
 		Assert.assertTrue(OCMReportsPage.verifyReportExported(),"export report assertion failed");
 	}
 
-	@Test(priority=5,dependsOnMethods ="ExportOCMAudioVideoPlaybackReport")
+	@Test(priority=6,dependsOnMethods ="ExportOCMAudioVideoPlaybackReport")
 	public void ViewDownloadedOcmAudioVideoPlaybackReportInReportsDownloadPage() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoPlaybackReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ExportReport").getTestData().get(0);
@@ -79,17 +90,6 @@ public class OCMAudioVideoPlaybackReportTest extends BaseTest {
 		OCMReportsPage.viewDownloadedReportInReportDownloadsPage();
 		Assert.assertTrue(OCMReportsPage.verifyDownloadedReportNameAndTimeInReportsDownloadPage(reportDetails.getReportName()),"Report not found in Reporter download page");
 	}  
-
-	@Test(priority=6,dependsOnMethods ="ViewDownloadedOcmAudioVideoPlaybackReportInReportsDownloadPage",description="To verification of exported excel in Report downloads")
-	public void VerifyViewDownloadedOcmAudioVideoPlaybackReportInReportsDownloadPage() throws Exception {
-		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoPlaybackReport.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
-		ReportDetails reportDetails= new ReportDetails(map);
-		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
-		ocmReportsPage.showReport(reportDetails);
-		Assert.assertTrue(ocmReportsPage.verifyExportedSheet("OCMReportDownload","OCM Audio Video Playback R"));	
-	}
-
 
 	@Test(priority=7,description="To verify Show Report for Date Range")
 	public void ShowOCMAudioVideoPlaybackReportForDateRange() throws Exception {
@@ -121,6 +121,7 @@ public class OCMAudioVideoPlaybackReportTest extends BaseTest {
 		OCMReportsPage.scheduleReport(reportDetails);
 		Assert.assertTrue(OCMReportsPage.verifyScheduleReport(),"Schedule report assertion failed");
 	}
+	
 	@Test(priority=10,description="To verify Export Report on OCM Reports Page for Date Range")
 	public void ExportOCMAudioVideoPlaybackReportDateRange() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoPlaybackReport.xlsx";
@@ -140,27 +141,18 @@ public class OCMAudioVideoPlaybackReportTest extends BaseTest {
 		OCMReportsPage.viewDownloadedReportInReportDownloadsPage();
 		Assert.assertTrue(OCMReportsPage.verifyDownloadedReportNameAndTimeInReportsDownloadPage(reportDetails.getReportName()),"Report not found in Reporter download page");
 	}
-	@Test(priority=12,dependsOnMethods ="ViewDownloadedOcmAudioVideoPlaybackReportInReportsDownloadPageDateRange",description="To verification of exported excel in Report downloads")
-	public void VerifyViewDownloadedOcmAudioVideoPlaybackReportInReportsDownloadDateRangePage() throws Exception {
-		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoPlaybackReport.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
-		ReportDetails reportDetails= new ReportDetails(map);
-		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
-		ocmReportsPage.showReport(reportDetails);
-		Assert.assertTrue(ocmReportsPage.verifyExportedSheet("OCMReportDownload","OCM Audio Video Playback R"));		
-	}
-	@Test(priority=13,description="Delete record in Reports Download without Delete reason for date range")
+	
+	@Test(priority=12,description="Delete record in Reports Download without Delete reason for date range")
 	public void DeleteWithoutDeleteReasonRecordinReportsDownloadforDateRange() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoPlaybackReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
 		ReportDetails reportDetails= new ReportDetails(map);
 		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
 		ocmReportsPage.viewDownloadedReportInReportDownloadsPage();    	
-		ocmReportsPage.deleteWithoutDeleteReason(reportDetails);
-		Assert.assertEquals(ocmReportsPage.getSuccessMessage(),"Please enter the delete reason","empty delete reason record assertion failed");
+		Assert.assertTrue(ocmReportsPage.deleteWithoutDeleteReason(reportDetails),"empty delete reason record assertion failed");
 	}
 
-	@Test(priority=14,description="Cancel Button in Reports Download Delete Button")
+	@Test(priority=13,description="Cancel Button in Reports Download Delete Button")
 	public void VerifyCancelBtnAtReportsDownloadDeleteBtnForDateRange() throws Exception{
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoPlaybackReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -170,7 +162,8 @@ public class OCMAudioVideoPlaybackReportTest extends BaseTest {
 		ocmReportsPage.deletecancelButton(reportDetails);
 		Assert.assertFalse(ocmReportsPage.verifyDeleteContainer(), "Cancel Btn at Delete record assertion failed");
 	}
-	@Test(priority=15,description="Delete Record at Reports download Button")
+	
+	@Test(priority=14,description="Delete Record at Reports download Button")
 	public void DeleteRecordAtReportsDownload() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoPlaybackReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -181,7 +174,7 @@ public class OCMAudioVideoPlaybackReportTest extends BaseTest {
 		Assert.assertEquals(ocmReportsPage.getSuccessMessage(),"Report Deleted","Delete record assertion failed");
 	}
 
-	@Test(priority=16,description="Report page clear All button ")
+	@Test(priority=15,description="Report page clear All button ")
 	public void ClearAll() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoPlaybackReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
@@ -191,7 +184,7 @@ public class OCMAudioVideoPlaybackReportTest extends BaseTest {
 		Assert.assertEquals(OCMReportsPage.getSuccessMessage(),"Filters cleared successfully!","Invalid filter assertion");
 	}
 
-	@Test(priority=17,description="Maximize, minimize")
+	@Test(priority=16,description="Maximize, minimize")
 	public void OCMWindow() throws Exception {	
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoPlaybackReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -205,7 +198,7 @@ public class OCMAudioVideoPlaybackReportTest extends BaseTest {
 		screenshot.captureScreen("OCMAudioVideoPlaybackReport","Minimize");	
 	}
 
-	@Test(priority=18,description="Verify dropdown of all the coulnm headers")
+	@Test(priority=17,description="Verify dropdown of all the column headers")
 	public void VerifyDropdownForAllTheColumns() throws Exception {		
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoPlaybackReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -216,7 +209,7 @@ public class OCMAudioVideoPlaybackReportTest extends BaseTest {
 		Assert.assertTrue(OCMAudioVideoPlaybackReportPage.verifyDropDownOfAllHeaders(), "Columns dropdown assertion failed");
 	}
 
-	@Test(priority=19,description="Verify column header Enable")
+	@Test(priority=18,description="Verify column header Enable")
 	public void VerifyColumnsHeaderEnable() throws Exception {  	
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoPlaybackReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -227,7 +220,7 @@ public class OCMAudioVideoPlaybackReportTest extends BaseTest {
 		Assert.assertTrue(OCMAudioVideoPlaybackReportPage.verifycolumnsHeaderEnabled(),"columns enabled assertion failed");
 	}
 
-	@Test(priority=20,description="Verify column header disable")
+	@Test(priority=19,description="Verify column header disable")
 	public void VerifyColumnsHeaderDisable() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoPlaybackReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -238,7 +231,7 @@ public class OCMAudioVideoPlaybackReportTest extends BaseTest {
 		Assert.assertFalse(OCMAudioVideoPlaybackReportPage.verifycolumnsHeaderDisabled(),"columns disabled assertion failed");
 	}
 
-	@Test(priority=21,description="Verify Pagination, Move to previous and next page")
+	@Test(priority=20,description="Verify Pagination, Move to previous and next page")
 	public void VerifyArrowMoveForPreviousAndNextPage() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoPlaybackReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -249,7 +242,7 @@ public class OCMAudioVideoPlaybackReportTest extends BaseTest {
 		Assert.assertTrue(OCMAudioVideoPlaybackReportPage.verifyArrowMoveForPreviousAndNextPage(),"arrow move for previous and next page assertion failed");
 	} 
 
-	@Test(priority=22,description="Verify Pagination, Move to First and Last Page")
+	@Test(priority=21,description="Verify Pagination, Move to First and Last Page")
 	public void VerifyArrowMoveForFirstAndLastPage() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoPlaybackReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -260,7 +253,7 @@ public class OCMAudioVideoPlaybackReportTest extends BaseTest {
 		Assert.assertTrue(OCMAudioVideoPlaybackReportPage.verifyArrowMoveForFirstAndLastPage(),"arrow move for first and last page assertion failed");
 	}
 
-	@Test(priority=23,description="Verify total number of items per page")
+	@Test(priority=22,description="Verify total number of items per page")
 	public void VerifyTotalNumberOfItemsPerPageDetails() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoPlaybackReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -271,7 +264,7 @@ public class OCMAudioVideoPlaybackReportTest extends BaseTest {
 		Assert.assertTrue(AudioVideoPlaybackReportPage.verifyTotalNumberOfItemsPerPageDetails(),"item per page assertion failed");
 	}
 
-	@Test(priority=24,description="Verfiy number of items selected per page")
+	@Test(priority=23,enabled=false,description="Verify number of items selected per page")
 	public void VerifyNumberOfItemsPerPageSelection() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoPlaybackReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -282,9 +275,8 @@ public class OCMAudioVideoPlaybackReportTest extends BaseTest {
 		Assert.assertTrue(OCMAudioVideoPlaybackReportPage.verifyNumberOfItemsPerPage(),"item per page assertion failed");
 	} 
 
-	@Test(priority=25,description="To Verify Export Page Button")
-	public void ExportPage() throws Exception
-	{
+	@Test(priority=24,description="To Verify Export Page Button")
+	public void ExportPage() throws Exception{
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoPlaybackReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
 		ReportDetails reportDetails= new ReportDetails(map);
@@ -295,21 +287,7 @@ public class OCMAudioVideoPlaybackReportTest extends BaseTest {
 		Assert.assertTrue(OCMAudioVideoPlaybackReportPage.verifyExportToExcel(filePath1));
 	}
 
-	@Test(priority=26,dependsOnMethods="ExportPage",description="To Verify Exported Page Against UI")
-	public void VerifyExportedPage() throws Exception
-	{
-		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoPlaybackReport.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
-		ReportDetails reportDetails= new ReportDetails(map);
-		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
-		ocmReportsPage.showReport(reportDetails); 
-		String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\OCMAudioVideoPlaybackReport.xlsx";
-		List<Map<String, String>> maplist = new ExcelReader(filePath1,"Sheet1").getTestData();
-		OCMAudioVideoPlaybackReportPage OCMAudioVideoPlaybackReportPage=PageFactory.createPageInstance(driver,OCMAudioVideoPlaybackReportPage.class);
-		Assert.assertTrue(OCMAudioVideoPlaybackReportPage.verifyexportToExcelSheet(maplist));
-	}
-
-	@Test(priority=27,description="Scheduled report button in Login Logout report page")
+	@Test(priority=25,description="Scheduled report button in AudiovideoPlayback report page")
 	public void SchedulereportinOCMAudioVideoPlaybackReportPage() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoPlaybackReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ExportReport").getTestData().get(0);
@@ -319,10 +297,9 @@ public class OCMAudioVideoPlaybackReportTest extends BaseTest {
 		OCMAudioVideoPlaybackReportPage OCMAudioVideoPlaybackReportPage=PageFactory.createPageInstance(driver,OCMAudioVideoPlaybackReportPage.class);
 		OCMAudioVideoPlaybackReportPage.navigateToExportSchedulerPage();    
 		Assert.assertTrue(OCMAudioVideoPlaybackReportPage.isExportSchedulerPageDisplayed(), "ExportScheduler page assertion failed");
-		screenshot.captureScreen("OCMAudioVideoPlaybackReportTest","ExportSchedulerPage");    	 
 	}
 
-	@Test(priority=28,description="Export to excel button in summary Report page")
+	@Test(priority=26,description="Export to excel button in AudiovideoPlayback Report page")
 	public void ExportToExcelForAudioVideoPlaybackReport() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoPlaybackReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -335,7 +312,7 @@ public class OCMAudioVideoPlaybackReportTest extends BaseTest {
 		Assert.assertTrue(OCMAudioVideoPlaybackReportPage.verifyReportExported(),"export report assertion failed");
 	} 
 
-	@Test(priority=29,dependsOnMethods ="ExportToExcelForAudioVideoPlaybackReport",description="Verify the view Downloaded report in Agent summary report page")
+	@Test(priority=27,dependsOnMethods ="ExportToExcelForAudioVideoPlaybackReport",description="Verify the view Downloaded report in Agent summary report page")
 	public void ViewDownloadedOcmAudioVideoPlaybackReportInReportsDownloadPageinAudioVideoPlaybackPg() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoPlaybackReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ExportReport").getTestData().get(0);
@@ -347,19 +324,9 @@ public class OCMAudioVideoPlaybackReportTest extends BaseTest {
 		Assert.assertTrue(OCMReportsPage.verifyDownloadedReportNameAndTimeInReportsDownloadPage(reportDetails.getReportName()),"Report not found in Reporter download page");    
 	}
 
-	@Test(priority=30,dependsOnMethods ="ViewDownloadedOcmAudioVideoPlaybackReportInReportsDownloadPageDateRange",description="To verification of exported excel in Report downloads")
-	public void VerifyViewDownloadedOcmAudioVideoPlaybackReportInReportsDownloadAudioVideoPlaybackPg() throws Exception {
-		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoPlaybackReport.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
-		ReportDetails reportDetails= new ReportDetails(map);
-		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
-		ocmReportsPage.showReport(reportDetails);
-		Assert.assertTrue(ocmReportsPage.verifyExportedSheet("OCMReportDownload","OCM Audio Video Playback R"));		
-	}
-
-	@Test(priority=31,description="To Verify Ascending and Descending order")
+	@Test(priority=28,description="To Verify Ascending and Descending order")
 	public void VerifySorting() throws Exception {
-		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillHistoricalReportData.xlsx";
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoPlaybackReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
 		ReportDetails reportDetails= new ReportDetails(map);
 		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
@@ -368,7 +335,7 @@ public class OCMAudioVideoPlaybackReportTest extends BaseTest {
 		Assert.assertTrue(OCMAudioVideoPlaybackReportPage.verifySorting(),"item per page assertion failed");
 	}
 
-	@Test(priority=32,description="Search by feature")
+	@Test(priority=29,description="Search by feature")
 	public void VerifySearchByFeatureForAudioVideoPlaybackReport() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoPlaybackReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(5);
@@ -376,12 +343,11 @@ public class OCMAudioVideoPlaybackReportTest extends BaseTest {
 		OCMReportsPage OCMReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
 		OCMReportsPage.showReport(reportDetails);
 		OCMAudioVideoPlaybackReportPage OCMAudioVideoPlaybackReportPage=PageFactory.createPageInstance(driver,OCMAudioVideoPlaybackReportPage.class);
-		Assert.assertTrue(OCMReportsPage.verifyDateRangeReportDisplayed(reportDetails),"Show report assertion failed");     
 		Assert.assertTrue(OCMAudioVideoPlaybackReportPage.verifySearchByTextbox(reportDetails));
 	}
 
-	@Test(priority=33,description="Verify the search Is equal to criteria")
-	public void VerifySearchFeatureForAudioVideoPlaybackReport() throws Exception {
+	@Test(priority=30,description="Verify the search Is equal to criteria")
+	public void VerifySearchByFeature() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoPlaybackReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
 		ReportDetails reportDetails= new ReportDetails(map);
@@ -391,7 +357,8 @@ public class OCMAudioVideoPlaybackReportTest extends BaseTest {
 		Assert.assertTrue(OCMReportsPage.verifyDateRangeReportDisplayed(reportDetails),"Show report assertion failed");
 		Assert.assertTrue(OCMAudioVideoPlaybackReportPage.verifySearchIsEqualTo(reportDetails.getSearchStr()));
 	}
-	@Test(priority=34,description="Verify the search Is not equal to criteria")
+	
+	@Test(priority=31,description="Verify the search Is not equal to criteria")
 	public void VerifySearchIsNotEqualTo() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoPlaybackReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(1);
@@ -402,7 +369,7 @@ public class OCMAudioVideoPlaybackReportTest extends BaseTest {
 		Assert.assertTrue(OCMAudioVideoPlaybackReportPage.verifySearchIsNotEqualTo(reportDetails.getSearchStr()));
 	}
 
-	@Test(priority=35,description="Verify the search contains criteria")
+	@Test(priority=32,description="Verify the search contains criteria")
 	public void  VerifySearchContains() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoPlaybackReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(2);
@@ -413,7 +380,7 @@ public class OCMAudioVideoPlaybackReportTest extends BaseTest {
 		Assert.assertTrue(OCMAudioVideoPlaybackReportPage.verifySearchContains(reportDetails.getSearchStr()));
 	}
 
-	@Test(priority=36,description="Verify the Does not contain criteria")
+	@Test(priority=33,description="Verify the Does not contain criteria")
 	public void  VerifySearchDoesNotContains() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoPlaybackReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(2);
@@ -424,7 +391,7 @@ public class OCMAudioVideoPlaybackReportTest extends BaseTest {
 		Assert.assertTrue(OCMAudioVideoPlaybackReportPage.verifySearchDoesNotContains(reportDetails.getSearchStr())); 
 	}
 
-	@Test(priority=37,description="Verify the search starts with criteria")
+	@Test(priority=34,description="Verify the search starts with criteria")
 	public void  VerifySearchStartsWith() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoPlaybackReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(3);
@@ -435,7 +402,7 @@ public class OCMAudioVideoPlaybackReportTest extends BaseTest {
 		Assert.assertTrue(OCMAudioVideoPlaybackReportPage.verifySearchStartsWith(reportDetails.getSearchStr()));
 	}
 
-	@Test(priority=38,description="Verify the search Ends with criteria")
+	@Test(priority=35,description="Verify the search Ends with criteria")
 	public void  VerifySearchEndsWith() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoPlaybackReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(4);
@@ -446,7 +413,7 @@ public class OCMAudioVideoPlaybackReportTest extends BaseTest {
 		Assert.assertTrue(OCMAudioVideoPlaybackReportPage.verifySearchEndsWith(reportDetails.getSearchStr()));
 	}
 
-	@Test(priority=39,description="Search without search text")
+	@Test(priority=36,description="Search without search text")
 	public void searchwithoutSearchTextbox() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoPlaybackReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -458,7 +425,7 @@ public class OCMAudioVideoPlaybackReportTest extends BaseTest {
 		Assert.assertEquals(OCMAudioVideoPlaybackReportPage.getSuccessMessage(),"Please enter the text to search or remove the filter", "Add invalid record assertion failed");
 	}
 
-	@Test(priority=40,description="Clear search functionality")
+	@Test(priority=37,description="Clear search functionality")
 	public void SearchClear() throws Exception{
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoPlaybackReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(2);
@@ -469,7 +436,7 @@ public class OCMAudioVideoPlaybackReportTest extends BaseTest {
 		Assert.assertTrue(OCMAudioVideoPlaybackReportPage.verifySearchClear(reportDetails));    	
 	}
 
-	@Test(priority=41,description="Advance search on reports page for Is equal to Criteria")
+	@Test(priority=38,description="Advance search on reports page for Is equal to Criteria")
 	public void verifyAdvancedSearchinreportpageSearchEqualTo() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoPlaybackReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(0);
@@ -480,7 +447,8 @@ public class OCMAudioVideoPlaybackReportTest extends BaseTest {
 		OCMReportsPage.showReport(reportDetails);
 		Assert.assertTrue(OCMAudioVideoPlaybackReportPage.verifyAdvanceSearchIsEqualTo(reportDetails));
 	}
-	@Test(priority=42,description="Advance search on reports page for Is not equal to Criteria")
+	
+	@Test(priority=39,description="Advance search on reports page for Is not equal to Criteria")
 	public void verifyAdvancedSearchinreportpageSearchNotEqualTo() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoPlaybackReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(1);
@@ -490,10 +458,9 @@ public class OCMAudioVideoPlaybackReportTest extends BaseTest {
 		OCMReportsPage.chooseAdvancedSearchNew(reportDetails);  
 		OCMReportsPage.showReport(reportDetails);
 		Assert.assertTrue(OCMAudioVideoPlaybackReportPage.verifyAdvanceSearchIsNotEqualTo(reportDetails));
-
 	}
 
-	@Test(priority=43,description="Advance search on reports page for Contains Criteria")
+	@Test(priority=40,description="Advance search on reports page for Contains Criteria")
 	public void verifyAdvancedSearchinreportpageSearchcontains() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoPlaybackReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(2);
@@ -505,7 +472,7 @@ public class OCMAudioVideoPlaybackReportTest extends BaseTest {
 		Assert.assertTrue(OCMAudioVideoPlaybackReportPage.verifyAdvanceSearchContains(reportDetails));    	
 	}
 
-	@Test(priority=44,description="Advance search on reports page for Does not Contain Criteria")
+	@Test(priority=41,description="Advance search on reports page for Does not Contain Criteria")
 	public void verifyAdvancedSearchinreportpageSearchDoesnotcontains() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoPlaybackReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(3);
@@ -517,8 +484,8 @@ public class OCMAudioVideoPlaybackReportTest extends BaseTest {
 		Assert.assertTrue(OCMAudioVideoPlaybackReportPage.verifyAdvanceSearchDoesNotContains(reportDetails));   
 	}
 
-	@Test(priority=45,description="Advance search on reports page for Starts with Criteria")
-	public void verifyAdvancedSearchinreportpageSearchStartswith() throws Exception {
+	@Test(priority=42,description="Advance search on reports page for Starts with Criteria")
+	public void verifyAdvancedSearchSearchStartswith() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoPlaybackReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(4);
 		ReportDetails reportDetails= new ReportDetails(map);
@@ -529,8 +496,8 @@ public class OCMAudioVideoPlaybackReportTest extends BaseTest {
 		Assert.assertTrue(OCMAudioVideoPlaybackReportPage.verifyAdvanceSearchStartsWith(reportDetails)); 	
 	}
 
-	@Test(priority=46,description="Advance search on reports page for Ends with Criteria")
-	public void verifyAdvancedSearchinreportpageSearchEndswith() throws Exception {
+	@Test(priority=43,description="Advance search on reports page for Ends with Criteria")
+	public void verifyAdvancedSearchSearchEndswith() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoPlaybackReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(5);
 		ReportDetails reportDetails= new ReportDetails(map);
@@ -539,34 +506,31 @@ public class OCMAudioVideoPlaybackReportTest extends BaseTest {
 		OCMReportsPage.chooseAdvancedSearchNew(reportDetails);  
 		OCMReportsPage.showReport(reportDetails);
 		Assert.assertTrue(OCMAudioVideoPlaybackReportPage.verifyAdvanceSearchEndsWith(reportDetails));
-
 	}
-
-	@Test(priority=47,description="Advance search with And Condition")
+	
+	@Test(priority=44,description="Advance search with And Condition")
 	public void verifyAdvancedSearchANDCriteria() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoPlaybackReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(0);
 		OCMAudioVideoPlaybackReportPage OCMAudioVideoPlaybackReportPage=PageFactory.createPageInstance(driver,OCMAudioVideoPlaybackReportPage.class);
 		ReportDetails reportDetails= new ReportDetails(map);
-		//To select Report Channel,name,Type
 		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);                   	
 		ocmReportsPage.chooseReport(reportDetails);
 		Assert.assertTrue(OCMAudioVideoPlaybackReportPage.advancedSearchANDCriteria(reportDetails));   	
 	}
 
-	@Test(priority=48,description="Advance search with OR Condition")
+	@Test(priority=45,description="Advance search with OR Condition")
 	public void verifyAdvancedSearchORCriteria() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoPlaybackReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(0);
 		OCMAudioVideoPlaybackReportPage OCMAudioVideoPlaybackReportPage=PageFactory.createPageInstance(driver,OCMAudioVideoPlaybackReportPage.class);
 		ReportDetails reportDetails= new ReportDetails(map);
-		//To select Report Channel,name,Type
 		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);                   	
 		ocmReportsPage.chooseReport(reportDetails);
 		Assert.assertTrue(OCMAudioVideoPlaybackReportPage.advancedSearchORCriteria(reportDetails));
-
 	}
-	@Test(priority=49,description="Clear filters for Advance search")
+	
+	@Test(priority=46,description="Clear filters for Advance search")
 	public void ClearfiltersAdvSrch() throws Exception{ 	
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoPlaybackReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(0);
@@ -575,7 +539,7 @@ public class OCMAudioVideoPlaybackReportTest extends BaseTest {
 		Assert.assertTrue(OCMReportsPage.ClearAdvFilters(reportDetails));
 	} 
 
-	@Test(priority=50,description="Group By fuctionality")
+	@Test(priority=47,description="Group By fuctionality")
 	public void GroupBy() throws Exception{
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoPlaybackReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -588,29 +552,6 @@ public class OCMAudioVideoPlaybackReportTest extends BaseTest {
 		Assert.assertTrue(OCMAudioVideoPlaybackReportPage.groupby());
 		screenshot.captureScreen("OCMAudioVideoPlaybackReport", "AlreadyGroupBy");
 	}
-
-	@Test(priority=51,dependsOnMethods ="ViewDownloadedOcmAudioVideoPlaybackReportInReportsDownloadPageinAudioVideoPlaybackPg",description="To verification of exported excel in Report downloads")
-	public void VerifyViewDownloadedinOcmAudioVideoPlaybackReportPage() throws Exception {
-		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoPlaybackReport.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
-		ReportDetails reportDetails= new ReportDetails(map);
-		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
-		ocmReportsPage.showReport(reportDetails);
-		Assert.assertTrue(ocmReportsPage.verifyExportedSheet("OCMReportDownload","OCM Audio Video Playback R"));		
-	}*/
-
-	@Test(priority=52,description="To verify Audio Video Playback report UI data against DB")
-	public void database() throws Exception {
-		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoPlaybackReport.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(0);
-		ReportDetails reportDetails= new ReportDetails(map);
-		OCMReportsPage ocmReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
-		ocmReportsPage.showReport(reportDetails);
-		OCMAudioVideoPlaybackReportPage AudioVideoPlaybackReportPage=PageFactory.createPageInstance(driver,OCMAudioVideoPlaybackReportPage.class);
-		Assert.assertTrue(AudioVideoPlaybackReportPage.verifyDatabase(reportDetails.getQuery(), reportDetails), "UI and DB data mismatch");
-		System.out.println("Database Validation Completed Succesfully" +" : "+"UI and Database data is matched");
-	}
-
 
 
 	@AfterMethod

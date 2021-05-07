@@ -110,7 +110,7 @@ public class TmacTransferListPage extends BasePage {
     @FindBy(css="ul[id='Type_listbox'] li")
     private List<WebElement> typeListBox;
 
-    @FindBy(css=".toast-message")
+    @FindBy(css=".toast-success .toast-message")
     private WebElement successmsg;
 
     @FindBy(css = "#toast-container .toast-error .toast-message")
@@ -298,6 +298,8 @@ public class TmacTransferListPage extends BasePage {
     public boolean verifyTmacBlindTransferDataTableHeaders() {
         ArrayList<String> Expected=new ArrayList<String>(Arrays.asList("Channel","Skill Name","Skill Id","VDN","Last Changed By","Last Changed On"));
         ArrayList Actual = getHeadersfromTable(TmacTransferListTableHeaders);
+        System.out.println(Actual);
+        System.out.println(Expected);
         Collections.sort(Expected);
         Collections.sort(Actual);
         return Actual.equals(Expected);
@@ -362,6 +364,7 @@ public class TmacTransferListPage extends BasePage {
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,columnNameListValue);
         selectWebElement(selectSearchCol.get(1));
+        Thread.sleep(1000);
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is equal to");
         boolean staleElement = true;
         while(staleElement){
@@ -409,6 +412,7 @@ public class TmacTransferListPage extends BasePage {
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Name");
         selectWebElement(selectSearchCol.get(1));
+        Thread.sleep(1000);
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Contains");
         enterValueToTxtField(searchTextBox,name);		
         selectWebElement(searchSearchBtn);
@@ -450,6 +454,7 @@ public class TmacTransferListPage extends BasePage {
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Name");
         selectWebElement(selectSearchCol.get(1));
+        Thread.sleep(2000);
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Starts with");
         enterValueToTxtField(searchTextBox,name);		
         selectWebElement(searchSearchBtn);
@@ -494,6 +499,7 @@ public class TmacTransferListPage extends BasePage {
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Skill Name");
         selectWebElement(selectSearchCol.get(1));
+        Thread.sleep(1000);
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is not equal to");
         enterValueToTxtField(searchTextBox,skillname);		
         selectWebElement(searchSearchBtn);
@@ -516,6 +522,7 @@ public class TmacTransferListPage extends BasePage {
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Skill Name");
         selectWebElement(selectSearchCol.get(1));
+        Thread.sleep(1000);
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Contains");
         enterValueToTxtField(searchTextBox,skillname);		
         selectWebElement(searchSearchBtn);
@@ -651,8 +658,9 @@ public class TmacTransferListPage extends BasePage {
     	searchTmacTransferRecord(tmacTransferListDetails.getSkillName(),"Skill Name",1);
     	waitUntilWebElementIsVisible(editButton1);
     	selectWebElement(editButton1);
+    	Thread.sleep(2000);
     	selectWebElement(channelListBox);
-        selectDropdownFromVisibleText(channelLisElements,tmacTransferListDetails.getChannel());	         
+        selectDropdownFromVisibleText(channelLisElements,tmacTransferListDetails.getChannelUpdate());	         
         selectWebElement(skillNameListBox);
         selectDropdownFromVisibleText(skillNameListElements,tmacTransferListDetails.getSkillNameUpdate());
         //selectWebElement(skillIdVdnList.get(1));    	
@@ -785,33 +793,34 @@ public class TmacTransferListPage extends BasePage {
 	public boolean verifyExportToExcelConsul(String filepath) throws InterruptedException {
 		final File folder = new File(filepath);
 		for (final File f : folder.listFiles()) {
-		    if (f.getName().startsWith("TMACConsultTransfer")) {
+		    if (f.getName().startsWith("ConsultTransfer")) {
 		        f.delete();
 		    }
 		}
 		selectWebElement(exporttoexcel);
 		waitForJqueryLoad(driver);
 		Thread.sleep(1000);
-		Boolean Status=verifyExportPageFileDownload(filepath, "TMACConsultTransfer");
+		Boolean Status=verifyExportPageFileDownload(filepath, "ConsultTransfer");
 		return Status;
 	}
 	
 	public boolean verifyExportToExcelBlind(String filepath) throws InterruptedException {
 		final File folder = new File(filepath);
 		for (final File f : folder.listFiles()) {
-		    if (f.getName().startsWith("TMACBlindTransfer")) {
+		    if (f.getName().startsWith("BlindTransfer")) {
 		        f.delete();
 		    }
 		}
 		selectWebElement(exportToExcelBtnBlindTrans);
 		waitForJqueryLoad(driver);
 		Thread.sleep(1000);
-		Boolean Status=verifyExportPageFileDownload(filepath, "TMACBlindTransfer");
+		Boolean Status=verifyExportPageFileDownload(filepath, "BlindTransfer");
 		return Status;
 	}
 	
 	public boolean verifyexportToExcelSheet(List<Map<String, String>> maplist) throws InterruptedException {
 		List<Map<String,String>> UI=getdata(); 
+		System.out.println(UI);
 		if(UI.equals(maplist))
 		return true;
 		else
@@ -891,7 +900,7 @@ public class TmacTransferListPage extends BasePage {
 			return arr;
 	}
 	
-	public boolean verifyDatabase(String query) {
+	public boolean verifyDatabase(String query) throws Exception {
 		List<Map<String,String>> database=database(query);
 		System.out.println(database);
 		List<Map<String,String>> UI=gettable(); 
@@ -902,7 +911,7 @@ public class TmacTransferListPage extends BasePage {
 			return false;
 	}
 	
-	public boolean verifyDatabaseBlindTrans(String query) {
+	public boolean verifyDatabaseBlindTrans(String query) throws Exception {
 		List<Map<String,String>> database=database(query);
 		System.out.println(database);
 		List<Map<String,String>> UI=gettableBlindTrans(); 
@@ -913,7 +922,8 @@ public class TmacTransferListPage extends BasePage {
 			return false;
 	}
 	
-	private List<Map<String,String>> gettable(){
+	private List<Map<String,String>> gettable() throws Exception{
+		Thread.sleep(5000);
 		int item=Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
         int pagersize=Integer.valueOf(pagerSize.getText());
         int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
@@ -946,7 +956,8 @@ public class TmacTransferListPage extends BasePage {
 		}
 			return arr;
 	}
-	private List<Map<String,String>> gettableBlindTrans(){
+	private List<Map<String,String>> gettableBlindTrans() throws Exception{
+		Thread.sleep(5000);
 		int item=Integer.valueOf(itemsBlindTrans.getText().split("of ")[1].split(" items")[0]);
         int pagersize=Integer.valueOf(pagerSizeBlindTrans.getText());
         int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;

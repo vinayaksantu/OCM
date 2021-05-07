@@ -1,11 +1,12 @@
 package com.tetherfi.pages;
-
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
+import java.util.stream.Collectors;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -177,15 +178,12 @@ public class OCMChatTransferReportPage extends BasePage  {
 	@FindBy(xpath="//a[text()='Last Menu']")
 	private WebElement lastMenu;
 	
-	@FindBy(xpath="//tbody/tr/td/p[@class='k-reset']/../../following-sibling::tr/td[6]")
+	@FindBy(xpath="//tbody/tr/td/p[@class='k-reset']/../../following-sibling::tr/td[7]")
 	private WebElement groupbylastMenu;
 
 	@FindBy(xpath="//div[@data-role='droptarget']")
 	private WebElement droptarget;
 	
-	
-
-
 	public void exportPage(){
 		emptyDownloadsDirectory(System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles");
 		selectWebElement(exportPage);
@@ -520,7 +518,9 @@ public class OCMChatTransferReportPage extends BasePage  {
 		else 
 			return false; 
 	}
-	public boolean verifyexportToExcelSheet(List<Map<String, String>> maplist) {
+	
+	public boolean verifyexportToExcelSheet(List<Map<String, String>> maplist) throws Exception {
+		Thread.sleep(2000);
 		List<Map<String,String>> UI=getdata(); 
 		System.out.println(UI);
 		System.out.println(maplist);
@@ -530,6 +530,7 @@ public class OCMChatTransferReportPage extends BasePage  {
 			return false;
 	}
 
+	
 	private List<Map<String,String>> getdata(){
 		int item=Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
 		int pagersize=Integer.valueOf(pagerSize.getText());
@@ -543,7 +544,7 @@ public class OCMChatTransferReportPage extends BasePage  {
 			for(int i=1;i<rows.size();i++) {
 				Map<String,String> map = new HashMap<String,String>();
 				List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
-				for(int j=1;j<headers.size();j++) {
+				for(int j=0;j<headers.size();j++) {
 					scrollToElement(headers.get(j));
 					System.out.println(headers.get(j).getText());
 					if(headers.get(j).getText().equals("Last Changed On")){
@@ -556,21 +557,23 @@ public class OCMChatTransferReportPage extends BasePage  {
 				map.remove("");
 				arr.add(map);
 			}
-			if(k!=pages)
+			/*if(k!=pages)
 			{
 				nextPageIcon.click();
-				waitForJqueryLoad(driver);}
+				waitForJqueryLoad(driver);}*/
 		}
 		return arr;
 	}
 
-	public boolean verifyArrowMoveForPreviousAndNextPage(){
+	public boolean verifyArrowMoveForPreviousAndNextPage() throws Exception{
 		boolean status=false;
 		if(!nextPageIcon.getAttribute("class").contains("k-state-disabled")){
 			int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 			selectWebElement(nextPageIcon);
+			Thread.sleep(2000);
 			int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 			selectWebElement(previousPageIcon);
+			Thread.sleep(2000);
 			int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 			if(nextnumber==(pagenumber+1) && pagenumber==previousnumber){status=true;}
 		}else{
@@ -648,10 +651,7 @@ public class OCMChatTransferReportPage extends BasePage  {
 		{return errorMsg.get(0).getText();}
 		else{waitUntilWebElementIsVisible(successmsg);return successmsg.getText();}
 	}
-	/* public void scheduleReport(ReportDetails details) throws Exception{
-    chooseReport(details);
-    selectWebElement(schRptsinAgent);
-}*/
+	
 	public boolean VerifyLogo() {
 		if(VEFImg.isDisplayed())
 			return true;
@@ -715,6 +715,7 @@ public class OCMChatTransferReportPage extends BasePage  {
 		}
 		return Status;	
 	}
+	
 	public boolean verifySearchIsNotEqualTo(String details) throws Exception {
 		Boolean Status=false;
 		Map<String, String> map=new HashMap<String,String>() ;
@@ -734,13 +735,14 @@ public class OCMChatTransferReportPage extends BasePage  {
 		for (Map<String,String> map1: UI)
 		{   	
 			if(!map1.equals(map))
-				Status= false;
-			else 
 				Status= true;
+			else 
+				Status= false;
 		}
 		return Status;	
 	}
-	/*private List<Map<String, String>> getDataTable() {
+	
+	private List<Map<String, String>> getDataTable() {
 		int item=Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
 		int pagersize=Integer.valueOf(pagerSize.getText());
 		int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
@@ -766,17 +768,19 @@ public class OCMChatTransferReportPage extends BasePage  {
 				waitForJqueryLoad(driver);}
 		}
 		return arr;
-	}*/
-
+	}
+	
 	public boolean verifySearchByTextbox(ReportDetails details) throws Exception{	
-		boolean Status=false;	 
-		selectWebElement(searchbyfeatureTextBox);    
+		boolean Status=false;
+		selectWebElement(searchbyfeatureTextBox);
 		enterValueToTxtFieldWithoutClear(searchbyfeatureTextBox,details.getSearchStr());
-		selectDropdownFromVisibleText(searchbyfeaturelistBox,details.getSearchStr());		 
-		waitForJqueryLoad(driver);
+		Thread.sleep(3000);
+		selectDropdownFromVisibleText(searchbyfeaturelistBox,details.getSearchStr());	
+		Thread.sleep(2000);
+		waitUntilWebElementIsVisible(gridContent);
 		List<Map<String,String>> UI=getDataTable(); 
 		for (Map<String,String> map1: UI)
-		{   	
+		{ 
 			if(map1.get("UCID").equals(details.getSearchStr()))
 				Status= true;
 			else 
@@ -784,6 +788,8 @@ public class OCMChatTransferReportPage extends BasePage  {
 		}
 		return Status;	
 	}
+	
+	
 
 	public boolean verifySearchContains(String description) throws Exception {
 		Boolean Status=false;		
@@ -856,6 +862,7 @@ public class OCMChatTransferReportPage extends BasePage  {
 		}
 		return Status;
 	}
+	
 	public boolean verifySearchEndsWith(String description) throws Exception {
 		Boolean Status=false;
 		selectWebElement(searchBtn);
@@ -879,6 +886,7 @@ public class OCMChatTransferReportPage extends BasePage  {
 		}
 		return Status;
 	}
+	
 	public boolean verifySearchClear(ReportDetails details) {
 		boolean Status=false;   
 		selectWebElement(searchBtn);		
@@ -896,6 +904,7 @@ public class OCMChatTransferReportPage extends BasePage  {
 			Status=false;
 		return Status;
 	}
+	
 	public boolean verifyAdvanceSearch(ReportDetails reportDetails) throws Exception {
 		Boolean Status=false;
 		List<Map<String,String>>UI=getDataTable();
@@ -909,6 +918,7 @@ public class OCMChatTransferReportPage extends BasePage  {
 		}
 		return Status;
 	}
+	
 	public void searchwithoutextsearch(ReportDetails details) {
 		selectWebElement(searchBtn);		
 		selectWebElement(searchColDropdown);  
@@ -928,54 +938,22 @@ public class OCMChatTransferReportPage extends BasePage  {
 			return errorMsg.get(0).getText();}
 	}
 
-	public boolean verifyDatabase(String query) {
-		List<Map<String,String>> database=database(query);
-		System.out.println(database);
-		List<Map<String,String>> UI=getDataTable(); 
-		System.out.println(UI);
-		if(UI.equals(database))
-			return true;
-		else
-			return false;
-	}
 	public boolean groupby() {
 		DragandDrop(lastMenu,droptarget);
 		try {
-			Thread.sleep(1000);
+			Thread.sleep(5000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
+//		System.out.println("Group by" +" " +groupby.getText()); 
+//		System.out.println("Group by last menu"+" "+groupbylastMenu.getText());
 		if(groupby.getText().split(": ")[1].equals(groupbylastMenu.getText()))
 		{return true;}
 		else
 			return false;		
 	}
-
 	
-	public boolean verifyDatabase(String query,ReportDetails details) throws InterruptedException {
-		//get dates from xl - step 2
-		String reportbeforedate = details.getStartDate();
-		String reportafterdate=details.getEndDate();
-		//change date formats - step 3
-		reportbeforedate	=reportbeforedate.substring(6,10)+reportbeforedate.substring(3, 5)+reportbeforedate.substring(0, 2)+reportbeforedate.substring(11, 13)+reportbeforedate.substring(14, 16)+reportbeforedate.substring(17, 19);
-		reportafterdate	=reportafterdate.substring(6,10)+reportafterdate.substring(3, 5)+reportafterdate.substring(0, 2)+reportafterdate.substring(11, 13)+reportafterdate.substring(14, 16)+reportafterdate.substring(17, 19);
-//		reportbeforedate=reportbeforedate.substring(6,10)+"-"+reportbeforedate.substring(3, 5)+"-"+reportbeforedate.substring(0, 2)+" "+reportbeforedate.substring(11, 13)+":"+reportbeforedate.substring(14, 16)+":"+reportbeforedate.substring(17, 19);
-//		reportafterdate=reportafterdate.substring(6,10)+"-"+reportafterdate.substring(3, 5)+"-"+reportafterdate.substring(0, 2)+" "+reportafterdate.substring(11, 13)+":"+reportafterdate.substring(14, 16)+":"+reportafterdate.substring(17, 19);
-		//Replace identifiers in query to formatted date - step 5
-		query=query.replaceAll("ReportBeforeDate",reportbeforedate );
-		query=query.replaceAll("ReportAfterDate",reportafterdate );
-		List<Map<String,String>> database=database(query);
-		System.out.println("Printing Query" +" "+query);		
-		System.out.println("Printing DB results" +" "+database);
-		List<Map<String,String>> UI=getDataTable(); 
-		System.out.println("Printing UI Results"+" "+UI);	
-		if(UI.equals(database))
-			return true;
-		else
-			return false;
-	}
-	
-	private List<Map<String, String>> getDataTable() {
+	private List<Map<String, String>> getDataTable1() {
 		int item=Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
         int pagersize=Integer.valueOf(pagerSize.getText());
         int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
@@ -1003,9 +981,33 @@ public class OCMChatTransferReportPage extends BasePage  {
 		}
 			return arr;
 	}
-	
-	
-	
+
+
+	public boolean verifyDatabase(String query,ReportDetails details) throws InterruptedException {
+		//get dates from xl - step 2
+		String reportbeforedate = details.getStartDate();
+		String reportafterdate=details.getEndDate();
+		//change date formats - step 3
+		reportbeforedate	=reportbeforedate.substring(6,10)+reportbeforedate.substring(3, 5)+reportbeforedate.substring(0, 2)+reportbeforedate.substring(11, 13)+reportbeforedate.substring(14, 16)+reportbeforedate.substring(17, 19);
+		reportafterdate	=reportafterdate.substring(6,10)+reportafterdate.substring(3, 5)+reportafterdate.substring(0, 2)+reportafterdate.substring(11, 13)+reportafterdate.substring(14, 16)+reportafterdate.substring(17, 19);
+//		reportbeforedate=reportbeforedate.substring(6,10)+"-"+reportbeforedate.substring(3, 5)+"-"+reportbeforedate.substring(0, 2)+" "+reportbeforedate.substring(11, 13)+":"+reportbeforedate.substring(14, 16)+":"+reportbeforedate.substring(17, 19);
+//		reportafterdate=reportafterdate.substring(6,10)+"-"+reportafterdate.substring(3, 5)+"-"+reportafterdate.substring(0, 2)+" "+reportafterdate.substring(11, 13)+":"+reportafterdate.substring(14, 16)+":"+reportafterdate.substring(17, 19);
+		//Replace identifiers in query to formatted date - step 5
+		query=query.replaceAll("ReportBeforeDate",reportbeforedate );
+		query=query.replaceAll("ReportAfterDate",reportafterdate );
+		List<Map<String,String>> database=database(query);
+		System.out.println("Printing Query" +" "+query);		
+		System.out.println("Printing DB results" +" "+database);
+		List<Map<String,String>> UI=getDataTable1(); 
+		System.out.println("Printing UI Results"+" "+UI);	
+		if(UI.equals(database))
+			return true;
+		else
+			return false;
+	}
+
+
 }
+
 
 

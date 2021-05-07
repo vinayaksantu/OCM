@@ -58,7 +58,7 @@ public class ExportSchedulerPage extends BasePage {
 	@FindBy(css = "#1001sAddButton .k-i-add")
 	private WebElement searchAddCriteriaBtn;
 
-	@FindBy(css="#toast-container .toast-message")
+	@FindBy(css="#toast-container .toast-success .toast-message")
 	private WebElement successmsg;
 	    
 	@FindBy(css = ".modal-footer .button-theme")
@@ -118,7 +118,7 @@ public class ExportSchedulerPage extends BasePage {
 	@FindBy(xpath="//div[text()='No records to display']")
 	private WebElement norecords;
 		    
-	@FindBy(xpath="//i[@class='fas fa-sync']")
+	@FindBy(xpath="//i[@class='fas fa-sync fa-spin']")
 	private WebElement clearsearch;
 		
 	@FindBy(css=".k-pager-numbers .k-state-selected")
@@ -202,10 +202,10 @@ public class ExportSchedulerPage extends BasePage {
 	@FindBy(css="ul[id='Day_listbox'] li")
 	private List<WebElement> DayListbox;
 	
-	@FindBy(css="span[aria-owns='Date_listbox']")
+	@FindBy(css="span[aria-owns='DateToExport_listbox']")
 	private WebElement DateDropdown;
 	
-	@FindBy(css="ul[id='Date_listbox'] li")
+	@FindBy(css="ul[id='DateToExport_listbox'] li")
 	private List<WebElement> DateListbox;
 	
 	@FindBy(id="Time")
@@ -339,7 +339,7 @@ public class ExportSchedulerPage extends BasePage {
 		}
 			return arr;
 	}
-	public boolean verifyDatabase(String query) {
+	public boolean verifyDatabase(String query) throws Exception {
 		List<Map<String,String>> database=database(query);
 		System.out.println(database);
 		List<Map<String,String>> UI=gettable(); 
@@ -350,7 +350,8 @@ public class ExportSchedulerPage extends BasePage {
 			return false;
 	}
 	
-	public List<Map<String, String>> gettable() {
+	public List<Map<String, String>> gettable() throws Exception {
+		Thread.sleep(4000);
 		int item=Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
         int pagersize=Integer.valueOf(pagerSize.getText());
         int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
@@ -384,13 +385,16 @@ public class ExportSchedulerPage extends BasePage {
 			return arr;
 	}
 	
-	public boolean verifyArrowMoveForPreviousAndNextPage(){
+	public boolean verifyArrowMoveForPreviousAndNextPage() throws Exception{
         boolean status=false;
         if(!nextPageIcon.getAttribute("class").contains("k-state-disabled")){
+            Thread.sleep(2000);
         int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber));
         selectWebElement(nextPageIcon);
+        Thread.sleep(2000);
         int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
         selectWebElement(previousPageIcon);
+        Thread.sleep(2000);
         int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
         if(nextnumber==(pagenumber+1) && pagenumber==previousnumber){status=true;}
         }else{
@@ -398,13 +402,16 @@ public class ExportSchedulerPage extends BasePage {
         }
         return status;
 	}
-	public boolean verifyArrowMoveForFirstAndLastPage(){
+	public boolean verifyArrowMoveForFirstAndLastPage() throws Exception{
         boolean status=false;
         if(!lastPageIcon.getAttribute("class").contains("k-state-disabled")){
+            Thread.sleep(2000);
             int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber));
             selectWebElement(lastPageIcon);
+            Thread.sleep(2000);
             int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
             selectWebElement(firstPageIcon);
+            Thread.sleep(2000);
             int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
             if(nextnumber>pagenumber && pagenumber==previousnumber){status=true;}
         }else{
@@ -812,6 +819,7 @@ public class ExportSchedulerPage extends BasePage {
 	public void editexportSchedulerRecord(ExportSchedulerDetails details) throws Exception {
 		searchexportScheduler(details.getName());
 		waitUntilWebElementIsClickable(editButton);
+		Thread.sleep(2000);
 		selectWebElement(editButton);
 		waitForJqueryLoad(driver);
 		Thread.sleep(3000);
@@ -880,6 +888,7 @@ public class ExportSchedulerPage extends BasePage {
 	public void deleteExportSchedulerRecord(ExportSchedulerDetails details) throws Exception {
 		searchexportScheduler(details.getName());
 		waitUntilWebElementIsClickable(deleteButton);
+		Thread.sleep(2000);
         selectWebElement(deleteButton);
 		Thread.sleep(2000);
 		enterValueToTxtFieldWithoutClear(deleteReasonTextBox,details.getDeleteReason());
@@ -919,8 +928,9 @@ public class ExportSchedulerPage extends BasePage {
         selectWebElement(saveButton);	
         selectWebElement(cancelBtn);
 	}
-	public void addNewRecordWithoutName(ExportSchedulerDetails details) {
+	public void addNewRecordWithoutName(ExportSchedulerDetails details) throws Exception {
 		selectWebElement(addNewExportSchedulerRecordBtn);
+		Thread.sleep(2000);
 		waitUntilWebElementIsVisible(NameTextbox);
 		selectWebElement(ReportListDropdown.get(0));
         selectDropdownFromVisibleText(ReportListbox,details.getReportList());

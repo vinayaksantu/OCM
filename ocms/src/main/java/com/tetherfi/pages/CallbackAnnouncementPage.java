@@ -205,7 +205,7 @@ public class CallbackAnnouncementPage extends BasePage{
 	@FindBy(xpath="//div[text()='No records to display']")
 	private WebElement norecords;
 	    
-	@FindBy(xpath="//i[@class='fas fa-sync']")
+	@FindBy(xpath="//i[@class='fas fa-sync fa-spin']")
 	private WebElement clearsearch;
 	
 	@FindBy(css="span[aria-owns='Language_listbox']")
@@ -330,7 +330,7 @@ public class CallbackAnnouncementPage extends BasePage{
 		}
 			return arr;
 	}
-	public boolean verifyDatabase(String query) {
+	public boolean verifyDatabase(String query) throws Exception {
 		List<Map<String,String>> database=database(query);
 		System.out.println(database);
 		List<Map<String,String>> UI=gettable(); 
@@ -341,7 +341,8 @@ public class CallbackAnnouncementPage extends BasePage{
 			return false;
 	}
 	
-	public List<Map<String, String>> gettable() {
+	public List<Map<String, String>> gettable() throws Exception {
+		Thread.sleep(4000);
 		int item=Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
         int pagersize=Integer.valueOf(pagerSize.getText());
         int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;

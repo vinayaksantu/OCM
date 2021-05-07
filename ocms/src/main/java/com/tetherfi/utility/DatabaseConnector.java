@@ -65,6 +65,21 @@ public class DatabaseConnector {
         return maplist;
     }
     
+    public List<String> getResultSetInList(ResultSet rs) {
+        List<String> maplist = new ArrayList<>();
+        try {
+            while (rs.next()) {
+                for (int i = 1; i <= rs.getMetaData().getColumnCount(); i++) {
+                	String str=rs.getString(i).trim();
+                	maplist.add(str);
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Unable to fetch the Resultset Data");
+            e.printStackTrace();
+        }
+        return maplist;
+    }
    
 
     public void closeDbConnection() {

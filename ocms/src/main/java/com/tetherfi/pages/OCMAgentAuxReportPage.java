@@ -1,10 +1,4 @@
 package com.tetherfi.pages;
-
-import java.awt.Robot;
-import java.awt.Toolkit;
-import java.awt.datatransfer.Clipboard;
-import java.awt.datatransfer.StringSelection;
-import java.awt.event.KeyEvent;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -138,11 +132,10 @@ public class OCMAgentAuxReportPage extends BasePage  {
 	@FindBy(xpath="//button[@class='k-button k-button-icontext k-grid-excel']")		
 	private WebElement exportpage;
 
-	//export to excel in AgentRptPage
 	@FindBy(xpath="//button[@id='exportAllToExcel']")
 	private WebElement exportToExcel;
-
-	@FindBy(css = "span[aria-owns='autoCompleteTextbox_listbox']")
+	
+	@FindBy(id="autoCompleteTextbox")
 	private WebElement searchbyfeatureTextBox;
 
 	@FindBy(css = "ul[id='autoCompleteTextbox_listbox'] li")
@@ -276,8 +269,8 @@ public class OCMAgentAuxReportPage extends BasePage  {
 		String reportbeforedate = details.getStartDate();
 		String reportafterdate=details.getEndDate();
 		//change date formats - step 3
-		reportbeforedate	=reportbeforedate.substring(6,10)+reportbeforedate.substring(3, 5)+reportbeforedate.substring(0, 2)+reportbeforedate.substring(11, 13)+reportbeforedate.substring(14, 16)+reportbeforedate.substring(17, 19);
-		reportafterdate	=reportafterdate.substring(6,10)+reportafterdate.substring(3, 5)+reportafterdate.substring(0, 2)+reportafterdate.substring(11, 13)+reportafterdate.substring(14, 16)+reportafterdate.substring(17, 19);
+		reportbeforedate=reportbeforedate.substring(6,10)+reportbeforedate.substring(3, 5)+reportbeforedate.substring(0, 2)+reportbeforedate.substring(11, 13)+reportbeforedate.substring(14, 16)+reportbeforedate.substring(17, 19);
+		reportafterdate=reportafterdate.substring(6,10)+reportafterdate.substring(3, 5)+reportafterdate.substring(0, 2)+reportafterdate.substring(11, 13)+reportafterdate.substring(14, 16)+reportafterdate.substring(17, 19);
 		//Replace identifiers in query to formatted date - step 5
 		query=query.replaceAll("ReportBeforeDate",reportbeforedate );
 		query=query.replaceAll("ReportAfterDate",reportafterdate );
@@ -322,7 +315,6 @@ public class OCMAgentAuxReportPage extends BasePage  {
 			return arr;
 	}	 
 
-	
 	public void exportPage(){
 		emptyDownloadsDirectory(System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles");
 		selectWebElement(exportPage);
@@ -413,7 +405,7 @@ public class OCMAgentAuxReportPage extends BasePage  {
 			if (norecords.size() <= 0) {
 				int items = Integer.valueOf(pagerInfo.getText().split("of ")[1].split(" items")[0]);
 				selectWebElement(pagerDropdown);
-				Thread.sleep(1500);
+				Thread.sleep(2000);
 				for (int i = 0; i < pageSizeListBox.size(); i++) {
 					if(Integer.valueOf(pageSizeListBox.get(i).getText())>items){continue;}
 					selectDropdownFromVisibleText(pageSizeListBox, pageSizeListBox.get(i).getText());
@@ -446,8 +438,7 @@ public class OCMAgentAuxReportPage extends BasePage  {
 	}
 
 
-	public void dragandDropColumns(String col1, String col2)
-	{
+	public void dragandDropColumns(String col1, String col2){
 		List<WebElement> rows=gridContent.findElements(By.tagName("tr"));
 		List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
 		WebElement column1=null,column2=null;
@@ -459,6 +450,7 @@ public class OCMAgentAuxReportPage extends BasePage  {
 		Action dragAndDrop = builder.clickAndHold(column1).moveToElement(column2).release(column2).build();
 		dragAndDrop.perform();
 	}
+	
 	public void exportToPDF(){
 		emptyDownloadsDirectory(System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles");
 		selectWebElement(exportToPDF);
@@ -468,6 +460,7 @@ public class OCMAgentAuxReportPage extends BasePage  {
 			e.printStackTrace();
 		}
 	}
+	
 	public boolean verifySortingForAllDataDisplayed(){
 		boolean status=false;
 		List<Map<String,String>> table=getAllDatafromTable();
@@ -543,6 +536,7 @@ public class OCMAgentAuxReportPage extends BasePage  {
 		System.out.println(maplist);
 		return maplist;
 	}
+	
 	public boolean verifyDropDownOfAllHeaders() {
 		boolean status = false;
 		try {for (WebElement ele : headersDropdown) {
@@ -702,13 +696,17 @@ public class OCMAgentAuxReportPage extends BasePage  {
 		return arr;
 	}
 
-	public boolean verifyArrowMoveForPreviousAndNextPage(){
+	public boolean verifyArrowMoveForPreviousAndNextPage() throws Exception{
 		boolean status=false;
 		if(!nextPageIcon.getAttribute("class").contains("k-state-disabled")){
 			int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber));
+			Thread.sleep(4000);
 			selectWebElement(nextPageIcon);
+			Thread.sleep(5000);
 			int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
+			Thread.sleep(4000);
 			selectWebElement(previousPageIcon);
+			Thread.sleep(5000);
 			int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 			if(nextnumber==(pagenumber+1) && pagenumber==previousnumber){status=true;}
 		}else{
@@ -717,16 +715,18 @@ public class OCMAgentAuxReportPage extends BasePage  {
 		return status;
 	}
 
-
-	public boolean verifyArrowMoveForFirstAndLastPage(){
+	public boolean verifyArrowMoveForFirstAndLastPage() throws Exception{
 		boolean status=false;
 		if(!lastPageIcon.getAttribute("class").contains("k-state-disabled")){
 			int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 			System.out.println(pagenumber);
 			selectWebElement(lastPageIcon);
+			Thread.sleep(5000);
 			int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 			System.out.println(nextnumber);
+			Thread.sleep(4000);
 			selectWebElement(firstPageIcon);
+			Thread.sleep(5000);
 			int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 			System.out.println(previousnumber);
 			if(nextnumber>pagenumber && pagenumber==previousnumber){status=true;}
@@ -789,10 +789,7 @@ public class OCMAgentAuxReportPage extends BasePage  {
 		{return errorMsg.get(0).getText();}
 		else{waitUntilWebElementIsVisible(successmsg);return successmsg.getText();}
 	}
-	/* public void scheduleReport(ReportDetails details) throws Exception{
-		        chooseReport(details);
-		        selectWebElement(schRptsinAgent);
-		    }*/
+	
 	public boolean VerifyLogo() {
 		if(VEFImg.isDisplayed())
 			return true;
@@ -800,7 +797,7 @@ public class OCMAgentAuxReportPage extends BasePage  {
 			return false;
 
 	}
-	public void viewDownloadedReportInReportsDownloadsPage() {
+	public void viewDownloadedReportInReportsDownloadsPage() throws Exception {
 		waitForLoad(driver);
 		waitForJqueryLoad(driver);
 		selectWebElement(viewDwnRptinAgntpg);
@@ -812,6 +809,7 @@ public class OCMAgentAuxReportPage extends BasePage  {
 		waitForLoad(driver);
 		waitForJqueryLoad(driver);
 	}
+
 	public boolean isExportSchedulerPageDisplayed() {
 		waitForLoad(driver);
 		waitForJqueryLoad(driver);
@@ -862,7 +860,7 @@ public class OCMAgentAuxReportPage extends BasePage  {
 		selectWebElement(searchSearchBtn);	
 		selectWebElement(searchCloseBtn);		
 	}
-	public boolean verifyAdvanceSearch(ReportDetails reportDetails) {
+	public boolean verifyAdvanceSearch(ReportDetails reportDetails) throws Exception {
 		Boolean Status=false;
 		List<Map<String,String>>UI=getDataTable();
 		for(Map<String,String> map1:UI)
@@ -880,7 +878,7 @@ public class OCMAgentAuxReportPage extends BasePage  {
 		selectWebElement(AdvsearchClearFilters);		
 	}
 
-	private List<Map<String, String>> getDataTable() {
+	private List<Map<String, String>> getDataTable() throws Exception {
 		int item=Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
 		int pagersize=Integer.valueOf(pagerSize.getText());
 		int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
@@ -913,7 +911,6 @@ public class OCMAgentAuxReportPage extends BasePage  {
 						//=substring[0] * 60 * 60 + substring[1] * 60 + substring[2]); 
 						//sytem.out.println("seconds="+seconds);
 					}
-
 					else
 					{
 						col=cols.get(j).getText();
@@ -928,6 +925,7 @@ public class OCMAgentAuxReportPage extends BasePage  {
 			}
 			if(k!=pages)
 			{
+				Thread.sleep(3000);
 				nextPageIcon.click();
 				waitForJqueryLoad(driver);}
 		}
@@ -1097,6 +1095,7 @@ public class OCMAgentAuxReportPage extends BasePage  {
 	public boolean verifyAdvanceSearchIsEqualTo(ReportDetails reportDetails) throws Exception {
 		Boolean Status=false;
 		waitForJqueryLoad(driver);
+		Thread.sleep(3000);
 		List<Map<String,String>>UI=getDataTable();
 		for(Map<String,String> map1:UI)
 		{
@@ -1122,6 +1121,7 @@ public class OCMAgentAuxReportPage extends BasePage  {
 		}
 		return Status;
 	}
+	
 	public boolean verifyAdvanceSearchContains(ReportDetails reportDetails) throws Exception {
 		Boolean Status=false;
 		waitForJqueryLoad(driver);
@@ -1129,13 +1129,14 @@ public class OCMAgentAuxReportPage extends BasePage  {
 		for(Map<String,String> map1:UI)
 		{
 			System.out.println(map1.get("Team Name"));
-			if(map1.get("Team Name").toUpperCase().contains(reportDetails.getSearchStr()))				
+			if(map1.get("Team Name").toLowerCase().contains(reportDetails.getSearchStr()))				
 				Status= true;
 			else 
 				Status =false;
 		}
 		return Status;
 	}
+
 	public boolean verifyAdvanceSearchDoesNotContains(ReportDetails reportDetails) throws Exception {
 		Boolean Status=false;
 		waitForJqueryLoad(driver);
@@ -1150,6 +1151,7 @@ public class OCMAgentAuxReportPage extends BasePage  {
 		}
 		return Status;
 	}
+	
 	public boolean verifyAdvanceSearchStartsWith(ReportDetails reportDetails) throws Exception {
 		Boolean Status=false;
 		waitForJqueryLoad(driver);
@@ -1157,13 +1159,14 @@ public class OCMAgentAuxReportPage extends BasePage  {
 		for(Map<String,String> map1:UI)
 		{
 			System.out.println(map1.get("Agent Name"));
-			if(!map1.get("Agent Name").toLowerCase().startsWith(reportDetails.getSearchStr()))				
+			if(map1.get("Agent Name").toLowerCase().startsWith(reportDetails.getSearchStr()))				
 				Status= true;
 			else 
 				Status =false;
 		}
 		return Status;
 	}
+	
 	public boolean verifyAdvanceSearchEndsWith(ReportDetails reportDetails) throws Exception {
 		Boolean Status=false;
 		waitForJqueryLoad(driver);
@@ -1171,13 +1174,14 @@ public class OCMAgentAuxReportPage extends BasePage  {
 		for(Map<String,String> map1:UI)
 		{
 			System.out.println(map1.get("Agent Name"));
-			if(!map1.get("Agent Name").toLowerCase().endsWith(reportDetails.getSearchStr()))				
+			if(!map1.get("Agent Name").endsWith(reportDetails.getSearchStr()))				
 				Status= true;
 			else 
 				Status =false;
 		}
 		return Status;
 	}
+	
 	public Boolean advancedSearchANDCriteria(ReportDetails details) throws Exception {
 		Boolean Status=false;	
 		selectWebElement(advancedsearchBtn);
@@ -1208,12 +1212,13 @@ public class OCMAgentAuxReportPage extends BasePage  {
 		waitForJqueryLoad(driver);
 		waitUntilWebElementIsVisible(gridBoxContent);
 		Thread.sleep(2000);
-		if(rowdata.getText().equals(details.getSearchStr()) && rowdata.getText().contains(details.getSearchStr1())) {
+		if(rowdata.getText().equalsIgnoreCase(details.getSearchStr()) && rowdata.getText().contains(details.getSearchStr1().toLowerCase())) 
+		{
 			Status=true;
 		}
 		return Status;	
-
 	}
+	
 	public Boolean advancedSearchORCriteria(ReportDetails details) throws Exception {
 		Boolean Status=false;	
 		selectWebElement(advancedsearchBtn);
@@ -1251,12 +1256,14 @@ public class OCMAgentAuxReportPage extends BasePage  {
 				Status=true;
 		}
 		return Status;	
-
 	}
+	
 	public boolean verifySearchByTextbox(ReportDetails details) throws Exception{	
 		boolean Status=false;
 		selectWebElement(searchbyfeatureTextBox);    
+		Thread.sleep(2000);
 		enterValueToTxtFieldWithoutClear(searchbyfeatureTextBox,details.getSearchStr());
+		Thread.sleep(2000);
 		selectDropdownFromVisibleText(searchbyfeaturelistBox,details.getSearchStr());
 		waitForJqueryLoad(driver);
 		List<Map<String,String>> UI=getDataTable(); 
@@ -1269,6 +1276,7 @@ public class OCMAgentAuxReportPage extends BasePage  {
 		}
 		return Status;	
 	}
+	
 	public boolean verifySearchIsEqualTo(String details) throws Exception {
 		Boolean Status=false;
 		Map<String, String> map=new HashMap<String,String>() ;
@@ -1297,7 +1305,7 @@ public class OCMAgentAuxReportPage extends BasePage  {
 	public boolean groupby() {
 		DragandDrop(auxName,droptarget);
 		try {
-			Thread.sleep(1000);
+			Thread.sleep(5000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}

@@ -64,7 +64,7 @@ public class FaxLineConfigPage extends BasePage{
     private WebElement successmsg;
 
     @FindBy(css = "#toast-container .toast-error .toast-message")
-    private List<WebElement> errorMsg;
+    private WebElement errorMsg;
 
     @FindBy(xpath="//tbody/tr/td[2]")
     private WebElement rowdata;
@@ -213,7 +213,7 @@ public class FaxLineConfigPage extends BasePage{
     @FindBy(xpath="//div[text()='No records to display']")
     private WebElement norecords;
     
-    @FindBy(xpath="//i[@class='fas fa-sync']")
+    @FindBy(xpath="//i[@class='fas fa-sync fa-spin']")
     private WebElement clearsearch;
     
     @FindBy(xpath="//td/a[@class='k-button k-button-icontext k-grid-CustomPreview']")
@@ -363,12 +363,11 @@ public class FaxLineConfigPage extends BasePage{
         if(successmsg.isDisplayed())
         	return successmsg.getText();
         else
-        	return errorMsg.get(0).getText();
+        	return errorMsg.getText();
     }
     
     public boolean getErrorMessage() {
-		waitUntilWebElementListIsVisible(errorMsg);
-		if(errorMsg.size()>0)
+		if(errorMsg.isEnabled())
 		return false;
 		else
 			return true;
@@ -548,8 +547,7 @@ public class FaxLineConfigPage extends BasePage{
 		waitForJqueryLoad(driver);
 		Thread.sleep(1000);
 		selectWebElement(exporttoexcel);
-		waitUntilWebElementListIsVisible(errorMsg);
-		if(errorMsg.get(0).getText().equals("There is no record to export"))
+		if(errorMsg.getText().equals("There is no record to export"))
 			return true;
 		else
 		return false;

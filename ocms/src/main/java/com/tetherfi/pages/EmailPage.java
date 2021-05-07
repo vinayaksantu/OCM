@@ -15,6 +15,9 @@ public class EmailPage extends BasePage {
 	@FindBy(css="#navTabs li")
     private List<WebElement> navTabs;
 
+    @FindBy(css="a[href$='/EmailTemplates/Index']")
+    private WebElement emailTemplates;
+    
     @FindBy(css="a[href$='/EmailTemplate/Index']")
     private WebElement emailTemplate;
 
@@ -33,6 +36,10 @@ public class EmailPage extends BasePage {
 	}
 
 	public void navigateToEmailTemplatesPage() {
+		selectWebElement(emailTemplates);
+	}
+	
+	public void navigateToEmailTemplatePage() {
 		selectWebElement(emailTemplate);
 	}
 

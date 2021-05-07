@@ -45,11 +45,12 @@ public class IntroMessageAnnouncementCreateTest {
             map= new ExcelReader(filePath,"Login").getTestData().get(1);
         else
             map= new ExcelReader(filePath,"Login").getTestData().get(0);
-        try{driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);}catch (TimeoutException e){e.printStackTrace();driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);}
+        try{driver.get("https://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);}catch (TimeoutException e){e.printStackTrace();driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);}
+        LoginPage loginPage=PageFactory.createPageInstance(driver,LoginPage.class);
+        loginPage.overrideSecurityConcern();
         if(map.get("LoginType").equals("Custom")){
-            LoginPage loginPage=PageFactory.createPageInstance(driver,LoginPage.class);
             Assert.assertTrue(loginPage.isLoginPageDisplayed(),"Login page not loaded");
-            loginPage.login(map.get("Username"),map.get("Password"));
+			loginPage.login(map.get("Username"),map.get("Password"),map.get("EmailId"));
             Thread.sleep(5000);
         }
         HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
@@ -65,7 +66,7 @@ public class IntroMessageAnnouncementCreateTest {
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 	}
 	
-	/*@Test(groups= {"Maker"},priority=1)
+	@Test(groups= {"Maker"},priority=1)
     public void VerifyAddCancelButton() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntroMessageAnnouncementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -245,7 +246,8 @@ public class IntroMessageAnnouncementCreateTest {
 	    IntroMessageAnnouncementDetails IntroMessageAnnouncementDetails = new IntroMessageAnnouncementDetails(map);
         IntroMessageAnnouncementPage IntroMessageAnnouncementPage = PageFactory.createPageInstance(driver, IntroMessageAnnouncementPage.class);
         Assert.assertTrue(IntroMessageAnnouncementPage.verifyApprovedSectionData(IntroMessageAnnouncementDetails));
-    }*/
+    }
+    
 	@Test(groups = { "Maker" },priority=19)
     public void AddNewIntroMessageAnnouncementRecord() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntroMessageAnnouncementData.xlsx";
@@ -281,7 +283,7 @@ public class IntroMessageAnnouncementCreateTest {
         Assert.assertTrue(IntroMessageAnnouncementPage.verifyAuditTrail(IntroMessageAnnouncementDetails, "MakerCreate", "New"), "Audit trail details failed");
     }
     
-    @Test(groups = { "Maker" },priority=22,dependsOnMethods="VerifyAuditTrailDataForAddNewIntroMessageAnnouncementRecord")
+    @Test(groups = { "Maker" },priority=22)
     public void VerifySendForApprovalForAddNewIntroMessageAnnouncementRecord() throws Exception {
        	IntroMessageAnnouncementPage IntroMessageAnnouncementPage = PageFactory.createPageInstance(driver, IntroMessageAnnouncementPage.class);
        	IntroMessageAnnouncementPage.selectIntroMessageAnnouncementAuditTrailTab();
@@ -337,7 +339,7 @@ public class IntroMessageAnnouncementCreateTest {
         Assert.assertTrue(IntroMessageAnnouncementPage.verifyApprovedSectionDataafterapproval(IntroMessageAnnouncementDetails));
     }
     
-    /*@Test(groups = { "Maker" },priority=27)//,dependsOnMethods="AddNewIntroMessageAnnouncementRecord")
+    @Test(groups = { "Maker" },priority=27)//,dependsOnMethods="AddNewIntroMessageAnnouncementRecord")
     public void AddDuplicateRecord() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntroMessageAnnouncementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -346,12 +348,12 @@ public class IntroMessageAnnouncementCreateTest {
         IntroMessageAnnouncementPage.addNewIntroMessageAnnouncementRecord(IntroMessageAnnouncementDetails);
         Assert.assertFalse(IntroMessageAnnouncementPage.getErrorMsg(),"Duplicate assetion failed");
        }
-        */
+        
     
     @AfterMethod
     public void afterEachMethod(Method method){
         Screenshot screenshot=new Screenshot(driver);
-        screenshot.captureScreen("IntroMessageAnnouncementTest",method.getName());
+        screenshot.captureScreen("IntroMessageAnnouncementCreateTest",method.getName());
         driver.navigate().refresh();
         HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
         homePage.userLogout();

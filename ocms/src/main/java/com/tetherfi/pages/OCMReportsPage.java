@@ -4,6 +4,7 @@ import com.tetherfi.model.chat.ChatIntentSkillMappingDetails;
 import com.tetherfi.model.chat.ChatMenuDescriptionDetails;
 import com.tetherfi.model.chat.ChatTemplateDetails;
 import com.tetherfi.model.email.EmailTemplateDetails;
+import com.tetherfi.model.email.EmailTemplatesDetails;
 import com.tetherfi.model.fax.FaxAddressBookDetails;
 import com.tetherfi.model.fax.FaxAutoACKConfigurationDetails;
 import com.tetherfi.model.fax.FaxLineConfigDetails;
@@ -27,8 +28,11 @@ import com.tetherfi.model.report.ReportDetails;
 import com.tetherfi.model.sms.SmsResponseTemplateDetails;
 import com.tetherfi.model.tmac.AgentSettingsDetails;
 import com.tetherfi.model.tmac.AgentTeamMgmtDetails;
+import com.tetherfi.model.tmac.AttributesDetails;
+import com.tetherfi.model.tmac.SlotSchedulerDetails;
 import com.tetherfi.model.tmac.TmacAuxCodesDetails;
 import com.tetherfi.model.tmac.TmacBroadCastMsgDetails;
+import com.tetherfi.model.tmac.TmacTransferListDetails;
 import com.tetherfi.model.tmac.WaitTimeColorConfigDetails;
 import com.tetherfi.model.tmac.WorkCodeListDetails;
 import com.tetherfi.model.user.AgentSkillAssignmentNewDetails;
@@ -38,6 +42,7 @@ import com.tetherfi.model.user.ExportSchedulerDetails;
 import com.tetherfi.model.user.SkillConfigurationDetails;
 import com.tetherfi.model.user.TdmThresholdConfigDetails;
 import com.tetherfi.model.user.UserDetails;
+import com.tetherfi.model.user.UserOnBoardingDetails;
 import com.tetherfi.model.user.UserRoleMappingDetails;
 import com.tetherfi.utility.ExcelReader;
 import com.tetherfi.utility.PageFactory;
@@ -130,6 +135,9 @@ public class OCMReportsPage extends BasePage {
 	@FindBy(id = "reportNameLbl")
 	private WebElement reportnameLbl;
 
+	@FindBy(xpath="//span[@id='reportNameLbl']")
+	private WebElement reportnameLbl1;
+
 	@FindBy(id="ExportReportBtn")
 	private WebElement exportReportBtn;
 
@@ -144,6 +152,12 @@ public class OCMReportsPage extends BasePage {
 
 	@FindBy(css="#toast-container .toast-success .toast-message")
 	private WebElement successmsg;
+
+	@FindBy(css="#toast-container .toast toast-success .toast-message")
+	private WebElement Alrtsuccessmsg;
+
+	@FindBy(css="# .toast-success")
+	private WebElement alertSuccesmsg;
 
 	@FindBy(css="#toast-container .toast-error")
 	private List<WebElement> errorMsg;
@@ -317,6 +331,9 @@ public class OCMReportsPage extends BasePage {
 	@FindBy(id = "1001TextToSearch")
 	private WebElement searchTextBoxAdvSrch;
 
+	@FindBy(id = "1001MaskedTextToSearch")
+	private WebElement searchTextBox2;
+
 	@FindBy(xpath="//div[label='Show Advanced Search...']")
 	private WebElement advSrcLabel;
 
@@ -406,6 +423,24 @@ public class OCMReportsPage extends BasePage {
 		//waitUntilWebElementIsVisible(gridBoxContent);
 	}
 
+	public void showReport1(ReportDetails details) throws Exception {
+		chooseReport(details);
+		if(details.getAdvancedsearch().equalsIgnoreCase("Yes")){chooseAdvancedSearchNew1(details);}
+		selectWebElement(showReportBtn.get(0));
+		//waitForLoad(driver);
+		waitForJqueryLoad(driver);
+		//waitUntilWebElementIsVisible(gridBoxContent);
+	}
+
+	public void showReportforCommonReports(ReportDetails details) throws Exception {
+		chooseReport1(details);
+		if(details.getAdvancedsearch().equalsIgnoreCase("Yes")){chooseAdvancedSearchNew(details);}
+		selectWebElement(showReportBtn.get(0));
+		//waitForLoad(driver);
+		waitForJqueryLoad(driver);
+		//waitUntilWebElementIsVisible(gridBoxContent);
+	}
+
 	public void chooseAdvancedSearchNew(ReportDetails details){
 		try{selectWebElement(advancedSearchBtn);
 		selectWebElement(searchColDropdownAdvSrchReportPage);
@@ -414,11 +449,31 @@ public class OCMReportsPage extends BasePage {
 		Thread.sleep(2000);
 		selectWebElement(searchCriteriaDropdownAdvSrch);
 		selectDropdownFromVisibleText(searchCriteriaListboxAdvSrch,details.getColtype());
-		enterValueToTxtField(searchTextBoxAdvSrch,details.getSearchStr());
+		enterValueToTxtFieldWithoutClear(searchTextBoxAdvSrch,details.getSearchStr());
+		}catch(Exception e){e.printStackTrace();}}
+
+	public void chooseAdvancedSearchNew1(ReportDetails details){
+		try{selectWebElement(advancedSearchBtn);
+		selectWebElement(searchColDropdownAdvSrchReportPage);
+		Thread.sleep(2000);
+		selectDropdownFromVisibleText(searchColListBoxAdvSrchReportPage,details.getColname());
+		Thread.sleep(2000);
+		selectWebElement(searchCriteriaDropdownAdvSrch);
+		selectDropdownFromVisibleText(searchCriteriaListboxAdvSrch,details.getColtype());
+		selectWebElement(searchTextBox2);
+		enterValueToTxtFieldWithoutClear(searchTextBox2,details.getSearchStr());		
 		}catch(Exception e){e.printStackTrace();}}
 
 	public void showReportInNewPage(ReportDetails details) throws Exception {
 		chooseReport(details);
+		selectWebElement(showReportBtn.get(1));
+		switchToNewWindow();
+		waitForLoad(driver);
+		waitForJqueryLoad(driver);
+		waitUntilWebElementIsVisible(gridBoxContent);
+	}
+	public void showReportInNewPage1(ReportDetails details) throws Exception {
+		chooseReport1(details);
 		selectWebElement(showReportBtn.get(1));
 		switchToNewWindow();
 		waitForLoad(driver);
@@ -433,6 +488,11 @@ public class OCMReportsPage extends BasePage {
 
 	public void scheduleReport(ReportDetails details) throws Exception{
 		chooseReport(details);
+		waitForJqueryLoad(driver);
+		selectWebElement(scheduleReport);
+	}
+	public void scheduleReport1(ReportDetails details) throws Exception{
+		chooseReport1(details);
 		waitForJqueryLoad(driver);
 		selectWebElement(scheduleReport);
 	}
@@ -486,7 +546,9 @@ public class OCMReportsPage extends BasePage {
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
 		String date = simpleDateFormat.format(new Date());
 		Map<String,String> map=getFirstRowDatafromTable();
+		System.out.println(map);
 		if(map.get("Report Name").equalsIgnoreCase(reportname)){
+
 			if(map.get("Report Generated On").contains(date)){return true;}
 			else{System.out.println("Wrong Report Generated Date:"+map.get("Report Generated On"));
 			return false;}
@@ -494,8 +556,45 @@ public class OCMReportsPage extends BasePage {
 		else{System.out.println("Wrong Report Name:"+map.get("Report Name"));return false;}
 	}
 
-	public boolean verifyReportDisplayed(ReportDetails details) {
+	public boolean verifyReportDisplayed(ReportDetails details) throws Exception{
+		waitForJqueryLoad(driver);
+		Thread.sleep(2000);
+		System.out.println(details.getReportChannel());
+		System.out.println(details.getReportName());
+		System.out.println(details.getReportDate());
+		System.out.println(reportnameLbl.getText());
+		System.out.println("OCM Reports > " + details.getReportChannel() + " > " + details.getReportName() + " on " + details.getReportDate());
 		if (reportnameLbl.getText().contains("OCM Reports > " + details.getReportChannel() + " > " + details.getReportName() + " on " + details.getReportDate())) {
+			System.out.println(reportnameLbl.getText());
+			return true;
+		} else {
+			return false;
+		}
+	}
+	public boolean verifyReportDisplayedforSocialMedia(ReportDetails details) throws Exception{
+		waitForJqueryLoad(driver);
+		Thread.sleep(2000);
+		System.out.println(details.getReportChannel());
+		System.out.println(details.getReportName());
+		System.out.println(details.getReportDate());
+		System.out.println(reportnameLbl.getText());
+		System.out.println("OCM Reports > " + details.getReportChannel() + " > " + details.getReportName() + " on " + details.getReportDate());
+		if (reportnameLbl.getText().contains("OCM Reports > " + details.getReportChannel1() + " > " + details.getReportName() + " on " + details.getReportDate())) {
+			System.out.println(reportnameLbl.getText());
+			return true;
+		} else {
+			return false;
+		}
+	}
+	public boolean verifyReportDisplayedwithoutDateAndTime(ReportDetails details) throws Exception {
+		waitForJqueryLoad(driver);
+		Thread.sleep(2000);
+		System.out.println(details.getReportChannel());
+		System.out.println(details.getReportName());
+		System.out.println(details.getReportDate());
+		System.out.println(reportnameLbl1.getText());
+		if (reportnameLbl1.getText().contains("OCM Reports > " + details.getReportChannel() + " > " + details.getReportName())) {
+
 			return true;
 		} else {
 			return false;
@@ -646,7 +745,17 @@ public class OCMReportsPage extends BasePage {
 
 	public boolean verifyDateRangeReportDisplayed(ReportDetails details) {
 		System.out.println(reportnameLbl.getText());
+		System.out.println("OCM Reports > " + details.getReportChannel() + " > " + details.getReportName() + " from " + details.getStartDate()+" to "+details.getEndDate());
 		if (reportnameLbl.getText().contains("OCM Reports > " + details.getReportChannel() + " > " + details.getReportName() + " from " + details.getStartDate()+" to "+details.getEndDate())){
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public boolean verifyDateRangeReportDisplayedforSocialmedia(ReportDetails details) {
+		System.out.println(reportnameLbl.getText());
+		if (reportnameLbl.getText().contains("OCM Reports > " + details.getReportChannel1() + " > " + details.getReportName() + " from " + details.getStartDate()+" to "+details.getEndDate())){
 			return true;
 		} else {
 			return false;
@@ -657,7 +766,11 @@ public class OCMReportsPage extends BasePage {
 		waitForJqueryLoad(driver);
 		//if(errorMsg.size()>0){return false;}
 		if(waitUntilTextToBePresentInWebElement(successmsg,"Report Export is Initiated... Notification will be sent once Completed"))
-		{return true;}else{return false;}
+		{return true;}
+		else
+			if(waitUntilTextToBePresentInWebElement(errorMsg1,"There is no record to export")) { 
+				return true;}
+			else{return false;}
 	}
 
 	public  boolean verifyExportReport() {
@@ -692,7 +805,7 @@ public class OCMReportsPage extends BasePage {
 	public void chooseReport(ReportDetails details) throws Exception{
 		waitUntilWebElementIsVisible(formContents);
 		try {
-			Thread.sleep(5000);
+			Thread.sleep(8000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
@@ -713,6 +826,20 @@ public class OCMReportsPage extends BasePage {
 			enterValueToTxtField(endDate,formatDate(details.getEndDate()));
 			endDate.sendKeys(Keys.TAB);
 		}
+	}
+	public void chooseReport1(ReportDetails details) throws Exception{
+		waitUntilWebElementIsVisible(formContents);
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		selectWebElement(reportChannelDropdown);
+		selectDropdownFromVisibleText(reportChannelListBox, details.getReportChannel());
+		waitForJqueryLoad(driver);
+		selectWebElement(reportNameDropdown);
+		selectDropdownFromVisibleText(reportNameListbox, details.getReportName());
+		waitForJqueryLoad(driver);
 	}
 
 	public boolean reportChannelValidation() throws Exception
@@ -1143,6 +1270,7 @@ public class OCMReportsPage extends BasePage {
 		List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
 		List<WebElement> cols=rows.get(1).findElements(By.tagName("td"));
 		for(int j=0;j<headers.size();j++){
+			scrollToElement(headers.get(j));
 			map.put(headers.get(j).getText(),cols.get(j).getText());
 		}
 		return map;
@@ -1531,7 +1659,7 @@ public class OCMReportsPage extends BasePage {
 		Thread.sleep(1000);
 		selectWebElement(selectSearchColumn.get(3));
 		selectDropdownFromVisibleText(searchTypeListtwo,"Contains");
-		enterValueToTxtField(searchTextBoxtwo,Name);
+		enterValueToTxtFieldWithoutClear(searchTextBoxtwo,Name);
 		selectWebElement(searchSearchBtn);
 		waitForJqueryLoad(driver);
 		waitUntilWebElementIsVisible(gridContent);
@@ -2259,7 +2387,7 @@ public class OCMReportsPage extends BasePage {
 	}
 
 	public boolean verifyFaxLineConfigdelete(FaxLineConfigDetails details, String Transaction) throws Exception {
-		booleansearchold(details.getStatus(),Transaction);
+		booleansearchold(details.getDescription(),Transaction);
 		System.out.println(workcode);
 		Boolean Status=false;
 		Map<String,String> firstRowData=getFirstRowDatafromTable1();
@@ -2318,7 +2446,7 @@ public class OCMReportsPage extends BasePage {
 			{
 				if(newvalues.get("FaxNumber").equals(details.getFaxNumber()))
 				{
-					if(newvalues.get("Type").equals(details.getSenderType()))
+					if(newvalues.get("Sender Type").equals(details.getSenderType()))
 					{
 						Status= true;
 					}
@@ -2348,7 +2476,7 @@ public class OCMReportsPage extends BasePage {
 			if(oldvalues.get("DNIS").equals(details.getFaxLine())){
 				if(oldvalues.get("Name").equals(details.getName())) {
 					if(oldvalues.get("FaxNumber").equals(details.getFaxNumber())){
-						if(oldvalues.get("Type").equals(details.getSenderType())){
+						if(oldvalues.get("Sender Type").equals(details.getSenderType())){
 							if(firstRowData.containsKey("New Values")) {
 								Map<String,String> newvalues=new HashMap<>();
 								String[]d1=firstRowData.get("New Values").split("\n");
@@ -2360,7 +2488,7 @@ public class OCMReportsPage extends BasePage {
 								if(newvalues.get("DNIS").equals(details.getFaxLine())){
 									if(newvalues.get("Name").equals(details.getUpdatedName())){
 										if(newvalues.get("FaxNumber").equals(details.getFaxNumber())){
-											if(newvalues.get("Type").equals(details.getUpdatedSenderType())){
+											if(newvalues.get("Sender Type").equals(details.getUpdatedSenderType())){
 												if(newvalues.get("ModifyReason").equals(details.getModifyReason())) {
 													if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getModifyReason()))
 														Status=true;
@@ -2407,7 +2535,7 @@ public class OCMReportsPage extends BasePage {
 			{
 				if(oldvalues.get("FaxNumber").equals(details.getFaxNumber()))
 				{
-					if(oldvalues.get("Type").equals(details.getSenderType())) {
+					if(oldvalues.get("Sender Type").equals(details.getSenderType())) {
 						if(oldvalues.get("ModifyReason").equals(details.getDeleteReason())) {
 							if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getDeleteReason()))
 								Status=true;
@@ -2442,7 +2570,7 @@ public class OCMReportsPage extends BasePage {
 			{
 				if(newvalues.get("RouteType").equals(details.getRouteType()))
 				{
-					if(newvalues.get("Type").equals(details.getSenderType()))
+					if(newvalues.get("Sender Type").equals(details.getSenderType()))
 					{
 						if(newvalues.get("RouteData").equals(details.getRouteData()))
 							Status= true;
@@ -2472,7 +2600,7 @@ public class OCMReportsPage extends BasePage {
 					oldvalues.put(f[0], f[1]);
 			}
 			if(oldvalues.get("DNIS").equals(details.getFaxLine())){
-				if(oldvalues.get("Type").equals(details.getSenderType())){
+				if(oldvalues.get("Sender Type").equals(details.getSenderType())){
 					if(oldvalues.get("Intent").equals(details.getIntent())) {
 						if(oldvalues.get("RouteType").equals(details.getRouteType())){
 							if(oldvalues.get("RouteData").equals(details.getRouteData())){
@@ -2485,10 +2613,10 @@ public class OCMReportsPage extends BasePage {
 											newvalues.put(f[0], f[1]);
 									}
 									if(newvalues.get("DNIS").equals(details.getFaxLine())){
-										if(newvalues.get("Type").equals(details.getSenderType())){
+										if(newvalues.get("Sender Type").equals(details.getSenderType())){
 											if(newvalues.get("Intent").equals(details.getIntent())) {
 												if(newvalues.get("RouteType").equals(details.getRouteType())){
-													if(newvalues.get("RouteData").equals(details.getRouteData())){
+													if(newvalues.get("RouteData").contains(details.getRouteData())){
 														if(newvalues.get("Modify Reason").equals(details.getModifyReason())) {
 															if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getModifyReason()))
 																Status=true;
@@ -2535,7 +2663,7 @@ public class OCMReportsPage extends BasePage {
 		}
 		if(oldvalues.get("DNIS").equals(details.getFaxLine()))
 		{
-			if(oldvalues.get("Type").equals(details.getSenderType()))
+			if(oldvalues.get("Sender Type").equals(details.getSenderType()))
 			{
 				if(oldvalues.get("Intent").equals(details.getIntent()))
 				{
@@ -3696,9 +3824,7 @@ public class OCMReportsPage extends BasePage {
 						if(newvalues.get("Parameter").equals(details.getParameter())) {
 							if(newvalues.get("Value").equals(details.getUpdatedValue())) {
 								if(newvalues.get("ModifyReason").equals(details.getModifyReason())) {
-									if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getModifyReason()))
 										Status=true;
-									else System.out.println("Change reason data mismatch");
 								}
 								else System.out.println("Modify reason data mismatch");
 							}
@@ -6050,6 +6176,7 @@ public class OCMReportsPage extends BasePage {
 		else{return errorMsg.get(0).getText();}	
 	}			
 
+
 	public boolean verifyExportSchedulerCreate(ExportSchedulerDetails details, String Transaction) throws Exception {
 		booleansearchnew(details.getName(),Transaction);
 		Boolean Status=false;
@@ -6504,9 +6631,7 @@ public class OCMReportsPage extends BasePage {
 		else
 			status=true;
 		return status;
-
 	}
-
 
 	public boolean verifyExportedSheet(String pattern, String SheetName) throws Exception {	
 		List<Map<String,String>> UI=getdata(); 
@@ -6539,6 +6664,7 @@ public class OCMReportsPage extends BasePage {
 	}
 
 	private List<Map<String,String>> getdata() throws Exception{
+		waitForJqueryLoad(driver);
 		int item=Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
 		int pagersize=Integer.valueOf(pagerSize.getText());
 		int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
@@ -6563,7 +6689,9 @@ public class OCMReportsPage extends BasePage {
 			if(k!=pages)
 			{
 				nextPageIcon.click();
-				waitForJqueryLoad(driver);}
+				Thread.sleep(5000);
+				//waitForJqueryLoad(driver);
+			}
 		}
 		return arr;
 	}
@@ -6574,27 +6702,51 @@ public class OCMReportsPage extends BasePage {
 		selectWebElement(ClearAll);
 	}
 
-	public void deleteWithoutDeleteReason(ReportDetails details) throws Exception {
+	public void ClearHomepgDrpDown1(ReportDetails details) throws Exception {
+		chooseReport1(details);
+		waitUntilWebElementIsClickable(ClearAll);
+		selectWebElement(ClearAll);
+	}
 
+	public boolean deleteWithoutDeleteReason(ReportDetails details) throws Exception {
+		boolean status=false;
+		waitForJqueryLoad(driver);
 		waitUntilWebElementIsVisible(deleteReportinInReportDownloadpage.get(0));
 		selectWebElement(deleteReportinInReportDownloadpage.get(0));
 		waitForJqueryLoad(driver);
 		selectWebElement(deleteYesBtn);
+		//waitForJqueryLoad(driver);
+		waitUntilWebElementIsVisible(errorMsg.get(0));
+		System.out.println(errorMsg.get(0).getText());
+		if(errorMsg.get(0).getText().equals("×\nPlease enter the delete reason"))
+		{status=true;}
+		else
+		{status=false;}
 		selectWebElement(deleteNoBtn);
+		return status;
+
 	}
 	public void deletecancelButton(ReportDetails details) throws Exception{	
 		waitUntilWebElementIsVisible(deleteReportinInReportDownloadpage.get(0));
 		selectWebElement(deleteReportinInReportDownloadpage.get(0));
 		selectWebElement(deleteNoBtn);
 	}
-	public void deleteRecordAtReportsDownloadsPage(ReportDetails details) throws Exception {
-
+	public boolean deleteRecordAtReportsDownloadsPage(ReportDetails details) throws Exception {
+		boolean status=false;
 		waitUntilWebElementIsVisible(deleteReportinInReportDownloadpage.get(0));
 		selectWebElement(deleteReportinInReportDownloadpage.get(0));
 		waitForJqueryLoad(driver);
 		enterValueToTxtFieldWithoutClear(deleteReasonTextBox,details.getDeleteReason());
-		selectWebElement(deleteYesBtn);	
+		selectWebElement(deleteYesBtn);
+		waitForJqueryLoad(driver);
 		selectWebElement(alertOk);
+		waitForJqueryLoad(driver);
+		System.out.println(successmsg.getText());
+		if(successmsg.getText().equalsIgnoreCase("Report Deleted"))
+		{status=true;}
+		else
+		{status=false;}
+		return status;
 	}
 	public boolean verifyDeleteContainer() {
 		try {
@@ -6620,7 +6772,6 @@ public class OCMReportsPage extends BasePage {
 		waitForJqueryLoad(driver);
 		selectWebElement(quickInputBtn);
 		System.out.println(details.getNumber());
-		int num=Integer.parseInt(details.getNumber());
 		waitUntilWebElementIsVisible(numberDropdown);
 		selectWebElement(numberDropdown);
 		selectDropdownFromVisibleText(NumberTypeListbox,details.getCalendarType());
@@ -7634,6 +7785,924 @@ public class OCMReportsPage extends BasePage {
 		else {System.out.println("Old values data mismatch");}
 		return Status;
 	}
+
+	private List<Map<String,String>> getdataforniceReport() throws Exception{
+		int item=Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
+		int pagersize=Integer.valueOf(pagerSize.getText());
+		int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
+		List<Map<String,String>> arr=new ArrayList<Map<String,String>>();
+		for(int k=0;k<=pages;k++){
+			waitUntilWebElementIsVisible(auditGridContent);
+			List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
+			List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
+			String col=null;
+			for(int i=1;i<rows.size();i++) {
+				Map<String,String> map = new HashMap<String,String>();
+				List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
+				for(int j=0;j<headers.size();j++) {
+					scrollToElement(headers.get(j));
+					if(headers.get(j).getText()=="Send Data to Nice")
+						map.remove("");
+					col=cols.get(j).getText();
+					map.put(headers.get(j).getText(),col);
+					Thread.sleep(1000);
+				}
+				map.remove("");
+				arr.add(map);
+			}
+			if(k!=pages)
+			{
+				nextPageIcon.click();
+				waitForJqueryLoad(driver);}
+		}
+		return arr;
+	}
+
+	public boolean verifyTmacConsultTransferCreate(TmacTransferListDetails details, String Transaction) throws Exception {
+		booleansearchnew(details.getName(),Transaction);
+		Boolean Status=false;
+		Map<String,String> firstRowData=getFirstRowDatafromTable1();
+		Map<String,String> newvalues=new HashMap<>();
+		String[]d=firstRowData.get("New Values").split("\n");
+		for(String e:d) {
+			String f[]=e.split(":",2);
+			if(f.length>1)
+				newvalues.put(f[0], f[1]);
+		}
+		if(newvalues.get("Name").equals(details.getName()))
+		{
+			if(newvalues.get("Value").equals(details.getAgentExtension()))
+			{
+				if(newvalues.get("Type").equals(details.getType()))
+					Status= true;
+				else {System.out.println("Type data mismatch");}
+			}
+			else {System.out.println("Value data mismatch");}
+		}
+		else {System.out.println("Name data mismatch");}
+		return Status;
+	}
+
+	public boolean verifyTmacConsultTransferUpdate(TmacTransferListDetails details, String Transaction) throws Exception {
+		booleansearchnew(details.getUpdName(),Transaction);
+		Boolean Status=false;
+		Map<String,String> firstRowData=getFirstRowDatafromTable1();
+		if(firstRowData.containsKey("Old Values")) {
+			Map<String,String> oldvalues=new HashMap<>();
+			String[]d=firstRowData.get("Old Values").split("\n");
+			for(String e:d) {
+				System.out.println(e);
+				String f[]=e.split(":",2);
+				if(f.length>1)
+					oldvalues.put(f[0], f[1]);
+			}
+			if(oldvalues.get("Name").equals(details.getName())){
+				if(oldvalues.get("Value").equals(details.getAgentExtension())){
+					if(oldvalues.get("Type").equals(details.getType())) {
+						if(firstRowData.containsKey("New Values")) {
+							Map<String,String> newvalues=new HashMap<>();
+							String[]d1=firstRowData.get("New Values").split("\n");
+							for(String e:d1) {
+								String f[]=e.split(":",2);
+								if(f.length>1)
+									newvalues.put(f[0], f[1]);
+							}
+							if(newvalues.get("Name").equals(details.getUpdName())){
+								if(newvalues.get("Value").equals(details.getAgentExtension())){
+									if(newvalues.get("Type").equals(details.getType())) {
+										if(newvalues.get("ModifyReason").equals(details.getModReason())) {
+											if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getModReason()))
+												Status=true;
+											else System.out.println("Change reason data mismatch");
+										}
+										else System.out.println("Modify reason data mismatch");}
+									else {System.out.println("Type data mismatch");}
+								}
+								else {System.out.println("Value data mismatch");}
+							}
+							else {System.out.println("Name data mismatch");	}	
+						}
+						else {System.out.println("New values data mismatch");}
+					}
+					else {System.out.println("Type data mismatch");}
+				}
+				else {System.out.println("Value data mismatch");}
+			}
+			else {System.out.println("Name data mismatch");	}	
+		}
+		else {System.out.println("Old values data mismatch");}
+		return Status;
+	}
+
+	public boolean verifyTmacConsultTransferdelete(TmacTransferListDetails details, String Transaction) throws Exception {
+		booleansearchold(details.getName(),Transaction);
+		Boolean Status=false;
+		Map<String,String> firstRowData=getFirstRowDatafromTable1();
+		Map<String,String> oldvalues=new HashMap<>();
+		String[]d=firstRowData.get("Old Values").split("\n");
+		for(String e:d) {
+			String f[]=e.split(":",2);
+			if(f.length>1)
+				oldvalues.put(f[0], f[1]);
+		}
+		if(oldvalues.get("Name").equals(details.getName()))
+		{
+			if(oldvalues.get("Value").equals(details.getAgentExtension()))
+			{
+				if(oldvalues.get("Type").equals(details.getType()))
+				{
+					if(oldvalues.get("ModifyReason").equals(details.getDeleteReason())) {
+						if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getDeleteReason()))
+							Status=true;
+						else System.out.println("Change reason data mismatch");
+					}
+					else System.out.println("Modify reason data mismatch");
+				}
+				else {System.out.println("Type data mismatch");}
+			}
+			else {System.out.println("Value data mismatch");}
+		}
+		else {System.out.println("Name data mismatch");}
+		return Status;
+	}
+
+	public boolean verifyTmacBlindTransferCreate(TmacTransferListDetails details, String Transaction) throws Exception {
+		booleansearchnew(details.getName(),Transaction);
+		Boolean Status=false;
+		Map<String,String> firstRowData=getFirstRowDatafromTable1();
+		Map<String,String> newvalues=new HashMap<>();
+		String[]d=firstRowData.get("New Values").split("\n");
+		for(String e:d) {
+			String f[]=e.split(":",2);
+			if(f.length>1)
+				newvalues.put(f[0], f[1]);
+		}
+		if(newvalues.get("Channel").equals(details.getChannel()))
+		{
+			if(newvalues.get("SkillName").equals(details.getSkillName()))
+			{
+				if(newvalues.get("Vdn").equals(details.getVdn()))
+					Status= true;
+				else {System.out.println("Vdn data mismatch");}
+			}
+			else {System.out.println("SkillName data mismatch");}
+		}
+		else {System.out.println("Channel data mismatch");}
+		return Status;
+	}
+
+	public boolean verifyTmacBlindTransferUpdate(TmacTransferListDetails details, String Transaction) throws Exception {
+		booleansearchnew(details.getSkillNameUpdate(),Transaction);
+		Boolean Status=false;
+		Map<String,String> firstRowData=getFirstRowDatafromTable1();
+		if(firstRowData.containsKey("Old Values")) {
+			Map<String,String> oldvalues=new HashMap<>();
+			String[]d=firstRowData.get("Old Values").split("\n");
+			for(String e:d) {
+				System.out.println(e);
+				String f[]=e.split(":",2);
+				if(f.length>1)
+					oldvalues.put(f[0], f[1]);
+			}
+			if(oldvalues.get("Channel").equals(details.getChannel())){
+				if(oldvalues.get("SkillName").equals(details.getSkillName())){
+					if(oldvalues.get("Vdn").equals(details.getVdn())) {
+						if(firstRowData.containsKey("New Values")) {
+							Map<String,String> newvalues=new HashMap<>();
+							String[]d1=firstRowData.get("New Values").split("\n");
+							for(String e:d1) {
+								String f[]=e.split(":",2);
+								if(f.length>1)
+									newvalues.put(f[0], f[1]);
+							}
+							if(newvalues.get("Channel").equals(details.getChannelUpdate())){
+								if(newvalues.get("SkillName").equals(details.getSkillNameUpdate())){
+									if(newvalues.get("Vdn").equals(details.getVdn())) {
+										if(newvalues.get("ModifyReason").equals(details.getModReason())) {
+											if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getModReason()))
+												Status=true;
+											else System.out.println("Change reason data mismatch");
+										}
+										else System.out.println("Modify reason data mismatch");}
+									else {System.out.println("Vdn data mismatch");}
+								}
+								else {System.out.println("SkillName data mismatch");}
+							}
+							else {System.out.println("Channel data mismatch");	}	
+						}
+						else {System.out.println("New values data mismatch");}
+					}
+					else {System.out.println("Vdn data mismatch");}
+				}
+				else {System.out.println("SkillName data mismatch");}
+			}
+			else {System.out.println("Channel data mismatch");	}	
+		}
+		else {System.out.println("Old values data mismatch");}
+		return Status;
+	}
+
+	public boolean verifyTmacBlindTransferdelete(TmacTransferListDetails details, String Transaction) throws Exception {
+		booleansearchold(details.getSkillName(),Transaction);
+		Boolean Status=false;
+		Map<String,String> firstRowData=getFirstRowDatafromTable1();
+		Map<String,String> oldvalues=new HashMap<>();
+		String[]d=firstRowData.get("Old Values").split("\n");
+		for(String e:d) {
+			String f[]=e.split(":",2);
+			if(f.length>1)
+				oldvalues.put(f[0], f[1]);
+		}
+		if(oldvalues.get("Channel").equals(details.getChannel()))
+		{
+			if(oldvalues.get("SkillName").equals(details.getSkillName()))
+			{
+				if(oldvalues.get("Vdn").equals(details.getVdn()))
+				{
+					if(oldvalues.get("ModifyReason").equals(details.getDeleteReason())) {
+						if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getDeleteReason()))
+							Status=true;
+						else System.out.println("Change reason data mismatch");
+					}
+					else System.out.println("Modify reason data mismatch");
+				}
+				else {System.out.println("Vdn data mismatch");}
+			}
+			else {System.out.println("SkillName data mismatch");}
+		}
+		else {System.out.println("Channel data mismatch");}
+		return Status;
+	}
+
+	public boolean verifyEmailTemplatesCreate(EmailTemplatesDetails details, String Transaction) throws Exception {
+		booleansearchnew(details.getTemplateName(),Transaction);
+		Boolean Status=false;
+		Map<String,String> firstRowData=getFirstRowDatafromTable1();
+		Map<String,String> newvalues=new HashMap<>();
+		String[]d=firstRowData.get("New Values").split("\n");
+		for(String e:d) {
+			String f[]=e.split(":",2);
+			if(f.length>1)
+				newvalues.put(f[0], f[1]);
+		}
+		if(newvalues.get("TemplateName").equals(details.getTemplateName())) {
+			if(newvalues.get("Subject").equals(details.getSubject())) {
+				if(newvalues.get("Enabled").equals(details.getEnabled())) {
+					if(newvalues.get("Type").equals(details.getType())) {
+						if(newvalues.get("Text").equals(details.getText())) {
+							Status=true;
+						}
+						else {System.out.println("Text data mismatch");}
+					}
+					else {System.out.println("Type data mismatch");}
+				}
+				else {System.out.println("Enabled data mismatch");}
+			}
+			else {System.out.println("Subject data mismatch");}
+		}
+		else {System.out.println("Name data mismatch");}
+		return Status;
+	}
+
+	public boolean verifyEmailTemplatesUpdate(EmailTemplatesDetails details, String Transaction) throws Exception {
+		booleansearchnew(details.getUpdatedSubject(),Transaction);
+		Boolean Status=false;
+		Map<String,String> firstRowData=getFirstRowDatafromTable1();
+		if(firstRowData.containsKey("Old Values")) {
+			Map<String,String> oldvalues=new HashMap<>();
+			String[]d=firstRowData.get("Old Values").split("\n");
+			for(String e:d) {
+				System.out.println(e);
+				String f[]=e.split(":",2);
+				if(f.length>1)
+					oldvalues.put(f[0], f[1]);
+			}
+			if(oldvalues.get("TemplateName").equals(details.getTemplateName())) {
+				if(oldvalues.get("Subject").equals(details.getSubject())){
+					if(oldvalues.get("Enabled").equals(details.getEnabled())) {
+						if(oldvalues.get("Type").equals(details.getType())) {
+							if(oldvalues.get("Text").equals(details.getText())) {
+
+								if(firstRowData.containsKey("New Values")) {
+									Map<String,String> newvalues=new HashMap<>();
+									String[]d1=firstRowData.get("New Values").split("\n");
+									for(String e:d1) {
+										String f[]=e.split(":",2);
+										if(f.length>1)
+											newvalues.put(f[0], f[1]);
+									}
+									if(newvalues.get("TemplateName").equals(details.getTemplateName())) {
+										if(newvalues.get("Subject").equals(details.getUpdatedSubject())) {
+											if(newvalues.get("Enabled").equals(details.getEnabled())) {
+												if(newvalues.get("Type").equals(details.getType())) {
+													if(newvalues.get("Text").equals(details.getText())) {
+
+														if(newvalues.get("ModifyReason").equals(details.getModifyReason())){ 
+															Status=true;
+														}
+														else System.out.println("Modify reason data mismatch");
+													}
+													else {System.out.println("Text data mismatch");}
+												}
+												else {System.out.println("Type data mismatch");}
+											}
+											else {System.out.println("Enabled data mismatch");}
+										}
+										else {System.out.println("Subject data mismatch");}
+									}
+									else {System.out.println("Name data mismatch");}
+								}
+								else System.out.println("New Values data mismatch");
+							}
+							else {System.out.println("Text data mismatch");}
+						}
+						else {System.out.println("Type data mismatch");}
+					}
+					else {System.out.println("Enabled data mismatch");}
+				}
+				else {System.out.println("Subject data mismatch");}
+			}
+			else {System.out.println("Name data mismatch");}
+		}
+		else {System.out.println("Old values data mismatch");}
+		return Status;
+	}
+
+	public boolean verifyEmailTemplatesDelete(EmailTemplatesDetails details, String Transaction) throws Exception {
+		booleansearchold(details.getTemplateName(),Transaction);
+		Boolean Status=false;
+		Map<String,String> firstRowData=getFirstRowDatafromTable1();
+		Map<String,String> oldvalues=new HashMap<>();
+		String[]d=firstRowData.get("Old Values").split("\n");
+		for(String e:d) {
+			String f[]=e.split(":",2);
+			if(f.length>1)
+				oldvalues.put(f[0], f[1]);
+		}
+		if(oldvalues.get("TemplateName").equals(details.getTemplateName())) {
+			if(oldvalues.get("Subject").equals(details.getSubject())){
+				if(oldvalues.get("Enabled").equals(details.getEnabled())) {
+					if(oldvalues.get("Type").equals(details.getType())) {
+						if(oldvalues.get("Text").equals(details.getText())) {
+							if(oldvalues.get("ModifyReason").equals(details.getDeleteReason())) {
+								Status=true;
+							}
+							else System.out.println("Modify reason data mismatch");
+						}
+						else {System.out.println("Text data mismatch");}
+					}
+					else {System.out.println("Type data mismatch");}
+				}
+				else {System.out.println("Enabled data mismatch");}
+			}
+			else {System.out.println("Subject data mismatch");}
+		}
+		else {System.out.println("Name data mismatch");}
+		return Status;
+	}
+
+	public boolean verifyAttributesCreate(AttributesDetails details,String Transaction) throws Exception {
+		booleansearchnew(details.getName(),Transaction);
+		Boolean Status=false;
+		Map<String,String> firstRowData= getFirstRowDatafromTable1();
+		Map<String,String> newvalues=new HashMap<>();
+		String[]d=firstRowData.get("New Values").split("\n");
+		for(String e:d) {
+			String f[]=e.split(":",2);
+			if(f.length>1)
+				newvalues.put(f[0], f[1]);
+		}
+		if(newvalues.get("Name").equals(details.getName()))
+		{
+			if(newvalues.get("Category").equals(details.getCategory()))
+			{
+				if(newvalues.get("IsEnabled").equals(details.getisEnabled()))
+				{
+					if(newvalues.get("Priority").equals(details.getPriorityLevel())) 
+					{  
+						Status=true;
+					}
+					else {System.out.println("Priority Data Mismatch");}
+				}
+				else {System.out.println("IsEnabled Data Mismatch");}
+			}
+			else {System.out.println("Category Data Mismatch");}
+		}
+		else {System.out.println("Name Data Mismatch");}
+
+		return Status;
+	}
+
+	public boolean verifyAttributesUpdate(AttributesDetails details,String Transaction) throws Exception {
+		booleansearchnew(details.getName(),Transaction);
+		boolean Status=false;
+		Map<String,String> firstRowData=getFirstRowDatafromTable1();
+		if(firstRowData.containsKey("Old Values")) {
+			Map<String,String> oldvalues=new HashMap<>();
+			String []d=firstRowData.get("Old Values").split("\n");
+			for(String e:d) {
+				System.out.println(e);
+				String f[]=e.split(":", 2);
+				if(f.length>1)
+					oldvalues.put(f[0], f[1]);
+			}
+			if(oldvalues.get("Name").equals(details.getName())) {
+				if(oldvalues.get("Category").equals(details.getCategory())) {
+					if(oldvalues.get("IsEnabled").equals(details.getisEnabled())) {
+						if(oldvalues.get("Priority").equals(details.getPriorityLevel())) {
+							if(firstRowData.containsKey("New Values")) {
+								Map<String,String>newvalues=new HashMap<>();
+								String []d1=firstRowData.get("New Values").split("\n");
+								for(String e:d1) {
+									System.out.println(e);
+									String f[]=e.split(":", 2);
+									if(f.length>1)
+										newvalues.put(f[0], f[1]);
+								}
+								if(newvalues.get("Name").equals(details.getName())) {
+									if(newvalues.get("Category").equals(details.getCategory())) {
+										if(newvalues.get("IsEnabled").equals(details.getisEnabled())) {
+											if(newvalues.get("Priority").equals(details.getUpdatedPriorityLevel())) {
+												if(newvalues.get("ModifyReason").equals(details.getModifyReason()))
+												{
+													Status=true;
+												}
+												else {System.out.println("ModifyReason Data Mismatch");}
+											}
+											else {System.out.println("Priority Data Mismatch");}
+										}
+										else {System.out.println("IsEnabled Data Mismatch");}
+									}
+									else {System.out.println("Category Data Mismatch");}
+								}
+								else {System.out.println("Name Data Mismatch");}
+							}
+							else {System.out.println("Priority Data Mismatch");}
+						}
+						else {System.out.println("IsEnabled Data Mismatch");}
+					}
+					else {System.out.println("Category Data Mismatch");}
+				}
+				else {System.out.println("Name Data Mismatch");}
+			}
+		}
+		return Status;
+	}
+
+	public boolean verifyAttributesDelete(AttributesDetails details,String Transaction) throws Exception {
+		booleansearchold(details.getName(),Transaction);
+		Boolean Status=false;
+		Map<String,String> firstRowData= getFirstRowDatafromTable1();
+		Map<String,String> oldvalues=new HashMap<>();
+		String[]d=firstRowData.get("Old Values").split("\n");
+		for(String e:d) {
+			String f[]=e.split(":",2);
+			if(f.length>1)
+				oldvalues.put(f[0], f[1]);
+		}
+		if(oldvalues.get("Name").equals(details.getName()))
+		{
+			if(oldvalues.get("Category").equals(details.getCategory()))
+			{
+				if(oldvalues.get("IsEnabled").equals(details.getisEnabled()))
+				{
+					if(oldvalues.get("Priority").equals(details.getPriorityLevel()))
+					{
+						if(oldvalues.get("ModifyReason").equals(details.getDeleteReason()))
+						{  
+							Status=true;
+						}
+						else {System.out.println("DeleteReason Data Mismatch");}
+					}
+					else {System.out.println("Priority Data Mismatch");}
+				}
+				else {System.out.println("IsEnabled Data Mismatch");}
+			}
+			else {System.out.println("Category Data Mismatch");}
+		}
+		else {System.out.println("Name Data Mismatch");}
+
+		return Status;
+
+
+	}
+
+	public boolean verifySlotSchedulerCreate(SlotSchedulerDetails details, String Transaction) throws Exception {
+		booleansearchnew(details.getSlotDescription(),Transaction);
+		Boolean Status=false;
+		Map<String,String> firstRowData=getFirstRowDatafromTable1();
+		Map<String,String> newvalues=new HashMap<>();
+		String[]d=firstRowData.get("New Values").split("\n");
+		for(String e:d) {
+			String f[]=e.split(":",2);
+			if(f.length>1)
+				newvalues.put(f[0], f[1]);
+		}
+		if(newvalues.get("SlotGroup").equals(details.getSlotGroup()))
+		{
+			if(newvalues.get("SlotType").equals(details.getSlotType()))
+			{
+				if(newvalues.get("SlotDescription").equals(details.getSlotDescription()))
+				{
+					if(newvalues.get("StartOfWeek").equals(details.getStartOfWeek()))
+					{
+						if(newvalues.get("EndOfWeek").equals(details.getEndOfWeek()))
+						{
+							if(newvalues.get("FromTime").equals(details.getFromTime()))
+							{
+								if(newvalues.get("ToTime").equals(details.getTotime())) 
+								{
+									if(newvalues.get("Monday").equals(details.getMonday())) 
+									{
+										if(newvalues.get("Tuesday").equals(details.getTuesday()))
+										{
+											if(newvalues.get("Wednesday").equals(details.getWednesday()))
+											{
+												if(newvalues.get("Thursday").equals(details.getThursady()))
+												{
+													if(newvalues.get("Friday").equals(details.getFriday()))
+													{
+														if(newvalues.get("Saturday").equals(details.getSatuarday()))
+														{
+															if(newvalues.get("Sunday").equals(details.getSunday()))
+															{
+																Status= true;
+															}
+															else {System.out.println("Sunday data mismatch");}
+														}
+														else {System.out.println("Saturday data mismatch");}
+													}
+													else {System.out.println("Friday data mismatch");}
+												}
+												else {System.out.println("Thursday data mismatch");}
+											}
+											else {System.out.println("Wednesday data mismatch");}
+										}
+										else {System.out.println("Tuesday data mismatch");}
+									}
+									else {System.out.println("Monday data mismatch");}
+								}
+								else {System.out.println("ToTime data mismatch");}
+							}	
+							else {System.out.println("FromTime data mismatch");}
+						}
+						else {System.out.println("EndOfWeek data mismatch");}
+					}
+					else {System.out.println("StartOfWeek data mismatch");}
+				}
+				else {System.out.println("SlotDescription data mismatch");}
+			}
+			else {System.out.println("SlotType data mismatch");}
+		}
+		else {System.out.println("SlotGroup data mismatch");	}
+		return Status;
+	}
+
+	public boolean verifySlotSchedulerUpdate(SlotSchedulerDetails details, String Transaction) throws Exception {
+		booleansearchnew(details.getUpdatedSlotDescription(),Transaction);
+		Boolean Status=false;
+		Map<String,String> firstRowData=getFirstRowDatafromTable1();
+		if(firstRowData.containsKey("Old Values")) {
+			Map<String,String> oldvalues=new HashMap<>();
+			String[]d=firstRowData.get("Old Values").split("\n");
+			for(String e:d) {
+				System.out.println(e);
+				String f[]=e.split(":",2);
+				if(f.length>1)
+					oldvalues.put(f[0], f[1]);
+			}
+			if(oldvalues.get("SlotGroup").equals(details.getSlotGroup()))
+			{
+				if(oldvalues.get("SlotType").equals(details.getSlotType()))
+				{
+					if(oldvalues.get("SlotDescription").equals(details.getSlotDescription()))
+					{
+						if(oldvalues.get("StartOfWeek").equals(details.getStartOfWeek()))
+						{
+							if(oldvalues.get("EndOfWeek").equals(details.getEndOfWeek()))
+							{
+								if(oldvalues.get("FromTime").equals(details.getFromTime()))
+								{
+									if(oldvalues.get("ToTime").equals(details.getTotime())) 
+									{
+										if(oldvalues.get("Monday").equals(details.getMonday())) 
+										{
+											if(oldvalues.get("Tuesday").equals(details.getTuesday()))
+											{
+												if(oldvalues.get("Wednesday").equals(details.getWednesday()))
+												{
+													if(oldvalues.get("Thursday").equals(details.getThursady()))
+													{
+														if(oldvalues.get("Friday").equals(details.getFriday()))
+														{
+															if(oldvalues.get("Saturday").equals(details.getSatuarday()))
+															{
+																if(oldvalues.get("Sunday").equals(details.getSunday()))
+																{
+																	if(firstRowData.containsKey("New Values")) {
+																		Map<String,String> newvalues=new HashMap<>();
+																		String[]d1=firstRowData.get("New Values").split("\n");
+																		for(String e:d1) {
+																			String f[]=e.split(":",2);
+																			if(f.length>1)
+																				newvalues.put(f[0], f[1]);
+																		}
+																		if(newvalues.get("SlotGroup").equals(details.getSlotGroup()))
+																		{
+																			if(newvalues.get("SlotType").equals(details.getSlotType()))
+																			{
+																				if(newvalues.get("SlotDescription").equals(details.getUpdatedSlotDescription()))
+																				{
+																					if(newvalues.get("StartOfWeek").equals(details.getStartOfWeek()))
+																					{
+																						if(newvalues.get("EndOfWeek").equals(details.getEndOfWeek()))
+																						{
+																							if(newvalues.get("FromTime").equals(details.getFromTime()))
+																							{
+																								if(newvalues.get("ToTime").equals(details.getTotime())) 
+																								{
+																									if(newvalues.get("Monday").equals(details.getUpdatedMonday())) 
+																									{
+																										if(newvalues.get("Tuesday").equals(details.getTuesday()))
+																										{
+																											if(newvalues.get("Wednesday").equals(details.getWednesday()))
+																											{
+																												if(newvalues.get("Thursday").equals(details.getUpdatedThursady()))
+																												{
+																													if(newvalues.get("Friday").equals(details.getFriday()))
+																													{
+																														if(newvalues.get("Saturday").equals(details.getSatuarday()))
+																														{
+																															if(newvalues.get("Sunday").equals(details.getSunday())) {
+																																if(newvalues.get("ModifyReason").equals(details.getModifyReason())) {
+																																	Status=true;
+																																}
+																																else System.out.println("ModifyReason reason data mismatch");
+																															}
+																															else System.out.println("Sunday data mismatch");
+																														}
+																														else System.out.println("Friday data mismatch");	
+																													}
+																													else System.out.println("Time data mismatch");
+																												}
+																												else System.out.println("ReportTitle data mismatch");
+																											}
+																											else System.out.println("Frequency data mismatch");
+																										}
+																										else System.out.println("Address data mismatch");
+																									}
+																									else System.out.println("Name data mismatch");
+																								}
+																								else {System.out.println("New values data mismatch");}
+																							}
+																							else {System.out.println("Report Title data mismatch");}
+																						}
+																						else System.out.println("Time data mismatch");
+																					}
+																					else System.out.println("Frequency data mismatch");
+																				}
+																				else System.out.println("Address data mismatch");
+																			}
+																			else System.out.println("Name data mismatch");
+																		}   		
+																		else {System.out.println("Old values data mismatch");}
+																	}
+																}
+																else System.out.println("Change reason data mismatch");
+															}
+															else System.out.println("Modify reason data mismatch");	
+														}
+														else System.out.println("Time data mismatch");
+													}
+													else System.out.println("ReportTitle data mismatch");
+												}
+												else System.out.println("Frequency data mismatch");
+											}
+											else System.out.println("Address data mismatch");
+										}
+										else System.out.println("Name data mismatch");
+									}
+									else {System.out.println("New values data mismatch");}
+								}
+								else {System.out.println("Report Title data mismatch");}
+							}
+							else System.out.println("Time data mismatch");
+						}
+						else System.out.println("Frequency data mismatch");
+					}
+					else System.out.println("Address data mismatch");
+				}
+				else System.out.println("Name data mismatch");
+			}   		
+			else {System.out.println("Old values data mismatch");}
+		}
+		return Status;
+	}
+
+	public boolean verifySlotSchedulerdelete(SlotSchedulerDetails details, String Transaction) throws Exception {
+		booleansearchold(details.getSlotDescription(),Transaction);
+		Boolean Status=false;
+		Map<String,String> firstRowData=getFirstRowDatafromTable1();
+		Map<String,String> oldvalues=new HashMap<>();
+		String[]d=firstRowData.get("Old Values").split("\n");
+		for(String e:d) {
+			String f[]=e.split(":",2);
+			if(f.length>1)
+				oldvalues.put(f[0], f[1]);
+		}
+		if(oldvalues.get("SlotGroup").equals(details.getSlotGroup()))
+		{
+			if(oldvalues.get("SlotType").equals(details.getSlotType()))
+			{
+				if(oldvalues.get("SlotDescription").equals(details.getSlotDescription()))
+				{
+					if(oldvalues.get("StartOfWeek").equals(details.getStartOfWeek()))
+					{
+						if(oldvalues.get("EndOfWeek").equals(details.getEndOfWeek()))
+						{
+							if(oldvalues.get("FromTime").equals(details.getFromTime()))
+							{
+								if(oldvalues.get("ToTime").equals(details.getTotime())) 
+								{
+									if(oldvalues.get("Monday").equals(details.getMonday())) 
+									{
+										if(oldvalues.get("Tuesday").equals(details.getTuesday()))
+										{
+											if(oldvalues.get("Wednesday").equals(details.getWednesday()))
+											{
+												if(oldvalues.get("Thursday").equals(details.getThursady()))
+												{
+													if(oldvalues.get("Friday").equals(details.getFriday()))
+													{
+														if(oldvalues.get("Saturday").equals(details.getSatuarday()))
+														{
+															if(oldvalues.get("Sunday").equals(details.getSunday()))
+															{
+																if(oldvalues.get("ModifyReason").equals(details.getModifyReason()))
+																	Status=true;
+																else System.out.println("ModifyReason reason data mismatch");
+															}
+															else System.out.println("Sunday data mismatch");
+														}
+														else System.out.println("Friday data mismatch");	
+													}
+													else System.out.println("Time data mismatch");
+												}
+												else System.out.println("ReportTitle data mismatch");
+											}
+											else System.out.println("Frequency data mismatch");
+										}
+										else System.out.println("Address data mismatch");
+									}
+									else System.out.println("Name data mismatch");
+								}
+								else {System.out.println("New values data mismatch");}
+							}
+							else {System.out.println("Report Title data mismatch");}
+						}
+						else System.out.println("Time data mismatch");
+					}
+					else System.out.println("Frequency data mismatch");
+				}
+				else System.out.println("Address data mismatch");
+			}
+			else System.out.println("Name data mismatch");
+		}   		
+		else {System.out.println("Old values data mismatch");}
+		return Status;
+	}
+	
+	public boolean verifyUserOnBoardingCreate(UserOnBoardingDetails details ,String Transaction) throws Exception {
+		booleansearchnew(details.getLanID(),Transaction);
+		Boolean Status=false;
+		Map<String,String> firstRowData=getFirstRowDatafromTable1();
+		Map<String,String> newvalues=new HashMap<>();
+		String[]d=firstRowData.get("New Values").split("\n");
+		for(String e:d) {
+			String f[]=e.split(":",2);
+			if(f.length>1)
+				newvalues.put(f[0], f[1]);
+		}
+		if(newvalues.get("Lan ID").equals(details.getLanID())){
+			if(newvalues.get("Avaya Login ID").equals(details.getAvayaLoginID())){
+				if(newvalues.get("First Name").equals(details.getFirstname())){
+					if(newvalues.get("Last Name").equals(details.getLastname())){
+						if(newvalues.get("Profile").equals(details.getProfile())) {
+							if(newvalues.get("OrgUnit").equals(details.getTeamName().split(">")[details.getTeamName().split(">").length-1])){
+								if(newvalues.get("Supervisor Name").equals(details.getSupervisor())){
+									Status=true;
+								}else{System.out.println("data mismatch"+newvalues.get("Supervisor Name")+"\t"+details.getSupervisor());}
+							}else{System.out.println("data mismatch"+newvalues.get("OrgUnit")+"\t"+details.getTeamName());}
+						}else{System.out.println("data mismatch"+newvalues.get("Profile")+"\t"+details.getProfile());}
+					}else{System.out.println("data mismatch"+newvalues.get("Last Name")+"\t"+details.getLastname());}
+				}else{System.out.println("data mismatch"+newvalues.get("First Name")+"\t"+details.getFirstname());}
+			}else{System.out.println("data mismatch"+newvalues.get("Avaya Login ID")+"\t"+details.getAvayaLoginID());}
+		}else{System.out.println("data mismatch"+newvalues.get("Lan ID")+"\t"+details.getLanID());}
+		return Status;
+	}
+	
+	public boolean verifyUserOnBoardingUpdate(UserOnBoardingDetails details, String Transaction) throws Exception {
+		booleansearchnew(details.getUpdatedFirstname(),Transaction);
+		Boolean Status=false;
+		Map<String,String> firstRowData=getFirstRowDatafromTable1();
+		if(firstRowData.containsKey("Old Values")) {
+			Map<String,String> oldvalues=new HashMap<>();
+			String[]d=firstRowData.get("Old Values").split("\n");
+			for(String e:d) {
+				System.out.println(e);
+				String f[]=e.split(":",2);
+				if(f.length>1)
+					oldvalues.put(f[0], f[1]);
+			}
+			if(oldvalues.get("Lan ID").equals(details.getLanID())){
+				if(oldvalues.get("Avaya Login ID").equals(details.getAvayaLoginID())){
+					if(oldvalues.get("First Name").equals(details.getFirstname())){
+						if(oldvalues.get("Last Name").equals(details.getLastname())){
+							if(oldvalues.get("Profile").equals(details.getProfile())) {
+								if(oldvalues.get("OrgUnit").equals(details.getTeamName().split(">")[details.getTeamName().split(">").length-1])){
+									if(oldvalues.get("Supervisor Name").equals(details.getSupervisor())){
+										if(firstRowData.containsKey("New Values")) {
+											Map<String,String> newvalues=new HashMap<>();
+											String[]d1=firstRowData.get("New Values").split("\n");
+											for(String e:d1) {
+												String f[]=e.split(":",2);
+												if(f.length>1)
+													newvalues.put(f[0], f[1]);
+											}
+											if(newvalues.get("Lan ID").equals(details.getLanID())){
+												if(newvalues.get("Avaya Login ID").equals(details.getAvayaLoginID())){
+													if(newvalues.get("First Name").equals(details.getUpdatedFirstname())){
+														if(newvalues.get("Last Name").equals(details.getLastname())){
+															if(newvalues.get("Profile").equals(details.getProfile())) {
+																if(newvalues.get("OrgUnit").equals(details.getTeamName().split(">")[details.getTeamName().split(">").length-1])){
+																	if(newvalues.get("Supervisor Name").equals(details.getSupervisor())){
+																		if(newvalues.get("ModifyReason").equals(details.getModifyReason())) {
+																			Status=true;
+																		}else {System.out.println("Modify reason data mismatch");}
+																	}else{System.out.println("data mismatch"+newvalues.get("Supervisor Name")+"\t"+details.getSupervisor());}
+																}else{System.out.println("data mismatch"+newvalues.get("OrgUnit")+"\t"+details.getTeamName());}
+															}else{System.out.println("data mismatch"+newvalues.get("Profile")+"\t"+details.getProfile());}
+														}else{System.out.println("data mismatch"+newvalues.get("Last Name")+"\t"+details.getLastname());}
+													}else{System.out.println("data mismatch"+newvalues.get("First Name")+"\t"+details.getFirstname());}
+												}else{System.out.println("data mismatch"+newvalues.get("Avaya Login ID")+"\t"+details.getAvayaLoginID());}
+											}else{System.out.println("data mismatch"+newvalues.get("Lan ID")+"\t"+details.getLanID());}
+										}else {System.out.println("New values data mismatch");}
+									}else{System.out.println("data mismatch"+oldvalues.get("Supervisor Name")+"\t"+details.getSupervisor());}
+								}else{System.out.println("data mismatch"+oldvalues.get("OrgUnit")+"\t"+details.getTeamName());}
+							}else{System.out.println("data mismatch"+oldvalues.get("Profile")+"\t"+details.getProfile());}
+						}else{System.out.println("data mismatch"+oldvalues.get("Last Name")+"\t"+details.getLastname());}
+					}else{System.out.println("data mismatch"+oldvalues.get("First Name")+"\t"+details.getFirstname());}
+				}else{System.out.println("data mismatch"+oldvalues.get("Avaya Login ID")+"\t"+details.getAvayaLoginID());}
+			}else{System.out.println("data mismatch"+oldvalues.get("Lan ID")+"\t"+details.getLanID());}
+		}else {System.out.println("Old values data mismatch");}
+		return Status;
+	}
+
+	public boolean verifyUserOnBoardingDelete(UserOnBoardingDetails details, String Transaction) throws Exception {
+		booleansearchold(details.getFirstname(),Transaction);
+		Boolean Status=false;
+		Map<String,String> firstRowData=getFirstRowDatafromTable1();
+		Map<String,String> oldvalues=new HashMap<>();
+		String[]d=firstRowData.get("Old Values").split("\n");
+		for(String e:d) {
+			String f[]=e.split(":",2);
+			if(f.length>1)
+				oldvalues.put(f[0], f[1]);
+		}
+		if(oldvalues.get("Lan ID").equals(details.getLanID())){
+			if(oldvalues.get("Avaya Login ID").equals(details.getAvayaLoginID())){
+				if(oldvalues.get("First Name").equals(details.getFirstname())){
+					if(oldvalues.get("Last Name").equals(details.getLastname())){
+						if(oldvalues.get("Profile").equals(details.getProfile())) {
+							if(oldvalues.get("OrgUnit").equals(details.getTeamName().split(">")[details.getTeamName().split(">").length-1])){
+								if(oldvalues.get("Supervisor Name").equals(details.getSupervisor())){                        
+									if(oldvalues.get("ModifyReason").equals(details.getDeleteReason()))
+										Status=true;
+									else{System.out.println("Reason data mismatch");}
+								}								
+								else {System.out.println("Supervisor Name data mismatch");}
+							}
+							else {System.out.println("OrgUnit data mismatch");}
+						}
+						else {System.out.println("Profile data mismatch");}
+					}	
+					else {System.out.println("LastName data mismatch");}
+				}
+				else {System.out.println("FirstName data mismatch");}
+			}
+			else {System.out.println("AvayaLoginID data mismatch");}
+		}
+		else {System.out.println("LanID data mismatch");}
+		return Status;
+	}
+
+	public String verifyErrorMessage() {
+		if(errorMsg.get(0).isDisplayed())
+			return errorMsg.get(0).getText();
+		else{return successmsg.getText();}	
+	}
+
+
 
 
 

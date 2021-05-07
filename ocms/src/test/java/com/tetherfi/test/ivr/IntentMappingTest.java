@@ -7,6 +7,7 @@ import java.util.Map;
 
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -25,7 +26,7 @@ import com.tetherfi.utility.Screenshot;
 public class IntentMappingTest extends BaseTest {
 	Screenshot screenshot=new Screenshot(driver);
 
-	@BeforeMethod
+	@BeforeClass
 	public void NavigateToIntentMappingPage() throws Exception {
     	try {
 			Thread.sleep(500);
@@ -44,7 +45,7 @@ public class IntentMappingTest extends BaseTest {
         Assert.assertTrue(IntentMappingPage.isIntentMappingPageDisplayed(), "IntentMapping page assertion failed");
     }
 	
-	/*@Test(priority=1)
+	@Test(priority=1)
 	public void IntentMappingPage() {
         IntentMappingPage IntentMappingPage = PageFactory.createPageInstance(driver, IntentMappingPage.class);
         Assert.assertTrue(IntentMappingPage.VerifyLogo(),"Logo assertion failed");
@@ -70,7 +71,7 @@ public class IntentMappingTest extends BaseTest {
     public void VerifyColumnsHeaderDisable() {
         IntentMappingPage IntentMappingPage = PageFactory.createPageInstance(driver, IntentMappingPage.class);
         Assert.assertFalse(IntentMappingPage.verifycolumnsHeaderDisabled(),"columns disabled assertion failed");
-    }*/
+    }
     
    @Test(priority=5)
     public void AddNewIntentMappingRecord() throws Exception {
@@ -82,7 +83,7 @@ public class IntentMappingTest extends BaseTest {
         Assert.assertEquals(IntentMappingPage.getSuccessMessage(),"Record Created Successfully", "Add New record assertion failed");
     }
     
-    /*@Test(priority=6)//,dependsOnMethods = "AddNewIntentMappingRecord")
+    @Test(priority=6)//,dependsOnMethods = "AddNewIntentMappingRecord")
     public void AddDuplicateIntentMappingRecord() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntentMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -92,7 +93,7 @@ public class IntentMappingTest extends BaseTest {
         Assert.assertEquals(IntentMappingPage.verifySuccessMessage(),"Duplicate Record");
     }
     
-    @Test(priority=7,dependsOnMethods ="AddNewIntentMappingRecord")
+    @Test(priority=7,dependsOnMethods ="AddNewIntentMappingRecord",enabled=false)
     public void VerifyAuditTrialReportForCreate() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntentMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -193,7 +194,7 @@ public class IntentMappingTest extends BaseTest {
         IntentMappingPage.clickOnEditButton();
         IntentMappingPage.clickOnCancelBtn();
         Assert.assertFalse(IntentMappingPage.verifyEditFormContainer(), "Cancel Btn at Edit record assertion failed");
-    }*/
+    }
 	
     @Test(priority=17)
     public void EditIntentMappingRecord() throws Exception {
@@ -205,7 +206,7 @@ public class IntentMappingTest extends BaseTest {
         Assert.assertEquals(IntentMappingPage.getSuccessMessage(),"Record Updated Successfully","Edit record assertion failed");
     }
     
-    /*@Test(priority=18)//,dependsOnMethods="EditIntentMappingRecord")
+    @Test(priority=18,enabled=false)//,dependsOnMethods="EditIntentMappingRecord")
     public void VerifyAuditTrialReportForUpdate() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntentMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(0);	
@@ -290,7 +291,7 @@ public class IntentMappingTest extends BaseTest {
 		Assert.assertTrue(IntentMappingPage.verifyExportToExcel(filePath));
 	}
     
-    @Test(priority=27)
+    @Test(priority=27,dependsOnMethods= {"ExportToExcel"})
     public void ExportToExcelData() throws Exception{
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Intent Mapping.xlsx";
     	List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
@@ -316,7 +317,7 @@ public class IntentMappingTest extends BaseTest {
         IntentMappingPage.clickOnDeleteButton();
         IntentMappingPage.clickOnDeleteCancelBtn();
         Assert.assertFalse(IntentMappingPage.verifyDeleteContainer(), "Cancel Btn at Delete record assertion failed");
-    }*/
+    }
     
     @Test(priority=30)//,dependsOnMethods = "VerifyCancelBtnAtDeleteIntentMappingRecord")
     public void DeleteIntentMappingRecord() throws Exception {
@@ -328,7 +329,7 @@ public class IntentMappingTest extends BaseTest {
         Assert.assertEquals(IntentMappingPage.getSuccessMessage(),"Record Deleted Successfully","delete record assertion failed");
     }
     
-    /*@Test(priority=31,dependsOnMethods= {"DeleteIntentMappingRecord"})
+    @Test(priority=31,dependsOnMethods= {"DeleteIntentMappingRecord"},enabled=false)
     public void VerifyAuditTrialReportForDelete() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\IntentMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(1);	
@@ -391,13 +392,13 @@ public class IntentMappingTest extends BaseTest {
     }
     
     @Test(priority=37)
-    public void VerifyArrowMoveForPreviousAndNextPage() {
+    public void VerifyArrowMoveForPreviousAndNextPage() throws Exception {
         IntentMappingPage IntentMappingPage = PageFactory.createPageInstance(driver, IntentMappingPage.class);
     	Assert.assertTrue(IntentMappingPage.verifyArrowMoveForPreviousAndNextPage(),"arrow move for previous and next page assertion failed");
     }
     
     @Test(priority=38)
-    public void VerifyArrowMoveForFirstAndLastPage() {
+    public void VerifyArrowMoveForFirstAndLastPage() throws Exception {
         IntentMappingPage IntentMappingPage = PageFactory.createPageInstance(driver, IntentMappingPage.class);
         Assert.assertTrue(IntentMappingPage.verifyArrowMoveForFirstAndLastPage(),"arrow move for first and last page assertion failed");
     }
@@ -421,7 +422,7 @@ public class IntentMappingTest extends BaseTest {
         IntentMappingPage IntentMappingPage = PageFactory.createPageInstance(driver, IntentMappingPage.class);
         IntentMappingDetails IntentMappingDetails = new IntentMappingDetails(map);
     	Assert.assertTrue(IntentMappingPage.verifyDatabase(IntentMappingDetails.getQuery()));
-    }*/
+    }
 	
 	 @AfterMethod
 	    public void afterEachMethod(Method method) throws InterruptedException {

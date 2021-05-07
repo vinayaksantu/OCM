@@ -37,9 +37,9 @@ public class OCMTimelineReportTest extends BaseTest {
 		ocmReportsPage.showReport(reportDetails);
 		Assert.assertTrue(ocmReportsPage.verifyReportDisplayed(reportDetails),"Show report assertion failed");      
 	}  
-
+	
 	@Test(priority=2,description="To verify Show Report in New Tab for Single Date")
-	public void ShowOcmTimelineReportInNewTab() throws Exception {
+	public void ShowOcmTimelineReportInNewPage() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMTimelineReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowInNewPage").getTestData().get(0);
 		ReportDetails reportDetails= new ReportDetails(map);
@@ -47,6 +47,33 @@ public class OCMTimelineReportTest extends BaseTest {
 		ocmReportsPage.showReportInNewPage(reportDetails);
 		Assert.assertTrue(ocmReportsPage.verifyReportDisplayed(reportDetails),"show report in new tab assertion failed");
 		ocmReportsPage.switchBackToParentWindow();
+	}
+
+	@Test(priority=3,description="To verify OCM TimeLine report UI data against DB")
+	public void database() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMTimelineReport.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(0);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
+		ocmReportsPage.showReport(reportDetails);
+		OCMTimelineReportPage TimeLineReportPage=PageFactory.createPageInstance(driver,OCMTimelineReportPage.class);
+		Assert.assertTrue(TimeLineReportPage.verifyDatabase(reportDetails.getQuery(),reportDetails),"Main report data mismatch");
+		System.out.println("Main Report Data Match Successfull");	    
+		List<String> agentList = new ArrayList<>();
+		agentList=TimeLineReportPage.getAgents();
+		System.out.println(agentList); 
+		int k=0;
+		for (int i=0;i<agentList.size();i++) {
+			if(k==10) {
+				TimeLineReportPage.goToNextPage();
+				k=k-10;
+			}
+			TimeLineReportPage.clickOnAgentIdRowOnMainReport(k);
+			Assert.assertTrue(TimeLineReportPage.verifyDatabaseDrillGridOne(reportDetails.getQueryDrillGridOne(), reportDetails, agentList.get(i)),"Drill Grid One data mismatch for Agent Id " + agentList.get(i));
+			System.out.println("Drill Grid One data match successfull for Agent Id " + agentList.get(i));
+			k++;
+			Thread.sleep(1000);			
+		}
 	}
 
 	@Test(priority=3,description="To verify Export Report on OCM Reports Page")
@@ -58,7 +85,7 @@ public class OCMTimelineReportTest extends BaseTest {
 		ocmReportsPage.exportReport(reportDetails);
 		Assert.assertTrue(ocmReportsPage.verifyReportExported(),"export report assertion failed");
 	} 
-
+	
 	@Test(priority=4,description="To verify Export Scheduler on OCM Reports Page")
 	public void ScheduleOCMTimelineReport() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMTimelineReport.xlsx";
@@ -78,16 +105,6 @@ public class OCMTimelineReportTest extends BaseTest {
 		ocmReportsPage.viewDownloadedReportInReportDownloadsPage();
 		Assert.assertTrue(ocmReportsPage.verifyDownloadedReportNameAndTimeInReportsDownloadPage(reportDetails.getReportName()),"Report not found in Reporter download page");
 	} 
-
-	@Test(priority=6)//,dependsOnMethods ="ViewDownloadedOcmTimelineReportInReportsDownloadPage",description="To verification of exported excel in Report downloads")
-	public void VerifyViewDownloadedOcmTimeLineReportInReportsDownloadPage() throws Exception {
-		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMTimelineReport.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
-		ReportDetails reportDetails= new ReportDetails(map);
-		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
-		ocmReportsPage.showReport(reportDetails);
-		Assert.assertTrue(ocmReportsPage.verifyExportedSheet("OCMReportDownload","OCM TimeLine Report"));	
-	}
 
 	@Test(priority=7,description="To verify Show Report for Date Range")
 	public void ShowOcmTimelineReportForDateRange() throws Exception {
@@ -138,16 +155,6 @@ public class OCMTimelineReportTest extends BaseTest {
 		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
 		ocmReportsPage.viewDownloadedReportInReportDownloadsPage();
 		Assert.assertTrue(ocmReportsPage.verifyDownloadedReportNameAndTimeInReportsDownloadPage(reportDetails.getReportName()),"Report not found in Reporter download page");
-	}
-
-	@Test(priority=12,dependsOnMethods ="ViewDownloadedOcmTimelineReportInReportsDownloadPageDateRange",description="To verification of exported excel in Report downloads")
-	public void VerifyViewDownloadedOcmTimelineReportInReportsDownloadDateRangePage() throws Exception {
-		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMTimelineReport.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
-		ReportDetails reportDetails= new ReportDetails(map);
-		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
-		ocmReportsPage.showReport(reportDetails);
-		Assert.assertTrue(ocmReportsPage.verifyExportedSheet("OCMReportDownload","OCM TimeLine Report"));	
 	} 
 
 	@Test(priority=13,description="Delete record in Reports Download without Delete reason")
@@ -190,6 +197,7 @@ public class OCMTimelineReportTest extends BaseTest {
 		ReportDetails reportDetails= new ReportDetails(map);
 		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
 		ocmReportsPage.ClearHomepgDrpDown(reportDetails);
+		Assert.assertEquals(ocmReportsPage.getSuccessMessage(),"Filters cleared successfully!","Invalid filter assertion");
 	}
 
 	@Test(priority=17,description="To Verify OCM Window Maximize minimize")
@@ -295,7 +303,6 @@ public class OCMTimelineReportTest extends BaseTest {
 		Assert.assertTrue(timelinePage.verifyExportToExcel(filePath1));
 	} 
 
-
 	@Test(priority=26,dependsOnMethods="ExportPage",description="To Verify Exported Page Against UI")
 	public void VerifyExportedPage() throws Exception{
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMTimelineReport.xlsx";
@@ -347,16 +354,6 @@ public class OCMTimelineReportTest extends BaseTest {
 		Assert.assertTrue(ocmReportsPage.verifyDownloadedReportNameAndTimeInReportsDownloadPage(reportDetails.getReportName()),"Report not found in Reporter download page");  
 	}   
 
-	@Test(priority=30,dependsOnMethods ="ViewDownloadedOcmTimelineReportInReportsDownloadPageinTimelinePg",description="Verification of exported excel from main page in Report downloads")
-	public void VerifyViewDownloadedOcmTimeLineReportInReportsDownload() throws Exception {
-		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMTimelineReport.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
-		ReportDetails reportDetails= new ReportDetails(map);
-		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
-		ocmReportsPage.showReport(reportDetails);
-		Assert.assertTrue(ocmReportsPage.verifyExportedSheet("OCMReportDownload","OCM TimeLine Report"));	
-	}
-
 	@Test(priority=31,description="To verify search by feature")
 	public void VerifySearchByFeatureForTimelineReport() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMTimelineReport.xlsx";
@@ -393,7 +390,7 @@ public class OCMTimelineReportTest extends BaseTest {
 		Assert.assertEquals(timelinePage.getSuccessMessage(),"Please enter the text to search or remove the filter", "Add invalid record assertion failed");
 	}  
 
-	@Test(priority=34,description="To verify search IsNotEquals")
+	@Test(priority=34,description="To verify search Is Not Equal")
 	public void VerifySearchIsNotEqualTo() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMTimelineReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(1);
@@ -415,7 +412,7 @@ public class OCMTimelineReportTest extends BaseTest {
 		Assert.assertTrue(timelinePage.verifySearchContains(reportDetails.getSearchStr()));
 	}  
 
-	@Test(priority=36,description="To verify search doesnotContains")
+	@Test(priority=36,description="To verify search Does Not Contains")
 	public void  VerifySearchDoesNotContains() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMTimelineReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(2);
@@ -469,16 +466,17 @@ public class OCMTimelineReportTest extends BaseTest {
 		ocmReportsPage.showReport(reportDetails);
 		Assert.assertTrue(timelinePage.verifyAdvanceSearch(reportDetails));            
 	}
-	@Test(priority=41)
+
+	@Test(priority=41,description="To Verify Clear advanced filters")
 	public void ClearfiltersAdvSrch() throws Exception{ 	
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMTimelineReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(0);
 		ReportDetails reportDetails= new ReportDetails(map);
 		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);                   
-		ocmReportsPage.ClearAdvFilters(reportDetails);
+		Assert.assertTrue(ocmReportsPage.ClearAdvFilters(reportDetails));
 	} 
 
-	@Test(priority=42)
+	@Test(priority=42,description="To verify GroupBy functionality")
 	public void GroupBy() throws Exception{
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMTimelineReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -492,7 +490,7 @@ public class OCMTimelineReportTest extends BaseTest {
 		screenshot.captureScreen("OCMTimeLineReport", "AlreadyGroupBy");
 	}
 
-	@Test(priority=43)
+	@Test(priority=43, description="To Verify Adavanced Search AND Criteria")
 	public void verifyAdvancedSearchAndCriteria() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMTimelineReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(0);
@@ -503,8 +501,7 @@ public class OCMTimelineReportTest extends BaseTest {
 		Assert.assertTrue(TimelinePage.advancedSearchAndCriteria(reportDetails));   	
 	}
 
-
-	@Test(priority=44)
+	@Test(priority=44, description="To verify Adavanced search OR Criteria")
 	public void verifyAdvancedSearchORCriteria() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMTimelineReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(0);
@@ -570,7 +567,7 @@ public class OCMTimelineReportTest extends BaseTest {
 		Assert.assertTrue(TimelinePage.verifyAdvanceSearchEndsWith(reportDetails)); 
 	}
 
-	@Test(priority=50,description="To Verify Arrow move for Previous and Next page for Drill Down One")
+	@Test(priority=50,enabled=false,description="To Verify Arrow move for Previous and Next page for Drill Down One")
 	public void VerifyArrowMoveForPreviousAndNextPageForDrillDownOne() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMTimelineReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -580,7 +577,8 @@ public class OCMTimelineReportTest extends BaseTest {
 		OCMTimelineReportPage TimelinePage=PageFactory.createPageInstance(driver,OCMTimelineReportPage.class);
 		Assert.assertTrue(TimelinePage.verifyArrowMoveForPreviousAndNextPageForDrillDownOne(reportDetails),"arrow move for previous and next page assertion failed");
 	} 
-	@Test(priority=51,description="To Verify Arrow move for first and last page for Drill Down One")
+
+	@Test(priority=51,enabled=false,description="To Verify Arrow move for first and last page for Drill Down One")
 	public void VerifyArrowMoveForFirstAndLastPageFoDrillDownOne() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMTimelineReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -591,8 +589,8 @@ public class OCMTimelineReportTest extends BaseTest {
 		Assert.assertTrue(TimelinePage.verifyArrowMoveForFirstAndLastPageForDrillDownOne(reportDetails),"arrow move for first and last page assertion failed");
 	} 
 
-	@Test(priority=52,description="To Verify Total Number of Items Per Page Details for Drill Down One")
-	public void VerifyTotalNumberOfItemsPerPageDetailsFoDrillDownOne() throws Exception {
+	@Test(priority=52,enabled=false,description="To Verify Total Number of Items Per Page Details for Drill Down One")
+	public void VerifyTotalNumberOfItemsPerPageDetailsForDrillDownOne() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMTimelineReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
 		ReportDetails reportDetails= new ReportDetails(map);
@@ -613,37 +611,11 @@ public class OCMTimelineReportTest extends BaseTest {
 		Assert.assertTrue(TimelinePage.verifySorting(),"item per page assertion failed");
 	}
 
-
-	@Test(priority=54,description="To verify OCM TimeLine report UI data against DB")
-    public void database() throws Exception {
-    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMTimelineReport.xlsx";
-    	Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(0);
-    	ReportDetails reportDetails= new ReportDetails(map);
-    	OCMReportsPage ocmReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
-    	ocmReportsPage.showReport(reportDetails);
-    	OCMTimelineReportPage TimeLineReportPage=PageFactory.createPageInstance(driver,OCMTimelineReportPage.class);
-    	Assert.assertTrue(TimeLineReportPage.verifyDatabase(reportDetails.getQuery(),reportDetails),"Main report data mismatch");
-    	System.out.println("Main Report Data Match Successfull");	    
-    	List<String> agentList = new ArrayList<>();
-    	agentList=TimeLineReportPage.getAgents();
-    	System.out.println(agentList); 
-    	int k=0;
-    	for (int i=0;i<agentList.size();i++) {
-    		if(k==10) {
-    			TimeLineReportPage.goToNextPage();
-    			k=k-10;
-    		}
-    		TimeLineReportPage.clickOnAgentIdRowOnMainReport(k);
-    		Assert.assertTrue(TimeLineReportPage.verifyDatabaseDrillGridOne(reportDetails.getQueryDrillGridOne(), reportDetails, agentList.get(i)),"Drill Grid One data mismatch for Skill Id " + agentList.get(i));
-    		System.out.println("Drill Grid One data match successfull for Agent Id " + agentList.get(i));
-    		k++;
-    		Thread.sleep(1000);			
-    	}
-    }
-	
 	@AfterMethod
-	public void afterEachMethod(Method method) {
-		screenshot.captureScreen("OCMTimelineReportTest", method.getName());
+	public void afterEachMethod(Method method) throws InterruptedException {
+		Screenshot screenshot=new Screenshot(driver);
+		screenshot.captureScreen("OCMTimeLineReportV3.3.11.6",method.getName());
 		driver.navigate().refresh();
 	}
+
 }

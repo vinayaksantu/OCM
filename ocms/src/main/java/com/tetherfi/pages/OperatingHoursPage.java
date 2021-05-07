@@ -47,7 +47,7 @@ public class OperatingHoursPage extends BasePage {
     @FindBy(id="1002sTextToSearch")
     private WebElement searchTextBoxtwo;
 
-    @FindBy(css=".toast-message")
+    @FindBy(css="#toast-container .toast-success .toast-message")
     private WebElement successmsg;
     
 
@@ -198,7 +198,7 @@ public class OperatingHoursPage extends BasePage {
     @FindBy(id="tGrid")
     private WebElement auditGridContent;
     
-    @FindBy(xpath="//a[text()='VDN']")
+    @FindBy(xpath="//a[text()='Skill/VDN']")
     private WebElement vdn;
     
     @FindBy(xpath="//a[text()='Week Day']")
@@ -231,7 +231,7 @@ public class OperatingHoursPage extends BasePage {
     @FindBy(xpath="//div[text()='No records to display']")
     private WebElement norecords;
     
-    @FindBy(xpath="//i[@class='fas fa-sync']")
+    @FindBy(xpath="//i[@class='fas fa-sync fa-spin']")
     private WebElement clearsearch;
     
 
@@ -299,7 +299,7 @@ public class OperatingHoursPage extends BasePage {
     public void searchOperatingHoursRecord(String vdn) throws Exception {
         selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
-        selectDropdownFromVisibleText(columnNameList,"vdn");
+        selectDropdownFromVisibleText(columnNameList,"Skill/VDN");
         selectWebElement(selectSearchCol.get(1));
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is equal to");
         enterValueToTxtField(searchTextBox,vdn);
@@ -424,7 +424,7 @@ public class OperatingHoursPage extends BasePage {
     public void BooleansearchOperatingHoursRecord(String vdn, String weekday) throws Exception {
         selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
-        selectDropdownFromVisibleText(columnNameList,"vdn");
+        selectDropdownFromVisibleText(columnNameList,"Skill/VDN");
         selectWebElement(selectSearchCol.get(1));
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is equal to");
         enterValueToTxtField(searchTextBox,vdn);
@@ -433,7 +433,7 @@ public class OperatingHoursPage extends BasePage {
         selectWebElement(andradiobtn);
         Thread.sleep(2000);
         selectWebElement(selectSearchCol.get(2));
-        selectDropdownFromVisibleTextContains(columnNameListtwo,"Week");
+        selectDropdownFromVisibleTextContains(columnNameListtwo,"Week Day");
         selectWebElement(selectSearchCol.get(3));
         selectDropdownFromVisibleText(searchCriteriaDropDwntwo,"Is equal to");
         enterValueToTxtField(searchTextBoxtwo,weekday);
@@ -496,7 +496,6 @@ public class OperatingHoursPage extends BasePage {
     }
 
     public String getSuccessMessage() {
-		//		waitForJqueryLoad(driver);
 		if(successmsg.isDisplayed())
 			return successmsg.getText();
 		else{return errorMsg.get(0).getText();}	
@@ -759,13 +758,16 @@ public class OperatingHoursPage extends BasePage {
 		}
 	}
 	
-	public boolean verifyArrowMoveForPreviousAndNextPage(){
+	public boolean verifyArrowMoveForPreviousAndNextPage() throws Exception{
         boolean status=false;
         if(!nextPageIcon.getAttribute("class").contains("k-state-disabled")){
+        	Thread.sleep(2000);
         int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber));
         selectWebElement(nextPageIcon);
+    	Thread.sleep(2000);
         int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
         selectWebElement(previousPageIcon);
+    	Thread.sleep(2000);
         int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
         if(nextnumber==(pagenumber+1) && pagenumber==previousnumber){status=true;}
         }else{
@@ -773,13 +775,16 @@ public class OperatingHoursPage extends BasePage {
         }
         return status;
 	}
-	public boolean verifyArrowMoveForFirstAndLastPage(){
+	public boolean verifyArrowMoveForFirstAndLastPage() throws Exception{
         boolean status=false;
         if(!lastPageIcon.getAttribute("class").contains("k-state-disabled")){
+        	Thread.sleep(2000);
             int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber));
             selectWebElement(lastPageIcon);
+        	Thread.sleep(2000);
             int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
             selectWebElement(firstPageIcon);
+        	Thread.sleep(2000);
             int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
             if(nextnumber>pagenumber && pagenumber==previousnumber){status=true;}
         }else{
@@ -999,7 +1004,7 @@ public class OperatingHoursPage extends BasePage {
 	public boolean clearAll(OperatingHoursDetails details) throws Exception {
 		selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
-        selectDropdownFromVisibleText(columnNameList,"VDN");
+        selectDropdownFromVisibleText(columnNameList,"Skill/VDN");
         selectWebElement(selectSearchCol.get(1));
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is equal to");
         enterValueToTxtField(searchTextBox,details.getVdnName());

@@ -37,7 +37,6 @@ public class IvrConfigTest extends BaseTest {
 		ivrPage.navigateToIvrConfigPage();
 		IvrConfigPageWMC ivrConfigPageWMC = PageFactory.createPageInstance(driver, IvrConfigPageWMC.class);
 		Assert.assertTrue(ivrConfigPageWMC.isIvrConfigPageDisplayed(), "Ivr config page assertion failed");
-		screenshot.captureScreen("IvrConfigTest","IvrConfigPageWMC");
 	}
 
 	@Test(priority=1)
@@ -73,7 +72,7 @@ public class IvrConfigTest extends BaseTest {
 		IvrConfigDetails ivrConfigDetails = new IvrConfigDetails(map);
 		IvrConfigPageWMC ivrConfigPageWMC = PageFactory.createPageInstance(driver, IvrConfigPageWMC.class);
 		ivrConfigPageWMC.addNewIvrConfigRecord(ivrConfigDetails);
-		Assert.assertEquals(ivrConfigPageWMC.getSuccessMessage(),"Record Created Successfully", "Add New record assertion failed");
+		Assert.assertEquals(ivrConfigPageWMC.getSuccessMessage(),"Record Created", "Add New record assertion failed");
 	}
 
 	@Test(priority=6)

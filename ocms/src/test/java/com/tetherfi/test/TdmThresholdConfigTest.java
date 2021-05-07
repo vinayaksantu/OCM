@@ -69,7 +69,7 @@ Screenshot screenshot=new Screenshot(driver);
 	}
 	
 	@Test(priority=5)
-	public void VerifyTeamsAssignToAgentswithDataBase() throws IOException {
+	public void VerifyTeamsAssignToAgentswithDataBase() throws Exception {
 		TdmThresholdConfigPage TdmThresholdConfigPage = PageFactory.createPageInstance(driver, TdmThresholdConfigPage.class);
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TdmThresholdConfigData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Queries").getTestData().get(0);
@@ -84,7 +84,7 @@ Screenshot screenshot=new Screenshot(driver);
         Assert.assertTrue(TdmThresholdConfigPage.verifyExportToExcel(filePath));
     }
     
-    @Test(priority=7)
+    @Test(priority=7,enabled=false)
     public void ExportToExcelData() throws Exception{	
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\TDM Threshold Configuration.xlsx";
     	List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
@@ -170,7 +170,7 @@ Screenshot screenshot=new Screenshot(driver);
         Assert.assertTrue(TdmThresholdConfigPage.ExporttoExcelWithoutData(TdmThresholdConfigDetails));
     }
   
-    @Test(priority=16)
+    @Test(priority=16,enabled=false)
     public void SortingByAscending() throws IOException {
 		TdmThresholdConfigPage TdmThresholdConfigPage = PageFactory.createPageInstance(driver, TdmThresholdConfigPage.class);
 		TdmThresholdConfigPage.SortByAscending();
@@ -179,7 +179,7 @@ Screenshot screenshot=new Screenshot(driver);
         Assert.assertTrue(TdmThresholdConfigPage.verifyexportToExcelSheet(maplist));
     }
     
-    @Test(priority=17)
+    @Test(priority=17,enabled=false)
     public void SortingByDescending() throws IOException {
 		TdmThresholdConfigPage TdmThresholdConfigPage = PageFactory.createPageInstance(driver, TdmThresholdConfigPage.class);
 		TdmThresholdConfigPage.SortByDescending();
@@ -199,13 +199,13 @@ Screenshot screenshot=new Screenshot(driver);
     }
     
     @Test(priority=19)
-    public void VerifyArrowMoveForPreviousAndNextPage() {
+    public void VerifyArrowMoveForPreviousAndNextPage() throws Exception {
 		TdmThresholdConfigPage TdmThresholdConfigPage = PageFactory.createPageInstance(driver, TdmThresholdConfigPage.class);
     	Assert.assertTrue(TdmThresholdConfigPage.verifyArrowMoveForPreviousAndNextPage(),"arrow move for previous and next page assertion failed");
     }
     
     @Test(priority=20)
-    public void VerifyArrowMoveForFirstAndLastPage() {
+    public void VerifyArrowMoveForFirstAndLastPage() throws Exception {
 		TdmThresholdConfigPage TdmThresholdConfigPage = PageFactory.createPageInstance(driver, TdmThresholdConfigPage.class);
         Assert.assertTrue(TdmThresholdConfigPage.verifyArrowMoveForFirstAndLastPage(),"arrow move for first and last page assertion failed");
     }
@@ -277,7 +277,7 @@ Screenshot screenshot=new Screenshot(driver);
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
         TdmThresholdConfigDetails TdmThresholdConfigDetails = new TdmThresholdConfigDetails(map);
         TdmThresholdConfigPage.verifyTdmThresholdConfigThresholdDetailsPageSaveChanges(TdmThresholdConfigDetails);
-        Assert.assertEquals(TdmThresholdConfigPage.VerifyErrorMessage(), "No rows has been changed", "Save Changes Buttons Assertion Failed");
+        Assert.assertEquals(TdmThresholdConfigPage.VerifyInfoMessage(), "No rows has been changed", "Save Changes Buttons Assertion Failed");
 	}
 	
 	@Test(priority=29)
@@ -366,7 +366,7 @@ Screenshot screenshot=new Screenshot(driver);
         Assert.assertEquals(TdmThresholdConfigPage.getSuccessMessage(),"Record Creation Successfully");
 	}
 	
-	@Test(priority=38)//dependsOnMethods = "addNewRow")
+	@Test(priority=38,enabled=false)//dependsOnMethods = "addNewRow")
     public void VerifyAuditTrailReportForCreate() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\TdmThresholdConfigData.xlsx";
 	    Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);

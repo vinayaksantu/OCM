@@ -1,7 +1,6 @@
 package com.tetherfi.pages;
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -9,8 +8,6 @@ import java.util.Map;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Action;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
 import com.tetherfi.model.report.ReportDetails;
@@ -73,10 +70,13 @@ public class FaxSLAReportPage extends BasePage  {
 	private WebElement goToLastPage;
 
 	@FindBy(css=".k-state-selected")
-	private List<WebElement> pageNumber;
+	private List<WebElement> pageNumber1;
+	
+	@FindBy(css=".k-state-selected")
+	private WebElement pageNumber;
 
 	@FindBy(css=".k-pager-sizes .k-icon")
-	private List<WebElement> pagerDropdown;
+	private WebElement pagerDropdown;
 
 	@FindBy(css=".k-animation-container ul li")
 	private List<WebElement> pageSizeListBox;
@@ -137,7 +137,8 @@ public class FaxSLAReportPage extends BasePage  {
 	private WebElement exporttoexcel;
 
 	//export to excel in FaxSLAPage
-	@FindBy(xpath="//button[@id='exportAllToExcel']")
+	//@FindBy(xpath="//button[@id='exportAllToExcel']")
+	@FindBy(xpath="//button[text()=' Export to Excel']")
 	private WebElement exportToExcel;
 
 	@FindBy(css = ".fa-search")
@@ -246,7 +247,13 @@ public class FaxSLAReportPage extends BasePage  {
 
 	@FindBy(xpath="//tbody/tr[1]/td[2]")
 	private WebElement rowdatatwo;
-
+	
+	@FindBy(xpath="//tbody/tr/td[1]")
+	private WebElement rowdata1;
+	
+	@FindBy(xpath="//tbody/tr/td[7]")
+	private WebElement rowdata2;
+	
 	@FindBy(xpath="//button[@id='drillSearchClose']")
 	private WebElement DrillClose;
 
@@ -371,50 +378,58 @@ public class FaxSLAReportPage extends BasePage  {
 		}
 		return status;
 	}
-	public boolean verifyArrowMoveForPreviousAndNextPage(){
+
+
+	public boolean verifyArrowMoveForPreviousAndNextPage() throws Exception{
 		boolean status=false;
 		if(!nextPageIcon.getAttribute("class").contains("k-state-disabled")){
-			int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber.get(0)));
-			System.out.println(pagenumber);
+			int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 			selectWebElement(nextPageIcon);
-			try {
-				Thread.sleep(2000);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber.get(0)));
-			System.out.println(nextnumber);
+			Thread.sleep(2000);
+			int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 			selectWebElement(previousPageIcon);
-			try {
-				Thread.sleep(2000);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber.get(0)));
-			System.out.println(previousnumber);
-			if(nextnumber==(pagenumber+1) && pagenumber==previousnumber)
-			{
-				status=true;
-			}
-		}
-		else{
+			Thread.sleep(2000);
+			int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
+			if(nextnumber==(pagenumber+1) && pagenumber==previousnumber){status=true;}
+		}else{
 			System.out.println("previous and next page icon disabled");status=true;
 		}
 		return status;
 	}
+	
+	public boolean verifyArrowMoveForFirstAndLastPage() throws Exception{
+		boolean status=false;
+		if(!lastPageIcon.getAttribute("class").contains("k-state-disabled")){
+			int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber));
+			System.out.println(pagenumber);
+			selectWebElement(lastPageIcon);
+			Thread.sleep(2000);
+			int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
+			System.out.println(nextnumber);
+			selectWebElement(firstPageIcon);
+			Thread.sleep(2000);
+			int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
+			System.out.println(previousnumber);
+			if(nextnumber>pagenumber && pagenumber==previousnumber){status=true;}
+		}else{
+			System.out.println("previous and next page icon disabled");status=true;
+		}
+		return status;
+	}
+	
+	
 	public boolean verifyTotalNumberOfItemsPerPageDetails(){
 		String item = items.getText();
 		return item.matches("(\\d.*) - (\\d.*) of (\\d.*) items");
 	}
+	
 	public boolean verifyNumberOfItemsPerPage() {
 		boolean status = false;
 		try {
 			if (norecords.size() <= 0) {
 				int items = Integer.valueOf(pagerInfo.getText().split("of ")[1].split(" items")[0]);
-				selectWebElement(pagerDropdown.get(0));
-				Thread.sleep(1500);
+				selectWebElement(pagerDropdown);
+				Thread.sleep(2000);
 				for (int i = 0; i < pageSizeListBox.size(); i++) {
 					if(Integer.valueOf(pageSizeListBox.get(i).getText())>items){continue;}
 					selectDropdownFromVisibleText(pageSizeListBox, pageSizeListBox.get(i).getText());
@@ -425,19 +440,20 @@ public class FaxSLAReportPage extends BasePage  {
 					int totalRows=(gridContent.findElements(By.tagName("tr")).size())-1;
 					selectWebElement(goToLastPage);
 					waitForJqueryLoad(driver);
-					int lastPageNumber = Integer.valueOf(pageNumber.get(0).getText());
+					int lastPageNumber = Integer.valueOf(pageNumber.getText());
 					if (items == totalItems && pages == lastPageNumber&&totalRows==pagersize) {
 						status = true;
 					} else {System.out.println(items+":"+totalItems+"\t"+pages+":"+lastPageNumber+"\t"+totalRows+":"+pagersize);
 					status = false;
 					break;
-					}selectWebElement(pagerDropdown.get(0));Thread.sleep(1500);
+					}selectWebElement(pagerDropdown);Thread.sleep(1500);
 				}
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		} return status;
 	}
+	
 
 	public boolean verifyExportToExcel(String filePath) {
 		final File folder = new File(filePath);
@@ -461,7 +477,7 @@ public class FaxSLAReportPage extends BasePage  {
 		int pagersize=Integer.valueOf(pagerSize.getText());
 		int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
 		List<Map<String,String>> arr=new ArrayList<Map<String,String>>();
-		for(int k=0;k<=pages;k++){
+		//for(int k=0;k<=pages;k++){
 			waitUntilWebElementIsVisible(auditGridContent);
 			List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
 			List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
@@ -472,17 +488,17 @@ public class FaxSLAReportPage extends BasePage  {
 				for(int j=0;j<headers.size();j++) {
 					scrollToElement(headers.get(j));
 					System.out.println(headers.get(j).getText());
-					if(headers.get(j).getText().equals("Last Changed On")){
+					/*if(headers.get(j).getText().equals("Last Changed On")){
 						col=cols.get(j).getText().substring(0,10);
 					}
-					else
+					else*/
 						col=cols.get(j).getText();
 					map.put(headers.get(j).getText(),col);
 				}
 				map.remove("");
 				arr.add(map);
 			}
-		}
+		//}
 		return arr;
 	}
 
@@ -524,13 +540,16 @@ public class FaxSLAReportPage extends BasePage  {
 		waitUntilWebElementIsClickable(schRptsinAgent);
 		selectWebElement(schRptsinAgent);			
 	}
+	
 	public void exportToExcel() {
 		selectWebElement(exportToExcel);
 	}
+	
 	public boolean verifyReportExported(){
 		if(waitUntilTextToBePresentInWebElement(successmsg,"Report export is initiated... Notification will be sent once completed"))
 		{return true;}else{return false;}
 	}
+	
 	public void viewDownloadedReportInReportsDownloadsPage() {
 		waitForLoad(driver);
 		waitForJqueryLoad(driver);
@@ -543,7 +562,7 @@ public class FaxSLAReportPage extends BasePage  {
 		waitForLoad(driver);
 		waitForJqueryLoad(driver);
 	}
-	/*private List<Map<String, String>> getDataTable() {
+	private List<Map<String, String>> getDataTable() throws Exception {
 		int item=Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
 		int pagersize=Integer.valueOf(pagerSize.getText());
 		int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
@@ -566,11 +585,12 @@ public class FaxSLAReportPage extends BasePage  {
 			}
 			if(k!=pages)
 			{
+				Thread.sleep(5000);
 				nextPageIcon.click();
 				waitForJqueryLoad(driver);}
 		}
 		return arr;
-	}*/
+	}
 
 
 	public boolean verifySearchByTextbox(ReportDetails details) throws Exception{
@@ -662,7 +682,7 @@ public class FaxSLAReportPage extends BasePage  {
 		Boolean Status=false;		
 		selectWebElement(searchBtn);
 		selectWebElement(searchColDropdown);  
-		selectDropdownFromVisibleText(searchColListBox,"Agent ID");  
+		selectDropdownFromVisibleText(searchColListBox,"Skill");  
 		waitForJqueryLoad(driver);
 		selectWebElement(searchCriteriaDropdown);
 		selectDropdownFromVisibleText(searchCriteriaListbox,"Contains");		   
@@ -674,7 +694,7 @@ public class FaxSLAReportPage extends BasePage  {
 		List<Map<String,String>> UI=getDataTable(); 
 		for (Map<String,String> map1: UI)
 		{   	
-			if(map1.get("Agent ID").contains(description))
+			if(map1.get("Skill").contains(description))
 				Status= true;
 			else 
 				Status= false;
@@ -686,7 +706,7 @@ public class FaxSLAReportPage extends BasePage  {
 		Boolean Status=false;
 		selectWebElement(searchBtn);
 		selectWebElement(searchColDropdown);  
-		selectDropdownFromVisibleText(searchColListBox,"Agent ID");  
+		selectDropdownFromVisibleText(searchColListBox,"Skill");  
 		waitForJqueryLoad(driver);
 		selectWebElement(searchCriteriaDropdown);
 		selectDropdownFromVisibleText(searchCriteriaListbox,"Does not contain");		   
@@ -697,7 +717,7 @@ public class FaxSLAReportPage extends BasePage  {
 		List<Map<String,String>> UI=getDataTable(); 
 		for (Map<String,String> map1: UI)
 		{   	
-			if(!map1.get("Agent ID").contains(description))
+			if(!map1.get("Skill").contains(description))
 				Status= true;
 			else 
 				Status= false;
@@ -709,7 +729,7 @@ public class FaxSLAReportPage extends BasePage  {
 		Boolean Status=false;
 		selectWebElement(searchBtn);
 		selectWebElement(searchColDropdown); 
-		selectDropdownFromVisibleText(searchColListBox,"Agent ID");  
+		selectDropdownFromVisibleText(searchColListBox,"Skill");  
 		waitForJqueryLoad(driver);
 		selectWebElement(searchCriteriaDropdown);
 		selectDropdownFromVisibleText(searchCriteriaListbox,"Starts with");		   
@@ -721,7 +741,7 @@ public class FaxSLAReportPage extends BasePage  {
 		List<Map<String,String>> UI=getDataTable(); 
 		for (Map<String,String> map1: UI)
 		{   	
-			if(map1.get("Agent ID").startsWith(description))
+			if(map1.get("Skill").startsWith(description))
 				Status= true;
 			else 
 				Status= false;
@@ -732,7 +752,7 @@ public class FaxSLAReportPage extends BasePage  {
 		Boolean Status=false;
 		selectWebElement(searchBtn);
 		selectWebElement(searchColDropdown); 
-		selectDropdownFromVisibleText(searchColListBox,"Agent ID");  
+		selectDropdownFromVisibleText(searchColListBox,"Skill");  
 		waitForJqueryLoad(driver);
 		selectWebElement(searchCriteriaDropdown);
 		selectDropdownFromVisibleText(searchCriteriaListbox,"Ends with");		   
@@ -744,7 +764,7 @@ public class FaxSLAReportPage extends BasePage  {
 		List<Map<String,String>> UI=getDataTable(); 
 		for (Map<String,String> map1: UI)
 		{   	
-			if(map1.get("Agent ID").endsWith(description))
+			if(map1.get("Skill").endsWith(description))
 				Status= true;
 			else 
 				Status= false;
@@ -873,7 +893,7 @@ public class FaxSLAReportPage extends BasePage  {
 		List<Map<String,String>> database=database(query);
 		System.out.println("Printing Query" +" "+query);		
 		System.out.println("Printing DB results" +" "+database);
-		List<Map<String,String>> UI=getDataTable(); 
+		List<Map<String,String>> UI=getDataTable1(); 
 		System.out.println("Printing UI Results"+" "+UI);	
 		if(UI.equals(database))
 			return true;
@@ -881,7 +901,7 @@ public class FaxSLAReportPage extends BasePage  {
 			return false;
 	}
 	
-	private List<Map<String, String>> getDataTable() {
+	private List<Map<String, String>> getDataTable1() {
 		int item=Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
 		int pagersize=Integer.valueOf(pagerSize.getText());
 		int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
@@ -910,7 +930,48 @@ public class FaxSLAReportPage extends BasePage  {
 		return arr;
 	}
 
+	public Boolean advancedSearchANDCriteria(ReportDetails details) throws Exception {
+		Boolean Status=false;	
+		selectWebElement(advancedsearchBtn);
+		selectWebElement(searchColDropdownAdvSrchReportPage);
+		Thread.sleep(2000);
+		selectDropdownFromVisibleText(searchColListBoxAdvSrchReportPage,"Fax Line");
+		Thread.sleep(2000);
+		selectWebElement(searchCriteriaDropdownAdvSrch);
+		selectDropdownFromVisibleText(searchCriteriaListboxAdvSrch,"Is equal to");
+		enterValueToTxtField(searchTextBoxAdvSrch,details.getSearchStr());
+		selectWebElement(searchAddCriteriaBtn);
+		moveToElement(andradiobtn);
+		selectWebElement(andradiobtn);
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		selectWebElement(searchColDropdownAdvSrchReportPage1);
+		Thread.sleep(2000);
+		selectDropdownFromVisibleText(searchColListBoxAdvSrchReportPage1,"Agent ID");
+		Thread.sleep(2000);
+		selectWebElement(searchCriteriaDropdownAdvSrch1);
+		selectDropdownFromVisibleText(searchCriteriaListboxAdvSrch1,"Is equal to");
+		enterValueToTxtField(searchTextBoxAdvSrch1,details.getSearchStr1());
+		selectWebElement(showReportBtn.get(0));
+		waitForLoad(driver);
+		waitForJqueryLoad(driver);
+		waitUntilWebElementIsVisible(gridBoxContent);
+		Thread.sleep(2000);
+		if(rowdata1.getText().equals(details.getSearchStr()) && rowdata2.getText().equals(details.getSearchStr1())) {
+			Status=true;
+		}
+		return Status;	
+	}
+
+	public void sortAscRouteDateTime() {		
+		selectWebElement(headersDropdown.get(4));
+		waitForJqueryLoad(driver);
+		selectWebElement(sortAscending.get(0));
+		waitForJqueryLoad(driver);
+	}
 	
-	
-	
+
 }

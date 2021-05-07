@@ -1,25 +1,30 @@
 package com.tetherfi.test.tmac;
 
+import com.tetherfi.model.tmac.AgentSettingsDetails;
 import com.tetherfi.pages.AgentSettingsNewDesignPage;
+import com.tetherfi.pages.AgentSettingsPageWMC;
 import com.tetherfi.pages.HomePage;
 import com.tetherfi.pages.OCMHomePage;
 import com.tetherfi.pages.TmacPage;
 import com.tetherfi.test.BaseTest;
+import com.tetherfi.utility.ExcelReader;
 import com.tetherfi.utility.FTPServer;
 import com.tetherfi.utility.JSONReader;
 import com.tetherfi.utility.PageFactory;
 import com.tetherfi.utility.Screenshot;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.lang.reflect.Method;
+import java.util.Map;
 
 public class AgentSettingsUITest extends BaseTest {
 
     @BeforeMethod
-    public void NavigateToAgentSettingsPage() throws InterruptedException {
+    public void NavigateToAgentSettingsPage() throws Exception {
         HomePage homePage= PageFactory.createPageInstance(driver,HomePage.class);
         homePage.navigateToOCMPage();
         OCMHomePage ocmHomePage = PageFactory.createPageInstance(driver,OCMHomePage.class);
@@ -222,6 +227,61 @@ public class AgentSettingsUITest extends BaseTest {
         agentSettingsPage.clickOnCancelAtDelete();
         Assert.assertTrue(agentSettingsPage.verifyCancelButtonAtDelete(),"Cancel button assertion at delete failed");
     }
+    
+    @Test(priority=22)
+	public void VerifySearchIsNotEqualTo() throws Exception {
+		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentSettingsData.xlsx";
+		Map<String, String> map = new ExcelReader(filePath, "Invalid").getTestData().get(3);
+		AgentSettingsDetails agentSettingsDetails = new AgentSettingsDetails(map);
+        AgentSettingsNewDesignPage agentSettingsPage = PageFactory.createPageInstance(driver, AgentSettingsNewDesignPage.class);
+		agentSettingsPage.selectAgentSettingsAuditTrailTab();
+        agentSettingsPage.selectMakeAgentSettingsChanges();
+		Assert.assertTrue(agentSettingsPage.verifySearchIsNotEqualTo(agentSettingsDetails.getFirstname()));
+	}
+
+	@Test(priority=23)
+	public void VerifySearchContains() throws Exception {
+		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentSettingsData.xlsx";
+		Map<String, String> map = new ExcelReader(filePath, "Invalid").getTestData().get(4);
+		AgentSettingsDetails agentSettingsDetails = new AgentSettingsDetails(map);
+		 AgentSettingsNewDesignPage agentSettingsPage = PageFactory.createPageInstance(driver, AgentSettingsNewDesignPage.class);
+			agentSettingsPage.selectAgentSettingsAuditTrailTab();
+	        agentSettingsPage.selectMakeAgentSettingsChanges();
+		Assert.assertTrue(agentSettingsPage.verifySearchContains(agentSettingsDetails.getFirstname()));
+	}
+
+	@Test(priority=24)
+	public void VerifySearchDoesNotContains() throws Exception {
+		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentSettingsData.xlsx";
+		Map<String, String> map = new ExcelReader(filePath, "Invalid").getTestData().get(5);
+		AgentSettingsDetails agentSettingsDetails = new AgentSettingsDetails(map);
+		AgentSettingsNewDesignPage agentSettingsPage = PageFactory.createPageInstance(driver, AgentSettingsNewDesignPage.class);
+		agentSettingsPage.selectAgentSettingsAuditTrailTab();
+        agentSettingsPage.selectMakeAgentSettingsChanges();
+        Assert.assertTrue(agentSettingsPage.verifySearchDoesNotContains(agentSettingsDetails.getFirstname()));
+	}
+
+	@Test(priority=25)
+	public void VerifySearchStartsWith() throws Exception {
+		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentSettingsData.xlsx";
+		Map<String, String> map = new ExcelReader(filePath, "Invalid").getTestData().get(6);
+		AgentSettingsDetails agentSettingsDetails = new AgentSettingsDetails(map);
+		AgentSettingsNewDesignPage agentSettingsPage = PageFactory.createPageInstance(driver, AgentSettingsNewDesignPage.class);
+		agentSettingsPage.selectAgentSettingsAuditTrailTab();
+        agentSettingsPage.selectMakeAgentSettingsChanges();
+        Assert.assertTrue(agentSettingsPage.verifySearchStartsWith(agentSettingsDetails.getFirstname()));
+	}
+
+	@Test(priority=26)
+	public void VerifySearchEndsWith() throws Exception {
+		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentSettingsData.xlsx";
+		Map<String, String> map = new ExcelReader(filePath, "Invalid").getTestData().get(7);
+		AgentSettingsDetails agentSettingsDetails = new AgentSettingsDetails(map);
+		AgentSettingsNewDesignPage agentSettingsPage = PageFactory.createPageInstance(driver, AgentSettingsNewDesignPage.class);
+		agentSettingsPage.selectAgentSettingsAuditTrailTab();
+        agentSettingsPage.selectMakeAgentSettingsChanges();
+        Assert.assertTrue(agentSettingsPage.verifySearchEndsWith(agentSettingsDetails.getFirstname()));
+	}
     
      
     @AfterMethod

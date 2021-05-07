@@ -15,7 +15,6 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
 import com.google.common.collect.Maps;
-import com.tetherfi.model.fax.FaxAddressBookDetails;
 import com.tetherfi.model.report.ReportDetails;
 
 public class OCMAgentLoginLogoutReportPage extends BasePage  {
@@ -135,7 +134,6 @@ public class OCMAgentLoginLogoutReportPage extends BasePage  {
 	@FindBy(xpath="//button[@class='k-button k-button-icontext k-grid-excel']")		
 	private WebElement exporttoexcel;
 
-	//export to excel in AgentRptPage
 	@FindBy(xpath="//button[@id='exportAllToExcel']")
 	private WebElement exportToExcel;
 
@@ -195,7 +193,6 @@ public class OCMAgentLoginLogoutReportPage extends BasePage  {
 
 	@FindBy(css = "span[aria-owns='1001ColumnName_listbox']")
 	private WebElement searchColDropdownAdvSrchReportPage;
-
 
 	@FindBy(css = "span[aria-owns='1002ColumnName_listbox']")
 	private WebElement searchColDropdownAdvSrchReportPage1;		
@@ -258,7 +255,6 @@ public class OCMAgentLoginLogoutReportPage extends BasePage  {
 
 	@FindBy(xpath="//tbody/tr/td/p[@class='k-reset']/../../following-sibling::tr/td[4]")
 	private WebElement groupbyTeamname;
-
 
 	public void exportPage(){
 		emptyDownloadsDirectory(System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles");
@@ -350,7 +346,7 @@ public class OCMAgentLoginLogoutReportPage extends BasePage  {
 			if (norecords.size() <= 0) {
 				int items = Integer.valueOf(pagerInfo.getText().split("of ")[1].split(" items")[0]);
 				selectWebElement(pagerDropdown);
-				Thread.sleep(1500);
+				Thread.sleep(5000);
 				for (int i = 0; i < pageSizeListBox.size(); i++) {
 					if(Integer.valueOf(pageSizeListBox.get(i).getText())>items){continue;}
 					selectDropdownFromVisibleText(pageSizeListBox, pageSizeListBox.get(i).getText());
@@ -640,13 +636,15 @@ public class OCMAgentLoginLogoutReportPage extends BasePage  {
 
 
 
-	public boolean verifyArrowMoveForPreviousAndNextPage(){
+	public boolean verifyArrowMoveForPreviousAndNextPage() throws Exception{
 		boolean status=false;
 		if(!nextPageIcon.getAttribute("class").contains("k-state-disabled")){
 			int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 			selectWebElement(nextPageIcon);
+			Thread.sleep(6000);
 			int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 			selectWebElement(previousPageIcon);
+			Thread.sleep(6000);
 			int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 			if(nextnumber==(pagenumber+1) && pagenumber==previousnumber){status=true;}
 		}else{
@@ -656,13 +654,15 @@ public class OCMAgentLoginLogoutReportPage extends BasePage  {
 	}
 
 
-	public boolean verifyArrowMoveForFirstAndLastPage(){
+	public boolean verifyArrowMoveForFirstAndLastPage() throws Exception{
 		boolean status=false;
 		if(!lastPageIcon.getAttribute("class").contains("k-state-disabled")){
 			int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 			selectWebElement(lastPageIcon);
+			Thread.sleep(5000);
 			int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 			selectWebElement(firstPageIcon);
+			Thread.sleep(5000);
 			int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 			if(nextnumber>pagenumber && pagenumber==previousnumber){status=true;}
 		}else{
@@ -724,10 +724,7 @@ public class OCMAgentLoginLogoutReportPage extends BasePage  {
 		{return errorMsg.get(0).getText();}
 		else{waitUntilWebElementIsVisible(successmsg);return successmsg.getText();}
 	}
-	/* public void scheduleReport(ReportDetails details) throws Exception{
-	        chooseReport(details);
-	        selectWebElement(schRptsinAgent);
-	    }*/
+	
 	public boolean VerifyLogo() {
 		if(VEFImg.isDisplayed())
 			return true;
@@ -766,7 +763,8 @@ public class OCMAgentLoginLogoutReportPage extends BasePage  {
 		if(waitUntilTextToBePresentInWebElement(successmsg,"Report export is initiated... Notification will be sent once completed"))
 		{return true;}else{return false;}
 	}
-	public boolean verifyAdvanceSearch(ReportDetails reportDetails) {
+	
+	public boolean verifyAdvanceSearch(ReportDetails reportDetails) throws Exception {
 		Boolean Status=false;
 		List<Map<String,String>>UI=getDataTable();
 		for(Map<String,String> map1:UI)
@@ -779,7 +777,7 @@ public class OCMAgentLoginLogoutReportPage extends BasePage  {
 		}
 		return Status;
 	}
-	private List<Map<String, String>> getDataTable() {
+	private List<Map<String, String>> getDataTable() throws Exception {
 		int item=Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
 		int pagersize=Integer.valueOf(pagerSize.getText());
 		int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
@@ -809,6 +807,7 @@ public class OCMAgentLoginLogoutReportPage extends BasePage  {
 			}
 			if(k!=pages)
 			{
+				Thread.sleep(5000);
 				nextPageIcon.click();
 				waitForJqueryLoad(driver);}
 		}
@@ -857,7 +856,8 @@ public class OCMAgentLoginLogoutReportPage extends BasePage  {
 		}
 		return Status;	
 	}
-	public boolean verifySearchEqualTo(String details) throws Exception {
+	
+	public boolean verifySearchIsEqualTo(String details) throws Exception {
 		Boolean Status=false;
 		Map<String, String> map=new HashMap<String,String>() ;
 		map.put("Agent Name", details);
@@ -871,17 +871,19 @@ public class OCMAgentLoginLogoutReportPage extends BasePage  {
 		enterValueToTxtField(searchTextBox,details);
 		selectWebElement(searchSearchBtn);
 		waitForJqueryLoad(driver);
-		//waitUntilWebElementIsVisible(gridContent);
 		List<Map<String,String>> UI=getDataTable(); 
 		for (Map<String,String> map1: UI)
 		{   	
-			if(map1.equals(map))
+			if(map1.get("Agent Name").equals(details))
 				Status= true;
 			else 
 				Status= false;
 		}
 		return Status;	
 	}
+		
+		
+	
 	public boolean verifySearchContains(ReportDetails details) throws Exception {
 		Boolean Status=false;		
 		selectWebElement(searchBtn);
@@ -953,6 +955,8 @@ public class OCMAgentLoginLogoutReportPage extends BasePage  {
 		}
 		return Status;
 	}
+	
+	
 	public boolean verifySearchEndsWith(String description) throws Exception {
 		Boolean Status=false;
 		selectWebElement(searchBtn);
@@ -1005,26 +1009,59 @@ public class OCMAgentLoginLogoutReportPage extends BasePage  {
 		return status;
 	}
 
-	public boolean verifyDatabase(String query,ReportDetails details) {
+
+	public boolean verifyDatabase(String query,ReportDetails details) throws InterruptedException {
 		//get dates from xl - step 2
 		String reportbeforedate = details.getStartDate();
 		String reportafterdate=details.getEndDate();
 		//change date formats - step 3
-		reportbeforedate = reportbeforedate.substring(6,10)+reportbeforedate.substring(3, 5)+reportbeforedate.substring(0, 2)+reportbeforedate.substring(11, 13)+reportbeforedate.substring(14, 16)+reportbeforedate.substring(17, 19);
+		reportbeforedate=reportbeforedate.substring(6,10)+reportbeforedate.substring(3, 5)+reportbeforedate.substring(0, 2)+reportbeforedate.substring(11, 13)+reportbeforedate.substring(14, 16)+reportbeforedate.substring(17, 19);
 		reportafterdate	=reportafterdate.substring(6,10)+reportafterdate.substring(3, 5)+reportafterdate.substring(0, 2)+reportafterdate.substring(11, 13)+reportafterdate.substring(14, 16)+reportafterdate.substring(17, 19);
 		//Replace identifiers in query to formatted date - step 5
 		query=query.replaceAll("ReportBeforeDate",reportbeforedate );
 		query=query.replaceAll("ReportAfterDate",reportafterdate );
-
 		List<Map<String,String>> database=database(query);
-		System.out.println(database);
-		List<Map<String,String>> UI=getDataTable(); 
-		System.out.println(UI);
+		System.out.println("Printing Query" +" "+query);		
+		System.out.println("Printing DB results" +" "+database);
+		Thread.sleep(8000);
+		List<Map<String,String>> UI=getDataTable1(); 
+		System.out.println("Printing UI Results"+" "+UI);	
 		if(UI.equals(database))
 			return true;
 		else
 			return false;
-	}	
+	}
+	
+	 private List<Map<String, String>> getDataTable1() throws InterruptedException {
+			int item=Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
+	        int pagersize=Integer.valueOf(pagerSize.getText());
+	        int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
+			List<Map<String,String>> arr=new ArrayList<Map<String,String>>();
+			for(int k=0;k<=pages;k++){
+			waitUntilWebElementIsVisible(auditGridContent);
+			List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
+			List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
+			for(int i=1;i<rows.size();i++) {
+				Map<String,String> map = new HashMap<String,String>();
+				List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
+				String col=null;
+				for(int j=0;j<headers.size();j++){
+					scrollToElement(headers.get(j));
+					col=cols.get(j).getText();
+					map.put(headers.get(j).getText(),col);
+				}
+				map.remove("");
+				arr.add(map);
+			}
+			if(k!=pages)
+			{
+				Thread.sleep(5000);
+				nextPageIcon.click();
+				waitForJqueryLoad(driver);}
+			}
+				return arr;
+		}
+		
 	public void deleteWithoutDeleteReason(ReportDetails details) throws Exception {
 
 		waitUntilWebElementIsVisible(deleteReportinInReportDownloadpage.get(0));
@@ -1053,13 +1090,14 @@ public class OCMAgentLoginLogoutReportPage extends BasePage  {
 		}
 		return isElementExist(deleteContainer);
 	}
+	
 	public boolean verifySearchByTextbox(ReportDetails details) throws Exception{	
-		boolean Status=false;
-		//Map<String, String> map=new HashMap<String,String>() ;
+		boolean Status=false;		
 		selectWebElement(searchbyfeatureTextBox);    
-		//searchbyfeatureTextBox.sendKeys("P");//agent id value		
 		enterValueToTxtFieldWithoutClear(searchbyfeatureTextBox,details.getSearchStr());
+		Thread.sleep(2000);
 		selectDropdownFromVisibleText(searchbyfeaturelistBox,details.getSearchStr());	
+		Thread.sleep(2000);
 		waitForJqueryLoad(driver);
 		List<Map<String,String>> UI=getDataTable(); 
 		for (Map<String,String> map1: UI)
@@ -1091,7 +1129,7 @@ public class OCMAgentLoginLogoutReportPage extends BasePage  {
 		}
 		selectWebElement(searchColDropdownAdvSrchReportPage1);
 		Thread.sleep(2000);
-		selectDropdownFromVisibleText(searchColListBoxAdvSrchReportPage1,"Agent Name");
+		selectDropdownFromVisibleText(searchColListBoxAdvSrchReportPage1,"Team Name");
 		Thread.sleep(2000);
 		selectWebElement(searchCriteriaDropdownAdvSrch1);
 		selectDropdownFromVisibleText(searchCriteriaListboxAdvSrch1,"Contains");
@@ -1100,13 +1138,22 @@ public class OCMAgentLoginLogoutReportPage extends BasePage  {
 		waitForLoad(driver);
 		waitForJqueryLoad(driver);
 		waitUntilWebElementIsVisible(gridBoxContent);
-		Thread.sleep(2000);
-		if(rowdata.getText().equals(details.getSearchStr()) && rowdata.getText().contains(details.getSearchStr1())) {
-			Status=true;
+		Thread.sleep(5000);
+		List<Map<String,String>>UI=getDataTable();
+		for(Map<String,String> map1:UI)
+		{
+			System.out.println(map1.get("Agent Name") + map1.get("Team Name"));
+			if(map1.get("Agent Name").toLowerCase().equals(details.getSearchStr().toLowerCase()) && map1.get("Team Name").toLowerCase().contains(details.getSearchStr1().toLowerCase()))
+				Status= true;
+			else 
+				Status =false;
 		}
 		return Status;	
-
 	}
+		
+		
+	
+	
 	public Boolean advancedSearchORCriteria(ReportDetails details) throws Exception {
 		Boolean Status=false;	
 		selectWebElement(advancedsearchBtn);
@@ -1130,22 +1177,26 @@ public class OCMAgentLoginLogoutReportPage extends BasePage  {
 		selectDropdownFromVisibleText(searchColListBoxAdvSrchReportPage1,"Agent ID");
 		Thread.sleep(2000);
 		selectWebElement(searchCriteriaDropdownAdvSrch1);
-		selectDropdownFromVisibleText(searchCriteriaListboxAdvSrch1,"Starts with");
+		selectDropdownFromVisibleText(searchCriteriaListboxAdvSrch1,"Is equal to");
 		enterValueToTxtField(searchTextBoxAdvSrch1,details.getSearchStr2());
 		selectWebElement(showReportBtn.get(0));
 		waitForLoad(driver);
 		waitForJqueryLoad(driver);
 		waitUntilWebElementIsVisible(gridBoxContent);
-		Thread.sleep(3000);
-		List<WebElement> rows=Grid.findElements(By.tagName("tr"));	
-		for(WebElement e:rows)
+		Thread.sleep(5000);
+		List<Map<String,String>>UI=getDataTable();
+		for(Map<String,String> map1:UI)
 		{
-			if(rowdata.getText().equals(details.getSearchStr())||rowdatatwo.getText().contains(details.getSearchStr2()))
-				Status=true;
+			System.out.println(map1.get("Agent Name") + map1.get("Agent ID"));
+			if(map1.get("Agent Name").toLowerCase().equals(details.getSearchStr().toLowerCase()) || map1.get("Agent ID").toLowerCase().equals(details.getSearchStr1().toLowerCase()))
+				Status= true;
+			else 
+				Status =false;
 		}
 		return Status;	
-
 	}
+		
+		
 
 	public boolean verifyAdvanceSearchIsNotEqualTo(ReportDetails reportDetails) throws Exception {
 		Boolean Status=false;
@@ -1161,6 +1212,7 @@ public class OCMAgentLoginLogoutReportPage extends BasePage  {
 		}
 		return Status;
 	}
+	
 	public boolean verifyAdvanceSearchContains(ReportDetails reportDetails) throws Exception {
 		Boolean Status=false;
 		waitForJqueryLoad(driver);
@@ -1175,6 +1227,7 @@ public class OCMAgentLoginLogoutReportPage extends BasePage  {
 		}
 		return Status;
 	}
+	
 	public boolean verifyAdvanceSearchDoesNotContains(ReportDetails reportDetails) throws Exception {
 		Boolean Status=false;
 		waitForJqueryLoad(driver);
@@ -1189,6 +1242,7 @@ public class OCMAgentLoginLogoutReportPage extends BasePage  {
 		}
 		return Status;
 	}
+	
 	public boolean verifyAdvanceSearchStartsWith(ReportDetails reportDetails) throws Exception {
 		Boolean Status=false;
 		waitForJqueryLoad(driver);
@@ -1203,6 +1257,7 @@ public class OCMAgentLoginLogoutReportPage extends BasePage  {
 		}
 		return Status;
 	}
+	
 	public boolean verifyAdvanceSearchEndsWith(ReportDetails reportDetails) throws Exception {
 		Boolean Status=false;
 		waitForJqueryLoad(driver);
@@ -1217,10 +1272,11 @@ public class OCMAgentLoginLogoutReportPage extends BasePage  {
 		}
 		return Status;
 	}
+	
 	public boolean groupby() {
 		DragandDrop(teamname,droptarget);
 		try {
-			Thread.sleep(1000);
+			Thread.sleep(5000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}

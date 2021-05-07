@@ -85,7 +85,7 @@ public class AuditTrailReportTest extends BaseTest {
         ReportDetails reportDetails= new ReportDetails(map);
 
         OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
-        ocmReportsPage.viewDownloadedReportInReportsDownloadsPage();
+        ocmReportsPage.viewDownloadedReportInReportDownloadsPage();
         Assert.assertTrue(ocmReportsPage.verifyDownloadedReportNameAndTimeInReportsDownloadPage(reportDetails.getReportName()),"Report not found in Reporter download page");
     }
     @Test
@@ -137,7 +137,7 @@ public class AuditTrailReportTest extends BaseTest {
         ReportDetails reportDetails= new ReportDetails(map);
 
         OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
-        ocmReportsPage.viewDownloadedReportInReportsDownloadsPage();
+        ocmReportsPage.viewDownloadedReportInReportDownloadsPage();
         Assert.assertTrue(ocmReportsPage.verifyDownloadedReportNameAndTimeInReportsDownloadPage(reportDetails.getReportName()),"Report not found in Reporter download page");
     }
     @Test(dependsOnMethods ="ShowAuditTrailReportForDateRange")

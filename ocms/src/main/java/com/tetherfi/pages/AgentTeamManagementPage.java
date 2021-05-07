@@ -28,7 +28,7 @@ public class AgentTeamManagementPage extends BasePage {
 	@FindBy(xpath="//i[@class='fas fa-sitemap']")
 	private WebElement aTMImg;
 
-	@FindBy(xpath="//i[@class='fas fa-sync']")
+	@FindBy(xpath="//i[@class='fas fa-sync fa-spin']")
 	private WebElement clearsearch;
 
 	@FindBy(xpath="//a[text()='Level Hierarchy']")
@@ -680,7 +680,7 @@ public class AgentTeamManagementPage extends BasePage {
 	}
 	
 
-	public boolean verifyDatabase(String query) {
+	public boolean verifyDatabase(String query) throws Exception {
 		List<Map<String,String>> database=database(query);
 		System.out.println(database);	
 		selectWebElement(lastchangedon);
@@ -692,7 +692,8 @@ public class AgentTeamManagementPage extends BasePage {
 			return false;
 	}
 
-	private List<Map<String,String>> gettable(){
+	private List<Map<String,String>> gettable() throws Exception{
+		Thread.sleep(4000);
 		int item=Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
         int pagersize=Integer.valueOf(pagerSize.getText());
         int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
@@ -794,8 +795,18 @@ public class AgentTeamManagementPage extends BasePage {
         if(!nextPageIcon.getAttribute("class").contains("k-state-disabled")){
         int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber));
         selectWebElement(nextPageIcon);
+        try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
         int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
         selectWebElement(previousPageIcon);
+        try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
         int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
         if(nextnumber==(pagenumber+1) && pagenumber==previousnumber){status=true;}
         }else{
@@ -809,8 +820,18 @@ public class AgentTeamManagementPage extends BasePage {
         if(!lastPageIcon.getAttribute("class").contains("k-state-disabled")){
             int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber));
             selectWebElement(lastPageIcon);
+            try {
+    			Thread.sleep(3000);
+    		} catch (InterruptedException e) {
+    			e.printStackTrace();
+    		}
             int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
             selectWebElement(firstPageIcon);
+            try {
+    			Thread.sleep(3000);
+    		} catch (InterruptedException e) {
+    			e.printStackTrace();
+    		}
             int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
             if(nextnumber>pagenumber && pagenumber==previousnumber){status=true;}
         }else{
@@ -1009,6 +1030,7 @@ public class AgentTeamManagementPage extends BasePage {
 		searchAgentTeamManagementRecord(agentTeamMgmtDetails.getTeamName());
 		waitForJqueryLoad(driver);
 		selectWebElement(exporttoexcel);
+		Thread.sleep(1000);
 		if(errorMsg.get(0).getText().equals("There is no record to export"))
 			return true;
 		else

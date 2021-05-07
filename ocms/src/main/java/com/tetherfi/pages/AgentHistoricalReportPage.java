@@ -6,8 +6,6 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -256,7 +254,6 @@ public class AgentHistoricalReportPage extends BasePage  {
 	@FindBy(css = ".modal-footer .button-theme")
 	private WebElement searchSearchBtn;
 
-	// @FindBy(css = "span[aria-owns='autoCompleteTextbox_listbox']")
 	@FindBy(id="autoCompleteTextbox")
 	private WebElement searchbyfeatureTextBox;
 
@@ -797,6 +794,7 @@ public class AgentHistoricalReportPage extends BasePage  {
 		Boolean Status=verifyExportPageFileDownload(filePath, "OCMAgentHistoricalReport");
 		return Status;
 	}
+	
 	public boolean verifyExportPageFileDownloaded(String reportname){
 		return verifyExportPageFileDownload(System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles",reportname);
 	}
@@ -852,7 +850,6 @@ public class AgentHistoricalReportPage extends BasePage  {
 
 	public boolean verifySearchIsEqualTo(String details) throws Exception {
 		Boolean Status=false;
-		//map.put("Agent Name", details);
 		selectWebElement(searchBtn);	
 		selectWebElement(searchColDropdown);  
 		selectDropdownFromVisibleText(searchColListBox,"Agent Name");  
@@ -874,6 +871,7 @@ public class AgentHistoricalReportPage extends BasePage  {
 		}
 		return Status;	
 	}
+	
 	public boolean verifySearchIsNotEqualTo(String details) throws Exception {
 		Boolean Status=false;
 		Map<String, String> map=new HashMap<String,String>() ;
@@ -929,8 +927,34 @@ public class AgentHistoricalReportPage extends BasePage  {
 	}*/
 
 	
-	
-	
+	private List<Map<String, String>> getDataTable() {
+		int item=Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
+        int pagersize=Integer.valueOf(pagerSize.getText());
+        int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
+		List<Map<String,String>> arr=new ArrayList<Map<String,String>>();
+		for(int k=0;k<=pages;k++){
+		waitUntilWebElementIsVisible(auditGridContent);
+		List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
+		List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
+		for(int i=1;i<rows.size();i++) {
+			Map<String,String> map = new HashMap<String,String>();
+			List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
+			String col=null;
+			for(int j=0;j<headers.size();j++){
+				scrollToElement(headers.get(j));
+				col=cols.get(j).getText();
+				map.put(headers.get(j).getText(),col);
+			}
+			map.remove("");
+			arr.add(map);
+		}
+		if(k!=pages)
+		{
+			nextPageIcon.click();
+			waitForJqueryLoad(driver);}
+		}
+			return arr;
+	}
 	
 	
 	
@@ -1011,7 +1035,6 @@ public class AgentHistoricalReportPage extends BasePage  {
 		enterValueToTxtField(searchTextBox,description);        
 		selectWebElement(searchSearchBtn);
 		waitForJqueryLoad(driver);
-		//waitUntilWebElementIsVisible(gridContent);
 		List<Map<String,String>> UI=getDataTable(); 
 		for (Map<String,String> map1: UI)
 		{   	
@@ -1022,6 +1045,7 @@ public class AgentHistoricalReportPage extends BasePage  {
 		}
 		return Status;
 	}
+	
 	public boolean verifySearchEndsWith(String description) throws Exception {
 		Boolean Status=false;
 		selectWebElement(searchBtn);
@@ -1034,7 +1058,6 @@ public class AgentHistoricalReportPage extends BasePage  {
 		enterValueToTxtField(searchTextBox,description);        
 		selectWebElement(searchSearchBtn);
 		waitForJqueryLoad(driver);
-		// waitUntilWebElementIsVisible(gridContent);
 		List<Map<String,String>> UI=getDataTable(); 
 		for (Map<String,String> map1: UI)
 		{   	
@@ -1045,6 +1068,7 @@ public class AgentHistoricalReportPage extends BasePage  {
 		}
 		return Status;
 	}
+	
 	public boolean verifySearchClear(ReportDetails details) {
 		Boolean Status= false;
 		selectWebElement(searchBtn);		
@@ -1062,6 +1086,7 @@ public class AgentHistoricalReportPage extends BasePage  {
 			Status=false;
 		return Status;	
 	}
+	
 	public boolean verifyAdvanceSearch(ReportDetails reportDetails) throws Exception {
 		Boolean Status=false;
 		waitForJqueryLoad(driver);
@@ -1076,6 +1101,7 @@ public class AgentHistoricalReportPage extends BasePage  {
 		}
 		return Status;
 	}
+	
 	public void searchwithoutextsearch(ReportDetails details) {
 		selectWebElement(searchBtn);		
 		selectWebElement(searchColDropdown);  
@@ -1095,7 +1121,16 @@ public class AgentHistoricalReportPage extends BasePage  {
 			return errorMsg.get(0).getText();}
 	}
 
-
+	public boolean verifyDatabase(String query) {
+		List<Map<String,String>> database=database(query);
+		System.out.println(database);
+		List<Map<String,String>> UI=getDataTable(); 
+		System.out.println(UI);
+		if(UI.equals(database))
+			return true;
+		else
+			return false;
+	}
 
 	public boolean groupby() {
 		DragandDrop(agentid,droptarget);
@@ -1110,17 +1145,14 @@ public class AgentHistoricalReportPage extends BasePage  {
 			return false;		
 	}
 
-	
-	public void sortAscAgentName() {
+	public void sortAscAgentName() {		
 		selectWebElement(headersDropdown.get(1));
 		waitForJqueryLoad(driver);
 		selectWebElement(sortAscending.get(0));
 		waitForJqueryLoad(driver);
-	}
-	
+	}	
 
-
-	public boolean verifyDatabase(String query,ReportDetails details) throws Exception {
+	public boolean verifyDatabase(String query,ReportDetails details) {
 		//get dates from xl - step 2
 		String reportbeforedate = details.getStartDate();
 		String reportafterdate=details.getEndDate();
@@ -1140,37 +1172,6 @@ public class AgentHistoricalReportPage extends BasePage  {
 		else
 			return false;
 	}
-	
-	private List<Map<String, String>> getDataTable() throws Exception {
-		int item=Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
-        int pagersize=Integer.valueOf(pagerSize.getText());
-        int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
-		List<Map<String,String>> arr=new ArrayList<Map<String,String>>();
-		for(int k=0;k<=pages;k++){
-		waitUntilWebElementIsVisible(auditGridContent);
-		List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
-		List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
-		for(int i=1;i<rows.size();i++) {
-			Map<String,String> map = new HashMap<String,String>();
-			List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
-			String col=null;
-			for(int j=0;j<headers.size();j++){
-				scrollToElement(headers.get(j));
-				col=cols.get(j).getText();
-				map.put(headers.get(j).getText(),col);
-			}
-			map.remove("");
-			arr.add(map);
-		}
-		if(k!=pages)
-		{
-			Thread.sleep(5000);
-			nextPageIcon.click();
-			waitForJqueryLoad(driver);}
-		}
-			return arr;
-	}
-	
 	
 
 	public List<String> getAgents() throws Exception {
@@ -1269,7 +1270,7 @@ public class AgentHistoricalReportPage extends BasePage  {
         waitUntilWebElementIsVisible(DrillGridOneTable);
 	}
 	
-	public boolean verifyDatabaseDrillGridOne(String queryDrillGridOne,ReportDetails details, String AgentId) {
+	public boolean verifyDatabaseDrillGridOne(String queryDrillGridOne,ReportDetails details, String AgentId) throws Exception {
 		//get dates from xl - step 2
 		String reportbeforedate = details.getStartDate();
 		String reportafterdate=details.getEndDate();
@@ -1283,7 +1284,8 @@ public class AgentHistoricalReportPage extends BasePage  {
 		List<Map<String,String>> database=database(queryDrillGridOne);
 		//System.out.println("Printing Query" +" "+queryDrillGridOne);		
 		//System.out.println("Printing DB results" +" "+database);
-		List<Map<String,String>> UI=getDataTableDrillGridOne(); 
+		Thread.sleep(3000);
+		List<Map<String,String>> UI=getDataTableDrillGridOne1(); 
 		//System.out.println("Printing UI Results"+" "+UI);	
 		if(UI.equals(database))
 			return true;
@@ -1305,7 +1307,7 @@ public class AgentHistoricalReportPage extends BasePage  {
 		List<Map<String,String>> database=database(queryDrillGridTwo);
 		System.out.println("Printing Query" +" "+queryDrillGridTwo);		
 		System.out.println("Printing DB results" +" "+database);
-		List<Map<String,String>> UI=getDataTableDrillGridTwo(); 
+		List<Map<String,String>> UI=getDataTableDrillGridTwo2(); 
 		System.out.println("Printing UI Results"+" "+UI);	
 		if(UI.equals(database))
 			return true;
@@ -1378,7 +1380,7 @@ public class AgentHistoricalReportPage extends BasePage  {
 			return arr;
 	}
 	
-	public boolean verifyAdvanceSearchNotEqualsTo(ReportDetails reportDetails) throws Exception {
+	public boolean verifyAdvanceSearchNotEqualsTo(ReportDetails reportDetails) {
 		Boolean Status=false;
 		waitForJqueryLoad(driver);
 		List<Map<String,String>>UI=getDataTable();
@@ -1392,7 +1394,7 @@ public class AgentHistoricalReportPage extends BasePage  {
 		}
 		return Status;
 	}
-	public boolean verifyAdvanceSearchContains(ReportDetails reportDetails) throws Exception {
+	public boolean verifyAdvanceSearchContains(ReportDetails reportDetails) {
 		Boolean Status=false;
 		waitForJqueryLoad(driver);
 		List<Map<String,String>>UI=getDataTable();
@@ -1406,7 +1408,7 @@ public class AgentHistoricalReportPage extends BasePage  {
 		}
 		return Status;
 	}
-	public boolean verifyAdvanceSearchDoesNotContains(ReportDetails reportDetails) throws Exception {
+	public boolean verifyAdvanceSearchDoesNotContains(ReportDetails reportDetails) {
 		Boolean Status=false;
 		waitForJqueryLoad(driver);
 		List<Map<String,String>>UI=getDataTable();
@@ -1420,7 +1422,7 @@ public class AgentHistoricalReportPage extends BasePage  {
 		}
 		return Status;
 	}
-	public boolean verifyAdvanceSearchStartsWith(ReportDetails reportDetails) throws Exception {
+	public boolean verifyAdvanceSearchStartsWith(ReportDetails reportDetails) {
 		Boolean Status=false;
 		waitForJqueryLoad(driver);
 		List<Map<String,String>>UI=getDataTable();
@@ -1434,7 +1436,7 @@ public class AgentHistoricalReportPage extends BasePage  {
 		}
 		return Status;
 	}
-	public boolean verifyAdvanceSearchEndsWith(ReportDetails reportDetails) throws Exception {
+	public boolean verifyAdvanceSearchEndsWith(ReportDetails reportDetails) {
 		Boolean Status=false;
 		waitForJqueryLoad(driver);
 		List<Map<String,String>>UI=getDataTable();
@@ -1488,8 +1490,8 @@ public class AgentHistoricalReportPage extends BasePage  {
 				Status =false;
 		}
 		return Status;	
-		
 	}
+	
 	public Boolean advancedSearchORCriteria(ReportDetails details) throws Exception {
 		Boolean Status=false;	
 		selectWebElement(advancedsearchBtn);
@@ -1530,9 +1532,9 @@ public class AgentHistoricalReportPage extends BasePage  {
 			else 
 				Status =false;
 		}
-		return Status;	
-		
+		return Status;			
 	}
+	
 	public boolean verifySelectDateFeature(ReportDetails reportDetails) throws Exception {
 		Boolean Status=false;
 		enterValueToTxtField(filterDate,reportDetails.getFilterDate());
@@ -1712,6 +1714,7 @@ public class AgentHistoricalReportPage extends BasePage  {
 		}
 		return status;
 	}
+	
 	public boolean verifyTotalNumberOfItemsPerPageDetailsForDrillDowntwo() throws InterruptedException {
 		selectWebElement(rows.get(0));
 		Thread.sleep(2000);
@@ -1722,6 +1725,7 @@ public class AgentHistoricalReportPage extends BasePage  {
 		String item = drillGridTwoItems.getText();
 		return item.matches("(\\d.*) - (\\d.*) of (\\d.*) items");
 	}
+	
 	public boolean verifyNumberOfItemsPerPageForDrillDowntwo(ReportDetails reportDetails) throws Exception {
 		selectWebElement(rows.get(0));
 		Thread.sleep(2000);
@@ -1937,6 +1941,90 @@ public class AgentHistoricalReportPage extends BasePage  {
 	}
 	
 
+	private List<Map<String, String>> getDataTableDrillGridOne1() {
+	 	int item=Integer.valueOf(drillGridOneItems.getText().split("of ")[1].split(" items")[0]);
+        int pagersize=Integer.valueOf(pagerSizeDrillGridOne.getText());
+        int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
+	 	List<Map<String,String>> arr=new ArrayList<Map<String,String>>();
+	 	for(int k=0;k<=pages;k++){
+	 	waitUntilWebElementIsVisible(DrillGridOneTable);
+		List<WebElement> rows=DrillGridOneTable.findElements(By.tagName("tr"));
+		List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
+		for(int i=1;i<rows.size();i++) {
+			Map<String,String> map = new HashMap<String,String>();
+			List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
+			String col=null;
+			for(int j=0;j<headers.size();j++){
+				scrollToElement(headers.get(j)); 
+				if(headers.get(j).getText().equals("")){					
+					col=cols.get(j).getText();
+					if(col.contains("."))
+						col=col;
+					else
+						col=col+".00";
+					}
+				else
+					col=cols.get(j).getText();
+				map.put(headers.get(j).getText(),col);
+			}
+			map.remove("");
+			arr.add(map);
+		}
+		if(k!=pages)
+		{
+			nextPageIconDrillOne.click();
+			waitForJqueryLoad(driver);
+			waitUntilWebElementIsVisible(DrillGridOneTable);
+		}
+		}
+			CloseDrillGridOne.click();
+			return arr;
+	}
+
+	private List<Map<String, String>> getDataTableDrillGridTwo2() throws InterruptedException {
+	 	int item=Integer.valueOf(drillGridTwoItems.getText().split("of ")[1].split(" items")[0]);
+	 	int pagersize=24;
+        int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
+		List<Map<String,String>> arr=new ArrayList<Map<String,String>>();
+		for(int k=0;k<=pages;k++){
+		waitUntilWebElementIsVisible(DrillGridTwoTable);
+		List<WebElement> rows=DrillGridTwoTable.findElements(By.tagName("tr"));
+		List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
+		for(int i=1;i<rows.size();i++) {
+			Map<String,String> map = new HashMap<String,String>();
+			List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
+			String col=null;
+			for(int j=0;j<headers.size();j++){
+//				Added this to scroll to end of the column
+				scrollToElement(headers.get(j));
+				if(headers.get(j).getText().equals("")){
+					col=cols.get(j).getText();
+					if(col.contains("."))
+						col=col;
+					else
+						col=col+".00";
+					}
+				else
+					col=cols.get(j).getText();
+				map.put(headers.get(j).getText(),col);
+			}
+			map.remove("");
+			arr.add(map);
+		}
+		if(k!=pages)
+		{
+			nextPageIconDrillTwo.click();
+			waitForJqueryLoad(driver);
+			waitUntilWebElementIsVisible(DrillGridTwoTable);
+		}
+		}
+			CloseDrillGridTwo.click();
+			//Thread.sleep(1000);
+			waitUntilWebElementIsVisible(DrillGridOneTable);
+			return arr;
+	}
+	
+	
 	
 } 	 
 

@@ -201,7 +201,7 @@ public class FaxApplicationFormPage extends BasePage {
 	@FindBy(xpath="//div[text()='No records to display']")
 	private WebElement norecords;
 	    
-	@FindBy(xpath="//i[@class='fas fa-sync']")
+	@FindBy(xpath="//i[@class='fas fa-sync fa-spin']")
 	private WebElement clearsearch;
 	
 	@FindBy(css="span[aria-owns='LANGUAGE_listbox']")
@@ -315,10 +315,6 @@ public class FaxApplicationFormPage extends BasePage {
 			for(int j=1;j<headers.size();j++) {
 				scrollToElement(headers.get(j));
 				System.out.println(headers.get(j).getText());
-				if(headers.get(j).getText().equals("Last Changed On")){
-				col=cols.get(j).getText().substring(0,10);
-				}
-				else
 					col=cols.get(j).getText();
 				map.put(headers.get(j).getText(),col);
 			}
@@ -332,7 +328,7 @@ public class FaxApplicationFormPage extends BasePage {
 		}
 			return arr;
 	}
-	public boolean verifyDatabase(String query) {
+	public boolean verifyDatabase(String query) throws Exception {
 		List<Map<String,String>> database=database(query);
 		System.out.println(database);
 		List<Map<String,String>> UI=gettable(); 
@@ -343,7 +339,8 @@ public class FaxApplicationFormPage extends BasePage {
 			return false;
 	}
 	
-	public List<Map<String, String>> gettable() {
+	public List<Map<String, String>> gettable() throws Exception {
+		Thread.sleep(2000);
 		int item=Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
         int pagersize=Integer.valueOf(pagerSize.getText());
         int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
@@ -580,8 +577,7 @@ public class FaxApplicationFormPage extends BasePage {
 	}
     
     public String verifySuccessMessage(){
-        if(errorMsg.size()>0){return errorMsg.get(0).getText();}
-        else{waitUntilWebElementIsVisible(successmsg);return successmsg.getText();}
+        waitUntilWebElementIsVisible(successmsg);return successmsg.getText();
     }
 
 	public boolean addnewCancel(FaxApplicationFormDetails details) throws Exception {
@@ -760,7 +756,7 @@ public class FaxApplicationFormPage extends BasePage {
         selectWebElement(StatusDropdown);
         selectDropdownFromVisibleText(StatusListbox,details.getUpdatedStatus());
         selectWebElement(ModifyReasonTextBox);
-        enterValueToTxtField(ModifyReasonTextBox,details.getModifyReason());
+        enterValueToTxtFieldWithoutClear(ModifyReasonTextBox,details.getModifyReason());
         selectWebElement(saveButton);		
 	}
 
@@ -977,7 +973,7 @@ public class FaxApplicationFormPage extends BasePage {
 		waitUntilWebElementIsClickable(deleteBtn);
         selectWebElement(deleteBtn);
         Thread.sleep(2000);
-        enterValueToTxtField(deleteReasonTextBox,details.getDeleteReason());
+        enterValueToTxtFieldWithoutClear(deleteReasonTextBox,details.getDeleteReason());
         selectWebElement(deleteYesBtn);
         try {
         	selectWebElement(deleteNoBtn);

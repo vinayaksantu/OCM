@@ -11,10 +11,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import com.tetherfi.model.report.ReportDetails;
 import com.tetherfi.pages.HomePage;
-import com.tetherfi.pages.OCMAgentAuxReportPage;
 import com.tetherfi.pages.OCMAgentSummaryReportPage;
-import com.tetherfi.pages.OCMChatInteractionReportPage;
-import com.tetherfi.pages.OCMHomePage;
 import com.tetherfi.pages.OCMReportsPage;
 import com.tetherfi.test.BaseTest;
 import com.tetherfi.utility.ExcelReader;
@@ -40,7 +37,7 @@ public class OCMAgentSummaryReportTest extends BaseTest {
 		ftp.transferFileFromRemote(remoteFilePath,destinationFilePath);
 	}
 
-	@Test(priority=1,description="To verify Show Report for Single Date")
+	/*@Test(priority=1,description="To verify Show Report for Single Date")
 	public void ShowOCMAgentSummaryReport() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
@@ -325,8 +322,7 @@ public class OCMAgentSummaryReportTest extends BaseTest {
 	} 
 
 	@Test(priority=28,description="To Verify Export Page Button")
-	public void ExportPage() throws Exception
-	{
+	public void ExportPage() throws Exception{
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
 		ReportDetails reportDetails= new ReportDetails(map);
@@ -338,8 +334,7 @@ public class OCMAgentSummaryReportTest extends BaseTest {
 	}
 
 	@Test(priority=29,dependsOnMethods="ExportPage",description="To Verify Exported Page Against UI")
-	public void VerifyExportedPage() throws Exception
-	{
+	public void VerifyExportedPage() throws Exception{
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
 		ReportDetails reportDetails= new ReportDetails(map);
@@ -351,7 +346,7 @@ public class OCMAgentSummaryReportTest extends BaseTest {
 		Assert.assertTrue(OCMAgentSummaryReportPage.verifyexportToExcelSheet(maplist));
 	}
 	
-	@Test(priority=30,description="Scheduled report button in Login Logout report page")
+	@Test(priority=30,description="Scheduled report button in Summary report page")
 	public void SchedulereportinOCMAgentSummaryReportPage() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ExportReport").getTestData().get(0);
@@ -604,9 +599,9 @@ public class OCMAgentSummaryReportTest extends BaseTest {
 		OCMReportsPage.showReport(reportDetails);
 		OCMAgentSummaryReportPage OCMAgentSummaryReportPage=PageFactory.createPageInstance(driver,OCMAgentSummaryReportPage.class);
 		Assert.assertTrue(OCMAgentSummaryReportPage.groupby());
-		screenshot.captureScreen("OCMAgentSummaryReport", "GroupBy");
+		screenshot.captureScreen("AgentSummaryReportTest", "GroupBy");
 		Assert.assertTrue(OCMAgentSummaryReportPage.groupby());
-		screenshot.captureScreen("OCMAgentSummaryReport", "AlreadyGroupBy");
+		screenshot.captureScreen("AgentSummaryReportTest", "AlreadyGroupBy");
 	}
 	
 	@Test(priority=52,description="Verify the column headers against the Json File ")
@@ -635,14 +630,48 @@ public class OCMAgentSummaryReportTest extends BaseTest {
 
 	@Test(priority=54,dependsOnMethods ="ViewDownloadedOcmAgentSummaryReportInReportsDownloadPageinAgentSummaryPg",description="To verification of exported excel in Report downloads")
 	public void VerifyViewDownloadedinOcmAgentSummaryReportPage() throws Exception {
-		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentLoginLogoutReportData.xlsx";
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
 		ReportDetails reportDetails= new ReportDetails(map);
 		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
 		ocmReportsPage.showReport(reportDetails);
 		Assert.assertTrue(ocmReportsPage.verifyExportedSheet("OCMReportDownload","OCM Agent Summary Report"));		
 	}
+	
+	@Test(priority=55,description="To Verify Arrow move for Previous and Next page for Drill Down One")
+	public void VerifyArrowMoveForPreviousAndNextPageForDrillDownOne() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
+		ocmReportsPage.showReport(reportDetails);
+		OCMAgentSummaryReportPage OCMAgentSummaryReportPage=PageFactory.createPageInstance(driver,OCMAgentSummaryReportPage.class);
+		Assert.assertTrue(OCMAgentSummaryReportPage.verifyArrowMoveForPreviousAndNextPageForDrillDownOne(reportDetails),"arrow move for previous and next page assertion failed");
+	} 
+	@Test(priority=56,description="To Verify Arrow move for first and last page for Drill Down One")
+	public void VerifyArrowMoveForFirstAndLastPageFoDrillDownOne() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
+		ocmReportsPage.showReport(reportDetails);
+		OCMAgentSummaryReportPage OCMAgentSummaryReportPage=PageFactory.createPageInstance(driver,OCMAgentSummaryReportPage.class);
+		Assert.assertTrue(OCMAgentSummaryReportPage.verifyArrowMoveForFirstAndLastPageForDrillDownOne(reportDetails),"arrow move for first and last page assertion failed");
+	} 
+	
+	@Test(priority=58,description="To Verify Total Number of Items Per Page Details for Drill Down One")
+	public void VerifyTotalNumberOfItemsPerPageDetailsFoDrillDownOne() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
+		ocmReportsPage.showReport(reportDetails);
+		OCMAgentSummaryReportPage OCMAgentSummaryReportPage=PageFactory.createPageInstance(driver,OCMAgentSummaryReportPage.class);
+		Assert.assertTrue(OCMAgentSummaryReportPage.verifyTotalNumberOfItemsPerPageDetailsForDrillDownOne(),"item per page assertion failed");
+	}*/  
 
+
+//#58476, #58469 to track grid report issue
 	@Test(priority=55, description="To verify report data against DB")
 	public void database() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
@@ -655,7 +684,7 @@ public class OCMAgentSummaryReportTest extends BaseTest {
 		Thread.sleep(3000);
 		Assert.assertTrue(AgentSummaryReportPage.verifyDatabase(reportDetails.getQuery(), reportDetails),"Main Report Data Mismatch");
 		System.out.println("Main Report Data Match Successfull");
-		List<String> agentList = new ArrayList<>();
+		/*List<String> agentList = new ArrayList<>();
 		agentList = AgentSummaryReportPage.getAgents();
 		System.out.println(agentList);
 		int k=0;
@@ -665,12 +694,12 @@ public class OCMAgentSummaryReportTest extends BaseTest {
 				k=k-10;
 			}
 			AgentSummaryReportPage.clickOnAgentIdRowOnMainReport(k);
-			Assert.assertTrue(AgentSummaryReportPage.verifyDatabaseDrillGridOne(reportDetails.getQueryDrillGridOne(), reportDetails, agentList.get(i)),"Drill Grid One data mismatch for Skill Id " + agentList.get(i));
+			Assert.assertTrue(AgentSummaryReportPage.verifyDatabaseDrillGridOne(reportDetails.getQueryDrillGridOne(), reportDetails, agentList.get(i)),"Drill Grid One data mismatch for agent Id " + agentList.get(i));
 			System.out.println("Drill Grid One data match successfull for Agent Id " + agentList.get(i));
 			k++;
 			Thread.sleep(1000);
 		}
-		/*List<String> LogoutDates = new ArrayList<>();
+		List<String> LogoutDates = new ArrayList<>();
 		for(int i=0;i<agentList.size();i++) {
 			AgentSummaryReportPage.clickOnAgentIdRowOnMainReport(i);
 			Thread.sleep(1000);
@@ -683,8 +712,8 @@ public class OCMAgentSummaryReportTest extends BaseTest {
 					k=k-10;
 				}
 				AgentSummaryReportPage.clickOnDateRowOnDrillOneReport(k);
-				Assert.assertTrue(AgentSummaryReportPage.verifyDatabaseDrillGridTwo(reportDetails.getQueryDrillGridTwo(), reportDetails, LogoutDates.get(j), agentList.get(i)),"Drill Grid Two data mismatch for Skill Id " + agentList.get(i) + " and Date " + LogoutDates.get(j));
-				System.out.println("Drill Grid Two data match successfull for Skill Id " + agentList.get(i) + " and Date " + LogoutDates.get(j));
+				Assert.assertTrue(AgentSummaryReportPage.verifyDatabaseDrillGridTwo(reportDetails.getQueryDrillGridTwo(), reportDetails, LogoutDates.get(j), agentList.get(i)),"Drill Grid Two data mismatch for agent Id " + agentList.get(i) + " and Date " + LogoutDates.get(j));
+				System.out.println("Drill Grid Two data match successfull for Agent Id " + agentList.get(i) + " and Date " + LogoutDates.get(j));
 				k++;
 				Thread.sleep(1000);
 			}
@@ -692,6 +721,8 @@ public class OCMAgentSummaryReportTest extends BaseTest {
 			Thread.sleep(1000);
 		}*/
 	}
+	
+	
 
 	
 	

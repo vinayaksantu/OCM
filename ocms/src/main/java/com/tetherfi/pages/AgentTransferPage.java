@@ -187,7 +187,7 @@ public class AgentTransferPage extends BasePage{
     @FindBy(xpath="//div[text()='No records to display']")
     private WebElement norecords;
     
-    @FindBy(xpath="//i[@class='fas fa-sync']")
+    @FindBy(xpath="//i[@class='fas fa-sync fa-spin']")
     private WebElement clearsearch;
     
 
@@ -425,6 +425,7 @@ public class AgentTransferPage extends BasePage{
 
 		public boolean addCancel(AgentTransferDetails details) throws Exception {
 			String actualitems=items.getText();
+			Thread.sleep(1000);
 			selectWebElement(addNewAgentTransferBtn);
 			enterValueToTxtField(menuIdTextbox,details.getMenuId());
 			enterValueToTxtField(vdnTextbox,details.getVdn());
@@ -694,10 +695,6 @@ public class AgentTransferPage extends BasePage{
 				Map<String,String> map = new HashMap<String,String>();
 				List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
 				for(int j=1;j<headers.size();j++) {
-					if(headers.get(j).getText().equals("Last Changed On")){
-						col=cols.get(j).getText().substring(0,10);
-						}
-					else
 						col=cols.get(j).getText();
 					map.put(headers.get(j).getText(),col);
 				}
@@ -813,7 +810,7 @@ public class AgentTransferPage extends BasePage{
 			return false;
 		}
 		
-		public boolean verifyDatabase(String  query) {
+		public boolean verifyDatabase(String  query) throws Exception {
 			List<Map<String,String>> database=database(query);
 			System.out.println(database);
 			List<Map<String,String>> UI=gettable(); 
@@ -824,7 +821,8 @@ public class AgentTransferPage extends BasePage{
 				return false;
 		}
 
-		public List<Map<String, String>> gettable() {
+		public List<Map<String, String>> gettable() throws Exception {
+			Thread.sleep(2000);
 			int item=Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
 	        int pagersize=Integer.valueOf(pagerSize.getText());
 	        int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;

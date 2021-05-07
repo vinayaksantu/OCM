@@ -639,9 +639,8 @@ public class AgentSkillProfileReportPage extends BasePage  {
 			for(int i=1;i<rows.size();i++) {
 				Map<String,String> map = new HashMap<String,String>();
 				List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
-				for(int j=1;j<headers.size();j++) {
+				for(int j=0;j<headers.size();j++) {
 					scrollToElement(headers.get(j));
-					System.out.println(headers.get(j).getText());
 					if(headers.get(j).getText().equals("Last Changed On")){
 						col=cols.get(j).getText().substring(0,10);
 					}
@@ -660,14 +659,14 @@ public class AgentSkillProfileReportPage extends BasePage  {
 		return arr;
 	}
 
-
-
-	public boolean verifyArrowMoveForPreviousAndNextPage(){
+	public boolean verifyArrowMoveForPreviousAndNextPage() throws Exception{
 		boolean status=false;
 		if(!nextPageIcon.getAttribute("class").contains("k-state-disabled")){
 			int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber));
+			Thread.sleep(3000);
 			selectWebElement(nextPageIcon);
 			int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
+			Thread.sleep(3000);
 			selectWebElement(previousPageIcon);
 			int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 			if(nextnumber==(pagenumber+1) && pagenumber==previousnumber){status=true;}
@@ -678,12 +677,14 @@ public class AgentSkillProfileReportPage extends BasePage  {
 	}
 
 
-	public boolean verifyArrowMoveForFirstAndLastPage(){
+	public boolean verifyArrowMoveForFirstAndLastPage() throws Exception{
 		boolean status=false;
 		if(!lastPageIcon.getAttribute("class").contains("k-state-disabled")){
 			int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber));
+			Thread.sleep(3000);
 			selectWebElement(lastPageIcon);
 			int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
+			Thread.sleep(3000);
 			selectWebElement(firstPageIcon);
 			int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 			if(nextnumber>pagenumber && pagenumber==previousnumber){status=true;}
@@ -1154,19 +1155,20 @@ public class AgentSkillProfileReportPage extends BasePage  {
 		query=query.replaceAll("ReportBeforeDate",reportbeforedate );
 		query=query.replaceAll("ReportAfterDate",reportafterdate );
 		List<Map<String,String>> database=database(query);
-		//System.out.println("Printing Query" +" "+query);		
-		//System.out.println("Printing DB results" +" "+database);
+		System.out.println("Printing Query" +" "+query);		
+		System.out.println("Printing DB results" +" "+database);
 		List<Map<String,String>> UI=getDataTable(); 
-		//System.out.println("Printing UI Results"+" "+UI);	
+		System.out.println("Printing UI Results"+" "+UI);	
 		if(UI.equals(database))
 			return true;
 		else
 			return false;
 	}
 
-	public void sortAscSkillName() {
-		selectWebElement(headersDropdown.get(0));
+	public void sortAsc() throws Exception {
+		selectWebElement(headersDropdown.get(1));
 		waitForJqueryLoad(driver);
+		Thread.sleep(2000);
 		selectWebElement(sortAscending.get(0));
 		waitForJqueryLoad(driver);
 	}

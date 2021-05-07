@@ -41,105 +41,73 @@ public class UserManagementTest extends BaseTest{
     	Assert.assertTrue(userManagementPage.verifylogo(),"User Management logo assertion failed");
         Assert.assertTrue(userManagementPage.verifygridcontent(),"Grid Container assertion failed");
     	Assert.assertTrue(userManagementPage.maximizewindow(),"Fullscreen Assertion Failed"); 
-    	screenshot.captureScreen("Maximize Window","UserManagementTest");
+    	screenshot.captureScreen("UserManagementTest","Maximize Window");
     	Assert.assertTrue(userManagementPage.minimizewindow(), "Restored Assertion Failed");
-    	screenshot.captureScreen("Minimize Window","UserManagementTest");
+    	screenshot.captureScreen("UserManagementTest","Minimize Window");
     }
     
     @Test(priority=2)
-    public void AddNewUserManagementRecord() throws Exception {
+    public void AddNewUserManagementCancelRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\UserManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
         UserDetails userDetails=new UserDetails(map);
         UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
         Assert.assertTrue(userManagementPage.addNewCancel(userDetails.getUserId()), "Add New Cancel Assertion Failed");
-    	screenshot.captureScreen(driver, "AddNewCancel","UserManagementTest");
-        userManagementPage.addNewUserManagementRecord(userDetails.getUserId());
+      }
+    
+    @Test(priority=3)
+    public void AddNewUserManagementRecord() throws Exception {
+        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\UserManagementData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
+        UserDetails userDetails=new UserDetails(map);
+        UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
+    	userManagementPage.addNewUserManagementRecord(userDetails.getUserId());
         Assert.assertTrue(userManagementPage.verifyNewRecordCreated(),"Add New record assertion failed");
-    	screenshot.captureScreen(driver, "Record Created Successfully","UserManagementTest");
     }
     
-    /*@Test(priority=3)
-    public void AddInvalidRecord() throws Exception {
+    @Test(priority=4)
+    public void AddDuplicateRecord() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\UserManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
         UserDetails userDetails=new UserDetails(map);
         UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
-        userManagementPage.DuplicateRecord(userDetails.getUserId());
+   	 	userManagementPage.addNewUserManagementRecord(userDetails.getUserId());
         Assert.assertTrue(userManagementPage.verifyErrorMessage(), "Duplicate Record Creation assertion failed");
-    	screenshot.captureScreen(driver, "Duplicate Record","UserManagementTest");
-    	Map<String, String> map1 = new ExcelReader(filePath,"Create").getTestData().get(1);
-        UserDetails userDetails1=new UserDetails(map1);
-    	userManagementPage.addUserManagementRecord(userDetails1.getUserId());
-        Assert.assertTrue(userManagementPage.verifyErrorMessage(), "Invalid Record creation assertion failed");
-    	screenshot.captureScreen(driver, "Invalid Record for domainID","UserManagementTest");
-    	Map<String, String> map2 = new ExcelReader(filePath,"Create").getTestData().get(2);
-        UserDetails userDetails2=new UserDetails(map2);
-        userManagementPage.addUserManagementRecord(userDetails2.getUserId());
-        Assert.assertTrue(userManagementPage.verifyErrorMessage(), "Invalid Record creation assertion failed");
-   		screenshot.captureScreen(driver, "Invalid Record for userid","UserManagementTest");
-   		userManagementPage.addinvalidrecord();
-   		Assert.assertTrue(userManagementPage.verifyErrorMessage(), "Invalid Record Creation failed");
-   		screenshot.captureScreen(driver, "Invalid Record","UserManagementTest");
-    }*/
+     }
     
-    @Test(priority=4)
-    public void EditUserManagementRecord() throws Exception {
+    @Test(priority=5)
+    public void EditUserManagementCancelRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\UserManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
         UserDetails userDetails=new UserDetails(map);
         UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
         Assert.assertTrue(userManagementPage.editcancel(userDetails.getUpdatedUserId(),userDetails.getModifyReason(),userDetails.getUserId()), "Edit record cancel assertion failed");
-   		screenshot.captureScreen("UserManagementTest", "Edit Cancel");
-        userManagementPage.editUserManagementRecord(userDetails.getUpdatedUserId(),userDetails.getModifyReason(),userDetails.getUserId());
-        Assert.assertTrue(userManagementPage.verifyRecordUpdated(),"Edit record assertion failed");
-   		screenshot.captureScreen("UserManagementTest","Record Updated");
-    }
+       }
     
-    @Test(priority=5)
-    public void EditInvalidUserManagementRecord() throws Exception {
-    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\UserManagementData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(1);
+    @Test(priority=6)
+    public void EditUserManagementRecord() throws Exception {
+        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\UserManagementData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
         UserDetails userDetails=new UserDetails(map);
         UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
         userManagementPage.editUserManagementRecord(userDetails.getUpdatedUserId(),userDetails.getModifyReason(),userDetails.getUserId());
-        Assert.assertTrue(userManagementPage.verifyErrorMessage(),"Edit Invalid record assertion failed");
-   		screenshot.captureScreen(driver, "Invalid Record","UserManagementTest");
-   		Map<String, String> map1 = new ExcelReader(filePath,"Edit").getTestData().get(2);
-        UserDetails userDetails1=new UserDetails(map1);
-        userManagementPage.editUserManagementRecord(userDetails1.getUpdatedUserId(),userDetails1.getModifyReason(),userDetails1.getUserId());
-        Assert.assertTrue(userManagementPage.verifyErrorMessage(),"Edit Invalid record assertion failed");
-   		screenshot.captureScreen(driver, "Invalid Record2","UserManagementTest");
-   		Map<String, String> map2 = new ExcelReader(filePath,"Edit").getTestData().get(3);
-        UserDetails userDetails2=new UserDetails(map2);
-        userManagementPage.editInvalidUserManagementRecord(userDetails2.getUpdatedUserId(),userDetails2.getUserId());
-        Assert.assertTrue(userManagementPage.verifyErrorMessage(),"Edit Invalid record assertion failed");
-   		screenshot.captureScreen(driver, "Invalid Record3","UserManagementTest");
-        Map<String, String> map3 = new ExcelReader(filePath,"Edit").getTestData().get(3);
-        UserDetails userDetails3=new UserDetails(map3);
-        userManagementPage.editInvalidUserManagementRecord2(userDetails3.getModifyReason(),userDetails3.getUserId());
-        Assert.assertTrue(userManagementPage.verifyErrorMessage(),"Edit Invalid record assertion failed");
-   		screenshot.captureScreen(driver, "Invalid Record4","UserManagementTest");
-   		Map<String, String> map4 = new ExcelReader(filePath,"Edit").getTestData().get(4);
-        UserDetails userDetails4=new UserDetails(map4);
-   		userManagementPage.editUserManagementRecord(userDetails4.getUpdatedUserId(),userDetails4.getModifyReason(),userDetails4.getUserId());
-        Assert.assertTrue(userManagementPage.verifyErrorMessage(),"Duplicate assertion failed");
-   		screenshot.captureScreen(driver, "Duplicate Record","UserManagementTest");
+        Assert.assertTrue(userManagementPage.verifyRecordUpdated(),"Edit record assertion failed");
     }
     
-    @Test(priority=6)
+    
+    
+    @Test(priority=7)
     public void searchPage() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\UserManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
         UserDetails userDetails=new UserDetails(map);	
         UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
         Assert.assertFalse(userManagementPage.clearAll(userDetails),"ClearAll Assertion Failed");
-        screenshot.captureScreen(driver, "clearall","UserManagementTest");
+        screenshot.captureScreen("UserManagementTest","clearall");
         Assert.assertTrue(userManagementPage.verifyclose());
-        screenshot.captureScreen(driver, "SearchClose","UserManagementTest");
     }
     
-    @Test(priority=7)
+    @Test(priority=8)
     public void VerifySearchIsNotEqualTo() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\UserManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -148,7 +116,7 @@ public class UserManagementTest extends BaseTest{
         Assert.assertTrue(userManagementPage.verifySearchIsNotEqualTo(userDetails.getUserId()));
     }
      
-     @Test(priority=8)
+     @Test(priority=9)
      public void VerifySearchContains() throws Exception {
      	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\UserManagementData.xlsx";
          Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);
@@ -157,7 +125,7 @@ public class UserManagementTest extends BaseTest{
          Assert.assertTrue(userManagementPage.verifySearchContains(userDetails.getUserId()));
      }
      
-     @Test(priority=9)
+     @Test(priority=10)
      public void VerifySearchDoesNotContains() throws Exception {
      	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\UserManagementData.xlsx";
          Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);
@@ -166,7 +134,7 @@ public class UserManagementTest extends BaseTest{
          Assert.assertTrue(userManagementPage.verifySearchDoesNotContains(userDetails.getUserId()));
      }
      
-     @Test(priority=10)
+     @Test(priority=11)
      public void VerifySearchStartsWith() throws Exception {
      	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\UserManagementData.xlsx";
          Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(2);
@@ -175,7 +143,7 @@ public class UserManagementTest extends BaseTest{
          Assert.assertTrue(userManagementPage.verifySearchStartsWith(userDetails.getUserId()));
      }
      
-     @Test(priority=11)
+     @Test(priority=12)
      public void VerifySearchEndsWith() throws Exception {
      	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\UserManagementData.xlsx";
          Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(4);
@@ -183,40 +151,45 @@ public class UserManagementTest extends BaseTest{
          UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
          Assert.assertTrue(userManagementPage.verifySearchEndsWith(userDetails.getUserId()));
      }
-    @Test(priority=12)
+    @Test(priority=13)
     public void ClearSearch() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\UserManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
         UserDetails userDetails=new UserDetails(map);	
         UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
         Assert.assertTrue(userManagementPage.verifyinvalidsearch(userDetails),"invalidsearchwithwrongdata");
-        screenshot.captureScreen(driver, "Invalid Search", "UserManagementTest");
+        screenshot.captureScreen("UserManagementTest","Invalid Search");
         Assert.assertTrue(userManagementPage.verifyclearsearch(), "Clear All Assertion Failed");
-        screenshot.captureScreen(driver, "Clear Search", "UserManagementTest");
     }
-    @Test(priority=13)
+    @Test(priority=14)
     public void database() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\UserManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(0);
         UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
         UserDetails userDetails=new UserDetails(map);	
     	Assert.assertTrue(userManagementPage.verifyDatabase(userDetails.getQuery()));
-    }*/
+    }
     
-   @Test(priority=14)
-    public void DeleteUserManagementRecord() throws Exception {
+   @Test(priority=15)
+    public void DeleteUserManagementCancelRecord() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\UserManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
         UserDetails userDetails=new UserDetails(map);
         UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
         Assert.assertTrue(userManagementPage.deleteUserManagementRecordNoBtn(userDetails.getUserId(),userDetails.getDeleteReason()));
-        screenshot.captureScreen("deleteUserManagementRecordNoBtn", "UserManagementTest");
-        userManagementPage.deleteUserManagementRecord(userDetails.getUserId(),userDetails.getDeleteReason());
-        Assert.assertTrue(userManagementPage.verifyRecordDeleted(),"Delete record assertion failed");
-        screenshot.captureScreen("deleteUserManagementRecord", "UserManagementTest");
     }
    
-    @Test(priority=15)
+   @Test(priority=16)
+   public void DeleteUserManagementRecord() throws Exception {
+       String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\UserManagementData.xlsx";
+       Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
+       UserDetails userDetails=new UserDetails(map);
+       UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
+       userManagementPage.deleteUserManagementRecord(userDetails.getUserId(),userDetails.getDeleteReason());
+       Assert.assertTrue(userManagementPage.verifyRecordDeleted(),"Delete record assertion failed");
+   }
+   
+    @Test(priority=17)
     public void ExportToExcel() throws Exception
     {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles";
@@ -224,7 +197,7 @@ public class UserManagementTest extends BaseTest{
         Assert.assertTrue(userManagementPage.verifyExportToExcel(filePath));
     }
     
-    @Test(priority=16)
+    @Test(priority=18)
     public void ExportToExcelData() throws Exception
     {String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\User Management.xlsx";
     List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
@@ -232,58 +205,54 @@ public class UserManagementTest extends BaseTest{
     Assert.assertTrue(userManagementPage.verifyexportToExcelSheet(maplist));
     }
    
-   @Test(priority=17)
+   @Test(priority=19)
     public void GroupBy()
     {
         UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
     	Assert.assertTrue(userManagementPage.groupby());
-    	screenshot.captureScreen(driver, "GroupBy", "UserManagementTest");
     	Assert.assertTrue(userManagementPage.groupby());
-    	screenshot.captureScreen(driver, "AlreadyGroupBy", "UserManagementTest");	
     }
-    @Test(priority=18)
+   
+    @Test(priority=20)
     public void VerifyArrowMoveForPreviousAndNextPage() {
         UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
     	Assert.assertTrue(userManagementPage.verifyArrowMoveForPreviousAndNextPage(),"arrow move for previous and next page assertion failed");
-    	screenshot.captureScreen(driver, "VerifyArrowMoveForPreviousAndNextPage", "UserManagementTest");	
-    }
-    @Test(priority=19)
-    public void VerifyArrowMoveForFirstAndLastPage() {
-        UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
-        Assert.assertTrue(userManagementPage.verifyArrowMoveForFirstAndLastPage(),"arrow move for first and last page assertion failed");
-    	screenshot.captureScreen(driver, "VerifyArrowMoveForFirstAndLastPage", "UserManagementTest");	
-
-    }
-    @Test(priority=20)
-    public void VerifyTotalNumberOfItemsPerPageDetails() {
-        UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
-        Assert.assertTrue(userManagementPage.verifyTotalNumberOfItemsPerPageDetails(),"item per page assertion failed");
-    	screenshot.captureScreen(driver, "VerifyTotalNumberOfItemsPerPageDetails", "UserManagementTest");	
     }
     
     @Test(priority=21)
+    public void VerifyArrowMoveForFirstAndLastPage() {
+        UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
+        Assert.assertTrue(userManagementPage.verifyArrowMoveForFirstAndLastPage(),"arrow move for first and last page assertion failed");
+    }
+    
+    @Test(priority=22)
+    public void VerifyTotalNumberOfItemsPerPageDetails() {
+        UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
+        Assert.assertTrue(userManagementPage.verifyTotalNumberOfItemsPerPageDetails(),"item per page assertion failed");
+    }
+    
+    @Test(priority=23)
     public void VerifyNumberOfItemsPerPageSelection() {
         UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
         Assert.assertTrue(userManagementPage.verifyNumberOfItemsPerPage(),"item per page assertion failed");
-        screenshot.captureScreen(driver, "VerifyNumberOfItemsPerPageSelection","UserManagementTest");
-
     }
-    @Test(priority=22)
+    
+    @Test(priority=24)
     public void VerifyDropdownForAllTheColumns() {
         UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
         Assert.assertTrue(userManagementPage.verifyDropDownOfAllHeaders(), "Columns dropdown assertion failed");
     }
-    @Test(priority=23)
+    @Test(priority=25)
     public void VerifyColumnsHeaderEnable() {
         UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
         Assert.assertTrue(userManagementPage.verifycolumnsHeaderEnabled(),"columns enabled assertion failed");
     }
-    @Test(priority=24)
+    @Test(priority=26)
     public void VerifyColumnsHeaderDisable() {
         UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
         Assert.assertFalse(userManagementPage.verifycolumnsHeaderDisabled(),"columns disabled assertion failed");
     }
-    @Test(priority=25)
+    @Test(priority=27)
     public void SortingByAscending() throws Exception
     {
         UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
@@ -292,7 +261,7 @@ public class UserManagementTest extends BaseTest{
         List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
         Assert.assertTrue(userManagementPage.verifyexportToExcelSheet(maplist));
     }
-    @Test(priority=26)
+    @Test(priority=28)
     public void SortingByDescending() throws Exception
     {
         UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
@@ -301,7 +270,7 @@ public class UserManagementTest extends BaseTest{
         List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
         Assert.assertTrue(userManagementPage.verifyexportToExcelSheet(maplist));
     }
-    @Test(priority=27)
+    @Test(priority=29)
     public void ExporttoExcelWithoutData() throws Exception
     {
         UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
@@ -310,7 +279,8 @@ public class UserManagementTest extends BaseTest{
         UserDetails userDetails=new UserDetails(map);
         Assert.assertTrue(userManagementPage.ExporttoExcelWithoutData(userDetails));
     }
-    @Test(priority=28)
+    
+    @Test(priority=30)
     public void VerifyPageBasedUserAccess() throws Exception
     {
     	UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
@@ -318,11 +288,9 @@ public class UserManagementTest extends BaseTest{
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(3);
         UserDetails userDetails=new UserDetails(map);
         Assert.assertTrue(userManagementPage.verifypagebaseduseraccess(userDetails));
-        screenshot.captureScreen(driver,"VerifyPageBasedUserAccess", "UserManagementTest");
-        Assert.assertTrue(userManagementPage.verifyclosebutton());
-
+        
     }
-    @Test(priority=29)
+    @Test(priority=31)
     public void VerifyAccessCheckBox() throws Exception
     { 
     	UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
@@ -330,34 +298,48 @@ public class UserManagementTest extends BaseTest{
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(3);
         UserDetails userDetails=new UserDetails(map);
         Assert.assertTrue(userManagementPage.verifyaccesscheckbox(userDetails));
-        screenshot.captureScreen(driver,"VerifyAccessCheckBox", "UserManagementTest");
     }
-    @Test(priority=30)
-    public void VerifyAdminPageButton() throws Exception
+    
+    @Test(priority=32)
+    public void VerifyAdminPageCancelButton() throws Exception
     {
     	UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\UserManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(3);
         UserDetails userDetails=new UserDetails(map);
         Assert.assertTrue(userManagementPage.verifycancelchanges(userDetails));
-        screenshot.captureScreen(driver,"verifycancelchanges", "UserManagementTest");
-        Assert.assertTrue(userManagementPage.verifysavechanges());
-        screenshot.captureScreen(driver,"verifysavechanges", "UserManagementTest");
     }
-    @Test(priority=31)
-    public void Verifyunsuccefullchanges() throws Exception
+    
+    @Test(priority=33)
+    public void VerifyAdminPageSaveButton() throws Exception
+    {
+    	UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
+        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\UserManagementData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(3);
+        UserDetails userDetails=new UserDetails(map);
+        Assert.assertTrue(userManagementPage.verifysavechanges(userDetails));
+    }
+    
+    @Test(priority=34)
+    public void VerifyUnsuccefullcancelchanges() throws Exception
     {
     	UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\UserManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(3);
         UserDetails userDetails=new UserDetails(map);
         Assert.assertTrue(userManagementPage.verifyunsuccessfullcancelchanges(userDetails));
-        Assert.assertTrue(userManagementPage.verifyunsuccessfullsavechanges());
-        screenshot.captureScreen(driver,"Verifyunsuccefullchanges", "UserManagementTest");
-        Assert.assertTrue(userManagementPage.verifyclosebutton());
     }
-    
-    @Test(priority=32)
+    @Test(priority=35)
+    public void VerifyUnsuccefullsavechanges() throws Exception
+    {
+    	UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
+        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\UserManagementData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(3);
+        UserDetails userDetails=new UserDetails(map);  
+        Assert.assertTrue(userManagementPage.verifyunsuccessfullsavechanges(userDetails));
+    }
+   
+    @Test(priority=36)
     public void VerifyReportsAccessCheckBox() throws Exception
     { 
     	UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
@@ -365,111 +347,185 @@ public class UserManagementTest extends BaseTest{
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(3);
         UserDetails userDetails=new UserDetails(map);
         Assert.assertTrue(userManagementPage.verifyreportsaccesscheckbox(userDetails));
-        screenshot.captureScreen(driver,"VerifyAccessCheckBox", "UserManagementTest");
-    }
-    @Test(priority=33)
-    public void VerifyReportsPageButton() throws Exception
+    } 
+    
+    @Test(priority=37)
+    public void VerifyReportsPageCancelButton() throws Exception
     {
     	UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\UserManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(3);
         UserDetails userDetails=new UserDetails(map);
         Assert.assertTrue(userManagementPage.verifyReportscancelchanges(userDetails));
-        screenshot.captureScreen(driver,"verifycancelchanges", "UserManagementTest");
-        Assert.assertTrue(userManagementPage.verifyReportssavechanges());
-        screenshot.captureScreen(driver,"verifysavechanges", "UserManagementTest");
     }
-    @Test(priority=34)
-    public void VerifyReportsunsuccefullchanges() throws Exception
+    
+    @Test(priority=38)
+    public void VerifyReportsPageSaveButton() throws Exception
+    {
+    	UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
+        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\UserManagementData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(3);
+        UserDetails userDetails=new UserDetails(map);
+        Assert.assertTrue(userManagementPage.verifyReportssavechanges(userDetails));
+    }
+    
+    @Test(priority=39)
+    public void VerifyReportsunsuccefullcancelchanges() throws Exception
     {
     	UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\UserManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(3);
         UserDetails userDetails=new UserDetails(map);
         Assert.assertTrue(userManagementPage.verifyreportsunsuccessfullcancelchanges(userDetails));
-        Assert.assertTrue(userManagementPage.verifyreportsunsuccessfullsavechanges());
-        screenshot.captureScreen(driver,"Verifyunsuccefullchanges", "UserManagementTest");
-        Assert.assertTrue(userManagementPage.verifyclosebutton());
     }
-    @Test(priority=35)
+    
+    @Test(priority=40)
+    public void VerifyReportsunsuccefullsavechanges() throws Exception
+    {
+    	UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
+        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\UserManagementData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(3);
+        UserDetails userDetails=new UserDetails(map);
+        Assert.assertTrue(userManagementPage.verifyreportsunsuccessfullsavechanges(userDetails));
+    }
+    
+    @Test(priority=41)
     public void VerifyDashboardAccessCheckbox() throws Exception {
     	UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\UserManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(3);
         UserDetails userDetails=new UserDetails(map);
         Assert.assertTrue(userManagementPage.verifydashboardaccesscheckbox(userDetails));
-        screenshot.captureScreen(driver,"VerifyAccessCheckBox", "UserManagementTest");
     }
-    @Test(priority=36)
-    public void VerifyDashboardPageButton() throws Exception {
+    
+    @Test(priority=42)
+    public void VerifyDashboardPageCancelButton() throws Exception {
     	UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\UserManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(3);
         UserDetails userDetails=new UserDetails(map);
         Assert.assertTrue(userManagementPage.verifyDashboardcancelchanges(userDetails));
-        screenshot.captureScreen(driver,"verifycancelchanges", "UserManagementTest");
-        Assert.assertTrue(userManagementPage.verifyDashboardsavechanges());
-        screenshot.captureScreen(driver,"verifysavechanges", "UserManagementTest");
     }
     
-    @Test(priority=37)
-    public void VerifyDashboardunsuccefullchanges() throws Exception{
+    @Test(priority=43)
+    public void VerifyDashboardPageSaveButton() throws Exception {
+    	UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
+        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\UserManagementData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(3);
+        UserDetails userDetails=new UserDetails(map);
+        Assert.assertTrue(userManagementPage.verifyDashboardsavechanges(userDetails));
+    }
+    
+    @Test(priority=44)
+    public void VerifyDashboardunsuccefullcancelchanges() throws Exception{
     	UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\UserManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(3);
         UserDetails userDetails=new UserDetails(map);
         Assert.assertTrue(userManagementPage.verifydashboardunsuccessfullcancelchanges(userDetails));
-        Assert.assertTrue(userManagementPage.verifydashboardunsuccessfullsavechanges());
-        screenshot.captureScreen(driver,"Verifyunsuccefullchanges", "UserManagementTest");
-        Assert.assertTrue(userManagementPage.verifyclosebutton());
+       }
+    
+    @Test(priority=45)
+    public void VerifyDashboardunsuccefullsavechanges() throws Exception{
+    	UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
+        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\UserManagementData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(3);
+        UserDetails userDetails=new UserDetails(map);
+        Assert.assertTrue(userManagementPage.verifydashboardunsuccessfullsavechanges(userDetails));
     }
     
-    @Test(priority=38)
+    @Test(priority=46)
     public void VerifyOtherApplicationAccessCheckbox() throws Exception {
     	UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\UserManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(3);
         UserDetails userDetails=new UserDetails(map);
         Assert.assertTrue(userManagementPage.verifyotherapplicationaccesscheckbox(userDetails));
-        screenshot.captureScreen(driver,"VerifyAccessCheckBox", "UserManagementTest");
-        Assert.assertTrue(userManagementPage.verifyclosebutton());
-        Thread.sleep(1000);
-
     }
-   @Test(priority=39)
-    public void VerifyOtherApplicationPageButton() throws Exception {
+    
+   @Test(priority=47)
+    public void VerifyOtherApplicationPagecancelButton() throws Exception {
    		UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\UserManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(3);
         UserDetails userDetails=new UserDetails(map);
         Assert.assertTrue(userManagementPage.verifyotherapplicationcancelchanges(userDetails));
-        screenshot.captureScreen( "UserManagementTest","verifycancelchanges");
-        Assert.assertTrue(userManagementPage.verifyotherapplicationsavechanges());
-        screenshot.captureScreen("UserManagementTest","verifysavechanges");
     }
+   
+   @Test(priority=48)
+   public void VerifyOtherApplicationPageSaveButton() throws Exception {
+  		UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
+       String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\UserManagementData.xlsx";
+       Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(3);
+       UserDetails userDetails=new UserDetails(map);
+       Assert.assertTrue(userManagementPage.verifyotherapplicationsavechanges(userDetails));
+   }
     
-    @Test(priority=40)
-    public void VerifyOtherApplicationunsuccefullchanges() throws Exception{
+    @Test(priority=49)
+    public void VerifyOtherApplicationunsuccefullCancelchanges() throws Exception{
     	UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\UserManagementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(3);
         UserDetails userDetails=new UserDetails(map);
         Assert.assertTrue(userManagementPage.verifyotherapplicationunsuccessfullcancelchanges(userDetails));
-        Assert.assertTrue(userManagementPage.verifyotherapplicationunsuccessfullsavechanges());
-        screenshot.captureScreen("UserManagementTest","Verifyunsuccefullchanges");
-        Assert.assertTrue(userManagementPage.verifyclosebutton());
+    }
+    @Test(priority=50)
+    public void VerifyOtherApplicationunsuccefullSavechanges() throws Exception{
+    	UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
+        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\UserManagementData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(3);
+        UserDetails userDetails=new UserDetails(map);
+        Assert.assertTrue(userManagementPage.verifyotherapplicationunsuccessfullsavechanges(userDetails));
+    }
+    
+    @Test(priority=51)
+    public void VerifyAdminPagesCheckerAccessCheckbox() throws Exception {
+    	UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
+        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\UserManagementData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(3);
+        UserDetails userDetails=new UserDetails(map);
+        Assert.assertTrue(userManagementPage.verifyAdminPagesCheckercheckbox(userDetails));
+    }
+    
+   @Test(priority=52)
+    public void VerifyAdminPagesCheckerPagecancelButton() throws Exception {
+   		UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
+        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\UserManagementData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(3);
+        UserDetails userDetails=new UserDetails(map);
+        Assert.assertTrue(userManagementPage.verifyAdminPagesCheckercancelchanges(userDetails));
+    }
+   
+   @Test(priority=53)
+   public void VerifyAdminPagesCheckerPageSaveButton() throws Exception {
+  		UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
+       String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\UserManagementData.xlsx";
+       Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(3);
+       UserDetails userDetails=new UserDetails(map);
+       Assert.assertTrue(userManagementPage.verifyAdminPagesCheckersavechanges(userDetails));
+   }
+    
+    @Test(priority=54)
+    public void VerifyAdminPagesCheckerunsuccefullCancelchanges() throws Exception{
+    	UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
+        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\UserManagementData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(3);
+        UserDetails userDetails=new UserDetails(map);
+        Assert.assertTrue(userManagementPage.verifyAdminPagesCheckerunsuccessfullcancelchanges(userDetails));
+    }
+    @Test(priority=55)
+    public void VerifyAdminPagesCheckerunsuccefullSavechanges() throws Exception{
+    	UserManagementPage userManagementPage=PageFactory.createPageInstance(driver,UserManagementPage.class);
+        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\UserManagementData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(3);
+        UserDetails userDetails=new UserDetails(map);
+        Assert.assertTrue(userManagementPage.verifyAdminPagesCheckerunsuccessfullsavechanges(userDetails));
     }
     
     @AfterMethod
     public void afterEachMethod(ITestResult result,Method method){
-      	 if(ITestResult.FAILURE==result.getStatus()){
-      		 try{
-      			 screenshot.captureScreen("UserManagementTest",method.getName());
-      		 }
-      		catch (Exception e){
-      		 System.out.println("Exception while taking screenshot "+e.getMessage());
-      		 } 
-      		 driver.navigate().refresh();
-      		 }
+    	Screenshot screenshot=new Screenshot(driver);
+        screenshot.captureScreen("UserManagementTest",method.getName());
+        driver.navigate().refresh();
     }
 }

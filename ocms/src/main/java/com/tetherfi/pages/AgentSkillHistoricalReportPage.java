@@ -863,80 +863,81 @@ public class AgentSkillHistoricalReportPage extends BasePage  {
 		}
 		return Status;	
 	}
+	
 	private List<Map<String, String>> getDataTable() {
 		int item=Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
-		int pagersize=Integer.valueOf(pagerSize.getText());
-		int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
+        int pagersize=Integer.valueOf(pagerSize.getText());
+        int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
 		List<Map<String,String>> arr=new ArrayList<Map<String,String>>();
 		for(int k=0;k<=pages;k++){
-			waitUntilWebElementIsVisible(auditGridContent);
-			List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
-			List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
-			for(int i=1;i<rows.size();i++) {
-				Map<String,String> map = new HashMap<String,String>();
-				List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
-				String col=null;
-				for(int j=0;j<headers.size();j++){
-					if(headers.get(j).getText().equals("Service Level")){
-						col=cols.get(j).getText();
-						if(col.contains("."))
-							col=col;
-						else
-							col=col+".00";
-					}
+		waitUntilWebElementIsVisible(auditGridContent);
+		List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
+		List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
+		for(int i=1;i<rows.size();i++) {
+			Map<String,String> map = new HashMap<String,String>();
+			List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
+			String col=null;
+			for(int j=0;j<headers.size();j++){
+				if(headers.get(j).getText().equals("Service Level")){
+					col=cols.get(j).getText();
+					if(col.contains("."))
+						col=col;
 					else
-						col=cols.get(j).getText();
-					map.put(headers.get(j).getText(),col);
-				}
-				map.remove("");
-				arr.add(map);
+						col=col+".00";
+					}
+				else
+					col=cols.get(j).getText();
+				map.put(headers.get(j).getText(),col);
 			}
-			if(k!=pages)
-			{
-				nextPageIcon.click();
-				waitForJqueryLoad(driver);
-			}
+			map.remove("");
+			arr.add(map);
 		}
-		return arr;
+		if(k!=pages)
+		{
+			nextPageIcon.click();
+			waitForJqueryLoad(driver);
+		}
+		}
+			return arr;
 	}
-
+	
 	private List<Map<String, String>> getDataTableDrillGridOne() {
-		int item=Integer.valueOf(drillGridOneItems.getText().split("of ")[1].split(" items")[0]);
-		int pagersize=Integer.valueOf(pagerSizeDrillGridOne.getText());
-		int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
-		List<Map<String,String>> arr=new ArrayList<Map<String,String>>();
-		for(int k=0;k<=pages;k++){
-			waitUntilWebElementIsVisible(DrillGridOneTable);
-			List<WebElement> rows=DrillGridOneTable.findElements(By.tagName("tr"));
-			List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
-			for(int i=1;i<rows.size();i++) {
-				Map<String,String> map = new HashMap<String,String>();
-				List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
-				String col=null;
-				for(int j=0;j<headers.size();j++){
-					if(headers.get(j).getText().equals("Service Level")){
-						col=cols.get(j).getText();
-						if(col.contains("."))
-							col=col;
-						else
-							col=col+".00";
-					}
+	 	int item=Integer.valueOf(drillGridOneItems.getText().split("of ")[1].split(" items")[0]);
+        int pagersize=Integer.valueOf(pagerSizeDrillGridOne.getText());
+        int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
+	 	List<Map<String,String>> arr=new ArrayList<Map<String,String>>();
+	 	for(int k=0;k<=pages;k++){
+	 	waitUntilWebElementIsVisible(DrillGridOneTable);
+		List<WebElement> rows=DrillGridOneTable.findElements(By.tagName("tr"));
+		List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
+		for(int i=1;i<rows.size();i++) {
+			Map<String,String> map = new HashMap<String,String>();
+			List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
+			String col=null;
+			for(int j=0;j<headers.size();j++){
+				if(headers.get(j).getText().equals("Service Level")){
+					col=cols.get(j).getText();
+					if(col.contains("."))
+						col=col;
 					else
-						col=cols.get(j).getText();
-					map.put(headers.get(j).getText(),col);
-				}
-				map.remove("");
-				arr.add(map);
+						col=col+".00";
+					}
+				else
+					col=cols.get(j).getText();
+				map.put(headers.get(j).getText(),col);
 			}
-			if(k!=pages)
-			{
-				nextPageIconDrillOne.click();
-				waitForJqueryLoad(driver);
-				waitUntilWebElementIsVisible(DrillGridOneTable);
-			}
+			map.remove("");
+			arr.add(map);
 		}
-		CloseDrillGridOne.click();
-		return arr;
+		if(k!=pages)
+		{
+			nextPageIconDrillOne.click();
+			waitForJqueryLoad(driver);
+			waitUntilWebElementIsVisible(DrillGridOneTable);
+		}
+		}
+			CloseDrillGridOne.click();
+			return arr;
 	}
 
 	private List<Map<String, String>> getDataTableDrillGridTwo() throws InterruptedException {
@@ -1246,34 +1247,35 @@ public class AgentSkillHistoricalReportPage extends BasePage  {
 		DrillGridOneFirstCell.click();
 	}
 
+	
 	public List<String> getSkills() {
 		int item=Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
-		int pagersize=Integer.valueOf(pagerSize.getText());
-		int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
+        int pagersize=Integer.valueOf(pagerSize.getText());
+        int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
 		List<String> skills = new ArrayList<>();
 		for(int k=0;k<=pages;k++){
-			waitUntilWebElementIsVisible(auditGridContent);
-			List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
-			List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
-			for(int i=1;i<rows.size();i++) {
-				List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
-				String col=null;
-				for(int j=0;j<headers.size();j++){
-					if(headers.get(j).getText().equals("Skill ID")){
-						col=cols.get(j).getText();
-						skills.add(col);
+		waitUntilWebElementIsVisible(auditGridContent);
+		List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
+		List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
+		for(int i=1;i<rows.size();i++) {
+			List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
+			String col=null;
+			for(int j=0;j<headers.size();j++){
+				if(headers.get(j).getText().equals("Skill ID")){
+					col=cols.get(j).getText();
+					skills.add(col);
 					}
-				}
 			}
-			if(k!=pages)
-			{
-				nextPageIcon.click();
-				waitForJqueryLoad(driver);
-			}
+		}
+		if(k!=pages)
+		{
+			nextPageIcon.click();
+			waitForJqueryLoad(driver);
+		}
 		}
 		return skills;
 	}
-
+	
 	public void clickOnSkillIdRowOnMainReport(int rowNo) throws InterruptedException {
 		//Thread.sleep(2000);
 		MainReportRows.get(rowNo).click();

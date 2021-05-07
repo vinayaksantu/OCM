@@ -139,7 +139,6 @@ public class OCMInteractionActionReportPage extends BasePage  {
 	@FindBy(xpath="//button[@class='k-button k-button-icontext k-grid-excel']")		
 	private WebElement exporttoexcel;
 
-	//export to excel in AgntSummryRptPage
 	@FindBy(xpath="//button[@id='exportAllToExcel']")
 	private WebElement exportToExcel;
 
@@ -178,14 +177,14 @@ public class OCMInteractionActionReportPage extends BasePage  {
 	@FindBy(css = "ul[id='autoCompleteTextbox_listbox'] li")
 	private List<WebElement> searchbyfeaturelistBox;
 
-	@FindBy(xpath="//a[text()='Channel']")
-	private WebElement channel;
+	@FindBy(xpath="//a[text()='Team Name']")
+	private WebElement teamName;
 
 	@FindBy(xpath="//p[@class='k-reset']")
 	private WebElement groupby;
 
-	@FindBy(xpath="//tbody/tr/td/p[@class='k-reset']/../../following-sibling::tr/td[4]")
-	private WebElement groupbychannel;
+	@FindBy(xpath="//tbody/tr/td/p[@class='k-reset']/../../following-sibling::tr/td[5]")
+	private WebElement groupbyteamName;
 
 	@FindBy(xpath="//div[@data-role='droptarget']")
 	private WebElement droptarget;
@@ -264,13 +263,13 @@ public class OCMInteractionActionReportPage extends BasePage  {
 
 	@FindBy(id="tGrid")
 	private WebElement Grid;
-	
+
 	@FindBy(id = "grid")
 	private WebElement gridBoxContent;
-	
+
 	@FindBy(xpath="//div[@id='gridDrillOne']//span[@class='k-pager-info k-label']")
 	private WebElement drillGridOneItems;
-	
+
 	@FindBy(xpath="//table/tbody/tr/td[1]")
 	private WebElement FirstRowFirstCell;
 
@@ -288,34 +287,34 @@ public class OCMInteractionActionReportPage extends BasePage  {
 
 	@FindBy(xpath="//div[@id='gridDrillOne']//span[@class='k-icon k-i-arrow-end-left']")
 	private WebElement gotoFirstPageDrillOneIcon;
-	
+
 	@FindBy(xpath="//table/tbody/tr/td")
 	private List<WebElement> rows;
-	
+
 	@FindBy(xpath="//div[@id='gridDrillOne']//span[@class='k-state-selected']")
 	private WebElement pageNumberDrillOne;
-	
+
 	@FindBy(xpath="//div[@id='gridDrillTwo']//span[@class='k-state-selected']")
 	private WebElement pageNumberDrilltwo;
-	
+
 	@FindBy(xpath="//div[@id='gridDrillTwo']//span[@class='k-icon k-i-arrow-end-left']")
 	private WebElement firstPageIconDrillTwo;
-	
+
 	@FindBy(xpath="//div[@id='gridDrillTwo']//span[@class='k-icon k-i-arrow-end-right']")
 	private WebElement lastPageIconDrillTwo;
-	
+
 	@FindBy(xpath="(//div[@id='gridDrillTwo']//span[@class='k-icon k-i-arrow-60-left'])")
 	private WebElement previousPageIconDrillTwo;
-	
+
 	@FindBy(xpath="//div[@id='gridDrillOne']//span[@class='k-icon k-i-arrow-end-left']")
 	private WebElement firstPageIconDrillOne;
-	
+
 	@FindBy(xpath="//div[@id='gridDrillOne']//span[@class='k-icon k-i-arrow-end-right']")
 	private WebElement lastPageIconDrillOne;
-	
+
 	@FindBy(xpath="//div[@id='gridDrillOne']//a[@aria-label='Go to the previous page']")
 	private WebElement previousPageIconDrillOne;
-	
+
 
 	@FindBy(xpath="//div[@id='gridDrillOne']//span[@class='k-icon k-i-arrow-60-right']")
 	private WebElement nextPageIconDrillOne;
@@ -323,7 +322,7 @@ public class OCMInteractionActionReportPage extends BasePage  {
 	@FindBy(xpath="(//SPAN[@class='k-icon k-i-arrow-60-right'])[3]")
 	private WebElement nextPageIconDrillTwo;
 
-	
+
 
 	public void exportPage(){
 		emptyDownloadsDirectory(System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles");
@@ -682,14 +681,15 @@ public class OCMInteractionActionReportPage extends BasePage  {
 			for(int i=1;i<rows.size();i++) {
 				Map<String,String> map = new HashMap<String,String>();
 				List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
-				for(int j=1;j<headers.size();j++) {
+				for(int j=0;j<headers.size();j++) {
 					scrollToElement(headers.get(j));
 					System.out.println(headers.get(j).getText());
+					
 					//if(headers.get(j).getText().equals("Last Changed On")){
 					//	col=cols.get(j).getText().substring(0,10);
 					//}
 					//else
-						col=cols.get(j).getText();
+					col=cols.get(j).getText();
 					map.put(headers.get(j).getText(),col);
 				}
 				map.remove("");
@@ -699,13 +699,15 @@ public class OCMInteractionActionReportPage extends BasePage  {
 		return arr;
 	}		
 
-	public boolean verifyArrowMoveForPreviousAndNextPage(){
+	public boolean verifyArrowMoveForPreviousAndNextPage() throws Exception{
 		boolean status=false;
 		if(!nextPageIcon.getAttribute("class").contains("k-state-disabled")){
 			int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 			selectWebElement(nextPageIcon);
+			Thread.sleep(5000);
 			int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 			selectWebElement(previousPageIcon);
+			Thread.sleep(5000);
 			int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 			if(nextnumber==(pagenumber+1) && pagenumber==previousnumber){status=true;}
 		}else{
@@ -714,13 +716,15 @@ public class OCMInteractionActionReportPage extends BasePage  {
 		return status;
 	}
 
-	public boolean verifyArrowMoveForFirstAndLastPage(){
+	public boolean verifyArrowMoveForFirstAndLastPage() throws Exception{
 		boolean status=false;
 		if(!lastPageIcon.getAttribute("class").contains("k-state-disabled")){
 			int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 			selectWebElement(lastPageIcon);
+			Thread.sleep(5000);
 			int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 			selectWebElement(firstPageIcon);
+			Thread.sleep(5000);
 			int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 			if(nextnumber>pagenumber && pagenumber==previousnumber){status=true;}
 		}else{
@@ -758,7 +762,7 @@ public class OCMInteractionActionReportPage extends BasePage  {
 	public boolean verifyExportToExcel(String filePath) {
 		final File folder = new File(filePath);
 		for (final File f : folder.listFiles()) {
-			if (f.getName().startsWith("OCMInteracionActionReport")) {
+			if (f.getName().startsWith("OCMInteractionActionsReport")) {
 				f.delete();
 			}
 		}
@@ -769,7 +773,7 @@ public class OCMInteractionActionReportPage extends BasePage  {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		Boolean Status=verifyExportPageFileDownload(filePath, "OCMInteracionActionReport");
+		Boolean Status=verifyExportPageFileDownload(filePath, "OCMInteractionActionsReport");
 		return Status;
 	}
 
@@ -796,14 +800,14 @@ public class OCMInteractionActionReportPage extends BasePage  {
 		return Status;
 	}
 
-	
+
 	public String verifySuccessMessage() {
 
 		if(errorMsg.size()>0)	
 		{return errorMsg.get(0).getText();}
 		else{waitUntilWebElementIsVisible(successmsg);return successmsg.getText();}
 	}
-	
+
 	public boolean VerifyLogo() {
 		if(VEFImg.isDisplayed())
 			return true;
@@ -920,13 +924,15 @@ public class OCMInteractionActionReportPage extends BasePage  {
 		return arr;
 	}
 
+
 	public boolean verifySearchByTextbox(ReportDetails details) throws Exception{	
-		boolean Status=false;
-		//Map<String, String> map=new HashMap<String,String>() ;
-		selectWebElement(searchbyfeatureTextBox);    
-		//searchbyfeatureTextBox.sendKeys("1111");//agent id value
+		boolean Status=false;	
+		Thread.sleep(3000);	
+		selectWebElement(searchbyfeatureTextBox);    		
 		enterValueToTxtFieldWithoutClear(searchbyfeatureTextBox,details.getSearchStr());
+		Thread.sleep(3000);	 
 		selectDropdownFromVisibleText(searchbyfeaturelistBox,details.getSearchStr());
+		Thread.sleep(5000);
 		waitForJqueryLoad(driver);
 		List<Map<String,String>> UI=getDataTable(); 
 		for (Map<String,String> map1: UI)
@@ -1193,23 +1199,25 @@ public class OCMInteractionActionReportPage extends BasePage  {
 		selectDropdownFromVisibleText(searchColListBoxAdvSrchReportPage1,"Agent ID");
 		Thread.sleep(2000);
 		selectWebElement(searchCriteriaDropdownAdvSrch1);
-		selectDropdownFromVisibleText(searchCriteriaListboxAdvSrch1,"Starts with");
+		selectDropdownFromVisibleText(searchCriteriaListboxAdvSrch1,"Is equal to");
 		enterValueToTxtField(searchTextBoxAdvSrch1,details.getSearchStr2());
 		selectWebElement(showReportBtn.get(0));
 		waitForLoad(driver);
 		waitForJqueryLoad(driver);
 		waitUntilWebElementIsVisible(gridBoxContent);
 		Thread.sleep(3000);
-		List<WebElement> rows=Grid.findElements(By.tagName("tr"));	
-		for(WebElement e:rows)
+		List<Map<String,String>>UI=getDataTable();
+		for(Map<String,String> map1:UI)
 		{
-			if(rowdata.getText().equals(details.getSearchStr())||rowdatatwo.getText().contains(details.getSearchStr2()))
-				Status=true;
+			if(map1.get("Agent Name").toLowerCase().equals(details.getSearchStr().toLowerCase()) ||map1.get("Agent ID").toLowerCase().equals(details.getSearchStr2().toLowerCase()))
+				Status= true;
+			else 
+				Status =false;
 		}
-		return Status;	
-
+		return Status;
 	}
-
+		
+		
 	public void searchwithoutextsearch(ReportDetails details) {
 		selectWebElement(searchBtn);		
 		selectWebElement(searchColDropdown);  
@@ -1229,30 +1237,20 @@ public class OCMInteractionActionReportPage extends BasePage  {
 			return errorMsg.get(0).getText();}
 	}
 
-	public boolean verifyDatabase(String query) {
-		List<Map<String,String>> database=database(query);
-		System.out.println(database);
-		List<Map<String,String>> UI=getDataTable(); 
-		System.out.println(UI);
-		if(UI.equals(database))
-			return true;
-		else
-			return false;
-	}
-	public boolean groupby() {
-		DragandDrop(channel,droptarget);
+	public boolean groupby() throws Exception {
+		waitForJqueryLoad(driver);
+		Thread.sleep(3000);			 
+		DragandDrop(teamName,droptarget);
 		try {
-			Thread.sleep(1000);
+			Thread.sleep(5000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		if(groupby.getText().split(": ")[1].equals(groupbychannel.getText()))
+		if(groupby.getText().split(": ")[1].equals(groupbyteamName.getText()))
 		{return true;}
 		else
 			return false;		
 	}	
-	
-
 
 	public void clickOnDeleteButtonInReportDownloadsPage() {
 		selectWebElement(deleteReportinInReportDownloadpage.get(0));		
@@ -1286,7 +1284,6 @@ public class OCMInteractionActionReportPage extends BasePage  {
 		selectWebElement(deleteYesBtn);	
 	}
 
-		
 	public boolean verifyJsonDataForgridColumnHidden(Map<String,String> jsonmap){
 		System.out.println(jsonmap);
 		boolean status=false;
@@ -1297,6 +1294,7 @@ public class OCMInteractionActionReportPage extends BasePage  {
 		}
 		return status;
 	}
+	
 	public boolean verifyArrowMoveForPreviousAndNextPageForDrillDownOne(ReportDetails reportDetails) throws Exception {
 		selectWebElement(rows.get(0));
 		Thread.sleep(2000);
@@ -1338,12 +1336,73 @@ public class OCMInteractionActionReportPage extends BasePage  {
 		}
 		return status;
 	}
+	
 	public boolean verifyTotalNumberOfItemsPerPageDetailsForDrillDownOne() throws InterruptedException {
 		selectWebElement(rows.get(0));
 		Thread.sleep(2000);
 		String item = drillGridOneItems.getText();
 		return item.matches("(\\d.*) - (\\d.*) of (\\d.*) items");
 	}
+
+
+
+	public boolean verifyDatabase(String query,ReportDetails details) throws InterruptedException {
+		//get dates from xl - step 2
+		String reportbeforedate = details.getStartDate();
+		String reportafterdate=details.getEndDate();
+		//change date formats - step 3
+		reportbeforedate=reportbeforedate.substring(6,10)+reportbeforedate.substring(3, 5)+reportbeforedate.substring(0, 2)+reportbeforedate.substring(11, 13)+reportbeforedate.substring(14, 16)+reportbeforedate.substring(17, 19);
+		reportafterdate	=reportafterdate.substring(6,10)+reportafterdate.substring(3, 5)+reportafterdate.substring(0, 2)+reportafterdate.substring(11, 13)+reportafterdate.substring(14, 16)+reportafterdate.substring(17, 19);
+		//Replace identifiers in query to formatted date - step 5
+		query=query.replaceAll("ReportBeforeDate",reportbeforedate );
+		query=query.replaceAll("ReportAfterDate",reportafterdate );
+		List<Map<String,String>> database=database(query);
+		//		System.out.println("Printing Query" +" "+query);		
+		//		System.out.println("Printing DB results" +" "+database);
+		List<Map<String,String>> UI=getDataTable1(); 
+		//		System.out.println("Printing UI Results"+" "+UI);	
+		if(UI.equals(database))
+			return true;
+		else
+			return false;
+	}
+
+	private List<Map<String, String>> getDataTable1() throws InterruptedException {
+		int item=Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
+		int pagersize=Integer.valueOf(pagerSize.getText());
+		int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
+		List<Map<String,String>> arr=new ArrayList<Map<String,String>>();
+		for(int k=0;k<=pages;k++){
+			waitUntilWebElementIsVisible(auditGridContent);
+			List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
+			List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
+			for(int i=1;i<rows.size();i++) {
+				Map<String,String> map = new HashMap<String,String>();
+				List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
+				String col=null;
+				for(int j=0;j<headers.size();j++){
+					scrollToElement(headers.get(j));
+					if(headers.get(j).getText().equals("")){
+						col=cols.get(j).getText().substring(0);
+					}
+					else
+						col=cols.get(j).getText();
+					map.put(headers.get(j).getText(),col);
+				}
+				map.remove("");
+				arr.add(map);
+			}
+			if(k!=pages)
+			{
+				Thread.sleep(10000);
+				nextPageIcon.click();
+				waitForJqueryLoad(driver);}
+		}
+		return arr;
+	}
+
+
+
 
 }
 

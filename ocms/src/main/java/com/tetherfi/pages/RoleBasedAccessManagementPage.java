@@ -103,7 +103,7 @@ public class RoleBasedAccessManagementPage extends BasePage {
     @FindBy(css=".k-edit-buttons .k-grid-update")
     private WebElement editFormSaveBtn;
 
-    @FindBy(css=".toast-message")
+    @FindBy(css="#toast-container .toast-success .toast-message")
     private WebElement successmsg;
 
     @FindBy(css="#toast-container .toast-error .toast-message")
@@ -121,8 +121,8 @@ public class RoleBasedAccessManagementPage extends BasePage {
     @FindBy(css="ul[id='1001sCriteria_listbox'] li")
     private List<WebElement> searchTypeList;
 
-    @FindBy(css=".modal-body .form-inline .form-group .k-textbox")
-    private List<WebElement> searchText;
+    @FindBy(id="1001sTextToSearch")
+    private WebElement searchText;
 
     @FindBy(css=".modal-footer .k-primary")
     private WebElement popupSearchBtn;
@@ -281,7 +281,7 @@ public class RoleBasedAccessManagementPage extends BasePage {
     @FindBy(xpath="//button[text()='Close']")
     private WebElement searchClose;
     
-    @FindBy(xpath="//i[@class='fas fa-sync']")
+    @FindBy(xpath="//i[@class='fas fa-sync fa-spin']")
     private WebElement clearsearch;
     
     @FindBy(id="tabstripfaxtemplateMakerChecker")
@@ -323,7 +323,8 @@ public class RoleBasedAccessManagementPage extends BasePage {
     @FindBy(xpath="//a[text()='Role Name']")
     private List<WebElement> RoleName;
     
-    
+    @FindBy(id="tdrillgrid")
+    private WebElement tgrid;
 
     public boolean isRoleBasedAccessManagementPageDisplayed() throws InterruptedException {
         waitForLoad(driver);
@@ -333,6 +334,7 @@ public class RoleBasedAccessManagementPage extends BasePage {
     public void addRoleBasedAccessManagementRecord(UserDetails details) throws Exception {
     	selectWebElement(RoleBasedAccessManagementTabs.get(1));
 		selectWebElement(makeRoleBasedAccessManagementChanges);
+		waitForJqueryLoad(driver);
         selectWebElement(addRoleBasedAccessManagementRecordBtn);
         selectWebElement(roleNameTextBox);
         enterValueToTxtField(roleNameTextBox,details.getRoleName());
@@ -352,8 +354,9 @@ public class RoleBasedAccessManagementPage extends BasePage {
         selectWebElement(selectSearchColumn.get(0));
         selectDropdownFromVisibleText(columnNameList,"Role Name");
         selectWebElement(selectSearchColumn.get(1));
+        Thread.sleep(2000);
         selectDropdownFromVisibleText(searchTypeList,"Is equal to");
-        enterValueToTxtField(searchText.get(0),bankUsername);
+        enterValueToTxtField(searchText,bankUsername);
         selectWebElement(popupSearchBtn);
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(gridContent);
@@ -523,7 +526,7 @@ public class RoleBasedAccessManagementPage extends BasePage {
 	}
 
 	public boolean verifyAuditTrailDataTableHeaders() {
-		ArrayList<String> Expected=new ArrayList<String>(Arrays.asList(" ","Request Id", "Transaction", "Function", "Status", "User Id", "Submission DateTime", "Maker Comments", "Old Values", "New Values", "Reviewed By","Review DateTime", "Checker Comments"));
+		ArrayList<String> Expected=new ArrayList<String>(Arrays.asList(" ","Request Id", "Transaction", "Function", "Status", "User Id", "Submission DateTime", "Maker Comments", "Reviewed By","Review DateTime", "Checker Comments"));
         ArrayList Actual = getHeadersfromTable(auditTrailTableHeaders);
         System.out.println(Actual);
         Collections.sort(Expected);Collections.sort(Actual);
@@ -820,7 +823,7 @@ public class RoleBasedAccessManagementPage extends BasePage {
 		waitForJqueryLoad(driver);
 		Thread.sleep(1000);
 		selectWebElement(exporttoexcel);
-		waitUntilWebElementListIsVisible(errorMsg);
+		//waitUntilWebElementListIsVisible(errorMsg);
 		if(errorMsg.get(0).getText().equals("There is no record to export"))
 			return true;
 		else
@@ -833,9 +836,9 @@ public class RoleBasedAccessManagementPage extends BasePage {
         selectDropdownFromVisibleText(columnNameList,"Role Name");
         selectWebElement(selectSearchColumn.get(1));
         selectDropdownFromVisibleText(searchTypeList,"Is equal to");
-        enterValueToTxtField(searchText.get(0),details.getRoleName());
+        enterValueToTxtField(searchText,details.getRoleName());
 	    selectWebElement(clearall);
-			if(searchText.get(0).isEnabled())
+			if(searchText.isEnabled())
 	        	return true;
 	        else
 			return false;
@@ -916,7 +919,7 @@ public class RoleBasedAccessManagementPage extends BasePage {
         selectDropdownFromVisibleText(columnNameList,"Role Name");
         selectWebElement(selectSearchColumn.get(1));
         selectDropdownFromVisibleText(searchTypeList,"Is equal to");
-        enterValueToTxtField(searchText.get(0),RoleName);
+        enterValueToTxtField(searchText,RoleName);
         selectWebElement(popupSearchBtn);
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(approvedgridcontent);		
@@ -980,17 +983,44 @@ public class RoleBasedAccessManagementPage extends BasePage {
         else
 		return false;
 	}
+	
+	private Map<String, String> getFirstRowDatafromPreviewPopup() throws Exception {
+		Map<String,String> map = new HashMap<>();
+        waitUntilWebElementIsVisible(auditGridContent);
+        List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
+        List<WebElement> cols=rows.get(1).findElements(By.tagName("td"));
+        List<WebElement> preview= cols.get(1).findElements(By.tagName("a"));
+        preview.get(0).click();
+        waitUntilWebElementIsVisible(tgrid);
+        Thread.sleep(2000);
+        List<WebElement> gridrows=tgrid.findElements(By.tagName("tr"));
+        List<WebElement> gridheaders = gridrows.get(0).findElements(By.tagName("th"));
+        List<WebElement> gridcols=gridrows.get(1).findElements(By.tagName("td"));     
+        for(int j=0;j<gridheaders.size();j++){
+            scrollToElement(gridheaders.get(j));
+            for(int i=0;i<gridcols.size();i++) {
+            	System.out.println(gridheaders.get(j).getText());
+                try{
+                	map.put(gridheaders.get(j).getText(), gridcols.get(j).getText());
+                break;
+                }
+                catch (Exception e){e.printStackTrace();}
+            }
+        }
+        return map;
+	}
 
 
-	public boolean verifyAuditTrail(UserDetails UserDetails, String Transaction, String Status) {
+	public boolean verifyAuditTrail(UserDetails UserDetails, String Transaction, String Status) throws Exception {
 		boolean stat=false;
         Map<String,String> firstRowData=getFirstRowDatafromTable();
+        Map<String,String> popupRowData=getFirstRowDatafromPreviewPopup();
         if(firstRowData.get("Transaction").equalsIgnoreCase(Transaction)){
             if(firstRowData.get("Status").equalsIgnoreCase(Status)){
-                if(firstRowData.get("Function").equalsIgnoreCase("Role Based Access Management")){
+                if(firstRowData.get("Function Name").equalsIgnoreCase("Role Based Access Management")){
                        if(Transaction.equals("MakerCreate")){
                            Map<String,String> newvalues=new HashMap<>();
-                            String[] d=firstRowData.get("New Values").split("\n");
+                            String[] d=popupRowData.get("New Values").split("\n");
                             for(String e:d){
                                 String[]f=e.split(":",2);
                                 if(f.length>1){newvalues.put(f[0],f[1]);}
@@ -1056,7 +1086,7 @@ public class RoleBasedAccessManagementPage extends BasePage {
 
 	public boolean verifyStatus(String status) {
 		try {
-            Thread.sleep(3000);
+            Thread.sleep(5000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -1067,7 +1097,7 @@ public class RoleBasedAccessManagementPage extends BasePage {
 	public void clickonApprove(String comment) throws Exception {
 		selectWebElement(RoleBasedAccessManagementTabs.get(1));
         try {
-            Thread.sleep(3000);
+            Thread.sleep(5000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -1113,7 +1143,7 @@ public class RoleBasedAccessManagementPage extends BasePage {
 	public void clickonReject(String comment) throws Exception {
 		 selectWebElement(RoleBasedAccessManagementTabs.get(1));
 	        try {
-	            Thread.sleep(3000);
+	            Thread.sleep(5000);
 	        } catch (InterruptedException e) {
 	            e.printStackTrace();
 	        }
@@ -1149,15 +1179,16 @@ public class RoleBasedAccessManagementPage extends BasePage {
 		return false;
 	}
 
-	public boolean verifyAuditTrailUpdate(UserDetails details, String Transaction,String Status) {
+	public boolean verifyAuditTrailUpdate(UserDetails details, String Transaction,String Status) throws Exception {
 		boolean stat=false;
         Map<String,String> firstRowData=getFirstRowDatafromTable();
+        Map<String,String> popupRowData=getFirstRowDatafromPreviewPopup();
         if(firstRowData.get("Transaction").equalsIgnoreCase(Transaction)){
             if(firstRowData.get("Status").equalsIgnoreCase(Status)){
-                if(firstRowData.get("Function").equalsIgnoreCase("User Role Mapping")){
+                if(firstRowData.get("Function Name").equalsIgnoreCase("Role Based Access Management")){
                        if(Transaction.equals("MakerUpdate")){
                            Map<String,String> newvalues=new HashMap<>();
-                            String[] d=firstRowData.get("New Values").split("\n");
+                            String[] d=popupRowData.get("New Values").split("\n");
                             for(String e:d){
                                 String[]f=e.split(":",2);
                                 if(f.length>1){newvalues.put(f[0],f[1]);}
@@ -1176,7 +1207,7 @@ public class RoleBasedAccessManagementPage extends BasePage {
 
 	private boolean verifyUpdatedNewValues(UserDetails details, Map<String, String> newvalues) {
 		Boolean Status=false;
-		if(newvalues.get("UserName").equals(details.getRoleName()))
+		if(newvalues.get("RoleName").equals(details.getRoleName()))
 		{
 			Status=true;
 		}
@@ -1223,7 +1254,7 @@ public class RoleBasedAccessManagementPage extends BasePage {
         Map<String,String> firstRowData=getFirstRowDatafromTable();
         if(firstRowData.get("Transaction").equalsIgnoreCase(Transaction)){
             if(firstRowData.get("Status").equalsIgnoreCase(Status)){
-                if(firstRowData.get("Function").equalsIgnoreCase("Role Based Access Management")){
+                if(firstRowData.get("Function Name").equalsIgnoreCase("Role Based Access Management")){
                        stat=true;
                 }else{System.out.println("Data mismatch:"+firstRowData.get("Function")+"\t"+"RoleManagement");}
             }else{System.out.println("Data mismatch:"+firstRowData.get("Status")+"\t"+Status);}

@@ -221,7 +221,7 @@ public class FaxRoutingConfigurationPage extends BasePage {
     @FindBy(xpath="//div[text()='No records to display']")
     private WebElement norecords;
     
-    @FindBy(xpath="//i[@class='fas fa-sync']")
+    @FindBy(xpath="//i[@class='fas fa-sync fa-spin']")
     private WebElement clearsearch;
     
     
@@ -758,6 +758,7 @@ public class FaxRoutingConfigurationPage extends BasePage {
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Fax Line");
         selectWebElement(selectSearchCol.get(1));
+        Thread.sleep(1000);
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is equal to");
         enterValueToTxtField(searchTextBox,faxLine);
         selectWebElement(searchAddCriteriaBtn);
@@ -771,6 +772,7 @@ public class FaxRoutingConfigurationPage extends BasePage {
         selectWebElement(selectSearchCol.get(2));
         selectDropdownFromVisibleTextContains(columnNameListtwo,"Route Data");
         selectWebElement(selectSearchCol.get(3));
+        Thread.sleep(1000);
         selectDropdownFromVisibleText(searchCriteriaDropDwntwo,"Is equal to");
         enterValueToTxtField(searchTextBoxtwo,routeData);
         selectWebElement(searchSearchBtn);
@@ -866,7 +868,8 @@ public class FaxRoutingConfigurationPage extends BasePage {
 
 	public void deleteFaxRoutingConfigRecord(FaxRoutingConfigurationDetails faxRoutingConfigDetails) throws Exception {
 		searchBooleanFaxRoutingConfigRecord(faxRoutingConfigDetails.getFaxLine(),faxRoutingConfigDetails.getRouteData());
-        selectWebElement(deleteBtn);
+        Thread.sleep(1000);
+		selectWebElement(deleteBtn);
         try {
             Thread.sleep(3000);
         } catch (InterruptedException e) {

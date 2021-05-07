@@ -213,7 +213,7 @@ public class SmsResponseTemplatePageWMC extends BasePage{
     @FindBy(xpath="//button[text()='Close']")
     private WebElement searchClose;
     
-    @FindBy(xpath="//i[@class='fas fa-sync']")
+    @FindBy(xpath="//i[@class='fas fa-sync fa-spin']")
     private WebElement clearsearch;
     
     @FindBy(id="tabstripfaxtemplateMakerChecker")

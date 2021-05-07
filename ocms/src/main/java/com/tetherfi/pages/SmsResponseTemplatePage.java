@@ -133,6 +133,9 @@ public class SmsResponseTemplatePage extends BasePage {
     
     @FindBy(id = "drillGrid")
     private WebElement grid;
+    
+    @FindBy(id="tdrillgrid")
+    private WebElement tgrid;
 
     @FindBy(css = "#drillGrid .k-grouping-header")
     private WebElement dragColumnDestination;
@@ -146,8 +149,8 @@ public class SmsResponseTemplatePage extends BasePage {
     @FindBy(css="ul[id='1001sCriteria_listbox'] li")
     private List<WebElement> searchTypeList;
 
-    @FindBy(css=".modal-body .form-inline .form-group .k-textbox")
-    private List<WebElement> searchText;
+    @FindBy(id="1001sTextToSearch")
+    private WebElement searchText;
 
     @FindBy(css=".modal-footer .k-primary")
     private WebElement searchBtn;
@@ -200,7 +203,7 @@ public class SmsResponseTemplatePage extends BasePage {
     @FindBy(xpath="//button[text()='Close']")
     private WebElement searchClose;
     
-    @FindBy(xpath="//i[@class='fas fa-sync']")
+    @FindBy(xpath="//i[@class='fas fa-sync fa-spin']")
     private WebElement clearsearch;
     
     @FindBy(id="tabstripfaxtemplateMakerChecker")
@@ -708,7 +711,7 @@ public class SmsResponseTemplatePage extends BasePage {
         selectDropdownFromVisibleText(columnNameList,"ICOM Template ID");
         selectWebElement(selectSearchColumn.get(1));
         selectDropdownFromVisibleText(searchTypeList,"Is equal to");
-        enterValueToTxtField(searchText.get(0),iComTemplateID);
+        enterValueToTxtField(searchText,iComTemplateID);
         selectWebElement(searchBtn);
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(gridContent);			
@@ -720,9 +723,9 @@ public class SmsResponseTemplatePage extends BasePage {
         selectDropdownFromVisibleText(columnNameList,"ICOM Template ID");
         selectWebElement(selectSearchColumn.get(1));
         selectDropdownFromVisibleText(searchTypeList,"Is equal to");
-        enterValueToTxtField(searchText.get(0),details.getiCOMTemplateID());
+        enterValueToTxtField(searchText,details.getiCOMTemplateID());
 	    selectWebElement(clearall);
-			if(searchText.get(0).isEnabled())
+			if(searchText.isEnabled())
 	        	return true;
 	        else
 			return false;
@@ -912,7 +915,7 @@ public class SmsResponseTemplatePage extends BasePage {
         selectDropdownFromVisibleText(columnNameList,"ICOM Template ID");
         selectWebElement(selectSearchColumn.get(1));
         selectDropdownFromVisibleText(searchTypeList,"Is equal to");
-        enterValueToTxtField(searchText.get(0),icomTemplateId);
+        enterValueToTxtField(searchText,icomTemplateId);
         selectWebElement(searchBtn);
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(approvedgridcontent);		
@@ -997,16 +1000,20 @@ public class SmsResponseTemplatePage extends BasePage {
 	public boolean verifyAuditTrail(SmsResponseTemplateDetails SmsResponseTemplateDetails, String Transaction, String Status) {
 		boolean stat=false;
         Map<String,String> firstRowData=getFirstRowDatafromTable();
+        Map<String,String> popupRowData=getFirstRowDatafromPreviewPopup();
+
+        System.out.println(getFirstRowDatafromTable());
         if(firstRowData.get("Transaction").equalsIgnoreCase(Transaction)){
             if(firstRowData.get("Status").equalsIgnoreCase(Status)){
-                if(firstRowData.get("Function").equalsIgnoreCase("SMS Response Template")){
+                if(firstRowData.get("Function Name").equalsIgnoreCase("SMS Response Template")){
                        if(Transaction.equals("MakerCreate")){
                            Map<String,String> newvalues=new HashMap<>();
-                            String[] d=firstRowData.get("New Values").split("\n");
+                            String[] d=popupRowData.get("New Values").split("\n");
                             for(String e:d){
                                 String[]f=e.split(":",2);
                                 if(f.length>1){newvalues.put(f[0],f[1]);}
                             }
+                            System.out.println(newvalues);
                             if(verifyNewValues(SmsResponseTemplateDetails,newvalues)){
                                 stat=true;}
                             else 
@@ -1072,6 +1079,30 @@ public class SmsResponseTemplatePage extends BasePage {
         return map;
 	}
 
+	private Map<String, String> getFirstRowDatafromPreviewPopup() {
+		Map<String,String> map = new HashMap<>();
+        waitUntilWebElementIsVisible(auditGridContent);
+        List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
+        List<WebElement> cols=rows.get(1).findElements(By.tagName("td"));
+        List<WebElement> preview= cols.get(1).findElements(By.tagName("a"));
+        preview.get(0).click();
+        waitUntilWebElementIsVisible(tgrid);
+        List<WebElement> gridrows=tgrid.findElements(By.tagName("tr"));
+        List<WebElement> gridheaders = gridrows.get(0).findElements(By.tagName("th"));
+        List<WebElement> gridcols=gridrows.get(1).findElements(By.tagName("td"));     
+        for(int j=0;j<gridheaders.size();j++){
+            scrollToElement(gridheaders.get(j));
+            for(int i=0;i<gridcols.size();i++) {
+            	System.out.println(gridheaders.get(j).getText());
+                try{
+                	map.put(gridheaders.get(j).getText(), gridcols.get(j).getText());
+                break;
+                }
+                catch (Exception e){e.printStackTrace();}
+            }
+        }
+        return map;
+	}
 
 	public void selectRecord() {
 		Map<String,String> map = new HashMap<>();
@@ -1204,12 +1235,14 @@ public class SmsResponseTemplatePage extends BasePage {
 	public boolean verifyAuditTrailUpdate(SmsResponseTemplateDetails details, String Transaction,String Status) {
 		boolean stat=false;
         Map<String,String> firstRowData=getFirstRowDatafromTable();
+        Map<String,String> popupRowData=getFirstRowDatafromPreviewPopup();
+
         if(firstRowData.get("Transaction").equalsIgnoreCase(Transaction)){
             if(firstRowData.get("Status").equalsIgnoreCase(Status)){
-                if(firstRowData.get("Function").equalsIgnoreCase("SMS Response Template")){
+                if(firstRowData.get("Function Name").equalsIgnoreCase("SMS Response Template")){
                        if(Transaction.equals("MakerUpdate")){
                            Map<String,String> newvalues=new HashMap<>();
-                            String[] d=firstRowData.get("New Values").split("\n");
+                            String[] d=popupRowData.get("New Values").split("\n");
                             for(String e:d){
                                 String[]f=e.split(":",2);
                                 if(f.length>1){newvalues.put(f[0],f[1]);}
@@ -1320,9 +1353,10 @@ public class SmsResponseTemplatePage extends BasePage {
 			String Status) {
 		boolean stat=false;
         Map<String,String> firstRowData=getFirstRowDatafromTable();
+        
         if(firstRowData.get("Transaction").equalsIgnoreCase(Transaction)){
             if(firstRowData.get("Status").equalsIgnoreCase(Status)){
-                if(firstRowData.get("Function").equalsIgnoreCase("Sms Response Template")){
+                if(firstRowData.get("Function Name").equalsIgnoreCase("Sms Response Template")){
                        stat=true;
                 }else{System.out.println("Data mismatch:"+firstRowData.get("Function")+"\t"+"RoleManagement");}
             }else{System.out.println("Data mismatch:"+firstRowData.get("Status")+"\t"+Status);}

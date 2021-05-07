@@ -187,7 +187,7 @@ public class FaxSendersPage extends BasePage{
     @FindBy(xpath="//a[text()='Name']")
     private WebElement Name;
     
-    @FindBy(xpath="//a[text()='Type']")
+    @FindBy(xpath="//a[text()='Sender Type']")
     private WebElement Type;
     
     @FindBy(xpath="//div[@data-role='droptarget']")
@@ -202,7 +202,7 @@ public class FaxSendersPage extends BasePage{
     @FindBy(xpath="//div[text()='No records to display']")
     private WebElement norecords;
     
-    @FindBy(xpath="//i[@class='fas fa-sync']")
+    @FindBy(xpath="//i[@class='fas fa-sync fa-spin']")
     private WebElement clearsearch;
     
     @FindBy(xpath="//tbody/tr/td/p[@class='k-reset']/../../following-sibling::tr/td[3]")
@@ -270,6 +270,7 @@ public class FaxSendersPage extends BasePage{
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Fax Line");
         selectWebElement(selectSearchCol.get(1));
+        Thread.sleep(1000);
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is equal to");
         enterValueToTxtField(searchTextBox,faxLine);
         selectWebElement(searchSearchBtn);
