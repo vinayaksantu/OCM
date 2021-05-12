@@ -3,56 +3,17 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.tetherfi.test.ivr.OperatingHoursTest">
+      <class name="com.tetherfi.test.RoleBasedAccessManagementUITest">
         <methods>
-          <include name="VerifyDropdownForAllTheColumns"/>
-          <include name="DeleteWithoutDeleteReason"/>
-          <include name="ExporttoExcelWithoutData"/>
-          <include name="VerifyArrowMoveForPreviousAndNextPage"/>
-          <include name="ExportToExcelData"/>
-          <include name="VerifySearchContains"/>
-          <include name="AddInvalidStartTimeRecord"/>
-          <include name="EditOperatingHoursRecord"/>
-          <include name="VerifyNumberOfItemsPerPageSelection"/>
-          <include name="VerifySearchIsNotEqualTo"/>
-          <include name="VerifySearchStartsWith"/>
-          <include name="AddLeavingVDNBlank"/>
-          <include name="AddInvalidVDNRecord"/>
-          <include name="ExportToExcel"/>
-          <include name="searchPage"/>
           <include name="startTestCase"/>
           <include name="openApplication"/>
-          <include name="VerifyColumnsHeaderDisable"/>
-          <include name="AddLeavingBypassPublicHolidayFieldsBlank"/>
-          <include name="DeleteOperatinghoursRecord"/>
-          <include name="VerifySearchDoesNotContains"/>
-          <include name="VerifyTotalNumberOfItemsPerPageDetails"/>
-          <include name="EditOperatingHoursCancelRecord"/>
-          <include name="afterEachMethod"/>
-          <include name="AddNewOperatingHoursRecord"/>
-          <include name="GroupBy"/>
-          <include name="SearchClearSearch"/>
-          <include name="VerifyColumnsHeaderEnable"/>
+          <include name="NavigateToRoleBasedAccessManagementPage"/>
           <include name="endTestCase"/>
           <include name="tearDown"/>
-          <include name="AddDuplicateRecord"/>
-          <include name="AddInvalidStartAndEndTimeRecord"/>
-          <include name="NavigateToOperatingHoursPage"/>
-          <include name="database"/>
-          <include name="AddAlldaysOperatingHoursRecord"/>
-          <include name="AddLeavingStartTimeFieldsBlank"/>
-          <include name="EditInvalidRecord"/>
-          <include name="OperatingHoursPage"/>
-          <include name="EditRecordWithoutReason"/>
-          <include name="AddLeavingFieldsBlank"/>
-          <include name="VerifyArrowMoveForFirstAndLastPage"/>
-          <include name="AddLeavingEndTimeFieldsBlank"/>
-          <include name="AddLeavingWeekDayFieldsBlank"/>
-          <include name="SortingByAscending"/>
-          <include name="SortingByDescending"/>
-          <include name="VerifySearchEndsWith"/>
+          <include name="VerifyRoleBasedAccessManagementAuditTrailDataPage"/>
+          <include name="afterEachMethod"/>
         </methods>
-      </class> <!-- com.tetherfi.test.ivr.OperatingHoursTest -->
+      </class> <!-- com.tetherfi.test.RoleBasedAccessManagementUITest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

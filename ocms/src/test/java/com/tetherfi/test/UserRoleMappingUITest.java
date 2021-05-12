@@ -214,7 +214,7 @@ Screenshot screenshot=new Screenshot(driver);
     }
     
     @Test(priority=21)
-    public void searchwithoutSearchTextbox() throws IOException {
+    public void searchwithoutSearchTextbox() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserRoleMappingData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
 	    UserRoleMappingDetails UserRoleMappingDetails = new UserRoleMappingDetails(map);

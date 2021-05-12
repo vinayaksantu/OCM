@@ -66,7 +66,7 @@ public class NewUserRoleMappingPage extends BasePage {
     @FindBy(css=".form-group .k-numerictextbox .k-numeric-wrap .k-formatted-value")
     private WebElement avayaLoginIDTextbox;
 
-    @FindBy(css=".k-edit-form-container .k-numerictextbox .k-numeric-wrap .k-formatted-value")
+    @FindBy(xpath="//input[@id='AvayaLoginID']")
     private WebElement editAvayaLoginIDTextbox;
 
     @FindBy(css=".modal-body .col-lg-10 label")
@@ -1093,6 +1093,7 @@ public class NewUserRoleMappingPage extends BasePage {
         selectWebElement(selectSearchColumn.get(0));
         selectDropdownFromVisibleText(columnNameList,"Lan ID");
         selectWebElement(selectSearchColumn.get(1));
+        Thread.sleep(1000);
         selectDropdownFromVisibleText(searchTypeList,"Is equal to");
         enterValueToTxtField(searchText,details.getBankUserName());
 	    selectWebElement(clearall);
@@ -1109,11 +1110,12 @@ public class NewUserRoleMappingPage extends BasePage {
 		return false;
 	}
 
-	public void searchwithoutextsearch(UserRoleMappingDetails details) {
+	public void searchwithoutextsearch(UserRoleMappingDetails details) throws Exception {
 		selectWebElement(gridsearchLink);
         selectWebElement(selectSearchColumn.get(0));
         selectDropdownFromVisibleText(columnNameList,"Lan ID");
         selectWebElement(selectSearchColumn.get(1));
+        Thread.sleep(1000);
         selectDropdownFromVisibleText(searchTypeList,"Is equal to");
         selectWebElement(popupSearchBtn);	
         selectWebElement(searchClose);
@@ -1674,6 +1676,7 @@ public class NewUserRoleMappingPage extends BasePage {
 	        selectWebElement(selectSearchCol.get(0));
 	        selectDropdownFromVisibleText(columnNameList,"First Name");
 	        selectWebElement(selectSearchCol.get(1));
+	        Thread.sleep(1000);
 	        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is not equal to");
 	        enterValueToTxtField(searchTextBox,firstname);		
 	        selectWebElement(searchSearchBtn);
@@ -1696,6 +1699,7 @@ public class NewUserRoleMappingPage extends BasePage {
 	        selectWebElement(selectSearchCol.get(0));
 	        selectDropdownFromVisibleText(columnNameList,"First Name");
 	        selectWebElement(selectSearchCol.get(1));
+	        Thread.sleep(1000);
 	        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Contains");
 	        enterValueToTxtField(searchTextBox,firstname);		
 	        selectWebElement(searchSearchBtn);
@@ -1716,6 +1720,7 @@ public class NewUserRoleMappingPage extends BasePage {
 	        selectWebElement(selectSearchCol.get(0));
 	        selectDropdownFromVisibleText(columnNameList,"First Name");
 	        selectWebElement(selectSearchCol.get(1));
+	        Thread.sleep(1000);
 	        selectDropdownFromVisibleText(searchCriteriaDropDwn,"Does not contain");
 	        enterValueToTxtField(searchTextBox,firstname);		
 	        selectWebElement(searchSearchBtn);

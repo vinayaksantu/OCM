@@ -1,23 +1,43 @@
 package com.tetherfi.pages;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.CSVParser;
+import org.apache.commons.csv.CSVRecord;
+import org.apache.poi.ss.usermodel.CellType;
+import org.apache.poi.ss.usermodel.DateUtil;
+import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+
+import com.tetherfi.model.tmac.AgentSettingsDetails;
+import com.tetherfi.model.user.AgentSkillAssignmentNewDetails;
 import com.tetherfi.model.user.UserOnBoardingDetails;
+import com.tetherfi.model.user.UserRoleMappingDetails;
+import com.tetherfi.utility.ExcelReader;
 import com.tetherfi.utility.FileUploader;
+import com.tetherfi.utility.Util;
 
 public class UserOnBoardingPage extends BasePage {
 
@@ -117,12 +137,18 @@ public class UserOnBoardingPage extends BasePage {
 
 	@FindBy(css="#drillGrid .k-grid-content")
 	private WebElement gridContent;
+	
+	@FindBy(xpath="//a[@aria-label='Go to the next page']")
+	private List<WebElement> featuresGridNexpageButton;
 
 	@FindBy(id = "drillGrid")
 	private WebElement grid;
 
 	@FindBy(css="#gridDiv2 .search-link")
 	private WebElement searchLink;
+	
+	@FindBy(css="#gridDiv .search-link")
+	private WebElement searchLinkApprovedSec;
 
 	@FindBy(css=".modal-body .form-inline .form-group .k-select")
 	private List<WebElement> selectSearchColumn;
@@ -402,7 +428,7 @@ public class UserOnBoardingPage extends BasePage {
 
 	@FindBy(xpath="//span[@aria-owns='User_listbox']/span")
 	private WebElement UserAttributetoMatchPicturesdropdownbutton;
-	
+
 	@FindBy(css="ul[id='User_listbox'] li")
 	private List<WebElement> UserAttributetoMatchPicturesdropdownValues;
 
@@ -423,18 +449,77 @@ public class UserOnBoardingPage extends BasePage {
 
 	@FindBy(xpath="//div[text()='Please provide only the images inside the zip file, do not create the folder inside the zip file, Also Image Size should be less than or equal to 30kb (30000 bytes)']")
 	private WebElement FileUploadMessage;
-	
+
 	@FindBy(xpath="//div[text()='Inserted Records: ']/a[1]")
 	private WebElement insertedRecordCount;
-	
+
 	@FindBy(xpath="//div[text()='Invalid Records: ']/a[2]")
 	private WebElement invalidRecordCount;
-	
+
 	@FindBy(xpath="//button[normalize-space()='Continue']")
 	private WebElement continueBtn;
-	
+
 	@FindBy(xpath="//span[@class='k-file-validation-message k-text-error']")
 	private WebElement filetypeerrorMsg;
+
+	@FindBy(xpath="//button[normalize-space()='Import Users']")
+	private WebElement importUsersButton;
+
+	@FindBy(xpath="//span[text()='Import Users']")
+	private WebElement ImportUsersPopUpHeader;
+
+	@FindBy(xpath="//label[text()='Please import 3 files as per template']")
+	private WebElement messageLabel;
+
+	@FindBy(xpath="//label[text()='Note: Supervisor should already be present!!']")
+	private WebElement messageLabel1;
+
+	@FindBy(xpath="//a[text()='Download User Detail Template']")
+	private WebElement userDetailTemplateDownLoadLink;
+
+	@FindBy(xpath="//a[text()='Download User Channel Template']")
+	private WebElement userChannelTemplateDownLoadLink;
+
+	@FindBy(xpath="//a[text()='Download User Feature Template']")
+	private WebElement userFeatureTemplateDownLoadLink;
+
+	@FindBy(xpath="//span[@id='bulkAgentUploadWindow_wnd_title']/following-sibling::div/a")
+	private WebElement ImportUsersPopUpCloseButton;
+
+	@FindBy(xpath="//input[@id='importdetails']")
+	private WebElement selectImportFileButton;
+
+	@FindBy(xpath="//div[text()='Duplicate Records: ']/a[1]")
+	private WebElement duplicateUserRecordCount;
+
+	@FindBy(xpath="//div[text()=' Inserted Records: ']/a[2]")
+	private WebElement InsertedUserRecordCount;
+
+	@FindBy(xpath="//div[text()='Invalid Records: ']/a[3]")
+	private WebElement InvalidUserRecordCount;
+
+	@FindBy(xpath="//a[text()='Please upload all the 3 files together.']")
+	private WebElement fileUploadMessage;
+	
+	@FindBy(xpath="//a[text()='Failed to import Agent Details']")
+	private WebElement uploadErrormessage;
+	
+	@FindBy(xpath="//a[@class='k-icon k-i-expand']")
+    private List<WebElement> pageArrowDropDown;
+    
+    @FindBy(xpath="//span[text()='Skill List']")
+    private WebElement pageArrowSkillList;
+    
+    @FindBy(xpath="//li[@class='k-item k-state-default k-first k-tab-on-top k-state-active']")
+    private List<WebElement> channelTab;
+    
+    @FindBy(css="#tcheckerGrid .k-grid-display-block")
+    private List<WebElement> arrowGrid;
+
+
+
+
+
 
 
 
@@ -814,6 +899,18 @@ public class UserOnBoardingPage extends BasePage {
 		selectWebElement(popupSearchBtn);
 		waitForJqueryLoad(driver);
 		waitUntilWebElementIsVisible(gridContent);
+	}
+	
+	public void searchUserOnBoardingRecordInApprovedSection(String lanID) throws Exception  {
+		selectWebElement(searchLinkApprovedSec);
+		selectWebElement(selectSearchColumn.get(0));
+		selectDropdownFromVisibleText(columnNameList,"Lan ID");
+		Thread.sleep(1000);
+		selectWebElement(selectSearchColumn.get(1));
+		selectDropdownFromVisibleText(searchTypeList,"Is equal to");
+		enterValueToTxtField(searchTextBox,lanID);
+		selectWebElement(popupSearchBtn);
+		waitForJqueryLoad(driver);
 	}
 
 	public boolean ExporttoExcelWithoutData(UserOnBoardingDetails details) throws Exception {
@@ -1512,6 +1609,16 @@ public class UserOnBoardingPage extends BasePage {
 		List<WebElement> cols=rows.get(1).findElements(By.tagName("td"));
 		selectWebElement(cols.get(0).findElement(By.id("isEnabled")));
 	}
+
+	public void selectallNonmandatoryFieldsRecord() {
+		Map<String,String> map = new HashMap<>();
+		waitUntilWebElementIsVisible(auditGridContent);
+		for(int i=1;i<=3;i++) {
+			List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
+			List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
+			selectWebElement(cols.get(0).findElement(By.id("isEnabled")));}
+	}
+
 	public void sendForAprroval(String comments) throws Exception {
 		selectWebElement(sendForApprovalBtn);
 		Thread.sleep(1000);
@@ -1571,6 +1678,7 @@ public class UserOnBoardingPage extends BasePage {
 	}
 
 	public boolean verifyMessage() {
+		waitForJqueryLoad(driver);
 		return(getSuccessMessage().contains("Record approved successfully. Request ID :"));
 	}
 
@@ -1609,8 +1717,8 @@ public class UserOnBoardingPage extends BasePage {
 		Map<String,String> firstRowData=getFirstRowDatafromTable();
 		if(firstRowData.get("Transaction").equalsIgnoreCase(transaction)){
 			if(firstRowData.get("Status").equalsIgnoreCase(status)){
-				if(firstRowData.get("Function").equalsIgnoreCase("User Onboarding")){
-					// if(transaction.equals("MakerCreate")||transaction.equals("MakerUpdate")){
+				if(firstRowData.get("Function Name").equalsIgnoreCase("User Onboarding")){
+					 if(transaction.equals("MakerCreate")||transaction.equals("MakerImport")){
 					/* Map<String,String> newvalues=new HashMap<>();
 	                            String[] d=firstRowData.get("New Values").split("\n");
 	                            for(String e:d){
@@ -1618,9 +1726,9 @@ public class UserOnBoardingPage extends BasePage {
 	                                if(f.length>1){newvalues.put(f[0],f[1]);}
 	                            }
 	                            if(verifyNewValues(details,newvalues)){
-	                                stat=true;}*/
-					stat=true;//}//else{stat=true;}
-				}else{System.out.println("Data mismatch:"+firstRowData.get("Function")+"\t"+"RoleManagement");}
+	                                stat=true;}*/stat=true;
+					}else{System.out.println("transaction Mismatch");}
+				}else{System.out.println("Data mismatch:"+firstRowData.get("Function Name")+"\t"+"User Onboarding");}
 			}else{System.out.println("Data mismatch:"+firstRowData.get("Status")+"\t"+status);}
 		}else{System.out.println("Data mismatch:"+firstRowData.get("Transaction")+"\t"+transaction);}
 		return stat;}
@@ -1664,9 +1772,9 @@ public class UserOnBoardingPage extends BasePage {
 		Map<String,String> firstRowData=getFirstRowDatafromTable();
 		if(firstRowData.get("Transaction").equalsIgnoreCase(Transaction)){
 			if(firstRowData.get("Status").equalsIgnoreCase(Status)){
-				if(firstRowData.get("Function").equalsIgnoreCase("User Onboarding")){
+				if(firstRowData.get("Function Name").equalsIgnoreCase("User Onboarding")){
 					if(Transaction.equals("MakerUpdate")){
-						Map<String,String> newvalues=new HashMap<>();
+						/*Map<String,String> newvalues=new HashMap<>();
 						String[] d=firstRowData.get("New Values").split("\n");
 						for(String e:d){
 							String[]f=e.split(":",2);
@@ -1675,10 +1783,37 @@ public class UserOnBoardingPage extends BasePage {
 						if(verifyUpdatedNewValues(details,newvalues)){
 							stat=true;}
 						else 
-							stat=false;
+							stat=false;*/
+						stat=true;
 					}
 					else{System.out.println("Data mismatch");}
-				}else{System.out.println("Data mismatch:"+firstRowData.get("Function")+"\t"+"Agent Settings");}
+				}else{System.out.println("Data mismatch:"+firstRowData.get("Function")+"\t"+"User Onboarding");}
+			}else{System.out.println("Data mismatch:"+firstRowData.get("Status")+"\t"+Status);}
+		}else{System.out.println("Data mismatch:"+firstRowData.get("Transaction")+"\t"+Transaction);}
+		return stat;
+	}
+	
+	public boolean verifyAuditTrailDelete(UserOnBoardingDetails details, String Transaction, String Status) {
+		boolean stat=false;
+		Map<String,String> firstRowData=getFirstRowDatafromTable();
+		if(firstRowData.get("Transaction").equalsIgnoreCase(Transaction)){
+			if(firstRowData.get("Status").equalsIgnoreCase(Status)){
+				if(firstRowData.get("Function Name").equalsIgnoreCase("User Onboarding")){
+					if(Transaction.equals("MakerDelete")){
+						/*Map<String,String> newvalues=new HashMap<>();
+						String[] d=firstRowData.get("New Values").split("\n");
+						for(String e:d){
+							String[]f=e.split(":",2);
+							if(f.length>1){newvalues.put(f[0],f[1]);}
+						}
+						if(verifyUpdatedNewValues(details,newvalues)){
+							stat=true;}
+						else 
+							stat=false;*/
+						stat=true;
+					}
+					else{System.out.println("Data mismatch");}
+				}else{System.out.println("Data mismatch:"+firstRowData.get("Function")+"\t"+"User Onboarding");}
 			}else{System.out.println("Data mismatch:"+firstRowData.get("Status")+"\t"+Status);}
 		}else{System.out.println("Data mismatch:"+firstRowData.get("Transaction")+"\t"+Transaction);}
 		return stat;
@@ -1784,7 +1919,7 @@ public class UserOnBoardingPage extends BasePage {
 		return status;
 
 	}
-	
+
 	public void VerifyUploadwithoutAttributeandProfilePic() throws Exception {
 		waitForJqueryLoad(driver);
 		selectWebElement(UserOnBoardingTabs.get(1));
@@ -1795,7 +1930,7 @@ public class UserOnBoardingPage extends BasePage {
 		waitForJqueryLoad(driver);
 		selectWebElement(uploadBtn);
 	}
-	
+
 	public void VerifyUploadwithoutProfilePic(UserOnBoardingDetails details) throws Exception {
 		waitForJqueryLoad(driver);
 		selectWebElement(UserOnBoardingTabs.get(1));
@@ -1808,7 +1943,7 @@ public class UserOnBoardingPage extends BasePage {
 		waitForJqueryLoad(driver);
 		selectWebElement(uploadBtn);
 	}
-	
+
 	public void VerifyUploadwithoutAttribute(UserOnBoardingDetails details) throws Exception {
 		waitForJqueryLoad(driver);
 		selectWebElement(UserOnBoardingTabs.get(1));
@@ -1818,11 +1953,11 @@ public class UserOnBoardingPage extends BasePage {
 		Thread.sleep(2000);
 		clickOnUsingActionClass(selectfile);
 		//Auto It script to load zip file
-        FileUploader upload= new FileUploader();
-        upload.uploadFile(System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\"+details.getfilename());
+		FileUploader upload= new FileUploader();
+		upload.uploadFile(System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\"+details.getfilename());
 		selectWebElement(uploadBtn);
 	}
-	
+
 	public boolean VerifyUploadInvalidFormatProfilePicFileWithLanIdAttribute(UserOnBoardingDetails details) throws Exception {
 		waitForJqueryLoad(driver);
 		selectWebElement(UserOnBoardingTabs.get(1));
@@ -1834,14 +1969,14 @@ public class UserOnBoardingPage extends BasePage {
 		Thread.sleep(2000);
 		clickOnUsingActionClass(selectfile);
 		//Auto It script to load zip file
-        FileUploader upload= new FileUploader();
-        upload.uploadFile(System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\"+details.getfilename());
-        if(filetypeerrorMsg.getText().equals("File type not allowed."))
-        	return true;
-        else 
-        	return false;
+		FileUploader upload= new FileUploader();
+		upload.uploadFile(System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\"+details.getfilename());
+		if(filetypeerrorMsg.getText().equals("File type not allowed."))
+			return true;
+		else 
+			return false;
 	}
-	
+
 	public void VerifyUploadProfilePicWithAttribute(UserOnBoardingDetails details) throws Exception {
 		waitForJqueryLoad(driver);
 		selectWebElement(UserOnBoardingTabs.get(1));
@@ -1853,18 +1988,18 @@ public class UserOnBoardingPage extends BasePage {
 		Thread.sleep(2000);
 		clickOnUsingActionClass(selectfile);
 		//Auto It script to load zip file
-        FileUploader upload= new FileUploader();
-        upload.uploadFile(System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\"+details.getfilename());
+		FileUploader upload= new FileUploader();
+		upload.uploadFile(System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\"+details.getfilename());
 		selectWebElement(uploadBtn);
 	}
-	
-	
-	
+
+
+
 	public boolean VerifyRecordcount(UserOnBoardingDetails details) throws Exception{
 		boolean status=false;
-		 waitForJqueryLoad(driver);
-		 System.out.println(details.getInsertedRecordCount());
-		 System.out.println(insertedRecordCount.getText());
+		waitForJqueryLoad(driver);
+		System.out.println(details.getInsertedRecordCount());
+		System.out.println(insertedRecordCount.getText());
 		if(insertedRecordCount.getText().equals(details.getInsertedRecordCount())) {
 			if(invalidRecordCount.getText().equals(details.getInavlidRecordCount())) {
 				status=true;
@@ -1875,5 +2010,682 @@ public class UserOnBoardingPage extends BasePage {
 		selectWebElement(continueBtn);
 		return status;
 	}
+
+	public boolean VerifyImportUserPopUp() throws Exception {
+		waitForJqueryLoad(driver);
+		selectWebElement(UserOnBoardingTabs.get(1));
+		selectWebElement(makeUserOnBoardingChanges);
+		Thread.sleep(2000);
+		selectWebElement(importUsersButton);
+		waitForJqueryLoad(driver);
+		boolean status=false;
+		if(ImportUsersPopUpHeader.isDisplayed()) {
+			if(messageLabel.isDisplayed()) {
+				if(messageLabel1.isDisplayed()){
+					if(userDetailTemplateDownLoadLink.isEnabled()) {
+						if(userChannelTemplateDownLoadLink.isEnabled()) {
+							if(userFeatureTemplateDownLoadLink.isEnabled()) {
+								if(ImportUsersPopUpCloseButton.isEnabled()) {
+									status=true;
+								}
+								else {System.out.println("ImportUsersPopUpCloseButton is disabled");}
+							}
+							else {System.out.println("userFeatureTemplateDownLoadLink is disabled");}
+						}
+						else {System.out.println("userChannelTemplateDownLoadLink is disabled");}
+					}
+					else {System.out.println("userDetailTemplateDownLoadLink is disabled");}
+				}
+				else {System.out.println("messageLabel1 is not displayed");}
+			}
+			else {System.out.println("messageLabel is not displayed");}
+		}
+		else {System.out.println("ImportUsersPopUpHeader is not displayed");}
+
+		return status;
+
+
+	}
+
+	public boolean VerifyImportUserRecordcount(UserOnBoardingDetails details) throws Exception{
+		boolean status=false;
+		waitForJqueryLoad(driver);
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		if(duplicateUserRecordCount.getText().equals(details.getDuplicateRecordCount())) {
+			if(InsertedUserRecordCount.getText().equals(details.getInsertedRecordCount())) {
+				if(InvalidUserRecordCount.getText().equals(details.getInavlidRecordCount()))
+					status=true;
+				else {System.out.println("Invalid Record Count mismatch");}
+			}
+			else {System.out.println("Inserted Record Count mismatch");}
+		}
+		else {System.out.println("Duplicate Record Count mismatch");}
+		selectWebElement(continueBtn);
+		return status;
+	}
+
+	public boolean VerifyImportUserwithLanIDBlank(UserOnBoardingDetails details) throws Exception {
+		waitForJqueryLoad(driver);
+		selectWebElement(UserOnBoardingTabs.get(1));
+		selectWebElement(makeUserOnBoardingChanges);
+		waitForJqueryLoad(driver);
+		selectWebElement(importUsersButton);
+		Thread.sleep(2000);
+		String UserDetailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getUserDetailsFileNameWithLanIDBlank();
+		String ChannelDetailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getChannelDetailsFileName();
+		String FeatureDeatailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getFeatureDetailsFileName();
+		selectImportFileButton.sendKeys(UserDetailsFile+"\n"+ChannelDetailsFile+"\n"+FeatureDeatailsFile);
+		boolean status=VerifyImportUserRecordcount(details);
+		driver.navigate().refresh();
+		return status;
+
+	}
+
+	public boolean VerifyImportUserwithFirstNameBlank(UserOnBoardingDetails details) throws Exception {
+		waitForJqueryLoad(driver);
+		selectWebElement(UserOnBoardingTabs.get(1));
+		selectWebElement(makeUserOnBoardingChanges);
+		waitForJqueryLoad(driver);
+		selectWebElement(importUsersButton);
+		Thread.sleep(2000);
+		String UserDetailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getUserDetailsFileNamewithFirstNameBlank();
+		String ChannelDetailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getChannelDetailsFileName();
+		String FeatureDeatailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getFeatureDetailsFileName();
+		selectImportFileButton.sendKeys(UserDetailsFile+"\n"+ChannelDetailsFile+"\n"+FeatureDeatailsFile);
+		boolean status=VerifyImportUserRecordcount(details);
+		driver.navigate().refresh();
+		return status;
+
+	}
+
+	public boolean VerifyImportUserwithLastNameBlank(UserOnBoardingDetails details) throws Exception {
+		waitForJqueryLoad(driver);
+		selectWebElement(UserOnBoardingTabs.get(1));
+		selectWebElement(makeUserOnBoardingChanges);
+		waitForJqueryLoad(driver);
+		selectWebElement(importUsersButton);
+		Thread.sleep(2000);
+		String UserDetailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getUserDetailsFileNamewithLastNameBlank();
+		String ChannelDetailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getChannelDetailsFileName();
+		String FeatureDeatailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getFeatureDetailsFileName();
+		selectImportFileButton.sendKeys(UserDetailsFile+"\n"+ChannelDetailsFile+"\n"+FeatureDeatailsFile);
+		boolean status=VerifyImportUserRecordcount(details);
+		driver.navigate().refresh();
+		return status;
+
+	}
+
+	public boolean VerifyImportUserwithAvayaLoginIDBlank(UserOnBoardingDetails details) throws Exception {
+		waitForJqueryLoad(driver);
+		selectWebElement(UserOnBoardingTabs.get(1));
+		selectWebElement(makeUserOnBoardingChanges);
+		waitForJqueryLoad(driver);
+		selectWebElement(importUsersButton);
+		Thread.sleep(2000);
+		String UserDetailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getUserDetailsFileNameAvayaLoginIdBlank();
+		String ChannelDetailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getChannelDetailsFileName();
+		String FeatureDeatailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getFeatureDetailsFileName();
+		selectImportFileButton.sendKeys(UserDetailsFile+"\n"+ChannelDetailsFile+"\n"+FeatureDeatailsFile);
+		boolean status=VerifyImportUserRecordcount(details);
+		driver.navigate().refresh();
+		return status;
+
+	}
+
+	public boolean VerifyImportUserwithProfileBlank(UserOnBoardingDetails details) throws Exception {
+		waitForJqueryLoad(driver);
+		selectWebElement(UserOnBoardingTabs.get(1));
+		selectWebElement(makeUserOnBoardingChanges);
+		waitForJqueryLoad(driver);
+		selectWebElement(importUsersButton);
+		Thread.sleep(2000);
+		String UserDetailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getUserDetailsFileNamewithProfileBlank();
+		String ChannelDetailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getChannelDetailsFileName();
+		String FeatureDeatailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getFeatureDetailsFileName();
+		selectImportFileButton.sendKeys(UserDetailsFile+"\n"+ChannelDetailsFile+"\n"+FeatureDeatailsFile);
+		boolean status=VerifyImportUserRecordcount(details);
+		driver.navigate().refresh();
+		return status;
+
+	}
+
+	public boolean VerifyImportUserwithOrgUnitBlank(UserOnBoardingDetails details) throws Exception {
+		waitForJqueryLoad(driver);
+		selectWebElement(UserOnBoardingTabs.get(1));
+		selectWebElement(makeUserOnBoardingChanges);
+		waitForJqueryLoad(driver);
+		selectWebElement(importUsersButton);
+		Thread.sleep(2000);
+		String UserDetailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getUserDetailsFileNamewithOrgUnitBlank();
+		String ChannelDetailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getChannelDetailsFileName();
+		String FeatureDeatailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getFeatureDetailsFileName();
+		selectImportFileButton.sendKeys(UserDetailsFile+"\n"+ChannelDetailsFile+"\n"+FeatureDeatailsFile);
+		boolean status=VerifyImportUserRecordcount(details);
+		driver.navigate().refresh();
+		return status;
+
+	}
+
+	public boolean VerifyImportUserwithSupervisorLanIDBlank(UserOnBoardingDetails details) throws Exception {
+		waitForJqueryLoad(driver);
+		selectWebElement(UserOnBoardingTabs.get(1));
+		selectWebElement(makeUserOnBoardingChanges);
+		waitForJqueryLoad(driver);
+		selectWebElement(importUsersButton);
+		Thread.sleep(2000);
+		String UserDetailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getUserDetailsFileNamewithSupervisorLanIDBlank();
+		String ChannelDetailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getChannelDetailsFileName();
+		String FeatureDeatailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getFeatureDetailsFileName();
+		selectImportFileButton.sendKeys(UserDetailsFile+"\n"+ChannelDetailsFile+"\n"+FeatureDeatailsFile);
+		boolean status=VerifyImportUserRecordcount(details);
+		driver.navigate().refresh();
+		return status;
+
+	}
+
+	public boolean VerifyImportUserwithAllFieldsBlank(UserOnBoardingDetails details) throws Exception {
+		waitForJqueryLoad(driver);
+		selectWebElement(UserOnBoardingTabs.get(1));
+		selectWebElement(makeUserOnBoardingChanges);
+		waitForJqueryLoad(driver);
+		selectWebElement(importUsersButton);
+		Thread.sleep(2000);
+		String UserDetailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getUserDetailsFileName();
+		String ChannelDetailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getChannelDetailsFileName();
+		String FeatureDeatailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getFeatureDetailsFileName();
+		selectImportFileButton.sendKeys(UserDetailsFile+"\n"+ChannelDetailsFile+"\n"+FeatureDeatailsFile);
+		boolean status=VerifyImportUserRecordcount(details);
+		return status;
+
+	}
+
+	public boolean VerifyImportUserwithOnlyOneFileatTime(UserOnBoardingDetails details) throws Exception {
+		waitForJqueryLoad(driver);
+		selectWebElement(UserOnBoardingTabs.get(1));
+		selectWebElement(makeUserOnBoardingChanges);
+		waitForJqueryLoad(driver);
+		selectWebElement(importUsersButton);
+		Thread.sleep(2000);
+		String UserDetailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getUserDetailsFileName();
+		selectImportFileButton.sendKeys(UserDetailsFile);
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		if(fileUploadMessage.isDisplayed())
+			return true;
+		else
+			return false;
+	}
+
+	public boolean VerifyImportUserFiles(UserOnBoardingDetails details) throws Exception {
+		waitForJqueryLoad(driver);
+		selectWebElement(UserOnBoardingTabs.get(1));
+		selectWebElement(makeUserOnBoardingChanges);
+		waitForJqueryLoad(driver);
+		selectWebElement(importUsersButton);
+		Thread.sleep(2000);
+		String UserDetailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getUserDetailsFileName();
+		String ChannelDetailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getChannelDetailsFileName();
+		String FeatureDeatailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getFeatureDetailsFileName();
+		selectImportFileButton.sendKeys(UserDetailsFile+"\n"+ChannelDetailsFile+"\n"+FeatureDeatailsFile);
+		boolean status=VerifyImportUserRecordcount(details);
+		return status;
+
+	}
+
+	public boolean VerifyImportUserwithAllNonMandatoryFieldsBlank(UserOnBoardingDetails details) throws Exception {
+		waitForJqueryLoad(driver);
+		selectWebElement(UserOnBoardingTabs.get(1));
+		selectWebElement(makeUserOnBoardingChanges);
+		waitForJqueryLoad(driver);
+		selectWebElement(importUsersButton);
+		Thread.sleep(2000);
+		String UserDetailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getUserDetailsNonMandatoryFieldsBlankFileName();
+		String ChannelDetailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getChannelDetailsFileName();
+		String FeatureDeatailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getFeatureDetailsFileName();
+		selectImportFileButton.sendKeys(UserDetailsFile+"\n"+ChannelDetailsFile+"\n"+FeatureDeatailsFile);
+		boolean status=VerifyImportUserRecordcount(details);
+		driver.navigate().refresh();
+		return status;
+
+	}
+
+	public boolean VerifyImportUserwithAccessRoleandRoleFieldsBlank(UserOnBoardingDetails details) throws Exception {
+		waitForJqueryLoad(driver);
+		selectWebElement(UserOnBoardingTabs.get(1));
+		selectWebElement(makeUserOnBoardingChanges);
+		waitForJqueryLoad(driver);
+		selectWebElement(importUsersButton);
+		Thread.sleep(2000);
+		String UserDetailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getUserDetailsAccessRoleandRoleFieldsBlankFileName();
+		String ChannelDetailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getChannelDetailsFileName();
+		String FeatureDeatailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getFeatureDetailsFileName();
+		selectImportFileButton.sendKeys(UserDetailsFile+"\n"+ChannelDetailsFile+"\n"+FeatureDeatailsFile);
+		boolean status=VerifyImportUserRecordcount(details);
+		driver.navigate().refresh();
+		return status;
+
+	}
+
+	public boolean VerifyImportUserwithCRMandTextChatFieldsBlank(UserOnBoardingDetails details) throws Exception {
+		waitForJqueryLoad(driver);
+		selectWebElement(UserOnBoardingTabs.get(1));
+		selectWebElement(makeUserOnBoardingChanges);
+		waitForJqueryLoad(driver);
+		selectWebElement(importUsersButton);
+		Thread.sleep(2000);
+		String UserDetailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getUserDetailsCRMandTexChatFieldsBlankFileName();
+		String ChannelDetailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getChannelDetailsFileName();
+		String FeatureDeatailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getFeatureDetailsFileName();
+		selectImportFileButton.sendKeys(UserDetailsFile+"\n"+ChannelDetailsFile+"\n"+FeatureDeatailsFile);
+		boolean status=VerifyImportUserRecordcount(details);
+		driver.navigate().refresh();
+		return status;
+	}
+
+	public boolean VerifyImportCountryLevelSupervisor(UserOnBoardingDetails details) throws Exception {
+		waitForJqueryLoad(driver);
+		selectWebElement(UserOnBoardingTabs.get(1));
+		selectWebElement(makeUserOnBoardingChanges);
+		waitForJqueryLoad(driver);
+		selectWebElement(importUsersButton);
+		Thread.sleep(2000);
+		String UserDetailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getCountryLevelSupervisorFileName();
+		String ChannelDetailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getChannelDetailsFileName();
+		String FeatureDeatailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getFeatureDetailsFileName();
+		selectImportFileButton.sendKeys(UserDetailsFile+"\n"+ChannelDetailsFile+"\n"+FeatureDeatailsFile);
+		boolean status=VerifyImportUserRecordcount(details);
+		driver.navigate().refresh();
+		return status;
+
+	}
+
+	public boolean VerifyImportDivisionLevelSupervisor(UserOnBoardingDetails details) throws Exception {
+		waitForJqueryLoad(driver);
+		selectWebElement(UserOnBoardingTabs.get(1));
+		selectWebElement(makeUserOnBoardingChanges);
+		waitForJqueryLoad(driver);
+		selectWebElement(importUsersButton);
+		Thread.sleep(2000);
+		String UserDetailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getDivisionLevelSupervisorFileName();
+		String ChannelDetailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getChannelDetailsFileName();
+		String FeatureDeatailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getFeatureDetailsFileName();
+		selectImportFileButton.sendKeys(UserDetailsFile+"\n"+ChannelDetailsFile+"\n"+FeatureDeatailsFile);
+		boolean status=VerifyImportUserRecordcount(details);
+		driver.navigate().refresh();
+		return status;
+
+	}
+
+	public boolean VerifyImportDepartmentlevelSupervisor(UserOnBoardingDetails details) throws Exception {
+		waitForJqueryLoad(driver);
+		selectWebElement(UserOnBoardingTabs.get(1));
+		selectWebElement(makeUserOnBoardingChanges);
+		waitForJqueryLoad(driver);
+		selectWebElement(importUsersButton);
+		Thread.sleep(2000);
+		String UserDetailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getDepartmentLevelSupervisorFileName();
+		String ChannelDetailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getChannelDetailsFileName();
+		String FeatureDeatailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getFeatureDetailsFileName();
+		selectImportFileButton.sendKeys(UserDetailsFile+"\n"+ChannelDetailsFile+"\n"+FeatureDeatailsFile);
+		boolean status=VerifyImportUserRecordcount(details);
+		driver.navigate().refresh();
+		return status;
+
+	}
+
+	public boolean VerifyImportTeamLevelSupervisor(UserOnBoardingDetails details) throws Exception {
+		waitForJqueryLoad(driver);
+		selectWebElement(UserOnBoardingTabs.get(1));
+		selectWebElement(makeUserOnBoardingChanges);
+		waitForJqueryLoad(driver);
+		selectWebElement(importUsersButton);
+		Thread.sleep(2000);
+		String UserDetailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getTeamlevelSupervisorFileName();
+		String ChannelDetailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getChannelDetailsFileName();
+		String FeatureDeatailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getFeatureDetailsFileName();
+		selectImportFileButton.sendKeys(UserDetailsFile+"\n"+ChannelDetailsFile+"\n"+FeatureDeatailsFile);
+		boolean status=VerifyImportUserRecordcount(details);
+		return status;
+	}
+
+	public void selectallSupervisorRecord() {
+		Map<String,String> map = new HashMap<>();
+		waitUntilWebElementIsVisible(auditGridContent);
+		for(int i=1;i<=4;i++) {
+			List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
+			List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
+			selectWebElement(cols.get(0).findElement(By.id("isEnabled")));}
+	}
 	
+	public void selectallImportedRecord() {
+		Map<String,String> map = new HashMap<>();
+		waitUntilWebElementIsVisible(auditGridContent);
+		for(int i=1;i<=2;i++) {
+			List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
+			List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
+			selectWebElement(cols.get(0).findElement(By.id("isEnabled")));}
+	}
+	/*********************************************************************************************************************************************/
+	/*public void CSVReader(UserOnBoardingDetails details) throws FileNotFoundException {
+	    String ChannelDetailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getChannelDetailsFileName();
+	    System.out.println("+++++++++++++++++++++Code For CSV Parser++++++++++++");
+	    Map<String, Map<String, String>> CSV= Util.getCSVData(',',ChannelDetailsFile,1);
+	  Iterator<String> keys = CSV.keySet().iterator();
+	  while (keys.hasNext()){
+	      String primaryKey= keys.next();
+	      System.out.print("Emp Id: "+primaryKey);
+	      System.out.print(CSV.get(primaryKey).get("Name")+" ");
+	      System.out.print(CSV.get(primaryKey).get("Age")+" ");
+	      System.out.print(CSV.get(primaryKey).get("City")+" ");
+	      System.out.print(CSV.get(primaryKey).get("Salary")+" \n");
+	  }
+	    System.out.println(CSV.entrySet());
+	 }
+	
+	public void verifyArrowDropDown(UserOnBoardingDetails details) throws Exception {
+		List<Map<String, String>> maplist=getAgetSkillData(details);
+		System.out.println(maplist);
+		
+		if(maplist.equals(maplist1))
+		return true;
+		else
+		return false;
+	}
+	
+	public List<Map<String,String>> getAgetSkillData(UserOnBoardingDetails details) throws Exception {
+		waitForJqueryLoad(driver);
+		searchUserOnBoardingRecordInApprovedSection(details.getLanID());
+		waitUntilWebElementIsVisible(pageArrowDropDown.get(0));
+		selectWebElement(pageArrowDropDown.get(0));
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		List<Map<String,String>> arr=new ArrayList<Map<String,String>>();
+		waitUntilWebElementIsVisible(arrowGrid.get(1));
+		List<WebElement> rows=arrowGrid.get(1).findElements(By.tagName("tr"));
+		List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
+		String col=null;
+		for(int i=1;i<rows.size();i++) {
+			Map<String,String> map = new HashMap<String,String>();
+			List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
+			for(int j=0;j<headers.size();j++) {
+				scrollToElement(headers.get(j));
+				System.out.println(headers.get(j).getText());
+					col=cols.get(j).getText();
+				map.put(headers.get(j).getText(),col);
+			}
+			arr.add(map);
+			if(featuresGridNexpageButton.get(0).isEnabled()) {
+				selectWebElement(featuresGridNexpageButton.get(0));
+			}
+	}
+		return arr;
+}*/
+	/********************************************************************************************************************************************/
+
+	public boolean VerifyImportMultipleUserwithFirstNameBlank(UserOnBoardingDetails details) throws Exception {
+		waitForJqueryLoad(driver);
+		selectWebElement(UserOnBoardingTabs.get(1));
+		selectWebElement(makeUserOnBoardingChanges);
+		waitForJqueryLoad(driver);
+		selectWebElement(importUsersButton);
+		Thread.sleep(2000);
+		String UserDetailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getUserDetailsFileNamewithFirstNameBlank();
+		String ChannelDetailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getChannelDetailsFileName();
+		String FeatureDeatailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getFeatureDetailsFileName();
+		selectImportFileButton.sendKeys(UserDetailsFile+"\n"+ChannelDetailsFile+"\n"+FeatureDeatailsFile);
+		boolean status=VerifyImportUserRecordcount(details);
+		driver.navigate().refresh();
+		return status;
+	}
+	
+	public boolean VerifyImportMultipleUserwithAllFieldsBlank(UserOnBoardingDetails details) throws Exception {
+		waitForJqueryLoad(driver);
+		selectWebElement(UserOnBoardingTabs.get(1));
+		selectWebElement(makeUserOnBoardingChanges);
+		waitForJqueryLoad(driver);
+		selectWebElement(importUsersButton);
+		Thread.sleep(2000);
+		String UserDetailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getUserDetailsFileName();
+		String ChannelDetailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getChannelDetailsFileName();
+		String FeatureDeatailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getFeatureDetailsFileName();
+		selectImportFileButton.sendKeys(UserDetailsFile+"\n"+ChannelDetailsFile+"\n"+FeatureDeatailsFile);
+		boolean status=VerifyImportUserRecordcount(details);
+		return status;
+
+	}
+	
+	public boolean VerifyImportUserDetailswithInvalidOrgUnit(UserOnBoardingDetails details) throws Exception {
+		waitForJqueryLoad(driver);
+		selectWebElement(UserOnBoardingTabs.get(1));
+		selectWebElement(makeUserOnBoardingChanges);
+		waitForJqueryLoad(driver);
+		selectWebElement(importUsersButton);
+		Thread.sleep(2000);
+		String UserDetailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getUserDetailswithInavlidOrgUnitFileName();
+		String ChannelDetailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getChannelDetailsFileName();
+		String FeatureDeatailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getFeatureDetailsFileName();
+		selectImportFileButton.sendKeys(UserDetailsFile+"\n"+ChannelDetailsFile+"\n"+FeatureDeatailsFile);
+		boolean status=VerifyImportUserRecordcount(details);
+		driver.navigate().refresh();
+		return status;
+
+	}
+	
+	public boolean VerifyImportUserDetailswithNewColumn(UserOnBoardingDetails details) throws Exception {
+		waitForJqueryLoad(driver);
+		selectWebElement(UserOnBoardingTabs.get(1));
+		selectWebElement(makeUserOnBoardingChanges);
+		waitForJqueryLoad(driver);
+		selectWebElement(importUsersButton);
+		Thread.sleep(2000);
+		String UserDetailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getUserDetailswithNewColumnFileName();
+		String ChannelDetailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getChannelDetailsFileName();
+		String FeatureDeatailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getFeatureDetailsFileName();
+		selectImportFileButton.sendKeys(UserDetailsFile+"\n"+ChannelDetailsFile+"\n"+FeatureDeatailsFile);
+		boolean status=VerifyImportUserRecordcount(details);
+		driver.navigate().refresh();
+		return status;
+
+	}
+	
+	public boolean VerifyImportUserDetailswithUpdatedColumn(UserOnBoardingDetails details) throws Exception {
+		waitForJqueryLoad(driver);
+		selectWebElement(UserOnBoardingTabs.get(1));
+		selectWebElement(makeUserOnBoardingChanges);
+		waitForJqueryLoad(driver);
+		selectWebElement(importUsersButton);
+		Thread.sleep(2000);
+		String UserDetailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getUserDetailswithUpdatedColumnFileName();
+		String ChannelDetailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getChannelDetailsFileName();
+		String FeatureDeatailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getFeatureDetailsFileName();
+		selectImportFileButton.sendKeys(UserDetailsFile+"\n"+ChannelDetailsFile+"\n"+FeatureDeatailsFile);
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		if(uploadErrormessage.isDisplayed())
+			return true;
+		else
+			return false;
+
+	}
+	
+	public boolean VerifyImportwithoutDivisionLevelSupervisor(UserOnBoardingDetails details) throws Exception {
+		waitForJqueryLoad(driver);
+		selectWebElement(UserOnBoardingTabs.get(1));
+		selectWebElement(makeUserOnBoardingChanges);
+		waitForJqueryLoad(driver);
+		selectWebElement(importUsersButton);
+		Thread.sleep(2000);
+		String UserDetailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getDivisionLevelSupervisorFileName();
+		String ChannelDetailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getChannelDetailsFileName();
+		String FeatureDeatailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getFeatureDetailsFileName();
+		selectImportFileButton.sendKeys(UserDetailsFile+"\n"+ChannelDetailsFile+"\n"+FeatureDeatailsFile);
+		boolean status=VerifyImportUserRecordcount(details);
+		driver.navigate().refresh();
+		return status;
+
+	}
+
+	public boolean VerifyImportwithoutDepartmentlevelSupervisor(UserOnBoardingDetails details) throws Exception {
+		waitForJqueryLoad(driver);
+		selectWebElement(UserOnBoardingTabs.get(1));
+		selectWebElement(makeUserOnBoardingChanges);
+		waitForJqueryLoad(driver);
+		selectWebElement(importUsersButton);
+		Thread.sleep(2000);
+		String UserDetailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getDepartmentLevelSupervisorFileName();
+		String ChannelDetailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getChannelDetailsFileName();
+		String FeatureDeatailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getFeatureDetailsFileName();
+		selectImportFileButton.sendKeys(UserDetailsFile+"\n"+ChannelDetailsFile+"\n"+FeatureDeatailsFile);
+		boolean status=VerifyImportUserRecordcount(details);
+		driver.navigate().refresh();
+		return status;
+
+	}
+
+	public boolean VerifyImportwithoutTeamLevelSupervisor(UserOnBoardingDetails details) throws Exception {
+		waitForJqueryLoad(driver);
+		selectWebElement(UserOnBoardingTabs.get(1));
+		selectWebElement(makeUserOnBoardingChanges);
+		waitForJqueryLoad(driver);
+		selectWebElement(importUsersButton);
+		Thread.sleep(2000);
+		String UserDetailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getTeamlevelSupervisorFileName();
+		String ChannelDetailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getChannelDetailsFileName();
+		String FeatureDeatailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getFeatureDetailsFileName();
+		selectImportFileButton.sendKeys(UserDetailsFile+"\n"+ChannelDetailsFile+"\n"+FeatureDeatailsFile);
+		boolean status=VerifyImportUserRecordcount(details);
+		return status;
+	}
+
+	public boolean VerifyImportUserwithInvalidTextChatGreetingFiles(UserOnBoardingDetails details) throws Exception {
+		waitForJqueryLoad(driver);
+		selectWebElement(UserOnBoardingTabs.get(1));
+		selectWebElement(makeUserOnBoardingChanges);
+		waitForJqueryLoad(driver);
+		selectWebElement(importUsersButton);
+		Thread.sleep(2000);
+		String UserDetailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getUserDetailsCRMandTexChatFieldsBlankFileName();
+		String ChannelDetailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getChannelDetailsFileName();
+		String FeatureDeatailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getFeatureDetailsFileName();
+		selectImportFileButton.sendKeys(UserDetailsFile+"\n"+ChannelDetailsFile+"\n"+FeatureDeatailsFile);
+		boolean status=VerifyImportUserRecordcount(details);
+		driver.navigate().refresh();
+		return status;
+
+	}
+	
+	public boolean VerifyImportUserwithInvalidRoleFile(UserOnBoardingDetails details) throws Exception {
+		waitForJqueryLoad(driver);
+		selectWebElement(UserOnBoardingTabs.get(1));
+		selectWebElement(makeUserOnBoardingChanges);
+		waitForJqueryLoad(driver);
+		selectWebElement(importUsersButton);
+		Thread.sleep(2000);
+		String UserDetailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getUserDetailsAccessRoleandRoleFieldsBlankFileName();
+		String ChannelDetailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getChannelDetailsFileName();
+		String FeatureDeatailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getFeatureDetailsFileName();
+		selectImportFileButton.sendKeys(UserDetailsFile+"\n"+ChannelDetailsFile+"\n"+FeatureDeatailsFile);
+		boolean status=VerifyImportUserRecordcount(details);
+		return status;
+
+	}
+	
+	
+	public boolean VerifyImportUserwithInvalidProfileFile(UserOnBoardingDetails details) throws Exception {
+		waitForJqueryLoad(driver);
+		selectWebElement(UserOnBoardingTabs.get(1));
+		selectWebElement(makeUserOnBoardingChanges);
+		waitForJqueryLoad(driver);
+		selectWebElement(importUsersButton);
+		Thread.sleep(2000);
+		String UserDetailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getUserDetailsFileNamewithProfileBlank();
+		String ChannelDetailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getChannelDetailsFileName();
+		String FeatureDeatailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getFeatureDetailsFileName();
+		selectImportFileButton.sendKeys(UserDetailsFile+"\n"+ChannelDetailsFile+"\n"+FeatureDeatailsFile);
+		boolean status=VerifyImportUserRecordcount(details);
+		driver.navigate().refresh();
+		return status;
+
+	}
+	
+	public boolean VerifyImportUserwithInvalidRoleAccessFile(UserOnBoardingDetails details) throws Exception {
+		waitForJqueryLoad(driver);
+		selectWebElement(UserOnBoardingTabs.get(1));
+		selectWebElement(makeUserOnBoardingChanges);
+		waitForJqueryLoad(driver);
+		selectWebElement(importUsersButton);
+		Thread.sleep(2000);
+		String UserDetailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getUserDetailsAccessRoleandRoleFieldsBlankFileName();
+		String ChannelDetailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getChannelDetailsFileName();
+		String FeatureDeatailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getFeatureDetailsFileName();
+		selectImportFileButton.sendKeys(UserDetailsFile+"\n"+ChannelDetailsFile+"\n"+FeatureDeatailsFile);
+		boolean status=VerifyImportUserRecordcount(details);
+		driver.navigate().refresh();
+		return status;
+
+	}
+	
+	public boolean VerifyImportUserwithAlphabetsasAvayaLoginID(UserOnBoardingDetails details) throws Exception {
+		waitForJqueryLoad(driver);
+		selectWebElement(UserOnBoardingTabs.get(1));
+		selectWebElement(makeUserOnBoardingChanges);
+		waitForJqueryLoad(driver);
+		selectWebElement(importUsersButton);
+		Thread.sleep(2000);
+		String UserDetailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getUserDetailsFileNameAvayaLoginIdBlank();
+		String ChannelDetailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getChannelDetailsFileName();
+		String FeatureDeatailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getFeatureDetailsFileName();
+		selectImportFileButton.sendKeys(UserDetailsFile+"\n"+ChannelDetailsFile+"\n"+FeatureDeatailsFile);
+		boolean status=VerifyImportUserRecordcount(details);
+		driver.navigate().refresh();
+		return status;
+
+	}
+	
+	public boolean VerifyImportUserwithSpecialCharectorsasAvayaLoginID(UserOnBoardingDetails details) throws Exception {
+		waitForJqueryLoad(driver);
+		selectWebElement(UserOnBoardingTabs.get(1));
+		selectWebElement(makeUserOnBoardingChanges);
+		waitForJqueryLoad(driver);
+		selectWebElement(importUsersButton);
+		Thread.sleep(2000);
+		String UserDetailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getUserDetailsFileName();
+		String ChannelDetailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getChannelDetailsFileName();
+		String FeatureDeatailsFile=System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsers\\"+details.getFeatureDetailsFileName();
+		selectImportFileButton.sendKeys(UserDetailsFile+"\n"+ChannelDetailsFile+"\n"+FeatureDeatailsFile);
+		boolean status=VerifyImportUserRecordcount(details);
+		return status;
+
+	}
+	
+	public void editImportedUserOnBoardingRecord(UserOnBoardingDetails details) {
+		try{selectWebElement(UserOnBoardingTabs.get(1));
+		selectWebElement(makeUserOnBoardingChanges);
+		searchUserOnBoardingRecord(details.getLanID());
+		Thread.sleep(1000);
+		selectWebElement(editBtn);
+		selectWebElement(firstnameTextBox);
+		enterValueToTxtField(firstnameTextBox,details.getUpdatedFirstname()); 
+		selectWebElement(RoleMappingWindow);
+		waitUntilWebElementIsVisible(modifyReasonTextBox);
+		enterValueToTxtFieldWithoutClear(modifyReasonTextBox,details.getModifyReason());
+		selectWebElement(saveButton);}catch (Exception e){e.printStackTrace();}
+	}
+	
+
+
+
 }

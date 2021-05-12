@@ -180,7 +180,7 @@ public class UserOnBoardingDeleteTest {
 		 UserOnBoardingDetails UserOnBoardingDetails = new UserOnBoardingDetails (map);
 		 UserOnBoardingPage userOnBoardingPage = PageFactory.createPageInstance(driver, UserOnBoardingPage.class);
 		 userOnBoardingPage.selectUserOnBoardingAuditTrailTab();
-		 Assert.assertTrue(userOnBoardingPage.verifyAuditTrail(UserOnBoardingDetails, "MakerDelete", "New"), "Audit trail details failed");
+		 Assert.assertTrue(userOnBoardingPage.verifyAuditTrailDelete(UserOnBoardingDetails, "MakerDelete", "New"), "Audit trail details failed");
     }
     
     @Test(groups = { "Maker" },priority=12,dependsOnMethods="VerifyAuditTrailDataForDeleteUserOnBoardingRecord",description="To VerifySendForApprovalForDeleteRecord ")

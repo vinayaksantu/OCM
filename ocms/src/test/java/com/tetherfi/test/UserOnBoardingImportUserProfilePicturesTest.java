@@ -61,152 +61,147 @@ public class UserOnBoardingImportUserProfilePicturesTest {
 	}
 	
 	
-	//@Test(groups= {"Maker"},priority=1,description="To Verify Import User Profile Pictures PopUp")
+	@Test(groups= {"Maker"},priority=1,description="To Verify Import User Profile Pictures PopUp")
 	public void VerifyImportUserProfilePicturesPopUP() throws Exception {
 		UserOnBoardingPage userOnBoardingPage = PageFactory.createPageInstance(driver, UserOnBoardingPage.class);
-		Assert.assertTrue(userOnBoardingPage.VerifyImportUserProfilePicturePopUp(), "Verify Import UserProfilePicturesPopUP assertion failed");
+		Assert.assertTrue(userOnBoardingPage.VerifyImportUserProfilePicturePopUp(), "Verify Import User Profile Pictures PopUP assertion failed");
 	}
 	
-	//@Test(groups= {"Maker"},priority=2,description="To Verify Upload without Attribute and ProfilePicture")
+	@Test(groups= {"Maker"},priority=2,description="To Verify Upload without Attribute and ProfilePicture")
 	public void VerifyUploadwithoutAttributeandprofilePicture() throws Exception {
 		UserOnBoardingPage userOnBoardingPage = PageFactory.createPageInstance(driver, UserOnBoardingPage.class);
 		userOnBoardingPage.VerifyUploadwithoutAttributeandProfilePic();
-		Assert.assertEquals(userOnBoardingPage.VerifyMessage(), "Please select the User Attribute & Re-Upload the file","Upload without AttributeandPicture Assertion failed");
+		Assert.assertEquals(userOnBoardingPage.VerifyMessage(), "Please select the User Attribute & Re-Upload the file","Verify Upload without Attribute and Profile Picture Assertion failed");
 	}
 	
-	//@Test(groups= {"Maker"},priority=3,description="VerifyUpload without Attribute and ProfilePicture")
+	@Test(groups= {"Maker"},priority=3,description="VerifyUpload without ProfilePicture")
 	public void VerifyUploadwithoutProfilePicture() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath, "ImportProfilePic").getTestData().get(0);
 		UserOnBoardingDetails userOnBoardingDetails = new UserOnBoardingDetails(map);
 		UserOnBoardingPage userOnBoardingPage = PageFactory.createPageInstance(driver, UserOnBoardingPage.class);
 		userOnBoardingPage.VerifyUploadwithoutProfilePic(userOnBoardingDetails);
-		Assert.assertEquals(userOnBoardingPage.VerifyMessage(), "Please select the file to upload","Upload without AttributeandPicture Assertion failed");
+		Assert.assertEquals(userOnBoardingPage.VerifyMessage(), "Please select the file to upload","Verify Upload without ProfilePicture Assertion failed");
 	}
 	
-	//@Test(groups= {"Maker"},priority=4,description="To Verify Import User Profile Pictures PopUp")
+	@Test(groups= {"Maker"},priority=4,description="To Verify Import User Profile Pictures without Attribute")
 	public void VerifyUploadwithoutAttribute() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath, "ImportProfilePic").getTestData().get(0);
 		UserOnBoardingDetails userOnBoardingDetails = new UserOnBoardingDetails(map);
 		UserOnBoardingPage userOnBoardingPage = PageFactory.createPageInstance(driver, UserOnBoardingPage.class);
 		userOnBoardingPage.VerifyUploadwithoutAttribute(userOnBoardingDetails);
-		Assert.assertEquals(userOnBoardingPage.VerifyMessage(), "Please select the User Attribute & Re-Upload the file","Upload without AttributeandPicture Assertion failed");
+		Assert.assertEquals(userOnBoardingPage.VerifyMessage(), "Please select the User Attribute & Re-Upload the file","Upload without Attribute Assertion failed");
 	}
 	
-	//@Test(groups= {"Maker"},priority=5,description="To Verify Import User Profile Pictures PopUp")
+	@Test(groups= {"Maker"},priority=5,description="To Verify Import User Profile Pictures when Picture Name is not matching the Attribute")
 	public void VerifyUploadProfilePicWhenPictureNameisNotMatchingtheAttribute() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
-		Map<String, String> map = new ExcelReader(filePath, "ImportProfilePic").getTestData().get(0);
+		Map<String, String> map = new ExcelReader(filePath, "ImportProfilePic").getTestData().get(9);
 		UserOnBoardingDetails userOnBoardingDetails = new UserOnBoardingDetails(map);
 		UserOnBoardingPage userOnBoardingPage = PageFactory.createPageInstance(driver, UserOnBoardingPage.class);
 		userOnBoardingPage.VerifyUploadProfilePicWithAttribute(userOnBoardingDetails);
-		Assert.assertTrue(userOnBoardingPage.VerifyRecordcount(userOnBoardingDetails), "Avaya Login Insert Count Assertion Failed");
+		Assert.assertTrue(userOnBoardingPage.VerifyRecordcount(userOnBoardingDetails), "Verify Upload ProfilePic When PictureName is Not Matching the Attribute Assertion Failed");
 	}
 	
-	//@Test(groups= {"Maker"},priority=6,description="To Verify Import User Profile Pictures PopUp")
+	@Test(groups= {"Maker"},priority=6,description="To Verify Upload InValid Format ProfilePic File with LanID Attribute")
 	public void VerifyUploadInValidFormatProfilePicFilewithLanIDAttribute() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath, "ImportProfilePic").getTestData().get(1);
 		UserOnBoardingDetails userOnBoardingDetails = new UserOnBoardingDetails(map);
 		UserOnBoardingPage userOnBoardingPage = PageFactory.createPageInstance(driver, UserOnBoardingPage.class);
-		Assert.assertTrue(userOnBoardingPage.VerifyUploadInvalidFormatProfilePicFileWithLanIdAttribute(userOnBoardingDetails), "Upload InValid Format ProfilePic File with LanID Attribute Assertion Failed");
+		Assert.assertTrue(userOnBoardingPage.VerifyUploadInvalidFormatProfilePicFileWithLanIdAttribute(userOnBoardingDetails), "Verify Upload InValid Format ProfilePic File with LanID Attribute Assertion Failed");
 	}
 	
-	//@Test(groups= {"Maker"},priority=7,description="To Verify Import User Profile Pictures PopUp")/*Bug: File Imported Successfully with Folder Inside Zip File*/
+	@Test(groups= {"Maker"},priority=7,description="Verify Upload When ImportProfilePics Inside the Folder with ZipFormat")/*Bug: File Imported Successfully with Folder Inside Zip File PRDOCM-68616*/
 	public void VerifyUploadWhenImportProfilePicsInsidetheFolderwithZipFormat() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath, "ImportProfilePic").getTestData().get(3);
 		UserOnBoardingDetails userOnBoardingDetails = new UserOnBoardingDetails(map);
 		UserOnBoardingPage userOnBoardingPage = PageFactory.createPageInstance(driver, UserOnBoardingPage.class);
 		userOnBoardingPage.VerifyUploadProfilePicWithAttribute(userOnBoardingDetails);
-		Assert.assertEquals(userOnBoardingPage.VerifyMessage(), "Failed to import user profile pictures","Upload When ImportProfilePics Inside the Folder with Zip Format Assertion failed");
+		Assert.assertEquals(userOnBoardingPage.VerifyMessage(), "Failed to import user profile pictures","Verify Upload When ImportProfilePics Inside the Folder with Zip Format Assertion failed");
 	}
 	
-	//@Test(groups= {"Maker"},priority=8,description="To Verify Import User Profile Pictures PopUp")
+	@Test(groups= {"Maker"},priority=8,description="Verify Upload Valid ProfilePic withFile Size more than 30KB")
 	public void VerifyUploadValidProfilePicwithFileSizemorethan30KB() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath, "ImportProfilePic").getTestData().get(4);
 		UserOnBoardingDetails userOnBoardingDetails = new UserOnBoardingDetails(map);
 		UserOnBoardingPage userOnBoardingPage = PageFactory.createPageInstance(driver, UserOnBoardingPage.class);
 		userOnBoardingPage.VerifyUploadProfilePicWithAttribute(userOnBoardingDetails);
-		Assert.assertEquals(userOnBoardingPage.VerifyMessage(), "Failed to import user profile pictures","Upload When ImportProfilePics Inside the Folder with Zip Format Assertion failed");
+		Assert.assertTrue(userOnBoardingPage.VerifyRecordcount(userOnBoardingDetails), "Verify Upload Valid ProfilePic with FileSize morethan 30KB Assertion Failed");
 	}
 	
-	//@Test(groups= {"Maker"},priority=9,description="To Verify Import User Profile Pictures PopUp")
+	@Test(groups= {"Maker"},priority=9,description="Verify Uploading Two Different Image For Same LanId")
 	public void VerifyUploadingTwoDifferentImageForSameLanId() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath, "ImportProfilePic").getTestData().get(5);
 		UserOnBoardingDetails userOnBoardingDetails = new UserOnBoardingDetails(map);
 		UserOnBoardingPage userOnBoardingPage = PageFactory.createPageInstance(driver, UserOnBoardingPage.class);
 		userOnBoardingPage.VerifyUploadProfilePicWithAttribute(userOnBoardingDetails);
-		Assert.assertTrue(userOnBoardingPage.VerifyRecordcount(userOnBoardingDetails), "Avaya Login Insert Count Assertion Failed");
+		Assert.assertTrue(userOnBoardingPage.VerifyRecordcount(userOnBoardingDetails), "Verify Uploading Two Different Image For Same LanId Assertion Failed");
 	}
 	
-	//@Test(groups= {"Maker"},priority=10,description="To Verify Import User Profile Pictures PopUp")
+	@Test(groups= {"Maker"},priority=10,description="To VerifyUploading Two DifferentImage ForSame AvayaLoginId")
 	public void VerifyUploadingTwoDifferentImageForSameAvayaLoginId() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath, "ImportProfilePic").getTestData().get(6);
 		UserOnBoardingDetails userOnBoardingDetails = new UserOnBoardingDetails(map);
 		UserOnBoardingPage userOnBoardingPage = PageFactory.createPageInstance(driver, UserOnBoardingPage.class);
 		userOnBoardingPage.VerifyUploadProfilePicWithAttribute(userOnBoardingDetails);
-		Assert.assertTrue(userOnBoardingPage.VerifyRecordcount(userOnBoardingDetails), "Avaya Login Insert Count Assertion Failed");
+		Assert.assertTrue(userOnBoardingPage.VerifyRecordcount(userOnBoardingDetails), "Verify Uploading Two Different Image For Same AvayaLoginId Assertion Failed");
 	}
 	
-	//@Test(groups= {"Maker"},priority=11,description="To Verify Import User Profile Pictures PopUp")
+	@Test(groups= {"Maker"},priority=11,description="Verify Upload Valid ProfilePic with LanID Attribute")
 	public void VerifyUploadValidProfilePicwithLanIDAttribute() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath, "ImportProfilePic").getTestData().get(2);
 		UserOnBoardingDetails userOnBoardingDetails = new UserOnBoardingDetails(map);
 		UserOnBoardingPage userOnBoardingPage = PageFactory.createPageInstance(driver, UserOnBoardingPage.class);
 		userOnBoardingPage.VerifyUploadProfilePicWithAttribute(userOnBoardingDetails);
-		Assert.assertTrue(userOnBoardingPage.VerifyRecordcount(userOnBoardingDetails), "Avaya Login Insert Count Assertion Failed");
+		Assert.assertTrue(userOnBoardingPage.VerifyRecordcount(userOnBoardingDetails), "Verify Upload Valid ProfilePic with LanID Attribute Assertion Failed");
 	}
 	
-	//@Test(groups= {"Maker"},priority=12,description="To Verify Import User Profile Pictures PopUp")
-	public void VerifyUploadValidProfilePicwithAvayaLogibIDAttribute() throws Exception {
+	@Test(groups= {"Maker"},priority=12,description="To Verify ReplaceProfilePic with LanIDAttribute for the User Already having ProfilePics")
+	public void VerifyReplaceProfilePicwithLanIDAttributefortheUserAlreadyhavingProfilePics() throws Exception {
+		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
+		Map<String, String> map = new ExcelReader(filePath, "ImportProfilePic").getTestData().get(11);
+		UserOnBoardingDetails userOnBoardingDetails = new UserOnBoardingDetails(map);
+		UserOnBoardingPage userOnBoardingPage = PageFactory.createPageInstance(driver, UserOnBoardingPage.class);
+		userOnBoardingPage.VerifyUploadProfilePicWithAttribute(userOnBoardingDetails);
+		Assert.assertTrue(userOnBoardingPage.VerifyRecordcount(userOnBoardingDetails), "Verify Replace ProfilePic with LanID Attribute for the User Already having ProfilePics Assertion Failed");
+	}
+	
+	@Test(groups= {"Maker"},priority=13,description="To Verify Upload ValidProfilePic with AvayaLoginIDAttribute")
+	public void VerifyUploadValidProfilePicwithAvayaLoginIDAttribute() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath, "ImportProfilePic").getTestData().get(7);
 		UserOnBoardingDetails userOnBoardingDetails = new UserOnBoardingDetails(map);
 		UserOnBoardingPage userOnBoardingPage = PageFactory.createPageInstance(driver, UserOnBoardingPage.class);
 		userOnBoardingPage.VerifyUploadProfilePicWithAttribute(userOnBoardingDetails);
-		Assert.assertTrue(userOnBoardingPage.VerifyRecordcount(userOnBoardingDetails), "Avaya Login Insert Count Assertion Failed");
+		Assert.assertTrue(userOnBoardingPage.VerifyRecordcount(userOnBoardingDetails), "Verify Upload Valid Profile Pic with Avaya LoginID Attribute Assertion Failed");
 	}
 	
-	//@Test(groups= {"Maker"},priority=13,description="To Verify Import User Profile Pictures PopUp")
+	@Test(groups= {"Maker"},priority=14,description="To VerifyUploadingPNGandJPGFormatImageswithAvayaLoginId")
 	public void VerifyUploadingPNGandJPGFormatImageswithAvayaLoginId() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath, "ImportProfilePic").getTestData().get(8);
 		UserOnBoardingDetails userOnBoardingDetails = new UserOnBoardingDetails(map);
 		UserOnBoardingPage userOnBoardingPage = PageFactory.createPageInstance(driver, UserOnBoardingPage.class);
 		userOnBoardingPage.VerifyUploadProfilePicWithAttribute(userOnBoardingDetails);
-		Assert.assertTrue(userOnBoardingPage.VerifyRecordcount(userOnBoardingDetails), "Avaya Login Insert Count Assertion Failed");
+		Assert.assertTrue(userOnBoardingPage.VerifyRecordcount(userOnBoardingDetails), "Verify Uploading PNG and JPG Format Images with AvayaLoginId Assertion Failed");
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	@Test(groups= {"Maker"},priority=15,description="To Verify Upload File with LanID as Atrribute and ImageName as AvayaLoginId")
+	public void VerifyUploadFilewithLanIDasAtrributeandImageNameasAvayaLoginId() throws Exception {
+		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
+		Map<String, String> map = new ExcelReader(filePath, "ImportProfilePic").getTestData().get(10);
+		UserOnBoardingDetails userOnBoardingDetails = new UserOnBoardingDetails(map);
+		UserOnBoardingPage userOnBoardingPage = PageFactory.createPageInstance(driver, UserOnBoardingPage.class);
+		userOnBoardingPage.VerifyUploadProfilePicWithAttribute(userOnBoardingDetails);
+		Assert.assertTrue(userOnBoardingPage.VerifyRecordcount(userOnBoardingDetails), "Verify Upload File with LanID as Atrribute and Image Name as AvayaLoginId Assertion Failed");
+	}
 	
 	
 	
@@ -215,7 +210,7 @@ public class UserOnBoardingImportUserProfilePicturesTest {
 	@AfterMethod
 	public void afterEachMethod(Method method){
 		Screenshot screenshot=new Screenshot(driver);
-		screenshot.captureScreen("UserOnBoardingCreateTest",method.getName());
+		screenshot.captureScreen("UserOnBoardingImportUserProfilePicturesTest",method.getName());
 		driver.navigate().refresh();
 		HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
 		homePage.userLogout();

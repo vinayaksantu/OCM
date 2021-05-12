@@ -71,7 +71,7 @@ public class ExportSchedulerTest extends BaseTest {
         Assert.assertEquals(ExportSchedulerPage.getSuccessMessage(),"Record Created Successfully","Add New record assertion failed");
     }
     
-    @Test(priority=6,enabled=false)
+    @Test(priority=6,enabled=true)
     public void VerifyAuditTrialReportForCreate() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ExportSchedulerData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -93,7 +93,7 @@ public class ExportSchedulerTest extends BaseTest {
          ExportSchedulerDetails ExportSchedulerDetails = new ExportSchedulerDetails(map);
      	 ExportSchedulerPage ExportSchedulerPage=PageFactory.createPageInstance(driver,ExportSchedulerPage.class);
          ExportSchedulerPage.addNewExportSchedulerRecordDaily(ExportSchedulerDetails);
-         Assert.assertEquals(ExportSchedulerPage.getMessage(),"Record Creation Failed","Duplicate record assertion failed");
+         Assert.assertEquals(ExportSchedulerPage.getMessage(),"Record Already Exist","Duplicate record assertion failed");
     }
     
     @Test(priority=8)
@@ -106,7 +106,7 @@ public class ExportSchedulerTest extends BaseTest {
         Assert.assertEquals(ExportSchedulerPage.getSuccessMessage(),"Record Created Successfully","Add New record assertion failed");
     }
     
-    @Test(priority=9,enabled=false)
+    @Test(priority=9,enabled=true)
     public void VerifyAuditTrialReportForWeeklyCreate() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ExportSchedulerData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);
@@ -131,7 +131,7 @@ public class ExportSchedulerTest extends BaseTest {
         Assert.assertEquals(ExportSchedulerPage.getSuccessMessage(),"Record Created Successfully","Add New record assertion failed");
     }
     
-    @Test(priority=11,enabled=false)
+    @Test(priority=11,enabled=true)
     public void VerifyAuditTrialReportForCreateMonthly() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ExportSchedulerData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(2);
@@ -156,7 +156,7 @@ public class ExportSchedulerTest extends BaseTest {
         Assert.assertEquals(ExportSchedulerPage.getSuccessMessage(),"Record Created Successfully","Add New record assertion failed");
     }
     
-    @Test(priority=13,enabled=false)
+    @Test(priority=13,enabled=true)
     public void VerifyAuditTrialReportForCreateCustomDaily() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ExportSchedulerData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(3);
@@ -312,7 +312,7 @@ public class ExportSchedulerTest extends BaseTest {
         Assert.assertEquals(ExportSchedulerPage.getSuccessMessage(),"Record updated successfully","Edit record assertion failed");
     }
     
-   	@Test(priority=28,enabled=false)
+   	@Test(priority=28,enabled=true)
     public void VerifyAuditTrialReportForUpdate() throws Exception {
    	 	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ExportSchedulerData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
@@ -392,6 +392,7 @@ public class ExportSchedulerTest extends BaseTest {
    	@Test(priority=36,dependsOnMethods= {"ExportToExcel"})
    	public void ExportToExcelData() throws Exception{	
    		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Export Scheduler.xlsx";
+   		System.out.println(filePath);
    		List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
    		ExportSchedulerPage ExportSchedulerPage=PageFactory.createPageInstance(driver,ExportSchedulerPage.class);
    		Assert.assertTrue(ExportSchedulerPage.verifyexportToExcelSheet(maplist));	
@@ -488,7 +489,7 @@ public class ExportSchedulerTest extends BaseTest {
     	Assert.assertEquals(ExportSchedulerPage.getSuccessMessage(),"Record successfully deleted","Delete record assertion failed");
     }
     
-    @Test(priority=48,enabled=false)
+    @Test(priority=48,enabled=true)
     public void VerifyAuditTrialReportForDelete() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ExportSchedulerData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);

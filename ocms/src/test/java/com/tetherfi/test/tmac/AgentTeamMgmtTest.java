@@ -289,13 +289,13 @@ public class AgentTeamMgmtTest extends BaseTest {
     }
     
     @Test(priority=27)
-    public void VerifyArrowMoveForPreviousAndNextPage() {
+    public void VerifyArrowMoveForPreviousAndNextPage() throws Exception {
     	AgentTeamManagementPage agentTeamManagementPage=PageFactory.createPageInstance(driver,AgentTeamManagementPage.class);
     	Assert.assertTrue(agentTeamManagementPage.verifyArrowMoveForPreviousAndNextPage(),"arrow move for previous and next page assertion failed");
     }
     
     @Test(priority=28)
-    public void VerifyArrowMoveForFirstAndLastPage() {
+    public void VerifyArrowMoveForFirstAndLastPage() throws Exception {
     	AgentTeamManagementPage agentTeamManagementPage=PageFactory.createPageInstance(driver,AgentTeamManagementPage.class);
         Assert.assertTrue(agentTeamManagementPage.verifyArrowMoveForFirstAndLastPage(),"arrow move for first and last page assertion failed");
     }

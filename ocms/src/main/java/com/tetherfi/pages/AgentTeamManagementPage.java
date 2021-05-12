@@ -233,7 +233,7 @@ public class AgentTeamManagementPage extends BasePage {
 	@FindBy(xpath="//div[@data-role='droptarget']")
 	private WebElement droptarget;
 	
-	@FindBy(xpath="//*[@id='grid']/div[5]/a[3]/span")
+	@FindBy(css="a[aria-label='Go to the next page']")
 	private WebElement nextPageIcon;
 	
 	@FindBy(xpath="//span[@class='k-input']")
@@ -365,6 +365,7 @@ public class AgentTeamManagementPage extends BasePage {
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Name");
         selectWebElement(selectSearchCol.get(1));
+		Thread.sleep(1000);
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is not equal to");
         enterValueToTxtField(searchTextBox,name);		
         selectWebElement(searchSearchBtn);
@@ -387,6 +388,7 @@ public class AgentTeamManagementPage extends BasePage {
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Name");
         selectWebElement(selectSearchCol.get(1));
+		Thread.sleep(1000);
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Contains");
         enterValueToTxtField(searchTextBox,name);		
         selectWebElement(searchSearchBtn);
@@ -407,6 +409,7 @@ public class AgentTeamManagementPage extends BasePage {
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Name");
         selectWebElement(selectSearchCol.get(1));
+		Thread.sleep(1000);
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Does not contain");
         enterValueToTxtField(searchTextBox,name);		
         selectWebElement(searchSearchBtn);
@@ -428,6 +431,7 @@ public class AgentTeamManagementPage extends BasePage {
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Name");
         selectWebElement(selectSearchCol.get(1));
+		Thread.sleep(1000);
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Starts with");
         enterValueToTxtField(searchTextBox,name);		
         selectWebElement(searchSearchBtn);
@@ -449,6 +453,7 @@ public class AgentTeamManagementPage extends BasePage {
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Name");
         selectWebElement(selectSearchCol.get(1));
+		Thread.sleep(1000);
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Ends with");
         enterValueToTxtField(searchTextBox,name);		
         selectWebElement(searchSearchBtn);
@@ -469,6 +474,7 @@ public class AgentTeamManagementPage extends BasePage {
 		selectWebElement(selectSearchCol.get(0));
 		selectDropdownFromVisibleText(columnNameList,"Name");
 		selectWebElement(selectSearchCol.get(1));
+		Thread.sleep(1000);
 		selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is equal to");
 		enterValueToTxtField(searchTextBox,teamName);
 		selectWebElement(searchSearchBtn);
@@ -632,6 +638,7 @@ public class AgentTeamManagementPage extends BasePage {
 		selectWebElement(selectSearchCol.get(0));
 		selectDropdownFromVisibleText(columnNameList,"Name");
 		selectWebElement(selectSearchCol.get(1));
+		Thread.sleep(1000);
 		selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is equal to");
 		enterValueToTxtField(searchTextBox,details.getTeamName());
 		selectWebElement(clearall);
@@ -790,56 +797,41 @@ public class AgentTeamManagementPage extends BasePage {
 		else
 			return false;		
 	}
-	public boolean verifyArrowMoveForPreviousAndNextPage(){
-        boolean status=false;
-        if(!nextPageIcon.getAttribute("class").contains("k-state-disabled")){
-        int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber));
-        selectWebElement(nextPageIcon);
-        try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-        int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
-        selectWebElement(previousPageIcon);
-        try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-        int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
-        if(nextnumber==(pagenumber+1) && pagenumber==previousnumber){status=true;}
-        }else{
-            System.out.println("previous and next page icon disabled");status=true;
-        }
-        return status;
-	}
-	
-	public boolean verifyArrowMoveForFirstAndLastPage(){
-        boolean status=false;
-        if(!lastPageIcon.getAttribute("class").contains("k-state-disabled")){
-            int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber));
-            selectWebElement(lastPageIcon);
-            try {
-    			Thread.sleep(3000);
-    		} catch (InterruptedException e) {
-    			e.printStackTrace();
-    		}
-            int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
-            selectWebElement(firstPageIcon);
-            try {
-    			Thread.sleep(3000);
-    		} catch (InterruptedException e) {
-    			e.printStackTrace();
-    		}
-            int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
-            if(nextnumber>pagenumber && pagenumber==previousnumber){status=true;}
-        }else{
-            System.out.println("previous and next page icon disabled");status=true;
-        }
-        return status;
-    }
-	
+	 public boolean verifyArrowMoveForPreviousAndNextPage() throws Exception{
+	        boolean status=false;
+	        if(!nextPageIcon.getAttribute("class").contains("k-state-disabled")){
+	        	Thread.sleep(1000);
+	        int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber));
+	        selectWebElement(nextPageIcon);
+     	Thread.sleep(1000);
+	        int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
+	        selectWebElement(previousPageIcon);
+     	Thread.sleep(1000);
+	        int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
+	        if(nextnumber==(pagenumber+1) && pagenumber==previousnumber){status=true;}
+	        }else{
+	            System.out.println("previous and next page icon disabled");status=true;
+	        }
+	        return status;
+	    }
+	    public boolean verifyArrowMoveForFirstAndLastPage() throws Exception{
+	        boolean status=false;
+	        if(!lastPageIcon.getAttribute("class").contains("k-state-disabled")){
+	        	Thread.sleep(1000);
+	            int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber));
+	            selectWebElement(lastPageIcon);
+	        	Thread.sleep(1000);
+	            int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
+	            selectWebElement(firstPageIcon);
+	        	Thread.sleep(1000);
+	            int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
+	            if(nextnumber>pagenumber && pagenumber==previousnumber){status=true;}
+	        }else{
+	            System.out.println("previous and next page icon disabled");status=true;
+	        }
+	        return status;
+	    }
+	    
 	public boolean verifyNumberOfItemsPerPage() {
         boolean status = false;
         try {

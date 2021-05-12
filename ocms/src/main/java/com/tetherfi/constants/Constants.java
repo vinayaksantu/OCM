@@ -13,10 +13,10 @@ public class Constants {
     public static final String db_pass="d@T@T0r3@2020";
     public static final String db_name="DOCMT1_SG";*/
     
-	public static final String host="jdbc:sqlserver://51.79.159.25:1433";
+	public static final String host="jdbc:sqlserver://singtellab.cqnce3nduwba.us-east-1.rds.amazonaws.com:1433";
     public static final String db_user="sa";
-    public static final String db_pass="P@ssw0rd";
-    public static final String db_name="DOCMT_DGC_MYQR";
+    public static final String db_pass="tetherfi1234";
+    public static final String db_name="singtel_ccp";
     
 
 //	.61 PRODUCT OCM DB

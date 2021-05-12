@@ -526,9 +526,10 @@ public class RoleBasedAccessManagementPage extends BasePage {
 	}
 
 	public boolean verifyAuditTrailDataTableHeaders() {
-		ArrayList<String> Expected=new ArrayList<String>(Arrays.asList(" ","Request Id", "Transaction", "Function", "Status", "User Id", "Submission DateTime", "Maker Comments", "Reviewed By","Review DateTime", "Checker Comments"));
+		ArrayList<String> Expected=new ArrayList<String>(Arrays.asList(" ","Request ID", "Transaction", "Function Name", "Status", "User Id", "Submission DateTime", "Maker Comments", "Reviewed By","Review DateTime", "Checker Comments"));
         ArrayList Actual = getHeadersfromTable(auditTrailTableHeaders);
         System.out.println(Actual);
+        System.out.println(Expected);
         Collections.sort(Expected);Collections.sort(Actual);
         return Actual.equals(Expected);
 	}
@@ -834,6 +835,7 @@ public class RoleBasedAccessManagementPage extends BasePage {
 		selectWebElement(gridsearchLink);
         selectWebElement(selectSearchColumn.get(0));
         selectDropdownFromVisibleText(columnNameList,"Role Name");
+        Thread.sleep(2000);
         selectWebElement(selectSearchColumn.get(1));
         selectDropdownFromVisibleText(searchTypeList,"Is equal to");
         enterValueToTxtField(searchText,details.getRoleName());
@@ -851,10 +853,11 @@ public class RoleBasedAccessManagementPage extends BasePage {
 		return false;
 	}
 
-	public void searchwithoutextsearch(UserDetails details) {
+	public void searchwithoutextsearch(UserDetails details) throws Exception {
 		selectWebElement(gridsearchLink);
         selectWebElement(selectSearchColumn.get(0));
         selectDropdownFromVisibleText(columnNameList,"Role Name");
+        Thread.sleep(2000);
         selectWebElement(selectSearchColumn.get(1));
         selectDropdownFromVisibleText(searchTypeList,"Is equal to");
         selectWebElement(popupSearchBtn);	
@@ -917,6 +920,7 @@ public class RoleBasedAccessManagementPage extends BasePage {
 		selectWebElement(gridsearchLink);
         selectWebElement(selectSearchColumn.get(0));
         selectDropdownFromVisibleText(columnNameList,"Role Name");
+        Thread.sleep(2000);
         selectWebElement(selectSearchColumn.get(1));
         selectDropdownFromVisibleText(searchTypeList,"Is equal to");
         enterValueToTxtField(searchText,RoleName);

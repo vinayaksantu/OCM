@@ -394,7 +394,7 @@ public class OperatingHoursTest extends BaseTest {
 		Assert.assertTrue(operatingHoursPage.verifyRecordDeleted(),"delete record assertion failed");
 	}
 
-	//@Test(priority=40)
+	@Test(priority=40)
 	public void database() throws Exception{
 		OperatingHoursPage operatingHoursPage=PageFactory.createPageInstance(driver,OperatingHoursPage.class);
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\OperatingHoursData.xlsx";

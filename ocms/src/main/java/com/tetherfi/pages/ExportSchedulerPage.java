@@ -565,6 +565,7 @@ public class ExportSchedulerPage extends BasePage {
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Name");
         selectWebElement(selectSearchCol.get(1));
+        Thread.sleep(1000);
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is equal to");
         enterValueToTxtField(searchTextBox,exportSchedulerDetails.getName());
         selectWebElement(clearall);
@@ -689,6 +690,7 @@ public class ExportSchedulerPage extends BasePage {
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Name");
         selectWebElement(selectSearchCol.get(1));
+        Thread.sleep(1000);
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is not equal to");
         enterValueToTxtField(searchTextBox,name);		
         selectWebElement(searchSearchBtn);
@@ -710,6 +712,7 @@ public class ExportSchedulerPage extends BasePage {
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Name");
         selectWebElement(selectSearchCol.get(1));
+        Thread.sleep(1000);
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Contains");
         enterValueToTxtField(searchTextBox,name);		
         selectWebElement(searchSearchBtn);
@@ -730,6 +733,7 @@ public class ExportSchedulerPage extends BasePage {
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Name");
         selectWebElement(selectSearchCol.get(1));
+        Thread.sleep(1000);
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Does not contain");
         enterValueToTxtField(searchTextBox,name);		
         selectWebElement(searchSearchBtn);
@@ -751,6 +755,7 @@ public class ExportSchedulerPage extends BasePage {
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Name");
         selectWebElement(selectSearchCol.get(1));
+        Thread.sleep(1000);
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Starts with");
         enterValueToTxtField(searchTextBox,name);		
         selectWebElement(searchSearchBtn);
@@ -772,6 +777,7 @@ public class ExportSchedulerPage extends BasePage {
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Name");
         selectWebElement(selectSearchCol.get(1));
+        Thread.sleep(1000);
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Ends with");
         enterValueToTxtField(searchTextBox,name);		
         selectWebElement(searchSearchBtn);
@@ -834,6 +840,7 @@ public class ExportSchedulerPage extends BasePage {
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Name");
         selectWebElement(selectSearchCol.get(1));
+        Thread.sleep(1000);
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is equal to");
         enterValueToTxtField(searchTextBox,name);		
         selectWebElement(searchSearchBtn);		

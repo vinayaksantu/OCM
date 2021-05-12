@@ -136,6 +136,7 @@ Screenshot screenshot=new Screenshot(driver);
     @Test(priority=13,description="To Verify Exported data  ")
     public void ExportToExcelData() throws Exception
     {	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\User Onboarding.xlsx";
+    	System.out.println(System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\User Onboarding.xlsx");
     	List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
     	UserOnBoardingPage userOnBoardingPage = PageFactory.createPageInstance(driver, UserOnBoardingPage.class);
 		userOnBoardingPage.selectUserOnBoardingAuditTrailTab();

@@ -47,7 +47,7 @@ public class OperatingHoursPage extends BasePage {
     @FindBy(id="1002sTextToSearch")
     private WebElement searchTextBoxtwo;
 
-    @FindBy(css="#toast-container .toast-success .toast-message")
+    @FindBy(css=".toast-message")
     private WebElement successmsg;
     
 
@@ -265,6 +265,7 @@ public class OperatingHoursPage extends BasePage {
         Thread.sleep(2000);
         selectWebElement(addVdnTextBox);
         enterValueToTxtField(addVdnTextBox1,details.getVdnName());
+        waitForJqueryLoad(driver);
         selectWebElement(selectallbtn);
         selectWebElement(StartTimeTextBox);
         enterValueToTxtField(StartTimeTextBox,details.getStartTime());
@@ -281,6 +282,7 @@ public class OperatingHoursPage extends BasePage {
         Thread.sleep(2000);
         selectWebElement(addVdnTextBox);
         enterValueToTxtField(addVdnTextBox1,details.getVdnName());
+        waitForJqueryLoad(driver);
         selectWebElement(selectallbtn);
         selectWebElement(StartTimeTextBox);
         enterValueToTxtField(StartTimeTextBox,details.getStartTime());
@@ -300,6 +302,7 @@ public class OperatingHoursPage extends BasePage {
         selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Skill/VDN");
+        Thread.sleep(2000);
         selectWebElement(selectSearchCol.get(1));
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is equal to");
         enterValueToTxtField(searchTextBox,vdn);
@@ -315,6 +318,7 @@ public class OperatingHoursPage extends BasePage {
 		selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Week Day");
+        Thread.sleep(2000);
         selectWebElement(selectSearchCol.get(1));
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is not equal to");
         enterValueToTxtField(searchTextBox,weekday);		
@@ -338,6 +342,7 @@ public class OperatingHoursPage extends BasePage {
 		selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Week Day");
+        Thread.sleep(2000);
         selectWebElement(selectSearchCol.get(1));
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Contains");
         enterValueToTxtField(searchTextBox,weekday);		
@@ -360,6 +365,7 @@ public class OperatingHoursPage extends BasePage {
 		selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Week Day");
+        Thread.sleep(2000);
         selectWebElement(selectSearchCol.get(1));
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Does not contain");
         enterValueToTxtField(searchTextBox,weekday);		
@@ -382,6 +388,7 @@ public class OperatingHoursPage extends BasePage {
 		selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Week Day");
+        Thread.sleep(2000);
         selectWebElement(selectSearchCol.get(1));
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Starts with");
         enterValueToTxtField(searchTextBox,weekday);		
@@ -404,6 +411,7 @@ public class OperatingHoursPage extends BasePage {
 		selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Week Day");
+        Thread.sleep(2000);
         selectWebElement(selectSearchCol.get(1));
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Ends with");
         enterValueToTxtField(searchTextBox,weekday);		
@@ -425,6 +433,7 @@ public class OperatingHoursPage extends BasePage {
         selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Skill/VDN");
+        Thread.sleep(2000);
         selectWebElement(selectSearchCol.get(1));
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is equal to");
         enterValueToTxtField(searchTextBox,vdn);
@@ -433,7 +442,8 @@ public class OperatingHoursPage extends BasePage {
         selectWebElement(andradiobtn);
         Thread.sleep(2000);
         selectWebElement(selectSearchCol.get(2));
-        selectDropdownFromVisibleTextContains(columnNameListtwo,"Week Day");
+        selectDropdownFromVisibleTextContains(columnNameListtwo,"Week");
+        Thread.sleep(2000);
         selectWebElement(selectSearchCol.get(3));
         selectDropdownFromVisibleText(searchCriteriaDropDwntwo,"Is equal to");
         enterValueToTxtField(searchTextBoxtwo,weekday);
@@ -496,19 +506,28 @@ public class OperatingHoursPage extends BasePage {
     }
 
     public String getSuccessMessage() {
+		waitForJqueryLoad(driver);
 		if(successmsg.isDisplayed())
 			return successmsg.getText();
 		else{return errorMsg.get(0).getText();}	
 	}
+    
+    public String getErrorMessage() {
+		waitForJqueryLoad(driver);
+		if(errorMsg.get(0).isDisplayed())
+			return errorMsg.get(0).getText();
+		else{return successmsg.getText();}	
+	}
        
     public boolean verifyNewRecordCreated(){
-       //waitForJqueryLoad(driver);
+       waitForJqueryLoad(driver);
         //if(errorMsg.size()>0){return false;}
         if(waitUntilTextToBePresentInWebElement(successmsg,"Record Created Successfully"))
         {return true;}else{return false;}
     }
     
     public boolean verifyErrorMsg() {
+    	waitForJqueryLoad(driver);
     	if(errorMsg.size()>0){return false;}
     	else 
     		return true;
@@ -700,7 +719,6 @@ public class OperatingHoursPage extends BasePage {
         int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
 		List<Map<String,String>> arr=new ArrayList<Map<String,String>>();
 		for(int k=0;k<=pages;k++){
-
 		waitUntilWebElementIsVisible(auditGridContent);
 		List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
 		List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
@@ -726,10 +744,12 @@ public class OperatingHoursPage extends BasePage {
 		}
 			return arr;
 	}
+	
 	public boolean ExporttoExcelWithoutData(OperatingHoursDetails details) throws Exception {
 		searchOperatingHoursRecord(details.getVdnName());
 		waitForJqueryLoad(driver);
 		selectWebElement(exporttoexcel);
+		waitForJqueryLoad(driver);
 		if(errorMsg.get(0).getText().equals("There is no record to export"))
 			return true;
 		else
@@ -737,9 +757,10 @@ public class OperatingHoursPage extends BasePage {
 	}
 	
 	public void SortByAscending() {
-		selectWebElement(vdn);
-		
+		selectWebElement(weekDay);
+		waitForJqueryLoad(driver);
 		selectWebElement(exporttoexcel);
+		waitForJqueryLoad(driver);
 		try {
 			Thread.sleep(2000);
 		} catch (InterruptedException e) {
@@ -749,8 +770,10 @@ public class OperatingHoursPage extends BasePage {
 
 	public void SortByDescending() {
 		selectWebElement(weekDay);
+		waitForJqueryLoad(driver);
 		selectWebElement(weekDay);
 		selectWebElement(exporttoexcel);
+		waitForJqueryLoad(driver);
 		try {
 			Thread.sleep(2000);
 		} catch (InterruptedException e) {
@@ -758,16 +781,15 @@ public class OperatingHoursPage extends BasePage {
 		}
 	}
 	
-	public boolean verifyArrowMoveForPreviousAndNextPage() throws Exception{
+	public boolean verifyArrowMoveForPreviousAndNextPage(){
         boolean status=false;
         if(!nextPageIcon.getAttribute("class").contains("k-state-disabled")){
-        	Thread.sleep(2000);
         int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber));
         selectWebElement(nextPageIcon);
-    	Thread.sleep(2000);
+        waitForJqueryLoad(driver);
         int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
         selectWebElement(previousPageIcon);
-    	Thread.sleep(2000);
+        waitForJqueryLoad(driver);
         int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
         if(nextnumber==(pagenumber+1) && pagenumber==previousnumber){status=true;}
         }else{
@@ -775,16 +797,15 @@ public class OperatingHoursPage extends BasePage {
         }
         return status;
 	}
-	public boolean verifyArrowMoveForFirstAndLastPage() throws Exception{
+	public boolean verifyArrowMoveForFirstAndLastPage(){
         boolean status=false;
         if(!lastPageIcon.getAttribute("class").contains("k-state-disabled")){
-        	Thread.sleep(2000);
             int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber));
             selectWebElement(lastPageIcon);
-        	Thread.sleep(2000);
+            waitForJqueryLoad(driver);
             int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
             selectWebElement(firstPageIcon);
-        	Thread.sleep(2000);
+            waitForJqueryLoad(driver);
             int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
             if(nextnumber>pagenumber && pagenumber==previousnumber){status=true;}
         }else{
@@ -1006,6 +1027,7 @@ public class OperatingHoursPage extends BasePage {
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Skill/VDN");
         selectWebElement(selectSearchCol.get(1));
+        Thread.sleep(1000);
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is equal to");
         enterValueToTxtField(searchTextBox,details.getVdnName());
         selectWebElement(clearall);

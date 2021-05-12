@@ -4,58 +4,23 @@
   <listeners>
     <listener class-name="com.tetherfi.ExtentReportListener.ExtentReporterNG"/>
   </listeners>
-<<<<<<< HEAD
-  <test thread-count="5" name="FaxTemplateCreateTest(failed)(failed)(failed)(failed)">
-=======
-  <test thread-count="5" name="SMSResponseTemplateWMC(failed)(failed)(failed)(failed)">
->>>>>>> refs/remotes/origin/PalakReports
+  <test thread-count="5" name="Home(failed)(failed)(failed)(failed)">
     <classes>
-<<<<<<< HEAD
-      <class name="com.tetherfi.test.fax.FaxTemplateCreateTest">
-=======
-      <class name="com.tetherfi.test.tmac.WaitTimeColorConfigTest">
->>>>>>> refs/remotes/origin/PalakReports
+      <class name="com.tetherfi.test.tmac.AgentTeamMgmtTest">
         <methods>
-<<<<<<< HEAD
-          <include name="VerifyAuditTrailReportForApprove"/>
-          <include name="NavigateToFaxTemplatePage"/>
-          <include name="VerifyAuditTrailReportForApproveRecord"/>
-          <include name="ApproveForAddNewFaxTemplateRecord"/>
-          <include name="VerifyAuditTrailReportForSendForApproval"/>
-=======
-          <include name="SortingByAscending"/>
-          <include name="NavigateToWaitTimeColorConfigPage"/>
-          <include name="endTestCase"/>
-          <include name="tearDown"/>
-          <include name="VerifySearchContains"/>
-          <include name="VerifySearchStartsWith"/>
-          <include name="VerifySearchIsNotEqualTo"/>
+          <include name="VerifyTotalNumberOfItemsPerPageDetails"/>
           <include name="startTestCase"/>
->>>>>>> refs/remotes/origin/PalakReports
-          <include name="afterEachMethod"/>
-<<<<<<< HEAD
-          <include name="VerifyApprovedDataSectionAfterApproval"/>
-          <include name="VerifySendForApprovalAddNewApproveRecord"/>
-          <include name="addDuplicateRecord"/>
-          <include name="VerifyAuditTrailDataForApproveRecord"/>
-=======
           <include name="openApplication"/>
-          <include name="EditWaitTimeColorConfigCancelRecord"/>
+          <include name="NavigateToAgentTeamManagementPage"/>
+          <include name="ExportToExcelData"/>
+          <include name="VerifyNumberOfItemsPerPageSelection"/>
+          <include name="afterEachMethod"/>
+          <include name="endTestCase"/>
           <include name="database"/>
-          <include name="VerifySearchDoesNotContains"/>
-          <include name="VerifySearchEndsWith"/>
-          <include name="SortingByDescending"/>
->>>>>>> refs/remotes/origin/PalakReports
+          <include name="tearDown"/>
+          <include name="VerifyArrowMoveForPreviousAndNextPage"/>
         </methods>
-<<<<<<< HEAD
-      </class> <!-- com.tetherfi.test.fax.FaxTemplateCreateTest -->
-=======
-      </class> <!-- com.tetherfi.test.tmac.WaitTimeColorConfigTest -->
->>>>>>> refs/remotes/origin/PalakReports
+      </class> <!-- com.tetherfi.test.tmac.AgentTeamMgmtTest -->
     </classes>
-<<<<<<< HEAD
-  </test> <!-- FaxTemplateCreateTest(failed)(failed)(failed)(failed) -->
-=======
-  </test> <!-- SMSResponseTemplateWMC(failed)(failed)(failed)(failed) -->
->>>>>>> refs/remotes/origin/PalakReports
+  </test> <!-- Home(failed)(failed)(failed)(failed) -->
 </suite> <!-- Failed suite [Failed suite [Failed suite [Failed suite [Tetherfi Test Automation]]]] -->

@@ -42,6 +42,7 @@ Screenshot screenshot=new Screenshot(driver);
     	Assert.assertTrue(RoleBasedAccessManagementPage.minimizewindow(), "Restored Assertion Failed");
     	screenshot.captureScreen("RoleBasedAccessManagementUITest","minimize window");
     }
+	
 	@Test(priority=2)
 	public void VerifyRoleBasedAccessManagementApprovedDataPage() {
         RoleBasedAccessManagementPage RoleBasedAccessManagementPage = PageFactory.createPageInstance(driver, RoleBasedAccessManagementPage.class);
@@ -213,7 +214,7 @@ Screenshot screenshot=new Screenshot(driver);
     }
     
     @Test(priority=21)
-    public void searchwithoutSearchTextbox() throws IOException {
+    public void searchwithoutSearchTextbox() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\RoleBasedAccessManagementData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
 	    UserDetails UserDetails = new UserDetails(map);

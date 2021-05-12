@@ -4,56 +4,28 @@
   <listeners>
     <listener class-name="com.tetherfi.ExtentReportListener.ExtentReporterNG"/>
   </listeners>
-<<<<<<< HEAD
-  <test thread-count="5" name="SmsResponseTemplateDeleteTest(failed)(failed)">
-=======
-  <test thread-count="5" name="SMSResponseTemplateWMC(failed)(failed)">
->>>>>>> refs/remotes/origin/PalakReports
+  <test thread-count="5" name="Home(failed)(failed)">
     <classes>
-<<<<<<< HEAD
-      <class name="com.tetherfi.test.sms.SmsResponseTemplateDeleteTest">
-=======
-      <class name="com.tetherfi.test.tmac.WaitTimeColorConfigTest">
->>>>>>> refs/remotes/origin/PalakReports
+      <class name="com.tetherfi.test.ExportSchedulerTest">
         <methods>
-<<<<<<< HEAD
-          <include name="VerifySendForApprovalForDeleteRecord"/>
-=======
-          <include name="SortingByAscending"/>
-          <include name="NavigateToWaitTimeColorConfigPage"/>
+          <include name="VerifyAuditTrialReportForCreate"/>
+          <include name="NavigateToExportSchedulerPage"/>
+          <include name="database"/>
+          <include name="afterEachMethod"/>
           <include name="endTestCase"/>
           <include name="tearDown"/>
-          <include name="VerifySearchContains"/>
-          <include name="VerifySearchStartsWith"/>
-          <include name="VerifySearchIsNotEqualTo"/>
           <include name="startTestCase"/>
->>>>>>> refs/remotes/origin/PalakReports
-          <include name="afterEachMethod"/>
-<<<<<<< HEAD
-          <include name="ApproveforDeleteSmsResponseTemplateRecord"/>
-          <include name="NavigateToSmsResponseTemplatePage"/>
-          <include name="VerifyAuditTrailReportForSendForApprove"/>
-          <include name="VerifyAuditTrailReportForApprove"/>
-          <include name="DeleteSmsResponseTemplateRecord"/>
-          <include name="VerifyAuditTrailDataForDeleteSmsResponseTemplateRecord"/>
-=======
           <include name="openApplication"/>
-          <include name="EditWaitTimeColorConfigCancelRecord"/>
-          <include name="database"/>
-          <include name="VerifySearchDoesNotContains"/>
-          <include name="VerifySearchEndsWith"/>
-          <include name="SortingByDescending"/>
->>>>>>> refs/remotes/origin/PalakReports
+          <include name="AddRecordWithoutEndTime"/>
+          <include name="searchwithoutSearchTextbox"/>
+          <include name="VerifyAuditTrialReportForDelete"/>
+          <include name="VerifyAuditTrialReportForCreateMonthly"/>
+          <include name="VerifyNumberOfItemsPerPageSelection"/>
+          <include name="AddRecordWithoutMonthlyDate"/>
+          <include name="DuplicateRecord"/>
+          <include name="VerifyAuditTrialReportForUpdate"/>
         </methods>
-<<<<<<< HEAD
-      </class> <!-- com.tetherfi.test.sms.SmsResponseTemplateDeleteTest -->
-=======
-      </class> <!-- com.tetherfi.test.tmac.WaitTimeColorConfigTest -->
->>>>>>> refs/remotes/origin/PalakReports
+      </class> <!-- com.tetherfi.test.ExportSchedulerTest -->
     </classes>
-<<<<<<< HEAD
-  </test> <!-- SmsResponseTemplateDeleteTest(failed)(failed) -->
-=======
-  </test> <!-- SMSResponseTemplateWMC(failed)(failed) -->
->>>>>>> refs/remotes/origin/PalakReports
+  </test> <!-- Home(failed)(failed) -->
 </suite> <!-- Failed suite [Failed suite [Tetherfi Test Automation]] -->

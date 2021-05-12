@@ -45,7 +45,29 @@ public class UserOnBoardingDetails {
     private String getattribute;
     private String insertedRecordCount;
     private String invalidRecordCount;
-
+    private String userDetailsFileName;
+    private String userDetailsFileNamewithLanIDBlank;
+    private String userDetailsFileNamewithFirstNameBlank;
+    private String userDetailsFileNamewithLastNameBlank;
+    private String userDetailsFileNamewithAvayaLoginIDBlank;
+    private String userDetailsFileNamewithOrgUnitBlank;
+    private String userDetailsFileNamewithProfileBlank;
+    private String userDetailsFileNamewithSupervisorLanIDBlank;
+    private String userChannelTemplateFileName;
+    private String userFeatureTemplateFileName;
+    private String duplicateRecordCount;
+    private String userDetailsNonMandatoryFieldsBlank;
+    private String userDetailsAccessRoleandRoleFieldsBlank;
+    private String userDetailsCRMandTextChatFieldsBlank;
+    private String countryLevelSupervisorFileName;
+    private String divisionLevelSupervisorFileName;
+    private String departmentLevelSupervisorFileName;
+    private String teamLevelSupervisorFileName;
+    private String userDetailswithInvalidOrgUnit;
+    private String userDetailswithNewColumn;
+    private String userDetailswithUpdatedColumn;
+    
+    
     public UserOnBoardingDetails(Map<String,String> map){
     	OrgUnit=readOrgUnit(map);
     	UpdatedFirstName=readUpdatedFirstName(map);
@@ -86,9 +108,136 @@ public class UserOnBoardingDetails {
         getattribute=readAttribute(map);
         insertedRecordCount=readInsertedRecordCount(map);
         invalidRecordCount=readInvalidRecordCount(map);
+        userDetailsFileName=readUserDetailsFileName(map);
+        userDetailsFileNamewithLanIDBlank=readUserDetailsFileNamewithLanIDBlank(map);
+        userDetailsFileNamewithFirstNameBlank=readUserDetailsFileNamewithFirstNameBlank(map);
+        userDetailsFileNamewithLastNameBlank=readUserDetailsFileNamewithLastNameBlank(map);
+        userDetailsFileNamewithAvayaLoginIDBlank=readUserDetailsFileNamewithAvayaLoginIDBlank(map);
+        userDetailsFileNamewithOrgUnitBlank=readUserDetailsFileNamewithOrgUnitBlank(map);
+        userDetailsFileNamewithProfileBlank=readUserDetailsFileNamewithProfileBlank(map);
+        userDetailsFileNamewithSupervisorLanIDBlank=readUserDetailsFileNamewithSupervisorLanIDBlank(map);
+        userChannelTemplateFileName=readUserChannelTemplateFileName(map);
+        userFeatureTemplateFileName=readUserFeatureTemplateFileName(map);
+        duplicateRecordCount=readDuplicateRecordCount(map);
+        userDetailsNonMandatoryFieldsBlank=readUserDetailsNonMandatoryFieldsBlankFileName(map);
+        userDetailsAccessRoleandRoleFieldsBlank=readUserDetailsAccessRoleandRoleFieldsBlankFileName(map);
+        userDetailsCRMandTextChatFieldsBlank=readUserDetailsCRMandTextChatFieldsBlankFileName(map);
+        countryLevelSupervisorFileName=readCountryLevelSupervisorFileName(map);
+        divisionLevelSupervisorFileName=readDivisionLevelSupervisorFileName(map);
+        departmentLevelSupervisorFileName=readDepartmentLevelSupervisorFileName(map);
+        teamLevelSupervisorFileName=readTeamLevelSupervisorFileName(map);
+        userDetailswithInvalidOrgUnit=readUserDetailswithInvalidOrgUnit(map);
+        userDetailswithNewColumn=readUserDetailswithNewColumn(map);
+        userDetailswithUpdatedColumn=readUserDetailswithUpdatedColumn(map);
+        
     }
     
-    private String readInvalidRecordCount(Map<String, String> map) {
+    private String readUserDetailswithUpdatedColumn(Map<String, String> map) {
+    	String value=map.get("Updated Column");
+		return value;
+	}
+
+	private String readUserDetailswithNewColumn(Map<String, String> map) {
+		String value=map.get("New Column");
+		return value;
+	}
+
+	private String readUserDetailswithInvalidOrgUnit(Map<String, String> map) {
+    	String value=map.get("Invalid Org Unit");
+		return value;
+	}
+
+	private String readTeamLevelSupervisorFileName(Map<String, String> map) {
+    	String value=map.get("Team Level Supervisor");
+		return value;
+	}
+
+	private String readDepartmentLevelSupervisorFileName(Map<String, String> map) {
+		String value=map.get("Department Level Supervisor");
+		return value;
+	}
+
+	private String readDivisionLevelSupervisorFileName(Map<String, String> map) {
+		String value=map.get("Division Level Supervisor");
+		return value;
+	}
+
+	private String readCountryLevelSupervisorFileName(Map<String, String> map) {
+		String value=map.get("Country Level Supervisor");
+		return value;
+	}
+
+	private String readUserDetailsCRMandTextChatFieldsBlankFileName(Map<String, String> map) {
+		String value=map.get("CRM and TextChat Fields Blank");
+		return value;
+	}
+
+	private String readUserDetailsAccessRoleandRoleFieldsBlankFileName(Map<String, String> map) {
+		String value=map.get("AccessRole and Role Fields Blank");
+		return value;
+	}
+
+	private String readUserDetailsNonMandatoryFieldsBlankFileName(Map<String, String> map) {
+		String value=map.get("Non Mandatory Fields Blank");
+		return value;
+	}
+
+	private String readUserDetailsFileNamewithSupervisorLanIDBlank(Map<String, String> map) {
+    	String value=map.get("UserDeatils FileName with Supervisor LanID Blank");
+		return value;
+	}
+
+	private String readUserDetailsFileNamewithOrgUnitBlank(Map<String, String> map) {
+		String value=map.get("UserDeatils FileName with OrgUnit Blank");
+		return value;
+	}
+
+	private String readUserDetailsFileNamewithProfileBlank(Map<String, String> map) {
+		String value=map.get("UserDeatils FileName with Profile Blank");
+		return value;
+	}
+
+	private String readUserDetailsFileNamewithAvayaLoginIDBlank(Map<String, String> map) {
+		String value=map.get("UserDeatils FileName with Avaya Login ID Blank");
+		return value;
+	}
+
+	private String readUserDetailsFileNamewithLastNameBlank(Map<String, String> map) {
+		String value=map.get("UserDeatils FileName with Last Name Blank");
+		return value;
+	}
+
+	private String readUserDetailsFileNamewithFirstNameBlank(Map<String, String> map) {
+		String value=map.get("UserDeatils FileName with First Name Blank");
+		return value;
+	}
+
+	private String readUserDetailsFileNamewithLanIDBlank(Map<String, String> map) {
+		String value=map.get("UserDeatils FileName LanID Blank");
+		return value;
+	}
+
+	private String readDuplicateRecordCount(Map<String, String> map) {
+    	String value=map.get("Duplicate Record Count");
+		return value;
+	}
+
+	private String readUserFeatureTemplateFileName(Map<String, String> map) {
+    	String value=map.get("FeatureDeatails FileName");
+		return value;
+	}
+
+	private String readUserChannelTemplateFileName(Map<String, String> map) {
+		String value=map.get("ChannelCount FileName");
+		return value;
+	}
+
+	private String readUserDetailsFileName(Map<String, String> map) {
+		String value=map.get("UserDeatils FileName");
+		return value;
+	}
+
+	private String readInvalidRecordCount(Map<String, String> map) {
     	String value=map.get("Invalid Record Count");
 		return value;
 	}
@@ -478,4 +627,97 @@ public class UserOnBoardingDetails {
     public String getInavlidRecordCount() {
     	return invalidRecordCount;
     }
+    
+    public String getUserDetailsFileName() {
+    	return userDetailsFileName;
+    }
+    
+    public String getUserDetailsFileNameWithLanIDBlank() {
+    	return userDetailsFileNamewithLanIDBlank;
+    }
+    
+    public String getUserDetailsFileNamewithFirstNameBlank() {
+    	return userDetailsFileNamewithFirstNameBlank;
+    }
+    
+    public String getUserDetailsFileNamewithLastNameBlank() {
+    	return userDetailsFileNamewithLastNameBlank;
+    }
+    
+    public String getUserDetailsFileNameAvayaLoginIdBlank() {
+    	return userDetailsFileNamewithAvayaLoginIDBlank;
+    }
+    
+    public String getUserDetailsFileNamewithProfileBlank() {
+    	return userDetailsFileNamewithOrgUnitBlank;
+    }
+    
+    public String getUserDetailsFileNamewithOrgUnitBlank() {
+    	return userDetailsFileNamewithProfileBlank;
+    }
+    
+    public String getUserDetailsFileNamewithSupervisorLanIDBlank() {
+    	return userDetailsFileNamewithSupervisorLanIDBlank;
+    }
+    
+    public String getChannelDetailsFileName() {
+    	return userChannelTemplateFileName;
+    }
+    
+    public String getFeatureDetailsFileName() {
+    	return userFeatureTemplateFileName;
+    }
+    
+    public String getDuplicateRecordCount() {
+    	return duplicateRecordCount;
+    }
+    
+    public String getUserDetailsNonMandatoryFieldsBlankFileName() {
+    	return userDetailsNonMandatoryFieldsBlank;
+    }
+    
+    public String getUserDetailsCRMandTexChatFieldsBlankFileName() {
+    	return userDetailsCRMandTextChatFieldsBlank;
+    }
+    
+    public String getUserDetailsAccessRoleandRoleFieldsBlankFileName() {
+    	return userDetailsAccessRoleandRoleFieldsBlank;
+    }
+    
+    public String getCountryLevelSupervisorFileName() {
+    	return countryLevelSupervisorFileName;
+    }
+    
+    public String getDivisionLevelSupervisorFileName() {
+    	return divisionLevelSupervisorFileName;
+    }
+    
+    public String getDepartmentLevelSupervisorFileName() {
+    	return departmentLevelSupervisorFileName;
+    }
+    
+    public String getTeamlevelSupervisorFileName() {
+    	return teamLevelSupervisorFileName;
+    }
+    
+    public String getUserDetailswithInavlidOrgUnitFileName() {
+    	return userDetailswithInvalidOrgUnit;
+    }
+    
+    public String getUserDetailswithNewColumnFileName() {
+    	return userDetailswithNewColumn;
+    }
+    
+    public String getUserDetailswithUpdatedColumnFileName() {
+    	return userDetailswithUpdatedColumn;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }

@@ -50,7 +50,7 @@ public class UserOnBoardingCreateTest {
 			map= new ExcelReader(filePath,"Login").getTestData().get(1);
 		else
 			map= new ExcelReader(filePath,"Login").getTestData().get(0);
-		try{driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);}catch (TimeoutException e){e.printStackTrace();driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);}
+		try{driver.get("https://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);}catch (TimeoutException e){e.printStackTrace();driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);}
 		if(map.get("LoginType").equals("Custom")){
 			LoginPage loginPage=PageFactory.createPageInstance(driver,LoginPage.class);
 			Assert.assertTrue(loginPage.isLoginPageDisplayed(),"Login page not loaded");
@@ -67,7 +67,7 @@ public class UserOnBoardingCreateTest {
 		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 	}
 
-	/*@Test(groups= {"Maker"},priority=1,description="To Verify Add Record Cancel Button ")
+	@Test(groups= {"Maker"},priority=1,description="To Verify Add Record Cancel Button ")
 	public void VerifyAddCancelButton() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -175,7 +175,7 @@ public class UserOnBoardingCreateTest {
 		ReportDetails reportDetails= new ReportDetails(map1);
 		ocmReportsPage.showReport(reportDetails);
 		Assert.assertTrue(ocmReportsPage.verifyUserOnBoardingCreate(userOnBoardingDetails, "MakerReverted"),"Audit Trail report assertion failed");
-	}*/
+	}
 
 	@Test(groups = { "Maker" },priority=12,description="Add Record to Verify Reject ")
 	public void AddRejectRecord() throws Exception {
@@ -254,7 +254,7 @@ public class UserOnBoardingCreateTest {
 		Assert.assertTrue(userOnBoardingPage.verifyAuditTrail(userOnBoardingDetails, "MakerCreate", "New"), "Audit trail details failed");
 	}
 
-	@Test(groups = { "Maker" },priority=19,dependsOnMethods="VerifyAuditTrailDataForAddNewUserOnBoardingRecord",description="To Verify SendForApproval for AddNewUserOnBoarding ")
+	@Test(groups = { "Maker" },priority=19,description="To Verify SendForApproval for AddNewUserOnBoarding ")
 	public void VerifySendForApprovalForAddNewUserOnBoarding() throws Exception {
 		UserOnBoardingPage userOnBoardingPage = PageFactory.createPageInstance(driver, UserOnBoardingPage.class);
 		userOnBoardingPage.selectUserOnBoardingAuditTrailTab();
@@ -278,7 +278,7 @@ public class UserOnBoardingCreateTest {
 		Assert.assertTrue(ocmReportsPage.verifyUserOnBoardingCreate(userOnBoardingDetails, "MakerSendToApproval"),"Audit Trail report assertion failed");
 	}
 
-	@Test(groups = { "Checker" },priority=21,dependsOnMethods="VerifyAuditTrailReportForSendForApproval",description="To Verify Checker ApproveforAddNewUserOnBoardingRecord")
+	@Test(groups = { "Checker" },priority=21,dependsOnMethods="VerifySendForApprovalForAddNewUserOnBoarding",description="To Verify Checker ApproveforAddNewUserOnBoardingRecord")
 	public void ApproveforAddNewUserOnBoardingRecord() throws Exception{
 		UserOnBoardingPage userOnBoardingPage = PageFactory.createPageInstance(driver, UserOnBoardingPage.class);
 		userOnBoardingPage.clickonApprove("Approve Create");
@@ -301,9 +301,6 @@ public class UserOnBoardingCreateTest {
 		ocmReportsPage.showReport(reportDetails);
 		Assert.assertTrue(ocmReportsPage.verifyUserOnBoardingCreate(userOnBoardingDetails, "CheckerApprove"),"Audit Trail report assertion failed");
 	}
-
-
-
 
 	@AfterMethod
 	public void afterEachMethod(Method method){
