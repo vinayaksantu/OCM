@@ -1261,9 +1261,9 @@ public class OCMAgentAuxReportPage extends BasePage  {
 	public boolean verifySearchByTextbox(ReportDetails details) throws Exception{	
 		boolean Status=false;
 		selectWebElement(searchbyfeatureTextBox);    
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 		enterValueToTxtFieldWithoutClear(searchbyfeatureTextBox,details.getSearchStr());
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 		selectDropdownFromVisibleText(searchbyfeaturelistBox,details.getSearchStr());
 		waitForJqueryLoad(driver);
 		List<Map<String,String>> UI=getDataTable(); 

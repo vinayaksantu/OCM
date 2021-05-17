@@ -12,7 +12,6 @@ import org.testng.annotations.Test;
 import com.tetherfi.model.report.ReportDetails;
 import com.tetherfi.pages.HomePage;
 import com.tetherfi.pages.OCMAgentAuxReportPage;
-import com.tetherfi.pages.OCMChatInteractionReportPage;
 import com.tetherfi.pages.OCMReportsPage;
 import com.tetherfi.test.BaseTest;
 import com.tetherfi.utility.ExcelReader;
@@ -38,7 +37,7 @@ public class OCMAgentAuxReportTest extends BaseTest {
 		ftp.transferFileFromRemote(remoteFilePath,destinationFilePath);
 	}
 	
-	/*@Test(priority=1,description="To verify Show Report for Single Date")
+	@Test(priority=1,description="To verify Show Report for Single Date")
 	public void ShowReport() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentAuxReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
@@ -57,7 +56,7 @@ public class OCMAgentAuxReportTest extends BaseTest {
 		OCMReportsPage.showReportInNewPage(reportDetails);
 		Assert.assertTrue(OCMReportsPage.verifyReportDisplayed(reportDetails),"show report in new tab assertion failed");
 		OCMReportsPage.switchBackToParentWindow();
-	}*/
+	}
 
 	@Test(priority=3, description="To verify Agent Aux report UI data against DB")
 	public void database() throws Exception{
@@ -71,7 +70,7 @@ public class OCMAgentAuxReportTest extends BaseTest {
 		System.out.println("Database Validation Completed for Agent Aux Report" +" : "+"UI and Database data is matched");	
 	}
 
-	/*@Test(priority=4,description="To verify Advanced search Is equal to Criteria")
+	@Test(priority=4,description="To verify Advanced search Is equal to Criteria")
 	public void verifyAdvancedSearchIsEqualTo() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentAuxReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(0);
@@ -113,7 +112,7 @@ public class OCMAgentAuxReportTest extends BaseTest {
 		OCMAgentAuxReportPage agentAuxReportPage=PageFactory.createPageInstance(driver,OCMAgentAuxReportPage.class);  
 		OCMReportsPage.showReport(reportDetails);
 		Assert.assertTrue(agentAuxReportPage.verifyAdvanceSearchDoesNotContains(reportDetails));   
-	}*/
+	}
 
 	@Test(priority=8,description="To verify Advanced search Starts with Criteria")
 	public void verifyAdvancedSearchStartswith() throws Exception {
@@ -126,7 +125,7 @@ public class OCMAgentAuxReportTest extends BaseTest {
 		Assert.assertTrue(agentAuxReportPage.verifyAdvanceSearchStartsWith(reportDetails)); 	
 	}
 
-	/*@Test(priority=9,description="To verify Advanced search Ends with Criteria")
+	@Test(priority=9,description="To verify Advanced search Ends with Criteria")
 	public void verifyAdvancedSearchEndswith() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentAuxReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(5);
@@ -137,7 +136,7 @@ public class OCMAgentAuxReportTest extends BaseTest {
 		Assert.assertTrue(agentAuxReportPage.verifyAdvanceSearchEndsWith(reportDetails));
 	}
 
-	/*@Test(priority=10,description="To verify Advanced search with AND Search Criteria")
+	@Test(priority=10,description="To verify Advanced search with AND Search Criteria")
 	public void verifyAdvancedSearchANDCriteria() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentAuxReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(0);
@@ -316,7 +315,7 @@ public class OCMAgentAuxReportTest extends BaseTest {
 	@Test(priority=26,description="Verify the Does not contain criteria")
 	public void  VerifySearchDoesNotContains() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentAuxReportData.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(1);
+		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(2);
 		ReportDetails reportDetails= new ReportDetails(map);
 		OCMReportsPage OCMReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
 		OCMReportsPage.showReport(reportDetails);  
@@ -514,7 +513,7 @@ public class OCMAgentAuxReportTest extends BaseTest {
 		ReportDetails reportDetails= new ReportDetails(map);
 		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
 		ocmReportsPage.showReport(reportDetails);
-		Assert.assertTrue(ocmReportsPage.verifyExportedSheet("OCMReportDownload","Agent Aux Report"));		
+		Assert.assertTrue(ocmReportsPage.verifyExportedSheet("OCMReportDownload","OCM Agent Aux Report"));		
 	}
 
 	@Test(priority=45,description="Delete record in Reports Download without Delete reason for date range")
@@ -548,7 +547,7 @@ public class OCMAgentAuxReportTest extends BaseTest {
 		Assert.assertTrue(ocmReportsPage.deleteRecordAtReportsDownloadsPage(reportDetails),"Record deletion failed");
 	}
 
-	@Test(priority=48,description="To export the data using Export Page functionality")
+	@Test(priority=48,description="To Verify Export Page Button")
 	public void ExportPage() throws Exception{
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentAuxReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -560,7 +559,7 @@ public class OCMAgentAuxReportTest extends BaseTest {
 		Assert.assertTrue(agentAuxReportPage.verifyExportToExcel(filePath1));
 	}
 
-	@Test(priority=49,dependsOnMethods="ExportPage",description="To Verify Exported Page data Against UI")
+	@Test(priority=49,dependsOnMethods="ExportPage",description="To Verify Exported Page Against UI")
 	public void VerifyExportedPage() throws Exception{
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentAuxReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -642,12 +641,12 @@ public class OCMAgentAuxReportTest extends BaseTest {
 		ocmReportsPage.showReport(reportDetails);
 		OCMAgentAuxReportPage AgentAuxReportPage=PageFactory.createPageInstance(driver,OCMAgentAuxReportPage.class);
 		Assert.assertTrue(AgentAuxReportPage.verifySorting(),"Sorting assertion failed");
-	}*/
+	}
 
 	@AfterMethod
 	public void afterEachMethod(Method method) throws InterruptedException {
 		Screenshot screenshot=new Screenshot(driver);
-		screenshot.captureScreen("UOBOCMAgentAuxReportSnaps",method.getName());
+		screenshot.captureScreen("AgentAuxReportProd",method.getName());
 		driver.navigate().refresh();
 	}
 

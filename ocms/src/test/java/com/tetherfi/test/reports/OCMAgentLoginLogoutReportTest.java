@@ -755,7 +755,7 @@ public class OCMAgentLoginLogoutReportTest extends BaseTest {
 	@AfterMethod
 	public void afterEachMethod(Method method) throws InterruptedException {
 		Screenshot screenshot=new Screenshot(driver);
-		screenshot.captureScreen("UOB_AgentLoginLogoutSnaps",method.getName());
+		screenshot.captureScreen("AgentLoginLogoutReportProduct",method.getName());
 		driver.navigate().refresh();
 	}
 
