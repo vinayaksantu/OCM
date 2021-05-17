@@ -644,8 +644,8 @@ public class OCMAgentLoginLogoutReportTest extends BaseTest {
 		ReportDetails reportDetails= new ReportDetails(map);
 		OCMReportsPage OCMReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);  
 		OCMReportsPage.quickInputforSeconds(reportDetails);  
-
 	}
+	
 	@Test(priority=56,enabled=false,description="Quick Input Functionality without number field")
 	public void quickinputwithoutNumber() throws Exception{
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentLoginLogoutReportData.xlsx";
