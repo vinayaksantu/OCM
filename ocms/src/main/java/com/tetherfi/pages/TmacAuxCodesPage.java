@@ -736,6 +736,7 @@ public class TmacAuxCodesPage extends BasePage {
 		 selectWebElement(selectSearchColumn);
 		 selectDropdownFromVisibleText(columnNameList,"Code");
 		 selectWebElement(condition);
+		 Thread.sleep(1000);
 		 selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is not equal to");
 		 enterValueToTxtField(searchTextBox,code);		
 	     selectWebElement(searchSearchBtn);
@@ -760,6 +761,7 @@ public class TmacAuxCodesPage extends BasePage {
 		 selectWebElement(selectSearchColumn);
 		 selectDropdownFromVisibleText(columnNameList,"Code");
 		 selectWebElement(condition);
+		 Thread.sleep(1000);
 		 selectDropdownFromVisibleText(searchCriteriaDropDwn,"Contains");
 		 enterValueToTxtField(searchTextBox,code);		
 	     selectWebElement(searchSearchBtn);
@@ -784,6 +786,7 @@ public class TmacAuxCodesPage extends BasePage {
 		 selectWebElement(selectSearchColumn);
 		 selectDropdownFromVisibleText(columnNameList,"Code");
 		 selectWebElement(condition);
+		 Thread.sleep(1000);
 		 selectDropdownFromVisibleText(searchCriteriaDropDwn,"Does not Contain");
 		 enterValueToTxtField(searchTextBox,code);		
 	     selectWebElement(searchSearchBtn);
@@ -808,6 +811,7 @@ public class TmacAuxCodesPage extends BasePage {
 		 selectWebElement(selectSearchColumn);
 		 selectDropdownFromVisibleText(columnNameList,"Code");
 		 selectWebElement(condition);
+		 Thread.sleep(1000);
 		 selectDropdownFromVisibleText(searchCriteriaDropDwn,"Starts with");
 		 enterValueToTxtField(searchTextBox,code);		
 	     selectWebElement(searchSearchBtn);
@@ -832,6 +836,7 @@ public class TmacAuxCodesPage extends BasePage {
 		 selectWebElement(selectSearchColumn);
 		 selectDropdownFromVisibleText(columnNameList,"Code");
 		 selectWebElement(condition);
+		 Thread.sleep(1000);
 		 selectDropdownFromVisibleText(searchCriteriaDropDwn,"Ends with");
 		 enterValueToTxtField(searchTextBox,code);		
 	     selectWebElement(searchSearchBtn);

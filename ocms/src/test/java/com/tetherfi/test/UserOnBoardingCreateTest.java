@@ -67,83 +67,9 @@ public class UserOnBoardingCreateTest {
 		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 	}
 
-	@Test(groups= {"Maker"},priority=1,description="To Verify Add Record Cancel Button ")
-	public void VerifyAddCancelButton() throws Exception {
-		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
-		Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
-		UserOnBoardingDetails userOnBoardingDetails = new UserOnBoardingDetails(map);
-		UserOnBoardingPage userOnBoardingPage = PageFactory.createPageInstance(driver, UserOnBoardingPage.class);
-		Assert.assertTrue(userOnBoardingPage.addCancelButton(userOnBoardingDetails), "Add cancel button assertion failed");
-	}
+	
 
-	@Test(groups= {"Maker"},priority=2,description="To Verify the Step Icons and Add Record with all the Fields Blank  ")
-	public void VerifyStepIconPresenceandAddRecordWithAlltheFiledsBlank() throws Exception {
-		UserOnBoardingPage userOnBoardingPage = PageFactory.createPageInstance(driver, UserOnBoardingPage.class);
-		Assert.assertTrue(userOnBoardingPage.VerifyAddNewUserOnBoardingStepIconsandCreateRecordWithAlltheFieldsBlank(), "Add cancel button assertion failed");
-		Assert.assertEquals(userOnBoardingPage.VerifyMessage(),"Please Provide First Name, Last Name, Lan ID, Avaya Login ID, Org. Unit, Profile, Supervisor", "Add cancel button assertion failed");
-	}
-
-	@Test(groups= {"Maker"},priority=3,description="To Verify Add Record without FirstName ")
-	public void VerifyAddRecordWithoutFirstName() throws Exception {
-		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
-		Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
-		UserOnBoardingDetails userOnBoardingDetails = new UserOnBoardingDetails(map);
-		UserOnBoardingPage userOnBoardingPage = PageFactory.createPageInstance(driver, UserOnBoardingPage.class);
-		userOnBoardingPage.addNewUserOnBoardingRecordWithoutFirstName(userOnBoardingDetails);
-		Assert.assertEquals(userOnBoardingPage.VerifyMessage(), "Please Provide First Name","Record Creation Assertion failed");
-	}
-
-	@Test(groups= {"Maker"},priority=4,description="To Verify Add Record without Last Name ")
-	public void VerifyAddRecordWithoutLastName() throws Exception {
-		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
-		Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
-		UserOnBoardingDetails userOnBoardingDetails = new UserOnBoardingDetails(map);
-		UserOnBoardingPage userOnBoardingPage = PageFactory.createPageInstance(driver, UserOnBoardingPage.class);
-		userOnBoardingPage.addNewUserOnBoardingRecordWithoutLastName(userOnBoardingDetails);
-		Assert.assertEquals(userOnBoardingPage.VerifyMessage(), "Please Provide Last Name","Record Creation Assertion failed");
-	}
-
-	@Test(groups= {"Maker"},priority=5,description="To Verify Add Record without Lan ID ")
-	public void VerifyAddRecordWithoutLanID() throws Exception {
-		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
-		Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
-		UserOnBoardingDetails userOnBoardingDetails = new UserOnBoardingDetails(map);
-		UserOnBoardingPage userOnBoardingPage = PageFactory.createPageInstance(driver, UserOnBoardingPage.class);
-		userOnBoardingPage.addNewUserOnBoardingRecordWithoutLanID(userOnBoardingDetails);
-		Assert.assertEquals(userOnBoardingPage.VerifyMessage(), "Please Provide Lan ID","Record Creation Assertion failed");
-	}
-
-	@Test(groups= {"Maker"},priority=6,description="To Verify Add Record without Avaya Login ID ")
-	public void VerifyAddRecordWithoutAvayaLoginID() throws Exception {
-		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
-		Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
-		UserOnBoardingDetails userOnBoardingDetails = new UserOnBoardingDetails(map);
-		UserOnBoardingPage userOnBoardingPage = PageFactory.createPageInstance(driver, UserOnBoardingPage.class);
-		userOnBoardingPage.addNewUserOnBoardingRecordWithoutAvayaLoginID(userOnBoardingDetails);
-		Assert.assertEquals(userOnBoardingPage.VerifyMessage(), "Please Provide Avaya Login ID","Record Creation Assertion failed");
-	}
-
-	@Test(groups= {"Maker"},priority=7,description="To Verify Add Record without Org.Unit ")
-	public void VerifyAddRecordWithoutOrgUnit() throws Exception {
-		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
-		Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
-		UserOnBoardingDetails userOnBoardingDetails = new UserOnBoardingDetails(map);
-		UserOnBoardingPage userOnBoardingPage = PageFactory.createPageInstance(driver, UserOnBoardingPage.class);
-		userOnBoardingPage.addNewUserOnBoardingRecordWithoutOrgUnit(userOnBoardingDetails);
-		Assert.assertEquals(userOnBoardingPage.VerifyMessage(), "Please Provide Org. Unit","Record Creation Assertion failed");
-	}
-
-	@Test(groups= {"Maker"},priority=8,description="To Verify Add Record without Profile ")
-	public void VerifyAddRecordWithoutProfile() throws Exception {
-		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
-		Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
-		UserOnBoardingDetails userOnBoardingDetails = new UserOnBoardingDetails(map);
-		UserOnBoardingPage userOnBoardingPage = PageFactory.createPageInstance(driver, UserOnBoardingPage.class);
-		userOnBoardingPage.addNewUserOnBoardingRecordWithoutProfile(userOnBoardingDetails);
-		Assert.assertEquals(userOnBoardingPage.VerifyMessage(), "Please Provide Profile, Supervisor","Record Creation Assertion failed");
-	}
-
-	@Test(groups= {"Maker"},priority=9,description="Add Record to Verify Revert ")
+	@Test(groups= {"Maker"},priority=1,description="Add Record to Verify Revert ")
 	public void VerifyAddRevertRecord() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -153,7 +79,7 @@ public class UserOnBoardingCreateTest {
 		Assert.assertEquals(userOnBoardingPage.VerifyMessage(), "Record Created Successfully","Record Creation Assertion failed");
 	}
 
-	@Test(groups = { "Maker" },priority=10,dependsOnMethods="VerifyAddRevertRecord",description="To Verify Revert Functionality   ")
+	@Test(groups = { "Maker" },priority=2,dependsOnMethods="VerifyAddRevertRecord",description="To Verify Revert Functionality   ")
 	public void VerifyRevertForAddNewRecord() throws Exception {
 		UserOnBoardingPage userOnBoardingPage = PageFactory.createPageInstance(driver, UserOnBoardingPage.class);
 		userOnBoardingPage.selectUserOnBoardingAuditTrailTab();
@@ -162,7 +88,7 @@ public class UserOnBoardingCreateTest {
 		Assert.assertTrue(userOnBoardingPage.verifyStatus("Reverted"),"Approval Status Details Failed");
 	}
 
-	@Test(groups = { "Maker" },priority=11,dependsOnMethods = "VerifyRevertForAddNewRecord",description="To Verify AuditTrailReport for Revert Transaction ")
+	@Test(groups = { "Maker" },priority=3,dependsOnMethods = "VerifyRevertForAddNewRecord",description="To Verify AuditTrailReport for Revert Transaction ")
 	public void VerifyAuditTrailReportForRevert() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -177,7 +103,7 @@ public class UserOnBoardingCreateTest {
 		Assert.assertTrue(ocmReportsPage.verifyUserOnBoardingCreate(userOnBoardingDetails, "MakerReverted"),"Audit Trail report assertion failed");
 	}
 
-	@Test(groups = { "Maker" },priority=12,description="Add Record to Verify Reject ")
+	@Test(groups = { "Maker" },priority=4,description="Add Record to Verify Reject ")
 	public void AddRejectRecord() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -187,7 +113,7 @@ public class UserOnBoardingCreateTest {
 		Assert.assertEquals(userOnBoardingPage.VerifyMessage(), "Record Created Successfully","Record Creation Assertion failed");
 	}   
 
-	@Test(groups = { "Maker" },priority=13,dependsOnMethods="AddRejectRecord",description="To Verify Send Record for Approval")
+	@Test(groups = { "Maker" },priority=5,dependsOnMethods="AddRejectRecord",description="To Verify Send Record for Approval")
 	public void VerifySendForApprovalForAddNewUserOnBoardingRecord() throws Exception {
 		UserOnBoardingPage userOnBoardingPage = PageFactory.createPageInstance(driver, UserOnBoardingPage.class);
 		userOnBoardingPage.selectUserOnBoardingAuditTrailTab();
@@ -196,7 +122,7 @@ public class UserOnBoardingCreateTest {
 		Assert.assertTrue(userOnBoardingPage.verifyStatus("Approval Pending"),"approval status details failed");
 	}
 
-	@Test(groups = { "Checker" },priority=14,dependsOnMethods="VerifySendForApprovalForAddNewUserOnBoardingRecord",description="To Verify Checker Reject Functionality")
+	@Test(groups = { "Checker" },priority=6,dependsOnMethods="VerifySendForApprovalForAddNewUserOnBoardingRecord",description="To Verify Checker Reject Functionality")
 	public void RejectForAddNewUserOnBoardingRecord() throws Exception{
 		UserOnBoardingPage userOnBoardingPage = PageFactory.createPageInstance(driver, UserOnBoardingPage.class);
 		userOnBoardingPage.clickonReject("Reject Created");
@@ -204,7 +130,7 @@ public class UserOnBoardingCreateTest {
 		Assert.assertTrue(userOnBoardingPage.verifyReviewAuditTrail("Rejected","Reject Created"));
 	}
 
-	@Test(groups = { "Checker" },priority=15,dependsOnMethods = "RejectForAddNewUserOnBoardingRecord",description="To Verify Audit Trail Report for Reject")
+	@Test(groups = { "Checker" },priority=7,dependsOnMethods = "RejectForAddNewUserOnBoardingRecord",description="To Verify Audit Trail Report for Reject")
 	public void VerifyAuditTrailReportForReject() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -219,7 +145,7 @@ public class UserOnBoardingCreateTest {
 		Assert.assertTrue(ocmReportsPage.verifyUserOnBoardingCreate(userOnBoardingDetails, "CheckerReject"),"Audit Trail report assertion failed");
 	}
 
-	@Test(groups = { "Maker" },priority=16,description="To Verify Add Reord to Approve ")
+	@Test(groups = { "Maker" },priority=8,description="To Verify Add Reord to Approve ")
 	public void AddNewUserOnBoardingRecord() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -229,7 +155,7 @@ public class UserOnBoardingCreateTest {
 		Assert.assertEquals(userOnBoardingPage.VerifyMessage(), "Record Created Successfully","Record Creation Assertion failed");
 	}
 
-	@Test(groups = { "Maker" },priority=17,dependsOnMethods = "AddNewUserOnBoardingRecord",description="To Verify AuditTrail Report for Record Create")
+	@Test(groups = { "Maker" },priority=9,dependsOnMethods = "AddNewUserOnBoardingRecord",description="To Verify AuditTrail Report for Record Create")
 	public void VerifyAuditTrailReportForCreate() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -244,7 +170,7 @@ public class UserOnBoardingCreateTest {
 		Assert.assertTrue(ocmReportsPage.verifyUserOnBoardingCreate(userOnBoardingDetails, "MakerCreate"),"Audit Trail report assertion failed");
 	}
 
-	@Test(groups = { "Maker" },priority=18,dependsOnMethods="AddNewUserOnBoardingRecord",description="To Verify AuditTrail Data for AddNewUserOnBoardingRecord ")
+	@Test(groups = { "Maker" },priority=10,dependsOnMethods="AddNewUserOnBoardingRecord",description="To Verify AuditTrail Data for AddNewUserOnBoardingRecord ")
 	public void VerifyAuditTrailDataForAddNewUserOnBoardingRecord() throws IOException {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -254,7 +180,7 @@ public class UserOnBoardingCreateTest {
 		Assert.assertTrue(userOnBoardingPage.verifyAuditTrail(userOnBoardingDetails, "MakerCreate", "New"), "Audit trail details failed");
 	}
 
-	@Test(groups = { "Maker" },priority=19,description="To Verify SendForApproval for AddNewUserOnBoarding ")
+	@Test(groups = { "Maker" },priority=11,description="To Verify SendForApproval for AddNewUserOnBoarding ")
 	public void VerifySendForApprovalForAddNewUserOnBoarding() throws Exception {
 		UserOnBoardingPage userOnBoardingPage = PageFactory.createPageInstance(driver, UserOnBoardingPage.class);
 		userOnBoardingPage.selectUserOnBoardingAuditTrailTab();
@@ -262,8 +188,8 @@ public class UserOnBoardingCreateTest {
 		userOnBoardingPage.sendForAprroval("sent");
 		Assert.assertTrue(userOnBoardingPage.verifyStatus("Approval Pending"),"approval status details failed");
 	}
-
-	@Test(groups = { "Maker" },priority=20,dependsOnMethods = "VerifySendForApprovalForAddNewUserOnBoarding",description="VerifyAuditTrail Report for SendForApproval ")
+	
+	@Test(groups = { "Maker" },priority=12,dependsOnMethods = "VerifySendForApprovalForAddNewUserOnBoarding",description="VerifyAuditTrail Report for SendForApproval ")
 	public void VerifyAuditTrailReportForSendForApproval() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -278,7 +204,7 @@ public class UserOnBoardingCreateTest {
 		Assert.assertTrue(ocmReportsPage.verifyUserOnBoardingCreate(userOnBoardingDetails, "MakerSendToApproval"),"Audit Trail report assertion failed");
 	}
 
-	@Test(groups = { "Checker" },priority=21,dependsOnMethods="VerifySendForApprovalForAddNewUserOnBoarding",description="To Verify Checker ApproveforAddNewUserOnBoardingRecord")
+	@Test(groups = { "Checker" },priority=13,dependsOnMethods="VerifySendForApprovalForAddNewUserOnBoarding",description="To Verify Checker ApproveforAddNewUserOnBoardingRecord")
 	public void ApproveforAddNewUserOnBoardingRecord() throws Exception{
 		UserOnBoardingPage userOnBoardingPage = PageFactory.createPageInstance(driver, UserOnBoardingPage.class);
 		userOnBoardingPage.clickonApprove("Approve Create");
@@ -287,7 +213,7 @@ public class UserOnBoardingCreateTest {
 	}
 
 
-	@Test(groups = { "Checker" },priority=22,dependsOnMethods = "ApproveforAddNewUserOnBoardingRecord",description="To VerifyAuditTrailReportForApproved Record")
+	@Test(groups = { "Checker" },priority=14,dependsOnMethods = "ApproveforAddNewUserOnBoardingRecord",description="To VerifyAuditTrailReportForApproved Record")
 	public void VerifyAuditTrailReportForApprove() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -301,6 +227,8 @@ public class UserOnBoardingCreateTest {
 		ocmReportsPage.showReport(reportDetails);
 		Assert.assertTrue(ocmReportsPage.verifyUserOnBoardingCreate(userOnBoardingDetails, "CheckerApprove"),"Audit Trail report assertion failed");
 	}
+	
+	
 
 	@AfterMethod
 	public void afterEachMethod(Method method){

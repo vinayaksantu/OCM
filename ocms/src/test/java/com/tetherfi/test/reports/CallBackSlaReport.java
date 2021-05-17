@@ -3,7 +3,6 @@ package com.tetherfi.test.reports;
 import com.tetherfi.model.report.ReportDetails;
 import com.tetherfi.pages.HomePage;
 import com.tetherfi.pages.OCMReportsPage;
-import com.tetherfi.pages.OcmThresholdReportPage;
 import com.tetherfi.test.BaseTest;
 import com.tetherfi.utility.ExcelReader;
 import com.tetherfi.utility.PageFactory;
@@ -23,7 +22,7 @@ public class CallBackSlaReport extends BaseTest {
     @BeforeMethod
     public void NavigateToOcmReportsPage() {
         HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
-        homePage.navigateToOcmIconImg();
+        homePage.navigateToOCMIconImg();
         homePage.navigateToOCMReportsPage();
         OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
         Assert.assertTrue(ocmReportsPage.isOCMReportPageIsDisplayed());

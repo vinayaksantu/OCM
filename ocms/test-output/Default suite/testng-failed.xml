@@ -3,17 +3,13 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.tetherfi.test.RoleBasedAccessManagementUITest">
+      <class name="com.tetherfi.test.UserOnBoardingImportedUserEditandDeleteTest">
         <methods>
-          <include name="startTestCase"/>
-          <include name="openApplication"/>
-          <include name="NavigateToRoleBasedAccessManagementPage"/>
-          <include name="endTestCase"/>
-          <include name="tearDown"/>
-          <include name="VerifyRoleBasedAccessManagementAuditTrailDataPage"/>
           <include name="afterEachMethod"/>
+          <include name="NavigateToUserOnBoardingPage"/>
+          <include name="VerifyImportValidUserDetailsChannelCountandFeaturesFiletoREVERT"/>
         </methods>
-      </class> <!-- com.tetherfi.test.RoleBasedAccessManagementUITest -->
+      </class> <!-- com.tetherfi.test.UserOnBoardingImportedUserEditandDeleteTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

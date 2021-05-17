@@ -4,28 +4,96 @@
   <listeners>
     <listener class-name="com.tetherfi.ExtentReportListener.ExtentReporterNG"/>
   </listeners>
-  <test thread-count="5" name="Home(failed)">
+  <test thread-count="5" name="TMAC(failed)">
     <classes>
-      <class name="com.tetherfi.test.UserOnBoardingCreateTest">
+      <class name="com.tetherfi.test.tmac.TmacAuxCodesTest">
         <methods>
-          <include name="VerifyAuditTrailReportForRevert"/>
-          <include name="VerifyAuditTrailDataForAddNewUserOnBoardingRecord"/>
-          <include name="VerifyAddRevertRecord"/>
-          <include name="RejectForAddNewUserOnBoardingRecord"/>
-          <include name="VerifyAuditTrailReportForCreate"/>
-          <include name="NavigateToUserOnBoardingPage"/>
-          <include name="ApproveforAddNewUserOnBoardingRecord"/>
-          <include name="AddNewUserOnBoardingRecord"/>
-          <include name="VerifyAuditTrailReportForSendForApproval"/>
-          <include name="VerifySendForApprovalForAddNewUserOnBoardingRecord"/>
-          <include name="afterEachMethod"/>
-          <include name="AddRejectRecord"/>
-          <include name="VerifyRevertForAddNewRecord"/>
-          <include name="VerifySendForApprovalForAddNewUserOnBoarding"/>
-          <include name="VerifyAuditTrailReportForApprove"/>
-          <include name="VerifyAuditTrailReportForReject"/>
+          <include name="SearchDoesNotContains"/>
+          <include name="verifyAuditTrailReportForDelete"/>
+          <include name="AfterEachMethod"/>
+          <include name="AddNewTmacAuxCodesRecord"/>
+          <include name="endTestCase"/>
+          <include name="SearchEndsWith"/>
+          <include name="tearDown"/>
+          <include name="verifyAuditTrailReportForCreate"/>
+          <include name="NavigateToTmaxAuxCodesPage"/>
+          <include name="startTestCase"/>
+          <include name="openApplication"/>
+          <include name="DeleteTmacAuxCodesRecord"/>
+          <include name="AddRecordWithoutStatus"/>
+          <include name="verifyNumberOfItemsPerPageSelection"/>
         </methods>
-      </class> <!-- com.tetherfi.test.UserOnBoardingCreateTest -->
+      </class> <!-- com.tetherfi.test.tmac.TmacAuxCodesTest -->
+      <class name="com.tetherfi.test.tmac.AgentTeamMgmtTest">
+        <methods>
+          <include name="NavigateToAgentTeamManagementPage"/>
+          <include name="DeleteAgentTeamManagementCancelRecord"/>
+          <include name="ExportToExcelData"/>
+          <include name="VerifyNumberOfItemsPerPageSelection"/>
+          <include name="VerifyAuditTrialReportForUpdate"/>
+          <include name="endTestCase"/>
+          <include name="VerifyAuditTrialReportForDelete"/>
+          <include name="tearDown"/>
+          <include name="GroupBy"/>
+          <include name="AddRecordTeamNameBlank"/>
+          <include name="ExporttoExcelWithoutData"/>
+          <include name="DeleteAgentTeamManagementRecord"/>
+          <include name="AddNewAgentTeamManagementCancelRecord"/>
+          <include name="SearchClearSearch"/>
+          <include name="AddRecordDivisionBlank"/>
+          <include name="VerifyTotalNumberOfItemsPerPageDetails"/>
+          <include name="startTestCase"/>
+          <include name="openApplication"/>
+          <include name="afterEachMethod"/>
+          <include name="database"/>
+          <include name="searchPage"/>
+          <include name="EditAgentTeamManagementRecord"/>
+        </methods>
+      </class> <!-- com.tetherfi.test.tmac.AgentTeamMgmtTest -->
+      <class name="com.tetherfi.test.tmac.TmacBroadCastMsgTest">
+        <methods>
+          <include name="VerifyAuditTrialReportForCreate"/>
+          <include name="AddNewAgentTeamManagementRecord"/>
+          <include name="afterEachMethod"/>
+          <include name="ExportToExcel"/>
+          <include name="VerifyAuditTrailReportForUpdate"/>
+          <include name="VerifyTotalNumberOfItemsPerPageDetails"/>
+          <include name="searchPage"/>
+          <include name="VerifySearchDoesNotContains"/>
+          <include name="VerifyColumnsHeaderDisable"/>
+          <include name="ExporttoExcelWithoutData"/>
+          <include name="VerifyArrowMoveForPreviousAndNextPage"/>
+          <include name="startTestCase"/>
+          <include name="openApplication"/>
+          <include name="GroupBy"/>
+          <include name="VerifyNumberOfItemsPerPageSelection"/>
+          <include name="VerifySearchIsNotEqualTo"/>
+          <include name="VerifyDropdownForAllTheColumns"/>
+          <include name="VerifySearchStartsWith"/>
+          <include name="ExportToExcelData"/>
+          <include name="AddNewTmacBroadCastMsgCancel"/>
+          <include name="VerifySearchContains"/>
+          <include name="VerifyArrowMoveForFirstAndLastPage"/>
+          <include name="database"/>
+          <include name="AddNewTmacBroadCastMsg"/>
+          <include name="endTestCase"/>
+          <include name="tearDown"/>
+          <include name="SortingByAscending"/>
+          <include name="AddRecordWithoutMesage"/>
+          <include name="SortingByDescending"/>
+          <include name="NavigateToTmacBroadcastMsgPage"/>
+          <include name="AddRecordwithoutStatus"/>
+          <include name="SearchClearSearch"/>
+          <include name="VerifyColumnsHeaderEnable"/>
+          <include name="VerifySearchEndsWith"/>
+          <include name="AddRecordWithoutTeamName"/>
+          <include name="TmacBroadCastMsgPage"/>
+          <include name="EditTmacBroadCastMsg"/>
+          <include name="AddDuplicateRecord"/>
+          <include name="EditTmacBroadCastMsgCancel"/>
+          <include name="Afterclass"/>
+        </methods>
+      </class> <!-- com.tetherfi.test.tmac.TmacBroadCastMsgTest -->
     </classes>
-  </test> <!-- Home(failed) -->
+  </test> <!-- TMAC(failed) -->
 </suite> <!-- Failed suite [Tetherfi Test Automation] -->

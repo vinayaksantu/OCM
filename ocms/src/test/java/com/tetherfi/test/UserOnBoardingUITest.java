@@ -284,6 +284,82 @@ Screenshot screenshot=new Screenshot(driver);
 
 	}
 	
+	@Test(groups= {"Maker"},priority=28,description="To Verify Add Record Cancel Button ")
+	public void VerifyAddCancelButton() throws Exception {
+		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
+		Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
+		UserOnBoardingDetails userOnBoardingDetails = new UserOnBoardingDetails(map);
+		UserOnBoardingPage userOnBoardingPage = PageFactory.createPageInstance(driver, UserOnBoardingPage.class);
+		Assert.assertTrue(userOnBoardingPage.addCancelButton(userOnBoardingDetails), "Add cancel button assertion failed");
+	}
+
+	@Test(groups= {"Maker"},priority=29,description="To Verify the Step Icons and Add Record with all the Fields Blank  ")
+	public void VerifyStepIconPresenceandAddRecordWithAlltheFiledsBlank() throws Exception {
+		UserOnBoardingPage userOnBoardingPage = PageFactory.createPageInstance(driver, UserOnBoardingPage.class);
+		Assert.assertTrue(userOnBoardingPage.VerifyAddNewUserOnBoardingStepIconsandCreateRecordWithAlltheFieldsBlank(), "Add cancel button assertion failed");
+		Assert.assertEquals(userOnBoardingPage.VerifyMessage(),"Please Provide First Name, Last Name, Lan ID, Avaya Login ID, Org. Unit, Profile, Supervisor", "Add cancel button assertion failed");
+	}
+
+	@Test(groups= {"Maker"},priority=30,description="To Verify Add Record without FirstName ")
+	public void VerifyAddRecordWithoutFirstName() throws Exception {
+		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
+		Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
+		UserOnBoardingDetails userOnBoardingDetails = new UserOnBoardingDetails(map);
+		UserOnBoardingPage userOnBoardingPage = PageFactory.createPageInstance(driver, UserOnBoardingPage.class);
+		userOnBoardingPage.addNewUserOnBoardingRecordWithoutFirstName(userOnBoardingDetails);
+		Assert.assertEquals(userOnBoardingPage.VerifyMessage(), "Please Provide First Name","Record Creation Assertion failed");
+	}
+
+	@Test(groups= {"Maker"},priority=31,description="To Verify Add Record without Last Name ")
+	public void VerifyAddRecordWithoutLastName() throws Exception {
+		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
+		Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
+		UserOnBoardingDetails userOnBoardingDetails = new UserOnBoardingDetails(map);
+		UserOnBoardingPage userOnBoardingPage = PageFactory.createPageInstance(driver, UserOnBoardingPage.class);
+		userOnBoardingPage.addNewUserOnBoardingRecordWithoutLastName(userOnBoardingDetails);
+		Assert.assertEquals(userOnBoardingPage.VerifyMessage(), "Please Provide Last Name","Record Creation Assertion failed");
+	}
+
+	@Test(groups= {"Maker"},priority=32,description="To Verify Add Record without Lan ID ")
+	public void VerifyAddRecordWithoutLanID() throws Exception {
+		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
+		Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
+		UserOnBoardingDetails userOnBoardingDetails = new UserOnBoardingDetails(map);
+		UserOnBoardingPage userOnBoardingPage = PageFactory.createPageInstance(driver, UserOnBoardingPage.class);
+		userOnBoardingPage.addNewUserOnBoardingRecordWithoutLanID(userOnBoardingDetails);
+		Assert.assertEquals(userOnBoardingPage.VerifyMessage(), "Please Provide Lan ID","Record Creation Assertion failed");
+	}
+
+	@Test(groups= {"Maker"},priority=33,description="To Verify Add Record without Avaya Login ID ")
+	public void VerifyAddRecordWithoutAvayaLoginID() throws Exception {
+		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
+		Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
+		UserOnBoardingDetails userOnBoardingDetails = new UserOnBoardingDetails(map);
+		UserOnBoardingPage userOnBoardingPage = PageFactory.createPageInstance(driver, UserOnBoardingPage.class);
+		userOnBoardingPage.addNewUserOnBoardingRecordWithoutAvayaLoginID(userOnBoardingDetails);
+		Assert.assertEquals(userOnBoardingPage.VerifyMessage(), "Please Provide Avaya Login ID","Record Creation Assertion failed");
+	}
+
+	@Test(groups= {"Maker"},priority=34,description="To Verify Add Record without Org.Unit ")
+	public void VerifyAddRecordWithoutOrgUnit() throws Exception {
+		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
+		Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
+		UserOnBoardingDetails userOnBoardingDetails = new UserOnBoardingDetails(map);
+		UserOnBoardingPage userOnBoardingPage = PageFactory.createPageInstance(driver, UserOnBoardingPage.class);
+		userOnBoardingPage.addNewUserOnBoardingRecordWithoutOrgUnit(userOnBoardingDetails);
+		Assert.assertEquals(userOnBoardingPage.VerifyMessage(), "Please Provide Org. Unit","Record Creation Assertion failed");
+	}
+
+	@Test(groups= {"Maker"},priority=35,description="To Verify Add Record without Profile ")
+	public void VerifyAddRecordWithoutProfile() throws Exception {
+		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
+		Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
+		UserOnBoardingDetails userOnBoardingDetails = new UserOnBoardingDetails(map);
+		UserOnBoardingPage userOnBoardingPage = PageFactory.createPageInstance(driver, UserOnBoardingPage.class);
+		userOnBoardingPage.addNewUserOnBoardingRecordWithoutProfile(userOnBoardingDetails);
+		Assert.assertEquals(userOnBoardingPage.VerifyMessage(), "Please Provide Profile, Supervisor","Record Creation Assertion failed");
+	}
+	
 	
 	
 	@AfterMethod

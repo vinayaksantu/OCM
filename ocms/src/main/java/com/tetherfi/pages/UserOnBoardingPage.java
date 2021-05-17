@@ -1,29 +1,15 @@
 package com.tetherfi.pages;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.commons.csv.CSVFormat;
-import org.apache.commons.csv.CSVParser;
-import org.apache.commons.csv.CSVRecord;
-import org.apache.poi.ss.usermodel.CellType;
-import org.apache.poi.ss.usermodel.DateUtil;
-import org.apache.poi.xssf.usermodel.XSSFCell;
-import org.apache.poi.xssf.usermodel.XSSFRow;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -31,13 +17,8 @@ import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
-import com.tetherfi.model.tmac.AgentSettingsDetails;
-import com.tetherfi.model.user.AgentSkillAssignmentNewDetails;
 import com.tetherfi.model.user.UserOnBoardingDetails;
-import com.tetherfi.model.user.UserRoleMappingDetails;
-import com.tetherfi.utility.ExcelReader;
 import com.tetherfi.utility.FileUploader;
-import com.tetherfi.utility.Util;
 
 public class UserOnBoardingPage extends BasePage {
 
@@ -1072,17 +1053,17 @@ public class UserOnBoardingPage extends BasePage {
 		}
 		return arr;
 	}
-	public boolean verifySearchIsNotEqualTo(String firstname) throws Exception {
+	public boolean verifySearchIsNotEqualTo(String avayaLoginID) throws Exception {
 		Boolean Status=false;
 		Map<String, String> map=new HashMap<String,String>() ;
-		map.put("First Name", firstname);
+		map.put("Avaya Login ID", avayaLoginID);
 		selectWebElement(searchLink);
 		selectWebElement(selectSearchCol.get(0));
-		selectDropdownFromVisibleText(columnNameList,"First Name");
+		selectDropdownFromVisibleText(columnNameList,"Avaya Login ID");
 		Thread.sleep(2000);
 		selectWebElement(selectSearchCol.get(1));
 		selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is not equal to");
-		enterValueToTxtField(searchTextBox,firstname);		
+		enterValueToTxtField(searchTextBox,avayaLoginID);		
 		selectWebElement(searchSearchBtn);
 		waitForJqueryLoad(driver);
 		waitUntilWebElementIsVisible(gridContent);
@@ -1098,44 +1079,44 @@ public class UserOnBoardingPage extends BasePage {
 
 	}
 
-	public boolean verifySearchContains(String firstname) throws Exception {
+	public boolean verifySearchContains(String avayaLoginID) throws Exception {
 		Boolean Status=false;
 		selectWebElement(searchLink);
 		selectWebElement(selectSearchCol.get(0));
-		selectDropdownFromVisibleText(columnNameList,"First Name");
+		selectDropdownFromVisibleText(columnNameList,"Avaya Login ID");
 		Thread.sleep(2000);
 		selectWebElement(selectSearchCol.get(1));
 		selectDropdownFromVisibleText(searchCriteriaDropDwn,"Contains");
-		enterValueToTxtField(searchTextBox,firstname);		
+		enterValueToTxtField(searchTextBox,avayaLoginID);		
 		selectWebElement(searchSearchBtn);
 		waitForJqueryLoad(driver);
 		waitUntilWebElementIsVisible(gridContent);
 		List<Map<String,String>> UI=gettable1(); 
 		for (Map<String,String> map1: UI)
 		{   	
-			if(map1.get("First Name").toUpperCase().contains(firstname.toUpperCase()))
+			if(map1.get("Avaya Login ID").toUpperCase().contains(avayaLoginID.toUpperCase()))
 				Status= true;
 			else 
 				Status= false;
 		}
 		return Status;
 	}
-	public boolean verifySearchDoesNotContains(String firstname) throws Exception {
+	public boolean verifySearchDoesNotContains(String avayaLoginID) throws Exception {
 		Boolean Status=false;
 		selectWebElement(searchLink);
 		selectWebElement(selectSearchCol.get(0));
-		selectDropdownFromVisibleText(columnNameList,"First Name");
+		selectDropdownFromVisibleText(columnNameList,"Avaya Login ID");
 		Thread.sleep(2000);
 		selectWebElement(selectSearchCol.get(1));
 		selectDropdownFromVisibleText(searchCriteriaDropDwn,"Does not contain");
-		enterValueToTxtField(searchTextBox,firstname);		
+		enterValueToTxtField(searchTextBox,avayaLoginID);		
 		selectWebElement(searchSearchBtn);
 		waitForJqueryLoad(driver);
 		waitUntilWebElementIsVisible(gridContent);
 		List<Map<String,String>> UI=gettable1(); 
 		for (Map<String,String> map1: UI)
 		{   	
-			if(!map1.get("First Name").toLowerCase().contains(firstname.toLowerCase()))
+			if(!map1.get("Avaya Login ID").toLowerCase().contains(avayaLoginID.toLowerCase()))
 				Status= true;
 			else 
 				Status= false;
@@ -1143,22 +1124,22 @@ public class UserOnBoardingPage extends BasePage {
 		return Status;
 	}
 
-	public boolean verifySearchStartsWith(String firstname) throws Exception {
+	public boolean verifySearchStartsWith(String avayaLoginID) throws Exception {
 		Boolean Status=false;
 		selectWebElement(searchLink);
 		selectWebElement(selectSearchCol.get(0));
-		selectDropdownFromVisibleText(columnNameList,"First Name");
+		selectDropdownFromVisibleText(columnNameList,"Avaya Login ID");
 		Thread.sleep(2000);
 		selectWebElement(selectSearchCol.get(1));
 		selectDropdownFromVisibleText(searchCriteriaDropDwn,"Starts with");
-		enterValueToTxtField(searchTextBox,firstname);		
+		enterValueToTxtField(searchTextBox,avayaLoginID);		
 		selectWebElement(searchSearchBtn);
 		waitForJqueryLoad(driver);
 		waitUntilWebElementIsVisible(gridContent);
 		List<Map<String,String>> UI=gettable1(); 
 		for (Map<String,String> map1: UI)
 		{   	
-			if(map1.get("First Name").toLowerCase().startsWith(firstname.toLowerCase()))
+			if(map1.get("Avaya Login ID").toLowerCase().startsWith(avayaLoginID.toLowerCase()))
 				Status= true;
 			else 
 				Status= false;
@@ -1173,22 +1154,22 @@ public class UserOnBoardingPage extends BasePage {
 		else{return errorMsg.get(0).getText();}
 	}
 
-	public boolean verifySearchEndsWith(String firstname) throws Exception {
+	public boolean verifySearchEndsWith(String avayaLoginID) throws Exception {
 		Boolean Status=false;
 		selectWebElement(searchLink);
 		selectWebElement(selectSearchCol.get(0));
-		selectDropdownFromVisibleText(columnNameList,"First Name");
+		selectDropdownFromVisibleText(columnNameList,"Avaya Login ID");
 		Thread.sleep(2000);
 		selectWebElement(selectSearchCol.get(1));
 		selectDropdownFromVisibleText(searchCriteriaDropDwn,"Ends with");
-		enterValueToTxtField(searchTextBox,firstname);		
+		enterValueToTxtField(searchTextBox,avayaLoginID);		
 		selectWebElement(searchSearchBtn);
 		waitForJqueryLoad(driver);
 		waitUntilWebElementIsVisible(gridContent);
 		List<Map<String,String>> UI=gettable1(); 
 		for (Map<String,String> map1: UI)
 		{   	
-			if(map1.get("First Name").toUpperCase().endsWith(firstname.toUpperCase()))
+			if(map1.get("Avaya Login ID").toUpperCase().endsWith(avayaLoginID.toUpperCase()))
 				Status= true;
 			else 
 				Status= false;
@@ -1889,11 +1870,12 @@ public class UserOnBoardingPage extends BasePage {
 		selectWebElement(makeUserOnBoardingChanges);
 		Thread.sleep(2000);
 		selectWebElement(ImportUserProfilePictureButton);
-		waitForJqueryLoad(driver);
+		Thread.sleep(2000);
 		boolean status=false;
 		if(ImportProfilePicturesPopUpHeader.isDisplayed()) {
 			if(UserAttributetoMatchPicturesdropdownLabel.isDisplayed()) {
 				selectWebElement(UserAttributetoMatchPicturesdropdownbutton);
+				waitForJqueryLoad(driver);
 				if(LanIDAttribute.isEnabled()) {
 					if(AvayaLoginTDAttribute.isEnabled()) {
 						if(selectfile.isEnabled()) {
@@ -1954,7 +1936,7 @@ public class UserOnBoardingPage extends BasePage {
 		clickOnUsingActionClass(selectfile);
 		//Auto It script to load zip file
 		FileUploader upload= new FileUploader();
-		upload.uploadFile(System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\"+details.getfilename());
+		upload.uploadFile(System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsersProfilePic\\"+details.getfilename());
 		selectWebElement(uploadBtn);
 	}
 
@@ -1970,7 +1952,7 @@ public class UserOnBoardingPage extends BasePage {
 		clickOnUsingActionClass(selectfile);
 		//Auto It script to load zip file
 		FileUploader upload= new FileUploader();
-		upload.uploadFile(System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\"+details.getfilename());
+		upload.uploadFile(System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsersProfilePic\\"+details.getfilename());
 		if(filetypeerrorMsg.getText().equals("File type not allowed."))
 			return true;
 		else 
@@ -1989,7 +1971,7 @@ public class UserOnBoardingPage extends BasePage {
 		clickOnUsingActionClass(selectfile);
 		//Auto It script to load zip file
 		FileUploader upload= new FileUploader();
-		upload.uploadFile(System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\"+details.getfilename());
+		upload.uploadFile(System.getProperty("user.dir") +"\\src\\test\\resources\\FileUpload\\ImportUsersProfilePic\\"+details.getfilename());
 		selectWebElement(uploadBtn);
 	}
 
@@ -2685,6 +2667,38 @@ public class UserOnBoardingPage extends BasePage {
 		selectWebElement(saveButton);}catch (Exception e){e.printStackTrace();}
 	}
 	
+	public boolean verifyExportToExcelForImportedRecord(UserOnBoardingDetails details,String filePath) throws Exception {
+		searchUserOnBoardingRecord(details.getLanID());
+		final File folder = new File(filePath);
+		for (final File f : folder.listFiles()) {
+			if (f.getName().startsWith("User Onboarding")) {
+				f.delete();
+			}
+		}
+		selectWebElement(exporttoexcel);
+		waitForJqueryLoad(driver);
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		Boolean Status=verifyExportPageFileDownload(filePath, "User Onboarding");
+		return Status;
+	}
+	
+	public boolean verifyexportToExcelSheetforImportedRecord(UserOnBoardingDetails details,List<Map<String, String>> maplist) throws Exception {
+		waitForJqueryLoad(driver);
+		searchUserOnBoardingRecord(details.getLanID());
+		List<Map<String,String>> UI=getdata();
+		waitForJqueryLoad(driver);
+		System.out.println("This is UI"+UI);
+		System.out.println(maplist);
+		System.out.println(UI);
+		if(UI.equals(maplist))
+			return true;
+		else
+			return false;
+	}
 
 
 

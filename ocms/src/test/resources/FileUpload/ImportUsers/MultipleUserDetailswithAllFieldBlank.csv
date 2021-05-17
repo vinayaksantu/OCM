@@ -1,0 +1,4 @@
+LanID,FirstName,LastName,AvayaLoginID,OrgUnit,Profile,SupervisorLanID,AccessRole,CRMName,TextChatGreetingTemplateName,Role
+cooper,Jamison,ABD,19808,ProductQA,Supervisor,Aravinda,AgentCherry,4,SGTeam,OCM Checker
+,,,,,,,,,,
+cooper1,Jamison1,ABD1,19809,ProductQA,Supervisor,Aravinda,AgentCherry,4,SGTeam,OCM Checker

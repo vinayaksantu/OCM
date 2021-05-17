@@ -191,7 +191,7 @@ public class AgentTeamMgmtTest extends BaseTest {
     @Test(priority=16)
     public void VerifySearchContains() throws Exception{
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentTeamManagementData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath,"Invalid").getTestData().get(1);
+        Map<String, String> map = new ExcelReader(filePath,"Invalid").getTestData().get(0);
         AgentTeamMgmtDetails agentTeamMgmtDetails=new AgentTeamMgmtDetails(map);
         AgentTeamManagementPage agentTeamManagementPage=PageFactory.createPageInstance(driver,AgentTeamManagementPage.class);
         Assert.assertTrue(agentTeamManagementPage.verifySearchContains(agentTeamMgmtDetails.getCountry()));
@@ -200,7 +200,7 @@ public class AgentTeamMgmtTest extends BaseTest {
     @Test(priority=17)
     public void VerifySearchDoesNotContains() throws Exception{
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentTeamManagementData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath,"Invalid").getTestData().get(1);
+        Map<String, String> map = new ExcelReader(filePath,"Invalid").getTestData().get(0);
         AgentTeamMgmtDetails agentTeamMgmtDetails=new AgentTeamMgmtDetails(map);
         AgentTeamManagementPage agentTeamManagementPage=PageFactory.createPageInstance(driver,AgentTeamManagementPage.class);
         Assert.assertTrue(agentTeamManagementPage.verifySearchDoesNotContains(agentTeamMgmtDetails.getCountry()));
@@ -209,7 +209,7 @@ public class AgentTeamMgmtTest extends BaseTest {
     @Test(priority=18)
     public void VerifySearchStartsWith() throws Exception{
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentTeamManagementData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath,"Invalid").getTestData().get(2);
+        Map<String, String> map = new ExcelReader(filePath,"Invalid").getTestData().get(1);
         AgentTeamMgmtDetails agentTeamMgmtDetails=new AgentTeamMgmtDetails(map);
         AgentTeamManagementPage agentTeamManagementPage=PageFactory.createPageInstance(driver,AgentTeamManagementPage.class);
         Assert.assertTrue(agentTeamManagementPage.verifySearchStartsWith(agentTeamMgmtDetails.getCountry()));
@@ -218,7 +218,7 @@ public class AgentTeamMgmtTest extends BaseTest {
     @Test(priority=19)
     public void VerifySearchEndsWith() throws Exception{
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentTeamManagementData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath,"Invalid").getTestData().get(3);
+        Map<String, String> map = new ExcelReader(filePath,"Invalid").getTestData().get(2);
         AgentTeamMgmtDetails agentTeamMgmtDetails=new AgentTeamMgmtDetails(map);
         AgentTeamManagementPage agentTeamManagementPage=PageFactory.createPageInstance(driver,AgentTeamManagementPage.class);
         Assert.assertTrue(agentTeamManagementPage.verifySearchEndsWith(agentTeamMgmtDetails.getCountry()));

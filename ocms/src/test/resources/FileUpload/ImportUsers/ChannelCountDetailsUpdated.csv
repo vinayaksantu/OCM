@@ -1,0 +1,9 @@
+Channel,BaseInteraction,Enable,Count
+voice,VoiceInteraction,TRUE,2
+textchat,TextChatInteraction,TRUE,3
+audiochat,TextChatInteraction,FALSE,0
+videochat,TextChatInteraction,FALSE,0
+fax,FaxInteraction,FALSE,0
+email,EmailInteraction,FALSE,0
+sms,SMSInteraction,FALSE,0
+emailchannel,EmailChannelInteraction,FALSE,0

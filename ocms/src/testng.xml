@@ -16,15 +16,21 @@
 		/> </listeners> -->
 
 
-	<test name="Home" parallel="false">
+	<test name="TMAC" parallel="false">
 		<classes>
+		<class name="com.tetherfi.test.tmac.AgentTeamMgmtTest" />	
+		<class name="com.tetherfi.test.tmac.TmacAuxCodesTest" />			
+		<class name="com.tetherfi.test.tmac.TmacBroadCastMsgTest" />
+					
+		
+		
 <!-- 					<class name="com.tetherfi.test.ExportSchedulerTest" />
 		
- 		<class name="com.tetherfi.test.UserOnBoardingUITest" /> -->
+ 		<class name="com.tetherfi.test.UserOnBoardingUITest" /> 
  			<class name="com.tetherfi.test.UserOnBoardingCreateTest" />
-<!--			<class name="com.tetherfi.test.UserOnBoardingUpdateTest" />
+			<class name="com.tetherfi.test.UserOnBoardingUpdateTest" />
 			<class name="com.tetherfi.test.UserOnBoardingDeleteTest" />
-		<class name="com.tetherfi.test.tmac.AgentTeamMgmtTest" />		
+			<class name="com.tetherfi.test.UserOnBoardingImportedUserEditandDeleteTest" />
 			<class name="com.tetherfi.test.UserRoleMappingUITest" />
 			<class name="com.tetherfi.test.UserRoleMappingCreateTest" />
 			<class name="com.tetherfi.test.UserRoleMappingUpdateTest" />
@@ -118,8 +124,6 @@
 			<class name="com.tetherfi.test.ivr.IntroMessageAnnouncementUpdateTest" />
 			<class name="com.tetherfi.test.ivr.IvrConfigTest" />
 			<class name="com.tetherfi.test.ivr.OperatingHoursTest" />
-			<class name="com.tetherfi.test.tmac.TmacBroadCastMsgTest" />
-			<class name="com.tetherfi.test.tmac.TmacAuxCodesTest" />
 			<class name="com.tetherfi.test.ivr.VIPListManagementTest" />
 			<class name="com.tetherfi.test.ivr.VBEnrollmentFlagTest" />
 			<class name="com.tetherfi.test.ivr.MenuDescriptionMappingTest" />

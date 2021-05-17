@@ -1,0 +1,3 @@
+LanID,FirstName,LastName,AvayaLoginID,OrgUnit,Profile,SupervisorLanID,AccessRole,CRMName,TextChatGreetingTemplateName,Role
+Suhas,Lina,JBL,987220,ProductQA,Supervisor,Aravinda,AgentCherry,4,SGTeam,OCM Checker
+MoJ,Harsh,JBL,987221,ProductQA,Supervisor,Aravinda,AgentCherry,4,SGTeam,OCM Checker

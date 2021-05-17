@@ -21,7 +21,7 @@ public class AnalysisCountReportTest extends BaseTest {
     @BeforeMethod
     public void NavigateToOcmReportsPage() {
         HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
-        homePage.navigateToOcmIconImg();
+        homePage.navigateToOCMIconImg();
         homePage.navigateToOCMReportsPage();
         OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
         Assert.assertTrue(ocmReportsPage.isOCMReportPageIsDisplayed());
@@ -85,7 +85,7 @@ public class AnalysisCountReportTest extends BaseTest {
         ReportDetails reportDetails= new ReportDetails(map);
 
         OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
-        ocmReportsPage.viewDownloadedReportInReportsDownloadsPage();
+        ocmReportsPage.viewDownloadedReportInReportDownloadsPage();
         Assert.assertTrue(ocmReportsPage.verifyDownloadedReportNameAndTimeInReportsDownloadPage(reportDetails.getReportName()),"Report not found in Reporter download page");
     }
     @Test
@@ -137,7 +137,7 @@ public class AnalysisCountReportTest extends BaseTest {
         ReportDetails reportDetails= new ReportDetails(map);
 
         OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
-        ocmReportsPage.viewDownloadedReportInReportsDownloadsPage();
+        ocmReportsPage.viewDownloadedReportInReportDownloadsPage();
         Assert.assertTrue(ocmReportsPage.verifyDownloadedReportNameAndTimeInReportsDownloadPage(reportDetails.getReportName()),"Report not found in Reporter download page");
     }
     @Test(dependsOnMethods ="ShowAnalysisCountReportForDateRange")

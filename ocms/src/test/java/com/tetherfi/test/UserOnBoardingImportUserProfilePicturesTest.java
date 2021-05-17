@@ -43,7 +43,7 @@ public class UserOnBoardingImportUserProfilePicturesTest {
 			map= new ExcelReader(filePath,"Login").getTestData().get(1);
 		else
 			map= new ExcelReader(filePath,"Login").getTestData().get(0);
-		try{driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);}catch (TimeoutException e){e.printStackTrace();driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);}
+		try{driver.get("https://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);}catch (TimeoutException e){e.printStackTrace();driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);}
 		if(map.get("LoginType").equals("Custom")){
 			LoginPage loginPage=PageFactory.createPageInstance(driver,LoginPage.class);
 			Assert.assertTrue(loginPage.isLoginPageDisplayed(),"Login page not loaded");
@@ -113,7 +113,7 @@ public class UserOnBoardingImportUserProfilePicturesTest {
 		Assert.assertTrue(userOnBoardingPage.VerifyUploadInvalidFormatProfilePicFileWithLanIdAttribute(userOnBoardingDetails), "Verify Upload InValid Format ProfilePic File with LanID Attribute Assertion Failed");
 	}
 	
-	@Test(groups= {"Maker"},priority=7,description="Verify Upload When ImportProfilePics Inside the Folder with ZipFormat")/*Bug: File Imported Successfully with Folder Inside Zip File PRDOCM-68616*/
+	//@Test(groups= {"Maker"},priority=7,description="Verify Upload When ImportProfilePics Inside the Folder with ZipFormat")/*Bug: File Imported Successfully with Folder Inside Zip File PRDOCM-68616*/
 	public void VerifyUploadWhenImportProfilePicsInsidetheFolderwithZipFormat() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath, "ImportProfilePic").getTestData().get(3);

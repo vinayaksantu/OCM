@@ -45,7 +45,7 @@ public class UserOnBoardingUpdateTest {
 			map= new ExcelReader(filePath,"Login").getTestData().get(1);
 		else
 			map= new ExcelReader(filePath,"Login").getTestData().get(0);
-		try{driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);}catch (TimeoutException e){e.printStackTrace();driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);}
+		try{driver.get("https://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);}catch (TimeoutException e){e.printStackTrace();driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);}
 		if(map.get("LoginType").equals("Custom")){
 			LoginPage loginPage=PageFactory.createPageInstance(driver,LoginPage.class);
 			Assert.assertTrue(loginPage.isLoginPageDisplayed(),"Login page not loaded");
