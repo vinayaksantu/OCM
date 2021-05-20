@@ -1,13 +1,10 @@
-
 package com.tetherfi.pages;
-
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -20,8 +17,7 @@ import com.tetherfi.model.report.ReportDetails;
 public class OCMIvrCallTraceReportPage extends BasePage  {
 
 	public OCMIvrCallTraceReportPage(WebDriver driver) {
-		super(driver);
-	}
+		super(driver);}
 
 	@FindBy(xpath="//i[@class='fas fa-file-export']")
 	private WebElement VEFImg;
@@ -61,7 +57,7 @@ public class OCMIvrCallTraceReportPage extends BasePage  {
 
 	@FindBy(css="a[aria-label='Go to the next page']")
 	private WebElement nextPageIcon;
-	
+
 	@FindBy(xpath="//table/tbody/tr")
 	private List<WebElement> MainReportRows;
 
@@ -127,12 +123,12 @@ public class OCMIvrCallTraceReportPage extends BasePage  {
 
 	@FindBy(xpath="//span[@class='k-pager-info k-label']")
 	private WebElement items;
-	
+
 	@FindBy(css=".k-pager-sizes .k-input")
 	private WebElement pagerSize;
-	
+
 	@FindBy(css=".k-pager-info")
-    private WebElement pagerInfo;
+	private WebElement pagerInfo;
 
 	@FindBy(xpath="//button[@class='k-button k-button-icontext k-grid-excel']")		
 	private WebElement exporttoexcel;
@@ -271,16 +267,16 @@ public class OCMIvrCallTraceReportPage extends BasePage  {
 
 	@FindBy(id="MenuTraversalGrid")
 	private WebElement DrillGridOneTable;
-	
+
 	@FindBy(id="panel-1")
 	private WebElement MenuTraversalPanel;
-	
+
 	@FindBy(id="MenuTraversalGrid")
 	private WebElement MenuTraversalTable;
-	
+
 	@FindBy(xpath="//*[@id=\"popupcallflow\"]/div/div/div[1]/button/span[1]")
 	private WebElement CloseDrillGridOne;
-	
+
 	@FindBy(xpath="//div[@id='gridDrillOne']//span[@class='k-icon k-i-arrow-60-right']")
 	private WebElement nextPageIconDrillOne;
 
@@ -644,7 +640,7 @@ public class OCMIvrCallTraceReportPage extends BasePage  {
 			for(int i=1;i<rows.size();i++) {
 				Map<String,String> map = new HashMap<String,String>();
 				List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
-				for(int j=1;j<headers.size();j++) {
+				for(int j=0;j<headers.size();j++) {
 					scrollToElement(headers.get(j));
 					System.out.println(headers.get(j).getText());
 
@@ -659,29 +655,35 @@ public class OCMIvrCallTraceReportPage extends BasePage  {
 		return arr;
 	}
 
-	public boolean verifyArrowMoveForPreviousAndNextPage(){
+	public boolean verifyArrowMoveForPreviousAndNextPage() throws Exception{
 		boolean status=false;
 		if(!nextPageIcon.getAttribute("class").contains("k-state-disabled")){
+			Thread.sleep(5000);
 			int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 			selectWebElement(nextPageIcon);
+			Thread.sleep(5000);
 			int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 			selectWebElement(previousPageIcon);
+			Thread.sleep(5000);
 			int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
-			if(nextnumber==(pagenumber+1) && pagenumber==previousnumber){status=true;}
+			if(nextnumber==(pagenumber+1) && pagenumber==previousnumber)
+			{status=true;}
 		}else{
 			System.out.println("previous and next page icon disabled");status=true;
 		}
 		return status;
 	}
 
-
-	public boolean verifyArrowMoveForFirstAndLastPage(){
+	public boolean verifyArrowMoveForFirstAndLastPage() throws Exception{
 		boolean status=false;
 		if(!lastPageIcon.getAttribute("class").contains("k-state-disabled")){
+			Thread.sleep(5000);
 			int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 			selectWebElement(lastPageIcon);
+			Thread.sleep(5000);
 			int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 			selectWebElement(firstPageIcon);
+			Thread.sleep(5000);
 			int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 			if(nextnumber>pagenumber && pagenumber==previousnumber){status=true;}
 		}else{
@@ -689,6 +691,7 @@ public class OCMIvrCallTraceReportPage extends BasePage  {
 		}
 		return status;
 	}
+
 
 	public boolean verifyTotalNumberOfItemsPerPageDetails(){
 		String item = items.getText();
@@ -726,13 +729,14 @@ public class OCMIvrCallTraceReportPage extends BasePage  {
 		selectWebElement(exporttoexcel);
 		waitForJqueryLoad(driver);
 		try {
-			Thread.sleep(2000);
+			Thread.sleep(5000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
 		Boolean Status=verifyExportPageFileDownload(filePath, "OCMIvrCallTraceReport");
 		return Status;
 	}
+
 	public boolean verifyExportPageFileDownloaded(String reportname){
 		return verifyExportPageFileDownload(System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles",reportname);
 	}
@@ -787,8 +791,7 @@ public class OCMIvrCallTraceReportPage extends BasePage  {
 
 	public boolean verifySearchIsEqualTo(String details) throws Exception {
 		Boolean Status=false;
-		Map<String, String> map=new HashMap<String,String>() ;
-		//map.put("Agent Name", details);
+		Map<String, String> map=new HashMap<String,String>();
 		selectWebElement(searchBtn);	
 		selectWebElement(searchColDropdown);  
 		selectDropdownFromVisibleText(searchColListBox,"Caller ID");  
@@ -799,10 +802,12 @@ public class OCMIvrCallTraceReportPage extends BasePage  {
 		enterValueToTxtField(searchTextBox,details);
 		selectWebElement(searchSearchBtn);
 		waitForJqueryLoad(driver);
-		//waitUntilWebElementIsVisible(gridContent);
 		List<Map<String,String>> UI=getDataTable(); 
 		for (Map<String,String> map1: UI)
-		{   	
+
+		{   
+			System.out.println("Parameter used for search is"+":"+details);
+			System.out.println("Values returned after applying search on UI is"+":"+map1.get("Caller ID"));
 			if(map1.get("Caller ID").equals(details))
 				Status= true;
 			else 
@@ -810,6 +815,7 @@ public class OCMIvrCallTraceReportPage extends BasePage  {
 		}
 		return Status;	
 	}
+
 	public boolean verifySearchIsNotEqualTo(String details) throws Exception {
 		Boolean Status=false;
 		Map<String, String> map=new HashMap<String,String>() ;
@@ -824,10 +830,11 @@ public class OCMIvrCallTraceReportPage extends BasePage  {
 		enterValueToTxtField(searchTextBox,details);
 		selectWebElement(searchSearchBtn);
 		waitForJqueryLoad(driver);
-		//waitUntilWebElementIsVisible(gridContent);
 		List<Map<String,String>> UI=getDataTable(); 
 		for (Map<String,String> map1: UI)
 		{   	
+			System.out.println(map1);
+			System.out.println(map);
 			if(map1.equals(map))
 				Status= false;
 			else 
@@ -835,6 +842,7 @@ public class OCMIvrCallTraceReportPage extends BasePage  {
 		}
 		return Status;	
 	}
+
 	private List<Map<String, String>> getDataTable() {
 		int item=Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
 		int pagersize=Integer.valueOf(pagerSize.getText());
@@ -849,6 +857,7 @@ public class OCMIvrCallTraceReportPage extends BasePage  {
 				List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
 				String col=null;
 				for(int j=0;j<headers.size();j++){
+					scrollToElement(headers.get(j));
 					col=cols.get(j).getText();
 					map.put(headers.get(j).getText(),col);
 				}
@@ -867,11 +876,13 @@ public class OCMIvrCallTraceReportPage extends BasePage  {
 		boolean Status=false;		
 		selectWebElement(searchbyfeatureTextBox);    		
 		enterValueToTxtFieldWithoutClear(searchbyfeatureTextBox,details.getSearchStr());
+		Thread.sleep(5000);
 		selectDropdownFromVisibleText(searchbyfeaturelistBox,details.getSearchStr());	
 		waitForJqueryLoad(driver);
 		List<Map<String,String>> UI=getDataTable(); 
 		for (Map<String,String> map1: UI)
-		{   	
+		{ 
+			System.out.println(map1.get("Caller ID"));
 			if(map1.get("Caller ID").equals(details.getSearchStr()))
 				Status= true;
 			else 
@@ -880,7 +891,7 @@ public class OCMIvrCallTraceReportPage extends BasePage  {
 		return Status;	
 	}
 
-	public boolean verifySearchContains(String description) throws Exception {
+	public boolean verifySearchContains(String details) throws Exception {
 		Boolean Status=false;		
 		selectWebElement(searchBtn);
 		selectWebElement(searchColDropdown);  
@@ -889,14 +900,13 @@ public class OCMIvrCallTraceReportPage extends BasePage  {
 		selectWebElement(searchCriteriaDropdown);
 		selectDropdownFromVisibleText(searchCriteriaListbox,"Contains");		   
 		waitForJqueryLoad(driver);    
-		enterValueToTxtField(searchTextBox,description);
+		enterValueToTxtField(searchTextBox,details);
 		selectWebElement(searchSearchBtn);
 		waitForJqueryLoad(driver);
-		//waitUntilWebElementIsVisible(gridContent);
 		List<Map<String,String>> UI=getDataTable(); 
 		for (Map<String,String> map1: UI)
 		{   	
-			if(map1.get("Agent ID").toUpperCase().contains(description.toUpperCase()))
+			if(map1.get("UCID").contains(details))
 				Status= true;
 			else 
 				Status= false;
@@ -904,23 +914,23 @@ public class OCMIvrCallTraceReportPage extends BasePage  {
 		return Status;
 	}
 
-	public boolean verifySearchDoesNotContains(String description) throws Exception {
+	public boolean verifySearchDoesNotContains(String details) throws Exception {
 		Boolean Status=false;
 		selectWebElement(searchBtn);
 		selectWebElement(searchColDropdown);  
-		selectDropdownFromVisibleText(searchColListBox,"UCID");  
+		selectDropdownFromVisibleText(searchColListBox,"Hotline Number");  
 		waitForJqueryLoad(driver);
 		selectWebElement(searchCriteriaDropdown);
 		selectDropdownFromVisibleText(searchCriteriaListbox,"Does not contain");		   
 		waitForJqueryLoad(driver);    
-		enterValueToTxtField(searchTextBox,description);
+		enterValueToTxtField(searchTextBox,details);
 		selectWebElement(searchSearchBtn);
 		waitForJqueryLoad(driver);
 		//waitUntilWebElementIsVisible(gridContent);
 		List<Map<String,String>> UI=getDataTable(); 
 		for (Map<String,String> map1: UI)
 		{   	
-			if(!map1.get("UCID").toLowerCase().contains(description.toLowerCase()))
+			if(!map1.get("Hotline Number").contains(details))
 				Status= true;
 			else 
 				Status= false;
@@ -928,30 +938,31 @@ public class OCMIvrCallTraceReportPage extends BasePage  {
 		return Status;
 	}
 
-	public boolean verifySearchStartsWith(String description) throws Exception {
+	public boolean verifySearchStartsWith(String details) throws Exception {
 		Boolean Status=false;
 		selectWebElement(searchBtn);
 		selectWebElement(searchColDropdown); 
-		selectDropdownFromVisibleText(searchColListBox,"UID");  
+		selectDropdownFromVisibleText(searchColListBox,"Caller ID");  
 		waitForJqueryLoad(driver);
 		selectWebElement(searchCriteriaDropdown);
 		selectDropdownFromVisibleText(searchCriteriaListbox,"Starts with");		   
 		waitForJqueryLoad(driver);    
-		enterValueToTxtField(searchTextBox,description);        
+		enterValueToTxtField(searchTextBox,details);        
 		selectWebElement(searchSearchBtn);
 		waitForJqueryLoad(driver);
 		//waitUntilWebElementIsVisible(gridContent);
 		List<Map<String,String>> UI=getDataTable(); 
 		for (Map<String,String> map1: UI)
 		{   	
-			if(map1.get("UID").toLowerCase().startsWith(description.toLowerCase()))
+			if(map1.get("Caller ID").startsWith(details))
 				Status= true;
 			else 
 				Status= false;
 		}
 		return Status;
 	}
-	public boolean verifySearchEndsWith(String description) throws Exception {
+
+	public boolean verifySearchEndsWith(String details) throws Exception {
 		Boolean Status=false;
 		selectWebElement(searchBtn);
 		selectWebElement(searchColDropdown); 
@@ -960,20 +971,23 @@ public class OCMIvrCallTraceReportPage extends BasePage  {
 		selectWebElement(searchCriteriaDropdown);
 		selectDropdownFromVisibleText(searchCriteriaListbox,"Ends with");		   
 		waitForJqueryLoad(driver);    
-		enterValueToTxtField(searchTextBox,description);        
+		enterValueToTxtField(searchTextBox,details);        
 		selectWebElement(searchSearchBtn);
 		waitForJqueryLoad(driver);
 		// waitUntilWebElementIsVisible(gridContent);
 		List<Map<String,String>> UI=getDataTable(); 
 		for (Map<String,String> map1: UI)
 		{   	
-			if(map1.get("UID").toUpperCase().endsWith(description.toUpperCase()))
+			System.out.println(details.toLowerCase());
+			System.out.println(map1.get("UID").toLowerCase());
+			if(map1.get("UID").endsWith(details))
 				Status= true;
 			else 
 				Status= false;
 		}
 		return Status;
 	}
+
 	public boolean verifySearchClear(ReportDetails details) {
 		boolean Status=false;
 		selectWebElement(searchBtn);		
@@ -991,84 +1005,86 @@ public class OCMIvrCallTraceReportPage extends BasePage  {
 			Status=false;
 		return Status;	
 	}
-	public boolean verifyAdvanceSearchIsEqualTo(ReportDetails reportDetails) throws Exception {
-		Boolean Status=false;
+
+	public boolean verifyAdvanceSearchIsEqualTo(ReportDetails details) throws Exception {
+		boolean Status=false;
 		waitForJqueryLoad(driver);
 		List<Map<String,String>>UI=getDataTable();
 		for(Map<String,String> map1:UI)
 		{
-			System.out.println(map1.get("Caller ID"));
-			if(map1.get("Caller ID").equalsIgnoreCase(reportDetails.getSearchStr()))
+			System.out.println(map1.get("UCID"));
+			if(map1.get("UCID").equals(details.getSearchStr()))
 				Status= true;
 			else 
 				Status =false;
 		}
 		return Status;
 	}
-	public boolean verifyAdvanceSearchIsNotEqualTo(ReportDetails reportDetails) throws Exception {
-		Boolean Status=false;
+
+	public boolean verifyAdvanceSearchIsNotEqualTo(ReportDetails details) throws Exception {
+		boolean Status=false;
 		waitForJqueryLoad(driver);
 		List<Map<String,String>>UI=getDataTable();
-		for(Map<String,String> map1:UI)
-		{
-			System.out.println(map1.get("C"));
-			if(map1.get("Chat End Reason").equalsIgnoreCase(reportDetails.getSearchStr()))
+		for(Map<String,String> map1:UI){
+			System.out.println(map1.get("Caller ID"));
+			if(map1.get("Caller ID").equals(details.getSearchStr()))
 				Status= false;
 			else 
 				Status =true;
 		}
 		return Status;
 	}
-	public boolean verifyAdvanceSearchContains(ReportDetails reportDetails) throws Exception {
-		Boolean Status=false;
+
+	public boolean verifyAdvanceSearchContains(ReportDetails details) throws Exception {
+		boolean Status=false;
 		waitForJqueryLoad(driver);
 		List<Map<String,String>>UI=getDataTable();
-		for(Map<String,String> map1:UI)
-		{
-			System.out.println(map1.get("Identification"));
-			if(map1.get("Identification").toUpperCase().contains(reportDetails.getSearchStr()))				
+		for(Map<String,String> map1:UI){
+			if(map1.get("Caller Status").contains(details.getSearchStr()))				
 				Status= true;
 			else 
 				Status =false;
 		}
 		return Status;
 	}
-	public boolean verifyAdvanceSearchDoesNotContains(ReportDetails reportDetails) throws Exception {
-		Boolean Status=false;
+
+	public boolean verifyAdvanceSearchDoesNotContains(ReportDetails details) throws Exception {
+		boolean Status=false;
 		waitForJqueryLoad(driver);
 		List<Map<String,String>>UI=getDataTable();
-		for(Map<String,String> map1:UI)
-		{
-			System.out.println(map1.get("Session ID"));
-			if(!map1.get("Session ID").toUpperCase().contains(reportDetails.getSearchStr()))				
+		for(Map<String,String> map1:UI){
+			System.out.println(map1.get("Caller ID"));
+			if(!map1.get("Caller ID").contains(details.getSearchStr()))				
 				Status= true;
 			else 
 				Status =false;
 		}
 		return Status;
 	}
-	public boolean verifyAdvanceSearchStartsWith(ReportDetails reportDetails) throws Exception {
-		Boolean Status=false;
+
+	public boolean verifyAdvanceSearchStartsWith(ReportDetails details) throws Exception {
+		boolean Status=false;
 		waitForJqueryLoad(driver);
 		List<Map<String,String>>UI=getDataTable();
 		for(Map<String,String> map1:UI)
 		{
-			System.out.println(map1.get("Identification"));
-			if(!map1.get("Identification").toLowerCase().startsWith(reportDetails.getSearchStr()))				
+			System.out.println(map1.get("UID"));
+			if(map1.get("UID").toLowerCase().startsWith(details.getSearchStr().toLowerCase()))				
 				Status= true;
 			else 
 				Status =false;
 		}
 		return Status;
 	}
-	public boolean verifyAdvanceSearchEndsWith(ReportDetails reportDetails) throws Exception {
-		Boolean Status=false;
+
+	public boolean verifyAdvanceSearchEndsWith(ReportDetails details) throws Exception {
+		boolean Status=false;
 		waitForJqueryLoad(driver);
 		List<Map<String,String>>UI=getDataTable();
 		for(Map<String,String> map1:UI)
 		{
-			System.out.println(map1.get("Agent ID"));
-			if(!map1.get("Agent ID").toLowerCase().endsWith(reportDetails.getSearchStr()))				
+			System.out.println(map1.get("Hotline Number"));
+			if(map1.get("Hotline Number").endsWith(details.getSearchStr()))				
 				Status= true;
 			else 
 				Status =false;
@@ -1106,12 +1122,14 @@ public class OCMIvrCallTraceReportPage extends BasePage  {
 		waitForJqueryLoad(driver);
 		waitUntilWebElementIsVisible(gridBoxContent);
 		Thread.sleep(2000);
-		if(rowdata.getText().equals(details.getSearchStr()) && rowdata.getText().contains(details.getSearchStr1())) {
-			Status=true;
-		}
+		List<Map<String,String>>UI=getDataTable();
+		for(Map<String,String> map1:UI)
+			if(map1.get("UCID").equals(details.getSearchStr()) && map1.get("UCID").contains(details.getSearchStr1())) {
+				Status=true;
+			}
 		return Status;	
-
 	}
+
 	public Boolean advancedSearchORCriteria(ReportDetails details) throws Exception {
 		Boolean Status=false;	
 		selectWebElement(advancedsearchBtn);
@@ -1120,7 +1138,7 @@ public class OCMIvrCallTraceReportPage extends BasePage  {
 		selectDropdownFromVisibleText(searchColListBoxAdvSrchReportPage,"Caller ID");
 		Thread.sleep(2000);
 		selectWebElement(searchCriteriaDropdownAdvSrch);
-		selectDropdownFromVisibleText(searchCriteriaListboxAdvSrch,"Is equal to");
+		selectDropdownFromVisibleText(searchCriteriaListboxAdvSrch,"Contains");
 		enterValueToTxtField(searchTextBoxAdvSrch,details.getSearchStr());
 		selectWebElement(searchAddCriteriaBtn);
 		moveToElement(orradiobtn);
@@ -1132,25 +1150,25 @@ public class OCMIvrCallTraceReportPage extends BasePage  {
 		}
 		selectWebElement(searchColDropdownAdvSrchReportPage1);
 		Thread.sleep(2000);
-		selectDropdownFromVisibleText(searchColListBoxAdvSrchReportPage1,"Caller ID");
+		selectDropdownFromVisibleText(searchColListBoxAdvSrchReportPage1,"Duration (in seconds)");
 		Thread.sleep(2000);
 		selectWebElement(searchCriteriaDropdownAdvSrch1);
-		selectDropdownFromVisibleText(searchCriteriaListboxAdvSrch1,"Starts with");
-		enterValueToTxtField(searchTextBoxAdvSrch1,details.getSearchStr2());
+		selectDropdownFromVisibleText(searchCriteriaListboxAdvSrch1,"Is equal to");
+		enterValueToTxtField(searchTextBoxAdvSrch1,details.getSearchStr1());
 		selectWebElement(showReportBtn.get(0));
 		waitForLoad(driver);
 		waitForJqueryLoad(driver);
 		waitUntilWebElementIsVisible(gridBoxContent);
 		Thread.sleep(3000);
-		List<WebElement> rows=Grid.findElements(By.tagName("tr"));	
-		for(WebElement e:rows)
-		{
-			if(rowdata.getText().equals(details.getSearchStr())||rowdatatwo.getText().startsWith(details.getSearchStr2()))
+		List<Map<String,String>>UI=getDataTable();
+		for(Map<String,String> map1:UI)
+			if(map1.get("Caller ID").contains(details.getSearchStr()) || map1.get("Duration (in seconds)").equals(details.getSearchStr1())) {
 				Status=true;
-		}
+			}
 		return Status;	
-
 	}
+
+
 	public void searchwithoutextsearch(ReportDetails details) {
 		selectWebElement(searchBtn);		
 		selectWebElement(searchColDropdown);  
@@ -1170,7 +1188,7 @@ public class OCMIvrCallTraceReportPage extends BasePage  {
 			return errorMsg.get(0).getText();}
 	}
 
-	
+
 	public boolean groupby() {
 		DragandDrop(callerId,droptarget);
 		try {
@@ -1258,64 +1276,64 @@ public class OCMIvrCallTraceReportPage extends BasePage  {
 		else
 			return false;
 	}
-	
-	
+
+
 	private List<Map<String, String>> getDataTable1() {
 		int item=Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
-        int pagersize=Integer.valueOf(pagerSize.getText());
-        int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
+		int pagersize=Integer.valueOf(pagerSize.getText());
+		int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
 		List<Map<String,String>> arr=new ArrayList<Map<String,String>>();
 		for(int k=0;k<=pages;k++){
-		waitUntilWebElementIsVisible(auditGridContent);
-		List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
-		List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
-		for(int i=1;i<rows.size();i++) {
-			Map<String,String> map = new HashMap<String,String>();
-			List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
-			String col=null;
-			for(int j=0;j<headers.size();j++){
-				scrollToElement(headers.get(j));
-				col=cols.get(j).getText();
-				map.put(headers.get(j).getText(),col);
+			waitUntilWebElementIsVisible(auditGridContent);
+			List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
+			List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
+			for(int i=1;i<rows.size();i++) {
+				Map<String,String> map = new HashMap<String,String>();
+				List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
+				String col=null;
+				for(int j=0;j<headers.size();j++){
+					scrollToElement(headers.get(j));
+					col=cols.get(j).getText();
+					map.put(headers.get(j).getText(),col);
+				}
+				map.remove("");
+				arr.add(map);
 			}
-			map.remove("");
-			arr.add(map);
+			if(k!=pages)
+			{
+				nextPageIcon.click();
+				waitForJqueryLoad(driver);}
 		}
-		if(k!=pages)
-		{
-			nextPageIcon.click();
-			waitForJqueryLoad(driver);}
-		}
-			return arr;
+		return arr;
 	}
-	
+
 
 	public List<String> getUCID() throws InterruptedException {
 		int item=Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
-        int pagersize=Integer.valueOf(pagerSize.getText());
-        int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
+		int pagersize=Integer.valueOf(pagerSize.getText());
+		int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
 		List<String> UCID = new ArrayList<>();
 		for(int k=0;k<=pages;k++){
-		waitUntilWebElementIsVisible(auditGridContent);
-		List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
-		List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
-		for(int i=1;i<rows.size();i++) {
-			List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
-			String col=null;
-			for(int j=0;j<headers.size();j++){
-				scrollToElement(headers.get(j));
-				if(headers.get(j).getText().equals("UCID")){
-					col=cols.get(j).getText();
-					UCID.add(col);
+			waitUntilWebElementIsVisible(auditGridContent);
+			List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
+			List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
+			for(int i=1;i<rows.size();i++) {
+				List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
+				String col=null;
+				for(int j=0;j<headers.size();j++){
+					scrollToElement(headers.get(j));
+					if(headers.get(j).getText().equals("UCID")){
+						col=cols.get(j).getText();
+						UCID.add(col);
 					}
+				}
 			}
-		}
-		if(k!=pages)
-		{
-			Thread.sleep(1000);
-			nextPageIcon.click();
-			waitForJqueryLoad(driver);
-		}
+			if(k!=pages)
+			{
+				Thread.sleep(1000);
+				nextPageIcon.click();
+				waitForJqueryLoad(driver);
+			}
 		}
 		return UCID;
 	}
@@ -1323,18 +1341,18 @@ public class OCMIvrCallTraceReportPage extends BasePage  {
 	public void goToNextPage() {
 		nextPageIcon.click();
 		waitForLoad(driver);
-        waitForJqueryLoad(driver);
-        waitUntilWebElementIsVisible(DrillGridOneTable);
+		waitForJqueryLoad(driver);
+		waitUntilWebElementIsVisible(DrillGridOneTable);
 	}
-	
-	
+
+
 	public void clickOnUCIDRowOnMainReport(int rowNo) throws InterruptedException {
 		Thread.sleep(3000);
 		MainReportRows.get(rowNo).click();
 		waitForLoad(driver);
-        waitForJqueryLoad(driver);
-//        selectWebElement(MenuTraversalPanel);
-//        waitUntilWebElementIsVisible(MenuTraversalTable);  
+		waitForJqueryLoad(driver);
+		//        selectWebElement(MenuTraversalPanel);
+		//        waitUntilWebElementIsVisible(MenuTraversalTable);  
 	}
 
 	public boolean verifyDatabaseDrillGridOne(String queryDrillGridOne,ReportDetails details, String UCID) {
@@ -1358,53 +1376,54 @@ public class OCMIvrCallTraceReportPage extends BasePage  {
 		else
 			return false;
 	}
-	
+
 	private List<Map<String, String>> getDataTableDrillGridOne() {
 		scrollvertically();
-//		waitUntilWebElementIsClickable(drillGridOneItems);
-//		waitUntilWebElementIsVisible(drillGridOneItems);
+		//		waitUntilWebElementIsClickable(drillGridOneItems);
+		//		waitUntilWebElementIsVisible(drillGridOneItems);
 		selectWebElement(MenuTraversalPanel);
 		waitUntilWebElementIsVisible(MenuTraversalTable);  
-	 	int item=Integer.valueOf(pagerInfo.getText().split("of ")[1].split(" items")[0]);
-        int pagersize=Integer.valueOf(pagerSize.getText());
-        int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
-	 	List<Map<String,String>> arr=new ArrayList<Map<String,String>>();
-	 	for(int k=0;k<=pages;k++){
-	 	waitUntilWebElementIsVisible(DrillGridOneTable);
-		List<WebElement> rows=DrillGridOneTable.findElements(By.tagName("tr"));
-		List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
-		for(int i=1;i<rows.size();i++) {
-			Map<String,String> map = new HashMap<String,String>();
-			List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
-			String col=null;
-			for(int j=0;j<headers.size();j++){
-				scrollToElement(headers.get(j)); 
-				if(headers.get(j).getText().equals("")){					
-					col=cols.get(j).getText();
-					if(col.contains("."))
-						col=col;
-					else
-						col=col+".00";
-					}
-				else
-					col=cols.get(j).getText();
-				map.put(headers.get(j).getText(),col);
-			}
-			map.remove("");
-			arr.add(map);
-		}
-		if(k!=pages)
-		{
-			nextPageIconDrillOne.click();
-			waitForJqueryLoad(driver);
+		int item=Integer.valueOf(pagerInfo.getText().split("of ")[1].split(" items")[0]);
+		int pagersize=Integer.valueOf(pagerSize.getText());
+		int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
+		List<Map<String,String>> arr=new ArrayList<Map<String,String>>();
+		for(int k=0;k<=pages;k++){
 			waitUntilWebElementIsVisible(DrillGridOneTable);
+			List<WebElement> rows=DrillGridOneTable.findElements(By.tagName("tr"));
+			List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
+			for(int i=1;i<rows.size();i++) {
+				Map<String,String> map = new HashMap<String,String>();
+				List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
+				String col=null;
+				for(int j=0;j<headers.size();j++){
+					scrollToElement(headers.get(j)); 
+					if(headers.get(j).getText().equals("")){					
+						col=cols.get(j).getText();
+						if(col.contains("."))
+							col=col;
+						else
+							col=col+".00";
+					}
+					else
+						col=cols.get(j).getText();
+					map.put(headers.get(j).getText(),col);
+				}
+				map.remove("");
+				arr.add(map);
+			}
+			if(k!=pages)
+			{
+				nextPageIconDrillOne.click();
+				waitForJqueryLoad(driver);
+				waitUntilWebElementIsVisible(DrillGridOneTable);
+			}
 		}
-		}
-	 	selectWebElement(MenuTraversalPanel);
-			CloseDrillGridOne.click();
-			return arr;
+		selectWebElement(MenuTraversalPanel);
+		CloseDrillGridOne.click();
+		return arr;
 	}
-	
+
+
 }
 
 

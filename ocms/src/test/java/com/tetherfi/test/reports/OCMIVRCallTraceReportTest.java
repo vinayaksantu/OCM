@@ -10,6 +10,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import com.tetherfi.model.report.ReportDetails;
 import com.tetherfi.pages.HomePage;
+import com.tetherfi.pages.OCMAgentLoginLogoutReportPage;
 import com.tetherfi.pages.OCMIvrCallTraceReportPage;
 import com.tetherfi.pages.OCMReportsPage;
 import com.tetherfi.test.BaseTest;
@@ -27,160 +28,253 @@ public class OCMIVRCallTraceReportTest extends BaseTest {
 		Assert.assertTrue(ocmReportsPage.isOCMReportPageIsDisplayed());
 	}  
 
-	@Test(priority=1,description="To verify Show Report for Single Date")
-	public void ShowOCMIvrCallTraceReport() throws Exception {
+	/*@Test(priority=1,description="To verify Show Report for Single Date")
+	public void ShowReport() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
 		ReportDetails reportDetails= new ReportDetails(map);
-		OCMReportsPage OCMReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
-		OCMReportsPage.showReport(reportDetails);
-		Assert.assertTrue(OCMReportsPage.verifyReportDisplayed(reportDetails),"Show report assertion failed");     
+		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
+		ocmReportsPage.showReport(reportDetails);
+		Assert.assertTrue(ocmReportsPage.verifyReportDisplayed(reportDetails),"Show report assertion failed");     
 	} 
 
-	@Test(priority=2,dependsOnMethods ="ShowOCMIvrCallTraceReport",description="To verify Show Report in New Tab for Single Date")
-	public void ShowOCMIvrCallTraceReportInNewTab() throws Exception {
+	@Test(priority=2,description="To verify Show Report in New Page for Single Date")
+	public void ShowReportInNewPage() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowInNewPage").getTestData().get(0);
 		ReportDetails reportDetails= new ReportDetails(map);
-		OCMReportsPage OCMReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
-		OCMReportsPage.showReportInNewPage(reportDetails);
-		Assert.assertTrue(OCMReportsPage.verifyReportDisplayed(reportDetails),"show report in new tab assertion failed");
-		OCMReportsPage.switchBackToParentWindow();
+		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
+		ocmReportsPage.showReportInNewPage(reportDetails);
+		Assert.assertTrue(ocmReportsPage.verifyReportDisplayed(reportDetails),"show report in new tab assertion failed");
+		ocmReportsPage.switchBackToParentWindow();
 	} 
 
-	@Test(priority=3,description="To verify Export Scheduler on OCM Reports Page")
-	public void ScheduleOCMIvrCallTraceReport() throws Exception {
+	@Test(priority=3, description="To verify IVR call Trace report UI data against DB")
+	public void database() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"ExportReport").getTestData().get(0);
+		Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(0);
 		ReportDetails reportDetails= new ReportDetails(map);
-		OCMReportsPage OCMReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
-		OCMReportsPage.scheduleReport(reportDetails);
-		Assert.assertTrue(OCMReportsPage.verifyScheduleReport(),"Schedule report assertion failed");
-	} 
+		OCMReportsPage ocmReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
+		ocmReportsPage.showReport(reportDetails);
+		OCMIvrCallTraceReportPage IVRCallTraceReportPage=PageFactory.createPageInstance(driver, OCMIvrCallTraceReportPage.class);
+		Assert.assertTrue(IVRCallTraceReportPage.verifyDatabase(reportDetails.getQuery(), reportDetails),"Main Report Data Mismatch");    
+		System.out.println("Main Report Data Match Successfull");
+		List<String> UCIDList = new ArrayList<>();
+		UCIDList=IVRCallTraceReportPage.getUCID();
+		System.out.println("List of UCID's is"+ UCIDList);
+		int k=0;
+		for (int i=0;i<UCIDList.size();i++) {
+			System.out.println(UCIDList.size());
+			if(k==10) {
+				IVRCallTraceReportPage.goToNextPage();
+				k=k-10;			
+			}
+			Thread.sleep(3000);
+			IVRCallTraceReportPage.clickOnUCIDRowOnMainReport(k);
+			Assert.assertTrue(IVRCallTraceReportPage.verifyDatabaseDrillGridOne(reportDetails.getQueryDrillGridOne(), reportDetails, UCIDList.get(i)),"Menu Traversal Grid data mismatch for UCID" + UCIDList.get(i));
+			System.out.println("Menu Traversal Data match Successful for UCID" + " : "+ UCIDList.get(i));
 
-	@Test(priority=4,description="To verify Export Report on OCM Reports Page")
-	public void ExportOCMIvrCallTraceReport() throws Exception {
-		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"ExportReport").getTestData().get(0);
-		ReportDetails reportDetails= new ReportDetails(map);
-		OCMReportsPage OCMReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
-		OCMReportsPage.exportReport(reportDetails);
-		Assert.assertTrue(OCMReportsPage.verifyReportExported(),"export report assertion failed");
-	}
+		}
+ }
 
-	@Test(priority=5,dependsOnMethods ="ExportOCMIvrCallTraceReport")
-	public void ViewDownloadedOcmIvrCallTraceReportInReportsDownloadPage() throws Exception {
+	@Test(priority=4,description="To verify Search by feature using Caller ID")
+	public void VerifySearchByFeature() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"ExportReport").getTestData().get(0);
-		ReportDetails reportDetails= new ReportDetails(map);
-		OCMReportsPage OCMReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
-		OCMReportsPage.exportReport(reportDetails);
-		OCMReportsPage.viewDownloadedReportInReportDownloadsPage();
-		Assert.assertTrue(OCMReportsPage.verifyDownloadedReportNameAndTimeInReportsDownloadPage(reportDetails.getReportName()),"Report not found in Reporter download page");
-	}  
-
-	@Test(priority=6,dependsOnMethods ="ViewDownloadedOcmIvrCallTraceReportInReportsDownloadPage",description="To verification of exported excel in Report downloads")
-	public void VerifyViewDownloadedOcmIvrCallTraceReportInReportsDownloadPage() throws Exception {
-		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
+		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
 		ReportDetails reportDetails= new ReportDetails(map);
 		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
 		ocmReportsPage.showReport(reportDetails);
-		Assert.assertTrue(ocmReportsPage.verifyExportedSheet("OCMReportDownload","OCM IVR Call Trace Report"));	
+		OCMIvrCallTraceReportPage ivrCallTraceReportPage=PageFactory.createPageInstance(driver,OCMIvrCallTraceReportPage.class);    
+		Assert.assertTrue(ivrCallTraceReportPage.verifySearchByTextbox(reportDetails));
 	}
 
-
-	@Test(priority=7,description="To verify Show Report for Date Range")
-	public void ShowOCMIvrCallTraceReportForDateRange() throws Exception {
+	@Test(priority=5,description="To verify the search using Is equal to search criteria")
+	public void VerifySearchIsEqualTo() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
 		ReportDetails reportDetails= new ReportDetails(map);
 		OCMReportsPage OCMReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
 		OCMReportsPage.showReport(reportDetails);
-		Assert.assertTrue(OCMReportsPage.verifyDateRangeReportDisplayed(reportDetails),"Show report assertion failed");
-	} 
-
-	@Test(priority=8,dependsOnMethods ="ShowOCMIvrCallTraceReportForDateRange",description="To verify Show Report for Date Range in New Tab")
-	public void ShowOCMIvrCallTraceReportInNewTabDateRange() throws Exception {
-		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"ShowInNewPageDateRange").getTestData().get(0);
-		ReportDetails reportDetails= new ReportDetails(map);
-		OCMReportsPage OCMReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
-		OCMReportsPage.showReportInNewPage(reportDetails);
-		Assert.assertTrue(OCMReportsPage.verifyDateRangeReportDisplayed(reportDetails),"show report in new tab assertion failed");
-		OCMReportsPage.switchBackToParentWindow();
+		OCMIvrCallTraceReportPage ivrCallTraceReportPage=PageFactory.createPageInstance(driver,OCMIvrCallTraceReportPage.class);
+		Assert.assertTrue(ivrCallTraceReportPage.verifySearchIsEqualTo(reportDetails.getSearchStr()));
 	}
 
-	@Test(priority=9,description="Export scheduler button")
-	public void ScheduleOCMIvrCallTraceReportforDateRange() throws Exception {
+	@Test(priority=6,description="To verify search using Is Not Equal to Search criteria")
+	public void VerifySearchIsNotEqualTo() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"ExportReportDateRange").getTestData().get(0);
+		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(1);
 		ReportDetails reportDetails= new ReportDetails(map);
-		OCMReportsPage OCMReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
-		OCMReportsPage.scheduleReport(reportDetails);
-		Assert.assertTrue(OCMReportsPage.verifyScheduleReport(),"Schedule report assertion failed");
-	}
-	@Test(priority=10,description="To verify Export Report on OCM Reports Page for Date Range")
-	public void ExportOCMIvrCallTraceReportDateRange() throws Exception {
-		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"ExportReportDateRange").getTestData().get(0);
-		ReportDetails reportDetails= new ReportDetails(map);
-		OCMReportsPage OCMReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
-		OCMReportsPage.exportReport(reportDetails);
-		Assert.assertTrue(OCMReportsPage.verifyReportExported(),"export report assertion failed");
+		OCMReportsPage ocmReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
+		ocmReportsPage.showReport(reportDetails);  
+		OCMIvrCallTraceReportPage ivrCallTraceReportPage=PageFactory.createPageInstance(driver,OCMIvrCallTraceReportPage.class);
+		Assert.assertTrue(ivrCallTraceReportPage.verifySearchIsNotEqualTo(reportDetails.getSearchStr()));
 	}
 
-	@Test(priority=11,dependsOnMethods ="ExportOCMIvrCallTraceReportDateRange",description="To verification of exported excel in Report downloads for Date Range")
-	public void ViewDownloadedOcmIvrCallTraceReportInReportsDownloadPageDateRange() throws IOException {
+	@Test(priority=7,description="To verify search using contains search criteria")
+	public void  VerifySearchContains() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"ExportReportDateRange").getTestData().get(0);
+		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(2);
 		ReportDetails reportDetails= new ReportDetails(map);
-		OCMReportsPage OCMReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
-		OCMReportsPage.viewDownloadedReportInReportDownloadsPage();
-		Assert.assertTrue(OCMReportsPage.verifyDownloadedReportNameAndTimeInReportsDownloadPage(reportDetails.getReportName()),"Report not found in Reporter download page");
+		OCMReportsPage OCMReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
+		OCMReportsPage.showReport(reportDetails);  
+		OCMIvrCallTraceReportPage OCMIvrCallTraceReportPage=PageFactory.createPageInstance(driver,OCMIvrCallTraceReportPage.class);
+		Assert.assertTrue(OCMIvrCallTraceReportPage.verifySearchContains(reportDetails.getSearchStr()));
 	}
-	@Test(priority=12,dependsOnMethods ="ViewDownloadedOcmIvrCallTraceReportInReportsDownloadPageDateRange",description="To verification of exported excel in Report downloads")
-	public void VerifyViewDownloadedOcmIvrCallTraceReportInReportsDownloadDateRangePage() throws Exception {
+
+	@Test(priority=8,description="To verify Search using Does not Contain search criteria")
+	public void VerifySearchDoesNotContains() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(3);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
+		ocmReportsPage.showReport(reportDetails);  
+		OCMIvrCallTraceReportPage ivrCallTraceReportPage=PageFactory.createPageInstance(driver,OCMIvrCallTraceReportPage.class);
+		Assert.assertTrue(ivrCallTraceReportPage.verifySearchDoesNotContains(reportDetails.getSearchStr())); 
+	}
+
+	@Test(priority=9,description="To Verify search using starts with search criteria")
+	public void VerifySearchStartsWith() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(4);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
+		ocmReportsPage.showReport(reportDetails);  
+		OCMIvrCallTraceReportPage ivrCallTraceReportPage=PageFactory.createPageInstance(driver,OCMIvrCallTraceReportPage.class);
+		Assert.assertTrue(ivrCallTraceReportPage.verifySearchStartsWith(reportDetails.getSearchStr()));
+	}
+
+	@Test(priority=10,description="To verify search using Ends with search criteria")
+	public void  VerifySearchEndsWith() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(5);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage OCMReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
+		OCMReportsPage.showReport(reportDetails);  
+		OCMIvrCallTraceReportPage OCMIvrCallTraceReportPage=PageFactory.createPageInstance(driver,OCMIvrCallTraceReportPage.class);
+		Assert.assertTrue(OCMIvrCallTraceReportPage.verifySearchEndsWith(reportDetails.getSearchStr()));
+	}
+
+	@Test(priority=11,description="To perform search without providing text to search")
+	public void searchwithoutSearchTextbox() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage OCMReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
+		OCMReportsPage.showReport(reportDetails);
+		OCMIvrCallTraceReportPage ivrCallTraceReportPage=PageFactory.createPageInstance(driver,OCMIvrCallTraceReportPage.class);
+		ivrCallTraceReportPage.searchwithoutextsearch(reportDetails);
+		Assert.assertEquals(ivrCallTraceReportPage.getSuccessMessage(),"Please enter the text to search or remove the filter", "Add invalid record assertion failed");
+	}
+
+	@Test(priority=12,description="To verify clear search filters functionality")
+	public void SearchClear() throws Exception{
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(2);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
+		ocmReportsPage.showReport(reportDetails);  
+		OCMIvrCallTraceReportPage ivrCallTraceReportPage=PageFactory.createPageInstance(driver,OCMIvrCallTraceReportPage.class);
+		Assert.assertTrue(ivrCallTraceReportPage.verifySearchClear(reportDetails));    	
+	}
+
+	@Test(priority=13,description="To verify advanced search using AND criteria")
+	public void verifyAdvancedSearchANDCriteria() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(0);
+		OCMIvrCallTraceReportPage OCMIvrCallTraceReportPage=PageFactory.createPageInstance(driver,OCMIvrCallTraceReportPage.class);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);                   	
+		ocmReportsPage.chooseReport(reportDetails);
+		Assert.assertTrue(OCMIvrCallTraceReportPage.advancedSearchANDCriteria(reportDetails));   	
+	}
+
+	@Test(priority=14,description="To verify advanced search using OR criteria")
+	public void verifyAdvancedSearchORCriteria() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(1);
+		OCMIvrCallTraceReportPage OCMIvrCallTraceReportPage=PageFactory.createPageInstance(driver,OCMIvrCallTraceReportPage.class);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);                   	
+		ocmReportsPage.chooseReport(reportDetails);
+		Assert.assertTrue(OCMIvrCallTraceReportPage.advancedSearchORCriteria(reportDetails));
+	}
+
+	@Test(priority=15,description="To verify advanced search using Is equal to Criteria")
+	public void verifyAdvancedSearchIsEqualTo() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(0);
 		ReportDetails reportDetails= new ReportDetails(map);
 		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
 		ocmReportsPage.showReport(reportDetails);
-		Assert.assertTrue(ocmReportsPage.verifyExportedSheet("OCMReportDownload","OCM IVR Call Trace Report"));		
-	}
-	@Test(priority=13,description="Delete record in Reports Download without Delete reason for date range")
-	public void DeleteWithoutDeleteReasonRecordinReportsDownloadforDateRange() throws Exception {
-		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
-		ReportDetails reportDetails= new ReportDetails(map);
-		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
-		ocmReportsPage.viewDownloadedReportInReportDownloadsPage();    	
-		ocmReportsPage.deleteWithoutDeleteReason(reportDetails);
-		Assert.assertEquals(ocmReportsPage.getSuccessMessage(),"Please enter the delete reason","empty delete reason record assertion failed");
+		OCMIvrCallTraceReportPage ivrCallTraceReportPage=PageFactory.createPageInstance(driver,OCMIvrCallTraceReportPage.class);
+		Assert.assertTrue(ivrCallTraceReportPage.verifyAdvanceSearchIsEqualTo(reportDetails));
 	}
 
-	@Test(priority=14,description="Cancel Button in Reports Download Delete Button")
-	public void VerifyCancelBtnAtReportsDownloadDeleteBtnForDateRange() throws Exception{
+	@Test(priority=16,description="To verify advanced search using search is not equal to criteria")
+	public void verifyAdvancedSearchIsNotEqualTo() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
+		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(2);
 		ReportDetails reportDetails= new ReportDetails(map);
 		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
-		ocmReportsPage.viewDownloadedReportInReportDownloadsPage();    	
-		ocmReportsPage.deletecancelButton(reportDetails);
-		Assert.assertFalse(ocmReportsPage.verifyDeleteContainer(), "Cancel Btn at Delete record assertion failed");
-	}
-	@Test(priority=15,description="Delete Record at Reports download Button")
-	public void DeleteRecordAtReportsDownload() throws Exception {
-		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
-		ReportDetails reportDetails= new ReportDetails(map);
-		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
-		ocmReportsPage.viewDownloadedReportInReportDownloadsPage();
-		ocmReportsPage.deleteRecordAtReportsDownloadsPage(reportDetails);
-		Assert.assertEquals(ocmReportsPage.getSuccessMessage(),"Report Deleted","Delete record assertion failed");
+		ocmReportsPage.showReport(reportDetails);
+		OCMIvrCallTraceReportPage ivrCallTraceReportPage=PageFactory.createPageInstance(driver,OCMIvrCallTraceReportPage.class);
+		Assert.assertTrue(ivrCallTraceReportPage.verifyAdvanceSearchIsNotEqualTo(reportDetails));
 	}
 
-	@Test(priority=16,description="Report page clear All button ")
+	@Test(priority=17,description="To verify advanced search using contains search criteria")
+	public void verifyAdvancedSearchContains() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(3);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
+		ocmReportsPage.showReport(reportDetails);
+		OCMIvrCallTraceReportPage ivrCallTraceReportPage=PageFactory.createPageInstance(driver,OCMIvrCallTraceReportPage.class);
+		Assert.assertTrue(ivrCallTraceReportPage.verifyAdvanceSearchContains(reportDetails));
+	}
+
+	@Test(priority=18,description="To verify advanced search using does not contains criteria")
+	public void verifyAdvancedSearchDoesNotContains() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(4);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
+		ocmReportsPage.showReport(reportDetails);
+		OCMIvrCallTraceReportPage ivrCallTraceReportPage=PageFactory.createPageInstance(driver,OCMIvrCallTraceReportPage.class);
+		Assert.assertTrue(ivrCallTraceReportPage.verifyAdvanceSearchDoesNotContains(reportDetails));
+	}
+
+	@Test(priority=19,description="To verify advanced search using Starts With Search criteria")
+	public void verifyAdvancedSearchStartsWith() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(5);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
+		ocmReportsPage.showReport(reportDetails);
+		OCMIvrCallTraceReportPage ivrCallTraceReportPage=PageFactory.createPageInstance(driver,OCMIvrCallTraceReportPage.class);
+		Assert.assertTrue(ivrCallTraceReportPage.verifyAdvanceSearchStartsWith(reportDetails));
+	}
+
+	@Test(priority=20,description="To verify advanced search using Ends With Search criteria")
+	public void verifyAdvancedSearchEndsWith() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(6);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
+		ocmReportsPage.showReport(reportDetails);
+		OCMIvrCallTraceReportPage ivrCallTraceReportPage=PageFactory.createPageInstance(driver,OCMIvrCallTraceReportPage.class);
+		Assert.assertTrue(ivrCallTraceReportPage.verifyAdvanceSearchEndsWith(reportDetails));
+	}
+
+	@Test(priority=21,description="To Clear advanced search filters")
+	public void ClearfiltersAdvSrch() throws Exception{ 	
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(0);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage OCMReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);                   
+		Assert.assertTrue(OCMReportsPage.ClearAdvFilters(reportDetails));
+	}
+	
+	@Test(priority=22,description="To verify clear filters button")
 	public void ClearAll() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
@@ -190,7 +284,7 @@ public class OCMIVRCallTraceReportTest extends BaseTest {
 		Assert.assertEquals(OCMReportsPage.getSuccessMessage(),"Filters cleared successfully!","Invalid filter assertion");
 	}
 
-	@Test(priority=17,description="Maximize, minimize")
+	@Test(priority=23,description="To verify minimize and maximize")
 	public void OCMWindow() throws Exception {	
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -204,7 +298,7 @@ public class OCMIVRCallTraceReportTest extends BaseTest {
 		screenshot.captureScreen("OCMIvrCallTraceReport","Minimize");	
 	}
 
-	@Test(priority=18,description="Verify dropdown of all the coulnm headers")
+	@Test(priority=24,description="To Verify dropdown of all the column headers")
 	public void VerifyDropdownForAllTheColumns() throws Exception {		
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -215,7 +309,7 @@ public class OCMIVRCallTraceReportTest extends BaseTest {
 		Assert.assertTrue(OCMIvrCallTraceReportPage.verifyDropDownOfAllHeaders(), "Columns dropdown assertion failed");
 	}
 
-	@Test(priority=19,description="Verify column header Enable")
+	@Test(priority=25,description="To verify column header enable")
 	public void VerifyColumnsHeaderEnable() throws Exception {  	
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -226,7 +320,7 @@ public class OCMIVRCallTraceReportTest extends BaseTest {
 		Assert.assertTrue(OCMIvrCallTraceReportPage.verifycolumnsHeaderEnabled(),"columns enabled assertion failed");
 	}
 
-	@Test(priority=20,description="Verify column header disable")
+	@Test(priority=26,description="To Verify column header disable")
 	public void VerifyColumnsHeaderDisable() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -237,7 +331,7 @@ public class OCMIVRCallTraceReportTest extends BaseTest {
 		Assert.assertFalse(OCMIvrCallTraceReportPage.verifycolumnsHeaderDisabled(),"columns disabled assertion failed");
 	}
 
-	@Test(priority=21,description="Verify Pagination, Move to previous and next page")
+	@Test(priority=27,description="To verify previous and next page button")
 	public void VerifyArrowMoveForPreviousAndNextPage() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -248,7 +342,7 @@ public class OCMIVRCallTraceReportTest extends BaseTest {
 		Assert.assertTrue(OCMIvrCallTraceReportPage.verifyArrowMoveForPreviousAndNextPage(),"arrow move for previous and next page assertion failed");
 	} 
 
-	@Test(priority=22,description="Verify Pagination, Move to First and Last Page")
+	@Test(priority=28,description="Verify Pagination, Move to First and Last Page")
 	public void VerifyArrowMoveForFirstAndLastPage() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -259,7 +353,7 @@ public class OCMIVRCallTraceReportTest extends BaseTest {
 		Assert.assertTrue(OCMIvrCallTraceReportPage.verifyArrowMoveForFirstAndLastPage(),"arrow move for first and last page assertion failed");
 	}
 
-	@Test(priority=23,description="Verify total number of items per page")
+	@Test(priority=29,description="To verify total number of items per page")
 	public void VerifyTotalNumberOfItemsPerPageDetails() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -270,7 +364,7 @@ public class OCMIVRCallTraceReportTest extends BaseTest {
 		Assert.assertTrue(IvrCallTraceReportPage.verifyTotalNumberOfItemsPerPageDetails(),"item per page assertion failed");
 	}
 
-	@Test(priority=24,description="Verfiy number of items selected per page")
+	@Test(priority=30,description="To verfiy number of items selected per page")
 	public void VerifyNumberOfItemsPerPageSelection() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -279,74 +373,127 @@ public class OCMIVRCallTraceReportTest extends BaseTest {
 		OCMReportsPage.showReport(reportDetails);
 		OCMIvrCallTraceReportPage OCMIvrCallTraceReportPage=PageFactory.createPageInstance(driver,OCMIvrCallTraceReportPage.class);
 		Assert.assertTrue(OCMIvrCallTraceReportPage.verifyNumberOfItemsPerPage(),"item per page assertion failed");
-	} 
-
-	@Test(priority=25,description="To Verify Export Page Button")
-	public void ExportPage() throws Exception
-	{
+	}
+	
+	@Test(priority=31,description="To verify Group By functionality")
+	public void GroupBy() throws Exception{
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
 		ReportDetails reportDetails= new ReportDetails(map);
-		OCMReportsPage OCMReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
-		OCMReportsPage.showReport(reportDetails);    	
-		String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles";
-		OCMIvrCallTraceReportPage OCMIvrCallTraceReportPage=PageFactory.createPageInstance(driver,OCMIvrCallTraceReportPage.class);
-		Assert.assertTrue(OCMIvrCallTraceReportPage.verifyExportToExcel(filePath1));
+		OCMReportsPage ocmReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
+		ocmReportsPage.showReport(reportDetails);
+		OCMIvrCallTraceReportPage ivrCallTraceReportPage=PageFactory.createPageInstance(driver,OCMIvrCallTraceReportPage.class);
+		Assert.assertTrue(ivrCallTraceReportPage.groupby());
+		screenshot.captureScreen("OCMIvrCallTraceReport", "GroupBy");
+		Assert.assertTrue(ivrCallTraceReportPage.groupby());
+		screenshot.captureScreen("OCMIvrCallTraceReport", "AlreadyGroupBy");
 	}
 
-	@Test(priority=26,dependsOnMethods="ExportPage",description="To Verify Exported Page Against UI")
-	public void VerifyExportedPage() throws Exception
-	{
+	@Test(priority=32,description="To verify navigation to export scheduler page from reports manager")
+	public void ScheduleOCMIvrCallTraceReport() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
+		Map<String, String> map = new ExcelReader(filePath,"ExportReport").getTestData().get(0);
 		ReportDetails reportDetails= new ReportDetails(map);
 		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
-		ocmReportsPage.showReport(reportDetails); 
-		String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\OCMIVRCallTraceReportData.xlsx";
-		List<Map<String, String>> maplist = new ExcelReader(filePath1,"Sheet1").getTestData();
-		OCMIvrCallTraceReportPage OCMIvrCallTraceReportPage=PageFactory.createPageInstance(driver,OCMIvrCallTraceReportPage.class);
-		Assert.assertTrue(OCMIvrCallTraceReportPage.verifyexportToExcelSheet(maplist));
-	}
+		ocmReportsPage.scheduleReport(reportDetails);
+		Assert.assertTrue(ocmReportsPage.verifyScheduleReport(),"Schedule report assertion failed");
+	}*/
 
-	@Test(priority=27,description="Scheduled report button in IvrCallTrace report page")
-	public void SchedulereportinOCMIvrCallTraceReportPage() throws Exception {
+	@Test(priority=33,description="To Export Report from Report Manager page")
+	public void ExportReportForSingleDate() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ExportReport").getTestData().get(0);
 		ReportDetails reportDetails= new ReportDetails(map);
 		OCMReportsPage OCMReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
-		OCMReportsPage.showReport(reportDetails);       
-		OCMIvrCallTraceReportPage OCMIvrCallTraceReportPage=PageFactory.createPageInstance(driver,OCMIvrCallTraceReportPage.class);
-		OCMIvrCallTraceReportPage.navigateToExportSchedulerPage();    
-		Assert.assertTrue(OCMIvrCallTraceReportPage.isExportSchedulerPageDisplayed(), "ExportScheduler page assertion failed");		    	 
+		OCMReportsPage.exportReport(reportDetails);
+		Assert.assertTrue(OCMReportsPage.verifyReportExported(),"export report assertion failed");
 	}
 
-	@Test(priority=28,description="Export to excel button in IvrCallTrace  Report page")
-	public void ExportToExcelForIvrCallTraceReport() throws Exception {
+	@Test(priority=34,dependsOnMethods ="ExportReportForSingleDate",description="To view exported report in report downloads page")
+	public void ViewDownloadedReportInReportDownloadsPage() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"ExportReport").getTestData().get(0);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
+		ocmReportsPage.exportReport(reportDetails);
+		ocmReportsPage.viewDownloadedReportInReportDownloadsPage();
+		Assert.assertTrue(ocmReportsPage.verifyDownloadedReportNameAndTimeInReportsDownloadPage(reportDetails.getReportName()),"Report not found in Reporter download page");
+	}  
+
+	@Test(priority=35,enabled=false,dependsOnMethods ="ViewDownloadedReportInReportDownloadsPage",description="To verify downloaded report data against UI data")
+	public void VerifyDownloadedReport() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
+		ocmReportsPage.showReport(reportDetails);
+		Assert.assertTrue(ocmReportsPage.verifyExportedSheet("OCMReportDownload","OCM IVR Call Trace Report"));	
+	}
+	
+	@Test(priority=36,description="To verify record deletion from Report downloads page")
+	public void DeleteRecordInReportDownloadsForSingleDate() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
+		ocmReportsPage.viewDownloadedReportInReportDownloadsPage();
+		ocmReportsPage.deleteRecordAtReportsDownloadsPage(reportDetails);
+		Assert.assertEquals(ocmReportsPage.getSuccessMessage(),"Report Deleted","Delete record assertion failed");
+	}
+	
+	@Test(priority=37,description="To verify Show Report for date range")
+	public void ShowReportForDateRange() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
 		ReportDetails reportDetails= new ReportDetails(map);
 		OCMReportsPage OCMReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
 		OCMReportsPage.showReport(reportDetails);
 		Assert.assertTrue(OCMReportsPage.verifyDateRangeReportDisplayed(reportDetails),"Show report assertion failed");
-		OCMIvrCallTraceReportPage OCMIvrCallTraceReportPage=PageFactory.createPageInstance(driver,OCMIvrCallTraceReportPage.class);
-		OCMIvrCallTraceReportPage.exportToExcel();
-		Assert.assertTrue(OCMIvrCallTraceReportPage.verifyReportExported(),"export report assertion failed");
 	} 
 
-	@Test(priority=29,dependsOnMethods ="ExportToExcelForIvrCallTraceReport",description="Verify the view Downloaded report in IvrCallTrace report page")
-	public void ViewDownloadedOcmIvrCallTraceReportInReportsDownloadPageinIvrCallTracePg() throws Exception {
+	@Test(priority=38,description="To verify Show Report for date range in new page")
+	public void ShowReportInNewPageForDateRange() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"ExportReport").getTestData().get(0);
+		Map<String, String> map = new ExcelReader(filePath,"ShowInNewPageDateRange").getTestData().get(0);
 		ReportDetails reportDetails= new ReportDetails(map);
 		OCMReportsPage OCMReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
-		OCMReportsPage.showReport(reportDetails);  
-		OCMIvrCallTraceReportPage OCMIvrCallTraceReportPage=PageFactory.createPageInstance(driver,OCMIvrCallTraceReportPage.class);
-		OCMIvrCallTraceReportPage.viewDownloadedReportInReportsDownloadsPage();
-		Assert.assertTrue(OCMReportsPage.verifyDownloadedReportNameAndTimeInReportsDownloadPage(reportDetails.getReportName()),"Report not found in Reporter download page");    
+		OCMReportsPage.showReportInNewPage(reportDetails);
+		Assert.assertTrue(OCMReportsPage.verifyDateRangeReportDisplayed(reportDetails),"show report in new tab assertion failed");
+		OCMReportsPage.switchBackToParentWindow();
 	}
 
-	@Test(priority=30,dependsOnMethods ="ViewDownloadedOcmIvrCallTraceReportInReportsDownloadPageDateRange",description="To verification of exported excel in Report downloads")
-	public void VerifyViewDownloadedOcmIvrCallTraceReportInReportsDownloadIvrCallTracePg() throws Exception {
+	@Test(priority=39,description="To verify Export scheduler button")
+	public void ScheduleReportforDateRange() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"ExportReportDateRange").getTestData().get(0);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
+		ocmReportsPage.scheduleReport(reportDetails);
+		Assert.assertTrue(ocmReportsPage.verifyScheduleReport(),"Schedule report assertion failed");
+	}
+
+	@Test(priority=40,description="To verify export report for date range from report manager page")
+	public void ExportReportForDateRange() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"ExportReportDateRange").getTestData().get(0);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
+		ocmReportsPage.exportReport(reportDetails);
+		Assert.assertTrue(ocmReportsPage.verifyReportExported(),"export report assertion failed");
+	}
+
+	@Test(priority=41,dependsOnMethods ="ExportReportForDateRange",description="To view exported report in report downloads page")
+	public void ViewDownloadedReportInReportDownloadsPageForDateRange() throws IOException {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"ExportReportDateRange").getTestData().get(0);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
+		ocmReportsPage.viewDownloadedReportInReportDownloadsPage();
+		Assert.assertTrue(ocmReportsPage.verifyDownloadedReportNameAndTimeInReportsDownloadPage(reportDetails.getReportName()),"Report not found in Reporter download page");
+	}
+
+	@Test(priority=42,enabled=false,dependsOnMethods ="ViewDownloadedReportInReportDownloadsPageForDateRange",description="To verify downloaded report data against UI data")
+	public void VerifyDownloadedReportData() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
 		ReportDetails reportDetails= new ReportDetails(map);
@@ -355,233 +502,154 @@ public class OCMIVRCallTraceReportTest extends BaseTest {
 		Assert.assertTrue(ocmReportsPage.verifyExportedSheet("OCMReportDownload","OCM IVR Call Trace Report"));		
 	}
 
-	@Test(priority=31,description="To Verify Ascending and Descending order")
+	@Test(priority=43,description="To Delete downloaded report from report downloads without delete reason")
+	public void DeleteRecordWithoutDeleteReason() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
+		ocmReportsPage.viewDownloadedReportInReportDownloadsPage();    	
+		ocmReportsPage.deleteWithoutDeleteReason(reportDetails);
+		Assert.assertTrue(ocmReportsPage.deleteWithoutDeleteReason(reportDetails),"empty delete reason record assertion failed");		
+	}
+
+	@Test(priority=44,description="To verify delete cance button in report downloads")
+	public void VerifyDeleteCancelBtnForDateRange() throws Exception{
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
+		ocmReportsPage.viewDownloadedReportInReportDownloadsPage();    	
+		ocmReportsPage.deletecancelButton(reportDetails);
+		Assert.assertFalse(ocmReportsPage.verifyDeleteContainer(), "Cancel Btn at Delete record assertion failed");
+	}
+
+	@Test(priority=45,description="To verify record deletion from Report downloads page")
+	public void DeleteRecordInReportDownloads() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
+		ocmReportsPage.viewDownloadedReportInReportDownloadsPage();
+		ocmReportsPage.deleteRecordAtReportsDownloadsPage(reportDetails);
+		Assert.assertEquals(ocmReportsPage.getSuccessMessage(),"Report Deleted","Delete record assertion failed");
+	}
+
+	@Test(priority=46,description="To export the data using Export page functionality")
+	public void ExportPage() throws Exception{
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage OCMReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
+		OCMReportsPage.showReport(reportDetails);    	
+		String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles";
+		OCMIvrCallTraceReportPage ivrCallTraceReportPage=PageFactory.createPageInstance(driver,OCMIvrCallTraceReportPage.class);
+		Assert.assertTrue(ivrCallTraceReportPage.verifyExportToExcel(filePath1));
+	}
+
+	@Test(priority=47,dependsOnMethods="ExportPage",description="To verify Exported Page data Against UI data")
+	public void VerifyExportedPage() throws Exception{
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
+		ocmReportsPage.showReport(reportDetails); 
+		String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\OCMIvrCallTraceReport.xlsx";
+		List<Map<String, String>> maplist = new ExcelReader(filePath1,"Sheet1").getTestData();
+		OCMIvrCallTraceReportPage ivrCallTraceReportPage=PageFactory.createPageInstance(driver,OCMIvrCallTraceReportPage.class);
+		Assert.assertTrue(ivrCallTraceReportPage.verifyexportToExcelSheet(maplist));
+	}
+
+	@Test(priority=48,description="Scheduled report button in IvrCallTrace report page")
+	public void SchedulereportInOCMIvrCallTraceReportPage() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"ExportReport").getTestData().get(0);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
+		ocmReportsPage.showReport(reportDetails);       
+		OCMIvrCallTraceReportPage ivrCallTraceReportPage=PageFactory.createPageInstance(driver,OCMIvrCallTraceReportPage.class);
+		ivrCallTraceReportPage.navigateToExportSchedulerPage();    
+		Assert.assertTrue(ivrCallTraceReportPage.isExportSchedulerPageDisplayed(), "ExportScheduler page assertion failed");		    	 
+	}
+
+	@Test(priority=49,description="To export the data using Export to Excel")
+	public void ExportToExcel() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
+		ocmReportsPage.showReport(reportDetails);
+		Assert.assertTrue(ocmReportsPage.verifyDateRangeReportDisplayed(reportDetails),"Show report assertion failed");
+		OCMIvrCallTraceReportPage ivrCallTraceReportPage=PageFactory.createPageInstance(driver,OCMIvrCallTraceReportPage.class);
+		ivrCallTraceReportPage.exportToExcel();
+		Assert.assertTrue(ivrCallTraceReportPage.verifyReportExported(),"export report assertion failed");
+	} 
+
+	@Test(priority=50,dependsOnMethods ="ExportToExcel",description="To verify exported excel data is shown in report downloads page")
+	public void viewExportedExcelDataInReportDownloadsPage() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"ExportReport").getTestData().get(0);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
+		ocmReportsPage.showReport(reportDetails);  
+		OCMIvrCallTraceReportPage ivrCallTraceReportPage=PageFactory.createPageInstance(driver,OCMIvrCallTraceReportPage.class);
+		ivrCallTraceReportPage.viewDownloadedReportInReportsDownloadsPage();
+		Assert.assertTrue(ocmReportsPage.verifyDownloadedReportNameAndTimeInReportsDownloadPage(reportDetails.getReportName()),"Report not found in Reporter download page");    
+	}
+
+	@Test(priority=51,enabled=false,dependsOnMethods ="viewExportedExcelDataInReportDownloadsPage",description="To verify Exported Excel data against UI data")
+	public void verifyExportedExcelData() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
+		ocmReportsPage.showReport(reportDetails);
+		Assert.assertTrue(ocmReportsPage.verifyExportedSheet("OCMReportDownload","OCM IVR Call Trace Report"));		
+	}
+
+	@Test(priority=52,description="To Verify Ascending and Descending order")
 	public void VerifySorting() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
 		ReportDetails reportDetails= new ReportDetails(map);
 		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
 		ocmReportsPage.showReport(reportDetails);
-		OCMIvrCallTraceReportPage OCMIvrCallTraceReportPage=PageFactory.createPageInstance(driver,OCMIvrCallTraceReportPage.class);
-		Assert.assertTrue(OCMIvrCallTraceReportPage.verifySorting(),"item per page assertion failed");
-	}
-
-	@Test(priority=32,description="Search by feature")
-	public void VerifySearchByFeatureForIvrCallTraceReport() throws Exception {
-		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
-		ReportDetails reportDetails= new ReportDetails(map);
-		OCMReportsPage OCMReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
-		OCMReportsPage.showReport(reportDetails);
-		OCMIvrCallTraceReportPage OCMIvrCallTraceReportPage=PageFactory.createPageInstance(driver,OCMIvrCallTraceReportPage.class);
-		Assert.assertTrue(OCMReportsPage.verifyDateRangeReportDisplayed(reportDetails),"Show report assertion failed");     
-		Assert.assertTrue(OCMIvrCallTraceReportPage.verifySearchByTextbox(reportDetails));
-	}
-
-	@Test(priority=33,description="Verify the search Is equal to criteria")
-	public void VerifySearchFeatureForIvrCallTraceReport() throws Exception {
-		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
-		ReportDetails reportDetails= new ReportDetails(map);
-		OCMReportsPage OCMReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
-		OCMReportsPage.showReport(reportDetails);
-		OCMIvrCallTraceReportPage OCMIvrCallTraceReportPage=PageFactory.createPageInstance(driver,OCMIvrCallTraceReportPage.class);
-		Assert.assertTrue(OCMReportsPage.verifyDateRangeReportDisplayed(reportDetails),"Show report assertion failed");
-		Assert.assertTrue(OCMIvrCallTraceReportPage.verifySearchIsEqualTo(reportDetails.getSearchStr()));
-	}
-	@Test(priority=34,description="Verify the search Is not equal to criteria")
-	public void VerifySearchIsNotEqualTo() throws Exception {
-		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(1);
-		ReportDetails reportDetails= new ReportDetails(map);
-		OCMReportsPage OCMReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
-		OCMReportsPage.showReport(reportDetails);  
-		OCMIvrCallTraceReportPage OCMIvrCallTraceReportPage=PageFactory.createPageInstance(driver,OCMIvrCallTraceReportPage.class);
-		Assert.assertTrue(OCMIvrCallTraceReportPage.verifySearchIsNotEqualTo(reportDetails.getSearchStr()));
-	}
-	@Test(priority=35,description="Verify the search contains criteria")
-	public void  VerifySearchContains() throws Exception {
-		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(2);
-		ReportDetails reportDetails= new ReportDetails(map);
-		OCMReportsPage OCMReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
-		OCMReportsPage.showReport(reportDetails);  
-		OCMIvrCallTraceReportPage OCMIvrCallTraceReportPage=PageFactory.createPageInstance(driver,OCMIvrCallTraceReportPage.class);
-		Assert.assertTrue(OCMIvrCallTraceReportPage.verifySearchContains(reportDetails.getSearchStr()));
-	}
-
-	@Test(priority=36,description="Verify the Does not contain criteria")
-	public void  VerifySearchDoesNotContains() throws Exception {
-		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(2);
-		ReportDetails reportDetails= new ReportDetails(map);
-		OCMReportsPage OCMReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
-		OCMReportsPage.showReport(reportDetails);  
-		OCMIvrCallTraceReportPage OCMIvrCallTraceReportPage=PageFactory.createPageInstance(driver,OCMIvrCallTraceReportPage.class);
-		Assert.assertTrue(OCMIvrCallTraceReportPage.verifySearchDoesNotContains(reportDetails.getSearchStr())); 
-	}
-
-	@Test(priority=37,description="Verify the search starts with criteria")
-	public void  VerifySearchStartsWith() throws Exception {
-		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(3);
-		ReportDetails reportDetails= new ReportDetails(map);
-		OCMReportsPage OCMReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
-		OCMReportsPage.showReport(reportDetails);  
-		OCMIvrCallTraceReportPage OCMIvrCallTraceReportPage=PageFactory.createPageInstance(driver,OCMIvrCallTraceReportPage.class);
-		Assert.assertTrue(OCMIvrCallTraceReportPage.verifySearchStartsWith(reportDetails.getSearchStr()));
-	}
-
-	@Test(priority=38,description="Verify the search Ends with criteria")
-	public void  VerifySearchEndsWith() throws Exception {
-		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(4);
-		ReportDetails reportDetails= new ReportDetails(map);
-		OCMReportsPage OCMReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
-		OCMReportsPage.showReport(reportDetails);  
-		OCMIvrCallTraceReportPage OCMIvrCallTraceReportPage=PageFactory.createPageInstance(driver,OCMIvrCallTraceReportPage.class);
-		Assert.assertTrue(OCMIvrCallTraceReportPage.verifySearchEndsWith(reportDetails.getSearchStr()));
-	}
-
-	@Test(priority=39,description="Search without search text")
-	public void searchwithoutSearchTextbox() throws Exception {
-		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
-		ReportDetails reportDetails= new ReportDetails(map);
-		OCMReportsPage OCMReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
-		OCMReportsPage.showReport(reportDetails);
-		OCMIvrCallTraceReportPage OCMIvrCallTraceReportPage=PageFactory.createPageInstance(driver,OCMIvrCallTraceReportPage.class);
-		OCMIvrCallTraceReportPage.searchwithoutextsearch(reportDetails);
-		Assert.assertEquals(OCMIvrCallTraceReportPage.getSuccessMessage(),"Please enter the text to search or remove the filter", "Add invalid record assertion failed");
-	}
-
-	@Test(priority=40,description="Clear search functionality")
-	public void SearchClear() throws Exception{
-		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(2);
-		ReportDetails reportDetails= new ReportDetails(map);
-		OCMReportsPage OCMReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
-		OCMReportsPage.showReport(reportDetails);  
-		OCMIvrCallTraceReportPage OCMIvrCallTraceReportPage=PageFactory.createPageInstance(driver,OCMIvrCallTraceReportPage.class);
-		Assert.assertTrue(OCMIvrCallTraceReportPage.verifySearchClear(reportDetails));    	
-	}
-
-	@Test(priority=41,description="Advance search on reports page for Is equal to Criteria")
-	public void verifyAdvancedSearchinreportpageSearchEqualTo() throws Exception {
-		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(1);
-		ReportDetails reportDetails= new ReportDetails(map);
-		OCMReportsPage OCMReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
-		OCMIvrCallTraceReportPage OCMIvrCallTraceReportPage=PageFactory.createPageInstance(driver,OCMIvrCallTraceReportPage.class);
-		OCMReportsPage.chooseAdvancedSearchNew(reportDetails);  
-		OCMReportsPage.showReport(reportDetails);
-		Assert.assertTrue(OCMIvrCallTraceReportPage.verifyAdvanceSearchIsEqualTo(reportDetails));
-	}
-	@Test(priority=47,description="Advance search with And Condition")
-	public void verifyAdvancedSearchANDCriteria() throws Exception {
-		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(0);
-		OCMIvrCallTraceReportPage OCMIvrCallTraceReportPage=PageFactory.createPageInstance(driver,OCMIvrCallTraceReportPage.class);
-		ReportDetails reportDetails= new ReportDetails(map);
-		//To select Report Channel,name,Type
-		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);                   	
-		ocmReportsPage.chooseReport(reportDetails);
-		Assert.assertTrue(OCMIvrCallTraceReportPage.advancedSearchANDCriteria(reportDetails));   	
-	}
-
-	@Test(priority=42,description="Advance search with OR Condition")
-	public void verifyAdvancedSearchORCriteria() throws Exception {
-		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(1);
-		OCMIvrCallTraceReportPage OCMIvrCallTraceReportPage=PageFactory.createPageInstance(driver,OCMIvrCallTraceReportPage.class);
-		ReportDetails reportDetails= new ReportDetails(map);
-		//To select Report Channel,name,Type
-		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);                   	
-		ocmReportsPage.chooseReport(reportDetails);
-		Assert.assertTrue(OCMIvrCallTraceReportPage.advancedSearchORCriteria(reportDetails));
-
-	}
-	@Test(priority=43,description="Clear filters for Advance search")
-	public void ClearfiltersAdvSrch() throws Exception{ 	
-		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(0);
-		ReportDetails reportDetails= new ReportDetails(map);
-		OCMReportsPage OCMReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);                   
-		Assert.assertTrue(OCMReportsPage.ClearAdvFilters(reportDetails));
+		OCMIvrCallTraceReportPage ivrCallTraceReportPage=PageFactory.createPageInstance(driver,OCMIvrCallTraceReportPage.class);
+		Assert.assertTrue(ivrCallTraceReportPage.verifySorting(),"item per page assertion failed");
 	} 
-	@Test(priority=44,description="Group By fuctionality")
-	public void GroupBy() throws Exception{
-		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
-		ReportDetails reportDetails= new ReportDetails(map);
-		OCMReportsPage OCMReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
-		OCMReportsPage.showReport(reportDetails);
-		OCMIvrCallTraceReportPage OCMIvrCallTraceReportPage=PageFactory.createPageInstance(driver,OCMIvrCallTraceReportPage.class);
-		Assert.assertTrue(OCMIvrCallTraceReportPage.groupby());
-		screenshot.captureScreen("OCMIvrCallTraceReport", "GroupBy");
-		Assert.assertTrue(OCMIvrCallTraceReportPage.groupby());
-		screenshot.captureScreen("OCMIvrCallTraceReport", "AlreadyGroupBy");
-	}
 
-	@Test(priority=45,description="To Verify Menu traversal in drill down grid")
+	@Test(priority=53,enabled=false,description="To Verify Menu traversal in drill down grid")
 	public void VerifyDrillDownMenuTraversal() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
 		ReportDetails reportDetails= new ReportDetails(map);
 		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
 		ocmReportsPage.showReport(reportDetails);
-		OCMIvrCallTraceReportPage OCMIvrCallTraceReportPage=PageFactory.createPageInstance(driver,OCMIvrCallTraceReportPage.class);
-		Assert.assertTrue(OCMIvrCallTraceReportPage.verifyMenuTraversalButton(reportDetails),"menu traversal error");
+		OCMIvrCallTraceReportPage ivrCallTraceReportPage=PageFactory.createPageInstance(driver,OCMIvrCallTraceReportPage.class);
+		Assert.assertTrue(ivrCallTraceReportPage.verifyMenuTraversalButton(reportDetails),"menu traversal error");
 	}
-	@Test(priority=46,description="To Verify Call flow Diagram in drill down Page")
+
+	@Test(priority=54,enabled=false,description="To Verify Call flow Diagram in drill down Page")
 	public void VerifyCallFlowDiagram() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
 		ReportDetails reportDetails= new ReportDetails(map);
 		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
 		ocmReportsPage.showReport(reportDetails);
-		OCMIvrCallTraceReportPage OCMIvrCallTraceReportPage=PageFactory.createPageInstance(driver,OCMIvrCallTraceReportPage.class);
-		Assert.assertTrue(OCMIvrCallTraceReportPage.verifyCallflowDiagram(reportDetails),"Call flow error");
+		OCMIvrCallTraceReportPage ivrCallTraceReportPage=PageFactory.createPageInstance(driver,OCMIvrCallTraceReportPage.class);
+		Assert.assertTrue(ivrCallTraceReportPage.verifyCallflowDiagram(reportDetails),"Call flow error");
 	} 
 
-	@Test(priority=47,description="To Verify Call flow Grid in drill down Page")
+	@Test(priority=55,enabled=false,description="To Verify Call flow Grid in drill down Page")
 	public void VerifyCallFlowGrid() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
 		ReportDetails reportDetails= new ReportDetails(map);
 		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
 		ocmReportsPage.showReport(reportDetails);
-		OCMIvrCallTraceReportPage OCMIvrCallTraceReportPage=PageFactory.createPageInstance(driver,OCMIvrCallTraceReportPage.class);
-		Assert.assertTrue(OCMIvrCallTraceReportPage.verifyCallflowGrid(reportDetails),"Call flow grid error");
+		OCMIvrCallTraceReportPage ivrCallTraceReportPage=PageFactory.createPageInstance(driver,OCMIvrCallTraceReportPage.class);
+		Assert.assertTrue(ivrCallTraceReportPage.verifyCallflowGrid(reportDetails),"Call flow grid error");
 	}
-
-	@Test(priority=48, description="To verify IVR call Trace report UI data against DB")
-	public void database() throws Exception {
-		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(0);
-		ReportDetails reportDetails= new ReportDetails(map);
-		OCMReportsPage ocmReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
-		ocmReportsPage.showReport(reportDetails);
-		OCMIvrCallTraceReportPage ivrCallTraceReportPage=PageFactory.createPageInstance(driver, OCMIvrCallTraceReportPage.class);
-		Assert.assertTrue(ivrCallTraceReportPage.verifyDatabase(reportDetails.getQuery(), reportDetails),"Main Report Data Mismatch");    
-		System.out.println("Main Report Data Match Successfull");
-		List<String> UCIDList = new ArrayList<>();
-		UCIDList=ivrCallTraceReportPage.getUCID();
-//		System.out.println("List of UCID's is"+ UCIDList);
-		int k=0;
-		for (int i=0;i<UCIDList.size();i++) {
-//			System.out.println(UCIDList.size());
-			if(k==10) {
-				ivrCallTraceReportPage.goToNextPage();
-				k=k-10;			
-			}
-			ivrCallTraceReportPage.clickOnUCIDRowOnMainReport(k);
-			Assert.assertTrue(ivrCallTraceReportPage.verifyDatabaseDrillGridOne(reportDetails.getQueryDrillGridOne(), reportDetails, UCIDList.get(i)),"Menu Traversal Grid data mismatch for UCID" + UCIDList.get(i));
-			System.out.println("Menu Traversal Data match Successful for UCID" + " : "+ UCIDList.get(i));
-		}
-	}
-
-	
 
 	@AfterMethod
 	public void afterEachMethod(Method method) throws InterruptedException {
