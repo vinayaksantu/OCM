@@ -27,7 +27,7 @@ public class OCMUnauthorizedaccessReportTest extends BaseTest {
 		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
 		Assert.assertTrue(ocmReportsPage.isOCMReportPageIsDisplayed());       	
 	}
-
+	
 	@Test(priority=1,description="To verify Show Report for Single Date")
 	public void ShowReport() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMUnauthorizedaccessReport.xlsx";
@@ -379,7 +379,7 @@ public class OCMUnauthorizedaccessReportTest extends BaseTest {
 	}
 
 	@Test(priority=33,description="Verify the search Is equal to criteria")
-	public void VerifySearchFeatureForIsEqual() throws Exception {
+	public void VerifySearchIsEqualTo() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMUnauthorizedaccessReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
 		ReportDetails reportDetails= new ReportDetails(map);
@@ -424,7 +424,7 @@ public class OCMUnauthorizedaccessReportTest extends BaseTest {
 	}  
 
 	@Test(priority=37,description="Verify the search starts with criteria")
-	public void  VerifySearchStartsWith() throws Exception {
+	public void VerifySearchStartsWith() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMUnauthorizedaccessReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(3);
 		ReportDetails reportDetails= new ReportDetails(map);
@@ -435,7 +435,7 @@ public class OCMUnauthorizedaccessReportTest extends BaseTest {
 	}
 
 	@Test(priority=38,description="Verify the search Ends with criteria")
-	public void  VerifySearchEndsWith() throws Exception {
+	public void VerifySearchEndsWith() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMUnauthorizedaccessReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(4);
 		ReportDetails reportDetails= new ReportDetails(map);
@@ -469,7 +469,7 @@ public class OCMUnauthorizedaccessReportTest extends BaseTest {
 	} 
 
 	@Test(priority=41,description="Advance search on reports page for Is equal to Criteria")
-	public void verifyAdvancedSearchinreportpage() throws Exception {
+	public void verifyAdvanceSearchIsEqualTo() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMUnauthorizedaccessReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(1);
 		ReportDetails reportDetails= new ReportDetails(map);
@@ -500,8 +500,63 @@ public class OCMUnauthorizedaccessReportTest extends BaseTest {
 		ocmReportsPage.chooseReport(reportDetails);
 		Assert.assertTrue(UnauthorizedAccessPage.advancedSearchORCriteria(reportDetails));    	
 	}
+	
+	@Test(priority=44,description="To verify Advanced search Is not equal to search Criteria") 
+	public void verifyAdvancedSearchIsNotEqualTo() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMUnauthorizedaccessReport.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(2);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage OCMReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);  
+		OCMUnauthorizedaccessReportPage UnauthorizedAccessPage=PageFactory.createPageInstance(driver,OCMUnauthorizedaccessReportPage.class);
+		OCMReportsPage.showReport(reportDetails);
+		Assert.assertTrue(UnauthorizedAccessPage.verifyAdvanceSearchIsNotEqualTo(reportDetails));
+	}
 
-	@Test(priority=44,description="Clear filters for Advance search")
+	@Test(priority=45,description="To verify Advanced search Contains search Criteria")
+	public void verifyAdvancedSearchcontains() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMUnauthorizedaccessReport.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(3);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage OCMReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class); 
+		OCMUnauthorizedaccessReportPage UnauthorizedAccessPage=PageFactory.createPageInstance(driver,OCMUnauthorizedaccessReportPage.class);
+		OCMReportsPage.showReport(reportDetails);
+		Assert.assertTrue(UnauthorizedAccessPage.verifyAdvanceSearchContains(reportDetails));    	
+	}
+
+	@Test(priority=46,description="To verify Advanced search Does not Contain Criteria")
+	public void verifyAdvancedSearchDoesnotcontains() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMUnauthorizedaccessReport.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(4);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage OCMReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);  
+		OCMUnauthorizedaccessReportPage UnauthorizedAccessPage=PageFactory.createPageInstance(driver,OCMUnauthorizedaccessReportPage.class);  
+		OCMReportsPage.showReport(reportDetails);
+		Assert.assertTrue(UnauthorizedAccessPage.verifyAdvanceSearchDoesNotContains(reportDetails));   
+	}
+
+	@Test(priority=47,description="To verify Advanced search Starts with Criteria")
+	public void verifyAdvancedSearchStartswith() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMUnauthorizedaccessReport.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(5);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage OCMReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class); 
+		OCMUnauthorizedaccessReportPage UnauthorizedAccessPage=PageFactory.createPageInstance(driver,OCMUnauthorizedaccessReportPage.class);
+		OCMReportsPage.showReport(reportDetails);
+		Assert.assertTrue(UnauthorizedAccessPage.verifyAdvanceSearchStartsWith(reportDetails)); 	
+	}
+
+	@Test(priority=48,description="To verify Advanced search Ends with Criteria")
+	public void verifyAdvancedSearchEndswith() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMUnauthorizedaccessReport.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(6);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage OCMReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);  
+		OCMUnauthorizedaccessReportPage UnauthorizedAccessPage=PageFactory.createPageInstance(driver,OCMUnauthorizedaccessReportPage.class);
+		OCMReportsPage.showReport(reportDetails);
+		Assert.assertTrue(UnauthorizedAccessPage.verifyAdvanceSearchEndsWith(reportDetails));
+	}
+
+	@Test(priority=49,description="Clear filters for Advance search")
 	public void ClearfiltersAdvSrch() throws Exception{ 	
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMUnauthorizedaccessReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(0);
@@ -510,7 +565,7 @@ public class OCMUnauthorizedaccessReportTest extends BaseTest {
 		Assert.assertTrue(OCMReportsPage.ClearAdvFilters(reportDetails));
 	} 
 
-	@Test(priority=45, description="To verify Group by functionality")
+	@Test(priority=50, description="To verify Group by functionality")
 	public void GroupBy() throws Exception{
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMUnauthorizedaccessReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -524,7 +579,7 @@ public class OCMUnauthorizedaccessReportTest extends BaseTest {
 		screenshot.captureScreen("UnauthorizedAccess", "AlreadyGroupBy");
 	}
 
-	@Test(priority=46,description="To Verify Ascending and Descending order")
+	@Test(priority=51,description="To Verify Ascending and Descending order")
 	public void VerifySorting() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMUnauthorizedaccessReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
@@ -534,64 +589,7 @@ public class OCMUnauthorizedaccessReportTest extends BaseTest {
 		OCMUnauthorizedaccessReportPage UnauthorizedAccessPage=PageFactory.createPageInstance(driver,OCMUnauthorizedaccessReportPage.class);
 		Assert.assertTrue(UnauthorizedAccessPage.verifySorting(),"Sorting assertion failed");
 	}
-	
-	@Test(priority=47,description="To verify Advanced search Is not equal to search Criteria") 
-	public void verifyAdvancedSearchIsNotEqualTo() throws Exception {
-		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMUnauthorizedaccessReport.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(2);
-		ReportDetails reportDetails= new ReportDetails(map);
-		OCMReportsPage OCMReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);  
-		OCMUnauthorizedaccessReportPage UnauthorizedAccessPage=PageFactory.createPageInstance(driver,OCMUnauthorizedaccessReportPage.class);
-		OCMReportsPage.showReport(reportDetails);
-		Assert.assertTrue(UnauthorizedAccessPage.verifyAdvanceSearchIsNotEqualTo(reportDetails));
-	}
-
-	@Test(priority=48,description="To verify Advanced search Contains search Criteria")
-	public void verifyAdvancedSearchcontains() throws Exception {
-		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMUnauthorizedaccessReport.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(3);
-		ReportDetails reportDetails= new ReportDetails(map);
-		OCMReportsPage OCMReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class); 
-		OCMUnauthorizedaccessReportPage UnauthorizedAccessPage=PageFactory.createPageInstance(driver,OCMUnauthorizedaccessReportPage.class);
-		OCMReportsPage.showReport(reportDetails);
-		Assert.assertTrue(UnauthorizedAccessPage.verifyAdvanceSearchContains(reportDetails));    	
-	}
-
-	@Test(priority=49,description="To verify Advanced search Does not Contain Criteria")
-	public void verifyAdvancedSearchDoesnotcontains() throws Exception {
-		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMUnauthorizedaccessReport.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(4);
-		ReportDetails reportDetails= new ReportDetails(map);
-		OCMReportsPage OCMReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);  
-		OCMUnauthorizedaccessReportPage UnauthorizedAccessPage=PageFactory.createPageInstance(driver,OCMUnauthorizedaccessReportPage.class);  
-		OCMReportsPage.showReport(reportDetails);
-		Assert.assertTrue(UnauthorizedAccessPage.verifyAdvanceSearchDoesNotContains(reportDetails));   
-	}
-
-	@Test(priority=50,description="To verify Advanced search Starts with Criteria")
-	public void verifyAdvancedSearchStartswith() throws Exception {
-		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMUnauthorizedaccessReport.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(5);
-		ReportDetails reportDetails= new ReportDetails(map);
-		OCMReportsPage OCMReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class); 
-		OCMUnauthorizedaccessReportPage UnauthorizedAccessPage=PageFactory.createPageInstance(driver,OCMUnauthorizedaccessReportPage.class);
-		OCMReportsPage.showReport(reportDetails);
-		Assert.assertTrue(UnauthorizedAccessPage.verifyAdvanceSearchStartsWith(reportDetails)); 	
-	}
-
-	@Test(priority=51,description="To verify Advanced search Ends with Criteria")
-	public void verifyAdvancedSearchEndswith() throws Exception {
-		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMUnauthorizedaccessReport.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(6);
-		ReportDetails reportDetails= new ReportDetails(map);
-		OCMReportsPage OCMReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);  
-		OCMUnauthorizedaccessReportPage UnauthorizedAccessPage=PageFactory.createPageInstance(driver,OCMUnauthorizedaccessReportPage.class);
-		OCMReportsPage.showReport(reportDetails);
-		Assert.assertTrue(UnauthorizedAccessPage.verifyAdvanceSearchEndsWith(reportDetails));
-	}
-	
-
-	
+			
 	@AfterMethod
 	public void afterEachMethod(Method method) {
 		Screenshot screenshot=new Screenshot(driver);

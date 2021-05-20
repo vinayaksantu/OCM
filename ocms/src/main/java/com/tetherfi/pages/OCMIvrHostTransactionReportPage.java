@@ -700,6 +700,7 @@ public class OCMIvrHostTransactionReportPage extends BasePage  {
 		Boolean Status=verifyExportPageFileDownload(filePath, "OCMIvrHostTransactionReport");
 		return Status;
 	}
+	
 	public boolean verifyExportPageFileDownloaded(String reportname){
 		return verifyExportPageFileDownload(System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles",reportname);
 	}
@@ -836,7 +837,6 @@ public class OCMIvrHostTransactionReportPage extends BasePage  {
 		boolean Status=false;		
 		selectWebElement(searchbyfeatureTextBox);    		
 		enterValueToTxtFieldWithoutClear(searchbyfeatureTextBox,details.getSearchStr());
-		Thread.sleep(5000);
 		selectDropdownFromVisibleText(searchbyfeaturelistBox,details.getSearchStr());	
 		waitForJqueryLoad(driver);
 		Thread.sleep(5000);
@@ -977,76 +977,87 @@ public class OCMIvrHostTransactionReportPage extends BasePage  {
 		}
 		return Status;
 	}
+	
 	public boolean verifyAdvanceSearchIsNotEqualTo(ReportDetails reportDetails) throws Exception {
 		Boolean Status=false;
 		waitForJqueryLoad(driver);
 		List<Map<String,String>>UI=getDataTable();
 		for(Map<String,String> map1:UI)
 		{
-			System.out.println(map1.get("C"));
-			if(map1.get("Chat End Reason").equalsIgnoreCase(reportDetails.getSearchStr()))
+			System.out.println(map1.get("Menu Description"));
+			if(map1.get("Menu Description").equalsIgnoreCase(reportDetails.getSearchStr()))
 				Status= false;
 			else 
 				Status =true;
 		}
 		return Status;
 	}
+	
 	public boolean verifyAdvanceSearchContains(ReportDetails reportDetails) throws Exception {
 		Boolean Status=false;
 		waitForJqueryLoad(driver);
 		List<Map<String,String>>UI=getDataTable();
 		for(Map<String,String> map1:UI)
 		{
-			System.out.println(map1.get("Identification"));
-			if(map1.get("Identification").toUpperCase().contains(reportDetails.getSearchStr()))				
+			System.out.println(map1.get("Menu Description"));
+			if(map1.get("Menu Description").toUpperCase().contains(reportDetails.getSearchStr().toUpperCase()))				
 				Status= true;
 			else 
 				Status =false;
 		}
 		return Status;
 	}
-	public boolean verifyAdvanceSearchDoesNotContains(ReportDetails reportDetails) throws Exception {
-		Boolean Status=false;
-		waitForJqueryLoad(driver);
-		List<Map<String,String>>UI=getDataTable();
-		for(Map<String,String> map1:UI)
-		{
-			System.out.println(map1.get("Session ID"));
-			if(!map1.get("Session ID").toUpperCase().contains(reportDetails.getSearchStr()))				
-				Status= true;
-			else 
-				Status =false;
-		}
-		return Status;
-	}
+
+	
+		
 	public boolean verifyAdvanceSearchStartsWith(ReportDetails reportDetails) throws Exception {
 		Boolean Status=false;
 		waitForJqueryLoad(driver);
 		List<Map<String,String>>UI=getDataTable();
 		for(Map<String,String> map1:UI)
 		{
-			System.out.println(map1.get("Identification"));
-			if(!map1.get("Identification").toLowerCase().startsWith(reportDetails.getSearchStr()))				
+			System.out.println(map1.get("Menu Description"));
+			if(map1.get("Menu Description").toLowerCase().startsWith(reportDetails.getSearchStr().toLowerCase()))				
 				Status= true;
 			else 
 				Status =false;
 		}
 		return Status;
 	}
+
+	public boolean verifyAdvanceSearchDoesNotContains(ReportDetails reportDetails) throws Exception {
+		Boolean Status=false;
+		waitForJqueryLoad(driver);
+		List<Map<String,String>>UI=getDataTable();
+		for(Map<String,String> map1:UI)
+		{
+			System.out.println(map1.get("Menu Description"));
+			if(!map1.get("Menu Description").toUpperCase().contains(reportDetails.getSearchStr()))				
+				Status= true;
+			else 
+				Status =false;
+		}
+		return Status;
+	}
+
+	
 	public boolean verifyAdvanceSearchEndsWith(ReportDetails reportDetails) throws Exception {
 		Boolean Status=false;
 		waitForJqueryLoad(driver);
 		List<Map<String,String>>UI=getDataTable();
 		for(Map<String,String> map1:UI)
 		{
-			System.out.println(map1.get("Agent ID"));
-			if(!map1.get("Agent ID").toLowerCase().endsWith(reportDetails.getSearchStr()))				
+			System.out.println(map1.get("Menu Description"));
+			if(map1.get("Menu Description").toLowerCase().endsWith(reportDetails.getSearchStr().toLowerCase()))				
 				Status= true;
 			else 
 				Status =false;
 		}
 		return Status;
 	}
+
+	
+	
 
 	public Boolean advancedSearchANDCriteria(ReportDetails details) throws Exception {
 		Boolean Status=false;	
@@ -1114,8 +1125,8 @@ public class OCMIvrHostTransactionReportPage extends BasePage  {
 		selectDropdownFromVisibleText(searchColListBoxAdvSrchReportPage1,"UCID");
 		Thread.sleep(2000);
 		selectWebElement(searchCriteriaDropdownAdvSrch1);
-		selectDropdownFromVisibleText(searchCriteriaListboxAdvSrch1,"Ends with");
-		enterValueToTxtField(searchTextBoxAdvSrch1,details.getSearchStr2());
+		selectDropdownFromVisibleText(searchCriteriaListboxAdvSrch1,"Starts with");
+		enterValueToTxtField(searchTextBoxAdvSrch1,details.getSearchStr1());
 		selectWebElement(showReportBtn.get(0));
 		waitForLoad(driver);
 		waitForJqueryLoad(driver);
@@ -1124,7 +1135,7 @@ public class OCMIvrHostTransactionReportPage extends BasePage  {
 		List<Map<String,String>> UI=getDataTable(); 
 		for (Map<String,String> map1: UI)
 		{   	
-			if(map1.get("UCID").equals(details.getSearchStr()) || map1.get("UCID").endsWith(details.getSearchStr2()))
+			if(map1.get("UCID").equals(details.getSearchStr()) || map1.get("UCID").startsWith(details.getSearchStr1()))
 				Status= true;
 			else 
 				Status= false;
@@ -1164,7 +1175,7 @@ public class OCMIvrHostTransactionReportPage extends BasePage  {
 	public boolean groupby() {
 		DragandDrop(RequestMessage,droptarget);
 		try {
-			Thread.sleep(5000);
+			Thread.sleep(1000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
@@ -1196,7 +1207,7 @@ public class OCMIvrHostTransactionReportPage extends BasePage  {
 		query=query.replaceAll("ReportBeforeDate",reportbeforedate );
 		query=query.replaceAll("ReportAfterDate",reportafterdate );
 		List<Map<String,String>> database=database(query);
-		System.out.println("Printing Query" +" "+query);		
+//		System.out.println("Printing Query" +" "+query);		
 		System.out.println("Printing DB results" +" "+database);
 		List<Map<String,String>> UI=getDataTable1(); 
 		System.out.println("Printing UI Results"+" "+UI);	
@@ -1234,7 +1245,7 @@ public class OCMIvrHostTransactionReportPage extends BasePage  {
 		}
 			return arr;
 	}
-
+	
 }
 
 

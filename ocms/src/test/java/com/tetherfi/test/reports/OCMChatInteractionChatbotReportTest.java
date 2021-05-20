@@ -82,7 +82,7 @@ public class OCMChatInteractionChatbotReportTest extends BaseTest {
         ReportDetails reportDetails= new ReportDetails(map);
 
         OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
-        ocmReportsPage.viewDownloadedReportInReportsDownloadsPage();
+        ocmReportsPage.viewDownloadedReportInReportDownloadsPage();
         Assert.assertTrue(ocmReportsPage.verifyDownloadedReportNameAndTimeInReportsDownloadPage(reportDetails.getReportName()),"Report not found in Reporter download page");
     }
        
@@ -127,7 +127,7 @@ public class OCMChatInteractionChatbotReportTest extends BaseTest {
         ReportDetails reportDetails= new ReportDetails(map);
 
         OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
-        ocmReportsPage.viewDownloadedReportInReportsDownloadsPage();
+        ocmReportsPage.viewDownloadedReportInReportDownloadsPage();
         Assert.assertTrue(ocmReportsPage.verifyDownloadedReportNameAndTimeInReportsDownloadPage(reportDetails.getReportName()),"Report not found in Reporter download page");
     }
     
@@ -392,8 +392,12 @@ public class OCMChatInteractionChatbotReportTest extends BaseTest {
         Assert.assertEquals(ocmReportsPage.verifySuccessMessage(),"Please enter the text to search or remove the filter", "Add invalid record assertion failed");
     }*/
       
+   
     @AfterMethod
-    public void afterEachMethod(Method method) {
-    	screenshot.captureScreen(driver, "", method.getName());
-    }
+	public void afterEachMethod(Method method) throws InterruptedException {
+		Screenshot screenshot=new Screenshot(driver);
+		screenshot.captureScreen("IVRCallTraceReportTest",method.getName());
+		driver.navigate().refresh();
+	}
+
 }
