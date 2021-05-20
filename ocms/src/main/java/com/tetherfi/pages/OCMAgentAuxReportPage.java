@@ -1159,7 +1159,7 @@ public class OCMAgentAuxReportPage extends BasePage  {
 		for(Map<String,String> map1:UI)
 		{
 			System.out.println(map1.get("Agent Name"));
-			if(map1.get("Agent Name").toLowerCase().startsWith(reportDetails.getSearchStr()))				
+			if(map1.get("Agent Name").startsWith(reportDetails.getSearchStr()))				
 				Status= true;
 			else 
 				Status =false;
@@ -1174,7 +1174,7 @@ public class OCMAgentAuxReportPage extends BasePage  {
 		for(Map<String,String> map1:UI)
 		{
 			System.out.println(map1.get("Agent Name"));
-			if(!map1.get("Agent Name").endsWith(reportDetails.getSearchStr()))				
+			if(map1.get("Agent Name").endsWith(reportDetails.getSearchStr()))				
 				Status= true;
 			else 
 				Status =false;
@@ -1212,12 +1212,16 @@ public class OCMAgentAuxReportPage extends BasePage  {
 		waitForJqueryLoad(driver);
 		waitUntilWebElementIsVisible(gridBoxContent);
 		Thread.sleep(2000);
-		if(rowdata.getText().equalsIgnoreCase(details.getSearchStr()) && rowdata.getText().contains(details.getSearchStr1().toLowerCase())) 
-		{
-			Status=true;
-		}
-		return Status;	
-	}
+		List<Map<String,String>>UI=getDataTable();
+		for(Map<String,String> map1:UI) {
+		if(map1.get("Agent Name").equals(details.getSearchStr()) && map1.get("Agent Name").contains(details.getSearchStr1())) {
+					Status=true;
+				}
+				}
+				return Status;	
+			}
+		
+		
 	
 	public Boolean advancedSearchORCriteria(ReportDetails details) throws Exception {
 		Boolean Status=false;	

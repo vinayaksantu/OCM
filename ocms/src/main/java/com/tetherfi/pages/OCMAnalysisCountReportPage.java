@@ -988,7 +988,8 @@ public class OCMAnalysisCountReportPage extends BasePage  {
 			Status=false;
 		return Status;	
 	}
-	public boolean verifyAdvanceSearch(ReportDetails reportDetails) throws Exception {
+	
+	public boolean verifyAdvanceSearchIsEqualTo(ReportDetails reportDetails) throws Exception {
 		Boolean Status=false;
 		waitForJqueryLoad(driver);
 		List<Map<String,String>>UI=getDataTable();

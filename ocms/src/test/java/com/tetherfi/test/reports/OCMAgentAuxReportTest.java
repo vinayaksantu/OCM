@@ -646,7 +646,7 @@ public class OCMAgentAuxReportTest extends BaseTest {
 	@AfterMethod
 	public void afterEachMethod(Method method) throws InterruptedException {
 		Screenshot screenshot=new Screenshot(driver);
-		screenshot.captureScreen("AgentAuxReportProd",method.getName());
+		screenshot.captureScreen("AgentAuxReportProduct",method.getName());
 		driver.navigate().refresh();
 	}
 

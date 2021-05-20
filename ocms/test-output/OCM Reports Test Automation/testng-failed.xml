@@ -14,9 +14,9 @@
           <include name="afterEachMethod"/>
           <include name="openApplication"/>
           <include name="database"/>
+          <include name="VerifySorting"/>
           <include name="endTestCase"/>
           <include name="tearDown"/>
-          <include name="VerifySearchIsEqualTo"/>
           <include name="verifyAdvancedSearchStartswith"/>
           <include name="verifyAdvancedSearchEndswith"/>
           <include name="verifyAdvancedSearchANDCriteria"/>
