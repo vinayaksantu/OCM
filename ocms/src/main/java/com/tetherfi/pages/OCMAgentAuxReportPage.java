@@ -700,13 +700,11 @@ public class OCMAgentAuxReportPage extends BasePage  {
 		boolean status=false;
 		if(!nextPageIcon.getAttribute("class").contains("k-state-disabled")){
 			int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber));
-			Thread.sleep(4000);
 			selectWebElement(nextPageIcon);
-			Thread.sleep(5000);
+			Thread.sleep(2000);
 			int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
-			Thread.sleep(4000);
 			selectWebElement(previousPageIcon);
-			Thread.sleep(5000);
+			Thread.sleep(2000);
 			int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 			if(nextnumber==(pagenumber+1) && pagenumber==previousnumber){status=true;}
 		}else{
@@ -721,12 +719,11 @@ public class OCMAgentAuxReportPage extends BasePage  {
 			int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 			System.out.println(pagenumber);
 			selectWebElement(lastPageIcon);
-			Thread.sleep(5000);
+			Thread.sleep(2000);
 			int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 			System.out.println(nextnumber);
-			Thread.sleep(4000);
 			selectWebElement(firstPageIcon);
-			Thread.sleep(5000);
+			Thread.sleep(2000);
 			int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 			System.out.println(previousnumber);
 			if(nextnumber>pagenumber && pagenumber==previousnumber){status=true;}
@@ -809,7 +806,6 @@ public class OCMAgentAuxReportPage extends BasePage  {
 		waitForLoad(driver);
 		waitForJqueryLoad(driver);
 	}
-
 	public boolean isExportSchedulerPageDisplayed() {
 		waitForLoad(driver);
 		waitForJqueryLoad(driver);
@@ -957,17 +953,20 @@ public class OCMAgentAuxReportPage extends BasePage  {
 		}
 		return Status;	
 	}
+	
 	public String getMessage() {
 		if(errorMsg.size()>0){return errorMsg.get(0).getText();}
 		else {
 			return successmsg.getText();}
 	}
+	
 	public String getSuccessMessage() {
 		if(successmsg.isDisplayed()){
 			return successmsg.getText();}
 		else {
 			return errorMsg.get(0).getText();}
 	}
+	
 	public boolean verifySearchContains(String description) throws Exception {
 		Boolean Status=false;		
 		selectWebElement(searchBtn);
@@ -1062,6 +1061,7 @@ public class OCMAgentAuxReportPage extends BasePage  {
 		}
 		return Status;
 	}
+	
 	public boolean verifySearchClear(ReportDetails details) {
 		boolean Status=false;
 		selectWebElement(searchBtn);		
@@ -1107,6 +1107,7 @@ public class OCMAgentAuxReportPage extends BasePage  {
 		}
 		return Status;
 	}
+	
 	public boolean verifyAdvanceSearchIsNotEqualTo(ReportDetails reportDetails) throws Exception {
 		Boolean Status=false;
 		waitForJqueryLoad(driver);
@@ -1159,7 +1160,7 @@ public class OCMAgentAuxReportPage extends BasePage  {
 		for(Map<String,String> map1:UI)
 		{
 			System.out.println(map1.get("Agent Name"));
-			if(map1.get("Agent Name").startsWith(reportDetails.getSearchStr()))				
+			if(!map1.get("Agent Name").toLowerCase().startsWith(reportDetails.getSearchStr()))				
 				Status= true;
 			else 
 				Status =false;
@@ -1174,7 +1175,7 @@ public class OCMAgentAuxReportPage extends BasePage  {
 		for(Map<String,String> map1:UI)
 		{
 			System.out.println(map1.get("Agent Name"));
-			if(map1.get("Agent Name").endsWith(reportDetails.getSearchStr()))				
+			if(!map1.get("Agent Name").toLowerCase().endsWith(reportDetails.getSearchStr()))				
 				Status= true;
 			else 
 				Status =false;
@@ -1212,16 +1213,11 @@ public class OCMAgentAuxReportPage extends BasePage  {
 		waitForJqueryLoad(driver);
 		waitUntilWebElementIsVisible(gridBoxContent);
 		Thread.sleep(2000);
-		List<Map<String,String>>UI=getDataTable();
-		for(Map<String,String> map1:UI) {
-		if(map1.get("Agent Name").equals(details.getSearchStr()) && map1.get("Agent Name").contains(details.getSearchStr1())) {
-					Status=true;
-				}
-				}
-				return Status;	
-			}
-		
-		
+		if(rowdata.getText().equals(details.getSearchStr()) && rowdata.getText().contains(details.getSearchStr1())) {
+			Status=true;
+		}
+		return Status;	
+	}
 	
 	public Boolean advancedSearchORCriteria(ReportDetails details) throws Exception {
 		Boolean Status=false;	
@@ -1306,6 +1302,7 @@ public class OCMAgentAuxReportPage extends BasePage  {
 		}
 		return Status;	
 	}
+	
 	public boolean groupby() {
 		DragandDrop(auxName,droptarget);
 		try {

@@ -3,12 +3,10 @@ import java.io.IOException;
 import java.lang.reflect.Method;
 import java.util.List;
 import java.util.Map;
-
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
 import com.tetherfi.model.report.ReportDetails;
 import com.tetherfi.pages.HomePage;
 import com.tetherfi.pages.OCMAgentAuxReportPage;
@@ -646,7 +644,7 @@ public class OCMAgentAuxReportTest extends BaseTest {
 	@AfterMethod
 	public void afterEachMethod(Method method) throws InterruptedException {
 		Screenshot screenshot=new Screenshot(driver);
-		screenshot.captureScreen("AgentAuxReportProduct",method.getName());
+		screenshot.captureScreen("AgentAuxReportTest3.4.3.14",method.getName());
 		driver.navigate().refresh();
 	}
 

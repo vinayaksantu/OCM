@@ -11,7 +11,7 @@
 	<test name="ReportsRegression">
 		<classes>
 		
-			<class name="com.tetherfi.test.reports.OCMAnalysisCountReportTest" />
+			<class name="com.tetherfi.test.reports.OCMChatAnalysisCountReportTest" />
 						
 		</classes>
 	</test>
