@@ -27,7 +27,7 @@ public class OCMUnauthorizedaccessReportTest extends BaseTest {
 		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
 		Assert.assertTrue(ocmReportsPage.isOCMReportPageIsDisplayed());       	
 	}
-	
+
 	@Test(priority=1,description="To verify Show Report for Single Date")
 	public void ShowReport() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMUnauthorizedaccessReport.xlsx";
@@ -82,16 +82,16 @@ public class OCMUnauthorizedaccessReportTest extends BaseTest {
 		Assert.assertTrue(UnauthorizedAccessPage.verifyArrowMoveForPreviousAndNextPage(),"arrow move for previous and next page assertion failed");
 	}   
 
-	@Test(priority=6,description="Verify Pagination, Move to First and Last Page") 
-	public void VerifyArrowMoveForFirstAndLastPage() throws Exception { 
-		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMUnauthorizedaccessReport.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0); ReportDetails
-		reportDetails= new ReportDetails(map); 
+	@Test(priority=6,description="Verify Pagination, Move to First and Last Page")
+	public void VerifyArrowMoveForFirstAndLastPage() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentLoginLogoutReportData.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
+		ReportDetails reportDetails= new ReportDetails(map);
 		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
-		ocmReportsPage.showReport(reportDetails); OCMUnauthorizedaccessReportPage
-		UnauthorizedAccessPage=PageFactory.createPageInstance(driver,OCMUnauthorizedaccessReportPage.class);
-		Assert.assertTrue(UnauthorizedAccessPage.verifyArrowMoveForFirstAndLastPage(),"arrow move for first and last page assertion failed"); 
-	}
+		ocmReportsPage.showReport(reportDetails);
+		OCMUnauthorizedaccessReportPage UnauthorizedaccessReportPage=PageFactory.createPageInstance(driver,OCMUnauthorizedaccessReportPage.class);
+		Assert.assertTrue(UnauthorizedaccessReportPage.verifyArrowMoveForFirstAndLastPage(),"arrow move for first and last page assertion failed");
+	} 
 
 	@Test(priority=7, description="To veriy OCM Unauthorized Access Report UI data against DB")
 	public void database() throws Exception {
@@ -500,7 +500,7 @@ public class OCMUnauthorizedaccessReportTest extends BaseTest {
 		ocmReportsPage.chooseReport(reportDetails);
 		Assert.assertTrue(UnauthorizedAccessPage.advancedSearchORCriteria(reportDetails));    	
 	}
-	
+
 	@Test(priority=44,description="To verify Advanced search Is not equal to search Criteria") 
 	public void verifyAdvancedSearchIsNotEqualTo() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMUnauthorizedaccessReport.xlsx";
@@ -589,13 +589,14 @@ public class OCMUnauthorizedaccessReportTest extends BaseTest {
 		OCMUnauthorizedaccessReportPage UnauthorizedAccessPage=PageFactory.createPageInstance(driver,OCMUnauthorizedaccessReportPage.class);
 		Assert.assertTrue(UnauthorizedAccessPage.verifySorting(),"Sorting assertion failed");
 	}
-			
+
 	@AfterMethod
 	public void afterEachMethod(Method method) {
 		Screenshot screenshot=new Screenshot(driver);
 		screenshot.captureScreen("UnauthorizedAccessReport", method.getName());
 		driver.navigate().refresh();
 	}
+
 }
 
 

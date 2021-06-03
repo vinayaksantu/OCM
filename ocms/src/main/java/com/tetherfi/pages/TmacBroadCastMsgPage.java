@@ -227,7 +227,7 @@ public class TmacBroadCastMsgPage extends BasePage {
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Message");
         selectWebElement(selectSearchCol.get(1));
-        Thread.sleep(1000);
+        Thread.sleep(2000);
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Contains");
         enterValueToTxtFieldWithoutClear(searchTextBox,message);
         selectWebElement(searchSearchBtn);
@@ -243,7 +243,7 @@ public class TmacBroadCastMsgPage extends BasePage {
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Message");
         selectWebElement(selectSearchCol.get(1));
-        Thread.sleep(1000);
+        Thread.sleep(2000);
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is not equal to");
         enterValueToTxtField(searchTextBox,message);		
         selectWebElement(searchSearchBtn);
@@ -267,7 +267,7 @@ public class TmacBroadCastMsgPage extends BasePage {
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Message");
         selectWebElement(selectSearchCol.get(1));
-        Thread.sleep(1000);
+        Thread.sleep(2000);
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Contains");
         enterValueToTxtField(searchTextBox,message);		
         selectWebElement(searchSearchBtn);
@@ -312,7 +312,7 @@ public class TmacBroadCastMsgPage extends BasePage {
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Message");
         selectWebElement(selectSearchCol.get(1));
-        Thread.sleep(1000);
+        Thread.sleep(2000);
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Starts with");
         enterValueToTxtField(searchTextBox,message);		
         selectWebElement(searchSearchBtn);
@@ -335,7 +335,7 @@ public class TmacBroadCastMsgPage extends BasePage {
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Message");
         selectWebElement(selectSearchCol.get(1));
-        Thread.sleep(1000);
+        Thread.sleep(2000);
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Ends with");
         enterValueToTxtField(searchTextBox,message);		
         selectWebElement(searchSearchBtn);
@@ -355,7 +355,7 @@ public class TmacBroadCastMsgPage extends BasePage {
         selectWebElement(addnewTmacBroadcastMessage);
         selectWebElement(TeamNameDropDown);
         try {
-            Thread.sleep(1000);
+            Thread.sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -368,7 +368,7 @@ public class TmacBroadCastMsgPage extends BasePage {
         selectWebElement(statusDropdown);
         selectDropdownFromVisibleText(statusListBox,tmacBroadCastMsgDetails.getStatus());
         try {
-			Thread.sleep(1000);
+			Thread.sleep(2000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
@@ -378,7 +378,7 @@ public class TmacBroadCastMsgPage extends BasePage {
     	selectWebElement(addnewTmacBroadcastMessage);
     	selectWebElement(TeamNameDropDown);
     	try {
-    		Thread.sleep(1000);
+    		Thread.sleep(2000);
     		} catch (InterruptedException e) {
     			e.printStackTrace();
     		}
@@ -551,7 +551,7 @@ public class TmacBroadCastMsgPage extends BasePage {
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Message");
         selectWebElement(selectSearchCol.get(1));
-        Thread.sleep(1000);
+        Thread.sleep(2000);
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Contains");
         enterValueToTxtField(searchTextBox,tmacBroadCastMsgDetails.getMessage());
         selectWebElement(clearall);
@@ -795,7 +795,7 @@ public class TmacBroadCastMsgPage extends BasePage {
 	public boolean groupby() {
 		DragandDrop(message,droptarget);
 		try {
-			Thread.sleep(1000);
+			Thread.sleep(2000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
@@ -807,13 +807,13 @@ public class TmacBroadCastMsgPage extends BasePage {
 	public boolean verifyArrowMoveForPreviousAndNextPage() throws Exception{
         boolean status=false;
         if(!nextPageIcon.getAttribute("class").contains("k-state-disabled")){
-        Thread.sleep(1000);
+        Thread.sleep(2000);
         int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber));
         selectInvisibleWebElement(nextPageIcon);
-    	Thread.sleep(1000);
+    	Thread.sleep(2000);
         int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
         selectInvisibleWebElement(previousPageIcon);
-    	Thread.sleep(1000);
+    	Thread.sleep(2000);
         int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
         if(nextnumber==(pagenumber+1) && pagenumber==previousnumber){status=true;}
         }else{
@@ -824,13 +824,13 @@ public class TmacBroadCastMsgPage extends BasePage {
 	public boolean verifyArrowMoveForFirstAndLastPage() throws Exception{
         boolean status=false;
         if(!lastPageIcon.getAttribute("class").contains("k-state-disabled")){
-        	Thread.sleep(1000);
+        	Thread.sleep(2000);
             int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber));
             selectInvisibleWebElement(lastPageIcon);
-        	Thread.sleep(1000);
+        	Thread.sleep(2000);
             int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
             selectInvisibleWebElement(firstPageIcon);
-        	Thread.sleep(1000);
+        	Thread.sleep(2000);
             int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
             if(nextnumber>pagenumber && pagenumber==previousnumber){status=true;}
         }else{
@@ -880,7 +880,7 @@ public class TmacBroadCastMsgPage extends BasePage {
                 continue;
             } else {
                 selectWebElement(ele);
-                    Thread.sleep(1000);
+                    Thread.sleep(2000);
                 if (headersColumns.get(0).getText().equals("Sort Ascending")) {
                     if (headersColumns.get(1).getText().equals("Sort Descending")) {
                         if (headersColumns.get(2).getText().equals("Columns")) {
@@ -904,9 +904,9 @@ public class TmacBroadCastMsgPage extends BasePage {
             if (ele.isDisplayed()) {
                 try {
                     selectWebElement(ele);
-                    Thread.sleep(1000);
+                    Thread.sleep(2000);
                     selectWebElement(headersColumns.get(2));
-                    Thread.sleep(1000);
+                    Thread.sleep(2000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -939,9 +939,9 @@ public class TmacBroadCastMsgPage extends BasePage {
             if(ele.isDisplayed()){
                 try {
                     selectWebElement(ele);
-                    Thread.sleep(1000);
+                    Thread.sleep(2000);
                     selectWebElement(headersColumns.get(2));
-                    Thread.sleep(1000);
+                    Thread.sleep(2000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

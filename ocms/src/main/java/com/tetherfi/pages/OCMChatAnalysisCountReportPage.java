@@ -915,6 +915,83 @@ public class OCMChatAnalysisCountReportPage extends BasePage  {
 		return Status;
 	}
 	
+	public boolean verifyAdvanceSearchIsNotEqualTo(ReportDetails reportDetails) throws Exception {
+		Boolean Status=false;
+		waitForJqueryLoad(driver);
+		List<Map<String,String>>UI=getDataTable();
+		for(Map<String,String> map1:UI)
+		{
+			System.out.println(map1.get("Menu"));
+			if(map1.get("Menu").equalsIgnoreCase(reportDetails.getSearchStr()))
+				Status= false;
+			else 
+				Status =true;
+		}
+		return Status;
+	}
+
+	public boolean verifyAdvanceSearchContains(ReportDetails reportDetails) throws Exception {
+		Boolean Status=false;
+		waitForJqueryLoad(driver);
+		List<Map<String,String>>UI=getDataTable();
+		for(Map<String,String> map1:UI)
+		{
+			System.out.println(map1.get("Menu"));
+			System.out.println(reportDetails.getSearchStr());
+			if(map1.get("Menu").toUpperCase().contains(reportDetails.getSearchStr().toUpperCase()))				
+				Status= true;
+			else 
+				Status =false;
+		}
+		return Status;
+	}
+	
+	public boolean verifyAdvanceSearchDoesNotContains(ReportDetails reportDetails) throws Exception {
+		Boolean Status=false;
+		waitForJqueryLoad(driver);
+		List<Map<String,String>>UI=getDataTable();
+		for(Map<String,String> map1:UI)
+		{
+			System.out.println(map1.get("Menu"));
+			if(!map1.get("Menu").toUpperCase().contains(reportDetails.getSearchStr()))				
+				Status= true;
+			else 
+				Status =false;
+		}
+		return Status;
+	}
+
+	public boolean verifyAdvanceSearchStartsWith(ReportDetails reportDetails) throws Exception {
+		Boolean Status=false;
+		waitForJqueryLoad(driver);
+		List<Map<String,String>>UI=getDataTable();
+		for(Map<String,String> map1:UI)
+		{
+			System.out.println(map1.get("Menu"));
+			if(map1.get("Menu").toLowerCase().startsWith(reportDetails.getSearchStr().toLowerCase()))				
+				Status= true;
+			else 
+				Status =false;
+		}
+		return Status;
+	}
+	
+	public boolean verifyAdvanceSearchEndsWith(ReportDetails reportDetails) throws Exception {
+		Boolean Status=false;
+		waitForJqueryLoad(driver);
+		List<Map<String,String>>UI=getDataTable();
+		for(Map<String,String> map1:UI)
+		{
+			System.out.println(map1.get("Menu"));
+			if(map1.get("Menu").toLowerCase().endsWith(reportDetails.getSearchStr().toLowerCase()))				
+				Status= true;
+			else 
+				Status =false;
+		}
+		return Status;
+	}
+
+	
 	public void searchwithoutextsearch(ReportDetails details) {
 		selectWebElement(searchBtn);		
 		selectWebElement(searchColDropdown);  
@@ -997,8 +1074,6 @@ public class OCMChatAnalysisCountReportPage extends BasePage  {
 		}
 		return arr;
 	}
-
-
 
 
 }

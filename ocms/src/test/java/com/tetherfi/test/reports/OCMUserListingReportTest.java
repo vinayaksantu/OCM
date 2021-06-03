@@ -227,7 +227,7 @@ public class OCMUserListingReportTest extends BaseTest {
 		ocmReportsPage.showReportforCommonReports(reportDetails);  
 		OCMUserListingReportPage OCMUserListingReportPage=PageFactory.createPageInstance(driver,OCMUserListingReportPage.class);	
 		Assert.assertTrue(OCMUserListingReportPage.verifySearchDoesNotContains(reportDetails.getSearchStr())); 
-	}   
+	}    
 
 	@Test(priority=19,description="To verify search StartsWith")
 	public void  VerifySearchStartsWith() throws Exception {

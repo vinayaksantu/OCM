@@ -1284,6 +1284,7 @@ public class OCMInteractionActionReportPage extends BasePage  {
 		selectWebElement(deleteYesBtn);	
 	}
 
+
 	public boolean verifyJsonDataForgridColumnHidden(Map<String,String> jsonmap){
 		System.out.println(jsonmap);
 		boolean status=false;
@@ -1294,7 +1295,6 @@ public class OCMInteractionActionReportPage extends BasePage  {
 		}
 		return status;
 	}
-	
 	public boolean verifyArrowMoveForPreviousAndNextPageForDrillDownOne(ReportDetails reportDetails) throws Exception {
 		selectWebElement(rows.get(0));
 		Thread.sleep(2000);
@@ -1336,7 +1336,6 @@ public class OCMInteractionActionReportPage extends BasePage  {
 		}
 		return status;
 	}
-	
 	public boolean verifyTotalNumberOfItemsPerPageDetailsForDrillDownOne() throws InterruptedException {
 		selectWebElement(rows.get(0));
 		Thread.sleep(2000);

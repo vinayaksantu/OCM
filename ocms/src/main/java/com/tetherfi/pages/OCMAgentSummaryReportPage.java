@@ -15,6 +15,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
 import com.tetherfi.model.report.ReportDetails;
+import com.tetherfi.model.user.CepEventMappingDetails;
 
 public class OCMAgentSummaryReportPage extends BasePage  {
 

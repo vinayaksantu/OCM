@@ -21,6 +21,12 @@ public class AgentTemplateDetails {
 	private String weekday;
 	private String fromTime;
 	private String toTime;
+	private boolean enableScreenCapture;
+	private boolean tRSCameraCaptureEnabled;
+	private boolean enableLocation;
+	private boolean faceAuthEnabled;
+	private boolean tRSAutoUpdateInterval;
+	private boolean tRSLogUploadURL;
 	private String query;
 
 	public AgentTemplateDetails(Map<String,String> map){
@@ -42,7 +48,62 @@ public class AgentTemplateDetails {
 		weekday=readweekday(map);
 		fromTime=readfromTime(map);
 		toTime=readtoTime(map);
+		enableScreenCapture=readEnableScreenCapture(map);
+		tRSCameraCaptureEnabled=readTRSCameraCaptureEnabled(map);
+		enableLocation=readEnableLocation(map);
+		faceAuthEnabled=readFaceAuthEnabled(map);
+		tRSAutoUpdateInterval=readtRSAutoUpdateInterval(map);
+		tRSLogUploadURL=readtRSLogUploadURL(map);
 		query=readQuery(map);
+	}
+
+
+	private Boolean readFaceAuthEnabled(Map<String, String> map) {
+		String value=map.get("Enable Screen Capture");
+        if(value==null||value.equalsIgnoreCase("random.str")){
+            value="false";
+        }
+        return Boolean.valueOf(value);
+	}
+
+	private Boolean readEnableLocation(Map<String, String> map) {
+		String value=map.get("TRS Camera Capture Enabled");
+        if(value==null||value.equalsIgnoreCase("random.str")){
+            value="false";
+        }
+        return Boolean.valueOf(value);
+	}
+
+	private Boolean readTRSCameraCaptureEnabled(Map<String, String> map) {
+		String value=map.get("Enable Location");
+        if(value==null||value.equalsIgnoreCase("random.str")){
+            value="false";
+        }
+        return Boolean.valueOf(value);
+	}
+
+	private Boolean readEnableScreenCapture(Map<String, String> map) {
+		String value=map.get("Face Auth Enabled");
+        if(value==null||value.equalsIgnoreCase("random.str")){
+            value="false";
+        }
+        return Boolean.valueOf(value);
+	}
+	
+	private Boolean readtRSAutoUpdateInterval(Map<String, String> map) {
+		String value=map.get("TRS AUTO UPDATE INTERVAL");
+        if(value==null||value.equalsIgnoreCase("random.str")){
+            value="false";
+        }
+        return Boolean.valueOf(value);
+	}
+	
+	private Boolean readtRSLogUploadURL(Map<String, String> map) {
+		String value=map.get("TRS LOG UPLOAD URL");
+        if(value==null||value.equalsIgnoreCase("random.str")){
+            value="false";
+        }
+        return Boolean.valueOf(value);
 	}
 
 
@@ -188,6 +249,32 @@ public class AgentTemplateDetails {
 	public String gettoTime() {
 		return toTime;
 	}
+	
+	public boolean IsScreenCaptureEnabled() {
+        return enableScreenCapture;
+    }
+	
+	public boolean IsTRSCameraPictureEnabled() {
+        return tRSCameraCaptureEnabled;
+    }
+	
+	public boolean IsLocationEnabled() {
+        return enableLocation;
+    }
+	
+	public boolean IsFaceAuthenticationEnabled() {
+        return faceAuthEnabled;
+    }
+	
+	public boolean IsTRS_AUTO_UPDATE_INTERVAL() {
+        return tRSAutoUpdateInterval;
+    }
+	
+	public boolean IsTRS_LOG_UPLOAD_URL() {
+        return tRSLogUploadURL;
+    }
+	
+	
 	public String getQuery() {
 		return query;
 	}

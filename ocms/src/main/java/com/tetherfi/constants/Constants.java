@@ -20,10 +20,10 @@ public class Constants {
     
 
 //	.61 PRODUCT OCM DB
-	public static final String host="jdbc:sqlserver://172.16.2.61:1433";
-    public static final String db_user="ProdQA";
-    public static final String db_pass="Tetherfi123$";
-    public static final String db_name="Product_OCM";
+	public static final String host="jdbc:sqlserver://singtellab.cqnce3nduwba.us-east-1.rds.amazonaws.com:1433";
+    public static final String db_user="sa";
+    public static final String db_pass="tetherfi1234";
+    public static final String db_name="singtel_emm";
 	
 //    DSTA DB 
     /*public static final String host="jdbc:sqlserver://172.16.2.16:14330";

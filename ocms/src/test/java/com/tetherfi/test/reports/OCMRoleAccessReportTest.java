@@ -302,7 +302,7 @@ public class OCMRoleAccessReportTest extends BaseTest {
 	@AfterMethod
 	public void afterEachMethod(Method method) throws InterruptedException {
 		Screenshot screenshot=new Screenshot(driver);
-		screenshot.captureScreen("UOBRoleAccessReport_3.4.3.14",method.getName());
+		screenshot.captureScreen("RoleAccessReport_3.4.3.14",method.getName());
 		driver.navigate().refresh();
 	}
 }

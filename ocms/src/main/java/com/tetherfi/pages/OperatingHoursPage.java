@@ -499,7 +499,7 @@ public class OperatingHoursPage extends BasePage {
 	}
     public void deleteOperatingHoursRecord(OperatingHoursDetails operatingHoursDetails) throws Exception {
         searchOperatingHoursRecord(operatingHoursDetails.getVdnName());
-        Thread.sleep(1000);
+        Thread.sleep(2000);
         selectWebElement(deleteButton);
         enterValueToTxtFieldWithoutClear(deleteReasonTextBox,operatingHoursDetails.getDeleteReason());
         selectWebElement(deleteYesBtn);
@@ -856,7 +856,7 @@ public class OperatingHoursPage extends BasePage {
                 continue;
             } else {
                 selectWebElement(ele);
-                    Thread.sleep(1000);
+                    Thread.sleep(2000);
                 if (headersColumns.get(0).getText().equals("Sort Ascending")) {
                     if (headersColumns.get(1).getText().equals("Sort Descending")) {
                         if (headersColumns.get(2).getText().equals("Columns")) {
@@ -881,9 +881,9 @@ public class OperatingHoursPage extends BasePage {
             if (ele.isDisplayed()) {
                 try {
                     selectWebElement(ele);
-                    Thread.sleep(1000);
+                    Thread.sleep(2000);
                     selectWebElement(headersColumns.get(2));
-                    Thread.sleep(1000);
+                    Thread.sleep(2000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -918,9 +918,9 @@ public class OperatingHoursPage extends BasePage {
             if (ele.isDisplayed()) {
                 try {
                     selectWebElement(ele);
-                    Thread.sleep(1000);
+                    Thread.sleep(2000);
                     selectWebElement(headersColumns.get(2));
-                    Thread.sleep(1000);
+                    Thread.sleep(2000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -953,9 +953,9 @@ public class OperatingHoursPage extends BasePage {
             if(ele.isDisplayed()){
                 try {
                     selectWebElement(ele);
-                    Thread.sleep(1000);
+                    Thread.sleep(2000);
                     selectWebElement(headersColumns.get(2));
-                    Thread.sleep(1000);
+                    Thread.sleep(2000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -984,7 +984,7 @@ public class OperatingHoursPage extends BasePage {
     public boolean groupby() {
 		DragandDrop(vdn,droptarget);
 		try {
-			Thread.sleep(1000);
+			Thread.sleep(2000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
@@ -996,7 +996,7 @@ public class OperatingHoursPage extends BasePage {
     
     public boolean verifydeleteNo(OperatingHoursDetails details) throws Exception {
     	searchOperatingHoursRecord(details.getVdnName());	
-    	Thread.sleep(1000);
+    	Thread.sleep(2000);
     	selectWebElement(deleteButton);
 		try {
 			Thread.sleep(3000);
@@ -1027,7 +1027,7 @@ public class OperatingHoursPage extends BasePage {
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Skill/VDN");
         selectWebElement(selectSearchCol.get(1));
-        Thread.sleep(1000);
+        Thread.sleep(2000);
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is equal to");
         enterValueToTxtField(searchTextBox,details.getVdnName());
         selectWebElement(clearall);
@@ -1065,7 +1065,7 @@ public class OperatingHoursPage extends BasePage {
         selectWebElement(CancelButton);
 	}
 	public void LeavingVDNBlank(OperatingHoursDetails details) throws Exception {
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		selectWebElement(addNewOperatingHoursRcrdBtn);
         Thread.sleep(2000);
         selectWebElement(addWeekDayDropdown);
@@ -1082,7 +1082,7 @@ public class OperatingHoursPage extends BasePage {
 		
 	}
 	public void LeavingWeekDayBlank(OperatingHoursDetails details) throws Exception {
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		selectWebElement(addNewOperatingHoursRcrdBtn);
         Thread.sleep(2000);
         selectWebElement(addVdnTextBox);
@@ -1097,7 +1097,7 @@ public class OperatingHoursPage extends BasePage {
         selectWebElement(CancelButton);
 	}
 	public void LeavingStartTimeBlank(OperatingHoursDetails details) throws Exception {
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		selectWebElement(addNewOperatingHoursRcrdBtn);
         Thread.sleep(2000);
         selectWebElement(addVdnTextBox);
@@ -1114,7 +1114,7 @@ public class OperatingHoursPage extends BasePage {
 		
 	}
 	public void LeavingEndTimeBlank(OperatingHoursDetails details) throws Exception {
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		selectWebElement(addNewOperatingHoursRcrdBtn);
         Thread.sleep(2000);
         selectWebElement(addVdnTextBox);
@@ -1131,7 +1131,7 @@ public class OperatingHoursPage extends BasePage {
 		
 	}
 	public void LeavingBypassPublicHolidayBlank(OperatingHoursDetails details) throws Exception {
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		selectWebElement(addNewOperatingHoursRcrdBtn);
         Thread.sleep(2000);
         selectWebElement(addVdnTextBox);
@@ -1184,7 +1184,7 @@ public class OperatingHoursPage extends BasePage {
 		
 	}
 	public void addStarttimesameasEndtime(OperatingHoursDetails details) throws Exception {
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		selectWebElement(addNewOperatingHoursRcrdBtn);
         Thread.sleep(2000);
         selectWebElement(addVdnTextBox);

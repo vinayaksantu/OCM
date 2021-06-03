@@ -232,7 +232,6 @@ public class OCMIVRHostTransactionReportTest extends BaseTest {
 		OCMReportsPage.chooseAdvancedSearchNew(reportDetails);  
 		OCMReportsPage.showReport(reportDetails);
 		Assert.assertTrue(OCMIvrHostTransactionReportPage.verifyAdvanceSearchIsNotEqualTo(reportDetails));
-
 	}
 	
 	@Test(priority=19,description="Advance search with OR Condition")
@@ -364,7 +363,7 @@ public class OCMIVRHostTransactionReportTest extends BaseTest {
 		ocmReportsPage.showReport(reportDetails);
 		Assert.assertTrue(ocmReportsPage.verifyExportedSheet("OCMReportDownload","OCM IVR Host Transaction R"));	
 	}
-
+	
 	@Test(priority=31,description="To verify Show Report for Date Range")
 	public void ShowOCMIvrHostTransactionReportForDateRange() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMIvrHostTransactionReport.xlsx";
@@ -514,7 +513,7 @@ public class OCMIVRHostTransactionReportTest extends BaseTest {
 		Assert.assertFalse(OCMIvrHostTransactionReportPage.verifycolumnsHeaderDisabled(),"columns disabled assertion failed");
 	}
 	
-	@Test(priority=45,description="To Verify Export Page Button")
+	@Test(priority=45,description="To Export the data using export page functionality")
 	public void ExportPage() throws Exception{
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMIvrHostTransactionReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(5);
@@ -526,7 +525,7 @@ public class OCMIVRHostTransactionReportTest extends BaseTest {
 		Assert.assertTrue(OCMIvrHostTransactionReportPage.verifyExportToExcel(filePath1));
 	}
 
-	@Test(priority=46,dependsOnMethods="ExportPage",description="To Verify Exported Page Against UI")
+	@Test(priority=46,dependsOnMethods="ExportPage",description="To Verify Exported Page data Against UI data")
 	public void VerifyExportedPage() throws Exception{
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMIvrHostTransactionReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(5);
@@ -564,7 +563,7 @@ public class OCMIVRHostTransactionReportTest extends BaseTest {
 		Assert.assertTrue(OCMIvrHostTransactionReportPage.verifyReportExported(),"export report assertion failed");
 	} 
 
-	@Test(priority=49,dependsOnMethods ="ExportToExcel",description="Verify the view Downloaded report in IvrHostTransaction report page")
+	@Test(priority=49,dependsOnMethods ="ExportToExcel",description="To view the Downloaded report in report downloads page")
 	public void ViewExportedDataInReportDownloadsPage() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMIvrHostTransactionReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);

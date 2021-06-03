@@ -642,16 +642,13 @@ public class OCMCallTransferReportPage extends BasePage  {
 		return arr;
 	}
 
-	public boolean verifyArrowMoveForPreviousAndNextPage() throws Exception{
+	public boolean verifyArrowMoveForPreviousAndNextPage(){
 		boolean status=false;
 		if(!nextPageIcon.getAttribute("class").contains("k-state-disabled")){
-			Thread.sleep(5000);
 			int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 			selectWebElement(nextPageIcon);
-			Thread.sleep(5000);
 			int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 			selectWebElement(previousPageIcon);
-			Thread.sleep(5000);
 			int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 			if(nextnumber==(pagenumber+1) && pagenumber==previousnumber){status=true;}
 		}else{
@@ -661,16 +658,13 @@ public class OCMCallTransferReportPage extends BasePage  {
 	}
 
 
-	public boolean verifyArrowMoveForFirstAndLastPage() throws Exception{
+	public boolean verifyArrowMoveForFirstAndLastPage(){
 		boolean status=false;
 		if(!lastPageIcon.getAttribute("class").contains("k-state-disabled")){
-			Thread.sleep(3000);
 			int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 			selectWebElement(lastPageIcon);
-			Thread.sleep(5000);
 			int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 			selectWebElement(firstPageIcon);
-			Thread.sleep(5000);
 			int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 			if(nextnumber>pagenumber && pagenumber==previousnumber){status=true;}
 		}else{
@@ -854,7 +848,7 @@ public class OCMCallTransferReportPage extends BasePage  {
 		boolean Status=false;		
 		selectWebElement(searchbyfeatureTextBox);    		
 		enterValueToTxtFieldWithoutClear(searchbyfeatureTextBox,details.getSearchStr());
-		Thread.sleep(5000);
+		Thread.sleep(3000);
 		selectDropdownFromVisibleText(searchbyfeaturelistBox,details.getSearchStr());	
 		waitForJqueryLoad(driver);
 		List<Map<String,String>> UI=getDataTable(); 
@@ -997,56 +991,60 @@ public class OCMCallTransferReportPage extends BasePage  {
 		return Status;
 	}
 
+	
 	public boolean verifyAdvanceSearchIsNotEqualTo(ReportDetails reportDetails) throws Exception {
 		Boolean Status=false;
 		waitForJqueryLoad(driver);
 		List<Map<String,String>>UI=getDataTable();
 		for(Map<String,String> map1:UI)
 		{
-			System.out.println(map1.get("C"));
-			if(map1.get("Chat End Reason").equalsIgnoreCase(reportDetails.getSearchStr()))
+			System.out.println(map1.get("User ID"));
+			if(map1.get("User ID").equalsIgnoreCase(reportDetails.getSearchStr()))
 				Status= false;
 			else 
 				Status =true;
 		}
 		return Status;
 	}
+	
 	public boolean verifyAdvanceSearchContains(ReportDetails reportDetails) throws Exception {
 		Boolean Status=false;
 		waitForJqueryLoad(driver);
 		List<Map<String,String>>UI=getDataTable();
 		for(Map<String,String> map1:UI)
 		{
-			System.out.println(map1.get("Identification"));
-			if(map1.get("Identification").toUpperCase().contains(reportDetails.getSearchStr()))				
+			System.out.println(map1.get("User ID"));
+			if(map1.get("User ID").toUpperCase().contains(reportDetails.getSearchStr().toUpperCase()))				
 				Status= true;
 			else 
 				Status =false;
 		}
 		return Status;
 	}
+
 	public boolean verifyAdvanceSearchDoesNotContains(ReportDetails reportDetails) throws Exception {
 		Boolean Status=false;
 		waitForJqueryLoad(driver);
 		List<Map<String,String>>UI=getDataTable();
 		for(Map<String,String> map1:UI)
 		{
-			System.out.println(map1.get("Session ID"));
-			if(!map1.get("Session ID").toUpperCase().contains(reportDetails.getSearchStr()))				
+			System.out.println(map1.get("User ID"));
+			if(!map1.get("User ID").contains(reportDetails.getSearchStr()))				
 				Status= true;
 			else 
 				Status =false;
 		}
 		return Status;
 	}
+	
 	public boolean verifyAdvanceSearchStartsWith(ReportDetails reportDetails) throws Exception {
 		Boolean Status=false;
 		waitForJqueryLoad(driver);
 		List<Map<String,String>>UI=getDataTable();
 		for(Map<String,String> map1:UI)
 		{
-			System.out.println(map1.get("Identification"));
-			if(!map1.get("Identification").toLowerCase().startsWith(reportDetails.getSearchStr()))				
+			System.out.println(map1.get("User ID"));
+			if(map1.get("User ID").startsWith(reportDetails.getSearchStr()))				
 				Status= true;
 			else 
 				Status =false;
@@ -1060,8 +1058,8 @@ public class OCMCallTransferReportPage extends BasePage  {
 		List<Map<String,String>>UI=getDataTable();
 		for(Map<String,String> map1:UI)
 		{
-			System.out.println(map1.get("Agent ID"));
-			if(!map1.get("Agent ID").toLowerCase().endsWith(reportDetails.getSearchStr()))				
+			System.out.println(map1.get("User ID"));
+			if(map1.get("User ID").toLowerCase().endsWith(reportDetails.getSearchStr().toLowerCase()))			
 				Status= true;
 			else 
 				Status =false;
@@ -1092,7 +1090,7 @@ public class OCMCallTransferReportPage extends BasePage  {
 		selectDropdownFromVisibleText(searchColListBoxAdvSrchReportPage1,"UCID");
 		Thread.sleep(2000);
 		selectWebElement(searchCriteriaDropdownAdvSrch1);
-		selectDropdownFromVisibleText(searchCriteriaListboxAdvSrch1,"Starts With");
+		selectDropdownFromVisibleText(searchCriteriaListboxAdvSrch1,"Contains");
 		enterValueToTxtField(searchTextBoxAdvSrch1,details.getSearchStr1());
 		selectWebElement(showReportBtn.get(0));
 		waitForLoad(driver);
@@ -1183,7 +1181,7 @@ public class OCMCallTransferReportPage extends BasePage  {
 	public boolean groupby() {
 		DragandDrop(callerId,droptarget);
 		try {
-			Thread.sleep(5000);
+			Thread.sleep(1000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}

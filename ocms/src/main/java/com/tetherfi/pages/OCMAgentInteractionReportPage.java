@@ -1059,7 +1059,7 @@ public class OCMAgentInteractionReportPage extends BasePage  {
 		for(Map<String,String> map1:UI)
 		{
 			System.out.println(map1.get("Agent Name"));
-			if(map1.get("Agent Name").endsWith(reportDetails.getSearchStr()))				
+			if(!map1.get("Agent Name").toLowerCase().endsWith(reportDetails.getSearchStr()))				
 				Status= true;
 			else 
 				Status =false;
@@ -1090,14 +1090,14 @@ public class OCMAgentInteractionReportPage extends BasePage  {
 		selectDropdownFromVisibleText(searchColListBoxAdvSrchReportPage1,"Channel");
 		Thread.sleep(2000);
 		selectWebElement(searchCriteriaDropdownAdvSrch1);
-		selectDropdownFromVisibleText(searchCriteriaListboxAdvSrch1,"Is equal to");
+		selectDropdownFromVisibleText(searchCriteriaListboxAdvSrch1,"Contains");
 		enterValueToTxtField(searchTextBoxAdvSrch1,details.getSearchStr1());
 		selectWebElement(showReportBtn.get(0));
 		waitForLoad(driver);
 		waitForJqueryLoad(driver);
 		waitUntilWebElementIsVisible(gridBoxContent);
 		Thread.sleep(2000);
-		if(rowdata.getText().equals(details.getSearchStr()) && rowdata.getText().equals(details.getSearchStr1())) {
+		if(rowdata.getText().equals(details.getSearchStr()) && rowdata1.getText().contains(details.getSearchStr1())) {
 			Status=true;
 		}
 		return Status;	

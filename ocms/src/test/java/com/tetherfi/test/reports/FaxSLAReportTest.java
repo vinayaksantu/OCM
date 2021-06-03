@@ -27,7 +27,7 @@ public class FaxSLAReportTest extends BaseTest {
 		Assert.assertTrue(ocmReportsPage.isOCMReportPageIsDisplayed());
 	}
 
-	/*@Test(priority=1,description="To verify Show Report for Single Date")
+	@Test(priority=1,description="To verify Show Report for Single Date")
 	public void ShowReport() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxSLAReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
@@ -243,7 +243,7 @@ public class FaxSLAReportTest extends BaseTest {
 		ocmReportsPage.showReport(reportDetails);
 		FaxSLAReportPage faxSlaPage=PageFactory.createPageInstance(driver,FaxSLAReportPage.class);
 		Assert.assertTrue(faxSlaPage.verifyNumberOfItemsPerPage(),"item per page assertion failed");
-	}*/
+	}
 	
 	
 	@Test(priority=17, description="To verify fax SLA Report details UI data against DB")
@@ -259,7 +259,7 @@ public class FaxSLAReportTest extends BaseTest {
 		System.out.println("Main Report Data Match Successfull");
 	}
  
-	/*@Test(priority=18,description="To verify Show Report for Date Range")
+	@Test(priority=18,description="To verify Show Report for Date Range")
 	public void ShowReportForDateRange() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxSLAReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -534,7 +534,7 @@ public class FaxSLAReportTest extends BaseTest {
 		screenshot.captureScreen("FaxSLAReportReexecution", "GroupBy");
 		Assert.assertTrue(faxSlaPage.groupby());
 		screenshot.captureScreen("FaxSLAReportReexecution", "AlreadyGroupBy");
-	}*/
+	}
 
 	@AfterMethod
 	public void afterEachMethod(Method method) throws InterruptedException {

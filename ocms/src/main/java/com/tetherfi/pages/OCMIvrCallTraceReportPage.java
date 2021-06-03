@@ -1,10 +1,13 @@
+
 package com.tetherfi.pages;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -17,7 +20,8 @@ import com.tetherfi.model.report.ReportDetails;
 public class OCMIvrCallTraceReportPage extends BasePage  {
 
 	public OCMIvrCallTraceReportPage(WebDriver driver) {
-		super(driver);}
+		super(driver);
+	}
 
 	@FindBy(xpath="//i[@class='fas fa-file-export']")
 	private WebElement VEFImg;
@@ -57,7 +61,7 @@ public class OCMIvrCallTraceReportPage extends BasePage  {
 
 	@FindBy(css="a[aria-label='Go to the next page']")
 	private WebElement nextPageIcon;
-
+	
 	@FindBy(xpath="//table/tbody/tr")
 	private List<WebElement> MainReportRows;
 
@@ -123,12 +127,12 @@ public class OCMIvrCallTraceReportPage extends BasePage  {
 
 	@FindBy(xpath="//span[@class='k-pager-info k-label']")
 	private WebElement items;
-
+	
 	@FindBy(css=".k-pager-sizes .k-input")
 	private WebElement pagerSize;
-
+	
 	@FindBy(css=".k-pager-info")
-	private WebElement pagerInfo;
+    private WebElement pagerInfo;
 
 	@FindBy(xpath="//button[@class='k-button k-button-icontext k-grid-excel']")		
 	private WebElement exporttoexcel;
@@ -267,16 +271,16 @@ public class OCMIvrCallTraceReportPage extends BasePage  {
 
 	@FindBy(id="MenuTraversalGrid")
 	private WebElement DrillGridOneTable;
-
+	
 	@FindBy(id="panel-1")
 	private WebElement MenuTraversalPanel;
-
+	
 	@FindBy(id="MenuTraversalGrid")
 	private WebElement MenuTraversalTable;
-
+	
 	@FindBy(xpath="//*[@id=\"popupcallflow\"]/div/div/div[1]/button/span[1]")
 	private WebElement CloseDrillGridOne;
-
+	
 	@FindBy(xpath="//div[@id='gridDrillOne']//span[@class='k-icon k-i-arrow-60-right']")
 	private WebElement nextPageIconDrillOne;
 
@@ -673,7 +677,7 @@ public class OCMIvrCallTraceReportPage extends BasePage  {
 		}
 		return status;
 	}
-
+	
 	public boolean verifyArrowMoveForFirstAndLastPage() throws Exception{
 		boolean status=false;
 		if(!lastPageIcon.getAttribute("class").contains("k-state-disabled")){
@@ -691,7 +695,6 @@ public class OCMIvrCallTraceReportPage extends BasePage  {
 		}
 		return status;
 	}
-
 
 	public boolean verifyTotalNumberOfItemsPerPageDetails(){
 		String item = items.getText();
@@ -736,7 +739,7 @@ public class OCMIvrCallTraceReportPage extends BasePage  {
 		Boolean Status=verifyExportPageFileDownload(filePath, "OCMIvrCallTraceReport");
 		return Status;
 	}
-
+	
 	public boolean verifyExportPageFileDownloaded(String reportname){
 		return verifyExportPageFileDownload(System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles",reportname);
 	}
@@ -804,7 +807,7 @@ public class OCMIvrCallTraceReportPage extends BasePage  {
 		waitForJqueryLoad(driver);
 		List<Map<String,String>> UI=getDataTable(); 
 		for (Map<String,String> map1: UI)
-
+			
 		{   
 			System.out.println("Parameter used for search is"+":"+details);
 			System.out.println("Values returned after applying search on UI is"+":"+map1.get("Caller ID"));
@@ -815,7 +818,7 @@ public class OCMIvrCallTraceReportPage extends BasePage  {
 		}
 		return Status;	
 	}
-
+	
 	public boolean verifySearchIsNotEqualTo(String details) throws Exception {
 		Boolean Status=false;
 		Map<String, String> map=new HashMap<String,String>() ;
@@ -961,7 +964,7 @@ public class OCMIvrCallTraceReportPage extends BasePage  {
 		}
 		return Status;
 	}
-
+	
 	public boolean verifySearchEndsWith(String details) throws Exception {
 		Boolean Status=false;
 		selectWebElement(searchBtn);
@@ -987,7 +990,7 @@ public class OCMIvrCallTraceReportPage extends BasePage  {
 		}
 		return Status;
 	}
-
+		
 	public boolean verifySearchClear(ReportDetails details) {
 		boolean Status=false;
 		selectWebElement(searchBtn);		
@@ -1005,7 +1008,7 @@ public class OCMIvrCallTraceReportPage extends BasePage  {
 			Status=false;
 		return Status;	
 	}
-
+	
 	public boolean verifyAdvanceSearchIsEqualTo(ReportDetails details) throws Exception {
 		boolean Status=false;
 		waitForJqueryLoad(driver);
@@ -1020,7 +1023,7 @@ public class OCMIvrCallTraceReportPage extends BasePage  {
 		}
 		return Status;
 	}
-
+	
 	public boolean verifyAdvanceSearchIsNotEqualTo(ReportDetails details) throws Exception {
 		boolean Status=false;
 		waitForJqueryLoad(driver);
@@ -1034,7 +1037,7 @@ public class OCMIvrCallTraceReportPage extends BasePage  {
 		}
 		return Status;
 	}
-
+	
 	public boolean verifyAdvanceSearchContains(ReportDetails details) throws Exception {
 		boolean Status=false;
 		waitForJqueryLoad(driver);
@@ -1047,7 +1050,7 @@ public class OCMIvrCallTraceReportPage extends BasePage  {
 		}
 		return Status;
 	}
-
+	
 	public boolean verifyAdvanceSearchDoesNotContains(ReportDetails details) throws Exception {
 		boolean Status=false;
 		waitForJqueryLoad(driver);
@@ -1061,7 +1064,7 @@ public class OCMIvrCallTraceReportPage extends BasePage  {
 		}
 		return Status;
 	}
-
+	
 	public boolean verifyAdvanceSearchStartsWith(ReportDetails details) throws Exception {
 		boolean Status=false;
 		waitForJqueryLoad(driver);
@@ -1076,7 +1079,7 @@ public class OCMIvrCallTraceReportPage extends BasePage  {
 		}
 		return Status;
 	}
-
+	
 	public boolean verifyAdvanceSearchEndsWith(ReportDetails details) throws Exception {
 		boolean Status=false;
 		waitForJqueryLoad(driver);
@@ -1124,12 +1127,12 @@ public class OCMIvrCallTraceReportPage extends BasePage  {
 		Thread.sleep(2000);
 		List<Map<String,String>>UI=getDataTable();
 		for(Map<String,String> map1:UI)
-			if(map1.get("UCID").equals(details.getSearchStr()) && map1.get("UCID").contains(details.getSearchStr1())) {
-				Status=true;
-			}
+		if(map1.get("UCID").equals(details.getSearchStr()) && map1.get("UCID").contains(details.getSearchStr1())) {
+			Status=true;
+		}
 		return Status;	
 	}
-
+	
 	public Boolean advancedSearchORCriteria(ReportDetails details) throws Exception {
 		Boolean Status=false;	
 		selectWebElement(advancedsearchBtn);
@@ -1165,10 +1168,10 @@ public class OCMIvrCallTraceReportPage extends BasePage  {
 			if(map1.get("Caller ID").contains(details.getSearchStr()) || map1.get("Duration (in seconds)").equals(details.getSearchStr1())) {
 				Status=true;
 			}
-		return Status;	
-	}
-
-
+			return Status;	
+		}
+	
+	
 	public void searchwithoutextsearch(ReportDetails details) {
 		selectWebElement(searchBtn);		
 		selectWebElement(searchColDropdown);  
@@ -1187,8 +1190,7 @@ public class OCMIvrCallTraceReportPage extends BasePage  {
 		else {
 			return errorMsg.get(0).getText();}
 	}
-
-
+	
 	public boolean groupby() {
 		DragandDrop(callerId,droptarget);
 		try {
@@ -1201,6 +1203,7 @@ public class OCMIvrCallTraceReportPage extends BasePage  {
 		else
 			return false;		
 	}
+	
 	public boolean verifyJsonDataForgridColumnHidden(Map<String,String> jsonmap){
 		System.out.println(jsonmap);
 		boolean status=false;
@@ -1276,64 +1279,64 @@ public class OCMIvrCallTraceReportPage extends BasePage  {
 		else
 			return false;
 	}
-
-
+	
+	
 	private List<Map<String, String>> getDataTable1() {
 		int item=Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
-		int pagersize=Integer.valueOf(pagerSize.getText());
-		int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
+        int pagersize=Integer.valueOf(pagerSize.getText());
+        int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
 		List<Map<String,String>> arr=new ArrayList<Map<String,String>>();
 		for(int k=0;k<=pages;k++){
-			waitUntilWebElementIsVisible(auditGridContent);
-			List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
-			List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
-			for(int i=1;i<rows.size();i++) {
-				Map<String,String> map = new HashMap<String,String>();
-				List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
-				String col=null;
-				for(int j=0;j<headers.size();j++){
-					scrollToElement(headers.get(j));
-					col=cols.get(j).getText();
-					map.put(headers.get(j).getText(),col);
-				}
-				map.remove("");
-				arr.add(map);
+		waitUntilWebElementIsVisible(auditGridContent);
+		List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
+		List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
+		for(int i=1;i<rows.size();i++) {
+			Map<String,String> map = new HashMap<String,String>();
+			List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
+			String col=null;
+			for(int j=0;j<headers.size();j++){
+				scrollToElement(headers.get(j));
+				col=cols.get(j).getText();
+				map.put(headers.get(j).getText(),col);
 			}
-			if(k!=pages)
-			{
-				nextPageIcon.click();
-				waitForJqueryLoad(driver);}
+			map.remove("");
+			arr.add(map);
 		}
-		return arr;
+		if(k!=pages)
+		{
+			nextPageIcon.click();
+			waitForJqueryLoad(driver);}
+		}
+			return arr;
 	}
-
+	
 
 	public List<String> getUCID() throws InterruptedException {
 		int item=Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
-		int pagersize=Integer.valueOf(pagerSize.getText());
-		int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
+        int pagersize=Integer.valueOf(pagerSize.getText());
+        int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
 		List<String> UCID = new ArrayList<>();
 		for(int k=0;k<=pages;k++){
-			waitUntilWebElementIsVisible(auditGridContent);
-			List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
-			List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
-			for(int i=1;i<rows.size();i++) {
-				List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
-				String col=null;
-				for(int j=0;j<headers.size();j++){
-					scrollToElement(headers.get(j));
-					if(headers.get(j).getText().equals("UCID")){
-						col=cols.get(j).getText();
-						UCID.add(col);
+		waitUntilWebElementIsVisible(auditGridContent);
+		List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
+		List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
+		for(int i=1;i<rows.size();i++) {
+			List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
+			String col=null;
+			for(int j=0;j<headers.size();j++){
+				scrollToElement(headers.get(j));
+				if(headers.get(j).getText().equals("UCID")){
+					col=cols.get(j).getText();
+					UCID.add(col);
 					}
-				}
 			}
-			if(k!=pages)
-			{
-				Thread.sleep(1000);
-				nextPageIcon.click();
-				waitForJqueryLoad(driver);
-			}
+		}
+		if(k!=pages)
+		{
+			Thread.sleep(1000);
+			nextPageIcon.click();
+			waitForJqueryLoad(driver);
+		}
 		}
 		return UCID;
 	}
@@ -1341,18 +1344,18 @@ public class OCMIvrCallTraceReportPage extends BasePage  {
 	public void goToNextPage() {
 		nextPageIcon.click();
 		waitForLoad(driver);
-		waitForJqueryLoad(driver);
-		waitUntilWebElementIsVisible(DrillGridOneTable);
+        waitForJqueryLoad(driver);
+        waitUntilWebElementIsVisible(DrillGridOneTable);
 	}
-
-
+	
+	
 	public void clickOnUCIDRowOnMainReport(int rowNo) throws InterruptedException {
 		Thread.sleep(3000);
 		MainReportRows.get(rowNo).click();
 		waitForLoad(driver);
-		waitForJqueryLoad(driver);
-		//        selectWebElement(MenuTraversalPanel);
-		//        waitUntilWebElementIsVisible(MenuTraversalTable);  
+        waitForJqueryLoad(driver);
+//        selectWebElement(MenuTraversalPanel);
+//        waitUntilWebElementIsVisible(MenuTraversalTable);  
 	}
 
 	public boolean verifyDatabaseDrillGridOne(String queryDrillGridOne,ReportDetails details, String UCID) {
@@ -1376,54 +1379,54 @@ public class OCMIvrCallTraceReportPage extends BasePage  {
 		else
 			return false;
 	}
-
+	
 	private List<Map<String, String>> getDataTableDrillGridOne() {
 		scrollvertically();
-		//		waitUntilWebElementIsClickable(drillGridOneItems);
-		//		waitUntilWebElementIsVisible(drillGridOneItems);
+//		waitUntilWebElementIsClickable(drillGridOneItems);
+//		waitUntilWebElementIsVisible(drillGridOneItems);
 		selectWebElement(MenuTraversalPanel);
 		waitUntilWebElementIsVisible(MenuTraversalTable);  
-		int item=Integer.valueOf(pagerInfo.getText().split("of ")[1].split(" items")[0]);
-		int pagersize=Integer.valueOf(pagerSize.getText());
-		int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
-		List<Map<String,String>> arr=new ArrayList<Map<String,String>>();
-		for(int k=0;k<=pages;k++){
-			waitUntilWebElementIsVisible(DrillGridOneTable);
-			List<WebElement> rows=DrillGridOneTable.findElements(By.tagName("tr"));
-			List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
-			for(int i=1;i<rows.size();i++) {
-				Map<String,String> map = new HashMap<String,String>();
-				List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
-				String col=null;
-				for(int j=0;j<headers.size();j++){
-					scrollToElement(headers.get(j)); 
-					if(headers.get(j).getText().equals("")){					
-						col=cols.get(j).getText();
-						if(col.contains("."))
-							col=col;
-						else
-							col=col+".00";
-					}
+	 	int item=Integer.valueOf(pagerInfo.getText().split("of ")[1].split(" items")[0]);
+        int pagersize=Integer.valueOf(pagerSize.getText());
+        int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
+	 	List<Map<String,String>> arr=new ArrayList<Map<String,String>>();
+	 	for(int k=0;k<=pages;k++){
+	 	waitUntilWebElementIsVisible(DrillGridOneTable);
+		List<WebElement> rows=DrillGridOneTable.findElements(By.tagName("tr"));
+		List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
+		for(int i=1;i<rows.size();i++) {
+			Map<String,String> map = new HashMap<String,String>();
+			List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
+			String col=null;
+			for(int j=0;j<headers.size();j++){
+				scrollToElement(headers.get(j)); 
+				if(headers.get(j).getText().equals("")){					
+					col=cols.get(j).getText();
+					if(col.contains("."))
+						col=col;
 					else
-						col=cols.get(j).getText();
-					map.put(headers.get(j).getText(),col);
-				}
-				map.remove("");
-				arr.add(map);
+						col=col+".00";
+					}
+				else
+					col=cols.get(j).getText();
+				map.put(headers.get(j).getText(),col);
 			}
-			if(k!=pages)
-			{
-				nextPageIconDrillOne.click();
-				waitForJqueryLoad(driver);
-				waitUntilWebElementIsVisible(DrillGridOneTable);
-			}
+			map.remove("");
+			arr.add(map);
 		}
-		selectWebElement(MenuTraversalPanel);
-		CloseDrillGridOne.click();
-		return arr;
+		if(k!=pages)
+		{
+			nextPageIconDrillOne.click();
+			waitForJqueryLoad(driver);
+			waitUntilWebElementIsVisible(DrillGridOneTable);
+		}
+		}
+	 	selectWebElement(MenuTraversalPanel);
+			CloseDrillGridOne.click();
+			return arr;
 	}
-
-
+	
+	
 }
 
 

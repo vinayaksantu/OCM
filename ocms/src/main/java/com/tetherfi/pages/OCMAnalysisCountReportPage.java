@@ -558,57 +558,20 @@ public class OCMAnalysisCountReportPage extends BasePage  {
 	}
 	public boolean verifyexportToExcelSheet(List<Map<String, String>> maplist) {
 		List<Map<String,String>> UI=getdata(); 
-		System.out.println("Printing UI values" + UI);
-		System.out.println("Printing excel values" +maplist);
+		System.out.println(UI);
+		System.out.println(maplist);
 		if(UI.equals(maplist))
 			return true;
 		else
 			return false;
 	}
-	
+
 	private List<Map<String,String>> getdata(){
 		int item=Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
 		int pagersize=Integer.valueOf(pagerSize.getText());
 		int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
 		List<Map<String,String>> arr=new ArrayList<Map<String,String>>();
-		//for(int k=0;k<=pages;k++){
-		waitUntilWebElementIsVisible(auditGridContent);
-		List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
-		List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
-		String col=null;
-		for(int i=1;i<rows.size();i++) {
-			Map<String,String> map = new HashMap<String,String>();
-			List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
-			for(int j=0;j<headers.size();j++) {
-				scrollToElement(headers.get(j));
-				/*System.out.println(headers.get(j).getText());
-				if(headers.get(j).getText().equals("Last Changed On")){
-				col=cols.get(j).getText().substring(0,10);
-				}
-				else*/
-				col=cols.get(j).getText();
-				map.put(headers.get(j).getText(),col);
-			}
-			map.remove("");
-			arr.add(map);
-		}
-		/*if(k!=pages)
-		{
-			nextPageIcon.click();
-			waitForJqueryLoad(driver);}
-		}*/
-		return arr;
-	}
-
-	
-	
-	
-	/*private List<Map<String,String>> getdata(){
-		int item=Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
-		int pagersize=Integer.valueOf(pagerSize.getText());
-		int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
-		List<Map<String,String>> arr=new ArrayList<Map<String,String>>();
-//		for(int k=0;k<=pages;k++){
+		for(int k=0;k<=pages;k++){
 			waitUntilWebElementIsVisible(auditGridContent);
 			List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
 			List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
@@ -623,30 +586,27 @@ public class OCMAnalysisCountReportPage extends BasePage  {
 						col=cols.get(j).getText().substring(0,10);
 					}
 					else*/
-						/*col=cols.get(j).getText();
+						col=cols.get(j).getText();
 					map.put(headers.get(j).getText(),col);
-				}*/
-				/*map.remove("");
+				}
+				map.remove("");
 				arr.add(map);
 			}
 			/*if(k!=pages)
 			{
 				nextPageIcon.click();
 				waitForJqueryLoad(driver);}*/
-//		}*/
-//		return arr;
-//	}*/
+		}
+		return arr;
+	}
 
-	public boolean verifyArrowMoveForPreviousAndNextPage() throws Exception{
+	public boolean verifyArrowMoveForPreviousAndNextPage(){
 		boolean status=false;
 		if(!nextPageIcon.getAttribute("class").contains("k-state-disabled")){
 			int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber));
-			Thread.sleep(5000);
 			selectWebElement(nextPageIcon);
-			Thread.sleep(5000);
 			int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 			selectWebElement(previousPageIcon);
-			Thread.sleep(5000);
 			int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 			if(nextnumber==(pagenumber+1) && pagenumber==previousnumber){status=true;}
 		}else{
@@ -655,17 +615,13 @@ public class OCMAnalysisCountReportPage extends BasePage  {
 		return status;
 	}
 
-
-	public boolean verifyArrowMoveForFirstAndLastPage() throws Exception{
+	public boolean verifyArrowMoveForFirstAndLastPage(){
 		boolean status=false;
 		if(!lastPageIcon.getAttribute("class").contains("k-state-disabled")){
 			int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber));
-			Thread.sleep(5000);
 			selectWebElement(lastPageIcon);
-			Thread.sleep(5000);
 			int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 			selectWebElement(firstPageIcon);
-			Thread.sleep(5000);
 			int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 			if(nextnumber>pagenumber && pagenumber==previousnumber){status=true;}
 		}else{
@@ -673,7 +629,6 @@ public class OCMAnalysisCountReportPage extends BasePage  {
 		}
 		return status;
 	}
-	
 
 	public boolean verifyTotalNumberOfItemsPerPageDetails(){
 		String item = items.getText();
@@ -792,7 +747,6 @@ public class OCMAnalysisCountReportPage extends BasePage  {
 		}
 		return Status;	
 	}
-	
 	public boolean verifySearchIsNotEqualTo(String details) throws Exception {
 		Boolean Status=false;
 		Map<String, String> map=new HashMap<String,String>() ;
@@ -959,7 +913,6 @@ public class OCMAnalysisCountReportPage extends BasePage  {
 		}
 		return Status;
 	}
-	
 	/*public void verifySearchClear(ReportDetails details) {
 		selectWebElement(searchBtn);		
 		selectWebElement(searchColDropdown);  
@@ -988,8 +941,7 @@ public class OCMAnalysisCountReportPage extends BasePage  {
 			Status=false;
 		return Status;	
 	}
-	
-	public boolean verifyAdvanceSearchIsEqualTo(ReportDetails reportDetails) throws Exception {
+	public boolean verifyAdvanceSearch(ReportDetails reportDetails) throws Exception {
 		Boolean Status=false;
 		waitForJqueryLoad(driver);
 		List<Map<String,String>>UI=getDataTable();
@@ -1100,7 +1052,7 @@ public class OCMAnalysisCountReportPage extends BasePage  {
 		selectDropdownFromVisibleText(searchColListBoxAdvSrchReportPage1,"AccessCount");
 		Thread.sleep(2000);
 		selectWebElement(searchCriteriaDropdownAdvSrch1);
-		selectDropdownFromVisibleText(searchCriteriaListboxAdvSrch1,"Ends with");
+		selectDropdownFromVisibleText(searchCriteriaListboxAdvSrch1,"Contains");
 		enterValueToTxtField(searchTextBoxAdvSrch1,details.getSearchStr1());
 		selectWebElement(showReportBtn.get(0));
 		waitForLoad(driver);
@@ -1110,7 +1062,7 @@ public class OCMAnalysisCountReportPage extends BasePage  {
 		List<Map<String,String>> UI=getDataTable(); 
 		for (Map<String,String> map1: UI)
 		{   	
-			if(map1.get("Menu").equals(details.getSearchStr()) && map1.get("AccessCount").endsWith(details.getSearchStr1()))
+			if(map1.get("Menu").equals(details.getSearchStr()) && map1.get("AccessCount").contains(details.getSearchStr1()))
 				Status= true;
 			else 
 				Status= false;
@@ -1141,7 +1093,7 @@ public class OCMAnalysisCountReportPage extends BasePage  {
 		selectDropdownFromVisibleText(searchColListBoxAdvSrchReportPage1,"AccessCount");
 		Thread.sleep(2000);
 		selectWebElement(searchCriteriaDropdownAdvSrch1);
-		selectDropdownFromVisibleText(searchCriteriaListboxAdvSrch1,"Is equal to");
+		selectDropdownFromVisibleText(searchCriteriaListboxAdvSrch1,"Contains");
 		enterValueToTxtField(searchTextBoxAdvSrch1,details.getSearchStr1());
 		selectWebElement(showReportBtn.get(0));
 		waitForLoad(driver);
@@ -1151,7 +1103,7 @@ public class OCMAnalysisCountReportPage extends BasePage  {
 		List<Map<String,String>> UI=getDataTable(); 
 		for (Map<String,String> map1: UI)
 		{   	
-			if(map1.get("Menu").equals(details.getSearchStr()) || map1.get("AccessCount").equals(details.getSearchStr1()))
+			if(map1.get("Menu").equals(details.getSearchStr()) || map1.get("AccessCount").contains(details.getSearchStr1()))
 				Status= true;
 			else 
 				Status= false;
@@ -1192,10 +1144,10 @@ public class OCMAnalysisCountReportPage extends BasePage  {
 	
 	public boolean groupby() throws Exception {
 		waitForJqueryLoad(driver);
-		Thread.sleep(5000);					
+		Thread.sleep(2000);					
 		DragandDrop(Menu,droptarget);
 		try {
-			Thread.sleep(5000);
+			Thread.sleep(3000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}

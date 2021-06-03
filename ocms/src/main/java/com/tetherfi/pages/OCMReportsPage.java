@@ -8704,6 +8704,17 @@ public class OCMReportsPage extends BasePage {
 
 
 
+	
+	public boolean verifyExportReportWithoutData() throws Exception{
+		waitForJqueryLoad(driver);
+		Thread.sleep(3000);
+		if(waitUntilTextToBePresentInWebElement(errorMsg1,"There is no record to export")) {
+			return true;}
+		else
+			if(waitUntilTextToBePresentInWebElement(successmsg,"Report Export is Initiated... Notification will be sent once Completed")){		
+				return true;}
+			else{return false;}
+	}
 
 
 

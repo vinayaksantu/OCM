@@ -11,9 +11,12 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.tetherfi.model.report.ReportDetails;
-
+import com.tetherfi.model.user.DashboardColorCodeConfigDetails;
+import com.tetherfi.pages.DashboardColorCodeConfigPage;
 import com.tetherfi.pages.HomePage;
 import com.tetherfi.pages.OCMReportsPage;
+import com.tetherfi.pages.AgentHistoricalReportPage;
+import com.tetherfi.pages.AgentSkillHistoricalReportPage;
 import com.tetherfi.pages.AgentSkillHistoricalReportPage;
 import com.tetherfi.test.BaseTest;
 import com.tetherfi.utility.ExcelReader;
@@ -644,7 +647,6 @@ public class SkillHistoricalReportTest extends BaseTest {
 	}
 
 
-	
 	@Test(priority=59, description="To verify report data against DB")
 	public void database() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillHistoricalReportData.xlsx";

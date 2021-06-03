@@ -942,7 +942,6 @@ public class OCMUserListingReportPage extends BasePage  {
 		}
 		return Status;
 	}
-	
 	public boolean verifySearchEndsWith(String description) throws Exception {
 		Boolean Status=false;
 		selectWebElement(searchBtn);

@@ -39,5 +39,4 @@ public class NiceIntegrationReportTest extends BaseTest{
 		System.out.println("Main report data match successful");	
 	}
 
-
 }

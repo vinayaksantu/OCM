@@ -15,6 +15,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
 import com.google.common.collect.Maps;
+import com.tetherfi.model.fax.FaxAddressBookDetails;
 import com.tetherfi.model.report.ReportDetails;
 
 public class OCMAgentLoginLogoutReportPage extends BasePage  {
@@ -653,7 +654,6 @@ public class OCMAgentLoginLogoutReportPage extends BasePage  {
 		return status;
 	}
 
-
 	public boolean verifyArrowMoveForFirstAndLastPage() throws Exception{
 		boolean status=false;
 		if(!lastPageIcon.getAttribute("class").contains("k-state-disabled")){
@@ -777,6 +777,7 @@ public class OCMAgentLoginLogoutReportPage extends BasePage  {
 		}
 		return Status;
 	}
+	
 	private List<Map<String, String>> getDataTable() throws Exception {
 		int item=Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
 		int pagersize=Integer.valueOf(pagerSize.getText());
@@ -955,8 +956,6 @@ public class OCMAgentLoginLogoutReportPage extends BasePage  {
 		}
 		return Status;
 	}
-	
-	
 	public boolean verifySearchEndsWith(String description) throws Exception {
 		Boolean Status=false;
 		selectWebElement(searchBtn);

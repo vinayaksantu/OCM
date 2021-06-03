@@ -107,8 +107,8 @@ public class AgentTemplatePage extends BasePage {
 	@FindBy(xpath="//p[@class='k-reset']")
 	private WebElement groupBy;
 
-	@FindBy(xpath="//tbody/tr/td/p[@class='k-reset']/../../following-sibling::tr/td[4]")
-	private WebElement groupByTemplateName;
+	@FindBy(xpath="//tbody/tr/td/p[@class='k-reset']/../../following-sibling::tr/td[5]")
+	private WebElement groupByTemplateNameInTemplateTab;
 
 	@FindBy(xpath="//tbody/tr/td/p[@class='k-reset']/../../following-sibling::tr/td[3]")
 	private WebElement groupByTemplateNameInTemplateScreenTab;
@@ -116,11 +116,14 @@ public class AgentTemplatePage extends BasePage {
 	@FindBy(xpath="//tbody/tr/td/p[@class='k-reset']/../../following-sibling::tr/td[5]")
 	private WebElement groupByTemplateNameInTemplateWidgetScreenTab;
 
-	@FindBy(xpath="//tbody/tr/td/p[@class='k-reset']/../../following-sibling::tr/td[3]")
+	@FindBy(xpath="//tbody/tr/td/p[@class='k-reset']/../../following-sibling::tr/td[4]")
 	private WebElement groupByTemplateNameInTemplateAuxCodesTab;
 
 	@FindBy(xpath="//tbody/tr/td/p[@class='k-reset']/../../following-sibling::tr/td[3]")
 	private WebElement groupByTemplateNameInTemplateOpHoursTab;
+
+	@FindBy(xpath="//tbody/tr/td/p[@class='k-reset']/../../following-sibling::tr/td[4]")
+	private WebElement groupByTemplateNameInTemplateFeaturesTab;
 
 	@FindBy(xpath="//a[@aria-label='Go to the last page']")
 	private List<WebElement> lastPageIcon;
@@ -176,6 +179,9 @@ public class AgentTemplatePage extends BasePage {
 	@FindBy(xpath="//span[normalize-space()='Template OpHours']")
 	private WebElement templateOpHoursTab;
 
+	@FindBy(xpath="//span[normalize-space()='Template Features']")
+	private WebElement templateFeatures;			
+	
 	@FindBy(xpath="//button[normalize-space()='Add New Template Screen Widget Record']")
 	private WebElement addNewTemplateScreenWidgetRecord;
 
@@ -183,11 +189,14 @@ public class AgentTemplatePage extends BasePage {
 	@FindBy(id="create")
 	private List<WebElement> addButton;
 
-	@FindBy(xpath="//button[text()='Add New Agent Template Record']")
+	@FindBy(xpath="//button[text()='Add New Templates Record']")
 	private WebElement addNewTemplateRecordBtn;
 
-	@FindBy(xpath="//span[text()='Agent Template']")
+	@FindBy(xpath="//span[text()='Templates']")
 	private WebElement AgntTmpPopupLbl;
+	
+	@FindBy(xpath="//div[@class='k-edit-form-container']")
+	private WebElement editPopUp;
 
 	@FindBy(xpath="//div[@id='toast-container']")
 	private WebElement toastid;
@@ -233,6 +242,9 @@ public class AgentTemplatePage extends BasePage {
 
 	@FindBy(css="ul[id='theme_listbox'] li")
 	private List<WebElement> themeDropDwn;
+	
+	@FindBy(xpath="//a[@class='k-button k-button-icontext k-grid-cancel']")
+	private WebElement CancelButton;
 
 	@FindBy(xpath="//a[@class='k-button k-button-icontext k-primary k-grid-update']")
 	private WebElement saveBtn;
@@ -255,6 +267,9 @@ public class AgentTemplatePage extends BasePage {
 
 	@FindBy(css="#tdrillgrid2 .k-grid-edit")
 	private WebElement EditBtnWidgetTab;
+	
+	@FindBy(css="#tdrillgrid3 .k-grid-edit")
+	private WebElement EditFeaturesTab;
 
 	@FindBy(xpath="//input[@id='ModifyReason']")
 	private WebElement ModifyReasontext;
@@ -285,6 +300,9 @@ public class AgentTemplatePage extends BasePage {
 
 	@FindBy(css="#gridDetails .k-grid-CustomDelete")
 	private WebElement deleteBtnOpHrstab;
+	
+	@FindBy(css="#tdrillgrid3 .k-grid-CustomDelete")
+	private WebElement deleteBtnFeaturesTab;
 
 
 	@FindBy(xpath="//div[@id='myScreenTemplate']//div//div[@id='yesButton']")
@@ -292,6 +310,9 @@ public class AgentTemplatePage extends BasePage {
 
 	@FindBy(xpath="//div[@id='myWidgetTemplate']//div//div[@id='yesButton']")
 	private WebElement deleteYesWidgetab;
+	
+	@FindBy(xpath="//div[@id='myFeatureTemplate']//div//div[@id='yesButton']")
+	private WebElement deleteYesFeaturesTab;
 
 
 	@FindBy(xpath="//input[@id='CustomTemplateModifyReason']")
@@ -308,6 +329,9 @@ public class AgentTemplatePage extends BasePage {
 
 	@FindBy(xpath="//input[@id='CustomOphourModifyReason']")
 	private WebElement deleteReasonTxtBoxOphrs;
+	
+	@FindBy(xpath="//input[@id='CustomFeatureModifyReason']")
+	private WebElement deleteReasonTxtFeaturesTab;
 
 
 	@FindBy(xpath="//div[@id='myTemplate1']//div//div[@id='yesButton']")
@@ -336,13 +360,17 @@ public class AgentTemplatePage extends BasePage {
 
 	@FindBy(xpath="//div[@id='myOPhourTemplate']//div//div[@id='noButton']")
 	private WebElement deleteNoBtnOptab;
+	
+	@FindBy(xpath="//div[@id='myFeatureTemplate']//div//div[@id='noButton']")
+	private WebElement deleteNoBtnFeaturesTab;
 
 
-	@FindBy(xpath="//div[@id='myTemplate1']")
-	private WebElement deletecontainer;
+	@FindBy(xpath="//div[@class='k-widget k-window']")
+	private List<WebElement> deletecontainer;
 
 	@FindBy(xpath="//button[normalize-space()='Add New Template Screen Record']")
 	private WebElement addnewscreenRecordBtn;
+	
 
 	@FindBy(xpath="//a[@class='k-button k-flat k-button-icon k-window-action']")
 	private List<WebElement> screenpopupCloseBtn;
@@ -350,11 +378,14 @@ public class AgentTemplatePage extends BasePage {
 	@FindBy(xpath="//div[@class='k-widget k-window k-state-focused']//span[@class='k-window-title'][normalize-space()='Template Screen']")
 	private WebElement screenpopUpTitle;
 
-	@FindBy(xpath="//div[@class='k-widget k-window k-state-focused']//span[@class='k-window-title'][normalize-space()='Template AuxCode']")  
+	@FindBy(xpath="//div[@class='k-widget k-window k-state-focused']//span[@class='k-window-title'][normalize-space()='Template Auxcodes']")  
 	private WebElement screenpopUpTitleAux;
 
-	@FindBy(xpath="//div[@class='k-widget k-window k-state-focused']//span[@class='k-window-title'][normalize-space()='Template Screen Widget']")
+	@FindBy(xpath="//div[@class='k-widget k-window k-state-focused']//span[@class='k-window-title'][normalize-space()='Template Screen Widgets']")
 	private WebElement widgetpopupTitle;
+	
+	@FindBy(xpath="//div[@class='k-widget k-window k-state-focused']//span[@class='k-window-title'][normalize-space()='Template Features']")
+	private WebElement templateFeaturesPopupTitle;
 
 
 	@FindBy(xpath="//span[contains(text(),'Select a Template')]")
@@ -373,6 +404,9 @@ public class AgentTemplatePage extends BasePage {
 
 	@FindBy(css="ul[id='TemplateID_listbox'] li")
 	private List<WebElement> tempnameListbox;
+	
+	@FindBy(css="ul[id='TemplateFeatureRecord_listbox'] li")
+	private List<WebElement> templateFeaturesTemplateNameListBox;
 
 	@FindBy(css="ul[id='ScreenList'] li")
 	private List<WebElement> sceenListbox1; 
@@ -382,6 +416,9 @@ public class AgentTemplatePage extends BasePage {
 
 	@FindBy(xpath="//a[@title='Transfer To']")
 	private WebElement transferToicon;
+	
+	@FindBy(xpath="//a[@title='Transfer From']")
+	private WebElement transferFromIcon;
 
 	@FindBy(xpath="//a[@title='Transfer All To']")
 	private WebElement transferAlltoicon;
@@ -501,6 +538,42 @@ public class AgentTemplatePage extends BasePage {
 
 	@FindBy(xpath="//span[@class='k-input']")
 	private WebElement pagerSize1;
+	
+	@FindBy(xpath="//*[@id=\"grid\"]/div[4]/table/tbody/tr/td[4]")
+	private WebElement templateTabTableRow;
+	
+	@FindBy(xpath="//*[@id=\"drillGrid\"]/div[4]/table/tbody/tr/td[2]")
+	private WebElement screenTabTableRow;
+	
+	@FindBy(xpath="//*[@id=\"drillgrid\"]/div[4]/table/tbody/tr/td[3]")
+	private WebElement auxcodesTableRow;
+	
+	@FindBy(xpath="//*[@id=\"drillgrid3\"]/div[4]/table/tbody/tr[1]/td[3]")
+	private WebElement featuresTableRow;
+	
+	@FindBy(xpath="//a[text()='Template Name']")
+	private List<WebElement> templateNameColumn;
+	
+	@FindBy(xpath="//button[normalize-space()='Add New Template Feature Record']")
+	private WebElement addNewTemplateFeaturesRecordButton;
+	
+	@FindBy(id="IsScreenCaptureEnabled")
+	private WebElement isScreenCaptureEnabled;
+	
+	@FindBy(id="IsTRSCameraPictureEnabled")
+	private WebElement isTRSCameraPictureEnabled ;
+	
+	@FindBy(id="IsLocationEnabled")
+	private WebElement isLocationEnabled;
+	
+	@FindBy(id="IsFaceAuthenticationEnabled")
+	private WebElement isFaceAuthenticationEnabled;
+	
+	@FindBy(id="TRS_AUTO_UPDATE_INTERVAL")
+	private WebElement isTRS_AUTO_UPDATE_INTERVAL;
+	
+	@FindBy(id="TRS_LOG_UPLOAD_URL")
+	private WebElement isTRS_LOG_UPLOAD_URL;
 
 	public boolean isAgentemplatePageIsDisplayed() {
 		//waitForLoad(driver);
@@ -706,10 +779,11 @@ public class AgentTemplatePage extends BasePage {
 			for(int i=1;i<rows.size();i++) {
 				Map<String,String> map = new HashMap<String,String>();
 				List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
-				for(int j=1;j<headers.size();j++) {
+				for(int j=0;j<headers.size();j++) {
 					col=cols.get(j).getText();
 					map.put(headers.get(j).getText(),col);
 				}
+				map.remove(" ");
 				map.remove("");
 				arr.add(map);
 			}
@@ -788,11 +862,11 @@ public class AgentTemplatePage extends BasePage {
 	public boolean groupBy(int x) {
 		DragandDrop(gridTemplateName.get(x),dropTarget.get(x));
 		try {
-			Thread.sleep(1000);
+			Thread.sleep(2000);
 		}catch(InterruptedException e) {
 			e.printStackTrace();	
 		}
-		if(groupBy.getText().split(": ")[1].equals(groupByTemplateName.getText()))
+		if(groupBy.getText().split(": ")[1].equals(groupByTemplateNameInTemplateTab.getText()))
 			return true;
 		else
 			return false;
@@ -835,6 +909,20 @@ public class AgentTemplatePage extends BasePage {
 			e.printStackTrace();	
 		}
 		if(groupBy.getText().split(": ")[1].equals(groupByTemplateNameInTemplateOpHoursTab.getText()))
+			return true;
+		else
+			return false;
+
+	}
+
+	public boolean groupByInTemplateFeaturesTab(int x) {
+		DragandDrop(gridTemplateName.get(x),dropTarget.get(x));
+		try {
+			Thread.sleep(1000);
+		}catch(InterruptedException e) {
+			e.printStackTrace();	
+		}
+		if(groupBy.getText().split(": ")[1].equals(groupByTemplateNameInTemplateFeaturesTab.getText()))
 			return true;
 		else
 			return false;
@@ -1160,6 +1248,7 @@ public class AgentTemplatePage extends BasePage {
 	}
 
 	public void NavigateToTemplateScreenWidgetsTab() {
+		waitForJqueryLoad(driver);	
 		selectWebElement(templateScreenWidgetsTab);
 		waitForJqueryLoad(driver);
 		waitUntilWebElementIsVisible(addNewTemplateScreenWidgetRecord);
@@ -1174,7 +1263,13 @@ public class AgentTemplatePage extends BasePage {
 
 	public void NavigateToTemplateOpHoursTab() {
 		//waitForJqueryLoad(driver);
-		selectWebElement(templateOpHoursTab);
+		selectWebElement(templateOpHoursTab);								  
+		waitForJqueryLoad(driver);
+	}
+
+	public void NavigateToTemplateFeaturesTab() {
+		waitForJqueryLoad(driver);
+		selectWebElement(templateFeatures);
 		waitForJqueryLoad(driver);
 	}
 
@@ -1506,19 +1601,14 @@ public class AgentTemplatePage extends BasePage {
 
 
 
-	public boolean editCancel(AgentTemplateDetails details,int x) throws Exception {
-		boolean status=false;
+	public void editCancel(AgentTemplateDetails details,int x) throws Exception {
+		waitForJqueryLoad(driver);
 		verifySearchIsEqualTo(details.getTemplatename(),x);
 		waitForJqueryLoad(driver);
 		selectWebElement(EditBtnTempTab);
 		waitForJqueryLoad(driver);		
-		selectWebElement(editcancel);	
-		if(gridContent.get(x).isDisplayed())
-			status=true;
-		else
-			status=false;
-		return status;
-
+		selectWebElement(editcancel);
+		waitForJqueryLoad(driver);
 	}
 	public boolean verifyEditFormContainer() {
 		try {
@@ -1526,7 +1616,7 @@ public class AgentTemplatePage extends BasePage {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		return isElementExist(editFormContainer.get(5));
+		return isElementExist(editPopUp);
 	}
 	public void deleteRecord(AgentTemplateDetails details,int x) throws Exception {
 		verifySearchIsEqualTo(details.getTemplatename(),x);
@@ -1545,30 +1635,20 @@ public class AgentTemplatePage extends BasePage {
 		selectWebElement(deleteYesBtn);
 	}
 
-
-
-	public boolean DeleteCancel(AgentTemplateDetails details,int x) throws Exception {
+	public boolean DeleteCancelTemplateTab(AgentTemplateDetails details,int x) throws Exception {
 		boolean status=false;
 		verifySearchIsEqualTo(details.getTemplatename(),x);
 		waitForJqueryLoad(driver);
 		selectWebElement(deleteBtnTempTab);
 		waitForJqueryLoad(driver);		
 		selectWebElement(deleteNoBtn);
-		if(gridContent.get(x).isDisplayed())
+		if(templateTabTableRow.getText().equals(details.getTemplatename()))
 			status=true;
 		else
 			status=false;
 		return status;
 	}
 
-	public boolean verifyDeleteFormContainer() {
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		return isElementExist(deletecontainer);
-	}
 	public boolean verifySearchIsEqualTo(String templateName,int x) throws Exception {
 		boolean Status=false;
 		Map<String,String>map=new HashMap<String,String>();
@@ -1594,17 +1674,17 @@ public class AgentTemplatePage extends BasePage {
 		return Status;
 
 	}
-	public boolean verifySearchIsEqualToTempId(String templateid,int x) throws Exception {
+	public boolean verifySearchIsEqualToWidget(String widgets,int x) throws Exception {
 		boolean Status=false;
 		Map<String,String>map=new HashMap<String,String>();
-		map.put("Template ID", templateid);
+		map.put("Widgets", widgets);
 		selectWebElement(searchBtn);
 		selectWebElement(selectSearchColumn);
-		selectDropdownFromVisibleText(columnNameList,"Template ID");
+		selectDropdownFromVisibleText(columnNameList,"Widgets");
 		Thread.sleep(1000);
 		selectWebElement(condition);
 		selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is equal to");
-		enterValueToTxtField(searchTextBox,templateid);		
+		enterValueToTxtField(searchTextBox,widgets);		
 		selectWebElement(searchSearchBtn);
 		waitForJqueryLoad(driver);
 		waitUntilWebElementIsVisible(gridContent.get(x));
@@ -1642,21 +1722,21 @@ public class AgentTemplatePage extends BasePage {
 		selectWebElement(saveBtn);
 	}
 
-	public boolean VerifyAddScreenTemplateWindowCloseButton(int x) throws Exception {
+	public boolean VerifyAddScreenTemplateWindowCancelButton(int x) throws Exception {
 		waitForJqueryLoad(driver);
 		selectWebElement(templateScreenTab);
+		waitUntilWebElementIsVisible(items.get(x));
+		String actualitems=items.get(x).getText();
+		System.out.println(actualitems);
 		selectWebElement(addnewscreenRecordBtn);
 		waitForJqueryLoad(driver);
 		waitUntilWebElementIsVisible(screenpopUpTitle);
-		//selectWebElement(screenpopupCloseBtn.get(15));
-		selectWebElement(closeicon.get(15));
-		//Thread.sleep(2000);
-		boolean status=false;
-		if(gridContent.get(x).isDisplayed())
-			status=true;
+		selectWebElement(CancelButton);
+		System.out.println(items.get(x).getText());
+		if(actualitems.equals(items.get(x).getText()))
+			return true;
 		else
-			status=false;
-		return status;
+			return false;
 	}
 
 	public void verifyAddnewScreenTemplate(AgentTemplateDetails details) throws Exception {
@@ -1712,34 +1792,29 @@ public class AgentTemplatePage extends BasePage {
 		verifySearchIsEqualTo(details.getTemplatename(),x);
 		selectWebElement(EditBtnScreenTab);
 		selectDropdownFromVisibleText(screenListbox,details.getUpdatedScreenList());
-		scrollToElement(transferToicon);
-		selectWebElement(transferToicon);
+		scrollToElement(transferFromIcon);
+		selectWebElement(transferFromIcon);
 		enterValueToTxtFieldWithoutClear(ModifyReasontext,details.getmodifyReason());
 		selectWebElement(editSavebtn);
 	}
-	public boolean editCancelScreenTab(AgentTemplateDetails details,int x) throws Exception {
-		boolean status=false;
-		//waitForJqueryLoad(driver);
+	public void editCancelScreenTab(AgentTemplateDetails details,int x) throws Exception {
+		waitForJqueryLoad(driver);
 		selectWebElement(templateScreenTab);
-		//verifySearchIsEqualTo(details.getTemplatename(),x);
+		verifySearchIsEqualTo(details.getTemplatename(),x);
 		selectWebElement(EditBtnScreenTab);
 		selectWebElement(editcancel);
-		if(gridContent.get(x).isDisplayed())
-			status=true;
-		else
-			status=false;
-		return status;
+		waitForJqueryLoad(driver);
 	}
 
 	public void editScreenRecordWithoutModifyreason(AgentTemplateDetails details,int x) throws Exception {
-
+		waitForJqueryLoad(driver);
 		templateScreenTab.click();
 		verifySearchIsEqualTo(details.getTemplatename(),x);
 		selectWebElement(EditBtnScreenTab);	
 		waitForJqueryLoad(driver);
 		selectDropdownFromVisibleText(screenListbox,details.getUpdatedScreenList());
-		scrollToElement(transferToicon);
-		selectWebElement(transferToicon);
+		scrollToElement(transferFromIcon);
+		selectWebElement(transferFromIcon);
 		//enterValueToTxtFieldWithoutClear(ModifyReasontext,details.getmodifyReason());
 		selectWebElement(editSavebtn);
 	}
@@ -1757,17 +1832,19 @@ public class AgentTemplatePage extends BasePage {
 
 	public boolean DeleteCancelScreentab(AgentTemplateDetails details,int x) throws Exception {
 		boolean status=false;
+		waitForJqueryLoad(driver);
 		templateScreenTab.click();
 		verifySearchIsEqualTo(details.getTemplatename(),x);
 		//waitForJqueryLoad(driver);
 		selectWebElement(deleteBtnScreentab);
 		//waitForJqueryLoad(driver);		
 		selectWebElement(deleteNoBtnScreentb);	
-		if(gridContent.get(x).isDisplayed())
+		if(screenTabTableRow.getText().equals(details.getTemplatename()))
 			status=true;
 		else
 			status=false;
 		return status;
+		
 	}
 
 	public void deleteScreenRecord(AgentTemplateDetails details,int x) throws Exception {
@@ -1789,21 +1866,26 @@ public class AgentTemplatePage extends BasePage {
 		waitForJqueryLoad(driver);			
 		selectWebElement(saveBtn);
 	}
-
-	public boolean VerifyAddAuxTemplateWindowCloseButton(int x) throws Exception {
+	
+	
+	public boolean VerifyAddAuxTemplateWindowCancelButton(int x) throws Exception {
+		waitForJqueryLoad(driver);
 		selectWebElement(templateAuxCodesTab);
+		waitUntilWebElementIsVisible(items.get(x));
+		String actualitems=items.get(x).getText();
+		System.out.println(actualitems);
 		selectWebElement(addNewTemplateAuxCodesRecord);
+		waitForJqueryLoad(driver);
 		waitUntilWebElementIsVisible(screenpopUpTitleAux);
-		selectWebElement(closeicon.get(15));
-		//Thread.sleep(2000);
-		boolean status=false;
-		if(gridContent.get(x).isDisplayed())
-			status=true;
+		selectWebElement(CancelButton);
+		System.out.println(items.get(x).getText());
+		if(actualitems.equals(items.get(x).getText()))
+			return true;
 		else
-			status=false;
-		return status;
-
-	}	
+			return false;
+	}
+	
+	
 	public boolean verifyAddnewAuxTemplate(AgentTemplateDetails details) throws Exception {
 		boolean status=false;
 		templateAuxCodesTab.click();
@@ -1876,32 +1958,29 @@ public class AgentTemplatePage extends BasePage {
 		waitForJqueryLoad(driver);
 		selectWebElement(templateAuxCodesTab);
 		verifySearchIsEqualTo(details.getTemplatename(),x);
-		selectWebElement(EditBtnAuxTab);		
+		selectWebElement(EditBtnAuxTab);
+		waitForJqueryLoad(driver);
 		selectDropdownFromVisibleText(auxListbox,details.getUpdatedAuxcode());
 		scrollToElement(transferToicon);
 		selectWebElement(transferToicon);
 		enterValueToTxtFieldWithoutClear(ModifyReasontext,details.getmodifyReason());
 		selectWebElement(editSavebtn);
 	}
-	public boolean editCancelAuxTab(AgentTemplateDetails details,int x) throws Exception {
-		boolean status=false;
-		//waitForJqueryLoad(driver);
+	public void editCancelAuxTab(AgentTemplateDetails details,int x) throws Exception {
+		waitForJqueryLoad(driver);
 		selectWebElement(templateAuxCodesTab);
-		//verifySearchIsEqualTo(details.getTemplatename(),x);
+		verifySearchIsEqualTo(details.getTemplatename(),x);
 		selectWebElement(EditBtnAuxTab);
 		selectWebElement(editcancel);
-		if(gridContent.get(x).isDisplayed())
-			status=true;
-		else
-			status=false;
-		return status;
+		waitForJqueryLoad(driver);
 	}
 
 	public void editAuxRecordWithoutModifyreason(AgentTemplateDetails details,int x) throws Exception {
-
+		waitForJqueryLoad(driver);
 		templateAuxCodesTab.click();
 		verifySearchIsEqualTo(details.getTemplatename(),x);
-		selectWebElement(EditBtnAuxTab);		
+		selectWebElement(EditBtnAuxTab);	
+		waitForJqueryLoad(driver);
 		selectDropdownFromVisibleText(auxListbox,details.getUpdatedAuxcode());
 		scrollToElement(transferToicon);
 		selectWebElement(transferToicon);
@@ -1924,11 +2003,11 @@ public class AgentTemplatePage extends BasePage {
 		boolean status=false;
 		templateAuxCodesTab.click();
 		verifySearchIsEqualTo(details.getTemplatename(),x);
-		//waitForJqueryLoad(driver);
+		waitForJqueryLoad(driver);
 		selectWebElement(deleteBtnAuxtab);
 		//waitForJqueryLoad(driver);		
 		selectWebElement(deleteNoBtnAuxtab);	
-		if(gridContent.get(x).isDisplayed())
+		if(auxcodesTableRow.getText().equals(details.getTemplatename()))
 			status=true;
 		else
 			status=false;
@@ -1980,19 +2059,22 @@ public class AgentTemplatePage extends BasePage {
 		return status;
 	}
 
-	public boolean VerifyAddWidgetTemplateWindowCloseButton(int x) throws Exception {
-		templateScreenWidgetsTab.click();
+	
+	public boolean VerifyAddWidgetTemplateWindowCancelButton(int x) throws Exception {
+		waitForJqueryLoad(driver);
+		selectWebElement(templateScreenWidgetsTab);
+		waitUntilWebElementIsVisible(items.get(x));
+		String actualitems=items.get(x).getText();
+		System.out.println(actualitems);
 		selectWebElement(addNewWigetRecordBtn);
+		waitForJqueryLoad(driver);
 		waitUntilWebElementIsVisible(widgetpopupTitle);
-		selectWebElement(closeicon.get(15));
-		//Thread.sleep(2000);
-		boolean status=false;
-		if(gridContent.get(x).isDisplayed())
-			status=true;
+		selectWebElement(CancelButton);
+		System.out.println(items.get(x).getText());
+		if(actualitems.equals(items.get(x).getText()))
+			return true;
 		else
-			status=false;
-		return status;
-
+			return false;
 	}
 
 	public boolean verifyAddnewWidgetTemplate(AgentTemplateDetails details,int x) throws Exception {
@@ -2007,13 +2089,13 @@ public class AgentTemplatePage extends BasePage {
 		selectmultipleWidget(details.getWidgetList());	
 		waitUntilWebElementIsVisible(successmsg);
 		if(successmsg.getText().equals("Record inserted Successfully"))
-		{	verifySearchIsEqualToTempId(details.gettemplateId(),x);
+		{	verifySearchIsEqualToWidget(details.getWidgetList(),x);
 		status=true;
 		}
 		return status;
 	}
 	public void selectmultipleWidget(String Widgetcode) throws Exception{
-		String[] a=Widgetcode.split(",");		
+		String[] a=Widgetcode.split(", ");		
 		for(String attribute:a){
 			for(WebElement ele:WidgetListbox){
 				if(ele.getText().equalsIgnoreCase(attribute)){
@@ -2044,7 +2126,7 @@ public class AgentTemplatePage extends BasePage {
 	public boolean verifyTransferAllToBtnWidgetTab(AgentTemplateDetails details,int x) throws Exception {
 		boolean status=false;		
 		templateScreenWidgetsTab.click();
-		verifySearchIsEqualToTempId(details.gettemplateId(),x);
+		verifySearchIsEqualToWidget(details.getWidgetList(),x);
 		selectWebElement(EditBtnWidgetTab);
 		scrollToElement(transferAlltoicon);
 		selectWebElement(transferAlltoicon);
@@ -2057,7 +2139,7 @@ public class AgentTemplatePage extends BasePage {
 
 	public void verifyTransferAllFromBtnWidgetTab(AgentTemplateDetails details,int x) throws Exception {
 		templateScreenWidgetsTab.click();
-		verifySearchIsEqualToTempId(details.gettemplateId(),x);
+		verifySearchIsEqualToWidget(details.getWidgetList(),x);
 		selectWebElement(EditBtnWidgetTab);		
 		scrollToElement(transferAllfromIcon);
 		selectWebElement(transferAllfromIcon);
@@ -2067,7 +2149,7 @@ public class AgentTemplatePage extends BasePage {
 	}
 	public void verifyTransferFromBtnWidgetTab(AgentTemplateDetails details,int x) throws Exception {	
 		templateScreenWidgetsTab.click();
-		verifySearchIsEqualToTempId(details.gettemplateId(),x);
+		verifySearchIsEqualToWidget(details.getWidgetList(),x);
 		selectWebElement(EditBtnWidgetTab);
 		selectDropdownFromVisibleText(WidgetListbox,details.getupdatedWidgetList());
 		scrollToElement(transferfromIcon);
@@ -2078,7 +2160,7 @@ public class AgentTemplatePage extends BasePage {
 	}
 	public void editWidgetRecord(AgentTemplateDetails details,int x) throws Exception {		
 		templateScreenWidgetsTab.click();
-		verifySearchIsEqualToTempId(details.gettemplateId(),x);
+		verifySearchIsEqualToWidget(details.getWidgetList(),x);
 		selectWebElement(EditBtnWidgetTab);		
 		selectDropdownFromVisibleText(WidgetListbox,details.getupdatedWidgetList());
 		scrollToElement(transferToicon);
@@ -2089,7 +2171,7 @@ public class AgentTemplatePage extends BasePage {
 	public boolean editCancelWidgetTab(AgentTemplateDetails details,int x) throws Exception {
 		boolean status=false;
 		templateScreenWidgetsTab.click();
-		//verifySearchIsEqualTo(details.getTemplatename(),x);
+		verifySearchIsEqualToWidget(details.getWidgetList(),x);
 		selectWebElement(EditBtnWidgetTab);
 		waitForJqueryLoad(driver);
 		selectWebElement(editcancel);
@@ -2102,7 +2184,7 @@ public class AgentTemplatePage extends BasePage {
 
 	public void editWidgetRecordWithoutModifyreason(AgentTemplateDetails details,int x) throws Exception {
 		templateScreenWidgetsTab.click();
-		verifySearchIsEqualToTempId(details.gettemplateId(),x);
+		verifySearchIsEqualToWidget(details.getWidgetList(),x);
 		selectWebElement(EditBtnWidgetTab);	
 		waitForJqueryLoad(driver);
 		selectDropdownFromVisibleText(WidgetListbox,details.getupdatedWidgetList());
@@ -2114,7 +2196,7 @@ public class AgentTemplatePage extends BasePage {
 	public void deleteWithoutDeletereasonWidgettab(AgentTemplateDetails details,int x) throws Exception {
 
 		templateScreenWidgetsTab.click();
-		verifySearchIsEqualToTempId(details.gettemplateId(),x);	
+		verifySearchIsEqualToWidget(details.getWidgetList()+", "+details.getupdatedWidgetList(),x);	
 		selectWebElement(deleteBtnWidgettab);
 		//waitForJqueryLoad(driver);
 		//Thread.sleep(3000);
@@ -2124,7 +2206,7 @@ public class AgentTemplatePage extends BasePage {
 	public boolean DeleteCancelWidgettab(AgentTemplateDetails details,int x) throws Exception {
 		boolean status=false;
 		templateScreenWidgetsTab.click();
-		verifySearchIsEqualToTempId(details.gettemplateId(),x);
+		verifySearchIsEqualToWidget(details.getWidgetList()+", "+details.getupdatedWidgetList(),x);
 		//waitForJqueryLoad(driver);
 		selectWebElement(deleteBtnWidgettab);
 		//waitForJqueryLoad(driver);		
@@ -2138,7 +2220,7 @@ public class AgentTemplatePage extends BasePage {
 
 	public void deleteWidgetRecord(AgentTemplateDetails details,int x) throws Exception {
 		templateScreenWidgetsTab.click();
-		verifySearchIsEqualToTempId(details.gettemplateId(),x);
+		verifySearchIsEqualToWidget(details.getWidgetList()+", "+details.getupdatedWidgetList(),x);
 		waitForJqueryLoad(driver);
 		selectWebElement(deleteBtnWidgettab);
 		waitForJqueryLoad(driver);
@@ -2305,7 +2387,7 @@ public class AgentTemplatePage extends BasePage {
 
 	public void sorting() throws Exception {
 		Thread.sleep(3000);
-		selectWebElement(Sorting);
+		selectWebElement(templateNameColumn.get(4));
 	}
 
 	public List<Map<String, String>> getTemplateData() throws Exception {
@@ -2326,6 +2408,7 @@ public class AgentTemplatePage extends BasePage {
 					col=cols.get(j).getText();
 					map.put(headers.get(j).getText(),col);
 				}
+				map.remove(" ");
 				map.remove("");
 				arr.add(map);
 			}
@@ -2420,7 +2503,147 @@ public class AgentTemplatePage extends BasePage {
 		}
 		return arr;
 	}
+	
+	public boolean VerifyAddNewTemplateFeaturesandPopUpCancelButton(int x) throws Exception {
+		waitForJqueryLoad(driver);
+		selectWebElement(templateFeatures);
+		waitUntilWebElementIsVisible(items.get(x));
+		String actualitems=items.get(x).getText();
+		System.out.println(actualitems);
+		selectWebElement(addNewTemplateFeaturesRecordButton);
+		waitForJqueryLoad(driver);
+		waitUntilWebElementIsVisible(templateFeaturesPopupTitle);
+		selectWebElement(CancelButton);
+		System.out.println(items.get(x).getText());
+		if(actualitems.equals(items.get(x).getText()))
+			return true;
+		else
+			return false;
+	}
+	
+	public void selectCheckBox(WebElement ele, boolean value){
+		if(value){
+			if(ele.isSelected()){}else{selectCheckbox(ele);}
+		}
+		else{
+			if(ele.isSelected()){selectCheckbox(ele);}
+		}
+	}
+	
+	public void VerifyAddNewTemplateFeaturesWithoutTemplate(AgentTemplateDetails details) {
+		waitForJqueryLoad(driver);
+		selectWebElement(templateFeatures);
+		selectWebElement(addNewTemplateFeaturesRecordButton);
+		waitForJqueryLoad(driver);
+		waitUntilWebElementIsVisible(templateFeaturesPopupTitle);
+		selectCheckBox(isScreenCaptureEnabled,details.IsScreenCaptureEnabled());
+		selectCheckBox(isTRSCameraPictureEnabled,details.IsTRSCameraPictureEnabled());
+		selectCheckBox(isLocationEnabled,details.IsLocationEnabled());
+		selectCheckBox(isFaceAuthenticationEnabled,details.IsFaceAuthenticationEnabled());
+		scrollToElement(saveBtn);
+		selectWebElement(saveBtn);	
+	}
+	
+	public void VerifyAddNewTemplateFeaturesWithoutTemplateFeatures(AgentTemplateDetails details) {
+		waitForJqueryLoad(driver);
+		selectWebElement(templateFeatures);
+		selectWebElement(addNewTemplateFeaturesRecordButton);
+		waitForJqueryLoad(driver);
+		waitUntilWebElementIsVisible(templateFeaturesPopupTitle);
+		selectWebElement(tempnameDropdown);
+		selectDropdownFromVisibleText(templateFeaturesTemplateNameListBox,details.getTemplatename());
+		scrollToElement(saveBtn);
+		selectWebElement(saveBtn);	
+	}
+	
+	public void VerifyAddNewValidTemplateFeaturesRecord(AgentTemplateDetails details) {
+		waitForJqueryLoad(driver);
+		selectWebElement(templateFeatures);
+		selectWebElement(addNewTemplateFeaturesRecordButton);
+		waitForJqueryLoad(driver);
+		waitUntilWebElementIsVisible(templateFeaturesPopupTitle);
+		selectWebElement(tempnameDropdown);
+		selectDropdownFromVisibleText(templateFeaturesTemplateNameListBox,details.getTemplatename());
+		selectCheckBox(isScreenCaptureEnabled,details.IsScreenCaptureEnabled());
+		selectCheckBox(isTRSCameraPictureEnabled,details.IsTRSCameraPictureEnabled());
+		selectCheckBox(isLocationEnabled,details.IsLocationEnabled());
+		selectCheckBox(isFaceAuthenticationEnabled,details.IsFaceAuthenticationEnabled());
+		scrollToElement(saveBtn);
+		selectWebElement(saveBtn);	
+	}
+	
+	public void editFeaturesRecordWithoutModifyreason(AgentTemplateDetails details,int x) throws Exception {
+		waitForJqueryLoad(driver);
+		selectWebElement(templateFeatures);
+		verifySearchIsEqualTo(details.getTemplatename(),x);
+		selectWebElement(EditFeaturesTab);	
+		waitForJqueryLoad(driver);
+		selectCheckBox(isTRS_AUTO_UPDATE_INTERVAL,details.IsTRS_AUTO_UPDATE_INTERVAL());
+		selectCheckBox(isTRS_LOG_UPLOAD_URL,details.IsTRS_LOG_UPLOAD_URL());
+		scrollToElement(editSavebtn);
+		selectWebElement(editSavebtn);
+	}
+	
+	public void editCancelFeaturesTab(AgentTemplateDetails details,int x) throws Exception {
+		waitForJqueryLoad(driver);
+		selectWebElement(templateFeatures);
+		verifySearchIsEqualTo(details.getTemplatename(),x);
+		selectWebElement(EditFeaturesTab);
+		waitForJqueryLoad(driver);
+		selectWebElement(editcancel);
+		waitForJqueryLoad(driver);
+	}
+	
+	public void editFeaturesRecord(AgentTemplateDetails details,int x) throws Exception {
+		waitForJqueryLoad(driver);
+		selectWebElement(templateFeatures);
+		verifySearchIsEqualTo(details.getTemplatename(),x);
+		selectWebElement(EditFeaturesTab);	
+		waitForJqueryLoad(driver);
+		scrollToElement(isTRS_AUTO_UPDATE_INTERVAL);
+		selectCheckBox(isTRS_AUTO_UPDATE_INTERVAL,details.IsTRS_AUTO_UPDATE_INTERVAL());
+		selectCheckBox(isTRS_LOG_UPLOAD_URL,details.IsTRS_LOG_UPLOAD_URL());
+		enterValueToTxtFieldWithoutClear(ModifyReasontext,details.getmodifyReason());
+		scrollToElement(editSavebtn);
+		selectWebElement(editSavebtn);
+	}
+	
+	public void deleteWithoutDeletereasonFeaturestab(AgentTemplateDetails details,int x) throws Exception {
+		waitForJqueryLoad(driver);
+		selectWebElement(templateFeatures);
+		verifySearchIsEqualTo(details.getTemplatename(),x);
+		waitForJqueryLoad(driver);
+		selectWebElement(deleteBtnFeaturesTab);
+		waitForJqueryLoad(driver);
+		selectWebElement(deleteYesFeaturesTab);
+	}
 
+	public boolean DeleteCancelFeaturestab(AgentTemplateDetails details,int x) throws Exception {
+		boolean status=false;
+		waitForJqueryLoad(driver);
+		selectWebElement(templateFeatures);
+		verifySearchIsEqualTo(details.getTemplatename(),x);
+		waitForJqueryLoad(driver);
+		selectWebElement(deleteBtnFeaturesTab);
+		waitForJqueryLoad(driver);		
+		selectWebElement(deleteNoBtnFeaturesTab);	
+		if(featuresTableRow.getText().equals(details.getTemplatename()))
+			status=true;
+		else
+			status=false;
+		return status;
+		
+	}
+
+	public void deleteFeaturesRecord(AgentTemplateDetails details,int x) throws Exception {
+		waitForJqueryLoad(driver);
+		selectWebElement(templateFeatures);
+		verifySearchIsEqualTo(details.getTemplatename(),x);
+		waitForJqueryLoad(driver);
+		selectWebElement(deleteBtnFeaturesTab);
+		enterValueToTxtFieldWithoutClear(deleteReasonTxtFeaturesTab,details.getdeleteReason());
+		selectWebElement(deleteYesFeaturesTab);
+	}
 
 }
 

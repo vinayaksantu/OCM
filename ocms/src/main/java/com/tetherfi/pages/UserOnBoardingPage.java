@@ -17,6 +17,7 @@ import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
+import com.tetherfi.model.ivr.IntroMessageAnnouncementDetails;
 import com.tetherfi.model.user.UserOnBoardingDetails;
 import com.tetherfi.utility.FileUploader;
 
@@ -118,7 +119,7 @@ public class UserOnBoardingPage extends BasePage {
 
 	@FindBy(css="#drillGrid .k-grid-content")
 	private WebElement gridContent;
-	
+
 	@FindBy(xpath="//a[@aria-label='Go to the next page']")
 	private List<WebElement> featuresGridNexpageButton;
 
@@ -127,7 +128,7 @@ public class UserOnBoardingPage extends BasePage {
 
 	@FindBy(css="#gridDiv2 .search-link")
 	private WebElement searchLink;
-	
+
 	@FindBy(css="#gridDiv .search-link")
 	private WebElement searchLinkApprovedSec;
 
@@ -481,21 +482,24 @@ public class UserOnBoardingPage extends BasePage {
 
 	@FindBy(xpath="//a[text()='Please upload all the 3 files together.']")
 	private WebElement fileUploadMessage;
-	
+
 	@FindBy(xpath="//a[text()='Failed to import Agent Details']")
 	private WebElement uploadErrormessage;
-	
+
 	@FindBy(xpath="//a[@class='k-icon k-i-expand']")
-    private List<WebElement> pageArrowDropDown;
-    
-    @FindBy(xpath="//span[text()='Skill List']")
-    private WebElement pageArrowSkillList;
-    
-    @FindBy(xpath="//li[@class='k-item k-state-default k-first k-tab-on-top k-state-active']")
-    private List<WebElement> channelTab;
-    
-    @FindBy(css="#tcheckerGrid .k-grid-display-block")
-    private List<WebElement> arrowGrid;
+	private List<WebElement> pageArrowDropDown;
+
+	@FindBy(xpath="//span[text()='Skill List']")
+	private WebElement pageArrowSkillList;
+
+	@FindBy(xpath="//li[@class='k-item k-state-default k-first k-tab-on-top k-state-active']")
+	private List<WebElement> channelTab;
+
+	@FindBy(css="#tcheckerGrid .k-grid-display-block")
+	private List<WebElement> arrowGrid;
+
+	@FindBy(id="tdrillgrid")
+	private WebElement tgrid;
 
 
 
@@ -881,7 +885,7 @@ public class UserOnBoardingPage extends BasePage {
 		waitForJqueryLoad(driver);
 		waitUntilWebElementIsVisible(gridContent);
 	}
-	
+
 	public void searchUserOnBoardingRecordInApprovedSection(String lanID) throws Exception  {
 		selectWebElement(searchLinkApprovedSec);
 		selectWebElement(selectSearchColumn.get(0));
@@ -1570,6 +1574,7 @@ public class UserOnBoardingPage extends BasePage {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
+		System.out.println(details.getTeamName());
 		ChooseTeamHeirarchy(details.getTeamName());
 		selectProfile(details.getProfile(),details.getSupervisor());
 		Thread.sleep(1000);
@@ -1691,7 +1696,7 @@ public class UserOnBoardingPage extends BasePage {
 		return stat;
 	}
 
-	public boolean verifyAuditTrail(UserOnBoardingDetails details, String transaction, String status){
+	/*public boolean verifyAuditTrail(UserOnBoardingDetails details, String transaction, String status){
 		boolean stat=false;
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
 		String date = simpleDateFormat.format(new Date());
@@ -1700,20 +1705,136 @@ public class UserOnBoardingPage extends BasePage {
 			if(firstRowData.get("Status").equalsIgnoreCase(status)){
 				if(firstRowData.get("Function Name").equalsIgnoreCase("User Onboarding")){
 					 if(transaction.equals("MakerCreate")||transaction.equals("MakerImport")){
-					/* Map<String,String> newvalues=new HashMap<>();
+					 Map<String,String> newvalues=new HashMap<>();
 	                            String[] d=firstRowData.get("New Values").split("\n");
 	                            for(String e:d){
 	                                String[]f=e.split(":",2);
 	                                if(f.length>1){newvalues.put(f[0],f[1]);}
 	                            }
 	                            if(verifyNewValues(details,newvalues)){
-	                                stat=true;}*/stat=true;
+	                                stat=true;}stat=true;
 					}else{System.out.println("transaction Mismatch");}
 				}else{System.out.println("Data mismatch:"+firstRowData.get("Function Name")+"\t"+"User Onboarding");}
 			}else{System.out.println("Data mismatch:"+firstRowData.get("Status")+"\t"+status);}
 		}else{System.out.println("Data mismatch:"+firstRowData.get("Transaction")+"\t"+transaction);}
-		return stat;}
+		return stat;}*/
 
+	private Map<String, String> getFirstRowDatafromPreviewPopup() throws Exception {
+		Map<String,String> map = new HashMap<>();
+		waitUntilWebElementIsVisible(auditGridContent);
+		List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
+		List<WebElement> cols=rows.get(1).findElements(By.tagName("td"));
+		List<WebElement> preview= cols.get(1).findElements(By.tagName("a"));
+		preview.get(0).click();
+		Thread.sleep(3000);
+		waitUntilWebElementIsVisible(tgrid);
+		List<WebElement> gridrows=tgrid.findElements(By.tagName("tr"));
+		List<WebElement> gridheaders = gridrows.get(0).findElements(By.tagName("th"));
+		List<WebElement> gridcols=gridrows.get(1).findElements(By.tagName("td"));     
+		for(int j=0;j<gridheaders.size();j++){
+			scrollToElement(gridheaders.get(j));
+			for(int i=0;i<gridcols.size();i++) {
+				System.out.println(gridheaders.get(j).getText());
+				try{
+					map.put(gridheaders.get(j).getText(), gridcols.get(j).getText());
+					break;
+				}
+				catch (Exception e){e.printStackTrace();}
+			}
+		}
+		return map;
+	}
+
+	public boolean verifyAuditTrail(UserOnBoardingDetails details,String transaction, String status) throws Exception{
+		boolean stat=false;
+		Map<String,String> firstRowData=getFirstRowDatafromTable();
+		Map<String,String> popupRowData=getFirstRowDatafromPreviewPopup();
+        System.out.println(firstRowData);
+        System.out.println(popupRowData);
+		if(firstRowData.get("Transaction").equalsIgnoreCase(transaction)){
+			if(firstRowData.get("Status").equalsIgnoreCase(status)){
+				if(firstRowData.get("Function Name").equalsIgnoreCase("User Onboarding")){
+					if(transaction.equals("MakerCreate")||transaction.equals("MakerImport")){
+						Map<String,String> newvalues=new HashMap<>();
+						String[] d=popupRowData.get("New Values").split("\n");
+						for(String e:d){
+							String[]f=e.split(":",2);
+							if(f.length>1){newvalues.put(f[0],f[1]);}
+						}
+						if(verifyNewValues(details,newvalues)){
+							stat=true;}
+						else 
+							stat=false;
+					}
+					else{System.out.println("Data mismatch");}
+				}else{System.out.println("Data mismatch:"+firstRowData.get("Function")+"\t"+"RoleManagement");}
+			}else{System.out.println("Data mismatch:"+firstRowData.get("Status")+"\t"+status);}
+		}else{System.out.println("Data mismatch:"+firstRowData.get("Transaction")+"\t"+transaction);}
+		return stat;
+	}
+
+	public boolean verifyNewValues(UserOnBoardingDetails details, Map<String,String> newvalues){
+		boolean stat=false;
+		if(newvalues.get("Lan ID").equals(details.getLanID())){
+			if(newvalues.get("First Name").equals(details.getFirstname())){
+				if(newvalues.get("Last Name").equals(details.getLastname())){
+					if(newvalues.get("Avaya Login ID").equals(details.getAvayaLoginID())){
+						if(newvalues.get("Profile").equals(details.getProfile())){
+							stat=true;
+						}else{System.out.println("data mismatch"+newvalues.get("Profile")+"\t"+details.getProfile());}
+					}else{System.out.println("data mismatch"+newvalues.get("Avaya Login ID")+"\t"+details.getAvayaLoginID());}
+				}else{System.out.println("data mismatch"+newvalues.get("Last Name")+"\t"+details.getLastname());}
+			}else{System.out.println("data mismatch"+newvalues.get("First Name")+"\t"+details.getFirstname());}
+		}else{System.out.println("data mismatch"+newvalues.get("Lan ID")+"\t"+details.getLanID());}
+		return stat;
+	}
+	
+	public boolean verifyAuditTrailForImport(UserOnBoardingDetails details,String transaction, String status) throws Exception{
+		boolean stat=false;
+		Map<String,String> firstRowData=getFirstRowDatafromTable();
+		Map<String,String> popupRowData=getFirstRowDatafromPreviewPopup();
+        System.out.println(firstRowData);
+        System.out.println(popupRowData);
+		if(firstRowData.get("Transaction").equalsIgnoreCase(transaction)){
+			if(firstRowData.get("Status").equalsIgnoreCase(status)){
+				if(firstRowData.get("Function Name").equalsIgnoreCase("User Onboarding")){
+					if(transaction.equals("MakerImport")){
+						Map<String,String> newvalues=new HashMap<>();
+						String[] d=popupRowData.get("New Values").split("\n");
+						for(String e:d){
+							String[]f=e.split(":",2);
+							if(f.length>1){newvalues.put(f[0],f[1]);}
+						}
+						if(verifyNewValuesofImport(details,newvalues)){
+							stat=true;}
+						else 
+							stat=false;
+					}
+					else{System.out.println("Data mismatch");}
+				}else{System.out.println("Data mismatch:"+firstRowData.get("Function")+"\t"+"RoleManagement");}
+			}else{System.out.println("Data mismatch:"+firstRowData.get("Status")+"\t"+status);}
+		}else{System.out.println("Data mismatch:"+firstRowData.get("Transaction")+"\t"+transaction);}
+		return stat;
+	}
+	
+	public boolean verifyNewValuesofImport(UserOnBoardingDetails details, Map<String,String> newvalues){
+		boolean stat=false;
+		String profile = null;
+		if(details.getProfile().equals("Supervisor")) {profile="S";}
+		else if(details.getProfile().equals("Agent")) {profile="A";}
+		if(newvalues.get("UserName").equals(details.getLanID())){
+			if(newvalues.get("FirstName").equals(details.getFirstname())){
+				if(newvalues.get("LastName").equals(details.getLastname())){
+					if(newvalues.get("AvayaLoginID").equals(details.getAvayaLoginID())){
+						if(newvalues.get("Profile").equals(profile)){
+							stat=true;
+						}else{System.out.println("data mismatch"+newvalues.get("Profile")+"\t"+details.getProfile());}
+					}else{System.out.println("data mismatch"+newvalues.get("Avaya Login ID")+"\t"+details.getAvayaLoginID());}
+				}else{System.out.println("data mismatch"+newvalues.get("Last Name")+"\t"+details.getLastname());}
+			}else{System.out.println("data mismatch"+newvalues.get("First Name")+"\t"+details.getFirstname());}
+		}else{System.out.println("data mismatch"+newvalues.get("Lan ID")+"\t"+details.getLanID());}
+		return stat;
+	}
 	public void clickonApprove(String comment) throws Exception{
 		selectWebElement(UserOnBoardingTabs.get(1));
 		waitForJqueryLoad(driver);
@@ -1748,15 +1869,16 @@ public class UserOnBoardingPage extends BasePage {
 		waitUntilWebElementIsVisible(successmsg);return successmsg.getText();
 	}
 
-	public boolean verifyAuditTrailUpdate(UserOnBoardingDetails details, String Transaction, String Status) {
+	public boolean verifyAuditTrailUpdate(UserOnBoardingDetails details,String Transaction, String Status) throws Exception {
 		boolean stat=false;
 		Map<String,String> firstRowData=getFirstRowDatafromTable();
+		Map<String,String> popupRowData=getFirstRowDatafromPreviewPopup();
 		if(firstRowData.get("Transaction").equalsIgnoreCase(Transaction)){
 			if(firstRowData.get("Status").equalsIgnoreCase(Status)){
 				if(firstRowData.get("Function Name").equalsIgnoreCase("User Onboarding")){
 					if(Transaction.equals("MakerUpdate")){
-						/*Map<String,String> newvalues=new HashMap<>();
-						String[] d=firstRowData.get("New Values").split("\n");
+						Map<String,String> newvalues=new HashMap<>();
+						String[] d=popupRowData.get("New Values").split("\n");
 						for(String e:d){
 							String[]f=e.split(":",2);
 							if(f.length>1){newvalues.put(f[0],f[1]);}
@@ -1764,16 +1886,15 @@ public class UserOnBoardingPage extends BasePage {
 						if(verifyUpdatedNewValues(details,newvalues)){
 							stat=true;}
 						else 
-							stat=false;*/
-						stat=true;
+							stat=false;
 					}
 					else{System.out.println("Data mismatch");}
-				}else{System.out.println("Data mismatch:"+firstRowData.get("Function")+"\t"+"User Onboarding");}
+				}else{System.out.println("Data mismatch:"+firstRowData.get("Function Name")+"\t"+"RoleManagement");}
 			}else{System.out.println("Data mismatch:"+firstRowData.get("Status")+"\t"+Status);}
 		}else{System.out.println("Data mismatch:"+firstRowData.get("Transaction")+"\t"+Transaction);}
 		return stat;
 	}
-	
+
 	public boolean verifyAuditTrailDelete(UserOnBoardingDetails details, String Transaction, String Status) {
 		boolean stat=false;
 		Map<String,String> firstRowData=getFirstRowDatafromTable();
@@ -2345,7 +2466,7 @@ public class UserOnBoardingPage extends BasePage {
 			List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
 			selectWebElement(cols.get(0).findElement(By.id("isEnabled")));}
 	}
-	
+
 	public void selectallImportedRecord() {
 		Map<String,String> map = new HashMap<>();
 		waitUntilWebElementIsVisible(auditGridContent);
@@ -2370,17 +2491,17 @@ public class UserOnBoardingPage extends BasePage {
 	  }
 	    System.out.println(CSV.entrySet());
 	 }
-	
+
 	public void verifyArrowDropDown(UserOnBoardingDetails details) throws Exception {
 		List<Map<String, String>> maplist=getAgetSkillData(details);
 		System.out.println(maplist);
-		
+
 		if(maplist.equals(maplist1))
 		return true;
 		else
 		return false;
 	}
-	
+
 	public List<Map<String,String>> getAgetSkillData(UserOnBoardingDetails details) throws Exception {
 		waitForJqueryLoad(driver);
 		searchUserOnBoardingRecordInApprovedSection(details.getLanID());
@@ -2429,7 +2550,7 @@ public class UserOnBoardingPage extends BasePage {
 		driver.navigate().refresh();
 		return status;
 	}
-	
+
 	public boolean VerifyImportMultipleUserwithAllFieldsBlank(UserOnBoardingDetails details) throws Exception {
 		waitForJqueryLoad(driver);
 		selectWebElement(UserOnBoardingTabs.get(1));
@@ -2445,7 +2566,7 @@ public class UserOnBoardingPage extends BasePage {
 		return status;
 
 	}
-	
+
 	public boolean VerifyImportUserDetailswithInvalidOrgUnit(UserOnBoardingDetails details) throws Exception {
 		waitForJqueryLoad(driver);
 		selectWebElement(UserOnBoardingTabs.get(1));
@@ -2462,7 +2583,7 @@ public class UserOnBoardingPage extends BasePage {
 		return status;
 
 	}
-	
+
 	public boolean VerifyImportUserDetailswithNewColumn(UserOnBoardingDetails details) throws Exception {
 		waitForJqueryLoad(driver);
 		selectWebElement(UserOnBoardingTabs.get(1));
@@ -2479,7 +2600,7 @@ public class UserOnBoardingPage extends BasePage {
 		return status;
 
 	}
-	
+
 	public boolean VerifyImportUserDetailswithUpdatedColumn(UserOnBoardingDetails details) throws Exception {
 		waitForJqueryLoad(driver);
 		selectWebElement(UserOnBoardingTabs.get(1));
@@ -2502,7 +2623,7 @@ public class UserOnBoardingPage extends BasePage {
 			return false;
 
 	}
-	
+
 	public boolean VerifyImportwithoutDivisionLevelSupervisor(UserOnBoardingDetails details) throws Exception {
 		waitForJqueryLoad(driver);
 		selectWebElement(UserOnBoardingTabs.get(1));
@@ -2568,7 +2689,7 @@ public class UserOnBoardingPage extends BasePage {
 		return status;
 
 	}
-	
+
 	public boolean VerifyImportUserwithInvalidRoleFile(UserOnBoardingDetails details) throws Exception {
 		waitForJqueryLoad(driver);
 		selectWebElement(UserOnBoardingTabs.get(1));
@@ -2584,8 +2705,8 @@ public class UserOnBoardingPage extends BasePage {
 		return status;
 
 	}
-	
-	
+
+
 	public boolean VerifyImportUserwithInvalidProfileFile(UserOnBoardingDetails details) throws Exception {
 		waitForJqueryLoad(driver);
 		selectWebElement(UserOnBoardingTabs.get(1));
@@ -2602,7 +2723,7 @@ public class UserOnBoardingPage extends BasePage {
 		return status;
 
 	}
-	
+
 	public boolean VerifyImportUserwithInvalidRoleAccessFile(UserOnBoardingDetails details) throws Exception {
 		waitForJqueryLoad(driver);
 		selectWebElement(UserOnBoardingTabs.get(1));
@@ -2619,7 +2740,7 @@ public class UserOnBoardingPage extends BasePage {
 		return status;
 
 	}
-	
+
 	public boolean VerifyImportUserwithAlphabetsasAvayaLoginID(UserOnBoardingDetails details) throws Exception {
 		waitForJqueryLoad(driver);
 		selectWebElement(UserOnBoardingTabs.get(1));
@@ -2636,7 +2757,7 @@ public class UserOnBoardingPage extends BasePage {
 		return status;
 
 	}
-	
+
 	public boolean VerifyImportUserwithSpecialCharectorsasAvayaLoginID(UserOnBoardingDetails details) throws Exception {
 		waitForJqueryLoad(driver);
 		selectWebElement(UserOnBoardingTabs.get(1));
@@ -2652,7 +2773,7 @@ public class UserOnBoardingPage extends BasePage {
 		return status;
 
 	}
-	
+
 	public void editImportedUserOnBoardingRecord(UserOnBoardingDetails details) {
 		try{selectWebElement(UserOnBoardingTabs.get(1));
 		selectWebElement(makeUserOnBoardingChanges);
@@ -2666,7 +2787,7 @@ public class UserOnBoardingPage extends BasePage {
 		enterValueToTxtFieldWithoutClear(modifyReasonTextBox,details.getModifyReason());
 		selectWebElement(saveButton);}catch (Exception e){e.printStackTrace();}
 	}
-	
+
 	public boolean verifyExportToExcelForImportedRecord(UserOnBoardingDetails details,String filePath) throws Exception {
 		searchUserOnBoardingRecord(details.getLanID());
 		final File folder = new File(filePath);
@@ -2685,7 +2806,7 @@ public class UserOnBoardingPage extends BasePage {
 		Boolean Status=verifyExportPageFileDownload(filePath, "User Onboarding");
 		return Status;
 	}
-	
+
 	public boolean verifyexportToExcelSheetforImportedRecord(UserOnBoardingDetails details,List<Map<String, String>> maplist) throws Exception {
 		waitForJqueryLoad(driver);
 		searchUserOnBoardingRecord(details.getLanID());
@@ -2700,6 +2821,83 @@ public class UserOnBoardingPage extends BasePage {
 			return false;
 	}
 
+	public void selectDeletedImportRecords() {
+		Map<String,String> map = new HashMap<>();
+		waitUntilWebElementIsVisible(auditGridContent);
+		for(int i=1;i<=2;i++) {
+			List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
+			List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
+			selectWebElement(cols.get(0).findElement(By.id("isEnabled")));}
+	}
+
+	public void clickonApproveforDeletedRecords(String comment) throws Exception{
+		selectWebElement(UserOnBoardingTabs.get(1));
+		waitForJqueryLoad(driver);
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		selectDeletedImportRecords();
+		clickOn(approveBtn);
+		selectWebElement(checkerReason);
+		enterValueToTxtField(checkerReason,comment);
+		clickOn(approveYesBtn);
+		waitForJqueryLoad(driver);
+	}
+
+
+	private void ChooseHeirarchy(String team){
+		String[] hrcy=team.split(">");
+		for(int i=0;i<hrcy.length;i++){
+			for(WebElement e: teamList){
+				if(e.getText().equals(hrcy[i])) {
+					if(e.getText().equals(hrcy[hrcy.length-1]))
+					{selectWebElement(e.findElement(By.className("k-in")));break;}
+					else if(e.findElements(By.className("k-icon")).size()>0)
+					{selectWebElement(e.findElement(By.className("k-icon")));break;}
+				}}}
+
+	}
+	public void addNewDifferentLevelUserOnBoardingRecordWithAllValidData(UserOnBoardingDetails details) throws Exception {
+		selectWebElement(UserOnBoardingTabs.get(1));
+		selectWebElement(makeUserOnBoardingChanges);
+		waitForJqueryLoad(driver);
+		try {Thread.sleep(5000);
+		selectWebElement(addNewUserOnBoardingRecord);
+		waitUntilWebElementIsVisible(popupContent);
+		waitForJqueryLoad(driver);
+		Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		selectWebElement(firstnameTextBox);
+		enterValueToTxtFieldWithoutClear(firstnameTextBox,details.getFirstname());
+		selectWebElement(lastnameTextBox);
+		enterValueToTxtFieldWithoutClear(lastnameTextBox,details.getLastname());
+		selectWebElement(lanIdTextBox);
+		enterValueToTxtFieldWithoutClear(lanIdTextBox,details.getLanID());
+		selectWebElement(numericTextbox.get(0));
+		enterValueToTxtFieldWithoutClear(avayaLoginIdTextBox,details.getAvayaLoginID());
+		selectWebElement(teamnameDropdown);
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		System.out.println(details.getTeamName());
+		ChooseHeirarchy(details.getTeamName());
+		selectWebElement(supervisorDropdown);
+		selectDropdownFromVisibleText(supervisorListBox,details.getSupervisor());
+		Thread.sleep(1000);
+		selectWebElement(nextButton.get(0));
+		addProfilePicture_ChannelCount_FeaturesData(details);
+		selectWebElement(nextButton.get(3));
+		selectWebElement(accessroleDropdown);
+		selectDropdownFromVisibleText(accessroleListBox,details.getAccessRole());	
+		selectWebElement(saveButton);
+		waitForJqueryLoad(driver);
+	}
 
 
 }

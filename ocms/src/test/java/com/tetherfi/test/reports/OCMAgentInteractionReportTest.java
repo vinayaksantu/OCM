@@ -35,7 +35,7 @@ public class OCMAgentInteractionReportTest extends BaseTest {
 		ftp.transferFileFromRemote(remoteFilePath,destinationFilePath);
 	}
 
-	@Test(priority=1,description="To verify Show Report for Single Date")
+	/*@Test(priority=1,description="To verify Show Report for Single Date")
 	public void ShowReport() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentInteractionReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
@@ -56,7 +56,7 @@ public class OCMAgentInteractionReportTest extends BaseTest {
 		ocmReportsPage.switchBackToParentWindow();
 	}
 	
-	/*@Test(priority=3, description="To verify Agent Interaction Report UI data against DB")
+	@Test(priority=3, description="To verify Agent Interaction Report UI data against DB")
 	public void database() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentInteractionReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(0);
@@ -65,7 +65,7 @@ public class OCMAgentInteractionReportTest extends BaseTest {
 		ocmReportsPage.showReport(reportDetails);
 		OCMAgentInteractionReportPage AgentInteractionReportPage =PageFactory.createPageInstance(driver,OCMAgentInteractionReportPage.class);
 		Assert.assertTrue(AgentInteractionReportPage.verifyDatabase(reportDetails.getQuery(), reportDetails));
-	}*/
+	}
 	
 	@Test(priority=4,description="Maximize, minimize")
 	public void OCMWindow() throws Exception {  	
@@ -101,7 +101,7 @@ public class OCMAgentInteractionReportTest extends BaseTest {
 		ocmReportsPage.showReport(reportDetails);		
 		OCMAgentInteractionReportPage agentInteractionPage=PageFactory.createPageInstance(driver,OCMAgentInteractionReportPage.class);
 		Assert.assertTrue(agentInteractionPage.verifycolumnsHeaderEnabled(),"columns enabled assertion failed");
-	}
+	}  
 
 	@Test(priority=7,description="Verify column header disable")
 	public void VerifyColumnsHeaderDisable() throws Exception {
@@ -202,12 +202,12 @@ public class OCMAgentInteractionReportTest extends BaseTest {
 		ocmReportsPage.showReport(reportDetails);  
 		OCMAgentInteractionReportPage agentInteractionPage=PageFactory.createPageInstance(driver,OCMAgentInteractionReportPage.class);
 		Assert.assertTrue(agentInteractionPage.verifySearchContains(reportDetails.getSearchStr()));
-	}
+	}   
 	
 	@Test(priority=16,description="Verify the Does not contain criteria")
 	public void  VerifySearchDoesNotContains() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentInteractionReportData.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(3);
+		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(2);
 		ReportDetails reportDetails= new ReportDetails(map);
 		OCMReportsPage ocmReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
 		ocmReportsPage.showReport(reportDetails);  
@@ -327,7 +327,7 @@ public class OCMAgentInteractionReportTest extends BaseTest {
 		Assert.assertTrue(agentInteractionPage.verifyAdvancedSearchEndsWith(reportDetails));
 	}
 	
-	/*@Test(priority=27,description="Advance search with And Condition")
+	@Test(priority=27,description="Advance search with And Condition")
 	public void verifyAdvancedSearchANDCriteria() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentInteractionReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(0);
@@ -336,7 +336,7 @@ public class OCMAgentInteractionReportTest extends BaseTest {
 		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);                   	
 		ocmReportsPage.chooseReport(reportDetails);
 		Assert.assertTrue(agentInteractionPage.advancedSearchANDCriteria(reportDetails));   	
-	}*/
+	}
 
 	@Test(priority=28,description="Advance search with OR Condition")
 	public void verifyAdvancedSearchORCriteria() throws Exception {
@@ -366,7 +366,7 @@ public class OCMAgentInteractionReportTest extends BaseTest {
 		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
 		ocmReportsPage.scheduleReport(reportDetails);
 		Assert.assertTrue(ocmReportsPage.verifyScheduleReport(),"Schedule report assertion failed");
-	}
+	}*/
 
 	@Test(priority=31,description="To verify Export Report on OCM Reports Page")
 	public void ExportReport() throws Exception {
@@ -398,7 +398,7 @@ public class OCMAgentInteractionReportTest extends BaseTest {
 		Assert.assertTrue(ocmReportsPage.verifyExportedSheet("OCMReportDownload","OCM Agent Interaction Repo"));	
 	}
 
-	@Test(priority=34,description="Delete record in Reports Download without Delete reason")
+	/*@Test(priority=34,description="Delete record in Reports Download without Delete reason")
 	public void DeleteRecordWithoutDeleteReasonInReportsDownloadforSingleDate() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentInteractionReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ExportReport").getTestData().get(0);
@@ -630,7 +630,7 @@ public class OCMAgentInteractionReportTest extends BaseTest {
 		agentInteractionPage.verifycolumnsHeaderEnabled();
 		JSONReader json= new JSONReader(destinationFilePath);
 		Assert.assertTrue(agentInteractionPage.verifyJsonDataForgridColumnHidden(json.getJsonGridColumnTitleKeyDataForReports("Hidden")),"JSON data grid column hidden assertion failed");  	
-	}
+	}*/
 
 	@Test(priority=54,description="To Verify Ascending and Descending order")
 	public void VerifySorting() throws Exception {
@@ -646,7 +646,7 @@ public class OCMAgentInteractionReportTest extends BaseTest {
 	@AfterMethod
 	public void afterEachMethod(Method method) throws InterruptedException {
 		Screenshot screenshot=new Screenshot(driver);
-		screenshot.captureScreen("UOBMYCC_AGENTINTERACTIONREPORT",method.getName());
+		screenshot.captureScreen("OCMAgentInteractionReportTestSnaps",method.getName());
 		driver.navigate().refresh();
 	}
 

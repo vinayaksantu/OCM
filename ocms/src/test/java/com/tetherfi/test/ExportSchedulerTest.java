@@ -93,7 +93,7 @@ public class ExportSchedulerTest extends BaseTest {
          ExportSchedulerDetails ExportSchedulerDetails = new ExportSchedulerDetails(map);
      	 ExportSchedulerPage ExportSchedulerPage=PageFactory.createPageInstance(driver,ExportSchedulerPage.class);
          ExportSchedulerPage.addNewExportSchedulerRecordDaily(ExportSchedulerDetails);
-         Assert.assertEquals(ExportSchedulerPage.getMessage(),"Record Already Exist","Duplicate record assertion failed");
+         Assert.assertEquals(ExportSchedulerPage.getMessage(),"Record Already Exists","Duplicate record assertion failed");
     }
     
     @Test(priority=8)

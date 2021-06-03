@@ -417,7 +417,7 @@ public class WorkCodeListTest extends BaseTest{
      
     }
     
-    @AfterClass
+    //@AfterClass
     public void Afterclass() throws Exception
     {
     	HomePage homePage= PageFactory.createPageInstance(driver,HomePage.class);

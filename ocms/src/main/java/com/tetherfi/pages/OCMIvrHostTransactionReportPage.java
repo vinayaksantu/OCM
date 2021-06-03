@@ -155,18 +155,15 @@ public class OCMIvrHostTransactionReportPage extends BasePage  {
 
 	@FindBy(id = "1001sTextToSearch")
 	private WebElement searchTextBox;
-
-	//@FindBy(css = ".modal-footer .k-button")//@FindBy(xpath="//*[@id=\"searchModel\"]/div/div/div[3]/button[1]")
 	@FindBy(xpath="//*[@id=\"searchModel\"]/div/div/div[3]/button[1]")
 	private WebElement searchCloseBtn;
-
+	
 	@FindBy(css = ".modal-footer .button-danger-theme")
 	private WebElement searchClearAllBtn;
 
 	@FindBy(css = ".modal-footer .button-theme")
 	private WebElement searchSearchBtn;
 
-	// @FindBy(css = "span[aria-owns='autoCompleteTextbox_listbox']")
 	@FindBy(id="autoCompleteTextbox")
 	private WebElement searchbyfeatureTextBox;
 
@@ -469,6 +466,7 @@ public class OCMIvrHostTransactionReportPage extends BasePage  {
 		}
 		return maplist;
 	}
+	
 	public boolean verifyDropDownOfAllHeaders() {
 		boolean status = false;
 		try {for (WebElement ele : headersDropdown) {
@@ -585,6 +583,7 @@ public class OCMIvrHostTransactionReportPage extends BasePage  {
 		else 
 			return false; 
 	}
+	
 	public boolean verifyexportToExcelSheet(List<Map<String, String>> maplist) {
 		List<Map<String,String>> UI=getdata(); 
 		System.out.println(UI);
@@ -722,6 +721,7 @@ public class OCMIvrHostTransactionReportPage extends BasePage  {
 			return false;
 
 	}
+	
 	public void viewDownloadedReportInReportsDownloadsPage() {
 		waitForLoad(driver);
 		waitForJqueryLoad(driver);
@@ -734,6 +734,7 @@ public class OCMIvrHostTransactionReportPage extends BasePage  {
 		waitForLoad(driver);
 		waitForJqueryLoad(driver);
 	}
+	
 	public boolean isExportSchedulerPageDisplayed() {
 		waitForLoad(driver);
 		waitForJqueryLoad(driver);
@@ -743,7 +744,8 @@ public class OCMIvrHostTransactionReportPage extends BasePage  {
 	public void navigateToExportSchedulerPage() {			
 		waitUntilWebElementIsClickable(schRptsinAgent);
 		selectWebElement(schRptsinAgent);			
-	}		 
+	}	
+	
 	public void exportToExcel() {
 		selectWebElement(exportToExcel);
 	}
@@ -759,7 +761,7 @@ public class OCMIvrHostTransactionReportPage extends BasePage  {
 		//map.put("Agent Name", details);
 		selectWebElement(searchBtn);	
 		selectWebElement(searchColDropdown);  
-		selectDropdownFromVisibleText(searchColListBox,"UCID");  
+		selectDropdownFromVisibleText(searchColListBox,"Email ID");  
 		waitForJqueryLoad(driver);
 		selectWebElement(searchCriteriaDropdown);
 		selectDropdownFromVisibleText(searchCriteriaListbox,"Is equal to");		   
@@ -771,7 +773,7 @@ public class OCMIvrHostTransactionReportPage extends BasePage  {
 		List<Map<String,String>> UI=getDataTable(); 
 		for (Map<String,String> map1: UI)
 		{   	
-			if(map1.get("UCID").equals(details))
+			if(map1.get("Email ID").equals(details))
 				Status= true;
 			else 
 				Status= false;
@@ -837,6 +839,7 @@ public class OCMIvrHostTransactionReportPage extends BasePage  {
 		boolean Status=false;		
 		selectWebElement(searchbyfeatureTextBox);    		
 		enterValueToTxtFieldWithoutClear(searchbyfeatureTextBox,details.getSearchStr());
+		Thread.sleep(5000);
 		selectDropdownFromVisibleText(searchbyfeaturelistBox,details.getSearchStr());	
 		waitForJqueryLoad(driver);
 		Thread.sleep(5000);
@@ -963,6 +966,7 @@ public class OCMIvrHostTransactionReportPage extends BasePage  {
 			Status=false;
 		return Status;	
 	}
+	
 	public boolean verifyAdvanceSearchIsEqualTo(ReportDetails reportDetails) throws Exception {
 		Boolean Status=false;
 		waitForJqueryLoad(driver);
@@ -1100,8 +1104,6 @@ public class OCMIvrHostTransactionReportPage extends BasePage  {
 		return Status;
 	}
 		
-		
-
 	public Boolean advancedSearchORCriteria(ReportDetails details) throws Exception {
 		Boolean Status=false;	
 		selectWebElement(advancedsearchBtn);
@@ -1245,7 +1247,7 @@ public class OCMIvrHostTransactionReportPage extends BasePage  {
 		}
 			return arr;
 	}
-	
+
 }
 
 

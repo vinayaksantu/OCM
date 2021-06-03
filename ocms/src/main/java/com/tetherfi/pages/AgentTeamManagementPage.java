@@ -325,7 +325,7 @@ public class AgentTeamManagementPage extends BasePage {
 
 	public void chooseLevel(String level){
 		try {
-			Thread.sleep(1000);
+			Thread.sleep(2000);
 			selectWebElement(levelHierarchydropdown);
 			Thread.sleep(2000);
 			selectDropdownFromVisibleText(levelHierarchyListbox,level);
@@ -348,9 +348,9 @@ public class AgentTeamManagementPage extends BasePage {
 
 	private void chooseCountry(String country) {
 		try {
-			Thread.sleep(1000);
+			Thread.sleep(2000);
 			selectWebElement(countrydropdown);
-			Thread.sleep(1000);
+			Thread.sleep(2000);
 			selectDropdownFromVisibleText(countryList,country);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
@@ -365,7 +365,7 @@ public class AgentTeamManagementPage extends BasePage {
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Name");
         selectWebElement(selectSearchCol.get(1));
-		Thread.sleep(1000);
+		Thread.sleep(2000);
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is not equal to");
         enterValueToTxtField(searchTextBox,name);		
         selectWebElement(searchSearchBtn);
@@ -388,7 +388,7 @@ public class AgentTeamManagementPage extends BasePage {
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Name");
         selectWebElement(selectSearchCol.get(1));
-		Thread.sleep(1000);
+		Thread.sleep(2000);
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Contains");
         enterValueToTxtField(searchTextBox,name);		
         selectWebElement(searchSearchBtn);
@@ -409,7 +409,7 @@ public class AgentTeamManagementPage extends BasePage {
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Name");
         selectWebElement(selectSearchCol.get(1));
-		Thread.sleep(1000);
+		Thread.sleep(2000);
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Does not contain");
         enterValueToTxtField(searchTextBox,name);		
         selectWebElement(searchSearchBtn);
@@ -431,7 +431,7 @@ public class AgentTeamManagementPage extends BasePage {
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Name");
         selectWebElement(selectSearchCol.get(1));
-		Thread.sleep(1000);
+		Thread.sleep(2000);
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Starts with");
         enterValueToTxtField(searchTextBox,name);		
         selectWebElement(searchSearchBtn);
@@ -453,7 +453,7 @@ public class AgentTeamManagementPage extends BasePage {
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Name");
         selectWebElement(selectSearchCol.get(1));
-		Thread.sleep(1000);
+		Thread.sleep(2000);
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Ends with");
         enterValueToTxtField(searchTextBox,name);		
         selectWebElement(searchSearchBtn);
@@ -474,7 +474,7 @@ public class AgentTeamManagementPage extends BasePage {
 		selectWebElement(selectSearchCol.get(0));
 		selectDropdownFromVisibleText(columnNameList,"Name");
 		selectWebElement(selectSearchCol.get(1));
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is equal to");
 		enterValueToTxtField(searchTextBox,teamName);
 		selectWebElement(searchSearchBtn);
@@ -507,7 +507,7 @@ public class AgentTeamManagementPage extends BasePage {
 	public void deleteAgentTeamManagementRecord(String oldteamname, String reason) throws Exception {
 		searchAgentTeamManagementRecord(oldteamname);
 		try {
-			Thread.sleep(1000);
+			Thread.sleep(2000);
 		} catch (InterruptedException e1) {
 			e1.printStackTrace();
 		}
@@ -638,11 +638,11 @@ public class AgentTeamManagementPage extends BasePage {
 		selectWebElement(selectSearchCol.get(0));
 		selectDropdownFromVisibleText(columnNameList,"Name");
 		selectWebElement(selectSearchCol.get(1));
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is equal to");
 		enterValueToTxtField(searchTextBox,details.getTeamName());
 		selectWebElement(clearall);
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		if(searchTextBox.isEnabled())
 			return true;
 		else
@@ -788,7 +788,7 @@ public class AgentTeamManagementPage extends BasePage {
 	public boolean groupby() {
 		DragandDrop(levelHierarchy,droptarget);
 		try {
-			Thread.sleep(1000);
+			Thread.sleep(2000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
@@ -800,13 +800,13 @@ public class AgentTeamManagementPage extends BasePage {
 	 public boolean verifyArrowMoveForPreviousAndNextPage() throws Exception{
 	        boolean status=false;
 	        if(!nextPageIcon.getAttribute("class").contains("k-state-disabled")){
-	        	Thread.sleep(1000);
+	        	Thread.sleep(2000);
 	        int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 	        selectWebElement(nextPageIcon);
-     	Thread.sleep(1000);
+     	Thread.sleep(2000);
 	        int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 	        selectWebElement(previousPageIcon);
-     	Thread.sleep(1000);
+     	Thread.sleep(2000);
 	        int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 	        if(nextnumber==(pagenumber+1) && pagenumber==previousnumber){status=true;}
 	        }else{
@@ -817,13 +817,13 @@ public class AgentTeamManagementPage extends BasePage {
 	    public boolean verifyArrowMoveForFirstAndLastPage() throws Exception{
 	        boolean status=false;
 	        if(!lastPageIcon.getAttribute("class").contains("k-state-disabled")){
-	        	Thread.sleep(1000);
+	        	Thread.sleep(2000);
 	            int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 	            selectWebElement(lastPageIcon);
-	        	Thread.sleep(1000);
+	        	Thread.sleep(2000);
 	            int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 	            selectWebElement(firstPageIcon);
-	        	Thread.sleep(1000);
+	        	Thread.sleep(2000);
 	            int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 	            if(nextnumber>pagenumber && pagenumber==previousnumber){status=true;}
 	        }else{
@@ -876,7 +876,7 @@ public class AgentTeamManagementPage extends BasePage {
                 continue;
             } else {
                 selectWebElement(ele);
-                    Thread.sleep(1000);
+                    Thread.sleep(2000);
                 if (headersColumns.get(0).getText().equals("Sort Ascending")) {
                     if (headersColumns.get(1).getText().equals("Sort Descending")) {
                         if (headersColumns.get(2).getText().equals("Columns")) {
@@ -900,9 +900,9 @@ public class AgentTeamManagementPage extends BasePage {
             if (ele.isDisplayed()) {
                 try {
                     selectWebElement(ele);
-                    Thread.sleep(1000);
+                    Thread.sleep(2000);
                     selectWebElement(headersColumns.get(2));
-                    Thread.sleep(1000);
+                    Thread.sleep(2000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -935,9 +935,9 @@ public class AgentTeamManagementPage extends BasePage {
             if(ele.isDisplayed()){
                 try {
                     selectWebElement(ele);
-                    Thread.sleep(1000);
+                    Thread.sleep(2000);
                     selectWebElement(headersColumns.get(2));
-                    Thread.sleep(1000);
+                    Thread.sleep(2000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -1022,7 +1022,7 @@ public class AgentTeamManagementPage extends BasePage {
 		searchAgentTeamManagementRecord(agentTeamMgmtDetails.getTeamName());
 		waitForJqueryLoad(driver);
 		selectWebElement(exporttoexcel);
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		if(errorMsg.get(0).getText().equals("There is no record to export"))
 			return true;
 		else

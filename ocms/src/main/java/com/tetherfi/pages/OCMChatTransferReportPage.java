@@ -905,7 +905,7 @@ public class OCMChatTransferReportPage extends BasePage  {
 		return Status;
 	}
 	
-	public boolean verifyAdvanceSearch(ReportDetails reportDetails) throws Exception {
+	public boolean verifyAdvanceSearchIsEqualTo(ReportDetails reportDetails) throws Exception {
 		Boolean Status=false;
 		List<Map<String,String>>UI=getDataTable();
 		for(Map<String,String> map1:UI)
@@ -918,6 +918,85 @@ public class OCMChatTransferReportPage extends BasePage  {
 		}
 		return Status;
 	}
+	
+	public boolean verifyAdvancedSearchIsNotEqualTo(ReportDetails reportDetails) throws Exception {
+		Boolean Status=false;
+		waitForJqueryLoad(driver);
+		List<Map<String,String>>UI=getDataTable();
+		for(Map<String,String> map1:UI)
+		{
+			System.out.println(map1.get("Last Menu"));
+			if(map1.get("Last Menu").equalsIgnoreCase(reportDetails.getSearchStr()))
+				Status= false;
+			else 
+				Status =true;
+		}
+		return Status;
+	}
+
+	public boolean verifyAdvanceSearchContains(ReportDetails reportDetails) throws Exception {
+		Boolean Status=false;
+		waitForJqueryLoad(driver);
+		List<Map<String,String>>UI=getDataTable();
+		for(Map<String,String> map1:UI)
+		{
+			System.out.println(map1.get("Last Menu"));
+			System.out.println(reportDetails.getSearchStr());
+			if(map1.get("Last Menu").toUpperCase().contains(reportDetails.getSearchStr().toUpperCase()))				
+				Status= true;
+			else 
+				Status =false;
+		}
+		return Status;
+	}
+
+	public boolean verifyAdvanceSearchEndsWith(ReportDetails reportDetails) throws Exception {
+		Boolean Status=false;
+		waitForJqueryLoad(driver);
+		List<Map<String,String>>UI=getDataTable();
+		for(Map<String,String> map1:UI)
+		{
+			System.out.println(map1.get("Last Menu"));
+			if(map1.get("Last Menu").toLowerCase().endsWith(reportDetails.getSearchStr().toLowerCase()))				
+				Status= true;
+			else 
+				Status =false;
+		}
+		return Status;
+	}
+	
+	public boolean verifyAdvanceSearchStartsWith(ReportDetails reportDetails) throws Exception {
+		Boolean Status=false;
+		waitForJqueryLoad(driver);
+		List<Map<String,String>>UI=getDataTable();
+		for(Map<String,String> map1:UI)
+		{
+			System.out.println(map1.get("Last Menu"));
+			if(map1.get("Last Menu").toLowerCase().startsWith(reportDetails.getSearchStr().toLowerCase()))				
+				Status= true;
+			else 
+				Status =false;
+		}
+		return Status;
+	}
+
+
+	public boolean verifyAdvanceSearchDoesNotContains(ReportDetails reportDetails) throws Exception {
+		Boolean Status=false;
+		waitForJqueryLoad(driver);
+		List<Map<String,String>>UI=getDataTable();
+		for(Map<String,String> map1:UI)
+		{
+			System.out.println(map1.get("Last Menu"));
+			if(!map1.get("Last Menu").toUpperCase().contains(reportDetails.getSearchStr()))				
+				Status= true;
+			else 
+				Status =false;
+		}
+		return Status;
+	}
+
+	
 	
 	public void searchwithoutextsearch(ReportDetails details) {
 		selectWebElement(searchBtn);		

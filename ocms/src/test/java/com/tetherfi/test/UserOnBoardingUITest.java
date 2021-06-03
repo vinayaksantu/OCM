@@ -136,7 +136,6 @@ Screenshot screenshot=new Screenshot(driver);
     @Test(priority=13,description="To Verify Exported data  ")
     public void ExportToExcelData() throws Exception
     {	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\User Onboarding.xlsx";
-    	System.out.println(System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\User Onboarding.xlsx");
     	List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
     	UserOnBoardingPage userOnBoardingPage = PageFactory.createPageInstance(driver, UserOnBoardingPage.class);
 		userOnBoardingPage.selectUserOnBoardingAuditTrailTab();
@@ -236,7 +235,7 @@ Screenshot screenshot=new Screenshot(driver);
 	    UserOnBoardingPage userOnBoardingPage = PageFactory.createPageInstance(driver, UserOnBoardingPage.class);
 	    userOnBoardingPage.selectUserOnBoardingAuditTrailTab();
 	    userOnBoardingPage.selectMakeUserOnBoardingChanges();
-		Assert.assertTrue(userOnBoardingPage.verifySearchIsNotEqualTo(userOnBoardingDetails.getFirstname()));
+		Assert.assertTrue(userOnBoardingPage.verifySearchIsNotEqualTo(userOnBoardingDetails.getAvayaLoginID()));
 	}
 
 	@Test(priority=24,description="To Verify Search Contains ")
@@ -247,44 +246,43 @@ Screenshot screenshot=new Screenshot(driver);
 	    UserOnBoardingPage userOnBoardingPage = PageFactory.createPageInstance(driver, UserOnBoardingPage.class);
 	    userOnBoardingPage.selectUserOnBoardingAuditTrailTab();
 	    userOnBoardingPage.selectMakeUserOnBoardingChanges();
-		Assert.assertTrue(userOnBoardingPage.verifySearchContains(userOnBoardingDetails.getFirstname()));
+		Assert.assertTrue(userOnBoardingPage.verifySearchContains(userOnBoardingDetails.getAvayaLoginID()));
 	}
 
 	@Test(priority=25,description=" To Verify Search Does Not Contains")
 	public void VerifySearchDoesNotContains() throws Exception {
-		String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
-		Map<String,String>map=new ExcelReader(filePath,"Invalid").getTestData().get(1);
-		UserOnBoardingDetails userOnBoardingDetails = new UserOnBoardingDetails(map);
-	    UserOnBoardingPage userOnBoardingPage = PageFactory.createPageInstance(driver, UserOnBoardingPage.class);
-	    userOnBoardingPage.selectUserOnBoardingAuditTrailTab();
-	    userOnBoardingPage.selectMakeUserOnBoardingChanges();
-		Assert.assertTrue(userOnBoardingPage.verifySearchDoesNotContains(userOnBoardingDetails.getFirstname()));
-	}
-
-	@Test(priority=26,description="To Verify Search Starts With ")
-	public void VerifySearchStartsWith() throws Exception {
 		String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
 		Map<String,String>map=new ExcelReader(filePath,"Invalid").getTestData().get(2);
 		UserOnBoardingDetails userOnBoardingDetails = new UserOnBoardingDetails(map);
 	    UserOnBoardingPage userOnBoardingPage = PageFactory.createPageInstance(driver, UserOnBoardingPage.class);
 	    userOnBoardingPage.selectUserOnBoardingAuditTrailTab();
 	    userOnBoardingPage.selectMakeUserOnBoardingChanges();
-		Assert.assertTrue(userOnBoardingPage.verifySearchStartsWith(userOnBoardingDetails.getFirstname()));
+		Assert.assertTrue(userOnBoardingPage.verifySearchDoesNotContains(userOnBoardingDetails.getAvayaLoginID()));
 	}
 
-	@Test(priority=27,description="To Verify Search Ends With  ")
-	public void VerifySearchEndsWith() throws Exception {
+	@Test(priority=26,description="To Verify Search Starts With ")
+	public void VerifySearchStartsWith() throws Exception {
 		String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
 		Map<String,String>map=new ExcelReader(filePath,"Invalid").getTestData().get(3);
 		UserOnBoardingDetails userOnBoardingDetails = new UserOnBoardingDetails(map);
 	    UserOnBoardingPage userOnBoardingPage = PageFactory.createPageInstance(driver, UserOnBoardingPage.class);
 	    userOnBoardingPage.selectUserOnBoardingAuditTrailTab();
 	    userOnBoardingPage.selectMakeUserOnBoardingChanges();
-		Assert.assertTrue(userOnBoardingPage.verifySearchEndsWith(userOnBoardingDetails.getFirstname()));
+		Assert.assertTrue(userOnBoardingPage.verifySearchStartsWith(userOnBoardingDetails.getAvayaLoginID()));
+	}
 
+	@Test(priority=27,description="To Verify Search Ends With  ")
+	public void VerifySearchEndsWith() throws Exception {
+		String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
+		Map<String,String>map=new ExcelReader(filePath,"Invalid").getTestData().get(4);
+		UserOnBoardingDetails userOnBoardingDetails = new UserOnBoardingDetails(map);
+	    UserOnBoardingPage userOnBoardingPage = PageFactory.createPageInstance(driver, UserOnBoardingPage.class);
+	    userOnBoardingPage.selectUserOnBoardingAuditTrailTab();
+	    userOnBoardingPage.selectMakeUserOnBoardingChanges();
+		Assert.assertTrue(userOnBoardingPage.verifySearchEndsWith(userOnBoardingDetails.getAvayaLoginID()));
 	}
 	
-	@Test(groups= {"Maker"},priority=28,description="To Verify Add Record Cancel Button ")
+	@Test(priority=28,description="To Verify Add Record Cancel Button ")
 	public void VerifyAddCancelButton() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -293,14 +291,14 @@ Screenshot screenshot=new Screenshot(driver);
 		Assert.assertTrue(userOnBoardingPage.addCancelButton(userOnBoardingDetails), "Add cancel button assertion failed");
 	}
 
-	@Test(groups= {"Maker"},priority=29,description="To Verify the Step Icons and Add Record with all the Fields Blank  ")
+	@Test(priority=29,description="To Verify the Step Icons and Add Record with all the Fields Blank  ")
 	public void VerifyStepIconPresenceandAddRecordWithAlltheFiledsBlank() throws Exception {
 		UserOnBoardingPage userOnBoardingPage = PageFactory.createPageInstance(driver, UserOnBoardingPage.class);
 		Assert.assertTrue(userOnBoardingPage.VerifyAddNewUserOnBoardingStepIconsandCreateRecordWithAlltheFieldsBlank(), "Add cancel button assertion failed");
 		Assert.assertEquals(userOnBoardingPage.VerifyMessage(),"Please Provide First Name, Last Name, Lan ID, Avaya Login ID, Org. Unit, Profile, Supervisor", "Add cancel button assertion failed");
 	}
 
-	@Test(groups= {"Maker"},priority=30,description="To Verify Add Record without FirstName ")
+	@Test(priority=30,description="To Verify Add Record without FirstName ")
 	public void VerifyAddRecordWithoutFirstName() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -310,7 +308,7 @@ Screenshot screenshot=new Screenshot(driver);
 		Assert.assertEquals(userOnBoardingPage.VerifyMessage(), "Please Provide First Name","Record Creation Assertion failed");
 	}
 
-	@Test(groups= {"Maker"},priority=31,description="To Verify Add Record without Last Name ")
+	@Test(priority=31,description="To Verify Add Record without Last Name ")
 	public void VerifyAddRecordWithoutLastName() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -320,7 +318,7 @@ Screenshot screenshot=new Screenshot(driver);
 		Assert.assertEquals(userOnBoardingPage.VerifyMessage(), "Please Provide Last Name","Record Creation Assertion failed");
 	}
 
-	@Test(groups= {"Maker"},priority=32,description="To Verify Add Record without Lan ID ")
+	@Test(priority=32,description="To Verify Add Record without Lan ID ")
 	public void VerifyAddRecordWithoutLanID() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -330,7 +328,7 @@ Screenshot screenshot=new Screenshot(driver);
 		Assert.assertEquals(userOnBoardingPage.VerifyMessage(), "Please Provide Lan ID","Record Creation Assertion failed");
 	}
 
-	@Test(groups= {"Maker"},priority=33,description="To Verify Add Record without Avaya Login ID ")
+	@Test(priority=33,description="To Verify Add Record without Avaya Login ID ")
 	public void VerifyAddRecordWithoutAvayaLoginID() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -340,7 +338,7 @@ Screenshot screenshot=new Screenshot(driver);
 		Assert.assertEquals(userOnBoardingPage.VerifyMessage(), "Please Provide Avaya Login ID","Record Creation Assertion failed");
 	}
 
-	@Test(groups= {"Maker"},priority=34,description="To Verify Add Record without Org.Unit ")
+	@Test(priority=34,description="To Verify Add Record without Org.Unit ")
 	public void VerifyAddRecordWithoutOrgUnit() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -350,7 +348,7 @@ Screenshot screenshot=new Screenshot(driver);
 		Assert.assertEquals(userOnBoardingPage.VerifyMessage(), "Please Provide Org. Unit","Record Creation Assertion failed");
 	}
 
-	@Test(groups= {"Maker"},priority=35,description="To Verify Add Record without Profile ")
+	@Test(priority=35,description="To Verify Add Record without Profile ")
 	public void VerifyAddRecordWithoutProfile() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);

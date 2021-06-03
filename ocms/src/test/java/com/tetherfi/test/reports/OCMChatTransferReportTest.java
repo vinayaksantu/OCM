@@ -27,9 +27,8 @@ public class OCMChatTransferReportTest extends BaseTest {
 		Assert.assertTrue(ocmReportsPage.isOCMReportPageIsDisplayed());
 	}
 
-
 	@Test(priority=1)
-	public void ShowOCMChatTransferReport() throws Exception {
+	public void ShowReport() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMChatTransferReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
 		ReportDetails reportDetails= new ReportDetails(map);
@@ -38,8 +37,8 @@ public class OCMChatTransferReportTest extends BaseTest {
 		Assert.assertTrue(ocmReportsPage.verifyReportDisplayed(reportDetails),"Show report assertion failed");     
 	} 
 	
-	@Test(priority=2, dependsOnMethods ="ShowOCMChatTransferReport")
-	public void ShowOcmChatTransferReportInNewPage() throws Exception {
+	@Test(priority=2)
+	public void ShowReportInNewPage() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMChatTransferReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowInNewPage").getTestData().get(0);
 		ReportDetails reportDetails= new ReportDetails(map);
@@ -62,7 +61,7 @@ public class OCMChatTransferReportTest extends BaseTest {
 	}
 
 	@Test(priority=4)
-	public void VerifySearchByFeatureForChatTransferReport() throws Exception {
+	public void VerifySearchByFeature() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMChatTransferReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
 		ReportDetails reportDetails= new ReportDetails(map);
@@ -161,19 +160,74 @@ public class OCMChatTransferReportTest extends BaseTest {
 		OCMChatTransferReportPage chatTransferpage=PageFactory.createPageInstance(driver,OCMChatTransferReportPage.class);
 		Assert.assertTrue(chatTransferpage.verifySearchClear(reportDetails));    	
 	}
-	
-	@Test(priority=13)
-	public void verifyAdvancedSearchinreportpage() throws Exception {
+//	Advanced Search AND and OR criteria missing
+	@Test(priority=13, description="To verify Advance Search Is Equal to Search criteria")
+	public void verifyAdvancedSearchIsEqualTo() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMChatTransferReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(0);
 		ReportDetails reportDetails= new ReportDetails(map);
 		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);       
 		OCMChatTransferReportPage chatTransferpage=PageFactory.createPageInstance(driver,OCMChatTransferReportPage.class);        
 		ocmReportsPage.showReport(reportDetails);
-		Assert.assertTrue(chatTransferpage.verifyAdvanceSearch(reportDetails));            
+		Assert.assertTrue(chatTransferpage.verifyAdvanceSearchIsEqualTo(reportDetails));            
 	}
 	
-	@Test(priority=14)
+	@Test(priority=14,description="Verify Advance Search with Criteria Is not Equal to")
+	public void verifyAdvancedSearchIsNotEqualTo() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMChatTransferReport.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(1);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);       
+		OCMChatTransferReportPage chatTransferpage=PageFactory.createPageInstance(driver,OCMChatTransferReportPage.class);        
+		ocmReportsPage.showReport(reportDetails);
+		Assert.assertTrue(chatTransferpage.verifyAdvancedSearchIsNotEqualTo(reportDetails));            
+	}
+
+	@Test(priority=15,description="Verify Advance Search with Criteria Contains")
+	public void verifyAdvancedSearchContainsCriteria() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMChatTransferReport.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(2);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);       
+		OCMChatTransferReportPage chatTransferpage=PageFactory.createPageInstance(driver,OCMChatTransferReportPage.class);        
+		ocmReportsPage.showReport(reportDetails);
+		Assert.assertTrue(chatTransferpage.verifyAdvanceSearchContains(reportDetails));            
+	}
+	
+	@Test(priority=16,description="Verify Advance Search with Criteria Does not Contain")
+	public void verifyAdvancedSearchDoesnotContainsCriteria() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMChatTransferReport.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(3);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);       
+		OCMChatTransferReportPage chatTransferpage=PageFactory.createPageInstance(driver,OCMChatTransferReportPage.class);        
+		ocmReportsPage.showReport(reportDetails);
+		Assert.assertTrue(chatTransferpage.verifyAdvanceSearchDoesNotContains(reportDetails));            
+	}
+
+	@Test(priority=17,description="Verify Advance Search with Criteria Starts with")
+	public void verifyAdvancedSearchStartsWithCriteria() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMChatTransferReport.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(4);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);       
+		OCMChatTransferReportPage chatTransferpage=PageFactory.createPageInstance(driver,OCMChatTransferReportPage.class);        
+		ocmReportsPage.showReport(reportDetails);
+		Assert.assertTrue(chatTransferpage.verifyAdvanceSearchStartsWith(reportDetails));            
+	}
+	
+	@Test(priority=18,description="Verify Advanced Search Criteria Ends With")
+	public void verifyAdvancedSearchEndsWithCriteria() throws Exception {
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMChatTransferReport.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(5);
+		ReportDetails reportDetails= new ReportDetails(map);
+		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);       
+		OCMChatTransferReportPage chatTransferpage=PageFactory.createPageInstance(driver,OCMChatTransferReportPage.class);        
+		ocmReportsPage.showReport(reportDetails);
+		Assert.assertTrue(chatTransferpage.verifyAdvanceSearchEndsWith(reportDetails));            
+	}
+
+	@Test(priority=19)
 	public void ClearfiltersAdvSrch() throws Exception{ 	
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMChatTransferReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(0);
@@ -182,7 +236,7 @@ public class OCMChatTransferReportTest extends BaseTest {
 		Assert.assertTrue(ocmReportsPage.ClearAdvFilters(reportDetails));
 	}
 
-	@Test(priority=15)
+	@Test(priority=20)
 	public void GroupBy() throws Exception{
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMChatTransferReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -196,7 +250,7 @@ public class OCMChatTransferReportTest extends BaseTest {
 		screenshot.captureScreen("OCMChatTransferReport", "AlreadyGroupBy");
 	}
 	
-	@Test(priority=16)
+	@Test(priority=21)
 	public void ClearAll() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMChatTransferReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
@@ -206,7 +260,7 @@ public class OCMChatTransferReportTest extends BaseTest {
 		Assert.assertEquals(ocmReportsPage.getSuccessMessage(),"Filters cleared successfully!","Invalid filter assertion");
 	}
 	
-	@Test(priority=17)
+	@Test(priority=22)
 	public void OCMWindow() throws Exception {	
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMChatTransferReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -220,7 +274,7 @@ public class OCMChatTransferReportTest extends BaseTest {
 		screenshot.captureScreen("OCMChatTransferReport","Minimize");	
 	} 
 	
-	@Test(priority=18)
+	@Test(priority=23)
 	public void VerifyDropdownForAllTheColumns() throws Exception {		
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMChatTransferReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -231,7 +285,7 @@ public class OCMChatTransferReportTest extends BaseTest {
 		Assert.assertTrue(chatTransferpage.verifyDropDownOfAllHeaders(), "Columns dropdown assertion failed");
 	}   
 	
-	@Test(priority=19)
+	@Test(priority=24)
 	public void VerifyColumnsHeaderEnable() throws Exception {  	
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMChatTransferReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -242,7 +296,7 @@ public class OCMChatTransferReportTest extends BaseTest {
 		Assert.assertTrue(chatTransferpage.verifycolumnsHeaderEnabled(),"columns enabled assertion failed");
 	}  
 	
-	@Test(priority=20)
+	@Test(priority=25)
 	public void VerifyColumnsHeaderDisable() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMChatTransferReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -253,7 +307,7 @@ public class OCMChatTransferReportTest extends BaseTest {
 		Assert.assertFalse(chatTransferpage.verifycolumnsHeaderDisabled(),"columns disabled assertion failed");
 	} 
 	
-	@Test(priority=21)
+	@Test(priority=26)
 	public void VerifyArrowMoveForPreviousAndNextPage() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMChatTransferReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -264,7 +318,7 @@ public class OCMChatTransferReportTest extends BaseTest {
 		Assert.assertTrue(chatTransferpage.verifyArrowMoveForPreviousAndNextPage(),"arrow move for previous and next page assertion failed");
 	}    
 	
-	@Test(priority=22)
+	@Test(priority=27)
 	public void VerifyArrowMoveForFirstAndLastPage() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMChatTransferReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -275,7 +329,7 @@ public class OCMChatTransferReportTest extends BaseTest {
 		Assert.assertTrue(chatTransferpage.verifyArrowMoveForFirstAndLastPage(),"arrow move for first and last page assertion failed");
 	} 
 	
-	@Test(priority=23)
+	@Test(priority=28)
 	public void VerifyTotalNumberOfItemsPerPageDetails() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMChatTransferReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -286,7 +340,7 @@ public class OCMChatTransferReportTest extends BaseTest {
 		Assert.assertTrue(chatTransferpage.verifyTotalNumberOfItemsPerPageDetails(),"item per page assertion failed");
 	}  
 	
-	@Test(priority=24,enabled=false)
+	@Test(priority=29,enabled=false)
 	public void VerifyNumberOfItemsPerPageSelection() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMChatTransferReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -297,7 +351,7 @@ public class OCMChatTransferReportTest extends BaseTest {
 		Assert.assertTrue(chatTransferpage.verifyNumberOfItemsPerPage(),"item per page assertion failed");
 	}
 		
-	@Test(priority=25)
+	@Test(priority=30)
 	public void ScheduleOCMChatTransferReport() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMChatTransferReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ExportReport").getTestData().get(0);
@@ -307,8 +361,8 @@ public class OCMChatTransferReportTest extends BaseTest {
 		Assert.assertTrue(ocmReportsPage.verifyScheduleReport(),"Schedule report assertion failed");
 	}  
 	
-	@Test(priority=26)
-	public void ExportOcmChatTransferReport() throws Exception {
+	@Test(priority=31)
+	public void ExportReportForSingleDate() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMChatTransferReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ExportReport").getTestData().get(0);
 		ReportDetails reportDetails= new ReportDetails(map);
@@ -317,8 +371,8 @@ public class OCMChatTransferReportTest extends BaseTest {
 		Assert.assertTrue(ocmReportsPage.verifyReportExported(),"export report assertion failed");
 	}
 	
-	@Test(priority=27,dependsOnMethods ="ExportOcmChatTransferReport")
-	public void ViewDownloadedOcmChatTransferReportInReportsDownloadPage() throws IOException {
+	@Test(priority=32,dependsOnMethods ="ExportReportForSingleDate")
+	public void ViewDownloadedReportInReportDownloadsPage() throws IOException {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMChatTransferReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ExportReport").getTestData().get(0);
 		ReportDetails reportDetails= new ReportDetails(map);
@@ -327,8 +381,8 @@ public class OCMChatTransferReportTest extends BaseTest {
 		Assert.assertTrue(ocmReportsPage.verifyDownloadedReportNameAndTimeInReportsDownloadPage(reportDetails.getReportName()),"Report not found in Reporter download page");
 	}  
 	
-	@Test(priority=28,dependsOnMethods ="ViewDownloadedOcmChatTransferReportInReportsDownloadPage",description="To verification of exported excel in Report downloads")
-	public void VerifyViewDownloadedOcmChatTransferReportInReportsDownload() throws Exception {
+	@Test(priority=33,dependsOnMethods ="ViewDownloadedReportInReportDownloadsPage",description="To verification of exported excel in Report downloads")
+	public void verifyExportedData() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMChatTransferReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ExportReport").getTestData().get(0);
 		ReportDetails reportDetails= new ReportDetails(map);
@@ -337,8 +391,8 @@ public class OCMChatTransferReportTest extends BaseTest {
 		Assert.assertTrue(ocmReportsPage.verifyExportedSheet("OCMReportDownload","OCM Chat Transfer Report"));		
 	}
 	
-	@Test(priority=29)
-	public void ShowOcmChatTransferReportForDateRange() throws Exception {
+	@Test(priority=34)
+	public void ShowReportForDateRange() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMChatTransferReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
 		ReportDetails reportDetails= new ReportDetails(map);
@@ -347,8 +401,8 @@ public class OCMChatTransferReportTest extends BaseTest {
 		Assert.assertTrue(ocmReportsPage.verifyDateRangeReportDisplayed(reportDetails),"Show report assertion failed");
 	} 
 	
-	@Test(priority=30,dependsOnMethods ="ShowOcmChatTransferReportForDateRange")
-	public void ShowOcmChatTransferReportInNewTabDateRange() throws Exception {
+	@Test(priority=35,dependsOnMethods ="ShowReportForDateRange")
+	public void ShowReportInNewPageForDateRange() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMChatTransferReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowInNewPageDateRange").getTestData().get(0);
 		ReportDetails reportDetails= new ReportDetails(map);
@@ -358,8 +412,8 @@ public class OCMChatTransferReportTest extends BaseTest {
 		ocmReportsPage.switchBackToParentWindow();
 	}   
 	
-	@Test(priority=31,dependsOnMethods ="ShowOcmChatTransferReportInNewTabDateRange")
-	public void ExportOcmChatTransferReportDateRange() throws Exception {
+	@Test(priority=36,dependsOnMethods ="ShowReportInNewPageForDateRange")
+	public void ExportReportForDateRange() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMChatTransferReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ExportReportDateRange").getTestData().get(0);
 		ReportDetails reportDetails= new ReportDetails(map);
@@ -368,8 +422,8 @@ public class OCMChatTransferReportTest extends BaseTest {
 		Assert.assertTrue(ocmReportsPage.verifyReportExported(),"export report assertion failed");
 	} 
 	
-	@Test(priority=32,dependsOnMethods ="ExportOcmChatTransferReportDateRange")
-	public void ViewDownloadedOcmChatTransferReportInReportsDownloadPageDateRange() throws IOException {
+	@Test(priority=37,dependsOnMethods ="ExportReportForDateRange")
+	public void ViewDownloadedReportInReportDownloadsPageForDateRange() throws IOException {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMChatTransferReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ExportReportDateRange").getTestData().get(0);
 		ReportDetails reportDetails= new ReportDetails(map);
@@ -378,8 +432,8 @@ public class OCMChatTransferReportTest extends BaseTest {
 		Assert.assertTrue(ocmReportsPage.verifyDownloadedReportNameAndTimeInReportsDownloadPage(reportDetails.getReportName()),"Report not found in Reporter download page");
 	}
 	
-	@Test(priority=33,dependsOnMethods ="ViewDownloadedOcmChatTransferReportInReportsDownloadPageDateRange",description="To verification of exported excel in Report downloads")
-	public void VerifyViewDownloadedOcmChatTransferReportInReportsDownloadDateRange() throws Exception {
+	@Test(priority=38,dependsOnMethods ="ViewDownloadedReportInReportDownloadsPageForDateRange",description="To verification of exported excel in Report downloads")
+	public void verifyDownloadedReportData() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMChatTransferReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ExportReportDateRange").getTestData().get(0);
 		ReportDetails reportDetails= new ReportDetails(map);
@@ -388,7 +442,7 @@ public class OCMChatTransferReportTest extends BaseTest {
 		Assert.assertTrue(ocmReportsPage.verifyExportedSheet("OCMReportDownload","OCM Chat Transfer Report"));		
 	}
 	
-	@Test(priority=34)
+	@Test(priority=39)
 	public void ScheduleOcmChatTransferReportforDateRange() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMChatTransferReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ExportReportDateRange").getTestData().get(0);
@@ -398,7 +452,7 @@ public class OCMChatTransferReportTest extends BaseTest {
 		Assert.assertTrue(ocmReportsPage.verifyScheduleReport(),"Schedule report assertion failed");
 	}
 		
-	@Test(priority=35)
+	@Test(priority=40)
 	public void ExportPage() throws Exception{
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMChatTransferReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -410,7 +464,7 @@ public class OCMChatTransferReportTest extends BaseTest {
 		Assert.assertTrue(chatTransferpage.verifyExportToExcel(filePath1));
 	}
 	
-	@Test(priority=36,dependsOnMethods="ExportPage",description="To Verify Exported Page Against UI")
+	@Test(priority=41,dependsOnMethods="ExportPage",description="To Verify Exported Page Against UI")
 	public void VerifyExportedPage() throws Exception{
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMChatTransferReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -423,7 +477,7 @@ public class OCMChatTransferReportTest extends BaseTest {
 		Assert.assertTrue(chatTransferpage.verifyexportToExcelSheet(maplist));
 	}
 	
-	@Test(priority=37)
+	@Test(priority=42)
 	public void SchedulereportinchatTransferpage() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMChatTransferReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ExportReport").getTestData().get(0);
@@ -435,8 +489,8 @@ public class OCMChatTransferReportTest extends BaseTest {
 		Assert.assertTrue(chatTransferpage.isExportSchedulerPageDisplayed(), "ExportScheduler page assertion failed");
 	}
 	
-	@Test(priority=38)
-	public void ExportToExcelForChatTransferReport() throws Exception {
+	@Test(priority=43)
+	public void ExportToExcel() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMChatTransferReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
 		ReportDetails reportDetails= new ReportDetails(map);
@@ -448,8 +502,8 @@ public class OCMChatTransferReportTest extends BaseTest {
 		Assert.assertTrue(agntloginlogoutPage.verifyReportExported(),"export report assertion failed");
 	}  
 	
-	@Test(priority=39,dependsOnMethods ="ExportToExcelForChatTransferReport")
-	public void ViewDownloadedOcmChatTransferReportInReportsDownloadPageinChatTransferPg() throws Exception {
+	@Test(priority=44,dependsOnMethods ="ExportToExcel")
+	public void ViewExportedExcelDataInReportDownloadsPage() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMChatTransferReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ExportReport").getTestData().get(0);
 		ReportDetails reportDetails= new ReportDetails(map);
@@ -460,8 +514,8 @@ public class OCMChatTransferReportTest extends BaseTest {
 		Assert.assertTrue(ocmReportsPage.verifyDownloadedReportNameAndTimeInReportsDownloadPage(reportDetails.getReportName()),"Report not found in Reporter download page");    
 	}   
 	
-	@Test(priority=40,dependsOnMethods ="ViewDownloadedOcmChatTransferReportInReportsDownloadPageinChatTransferPg",description="To verification of exported excel in Report downloads")
-	public void VerifyViewDownloadedOcmChatTransferReportInReportsDownloadforPage() throws Exception {
+	@Test(priority=45,dependsOnMethods ="ViewExportedExcelDataInReportDownloadsPage",description="To verification of exported excel in Report downloads")
+	public void verifyExportedExcelData() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMChatTransferReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ExportReportDateRange").getTestData().get(0);
 		ReportDetails reportDetails= new ReportDetails(map);
@@ -470,8 +524,8 @@ public class OCMChatTransferReportTest extends BaseTest {
 		Assert.assertTrue(ocmReportsPage.verifyExportedSheet("OCMReportDownload","OCM Chat Transfer Report"));		
 	}
 
-	@Test(priority=41,description="Delete record in Reports Download without Delete reason for date range")
-	public void DeleteWithoutDeleteReasonRecordinReportsDownloadforDateRange() throws Exception {
+	@Test(priority=46,description="Delete record in Reports Download without Delete reason for date range")
+	public void DeleteRecordWithoutDeleteReasonInReportDownloadsForDateRange() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMChatTransferReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ExportReportDateRange").getTestData().get(0);
 		ReportDetails reportDetails= new ReportDetails(map);
@@ -480,8 +534,8 @@ public class OCMChatTransferReportTest extends BaseTest {
 		Assert.assertTrue(ocmReportsPage.deleteWithoutDeleteReason(reportDetails),"empty delete reason record assertion failed");
 	}
 
-	@Test(priority=42,description="Cancel Button in Reports Download Delete Button")
-	public void VerifyCancelBtnAtReportsDownloadDeleteBtnForDateRange() throws Exception{
+	@Test(priority=47,description="Cancel Button in Reports Download Delete Button")
+	public void VerifyDeleteCancelBtnInReportDownloadsPage() throws Exception{
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMChatTransferReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ExportReportDateRange").getTestData().get(0);
 		ReportDetails reportDetails= new ReportDetails(map);
@@ -491,8 +545,8 @@ public class OCMChatTransferReportTest extends BaseTest {
 		Assert.assertFalse(ocmReportsPage.verifyDeleteContainer(), "Cancel Btn at Delete record assertion failed");
 	}
 	
-	@Test(priority=43,description="Delete Record at Reports download Button")
-	public void DeleteRecordAtReportsDownload() throws Exception {
+	@Test(priority=48,description="Delete Record at Reports download Button")
+	public void DeleteRecordInReportDownloadsPage() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMChatTransferReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ExportReportDateRange").getTestData().get(0);
 		ReportDetails reportDetails= new ReportDetails(map);
@@ -507,4 +561,5 @@ public class OCMChatTransferReportTest extends BaseTest {
 		screenshot.captureScreen("OCMChatTransferReportResults_3.4.3.14", method.getName());
 		driver.navigate().refresh();
 	}
+
 }

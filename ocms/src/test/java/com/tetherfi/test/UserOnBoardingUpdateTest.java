@@ -45,7 +45,7 @@ public class UserOnBoardingUpdateTest {
 			map= new ExcelReader(filePath,"Login").getTestData().get(1);
 		else
 			map= new ExcelReader(filePath,"Login").getTestData().get(0);
-		try{driver.get("https://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);}catch (TimeoutException e){e.printStackTrace();driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);}
+		try{driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);}catch (TimeoutException e){e.printStackTrace();driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);}
 		if(map.get("LoginType").equals("Custom")){
 			LoginPage loginPage=PageFactory.createPageInstance(driver,LoginPage.class);
 			Assert.assertTrue(loginPage.isLoginPageDisplayed(),"Login page not loaded");
@@ -63,7 +63,7 @@ public class UserOnBoardingUpdateTest {
 	}
 
 
-	@Test(groups= {"Maker"},priority=1,description="Edited Record to Verify Revert")
+	/*@Test(groups= {"Maker"},priority=1,description="Edited Record to Verify Revert")
 	public void EditRevertUserOnBoardingRecord() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(0);
@@ -137,7 +137,7 @@ public class UserOnBoardingUpdateTest {
 		ReportDetails reportDetails= new ReportDetails(map1);
 		ocmReportsPage.showReport(reportDetails);
 		Assert.assertTrue(ocmReportsPage.verifyUserOnBoardingUpdate(UserOnBoardingDetails, "CheckerReject"),"Audit Trail report assertion failed");
-	}
+	}*/
 
 	@Test(groups= {"Maker"},priority=8,description="To Verify Edit UserOnBoarding Record ")
 	public void EditUserOnBoardingRecord() throws Exception {
@@ -221,7 +221,7 @@ public class UserOnBoardingUpdateTest {
 		Assert.assertTrue(ocmReportsPage.verifyUserOnBoardingUpdate(UserOnBoardingDetails, "CheckerApprove"),"Audit Trail report assertion failed");
 	}
 
-	@Test(groups = { "Maker" },priority=15,description="To Verify EditRecordWithoutModifyReason ")
+	//@Test(groups = { "Maker" },priority=15,description="To Verify EditRecordWithoutModifyReason ")
 	public void EditRecordWithoutModifyReason() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(0);

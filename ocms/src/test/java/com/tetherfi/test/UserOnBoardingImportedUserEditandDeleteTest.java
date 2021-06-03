@@ -44,9 +44,9 @@ public class UserOnBoardingImportedUserEditandDeleteTest {
 		Test t = method.getAnnotation(Test.class);
 		Map<String, String> map;
 		if(t.groups()[0].equalsIgnoreCase("Checker"))
-			map= new ExcelReader(filePath,"Login").getTestData().get(1);
+			map= new ExcelReader(filePath,"Login").getTestData().get(18);
 		else
-			map= new ExcelReader(filePath,"Login").getTestData().get(0);
+			map= new ExcelReader(filePath,"Login").getTestData().get(17);
 		try{driver.get("https://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);}catch (TimeoutException e){e.printStackTrace();driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);}
 		if(map.get("LoginType").equals("Custom")){
 			LoginPage loginPage=PageFactory.createPageInstance(driver,LoginPage.class);
@@ -120,7 +120,7 @@ public class UserOnBoardingImportedUserEditandDeleteTest {
     @Test(groups = { "Maker" },priority=7,dependsOnMethods = "VerifyImportValidUserDetailsChannelCountandFeaturesToAPPROVE",description="To Verify AuditTrail Report for Record Create")//Bug:trxn should be MakerImport
 	public void VerifyAuditTrailReportForCreate() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);
+		Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(5);
 		UserOnBoardingDetails userOnBoardingDetails = new UserOnBoardingDetails(map);
 		HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
 		homePage.navigateToOCMReportsPage();
@@ -132,17 +132,17 @@ public class UserOnBoardingImportedUserEditandDeleteTest {
 		Assert.assertTrue(ocmReportsPage.verifyUserOnBoardingCreate(userOnBoardingDetails, "MakerImport"),"Audit Trail report assertion failed");
 	}
     
-	@Test(groups = { "Maker" }, priority=8,dependsOnMethods="VerifyImportValidUserDetailsChannelCountandFeaturesToAPPROVE",description="To Verify AuditTrail Data for AddNewUserOnBoardingRecord ")
-	public void VerifyAuditTrailDataForImportedUserOnBoardingRecord() throws IOException {
+	@Test(groups = { "Maker" }, priority=8)//,dependsOnMethods="VerifyImportValidUserDetailsChannelCountandFeaturesToAPPROVE",description="To Verify AuditTrail Data for AddNewUserOnBoardingRecord ")
+	public void VerifyAuditTrailDataForImportedUserOnBoardingRecord() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
-		Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
+		Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(5);
 		UserOnBoardingDetails userOnBoardingDetails = new UserOnBoardingDetails(map);
 		UserOnBoardingPage userOnBoardingPage = PageFactory.createPageInstance(driver, UserOnBoardingPage.class);
 		userOnBoardingPage.selectUserOnBoardingAuditTrailTab();
-		Assert.assertTrue(userOnBoardingPage.verifyAuditTrail(userOnBoardingDetails, "MakerImport", "New"), "Audit trail details failed");
+		Assert.assertTrue(userOnBoardingPage.verifyAuditTrailForImport(userOnBoardingDetails, "MakerImport", "New"), "Audit trail details failed");
 	}
 
-	@Test( groups = { "Maker" },priority=9,dependsOnMethods="VerifyAuditTrailDataForImportedUserOnBoardingRecord",description="To Verify SendForApproval for Imported UserOnBoarding ")
+	@Test( groups = { "Maker" },priority=9)//,dependsOnMethods="VerifyAuditTrailDataForImportedUserOnBoardingRecord",description="To Verify SendForApproval for Imported UserOnBoarding ")
 	public void VerifySendForApprovalForImportrdserOnBoarding() throws Exception {
 		UserOnBoardingPage userOnBoardingPage = PageFactory.createPageInstance(driver, UserOnBoardingPage.class);
 		userOnBoardingPage.selectUserOnBoardingAuditTrailTab();
@@ -162,7 +162,7 @@ public class UserOnBoardingImportedUserEditandDeleteTest {
 	@Test(groups = { "Maker" },priority=11,description="To Verify Export to Excel button")
     public void ExportToExcelImportedRecord() throws Exception{
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
-		Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(1);
+		Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(5);
 		UserOnBoardingDetails UserOnBoardingDetails = new UserOnBoardingDetails(map);
     	String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles";
     	UserOnBoardingPage userOnBoardingPage = PageFactory.createPageInstance(driver, UserOnBoardingPage.class);
@@ -174,7 +174,7 @@ public class UserOnBoardingImportedUserEditandDeleteTest {
 	@Test(groups = { "Maker" },priority=12,description="To Verify Exported data  ")
     public void VerifyExportToExcelData() throws Exception{	
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
-	    Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(1);
+	    Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(5);
 	    UserOnBoardingDetails UserOnBoardingDetails = new UserOnBoardingDetails(map);
 		String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\User Onboarding.xlsx";
     	List<Map<String, String>> maplist = new ExcelReader(filePath1,"Sheet1").getTestData();
@@ -183,8 +183,84 @@ public class UserOnBoardingImportedUserEditandDeleteTest {
 		userOnBoardingPage.selectMakeUserOnBoardingChanges();
         Assert.assertTrue(userOnBoardingPage.verifyexportToExcelSheetforImportedRecord(UserOnBoardingDetails,maplist));	
     }
+	
+	/*@Test(groups= {"Maker"},priority=13,description="Edited Imported Record to Verify Revert")
+	public void EditRevertImportedUserOnBoardingRecord() throws Exception {
+		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
+		Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(1);
+		UserOnBoardingDetails UserOnBoardingDetails = new UserOnBoardingDetails(map);
+		UserOnBoardingPage userOnBoardingPage = PageFactory.createPageInstance(driver, UserOnBoardingPage.class);
+		userOnBoardingPage.editUserOnBoardingRecord(UserOnBoardingDetails);
+		Assert.assertEquals(userOnBoardingPage.verifySuccessMessage(), "Record Updated Successfully");
+	}
 
-	@Test(groups = { "Maker" }, priority=13,description="Edited Record to Verify Revert")
+	@Test(groups = { "Maker" },priority=14,dependsOnMethods="EditRevertImportedUserOnBoardingRecord",description="To Verify Revert for Edited Record ")
+	public void VerifyRevertForImportedEditRecord() throws Exception {
+		UserOnBoardingPage userOnBoardingPage = PageFactory.createPageInstance(driver, UserOnBoardingPage.class);
+		userOnBoardingPage.selectUserOnBoardingAuditTrailTab();
+		userOnBoardingPage.selectRecord();
+		userOnBoardingPage.Revert("revert");
+		Assert.assertTrue(userOnBoardingPage.verifyStatus("Reverted"),"approval status details failed");
+	}
+
+	@Test(groups= {"Maker"},priority=15,dependsOnMethods="VerifyRevertForImportedEditRecord",description="To Verify AuditTrial Report for RevertUpdate ")
+	public void VerifyAuditTrialReportForImportedRevertUpdate() throws Exception {
+		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
+		Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(1);	
+		UserOnBoardingDetails UserOnBoardingDetails = new UserOnBoardingDetails(map);
+		HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
+		homePage.navigateToOCMReportsPage();
+		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver, OCMReportsPage.class);
+		String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AuditTrailReportData.xlsx";
+		Map<String, String> map1 = new ExcelReader(filePath1,"Show").getTestData().get(0);
+		ReportDetails reportDetails= new ReportDetails(map1);
+		ocmReportsPage.showReport(reportDetails);
+		Assert.assertTrue(ocmReportsPage.verifyUserOnBoardingUpdate(UserOnBoardingDetails,"MakerReverted"));
+	}
+
+	@Test(groups= {"Maker"},priority=16,description="Edited Record to Verify Reject ")
+	public void EditRejectImportedUserOnBoardingRecord() throws Exception {
+		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
+		Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(1);
+		UserOnBoardingDetails UserOnBoardingDetails = new UserOnBoardingDetails(map);
+		UserOnBoardingPage userOnBoardingPage = PageFactory.createPageInstance(driver, UserOnBoardingPage.class);
+		userOnBoardingPage.editUserOnBoardingRecord(UserOnBoardingDetails);
+		Assert.assertEquals(userOnBoardingPage.verifySuccessMessage(), "Record Updated Successfully");
+	}
+
+	@Test(groups = { "Maker"} ,priority=17)//,dependsOnMethods="EditRejectImportedUserOnBoardingRecord",description="To VerifySendForApprovalForEditRejectRecord ")
+	public void VerifySendForApprovalForImportedEditRejectRecord() throws Exception {
+		UserOnBoardingPage userOnBoardingPage = PageFactory.createPageInstance(driver, UserOnBoardingPage.class);
+		userOnBoardingPage.selectUserOnBoardingAuditTrailTab();
+		userOnBoardingPage.selectRecord();
+		userOnBoardingPage.sendForAprroval("sent");
+		Assert.assertTrue(userOnBoardingPage.verifyStatus("Approval Pending"),"approval status details failed");
+	}
+
+	@Test(groups = { "Checker" },priority=18,dependsOnMethods="VerifySendForApprovalForImportedEditRejectRecord",description="To Verify RejectforEditUserOnBoardingRecord ")
+	public void RejectforImportedRecordEditUserOnBoardingRecord() throws Exception{
+		UserOnBoardingPage userOnBoardingPage = PageFactory.createPageInstance(driver, UserOnBoardingPage.class);
+		userOnBoardingPage.clickonReject("Reject Updated");
+		Assert.assertFalse(userOnBoardingPage.verifyMessage(),"Reject record assertion failed");
+		Assert.assertTrue(userOnBoardingPage.verifyReviewAuditTrail("Rejected","Reject Updated"));
+	}
+
+	@Test(groups = { "Checker" },priority=19,dependsOnMethods = "RejectforImportedRecordEditUserOnBoardingRecord",description="To Verify AuditTrail Report for Reject ")
+	public void VerifyAuditTrailReportForImportedRecordUpdateReject() throws Exception {
+		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
+		Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(1);
+		UserOnBoardingDetails UserOnBoardingDetails = new UserOnBoardingDetails(map);
+		HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
+		homePage.navigateToOCMReportsPage();
+		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver, OCMReportsPage.class);
+		String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AuditTrailReportData.xlsx";
+		Map<String, String> map1 = new ExcelReader(filePath1,"Show").getTestData().get(0);
+		ReportDetails reportDetails= new ReportDetails(map1);
+		ocmReportsPage.showReport(reportDetails);
+		Assert.assertTrue(ocmReportsPage.verifyUserOnBoardingUpdate(UserOnBoardingDetails, "CheckerReject"),"Audit Trail report assertion failed");
+	}*/
+
+	@Test(groups = { "Maker" }, priority=20,description="Edited Record to Verify Revert")
 	public void EditImportedUserOnBoardingRecord() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(1);
@@ -194,7 +270,7 @@ public class UserOnBoardingImportedUserEditandDeleteTest {
 		Assert.assertEquals(userOnBoardingPage.verifySuccessMessage(), "Record Updated Successfully");
 	}
 
-	@Test(groups = { "Maker" },priority=14)//,dependsOnMethods="EditUserOnBoardingRecord",description="To Verify AuditTrailData for Edited UserOnBoardingRecord ")
+	@Test(groups = { "Maker" },priority=21)//,dependsOnMethods="EditUserOnBoardingRecord",description="To Verify AuditTrailData for Edited UserOnBoardingRecord ")
 	public void VerifyAuditTrailDataForEditUserOnBoardingRecord() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(1);
@@ -204,7 +280,7 @@ public class UserOnBoardingImportedUserEditandDeleteTest {
 		Assert.assertTrue(userOnBoardingPage.verifyAuditTrailUpdate(UserOnBoardingDetails, "MakerUpdate", "New"), "Audit trail details failed");
 	}
 
-	@Test(groups = { "Maker" }, priority=15,dependsOnMethods="VerifyAuditTrailDataForEditUserOnBoardingRecord",description="To Verify VerifySendForApprovalForEditRejectRecordforApprove")
+	@Test(groups = { "Maker" }, priority=22,dependsOnMethods="VerifyAuditTrailDataForEditUserOnBoardingRecord",description="To Verify VerifySendForApprovalForEditRejectRecordforApprove")
 	public void VerifySendForApprovalForEditedRecordforApprove() throws Exception {
 		UserOnBoardingPage userOnBoardingPage = PageFactory.createPageInstance(driver, UserOnBoardingPage.class);
 		userOnBoardingPage.selectUserOnBoardingAuditTrailTab();
@@ -213,7 +289,7 @@ public class UserOnBoardingImportedUserEditandDeleteTest {
 		Assert.assertTrue(userOnBoardingPage.verifyStatus("Approval Pending"),"approal status details failed");
 	}
 
-	@Test(groups = { "Checker" },priority=16,dependsOnMethods="VerifySendForApprovalForEditedRecordforApprove",description="To Verify ApproveforEditedUserOnBoardingRecord")
+	@Test(groups = { "Checker" },priority=23,dependsOnMethods="VerifySendForApprovalForEditedRecordforApprove",description="To Verify ApproveforEditedUserOnBoardingRecord")
 	public void ApproveforEditedUserOnBoardingRecord() throws Exception{
 		UserOnBoardingPage userOnBoardingPage=PageFactory.createPageInstance(driver,UserOnBoardingPage.class);
 		userOnBoardingPage.clickonApprove("Approve Edit");
@@ -221,27 +297,103 @@ public class UserOnBoardingImportedUserEditandDeleteTest {
 		Assert.assertTrue(userOnBoardingPage.verifyReviewAuditTrail("Approved","Approve Edit"));
 	}
 
-	@Test(groups = { "Maker" }, priority=17,description="To Verify DeleteUserOnBoardingRecord ")
-	public void DeleteUserOnBoardingRecord() throws Exception {
+    @Test(groups = { "Maker" },priority=24,description="To Verify DeleteRecord to Revert ")
+    public void DeleteRevertImportedUserOnBoardingRecord() throws IOException {
+        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(5);
+        UserOnBoardingDetails UserOnBoardingDetails = new UserOnBoardingDetails(map);
+        UserOnBoardingPage userOnBoardingPage = PageFactory.createPageInstance(driver, UserOnBoardingPage.class);
+        userOnBoardingPage.deleteUserOnBoardingRecord(UserOnBoardingDetails.getLanID(), UserOnBoardingDetails.getDeleteReason());
+	    Assert.assertEquals(userOnBoardingPage.getSuccessMessage(), "Record Deleted Successfully");
+    }     
+    
+    @Test(groups = { "Maker" },priority=25,dependsOnMethods="DeleteRevertImportedUserOnBoardingRecord",description="To VerifyRevertForDeleteRecord ")
+    public void VerifyRevertForImportedDeleteRecord() throws Exception {
+    	UserOnBoardingPage userOnBoardingPage = PageFactory.createPageInstance(driver, UserOnBoardingPage.class);
+    	userOnBoardingPage.selectUserOnBoardingAuditTrailTab();
+    	userOnBoardingPage.selectRecord();
+    	userOnBoardingPage.Revert("revert");
+        Assert.assertTrue(userOnBoardingPage.verifyStatus("Reverted"),"approval status details failed");
+    }
+    
+    @Test(groups= {"Maker"},priority=26,dependsOnMethods="VerifyRevertForImportedDeleteRecord",description="To Verify AuditTrialReport for RevertDelete ")
+    public void VerifyAuditTrialReportForImportedRevertDelete() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
-		Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(1);
+        Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(5);	
+        UserOnBoardingDetails UserOnBoardingDetails = new UserOnBoardingDetails(map);
+        HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
+        homePage.navigateToOCMReportsPage();
+        OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver, OCMReportsPage.class);
+        String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AuditTrailReportData.xlsx";
+        Map<String, String> map1 = new ExcelReader(filePath1,"Show").getTestData().get(0);
+        ReportDetails reportDetails= new ReportDetails(map1);
+        ocmReportsPage.showReport(reportDetails);
+        Assert.assertTrue(ocmReportsPage.verifyUserOnBoardingDelete(UserOnBoardingDetails,"MakerReverted"));
+    }
+   
+    @Test(groups = { "Maker" },priority=27,description="To Verify delete Record to Reject ")
+    public void RejectDeleteImportedRecord() throws Exception {
+		 String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
+		 Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(5);
+	     UserOnBoardingDetails UserOnBoardingDetails = new UserOnBoardingDetails (map);
+	     UserOnBoardingPage userOnBoardingPage = PageFactory.createPageInstance(driver, UserOnBoardingPage.class);
+	     userOnBoardingPage.deleteUserOnBoardingRecord(UserOnBoardingDetails.getLanID(), UserOnBoardingDetails.getDeleteReason());
+        Assert.assertEquals(userOnBoardingPage.getSuccessMessage(), "Record Deleted Successfully");
+     }
+    
+    @Test(groups = { "Maker" },priority=28,dependsOnMethods="RejectDeleteImportedRecord",description="To VerifySendForApprovalForDeleted NewRecord ")
+    public void VerifySendForApprovalForDeleteNewRecord() throws Exception {
+    	UserOnBoardingPage userOnBoardingPage = PageFactory.createPageInstance(driver, UserOnBoardingPage.class);
+    	userOnBoardingPage.selectUserOnBoardingAuditTrailTab();
+    	userOnBoardingPage.selectRecord();
+    	userOnBoardingPage.sendForAprroval("sent");
+        Assert.assertTrue(userOnBoardingPage.verifyStatus("Approval Pending"),"approval status details failed");
+    }
+    
+    @Test(priority=29,groups = { "Checker" },dependsOnMethods="VerifySendForApprovalForDeleteNewRecord",description="to Verify RejectforDeleteUserOnBoardingRecord ")
+    public void RejectforDeleteImportedUserOnBoardingRecord() throws Exception{
+    	UserOnBoardingPage userOnBoardingPage = PageFactory.createPageInstance(driver, UserOnBoardingPage.class);
+    	userOnBoardingPage.clickonReject("Reject Deleted");
+        Assert.assertFalse(userOnBoardingPage.verifyMessage(),"Reject record assertion failed");
+        Assert.assertTrue(userOnBoardingPage.verifyReviewAuditTrail("Rejected","Reject Deleted"));
+    }
+        
+    @Test(priority=30,groups = { "Checker" },dependsOnMethods = "RejectforDeleteImportedUserOnBoardingRecord",description="To VerifyAuditTrailReport forReject ")
+    public void VerifyAuditTrailReportForImportedReject() throws Exception {
+		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
+	    Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(5);
+	    UserOnBoardingDetails UserOnBoardingDetails = new UserOnBoardingDetails (map);
+	    HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
+	    homePage.navigateToOCMReportsPage();
+	    OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver, OCMReportsPage.class);
+        String filePath1 = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AuditTrailReportData.xlsx";
+	    Map<String, String> map1 = new ExcelReader(filePath1,"Show").getTestData().get(0);
+	    ReportDetails reportDetails= new ReportDetails(map1);
+	    ocmReportsPage.showReport(reportDetails);
+        Assert.assertTrue(ocmReportsPage.verifyUserOnBoardingDelete(UserOnBoardingDetails, "CheckerReject"),"Audit Trail report assertion failed");
+    }
+    
+    @Test(groups = { "Maker" }, priority=31,description="To Verify DeleteUserOnBoardingRecord ")
+	public void DeleteApproveImportedUserOnBoardingRecord() throws Exception {
+		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
+		Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(5);
 		UserOnBoardingDetails UserOnBoardingDetails = new UserOnBoardingDetails (map);
 		UserOnBoardingPage userOnBoardingPage = PageFactory.createPageInstance(driver, UserOnBoardingPage.class);
 		userOnBoardingPage.deleteUserOnBoardingRecord(UserOnBoardingDetails.getLanID(), UserOnBoardingDetails.getDeleteReason());
 		Assert.assertEquals(userOnBoardingPage.getSuccessMessage(), "Record Deleted Successfully");
 	}
 
-	@Test(groups = { "Maker" },priority=18, dependsOnMethods="DeleteUserOnBoardingRecord",description="To VerifyAuditTrailDataForDeleteUserOnBoardingRecord ")
+	@Test(groups = { "Maker" },priority=32, dependsOnMethods="DeleteApproveImportedUserOnBoardingRecord",description="To VerifyAuditTrailDataForDeleteUserOnBoardingRecord ")
 	public void VerifyAuditTrailDataForDeleteUserOnBoardingRecord() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
-		Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(1);
+		Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(5);
 		UserOnBoardingDetails UserOnBoardingDetails = new UserOnBoardingDetails (map);
 		UserOnBoardingPage userOnBoardingPage = PageFactory.createPageInstance(driver, UserOnBoardingPage.class);
 		userOnBoardingPage.selectUserOnBoardingAuditTrailTab();
 		Assert.assertTrue(userOnBoardingPage.verifyAuditTrailDelete(UserOnBoardingDetails, "MakerDelete", "New"), "Audit trail details failed");
 	}
 
-	@Test(groups = { "Maker" }, priority=19,dependsOnMethods="VerifyAuditTrailDataForDeleteUserOnBoardingRecord",description="To VerifySendForApprovalForDeleteRecord ")
+	@Test(groups = { "Maker" }, priority=33,dependsOnMethods="VerifyAuditTrailDataForDeleteUserOnBoardingRecord",description="To VerifySendForApprovalForDeleteRecord ")
 	public void VerifySendForApprovalForDeleteRecord() throws Exception {
 		UserOnBoardingPage userOnBoardingPage = PageFactory.createPageInstance(driver, UserOnBoardingPage.class);
 		userOnBoardingPage.selectUserOnBoardingAuditTrailTab();
@@ -250,7 +402,7 @@ public class UserOnBoardingImportedUserEditandDeleteTest {
 		Assert.assertTrue(userOnBoardingPage.verifyStatus("Approval Pending"),"approval status details failed");
 	}
 
-	@Test(groups = { "Checker" },priority=20,dependsOnMethods="VerifySendForApprovalForDeleteRecord",description="To Verify ApproveforDeleteUserOnBoardingRecord ")
+	@Test(groups = { "Checker" },priority=34,dependsOnMethods="VerifySendForApprovalForDeleteRecord",description="To Verify ApproveforDeleteUserOnBoardingRecord ")
 	public void ApproveforDeleteUserOnBoardingRecord() throws Exception{
 		UserOnBoardingPage userOnBoardingPage = PageFactory.createPageInstance(driver, UserOnBoardingPage.class);
 		userOnBoardingPage.clickonApprove("Approve Deleted");

@@ -43,7 +43,7 @@ public class CallWorkReportTest extends BaseTest {
 		Assert.assertTrue(ocmReportsPage.verifyReportDisplayed(reportDetails),"Show report assertion failed");     
 	}
 
-	/*@Test(priority=2,description="To verify Show Report in New Tab for Single Date")
+	@Test(priority=2,description="To verify Show Report in New Tab for Single Date")
 	public void ShowOCMCallWorkReportInNewPage() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\CallWorkReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowInNewPage").getTestData().get(0);
@@ -577,7 +577,7 @@ public class CallWorkReportTest extends BaseTest {
 		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
 		ocmReportsPage.viewDownloadedReportInReportDownloadsPage();
 		Assert.assertTrue(ocmReportsPage.deleteRecordAtReportsDownloadsPage(reportDetails),"Delete record assertion failed");
-	}*/
+	}
 
 	@AfterMethod
 	public void afterEachMethod(Method method) {

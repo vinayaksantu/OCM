@@ -461,7 +461,7 @@ public class ExportSchedulerPage extends BasePage {
                 continue;
             } else {
                 selectWebElement(ele);
-                    Thread.sleep(1000);
+                    Thread.sleep(2000);
                 if (headersColumns.get(0).getText().equals("Sort Ascending")) {
                     if (headersColumns.get(1).getText().equals("Sort Descending")) {
                         if (headersColumns.get(2).getText().equals("Columns")) {
@@ -485,9 +485,9 @@ public class ExportSchedulerPage extends BasePage {
             if (ele.isDisplayed()) {
                 try {
                     selectWebElement(ele);
-                    Thread.sleep(1000);
+                    Thread.sleep(2000);
                     selectWebElement(headersColumns.get(2));
-                    Thread.sleep(1000);
+                    Thread.sleep(2000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -520,9 +520,9 @@ public class ExportSchedulerPage extends BasePage {
             if(ele.isDisplayed()){
                 try {
                     selectWebElement(ele);
-                    Thread.sleep(1000);
+                    Thread.sleep(2000);
                     selectWebElement(headersColumns.get(2));
-                    Thread.sleep(1000);
+                    Thread.sleep(2000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -551,7 +551,7 @@ public class ExportSchedulerPage extends BasePage {
     public boolean groupby() {
 		DragandDrop(Frequency,droptarget);
 		try {
-			Thread.sleep(1000);
+			Thread.sleep(2000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
@@ -565,7 +565,7 @@ public class ExportSchedulerPage extends BasePage {
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Name");
         selectWebElement(selectSearchCol.get(1));
-        Thread.sleep(1000);
+        Thread.sleep(2000);
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is equal to");
         enterValueToTxtField(searchTextBox,exportSchedulerDetails.getName());
         selectWebElement(clearall);
@@ -593,7 +593,7 @@ public class ExportSchedulerPage extends BasePage {
 	public boolean verifyinvalidsearchwithwrongdata(ExportSchedulerDetails details) throws Exception {
 		searchexportScheduler(details.getName());
 		try {
-			Thread.sleep(1000);
+			Thread.sleep(2000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -614,7 +614,7 @@ public class ExportSchedulerPage extends BasePage {
 	public boolean ExporttoExcelWithoutData(ExportSchedulerDetails details ) throws Exception {
 		searchexportScheduler(details.getName());
 		waitForJqueryLoad(driver);
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		selectWebElement(exporttoexcel);
 		if(errorMsg.get(0).getText().equals("There is no record to export"))
 			return true;
@@ -623,6 +623,7 @@ public class ExportSchedulerPage extends BasePage {
 	}
 	public void addNewExportSchedulerRecordDaily(ExportSchedulerDetails details) throws Exception {
 		selectWebElement(addNewExportSchedulerRecordBtn);
+		Thread.sleep(2000);
 		waitUntilWebElementIsVisible(NameTextbox);
 		enterValueToTxtField(NameTextbox,details.getName());
 		selectWebElement(ReportListDropdown.get(0));
@@ -640,8 +641,10 @@ public class ExportSchedulerPage extends BasePage {
 		waitUntilWebElementIsVisible(NameTextbox);
 		enterValueToTxtField(NameTextbox,details.getName());
 		selectWebElement(ReportListDropdown.get(0));
+		Thread.sleep(2000);
         selectDropdownFromVisibleText(ReportListbox,details.getReportList());
         selectWebElement(ReportListDropdown.get(1));
+		Thread.sleep(2000);
         selectDropdownFromVisibleText(EmailListbox,details.getEmail());
         selectWebElement(FrequencyDropdown);
         selectDropdownFromVisibleText(FrequencyListbox,details.getFrequency());
@@ -656,8 +659,10 @@ public class ExportSchedulerPage extends BasePage {
 		waitUntilWebElementIsVisible(NameTextbox);
 		enterValueToTxtField(NameTextbox,details.getName());
 		selectWebElement(ReportListDropdown.get(0));
+		Thread.sleep(2000);
         selectDropdownFromVisibleText(ReportListbox,details.getReportList());
         selectWebElement(ReportListDropdown.get(1));
+		Thread.sleep(2000);
         selectDropdownFromVisibleText(EmailListbox,details.getEmail());
         selectWebElement(FrequencyDropdown);
         selectDropdownFromVisibleText(FrequencyListbox,details.getFrequency());
@@ -672,6 +677,7 @@ public class ExportSchedulerPage extends BasePage {
 		waitUntilWebElementIsVisible(NameTextbox);
 		enterValueToTxtField(NameTextbox,details.getName());
 		selectWebElement(ReportListDropdown.get(0));
+		Thread.sleep(2000);
         selectDropdownFromVisibleText(ReportListbox,details.getReportList());
         selectWebElement(ReportListDropdown.get(1));
         selectDropdownFromVisibleText(EmailListbox,details.getEmail());
@@ -690,7 +696,7 @@ public class ExportSchedulerPage extends BasePage {
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Name");
         selectWebElement(selectSearchCol.get(1));
-        Thread.sleep(1000);
+        Thread.sleep(2000);
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is not equal to");
         enterValueToTxtField(searchTextBox,name);		
         selectWebElement(searchSearchBtn);
@@ -712,7 +718,7 @@ public class ExportSchedulerPage extends BasePage {
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Name");
         selectWebElement(selectSearchCol.get(1));
-        Thread.sleep(1000);
+        Thread.sleep(2000);
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Contains");
         enterValueToTxtField(searchTextBox,name);		
         selectWebElement(searchSearchBtn);
@@ -733,7 +739,7 @@ public class ExportSchedulerPage extends BasePage {
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Name");
         selectWebElement(selectSearchCol.get(1));
-        Thread.sleep(1000);
+        Thread.sleep(2000);
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Does not contain");
         enterValueToTxtField(searchTextBox,name);		
         selectWebElement(searchSearchBtn);
@@ -755,7 +761,7 @@ public class ExportSchedulerPage extends BasePage {
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Name");
         selectWebElement(selectSearchCol.get(1));
-        Thread.sleep(1000);
+        Thread.sleep(2000);
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Starts with");
         enterValueToTxtField(searchTextBox,name);		
         selectWebElement(searchSearchBtn);
@@ -777,7 +783,7 @@ public class ExportSchedulerPage extends BasePage {
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Name");
         selectWebElement(selectSearchCol.get(1));
-        Thread.sleep(1000);
+        Thread.sleep(2000);
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Ends with");
         enterValueToTxtField(searchTextBox,name);		
         selectWebElement(searchSearchBtn);
@@ -840,7 +846,7 @@ public class ExportSchedulerPage extends BasePage {
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Name");
         selectWebElement(selectSearchCol.get(1));
-        Thread.sleep(1000);
+        Thread.sleep(2000);
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is equal to");
         enterValueToTxtField(searchTextBox,name);		
         selectWebElement(searchSearchBtn);		
@@ -888,7 +894,7 @@ public class ExportSchedulerPage extends BasePage {
 		Thread.sleep(2000);
 		//waitUntilWebElementIsClickable(deleteButton);
         selectWebElement(deleteButton);
-        Thread.sleep(1000);
+        Thread.sleep(2000);
         selectWebElement(deleteYesBtn);	
         selectWebElement(deleteNoBtn);			
 	}
@@ -927,6 +933,7 @@ public class ExportSchedulerPage extends BasePage {
 		waitUntilWebElementIsVisible(NameTextbox);
 		enterValueToTxtField(NameTextbox,details.getName());
 		selectWebElement(ReportListDropdown.get(0));
+        Thread.sleep(2000);
         selectDropdownFromVisibleText(ReportListbox,details.getReportList());
         selectWebElement(ReportListDropdown.get(1));
         selectDropdownFromVisibleText(EmailListbox,details.getEmail());
@@ -940,6 +947,7 @@ public class ExportSchedulerPage extends BasePage {
 		Thread.sleep(2000);
 		waitUntilWebElementIsVisible(NameTextbox);
 		selectWebElement(ReportListDropdown.get(0));
+        Thread.sleep(2000);
         selectDropdownFromVisibleText(ReportListbox,details.getReportList());
         selectWebElement(ReportListDropdown.get(1));
         selectDropdownFromVisibleText(EmailListbox,details.getEmail());
@@ -954,6 +962,7 @@ public class ExportSchedulerPage extends BasePage {
 		waitUntilWebElementIsVisible(NameTextbox);
 		enterValueToTxtField(NameTextbox,details.getName());
 		selectWebElement(ReportListDropdown.get(0));
+        Thread.sleep(2000);
         selectDropdownFromVisibleText(ReportListbox,details.getReportList());
         selectWebElement(FrequencyDropdown);
         selectDropdownFromVisibleText(FrequencyListbox,details.getFrequency());
@@ -967,6 +976,7 @@ public class ExportSchedulerPage extends BasePage {
 		waitUntilWebElementIsVisible(NameTextbox);
 		enterValueToTxtField(NameTextbox,details.getName());
 		selectWebElement(ReportListDropdown.get(0));
+        Thread.sleep(2000);
         selectDropdownFromVisibleText(ReportListbox,details.getReportList());
         selectWebElement(ReportListDropdown.get(1));
         selectDropdownFromVisibleText(EmailListbox,details.getEmail());
@@ -978,6 +988,7 @@ public class ExportSchedulerPage extends BasePage {
 		selectWebElement(addNewExportSchedulerRecordBtn);
 		waitUntilWebElementIsVisible(NameTextbox);
 		enterValueToTxtField(NameTextbox,details.getName());
+        Thread.sleep(2000);
         selectWebElement(ReportListDropdown.get(1));
         selectDropdownFromVisibleText(EmailListbox,details.getEmail());
         selectWebElement(FrequencyDropdown);
@@ -991,6 +1002,7 @@ public class ExportSchedulerPage extends BasePage {
 		waitUntilWebElementIsVisible(NameTextbox);
 		enterValueToTxtField(NameTextbox,details.getName());
 		selectWebElement(ReportListDropdown.get(0));
+        Thread.sleep(2000);
         selectDropdownFromVisibleText(ReportListbox,details.getReportList());
         selectWebElement(ReportListDropdown.get(1));
         selectDropdownFromVisibleText(EmailListbox,details.getEmail());
@@ -1006,6 +1018,7 @@ public class ExportSchedulerPage extends BasePage {
 		waitUntilWebElementIsVisible(NameTextbox);
 		enterValueToTxtField(NameTextbox,details.getName());
 		selectWebElement(ReportListDropdown.get(0));
+        Thread.sleep(2000);
         selectDropdownFromVisibleText(ReportListbox,details.getReportList());
         selectWebElement(ReportListDropdown.get(1));
         selectDropdownFromVisibleText(EmailListbox,details.getEmail());
@@ -1022,6 +1035,7 @@ public class ExportSchedulerPage extends BasePage {
 		waitUntilWebElementIsVisible(NameTextbox);
 		enterValueToTxtField(NameTextbox,details.getName());
 		selectWebElement(ReportListDropdown.get(0));
+        Thread.sleep(2000);
         selectDropdownFromVisibleText(ReportListbox,details.getReportList());
         selectWebElement(ReportListDropdown.get(1));
         selectDropdownFromVisibleText(EmailListbox,details.getEmail());
@@ -1037,6 +1051,7 @@ public class ExportSchedulerPage extends BasePage {
 		waitUntilWebElementIsVisible(NameTextbox);
 		enterValueToTxtField(NameTextbox,details.getName());
 		selectWebElement(ReportListDropdown.get(0));
+        Thread.sleep(2000);
         selectDropdownFromVisibleText(ReportListbox,details.getReportList());
         selectWebElement(ReportListDropdown.get(1));
         selectDropdownFromVisibleText(EmailListbox,details.getEmail());
@@ -1053,6 +1068,7 @@ public class ExportSchedulerPage extends BasePage {
 		waitUntilWebElementIsVisible(NameTextbox);
 		enterValueToTxtField(NameTextbox,details.getName());
 		selectWebElement(ReportListDropdown.get(0));
+        Thread.sleep(2000);
         selectDropdownFromVisibleText(ReportListbox,details.getReportList());
         selectWebElement(ReportListDropdown.get(1));
         selectDropdownFromVisibleText(EmailListbox,details.getEmail());
@@ -1068,6 +1084,7 @@ public class ExportSchedulerPage extends BasePage {
 		waitUntilWebElementIsVisible(NameTextbox);
 		enterValueToTxtField(NameTextbox,details.getName());
 		selectWebElement(ReportListDropdown.get(0));
+        Thread.sleep(2000);
         selectDropdownFromVisibleText(ReportListbox,details.getReportList());
         selectWebElement(ReportListDropdown.get(1));
         selectDropdownFromVisibleText(EmailListbox,details.getEmail());

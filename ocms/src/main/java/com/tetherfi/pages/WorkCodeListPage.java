@@ -382,7 +382,7 @@ public class WorkCodeListPage extends BasePage{
 	public void addNewWorkCode(WorkCodeListDetails details) throws Exception {
 		selectWebElement(addnewrecordbtn);
 		chooseWorkLevel(details);
-		selectWebElement(TeamNameDropDown);
+		/*selectWebElement(TeamNameDropDown);
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
@@ -391,7 +391,7 @@ public class WorkCodeListPage extends BasePage{
         ChooseTeamHeirarchy(details.getCountry());
         ChooseTeamHeirarchy(details.getDivision());
         ChooseTeamHeirarchy(details.getDepartment());
-        ChooseTeamHeirarchy(details.getTeamName());
+        ChooseTeamHeirarchy(details.getTeamName());*/
         chooseWorkgroup(details);
 		enterValueToTxtField(addnametextbox,details.getName());
 		selectWebElement(savebtn);

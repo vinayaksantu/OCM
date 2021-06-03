@@ -171,7 +171,7 @@ public class UserOnBoardingCreateTest {
 	}
 
 	@Test(groups = { "Maker" },priority=10,dependsOnMethods="AddNewUserOnBoardingRecord",description="To Verify AuditTrail Data for AddNewUserOnBoardingRecord ")
-	public void VerifyAuditTrailDataForAddNewUserOnBoardingRecord() throws IOException {
+	public void VerifyAuditTrailDataForAddNewUserOnBoardingRecord() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
 		UserOnBoardingDetails userOnBoardingDetails = new UserOnBoardingDetails(map);

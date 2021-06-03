@@ -282,12 +282,12 @@ public class SkillConfigurationTest extends BaseTest{
 		Map<String, String> map = new ExcelReader(filePath, "Queries").getTestData().get(1);
 		SkillConfigurationDetails skillConfigurationDetails = new SkillConfigurationDetails(map);
 		SkillConfigurationPage skillConfigurationPage=PageFactory.createPageInstance(driver,SkillConfigurationPage.class);
-		skillConfigurationPage.database(skillConfigurationDetails.getQuery());
-		/* skillConfigurationPage.deleteSkillConfigRecord(skillConfigurationDetails);
+		//skillConfigurationPage.database(skillConfigurationDetails.getQuery());
+		skillConfigurationPage.deleteSkillConfigRecord(skillConfigurationDetails);
      	 Assert.assertEquals(skillConfigurationPage.getMessage(),"Record Deleted Successfully","Delete record assertion failed");
-		 */   }
+		  }
 
-	/*  @Test(priority=26)
+	@Test(priority=26)
     public void VerifyAuditTrialReportForDelete() throws Exception {
  	 	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillConfigurationData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(1);
@@ -301,7 +301,7 @@ public class SkillConfigurationTest extends BaseTest{
         ocmReportsPage.showReport(reportDetails);
         Assert.assertTrue(ocmReportsPage.verifySkillConfigurationdelete(skillConfigurationDetails,"Delete"));
     }
-	 */
+	 
 	@Test(priority=27,enabled=false)
 	public void VerifyDeletedSkillInSkillAssignment() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillConfigurationData.xlsx";

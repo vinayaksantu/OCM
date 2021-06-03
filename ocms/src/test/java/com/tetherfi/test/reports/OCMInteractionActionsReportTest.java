@@ -48,11 +48,10 @@ public class OCMInteractionActionsReportTest extends BaseTest {
 		OCMReportsPage.showReportInNewPage(reportDetails);
 		Assert.assertTrue(OCMReportsPage.verifyReportDisplayed(reportDetails),"show report in new tab assertion failed");
 		OCMReportsPage.switchBackToParentWindow();
-	} */
+	} 
 	
 //	 #PRDOCM-53186- To track data mismatch issue
-	//	@Test(priority=46,description="To verify Interaction Actions Report report UI data against DB")
-//	#retryAnalyzer=com.tetherfi.utility.RetryAnalyzer.class
+	//	@Test(priority=46,retryAnalyzer=com.tetherfi.utility.RetryAnalyzer.class,description="To verify Interaction Actions Report report UI data against DB")
 	@Test(priority=3, description="To verify Interaction Actions Report report UI data against DB")
 	public void database() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMInteractionActionReportData.xlsx";
@@ -65,7 +64,7 @@ public class OCMInteractionActionsReportTest extends BaseTest {
 		System.out.println("Main Report Data Match Successfull");	
 	}
 	
-	/*@Test(priority=4,description="Verify dropdown of all the coulmn headers")
+	@Test(priority=4,description="Verify dropdown of all the coulmn headers")
 	public void VerifyDropdownForAllTheColumns() throws Exception {		
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMInteractionActionReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -253,7 +252,7 @@ public class OCMInteractionActionsReportTest extends BaseTest {
 		OCMReportsPage.chooseAdvancedSearchNew(reportDetails);  
 		OCMReportsPage.showReport(reportDetails);
 		Assert.assertTrue(InteractionActionReportPage.verifyAdvanceSearchIsEqualTo(reportDetails));
-	}
+	}*/
 	
 	@Test(priority=21,description="Advance search with OR Condition")
 	public void verifyAdvancedSearchORCriteria() throws Exception {
@@ -266,7 +265,7 @@ public class OCMInteractionActionsReportTest extends BaseTest {
 		Assert.assertTrue(InteractionActionReportPage.advancedSearchORCriteria(reportDetails));
 	}
 	
-    @Test(priority=22,description="Clear filters for Advance search")
+	/*@Test(priority=22,description="Clear filters for Advance search")
 	public void ClearfiltersAdvSrch() throws Exception{ 	
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMInteractionActionReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(0);
@@ -458,7 +457,7 @@ public class OCMInteractionActionsReportTest extends BaseTest {
 	}
 	
 	//Has known issue in sorting alpha numeric values
-	@Test(priority=40,dependsOnMethods="VerifyExportedPage",description="To Verify Sort By Ascending")
+	/*@Test(priority=40,dependsOnMethods="VerifyExportedPage",description="To Verify Sort By Ascending")
 	public void SortingByAscending() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMInteractionActionReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -472,7 +471,7 @@ public class OCMInteractionActionsReportTest extends BaseTest {
 		Assert.assertTrue(InteractionActionReportPage.verifyexportToExcelSheet(maplist));
 	}
 	
-//	Has known issue in sorting alpha numeric values
+	//Has known issue in sorting alpha numeric values
 	@Test(priority=41,dependsOnMethods="VerifyExportedPage",description="To Verify Sort By Descending")
 	public void SortingByDescending() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMInteractionActionReportData.xlsx";
@@ -553,7 +552,7 @@ public class OCMInteractionActionsReportTest extends BaseTest {
 	@AfterMethod
 	public void afterEachMethod(Method method) throws InterruptedException {
 		Screenshot screenshot=new Screenshot(driver);
-		screenshot.captureScreen("UOB_InteractionActionReportResultsV3.4.3.14",method.getName());
+		screenshot.captureScreen("InteractionActionReportResultsV3.4.3.14",method.getName());
 		driver.navigate().refresh();
 	}
 
