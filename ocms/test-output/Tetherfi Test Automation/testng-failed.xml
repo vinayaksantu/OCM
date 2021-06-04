@@ -4,30 +4,123 @@
   <listeners>
     <listener class-name="com.tetherfi.ExtentReportListener.ExtentReportListener"/>
   </listeners>
-  <test thread-count="5" name="Home(failed)">
+  <test thread-count="5" name="Modules(failed)">
     <classes>
-      <class name="com.tetherfi.test.ivr.OperatingHoursTest">
+      <class name="com.tetherfi.test.SkillConfigurationTest">
         <methods>
+          <include name="DuplicateRecord"/>
           <include name="ExportToExcelData"/>
-          <include name="VerifySearchContains"/>
-          <include name="endTestCase"/>
-          <include name="tearDown"/>
           <include name="VerifySearchIsNotEqualTo"/>
-          <include name="NavigateToOperatingHoursPage"/>
-          <include name="VerifySearchStartsWith"/>
-          <include name="ExportToExcel"/>
-          <include name="database"/>
+          <include name="NavigateToSkillConfigurationPage"/>
+          <include name="DeleteCancelRecord"/>
+          <include name="VerifySearchDoesNotContains"/>
+          <include name="endTestCase"/>
+          <include name="ExporttoExcelWithoutData"/>
+          <include name="tearDown"/>
+          <include name="AddRecordWithoutSkillPriority"/>
+          <include name="VerifySearchContains"/>
+          <include name="SearchClearSearch"/>
+          <include name="VerifyAuditTrialReportForDelete"/>
+          <include name="EditSkillConfigurationRecord"/>
+          <include name="VerifySearchEndsWith"/>
           <include name="startTestCase"/>
           <include name="openApplication"/>
-          <include name="AddLeavingWeekDayFieldsBlank"/>
+          <include name="EditCancelSkillConfigurationRecord"/>
           <include name="SortingByAscending"/>
+          <include name="DeleteRecord"/>
+          <include name="VerifySearchStartsWith"/>
+          <include name="AddSkillConfigurationRecord"/>
+          <include name="afterEachMethod"/>
+          <include name="searchPage"/>
+        </methods>
+      </class> <!-- com.tetherfi.test.SkillConfigurationTest -->
+      <class name="com.tetherfi.test.RoleBasedAccessManagementUITest">
+        <methods>
+          <include name="VerifyNumberOfItemsPerPageSelection"/>
+          <include name="startTestCase"/>
+          <include name="openApplication"/>
+          <include name="endTestCase"/>
+          <include name="NavigateToRoleBasedAccessManagementPage"/>
+          <include name="tearDown"/>
+          <include name="database"/>
+          <include name="afterEachMethod"/>
+        </methods>
+      </class> <!-- com.tetherfi.test.RoleBasedAccessManagementUITest -->
+      <class name="com.tetherfi.test.RoleBasedAccessManagementCreateTest">
+        <methods>
+          <include name="NavigateToNewRoleBasedAccessManagementPage"/>
+          <include name="afterEachMethod"/>
+          <include name="VerifyAddCancelButton"/>
+        </methods>
+      </class> <!-- com.tetherfi.test.RoleBasedAccessManagementCreateTest -->
+      <class name="com.tetherfi.test.RoleBasedAccessManagementUpdateTest">
+        <methods>
+          <include name="VerifyAuditTrailDataForEditRoleBasedAccessManagementRecord"/>
+          <include name="afterEachMethod"/>
+          <include name="EditRoleBasedAccessManagementRecord"/>
+          <include name="NavigateRoleBasedAccessManagementPage"/>
+        </methods>
+      </class> <!-- com.tetherfi.test.RoleBasedAccessManagementUpdateTest -->
+      <class name="com.tetherfi.test.tmac.AgentTeamMgmtTest">
+        <methods>
+          <include name="NavigateToAgentTeamManagementPage"/>
+          <include name="AddDuplicateRecord"/>
+          <include name="ExportToExcelData"/>
+          <include name="VerifySearchIsNotEqualTo"/>
+          <include name="endTestCase"/>
+          <include name="tearDown"/>
           <include name="VerifySearchDoesNotContains"/>
+          <include name="VerifyTotalNumberOfItemsPerPageDetails"/>
+          <include name="openApplication"/>
+          <include name="startTestCase"/>
+          <include name="AddNewAgentTeamManagementRecord"/>
+          <include name="afterEachMethod"/>
+          <include name="database"/>
+        </methods>
+      </class> <!-- com.tetherfi.test.tmac.AgentTeamMgmtTest -->
+      <class name="com.tetherfi.test.ExportSchedulerTest">
+        <methods>
+          <include name="NavigateToExportSchedulerPage"/>
+          <include name="ExportToExcel"/>
+          <include name="database"/>
           <include name="SortingByDescending"/>
           <include name="afterEachMethod"/>
-          <include name="GroupBy"/>
-          <include name="VerifySearchEndsWith"/>
+          <include name="endTestCase"/>
+          <include name="tearDown"/>
+          <include name="SortingByAscending"/>
+          <include name="startTestCase"/>
+          <include name="openApplication"/>
+          <include name="AddRecordWithoutEndTime"/>
+          <include name="searchwithoutSearchTextbox"/>
+          <include name="VerifyAuditTrialReportForDelete"/>
+          <include name="VerifyAuditTrialReportForCreateMonthly"/>
+          <include name="VerifyNumberOfItemsPerPageSelection"/>
+          <include name="ExportToExcelData"/>
+          <include name="VerifyAuditTrialReportForUpdate"/>
         </methods>
-      </class> <!-- com.tetherfi.test.ivr.OperatingHoursTest -->
+      </class> <!-- com.tetherfi.test.ExportSchedulerTest -->
+      <class name="com.tetherfi.test.tmac.TmacBroadCastMsgTest">
+        <methods>
+          <include name="VerifyAuditTrialReportForCreate"/>
+          <include name="afterEachMethod"/>
+          <include name="AddNewTmacBroadCastMsg"/>
+          <include name="VerifyAuditTrailReportForUpdate"/>
+          <include name="endTestCase"/>
+          <include name="tearDown"/>
+          <include name="VerifySearchDoesNotContains"/>
+          <include name="NavigateToTmacBroadcastMsgPage"/>
+          <include name="VerifyArrowMoveForPreviousAndNextPage"/>
+          <include name="startTestCase"/>
+          <include name="openApplication"/>
+          <include name="VerifySearchEndsWith"/>
+          <include name="VerifyNumberOfItemsPerPageSelection"/>
+          <include name="AddRecordWithoutTeamName"/>
+          <include name="VerifySearchStartsWith"/>
+          <include name="EditTmacBroadCastMsg"/>
+          <include name="VerifySearchContains"/>
+          <include name="Afterclass"/>
+        </methods>
+      </class> <!-- com.tetherfi.test.tmac.TmacBroadCastMsgTest -->
     </classes>
-  </test> <!-- Home(failed) -->
+  </test> <!-- Modules(failed) -->
 </suite> <!-- Failed suite [Tetherfi Test Automation] -->

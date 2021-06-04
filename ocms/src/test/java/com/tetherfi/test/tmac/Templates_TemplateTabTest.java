@@ -21,7 +21,7 @@ import com.tetherfi.utility.ExcelReader;
 import com.tetherfi.utility.PageFactory;
 import com.tetherfi.utility.Screenshot;
 
-public class Templates_TemplateTab extends BaseTest {
+public class Templates_TemplateTabTest extends BaseTest {
 
 	Screenshot screenshot=new Screenshot(driver);
 

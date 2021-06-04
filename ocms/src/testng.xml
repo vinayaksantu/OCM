@@ -15,27 +15,28 @@
 	<!-- <listeners> <listener class-name="com.tetherfi.utility.RetryExecution" /> </listeners> -->
 
 
-	<test name="Home" parallel="false">
+	<test name="Template" parallel="false">
 	<classes>
-				<class name="com.tetherfi.test.ivr.OperatingHoursTest" />
 	
-	<!--			<class name="com.tetherfi.test.SkillConfigurationTest" />				
+	<class name="com.tetherfi.test.tmac.Templates_TemplateTabTest"/>
+	<class name="com.tetherfi.test.tmac.Templates_ScreenTabTest"/>
+	<class name="com.tetherfi.test.tmac.Templates_WidgetTabTest"/>
+	<class name="com.tetherfi.test.tmac.Templates_AuxCodeTabTest"/>
+	<class name="com.tetherfi.test.tmac.Templates_OpHoursTabTest"/>
+	<class name="com.tetherfi.test.tmac.Templates_FeaturesTabTest"/>
 	
-				<class name="com.tetherfi.test.AgentSkillAssignmentNewTest" />				
 	
-		
-					<class name="com.tetherfi.test.ExportSchedulerTest" />	
-		
-		<class name="com.tetherfi.test.tmac.TmacBroadCastMsgTest" />
-		
-		<class name="com.tetherfi.test.tmac.AgentTeamMgmtTest" />
-		<class name="com.tetherfi.test.tmac.TmacAuxCodesTest" />		
+<!--		<class name="com.tetherfi.test.tmac.AgentTeamMgmtTest" />
+		<class name="com.tetherfi.test.ExportSchedulerTest" />			
+		<class name="com.tetherfi.test.tmac.TmacBroadCastMsgTest" />		
 		<class name="com.tetherfi.test.RoleBasedAccessManagementUITest" />
-			<class name="com.tetherfi.test.RoleBasedAccessManagementCreateTest" />
-			<class name="com.tetherfi.test.RoleBasedAccessManagementUpdateTest" />
-			<class name="com.tetherfi.test.RoleBasedAccessManagementDeleteTest" />	
+		<class name="com.tetherfi.test.RoleBasedAccessManagementCreateTest" />
+		<class name="com.tetherfi.test.RoleBasedAccessManagementUpdateTest" />
+		<class name="com.tetherfi.test.RoleBasedAccessManagementDeleteTest" />
+		<class name="com.tetherfi.test.SkillConfigurationTest" />						
 			<class name="com.tetherfi.test.tmac.WorkCodeListTest" />		
 		
+							<class name="com.tetherfi.test.tmac.TmacAuxCodesTest" />		
 						
 			
 			<class name="com.tetherfi.test.tmac.WorkCodeListTest" />		
@@ -70,6 +71,7 @@
 			<class name="com.tetherfi.test.ivr.IntroMessageAnnouncementUpdateTest" />			
 			<class name="com.tetherfi.test.ivr.IntroMessageAnnouncementDeleteTest" />
 			<class name ="com.tetherfi.test.sms.SmsResponseTemplateUpdateTest" />
+						<class name="com.tetherfi.test.ivr.OperatingHoursTest" />
 		
 		
 			<class name="com.tetherfi.test.ivr.IvrConfigUITest" />
