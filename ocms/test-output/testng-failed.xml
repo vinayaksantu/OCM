@@ -4,123 +4,116 @@
   <listeners>
     <listener class-name="com.tetherfi.ExtentReportListener.ExtentReportListener"/>
   </listeners>
-  <test thread-count="5" name="Modules(failed)">
+  <test thread-count="5" name="Template(failed)">
     <classes>
-      <class name="com.tetherfi.test.SkillConfigurationTest">
+      <class name="com.tetherfi.test.tmac.Templates_FeaturesTabTest">
         <methods>
-          <include name="DuplicateRecord"/>
-          <include name="ExportToExcelData"/>
-          <include name="VerifySearchIsNotEqualTo"/>
-          <include name="NavigateToSkillConfigurationPage"/>
-          <include name="DeleteCancelRecord"/>
-          <include name="VerifySearchDoesNotContains"/>
+          <include name="DeleteFeaturesTemplateRecord"/>
+          <include name="NavigateToAgentTemplatePage"/>
+          <include name="VerifyCancelBtnatDeleteRecord"/>
           <include name="endTestCase"/>
-          <include name="ExporttoExcelWithoutData"/>
+          <include name="VerifyCancelBtnatEditRecord"/>
           <include name="tearDown"/>
-          <include name="AddRecordWithoutSkillPriority"/>
-          <include name="VerifySearchContains"/>
-          <include name="SearchClearSearch"/>
-          <include name="VerifyAuditTrialReportForDelete"/>
-          <include name="EditSkillConfigurationRecord"/>
-          <include name="VerifySearchEndsWith"/>
+          <include name="AddRecWithoutTemplate"/>
+          <include name="EditRecordwithoutModifyreason"/>
           <include name="startTestCase"/>
           <include name="openApplication"/>
-          <include name="EditCancelSkillConfigurationRecord"/>
-          <include name="SortingByAscending"/>
+          <include name="DeleteRecordwithoutDeletereason"/>
+          <include name="DeleteRecordwithoutFeatures"/>
+          <include name="AddValidTemplateFeaturesRecord"/>
+          <include name="AddRecWithoutTemplateFeatures"/>
+          <include name="EditScreenRecord"/>
+          <include name="afterEachMethod"/>
+        </methods>
+      </class> <!-- com.tetherfi.test.tmac.Templates_FeaturesTabTest -->
+      <class name="com.tetherfi.test.tmac.Templates_OpHoursTabTest">
+        <methods>
+          <include name="startTestCase"/>
+          <include name="openApplication"/>
+          <include name="VerifyCancelBtnatDeleteRecord"/>
+          <include name="endTestCase"/>
+          <include name="tearDown"/>
+          <include name="verifyDeleteActioninDrillDownForrecord"/>
+          <include name="NavigateToAgentTemplatePage"/>
+          <include name="afterEachMethod"/>
+        </methods>
+      </class> <!-- com.tetherfi.test.tmac.Templates_OpHoursTabTest -->
+      <class name="com.tetherfi.test.tmac.Templates_TemplateTabTest">
+        <methods>
           <include name="DeleteRecord"/>
-          <include name="VerifySearchStartsWith"/>
-          <include name="AddSkillConfigurationRecord"/>
+          <include name="NavigateToAgentTemplatePage"/>
+          <include name="AddnewtemplateRecordWithDuplicateOrgunit"/>
           <include name="afterEachMethod"/>
-          <include name="searchPage"/>
+          <include name="DeleteRecordwithoutModifyreason"/>
+          <include name="AddnewtemplateRecord"/>
+          <include name="VerifyCancelBtnatDeleteRecord"/>
+          <include name="endTestCase"/>
+          <include name="tearDown"/>
+          <include name="EditRecordwithoutModifyreason"/>
+          <include name="VerifyCancelBtnatEditRecord"/>
+          <include name="AddRecWithoutOrgunit"/>
+          <include name="startTestCase"/>
+          <include name="openApplication"/>
+          <include name="EditRecord"/>
+          <include name="AddRecWithDuplicateTemplateName"/>
         </methods>
-      </class> <!-- com.tetherfi.test.SkillConfigurationTest -->
-      <class name="com.tetherfi.test.RoleBasedAccessManagementUITest">
+      </class> <!-- com.tetherfi.test.tmac.Templates_TemplateTabTest -->
+      <class name="com.tetherfi.test.tmac.Templates_ScreenTabTest">
         <methods>
-          <include name="VerifyNumberOfItemsPerPageSelection"/>
+          <include name="EditScreenRecord"/>
+          <include name="VerifyTransferAllFromBtn"/>
           <include name="startTestCase"/>
           <include name="openApplication"/>
           <include name="endTestCase"/>
-          <include name="NavigateToRoleBasedAccessManagementPage"/>
           <include name="tearDown"/>
-          <include name="database"/>
+          <include name="VerifyTransferAllToBtn"/>
+          <include name="NavigateToAgentTemplatePage"/>
+          <include name="EditRecordwithoutModifyreason"/>
+          <include name="verifyDatabase"/>
           <include name="afterEachMethod"/>
         </methods>
-      </class> <!-- com.tetherfi.test.RoleBasedAccessManagementUITest -->
-      <class name="com.tetherfi.test.RoleBasedAccessManagementCreateTest">
+      </class> <!-- com.tetherfi.test.tmac.Templates_ScreenTabTest -->
+      <class name="com.tetherfi.test.tmac.Templates_AuxCodeTabTest">
         <methods>
-          <include name="NavigateToNewRoleBasedAccessManagementPage"/>
-          <include name="afterEachMethod"/>
-          <include name="VerifyAddCancelButton"/>
-        </methods>
-      </class> <!-- com.tetherfi.test.RoleBasedAccessManagementCreateTest -->
-      <class name="com.tetherfi.test.RoleBasedAccessManagementUpdateTest">
-        <methods>
-          <include name="VerifyAuditTrailDataForEditRoleBasedAccessManagementRecord"/>
-          <include name="afterEachMethod"/>
-          <include name="EditRoleBasedAccessManagementRecord"/>
-          <include name="NavigateRoleBasedAccessManagementPage"/>
-        </methods>
-      </class> <!-- com.tetherfi.test.RoleBasedAccessManagementUpdateTest -->
-      <class name="com.tetherfi.test.tmac.AgentTeamMgmtTest">
-        <methods>
-          <include name="NavigateToAgentTeamManagementPage"/>
-          <include name="AddDuplicateRecord"/>
-          <include name="ExportToExcelData"/>
-          <include name="VerifySearchIsNotEqualTo"/>
+          <include name="VerifyCancelBtnatEditRecord"/>
+          <include name="VerifyCancelBtnatDeleteRecord"/>
+          <include name="deleteWithoutDeletereasonAuxtab"/>
           <include name="endTestCase"/>
+          <include name="VerifyTransferAllToBtn"/>
           <include name="tearDown"/>
-          <include name="VerifySearchDoesNotContains"/>
-          <include name="VerifyTotalNumberOfItemsPerPageDetails"/>
-          <include name="openApplication"/>
-          <include name="startTestCase"/>
-          <include name="AddNewAgentTeamManagementRecord"/>
+          <include name="AddTemplatewithOutAuxCode"/>
+          <include name="NavigateToAgentTemplatePage"/>
+          <include name="VerifyTransferFromBtn"/>
           <include name="afterEachMethod"/>
-          <include name="database"/>
-        </methods>
-      </class> <!-- com.tetherfi.test.tmac.AgentTeamMgmtTest -->
-      <class name="com.tetherfi.test.ExportSchedulerTest">
-        <methods>
-          <include name="NavigateToExportSchedulerPage"/>
-          <include name="ExportToExcel"/>
-          <include name="database"/>
-          <include name="SortingByDescending"/>
-          <include name="afterEachMethod"/>
-          <include name="endTestCase"/>
-          <include name="tearDown"/>
-          <include name="SortingByAscending"/>
+          <include name="VerifyTransferAllFromBtn"/>
           <include name="startTestCase"/>
           <include name="openApplication"/>
-          <include name="AddRecordWithoutEndTime"/>
-          <include name="searchwithoutSearchTextbox"/>
-          <include name="VerifyAuditTrialReportForDelete"/>
-          <include name="VerifyAuditTrialReportForCreateMonthly"/>
-          <include name="VerifyNumberOfItemsPerPageSelection"/>
-          <include name="ExportToExcelData"/>
-          <include name="VerifyAuditTrialReportForUpdate"/>
+          <include name="DeleteAuxRecord"/>
+          <include name="AddNewAuxTemplate"/>
+          <include name="AddRecWithoutTemplateName"/>
+          <include name="EditAuxRecord"/>
+          <include name="EditRecordwithoutModifyreason"/>
         </methods>
-      </class> <!-- com.tetherfi.test.ExportSchedulerTest -->
-      <class name="com.tetherfi.test.tmac.TmacBroadCastMsgTest">
+      </class> <!-- com.tetherfi.test.tmac.Templates_AuxCodeTabTest -->
+      <class name="com.tetherfi.test.tmac.Templates_WidgetTabTest">
         <methods>
-          <include name="VerifyAuditTrialReportForCreate"/>
+          <include name="addTemplateWithoutWidget"/>
           <include name="afterEachMethod"/>
-          <include name="AddNewTmacBroadCastMsg"/>
-          <include name="VerifyAuditTrailReportForUpdate"/>
+          <include name="NavigateToAgentTemplatePage"/>
+          <include name="AddNewWidgetTemplate"/>
           <include name="endTestCase"/>
           <include name="tearDown"/>
-          <include name="VerifySearchDoesNotContains"/>
-          <include name="NavigateToTmacBroadcastMsgPage"/>
-          <include name="VerifyArrowMoveForPreviousAndNextPage"/>
-          <include name="startTestCase"/>
+          <include name="VerifyCancelBtnatEditRecord"/>
+          <include name="VerifyCancelBtnatDeleteRecord"/>
+          <include name="deleteWithoutDeletereason"/>
           <include name="openApplication"/>
-          <include name="VerifySearchEndsWith"/>
-          <include name="VerifyNumberOfItemsPerPageSelection"/>
-          <include name="AddRecordWithoutTeamName"/>
-          <include name="VerifySearchStartsWith"/>
-          <include name="EditTmacBroadCastMsg"/>
-          <include name="VerifySearchContains"/>
-          <include name="Afterclass"/>
+          <include name="startTestCase"/>
+          <include name="EditRecordwithoutModifyreason"/>
+          <include name="AddWidgetwithOutScreen"/>
+          <include name="DeleteWidgetRecord"/>
+          <include name="EditWidgetRecord"/>
         </methods>
-      </class> <!-- com.tetherfi.test.tmac.TmacBroadCastMsgTest -->
+      </class> <!-- com.tetherfi.test.tmac.Templates_WidgetTabTest -->
     </classes>
-  </test> <!-- Modules(failed) -->
+  </test> <!-- Template(failed) -->
 </suite> <!-- Failed suite [Tetherfi Test Automation] -->

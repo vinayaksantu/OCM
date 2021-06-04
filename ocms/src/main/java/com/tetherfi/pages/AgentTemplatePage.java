@@ -1577,7 +1577,7 @@ public class AgentTemplatePage extends BasePage {
 	public void editRecord(AgentTemplateDetails details,int x) throws Exception {
 		verifySearchIsEqualTo(details.getTemplatename(),x);
 		waitForJqueryLoad(driver);
-		//Thread.sleep(3000);
+		Thread.sleep(3000);
 		//waitUntilWebElementIsVisible(editBtn);
 		selectWebElement(EditBtnTempTab);
 		waitForJqueryLoad(driver);
@@ -1592,7 +1592,7 @@ public class AgentTemplatePage extends BasePage {
 		waitForJqueryLoad(driver);
 		selectWebElement(EditBtnTempTab);
 		waitForJqueryLoad(driver);
-		//Thread.sleep(3000);
+		Thread.sleep(3000);
 		selectWebElement(updatedtheme);
 		selectDropdownFromVisibleText(themeDropDwn,details.getupdatedTheme());
 		//enterValueToTxtFieldWithoutClear(ModifyReasontext,details.getmodifyReason());

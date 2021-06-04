@@ -36,7 +36,7 @@ Screenshot screenshot=new Screenshot(driver);
 		Assert.assertTrue(agentTemplatePage.isAgentemplatePageIsDisplayed(), "AgentTemplatePage Assertion  failed");
 	}
 /************************************************************Template Tab******************************************************************************/	
-	/*@Test(priority=1,description="To Verify Agent Template Page")
+	@Test(priority=1,description="To Verify Agent Template Page")
 	public void VerifyAgentTemplatePageTemplateTab() {
 		AgentTemplatePage agentTemplatePage=PageFactory.createPageInstance(driver, AgentTemplatePage.class);
 		Assert.assertTrue(agentTemplatePage.verifyLogo(), "AgentTemplate Logo Assertion Failed");
@@ -47,19 +47,19 @@ Screenshot screenshot=new Screenshot(driver);
 		Assert.assertTrue(agentTemplatePage.VerifyAgnetTemplatePageTemplateTabHeader(), "AgentTemplatePageTemplateTab Headers Assertion Failed");
 	}
 	
-	//@Test(priority=2,description="To Verify DropDown Coloumns")
+	@Test(priority=2,description="To Verify DropDown Coloumns")
 	public void verifyDropDownForAllTheColumns() {
 		AgentTemplatePage agentTemplatePage=PageFactory.createPageInstance(driver, AgentTemplatePage.class);
 		Assert.assertTrue(agentTemplatePage.verifyDropDownOfAllHeaders(),"Columns DropDown Assertion failed");
 	}
 
-	//@Test(priority=3,description="To Verify Grid when Coloumns Header Enable")
+	@Test(priority=3,description="To Verify Grid when Coloumns Header Enable")
 	public void VerifyColumnsHeaderEnable() {
 		AgentTemplatePage agentTemplatePage=PageFactory.createPageInstance(driver, AgentTemplatePage.class);
 		Assert.assertTrue(agentTemplatePage.VerifyColumnsHeadersEnable(), "Headers assertion Failed");
 	}
 
-	//@Test(priority=4,description=" To Verify Grid when Coloumn Header Disabled")
+	@Test(priority=4,description=" To Verify Grid when Coloumn Header Disabled")
 	public void VerifyColumnsHeaderDisable() {
 		AgentTemplatePage agentTemplatePage=PageFactory.createPageInstance(driver, AgentTemplatePage.class);
 		Assert.assertFalse(agentTemplatePage.verifycolumnsHeaderDisabled(), "Headers Assertion Failed");
@@ -220,7 +220,7 @@ Screenshot screenshot=new Screenshot(driver);
 
 /************************************************************Templates Screen Tab******************************************************************************/
 
-	/*@Test(priority=23,description="To Verify Export Excel Button")
+	@Test(priority=23,description="To Verify Export Excel Button")
 	public void ExportToExcelButtonInTemplateScreenTab() {
 		String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles";
 		AgentTemplatePage agentTemplatePage=PageFactory.createPageInstance(driver, AgentTemplatePage.class);
@@ -389,11 +389,11 @@ Screenshot screenshot=new Screenshot(driver);
 		AgentTemplatePage AgentTemplatePage=PageFactory.createPageInstance(driver, AgentTemplatePage.class);
 		AgentTemplatePage.NavigateToTemplateScreenTab();
 		Assert.assertTrue(AgentTemplatePage.verifySearchEndsWith(AgentTemplateDetails.getTemplatename(),1), "Search assertion Failed");
-	}*/
+	}
 	
 /************************************************************Templates Screen Widgets Tab******************************************************************************/	
 	
-	/*@Test(priority=41,description="To Verify Export Excel Button")
+	@Test(priority=41,description="To Verify Export Excel Button")
 	public void ExportToExcelButtonInTemplateScreenWidgetsTab() {
 		String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles";
 		AgentTemplatePage agentTemplatePage=PageFactory.createPageInstance(driver, AgentTemplatePage.class);
@@ -512,7 +512,7 @@ Screenshot screenshot=new Screenshot(driver);
 		Assert.assertTrue(AgentTemplatePage.verifyinvalidsearchwithwrongdataInTemplateScreenWidgetsTab(AgentTemplateDetails,2),"invalidsearchwithwrongdata");
 		screenshot.captureScreen("AgentTemplateTest","Invalid Search with wrong data");
 		Assert.assertTrue(AgentTemplatePage.verifyclearsearch(2), "Clear All Assertion Failed");
-	}*/
+	}
 	
 	@Test(priority=54,description="To Verify Search Data Is Not Equal to ")
 	public void SearchIsNotEqualToInTemplateScreenWidgetsTab() throws Exception {
@@ -566,7 +566,7 @@ Screenshot screenshot=new Screenshot(driver);
 
 /************************************************************Template AuxCodes Tab******************************************************************************/
 	
-	/*@Test(priority=59,description="To Verify Export Excel Button")
+	@Test(priority=59,description="To Verify Export Excel Button")
 	public void ExportToExcelButtonInTemplateAuxCodesTab() {
 		String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles";
 		AgentTemplatePage agentTemplatePage=PageFactory.createPageInstance(driver, AgentTemplatePage.class);
@@ -735,11 +735,11 @@ Screenshot screenshot=new Screenshot(driver);
 		AgentTemplatePage AgentTemplatePage=PageFactory.createPageInstance(driver, AgentTemplatePage.class);
 		AgentTemplatePage.NavigateToTemplateAuxCodesTab();
 		Assert.assertTrue(AgentTemplatePage.verifySearchEndsWith(AgentTemplateDetails.getTemplatename(),3), "Search assertion Failed");
-	}*/
+	}
 	
 /************************************************************Template Operating Hours Tab******************************************************************************/
 	
-	/*@Test(priority=77,description="To Verify Export Excel Button")//Bug:Export File is not happening
+	@Test(priority=77,description="To Verify Export Excel Button")//Bug:Export File is not happening
 	public void ExportToExcelButtonInTemplateOpHoursTab() {
 		String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles";
 		AgentTemplatePage agentTemplatePage=PageFactory.createPageInstance(driver, AgentTemplatePage.class);
@@ -747,7 +747,7 @@ Screenshot screenshot=new Screenshot(driver);
 		Assert.assertTrue(agentTemplatePage.ExportToExcelButton(filePath,4), "Export Button assertion failed");
 	}
 
-	//@Test(priority=78,dependsOnMethods="ExportToExcelButtonInTemplateOpHoursTab",description="To Verify Exported Data")
+	@Test(priority=78,dependsOnMethods="ExportToExcelButtonInTemplateOpHoursTab",description="To Verify Exported Data")
 	public void verifyExportedDataInTemplateOpHoursTab() throws Exception {
 		String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Templates.xlsx";
 		List<Map<String,String>>maplist=new ExcelReader(filePath,"Sheet1").getTestData();
@@ -756,7 +756,7 @@ Screenshot screenshot=new Screenshot(driver);
 		Assert.assertTrue(agentTemplatePage.VerifyExportToExcelSheet(maplist,4), "Export Data Assertion failed");
 	}
 	
-	//@Test(priority=79,description="To Verify Export Excel without Data")
+	@Test(priority=79,description="To Verify Export Excel without Data")
 	public void verifyExportToExcelWithoutDataInTemplateOpHoursTab() throws Exception {
 		String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentTemplateData.xlsx";
 		Map<String,String>map=new ExcelReader(filePath,"Invalid").getTestData().get(0);
@@ -766,7 +766,7 @@ Screenshot screenshot=new Screenshot(driver);
 		Assert.assertTrue(AgentTemplatePage.VerifyExportToExcelWithoutData(AgentTemplateDetails,4), "Export to Excel Without Data assertion failed");
 	}
 	
-	//@Test(priority=80,description="To Verify Coloumns Sort By Ascending ")
+	@Test(priority=80,description="To Verify Coloumns Sort By Ascending ")
 	public void verifySortByAscendingInTemplateOpHoursTab() throws Exception {
 		AgentTemplatePage AgentTemplatePage=PageFactory.createPageInstance(driver, AgentTemplatePage.class);
 		AgentTemplatePage.NavigateToTemplateOpHoursTab();
@@ -776,7 +776,7 @@ Screenshot screenshot=new Screenshot(driver);
 		Assert.assertTrue(AgentTemplatePage.VerifyExportToExcelSheet(maplist,4), "Export Data Assertion failed");
 	}
 
-	//@Test(priority=81,description="To Verify Coloumns Sort By Descending ")
+	@Test(priority=81,description="To Verify Coloumns Sort By Descending ")
 	public void verifySortByDescendingInTemplateOpHoursTab() throws Exception {
 		AgentTemplatePage AgentTemplatePage=PageFactory.createPageInstance(driver, AgentTemplatePage.class);
 		AgentTemplatePage.NavigateToTemplateOpHoursTab();
@@ -908,7 +908,7 @@ Screenshot screenshot=new Screenshot(driver);
 		AgentTemplatePage AgentTemplatePage=PageFactory.createPageInstance(driver, AgentTemplatePage.class);
 		AgentTemplatePage.NavigateToTemplateOpHoursTab();
 		Assert.assertTrue(AgentTemplatePage.verifySearchEndsWith(AgentTemplateDetails.getTemplatename(),4), "Search assertion Failed");
-	}*/
+	}
 	
 /************************************************************************************Template Features Tab**************************************************************************/
 	
