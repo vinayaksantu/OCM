@@ -17,6 +17,7 @@ import com.tetherfi.test.BaseTest;
 import com.tetherfi.utility.ExcelReader;
 import com.tetherfi.utility.PageFactory;
 import com.tetherfi.utility.Screenshot;
+
 public class OCMIVRCallTraceReportTest extends BaseTest {
 	Screenshot screenshot=new Screenshot(driver);
 	@BeforeMethod
@@ -28,7 +29,7 @@ public class OCMIVRCallTraceReportTest extends BaseTest {
 		Assert.assertTrue(ocmReportsPage.isOCMReportPageIsDisplayed());
 	}  
 
-	/*@Test(priority=1,description="To verify Show Report for Single Date")
+	@Test(priority=1,description="To verify Show Report for Single Date")
 	public void ShowReport() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
@@ -47,12 +48,12 @@ public class OCMIVRCallTraceReportTest extends BaseTest {
 		ocmReportsPage.showReportInNewPage(reportDetails);
 		Assert.assertTrue(ocmReportsPage.verifyReportDisplayed(reportDetails),"show report in new tab assertion failed");
 		ocmReportsPage.switchBackToParentWindow();
-	} 
+	}
 
 	@Test(priority=3, description="To verify IVR call Trace report UI data against DB")
 	public void database() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IVRCallTraceReportData.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(0);
+		Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(1);
 		ReportDetails reportDetails= new ReportDetails(map);
 		OCMReportsPage ocmReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
 		ocmReportsPage.showReport(reportDetails);
@@ -397,7 +398,7 @@ public class OCMIVRCallTraceReportTest extends BaseTest {
 		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
 		ocmReportsPage.scheduleReport(reportDetails);
 		Assert.assertTrue(ocmReportsPage.verifyScheduleReport(),"Schedule report assertion failed");
-	}*/
+	}
 
 	@Test(priority=33,description="To Export Report from Report Manager page")
 	public void ExportReportForSingleDate() throws Exception {

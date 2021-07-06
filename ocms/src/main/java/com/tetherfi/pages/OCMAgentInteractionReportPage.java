@@ -1045,13 +1045,14 @@ public class OCMAgentInteractionReportPage extends BasePage  {
 		for(Map<String,String> map1:UI)
 		{
 			System.out.println(map1.get("Channel"));
-			if(!map1.get("Channel").toLowerCase().startsWith(reportDetails.getSearchStr()))				
+			if(map1.get("Channel").toLowerCase().startsWith(reportDetails.getSearchStr()))				
 				Status= true;
 			else 
 				Status =false;
 		}
 		return Status;
 	}
+	
 	public boolean verifyAdvancedSearchEndsWith(ReportDetails reportDetails) throws Exception {
 		Boolean Status=false;
 		waitForJqueryLoad(driver);

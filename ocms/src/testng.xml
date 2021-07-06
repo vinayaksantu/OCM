@@ -1,168 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="Tetherfi Test Automation" parallel="false">
-
+<suite name="OCM Reports Test Automation" parallel="false">
 
 	<listeners>
 		<listener class-name="com.tetherfi.listeners.ResultsListener" />
-	</listeners>
-
-	<listeners>
 		<listener
 			class-name="com.tetherfi.ExtentReportListener.ExtentReportListener" />
 	</listeners>
 
-	<!-- <listeners> <listener class-name="com.tetherfi.utility.RetryExecution" /> </listeners> -->
+	<test name="ReportsRegression">
+		<classes>
 
-
-	<test name="Template" parallel="false">
-	<classes>
-	
-	<class name="com.tetherfi.test.tmac.Templates_TemplateTabTest"/>
-	<class name="com.tetherfi.test.tmac.Templates_ScreenTabTest"/>
-	<class name="com.tetherfi.test.tmac.Templates_WidgetTabTest"/>
-	<class name="com.tetherfi.test.tmac.Templates_AuxCodeTabTest"/>
-	<class name="com.tetherfi.test.tmac.Templates_OpHoursTabTest"/>
-	<class name="com.tetherfi.test.tmac.Templates_FeaturesTabTest"/>
-	
-	
-<!--		<class name="com.tetherfi.test.tmac.AgentTeamMgmtTest" />
-		<class name="com.tetherfi.test.ExportSchedulerTest" />			
-		<class name="com.tetherfi.test.tmac.TmacBroadCastMsgTest" />		
-		<class name="com.tetherfi.test.RoleBasedAccessManagementUITest" />
-		<class name="com.tetherfi.test.RoleBasedAccessManagementCreateTest" />
-		<class name="com.tetherfi.test.RoleBasedAccessManagementUpdateTest" />
-		<class name="com.tetherfi.test.RoleBasedAccessManagementDeleteTest" />
-		<class name="com.tetherfi.test.SkillConfigurationTest" />						
-			<class name="com.tetherfi.test.tmac.WorkCodeListTest" />		
-		
-							<class name="com.tetherfi.test.tmac.TmacAuxCodesTest" />		
-						
-			
-			<class name="com.tetherfi.test.tmac.WorkCodeListTest" />		
-			<class name="com.tetherfi.test.ExportSchedulerTest" />
-			<class name="com.tetherfi.test.ivr.HostValueMappingCreateTest" />				
-			<class name="com.tetherfi.test.ivr.HostValueMappingDeleteTest" />	
-			<class name="com.tetherfi.test.ivr.HostValueMappingUITest" />						
-			<class name="com.tetherfi.test.ivr.HostValueMappingUpdateTest" />			
-			<class name="com.tetherfi.test.ivr.CallBackAnnouncementTest" />										
-			<class name="com.tetherfi.test.ivr.BranchManagementUITest" />
-			<class name="com.tetherfi.test.ivr.BranchManagementCreateTest" />		
-			<class name="com.tetherfi.test.ivr.BranchManagementEditTest" />		
-			<class name="com.tetherfi.test.ivr.BranchManagementDeleteTest" />			
-	  		<class name="com.tetherfi.test.fax.FaxTemplateUITest" />
-			<class name="com.tetherfi.test.fax.FaxTemplateCreateTest" />
-			<class name="com.tetherfi.test.fax.FaxTemplateUpdateTest" />		
-			<class name="com.tetherfi.test.fax.FaxTemplateDeleteTest" />
-			<class name="com.tetherfi.test.fax.FaxTemplateCustomTemplateTypeCreateTest" />
-			<class name="com.tetherfi.test.fax.FaxTemplateCustomTemplateTypeUpdateTest" />
-			<class name="com.tetherfi.test.fax.FaxTemplateCustomTemplateTypeDeleteTest" />
-			<class name="com.tetherfi.test.fax.FaxTemplateCoverPageTypeCreateTest" />
-			<class name="com.tetherfi.test.fax.FaxTemplateCoverPageTypeUpdateTest" />
-			<class name="com.tetherfi.test.fax.FaxTemplateCoverPageTypeDeleteTest" />						
-			<class name="com.tetherfi.test.UserManagementTest" />		
-							
-			<class name="com.tetherfi.test.RoleBasedAccessManagementUITest" />
-			<class name="com.tetherfi.test.RoleBasedAccessManagementCreateTest" />
-			<class name="com.tetherfi.test.RoleBasedAccessManagementUpdateTest" />
-			<class name="com.tetherfi.test.RoleBasedAccessManagementDeleteTest" />
-			<class name="com.tetherfi.test.ivr.IntroMessageAnnouncementUITest" />		
-			<class name="com.tetherfi.test.ivr.IntroMessageAnnouncementCreateTest" />
-			<class name="com.tetherfi.test.ivr.IntroMessageAnnouncementUpdateTest" />			
-			<class name="com.tetherfi.test.ivr.IntroMessageAnnouncementDeleteTest" />
-			<class name ="com.tetherfi.test.sms.SmsResponseTemplateUpdateTest" />
-						<class name="com.tetherfi.test.ivr.OperatingHoursTest" />
-		
-		
-			<class name="com.tetherfi.test.ivr.IvrConfigUITest" />
-			<class name="com.tetherfi.test.ivr.BranchManagementUITest" />
-			<class name="com.tetherfi.test.sms.SmsResponseTemplateCreateTest" />
-			<class name="com.tetherfi.test.sms.SmsResponseTemplateDeleteTest" />
-			<class name="com.tetherfi.test.fax.FaxAddressBookTest"/>
-		
-				
-			<class name="com.tetherfi.test.tmac.WaitTimeColorConfigTest" />				
-			<class name="com.tetherfi.test.chat.ChatIntentSkillMappingTest" />
-			<class name="com.tetherfi.test.chat.ChatMenuDescriptionTest" />							
-			<class name="com.tetherfi.test.TdmThresholdConfigTest" />		
-			<class name="com.tetherfi.test.RoleBasedAccessManagementUITest" />
-			<class name="com.tetherfi.test.RoleBasedAccessManagementCreateTest" />
-			<class name="com.tetherfi.test.RoleBasedAccessManagementUpdateTest" />
-			<class name="com.tetherfi.test.RoleBasedAccessManagementDeleteTest" />					
-			<class name="com.tetherfi.test.ivr.FaxApplicationFormTest" />			
-			<class name="com.tetherfi.test.reports.SkillHistoricalReportTest" />
-			<class name="com.tetherfi.test.reports.AgentHistoricalReportTest" />
-			<class name="com.tetherfi.test.ivr.IvrConfigDeleteTest" />
-			<class name="com.tetherfi.test.ivr.IvrConfigUpdateTest"/>					
-			<class name="com.tetherfi.test.ivr.IvrConfigCreateTest" /> 		
-			<class name="com.tetherfi.test.ivr.HostValueMappingDeleteTest" />		
-			<class name="com.tetherfi.test.ivr.HostValueMappingUpdateTest" />
-			<class name="com.tetherfi.test.ivr.HostValueMappingCreateTest" />		
-			<class name="com.tetherfi.test.ivr.HostValueMappingUITest" />		
-			<class name="com.tetherfi.test.tmac.SkillTemplateTest"/>
-			<class name="com.tetherfi.test.ivr.HolidayListTest" />		
-			<class name="com.tetherfi.test.tmac.AttributesTest" />													
-			<class name="com.tetherfi.test.IWRoleBasedAccessMatrixTest" />							
-			<class name="com.tetherfi.test.tmac.SlotSchedulerTest" />				
-			<class name="com.tetherfi.test.tmac.AttributeAssignmentTest" />							
-			<class name="com.tetherfi.test.IWMasterAccessMatrixTest" />		
-			<class name="com.tetherfi.test.tmac.AgentSettingsDeleteTest" />					
-			<class name="com.tetherfi.test.tmac.AgentSettingsEditTest" />		
-			<class name="com.tetherfi.test.fax.FaxTemplateAutoACKTypeDeleteTest" />		
- 			<class name="com.tetherfi.test.tmac.AgentSettingsCreateTest" />		
-			<class name="com.tetherfi.test.tmac.AgentSettingsUITest" />		
-			<class name="com.tetherfi.test.email.EmailTemplatesUpdate" />
-			<class name="com.tetherfi.test.email.EmailTemplateDelete" />
- 			<class name="com.tetherfi.test.email.EmailTemplatesUI" />
-			<class name="com.tetherfi.test.email.EmailTemplatesCreate" />
-			<class name="com.tetherfi.test.fax.FaxTemplateAutoACKTypeCreateTest" />
- 			<class name="com.tetherfi.test.fax.FaxTemplateAutoACKTypeUpdateTest" />
-
- 					<class name="com.tetherfi.test.CEPEventMappingTest" />
-		
-		
-			<class name="com.tetherfi.test.sms.SmsResponseTemplateUITest" />
-			
-			
-			<class name="com.tetherfi.test.UserRoleMappingDeleteTest" />
-			<class name="com.tetherfi.test.UserRoleMappingUpdateTest" />
-			<class name="com.tetherfi.test.UserRoleMappingCreateTest" />
-			<class name="com.tetherfi.test.DashboardColorCodeConfigTest" />
-			<class name="com.tetherfi.test.fax.FaxSendersTest" />
-			<class name="com.tetherfi.test.fax.FaxAutoACKConfigurationTest" />
-			<class name="com.tetherfi.test.fax.FaxRoutingConfigurationTest" />
-			<class name="com.tetherfi.test.fax.FaxLineConfigTest" />
-			<class name="com.tetherfi.test.ivr.IntroMessageAnnouncementCreateTest" />
-			<class name="com.tetherfi.test.ivr.IntroMessageAnnouncementUITest" />
-			<class name="com.tetherfi.test.ivr.IvrConfigUITest" />
-			<class name="com.tetherfi.test.ivr.IntroMessageAnnouncementDeleteTest" />
-			<class name="com.tetherfi.test.ivr.IntroMessageAnnouncementUpdateTest" />
-			<class name="com.tetherfi.test.ivr.IvrConfigTest" />
-			<class name="com.tetherfi.test.ivr.OperatingHoursTest" />
-		
-			<class name="com.tetherfi.test.ivr.VIPListManagementTest" />
-			<class name="com.tetherfi.test.ivr.VBEnrollmentFlagTest" />
-			<class name="com.tetherfi.test.ivr.MenuDescriptionMappingTest" />
-			<class name="com.tetherfi.test.ivr.IntentMappingTest" />
-			<class name="com.tetherfi.test.ivr.AgentTransferTest" />
-			<class name="com.tetherfi.test.ivr.AdhocOptionEnhancementTest" />
-			<class name="com.tetherfi.test.chat.ChatIntentSkillMappingTest" />
-			<class name="com.tetherfi.test.chat.ChatTemplatesTest" />		
-			<class name="com.tetherfi.test.UserRoleMappingUITest" />
-			<class name="com.tetherfi.test.ivr.CallBackAnnouncementTest" />
-			<class name="com.tetherfi.test.ivr.AdhocOptionEnhancementTest" />
-			
-			
-			
-				<class
-				name="com.tetherfi.test.reports.NiceIntegrationReportTest" />
-			<class name="com.tetherfi.test.reports.OCMThresholdReportTest" />
 			<class
-				name="com.tetherfi.test.reports.OCMChatTransferReportTest" />
-			<class
-				name="com.tetherfi.test.reports.OCMChatAnalysisCountReportTest" />
-			<class name="com.tetherfi.test.AgentSkillAssignmentNewTest" />
-			<class name="com.tetherfi.test.ivr.HolidayListTest" />-->
+				name="com.tetherfi.test.reports.OCMAgentInteractionReportTest" />
 		</classes>
 	</test>
 

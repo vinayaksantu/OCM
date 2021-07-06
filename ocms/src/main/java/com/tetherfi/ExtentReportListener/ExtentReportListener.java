@@ -25,7 +25,7 @@ import com.aventstack.extentreports.reporter.configuration.Theme;
 public class ExtentReportListener implements ITestListener {
 
 	private static final String OUTPUT_FOLDER = "./test-output/ExtentReports/";
-	private static final String FILE_NAME = "OCMAnalysisCountReportProduct.html";
+	private static final String FILE_NAME = "OCMAgentInteractionReportTestResults.html";
 
 	private static ExtentReports extent = init();
 	public static ThreadLocal<ExtentTest> test = new ThreadLocal<ExtentTest>();
@@ -96,7 +96,7 @@ public class ExtentReportListener implements ITestListener {
 		
 		 /* methodName = StringUtils.capitalize(StringUtils.join(StringUtils.
 		  splitByCharacterTypeCamelCase(methodName), StringUtils.SPACE));*/
-		extentTest.assignAuthor("Aravinda");
+//		extentTest.assignAuthor("Aravinda");
 		extentTest.assignCategory(className);
 		test.set(extentTest);
 		test.get().getModel().setStartTime(getTime(result.getStartMillis()));

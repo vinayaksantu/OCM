@@ -28,7 +28,7 @@ public class AgentHistoricalReportTest extends BaseTest {
 		Assert.assertTrue(ocmReportsPage.isOCMReportPageIsDisplayed());
 	}
 
-	@Test(priority=1,description="To verify Show Report for Single Date")
+	/*@Test(priority=1,description="To verify Show Report for Single Date")
 	public void ShowOCMAgentHistoricalReport() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
@@ -47,7 +47,7 @@ public class AgentHistoricalReportTest extends BaseTest {
 		ocmReportsPage.showReportInNewPage(reportDetails);
 		Assert.assertTrue(ocmReportsPage.verifyReportDisplayed(reportDetails),"show report in new tab assertion failed");
 		ocmReportsPage.switchBackToParentWindow();
-	}
+	}*/
 
 	@Test(priority=3,description="To verify Export Scheduler on OCM Reports Page")
 	public void ScheduleOCMAgentHistoricalReport() throws Exception {
@@ -59,7 +59,7 @@ public class AgentHistoricalReportTest extends BaseTest {
 		Assert.assertTrue(ocmReportsPage.verifyScheduleReport(),"Schedule report assertion failed");
 	}
 
-	@Test(priority=4,description="To verify Export Report on OCM Reports Page")
+	/*@Test(priority=4,description="To verify Export Report on OCM Reports Page")
 	public void ExportOcmAgentHistoricalReport() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ExportReport").getTestData().get(0);
@@ -440,6 +440,7 @@ public class AgentHistoricalReportTest extends BaseTest {
 		AgentHistoricalReportPage agentHistoricalPage=PageFactory.createPageInstance(driver,AgentHistoricalReportPage.class);
 		Assert.assertTrue(agentHistoricalPage.verifySearchStartsWith(reportDetails.getSearchStr()));
 	}
+	
 	@Test(priority=39,description="To verify search EndsWith")
 	public void  VerifySearchEndsWith() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentHistoricalReportData.xlsx";
@@ -821,7 +822,7 @@ public class AgentHistoricalReportTest extends BaseTest {
 		ocmReportsPage.showReport(reportDetails);  
 		AgentHistoricalReportPage agentHistoricalPage=PageFactory.createPageInstance(driver,AgentHistoricalReportPage.class);
 		Assert.assertTrue(agentHistoricalPage.verifyDrillOneSearchClearBackButton(reportDetails));  
-	}
+	}*/
 
 	@AfterMethod
 	public void afterEachMethod(Method method) throws InterruptedException {

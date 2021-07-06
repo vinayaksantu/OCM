@@ -724,7 +724,7 @@ public class OCMAgentLoginLogoutReportPage extends BasePage  {
 		{return errorMsg.get(0).getText();}
 		else{waitUntilWebElementIsVisible(successmsg);return successmsg.getText();}
 	}
-	
+
 	public boolean VerifyLogo() {
 		if(VEFImg.isDisplayed())
 			return true;
@@ -763,7 +763,7 @@ public class OCMAgentLoginLogoutReportPage extends BasePage  {
 		if(waitUntilTextToBePresentInWebElement(successmsg,"Report export is initiated... Notification will be sent once completed"))
 		{return true;}else{return false;}
 	}
-	
+
 	public boolean verifyAdvanceSearch(ReportDetails reportDetails) throws Exception {
 		Boolean Status=false;
 		List<Map<String,String>>UI=getDataTable();
@@ -777,7 +777,7 @@ public class OCMAgentLoginLogoutReportPage extends BasePage  {
 		}
 		return Status;
 	}
-	
+
 	private List<Map<String, String>> getDataTable() throws Exception {
 		int item=Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
 		int pagersize=Integer.valueOf(pagerSize.getText());
@@ -857,7 +857,7 @@ public class OCMAgentLoginLogoutReportPage extends BasePage  {
 		}
 		return Status;	
 	}
-	
+
 	public boolean verifySearchIsEqualTo(String details) throws Exception {
 		Boolean Status=false;
 		Map<String, String> map=new HashMap<String,String>() ;
@@ -882,9 +882,9 @@ public class OCMAgentLoginLogoutReportPage extends BasePage  {
 		}
 		return Status;	
 	}
-		
-		
-	
+
+
+
 	public boolean verifySearchContains(ReportDetails details) throws Exception {
 		Boolean Status=false;		
 		selectWebElement(searchBtn);
@@ -1015,7 +1015,7 @@ public class OCMAgentLoginLogoutReportPage extends BasePage  {
 		String reportafterdate=details.getEndDate();
 		//change date formats - step 3
 		reportbeforedate=reportbeforedate.substring(6,10)+reportbeforedate.substring(3, 5)+reportbeforedate.substring(0, 2)+reportbeforedate.substring(11, 13)+reportbeforedate.substring(14, 16)+reportbeforedate.substring(17, 19);
-		reportafterdate	=reportafterdate.substring(6,10)+reportafterdate.substring(3, 5)+reportafterdate.substring(0, 2)+reportafterdate.substring(11, 13)+reportafterdate.substring(14, 16)+reportafterdate.substring(17, 19);
+		reportafterdate=reportafterdate.substring(6,10)+reportafterdate.substring(3, 5)+reportafterdate.substring(0, 2)+reportafterdate.substring(11, 13)+reportafterdate.substring(14, 16)+reportafterdate.substring(17, 19);
 		//Replace identifiers in query to formatted date - step 5
 		query=query.replaceAll("ReportBeforeDate",reportbeforedate );
 		query=query.replaceAll("ReportAfterDate",reportafterdate );
@@ -1030,13 +1030,13 @@ public class OCMAgentLoginLogoutReportPage extends BasePage  {
 		else
 			return false;
 	}
-	
-	 private List<Map<String, String>> getDataTable1() throws InterruptedException {
-			int item=Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
-	        int pagersize=Integer.valueOf(pagerSize.getText());
-	        int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
-			List<Map<String,String>> arr=new ArrayList<Map<String,String>>();
-			for(int k=0;k<=pages;k++){
+
+	private List<Map<String, String>> getDataTable1() throws InterruptedException {
+		int item=Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
+		int pagersize=Integer.valueOf(pagerSize.getText());
+		int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
+		List<Map<String,String>> arr=new ArrayList<Map<String,String>>();
+		for(int k=0;k<=pages;k++){
 			waitUntilWebElementIsVisible(auditGridContent);
 			List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
 			List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
@@ -1057,10 +1057,10 @@ public class OCMAgentLoginLogoutReportPage extends BasePage  {
 				Thread.sleep(5000);
 				nextPageIcon.click();
 				waitForJqueryLoad(driver);}
-			}
-				return arr;
 		}
-		
+		return arr;
+	}
+
 	public void deleteWithoutDeleteReason(ReportDetails details) throws Exception {
 
 		waitUntilWebElementIsVisible(deleteReportinInReportDownloadpage.get(0));
@@ -1089,7 +1089,7 @@ public class OCMAgentLoginLogoutReportPage extends BasePage  {
 		}
 		return isElementExist(deleteContainer);
 	}
-	
+
 	public boolean verifySearchByTextbox(ReportDetails details) throws Exception{	
 		boolean Status=false;		
 		selectWebElement(searchbyfeatureTextBox);    
@@ -1149,10 +1149,10 @@ public class OCMAgentLoginLogoutReportPage extends BasePage  {
 		}
 		return Status;	
 	}
-		
-		
-	
-	
+
+
+
+
 	public Boolean advancedSearchORCriteria(ReportDetails details) throws Exception {
 		Boolean Status=false;	
 		selectWebElement(advancedsearchBtn);
@@ -1194,8 +1194,8 @@ public class OCMAgentLoginLogoutReportPage extends BasePage  {
 		}
 		return Status;	
 	}
-		
-		
+
+
 
 	public boolean verifyAdvanceSearchIsNotEqualTo(ReportDetails reportDetails) throws Exception {
 		Boolean Status=false;
@@ -1211,7 +1211,7 @@ public class OCMAgentLoginLogoutReportPage extends BasePage  {
 		}
 		return Status;
 	}
-	
+
 	public boolean verifyAdvanceSearchContains(ReportDetails reportDetails) throws Exception {
 		Boolean Status=false;
 		waitForJqueryLoad(driver);
@@ -1226,7 +1226,7 @@ public class OCMAgentLoginLogoutReportPage extends BasePage  {
 		}
 		return Status;
 	}
-	
+
 	public boolean verifyAdvanceSearchDoesNotContains(ReportDetails reportDetails) throws Exception {
 		Boolean Status=false;
 		waitForJqueryLoad(driver);
@@ -1241,7 +1241,7 @@ public class OCMAgentLoginLogoutReportPage extends BasePage  {
 		}
 		return Status;
 	}
-	
+
 	public boolean verifyAdvanceSearchStartsWith(ReportDetails reportDetails) throws Exception {
 		Boolean Status=false;
 		waitForJqueryLoad(driver);
@@ -1256,7 +1256,7 @@ public class OCMAgentLoginLogoutReportPage extends BasePage  {
 		}
 		return Status;
 	}
-	
+
 	public boolean verifyAdvanceSearchEndsWith(ReportDetails reportDetails) throws Exception {
 		Boolean Status=false;
 		waitForJqueryLoad(driver);
@@ -1271,7 +1271,7 @@ public class OCMAgentLoginLogoutReportPage extends BasePage  {
 		}
 		return Status;
 	}
-	
+
 	public boolean groupby() {
 		DragandDrop(teamname,droptarget);
 		try {

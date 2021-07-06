@@ -1280,7 +1280,6 @@ public class OCMIvrCallTraceReportPage extends BasePage  {
 			return false;
 	}
 	
-	
 	private List<Map<String, String>> getDataTable1() {
 		int item=Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
         int pagersize=Integer.valueOf(pagerSize.getText());

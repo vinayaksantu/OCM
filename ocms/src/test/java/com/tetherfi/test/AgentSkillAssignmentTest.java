@@ -26,7 +26,7 @@ public class AgentSkillAssignmentTest extends BaseTest{
         homePage.navigateToOCMPage();
         OCMHomePage ocmHomePage = PageFactory.createPageInstance(driver,OCMHomePage.class);
         Assert.assertTrue(ocmHomePage.isOCMHomePageIsDisplayed(),"OCM HOME Page assertion failed");
-        ocmHomePage.navigateToAgentSkillAssignmentPage();
+//        ocmHomePage.navigateToAgentSkillAssignmentPage();
         AgentSkillAssignmentPage agentSkillAssignmentPage=PageFactory.createPageInstance(driver,AgentSkillAssignmentPage.class);
         Assert.assertTrue(agentSkillAssignmentPage.isAgentSkillAssignmentPageDisplayed(),"Agent skill assignment assertion failed");
     }
@@ -56,7 +56,6 @@ public class AgentSkillAssignmentTest extends BaseTest{
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentSkillAssignmentData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(1);
         AgentSkillAssignmentDetails agentSkillAssignmentDetails= new AgentSkillAssignmentDetails(map);
-
         AgentSkillAssignmentPage agentSkillAssignmentPage=PageFactory.createPageInstance(driver,AgentSkillAssignmentPage.class);
         agentSkillAssignmentPage.navigateToMultiSkillTab();
         agentSkillAssignmentPage.assignSkillToMultipleAgent(agentSkillAssignmentDetails);
@@ -64,8 +63,7 @@ public class AgentSkillAssignmentTest extends BaseTest{
     }
     
     @Test(priority=6)
-    public void ExportToExcel() throws Exception
-    {
+    public void ExportToExcel() throws Exception{
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles";
         AgentSkillAssignmentPage agentSkillAssignmentPage=PageFactory.createPageInstance(driver,AgentSkillAssignmentPage.class);
         Assert.assertTrue(agentSkillAssignmentPage.verifyExportToExcel(filePath));

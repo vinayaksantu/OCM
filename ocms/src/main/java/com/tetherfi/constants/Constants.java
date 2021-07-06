@@ -18,14 +18,26 @@ public class Constants {
     public static final String db_pass="tetherfi1234";
     public static final String db_name="singtel_ccp";*/
     
+    /*public static final String host="jdbc:mysql://lab-singtel-voice-mysql.cqnce3nduwba.us-east-1.rds.amazonaws.com:3306/";
+    public static final String db_user="root";
+    public static final String db_pass="rootroot01";
+    public static final String db_name="singtel_ccp";*/    
 
-//	.61 PRODUCT OCM DB
+// Singtel instance
 	public static final String host="jdbc:sqlserver://singtellab.cqnce3nduwba.us-east-1.rds.amazonaws.com:1433";
     public static final String db_user="sa";
     public static final String db_pass="tetherfi1234";
-    public static final String db_name="singtel_emm";
+    public static final String db_name="singtel_Emm";
+    
+    
 	
-//    DSTA DB 
+//	.61 PRODUCT OCM DB
+	/*public static final String host="jdbc:sqlserver://172.16.2.61:1433";
+	public static final String db_user="ProdQA";
+	public static final String db_pass="Tetherfi123$";
+	public static final String db_name="Product_OCM";*/
+	
+//	DSTA DB 
     /*public static final String host="jdbc:sqlserver://172.16.2.16:14330";
     public static final String db_user="sa";
     public static final String db_pass="admin@123";
@@ -52,5 +64,5 @@ public class Constants {
     public static String ftp_userName = "Administrator";
     public static String ftp_password = "T3th3rfi982!";
     //public static String remoteFilePathTransfer = "\\\\172.16.2.16\\d$\\Products\\OCM\\UI\\CustomJSONConfigurations\\Admin%20Modules\\AgentSetting.json";
-
+    
 }

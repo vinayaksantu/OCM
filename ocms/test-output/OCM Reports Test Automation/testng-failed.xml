@@ -7,21 +7,31 @@
   </listeners>
   <test thread-count="5" name="ReportsRegression(failed)">
     <classes>
-      <class name="com.tetherfi.test.reports.OCMAgentAuxReportTest">
+      <class name="com.tetherfi.test.reports.OCMAgentInteractionReportTest">
         <methods>
-          <include name="NavigateToOcmReportsPage"/>
-          <include name="startTestCase"/>
-          <include name="afterEachMethod"/>
-          <include name="openApplication"/>
-          <include name="database"/>
+          <include name="ExportReport"/>
+          <include name="ExportPage"/>
           <include name="VerifySorting"/>
+          <include name="GroupBy"/>
+          <include name="viewExportedExcelDataInReportDownloadsPage"/>
+          <include name="verifyAdvancedSearchcontains"/>
+          <include name="ExportReportForDateRange"/>
           <include name="endTestCase"/>
           <include name="tearDown"/>
-          <include name="verifyAdvancedSearchStartswith"/>
+          <include name="afterEachMethod"/>
+          <include name="startTestCase"/>
+          <include name="openApplication"/>
+          <include name="ExportToExcel"/>
+          <include name="database"/>
+          <include name="VerifySearchByFeature"/>
+          <include name="NavigateToOcmReportsPage"/>
+          <include name="SchedulereportinAgentInteractionReportPage"/>
+          <include name="verifyAdvancedSearchDoesnotcontains"/>
           <include name="verifyAdvancedSearchEndswith"/>
-          <include name="verifyAdvancedSearchANDCriteria"/>
+          <include name="VerifySearchEndsWith"/>
+          <include name="VerifyExportedPage"/>
         </methods>
-      </class> <!-- com.tetherfi.test.reports.OCMAgentAuxReportTest -->
+      </class> <!-- com.tetherfi.test.reports.OCMAgentInteractionReportTest -->
     </classes>
   </test> <!-- ReportsRegression(failed) -->
 </suite> <!-- Failed suite [OCM Reports Test Automation] -->

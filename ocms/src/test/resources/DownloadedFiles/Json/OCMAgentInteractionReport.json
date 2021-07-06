@@ -1,0 +1,493 @@
+﻿{
+  "JsonVersioningDetails": {
+    "FileName": "OCMAgentInteractionReport.json",
+    "Location": "Reports",
+    "Version": "3.3.11.6",
+    "LastModifiedDateTime": "06-11-2020 08:30:00 AM",
+    "LastModifiedBy": "Shruthi",
+    "Description": "Pagination, Search and Sort by using ORM"
+  },
+  "ReportName": "OCM Agent Interaction Report",
+  "Grid": [
+    {
+      /*Main Grid*/
+      "Name": "OCMAgentInteractionReport",
+      "ClientDetailTemplateId": "",
+      "ClientDetailTemplateColumn": "",
+      "DetailReportName": "",
+      "DetailReportColumnNameOne": "",
+      "DetailReportColumnNameTwo": "",
+      "DetailReportColumnNameThree": "",
+      "IsdetailReport": false,
+      "SummaryDataButton": false,
+      "Selectable": "none", /* cell/row/none*/
+      "Change": "onChange",
+      "DataBound": "onDataBound",
+      "ColumnHide": "onDataBound",
+      "ColumnShow": "onDataBound",
+      "ExcelExport": "validateExportExcel",
+      "DetailExpand": "onGridDetailExpand",
+      "Action": "GetGridData",
+      "Controller": "OCMReport",
+      "DataParameter": "",
+      "ServerOperation": "",
+      "GridAutoResize": "0",
+      "PageSize": "10",
+      "Identity": [],
+      "ReportAutoCompleteSearch": {
+        "Title": "Agent ID",
+        "PropertyName": "AgentID"
+      },
+      "Columns": [
+        {
+          "Title": "Agent ID",
+          "PropertyName": "AgentID",
+          "IncludeInReport": true,
+          "IncludeInMenu": true,
+          "Hidden": false,
+          "ClientTemplate": "",
+          "DataFormatType": "number"
+        },
+        {
+          "Title": "Agent Name",
+          "PropertyName": "AgentName",
+          "IncludeInReport": true,
+          "IncludeInMenu": true,
+          "Hidden": false,
+          "ClientTemplate": "",
+          "DataFormatType": "varchar"
+        },
+        {
+          "Title": "Team Name", // display name
+          "PropertyName": "TeamName", // property name as in database/query
+          "IncludeInReport": false, // IncludeInReport = false, if column to be included in report/export else false
+          "IncludeInMenu": false, //Includeinmenu = false, if column should be include in kendo grid menu else false
+          "Hidden": false, // hidden = true, if column need to be hidden in UI else false
+          "ClientTemplate": "", //any Jquery function for formatting column value
+          "DataFormatType": "varchar" // data format type of the column value
+        },
+        {
+          "Title": "Supervisor Name",
+          "PropertyName": "SupervisorName",
+          "IncludeInReport": true,
+          "IncludeInMenu": true,
+          "Hidden": false,
+          "ClientTemplate": "",
+          "DataFormatType": "varchar"
+        },
+        {
+          "Title": "Channel",
+          "PropertyName": "Channel",
+          "IncludeInReport": true,
+          "IncludeInMenu": true,
+          "Hidden": false,
+          "ClientTemplate": "",
+          "DataFormatType": "varchar"
+        },
+        {
+          "Title": "Direction",
+          "PropertyName": "Direction",
+          "IncludeInReport": true,
+          "IncludeInMenu": true,
+          "Hidden": false,
+          "ClientTemplate": "",
+          "DataFormatType": "varchar"
+        },
+        {
+          "Title": "Local Party",
+          "PropertyName": "DNIS",
+          "IncludeInReport": true,
+          "IncludeInMenu": true,
+          "Hidden": false,
+          "ClientTemplate": "",
+          "DataFormatType": "number"
+        },
+        {
+          "Title": "Remote Party",
+          "PropertyName": "Ani",
+          "IncludeInReport": true,
+          "IncludeInMenu": true,
+          "Hidden": false,
+          "ClientTemplate": "",
+          "DataFormatType": "number"
+        },
+        {
+          "Title": "Interaction Connected Date Time",
+          "PropertyName": "ConnectedDateTime",
+          "IncludeInReport": true,
+          "IncludeInMenu": true,
+          "Hidden": false,
+          "ClientTemplate": "",
+          "DataFormatType": "datetime"
+        },
+        {
+          "Title": "Created Date Time",
+          "PropertyName": "CreatedDateTime",
+          "IncludeInReport": true,
+          "IncludeInMenu": true,
+          "Hidden": false,
+          "ClientTemplate": "",
+          "DataFormatType": "datetime"
+        },
+        {
+          "Title": "Session ID",
+          "PropertyName": "SessionID",
+          "IncludeInReport": true,
+          "IncludeInMenu": true,
+          "Hidden": false,
+          "ClientTemplate": "",
+          "DataFormatType": "varchar"
+        },
+        {
+          "Title": "Queue Time",
+          "PropertyName": "QueueTime",
+          "IncludeInReport": true,
+          "IncludeInMenu": true,
+          "Hidden": false,
+          "ClientTemplate": "",
+          "DataFormatType": "time"
+        },
+        {
+          "Title": "Active Time",
+          "PropertyName": "ActiveTime",
+          "IncludeInReport": true,
+          "IncludeInMenu": true,
+          "Hidden": false,
+          "ClientTemplate": "",
+          "DataFormatType": "time"
+        },
+        {
+          "Title": "Hold Time",
+          "PropertyName": "HoldTime",
+          "IncludeInReport": true,
+          "IncludeInMenu": true,
+          "Hidden": false,
+          "ClientTemplate": "",
+          "DataFormatType": "time"
+        },
+        {
+          "Title": "ACW Time",
+          "PropertyName": "ACWTime",
+          "IncludeInReport": true,
+          "IncludeInMenu": true,
+          "Hidden": false,
+          "ClientTemplate": "",
+          "DataFormatType": "time"
+        },
+        {
+          "Title": "Handle Time",
+          "PropertyName": "HandleTime",
+          "IncludeInReport": true,
+          "IncludeInMenu": true,
+          "Hidden": false,
+          "ClientTemplate": "",
+          "DataFormatType": "time"
+        },
+        {
+          "Title": "Is Conferenced",
+          "PropertyName": "IsConferenced",
+          "IncludeInReport": true,
+          "IncludeInMenu": true,
+          "Hidden": false,
+          "ClientTemplate": "",
+          "DataFormatType": "boolean"
+        },
+        {
+          "Title": "Is Transfered",
+          "PropertyName": "IsTransfered",
+          "IncludeInReport": true,
+          "IncludeInMenu": true,
+          "Hidden": false,
+          "ClientTemplate": "",
+          "DataFormatType": "boolean"
+        },
+        {
+          "Title": "TPIN Transfer Reconnected",
+          "PropertyName": "TPINTransferReconnected",
+          "IncludeInReport": true,
+          "IncludeInMenu": true,
+          "Hidden": false,
+          "ClientTemplate": "",
+          "DataFormatType": "boolean"
+        },
+        {
+          "Title": "Sub Channel",
+          "PropertyName": "SubChannel",
+          "IncludeInReport": true,
+          "IncludeInMenu": true,
+          "Hidden": false,
+          "ClientTemplate": "",
+          "DataFormatType": "varchar"
+        },
+        {
+          "Title": "Sub Session ID",
+          "PropertyName": "SubSessionID",
+          "IncludeInReport": true,
+          "IncludeInMenu": true,
+          "Hidden": false,
+          "ClientTemplate": "",
+          "DataFormatType": "varchar"
+        },
+        {
+          "Title": "Interaction ID",
+          "PropertyName": "InteractionID",
+          "IncludeInReport": true,
+          "IncludeInMenu": true,
+          "Hidden": false,
+          "ClientTemplate": "",
+          "DataFormatType": "number"
+        },
+        {
+          "Title": "Skill",
+          "PropertyName": "Skill",
+          "IncludeInReport": true,
+          "IncludeInMenu": true,
+          "Hidden": false,
+          "ClientTemplate": "",
+          "DataFormatType": "varchar"
+        },
+        {
+          "Title": "Skill Name",
+          "PropertyName": "SkillName",
+          "IncludeInReport": true,
+          "IncludeInMenu": true,
+          "Hidden": false,
+          "ClientTemplate": "",
+          "DataFormatType": "varchar"
+        },
+        {
+          "Title": "DNIS Name",
+          "PropertyName": "DNISName",
+          "IncludeInReport": true,
+          "IncludeInMenu": true,
+          "Hidden": false,
+          "ClientTemplate": "",
+          "DataFormatType": "varchar"
+        },
+        {
+          "Title": "Transfered To",
+          "PropertyName": "TransferedTo",
+          "IncludeInReport": true,
+          "IncludeInMenu": true,
+          "Hidden": false,
+          "ClientTemplate": "",
+          "DataFormatType": "varchar"
+        },
+        {
+          "Title": "Conferenced To",
+          "PropertyName": "ConferencedTo",
+          "IncludeInReport": true,
+          "IncludeInMenu": true,
+          "Hidden": false,
+          "ClientTemplate": "",
+          "DataFormatType": "varchar"
+        },
+        {
+          "Title": "Conference To Agent List",
+          "PropertyName": "ConferenceToAgentList",
+          "IncludeInReport": true,
+          "IncludeInMenu": true,
+          "Hidden": false,
+          "ClientTemplate": "",
+          "DataFormatType": "varchar"
+        },
+        {
+          "Title": "Transfer To Agent",
+          "PropertyName": "TransferToAgent",
+          "IncludeInReport": true,
+          "IncludeInMenu": true,
+          "Hidden": false,
+          "ClientTemplate": "",
+          "DataFormatType": "varchar"
+        },
+        {
+          "Title": "Transfer Conference From Agent",
+          "PropertyName": "TransferConferenceFromAgent",
+          "IncludeInReport": true,
+          "IncludeInMenu": true,
+          "Hidden": false,
+          "ClientTemplate": "",
+          "DataFormatType": "number"
+        },
+        {
+          "Title": "Transfer Conference From Interaction",
+          "PropertyName": "TransferConferenceFromInteraction",
+          "IncludeInReport": true,
+          "IncludeInMenu": true,
+          "Hidden": false,
+          "ClientTemplate": "",
+          "DataFormatType": "number"
+        },
+        {
+          "Title": "Other Data",
+          "PropertyName": "OtherData",
+          "IncludeInReport": false,
+          "IncludeInMenu": true,
+          "Hidden": true,
+          "ClientTemplate": "",
+          "DataFormatType": "varchar"
+        },
+        {
+          "Title": "Closed Date Time",
+          "PropertyName": "ClosedDateTime",
+          "IncludeInReport": true,
+          "IncludeInMenu": true,
+          "Hidden": false,
+          "ClientTemplate": "",
+          "DataFormatType": "datetime"
+        },
+        {
+          "Title": "Interaction Disconnected Date Time",
+          "PropertyName": "DisconnectedDateTime",
+          "IncludeInReport": true,
+          "IncludeInMenu": true,
+          "Hidden": false,
+          "ClientTemplate": "",
+          "DataFormatType": "datetime"
+        },
+        {
+          "Title": "Closed Reason",
+          "PropertyName": "ClosedReason",
+          "IncludeInReport": true,
+          "IncludeInMenu": true,
+          "Hidden": false,
+          "ClientTemplate": "",
+          "DataFormatType": "varchar"
+        },
+        {
+          "Title": "CIF",
+          "PropertyName": "CIF",
+          "IncludeInReport": true,
+          "IncludeInMenu": true,
+          "Hidden": false,
+          "ClientTemplate": "",
+          "DataFormatType": "varchar"
+        },
+        {
+          "Title": "Registered Mobile No",
+          "PropertyName": "RegisteredMobileNo",
+          "IncludeInReport": true,
+          "IncludeInMenu": true,
+          "Hidden": false,
+          "ClientTemplate": "",
+          "DataFormatType": ""
+        }
+      ]
+    },
+    {
+      /*Main Grid Client Template*/
+      "Name": "",
+      "ClientDetailTemplateId": "",
+      "ClientDetailTemplateColumn": "",
+      "DetailReportName": "",
+      "DetailReportColumnNameOne": "",
+      "DetailReportColumnNameTwo": "",
+      "DetailReportColumnNameThree": "",
+      "IsdetailReport": false,
+      "SummaryDataButton": false,
+      "Selectable": "cell", /* cell/row/none*/
+      "Change": "",
+      "DataBound": "",
+      "ColumnHide": "",
+      "ColumnShow": "",
+      "ExcelExport": "",
+      "DetailExpand": "",
+      "Action": "",
+      "Controller": "",
+      "DataParameter": "",
+      "ServerOperation": "",
+      "GridAutoResize": "1",
+      "PageSize": "10",
+      "Identity": [],
+      "ReportAutoCompleteSearch": {
+      },
+      "Columns": [
+      ]
+    },
+    {
+      /*Main grid drill first*/
+      "Name": "",
+      "ClientDetailTemplateId": "",
+      "ClientDetailTemplateColumn": "",
+      "DetailReportName": "",
+      "DetailReportColumnNameOne": "",
+      "DetailReportColumnNameTwo": "",
+      "DetailReportColumnNameThree": "",
+      "IsdetailReport": false,
+      "SummaryDataButton": false,
+      "Selectable": "", /* cell/row/none*/
+      "Change": "",
+      "DataBound": "",
+      "ColumnHide": "",
+      "ColumnShow": "",
+      "ExcelExport": "",
+      "DetailExpand": "",
+      "Action": "",
+      "Controller": "",
+      "DataParameter": "",
+      "ServerOperation": "",
+      "GridAutoResize": "1",
+      "PageSize": "10",
+      "Identity": [
+      ],
+      "ReportAutoCompleteSearch": {},
+      "Columns": []
+    },
+    {
+      /*Main grid drill second*/
+      "Name": "",
+      "ClientDetailTemplateId": "",
+      "ClientDetailTemplateColumn": "",
+      "DetailReportName": "",
+      "DetailReportColumnNameOne": "",
+      "DetailReportColumnNameTwo": "",
+      "DetailReportColumnNameThree": "",
+      "IsdetailReport": false,
+      "SummaryDataButton": false,
+      "Selectable": "", /* cell/row/none*/
+      "Change": "",
+      "DataBound": "",
+      "ColumnHide": "",
+      "ColumnShow": "",
+      "ExcelExport": "",
+      "DetailExpand": "",
+      "Action": "",
+      "Controller": "",
+      "DataParameter": "",
+      "ServerOperation": "",
+      "GridAutoResize": "1",
+      "PageSize": "10",
+      "Identity": [],
+      "ReportAutoCompleteSearch": {},
+      "Columns": []
+    },
+    {
+      /*Main grid drill third*/
+      "Name": "",
+      "ClientDetailTemplateId": "",
+      "ClientDetailTemplateColumn": "",
+      "DetailReportName": "",
+      "DetailReportColumnNameOne": "",
+      "DetailReportColumnNameTwo": "",
+      "DetailReportColumnNameThree": "",
+      "IsdetailReport": false,
+      "SummaryDataButton": false,
+      "Selectable": "", /* cell/row/none*/
+      "Change": "",
+      "DataBound": "",
+      "ColumnHide": "",
+      "ColumnShow": "",
+      "ExcelExport": "",
+      "DetailExpand": "",
+      "Action": "",
+      "Controller": "",
+      "DataParameter": "",
+      "ServerOperation": "",
+      "GridAutoResize": "1",
+      "PageSize": "10",
+      "Identity": [],
+      "ReportAutoCompleteSearch": {},
+      "Columns": []
+    }
+  ]
+}

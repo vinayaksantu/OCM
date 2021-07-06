@@ -35,7 +35,7 @@ public class OCMAgentInteractionReportTest extends BaseTest {
 		ftp.transferFileFromRemote(remoteFilePath,destinationFilePath);
 	}
 
-	/*@Test(priority=1,description="To verify Show Report for Single Date")
+	@Test(priority=1,description="To verify Show Report for Single Date")
 	public void ShowReport() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentInteractionReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
@@ -165,7 +165,6 @@ public class OCMAgentInteractionReportTest extends BaseTest {
 		ReportDetails reportDetails= new ReportDetails(map);
 		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
 		ocmReportsPage.showReport(reportDetails);
-		Assert.assertTrue(ocmReportsPage.verifyDateRangeReportDisplayed(reportDetails),"Show report assertion failed");
 		OCMAgentInteractionReportPage agentInteractionPage=PageFactory.createPageInstance(driver,OCMAgentInteractionReportPage.class);
 		Assert.assertTrue(agentInteractionPage.verifySearchByTextbox(reportDetails));
 	}
@@ -366,7 +365,7 @@ public class OCMAgentInteractionReportTest extends BaseTest {
 		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
 		ocmReportsPage.scheduleReport(reportDetails);
 		Assert.assertTrue(ocmReportsPage.verifyScheduleReport(),"Schedule report assertion failed");
-	}*/
+	}
 
 	@Test(priority=31,description="To verify Export Report on OCM Reports Page")
 	public void ExportReport() throws Exception {
@@ -398,7 +397,7 @@ public class OCMAgentInteractionReportTest extends BaseTest {
 		Assert.assertTrue(ocmReportsPage.verifyExportedSheet("OCMReportDownload","OCM Agent Interaction Repo"));	
 	}
 
-	/*@Test(priority=34,description="Delete record in Reports Download without Delete reason")
+	@Test(priority=34,description="Delete record in Reports Download without Delete reason")
 	public void DeleteRecordWithoutDeleteReasonInReportsDownloadforSingleDate() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentInteractionReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ExportReport").getTestData().get(0);
@@ -630,7 +629,7 @@ public class OCMAgentInteractionReportTest extends BaseTest {
 		agentInteractionPage.verifycolumnsHeaderEnabled();
 		JSONReader json= new JSONReader(destinationFilePath);
 		Assert.assertTrue(agentInteractionPage.verifyJsonDataForgridColumnHidden(json.getJsonGridColumnTitleKeyDataForReports("Hidden")),"JSON data grid column hidden assertion failed");  	
-	}*/
+	}
 
 	@Test(priority=54,description="To Verify Ascending and Descending order")
 	public void VerifySorting() throws Exception {
@@ -642,7 +641,7 @@ public class OCMAgentInteractionReportTest extends BaseTest {
 		OCMAgentInteractionReportPage agentInteractionReportPage =PageFactory.createPageInstance(driver,OCMAgentInteractionReportPage.class);
 		Assert.assertTrue(agentInteractionReportPage.verifySorting(),"Sorting assertion failed");
 	}
-
+	
 	@AfterMethod
 	public void afterEachMethod(Method method) throws InterruptedException {
 		Screenshot screenshot=new Screenshot(driver);

@@ -70,7 +70,7 @@ public class AgentTemplate_WidgetTab extends BaseTest{
 	@Test(priority=4,description="To Verify Close Button at add new widget")
 	public void VerifyAddNewWidgtTemplateWindowCloseButton() throws Exception {
 		AgentTemplatePage agentTemplatePage=PageFactory.createPageInstance(driver, AgentTemplatePage.class);
-		Assert.assertTrue(agentTemplatePage.VerifyAddWidgetTemplateWindowCloseButton(2), "CloseButton assertion Failed");
+		Assert.assertTrue(agentTemplatePage.VerifyAddWidgetTemplateWindowCancelButton(2), "CloseButton assertion Failed");
 	}
 	//has defect
 	@Test(priority=5,description="To Verify Add New Widget Template with valid Data also demonstrates transfer to")

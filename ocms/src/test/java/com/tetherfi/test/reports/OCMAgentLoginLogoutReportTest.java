@@ -35,7 +35,7 @@ public class OCMAgentLoginLogoutReportTest extends BaseTest {
 		ftp.transferFileFromRemote(remoteFilePath,destinationFilePath);
 	}
 
-	/*@Test(priority=1,description="To verify Show Report for Single Date")
+	@Test(priority=1,description="To verify Show Report for Single Date")
 	public void ShowReport() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentLoginLogoutReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
@@ -168,7 +168,7 @@ public class OCMAgentLoginLogoutReportTest extends BaseTest {
 		ocmReportsPage.showReport(reportDetails);  
 		OCMAgentLoginLogoutReportPage agntloginlogoutPage=PageFactory.createPageInstance(driver,OCMAgentLoginLogoutReportPage.class);
 		Assert.assertTrue(agntloginlogoutPage.verifySearchClear(reportDetails));    	
-	}*/
+	}
 
 	@Test(priority=13,description="Advance search on reports page for Is equal to Criteria")
 	public void verifyAdvancedSearchIsEqualTo() throws Exception {
@@ -241,7 +241,7 @@ public class OCMAgentLoginLogoutReportTest extends BaseTest {
 		Assert.assertTrue(agntloginlogoutPage.verifyAdvanceSearchEndsWith(reportDetails));
 	}
 
-	/*@Test(priority=19,description="Advance search with And Condition")
+	@Test(priority=19,description="Advance search with And Condition")
 	public void verifyAdvancedSearchANDCriteria() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentLoginLogoutReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(0);
@@ -750,7 +750,7 @@ public class OCMAgentLoginLogoutReportTest extends BaseTest {
 		agntloginlogoutPage.verifycolumnsHeaderEnabled();
 		JSONReader json= new JSONReader(destinationFilePath);
 		Assert.assertTrue(agntloginlogoutPage.verifyJsonDataForgridColumnHidden(json.getJsonGridColumnTitleKeyDataForReports("Hidden")),"JSON data grid column hidden assertion failed");  	
-	}*/
+	}
 
 	@AfterMethod
 	public void afterEachMethod(Method method) throws InterruptedException {

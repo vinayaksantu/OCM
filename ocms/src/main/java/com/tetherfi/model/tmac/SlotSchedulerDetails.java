@@ -45,45 +45,25 @@ public class SlotSchedulerDetails {
 		modifyReason=readModifyReason(map);
 	}
 
-
-	
-
-
 	private String readModifyReason(Map<String, String> map) {
 		String value=map.get("Modify Reason");
 		return value;
 	}
-
-
-
-
 
 	private String readUpdatedDescription(Map<String, String> map) {
 		String value=map.get("Updated Slot Description");
 		return value;
 	}
 
-
-
-
-
 	private String readUpdatedThursday(Map<String, String> map) {
 		String value=map.get("Updated Thursday");
 		return value;
 	}
 
-
-
-
-
 	private String readUpdatedMonday(Map<String, String> map) {
 		String value=map.get("Updated Monday");
 		return value;
 	}
-
-
-
-
 
 	private String readSlotGroup(Map<String, String> map) {
 		String value=map.get("Slot Group");
