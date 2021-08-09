@@ -59,7 +59,6 @@ public class AgentSettingsDeleteTest {
 		tmacPage.navigateToAgentSettingsPage();
 		AgentSettingsNewDesignPage agentSettingsPage=PageFactory.createPageInstance(driver,AgentSettingsNewDesignPage.class);
 		Assert.assertTrue(agentSettingsPage.isAgentSettingsPageDisplayed(),"Agent Settings page assertion failed");
-		driver.navigate().refresh();
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 	}
 

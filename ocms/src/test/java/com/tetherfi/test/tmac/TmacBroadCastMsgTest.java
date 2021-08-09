@@ -18,7 +18,7 @@ import java.util.Map;
 
 public class TmacBroadCastMsgTest extends BaseTest {
 	Screenshot screenshot=new Screenshot(driver);
-	//@BeforeClass
+	@BeforeClass
 	public void AddNewAgentTeamManagementRecord() throws Exception {
 		HomePage homePage= PageFactory.createPageInstance(driver,HomePage.class);
 		homePage.navigateToOCMPage();
@@ -227,7 +227,7 @@ public class TmacBroadCastMsgTest extends BaseTest {
 	@Test(priority=18)
 	public void SearchClearSearch() throws Exception{
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\TmacBroadcastMsgData.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"Invalid").getTestData().get(4);
+		Map<String, String> map = new ExcelReader(filePath,"Invalid").getTestData().get(5);
 		TmacBroadCastMsgDetails tmacBroadCastMsgDetails=new TmacBroadCastMsgDetails(map);
 		TmacBroadCastMsgPage tmacBroadCastMsgPage  = PageFactory.createPageInstance(driver, TmacBroadCastMsgPage.class);
 		Assert.assertTrue(tmacBroadCastMsgPage.verifyinvalidsearch(tmacBroadCastMsgDetails), "InvalidSearchAssertionFailed");

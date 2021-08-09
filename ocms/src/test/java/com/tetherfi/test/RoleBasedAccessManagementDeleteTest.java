@@ -58,7 +58,6 @@ public class RoleBasedAccessManagementDeleteTest {
         ocmHomePage.navigateToRoleBasedAccessManagementPage();
         RoleBasedAccessManagementPage RoleBasedAccessManagementPage = PageFactory.createPageInstance(driver, RoleBasedAccessManagementPage.class);
         Assert.assertTrue(RoleBasedAccessManagementPage.isRoleBasedAccessManagementPageDisplayed(), "RoleBased Access Management page assertion failed");
-        driver.navigate().refresh();
         driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 	}
 	

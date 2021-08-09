@@ -61,7 +61,6 @@ public class UserOnBoardingDivisionLevelUserDeleteTest {
         ocmHomePage.navigateToUserOnBoardingPage();
         UserOnBoardingPage userOnBoardingPage = PageFactory.createPageInstance(driver, UserOnBoardingPage.class);
         Assert.assertTrue(userOnBoardingPage.isUserOnBoardingPageDisplayed(), "NavigateToNewUserOnBoardingPage Page assertion failed");
-        driver.navigate().refresh();
         driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 	}
 	

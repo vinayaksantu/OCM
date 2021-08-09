@@ -64,7 +64,7 @@ public class UserOnBoardingImportedUserEditandDeleteTest {
 		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 	}
 
-	/*@Test(groups= {"Maker"},priority=1,description="Verify Import Valid UserDetails Channel Count and Features File to REVERT ")
+	@Test(groups= {"Maker"},priority=1,description="Verify Import Valid UserDetails Channel Count and Features File to REVERT ")
 	public void VerifyImportValidUserDetailsChannelCountandFeaturesFiletoREVERT() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath, "ImportUsers").getTestData().get(2);
@@ -106,7 +106,7 @@ public class UserOnBoardingImportedUserEditandDeleteTest {
 		userOnBoardingPage.clickonReject("Reject Created");
 		Assert.assertFalse(userOnBoardingPage.verifyMessage(),"Reject record assertion failed");
 		Assert.assertTrue(userOnBoardingPage.verifyReviewAuditTrail("Rejected","Reject Created"));
-	}*/
+	}
 
 	@Test(groups = { "Maker" }, priority=6,description="Verify Import Valid UserDetails ChannelCount and Features To APPROVE")
 	public void VerifyImportValidUserDetailsChannelCountandFeaturesToAPPROVE() throws Exception {
@@ -117,7 +117,7 @@ public class UserOnBoardingImportedUserEditandDeleteTest {
 		Assert.assertTrue(userOnBoardingPage.VerifyImportUserFiles(userOnBoardingDetails), "Verify Import Valid UserDetails ChannelCount and Features To APPROVE Assertion Failed");
 	}
 	
-    /*@Test(groups = { "Maker" },priority=7,dependsOnMethods = "VerifyImportValidUserDetailsChannelCountandFeaturesToAPPROVE",description="To Verify AuditTrail Report for Record Create")//Bug:trxn should be MakerImport
+    @Test(groups = { "Maker" },priority=7,dependsOnMethods = "VerifyImportValidUserDetailsChannelCountandFeaturesToAPPROVE",description="To Verify AuditTrail Report for Record Create")//Bug:trxn should be MakerImport
 	public void VerifyAuditTrailReportForCreate() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(5);
@@ -159,7 +159,7 @@ public class UserOnBoardingImportedUserEditandDeleteTest {
 		Assert.assertTrue(userOnBoardingPage.verifyReviewAuditTrail("Approved","Approve Create"));
 	}
 	
-	/*@Test(groups = { "Maker" },priority=11,description="To Verify Export to Excel button")
+	@Test(groups = { "Maker" },priority=11,description="To Verify Export to Excel button")
     public void ExportToExcelImportedRecord() throws Exception{
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(5);
@@ -184,7 +184,7 @@ public class UserOnBoardingImportedUserEditandDeleteTest {
         Assert.assertTrue(userOnBoardingPage.verifyexportToExcelSheetforImportedRecord(UserOnBoardingDetails,maplist));	
     }
 	
-	/*@Test(groups= {"Maker"},priority=13,description="Edited Imported Record to Verify Revert")//Bug:Edit Revert and Reject is failing
+	@Test(groups= {"Maker"},priority=13,description="Edited Imported Record to Verify Revert")//Bug:Edit Revert and Reject is failing
 	public void EditRevertImportedUserOnBoardingRecord() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(1);
@@ -408,7 +408,7 @@ public class UserOnBoardingImportedUserEditandDeleteTest {
 		userOnBoardingPage.clickonApprove("Approve Deleted");
 		Assert.assertTrue(userOnBoardingPage.verifyMessage(),"Approve record assertion failed");
 		Assert.assertTrue(userOnBoardingPage.verifyReviewAuditTrail("Approved","Approve Deleted"));
-	}*/
+	}
 
 	@AfterMethod
 	public void afterEachMethod(Method method){

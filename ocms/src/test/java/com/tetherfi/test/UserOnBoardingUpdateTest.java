@@ -60,12 +60,11 @@ public class UserOnBoardingUpdateTest {
 		ocmHomePage.navigateToUserOnBoardingPage();
 		UserOnBoardingPage userOnBoardingPage = PageFactory.createPageInstance(driver, UserOnBoardingPage.class);
 		Assert.assertTrue(userOnBoardingPage.isUserOnBoardingPageDisplayed(), "NavigateToNewUserOnBoardingPage Page assertion failed");
-		driver.navigate().refresh();
 		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 	}
 
 
-	/*@Test(groups= {"Maker"},priority=1,description="Edited Record to Verify Revert")
+	@Test(groups= {"Maker"},priority=1,description="Edited Record to Verify Revert")
 	public void EditRevertUserOnBoardingRecord() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(0);
@@ -139,7 +138,7 @@ public class UserOnBoardingUpdateTest {
 		ReportDetails reportDetails= new ReportDetails(map1);
 		ocmReportsPage.showReport(reportDetails);
 		Assert.assertTrue(ocmReportsPage.verifyUserOnBoardingUpdate(UserOnBoardingDetails, "CheckerReject"),"Audit Trail report assertion failed");
-	}*/
+	}
 
 	@Test(groups= {"Maker"},priority=8,description="To Verify Edit UserOnBoarding Record ")
 	public void EditUserOnBoardingRecord() throws Exception {
@@ -151,7 +150,7 @@ public class UserOnBoardingUpdateTest {
 		Assert.assertEquals(userOnBoardingPage.verifySuccessMessage(), "Record Updated Successfully");
 	}
 
-	/*@Test(groups = { "Maker" },priority=9)//,dependsOnMethods="EditUserOnBoardingRecord",description="To Verify AuditTrailData for Edited UserOnBoardingRecord ")
+	@Test(groups = { "Maker" },priority=9)//,dependsOnMethods="EditUserOnBoardingRecord",description="To Verify AuditTrailData for Edited UserOnBoardingRecord ")
 	public void VerifyAuditTrailDataForEditUserOnBoardingRecord() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(0);
@@ -174,7 +173,7 @@ public class UserOnBoardingUpdateTest {
 		ReportDetails reportDetails= new ReportDetails(map1);
 		ocmReportsPage.showReport(reportDetails);
 		Assert.assertTrue(ocmReportsPage.verifyUserOnBoardingUpdate(UserOnBoardingDetails,"MakerUpdate"),"Audit Trail report assertion failed");
-	}*/
+	}
 
 	@Test(groups = { "Maker" },priority=11)//,dependsOnMethods="EditUserOnBoardingRecord",description="To Verify VerifySendForApprovalForEditRejectRecordforApprove")
 	public void VerifySendForApprovalForEditedRecordforApprove() throws Exception {
@@ -185,7 +184,7 @@ public class UserOnBoardingUpdateTest {
 		Assert.assertTrue(userOnBoardingPage.verifyStatus("Approval Pending"),"approal status details failed");
 	}
 
-	//@Test(groups= {"Maker"},priority=12)//,dependsOnMethods="VerifySendForApprovalForEditedRecordforApprove")
+	@Test(groups= {"Maker"},priority=12)//,dependsOnMethods="VerifySendForApprovalForEditedRecordforApprove")
 	public void VerifyAuditTrialReportForSendForApprovalUpdate() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(0);	
@@ -208,7 +207,7 @@ public class UserOnBoardingUpdateTest {
 		Assert.assertTrue(userOnBoardingPage.verifyReviewAuditTrail("Approved","Approve Edit"));
 	}
 
-	/*@Test(groups = { "Checker" },priority=14)//,dependsOnMethods = "ApproveforEditedUserOnBoardingRecord",description=" To VerifyAuditTrailReportForApprove ")
+	@Test(groups = { "Checker" },priority=14)//,dependsOnMethods = "ApproveforEditedUserOnBoardingRecord",description=" To VerifyAuditTrailReportForApprove ")
 	public void VerifyAuditTrailReportForApprove() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
@@ -231,7 +230,7 @@ public class UserOnBoardingUpdateTest {
 		UserOnBoardingPage userOnBoardingPage=PageFactory.createPageInstance(driver,UserOnBoardingPage.class);
 		userOnBoardingPage.EditRecordWithoutModifyReason(UserOnBoardingDetails);
 		Assert.assertFalse(userOnBoardingPage.getErrorMsg(),"Invalid Record Assertion failed");
-	}*/
+	}
 
 	@AfterMethod
 	public void afterEachMethod(Method method){

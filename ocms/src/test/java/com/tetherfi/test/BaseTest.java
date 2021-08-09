@@ -29,7 +29,7 @@ public class BaseTest {
 			driver = browserFactory.createBrowserInstance(BrowserFactory.BrowserType.CHROME, System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles");
 			String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\LoginData.xlsx";
 			Map<String, String> map = new ExcelReader(filePath,"Login").getTestData().get(0);
-			driver.get("https://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
+			driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
 			LoginPage loginPage=PageFactory.createPageInstance(driver,LoginPage.class);
 			loginPage.overrideSecurityConcern();
 			if(map.get("LoginType").equals("Custom")){

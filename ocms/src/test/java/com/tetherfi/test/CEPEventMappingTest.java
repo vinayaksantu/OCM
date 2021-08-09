@@ -93,7 +93,7 @@ public class CEPEventMappingTest extends BaseTest {
          CepEventMappingDetails CepEventMappingDetails = new CepEventMappingDetails(map);
      	 CepEventMappingPage CepEventMappingPage=PageFactory.createPageInstance(driver,CepEventMappingPage.class);
          CepEventMappingPage.addNewCepEventMappingRecord(CepEventMappingDetails);
-         Assert.assertEquals(CepEventMappingPage.getMessage(),"Duplicate CEP Event","Duplicate record assertion failed");
+         Assert.assertEquals(CepEventMappingPage.getMessage(),"Record Creation Failed, Duplicate Record!","Duplicate record assertion failed");
     }
     
     @Test(priority=8)

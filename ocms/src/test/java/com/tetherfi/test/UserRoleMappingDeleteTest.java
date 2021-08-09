@@ -58,7 +58,6 @@ public class UserRoleMappingDeleteTest {
         ocmHomePage.navigateToUserRoleMappingPage();
         NewUserRoleMappingPage NewUserRoleMappingPage = PageFactory.createPageInstance(driver, NewUserRoleMappingPage.class);
         Assert.assertTrue(NewUserRoleMappingPage.isUserRoleMappingPageDisplayed(), "UserRoleMapping page assertion failed");
-        driver.navigate().refresh();
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
     }
 	

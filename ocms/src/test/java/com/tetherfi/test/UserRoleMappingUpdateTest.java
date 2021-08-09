@@ -59,7 +59,6 @@ public class UserRoleMappingUpdateTest {
         ocmHomePage.navigateToUserRoleMappingPage();
         NewUserRoleMappingPage NewUserRoleMappingPage = PageFactory.createPageInstance(driver, NewUserRoleMappingPage.class);
         Assert.assertTrue(NewUserRoleMappingPage.isUserRoleMappingPageDisplayed(), "Branch Management page assertion failed");
-        driver.navigate().refresh();
         driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 	}
 	@Test(groups= {"Maker"}, priority=1)

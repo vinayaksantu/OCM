@@ -66,11 +66,10 @@ protected WebDriver driver;
         faxPage.navigateToFaxTemplatePage();
         FaxTemplatePage faxTemplatePage = PageFactory.createPageInstance(driver, FaxTemplatePage.class);
         Assert.assertTrue(faxTemplatePage.isFaxTemplatePageDisplayed(), "FAX page assertion failed");
-        driver.navigate().refresh();
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 	 }
 	
-	/*@Test(groups= {"Maker"},priority=1)
+	@Test(groups= {"Maker"},priority=1)
 	public void VerifyEditCancelButton() throws Exception {
 		String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxTemplateData.xlsx";
 		Map<String, String> map=new ExcelReader(filePath,"Edit").getTestData().get(1);
@@ -153,7 +152,7 @@ protected WebDriver driver;
 	    ReportDetails reportDetails= new ReportDetails(map1);
 	    ocmReportsPage.showReport(reportDetails);
 	    Assert.assertTrue(ocmReportsPage.verifyFaxTemplateUpdate(faxTemplateDetails, "CheckerReject"), "Audit Trail Assertion Failed");
-	}*/
+	}
 	
 	@Test(groups= {"Maker"},priority=9)
 	public void EditApproveFaxTemplateRecord() throws Exception {

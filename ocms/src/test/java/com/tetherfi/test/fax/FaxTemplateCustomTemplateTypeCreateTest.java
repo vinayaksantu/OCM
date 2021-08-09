@@ -68,7 +68,6 @@ public class FaxTemplateCustomTemplateTypeCreateTest {
         faxPage.navigateToFaxTemplatePage();
         FaxTemplatePage faxTemplatePage = PageFactory.createPageInstance(driver, FaxTemplatePage.class);
         Assert.assertTrue(faxTemplatePage.isFaxTemplatePageDisplayed(), "FAX page assertion failed");
-        driver.navigate().refresh();
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 	 }
 	

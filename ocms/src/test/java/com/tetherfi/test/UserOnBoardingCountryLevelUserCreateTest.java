@@ -61,11 +61,10 @@ public class UserOnBoardingCountryLevelUserCreateTest {
 		ocmHomePage.navigateToUserOnBoardingPage();
 		UserOnBoardingPage userOnBoardingPage = PageFactory.createPageInstance(driver, UserOnBoardingPage.class);
 		Assert.assertTrue(userOnBoardingPage.isUserOnBoardingPageDisplayed(), "NavigateToNewUserOnBoardingPage Page assertion failed");
-		driver.navigate().refresh();
 		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 	}
 
-	/*@Test(groups= {"Maker"},priority=1,description="Add Record to Verify Revert ")
+	@Test(groups= {"Maker"},priority=1,description="Add Record to Verify Revert ")
 	public void VerifyAddRevertRecord() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -139,7 +138,7 @@ public class UserOnBoardingCountryLevelUserCreateTest {
 		ReportDetails reportDetails= new ReportDetails(map1);
 		ocmReportsPage.showReport(reportDetails);
 		Assert.assertTrue(ocmReportsPage.verifyUserOnBoardingCreate(userOnBoardingDetails, "CheckerReject"),"Audit Trail report assertion failed");
-	}*/
+	}
 
 	@Test(groups = { "Maker" },priority=8)//,description="To Verify Add Reord to Approve ")
 	public void AddNewUserOnBoardingRecord() throws Exception {
@@ -151,7 +150,7 @@ public class UserOnBoardingCountryLevelUserCreateTest {
 		Assert.assertEquals(userOnBoardingPage.VerifyMessage(), "Record Created Successfully","Record Creation Assertion failed");
 	}
 
-	/*@Test(groups = { "Maker" },priority=9)//,dependsOnMethods = "AddNewUserOnBoardingRecord",description="To Verify AuditTrail Report for Record Create")
+	@Test(groups = { "Maker" },priority=9)//,dependsOnMethods = "AddNewUserOnBoardingRecord",description="To Verify AuditTrail Report for Record Create")
 	public void VerifyAuditTrailReportForCreate() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -174,7 +173,7 @@ public class UserOnBoardingCountryLevelUserCreateTest {
 		UserOnBoardingPage userOnBoardingPage = PageFactory.createPageInstance(driver, UserOnBoardingPage.class);
 		userOnBoardingPage.selectUserOnBoardingAuditTrailTab();
 		Assert.assertTrue(userOnBoardingPage.verifyAuditTrail(userOnBoardingDetails, "MakerCreate", "New"), "Audit trail details failed");
-	}*/
+	}
 
 	@Test(groups = { "Maker" },priority=11)//,dependsOnMethods="VerifyAuditTrailDataForAddNewUserOnBoardingRecord",description="To Verify SendForApproval for AddNewUserOnBoarding ")
 	public void VerifySendForApprovalForAddNewUserOnBoarding() throws Exception {
@@ -185,7 +184,7 @@ public class UserOnBoardingCountryLevelUserCreateTest {
 		Assert.assertTrue(userOnBoardingPage.verifyStatus("Approval Pending"),"approval status details failed");
 	}
 
-	//@Test(groups = { "Maker" },priority=12)//,dependsOnMethods = "VerifySendForApprovalForAddNewUserOnBoarding",description="VerifyAuditTrail Report for SendForApproval ")
+	@Test(groups = { "Maker" },priority=12)//,dependsOnMethods = "VerifySendForApprovalForAddNewUserOnBoarding",description="VerifyAuditTrail Report for SendForApproval ")
 	public void VerifyAuditTrailReportForSendForApproval() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -209,7 +208,7 @@ public class UserOnBoardingCountryLevelUserCreateTest {
 	}
 
 
-	/*@Test(groups = { "Checker" },priority=14)//,dependsOnMethods = "ApproveforAddNewUserOnBoardingRecord",description="To VerifyAuditTrailReportForApproved Record")
+	@Test(groups = { "Checker" },priority=14)//,dependsOnMethods = "ApproveforAddNewUserOnBoardingRecord",description="To VerifyAuditTrailReportForApproved Record")
 	public void VerifyAuditTrailReportForApprove() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -232,7 +231,7 @@ public class UserOnBoardingCountryLevelUserCreateTest {
 		UserOnBoardingPage userOnBoardingPage = PageFactory.createPageInstance(driver, UserOnBoardingPage.class);
 		userOnBoardingPage.addNewDifferentLevelUserOnBoardingRecordWithAllValidData(userOnBoardingDetails);
 		Assert.assertEquals(userOnBoardingPage.VerifyMessage(), "Record Creation Failed, Already Exist","Record Creation Assertion failed");
-	}*/
+	}
 
 
 
