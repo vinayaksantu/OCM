@@ -26,6 +26,8 @@ import com.tetherfi.utility.Screenshot;
 
 public class SmsResponseTemplateCreateTest {
 	
+//	sample changes
+	
 	protected WebDriver driver;
 	@BeforeMethod
     public void NavigateToSmsResponseTemplatePage(Method method) throws Exception {
