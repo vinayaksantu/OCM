@@ -463,7 +463,7 @@ public class AttributesPage extends BasePage{
 		selectWebElement(searchBtn);
 		selectWebElement(selectSearchCol.get(0));
 		selectDropdownFromVisibleText(columnNameList,"Name");
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		selectWebElement(selectSearchCol.get(1));
 		selectDropdownFromVisibleText(searchCriteriaDropDwn,"Contains");
 		enterValueToTxtField(searchTextBox,name);
