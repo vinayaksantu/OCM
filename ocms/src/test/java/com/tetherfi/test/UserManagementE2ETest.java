@@ -96,7 +96,7 @@ import com.tetherfi.utility.Screenshot;
 public class UserManagementE2ETest extends BaseTest {
 	Screenshot screenshot=new Screenshot(driver);
 	
-	@BeforeMethod
+	/*@BeforeMethod
 	public void OCMPage() throws Exception {
 		HomePage homePage= PageFactory.createPageInstance(driver,HomePage.class);
         homePage.navigateToOCMPage();
@@ -13064,10 +13064,10 @@ public class UserManagementE2ETest extends BaseTest {
 	            PageFactory.reset();
 	            driver.close();
 	            e.printStackTrace();
-	        }
+	        }*/
 	   	 
 		
 	    }
 	
-}
+
 

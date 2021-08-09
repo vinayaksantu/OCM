@@ -230,7 +230,7 @@ public class FaxLineConfigTest extends BaseTest {
 	}
 
 	@Test(priority=16)
-	public void EditInvalidFaxLineConfigRecord() throws IOException {
+	public void EditInvalidFaxLineConfigRecord() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxLineConfigData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
 		FaxLineConfigDetails faxLineConfigDetails = new FaxLineConfigDetails(map);
@@ -290,7 +290,7 @@ public class FaxLineConfigTest extends BaseTest {
 	}
 
 	@Test(priority=22)
-	public void DeleteFaxLineConfigRecordWithoutReason() throws IOException {
+	public void DeleteFaxLineConfigRecordWithoutReason() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxLineConfigData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
 		FaxLineConfigDetails faxLineConfigDetails = new FaxLineConfigDetails(map);

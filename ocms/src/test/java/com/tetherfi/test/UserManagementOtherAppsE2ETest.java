@@ -24,7 +24,7 @@ import com.tetherfi.utility.Screenshot;
 public class UserManagementOtherAppsE2ETest extends BaseTest {
 	Screenshot screenshot=new Screenshot(driver);
 	
-	@BeforeMethod
+	/*@BeforeMethod
 	public void OCMPage() throws Exception {
 		HomePage homePage= PageFactory.createPageInstance(driver,HomePage.class);
         homePage.navigateToOCMPage();
@@ -497,7 +497,7 @@ public class UserManagementOtherAppsE2ETest extends BaseTest {
 	        }
 	   	 
 		
-	    }
+	    }*/
 
 }
 

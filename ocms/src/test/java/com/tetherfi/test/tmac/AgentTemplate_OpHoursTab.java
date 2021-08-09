@@ -20,7 +20,7 @@ public class AgentTemplate_OpHoursTab extends BaseTest{
 
 	Screenshot screenshot=new Screenshot(driver);
 
-	@BeforeMethod
+	/*@BeforeMethod
 	public void NavigateToAgentTemplatePage() throws InterruptedException, Exception {
 		HomePage homePage=PageFactory.createPageInstance(driver, HomePage.class);
 		homePage.navigateToOCMPage();
@@ -69,7 +69,7 @@ public class AgentTemplate_OpHoursTab extends BaseTest{
 	    	agentTemplatePage.verifyDrillDownForrecord(AgentTemplateDetails);   	 	 
 	    }*/
 
-	@Test(priority=5,description="verify the cancel button at delete record")
+	/*@Test(priority=5,description="verify the cancel button at delete record")
 	public void VerifyCancelBtnatDeleteRecord() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentTemplateData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"OpHoursTab").getTestData().get(0);
@@ -95,7 +95,7 @@ public class AgentTemplate_OpHoursTab extends BaseTest{
 		agentTemplatePage.NavigateToTemplateOpHoursTab();
 		agentTemplatePage.sorting();
 		Assert.assertTrue(agentTemplatePage.verifyDatabase1(AgentTemplateDetails.getQuery(), 4));
-	}
+	}*/
 
 
 
