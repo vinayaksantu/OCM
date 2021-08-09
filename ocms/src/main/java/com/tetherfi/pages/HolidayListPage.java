@@ -122,25 +122,25 @@ public class HolidayListPage extends BasePage{
     @FindBy(id="tGrid")
     private WebElement auditGridContent;
     
-    @FindBy(id="AnnouncedHoliday")
+    @FindBy(xpath="//input[@id='AnnouncedHoliday']")
     private WebElement announcedHolidayTextbox;
     
-    @FindBy(id="StartDate")
+    @FindBy(xpath="//input[@id='StartDate']")
     private WebElement startDateTextbox;
     
-    @FindBy(id="StartTime")
+    @FindBy(xpath="//input[@id='StartTime']")
     private WebElement startTimeTextbox;
     
-    @FindBy(id="EndDate")
+    @FindBy(xpath="//input[@id='EndDate']")
     private WebElement endDateTextbox;
     
-    @FindBy(id="EndTime")
+    @FindBy(xpath="//input[@id='EndTime']")
     private WebElement endTimeTextbox; 
     
-    /*@FindBy(xpath="//input[@placeholder='Enter Value']")
-    private WebElement vdnTextbox;*/
+    @FindBy(xpath="//input[@id='VDN']/..")
+    private WebElement vdnTextboxPlaceholder;
     
-    @FindBy(id="VDN")
+    @FindBy(xpath="//input[@id='VDN']")
     private WebElement vdnTextbox;
     
     @FindBy(css="#toast-container .toast-error .toast-message")
@@ -161,7 +161,7 @@ public class HolidayListPage extends BasePage{
     @FindBy(css="ul[id='1001sCriteria_listbox'] li")
     private List<WebElement> searchCriteriaDropDwn;
 
-    @FindBy(id = "1001sMaskedTextToSearch")
+    @FindBy(xpath = "//input[@id='1001sTextToSearch']")
     private WebElement searchTextBox;
 
     @FindBy(css = "#1001sAddButton .k-i-add")
@@ -170,7 +170,7 @@ public class HolidayListPage extends BasePage{
     @FindBy(css = ".modal-footer .button-theme")
     private WebElement searchSearchBtn;
     
-    @FindBy(xpath="//tbody/tr/td[4]")
+    @FindBy(xpath="//tbody/tr/td[2]")
     private WebElement rowdata;
 	
     @FindBy(id="ModifyReason1")
@@ -196,6 +196,9 @@ public class HolidayListPage extends BasePage{
     
     @FindBy(xpath="//i[@class='fas fa-sync fa-spin']")
     private WebElement clearsearch;
+    
+    @FindBy(xpath="//a[normalize-space()='Start Date']")
+    private WebElement startDate;
     
 	public boolean isHolidayListPageDisplayed() {
 		waitForLoad(driver);
@@ -508,12 +511,19 @@ public class HolidayListPage extends BasePage{
 	public boolean addnewHolidayListCancel(HolidayListDetails details) throws Exception {
 		String actualitems=items.getText();
 		selectWebElement(addNewHolidayListRecordBtn);
-		enterValueToTxtField(announcedHolidayTextbox,details.getAnnouncedHoliday());
-		enterValueToTxtField(startDateTextbox,details.getStartDate());
-		enterValueToTxtField(startTimeTextbox,details.getStartTime());
-		enterValueToTxtField(endDateTextbox,details.getEndDate());
-		enterValueToTxtField(endTimeTextbox,details.getEndTime());
-		enterValueToTxtField(vdnTextbox,details.getVdn());
+		waitForJqueryLoad(driver);
+		selectWebElement(announcedHolidayTextbox);
+		enterValueToTxtFieldWithoutClear(announcedHolidayTextbox,details.getAnnouncedHoliday());
+		selectWebElement(startDateTextbox);
+		enterValueToTxtFieldWithoutClear(startDateTextbox,details.getStartDate());
+		selectWebElement(startTimeTextbox);
+		enterValueToTxtFieldWithoutClear(startTimeTextbox,details.getStartTime());
+		selectWebElement(endDateTextbox);
+		enterValueToTxtFieldWithoutClear(endDateTextbox,details.getEndDate());
+		selectWebElement(endTimeTextbox);
+		enterValueToTxtFieldWithoutClear(endTimeTextbox,details.getEndTime());
+		selectWebElement(vdnTextboxPlaceholder);
+		enterValueToTxtFieldWithoutClear(vdnTextbox,details.getVdn());
 		selectWebElement(cancelbtn);
 		if(actualitems.equals(items.getText()))
 			return true;
@@ -523,12 +533,18 @@ public class HolidayListPage extends BasePage{
 	public void addNewHolidayList(HolidayListDetails details) throws Exception {
 		selectWebElement(addNewHolidayListRecordBtn);
 		waitForJqueryLoad(driver);
-		enterValueToTxtField(announcedHolidayTextbox,details.getAnnouncedHoliday());
-		enterValueToTxtField(startDateTextbox,details.getStartDate());
-		enterValueToTxtField(startTimeTextbox,details.getStartTime());
-		enterValueToTxtField(endDateTextbox,details.getEndDate());
-		enterValueToTxtField(endTimeTextbox,details.getEndTime());
-		enterValueToTxtField(vdnTextbox,details.getVdn());
+		selectWebElement(announcedHolidayTextbox);
+		enterValueToTxtFieldWithoutClear(announcedHolidayTextbox,details.getAnnouncedHoliday());
+		selectWebElement(startDateTextbox);
+		enterValueToTxtFieldWithoutClear(startDateTextbox,details.getStartDate());
+		selectWebElement(startTimeTextbox);
+		enterValueToTxtFieldWithoutClear(startTimeTextbox,details.getStartTime());
+		selectWebElement(endDateTextbox);
+		enterValueToTxtFieldWithoutClear(endDateTextbox,details.getEndDate());
+		selectWebElement(endTimeTextbox);
+		enterValueToTxtFieldWithoutClear(endTimeTextbox,details.getEndTime());
+		selectWebElement(vdnTextboxPlaceholder);
+		enterValueToTxtFieldWithoutClear(vdnTextbox,details.getVdn());
 		selectWebElement(savebtn);
 		
 	}
@@ -540,6 +556,12 @@ public class HolidayListPage extends BasePage{
 			return true;
 			else
 			{return false;}
+	}
+	
+	public String VerifyMessage() {
+		if(successmsg.isDisplayed())
+			return successmsg.getText();
+		else{return errorMsg.get(0).getText();}
 	}
 	
 	public String getSuccessMessage() {
@@ -559,40 +581,42 @@ public class HolidayListPage extends BasePage{
 		return false;
 	}
 	
-	private void searchHolidayList(String startDate) throws Exception {
+	private void searchHolidayList(String announcedHoliday) throws Exception {
 		selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
-        selectDropdownFromVisibleText(columnNameList,"Start Date");
+        selectDropdownFromVisibleText(columnNameList,"Announced Holiday");
+        Thread.sleep(2000);
         selectWebElement(selectSearchCol.get(1));
-        Thread.sleep(3000);
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is equal to");
-        enterValueToTxtField(searchTextBox,startDate);
+        enterValueToTxtField(searchTextBox,announcedHoliday);
         selectWebElement(searchSearchBtn);
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(gridContent);
 		
 	}
 	public boolean editHolidaylistCancelbtn(HolidayListDetails details) throws Exception {
-		searchHolidayList(details.getStartDate());
+		searchHolidayList(details.getAnnouncedHoliday());
 		selectWebElement(editButton);
 		enterValueToTxtField(ModifyReasonTxtbox,details.getModifyReason());
 		selectWebElement(cancelbtn);
-		if(rowdata.getText().equals(details.getStartDate()))
+		if(rowdata.getText().equals(details.getAnnouncedHoliday()))
 			return true;
 		else
 		return false;
 		
 	}
 	public void editHolidayListRecord(HolidayListDetails details) throws Exception {
-		searchHolidayList(details.getStartDate());
+		searchHolidayList(details.getAnnouncedHoliday());
 		selectWebElement(editButton);		
 		enterValueToTxtField(announcedHolidayTextbox,details.getUpdatedAnnouncedHoliday());
-		enterValueToTxtField(ModifyReasonTxtbox,details.getModifyReason());
+		enterValueToTxtFieldWithoutClear(ModifyReasonTxtbox,details.getModifyReason());
 		selectWebElement(savebtn);
 	}
 	
 	public boolean verifyDatabase(String  query) {
 		List<Map<String,String>> database=database(query);
+		selectWebElement(startDate);
+		waitForJqueryLoad(driver);
 		System.out.println(database);
 		List<Map<String,String>> UI=gettable(); 
 		System.out.println(UI);
@@ -645,7 +669,7 @@ public class HolidayListPage extends BasePage{
 	
 	
 	public boolean verifydeleteNo(HolidayListDetails details) throws Exception {
-		searchHolidayList(details.getStartDate());
+		searchHolidayList(details.getAnnouncedHoliday());
 		selectWebElement(deleteButton);
 		try {
 			Thread.sleep(3000);
@@ -660,14 +684,14 @@ public class HolidayListPage extends BasePage{
 		return false;
 	}
 	public void deleteHolidayListRecord(HolidayListDetails details) throws Exception {
-		searchHolidayList(details.getStartDate());
+		searchHolidayList(details.getAnnouncedHoliday());
 		selectWebElement(deleteButton);
 		try {
 			Thread.sleep(3000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		enterValueToTxtField(deletereasontextbox,details.getDeleteReason());
+		enterValueToTxtFieldWithoutClear(deletereasontextbox,details.getDeleteReason());
 		selectWebElement(yesbtn);		
 	}
 	public void AddEmptyRecord(HolidayListDetails details) {
@@ -679,44 +703,68 @@ public class HolidayListPage extends BasePage{
 	public void LeavingAnnouncedHolidayBlank(HolidayListDetails details) throws Exception {
 		Thread.sleep(2000);
 		selectWebElement(addNewHolidayListRecordBtn);
-		enterValueToTxtField(startDateTextbox,details.getStartDate());
-		enterValueToTxtField(startTimeTextbox,details.getStartTime());
-		enterValueToTxtField(endDateTextbox,details.getEndDate());
-		enterValueToTxtField(endTimeTextbox,details.getEndTime());
-		enterValueToTxtField(vdnTextbox,details.getVdn());
+		waitForJqueryLoad(driver);
+		selectWebElement(startDateTextbox);
+		enterValueToTxtFieldWithoutClear(startDateTextbox,details.getStartDate());
+		selectWebElement(startTimeTextbox);
+		enterValueToTxtFieldWithoutClear(startTimeTextbox,details.getStartTime());
+		selectWebElement(endDateTextbox);
+		enterValueToTxtFieldWithoutClear(endDateTextbox,details.getEndDate());
+		selectWebElement(endTimeTextbox);
+		enterValueToTxtFieldWithoutClear(endTimeTextbox,details.getEndTime());
+		selectWebElement(vdnTextboxPlaceholder);
+		enterValueToTxtFieldWithoutClear(vdnTextbox,details.getVdn());
 		selectWebElement(savebtn);
 		selectWebElement(cancelbtn);		
 	}
 	public void LeavingStartDateBlank(HolidayListDetails details) throws Exception {
 		Thread.sleep(2000);
 		selectWebElement(addNewHolidayListRecordBtn);
-		enterValueToTxtField(announcedHolidayTextbox,details.getAnnouncedHoliday());
-		enterValueToTxtField(startTimeTextbox,details.getStartTime());
-		enterValueToTxtField(endDateTextbox,details.getEndDate());
-		enterValueToTxtField(endTimeTextbox,details.getEndTime());
-		enterValueToTxtField(vdnTextbox,details.getVdn());
+		waitForJqueryLoad(driver);
+		selectWebElement(announcedHolidayTextbox);
+		enterValueToTxtFieldWithoutClear(announcedHolidayTextbox,details.getAnnouncedHoliday());
+		selectWebElement(startTimeTextbox);
+		enterValueToTxtFieldWithoutClear(startTimeTextbox,details.getStartTime());
+		selectWebElement(endDateTextbox);
+		enterValueToTxtFieldWithoutClear(endDateTextbox,details.getEndDate());
+		selectWebElement(endTimeTextbox);
+		enterValueToTxtFieldWithoutClear(endTimeTextbox,details.getEndTime());
+		selectWebElement(vdnTextboxPlaceholder);
+		enterValueToTxtFieldWithoutClear(vdnTextbox,details.getVdn());
 		selectWebElement(savebtn);
 		selectWebElement(cancelbtn);			
 	}
 	public void LeavingStartTimeBlank(HolidayListDetails details) throws Exception {
 		Thread.sleep(2000);
 		selectWebElement(addNewHolidayListRecordBtn);
-		enterValueToTxtField(announcedHolidayTextbox,details.getAnnouncedHoliday());
-		enterValueToTxtField(startDateTextbox,details.getStartDate());
-		enterValueToTxtField(endDateTextbox,details.getEndDate());
-		enterValueToTxtField(endTimeTextbox,details.getEndTime());
-		enterValueToTxtField(vdnTextbox,details.getVdn());
+		waitForJqueryLoad(driver);
+		selectWebElement(announcedHolidayTextbox);
+		enterValueToTxtFieldWithoutClear(announcedHolidayTextbox,details.getAnnouncedHoliday());
+		selectWebElement(startDateTextbox);
+		enterValueToTxtFieldWithoutClear(startDateTextbox,details.getStartDate());
+		selectWebElement(endDateTextbox);
+		enterValueToTxtFieldWithoutClear(endDateTextbox,details.getEndDate());
+		selectWebElement(endTimeTextbox);
+		enterValueToTxtFieldWithoutClear(endTimeTextbox,details.getEndTime());
+		selectWebElement(vdnTextboxPlaceholder);
+		enterValueToTxtFieldWithoutClear(vdnTextbox,details.getVdn());
 		selectWebElement(savebtn);
 		selectWebElement(cancelbtn);			
 	}
 	public void LeavingEndDateBlank(HolidayListDetails details) throws Exception {
 		Thread.sleep(2000);
 		selectWebElement(addNewHolidayListRecordBtn);
-		enterValueToTxtField(announcedHolidayTextbox,details.getAnnouncedHoliday());
-		enterValueToTxtField(startDateTextbox,details.getStartDate());
-		enterValueToTxtField(startTimeTextbox,details.getStartTime());
-		enterValueToTxtField(endTimeTextbox,details.getEndTime());
-		enterValueToTxtField(vdnTextbox,details.getVdn());
+		waitForJqueryLoad(driver);
+		selectWebElement(announcedHolidayTextbox);
+		enterValueToTxtFieldWithoutClear(announcedHolidayTextbox,details.getAnnouncedHoliday());
+		selectWebElement(startDateTextbox);
+		enterValueToTxtFieldWithoutClear(startDateTextbox,details.getStartDate());
+		selectWebElement(startTimeTextbox);
+		enterValueToTxtFieldWithoutClear(startTimeTextbox,details.getStartTime());
+		selectWebElement(endTimeTextbox);
+		enterValueToTxtFieldWithoutClear(endTimeTextbox,details.getEndTime());
+		selectWebElement(vdnTextboxPlaceholder);
+		enterValueToTxtFieldWithoutClear(vdnTextbox,details.getVdn());
 		selectWebElement(savebtn);
 		selectWebElement(cancelbtn);			
 	}
@@ -724,11 +772,16 @@ public class HolidayListPage extends BasePage{
 	public void LeavingEndTimeBlank(HolidayListDetails details) throws Exception {
 		Thread.sleep(2000);
 		selectWebElement(addNewHolidayListRecordBtn);
-		enterValueToTxtField(announcedHolidayTextbox,details.getAnnouncedHoliday());
-		enterValueToTxtField(startDateTextbox,details.getStartDate());
-		enterValueToTxtField(startTimeTextbox,details.getStartTime());
-		enterValueToTxtField(endDateTextbox,details.getEndDate());
-		waitUntilWebElementIsClickable(vdnTextbox);
+		waitForJqueryLoad(driver);
+		selectWebElement(announcedHolidayTextbox);
+		enterValueToTxtFieldWithoutClear(announcedHolidayTextbox,details.getAnnouncedHoliday());
+		selectWebElement(startDateTextbox);
+		enterValueToTxtFieldWithoutClear(startDateTextbox,details.getStartDate());
+		selectWebElement(startTimeTextbox);
+		enterValueToTxtFieldWithoutClear(startTimeTextbox,details.getStartTime());
+		selectWebElement(endDateTextbox);
+		enterValueToTxtFieldWithoutClear(endDateTextbox,details.getEndDate());
+		selectWebElement(vdnTextboxPlaceholder);
 		enterValueToTxtFieldWithoutClear(vdnTextbox,details.getVdn());
 		selectWebElement(savebtn);
 		selectWebElement(cancelbtn);			
@@ -737,16 +790,22 @@ public class HolidayListPage extends BasePage{
 	public void LeavingVDNBlank(HolidayListDetails details) throws Exception {
 		Thread.sleep(2000);
 		selectWebElement(addNewHolidayListRecordBtn);
-		enterValueToTxtField(announcedHolidayTextbox,details.getAnnouncedHoliday());
-		enterValueToTxtField(startDateTextbox,details.getStartDate());
-		enterValueToTxtField(startTimeTextbox,details.getStartTime());
-		enterValueToTxtField(endDateTextbox,details.getEndDate());
-		enterValueToTxtField(endTimeTextbox,details.getEndTime());
+		waitForJqueryLoad(driver);
+		selectWebElement(announcedHolidayTextbox);
+		enterValueToTxtFieldWithoutClear(announcedHolidayTextbox,details.getAnnouncedHoliday());
+		selectWebElement(startDateTextbox);
+		enterValueToTxtFieldWithoutClear(startDateTextbox,details.getStartDate());
+		selectWebElement(startTimeTextbox);
+		enterValueToTxtFieldWithoutClear(startTimeTextbox,details.getStartTime());
+		selectWebElement(endDateTextbox);
+		enterValueToTxtFieldWithoutClear(endDateTextbox,details.getEndDate());
+		selectWebElement(endTimeTextbox);
+		enterValueToTxtFieldWithoutClear(endTimeTextbox,details.getEndTime());
 		selectWebElement(savebtn);
 		selectWebElement(cancelbtn);			
 	}
 	public void EditLeavingModifyReasonBlank(HolidayListDetails details) throws Exception {
-		searchHolidayList(details.getStartDate());
+		searchHolidayList(details.getAnnouncedHoliday());
 		selectWebElement(editButton);		
 		selectWebElement(savebtn);
 		selectWebElement(cancelbtn);
@@ -760,10 +819,10 @@ public class HolidayListPage extends BasePage{
 	public boolean clearAll(HolidayListDetails details) throws Exception {
 		selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
-        selectDropdownFromVisibleText(columnNameList,"Start Date");
+        selectDropdownFromVisibleText(columnNameList,"Announced Holiday");
         selectWebElement(selectSearchCol.get(1));
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is equal to");
-        enterValueToTxtField(searchTextBox,details.getStartDate());
+        enterValueToTxtField(searchTextBox,details.getAnnouncedHoliday());
         selectWebElement(clearall);
         if(searchTextBox.isEnabled())
         	return true;

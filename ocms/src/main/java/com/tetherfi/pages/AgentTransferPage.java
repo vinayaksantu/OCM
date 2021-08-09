@@ -151,8 +151,11 @@ public class AgentTransferPage extends BasePage{
     @FindBy(xpath="//a[text()='Menu ID']")
     private WebElement menuid;
     
-    @FindBy(xpath="//input[@placeholder='Enter Value']")
+    @FindBy(xpath="//input[@id='IMD_MENU_ID']/..")
     private WebElement menuIdTextbox;
+    
+    @FindBy(xpath="//input[@id='IMD_MENU_ID']")
+    private WebElement menuIdTextboxdata;
     
     @FindBy(id="VDN_NUM")
     private WebElement vdnTextbox;
@@ -442,7 +445,8 @@ public class AgentTransferPage extends BasePage{
 
 		public void addNewAgentTransferRecord(AgentTransferDetails details) throws Exception {
 			selectWebElement(addNewAgentTransferBtn);
-			enterValueToTxtField(menuIdTextbox,details.getMenuId());
+			selectWebElement(menuIdTextbox);
+			enterValueToTxtFieldWithoutClear(menuIdTextboxdata,details.getMenuId());
 			enterValueToTxtField(vdnTextbox,details.getVdn());
 			enterValueToTxtField(vipVdnTextbox,details.getVipVdn());
 			enterValueToTxtField(optionTextbox,details.getOption());
@@ -675,6 +679,8 @@ public class AgentTransferPage extends BasePage{
 			
 		public boolean verifyexportToExcelSheet(List<Map<String, String>> maplist) {
 			List<Map<String,String>> UI=getdata(); 
+			System.out.println(UI);
+			System.out.println(maplist);
 			if(UI.equals(maplist))
 			return true;
 			else

@@ -40,12 +40,13 @@ public class UserOnBoardingImportUserProfilePicturesTest {
 		Test t = method.getAnnotation(Test.class);
 		Map<String, String> map;
 		if(t.groups()[0].equalsIgnoreCase("Checker"))
-			map= new ExcelReader(filePath,"Login").getTestData().get(18);
+			map= new ExcelReader(filePath,"Login").getTestData().get(1);
 		else
-			map= new ExcelReader(filePath,"Login").getTestData().get(17);
+			map= new ExcelReader(filePath,"Login").getTestData().get(0);
 		try{driver.get("https://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);}catch (TimeoutException e){e.printStackTrace();driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);}
+		 LoginPage loginPage=PageFactory.createPageInstance(driver,LoginPage.class);
+		 loginPage.overrideSecurityConcern();/*UsedFor https withaddvanced btn*/
 		if(map.get("LoginType").equals("Custom")){
-			LoginPage loginPage=PageFactory.createPageInstance(driver,LoginPage.class);
 			Assert.assertTrue(loginPage.isLoginPageDisplayed(),"Login page not loaded");
 			loginPage.login(map.get("Username"),map.get("Password"),map.get("EmailId"));
 			Thread.sleep(5000);
@@ -257,7 +258,7 @@ public class UserOnBoardingImportUserProfilePicturesTest {
 	@Test(groups = { "Maker" }, priority=22,description="To Verify DeleteUserOnBoardingRecord ")
 	public void DeleteImportedUserOnBoardingRecord() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
-		Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(5);
+		Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(7);
 		UserOnBoardingDetails UserOnBoardingDetails = new UserOnBoardingDetails (map);
 		UserOnBoardingPage userOnBoardingPage = PageFactory.createPageInstance(driver, UserOnBoardingPage.class);
 		userOnBoardingPage.deleteUserOnBoardingRecord(UserOnBoardingDetails.getLanID(), UserOnBoardingDetails.getDeleteReason());

@@ -325,6 +325,7 @@ public class ChatIntentSkillMappingPage extends BasePage {
 	
 	public boolean verifyDatabase(String query) throws Exception {
 		List<Map<String,String>> database=database(query);
+		waitForJqueryLoad(driver);
 		System.out.println(database);
 		List<Map<String,String>> UI=gettable(); 
 		System.out.println(UI);

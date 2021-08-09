@@ -269,6 +269,7 @@ public class DashboardColorCodeConfigPage extends BasePage {
         Thread.sleep(1000);
         selectWebElement(dashboardName);
         selectDropdownFromVisibleText(DashListbox,details.getdashboardName());
+        waitForJqueryLoad(driver);
         selectWebElement(ColumnName);
         selectDropdownFromVisibleText(columnListbox,details.getcolumnName());
         selectWebElement(rangetext.get(0));
@@ -296,7 +297,7 @@ public class DashboardColorCodeConfigPage extends BasePage {
         selectWebElement(dashboardName);
         selectDropdownFromVisibleText(DashListbox,details.getdashboardName());
         selectWebElement(ColumnName);
-       selectDropdownFromVisibleText(columnListbox,details.getcolumnName());
+        selectDropdownFromVisibleText(columnListbox,details.getcolumnName());
         selectWebElement(rangetext.get(0));
         enterValueToTxtFieldWithoutClear(startRangeTxtbox, details.getStartRange());
         selectWebElement(rangetext.get(1));
@@ -323,8 +324,8 @@ public class DashboardColorCodeConfigPage extends BasePage {
         selectWebElement(searchLink);
         selectWebElement(selectSearchColumn.get(0));
         selectDropdownFromVisibleText(columnNameList,"Start Range");
-        selectWebElement(selectSearchColumn.get(1));
         Thread.sleep(3000);
+        selectWebElement(selectSearchColumn.get(1));
         selectDropdownFromVisibleText(searchTypeList,"Is equal to");
         enterValueToTxtField(textTosearch,StartTime);
         selectWebElement(searchBtn);
@@ -544,7 +545,7 @@ public class DashboardColorCodeConfigPage extends BasePage {
 				if(headers.get(j).getText().equals("Last Changed On")){
 					col=cols.get(j).getText().substring(11);
 					}
-				else if(headers.get(j).getText().equals("Start Range")) {
+				/*else if(headers.get(j).getText().equals("Start Range")) {
 					String str[]=cols.get(j).getText().split(":");
 					for(int x=0;x<str.length;x++)
 					{
@@ -556,7 +557,7 @@ public class DashboardColorCodeConfigPage extends BasePage {
 					for(int y=0;y<str1.length;y++)
 					{
 					col=col+str1[y];
-					}}
+					}}*/
 				else
 					col=cols.get(j).getText();
 				map.put(headers.get(j).getText(),col);
@@ -675,8 +676,9 @@ public class DashboardColorCodeConfigPage extends BasePage {
         Thread.sleep(1000);
         selectWebElement(dashboardName);
         selectDropdownFromVisibleText(DashListbox,details.getdashboardName());
+        waitForJqueryLoad(driver);
         selectWebElement(ColumnName);
-       selectDropdownFromVisibleText(columnListbox,details.getcolumnName());
+        selectDropdownFromVisibleText(columnListbox,details.getcolumnName());
         selectWebElement(rangetext.get(1));
         enterValueToTxtFieldWithoutClear(endRangeTxtbox, details.getEndRange());
         selectWebElement(colorPicker.get(0));
@@ -885,6 +887,7 @@ public class DashboardColorCodeConfigPage extends BasePage {
 			map.put("Dashboard Name", description);
 			selectWebElement(searchLink);
 	        selectWebElement(selectSearchColumn.get(0));
+	        Thread.sleep(2000);
 	        selectDropdownFromVisibleText(columnNameList,"Dashboard Name");
 	        selectWebElement(selectSearchColumn.get(1));
 	        selectDropdownFromVisibleText(searchTypeList,"Is not equal to");	        
@@ -908,6 +911,7 @@ public class DashboardColorCodeConfigPage extends BasePage {
 			selectWebElement(searchLink);
 	        selectWebElement(selectSearchColumn.get(0));
 	        selectDropdownFromVisibleText(columnNameList,"Dashboard Name");
+	        Thread.sleep(2000);
 	        selectWebElement(selectSearchColumn.get(1));
 	        selectDropdownFromVisibleText(searchTypeList,"Contains");	        
 	        enterValueToTxtField(textTosearch,description);
@@ -928,6 +932,7 @@ public class DashboardColorCodeConfigPage extends BasePage {
 		selectWebElement(searchLink);
         selectWebElement(selectSearchColumn.get(0));
         selectDropdownFromVisibleText(columnNameList,"Dashboard Name");
+        Thread.sleep(2000);
         selectWebElement(selectSearchColumn.get(1));
         selectDropdownFromVisibleText(searchTypeList,"Does not contain");	        
         enterValueToTxtField(textTosearch,description);
@@ -949,6 +954,7 @@ public class DashboardColorCodeConfigPage extends BasePage {
 		selectWebElement(searchLink);
         selectWebElement(selectSearchColumn.get(0));
         selectDropdownFromVisibleText(columnNameList,"Dashboard Name");
+        Thread.sleep(2000);
         selectWebElement(selectSearchColumn.get(1));
         selectDropdownFromVisibleText(searchTypeList,"Starts with");	        
         enterValueToTxtField(textTosearch,description);
@@ -970,6 +976,7 @@ public class DashboardColorCodeConfigPage extends BasePage {
 		selectWebElement(searchLink);
         selectWebElement(selectSearchColumn.get(0));
         selectDropdownFromVisibleText(columnNameList,"Dashboard Name");
+        Thread.sleep(2000);
         selectWebElement(selectSearchColumn.get(1));
         selectDropdownFromVisibleText(searchTypeList,"Ends with");	        
         enterValueToTxtField(textTosearch,description);

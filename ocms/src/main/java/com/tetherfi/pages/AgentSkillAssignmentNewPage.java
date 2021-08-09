@@ -456,14 +456,14 @@ public class AgentSkillAssignmentNewPage extends BasePage {
     
     
 	public boolean isAgentSkillAssignmentPageIsDisplayed() {
-		waitForLoad(driver);
+		//waitForLoad(driver);
 		/*try {
 			Thread.sleep(3000);
 		}catch(InterruptedException e) {
 			e.printStackTrace();
 		}*/
-		waitForJqueryLoad(driver);
-		waitForJqueryLoad(driver);
+		//waitForJqueryLoad(driver);
+		//waitForJqueryLoad(driver);
 		return AgentSkillAssignment.isEnabled();
 	}
 	
@@ -555,78 +555,80 @@ public class AgentSkillAssignmentNewPage extends BasePage {
 	    }
 	 
 	public void addNewAgentSettingsRecord(AgentSettingsDetails details) throws Exception {
-        waitForJqueryLoad(driver);
-        try {Thread.sleep(5000);
-        selectWebElement(addNewAgentSettingsRecordBtn);
-        waitUntilWebElementIsVisible(popupContent);
-
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        navigateToTab("Info");
-        selectWebElement(usernameTextBox);
-        enterValueToTxtFieldWithoutClear(usernameTextBox,details.getUsername());
-        selectWebElement(numericTextbox.get(0));
-        enterValueToTxtFieldWithoutClear(avayaLoginIdTextBox,details.getAvayaLoginID());
-        selectWebElement(firstnameTextBox);
-        enterValueToTxtFieldWithoutClear(firstnameTextBox,details.getFirstname());
-        selectWebElement(lastnameTextBox);
-        enterValueToTxtFieldWithoutClear(lastnameTextBox,details.getLastname());
-        selectWebElement(teamnameDropdown);
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        //selectDropdownFromVisibleText(teamNameListBox,details.getTeamName());
-        ChooseTeamHeirarchy(details.getTeamName());
-        selectProfile(details.getProfile(),details.getSupervisor());
-        selectWebElement(accessroleDropdown);
-        selectDropdownFromVisibleText(accessroleListBox,details.getAccessRole());
-        //selectWebElement(crmnameDropdown);
-        //selectDropdownFromVisibleText(crmnameListBox,details.getCrmName());
-//        selectWebElement(texttemplatenameDropdown);
-//        selectDropdownFromVisibleText(texttemplatenameListBox,details.getTextTemplateName());
-        navigateToTab("Channel Count & Features");
-        selectFeaturesToBeSelected(details.getFeaturestobeSeleted());
-        selectWebElement(numericTextbox.get(1));
-        enterValueToTxtFieldWithoutClear(totalVoiceTabsAllowedTextBox.get(1),String.valueOf(details.getTotalVoiceTabs()));
-        selectWebElement(numericTextbox.get(2));
-        enterValueToTxtFieldWithoutClear(totalChatTabsAllowedTextBox.get(1),String.valueOf(details.getTotalChatTabs()));
-        selectWebElement(numericTextbox.get(3));
-        enterValueToTxtFieldWithoutClear(totalAudioChatTabsAllowedTextBox.get(1),String.valueOf(details.getTotalAudioChatTabs()));
-        selectWebElement(numericTextbox.get(4));
-        enterValueToTxtFieldWithoutClear(totalVideoChatTabsAllowedTextBox.get(1),String.valueOf(details.getTotalVideoChatTabs()));
-        selectWebElement(numericTextbox.get(5));
-        enterValueToTxtFieldWithoutClear(totalFaxTabsAllowedTextBox.get(1),String.valueOf(details.getTotalFaxTabs()));
-        selectWebElement(numericTextbox.get(6));
-        enterValueToTxtFieldWithoutClear(totalEmailTabsAllowedTextBox.get(1),String.valueOf(details.getTotalEmailTabs()));
-        selectWebElement(numericTextbox.get(7));
-        enterValueToTxtFieldWithoutClear(totalSMSTabsAllowedTextBox.get(1),String.valueOf(details.getTotalSMSTabs()));																								
-       // selectWebElement(featuresDropdown);
-        //selectDropdownFromVisibleText(featuresListBox,details.getFeatures());
-        selectCheckBox(autoAnswerAllAcdCallsCheckbox,details.isAutoanswerallACDcalls());
-        selectCheckBox(goToAcwAfterEachAcdCallsCheckbox,details.isGotoACWaftereachACDcalls());
-        selectCheckBox(goToAcwAfterAnyCallsCheckbox,details.isGotoACWafteranycalls());
-        //selectCheckBox(crmEnabledCheckbox,details.iscRMEnabled());
-        selectCheckBox(holdVoiceCallOnChatCallCheckbox,details.isHoldVoiceCallOnChatCall());
-        //selectCheckBox(secondTextChatAutoAnswerCheckbox,details.isSecondTextChatAutoAnswer());
-        //selectCheckBox(textChatAutoACWCheckbox,details.isTextChatAutoACWEnabled());
-        //selectCheckBox(textChatAutoAnswerCheckbox,details.isTextChatAutoAnswer());
-//        selectCheckBox(manualInCheckbox,details.isManualIn());
-//        selectCheckBox(smsOutCheckbox,details.isSMSOut());
-        selectWebElement(saveBtn);
+		waitForJqueryLoad(driver);
+		try {Thread.sleep(5000);
+		selectWebElement(addNewAgentSettingsRecordBtn);
+		waitUntilWebElementIsVisible(popupContent);
+		Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		navigateToTab("Info");
+		selectWebElement(usernameTextBox);
+		enterValueToTxtFieldWithoutClear(usernameTextBox,details.getUsername());
+		selectWebElement(numericTextbox.get(0));
+		enterValueToTxtFieldWithoutClear(avayaLoginIdTextBox,details.getAvayaLoginID());
+		selectWebElement(firstnameTextBox);
+		enterValueToTxtFieldWithoutClear(firstnameTextBox,details.getFirstname());
+		selectWebElement(lastnameTextBox);
+		enterValueToTxtFieldWithoutClear(lastnameTextBox,details.getLastname());
+		selectWebElement(teamnameDropdown);
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		//selectDropdownFromVisibleText(teamNameListBox,details.getTeamName());
+		ChooseTeamHeirarchy(details.getTeamName());
+		waitForJqueryLoad(driver);
+		selectProfile(details.getProfile(),details.getSupervisor());
+		Thread.sleep(1000);
+		selectWebElement(accessroleDropdown);
+		selectDropdownFromVisibleText(accessroleListBox,details.getAccessRole());
+		//selectWebElement(crmnameDropdown);
+		//selectDropdownFromVisibleText(crmnameListBox,details.getCrmName());
+		//        selectWebElement(texttemplatenameDropdown);
+		//        selectDropdownFromVisibleText(texttemplatenameListBox,details.getTextTemplateName());
+		navigateToTab("Channel Count");
+		selectFeaturesToBeSelected(details.getFeaturestobeSeleted());
+		selectWebElement(numericTextbox.get(1));
+		enterValueToTxtFieldWithoutClear(totalVoiceTabsAllowedTextBox.get(1),String.valueOf(details.getTotalVoiceTabs()));
+		selectWebElement(numericTextbox.get(2));
+		enterValueToTxtFieldWithoutClear(totalChatTabsAllowedTextBox.get(1),String.valueOf(details.getTotalChatTabs()));
+		selectWebElement(numericTextbox.get(3));
+		enterValueToTxtFieldWithoutClear(totalAudioChatTabsAllowedTextBox.get(1),String.valueOf(details.getTotalAudioChatTabs()));
+		selectWebElement(numericTextbox.get(4));
+		enterValueToTxtFieldWithoutClear(totalVideoChatTabsAllowedTextBox.get(1),String.valueOf(details.getTotalVideoChatTabs()));
+		selectWebElement(numericTextbox.get(5));
+		enterValueToTxtFieldWithoutClear(totalFaxTabsAllowedTextBox.get(1),String.valueOf(details.getTotalFaxTabs()));
+		/*selectWebElement(numericTextbox.get(6));
+		enterValueToTxtFieldWithoutClear(totalEmailTabsAllowedTextBox.get(1),String.valueOf(details.getTotalEmailTabs()));
+		selectWebElement(numericTextbox.get(7));
+		enterValueToTxtFieldWithoutClear(totalSMSTabsAllowedTextBox.get(1),String.valueOf(details.getTotalSMSTabs()));	*/																							
+		navigateToTab("Features");
+		//selectDropdownFromVisibleText(featuresListBox,details.getFeatures());
+		selectCheckBox(autoAnswerAllAcdCallsCheckbox,details.isAutoanswerallACDcalls());
+		selectCheckBox(goToAcwAfterEachAcdCallsCheckbox,details.isGotoACWaftereachACDcalls());
+		selectCheckBox(goToAcwAfterAnyCallsCheckbox,details.isGotoACWafteranycalls());
+		//selectCheckBox(crmEnabledCheckbox,details.iscRMEnabled());
+		selectCheckBox(holdVoiceCallOnChatCallCheckbox,details.isHoldVoiceCallOnChatCall());
+		//selectCheckBox(secondTextChatAutoAnswerCheckbox,details.isSecondTextChatAutoAnswer());
+		//selectCheckBox(textChatAutoACWCheckbox,details.isTextChatAutoACWEnabled());
+		//selectCheckBox(textChatAutoAnswerCheckbox,details.isTextChatAutoAnswer());
+		//        selectCheckBox(manualInCheckbox,details.isManualIn());
+		//        selectCheckBox(smsOutCheckbox,details.isSMSOut());
+		selectWebElement(saveBtn);
     }
     private void ChooseTeamHeirarchy(String team){
-        String[] hrcy=team.split(">");
-        for(int i=0;i<hrcy.length;i++){
-            for(WebElement e: teamList){
-                if(e.getText().equals(hrcy[i]))
-                    if(e.findElements(By.className("k-icon")).size()>0)
-                    {selectWebElement(e.findElement(By.className("k-icon")));break;}
-                    else
-                    {selectWebElement(e.findElement(By.className("k-in")));break;}   }}
+    	String[] hrcy=team.split(">");
+		for(int i=0;i<hrcy.length;i++){
+			for(WebElement e: teamList){
+				if(e.getText().equals(hrcy[i])) {
+					if(e.getText().equals(hrcy[hrcy.length-1]))
+					{selectWebElement(e.findElement(By.className("k-in")));break;}
+					else if(e.findElements(By.className("k-icon")).size()>0)
+					{selectWebElement(e.findElement(By.className("k-icon")));break;}
+				}}}
     }
     
     public String verifySuccessMessage(){
@@ -883,7 +885,7 @@ public class AgentSkillAssignmentNewPage extends BasePage {
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is equal to");
         enterValueToTxtField(searchTextBox,username);
         selectWebElement(searchSearchBtn);
-        waitForJqueryLoad(driver);
+        //waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(gridContent);
     }
     

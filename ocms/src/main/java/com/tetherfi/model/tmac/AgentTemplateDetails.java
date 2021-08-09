@@ -19,10 +19,11 @@ public class AgentTemplateDetails {
 	private String updatedWidgetList;
 	private String templateId;
 	private String weekday;
+	private String updatedWeekday;
 	private String fromTime;
 	private String toTime;
 	private boolean enableScreenCapture;
-	private boolean tRSCameraCaptureEnabled;
+	private boolean isCameraCaptureEnabled;
 	private boolean enableLocation;
 	private boolean faceAuthEnabled;
 	private boolean tRSAutoUpdateInterval;
@@ -46,10 +47,11 @@ public class AgentTemplateDetails {
 		updatedWidgetList=readUpdatedWidgetList(map);
 		templateId=readTemplateId(map);
 		weekday=readweekday(map);
+		updatedWeekday=readUpdatedWeekday(map);
 		fromTime=readfromTime(map);
 		toTime=readtoTime(map);
 		enableScreenCapture=readEnableScreenCapture(map);
-		tRSCameraCaptureEnabled=readTRSCameraCaptureEnabled(map);
+		isCameraCaptureEnabled=readIsCameraCaptureEnabled(map);
 		enableLocation=readEnableLocation(map);
 		faceAuthEnabled=readFaceAuthEnabled(map);
 		tRSAutoUpdateInterval=readtRSAutoUpdateInterval(map);
@@ -58,8 +60,14 @@ public class AgentTemplateDetails {
 	}
 
 
+	private String readUpdatedWeekday(Map<String, String> map) {
+		String value=map.get("Updated WeekDay");
+		return value;
+	}
+
+
 	private Boolean readFaceAuthEnabled(Map<String, String> map) {
-		String value=map.get("Enable Screen Capture");
+		String value=map.get("Face Auth Enabled");
         if(value==null||value.equalsIgnoreCase("random.str")){
             value="false";
         }
@@ -67,14 +75,6 @@ public class AgentTemplateDetails {
 	}
 
 	private Boolean readEnableLocation(Map<String, String> map) {
-		String value=map.get("TRS Camera Capture Enabled");
-        if(value==null||value.equalsIgnoreCase("random.str")){
-            value="false";
-        }
-        return Boolean.valueOf(value);
-	}
-
-	private Boolean readTRSCameraCaptureEnabled(Map<String, String> map) {
 		String value=map.get("Enable Location");
         if(value==null||value.equalsIgnoreCase("random.str")){
             value="false";
@@ -82,8 +82,16 @@ public class AgentTemplateDetails {
         return Boolean.valueOf(value);
 	}
 
+	private Boolean readIsCameraCaptureEnabled(Map<String, String> map) {
+		String value=map.get("Is Camera Capture Enabled");
+        if(value==null||value.equalsIgnoreCase("random.str")){
+            value="false";
+        }
+        return Boolean.valueOf(value);
+	}
+
 	private Boolean readEnableScreenCapture(Map<String, String> map) {
-		String value=map.get("Face Auth Enabled");
+		String value=map.get("Enable Screen Capture");
         if(value==null||value.equalsIgnoreCase("random.str")){
             value="false";
         }
@@ -243,6 +251,10 @@ public class AgentTemplateDetails {
 	public String getweekday() {
 		return weekday;
 	}
+	
+	public String getUpdatedWeekday() {
+		return updatedWeekday;
+	}
 	public String getfromTime() {
 		return fromTime;
 	}
@@ -254,8 +266,8 @@ public class AgentTemplateDetails {
         return enableScreenCapture;
     }
 	
-	public boolean IsTRSCameraPictureEnabled() {
-        return tRSCameraCaptureEnabled;
+	public boolean IsCameraCaptureEnabled() {
+        return isCameraCaptureEnabled;
     }
 	
 	public boolean IsLocationEnabled() {

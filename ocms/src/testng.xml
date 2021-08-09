@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="OCM Reports Test Automation" parallel="false">
+<suite name="OCM Modules Test Automation" parallel="false">
 
 	<listeners>
 		<listener class-name="com.tetherfi.listeners.ResultsListener" />
@@ -8,12 +8,14 @@
 			class-name="com.tetherfi.ExtentReportListener.ExtentReportListener" />
 	</listeners>
 
-	<test name="ReportsRegression">
+	<test name="OCMRegression">
 		<classes>
-
-			<class
-				name="com.tetherfi.test.reports.OCMAgentInteractionReportTest" />
+			<class name="com.tetherfi.test.fax.FaxTemplateUITest" />
+			<class name="com.tetherfi.test.fax.FaxTemplateAutoACKTypeCreateTest" />
+			<class name="com.tetherfi.test.fax.FaxTemplateAutoACKTypeUpdateTest" />
+			<class name="com.tetherfi.test.fax.FaxTemplateAutoACKTypeDeleteTest" />
 		</classes>
+	
 	</test>
 
 </suite>

@@ -111,7 +111,7 @@ public class DashboardColorCodeConfigTest extends BaseTest {
        Assert.assertEquals(dshccpage.verifymessage(),"Record Creation Failed, Already Exist","Duplicate Assertion failed");
    }
     
-    @Test(priority=9,enabled=false)
+    @Test(priority=9,enabled=true)
     public void VerifyAuditTrialReportForCreate() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\DashboardColourConfig.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -155,7 +155,7 @@ public class DashboardColorCodeConfigTest extends BaseTest {
         Assert.assertEquals(dshccpage.getSuccessMessage(),"Record updated successfully","Edit record assertion failed");
     }
    	
-   	@Test(priority=13,enabled=false)
+   	@Test(priority=13,enabled=true)
     public void VerifyAuditTrialReportForUpdate() throws Exception {
 	   String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\DashboardColourConfig.xlsx";
        Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
@@ -257,7 +257,7 @@ public class DashboardColorCodeConfigTest extends BaseTest {
   @Test(priority=26)
   public void VerifySearchIsNotEqualTo() throws Exception {
 	  String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\DashboardColourConfig.xlsx";
-	  Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
+	  Map<String, String> map = new ExcelReader(filePath,"Search").getTestData().get(0);
 	  DashboardColorCodeConfigDetails dshColorConfigDetails = new DashboardColorCodeConfigDetails(map);
 	  DashboardColorCodeConfigPage dshccpage=PageFactory.createPageInstance(driver,DashboardColorCodeConfigPage.class);
 	  Assert.assertTrue(dshccpage.verifySearchIsNotEqualTo(dshColorConfigDetails.getdashboardName()));
@@ -266,7 +266,7 @@ public class DashboardColorCodeConfigTest extends BaseTest {
   @Test(priority=27)
   public void  VerifySearchContains() throws Exception {
 	  String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\DashboardColourConfig.xlsx";
-	  Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);
+	  Map<String, String> map = new ExcelReader(filePath,"Search").getTestData().get(1);
 	  DashboardColorCodeConfigDetails dshColorConfigDetails = new DashboardColorCodeConfigDetails(map);
 	  DashboardColorCodeConfigPage dshccpage=PageFactory.createPageInstance(driver,DashboardColorCodeConfigPage.class);
 	  Assert.assertTrue(dshccpage.verifySearchContains(dshColorConfigDetails.getdashboardName()));
@@ -275,7 +275,7 @@ public class DashboardColorCodeConfigTest extends BaseTest {
   @Test(priority=28)
   public void  VerifySearchDoesNotContains() throws Exception {
 	  String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\DashboardColourConfig.xlsx";
-	  Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(2);
+	  Map<String, String> map = new ExcelReader(filePath,"Search").getTestData().get(2);
 	  DashboardColorCodeConfigDetails dshColorConfigDetails = new DashboardColorCodeConfigDetails(map);
 	  DashboardColorCodeConfigPage dshccpage=PageFactory.createPageInstance(driver,DashboardColorCodeConfigPage.class);
 	  Assert.assertTrue(dshccpage.verifySearchDoesNotContains(dshColorConfigDetails.getdashboardName()));
@@ -284,7 +284,7 @@ public class DashboardColorCodeConfigTest extends BaseTest {
   @Test(priority=29)
   public void  VerifySearchStartsWith() throws Exception {
 	  String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\DashboardColourConfig.xlsx";
-	  Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(2);
+	  Map<String, String> map = new ExcelReader(filePath,"Search").getTestData().get(2);
 	  DashboardColorCodeConfigDetails dshColorConfigDetails = new DashboardColorCodeConfigDetails(map);
 	  DashboardColorCodeConfigPage dshccpage=PageFactory.createPageInstance(driver,DashboardColorCodeConfigPage.class);
 	  Assert.assertTrue(dshccpage.verifySearchStartsWith(dshColorConfigDetails.getdashboardName()));
@@ -293,7 +293,7 @@ public class DashboardColorCodeConfigTest extends BaseTest {
   @Test(priority=30)
   public void  VerifySearchEndsWith() throws Exception {
 	  String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\DashboardColourConfig.xlsx";
-	  Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(3);
+	  Map<String, String> map = new ExcelReader(filePath,"Search").getTestData().get(3);
 	  DashboardColorCodeConfigDetails dshColorConfigDetails = new DashboardColorCodeConfigDetails(map);
 	  DashboardColorCodeConfigPage dshccpage=PageFactory.createPageInstance(driver,DashboardColorCodeConfigPage.class);
 	  Assert.assertTrue(dshccpage.verifySearchEndsWith(dshColorConfigDetails.getdashboardName()));
@@ -302,7 +302,7 @@ public class DashboardColorCodeConfigTest extends BaseTest {
   @Test(priority=31)
   public void searchPageClearAll() throws Exception{
 	  String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\DashboardColourConfig.xlsx";
-	  Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
+	  Map<String, String> map = new ExcelReader(filePath,"Search").getTestData().get(0);
 	  DashboardColorCodeConfigDetails dshColorConfigDetails = new DashboardColorCodeConfigDetails(map);
 	  DashboardColorCodeConfigPage dshccpage=PageFactory.createPageInstance(driver,DashboardColorCodeConfigPage.class);
 	  Assert.assertFalse(dshccpage.clearAll(dshColorConfigDetails),"ClearAll Assertion Failed");
@@ -331,7 +331,7 @@ public class DashboardColorCodeConfigTest extends BaseTest {
 	  Assert.assertEquals(dshccpage.verifymessage(),"Please enter the delete reason","empty delete reason record assertion failed");
   }
  
-  @Test(priority=34,enabled=false)
+  @Test(priority=34,enabled=true)
   public void DeleteRecord() throws Exception {
 	  String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\DashboardColourConfig.xlsx";
 	  Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);

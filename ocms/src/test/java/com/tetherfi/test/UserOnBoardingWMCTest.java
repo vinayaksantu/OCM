@@ -15,6 +15,7 @@ import com.tetherfi.pages.OCMHomePage;
 import com.tetherfi.pages.OCMReportsPage;
 import com.tetherfi.pages.UserOnBoardingPage;
 import com.tetherfi.pages.UserOnBoardingWMCPage;
+import com.tetherfi.pages.UserRoleMappingWMCPage;
 import com.tetherfi.utility.ExcelReader;
 import com.tetherfi.utility.PageFactory;
 import com.tetherfi.utility.Screenshot;

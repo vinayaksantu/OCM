@@ -668,8 +668,9 @@ public class AgentSkillAssignmentPage extends BasePage {
     public Boolean VerifySkill(String SkillName,String SkillTab){
     	Boolean Status=false;
     	selectmultiSkillTab(SkillTab);
+    	waitForJqueryLoad(driver);
     	for(WebElement ele:multiskillsName){
-            if(ele.getText().equalsIgnoreCase(SkillName))
+            if(ele.getText().contains(SkillName))
             	Status= true;
             }
     	return Status;

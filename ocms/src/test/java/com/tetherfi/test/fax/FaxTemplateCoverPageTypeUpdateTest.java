@@ -48,9 +48,10 @@ protected WebDriver driver;
 			map=new ExcelReader(filePath,"Login").getTestData().get(1);
 		else
 			map=new ExcelReader(filePath,"Login").getTestData().get(0);
-		try {driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);}catch (TimeoutException e){e.printStackTrace();driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);}
-	    if(map.get("LoginType").equals("Custom")) {
-	    	LoginPage loginPage=PageFactory.createPageInstance(driver,LoginPage.class);
+		try {driver.get("https://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);}catch (TimeoutException e){e.printStackTrace();driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);}
+		LoginPage loginPage=PageFactory.createPageInstance(driver,LoginPage.class);
+        loginPage.overrideSecurityConcern();
+		if(map.get("LoginType").equals("Custom")) {
             Assert.assertTrue(loginPage.isLoginPageDisplayed(),"Login page not loaded");
 			loginPage.login(map.get("Username"),map.get("Password"),map.get("EmailId"));
             Thread.sleep(5000);
@@ -65,10 +66,11 @@ protected WebDriver driver;
         faxPage.navigateToFaxTemplatePage();
         FaxTemplatePage faxTemplatePage = PageFactory.createPageInstance(driver, FaxTemplatePage.class);
         Assert.assertTrue(faxTemplatePage.isFaxTemplatePageDisplayed(), "FAX page assertion failed");
+        driver.navigate().refresh();
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 	 }
 	
-	@Test(groups= {"Maker"},priority=1)
+	/*@Test(groups= {"Maker"},priority=1)
 	public void VerifyEditCancelButton() throws Exception {
 		String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\FaxTemplateData.xlsx";
 		Map<String, String> map=new ExcelReader(filePath,"Edit").getTestData().get(1);
@@ -151,7 +153,7 @@ protected WebDriver driver;
 	    ReportDetails reportDetails= new ReportDetails(map1);
 	    ocmReportsPage.showReport(reportDetails);
 	    Assert.assertTrue(ocmReportsPage.verifyFaxTemplateUpdate(faxTemplateDetails, "CheckerReject"), "Audit Trail Assertion Failed");
-	}
+	}*/
 	
 	@Test(groups= {"Maker"},priority=9)
 	public void EditApproveFaxTemplateRecord() throws Exception {

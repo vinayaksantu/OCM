@@ -59,6 +59,7 @@ public class UserRoleMappingUpdateTest {
         ocmHomePage.navigateToUserRoleMappingPage();
         NewUserRoleMappingPage NewUserRoleMappingPage = PageFactory.createPageInstance(driver, NewUserRoleMappingPage.class);
         Assert.assertTrue(NewUserRoleMappingPage.isUserRoleMappingPageDisplayed(), "Branch Management page assertion failed");
+        driver.navigate().refresh();
         driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 	}
 	@Test(groups= {"Maker"}, priority=1)
@@ -235,7 +236,7 @@ public class UserRoleMappingUpdateTest {
 	    UserRoleMappingDetails UserRoleMappingDetails = new UserRoleMappingDetails(map);
         NewUserRoleMappingPage NewUserRoleMappingPage = PageFactory.createPageInstance(driver, NewUserRoleMappingPage.class);
         NewUserRoleMappingPage.EditRecordWithoutModifyReason(UserRoleMappingDetails);
-        Assert.assertFalse(NewUserRoleMappingPage.getErrorMsg(),"Invalid Record Assertion failed");
+        Assert.assertEquals(NewUserRoleMappingPage.VerifyMessage(), "Please enter the modify reason","Error Message Assertion failed");
     }
    
     @AfterMethod

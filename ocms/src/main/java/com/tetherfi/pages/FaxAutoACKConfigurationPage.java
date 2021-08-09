@@ -344,6 +344,8 @@ public class FaxAutoACKConfigurationPage extends BasePage {
 	}
 	public boolean verifyDatabase(String query) {
 		List<Map<String,String>> database=database(query);
+		selectWebElement(Name);
+		waitForJqueryLoad(driver);
 		System.out.println(database);
 		List<Map<String,String>> UI=gettable(); 
 		System.out.println(UI);
@@ -369,16 +371,16 @@ public class FaxAutoACKConfigurationPage extends BasePage {
 			String col=null;
 			for(int j=1;j<headers.size();j++){
 				scrollToElement(headers.get(j));
-				if(headers.get(j).getText().equals("Last Changed On")){
-					String value=cols.get(j).getText().substring(11, 13);
+				/*if(headers.get(j).getText().equals("Last Changed On")){
+					String value=cols.get(j).getText().substring(11, 13).replaceAll(":", "");
 					int time = Integer.parseInt(value);
 					if(time>12) {
 					      time=time-12;
 					}
 					String col1=Integer.toString(time);
-					col=col1+cols.get(j).getText().substring(13);
+					col=col1+cols.get(j).getText().substring(13).replaceAll(":", "");
 					}
-				else if (headers.get(j).getText().equals("Status")) {
+				else*/ if (headers.get(j).getText().equals("Status")) {
 					if(cols.get(j).getText().equals("Disabled"))
 						col="0";
 					else
@@ -811,6 +813,7 @@ public class FaxAutoACKConfigurationPage extends BasePage {
 		searchFaxAutoACKConfigurationRecord(details.getName());
 		selectWebElement(deleteBtn);
 		waitForJqueryLoad(driver);
+		selectWebElement(deleteReasonTextBox);
         enterValueToTxtFieldWithoutClear(deleteReasonTextBox,details.getDeleteReason());
         Thread.sleep(500);
         selectWebElement(deleteYesBtn);	

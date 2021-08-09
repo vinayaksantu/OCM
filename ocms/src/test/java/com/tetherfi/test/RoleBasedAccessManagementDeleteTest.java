@@ -1,6 +1,7 @@
 package com.tetherfi.test;
 import java.lang.reflect.Method;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
@@ -56,8 +57,10 @@ public class RoleBasedAccessManagementDeleteTest {
         Assert.assertTrue(ocmHomePage.isOCMHomePageIsDisplayed(), "OCM HOME Page assertion failed");
         ocmHomePage.navigateToRoleBasedAccessManagementPage();
         RoleBasedAccessManagementPage RoleBasedAccessManagementPage = PageFactory.createPageInstance(driver, RoleBasedAccessManagementPage.class);
-        Assert.assertTrue(RoleBasedAccessManagementPage.isRoleBasedAccessManagementPageDisplayed(), "SMS Response Template page assertion failed");
-    }
+        Assert.assertTrue(RoleBasedAccessManagementPage.isRoleBasedAccessManagementPageDisplayed(), "RoleBased Access Management page assertion failed");
+        driver.navigate().refresh();
+        driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+	}
 	
 	@Test(groups= {"Maker"}, priority=1)
 	public void DeleteCancelRoleBasedAccessManagementRecord() throws Exception {

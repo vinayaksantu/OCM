@@ -690,7 +690,7 @@ public class AgentTeamManagementPage extends BasePage {
 	public boolean verifyDatabase(String query) throws Exception {
 		List<Map<String,String>> database=database(query);
 		System.out.println(database);	
-		selectWebElement(lastchangedon);
+		selectWebElement(name);
 		List<Map<String,String>> UI=gettable(); 
 		System.out.println(UI);
 		if(UI.equals(database))
@@ -778,7 +778,8 @@ public class AgentTeamManagementPage extends BasePage {
 		
 	public boolean verifyexportToExcelSheet(List<Map<String, String>> maplist) {
 		List<Map<String,String>> UI=getdata(); 
-		System.out.println(UI);
+		System.out.println(UI+"UIUIUI");
+		waitForJqueryLoad(driver);
 		System.out.println(maplist);
 		if(UI.equals(maplist))
 		return true;

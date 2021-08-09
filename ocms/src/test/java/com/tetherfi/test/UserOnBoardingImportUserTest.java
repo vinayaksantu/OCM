@@ -106,7 +106,7 @@ public class UserOnBoardingImportUserTest extends BaseTest {
 		Assert.assertTrue(userOnBoardingPage.VerifyImportUserFiles(userOnBoardingDetails), "Verify Import User with Duplicate AvayaLoginId Assertion Failed");
 	}
 
-	//@Test(priority=8,description="Verify Import User with DuplicateLanId")//Bug Record is Inserted with duplicate LanID[PRDOCM-64134]
+	@Test(priority=8,description="Verify Import User with DuplicateLanId")//Bug Record is Inserted with duplicate LanID[PRDOCM-64134]
 	public void VerifyImportUserwithDuplicateLanId() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath, "ImportUsers").getTestData().get(4);
@@ -136,7 +136,7 @@ public class UserOnBoardingImportUserTest extends BaseTest {
 		Assert.assertTrue(userOnBoardingPage.verifyStatus("Reverted"),"Approval Status Details Failed");
 	}
 
-	//@Test(priority=11,description="Verify Import Users with Contry OrgUnit with Div Supervisor")//Bug Importing is successful 
+	@Test(priority=11,description="Verify Import Users with Contry OrgUnit with Div Supervisor")//Bug Importing is successful 
 	public void VerifyImportUserswithCountryOrgUnitwithDivSupervisor() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath, "ImportUsers").getTestData().get(5);
@@ -145,7 +145,7 @@ public class UserOnBoardingImportUserTest extends BaseTest {
 		Assert.assertTrue(userOnBoardingPage.VerifyImportUserFiles(userOnBoardingDetails), "Verify Import Users with Contry OrgUnit with Div Supervisor Assertion Failed");
 	}
 
-	//@Test(priority=12,description="Verify Import User with Comma Separated Values InRoleColumn")//Bug Failed to Import
+	@Test(priority=12,description="Verify Import User with Comma Separated Values InRoleColumn")//Bug Failed to Import
 	public void VerifyImportUserwithCommaSeparatedValuesInRoleColumn() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath, "ImportUsers").getTestData().get(6);
@@ -154,7 +154,7 @@ public class UserOnBoardingImportUserTest extends BaseTest {
 		Assert.assertTrue(userOnBoardingPage.VerifyImportUserFiles(userOnBoardingDetails), "Verify Import User with CommaSeparated Values In Role Column Assertion Failed");
 	}
 
-	//@Test(priority=13,description="Verify Import Valid  Multiple UserDetails ChannelCount and Features")//Revert and Reject is not happening for the Multiple Imported Records
+	@Test(priority=13,description="Verify Import Valid  Multiple UserDetails ChannelCount and Features")//Revert and Reject is not happening for the Multiple Imported Records
 	public void VerifyImportValidMultipleUserDetailsChannelCountandFeatures() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath, "ImportUsers").getTestData().get(7);
@@ -163,7 +163,7 @@ public class UserOnBoardingImportUserTest extends BaseTest {
 		Assert.assertTrue(userOnBoardingPage.VerifyImportUserFiles(userOnBoardingDetails), "Verify ImportValid Multiple UserDetails ChannelCount and Features Assertion Failed");
 	}
 
-	//@Test(priority=14,description="Verify Import Multiple UserDetails ChannelCount and Features with DuplicateLanID")//Bug:Importing is successfully with duplicate Lan ID
+	@Test(priority=14,description="Verify Import Multiple UserDetails ChannelCount and Features with DuplicateLanID")//Bug:Importing is successfully with duplicate Lan ID
 	public void VerifyImportMultipleUserDetailsChannelCountandFeatureswithDuplicateLanID() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath, "ImportUsers").getTestData().get(8);
@@ -172,7 +172,7 @@ public class UserOnBoardingImportUserTest extends BaseTest {
 		Assert.assertTrue(userOnBoardingPage.VerifyImportUserFiles(userOnBoardingDetails), "Verify Import Multiple UserDetails ChannelCount and FeatureswithDuplicateLanID Assertion Failed");
 	}
 
-	//@Test(priority=15,description="Verify Import Multiple UserDetails ChannelCount and Features with DuplicateAvayaLoginID")
+	@Test(priority=15,description="Verify Import Multiple UserDetails ChannelCount and Features with DuplicateAvayaLoginID")
 	public void VerifyImportMultipleUserDetailsChannelCountandFeatureswithDuplicateAvayaLoginID() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath, "ImportUsers").getTestData().get(9);
@@ -181,7 +181,7 @@ public class UserOnBoardingImportUserTest extends BaseTest {
 		Assert.assertTrue(userOnBoardingPage.VerifyImportUserFiles(userOnBoardingDetails), "Verify Import Multiple UserDetails ChannelCount and Features with DuplicateAvayaLoginID Assertion Failed");
 	}
 
-	//@Test(priority=16,description=" To Verify Import Multiple User with Each MandatoryFieldsBlank")
+	@Test(priority=16,description=" To Verify Import Multiple User with Each MandatoryFieldsBlank")
 	public void VerifyImportMultipleUserwithEachMandatoryFieldsBlank() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath, "ImportUsers").getTestData().get(10);
@@ -198,11 +198,11 @@ public class UserOnBoardingImportUserTest extends BaseTest {
 		UserOnBoardingDetails userOnBoardingDetails = new UserOnBoardingDetails(map);
 		UserOnBoardingPage userOnBoardingPage = PageFactory.createPageInstance(driver, UserOnBoardingPage.class);
 		Assert.assertTrue(userOnBoardingPage.VerifyImportUserDetailswithInvalidOrgUnit(userOnBoardingDetails), "Verify Import User with Invalid Org Unit Assertion Failed");
-		//Assert.assertTrue(userOnBoardingPage.VerifyImportUserDetailswithNewColumn(userOnBoardingDetails), "Verify Import User with New Column Assertion Failed");//Bug:Import is successfull
+		Assert.assertTrue(userOnBoardingPage.VerifyImportUserDetailswithNewColumn(userOnBoardingDetails), "Verify Import User with New Column Assertion Failed");//Bug:Import is successfull
 		Assert.assertTrue(userOnBoardingPage.VerifyImportUserDetailswithUpdatedColumn(userOnBoardingDetails), "Verify Import User with Updated column name Assertion Failed");
 	}
 
-	//@Test(priority=18,description="To Verify Import User Profile Pictures with out Attribute")//Bug:Record is Imported successfully
+	@Test(priority=18,description="To Verify Import User Profile Pictures with out Attribute")//Bug:Record is Imported successfully
 	public void VerifyImportSupervisorasNAwithEachLevel() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath, "ImportUsers").getTestData().get(11);
@@ -222,7 +222,7 @@ public class UserOnBoardingImportUserTest extends BaseTest {
 		Assert.assertTrue(userOnBoardingPage.VerifyImportUserFiles(userOnBoardingDetails), "Verify Import Valid Agent with TeamLevelSupervisor Assertion Failed");
 	}
 
-	//@Test(priority=20,description="Verify Import User with Channel Disabled with Count and Features")//Bug:Import is successfull
+	@Test(priority=20,description="Verify Import User with Channel Disabled with Count and Features")//Bug:Import is successfull
 	public void VerifyImportUserwithChannelDisabledwithCountandFeatures() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath, "ImportUsers").getTestData().get(13);
@@ -238,7 +238,7 @@ public class UserOnBoardingImportUserTest extends BaseTest {
 		UserOnBoardingDetails userOnBoardingDetails = new UserOnBoardingDetails(map);
 		UserOnBoardingPage userOnBoardingPage = PageFactory.createPageInstance(driver, UserOnBoardingPage.class);
 		Assert.assertTrue(userOnBoardingPage.VerifyImportUserwithInvalidTextChatGreetingFiles(userOnBoardingDetails), "Verify Import User with Invalid TextChatGreeting Files Assertion Failed");
-		//Assert.assertTrue(userOnBoardingPage.VerifyImportUserwithInvalidRoleFile(userOnBoardingDetails), "Verify Import User with Invalid Role File Assertion Failed");//Bug:Record is imorted but Record Count Displayed as Inserted and in Invalid
+		Assert.assertTrue(userOnBoardingPage.VerifyImportUserwithInvalidRoleFile(userOnBoardingDetails), "Verify Import User with Invalid Role File Assertion Failed");//Bug:Record is imorted but Record Count Displayed as Inserted and in Invalid
 	}
 
 	@Test(priority=22,description="Verify Import User with Invalid Mandatory Fields")
@@ -249,8 +249,8 @@ public class UserOnBoardingImportUserTest extends BaseTest {
 		UserOnBoardingPage userOnBoardingPage = PageFactory.createPageInstance(driver, UserOnBoardingPage.class);
 		Assert.assertTrue(userOnBoardingPage.VerifyImportUserwithInvalidProfileFile(userOnBoardingDetails), "Verify Import User with Invalid ProfileFile Assertion Failed");
 		Assert.assertTrue(userOnBoardingPage.VerifyImportUserwithInvalidRoleAccessFile(userOnBoardingDetails), "Verify Import User with Invalid RoleAccessFile Assertion Failed");
-		//Assert.assertTrue(userOnBoardingPage.VerifyImportUserwithAlphabetsasAvayaLoginID(userOnBoardingDetails), "Verify Import User with Alphabets as AvayaLoginID Assertion Failed");//Bug:Records are created with alphabetavayalogin ID
-		//Assert.assertTrue(userOnBoardingPage.VerifyImportUserwithSpecialCharactersasAvayaLoginID(userOnBoardingDetails), "Verify Import User with Special Characters as AvayaLoginID Assertion Failed");//Bug:Records are created with special charector avayaLoginID
+		Assert.assertTrue(userOnBoardingPage.VerifyImportUserwithAlphabetsasAvayaLoginID(userOnBoardingDetails), "Verify Import User with Alphabets as AvayaLoginID Assertion Failed");//Bug:Records are created with alphabetavayalogin ID
+		Assert.assertTrue(userOnBoardingPage.VerifyImportUserwithSpecialCharectorsasAvayaLoginID(userOnBoardingDetails), "Verify Import User with Special Characters as AvayaLoginID Assertion Failed");//Bug:Records are created with special charector avayaLoginID
 	}
 
 	@Test(priority=23)//,dependsOnMethods="VerifyImportUserwithInvalidMandatoryFields",description="To Revert Imported Records")

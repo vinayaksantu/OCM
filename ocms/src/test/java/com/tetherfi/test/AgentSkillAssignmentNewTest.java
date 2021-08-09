@@ -55,7 +55,7 @@ public class AgentSkillAssignmentNewTest extends BaseTest {
 		Assert.assertTrue(agentSkillAssignmentNewPage.verifyEditAgentListRecordButton(), "Edit Agent Skill Assertion Failed");
 	}
 	
-	/*@Test(priority=3)
+	@Test(priority=3)
 	public void VerifyAddNewRecordInAgentSettings() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentSkillAssignmentNewData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -64,7 +64,7 @@ public class AgentSkillAssignmentNewTest extends BaseTest {
 		agentSkillAssignmentNewPage.verifyEditAgentListRecordButton();
 		agentSkillAssignmentNewPage.addNewAgentSettingsRecord(agentSettingsDetails);
 		Assert.assertEquals(agentSkillAssignmentNewPage.verifySuccessMessage(), "Record Created Successfully","Create Assertion failed");
-	}*/
+	}
 	
 	@Test(priority=4)
 	public void VerifyArrowDropDownData() throws Exception {

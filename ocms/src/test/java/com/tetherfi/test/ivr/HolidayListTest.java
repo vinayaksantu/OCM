@@ -105,7 +105,7 @@ public class HolidayListTest extends BaseTest {
         Map<String, String> map3 = new ExcelReader(filePath, "Create").getTestData().get(4);
         HolidayListDetails holidayListDetails3=new HolidayListDetails (map3);
         holidaylistPage.addNewHolidayList(holidayListDetails3);
-        Assert.assertFalse(holidaylistPage.verifymessage(), "HolidayList Record creation assertion failed" );
+        Assert.assertEquals(holidaylistPage.getSuccessMessage(),"Record Created Successfully","HolidayList Record creation assertion failed" );
 	}
 	
 	@Test(priority=8)
@@ -125,7 +125,7 @@ public class HolidayListTest extends BaseTest {
         Map<String, String> map5 = new ExcelReader(filePath, "Create").getTestData().get(6);
         HolidayListDetails holidayListDetails5=new HolidayListDetails (map5);
         holidaylistPage.addNewHolidayList(holidayListDetails5);
-        Assert.assertFalse(holidaylistPage.verifymessage(), "HolidayList Record creation assertion failed" );
+        Assert.assertEquals(holidaylistPage.VerifyMessage(), "Start DateTime is same as End DateTime","Record Creation Assertion failed");
 	}
 	
 	@Test(priority=10)//,dependsOnMethods = ("addNewHolidayListRecord"))
@@ -135,7 +135,7 @@ public class HolidayListTest extends BaseTest {
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         HolidayListDetails holidayListDetails=new HolidayListDetails (map);	
         holidaylistPage.addDuplicateRecord(holidayListDetails);
-        Assert.assertFalse(holidaylistPage.verifymessage(), "HolidayList Duplicate Record assertion failed" );
+        Assert.assertEquals(holidaylistPage.VerifyMessage(), "Record already exists between date range 30/12/2021 & 31/12/2021","Record Creation Assertion failed");
   	}
 	
 	@Test(priority=11)
@@ -145,7 +145,7 @@ public class HolidayListTest extends BaseTest {
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         HolidayListDetails holidayListDetails=new HolidayListDetails (map);	
         holidaylistPage.AddEmptyRecord(holidayListDetails);
-        Assert.assertFalse(holidaylistPage.verifymessage());
+        Assert.assertEquals(holidaylistPage.VerifyMessage(), "Please provide input for Announced Holiday, Start Date, Start Time, End Date, End Time, Skill/VDN","Record Creation Assertion failed");
 	}
         
 	@Test(priority=12)
@@ -155,7 +155,7 @@ public class HolidayListTest extends BaseTest {
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         HolidayListDetails holidayListDetails=new HolidayListDetails (map);	    	
         holidaylistPage.LeavingAnnouncedHolidayBlank(holidayListDetails);
-        Assert.assertFalse(holidaylistPage.verifymessage());
+        Assert.assertEquals(holidaylistPage.VerifyMessage(), "Please provide input for Announced Holiday","Record Creation Assertion failed");
 	}
 	
 	@Test(priority=13)
@@ -165,7 +165,7 @@ public class HolidayListTest extends BaseTest {
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         HolidayListDetails holidayListDetails=new HolidayListDetails (map);	
         holidaylistPage.LeavingStartDateBlank(holidayListDetails);
-        Assert.assertFalse(holidaylistPage.verifymessage());
+        Assert.assertEquals(holidaylistPage.VerifyMessage(), "Please provide input for Start Date","Record Creation Assertion failed");
 	}
 	
 	@Test(priority=14)
@@ -175,7 +175,7 @@ public class HolidayListTest extends BaseTest {
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         HolidayListDetails holidayListDetails=new HolidayListDetails (map);	
         holidaylistPage.LeavingStartTimeBlank(holidayListDetails);
-        Assert.assertFalse(holidaylistPage.verifymessage());
+        Assert.assertEquals(holidaylistPage.VerifyMessage(), "Please provide input for Start Time","Record Creation Assertion failed");
 	}
 	
 	@Test(priority=15)
@@ -185,7 +185,7 @@ public class HolidayListTest extends BaseTest {
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         HolidayListDetails holidayListDetails=new HolidayListDetails (map);	
         holidaylistPage.LeavingEndDateBlank(holidayListDetails);
-        Assert.assertFalse(holidaylistPage.verifymessage());
+        Assert.assertEquals(holidaylistPage.VerifyMessage(), "Please provide input for End Date","Record Creation Assertion failed");
 	}
 	
 	@Test(priority=16)
@@ -195,7 +195,7 @@ public class HolidayListTest extends BaseTest {
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         HolidayListDetails holidayListDetails=new HolidayListDetails (map);	
         holidaylistPage.LeavingEndTimeBlank(holidayListDetails);
-        Assert.assertFalse(holidaylistPage.verifymessage());
+        Assert.assertEquals(holidaylistPage.VerifyMessage(), "Please provide input for End Time","Record Creation Assertion failed");
 	}
 	
 	@Test(priority=17)
@@ -205,7 +205,7 @@ public class HolidayListTest extends BaseTest {
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         HolidayListDetails holidayListDetails=new HolidayListDetails (map);	
         holidaylistPage.LeavingVDNBlank(holidayListDetails);
-        Assert.assertFalse(holidaylistPage.verifymessage());
+        Assert.assertEquals(holidaylistPage.VerifyMessage(), "Please provide input for Skill/VDN","Record Creation Assertion failed");
 	}
 	
 	@Test(priority=18)
@@ -293,16 +293,16 @@ public class HolidayListTest extends BaseTest {
         Assert.assertTrue(holidaylistPage.verifyexportToExcelSheet(maplist));
     }
   
-   /* @Test(priority=30)//,dependsOnMethods = ("addNewHolidayListRecord"))
+    @Test(priority=30)//,dependsOnMethods = ("addNewHolidayListRecord"))
   	public void editHolidayListRecord() throws Exception {
   		HolidayListPage holidaylistPage = PageFactory.createPageInstance(driver, HolidayListPage.class);
   		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\HolidayListData.xlsx";
   		Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(0);
         HolidayListDetails holidayListDetails=new HolidayListDetails (map);
-//        Assert.assertTrue(holidaylistPage.editHolidaylistCancelbtn(holidayListDetails));
+        Assert.assertTrue(holidaylistPage.editHolidaylistCancelbtn(holidayListDetails));
       	screenshot.captureScreen("HolidayListTest", "edit Cancel");
       	holidaylistPage.editHolidayListRecord(holidayListDetails);
-        Assert.assertTrue(holidaylistPage.verifymessage(), "HolidayList Record updation assertion failed" );
+      	Assert.assertEquals(holidaylistPage.getSuccessMessage(),"Record Updated Successfully","HolidayList Record creation assertion failed" );
   	}
   	
   	@Test(priority=31)
@@ -315,23 +315,23 @@ public class HolidayListTest extends BaseTest {
         Assert.assertFalse(holidaylistPage.verifymessage());
   	}
   	
-  	@Test(priority=32,dependsOnMethods = ("editHolidayListRecord"))
+  	@Test(priority=32)//,dependsOnMethods = ("editHolidayListRecord"))
     public void DeleteHolidayListRecord() throws Exception {
         HolidayListPage holidaylistPage = PageFactory.createPageInstance(driver, HolidayListPage.class);
-        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Holiday List.xlsx";
+        String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\HolidayListData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
         HolidayListDetails holidayListDetails=new HolidayListDetails (map);
         Assert.assertTrue(holidaylistPage.verifydeleteNo(holidayListDetails));
         screenshot.captureScreen("HolidayListTest", "delete No");
         holidaylistPage.deleteHolidayListRecord(holidayListDetails);
-        Assert.assertTrue(holidaylistPage.verifymessage(),"delete record assertion failed");
+        Assert.assertEquals(holidaylistPage.getSuccessMessage(),"Record Deleted Successfully","HolidayList Record creation assertion failed" );
       }
     
     @Test(priority=33)
     public void ExporttoExcelWithoutData() throws Exception {
         HolidayListPage holidaylistPage = PageFactory.createPageInstance(driver, HolidayListPage.class);
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\HolidayListData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath, "Invalid").getTestData().get(0);
+        Map<String, String> map = new ExcelReader(filePath, "Search").getTestData().get(0);
         HolidayListDetails holidayListDetails=new HolidayListDetails (map);
         Assert.assertTrue(holidaylistPage.ExporttoExcelWithoutData(holidayListDetails));
     }
@@ -367,7 +367,7 @@ public class HolidayListTest extends BaseTest {
         Assert.assertTrue(holidaylistPage.verifyinvalidsearchwithwrongdata(holidayListDetails),"invalidsearchwithwrongdata");
         screenshot.captureScreen("HolidayListTest","Invalid Search with wrong data");
         Assert.assertTrue(holidaylistPage.verifyclearsearch(), "Clear All Assertion Failed");
-    }*/
+    }
 	
 	@AfterMethod
     public void afterEachMethod(Method method){

@@ -67,7 +67,7 @@ public class TmacPage extends BasePage {
 	}
     public boolean isTMACPageDisplayed() {
         boolean status=false;
-        waitForLoad(driver);
+        //waitForLoad(driver);
         //waitForJqueryLoad(driver);
         for(WebElement ele:navTabs){
             if(ele.getText().equalsIgnoreCase("TMAC")){

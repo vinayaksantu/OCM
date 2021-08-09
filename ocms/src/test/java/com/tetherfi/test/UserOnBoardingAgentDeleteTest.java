@@ -46,9 +46,10 @@ public class UserOnBoardingAgentDeleteTest {
             map= new ExcelReader(filePath,"Login").getTestData().get(1);
         else
             map= new ExcelReader(filePath,"Login").getTestData().get(0);
-        try{driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);}catch (TimeoutException e){e.printStackTrace();driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);}
+        try{driver.get("https://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);}catch (TimeoutException e){e.printStackTrace();driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);}
+        LoginPage loginPage=PageFactory.createPageInstance(driver,LoginPage.class);
+		loginPage.overrideSecurityConcern();/*UsedFor https withaddvanced btn*/
         if(map.get("LoginType").equals("Custom")){
-            LoginPage loginPage=PageFactory.createPageInstance(driver,LoginPage.class);
             Assert.assertTrue(loginPage.isLoginPageDisplayed(),"Login page not loaded");
             loginPage.login(map.get("Username"),map.get("Password"),map.get("EmailId"));
             Thread.sleep(5000);
@@ -60,6 +61,7 @@ public class UserOnBoardingAgentDeleteTest {
         ocmHomePage.navigateToUserOnBoardingPage();
         UserOnBoardingPage userOnBoardingPage = PageFactory.createPageInstance(driver, UserOnBoardingPage.class);
         Assert.assertTrue(userOnBoardingPage.isUserOnBoardingPageDisplayed(), "NavigateToNewUserOnBoardingPage Page assertion failed");
+        driver.navigate().refresh();
         driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 	}
 	
@@ -82,7 +84,7 @@ public class UserOnBoardingAgentDeleteTest {
 	    Assert.assertEquals(userOnBoardingPage.getSuccessMessage(), "Record Deleted Successfully");
     }     
     
-    @Test(groups = { "Maker" },priority=3,dependsOnMethods="DeleteRevertUserOnBoardingRecord",description="To VerifyRevertForDeleteRecord ")
+    @Test(groups = { "Maker" },priority=3)//,dependsOnMethods="DeleteRevertUserOnBoardingRecord",description="To VerifyRevertForDeleteRecord ")
     public void VerifyRevertForDeleteRecord() throws Exception {
     	UserOnBoardingPage userOnBoardingPage = PageFactory.createPageInstance(driver, UserOnBoardingPage.class);
     	userOnBoardingPage.selectUserOnBoardingAuditTrailTab();
@@ -91,7 +93,7 @@ public class UserOnBoardingAgentDeleteTest {
         Assert.assertTrue(userOnBoardingPage.verifyStatus("Reverted"),"approval status details failed");
     }
     
-    @Test(groups= {"Maker"},priority=4,dependsOnMethods="VerifyRevertForDeleteRecord",description="To Verify AuditTrialReport for RevertDelete ")
+    @Test(groups= {"Maker"},priority=4)//,dependsOnMethods="VerifyRevertForDeleteRecord",description="To Verify AuditTrialReport for RevertDelete ")
     public void VerifyAuditTrialReportForRevertDelete() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(0);	
@@ -133,7 +135,7 @@ public class UserOnBoardingAgentDeleteTest {
         Assert.assertTrue(userOnBoardingPage.verifyReviewAuditTrail("Rejected","Reject Deleted"));
     }
         
-    @Test(priority=8,groups = { "Checker" },dependsOnMethods = "RejectforDeleteUserOnBoardingRecord",description="To VerifyAuditTrailReport forReject ")
+    @Test(priority=8,groups = { "Checker" })//,dependsOnMethods = "RejectforDeleteUserOnBoardingRecord",description="To VerifyAuditTrailReport forReject ")
     public void VerifyAuditTrailReportForReject() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
 	    Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
@@ -158,7 +160,7 @@ public class UserOnBoardingAgentDeleteTest {
 	     Assert.assertEquals(userOnBoardingPage.getSuccessMessage(), "Record Deleted Successfully");
 	}
     
-    @Test(priority=10,groups= {"Maker"},dependsOnMethods="DeleteUserOnBoardingRecord",description="To  VerifyAuditTrialReportForDelete")
+    @Test(priority=10,groups= {"Maker"})//,dependsOnMethods="DeleteUserOnBoardingRecord",description="To  VerifyAuditTrialReportForDelete")
     public void VerifyAuditTrialReportForDelete() throws Exception {
 		 String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(0);	
@@ -173,7 +175,7 @@ public class UserOnBoardingAgentDeleteTest {
         Assert.assertTrue(ocmReportsPage.verifyUserOnBoardingDelete(UserOnBoardingDetails,"MakerDelete"));
     }
     
-    @Test(priority=11,groups = { "Maker" },dependsOnMethods="DeleteUserOnBoardingRecord",description="To VerifyAuditTrailDataForDeleteUserOnBoardingRecord ")
+    @Test(priority=11,groups = { "Maker" })//,dependsOnMethods="DeleteUserOnBoardingRecord",description="To VerifyAuditTrailDataForDeleteUserOnBoardingRecord ")
     public void VerifyAuditTrailDataForDeleteUserOnBoardingRecord() throws Exception {
 		 String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
 		 Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(0);
@@ -192,7 +194,7 @@ public class UserOnBoardingAgentDeleteTest {
         Assert.assertTrue(userOnBoardingPage.verifyStatus("Approval Pending"),"approval status details failed");
     }
     
-	@Test(priority=13,groups = { "Maker" },dependsOnMethods = "VerifySendForApprovalForDeleteRecord",description="To VerifyAuditTrailReportForSendForApprove  ")
+	@Test(priority=13,groups = { "Maker" })//,dependsOnMethods = "VerifySendForApprovalForDeleteRecord",description="To VerifyAuditTrailReportForSendForApprove  ")
     public void VerifyAuditTrailReportForSendForApprove() throws Exception {
 		 String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
 		 Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
@@ -208,7 +210,7 @@ public class UserOnBoardingAgentDeleteTest {
     }
     
     
-	@Test(priority=14,groups = { "Checker" },dependsOnMethods="VerifyAuditTrailReportForSendForApprove",description="To Verify ApproveforDeleteUserOnBoardingRecord ")
+	@Test(priority=14,groups = { "Checker" })//,dependsOnMethods="VerifyAuditTrailReportForSendForApprove",description="To Verify ApproveforDeleteUserOnBoardingRecord ")
     public void ApproveforDeleteUserOnBoardingRecord() throws Exception{
 		 UserOnBoardingPage userOnBoardingPage = PageFactory.createPageInstance(driver, UserOnBoardingPage.class);
 		 userOnBoardingPage.clickonApprove("Approve Deleted");
@@ -216,7 +218,7 @@ public class UserOnBoardingAgentDeleteTest {
 	     Assert.assertTrue(userOnBoardingPage.verifyReviewAuditTrail("Approved","Approve Deleted"));
     }
 	
-	@Test(priority=15,groups = { "Checker" },dependsOnMethods = "ApproveforDeleteUserOnBoardingRecord",description="To VerifyAuditTrailReportForApprove")
+	@Test(priority=15,groups = { "Checker" })//,dependsOnMethods = "ApproveforDeleteUserOnBoardingRecord",description="To VerifyAuditTrailReportForApprove")
     public void VerifyAuditTrailReportForApprove() throws Exception {
 		 String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\UserOnBoardingData.xlsx";
 		 Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);

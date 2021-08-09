@@ -268,10 +268,10 @@ public class FaxTemplatePage extends BasePage{
 	@FindBy(xpath="//span[text()='Heading 1']")
 	private WebElement formatHeading1;
 
-	@FindBy(xpath="//a[@title='Italic']")
+	@FindBy(xpath="//button[@title='Italic']")
 	private WebElement italicFormatText;
 
-	@FindBy(xpath="//a[@title='Insert image']")
+	@FindBy(xpath="//button[@title='Insert image']")
 	private WebElement InsertImage;
 
 	@FindBy(xpath="//span[text()='Insert image']")
@@ -286,16 +286,16 @@ public class FaxTemplatePage extends BasePage{
 	@FindBy(xpath="//a[@class='k-icon k-i-zoom k-search']")
 	private WebElement searchIcon;
 
-	@FindBy(xpath="//img[@alt='London.png']")
+	@FindBy(xpath="//span[@class='k-file-name']")
 	private WebElement Img1;
 
 	@FindBy(xpath="//button[text()='Insert']")
 	private WebElement insertImg;
 	
-	@FindBy(xpath="//strong[text()='Empty Folder']")
+	@FindBy(xpath="//span[text()='Empty Folder']")
 	private WebElement emptyFolder;
 	
-	@FindBy(xpath="//a[@title='Insert unordered list']")
+	@FindBy(xpath="//button[@title='Insert unordered list']")
 	private WebElement insertUnorderdList;
 	
 	@FindBy(id="tdrillgrid")
@@ -1088,6 +1088,7 @@ public class FaxTemplatePage extends BasePage{
 		waitUntilWebElementIsVisible(ImgPopup);
 		enterValueToTxtFieldWithoutClear(searchImagePlaceHolder,FaxTemplateDetails.getImage());
 		selectWebElement(searchIcon);
+		waitForJqueryLoad(driver);
 		try {
 			if(emptyFolder.isDisplayed()) {
 				selectWebElement(ImageUploadBtn);

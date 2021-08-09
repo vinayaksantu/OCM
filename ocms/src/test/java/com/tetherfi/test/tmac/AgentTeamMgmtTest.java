@@ -262,7 +262,7 @@ public class AgentTeamMgmtTest extends BaseTest {
         Assert.assertTrue(agentTeamManagementPage.verifyExportToExcel(filePath));
     }
     
-    @Test(priority=24)
+    @Test(priority=24)//UI Order and Exported Sheet Order is different
     public void ExportToExcelData() throws Exception
     {String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Organizational Structure.xlsx";
     List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();

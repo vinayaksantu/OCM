@@ -28,6 +28,7 @@ import com.tetherfi.model.report.ReportDetails;
 import com.tetherfi.model.sms.SmsResponseTemplateDetails;
 import com.tetherfi.model.tmac.AgentSettingsDetails;
 import com.tetherfi.model.tmac.AgentTeamMgmtDetails;
+import com.tetherfi.model.tmac.AgentTemplateDetails;
 import com.tetherfi.model.tmac.AttributesDetails;
 import com.tetherfi.model.tmac.SlotSchedulerDetails;
 import com.tetherfi.model.tmac.TmacAuxCodesDetails;
@@ -385,6 +386,9 @@ public class OCMReportsPage extends BasePage {
 
 	@FindBy(xpath="//button[@class='swal-button swal-button--confirm swal-button--danger']")
 	private WebElement alertOk;
+	
+	@FindBy(xpath="//a[text()='Date Time']")
+	private WebElement dateTime;
 
 
 
@@ -1638,6 +1642,10 @@ public class OCMReportsPage extends BasePage {
 		Thread.sleep(1000);
 		waitForJqueryLoad(driver);
 		waitUntilWebElementIsVisible(gridContent);
+		selectWebElement(dateTime);
+		waitForJqueryLoad(driver);
+		selectWebElement(dateTime);
+		waitForJqueryLoad(driver);
 	}
 
 	public void booleansearchold(String Name, String Transaction) throws Exception
@@ -1663,6 +1671,10 @@ public class OCMReportsPage extends BasePage {
 		selectWebElement(searchSearchBtn);
 		waitForJqueryLoad(driver);
 		waitUntilWebElementIsVisible(gridContent);
+		selectWebElement(dateTime);
+		waitForJqueryLoad(driver);
+		selectWebElement(dateTime);
+		waitForJqueryLoad(driver);
 	}
 
 	public Boolean verifyTmacBroadcastMsgCreate(TmacBroadCastMsgDetails details, String Transaction) throws Exception {
@@ -1993,7 +2005,7 @@ public class OCMReportsPage extends BasePage {
 	}
 
 	public boolean verifyAgentTeamMgmtCreate(AgentTeamMgmtDetails details, String Transaction) throws Exception {
-		booleansearchnew(details.getTeamName(),Transaction);
+		booleansearchnew(details.getLevel(),Transaction);
 		Boolean Status=false;
 		Map<String,String> firstRowData=getFirstRowDatafromTable1();
 		Map<String,String> newvalues=new HashMap<>();
@@ -2003,6 +2015,7 @@ public class OCMReportsPage extends BasePage {
 			if(f.length>1)
 				newvalues.put(f[0], f[1]);
 		}
+		System.out.println(details.getLevel()+"ssssssssssssssss");
 		if(newvalues.get("LevelHierarchy").equals(details.getLevel()))
 		{
 			if(newvalues.get("Name").equals(details.getTeamName()))
@@ -2999,7 +3012,7 @@ public class OCMReportsPage extends BasePage {
 					if(oldvalues.get("Type").equals(details.getSenderType()))
 					{
 						if(oldvalues.get("Name").equals(details.getName())) {
-							if(firstRowData.get("ModifyReason").equalsIgnoreCase(details.getDeleteReason())) {
+							if(oldvalues.get("ModifyReason").equalsIgnoreCase(details.getDeleteReason())) {
 								if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getDeleteReason()))
 									Status=true;
 								else System.out.println("Change reason data mismatch");
@@ -3204,7 +3217,7 @@ public class OCMReportsPage extends BasePage {
 														if(newvalues.get("Priority").equals(details.getSkillPriority())){
 															if(newvalues.get("SkillTimeOutTime").equals(details.getTimeout())){
 																if(newvalues.get("SLATime").equals(details.getAcceptedSL())){
-																	if(newvalues.get("IsEnabled").equals(details.getUpdatedEnabled())){
+																	if(newvalues.get("IsEnabled").equals(details.getEnabled())){
 																		if(newvalues.get("ModifyReason").equals(details.getModifyReason())) {
 																			if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getModifyReason()))
 																				Status=true;
@@ -4357,15 +4370,15 @@ public class OCMReportsPage extends BasePage {
 			if(f.length>1)
 				newvalues.put(f[0], f[1]);
 		}
-		if(newvalues.get("DNIS").equals(details.getDNIS()))
+		if(newvalues.get("Dnis").equals(details.getDNIS()))
 		{
-			if(newvalues.get("HotlineName").equals(details.getHotLineName()))
+			if(newvalues.get("HotLineName").equals(details.getHotLineName()))
 			{
-				if(newvalues.get("EnrollmentFlag").equals(details.getEnrollmentFlag()))
+				if(newvalues.get("EnRollmentFlag").equals(details.getEnrollmentFlag()))
 				{
 					Status= true;
 				}
-				else {System.out.println("EnrollmentFlag data mismatch");}
+				else {System.out.println("EnRollmentFlag data mismatch");}
 			}
 			else {System.out.println("Hot Line Name data mismatch");}
 		}
@@ -4386,9 +4399,9 @@ public class OCMReportsPage extends BasePage {
 				if(f.length>1)
 					oldvalues.put(f[0], f[1]);
 			}
-			if(oldvalues.get("DNIS").equals(details.getDNIS())){
-				if(oldvalues.get("HotlineName").equals(details.getHotLineName())) {
-					if(oldvalues.get("EnrollmentFlag").equals(details.getEnrollmentFlag())) {
+			if(oldvalues.get("Dnis").equals(details.getDNIS())){
+				if(oldvalues.get("HotLineName").equals(details.getHotLineName())) {
+					if(oldvalues.get("EnRollmentFlag").equals(details.getEnrollmentFlag())) {
 						if(firstRowData.containsKey("New Values")) {
 							Map<String,String> newvalues=new HashMap<>();
 							String[]d1=firstRowData.get("New Values").split("\n");
@@ -4397,9 +4410,9 @@ public class OCMReportsPage extends BasePage {
 								if(f.length>1)
 									newvalues.put(f[0], f[1]);
 							}
-							if(newvalues.get("DNIS").equals(details.getDNIS())) {
-								if(newvalues.get("HotlineName").equals(details.getUpdatedHotLineName())) {
-									if(newvalues.get("EnrollmentFlag").equals(details.getEnrollmentFlag())) {
+							if(newvalues.get("Dnis").equals(details.getDNIS())) {
+								if(newvalues.get("HotLineName").equals(details.getUpdatedHotLineName())) {
+									if(newvalues.get("EnRollmentFlag").equals(details.getEnrollmentFlag())) {
 										if(newvalues.get("ModifyReason").equals(details.getModifyReason())) {
 											if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getModifyReason()))
 												Status=true;
@@ -4407,7 +4420,7 @@ public class OCMReportsPage extends BasePage {
 										}
 										else System.out.println("Modify reason data mismatch");
 									}
-									else System.out.println("EnrollmentFlag data mismatch");
+									else System.out.println("EnRollmentFlag data mismatch");
 								}
 								else System.out.println("HotLineName data mismatch");
 							}
@@ -4415,7 +4428,7 @@ public class OCMReportsPage extends BasePage {
 						}    					
 						else {System.out.println("New Values data mismatch");}
 					}
-					else {System.out.println("EnrollmentFlag data mismatch");}
+					else {System.out.println("EnRollmentFlag data mismatch");}
 				}
 				else {System.out.println("HotLIneName data mismatch");	}	
 			}
@@ -4436,11 +4449,11 @@ public class OCMReportsPage extends BasePage {
 			if(f.length>1)
 				oldvalues.put(f[0], f[1]);
 		}
-		if(oldvalues.get("DNIS").equals(details.getDNIS()))
+		if(oldvalues.get("Dnis").equals(details.getDNIS()))
 		{
-			if(oldvalues.get("HotlineName").equals(details.getHotLineName()))
+			if(oldvalues.get("HotLineName").equals(details.getHotLineName()))
 			{
-				if(oldvalues.get("EnrollmentFlag").equals(details.getEnrollmentFlag()))
+				if(oldvalues.get("EnRollmentFlag").equals(details.getEnrollmentFlag()))
 				{
 					if(oldvalues.get("ModifyReason").equals(details.getDeleteReason())) {
 						if(firstRowData.get("Change Reason").equalsIgnoreCase(details.getDeleteReason()))
@@ -7927,7 +7940,7 @@ public class OCMReportsPage extends BasePage {
 	}
 
 	public boolean verifyTmacBlindTransferCreate(TmacTransferListDetails details, String Transaction) throws Exception {
-		booleansearchnew(details.getName(),Transaction);
+		booleansearchnew(details.getSkillName(),Transaction);
 		Boolean Status=false;
 		Map<String,String> firstRowData=getFirstRowDatafromTable1();
 		Map<String,String> newvalues=new HashMap<>();
@@ -8013,6 +8026,7 @@ public class OCMReportsPage extends BasePage {
 			if(f.length>1)
 				oldvalues.put(f[0], f[1]);
 		}
+		System.out.println(details.getChannel());
 		if(oldvalues.get("Channel").equals(details.getChannel()))
 		{
 			if(oldvalues.get("SkillName").equals(details.getSkillName()))
@@ -8694,6 +8708,247 @@ public class OCMReportsPage extends BasePage {
 		}
 		else {System.out.println("LanID data mismatch");}
 		return Status;
+	}
+	
+	public boolean verifyTemplateTabCreate(AgentTemplateDetails details,String Transaction) throws Exception {
+		booleansearchnew(details.getTemplatename(),Transaction);
+		Boolean Status=false;
+		Map<String,String> firstRowData= getFirstRowDatafromTable1();
+		Map<String,String> newvalues=new HashMap<>();
+		String[]d=firstRowData.get("New Values").split("\n");
+		for(String e:d) {
+			String f[]=e.split(":",2);
+			if(f.length>1)
+				newvalues.put(f[0], f[1]);
+		}
+		String [] teamName=details.getOrgUnit().split(">");
+		if(newvalues.get("name").equals(details.getTemplatename()))
+		{
+			if(newvalues.get("theme").equals(details.getThemeoptions()))
+			{
+				if(newvalues.get("teamName").equals(teamName[teamName.length-1]))
+				{  
+					Status=true;
+				}
+				else {System.out.println("teamName Data Mismatch");}
+			}
+			else {System.out.println("theme Data Mismatch");}
+		}
+		else {System.out.println("name Data Mismatch");}
+
+		return Status;
+	}
+
+	public boolean verifyTemplateTabUpdate(AgentTemplateDetails details,String Transaction) throws Exception {
+		booleansearchnew(details.getTemplatename(),Transaction);
+		boolean Status=false;
+		Map<String,String> firstRowData=getFirstRowDatafromTable1();
+		if(firstRowData.containsKey("Old Values")) {
+			Map<String,String> oldvalues=new HashMap<>();
+			String []d=firstRowData.get("Old Values").split("\n");
+			for(String e:d) {
+				System.out.println(e);
+				String f[]=e.split(":", 2);
+				if(f.length>1)
+					oldvalues.put(f[0], f[1]);
+			}
+			String [] teamName=details.getOrgUnit().split(">");
+			if(oldvalues.get("name").equals(details.getTemplatename())) {
+				if(oldvalues.get("theme").equals(details.getThemeoptions())) {
+					if(oldvalues.get("teamName").equals(teamName[teamName.length-1])) {
+						if(firstRowData.containsKey("New Values")) {
+							Map<String,String>newvalues=new HashMap<>();
+							String []d1=firstRowData.get("New Values").split("\n");
+							for(String e:d1) {
+								System.out.println(e);
+								String f[]=e.split(":", 2);
+								if(f.length>1)
+									newvalues.put(f[0], f[1]);
+							}
+							if(newvalues.get("name").equals(details.getTemplatename())) {
+								if(newvalues.get("theme").equals(details.getupdatedTheme())) {
+									if(newvalues.get("teamName").equals(teamName[teamName.length-1])) {
+										if(newvalues.get("ModifyReason").equals(details.getmodifyReason()))
+										{
+											Status=true;
+										}
+										else {System.out.println("ModifyReason Data Mismatch");}
+									}
+									else {System.out.println("teamName Data Mismatch");}
+								}
+								else {System.out.println("theme Data Mismatch");}
+							}
+							else {System.out.println("name Data Mismatch");}
+						}
+						else {System.out.println("teamName Data Mismatch");}
+					}
+					else {System.out.println("theme Data Mismatch");}
+				}
+				else {System.out.println("name Data Mismatch");}
+			}
+		}
+		return Status;
+	}
+
+	public boolean verifyTemplateTabDelete(AgentTemplateDetails details,String Transaction) throws Exception {
+		booleansearchold(details.getTemplatename(),Transaction);
+		Boolean Status=false;
+		Map<String,String> firstRowData= getFirstRowDatafromTable1();
+		Map<String,String> oldvalues=new HashMap<>();
+		String[]d=firstRowData.get("Old Values").split("\n");
+		for(String e:d) {
+			String f[]=e.split(":",2);
+			if(f.length>1)
+				oldvalues.put(f[0], f[1]);
+		}
+		String [] teamName=details.getOrgUnit().split(">");
+		if(oldvalues.get("name").equals(details.getTemplatename()))
+		{
+			if(oldvalues.get("theme").equals(details.getupdatedTheme()))
+			{
+				if(oldvalues.get("teamName").equals(teamName[teamName.length-1]))
+				{
+					if(oldvalues.get("ModifyReason").equals(details.getdeleteReason())) 
+					{  
+						Status=true;
+					}
+					else {System.out.println("ModifyReason Data Mismatch");}
+				}
+				else {System.out.println("teamName Data Mismatch");}
+			}
+			else {System.out.println("theme Data Mismatch");}
+		}
+		else {System.out.println("name Data Mismatch");}
+
+		return Status;
+
+
+	}
+
+	public boolean verifyOperatingHoursTabCreate(AgentTemplateDetails details,String Transaction) throws Exception {
+		booleansearchnew(details.getweekday(),Transaction);
+		Boolean Status=false;
+		Map<String,String> firstRowData= getFirstRowDatafromTable1();
+		Map<String,String> newvalues=new HashMap<>();
+		String[]d=firstRowData.get("New Values").split("\n");
+		for(String e:d) {
+			String f[]=e.split(":",2);
+			if(f.length>1)
+				newvalues.put(f[0], f[1]);
+		}
+		if(newvalues.get("weekDay").equals(details.getweekday()))
+		{
+			if(newvalues.get("fromTime").equals(details.getfromTime()))
+			{
+				if(newvalues.get("toTime").equals(details.gettoTime()))
+				{
+					if(newvalues.get("templateName").equals(details.getTemplatename()))
+					{  
+						Status=true;
+					}
+					else {System.out.println("Template name data mismatch");}
+				}
+				else {System.out.println("toTime Data Mismatch");}
+			}
+			else {System.out.println("fromTime Data Mismatch");}
+		}
+		else {System.out.println("weekDay Data Mismatch");}
+
+		return Status;
+	}
+
+	public boolean verifyOperatingHoursTabUpdate(AgentTemplateDetails details,String Transaction) throws Exception {
+		booleansearchnew(details.getUpdatedWeekday(),Transaction);
+		boolean Status=false;
+		Map<String,String> firstRowData=getFirstRowDatafromTable1();
+		if(firstRowData.containsKey("Old Values")) {
+			Map<String,String> oldvalues=new HashMap<>();
+			String []d=firstRowData.get("Old Values").split("\n");
+			for(String e:d) {
+				System.out.println(e);
+				String f[]=e.split(":", 2);
+				if(f.length>1)
+					oldvalues.put(f[0], f[1]);
+			}
+			if(oldvalues.get("weekDay").equals(details.getweekday())) {
+				if(oldvalues.get("fromTime").equals(details.getfromTime())) {
+					if(oldvalues.get("toTime").equals(details.gettoTime())) {
+						if(oldvalues.get("templateName").equals(details.getTemplatename())) {
+							if(firstRowData.containsKey("New Values")) {
+								Map<String,String>newvalues=new HashMap<>();
+								String []d1=firstRowData.get("New Values").split("\n");
+								for(String e:d1) {
+									System.out.println(e);
+									String f[]=e.split(":", 2);
+									if(f.length>1)
+										newvalues.put(f[0], f[1]);
+								}
+								if(newvalues.get("weekDay").equals(details.getUpdatedWeekday())) {
+									if(newvalues.get("fromTime").equals(details.getfromTime())) {
+										if(newvalues.get("toTime").equals(details.gettoTime())) {
+											if(newvalues.get("templateName").equals(details.getTemplatename())) {
+												if(newvalues.get("ModifyReason").equals(details.getmodifyReason()))
+												{
+													Status=true;
+												}
+												else {System.out.println("ModifyReason Data Mismatch");}
+											}
+											else {System.out.println("templateName Data Mismatch");}
+										}
+										else {System.out.println("toTime Data Mismatch");}
+									}
+									else {System.out.println("fromTime Data Mismatch");}
+								}
+								else {System.out.println("weekDay Data Mismatch");}
+							}
+							else {System.out.println("templateName Data Mismatch");}
+						}
+						else {System.out.println("toTime Data Mismatch");}
+					}
+					else {System.out.println("fromTime Data Mismatch");}
+				}
+				else {System.out.println("weekDay Data Mismatch");}
+			}
+		}
+		return Status;
+	}
+
+	public boolean verifyOperatingHoursTabDelete(AgentTemplateDetails details,String Transaction) throws Exception {
+		booleansearchold(details.getUpdatedWeekday(),Transaction);
+		Boolean Status=false;
+		Map<String,String> firstRowData= getFirstRowDatafromTable1();
+		Map<String,String> oldvalues=new HashMap<>();
+		String[]d=firstRowData.get("Old Values").split("\n");
+		for(String e:d) {
+			String f[]=e.split(":",2);
+			if(f.length>1)
+				oldvalues.put(f[0], f[1]);
+		}
+		if(oldvalues.get("weekDay").equals(details.getUpdatedWeekday()))
+		{
+			if(oldvalues.get("fromTime").equals(details.getfromTime()))
+			{
+				if(oldvalues.get("toTime").equals(details.gettoTime()))
+				{
+					if(oldvalues.get("templateName").equals(""))
+					{
+						if(oldvalues.get("ModifyReason").equals(details.getdeleteReason())) 
+						{  
+							Status=true;
+						}
+						else {System.out.println("ModifyReason Data Mismatch");}
+					}
+					else {System.out.println("teamName Data Mismatch");}
+				}
+				else {System.out.println("toTime Data Mismatch");}
+			}
+			else {System.out.println("fromTime Data Mismatch");}
+		}
+		else {System.out.println("weekDay Data Mismatch");}
+
+		return Status;
+
+
 	}
 
 	public String verifyErrorMessage() {

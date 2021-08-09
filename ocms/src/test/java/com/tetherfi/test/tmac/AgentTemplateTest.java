@@ -47,19 +47,19 @@ Screenshot screenshot=new Screenshot(driver);
 		Assert.assertTrue(agentTemplatePage.VerifyAgnetTemplatePageTemplateTabHeader(), "AgentTemplatePageTemplateTab Headers Assertion Failed");
 	}
 	
-	@Test(priority=2,description="To Verify DropDown Coloumns")
+	@Test(priority=2,description="To Verify DropDown Coloumns",enabled=false)//Bug PRDOCM-63020
 	public void verifyDropDownForAllTheColumns() {
 		AgentTemplatePage agentTemplatePage=PageFactory.createPageInstance(driver, AgentTemplatePage.class);
 		Assert.assertTrue(agentTemplatePage.verifyDropDownOfAllHeaders(),"Columns DropDown Assertion failed");
 	}
 
-	@Test(priority=3,description="To Verify Grid when Coloumns Header Enable")
+	@Test(priority=3,description="To Verify Grid when Coloumns Header Enable",enabled=false)//Bug PRDOCM-63020
 	public void VerifyColumnsHeaderEnable() {
 		AgentTemplatePage agentTemplatePage=PageFactory.createPageInstance(driver, AgentTemplatePage.class);
 		Assert.assertTrue(agentTemplatePage.VerifyColumnsHeadersEnable(), "Headers assertion Failed");
 	}
 
-	@Test(priority=4,description=" To Verify Grid when Coloumn Header Disabled")
+	@Test(priority=4,description=" To Verify Grid when Coloumn Header Disabled",enabled=false)//Bug PRDOCM-63020
 	public void VerifyColumnsHeaderDisable() {
 		AgentTemplatePage agentTemplatePage=PageFactory.createPageInstance(driver, AgentTemplatePage.class);
 		Assert.assertFalse(agentTemplatePage.verifycolumnsHeaderDisabled(), "Headers Assertion Failed");
@@ -69,12 +69,12 @@ Screenshot screenshot=new Screenshot(driver);
 	public void ExportToExcelButton() {
 		String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles";
 		AgentTemplatePage agentTemplatePage=PageFactory.createPageInstance(driver, AgentTemplatePage.class);
-		Assert.assertTrue(agentTemplatePage.ExportToExcelButton(filePath,0), "Export Button assertion failed");
+		Assert.assertTrue(agentTemplatePage.ExportToExcelButton(filePath,0,"Template"), "Export Button assertion failed");
 	}
 
-	@Test(priority=6)//,dependsOnMethods="ExportToExcelButton",description="To Verify Exported Data")
+	@Test(priority=6,enabled=false)//,dependsOnMethods="ExportToExcelButton",description="To Verify Exported Data")
 	public void verifyExportedData() throws Exception {
-		String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Templates.xlsx";
+		String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Template.xlsx";
 		List<Map<String,String>>maplist=new ExcelReader(filePath,"Sheet1").getTestData();
 		AgentTemplatePage agentTemplatePage=PageFactory.createPageInstance(driver, AgentTemplatePage.class);
 		Assert.assertTrue(agentTemplatePage.VerifyExportToExcelSheet(maplist,0), "Export Data Assertion failed");
@@ -89,20 +89,20 @@ Screenshot screenshot=new Screenshot(driver);
 		Assert.assertTrue(agentTemplatePage.VerifyExportToExcelWithoutData(AgentTemplateDetails,0), "Export to Excel Without Data assertion failed");
 	}
 	
-	@Test(priority=8,description="To Verify Coloumns Sort By Ascending ")
+	@Test(priority=8,enabled=false,description="To Verify Coloumns Sort By Ascending ")
 	public void verifySortByAscending() throws Exception {
 		AgentTemplatePage AgentTemplatePage=PageFactory.createPageInstance(driver, AgentTemplatePage.class);
 		AgentTemplatePage.verifySortByAscending(0);
-		String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Templates (1).xlsx";
+		String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Template (1).xlsx";
 		List<Map<String,String>>maplist=new ExcelReader(filePath,"Sheet1").getTestData();
 		Assert.assertTrue(AgentTemplatePage.VerifyExportToExcelSheet(maplist,0), "Export Data Assertion failed");
 	}
 
-	@Test(priority=9,description="To Verify Coloumns Sort By Descending ")
+	@Test(priority=9,enabled=false,description="To Verify Coloumns Sort By Descending ")
 	public void verifySortByDescending() throws Exception {
 		AgentTemplatePage AgentTemplatePage=PageFactory.createPageInstance(driver, AgentTemplatePage.class);
 		AgentTemplatePage.verifySortByDescending(0);
-		String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Templates (2).xlsx";
+		String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Template (2).xlsx";
 		List<Map<String,String>>maplist=new ExcelReader(filePath,"Sheet1").getTestData();
 		Assert.assertTrue(AgentTemplatePage.VerifyExportToExcelSheet(maplist,0), "Export Data Assertion failed");
 	}
@@ -225,12 +225,12 @@ Screenshot screenshot=new Screenshot(driver);
 		String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles";
 		AgentTemplatePage agentTemplatePage=PageFactory.createPageInstance(driver, AgentTemplatePage.class);
 		agentTemplatePage.NavigateToTemplateScreenTab();
-		Assert.assertTrue(agentTemplatePage.ExportToExcelButton(filePath,1), "Export Button assertion failed");
+		Assert.assertTrue(agentTemplatePage.ExportToExcelButton(filePath,1,"Template Screen"), "Export Button assertion failed");
 	}
 
 	@Test(priority=24,dependsOnMethods="ExportToExcelButtonInTemplateScreenTab",description="To Verify Exported Data")
 	public void verifyExportedDataInTemplateScreenTab() throws Exception {
-		String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Templates.xlsx";
+		String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Template Screen.xlsx";
 		List<Map<String,String>>maplist=new ExcelReader(filePath,"Sheet1").getTestData();
 		AgentTemplatePage agentTemplatePage=PageFactory.createPageInstance(driver, AgentTemplatePage.class);
 		agentTemplatePage.NavigateToTemplateScreenTab();
@@ -252,7 +252,7 @@ Screenshot screenshot=new Screenshot(driver);
 		AgentTemplatePage AgentTemplatePage=PageFactory.createPageInstance(driver, AgentTemplatePage.class);
 		AgentTemplatePage.NavigateToTemplateScreenTab();
 		AgentTemplatePage.verifySortByAscending(1);
-		String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Templates (1).xlsx";
+		String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Template Screen (1).xlsx";
 		List<Map<String,String>>maplist=new ExcelReader(filePath,"Sheet1").getTestData();
 		Assert.assertTrue(AgentTemplatePage.VerifyExportToExcelSheet(maplist,1), "Export Data Assertion failed");
 	}
@@ -262,7 +262,7 @@ Screenshot screenshot=new Screenshot(driver);
 		AgentTemplatePage AgentTemplatePage=PageFactory.createPageInstance(driver, AgentTemplatePage.class);
 		AgentTemplatePage.NavigateToTemplateScreenTab();
 		AgentTemplatePage.verifySortByDescending(1);
-		String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Templates (2).xlsx";
+		String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Template Screen (2).xlsx";
 		List<Map<String,String>>maplist=new ExcelReader(filePath,"Sheet1").getTestData();
 		Assert.assertTrue(AgentTemplatePage.VerifyExportToExcelSheet(maplist,1), "Export Data Assertion failed");
 	}
@@ -398,12 +398,12 @@ Screenshot screenshot=new Screenshot(driver);
 		String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles";
 		AgentTemplatePage agentTemplatePage=PageFactory.createPageInstance(driver, AgentTemplatePage.class);
 		agentTemplatePage.NavigateToTemplateScreenWidgetsTab();
-		Assert.assertTrue(agentTemplatePage.ExportToExcelButton(filePath,2), "Export Button assertion failed");
+		Assert.assertTrue(agentTemplatePage.ExportToExcelButton(filePath,2,"Template Screen Widgets"), "Export Button assertion failed");
 	}
 	
 	@Test(priority=42,dependsOnMethods="ExportToExcelButtonInTemplateScreenWidgetsTab",description="To Verify Exported Data")
 	public void verifyExportedDataInTemplateScreenWidgetsTab() throws Exception {
-		String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Templates.xlsx";
+		String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Template Screen Widgets.xlsx";
 		List<Map<String,String>>maplist=new ExcelReader(filePath,"Sheet1").getTestData();
 		AgentTemplatePage agentTemplatePage=PageFactory.createPageInstance(driver, AgentTemplatePage.class);
 		agentTemplatePage.NavigateToTemplateScreenWidgetsTab();
@@ -425,7 +425,7 @@ Screenshot screenshot=new Screenshot(driver);
 		AgentTemplatePage AgentTemplatePage=PageFactory.createPageInstance(driver, AgentTemplatePage.class);
 		AgentTemplatePage.NavigateToTemplateScreenWidgetsTab();
 		AgentTemplatePage.verifySortByAscendingInTemplateWidgetsScreenTab(2);
-		String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Templates (1).xlsx";
+		String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Template Screen Widgets (1).xlsx";
 		List<Map<String,String>>maplist=new ExcelReader(filePath,"Sheet1").getTestData();
 		Assert.assertTrue(AgentTemplatePage.VerifyExportToExcelSheet(maplist,2), "Export Data Assertion failed");
 	}
@@ -435,7 +435,7 @@ Screenshot screenshot=new Screenshot(driver);
 		AgentTemplatePage AgentTemplatePage=PageFactory.createPageInstance(driver, AgentTemplatePage.class);
 		AgentTemplatePage.NavigateToTemplateScreenWidgetsTab();
 		AgentTemplatePage.verifySortByDescendingInTemplateWidgetsScreenTab(2);
-		String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Templates (2).xlsx";
+		String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Template Screen Widgets (2).xlsx";
 		List<Map<String,String>>maplist=new ExcelReader(filePath,"Sheet1").getTestData();
 		Assert.assertTrue(AgentTemplatePage.VerifyExportToExcelSheet(maplist,2), "Export Data Assertion failed");
 	}
@@ -571,12 +571,12 @@ Screenshot screenshot=new Screenshot(driver);
 		String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles";
 		AgentTemplatePage agentTemplatePage=PageFactory.createPageInstance(driver, AgentTemplatePage.class);
 		agentTemplatePage.NavigateToTemplateAuxCodesTab();
-		Assert.assertTrue(agentTemplatePage.ExportToExcelButton(filePath,3), "Export Button assertion failed");
+		Assert.assertTrue(agentTemplatePage.ExportToExcelButton(filePath,3,"Template AuxCodes"), "Export Button assertion failed");
 	}
 
-	@Test(priority=60,dependsOnMethods="ExportToExcelButtonInTemplateAuxCodesTab",description="To Verify Exported Data")
+	@Test(priority=60,dependsOnMethods="ExportToExcelButtonInTemplateAuxCodesTab",description="To Verify Exported Data",enabled=false)
 	public void verifyExportedDataInTemplateAuxCodesTab() throws Exception {
-		String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Templates.xlsx";
+		String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Template AuxCodes.xlsx";
 		List<Map<String,String>>maplist=new ExcelReader(filePath,"Sheet1").getTestData();
 		AgentTemplatePage agentTemplatePage=PageFactory.createPageInstance(driver, AgentTemplatePage.class);
 		agentTemplatePage.NavigateToTemplateAuxCodesTab();
@@ -593,22 +593,22 @@ Screenshot screenshot=new Screenshot(driver);
 		Assert.assertTrue(AgentTemplatePage.VerifyExportToExcelWithoutData(AgentTemplateDetails,3), "Export to Excel Without Data assertion failed");
 	}
 	
-	@Test(priority=62,description="To Verify Coloumns Sort By Ascending ")
+	@Test(priority=62,description="To Verify Coloumns Sort By Ascending ",enabled=false)
 	public void verifySortByAscendingInTemplateAuxCodesTab() throws Exception {
 		AgentTemplatePage AgentTemplatePage=PageFactory.createPageInstance(driver, AgentTemplatePage.class);
 		AgentTemplatePage.NavigateToTemplateAuxCodesTab();
 		AgentTemplatePage.verifySortByAscending(3);
-		String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Templates (1).xlsx";
+		String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Template AuxCodes (1).xlsx";
 		List<Map<String,String>>maplist=new ExcelReader(filePath,"Sheet1").getTestData();
 		Assert.assertTrue(AgentTemplatePage.VerifyExportToExcelSheet(maplist,3), "Export Data Assertion failed");
 	}
 
-	@Test(priority=63,description="To Verify Coloumns Sort By Descending ")
+	@Test(priority=63,description="To Verify Coloumns Sort By Descending ",enabled=false)
 	public void verifySortByDescendingInTemplateAuxCodesTab() throws Exception {
 		AgentTemplatePage AgentTemplatePage=PageFactory.createPageInstance(driver, AgentTemplatePage.class);
 		AgentTemplatePage.NavigateToTemplateAuxCodesTab();
 		AgentTemplatePage.verifySortByDescending(3);
-		String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Templates (2).xlsx";
+		String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Template AuxCodes (2).xlsx";
 		List<Map<String,String>>maplist=new ExcelReader(filePath,"Sheet1").getTestData();
 		Assert.assertTrue(AgentTemplatePage.VerifyExportToExcelSheet(maplist,3), "Export Data Assertion failed");
 	}
@@ -744,12 +744,12 @@ Screenshot screenshot=new Screenshot(driver);
 		String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles";
 		AgentTemplatePage agentTemplatePage=PageFactory.createPageInstance(driver, AgentTemplatePage.class);
 		agentTemplatePage.NavigateToTemplateOpHoursTab();
-		Assert.assertTrue(agentTemplatePage.ExportToExcelButton(filePath,4), "Export Button assertion failed");
+		Assert.assertTrue(agentTemplatePage.ExportToExcelButton(filePath,4,"Template Operating Hours"), "Export Button assertion failed");
 	}
 
-	@Test(priority=78,dependsOnMethods="ExportToExcelButtonInTemplateOpHoursTab",description="To Verify Exported Data")
+	@Test(priority=78,dependsOnMethods="ExportToExcelButtonInTemplateOpHoursTab",description="To Verify Exported Data",enabled=false)
 	public void verifyExportedDataInTemplateOpHoursTab() throws Exception {
-		String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Templates.xlsx";
+		String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Template Operating Hours.xlsx";
 		List<Map<String,String>>maplist=new ExcelReader(filePath,"Sheet1").getTestData();
 		AgentTemplatePage agentTemplatePage=PageFactory.createPageInstance(driver, AgentTemplatePage.class);
 		agentTemplatePage.NavigateToTemplateOpHoursTab();
@@ -766,22 +766,22 @@ Screenshot screenshot=new Screenshot(driver);
 		Assert.assertTrue(AgentTemplatePage.VerifyExportToExcelWithoutData(AgentTemplateDetails,4), "Export to Excel Without Data assertion failed");
 	}
 	
-	@Test(priority=80,description="To Verify Coloumns Sort By Ascending ")
+	@Test(priority=80,description="To Verify Coloumns Sort By Ascending ",enabled=false)
 	public void verifySortByAscendingInTemplateOpHoursTab() throws Exception {
 		AgentTemplatePage AgentTemplatePage=PageFactory.createPageInstance(driver, AgentTemplatePage.class);
 		AgentTemplatePage.NavigateToTemplateOpHoursTab();
 		AgentTemplatePage.verifySortByAscending(4);
-		String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Templates (1).xlsx";
+		String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Template Operating Hours (1).xlsx";
 		List<Map<String,String>>maplist=new ExcelReader(filePath,"Sheet1").getTestData();
 		Assert.assertTrue(AgentTemplatePage.VerifyExportToExcelSheet(maplist,4), "Export Data Assertion failed");
 	}
 
-	@Test(priority=81,description="To Verify Coloumns Sort By Descending ")
+	@Test(priority=81,description="To Verify Coloumns Sort By Descending ",enabled=false)
 	public void verifySortByDescendingInTemplateOpHoursTab() throws Exception {
 		AgentTemplatePage AgentTemplatePage=PageFactory.createPageInstance(driver, AgentTemplatePage.class);
 		AgentTemplatePage.NavigateToTemplateOpHoursTab();
 		AgentTemplatePage.verifySortByDescending(4);
-		String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Templates (2).xlsx";
+		String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Template Operating Hours (2).xlsx";
 		List<Map<String,String>>maplist=new ExcelReader(filePath,"Sheet1").getTestData();
 		Assert.assertTrue(AgentTemplatePage.VerifyExportToExcelSheet(maplist,4), "Export Data Assertion failed");
 	}
@@ -917,19 +917,19 @@ Screenshot screenshot=new Screenshot(driver);
 		String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles";
 		AgentTemplatePage agentTemplatePage=PageFactory.createPageInstance(driver, AgentTemplatePage.class);
 		agentTemplatePage.NavigateToTemplateFeaturesTab();
-		Assert.assertTrue(agentTemplatePage.ExportToExcelButton(filePath,5), "Export Button assertion failed");
+		Assert.assertTrue(agentTemplatePage.ExportToExcelButton(filePath,5,"Template Features"), "Export Button assertion failed");
 	}
 
-	@Test(priority=96,dependsOnMethods="ExportToExcelButtonInTemplateFeaturesTab",description="To Verify Exported Data")
+	@Test(priority=96,dependsOnMethods="ExportToExcelButtonInTemplateFeaturesTab",description="To Verify Exported Data",enabled=false)
 	public void verifyExportedDataInTemplateFeaturesTab() throws Exception {
-		String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Templates.xlsx";
+		String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Template Features.xlsx";
 		List<Map<String,String>>maplist=new ExcelReader(filePath,"Sheet1").getTestData();
 		AgentTemplatePage agentTemplatePage=PageFactory.createPageInstance(driver, AgentTemplatePage.class);
 		agentTemplatePage.NavigateToTemplateFeaturesTab();
 		Assert.assertTrue(agentTemplatePage.VerifyExportToExcelSheet(maplist,5), "Export Data Assertion failed");
 	}
 	
-	//@Test(priority=97,description="To Verify Export Excel without Data")//Bug:import is happening without data
+	@Test(priority=97,description="To Verify Export Excel without Data")//Bug:import is happening without data
 	public void verifyExportToExcelWithoutDataInTemplateFeaturesTab() throws Exception {
 		String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentTemplateData.xlsx";
 		Map<String,String>map=new ExcelReader(filePath,"Invalid").getTestData().get(0);
@@ -939,22 +939,22 @@ Screenshot screenshot=new Screenshot(driver);
 		Assert.assertTrue(AgentTemplatePage.VerifyExportToExcelWithoutData(AgentTemplateDetails,5), "Export to Excel Without Data assertion failed");
 	}
 	
-	@Test(priority=98,description="To Verify Coloumns Sort By Ascending ")
+	@Test(priority=98,description="To Verify Coloumns Sort By Ascending ",enabled=false)
 	public void verifySortByAscendingInTemplateFeaturesTab() throws Exception {
 		AgentTemplatePage AgentTemplatePage=PageFactory.createPageInstance(driver, AgentTemplatePage.class);
 		AgentTemplatePage.NavigateToTemplateFeaturesTab();
 		AgentTemplatePage.verifySortByAscending(5);
-		String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Templates (1).xlsx";
+		String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Template Features (1).xlsx";
 		List<Map<String,String>>maplist=new ExcelReader(filePath,"Sheet1").getTestData();
 		Assert.assertTrue(AgentTemplatePage.VerifyExportToExcelSheet(maplist,5), "Export Data Assertion failed");
 	}
 
-	@Test(priority=99,description="To Verify Coloumns Sort By Descending ")
+	@Test(priority=99,description="To Verify Coloumns Sort By Descending ",enabled=false)
 	public void verifySortByDescendingInTemplateFeaturesTab() throws Exception {
 		AgentTemplatePage AgentTemplatePage=PageFactory.createPageInstance(driver, AgentTemplatePage.class);
 		AgentTemplatePage.NavigateToTemplateFeaturesTab();
 		AgentTemplatePage.verifySortByDescending(5);
-		String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Templates (2).xlsx";
+		String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Template Features (2).xlsx";
 		List<Map<String,String>>maplist=new ExcelReader(filePath,"Sheet1").getTestData();
 		Assert.assertTrue(AgentTemplatePage.VerifyExportToExcelSheet(maplist,5), "Export Data Assertion failed");
 	}

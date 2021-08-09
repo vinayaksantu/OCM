@@ -1,6 +1,7 @@
 package com.tetherfi.test;
 import java.lang.reflect.Method;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
@@ -56,7 +57,9 @@ public class UserRoleMappingDeleteTest {
         Assert.assertTrue(ocmHomePage.isOCMHomePageIsDisplayed(), "OCM HOME Page assertion failed");
         ocmHomePage.navigateToUserRoleMappingPage();
         NewUserRoleMappingPage NewUserRoleMappingPage = PageFactory.createPageInstance(driver, NewUserRoleMappingPage.class);
-        Assert.assertTrue(NewUserRoleMappingPage.isUserRoleMappingPageDisplayed(), "SMS Response Template page assertion failed");
+        Assert.assertTrue(NewUserRoleMappingPage.isUserRoleMappingPageDisplayed(), "UserRoleMapping page assertion failed");
+        driver.navigate().refresh();
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
     }
 	
 	@Test(groups= {"Maker"}, priority=1)

@@ -66,7 +66,7 @@ public class SmsResponseTemplateUpdateTest {
         driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 	}
 	
-	/*@Test(groups= {"Maker"},priority=1)
+	@Test(groups= {"Maker"},priority=1)
 	public void EditCancelSmsResponseTemplateRecord() throws Exception {
 	    String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\SmsResponseTemplateData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(0);
@@ -94,7 +94,7 @@ public class SmsResponseTemplateUpdateTest {
         Assert.assertTrue(SmsResponseTemplatePage.verifyStatus("Reverted"),"approval status details failed");
     }
 	
-	//@Test(groups= {"Maker"},priority=4,dependsOnMethods="VerifyRevertForEditRecord")
+	@Test(groups= {"Maker"},priority=4,dependsOnMethods="VerifyRevertForEditRecord")
     public void VerifyAuditTrialReportForRevertUpdate() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\SmsResponseTemplateData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(0);	
@@ -150,7 +150,7 @@ public class SmsResponseTemplateUpdateTest {
 	    ocmReportsPage.showReport(reportDetails);
         Assert.assertTrue(ocmReportsPage.verifySmsResponseTemplateUpdate(SmsResponseTemplateDetails, "CheckerReject"),"Audit Trail report assertion failed");
     }
-    */
+    
 	@Test(groups= {"Maker"},priority=9)
 	public void EditSmsResponseTemplateRecord() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\SmsResponseTemplateData.xlsx";

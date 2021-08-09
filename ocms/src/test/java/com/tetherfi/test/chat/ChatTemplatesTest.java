@@ -91,7 +91,7 @@ public class ChatTemplatesTest extends BaseTest {
 	    }*/
 	}
 
-	@Test(priority=1,groups= {"OCM"})
+	/*@Test(priority=1,groups= {"OCM"})
 	public void ChatTemplatePage() {
 		ChatTemplatesPage ChatTemplatePage = PageFactory.createPageInstance(driver, ChatTemplatesPage.class);
 		Assert.assertTrue(ChatTemplatePage.VerifyLogo(),"Logo assertion failed");
@@ -165,7 +165,7 @@ public class ChatTemplatesTest extends BaseTest {
 	public void VerifyMainsColumnsHeaderDisable() throws Exception {
 		ChatTemplatesPage chatTemplatesPage = PageFactory.createPageInstance(driver, ChatTemplatesPage.class);
 		Assert.assertFalse(chatTemplatesPage.verifycolumnsHeaderDisabled(),"columns disabled assertion failed");
-	}
+	}*/
 
 	@Test(priority=11,groups= {"OCM"})
 	public void AddNewDepartmentRecord() throws Exception {
@@ -257,7 +257,7 @@ public class ChatTemplatesTest extends BaseTest {
 		Assert.assertFalse(ChatTemplatesPage.verifyEditFormContainer(), "Cancel Btn at Add record assertion failed");
 	}
 
-	@Test(priority=19,groups= {"OCM"})//,dependsOnMethods = "AddNewDepartmentRecord")
+	/*@Test(priority=19,groups= {"OCM"})//,dependsOnMethods = "AddNewDepartmentRecord")
 	public void AddNewGroupsRecord() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"CreateGroup").getTestData().get(0);
@@ -470,7 +470,7 @@ public class ChatTemplatesTest extends BaseTest {
 		Assert.assertFalse(ChatTemplatesPage.verifyEditFormContainer(), "Cancel Btn at Add record assertion failed");
 	}
 
-	@Test(priority=39,groups= {"OCM"})
+	/*@Test(priority=39,groups= {"OCM"})
 	public void DepartmentExportToExcel() throws Exception
 	{
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles";
@@ -710,7 +710,7 @@ public class ChatTemplatesTest extends BaseTest {
 		chatTemplatesPage.dragColumntoGroup("Enabled");
 		chatTemplatesPage.dragColumntoGroup("Enabled");
 		Assert.assertTrue(chatTemplatesPage.verifyDragColumntoGroup("Enabled",2),"drag and drop assertion failed");
-	}
+	}*/
 
 	/*//@Test(groups= {"TMAC"},priority=69)
     public void VerifyChatTemplateInTMAC() throws Exception {
@@ -727,7 +727,7 @@ public class ChatTemplatesTest extends BaseTest {
         tmacPopupPage.clickOnChatTemplate();
         Assert.assertTrue(tmacPopupPage.ChatTemplate(ChatTemplatesDetails));
         tmacPopupPage.disconnectchat();
-	}*/
+	}
 
 
 	@Test(priority=70,groups= {"OCM"})//,dependsOnMethods = "AddNewChatTemplatesRecord")
@@ -1223,4 +1223,4 @@ public class ChatTemplatesTest extends BaseTest {
 	               e.printStackTrace();
 	               }*/
 	}
-}
+

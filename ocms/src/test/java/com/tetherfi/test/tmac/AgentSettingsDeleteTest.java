@@ -59,6 +59,7 @@ public class AgentSettingsDeleteTest {
 		tmacPage.navigateToAgentSettingsPage();
 		AgentSettingsNewDesignPage agentSettingsPage=PageFactory.createPageInstance(driver,AgentSettingsNewDesignPage.class);
 		Assert.assertTrue(agentSettingsPage.isAgentSettingsPageDisplayed(),"Agent Settings page assertion failed");
+		driver.navigate().refresh();
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 	}
 
@@ -179,7 +180,7 @@ public class AgentSettingsDeleteTest {
 		AgentSettingsDetails agentSettingsDetails = new AgentSettingsDetails (map);
 		AgentSettingsNewDesignPage agentSettingsPage = PageFactory.createPageInstance(driver, AgentSettingsNewDesignPage.class);
 		agentSettingsPage.selectAgentSettingsAuditTrailTab();
-		Assert.assertTrue(agentSettingsPage.verifyAuditTrail(agentSettingsDetails, "MakerDelete", "New"), "Audit trail details failed");
+		Assert.assertTrue(agentSettingsPage.verifyAuditTrailDelete(agentSettingsDetails, "MakerDelete", "New"), "Audit trail details failed");
 	}
 
 	@Test(groups = { "Maker" },priority=12,dependsOnMethods="VerifyAuditTrailDataForDeleteAgentSettingsRecord")

@@ -9,6 +9,7 @@ public class SkillTemplateDetails {
 	private String skillType;
 	private String skills;
 	private String skillLevels;
+	private String modifyReason;
 	private String deleteReason;
 	private String query;
 
@@ -19,8 +20,18 @@ public class SkillTemplateDetails {
 		skillType=readSkilltype(map);
 		skills=readSkills(map);
 		skillLevels=readSkillLevels(map);
+		modifyReason=readModifyReason(map);
 		deleteReason=readDeleteReason(map);
 		query=readQuery(map);
+	}
+
+
+
+
+
+	private String readModifyReason(Map<String, String> map) {
+		String value=map.get("Modify Reason");
+		return value;
 	}
 
 
@@ -90,6 +101,10 @@ public class SkillTemplateDetails {
 	
 	public String getSkillLevels() {
 		return skillLevels;
+	}
+	
+	public String getModifyReason() {
+		return modifyReason;
 	}
 
 	public String getQuery() {

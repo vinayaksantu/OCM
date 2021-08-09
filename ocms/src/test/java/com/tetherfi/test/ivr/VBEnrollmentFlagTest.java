@@ -367,7 +367,7 @@ public class VBEnrollmentFlagTest extends BaseTest {
         Assert.assertTrue(VbEnrollmentFlagPage.ExporttoExcelWithoutData(VBEnrollmentFlagDetails));
     }
     
-    @Test(priority=37,dependsOnMethods ="AddNewVBEnrollmentFlagRecord",enabled=true)
+    @Test(priority=37)//,dependsOnMethods ="AddNewVBEnrollmentFlagRecord",enabled=true)
     public void VerifyAuditTrialReportForCreate() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\VBEnrollmentFlagData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -382,7 +382,7 @@ public class VBEnrollmentFlagTest extends BaseTest {
         Assert.assertTrue(ocmReportsPage.verifyVBEnrollmentFlagCreate(VBEnrollmentFlagDetails,"Create"));
     }
     
-    @Test(priority=38,dependsOnMethods="EditVBEnrollmentFlagRecord",enabled=true)
+    @Test(priority=38)//,dependsOnMethods="EditVBEnrollmentFlagRecord",enabled=true)
     public void VerifyAuditTrialReportForUpdate() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\VBEnrollmentFlagData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Edit").getTestData().get(0);	
@@ -397,7 +397,7 @@ public class VBEnrollmentFlagTest extends BaseTest {
         Assert.assertTrue(ocmReportsPage.verifyVBEnrollmentFlagUpdate(VBEnrollmentFlagDetails,"Update"));
     }
     
-    @Test(priority=39,dependsOnMethods= {"DeleteVBEnrollmentFlagRecord"},enabled=true)
+    @Test(priority=39)//,dependsOnMethods= {"DeleteVBEnrollmentFlagRecord"},enabled=true)
     public void VerifyAuditTrialReportForDelete() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\VBEnrollmentFlagData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Delete").getTestData().get(0);	

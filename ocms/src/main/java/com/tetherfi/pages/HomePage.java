@@ -59,7 +59,7 @@ public class HomePage extends BasePage{
 
     public void navigateToOCMPage(){
         selectWebElement(ocmTab);
-		waitForLoad(driver);
+		//waitForLoad(driver);
     }
 
     public void navigateToOCMReportsPage(){

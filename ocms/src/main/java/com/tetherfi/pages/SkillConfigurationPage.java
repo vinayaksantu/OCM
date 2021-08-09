@@ -298,11 +298,13 @@ public class SkillConfigurationPage extends BasePage {
 		return Status;
 	}
 	public boolean verifyexportToExcelSheet(List<Map<String, String>> maplist) {
-		List<Map<String,String>> UI=getdata(); 
+		List<Map<String,String>>UI=getdata();
+		System.out.println(UI);
+		System.out.println(maplist);
 		if(UI.equals(maplist))
-		return true;
+			return true;
 		else
-		return false;
+			return false;
 	}
 	
 	private List<Map<String,String>> getdata(){
@@ -338,7 +340,7 @@ public class SkillConfigurationPage extends BasePage {
 			return arr;
 	}
 	public boolean verifyDatabase(String query) {
-		selectWebElement(SkillID);
+		selectWebElement(SkillName);
 		List<Map<String,String>> database=database(query);
 		System.out.println(database);
 		List<Map<String,String>> UI=gettable1(); 
@@ -411,6 +413,7 @@ public class SkillConfigurationPage extends BasePage {
 		selectWebElement(searchBtn);
         selectWebElement(selectSearchColumn);
         selectDropdownFromVisibleText(columnNameList,"Skill ID");
+        waitForJqueryLoad(driver);
         selectWebElement(condition);
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is equal to");
         enterValueToTxtField(searchTextBox,skillID);
@@ -421,6 +424,7 @@ public class SkillConfigurationPage extends BasePage {
 
 	public void SortByAscending() {
 		selectWebElement(SkillName);
+		waitForJqueryLoad(driver);
 		selectWebElement(exporttoexcel);
 		try {
 			Thread.sleep(2000);
@@ -431,7 +435,9 @@ public class SkillConfigurationPage extends BasePage {
 
 	public void SortByDescending() {
 		selectWebElement(SkillName);
+		waitForJqueryLoad(driver);
 		selectWebElement(SkillName);
+		waitForJqueryLoad(driver);
 		selectWebElement(exporttoexcel);
 		try {
 			Thread.sleep(2000);
@@ -445,8 +451,10 @@ public class SkillConfigurationPage extends BasePage {
         if(!nextPageIcon.getAttribute("class").contains("k-state-disabled")){
         int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber));
         selectWebElement(nextPageIcon);
+        waitForJqueryLoad(driver);
         int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
         selectWebElement(previousPageIcon);
+        waitForJqueryLoad(driver);
         int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
         try {
 			Thread.sleep(1000);
@@ -464,8 +472,10 @@ public class SkillConfigurationPage extends BasePage {
         if(!lastPageIcon.getAttribute("class").contains("k-state-disabled")){
             int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber));
             selectWebElement(lastPageIcon);
+            waitForJqueryLoad(driver);
             int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
             selectWebElement(firstPageIcon);
+            waitForJqueryLoad(driver);
             try {
     			Thread.sleep(1000);
     		} catch (InterruptedException e) {
@@ -941,8 +951,8 @@ public class SkillConfigurationPage extends BasePage {
         selectWebElement(editButton);
         waitForJqueryLoad(driver);
         enterValueToTxtField(skillNameTextbox, details.getUpdatedSkillName());
-        selectWebElement(enabledDropDown);
-        selectDropdownFromVisibleText(enabledList,details.getUpdatedEnabled());
+       /* selectWebElement(enabledDropDown);
+        selectDropdownFromVisibleText(enabledList,details.getUpdatedEnabled());*/
         selectWebElement(cancelBtn);
         if(rowdata.getText().equals(details.getSkillName()))
         	return true;
@@ -965,8 +975,8 @@ public class SkillConfigurationPage extends BasePage {
 			e.printStackTrace();
 		}
         enterValueToTxtField(skillNameTextbox, details.getUpdatedSkillName());
-        selectWebElement(enabledDropDown);
-        selectDropdownFromVisibleText(enabledList,details.getUpdatedEnabled());	
+        /*selectWebElement(enabledDropDown);
+        selectDropdownFromVisibleText(enabledList,details.getUpdatedEnabled());	*/
         enterValueToTxtFieldWithoutClear(modifyReasonTextBox, details.getModifyReason());
         selectWebElement(saveBtn);
 	}

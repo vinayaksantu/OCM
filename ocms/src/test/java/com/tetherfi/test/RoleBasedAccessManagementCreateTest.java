@@ -60,6 +60,7 @@ public class RoleBasedAccessManagementCreateTest {
         ocmHomePage.navigateToRoleBasedAccessManagementPage();
         RoleBasedAccessManagementPage roleBasedAccessManagementPage=PageFactory.createPageInstance(driver,RoleBasedAccessManagementPage.class);
         Assert.assertTrue(roleBasedAccessManagementPage.isRoleBasedAccessManagementPageDisplayed(), "Role Based Access Management page assertion failed");
+        driver.navigate().refresh();
         driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 	}
 	

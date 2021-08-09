@@ -176,7 +176,7 @@ public class FaxRoutingConfigurationPage extends BasePage {
     @FindBy(xpath="//a[text()='Fax Line']")
     private WebElement FaxLine;
     
-    @FindBy(xpath="//a[text()='Type']")
+    @FindBy(xpath="//a[text()='Sender Type']")
     private WebElement Type;
     
     @FindBy(xpath="//a[text()='Route Type']")
@@ -328,10 +328,10 @@ public class FaxRoutingConfigurationPage extends BasePage {
 			Map<String,String> map = new HashMap<String,String>();
 			List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
 			for(int j=1;j<headers.size();j++) {
-				if(headers.get(j).getText().equals("Last Changed On")){
+				/*if(headers.get(j).getText().equals("Last Changed On")){
 				col=cols.get(j).getText().substring(0,10);
 				}
-				else
+				else*/
 					col=cols.get(j).getText();
 				map.put(headers.get(j).getText(),col);
 			}
@@ -392,7 +392,6 @@ public class FaxRoutingConfigurationPage extends BasePage {
 	public boolean ExporttoExcelWithoutData(FaxRoutingConfigurationDetails details) throws Exception {
 		searchFaxRoutingConfigurationRecord(details.getFaxLine());
 		waitForJqueryLoad(driver);
-		Thread.sleep(1000);
 		selectWebElement(exporttoexcel);
 		waitUntilWebElementListIsVisible(errorMsg);
 		if(errorMsg.get(0).getText().equals("There is no record to export"))
@@ -405,6 +404,7 @@ public class FaxRoutingConfigurationPage extends BasePage {
 		selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Fax Line");
+        Thread.sleep(2000);
         selectWebElement(selectSearchCol.get(1));
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is equal to");
         enterValueToTxtField(searchTextBox,faxLine);
@@ -416,6 +416,7 @@ public class FaxRoutingConfigurationPage extends BasePage {
 
 	public void SortByAscending() {
 		selectWebElement(Type);
+		 waitForJqueryLoad(driver);
 		selectWebElement(exporttoexcel);
 		try {
 			Thread.sleep(2000);
@@ -426,7 +427,9 @@ public class FaxRoutingConfigurationPage extends BasePage {
 
 	public void SortByDescending() {
 		selectWebElement(RouteType);
+		 waitForJqueryLoad(driver);
 		selectWebElement(RouteType);
+		 waitForJqueryLoad(driver);
 		selectWebElement(exporttoexcel);
 		try {
 			Thread.sleep(2000);
@@ -757,8 +760,8 @@ public class FaxRoutingConfigurationPage extends BasePage {
 		selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Fax Line");
+        Thread.sleep(2000);
         selectWebElement(selectSearchCol.get(1));
-        Thread.sleep(1000);
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is equal to");
         enterValueToTxtField(searchTextBox,faxLine);
         selectWebElement(searchAddCriteriaBtn);
@@ -796,9 +799,9 @@ public class FaxRoutingConfigurationPage extends BasePage {
 		searchBooleanFaxRoutingConfigRecord(faxRoutingConfigDetails.getFaxLine(),faxRoutingConfigDetails.getRouteData());
         selectWebElement(editBtn);
         Thread.sleep(1000);
-        selectWebElement(RouteTypeDropdown);
+       /* selectWebElement(RouteTypeDropdown);
 	    selectDropdownFromVisibleText(routeTypeListBox,faxRoutingConfigDetails.getUpdatedRouteType());
-	    enterValueToTxtField(routeData,faxRoutingConfigDetails.getUpdatedRouteData());
+	    enterValueToTxtField(routeData,faxRoutingConfigDetails.getUpdatedRouteData());*/
         selectWebElement(modifyReasonTextBox);
         enterValueToTxtFieldWithoutClear(modifyReasonTextBox,faxRoutingConfigDetails.getModifyReason());
         selectWebElement(SaveButton);

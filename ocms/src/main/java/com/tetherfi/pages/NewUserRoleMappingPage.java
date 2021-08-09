@@ -66,6 +66,9 @@ public class NewUserRoleMappingPage extends BasePage {
     @FindBy(css=".form-group .k-numerictextbox .k-numeric-wrap .k-formatted-value")
     private WebElement avayaLoginIDTextbox;
 
+    @FindBy(xpath="//input[@id='AvayaLoginID']/..")
+    private WebElement AvayaLoginIDTextbox;
+    
     @FindBy(xpath="//input[@id='AvayaLoginID']")
     private WebElement editAvayaLoginIDTextbox;
 
@@ -190,7 +193,7 @@ public class NewUserRoleMappingPage extends BasePage {
 	@FindBy(css="#tGrid th[data-role='columnsorter']")
 	private List<WebElement> auditTrailTableHeaders;
 	
-    @FindBy(css="ul[class='k-tabstrip-items k-reset'] li")
+    @FindBy(css="#tabstripMappingMakerChecker ul[class='k-tabstrip-items k-reset'] li")
     private List<WebElement> UserRoleMappingTabs;
     
     @FindBy(id="goToAuditTrail")
@@ -356,16 +359,19 @@ public class NewUserRoleMappingPage extends BasePage {
         return userRoleMapping.isEnabled();
     }
     public void addNewUserRoleMappingRecord(UserRoleMappingDetails details) throws Exception {
+    	waitForJqueryLoad(driver);
     	selectWebElement(UserRoleMappingTabs.get(1));
 		selectWebElement(makeUserRoleMappingChanges);
 		waitForJqueryLoad(driver);
         selectWebElement(addNewUserRoleMappingRecordBtn);
+        waitForJqueryLoad(driver);
         selectWebElement(firstnameTextBox);
         enterValueToTxtField(firstnameTextBox,details.getFirstname());
         selectWebElement(lastnameTextBox);
         enterValueToTxtField(lastnameTextBox,details.getLastname());
         selectWebElement(usernameTextBox);
         enterValueToTxtFieldWithoutClear(usernameTextBox,details.getBankUserName());
+        selectWebElement(AvayaLoginIDTextbox);
         enterValueToTxtFieldWithoutClear(editAvayaLoginIDTextbox,details.getAvayaLoginID());
         selectWebElement(TeamNameDropDown);
         Thread.sleep(5000);
@@ -376,7 +382,7 @@ public class NewUserRoleMappingPage extends BasePage {
         btnClick(editFormSaveBtn);
     }
     
-    private void ChooseTeamHeirarchy(String team){
+    /*private void ChooseTeamHeirarchy(String team){
         String[] hrcy=team.split(">");
         for(int i=0;i<hrcy.length;i++){
             for(WebElement e: teamList){
@@ -385,17 +391,34 @@ public class NewUserRoleMappingPage extends BasePage {
                     {selectWebElement(e.findElement(By.className("k-icon")));break;}
                     else
                     {selectWebElement(e.findElement(By.className("k-in")));break;}   }}
-    }
+    }*/
+    
+    private void ChooseTeamHeirarchy(String team){
+		String[] hrcy=team.split(">");
+		for(int i=0;i<hrcy.length;i++){
+			for(WebElement e: teamList){
+				if(e.getText().equals(hrcy[i])) {
+					if(e.getText().equals(hrcy[hrcy.length-1]))
+					{selectWebElement(e.findElement(By.className("k-in")));break;}
+					else if(e.findElements(By.className("k-icon")).size()>0)
+					{selectWebElement(e.findElement(By.className("k-icon")));break;}
+				}}}
+
+	}
     
     
     public void addwithoutFirstName(UserRoleMappingDetails details) throws Exception {
+    	waitForJqueryLoad(driver);
     	selectWebElement(UserRoleMappingTabs.get(1));
 		selectWebElement(makeUserRoleMappingChanges);
+		waitForJqueryLoad(driver);
     	selectWebElement(addNewUserRoleMappingRecordBtn);
+    	waitForJqueryLoad(driver);
         selectWebElement(lastnameTextBox);
         enterValueToTxtField(lastnameTextBox,details.getLastname());
         selectWebElement(usernameTextBox);
         enterValueToTxtFieldWithoutClear(usernameTextBox,details.getBankUserName());
+        selectWebElement(AvayaLoginIDTextbox);
         enterValueToTxtFieldWithoutClear(editAvayaLoginIDTextbox,details.getAvayaLoginID());
         selectWebElement(TeamNameDropDown);
         try {
@@ -412,6 +435,7 @@ public class NewUserRoleMappingPage extends BasePage {
         selectWebElement(cancelBtn);
 	}
 	public void addwithoutLastName(UserRoleMappingDetails details) throws Exception {
+		waitForJqueryLoad(driver);
 		selectWebElement(UserRoleMappingTabs.get(1));
 		selectWebElement(makeUserRoleMappingChanges);
 		selectWebElement(addNewUserRoleMappingRecordBtn);
@@ -419,8 +443,8 @@ public class NewUserRoleMappingPage extends BasePage {
         enterValueToTxtField(firstnameTextBox,details.getFirstname());
         selectWebElement(usernameTextBox);
         enterValueToTxtFieldWithoutClear(usernameTextBox,details.getBankUserName());
+        selectWebElement(AvayaLoginIDTextbox);
         enterValueToTxtFieldWithoutClear(editAvayaLoginIDTextbox,details.getAvayaLoginID());
-        editProfile(details.getProfile(),details.getSupervisor());
         selectWebElement(TeamNameDropDown);
         try {
         	Thread.sleep(1000);
@@ -429,21 +453,25 @@ public class NewUserRoleMappingPage extends BasePage {
         	e.printStackTrace();
         }
         ChooseTeamHeirarchy(details.getTeamName());
+        editProfile(details.getProfile(),details.getSupervisor());
         selectWebElement(RoleDropDown);
         selectDropdownFromVisibleText(RoleListBox,details.getRole());
         btnClick(editFormSaveBtn);
         selectWebElement(cancelBtn);		
 	}
 	public void addwithoutLanID(UserRoleMappingDetails details) throws Exception {
+		waitForJqueryLoad(driver);
 		selectWebElement(UserRoleMappingTabs.get(1));
 		selectWebElement(makeUserRoleMappingChanges);
+		waitForJqueryLoad(driver);
 		selectWebElement(addNewUserRoleMappingRecordBtn);
+		waitForJqueryLoad(driver);
         selectWebElement(firstnameTextBox);
         enterValueToTxtField(firstnameTextBox,details.getFirstname());
         selectWebElement(lastnameTextBox);
         enterValueToTxtField(lastnameTextBox,details.getLastname());
+        selectWebElement(AvayaLoginIDTextbox);
         enterValueToTxtFieldWithoutClear(editAvayaLoginIDTextbox,details.getAvayaLoginID());
-        editProfile(details.getProfile(),details.getSupervisor());
         selectWebElement(TeamNameDropDown);
         try {
         	Thread.sleep(1000);
@@ -452,22 +480,25 @@ public class NewUserRoleMappingPage extends BasePage {
         	e.printStackTrace();
         }
         ChooseTeamHeirarchy(details.getTeamName());
+        editProfile(details.getProfile(),details.getSupervisor());
         selectWebElement(RoleDropDown);
         selectDropdownFromVisibleText(RoleListBox,details.getRole());
         btnClick(editFormSaveBtn);
         selectWebElement(cancelBtn);		
 	}
 	public void addwithoutLoginID(UserRoleMappingDetails details) throws Exception {
+		waitForJqueryLoad(driver);
 		selectWebElement(UserRoleMappingTabs.get(1));
 		selectWebElement(makeUserRoleMappingChanges);
+		waitForJqueryLoad(driver);
 		selectWebElement(addNewUserRoleMappingRecordBtn);
+		waitForJqueryLoad(driver);
         selectWebElement(firstnameTextBox);
         enterValueToTxtField(firstnameTextBox,details.getFirstname());
         selectWebElement(lastnameTextBox);
         enterValueToTxtField(lastnameTextBox,details.getLastname());
         selectWebElement(usernameTextBox);
         enterValueToTxtFieldWithoutClear(usernameTextBox,details.getBankUserName());
-        editProfile(details.getProfile(),details.getSupervisor());
         selectWebElement(TeamNameDropDown);
         try {
         	Thread.sleep(1000);
@@ -476,21 +507,26 @@ public class NewUserRoleMappingPage extends BasePage {
         	e.printStackTrace();
         }
         ChooseTeamHeirarchy(details.getTeamName());
+        editProfile(details.getProfile(),details.getSupervisor());
         selectWebElement(RoleDropDown);
         selectDropdownFromVisibleText(RoleListBox,details.getRole());
         btnClick(editFormSaveBtn);
         selectWebElement(cancelBtn);		
 	}
 	public void addwithoutProfile(UserRoleMappingDetails details) throws Exception {
+		waitForJqueryLoad(driver);
 		selectWebElement(UserRoleMappingTabs.get(1));
 		selectWebElement(makeUserRoleMappingChanges);
+		waitForJqueryLoad(driver);
 		selectWebElement(addNewUserRoleMappingRecordBtn);
+		waitForJqueryLoad(driver);
         selectWebElement(firstnameTextBox);
         enterValueToTxtField(firstnameTextBox,details.getFirstname());
         selectWebElement(lastnameTextBox);
         enterValueToTxtField(lastnameTextBox,details.getLastname());
         selectWebElement(usernameTextBox);
         enterValueToTxtFieldWithoutClear(usernameTextBox,details.getBankUserName());
+        selectWebElement(AvayaLoginIDTextbox);
         enterValueToTxtFieldWithoutClear(editAvayaLoginIDTextbox,details.getAvayaLoginID());
         selectWebElement(TeamNameDropDown);
         try {
@@ -500,24 +536,27 @@ public class NewUserRoleMappingPage extends BasePage {
         	e.printStackTrace();
         }
         ChooseTeamHeirarchy(details.getTeamName());
+        editSupervisor("Harry Potter");
         selectWebElement(RoleDropDown);
         selectDropdownFromVisibleText(RoleListBox,details.getRole());
         btnClick(editFormSaveBtn);
         selectWebElement(cancelBtn);		
 	}
 	public void addwithoutSupervisor(UserRoleMappingDetails details) throws Exception {
+		waitForJqueryLoad(driver);
 		selectWebElement(UserRoleMappingTabs.get(1));
 		selectWebElement(makeUserRoleMappingChanges);
+		waitForJqueryLoad(driver);
 		selectWebElement(addNewUserRoleMappingRecordBtn);
+		waitForJqueryLoad(driver);
         selectWebElement(firstnameTextBox);
         enterValueToTxtField(firstnameTextBox,details.getFirstname());
         selectWebElement(lastnameTextBox);
         enterValueToTxtField(lastnameTextBox,details.getLastname());
         selectWebElement(usernameTextBox);
         enterValueToTxtFieldWithoutClear(usernameTextBox,details.getBankUserName());
+        selectWebElement(AvayaLoginIDTextbox);
         enterValueToTxtFieldWithoutClear(editAvayaLoginIDTextbox,details.getAvayaLoginID());
-        selectWebElement(profilesDropdown);
-        selectDropdownFromVisibleText(profilesListBox,details.getProfile());
         selectWebElement(TeamNameDropDown);
         try {
         	Thread.sleep(1000);
@@ -526,23 +565,28 @@ public class NewUserRoleMappingPage extends BasePage {
         	e.printStackTrace();
         }
         ChooseTeamHeirarchy(details.getTeamName());
+        selectWebElement(profilesDropdown);
+        selectDropdownFromVisibleText(profilesListBox,details.getProfile());
         selectWebElement(RoleDropDown);
         selectDropdownFromVisibleText(RoleListBox,details.getRole());
         btnClick(editFormSaveBtn);
         selectWebElement(cancelBtn);		
 	}
 	public void addwithoutRole(UserRoleMappingDetails details) throws Exception {
+		waitForJqueryLoad(driver);
 		selectWebElement(UserRoleMappingTabs.get(1));
 		selectWebElement(makeUserRoleMappingChanges);
+		waitForJqueryLoad(driver);
 		selectWebElement(addNewUserRoleMappingRecordBtn);
+		waitForJqueryLoad(driver);
         selectWebElement(firstnameTextBox);
         enterValueToTxtField(firstnameTextBox,details.getFirstname());
         selectWebElement(lastnameTextBox);
         enterValueToTxtField(lastnameTextBox,details.getLastname());
         selectWebElement(usernameTextBox);
         enterValueToTxtFieldWithoutClear(usernameTextBox,details.getBankUserName());
+        selectWebElement(AvayaLoginIDTextbox);
         enterValueToTxtFieldWithoutClear(editAvayaLoginIDTextbox,details.getAvayaLoginID());
-        editProfile(details.getProfile(),details.getSupervisor());
         selectWebElement(TeamNameDropDown);
         try {
         	Thread.sleep(1000);
@@ -551,30 +595,36 @@ public class NewUserRoleMappingPage extends BasePage {
         	e.printStackTrace();
         }
         ChooseTeamHeirarchy(details.getTeamName());
+        editProfile(details.getProfile(),details.getSupervisor());
         btnClick(editFormSaveBtn);
         selectWebElement(cancelBtn);		
 	}
 	public void addwithoutOrgUnit(UserRoleMappingDetails details) throws Exception {
+		waitForJqueryLoad(driver);
 		selectWebElement(UserRoleMappingTabs.get(1));
 		selectWebElement(makeUserRoleMappingChanges);
+		waitForJqueryLoad(driver);
 		selectWebElement(addNewUserRoleMappingRecordBtn);
+		waitForJqueryLoad(driver);
         selectWebElement(firstnameTextBox);
         enterValueToTxtField(firstnameTextBox,details.getFirstname());
         selectWebElement(lastnameTextBox);
         enterValueToTxtField(lastnameTextBox,details.getLastname());
         selectWebElement(usernameTextBox);
         enterValueToTxtFieldWithoutClear(usernameTextBox,details.getBankUserName());
+        selectWebElement(AvayaLoginIDTextbox);
         enterValueToTxtFieldWithoutClear(editAvayaLoginIDTextbox,details.getAvayaLoginID());
-        editProfile(details.getProfile(),details.getSupervisor());
         selectWebElement(RoleDropDown);
         selectDropdownFromVisibleText(RoleListBox,details.getRole());
         btnClick(editFormSaveBtn);
         selectWebElement(cancelBtn);		
 	}
     public void searchUserRoleMappingRecord(String bankUsername) throws Exception  {
+    	waitForJqueryLoad(driver);
         selectWebElement(searchLink);
         selectWebElement(selectSearchColumn.get(0));
         selectDropdownFromVisibleText(columnNameList,"Lan ID");
+        Thread.sleep(2000);
         selectWebElement(selectSearchColumn.get(1));
         selectDropdownFromVisibleText(searchTypeList,"Is equal to");
         enterValueToTxtField(searchText,bankUsername);
@@ -622,12 +672,9 @@ public class NewUserRoleMappingPage extends BasePage {
         editSupervisor(supervisor);
     }
     public void editSupervisor(String supervisor){
+    	waitForJqueryLoad(driver);
         selectWebElement(editsupervisorDropdown);
-        for(WebElement ele: supervisorListBox){
-            try{if(ele.getText().equalsIgnoreCase(supervisor)){ele.click();break;}}catch(Exception e){
-                System.out.println("element not found");
-            }
-        }
+        selectDropdownFromVisibleText(supervisorListBox,supervisor);
     }
     public void clickonBankUserName(String bankusername){
         waitUntilWebElementIsVisible(availableUsersTable);
@@ -780,7 +827,7 @@ public class NewUserRoleMappingPage extends BasePage {
 	}
 
 	public boolean verifyAuditTrailDataTableHeaders() {
-		ArrayList<String> Expected=new ArrayList<String>(Arrays.asList(" ","Request Id", "Transaction", "Function", "Status", "User Id", "Submission DateTime", "Maker Comments", "Old Values", "New Values", "Reviewed By","Review DateTime", "Checker Comments"));
+		ArrayList<String> Expected=new ArrayList<String>(Arrays.asList("IsEnabled","Request ID", "Transaction", "Function Name", "Status", "User Id", "Submission DateTime", "Maker Comments", "Reviewed By", "Review DateTime", "Checker Comments"));
         ArrayList Actual = getHeadersfromTable(auditTrailTableHeaders);
         System.out.println(Actual);
         Collections.sort(Expected);Collections.sort(Actual);
@@ -942,8 +989,10 @@ public class NewUserRoleMappingPage extends BasePage {
         if(!nextPageIcon.get(i).getAttribute("class").contains("k-state-disabled")){
         int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber.get(i)));
         selectWebElement(nextPageIcon.get(i));
+        waitForJqueryLoad(driver);
         int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber.get(i)));
         selectWebElement(previousPageIcon.get(i));
+        waitForJqueryLoad(driver);
         int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber.get(i)));
         if(nextnumber==(pagenumber+1) && pagenumber==previousnumber){status=true;}
         }else{
@@ -956,8 +1005,10 @@ public class NewUserRoleMappingPage extends BasePage {
         if(!lastPageIcon.get(i).getAttribute("class").contains("k-state-disabled")){
             int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber.get(i)));
             selectWebElement(lastPageIcon.get(i));
+            waitForJqueryLoad(driver);
             int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber.get(i)));
             selectWebElement(firstPageIcon.get(i));
+            waitForJqueryLoad(driver);
             int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber.get(i)));
             if(nextnumber>pagenumber && pagenumber==previousnumber){status=true;}
         }else{
@@ -1146,8 +1197,16 @@ public class NewUserRoleMappingPage extends BasePage {
 			return true;
 	}
 	
+	public String VerifyMessage() {
+		if(successmsg.isDisplayed())
+			return successmsg.getText();
+		else{return errorMsg.get(0).getText();}
+	}
+	
 	public void SortByAscending() {
+		 waitForJqueryLoad(driver);
 		selectWebElement(FirstName.get(1));
+		 waitForJqueryLoad(driver);
 		selectWebElement(exporttoexcel);
 		try {
 			Thread.sleep(2000);
@@ -1156,8 +1215,10 @@ public class NewUserRoleMappingPage extends BasePage {
 		}
 	}
 
-	public void SortByDescending() {
+	public void SortByDescending() throws Exception {
+		 waitForJqueryLoad(driver);
 		selectWebElement(FirstName.get(1));
+		Thread.sleep(1000);
 		selectWebElement(FirstName.get(1));
 		selectWebElement(exporttoexcel);
 		try {
@@ -1360,16 +1421,23 @@ public class NewUserRoleMappingPage extends BasePage {
 		selectWebElement(cols.get(0).findElement(By.id("isEnabled")));
     }
 	
+	
 	public void sendForAprroval(String comments) throws Exception {
 		selectWebElement(sendForApprovalBtn);
-		enterValueToTxtFieldWithoutClear(makerComments, comments);
-		selectWebElement(submitMakerComments);		
+		Thread.sleep(1000);
+		enterValueToTxtField(makerComments, comments);
+		selectWebElement(submitMakerComments);			
 	}
 	
+	
+	
 	public void Revert(String comments) throws Exception {
+		waitForJqueryLoad(driver);
 		selectWebElement(revertBtn);
+		Thread.sleep(2000);
 		enterValueToTxtField(revertMakerComments,comments);
-		selectWebElement(revertSubmitMakerComments);				
+		selectWebElement(revertSubmitMakerComments);
+		waitForJqueryLoad(driver);
 	}
 
 
@@ -1545,7 +1613,7 @@ public class NewUserRoleMappingPage extends BasePage {
 		selectWebElement(deleteBtn);
 		waitForJqueryLoad(driver);
 		selectWebElement(noBtn);
-		if(editrowdata.get(3).getText().equals(details.getBankUserName()))
+		if(editrowdata.get(4).getText().equals(details.getBankUserName()))
 			return true;
 		else
 		return false;
@@ -1571,7 +1639,7 @@ public class NewUserRoleMappingPage extends BasePage {
         Map<String,String> firstRowData=getFirstRowDatafromTable();
         if(firstRowData.get("Transaction").equalsIgnoreCase(Transaction)){
             if(firstRowData.get("Status").equalsIgnoreCase(Status)){
-                if(firstRowData.get("Function").equalsIgnoreCase("User Role Mapping")){
+                if(firstRowData.get("Function Name").equalsIgnoreCase("User Role Mapping")){
                        stat=true;
                 }else{System.out.println("Data mismatch:"+firstRowData.get("Function")+"\t"+"RoleManagement");}
             }else{System.out.println("Data mismatch:"+firstRowData.get("Status")+"\t"+Status);}

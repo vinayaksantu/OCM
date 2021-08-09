@@ -203,6 +203,9 @@ public class CepEventMappingPage extends BasePage {
 	@FindBy(xpath="//a[text()='Description']")
 	private WebElement Description;
 	
+	@FindBy(xpath="//a[text()='CEP Event']")
+	private WebElement CEPEvent;
+	
 	public boolean isCepEventMappingPageDisplayed() {
 		waitForLoad(driver);
         waitForJqueryLoad(driver);
@@ -323,6 +326,7 @@ public class CepEventMappingPage extends BasePage {
 	public boolean verifyDatabase(String query) throws Exception {
 		List<Map<String,String>> database=database(query);
 		System.out.println(database);
+		selectWebElement(CEPEvent);
 		List<Map<String,String>> UI=gettable(); 
 		System.out.println(UI);
 		if(UI.equals(database))
@@ -733,8 +737,9 @@ public class CepEventMappingPage extends BasePage {
         	return errorMsg.get(0).getText();}
 	}
 	public void addNewRecordWithoutCEPEvent(CepEventMappingDetails details) throws Exception {
-		selectWebElement(addNewCEPEventMappingRecordBtn);
 		waitForJqueryLoad(driver);
+		selectWebElement(addNewCEPEventMappingRecordBtn);
+		Thread.sleep(1000);
 		enterValueToTxtField(DescriptionTextbox,details.getDescription());
 		enterValueToTxtField(ProductTypeTextbox,details.getProductType());
 		enterValueToTxtField(BinsTextbox,details.getBins());
@@ -744,8 +749,9 @@ public class CepEventMappingPage extends BasePage {
 		selectWebElement(saveButton);		
 	}
 	public void addNewRecordWithoutDescription(CepEventMappingDetails details) throws Exception {
-		selectWebElement(addNewCEPEventMappingRecordBtn);
 		waitForJqueryLoad(driver);
+		selectWebElement(addNewCEPEventMappingRecordBtn);
+		Thread.sleep(1000);
 		enterValueToTxtField(CepEventTextbox,details.getCepEvent());
 		enterValueToTxtField(ProductTypeTextbox,details.getProductType());
 		enterValueToTxtField(BinsTextbox,details.getBins());
@@ -756,8 +762,9 @@ public class CepEventMappingPage extends BasePage {
 		selectWebElement(cancelBtn);
 	}
 	public void addNewRecordWithoutBins(CepEventMappingDetails details) throws Exception {
-		selectWebElement(addNewCEPEventMappingRecordBtn);
 		waitForJqueryLoad(driver);
+		selectWebElement(addNewCEPEventMappingRecordBtn);
+		Thread.sleep(1000);
 		enterValueToTxtField(CepEventTextbox,details.getCepEvent());
 		enterValueToTxtField(DescriptionTextbox,details.getDescription());
 		enterValueToTxtField(ProductTypeTextbox,details.getProductType());
@@ -768,8 +775,9 @@ public class CepEventMappingPage extends BasePage {
 		selectWebElement(cancelBtn);
 	}
 	public void addNewRecordWithoutTransferFlag(CepEventMappingDetails details) throws Exception {
-		selectWebElement(addNewCEPEventMappingRecordBtn);
 		waitForJqueryLoad(driver);
+		selectWebElement(addNewCEPEventMappingRecordBtn);
+		Thread.sleep(1000);
 		enterValueToTxtField(CepEventTextbox,details.getCepEvent());
 		enterValueToTxtField(DescriptionTextbox,details.getDescription());
 		enterValueToTxtField(ProductTypeTextbox,details.getProductType());
@@ -779,8 +787,9 @@ public class CepEventMappingPage extends BasePage {
 		selectWebElement(cancelBtn);
 	}
 	public void addNewRecordWithoutIntent(CepEventMappingDetails details) throws Exception {
-		selectWebElement(addNewCEPEventMappingRecordBtn);
 		waitForJqueryLoad(driver);
+		selectWebElement(addNewCEPEventMappingRecordBtn);
+		Thread.sleep(1000);
 		enterValueToTxtField(CepEventTextbox,details.getCepEvent());
 		enterValueToTxtField(DescriptionTextbox,details.getDescription());
 		enterValueToTxtField(ProductTypeTextbox,details.getProductType());
@@ -792,10 +801,12 @@ public class CepEventMappingPage extends BasePage {
 	}
 	
 	public void clickOnAddRecord() {
+		waitForJqueryLoad(driver);
 		selectWebElement(addNewCEPEventMappingRecordBtn);
 	}
 	
 	public void clickOnCancelBtn() {
+		waitForJqueryLoad(driver);
 		selectWebElement(cancelBtn);
 	}
 	

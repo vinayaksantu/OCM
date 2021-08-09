@@ -195,6 +195,9 @@ public class SkillTemplatePage extends BasePage {
 
 	@FindBy(xpath="//button[normalize-space()='Save']")	
 	private WebElement saveButton;
+	
+	@FindBy(xpath="//input[@id='ModifyReason']")
+	private WebElement modifyReason;
 
 	@FindBy(xpath="//button[normalize-space()='Reset']")
 	private WebElement resetButton;
@@ -241,7 +244,7 @@ public class SkillTemplatePage extends BasePage {
 	@FindBy(id="yesButton")
 	private List<WebElement> deleteYesButton;
 
-	@FindBy(xpath="//table//tbody/tr/td[2]")
+	@FindBy(xpath="//table//tbody/tr/td[3]")
 	private WebElement tablerow;
 
 	@FindBy(xpath="//input[@id='voiceSearchBox']")
@@ -330,7 +333,7 @@ public class SkillTemplatePage extends BasePage {
 		}
 		List<String>ExpectedPageHeadrs = new ArrayList<>();
 		ExpectedPageHeadrs.add("Template Name");
-		ExpectedPageHeadrs.add("Team Name");
+		ExpectedPageHeadrs.add("Org.Unit");
 		ExpectedPageHeadrs.add("Last Changed By");
 		ExpectedPageHeadrs.add("Last Changed On");
 		System.out.println(ActualPageHeadrs);
@@ -507,7 +510,7 @@ public class SkillTemplatePage extends BasePage {
 		selectDropdownFromVisibleText(columnNameList,"Template Name");
 		Thread.sleep(1000);
 		selectWebElement(selectSearchCol.get(1));
-		selectDropdownFromVisibleText(searchCriteriaDropDwn,"Contains");
+		selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is equal to");
 		enterValueToTxtField(searchTextBox,templateName);
 		selectWebElement(searchSearchBtn);
 		waitForJqueryLoad(driver);
@@ -1038,6 +1041,8 @@ public class SkillTemplatePage extends BasePage {
 		selectWebElement(editButton);
 		selectSkillTab(details.getSkillType());
 		selectmultipleSkills(details.getSkills(),details.getSkillLevels());
+		selectWebElement(modifyReason);
+		enterValueToTxtFieldWithoutClear(modifyReason,details.getModifyReason());
 		scrollToElement(saveButton);
 		selectWebElement(saveButton);
 	}
@@ -1050,6 +1055,8 @@ public class SkillTemplatePage extends BasePage {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
+		System.out.println(details.getDeleteReason());
+		selectWebElement(deleteReason);
 		enterValueToTxtFieldWithoutClear(deleteReason,details.getDeleteReason());
 		selectWebElement(deleteNoButton);
 		waitForJqueryLoad(driver);
@@ -1082,6 +1089,7 @@ public class SkillTemplatePage extends BasePage {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
+		selectWebElement(deleteReason);
 		enterValueToTxtFieldWithoutClear(deleteReason,details.getDeleteReason());
 		selectWebElement(deleteYesButton.get(0));
 

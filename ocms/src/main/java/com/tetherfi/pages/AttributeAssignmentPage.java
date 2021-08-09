@@ -53,7 +53,7 @@ public class AttributeAssignmentPage extends BasePage {
 	@FindBy(css="ul[id='tabstrip_multi_ul'] li")
 	private List<WebElement> AttributeCategories;
 
-	@FindBy(xpath="//a[@class='OCM-sidebar-toggle white-color']")
+	@FindBy(xpath="//i[@class='navbar-icons fal fa-desktop']")
 	private WebElement ocmTab;
 
 	@FindBy(css="a[href$='/Attributes/Index']")
@@ -155,69 +155,69 @@ public class AttributeAssignmentPage extends BasePage {
 
 	@FindBy(css="th a[class='k-link']")
 	private List<WebElement> headersText;
-	
+
 	@FindBy(xpath="//a[@aria-label='Go to the last page']")
-    private WebElement lastPageIcon;
-    
-    @FindBy(css=".k-pager-numbers .k-state-selected")
-    private WebElement pageNumber;
-    
-    @FindBy(css="a[aria-label='Go to the first page']")
-    private WebElement firstPageIcon;
-    
-    @FindBy(css="a[aria-label='Go to the previous page']")
-    private WebElement previousPageIcon;
-    
-    @FindBy(css=".k-pager-sizes .k-icon")
-    private WebElement pagerDropdown;
-    
-    @FindBy(css=".k-animation-container ul li")
-    private List<WebElement> pageSizeListBox;
-    
-    @FindBy(xpath="//*[@id=\"goalmappinggird\"]/div[4]/span[1]/span/span/span[1]")
+	private WebElement lastPageIcon;
+
+	@FindBy(css=".k-pager-numbers .k-state-selected")
+	private WebElement pageNumber;
+
+	@FindBy(css="a[aria-label='Go to the first page']")
+	private WebElement firstPageIcon;
+
+	@FindBy(css="a[aria-label='Go to the previous page']")
+	private WebElement previousPageIcon;
+
+	@FindBy(css=".k-pager-sizes .k-icon")
+	private WebElement pagerDropdown;
+
+	@FindBy(css=".k-animation-container ul li")
+	private List<WebElement> pageSizeListBox;
+
+	@FindBy(xpath="//*[@id=\"goalmappinggird\"]/div[4]/span[1]/span/span/span[1]")
 	private WebElement pagerSize;
 
 	@FindBy(css="a[aria-label='Go to the next page']")
 	private WebElement nextPageIcon;
-	
+
 	@FindBy(xpath="//span[@class='k-pager-info k-label']")
-	private WebElement items;
-	
-	@FindBy(css=".k-grid-content")
+	private List<WebElement> items;
+
+	@FindBy(css=".k-grid-content ")
 	private WebElement gridContent;
-	
+
 	@FindBy(xpath = "//a[@class='k-button k-button-icontext k-grid-edit']")
 	private WebElement editButton;
-	
+
 	@FindBy(xpath="//input[@id='channelMultiSearchBox']")
 	private WebElement channelAttributeSearchBox;
-	
+
 	@FindBy(xpath="//input[@id='intentMultiSearchBox']")
 	private WebElement intentAttributeSearchBox;
-	
+
 	@FindBy(xpath="//input[@id='packageMultiSearchBox']")
 	private WebElement packageAttributeSearchBox;
-	
+
 	@FindBy(xpath="//input[@id='customertypeMultiSearchBox']")
 	private WebElement customerTypeAttributeSearchBox;
-	
+
 	@FindBy(xpath="//input[@id='ageMultiSearchBox']")
 	private WebElement ageAttributeSearchBox;
-	
+
 	@FindBy(xpath="//input[@id='genderMultiSearchBox']")
 	private WebElement genderAttributeSearchBox;
-	
+
 	@FindBy(xpath="//input[@id='locationMultiSearchBox']")
 	private WebElement loactionAttributeSearchBox;
-	
+
 	@FindBy(xpath="//input[@id='sentimentMultiSearchBox']")
 	private WebElement sentimentAttributeSearchBox;
-	
+
 	@FindBy(xpath="//input[@id='languageMultiSearchBox']")
 	private WebElement languageAttributeSearchBox;
-	
+
 	@FindBy(css="#tabstrip_multi ul[role='listbox'] li")
-    private List<WebElement> SearchAttributeTabData;
+	private List<WebElement> SearchAttributeTabData;
 
 
 
@@ -451,7 +451,7 @@ public class AttributeAssignmentPage extends BasePage {
 		waitUntilWebElementIsVisible(saveButton);
 		selectWebElement(saveButton);
 	}
-	
+
 	public void VerifySaveButtonwithoutSelectingAttributes(AttributeAssignmentDetails details) throws Exception {
 		waitForJqueryLoad(driver);
 		selectWebElement(selectTeam);
@@ -497,6 +497,7 @@ public class AttributeAssignmentPage extends BasePage {
 		for(int i=0;i<listofTeams.size();i++) {
 			String teamName=listofTeams.get(i).getText();
 			arr.add(teamName);
+			arr.remove("");
 		}
 		Collections.sort(arr, String.CASE_INSENSITIVE_ORDER);
 		return arr;
@@ -515,10 +516,10 @@ public class AttributeAssignmentPage extends BasePage {
 		String[] a=attributeName.split(",");
 		String[] b=attributesLevel.split(",");
 		for(String attribute:a){
+			System.out.println(a+"daaaaaaaaata");
 			for(WebElement ele:multipleAttributes){
 				if(ele.getText().equalsIgnoreCase(attribute)){
 					selectWebElement(ele);
-					waitForJqueryLoad(driver);
 					selectWebElement(transferToSelectedList.get(3));
 					break;
 				}
@@ -535,6 +536,8 @@ public class AttributeAssignmentPage extends BasePage {
 		selectAgent(details.getAgentList());
 		waitForJqueryLoad(driver);
 		selectAttributeTab(details.getAttributeType());
+		waitForJqueryLoad(driver);
+		System.out.printf(details.getMultipleAttributes(),details.getMultipleAttributeLevels());
 		selectmultipleAttributes(details.getMultipleAttributes(),details.getMultipleAttributeLevels());
 		scrollToElement(saveButton);
 		selectWebElement(saveButton); 
@@ -566,7 +569,7 @@ public class AttributeAssignmentPage extends BasePage {
 		else {System.out.println("AgentattributeDetailsHeader is not Displayed");}
 		return status;
 	}
-	
+
 	public boolean ExportToExcelButton(String filePath) {
 		waitForJqueryLoad(driver);
 		selectWebElement(viewAssignmentButton);
@@ -587,7 +590,7 @@ public class AttributeAssignmentPage extends BasePage {
 		Boolean Status=verifyExportPageFileDownload(filePath,"AgentAttributeDetails");
 		return Status;
 	}
-	
+
 	public boolean verifyDropDownOfAllHeaders() {
 		waitForJqueryLoad(driver);
 		selectWebElement(viewAssignmentButton);
@@ -699,73 +702,73 @@ public class AttributeAssignmentPage extends BasePage {
 		}
 		return status;
 	}
-	
-	 public boolean verifyArrowMoveForPreviousAndNextPage() throws Exception{
-	    	waitForJqueryLoad(driver);
-	    	scrollToElement(viewAssignmentButton);
-			selectWebElement(viewAssignmentButton);
-			waitForJqueryLoad(driver);
-	        boolean status=false;
-	        if(!nextPageIcon.getAttribute("class").contains("k-state-disabled")){
-	        int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber));
-	        selectWebElement(nextPageIcon);
-	        Thread.sleep(1000);
-	        int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
-	        selectWebElement(previousPageIcon);
-	        Thread.sleep(1000);
-	        int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
-	        if(nextnumber==(pagenumber+1) && pagenumber==previousnumber){status=true;}
-	        }else{
-	            System.out.println("previous and next page icon disabled");status=true;
-	        }
-	        return status;
+
+	public boolean verifyArrowMoveForPreviousAndNextPage() throws Exception{
+		waitForJqueryLoad(driver);
+		scrollToElement(viewAssignmentButton);
+		selectWebElement(viewAssignmentButton);
+		waitForJqueryLoad(driver);
+		boolean status=false;
+		if(!nextPageIcon.getAttribute("class").contains("k-state-disabled")){
+			int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber));
+			selectWebElement(nextPageIcon);
+			Thread.sleep(1000);
+			int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
+			selectWebElement(previousPageIcon);
+			Thread.sleep(1000);
+			int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
+			if(nextnumber==(pagenumber+1) && pagenumber==previousnumber){status=true;}
+		}else{
+			System.out.println("previous and next page icon disabled");status=true;
 		}
-		public boolean verifyArrowMoveForFirstAndLastPage() throws Exception{
-			waitForJqueryLoad(driver);
-			scrollToElement(viewAssignmentButton);
-			selectWebElement(viewAssignmentButton);
-			waitForJqueryLoad(driver);
-	        boolean status=false;
-	        if(!lastPageIcon.getAttribute("class").contains("k-state-disabled")){
-	            int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber));
-	            selectWebElement(lastPageIcon);
-	            Thread.sleep(1000);
-	            int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
-	            selectWebElement(firstPageIcon);
-	            Thread.sleep(1000);
-	            int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
-	            if(nextnumber>pagenumber && pagenumber==previousnumber){status=true;}
-	        }else{
-	            System.out.println("previous and next page icon disabled");status=true;
-	        }
-	        return status;
-	    }
-	
+		return status;
+	}
+	public boolean verifyArrowMoveForFirstAndLastPage() throws Exception{
+		waitForJqueryLoad(driver);
+		scrollToElement(viewAssignmentButton);
+		selectWebElement(viewAssignmentButton);
+		waitForJqueryLoad(driver);
+		boolean status=false;
+		if(!lastPageIcon.getAttribute("class").contains("k-state-disabled")){
+			int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber));
+			selectWebElement(lastPageIcon);
+			Thread.sleep(1000);
+			int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
+			selectWebElement(firstPageIcon);
+			Thread.sleep(1000);
+			int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
+			if(nextnumber>pagenumber && pagenumber==previousnumber){status=true;}
+		}else{
+			System.out.println("previous and next page icon disabled");status=true;
+		}
+		return status;
+	}
+
 	public boolean verifyTotalNumberOfItemsPerPageDetails(){
 		waitForJqueryLoad(driver);
 		selectWebElement(viewAssignmentButton);
 		waitForJqueryLoad(driver);
-        String item = items.getText();
-        return item.matches("(\\d.*) - (\\d.*) of (\\d.*) items");
-    }
-	
+		String item = items.get(0).getText();
+		return item.matches("(\\d.*) - (\\d.*) of (\\d.*) items");
+	}
+
 	public boolean verifyNumberOfItemsPerPage() {
 		waitForJqueryLoad(driver);
 		selectWebElement(viewAssignmentButton);
 		waitForJqueryLoad(driver);
-        boolean status = false;
+		boolean status = false;
         try {
-                int item = Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
+                int item = Integer.valueOf(items.get(0).getText().split("of ")[1].split(" items")[0]);
                 selectWebElement(pagerDropdown);
                 Thread.sleep(1500);
                 for (int i = 0; i < pageSizeListBox.size(); i++) {
                     if(Integer.valueOf(pageSizeListBox.get(i).getText())>item){continue;}
                     selectDropdownFromVisibleText(pageSizeListBox, pageSizeListBox.get(i).getText());
                     waitForJqueryLoad(driver);
-                    int totalItems = Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
+                    int totalItems = Integer.valueOf(items.get(0).getText().split("of ")[1].split(" items")[0]);
                     int pagersize = Integer.valueOf(pagerSize.getText());
                     int pages = (totalItems % pagersize == 0) ? item / pagersize : item / pagersize+1;
-                    int totalRows=(gridContent.findElements(By.tagName("tr")).size());
+                    int totalRows=(gridContent.findElements(By.cssSelector("#goalmappinggird .k-master-row")).size());
                     selectWebElement(lastPageIcon);
                     waitForJqueryLoad(driver);
                     int lastPageNumber = Integer.valueOf(pageNumber.getText());
@@ -780,74 +783,74 @@ public class AttributeAssignmentPage extends BasePage {
         } catch (Exception e) {
             e.printStackTrace();
         } return status;
-    }
-	
+	}
+
 	public void SearchChannelCategoryToAssignForAgentInAttributesTab(AttributeAssignmentDetails details) throws Exception {
-        waitForJqueryLoad(driver);
-        selectAttributeTab(details.getAttributeType());
-        enterValueToTxtField(channelAttributeSearchBox,details.getAttributeName());
-    }
-	
+		waitForJqueryLoad(driver);
+		selectAttributeTab(details.getAttributeType());
+		enterValueToTxtField(channelAttributeSearchBox,details.getAttributeName());
+	}
+
 	public void SearchIntentCategoryToAssignForAgentInAttributesTab(AttributeAssignmentDetails details) throws Exception {
-        waitForJqueryLoad(driver);
-        selectAttributeTab(details.getAttributeType());
-        enterValueToTxtField(intentAttributeSearchBox,details.getAttributeName());
-    }
-	
+		waitForJqueryLoad(driver);
+		selectAttributeTab(details.getAttributeType());
+		enterValueToTxtField(intentAttributeSearchBox,details.getAttributeName());
+	}
+
 	public void SearchPackageCategoryToAssignForAgentInAttributesTab(AttributeAssignmentDetails details) throws Exception {
-        waitForJqueryLoad(driver);
-        selectAttributeTab(details.getAttributeType());
-        enterValueToTxtField(packageAttributeSearchBox,details.getAttributeName());
-    }
-	
+		waitForJqueryLoad(driver);
+		selectAttributeTab(details.getAttributeType());
+		enterValueToTxtField(packageAttributeSearchBox,details.getAttributeName());
+	}
+
 	public void SearchCustomerTypeCategoryToAssignForAgentInAttributesTab(AttributeAssignmentDetails details) throws Exception {
-        waitForJqueryLoad(driver);
-        selectAttributeTab(details.getAttributeType());
-        enterValueToTxtField(customerTypeAttributeSearchBox,details.getAttributeName());
-    }
-	
+		waitForJqueryLoad(driver);
+		selectAttributeTab(details.getAttributeType());
+		enterValueToTxtField(customerTypeAttributeSearchBox,details.getAttributeName());
+	}
+
 	public void SearchAgeCategoryToAssignForAgentInAttributesTab(AttributeAssignmentDetails details) throws Exception {
-        waitForJqueryLoad(driver);
-        selectAttributeTab(details.getAttributeType());
-        enterValueToTxtField(ageAttributeSearchBox,details.getAttributeName());
-    }
-	
+		waitForJqueryLoad(driver);
+		selectAttributeTab(details.getAttributeType());
+		enterValueToTxtField(ageAttributeSearchBox,details.getAttributeName());
+	}
+
 	public void SearchGenderCategoryToAssignForAgentInAttributesTab(AttributeAssignmentDetails details) throws Exception {
-        waitForJqueryLoad(driver);
-        selectAttributeTab(details.getAttributeType());
-        enterValueToTxtField(genderAttributeSearchBox,details.getAttributeName());
-    }
-	
+		waitForJqueryLoad(driver);
+		selectAttributeTab(details.getAttributeType());
+		enterValueToTxtField(genderAttributeSearchBox,details.getAttributeName());
+	}
+
 	public void SearchLocationCategoryToAssignForAgentInAttributesTab(AttributeAssignmentDetails details) throws Exception {
-        waitForJqueryLoad(driver);
-        selectAttributeTab(details.getAttributeType());
-        enterValueToTxtField(loactionAttributeSearchBox,details.getAttributeName());
-    }
-	
+		waitForJqueryLoad(driver);
+		selectAttributeTab(details.getAttributeType());
+		enterValueToTxtField(loactionAttributeSearchBox,details.getAttributeName());
+	}
+
 	public void SearchSentimentCategoryToAssignForAgentInAttributesTab(AttributeAssignmentDetails details) throws Exception {
-        waitForJqueryLoad(driver);
-        selectAttributeTab(details.getAttributeType());
-        enterValueToTxtField(sentimentAttributeSearchBox,details.getAttributeName());
-    }
-	
+		waitForJqueryLoad(driver);
+		selectAttributeTab(details.getAttributeType());
+		enterValueToTxtField(sentimentAttributeSearchBox,details.getAttributeName());
+	}
+
 	public void SearchLanguageCategoryToAssignForAgentInAttributesTab(AttributeAssignmentDetails details) throws Exception {
-        waitForJqueryLoad(driver);
-        selectAttributeTab(details.getAttributeType());
-        enterValueToTxtField(languageAttributeSearchBox,details.getAttributeName());
-    }
-	
+		waitForJqueryLoad(driver);
+		selectAttributeTab(details.getAttributeType());
+		enterValueToTxtField(languageAttributeSearchBox,details.getAttributeName());
+	}
+
 	public boolean verifySearchedAttributeData(AttributeAssignmentDetails details){
-	    waitForJqueryLoad(driver);
-	    selectAttributeTab(details.getAttributeType());
-	    boolean status=false;
-        for(WebElement ele:SearchAttributeTabData) {
-        	System.out.println(ele.getText());
-            if(ele.getText().equalsIgnoreCase(details.getAttributeName()))
-                status= true;
-        }
+		waitForJqueryLoad(driver);
+		selectAttributeTab(details.getAttributeType());
+		boolean status=false;
+		for(WebElement ele:SearchAttributeTabData) {
+			System.out.println(ele.getText());
+			if(ele.getText().equalsIgnoreCase(details.getAttributeName()))
+				status= true;
+		}
 		return status;
-        
-    }
+
+	}
 
 
 }

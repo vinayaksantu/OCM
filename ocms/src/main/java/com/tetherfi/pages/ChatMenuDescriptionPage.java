@@ -137,7 +137,7 @@ public class ChatMenuDescriptionPage extends BasePage{
 	@FindBy(xpath="//button[text()='Close']")
 	private WebElement searchClose;
 		    
-	@FindBy(xpath="//div[text()='No Records to Display']")
+	@FindBy(xpath="//div[text()='No records to display']")
 	private WebElement norecords;
 		    
 	@FindBy(xpath="//i[@class='fas fa-sync fa-spin']")
@@ -176,7 +176,7 @@ public class ChatMenuDescriptionPage extends BasePage{
 	@FindBy(id="navbarheader")
 	private WebElement header;
 			    
-	@FindBy(xpath="//tbody/tr/td[6]")
+	@FindBy(xpath="//tbody/tr/td[2]")
 	private WebElement rowdata;
 			    
 	@FindBy(xpath="//span[@class='k-icon k-i-arrow-60-right k-menu-expand-arrow']")
@@ -593,6 +593,7 @@ public class ChatMenuDescriptionPage extends BasePage{
 	public void searchChatMenuDescriptionRecord(String menuId) throws Exception {
 		selectWebElement(searchLink);
         selectWebElement(selectSearchColumn.get(0));
+        Thread.sleep(2000);
         selectDropdownFromVisibleText(columnNameList,"Menu Id");
         selectWebElement(selectSearchColumn.get(1));
         selectDropdownFromVisibleText(searchTypeList,"Is equal to");
@@ -643,7 +644,7 @@ public class ChatMenuDescriptionPage extends BasePage{
 	public void addNewChatMenuDescriptionRecord(ChatMenuDescriptionDetails details) throws Exception {
 		selectWebElement(addNewChatMenuDescriptionBtn);
 		waitForJqueryLoad(driver);
-		enterValueToTxtField(MenuIdTextbox,details.getMenuId());
+		enterValueToTxtFieldWithoutClear(MenuIdTextbox,details.getMenuId());
 		enterValueToTxtField(MenuNameTextbox,details.getMenuName());
 		enterValueToTxtField(IntentTextbox,details.getIntent());
 		selectWebElement(saveBtn);
@@ -868,12 +869,27 @@ public class ChatMenuDescriptionPage extends BasePage{
         }
         return isElementExist(deleteContainer);
 	}
+	
+	public boolean deleteNo(String menuID, String reason) throws Exception {
+		searchChatMenuDescriptionRecord(menuID);
+		Thread.sleep(1000);
+        btnClick(deleteBtn);
+        selectWebElement(deleteReasonTextBox);
+        enterValueToTxtFieldWithoutClear(deleteReasonTextBox,reason);
+        selectWebElement(noBtn);
+        if(rowdata.getText().equals(menuID))
+        {return true;}
+        else
+        	return false;
+		
+	}
 
 	public void deletechatMenuDescriptionRecord(ChatMenuDescriptionDetails details) throws Exception {
 		searchChatMenuDescriptionRecord(details.getMenuId());
 		waitForJqueryLoad(driver);
 		selectWebElement(deleteBtn);
 		waitForJqueryLoad(driver);
+		selectWebElement(deleteReasonTextBox);
 		enterValueToTxtFieldWithoutClear(deleteReasonTextBox,details.getDeleteReason());
 		selectWebElement(yesBtn);	
 	}

@@ -71,7 +71,7 @@ public class CEPEventMappingTest extends BaseTest {
         Assert.assertEquals(CepEventMappingPage.getSuccessMessage(),"Record Created Successfully","Add New record assertion failed");
     }
     
-    @Test(priority=6)
+    @Test(priority=6,dependsOnMethods="AddCepEventMappingRecord")
     public void VerifyAuditTrialReportForCreate() throws Exception {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\CepEventMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -86,7 +86,7 @@ public class CEPEventMappingTest extends BaseTest {
         Assert.assertTrue(ocmReportsPage.verifyCepEventMappingCreate(CepEventMappingDetails,"Create"));
     }
     
-    @Test(priority=7,enabled=false)
+    @Test(priority=7,dependsOnMethods="AddCepEventMappingRecord",enabled=true)
     public void DuplicateRecord() throws Exception {
     	 String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\CepEventMappingData.xlsx";
          Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -154,7 +154,7 @@ public class CEPEventMappingTest extends BaseTest {
         Assert.assertEquals(CepEventMappingPage.getMessage(),"Please provide a valid Intent","Invalid record assertion failed");
     }
     
-    @Test(priority=14)
+    @Test(priority=14,dependsOnMethods="AddCepEventMappingRecord")
     public void EditCepEventMappingRecord() throws Exception {
    	 	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\CepEventMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
@@ -164,7 +164,7 @@ public class CEPEventMappingTest extends BaseTest {
         Assert.assertEquals(CepEventMappingPage.getSuccessMessage(),"Record Updated Successfully","Edit record assertion failed");
     }
     
-   	@Test(priority=15)
+   	@Test(priority=15,dependsOnMethods="EditCepEventMappingRecord")
     public void VerifyAuditTrialReportForUpdate() throws Exception {
    	 	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\CepEventMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
@@ -191,8 +191,11 @@ public class CEPEventMappingTest extends BaseTest {
     
     @Test(priority=17)
     public void VerifyCancelBtnAtEditRecord() throws Exception{
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\CepEventMappingData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
+        CepEventMappingDetails CepEventMappingDetails = new CepEventMappingDetails(map);
     	CepEventMappingPage CepEventMappingPage=PageFactory.createPageInstance(driver,CepEventMappingPage.class);
-    	CepEventMappingPage.searchCepEventMapping("1919");
+    	CepEventMappingPage.searchCepEventMapping(CepEventMappingDetails.getCepEvent());
     	Thread.sleep(3000);
     	CepEventMappingPage.clickOnEditButton();
     	CepEventMappingPage.clickOnCancelBtn();
@@ -202,7 +205,7 @@ public class CEPEventMappingTest extends BaseTest {
     @Test(priority=18)
     public void VerifySearchIsNotEqualTo() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\CepEventMappingData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
+        Map<String, String> map = new ExcelReader(filePath,"Search").getTestData().get(0);
         CepEventMappingDetails CepEventMappingDetails = new CepEventMappingDetails(map);
     	CepEventMappingPage CepEventMappingPage=PageFactory.createPageInstance(driver,CepEventMappingPage.class);
     	Assert.assertTrue(CepEventMappingPage.verifySearchIsNotEqualTo(CepEventMappingDetails.getDescription()));
@@ -210,7 +213,7 @@ public class CEPEventMappingTest extends BaseTest {
     @Test(priority=19)
     public void  VerifySearchContains() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\CepEventMappingData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);
+        Map<String, String> map = new ExcelReader(filePath,"Search").getTestData().get(1);
         CepEventMappingDetails CepEventMappingDetails = new CepEventMappingDetails(map);
     	CepEventMappingPage CepEventMappingPage=PageFactory.createPageInstance(driver,CepEventMappingPage.class);
     	Assert.assertTrue(CepEventMappingPage.verifySearchContains(CepEventMappingDetails.getDescription()));
@@ -219,7 +222,7 @@ public class CEPEventMappingTest extends BaseTest {
     @Test(priority=20)
     public void  VerifySearchDoesNotContains() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\CepEventMappingData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);
+        Map<String, String> map = new ExcelReader(filePath,"Search").getTestData().get(1);
         CepEventMappingDetails CepEventMappingDetails = new CepEventMappingDetails(map);
     	CepEventMappingPage CepEventMappingPage=PageFactory.createPageInstance(driver,CepEventMappingPage.class);
     	Assert.assertTrue(CepEventMappingPage.verifySearchDoesNotContains(CepEventMappingDetails.getDescription()));
@@ -228,7 +231,7 @@ public class CEPEventMappingTest extends BaseTest {
     @Test(priority=21)
     public void  VerifySearchStartsWith() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\CepEventMappingData.xlsx";
-        Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);
+        Map<String, String> map = new ExcelReader(filePath,"Search").getTestData().get(1);
         CepEventMappingDetails CepEventMappingDetails = new CepEventMappingDetails(map);
     	CepEventMappingPage CepEventMappingPage=PageFactory.createPageInstance(driver,CepEventMappingPage.class);
     	Assert.assertTrue(CepEventMappingPage.verifySearchStartsWith(CepEventMappingDetails.getDescription()));
@@ -236,7 +239,7 @@ public class CEPEventMappingTest extends BaseTest {
     @Test(priority=22)
     public void  VerifySearchEndsWith() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\CepEventMappingData.xlsx";
-    	Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(2);
+    	Map<String, String> map = new ExcelReader(filePath,"Search").getTestData().get(2);
     	CepEventMappingDetails CepEventMappingDetails = new CepEventMappingDetails(map);
     	CepEventMappingPage CepEventMappingPage=PageFactory.createPageInstance(driver,CepEventMappingPage.class);
     	Assert.assertTrue(CepEventMappingPage.verifySearchEndsWith(CepEventMappingDetails.getDescription()));
@@ -245,7 +248,7 @@ public class CEPEventMappingTest extends BaseTest {
    @Test(priority=23)
     public void searchPage() throws Exception{
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\CepEventMappingData.xlsx";
-    	Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
+    	Map<String, String> map = new ExcelReader(filePath,"Search").getTestData().get(0);
     	CepEventMappingDetails CepEventMappingDetails = new CepEventMappingDetails(map);
     	CepEventMappingPage CepEventMappingPage=PageFactory.createPageInstance(driver,CepEventMappingPage.class);
     	Assert.assertFalse(CepEventMappingPage.clearAll(CepEventMappingDetails),"ClearAll Assertion Failed");
@@ -281,15 +284,18 @@ public class CEPEventMappingTest extends BaseTest {
     
     @Test(priority=27)
     public void VerifyCancelBtnAtDeleteCEPEventMappingRecord() throws Exception{
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\CepEventMappingData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
+        CepEventMappingDetails CepEventMappingDetails = new CepEventMappingDetails(map);
     	CepEventMappingPage CepEventMappingPage=PageFactory.createPageInstance(driver,CepEventMappingPage.class);
-    	CepEventMappingPage.searchCepEventMapping("1919");
+    	CepEventMappingPage.searchCepEventMapping(CepEventMappingDetails.getCepEvent());
     	Thread.sleep(1000);
     	CepEventMappingPage.clickOnDeleteButton();
     	CepEventMappingPage.clickOnDeleteCancelBtn();
     	Assert.assertFalse(CepEventMappingPage.verifyDeleteContainer(), "Cancel Btn at Delete record assertion failed");
     }
 
-    @Test(priority=28)
+    @Test(priority=28,dependsOnMethods="EditCepEventMappingRecord")
     public void DeleteRecord() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\CepEventMappingData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
@@ -299,7 +305,7 @@ public class CEPEventMappingTest extends BaseTest {
     	Assert.assertEquals(CepEventMappingPage.getSuccessMessage(),"Record Deleted Successfully","Delete record assertion failed");
     }
     
-   @Test(priority=29)
+   @Test(priority=29,dependsOnMethods="DeleteRecord")
     public void VerifyAuditTrialReportForDelete() throws Exception {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\CepEventMappingData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
@@ -317,7 +323,7 @@ public class CEPEventMappingTest extends BaseTest {
     @Test(priority=30)
     public void SearchClearSearch() throws Exception{
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\CepEventMappingData.xlsx";
-    	Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
+    	Map<String, String> map = new ExcelReader(filePath,"Search").getTestData().get(0);
     	CepEventMappingDetails CepEventMappingDetails = new CepEventMappingDetails(map);
     	CepEventMappingPage CepEventMappingPage=PageFactory.createPageInstance(driver,CepEventMappingPage.class);
     	Assert.assertTrue(CepEventMappingPage.verifyinvalidsearchwithwrongdata(CepEventMappingDetails), "InvalidSearchAssertionFailed");

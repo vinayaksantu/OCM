@@ -195,7 +195,7 @@ public class OperatingHoursPage extends BasePage {
     @FindBy(xpath="//span[@class='k-icon k-i-arrow-60-right k-menu-expand-arrow']")
     private WebElement coloumnarrow;
     
-    @FindBy(id="tGrid")
+    @FindBy(id="tdrillGrid")
     private WebElement auditGridContent;
     
     @FindBy(xpath="//a[text()='Skill/VDN']")
@@ -203,6 +203,9 @@ public class OperatingHoursPage extends BasePage {
     
     @FindBy(xpath="//a[text()='Week Day']")
     private WebElement weekDay;
+    
+    @FindBy(xpath="//a[text()='Start Time']")
+    private WebElement StartTime;
     
     @FindBy(xpath="//div[@data-role='droptarget']")
     private WebElement droptarget;
@@ -501,6 +504,11 @@ public class OperatingHoursPage extends BasePage {
         searchOperatingHoursRecord(operatingHoursDetails.getVdnName());
         Thread.sleep(2000);
         selectWebElement(deleteButton);
+        try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
         enterValueToTxtFieldWithoutClear(deleteReasonTextBox,operatingHoursDetails.getDeleteReason());
         selectWebElement(deleteYesBtn);
     }
@@ -631,6 +639,8 @@ public class OperatingHoursPage extends BasePage {
 	}
 	public boolean verifyexportToExcelSheet(List<Map<String, String>> maplist) {
 		List<Map<String,String>> UI=getdata(); 
+		System.out.println(maplist);
+		System.out.println(UI);
 		if(UI.equals(maplist))
 		return true;
 		else
@@ -704,6 +714,8 @@ public class OperatingHoursPage extends BasePage {
 	
 	public boolean verifyDatabase(String query) {
 		List<Map<String,String>> database=database(query);
+		selectWebElement(StartTime);
+		waitForJqueryLoad(driver);
 		System.out.println(database);
 		List<Map<String,String>> UI=gettable(); 
 		System.out.println(UI);
@@ -1144,7 +1156,6 @@ public class OperatingHoursPage extends BasePage {
         selectWebElement(EndTimeTextBox);
         enterValueToTxtField(EndTimeTextBox,details.getEndTime());
         selectWebElement(SaveButton);
-        selectWebElement(CancelButton);
 	}
 	public void addVDNvaluelessthanfour(OperatingHoursDetails details) throws Exception {
 		selectWebElement(addNewOperatingHoursRcrdBtn);
@@ -1161,7 +1172,6 @@ public class OperatingHoursPage extends BasePage {
         selectWebElement(addBypassPublicHolidayDropdown);
         selectDropdownFromVisibleText(addBypassPublicHolidayListBox,details.getBypassPublicHoliday());
         selectWebElement(SaveButton);
-        selectWebElement(CancelButton);
 		
 	}
 	public void addStarttimegreaterthanEndtime(OperatingHoursDetails details) throws Exception {
@@ -1180,7 +1190,6 @@ public class OperatingHoursPage extends BasePage {
         selectWebElement(addBypassPublicHolidayDropdown);
         selectDropdownFromVisibleText(addBypassPublicHolidayListBox,details.getBypassPublicHoliday());
         selectWebElement(SaveButton);
-        selectWebElement(CancelButton);
 		
 	}
 	public void addStarttimesameasEndtime(OperatingHoursDetails details) throws Exception {
@@ -1199,6 +1208,5 @@ public class OperatingHoursPage extends BasePage {
         selectWebElement(addBypassPublicHolidayDropdown);
         selectDropdownFromVisibleText(addBypassPublicHolidayListBox,details.getBypassPublicHoliday());
         selectWebElement(SaveButton);
-        selectWebElement(CancelButton);	
 	}	
 }

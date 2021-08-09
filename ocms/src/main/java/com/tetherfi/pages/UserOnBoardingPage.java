@@ -541,6 +541,7 @@ public class UserOnBoardingPage extends BasePage {
 		waitForLoad(driver);
 		waitForJqueryLoad(driver);
 		return userOnBoarding.isEnabled();
+		
 	}
 
 	private ArrayList<String> getHeadersfromTable(List<WebElement> e){
@@ -578,7 +579,7 @@ public class UserOnBoardingPage extends BasePage {
 	}
 
 	public boolean verifyAuditTrailDataTableHeaders() {
-		ArrayList<String> Expected=new ArrayList<String>(Arrays.asList(" ","Request ID", "Transaction", "Function Name", "Status", "User Id", "Submission DateTime", "Maker Comments", "Reviewed By","Review DateTime", "Checker Comments"));
+		ArrayList<String> Expected=new ArrayList<String>(Arrays.asList("IsEnabled","Request ID", "Transaction", "Function Name", "Status", "User Id", "Submission DateTime", "Maker Comments", "Reviewed By","Review DateTime", "Checker Comments"));
 		ArrayList<String> Actual = getHeadersfromTable(auditTrailTableHeaders);
 		System.out.println(Actual);
 		System.out.println(Expected);
@@ -1152,7 +1153,6 @@ public class UserOnBoardingPage extends BasePage {
 	}
 
 	public String VerifyMessage() {
-		waitForJqueryLoad(driver);
 		if(successmsg.isDisplayed())
 			return successmsg.getText();
 		else{return errorMsg.get(0).getText();}
@@ -1184,10 +1184,16 @@ public class UserOnBoardingPage extends BasePage {
 	public boolean addCancelButton(UserOnBoardingDetails details) throws Exception {
 		selectWebElement(UserOnBoardingTabs.get(1));
 		selectWebElement(makeUserOnBoardingChanges);
-		String actualitems=items.get(2).getText();
-		Thread.sleep(2000);
-		selectWebElement(addNewUserOnBoardingRecord);
 		waitForJqueryLoad(driver);
+		String actualitems=items.get(2).getText();
+		try {Thread.sleep(5000);
+		selectWebElement(addNewUserOnBoardingRecord);
+		waitUntilWebElementIsVisible(popupContent);
+
+		Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		selectWebElement(addNewUserOnBoardingCancelButton);
 		if(actualitems.equals(items.get(2).getText()))
 			return true;
@@ -1201,7 +1207,14 @@ public class UserOnBoardingPage extends BasePage {
 		selectWebElement(UserOnBoardingTabs.get(1));
 		selectWebElement(makeUserOnBoardingChanges);
 		Thread.sleep(2000);
+		try {Thread.sleep(5000);
 		selectWebElement(addNewUserOnBoardingRecord);
+		waitUntilWebElementIsVisible(popupContent);
+
+		Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		boolean status=false;
 		if(PersonalInfoStepIcon.isDisplayed()) {
 			if(ProfilePictureStepIcon.isDisplayed()) {
@@ -1291,10 +1304,10 @@ public class UserOnBoardingPage extends BasePage {
 		enterValueToTxtFieldWithoutClear(totalVideoChatTabsAllowedTextBox.get(1),String.valueOf(details.getTotalVideoChatTabs()));
 		selectWebElement(numericTextbox.get(5));
 		enterValueToTxtFieldWithoutClear(totalFaxTabsAllowedTextBox.get(1),String.valueOf(details.getTotalFaxTabs()));
-		selectWebElement(numericTextbox.get(6));
+		/*selectWebElement(numericTextbox.get(6));
 		enterValueToTxtFieldWithoutClear(totalEmailTabsAllowedTextBox.get(1),String.valueOf(details.getTotalEmailTabs()));
 		selectWebElement(numericTextbox.get(7));
-		enterValueToTxtFieldWithoutClear(totalSMSTabsAllowedTextBox.get(1),String.valueOf(details.getTotalSMSTabs()));																								
+		enterValueToTxtFieldWithoutClear(totalSMSTabsAllowedTextBox.get(1),String.valueOf(details.getTotalSMSTabs()));*/																								
 		selectWebElement(nextButton.get(2));
 		selectCheckBox(autoAnswerAllAcdCallsCheckbox,details.isAutoanswerallACDcalls());
 		selectCheckBox(goToAcwAfterEachAcdCallsCheckbox,details.isGotoACWaftereachACDcalls());
@@ -1303,6 +1316,7 @@ public class UserOnBoardingPage extends BasePage {
 	}
 
 	public void addNewUserOnBoardingRecordWithoutFirstName(UserOnBoardingDetails details) throws Exception {
+		waitForJqueryLoad(driver);
 		selectWebElement(UserOnBoardingTabs.get(1));
 		selectWebElement(makeUserOnBoardingChanges);
 		waitForJqueryLoad(driver);
@@ -1326,7 +1340,9 @@ public class UserOnBoardingPage extends BasePage {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		ChooseTeamHeirarchy(details.getTeamName());
+		ChooseHeirarchy(details.getTeamName());
+		waitForJqueryLoad(driver);
+		Thread.sleep(3000);
 		selectProfile(details.getProfile(),details.getSupervisor());
 		Thread.sleep(1000);
 		selectWebElement(nextButton.get(0));
@@ -1338,6 +1354,7 @@ public class UserOnBoardingPage extends BasePage {
 	}
 
 	public void addNewUserOnBoardingRecordWithoutLastName(UserOnBoardingDetails details) throws Exception {
+		waitForJqueryLoad(driver);
 		selectWebElement(UserOnBoardingTabs.get(1));
 		selectWebElement(makeUserOnBoardingChanges);
 		waitForJqueryLoad(driver);
@@ -1363,7 +1380,9 @@ public class UserOnBoardingPage extends BasePage {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		ChooseTeamHeirarchy(details.getTeamName());
+		ChooseHeirarchy(details.getTeamName());
+		waitForJqueryLoad(driver);
+		Thread.sleep(3000);
 		selectProfile(details.getProfile(),details.getSupervisor());
 		Thread.sleep(1000);
 		selectWebElement(nextButton.get(0));
@@ -1375,6 +1394,7 @@ public class UserOnBoardingPage extends BasePage {
 	}
 
 	public void addNewUserOnBoardingRecordWithoutLanID(UserOnBoardingDetails details) throws Exception {
+		waitForJqueryLoad(driver);
 		selectWebElement(UserOnBoardingTabs.get(1));
 		selectWebElement(makeUserOnBoardingChanges);
 		waitForJqueryLoad(driver);
@@ -1398,8 +1418,9 @@ public class UserOnBoardingPage extends BasePage {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		ChooseTeamHeirarchy(details.getTeamName());
-		Thread.sleep(1000);
+		ChooseHeirarchy(details.getTeamName());
+		waitForJqueryLoad(driver);
+		Thread.sleep(3000);
 		selectProfile(details.getProfile(),details.getSupervisor());
 		Thread.sleep(1000);
 		selectWebElement(nextButton.get(0));
@@ -1411,6 +1432,7 @@ public class UserOnBoardingPage extends BasePage {
 	}
 
 	public void addNewUserOnBoardingRecordWithoutAvayaLoginID(UserOnBoardingDetails details) throws Exception {
+		waitForJqueryLoad(driver);
 		selectWebElement(UserOnBoardingTabs.get(1));
 		selectWebElement(makeUserOnBoardingChanges);
 		waitForJqueryLoad(driver);
@@ -1436,7 +1458,9 @@ public class UserOnBoardingPage extends BasePage {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		ChooseTeamHeirarchy(details.getTeamName());
+		ChooseHeirarchy(details.getTeamName());
+		waitForJqueryLoad(driver);
+		Thread.sleep(3000);
 		selectProfile(details.getProfile(),details.getSupervisor());
 		Thread.sleep(1000);
 		selectWebElement(nextButton.get(0));
@@ -1448,6 +1472,7 @@ public class UserOnBoardingPage extends BasePage {
 	}
 
 	public void addNewUserOnBoardingRecordWithoutOrgUnit(UserOnBoardingDetails details) throws Exception {
+		waitForJqueryLoad(driver);
 		selectWebElement(UserOnBoardingTabs.get(1));
 		selectWebElement(makeUserOnBoardingChanges);
 		waitForJqueryLoad(driver);
@@ -1478,6 +1503,7 @@ public class UserOnBoardingPage extends BasePage {
 	}
 
 	public void addNewUserOnBoardingRecordWithoutProfile(UserOnBoardingDetails details) throws Exception {
+		waitForJqueryLoad(driver);
 		selectWebElement(UserOnBoardingTabs.get(1));
 		selectWebElement(makeUserOnBoardingChanges);
 		waitForJqueryLoad(driver);
@@ -1503,8 +1529,9 @@ public class UserOnBoardingPage extends BasePage {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		ChooseTeamHeirarchy(details.getTeamName());
-		Thread.sleep(1000);
+		ChooseHeirarchy(details.getTeamName());
+		waitForJqueryLoad(driver);
+		Thread.sleep(3000);
 		selectWebElement(nextButton.get(0));
 		addProfilePicture_ChannelCount_FeaturesData(details);
 		selectWebElement(nextButton.get(3));
@@ -1514,6 +1541,7 @@ public class UserOnBoardingPage extends BasePage {
 	}
 
 	public void addNewUserOnBoardingRecordWithoutAccessRole(UserOnBoardingDetails details) throws Exception {
+		waitForJqueryLoad(driver);
 		selectWebElement(UserOnBoardingTabs.get(1));
 		selectWebElement(makeUserOnBoardingChanges);
 		waitForJqueryLoad(driver);
@@ -1549,6 +1577,7 @@ public class UserOnBoardingPage extends BasePage {
 	}
 
 	public void addNewUserOnBoardingRecordWithAllValidData(UserOnBoardingDetails details) throws Exception {
+		waitForJqueryLoad(driver);
 		selectWebElement(UserOnBoardingTabs.get(1));
 		selectWebElement(makeUserOnBoardingChanges);
 		waitForJqueryLoad(driver);
@@ -1576,6 +1605,8 @@ public class UserOnBoardingPage extends BasePage {
 		}
 		System.out.println(details.getTeamName());
 		ChooseTeamHeirarchy(details.getTeamName());
+		waitForJqueryLoad(driver);
+		Thread.sleep(3000);
 		selectProfile(details.getProfile(),details.getSupervisor());
 		Thread.sleep(1000);
 		selectWebElement(nextButton.get(0));
@@ -1859,6 +1890,7 @@ public class UserOnBoardingPage extends BasePage {
 		selectWebElement(editBtn);
 		selectWebElement(firstnameTextBox);
 		enterValueToTxtField(firstnameTextBox,details.getUpdatedFirstname()); 
+		Thread.sleep(1000);
 		selectWebElement(RoleMappingWindow);
 		waitUntilWebElementIsVisible(modifyReasonTextBox);
 		enterValueToTxtFieldWithoutClear(modifyReasonTextBox,details.getModifyReason());
@@ -2863,11 +2895,12 @@ public class UserOnBoardingPage extends BasePage {
 		selectWebElement(UserOnBoardingTabs.get(1));
 		selectWebElement(makeUserOnBoardingChanges);
 		waitForJqueryLoad(driver);
-		try {Thread.sleep(5000);
+		Thread.sleep(5000);
 		selectWebElement(addNewUserOnBoardingRecord);
 		waitUntilWebElementIsVisible(popupContent);
 		waitForJqueryLoad(driver);
-		Thread.sleep(5000);
+		try {
+			Thread.sleep(3000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
@@ -2887,6 +2920,7 @@ public class UserOnBoardingPage extends BasePage {
 		}
 		System.out.println(details.getTeamName());
 		ChooseHeirarchy(details.getTeamName());
+		waitForJqueryLoad(driver);
 		selectWebElement(supervisorDropdown);
 		selectDropdownFromVisibleText(supervisorListBox,details.getSupervisor());
 		Thread.sleep(1000);
@@ -2896,8 +2930,8 @@ public class UserOnBoardingPage extends BasePage {
 		selectWebElement(accessroleDropdown);
 		selectDropdownFromVisibleText(accessroleListBox,details.getAccessRole());	
 		selectWebElement(saveButton);
-		waitForJqueryLoad(driver);
 	}
+
 
 
 }

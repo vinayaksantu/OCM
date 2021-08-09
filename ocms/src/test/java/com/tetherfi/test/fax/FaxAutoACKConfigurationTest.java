@@ -380,7 +380,7 @@ public class FaxAutoACKConfigurationTest extends BaseTest{
         Assert.assertTrue(ocmReportsPage.verifyFaxAutoACKConfigUpdate(faxAutoAckConfigurationDetails,"Update"));
     }
     
-    @Test(priority=36,dependsOnMethods = {"DeleteFaxAutoAckConfigRecord"})
+    @Test(priority=36)//,dependsOnMethods = {"DeleteFaxAutoAckConfigRecord"})
     public void VerifyAuditTrialReportForDelete() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\FaxAutoACKConfigurationData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);

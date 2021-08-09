@@ -117,7 +117,7 @@ public class MenuDescriptionMappingPage extends BasePage {
 	@FindBy(xpath="//button[text()='Close']")
 	private WebElement searchClose;
 	    
-	@FindBy(xpath="//div[text()='No Records to Display']")
+	@FindBy(xpath="//div[text()='No records to display']")
 	private WebElement norecords;
 	    
 	@FindBy(xpath="//i[@class='fas fa-sync fa-spin']")
@@ -276,8 +276,9 @@ public class MenuDescriptionMappingPage extends BasePage {
 	}
 	public boolean verifyexportToExcelSheet(List<Map<String, String>> maplist) {
 		List<Map<String,String>> UI=getdata(); 
-		System.out.println(UI);
-		System.out.println(maplist);
+		waitForJqueryLoad(driver);
+		System.out.println("This is Ex"+maplist);
+		System.out.println("This is UI"+UI);
 		if(UI.equals(maplist))
 		return true;
 		else
@@ -311,9 +312,9 @@ public class MenuDescriptionMappingPage extends BasePage {
 		}
 			return arr;
 	}
-	
-	public boolean verifyDatabase(String query) throws Exception {
+	public boolean verifyDatabase(String query) {
 		List<Map<String,String>> database=database(query);
+		selectWebElement(MenuName);
 		System.out.println(database);
 		List<Map<String,String>> UI=gettable(); 
 		System.out.println(UI);
@@ -323,8 +324,7 @@ public class MenuDescriptionMappingPage extends BasePage {
 			return false;
 	}
 	
-	public List<Map<String, String>> gettable() throws Exception {
-		Thread.sleep(6000);
+	public List<Map<String, String>> gettable() {
 		int item=Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
         int pagersize=Integer.valueOf(pagerSize.getText());
         int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
@@ -340,13 +340,16 @@ public class MenuDescriptionMappingPage extends BasePage {
 			String col=null;
 			for(int j=1;j<headers.size();j++){
 				scrollToElement(headers.get(j));
-				if(headers.get(j).getText().equals("Inclusion Flag")||headers.get(j).getText().equals("Exclusion Flag")){
+				if(headers.get(j).getText().equals("Last Changed On")){
+					col=cols.get(j).getText();
+					}
+				/*else if(headers.get(j).getText().equals("Inclusion Flag")||headers.get(j).getText().equals("Exclusion Flag")){
 					col=cols.get(j).getText();
 					if(col.equals("Yes"))
 						col="Y";
 					else
 						col="N";
-				}
+				}*/
 				else
 					col=cols.get(j).getText();
 				map.put(headers.get(j).getText(),col);
@@ -367,8 +370,10 @@ public class MenuDescriptionMappingPage extends BasePage {
         if(!nextPageIcon.getAttribute("class").contains("k-state-disabled")){
         int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber));
         selectWebElement(nextPageIcon);
+        waitForJqueryLoad(driver);
         int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
         selectWebElement(previousPageIcon);
+        waitForJqueryLoad(driver);
         int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
         if(nextnumber==(pagenumber+1) && pagenumber==previousnumber){status=true;}
         }else{
@@ -376,16 +381,15 @@ public class MenuDescriptionMappingPage extends BasePage {
         }
         return status;
 	}
-	public boolean verifyArrowMoveForFirstAndLastPage() throws Exception{
+	public boolean verifyArrowMoveForFirstAndLastPage(){
         boolean status=false;
         if(!lastPageIcon.getAttribute("class").contains("k-state-disabled")){
-        	Thread.sleep(2000);
             int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber));
             selectWebElement(lastPageIcon);
-        	Thread.sleep(2000);
+            waitForJqueryLoad(driver);
             int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
             selectWebElement(firstPageIcon);
-        	Thread.sleep(2000);
+            waitForJqueryLoad(driver);
             int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
             if(nextnumber>pagenumber && pagenumber==previousnumber){status=true;}
         }else{
@@ -423,10 +427,11 @@ public class MenuDescriptionMappingPage extends BasePage {
             e.printStackTrace();
         } return status;
     }
+
     public boolean verifyTotalNumberOfItemsPerPageDetails(){
-        String item = items.getText();
-        return item.matches("(\\d.) - (\\d.) of (\\d.*) items");
-    }
+		String item = items.getText();
+		return item.matches("(\\d.*) - (\\d.*) of (\\d.*) items");
+	}
     public boolean verifyDropDownOfAllHeaders() {
         boolean status = false;
         try {for (WebElement ele : headersDropdown) {
@@ -565,18 +570,13 @@ public class MenuDescriptionMappingPage extends BasePage {
 	}
 	public boolean verifyinvalidsearchwithwrongdata(MenuDescriptionMappingDetails details) throws Exception {
 		searchMenuDescriptionMappingRecord(details.getMenuID());
-		try {
-			Thread.sleep(1000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		if(norecords.isDisplayed())
 			return true; 
 			else
 				return false;
 	}
 	public boolean verifyclearsearch() {
+		waitForJqueryLoad(driver);
 		selectWebElement(clearsearch);
 		if(gridContent.isDisplayed())
 			return true;
@@ -589,6 +589,7 @@ public class MenuDescriptionMappingPage extends BasePage {
 		waitForJqueryLoad(driver);
 		Thread.sleep(1000);
 		selectWebElement(exporttoexcel);
+		waitForJqueryLoad(driver);
 		if(errorMsg.get(0).getText().equals("There is no record to export"))
 			return true;
 		else
@@ -704,10 +705,12 @@ public class MenuDescriptionMappingPage extends BasePage {
 		selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Menu Id");
+        Thread.sleep(2000);
         selectWebElement(selectSearchCol.get(1));
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is equal to");
         enterValueToTxtField(searchTextBox,menuid);		
         selectWebElement(searchSearchBtn);
+        waitForJqueryLoad(driver);
 	}
 	
 	public boolean verifySearchIsNotEqualTo(String menuname) throws Exception {
@@ -717,10 +720,12 @@ public class MenuDescriptionMappingPage extends BasePage {
 		selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Menu Name");
+        Thread.sleep(1000);
         selectWebElement(selectSearchCol.get(1));
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is not equal to");
         enterValueToTxtField(searchTextBox,menuname);		
         selectWebElement(searchSearchBtn);
+        waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(gridContent);
         List<Map<String,String>> UI=gettable(); 
         for (Map<String,String> map1: UI)
@@ -739,10 +744,12 @@ public class MenuDescriptionMappingPage extends BasePage {
 		selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Menu Name");
+        Thread.sleep(1000);
         selectWebElement(selectSearchCol.get(1));
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Contains");
         enterValueToTxtField(searchTextBox,menuname);		
         selectWebElement(searchSearchBtn);
+        waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(gridContent);
         List<Map<String,String>> UI=gettable(); 
         for (Map<String,String> map1: UI)
@@ -759,10 +766,12 @@ public class MenuDescriptionMappingPage extends BasePage {
 		selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Menu Name");
+        Thread.sleep(1000);
         selectWebElement(selectSearchCol.get(1));
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Does not contain");
         enterValueToTxtField(searchTextBox,menuname);		
         selectWebElement(searchSearchBtn);
+        waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(gridContent);
         List<Map<String,String>> UI=gettable(); 
         for (Map<String,String> map1: UI)
@@ -780,10 +789,12 @@ public class MenuDescriptionMappingPage extends BasePage {
 		selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Menu Name");
+        Thread.sleep(1000);
         selectWebElement(selectSearchCol.get(1));
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Starts with");
         enterValueToTxtField(searchTextBox,menuname);		
         selectWebElement(searchSearchBtn);
+        waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(gridContent);
         List<Map<String,String>> UI=gettable(); 
         for (Map<String,String> map1: UI)
@@ -801,10 +812,12 @@ public class MenuDescriptionMappingPage extends BasePage {
 		selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Menu Name");
+        Thread.sleep(1000);
         selectWebElement(selectSearchCol.get(1));
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Ends with");
         enterValueToTxtField(searchTextBox,menuname);		
         selectWebElement(searchSearchBtn);
+        waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(gridContent);
         List<Map<String,String>> UI=gettable(); 
         for (Map<String,String> map1: UI)
@@ -828,7 +841,9 @@ public class MenuDescriptionMappingPage extends BasePage {
 	}
 
 	public void SortByDescending() {
+		waitForJqueryLoad(driver);
 		selectWebElement(MenuName);
+		waitForJqueryLoad(driver);
 		selectWebElement(MenuName);
 		selectWebElement(exporttoexcel);
 		try {

@@ -32,25 +32,22 @@ public class AgentSettingsCreateTest {
             driver.close();
             e.printStackTrace();
         }
-        System.out.println("Started Executing : "+method.getName());
-        String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\LoginData.xlsx";
-        Test t = method.getAnnotation(Test.class);
-        Map<String, String> map;
-        if(t.groups()[0].equalsIgnoreCase("Checker"))
-            map= new ExcelReader(filePath,"Login").getTestData().get(1);
-        else
-            map= new ExcelReader(filePath,"Login").getTestData().get(0);
-        try{driver.get("https://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);}
-        catch (TimeoutException e){
-        	e.printStackTrace();
-        	driver.get("https://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);}
-        LoginPage loginPage=PageFactory.createPageInstance(driver,LoginPage.class);
-        loginPage.overrideSecurityConcern();
-        if(map.get("LoginType").equals("Custom")){
-            Assert.assertTrue(loginPage.isLoginPageDisplayed(),"Login page not loaded");
+    	System.out.println("Started Executing : "+method.getName());
+		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\LoginData.xlsx";
+		Test t = method.getAnnotation(Test.class);
+		Map<String, String> map;
+		if(t.groups()[0].equalsIgnoreCase("Checker"))
+			map= new ExcelReader(filePath,"Login").getTestData().get(1);
+		else
+			map= new ExcelReader(filePath,"Login").getTestData().get(0);
+		try{driver.get("https://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);}catch (TimeoutException e){e.printStackTrace();driver.get("http://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);}
+		LoginPage loginPage=PageFactory.createPageInstance(driver,LoginPage.class);
+		loginPage.overrideSecurityConcern();/*UsedFor https withaddvanced btn*/
+		if(map.get("LoginType").equals("Custom")){
+			Assert.assertTrue(loginPage.isLoginPageDisplayed(),"Login page not loaded");
 			loginPage.login(map.get("Username"),map.get("Password"),map.get("EmailId"));
-            Thread.sleep(5000);
-        }
+			Thread.sleep(5000);
+		}
         HomePage homePage = PageFactory.createPageInstance(driver, HomePage.class);
         Assert.assertTrue(homePage.checkPageLoadStatus(), "user login successful status");
         homePage.navigateToOCMPage();
@@ -62,10 +59,11 @@ public class AgentSettingsCreateTest {
         tmacPage.navigateToAgentSettingsPage();
         AgentSettingsNewDesignPage agentSettingsPage=PageFactory.createPageInstance(driver,AgentSettingsNewDesignPage.class);
         Assert.assertTrue(agentSettingsPage.isAgentSettingsPageDisplayed(),"Agent Settings page assertion failed");
+        driver.navigate().refresh();
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
     } 
     
-    @Test(groups = { "Maker" },priority=1)
+    /*@Test(groups = { "Maker" },priority=1)
     public void AddRevertNewSupervisorRecord() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentSettingsData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
@@ -139,7 +137,7 @@ public class AgentSettingsCreateTest {
  	    ReportDetails reportDetails= new ReportDetails(map1);
  	    ocmReportsPage.showReport(reportDetails);
  	    Assert.assertTrue(ocmReportsPage.verifyAuditTrailReportDisplayed(agentSettingsDetails, "CheckerReject"),"Audit Trail report assertion failed");
-    }
+    }*/
     
     @Test(groups = { "Maker" },priority=8)
       public void AddNewSupervisorRecord() throws Exception {
@@ -151,7 +149,7 @@ public class AgentSettingsCreateTest {
          Assert.assertEquals(agentSettingsPage.getSuccessMessage(), "Record Created Successfully");
      }
                
-    @Test(groups = { "Maker" },priority=9,dependsOnMethods = "AddNewSupervisorRecord")
+    //@Test(groups = { "Maker" },priority=9,dependsOnMethods = "AddNewSupervisorRecord")
     public void VerifyAuditTrailReportForCreate() throws Exception {
     	String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentSettingsData.xlsx";
  	    Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -166,8 +164,8 @@ public class AgentSettingsCreateTest {
  	    Assert.assertTrue(ocmReportsPage.verifyAuditTrailReportDisplayed(agentSettingsDetails, "MakerCreate"),"Audit Trail report assertion failed");
     }
     
-    @Test(groups = { "Maker" },priority=10)//,dependsOnMethods="AddNewSupervisorRecord")
-    public void VerifyAuditTrailDataForAddNewSupervisorRecord() throws IOException {
+    //@Test(groups = { "Maker" },priority=10)//,dependsOnMethods="AddNewSupervisorRecord")
+    public void VerifyAuditTrailDataForAddNewSupervisorRecord() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentSettingsData.xlsx";
         Map<String, String> map = new ExcelReader(filePath, "Create").getTestData().get(0);
         AgentSettingsDetails agentSettingsDetails = new AgentSettingsDetails(map);
@@ -176,7 +174,7 @@ public class AgentSettingsCreateTest {
         Assert.assertTrue(agentSettingsPage.verifyAuditTrail(agentSettingsDetails, "MakerCreate", "New"), "Audit trail details failed");
     }
     
-    @Test(groups = { "Maker" },priority=11,dependsOnMethods="VerifyAuditTrailDataForAddNewSupervisorRecord")
+    @Test(groups = { "Maker" },priority=11)//,dependsOnMethods="VerifyAuditTrailDataForAddNewSupervisorRecord")
     public void VerifySendForApprovalForAddNewAgentSettingsRecord1() throws Exception {
     AgentSettingsNewDesignPage agentSettingsPage = PageFactory.createPageInstance(driver, AgentSettingsNewDesignPage.class);
        	 agentSettingsPage.selectAgentSettingsAuditTrailTab();
@@ -185,7 +183,7 @@ public class AgentSettingsCreateTest {
         Assert.assertTrue(agentSettingsPage.verifyStatus("Approval Pending"),"approval status details failed");
     }
     
-    @Test(groups = { "Maker" },priority=12,dependsOnMethods = "VerifySendForApprovalForAddNewAgentSettingsRecord1")
+   // @Test(groups = { "Maker" },priority=12,dependsOnMethods = "VerifySendForApprovalForAddNewAgentSettingsRecord1")
     public void VerifyAuditTrailReportForSendForApproval() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentSettingsData.xlsx";
 	    Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -200,7 +198,7 @@ public class AgentSettingsCreateTest {
         Assert.assertTrue(ocmReportsPage.verifyAuditTrailReportDisplayed(agentSettingsDetails, "MakerSendToApproval"),"Audit Trail report assertion failed");
     }
     
-    @Test(groups = { "Checker" },priority=13,dependsOnMethods="VerifyAuditTrailReportForSendForApproval")
+    @Test(groups = { "Checker" },priority=13)//,dependsOnMethods="VerifyAuditTrailReportForSendForApproval")
     public void ApproveforAddNewAgentSettingRecord() throws Exception{
     	AgentSettingsNewDesignPage agentSettingsPage = PageFactory.createPageInstance(driver, AgentSettingsNewDesignPage.class);
     	agentSettingsPage.clickonApprove("Approve Create");
@@ -209,7 +207,7 @@ public class AgentSettingsCreateTest {
     }
     
     
-    @Test(groups = { "Checker" },priority=14,dependsOnMethods = "ApproveforAddNewAgentSettingRecord")
+    /*@Test(groups = { "Checker" },priority=14,dependsOnMethods = "ApproveforAddNewAgentSettingRecord")
     public void VerifyAuditTrailReportForApprove() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentSettingsData.xlsx";
 	    Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -231,7 +229,7 @@ public class AgentSettingsCreateTest {
         AgentSettingsDetails agentSettingsDetails = new AgentSettingsDetails(map);
         AgentSettingsNewDesignPage agentSettingsPage = PageFactory.createPageInstance(driver, AgentSettingsNewDesignPage.class);
         agentSettingsPage.addNewAgentSettingsRecord(agentSettingsDetails);
-        Assert.assertEquals(agentSettingsPage.verifyErrorMessage(),"Record Creation Failed", "Add Duplicate record assertion failed");
+        Assert.assertEquals(agentSettingsPage.verifyErrorMessage(),"Record Creation Failed, Already Exist", "Add Duplicate record assertion failed");
     }
     
     @Test(groups = { "Maker" },priority=16)//,dependsOnMethods = "AddNewSupervisorRecord")
@@ -241,7 +239,7 @@ public class AgentSettingsCreateTest {
         AgentSettingsDetails agentSettingsDetails = new AgentSettingsDetails(map);
         AgentSettingsNewDesignPage agentSettingsPage = PageFactory.createPageInstance(driver, AgentSettingsNewDesignPage.class);
         agentSettingsPage.addNewAgentSettingsRecord(agentSettingsDetails);
-        Assert.assertEquals(agentSettingsPage.verifyErrorMessage(),"Record Creation Failed", "Add Duplicate record assertion failed");
+        Assert.assertEquals(agentSettingsPage.verifyErrorMessage(),"Record Creation Failed, Already Exist", "Add Duplicate record assertion failed");
     }
     
     @Test(groups = { "Maker" },priority=17)//,dependsOnMethods = "ApproveforAddNewSupervisorRecord")
@@ -251,7 +249,7 @@ public class AgentSettingsCreateTest {
         AgentSettingsDetails agentSettingsDetails = new AgentSettingsDetails(map);
         AgentSettingsNewDesignPage agentSettingsPage = PageFactory.createPageInstance(driver, AgentSettingsNewDesignPage.class);
         Assert.assertTrue(agentSettingsPage.verifyDatabaseDetails(agentSettingsDetails),"database insertion failed");
-    }
+    }*/
     
     @Test(groups = { "Maker" },priority=18)//,dependsOnMethods = {"ApproveforAddNewAgentSettingRecord"})
     public void AddNewAgentSettingsRecord() throws Exception {
@@ -280,7 +278,7 @@ public class AgentSettingsCreateTest {
         Assert.assertTrue(agentSettingsPage.verifyReviewAuditTrail("Approved","Approve Create"));
     }
     
-    @Test(groups = { "Checker" },priority=21)//,dependsOnMethods = "ApproveforAddNewAgentSettingRecord")
+   // @Test(groups = { "Checker" },priority=21)//,dependsOnMethods = "ApproveforAddNewAgentSettingRecord")
     public void VerifyAuditTrailReportForAgentApprove() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AgentSettingsData.xlsx";
 	    Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);

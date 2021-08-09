@@ -5,33 +5,19 @@
     <listener class-name="com.tetherfi.listeners.ResultsListener"/>
     <listener class-name="com.tetherfi.ExtentReportListener.ExtentReportListener"/>
   </listeners>
-  <test thread-count="5" name="ReportsRegression(failed)">
+  <test thread-count="5" name="OCMRegression(failed)">
     <classes>
-      <class name="com.tetherfi.test.reports.OCMAgentInteractionReportTest">
+      <class name="com.tetherfi.test.RoleBasedAccessManagementUITest">
         <methods>
-          <include name="ExportReport"/>
-          <include name="ExportPage"/>
-          <include name="VerifySorting"/>
-          <include name="GroupBy"/>
-          <include name="viewExportedExcelDataInReportDownloadsPage"/>
-          <include name="verifyAdvancedSearchcontains"/>
-          <include name="ExportReportForDateRange"/>
-          <include name="endTestCase"/>
-          <include name="tearDown"/>
-          <include name="afterEachMethod"/>
           <include name="startTestCase"/>
           <include name="openApplication"/>
-          <include name="ExportToExcel"/>
+          <include name="NavigateToRoleBasedAccessManagementPage"/>
+          <include name="endTestCase"/>
+          <include name="tearDown"/>
           <include name="database"/>
-          <include name="VerifySearchByFeature"/>
-          <include name="NavigateToOcmReportsPage"/>
-          <include name="SchedulereportinAgentInteractionReportPage"/>
-          <include name="verifyAdvancedSearchDoesnotcontains"/>
-          <include name="verifyAdvancedSearchEndswith"/>
-          <include name="VerifySearchEndsWith"/>
-          <include name="VerifyExportedPage"/>
+          <include name="afterEachMethod"/>
         </methods>
-      </class> <!-- com.tetherfi.test.reports.OCMAgentInteractionReportTest -->
+      </class> <!-- com.tetherfi.test.RoleBasedAccessManagementUITest -->
     </classes>
-  </test> <!-- ReportsRegression(failed) -->
+  </test> <!-- OCMRegression(failed) -->
 </suite> <!-- Failed suite [OCM Reports Test Automation] -->

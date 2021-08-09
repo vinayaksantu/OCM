@@ -195,7 +195,7 @@ public class OperatingHoursTest extends BaseTest {
 		Assert.assertTrue(operatingHoursPage.verifyRecordUpdated(),"Edit record assertion failed");
 	}
 
-	//@Test(priority=16)
+	@Test(priority=16)
 	public void EditInvalidRecord() throws Exception{
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OperatingHoursData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(1);
@@ -229,7 +229,7 @@ public class OperatingHoursTest extends BaseTest {
 	@Test(priority=19)
 	public void VerifySearchIsNotEqualTo() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OperatingHoursData.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"Invalid").getTestData().get(0);
+		Map<String, String> map = new ExcelReader(filePath,"Search").getTestData().get(0);
 		OperatingHoursDetails operatingHoursDetails=new OperatingHoursDetails(map);
 		OperatingHoursPage operatingHoursPage=PageFactory.createPageInstance(driver,OperatingHoursPage.class);
 		Assert.assertTrue(operatingHoursPage.verifySearchIsNotEqualTo(operatingHoursDetails.getWeekDay()));
@@ -238,7 +238,7 @@ public class OperatingHoursTest extends BaseTest {
 	@Test(priority=20)
 	public void VerifySearchContains() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OperatingHoursData.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"Invalid").getTestData().get(1);
+		Map<String, String> map = new ExcelReader(filePath,"Search").getTestData().get(1);
 		OperatingHoursDetails operatingHoursDetails=new OperatingHoursDetails(map);
 		OperatingHoursPage operatingHoursPage=PageFactory.createPageInstance(driver,OperatingHoursPage.class);
 		Assert.assertTrue(operatingHoursPage.verifySearchContains(operatingHoursDetails.getWeekDay()));
@@ -247,7 +247,7 @@ public class OperatingHoursTest extends BaseTest {
 	@Test(priority=21)
 	public void VerifySearchDoesNotContains() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OperatingHoursData.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"Invalid").getTestData().get(2);
+		Map<String, String> map = new ExcelReader(filePath,"Search").getTestData().get(2);
 		OperatingHoursDetails operatingHoursDetails=new OperatingHoursDetails(map);
 		OperatingHoursPage operatingHoursPage=PageFactory.createPageInstance(driver,OperatingHoursPage.class);
 		Assert.assertTrue(operatingHoursPage.verifySearchDoesNotContains(operatingHoursDetails.getWeekDay()));
@@ -256,7 +256,7 @@ public class OperatingHoursTest extends BaseTest {
 	@Test(priority=22)
 	public void VerifySearchStartsWith() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OperatingHoursData.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"Invalid").getTestData().get(3);
+		Map<String, String> map = new ExcelReader(filePath,"Search").getTestData().get(3);
 		OperatingHoursDetails operatingHoursDetails=new OperatingHoursDetails(map);
 		OperatingHoursPage operatingHoursPage=PageFactory.createPageInstance(driver,OperatingHoursPage.class);
 		Assert.assertTrue(operatingHoursPage.verifySearchStartsWith(operatingHoursDetails.getWeekDay()));
@@ -265,7 +265,7 @@ public class OperatingHoursTest extends BaseTest {
 	@Test(priority=23)
 	public void VerifySearchEndsWith() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OperatingHoursData.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"Invalid").getTestData().get(4);
+		Map<String, String> map = new ExcelReader(filePath,"Search").getTestData().get(4);
 		OperatingHoursDetails operatingHoursDetails=new OperatingHoursDetails(map);
 		OperatingHoursPage operatingHoursPage=PageFactory.createPageInstance(driver,OperatingHoursPage.class);
 		Assert.assertTrue(operatingHoursPage.verifySearchEndsWith(operatingHoursDetails.getWeekDay()));
@@ -274,7 +274,7 @@ public class OperatingHoursTest extends BaseTest {
 	@Test(priority=24)
 	public void SearchClearSearch() throws Exception{
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OperatingHoursData.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"Invalid").getTestData().get(0);
+		Map<String, String> map = new ExcelReader(filePath,"Search").getTestData().get(0);
 		OperatingHoursDetails operatingHoursDetails=new OperatingHoursDetails(map);
 		OperatingHoursPage operatingHoursPage=PageFactory.createPageInstance(driver,OperatingHoursPage.class);
 		Assert.assertTrue(operatingHoursPage.verifyinvalidsearchwithwrongdata(operatingHoursDetails),"invalidsearchwithwrongdata");
@@ -301,7 +301,7 @@ public class OperatingHoursTest extends BaseTest {
 	public void ExporttoExcelWithoutData() throws Exception{
 		OperatingHoursPage operatingHoursPage=PageFactory.createPageInstance(driver,OperatingHoursPage.class);
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\OperatingHoursData.xlsx";
-		Map<String, String> map = new ExcelReader(filePath, "Invalid").getTestData().get(1);
+		Map<String, String> map = new ExcelReader(filePath, "Search").getTestData().get(1);
 		OperatingHoursDetails operatingHoursDetails = new OperatingHoursDetails(map);
 		Assert.assertTrue(operatingHoursPage.ExporttoExcelWithoutData(operatingHoursDetails));
 	}
@@ -345,13 +345,13 @@ public class OperatingHoursTest extends BaseTest {
 		Assert.assertTrue(operatingHoursPage.verifyArrowMoveForFirstAndLastPage(),"arrow move for first and last page assertion failed");
 	}
 
-	//@Test(priority=33)
+	@Test(priority=33)
 	public void VerifyTotalNumberOfItemsPerPageDetails() {
 		OperatingHoursPage operatingHoursPage=PageFactory.createPageInstance(driver,OperatingHoursPage.class);
 		Assert.assertTrue(operatingHoursPage.verifyTotalNumberOfItemsPerPageDetails(),"item per page assertion failed");
 	}
 
-	//@Test(priority=34)
+	@Test(priority=34)
 	public void VerifyNumberOfItemsPerPageSelection() {
 		OperatingHoursPage operatingHoursPage=PageFactory.createPageInstance(driver,OperatingHoursPage.class);
 		Assert.assertTrue(operatingHoursPage.verifyNumberOfItemsPerPage(),"item per page assertion failed");

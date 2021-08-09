@@ -526,7 +526,7 @@ public class RoleBasedAccessManagementPage extends BasePage {
 	}
 
 	public boolean verifyAuditTrailDataTableHeaders() {
-		ArrayList<String> Expected=new ArrayList<String>(Arrays.asList(" ","Request ID", "Transaction", "Function Name", "Status", "User Id", "Submission DateTime", "Maker Comments", "Reviewed By","Review DateTime", "Checker Comments"));
+		ArrayList<String> Expected=new ArrayList<String>(Arrays.asList("IsEnabled","Request ID", "Transaction", "Function Name", "Status", "User Id", "Submission DateTime", "Maker Comments", "Reviewed By","Review DateTime", "Checker Comments"));
         ArrayList Actual = getHeadersfromTable(auditTrailTableHeaders);
         System.out.println(Actual);
         System.out.println(Expected);
@@ -689,8 +689,10 @@ public class RoleBasedAccessManagementPage extends BasePage {
         if(!nextPageIcon.get(i).getAttribute("class").contains("k-state-disabled")){
         int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber.get(i)));
         selectWebElement(nextPageIcon.get(i));
+        waitForJqueryLoad(driver);
         int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber.get(i)));
         selectWebElement(previousPageIcon.get(i));
+        waitForJqueryLoad(driver);
         int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber.get(i)));
         if(nextnumber==(pagenumber+1) && pagenumber==previousnumber){status=true;}
         }else{
@@ -703,8 +705,10 @@ public class RoleBasedAccessManagementPage extends BasePage {
         if(!lastPageIcon.get(i).getAttribute("class").contains("k-state-disabled")){
             int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber.get(i)));
             selectWebElement(lastPageIcon.get(i));
+            waitForJqueryLoad(driver);
             int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber.get(i)));
             selectWebElement(firstPageIcon.get(i));
+            waitForJqueryLoad(driver);
             int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber.get(i)));
             if(nextnumber>pagenumber && pagenumber==previousnumber){status=true;}
         }else{
@@ -1077,14 +1081,18 @@ public class RoleBasedAccessManagementPage extends BasePage {
 	
 	public void sendForAprroval(String comments) throws Exception {
 		selectWebElement(sendForApprovalBtn);
-		enterValueToTxtFieldWithoutClear(makerComments, comments);
-		selectWebElement(submitMakerComments);		
+		Thread.sleep(1000);
+		enterValueToTxtField(makerComments, comments);
+		selectWebElement(submitMakerComments);			
 	}
 	
 	public void Revert(String comments) throws Exception {
+		waitForJqueryLoad(driver);
 		selectWebElement(revertBtn);
+		Thread.sleep(2000);
 		enterValueToTxtField(revertMakerComments,comments);
-		selectWebElement(revertSubmitMakerComments);				
+		selectWebElement(revertSubmitMakerComments);
+		waitForJqueryLoad(driver);
 	}
 
 
@@ -1211,7 +1219,7 @@ public class RoleBasedAccessManagementPage extends BasePage {
 
 	private boolean verifyUpdatedNewValues(UserDetails details, Map<String, String> newvalues) {
 		Boolean Status=false;
-		if(newvalues.get("RoleName").equals(details.getRoleName()))
+		if(newvalues.get("RoleName").equals(details.getUpdateRoleName()))
 		{
 			Status=true;
 		}

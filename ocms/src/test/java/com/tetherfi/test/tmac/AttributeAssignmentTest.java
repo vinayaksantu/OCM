@@ -271,7 +271,7 @@ public class AttributeAssignmentTest extends BaseTest {
 		AttributeAssignmentDetails attributeAssignmentDetails=new AttributeAssignmentDetails(map);
 		AttributeAssignmentPage attributeAssignmentPage=PageFactory.createPageInstance(driver, AttributeAssignmentPage.class);
 		attributeAssignmentPage.verifyAssignAttributesfromTab(attributeAssignmentDetails);
-		//Assert.assertEquals(attributeAssignmentPage.VerifyMessage(), "Attribute Assigned Successfully", "VerifyAssignAttributesfromChannelTab Assertion Failed");
+		Assert.assertEquals(attributeAssignmentPage.VerifyMessage(), "Attribute Assiged Successfully", "VerifyAssignAttributesfromChannelTab Assertion Failed");
 	}
 
 	@Test(priority=29,description="To Verify Assign Attributes from Intent Tab")
@@ -281,7 +281,7 @@ public class AttributeAssignmentTest extends BaseTest {
 		AttributeAssignmentDetails attributeAssignmentDetails=new AttributeAssignmentDetails(map);
 		AttributeAssignmentPage attributeAssignmentPage=PageFactory.createPageInstance(driver, AttributeAssignmentPage.class);
 		attributeAssignmentPage.verifyAssignAttributesfromTab(attributeAssignmentDetails);
-		//Assert.assertEquals(attributeAssignmentPage.VerifyMessage(), "Attribute Assigned Successfully", "VerifyAssignAttributesfromChannelTab Assertion Failed");
+		Assert.assertEquals(attributeAssignmentPage.VerifyMessage(), "Attribute Assiged Successfully", "VerifyAssignAttributesfromChannelTab Assertion Failed");
 	}
 
 	@Test(priority=30,description="To Verify Assign Attributes from Package Tab")
@@ -291,7 +291,7 @@ public class AttributeAssignmentTest extends BaseTest {
 		AttributeAssignmentDetails attributeAssignmentDetails=new AttributeAssignmentDetails(map);
 		AttributeAssignmentPage attributeAssignmentPage=PageFactory.createPageInstance(driver, AttributeAssignmentPage.class);
 		attributeAssignmentPage.verifyAssignAttributesfromTab(attributeAssignmentDetails);
-		//Assert.assertEquals(attributeAssignmentPage.VerifyMessage(), "Attribute Assigned Successfully", "VerifyAssignAttributesfromChannelTab Assertion Failed");
+		Assert.assertEquals(attributeAssignmentPage.VerifyMessage(), "Attribute Assiged Successfully", "VerifyAssignAttributesfromChannelTab Assertion Failed");
 	}
 
 	@Test(priority=31,description="To Verify Assign Attributes from CustomerType Tab")
@@ -301,7 +301,7 @@ public class AttributeAssignmentTest extends BaseTest {
 		AttributeAssignmentDetails attributeAssignmentDetails=new AttributeAssignmentDetails(map);
 		AttributeAssignmentPage attributeAssignmentPage=PageFactory.createPageInstance(driver, AttributeAssignmentPage.class);
 		attributeAssignmentPage.verifyAssignAttributesfromTab(attributeAssignmentDetails);
-		//Assert.assertEquals(attributeAssignmentPage.VerifyMessage(), "Attribute Assigned Successfully", "VerifyAssignAttributesfromChannelTab Assertion Failed");
+		Assert.assertEquals(attributeAssignmentPage.VerifyMessage(), "Attribute Assiged Successfully", "VerifyAssignAttributesfromChannelTab Assertion Failed");
 	}
 
 	@Test(priority=32,description="To Verify Assign Attributes from Age Tab")
@@ -311,7 +311,7 @@ public class AttributeAssignmentTest extends BaseTest {
 		AttributeAssignmentDetails attributeAssignmentDetails=new AttributeAssignmentDetails(map);
 		AttributeAssignmentPage attributeAssignmentPage=PageFactory.createPageInstance(driver, AttributeAssignmentPage.class);
 		attributeAssignmentPage.verifyAssignAttributesfromTab(attributeAssignmentDetails);
-		//Assert.assertEquals(attributeAssignmentPage.VerifyMessage(), "Attribute Assigned Successfully", "VerifyAssignAttributesfromChannelTab Assertion Failed");
+		Assert.assertEquals(attributeAssignmentPage.VerifyMessage(), "Attribute Assiged Successfully", "VerifyAssignAttributesfromChannelTab Assertion Failed");
 	}
 
 	@Test(priority=33,description="To Verify Assign Attributes from Gender Tab")
@@ -321,7 +321,7 @@ public class AttributeAssignmentTest extends BaseTest {
 		AttributeAssignmentDetails attributeAssignmentDetails=new AttributeAssignmentDetails(map);
 		AttributeAssignmentPage attributeAssignmentPage=PageFactory.createPageInstance(driver, AttributeAssignmentPage.class);
 		attributeAssignmentPage.verifyAssignAttributesfromTab(attributeAssignmentDetails);
-		//Assert.assertEquals(attributeAssignmentPage.VerifyMessage(), "Attribute Assigned Successfully", "VerifyAssignAttributesfromChannelTab Assertion Failed");
+		Assert.assertEquals(attributeAssignmentPage.VerifyMessage(), "Attribute Assiged Successfully", "VerifyAssignAttributesfromChannelTab Assertion Failed");
 	}
 
 	@Test(priority=34,description="To Verify Assign Attributes from Loaction Tab")
@@ -331,7 +331,7 @@ public class AttributeAssignmentTest extends BaseTest {
 		AttributeAssignmentDetails attributeAssignmentDetails=new AttributeAssignmentDetails(map);
 		AttributeAssignmentPage attributeAssignmentPage=PageFactory.createPageInstance(driver, AttributeAssignmentPage.class);
 		attributeAssignmentPage.verifyAssignAttributesfromTab(attributeAssignmentDetails);
-		//Assert.assertEquals(attributeAssignmentPage.VerifyMessage(), "Attribute Assigned Successfully", "VerifyAssignAttributesfromChannelTab Assertion Failed");
+		Assert.assertEquals(attributeAssignmentPage.VerifyMessage(), "Attribute Assiged Successfully", "VerifyAssignAttributesfromChannelTab Assertion Failed");
 	}
 
 	@Test(priority=35,description="To Verify Assign Attributes from Sentiment Tab")
@@ -341,7 +341,7 @@ public class AttributeAssignmentTest extends BaseTest {
 		AttributeAssignmentDetails attributeAssignmentDetails=new AttributeAssignmentDetails(map);
 		AttributeAssignmentPage attributeAssignmentPage=PageFactory.createPageInstance(driver, AttributeAssignmentPage.class);
 		attributeAssignmentPage.verifyAssignAttributesfromTab(attributeAssignmentDetails);
-		//Assert.assertEquals(attributeAssignmentPage.VerifyMessage(), "Attribute Assigned Successfully", "VerifyAssignAttributesfromChannelTab Assertion Failed");
+		Assert.assertEquals(attributeAssignmentPage.VerifyMessage(), "Attribute Assiged Successfully", "VerifyAssignAttributesfromChannelTab Assertion Failed");
 	}
 	
 	@Test(priority=36,description="To Verify Assign Attributes from Language Tab")
@@ -351,7 +351,7 @@ public class AttributeAssignmentTest extends BaseTest {
 		AttributeAssignmentDetails attributeAssignmentDetails=new AttributeAssignmentDetails(map);
 		AttributeAssignmentPage attributeAssignmentPage=PageFactory.createPageInstance(driver, AttributeAssignmentPage.class);
 		attributeAssignmentPage.verifyAssignAttributesfromTab(attributeAssignmentDetails);
-		//Assert.assertEquals(attributeAssignmentPage.VerifyMessage(), "Attribute Assigned Successfully", "VerifyAssignAttributesfromChannelTab Assertion Failed");
+		Assert.assertEquals(attributeAssignmentPage.VerifyMessage(), "Attribute Assiged Successfully", "VerifyAssignAttributesfromChannelTab Assertion Failed");
 	}
 
 

@@ -2,6 +2,7 @@ package com.tetherfi.pages;
 
 import com.tetherfi.constants.Constants;
 import com.tetherfi.model.tmac.AgentSettingsDetails;
+import com.tetherfi.model.user.UserOnBoardingDetails;
 import com.tetherfi.utility.DatabaseConnector;
 import com.tetherfi.utility.ExcelReader;
 import com.tetherfi.utility.FileUploader;
@@ -11,6 +12,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+
+import java.io.File;
 import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -226,8 +229,11 @@ public class AgentSettingsNewDesignPage extends BasePage {
 	@FindBy(css=".toast-message")
 	private WebElement successmsg;
 
-	@FindBy(css="#toast-container .toast-error")
+	@FindBy(css="#toast-container .toast-error .toast-message")
 	private List<WebElement> errorMsg;
+	
+	@FindBy(xpath="//div[text()='No records to display']")
+	private WebElement norecords;
 
 	@FindBy(css="#gridDiv2 .search-link")
 	private WebElement searchLink;
@@ -249,6 +255,9 @@ public class AgentSettingsNewDesignPage extends BasePage {
 
 	@FindBy(css="ul[id='1001sColumnName_listbox'] li")
 	private List<WebElement> columnNameList;
+	
+	@FindBy(xpath="//button[text()='Clear All']")
+	private WebElement clearall;
 
 	@FindBy(css="ul[id='1001sCriteria_listbox'] li")
 	private List<WebElement> searchTypeList;
@@ -256,8 +265,11 @@ public class AgentSettingsNewDesignPage extends BasePage {
 	@FindBy(css=".modal-body .form-inline .form-group .k-textbox")
 	private List<WebElement> searchText;
 
-	@FindBy(css=".modal-footer .k-primary")
+	@FindBy(css="#gridDiv2 .search-link")
 	private WebElement searchBtn;
+	
+	@FindBy(xpath="//button[text()='Search']")
+	private WebElement searchSearchBtn;
 
 	@FindBy(css="#drillGrid .k-grid-content")
 	private WebElement gridContent;
@@ -301,8 +313,11 @@ public class AgentSettingsNewDesignPage extends BasePage {
 	@FindBy(id="goToAuditTrail")
 	private WebElement goBackBtn;
 
-	@FindBy(id="tgrid")
+	@FindBy(css="#gridDiv2 #tGrid")
 	private WebElement auditGridContent;
+	
+	@FindBy(id="grid")
+	private WebElement auditGrid;
 
 	@FindBy(id="drillGrid")
 	private WebElement makerGridContent;
@@ -369,6 +384,18 @@ public class AgentSettingsNewDesignPage extends BasePage {
 
 	@FindBy(id = "1001sTextToSearch")
 	private WebElement searchTextBox;
+	
+	@FindBy(xpath="//button[text()='Close']")
+	private WebElement searchClose;
+	
+	@FindBy(css=".modal-footer .k-primary")
+	private WebElement popupSearchBtn;
+
+	@FindBy(xpath="//i[@class='fas fa-sync fa-spin']")
+	private List<WebElement> clearsearch;
+
+	@FindBy(css="#tcheckerGrid .k-grid-content")
+	private WebElement approvedgridcontent;
 
 	@FindBy(css = ".fa-expand")
 	private List<WebElement> fullScrnBtn;
@@ -434,7 +461,10 @@ public class AgentSettingsNewDesignPage extends BasePage {
 	private WebElement invalidRecordCount;
 	
 	@FindBy(xpath="//span[@class='k-pager-info k-label']")
-	private WebElement items;
+	private List<WebElement> items;
+	
+	@FindBy(xpath="//button[@class='k-button k-button-icontext k-grid-excel']")
+	private WebElement exporttoexcel;
 
 	public boolean isAgentSettingsPageDisplayed() throws InterruptedException {
 		waitForLoad(driver);
@@ -499,7 +529,7 @@ public class AgentSettingsNewDesignPage extends BasePage {
 	}						  
 
 	public boolean verifyApprovedDataTableHeaders() {
-		ArrayList<String> Expected=new ArrayList<String>(Arrays.asList("Lan ID","Avaya Login ID","First Name","Last Name","Profile","Supervisor Name","Org. Unit","Access Role","Last Changed By","Last Changed On"));
+		ArrayList<String> Expected=new ArrayList<String>(Arrays.asList("Lan ID","Avaya Login ID","First Name","Last Name","Profile","Supervisor Name","Org. Unit","Access Role","CRM Name","Text Chat Greeting Template Name","Last Changed By","Last Changed On"));
 		ArrayList Actual = getHeadersfromTable(approvedDataTableHeaders);
 		System.out.println(Actual);
 		System.out.println("*******");
@@ -515,7 +545,7 @@ public class AgentSettingsNewDesignPage extends BasePage {
 	}
 
 	public boolean verifyAuditTrailDataTableHeaders() {
-		ArrayList<String> Expected=new ArrayList<String>(Arrays.asList(" ","Request Id", "Transaction", "Function", "Status", "User Id", "Submission DateTime", "Maker Comments", "Old Values", "New Values","Reviewed By","Review DateTime", "Checker Comments"));
+		ArrayList<String> Expected=new ArrayList<String>(Arrays.asList("IsEnabled","Request ID", "Transaction", "Function Name", "Status", "User Id", "Submission DateTime", "Maker Comments","Reviewed By","Review DateTime", "Checker Comments"));
 		ArrayList Actual = getHeadersfromTable(auditTrailTableHeaders);
 		Collections.sort(Expected);
 		Collections.sort(Actual);
@@ -607,6 +637,7 @@ public class AgentSettingsNewDesignPage extends BasePage {
 		}
 		//selectDropdownFromVisibleText(teamNameListBox,details.getTeamName());
 		ChooseTeamHeirarchy(details.getTeamName());
+		waitForJqueryLoad(driver);
 		selectProfile(details.getProfile(),details.getSupervisor());
 		Thread.sleep(1000);
 		selectWebElement(accessroleDropdown);
@@ -615,7 +646,7 @@ public class AgentSettingsNewDesignPage extends BasePage {
 		//selectDropdownFromVisibleText(crmnameListBox,details.getCrmName());
 		//        selectWebElement(texttemplatenameDropdown);
 		//        selectDropdownFromVisibleText(texttemplatenameListBox,details.getTextTemplateName());
-		navigateToTab("Channel Count & Features");
+		navigateToTab("Channel Count");
 		selectFeaturesToBeSelected(details.getFeaturestobeSeleted());
 		selectWebElement(numericTextbox.get(1));
 		enterValueToTxtFieldWithoutClear(totalVoiceTabsAllowedTextBox.get(1),String.valueOf(details.getTotalVoiceTabs()));
@@ -627,11 +658,11 @@ public class AgentSettingsNewDesignPage extends BasePage {
 		enterValueToTxtFieldWithoutClear(totalVideoChatTabsAllowedTextBox.get(1),String.valueOf(details.getTotalVideoChatTabs()));
 		selectWebElement(numericTextbox.get(5));
 		enterValueToTxtFieldWithoutClear(totalFaxTabsAllowedTextBox.get(1),String.valueOf(details.getTotalFaxTabs()));
-		selectWebElement(numericTextbox.get(6));
+		/*selectWebElement(numericTextbox.get(6));
 		enterValueToTxtFieldWithoutClear(totalEmailTabsAllowedTextBox.get(1),String.valueOf(details.getTotalEmailTabs()));
 		selectWebElement(numericTextbox.get(7));
-		enterValueToTxtFieldWithoutClear(totalSMSTabsAllowedTextBox.get(1),String.valueOf(details.getTotalSMSTabs()));																								
-		// selectWebElement(featuresDropdown);
+		enterValueToTxtFieldWithoutClear(totalSMSTabsAllowedTextBox.get(1),String.valueOf(details.getTotalSMSTabs()));	*/																							
+		navigateToTab("Features");
 		//selectDropdownFromVisibleText(featuresListBox,details.getFeatures());
 		selectCheckBox(autoAnswerAllAcdCallsCheckbox,details.isAutoanswerallACDcalls());
 		selectCheckBox(goToAcwAfterEachAcdCallsCheckbox,details.isGotoACWaftereachACDcalls());
@@ -645,7 +676,7 @@ public class AgentSettingsNewDesignPage extends BasePage {
 		//        selectCheckBox(smsOutCheckbox,details.isSMSOut());
 		selectWebElement(saveBtn);
 	}
-	private void ChooseTeamHeirarchy(String team){
+	/*private void ChooseTeamHeirarchy(String team){
 		String[] hrcy=team.split(">");
 		for(int i=0;i<hrcy.length;i++){
 			for(WebElement e: teamList){
@@ -654,7 +685,21 @@ public class AgentSettingsNewDesignPage extends BasePage {
 					{selectWebElement(e.findElement(By.className("k-icon")));break;}
 					else
 					{selectWebElement(e.findElement(By.className("k-in")));break;}   }}
+	}*/
+	
+	private void ChooseTeamHeirarchy(String team){
+		String[] hrcy=team.split(">");
+		for(int i=0;i<hrcy.length;i++){
+			for(WebElement e: teamList){
+				if(e.getText().equals(hrcy[i])) {
+					if(e.getText().equals(hrcy[hrcy.length-1]))
+					{selectWebElement(e.findElement(By.className("k-in")));break;}
+					else if(e.findElements(By.className("k-icon")).size()>0)
+					{selectWebElement(e.findElement(By.className("k-icon")));break;}
+				}}}
+
 	}
+	
 	public boolean verifyNewRecordCreated(){
 		//waitForJqueryLoad(driver);
 		//if(errorMsg.size()>0){return false;}
@@ -705,9 +750,9 @@ public class AgentSettingsNewDesignPage extends BasePage {
 		selectWebElement(selectSearchColumn.get(1));
 		Thread.sleep(1000);
 		selectDropdownFromVisibleText(searchTypeList,"Is equal to");
-		enterValueToTxtField(searchText.get(0),name);
-		selectWebElement(searchBtn);
-		waitUntilLoadingImageDisapper(driver);
+		enterValueToTxtField(searchTextBox,name);		
+		selectWebElement(searchSearchBtn);
+		waitForJqueryLoad(driver);
 		waitUntilWebElementIsVisible(gridContent);
 	}
 	public void clickonTopmostEditButton(){
@@ -766,8 +811,8 @@ public class AgentSettingsNewDesignPage extends BasePage {
 	}
 	private Map<String,String> getFirstRowDatafromTable(){
 		Map<String,String> map = new HashMap<>();
-		waitUntilWebElementIsVisible(auditGridContent);
-		List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
+		waitUntilWebElementIsVisible(auditGrid);
+		List<WebElement> rows=auditGrid.findElements(By.tagName("tr"));
 		List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
 		List<WebElement> cols=rows.get(1).findElements(By.tagName("td"));
 		for(int j=0;j<headers.size();j++){
@@ -780,40 +825,85 @@ public class AgentSettingsNewDesignPage extends BasePage {
 
 		return map;
 	}
-	public boolean verifyAuditTrail(AgentSettingsDetails details, String transaction, String status){
+		
+	public boolean verifyAuditTrail(AgentSettingsDetails details,String transaction, String status) throws Exception{
 		boolean stat=false;
-		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
-		String date = simpleDateFormat.format(new Date());
 		Map<String,String> firstRowData=getFirstRowDatafromTable();
 		Map<String,String> popupRowData=getFirstRowDatafromPreviewPopup();
-
-
+        System.out.println(firstRowData);
+        System.out.println(popupRowData);
 		if(firstRowData.get("Transaction").equalsIgnoreCase(transaction)){
 			if(firstRowData.get("Status").equalsIgnoreCase(status)){
-				if(firstRowData.get("Function").equalsIgnoreCase("Agent Settings")){
-					// if(transaction.equals("MakerCreate")||transaction.equals("MakerUpdate")){
-					/* Map<String,String> newvalues=new HashMap<>();
-                            String[] d=popupRowData.get("New Values").split("\n");
-                            for(String e:d){
-                                String[]f=e.split(":",2);
-                                if(f.length>1){newvalues.put(f[0],f[1]);}
-                            }
-                            if(verifyNewValues(details,newvalues)){
-                                stat=true;}*/
-					stat=true;//}//else{stat=true;}
+				if(firstRowData.get("Function Name").equalsIgnoreCase("Agent Settings")){
+					if(transaction.equals("MakerCreate")||transaction.equals("MakerImport")){
+						Map<String,String> newvalues=new HashMap<>();
+						String[] d=popupRowData.get("New Values").split("\n");
+						for(String e:d){
+							String[]f=e.split(":",2);
+							if(f.length>1){newvalues.put(f[0],f[1]);}
+						}
+						if(verifyNewValues(details,newvalues)){
+							stat=true;}
+						else 
+							stat=false;
+					}
+					else{System.out.println("Data mismatch");}
 				}else{System.out.println("Data mismatch:"+firstRowData.get("Function")+"\t"+"RoleManagement");}
 			}else{System.out.println("Data mismatch:"+firstRowData.get("Status")+"\t"+status);}
 		}else{System.out.println("Data mismatch:"+firstRowData.get("Transaction")+"\t"+transaction);}
-		return stat;}
+		return stat;
+	}
+	
 	public boolean verifyNewValues(AgentSettingsDetails details, Map<String,String> newvalues){
+		boolean stat=false;
+		if(newvalues.get("Lan ID").equals(details.getUsername())){
+			if(newvalues.get("First Name").equals(details.getFirstname())){
+				if(newvalues.get("Last Name").equals(details.getLastname())){
+					if(newvalues.get("Avaya Login ID").equals(details.getAvayaLoginID())){
+						if(newvalues.get("Profile").equals(details.getProfile())){
+							stat=true;
+						}else{System.out.println("data mismatch"+newvalues.get("Profile")+"\t"+details.getProfile());}
+					}else{System.out.println("data mismatch"+newvalues.get("Avaya Login ID")+"\t"+details.getAvayaLoginID());}
+				}else{System.out.println("data mismatch"+newvalues.get("Last Name")+"\t"+details.getLastname());}
+			}else{System.out.println("data mismatch"+newvalues.get("First Name")+"\t"+details.getFirstname());}
+		}else{System.out.println("data mismatch"+newvalues.get("Lan ID")+"\t"+details.getUsername());}
+		return stat;
+	}
+	
+	public boolean verifyAuditTrailDelete(AgentSettingsDetails details, String Transaction, String Status) {
+		boolean stat=false;
+		Map<String,String> firstRowData=getFirstRowDatafromTable();
+		if(firstRowData.get("Transaction").equalsIgnoreCase(Transaction)){
+			if(firstRowData.get("Status").equalsIgnoreCase(Status)){
+				if(firstRowData.get("Function Name").equalsIgnoreCase("Agent Settings")){
+					if(Transaction.equals("MakerDelete")){
+						/*Map<String,String> newvalues=new HashMap<>();
+						String[] d=firstRowData.get("New Values").split("\n");
+						for(String e:d){
+							String[]f=e.split(":",2);
+							if(f.length>1){newvalues.put(f[0],f[1]);}
+						}
+						if(verifyUpdatedNewValues(details,newvalues)){
+							stat=true;}
+						else 
+							stat=false;*/
+						stat=true;
+					}
+					else{System.out.println("Data mismatch");}
+				}else{System.out.println("Data mismatch:"+firstRowData.get("Function")+"\t"+"Agent Settings");}
+			}else{System.out.println("Data mismatch:"+firstRowData.get("Status")+"\t"+Status);}
+		}else{System.out.println("Data mismatch:"+firstRowData.get("Transaction")+"\t"+Transaction);}
+		return stat;
+	}
+	/*public boolean verifyNewValues(AgentSettingsDetails details, Map<String,String> newvalues){
 		boolean stat=false;
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
 		String date = simpleDateFormat.format(new Date());
-		if(newvalues.get("UserName").equals(details.getUsername())){
-			if(newvalues.get("AvayaLoginID").equals(details.getAvayaLoginID())){
+		if(newvalues.get("Lan ID").equals(details.getUsername())){
+			if(newvalues.get("Avaya Login ID").equals(details.getAvayaLoginID())){
 				// if(newvalues.get("AccessRole").equals(details.getAccessRole())){
-				if(newvalues.get("FirstName").equals(details.getFirstname())){
-					if(newvalues.get("LastName").equals(details.getLastname())){
+				if(newvalues.get("First Name").equals(details.getFirstname())){
+					if(newvalues.get("Last Name").equals(details.getLastname())){
 						if(newvalues.get("Profile").equals(details.getProfile())){
 							//  if(newvalues.get("TeamName").equals(details.getTeamName().split(">")[details.getTeamName().split(">").length-1])){
 							//    if(newvalues.get("SupervisorName").equals(details.getSupervisor())){
@@ -839,7 +929,7 @@ public class AgentSettingsNewDesignPage extends BasePage {
 			}else{System.out.println("data mismatch"+newvalues.get("AvayaLoginID")+"\t"+details.getAvayaLoginID());}
 		}else{System.out.println("data mismatch"+newvalues.get("UserName")+"\t"+details.getUsername());}
 		return stat;
-	}
+	}*/
 	public boolean verifyFeatures(AgentSettingsDetails details, Map<String,String> newvalues){
 		boolean status=false;
 		if(newvalues.get("IsVoice").equals("True")&&details.getFeaturestobeSeleted()[0].equals("Voice")){
@@ -987,23 +1077,48 @@ public class AgentSettingsNewDesignPage extends BasePage {
 			}if(!status){break;}}
 		return status;
 	}
-	public boolean verifyClearAllFunctionality() throws Exception{
-		boolean clear=false;
-		selectWebElement(searchLink);
+	public boolean clearAll(AgentSettingsDetails details) throws Exception {
+		selectWebElement(gridsearchLink);
 		selectWebElement(selectSearchColumn.get(0));
 		selectDropdownFromVisibleText(columnNameList,"Lan ID");
+		Thread.sleep(1000);
 		selectWebElement(selectSearchColumn.get(1));
 		selectDropdownFromVisibleText(searchTypeList,"Is equal to");
-		enterValueToTxtField(searchText.get(0),"Testing");
-		selectWebElement(searchClearAllBtn);
-		waitForJqueryLoad(driver);
-		if ((searchSelectColDropdwn.getAttribute("value")).equals("") &&
-				(searchCriteriaColDropdwn.getText()).equals("Is equal to") &&
-				(searchTextBox.getAttribute("value")).equals("")) {
-			clear = true;
-		}
-		return clear;
+		enterValueToTxtField(searchTextBox,details.getUsername());
+		selectWebElement(clearall);
+		if(searchTextBox.isEnabled())
+			return true;
+		else
+			return false;
 	}
+	
+	public boolean verifyclearsearch() {
+		selectWebElement(clearsearch.get(0));
+		if(approvedgridcontent.isDisplayed())
+			return true;
+		else
+			return false;
+	}
+	
+	public boolean verifyclose() {
+		selectWebElement(searchClose);
+		if(approvedgridcontent.isDisplayed())
+			return true;
+		else
+			return false;
+	}
+	
+	public void searchwithoutextsearch(AgentSettingsDetails details) throws Exception {
+		selectWebElement(gridsearchLink);
+		selectWebElement(selectSearchColumn.get(0));
+		selectDropdownFromVisibleText(columnNameList,"Lan ID");
+		Thread.sleep(1000);
+		selectWebElement(selectSearchColumn.get(1));
+		selectDropdownFromVisibleText(searchTypeList,"Is equal to");
+		selectWebElement(popupSearchBtn);	
+		selectWebElement(searchClose);
+	}
+	
 	public boolean verifyClearSearchFunctionality(AgentSettingsDetails details){
 		int items=Integer.valueOf(pagerInfo.get(2).getText().split("of ")[1].split(" items")[0]);
 		try{searchAgentSettingsRecord(details.getUsername());
@@ -1047,32 +1162,106 @@ public class AgentSettingsNewDesignPage extends BasePage {
 		}
 		return map;
 	}
-	public boolean verifyExportToExcel() {
-		boolean status=false;
-		try{clickonExportToExcelBtn();
-		if(verifyFilePresentInFolder(System.getProperty("user.dir") + "\\src\\test\\resources\\DownloadedFiles", "Agent Settings")){
-			String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\DownloadedFiles\\Agent Settings.xlsx";
-			Map<String, String> map = new ExcelReader(filePath, "Sheet1").getTestData().get(0);
-			Map<String, String> map1= new ExcelReader(filePath, "Sheet1").getAgentSettingsRowData(3,9);
-			map.putAll(map1);
-			map.remove(null);
-			Map<String,String> uidata=getFirstRowDatafromTable1();
-			selectWebElement(expandRecord.get(0));
-			List<WebElement> rows=channelsDetails.findElements(By.tagName("tr"));
-			for(int i=1;i<rows.size();i++) {
-				List<WebElement> cols = rows.get(i).findElements(By.tagName("td"));
-				uidata.put(cols.get(0).getText(),cols.get(1).getText()+":"+cols.get(2).getText()+":"+cols.get(3).getText());
+	public boolean verifyExportToExcel(String filePath) {
+		final File folder = new File(filePath);
+		for (final File f : folder.listFiles()) {
+			if (f.getName().startsWith("Agent Settings")) {
+				f.delete();
 			}
-			selectWebElement(expandTabs.get(1));
-			Thread.sleep(3000);
-			for(WebElement s: features){
-				String a[] = s.getText().split(":");
-				uidata.put(a[0],a[1]);
-			}uidata.remove("");uidata.remove(" ");
-			if(map.size()==(uidata.size())){status=true;}
-		}}catch(Exception e){e.printStackTrace();}
-		return status;
+		}
+		selectWebElement(exporttoexcel);
+		waitForJqueryLoad(driver);
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		Boolean Status=verifyExportPageFileDownload(filePath, "Agent Settings");
+		return Status;
 	}
+	
+	public boolean verifyexportToExcelSheet(List<Map<String, String>> maplist) throws Exception {
+		waitForJqueryLoad(driver);
+		List<Map<String,String>> UI=getdata();
+		waitForJqueryLoad(driver);
+		System.out.println("This is UI"+UI);
+		System.out.println(maplist);
+		System.out.println(UI);
+		if(UI.equals(maplist))
+			return true;
+		else
+			return false;
+	}
+	
+	private List<Map<String,String>> getdata() throws Exception{
+		waitForJqueryLoad(driver);
+		int item=Integer.valueOf(items.get(2).getText().split("of ")[1].split(" items")[0]);
+		int pagersize=Integer.valueOf(pagerSize.get(2).getText());
+		int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
+		List<Map<String,String>> arr=new ArrayList<Map<String,String>>();
+		for(int k=0;k<=pages;k++){
+			waitUntilWebElementIsVisible(auditGridContent);
+			List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
+			List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
+			String col=null;
+			for(int i=1;i<rows.size();i++) {
+				Map<String,String> map = new HashMap<String,String>();
+				List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
+				for(int j=3;j<headers.size();j++) {
+					scrollToElement(headers.get(j));
+
+					/*if(headers.get(j).getText().equals("Last Changed On")){
+						col=cols.get(j).getText().substring(0,10);
+					}*/
+					col=cols.get(j).getText();
+					map.put(headers.get(j).getText(),col);
+
+				}
+				map.remove("");
+				arr.add(map);
+			}
+			if(k!=pages)
+			{
+				nextPageIcon.get(2).click();
+				Thread.sleep(2000);
+				waitForJqueryLoad(driver);}
+		}
+		return arr;
+	}
+	
+	public boolean ExporttoExcelWithoutData(AgentSettingsDetails details) throws Exception {
+		verifySearchAgentSettingsRecord(details.getUsername());
+		waitForJqueryLoad(driver);
+		Thread.sleep(1000);
+		selectWebElement(exporttoexcel);
+		waitForJqueryLoad(driver);
+		if(errorMsg.get(0).getText().equals("There is no record to export"))
+			return true;
+		else
+			return false;
+	}
+	
+	public boolean verifyApprovedSectionData(AgentSettingsDetails details) throws Exception {
+		searchAgentSettingsRecordApprovedData(details.getUsername());
+		if(norecords.isDisplayed())
+			return true; 
+		else
+			return false;
+	}
+	
+	private void searchAgentSettingsRecordApprovedData(String LanId) throws Exception {
+		selectWebElement(gridsearchLink);
+		selectWebElement(selectSearchColumn.get(0));
+		selectDropdownFromVisibleText(columnNameList,"Lan ID");
+		Thread.sleep(1000);
+		selectWebElement(selectSearchColumn.get(1));
+		selectDropdownFromVisibleText(searchTypeList,"Is equal to");
+		enterValueToTxtField(searchTextBox,LanId);
+		selectWebElement(popupSearchBtn);
+		waitForJqueryLoad(driver);
+		waitUntilWebElementIsVisible(approvedgridcontent);		
+	}
+	
 	public void dragColumntoGroup(String columnname) {
 		List<WebElement> rows = grid.findElements(By.tagName("tr"));
 		List<WebElement> columnHeaders = rows.get(0).findElements(By.tagName("th"));
@@ -1150,39 +1339,45 @@ public class AgentSettingsNewDesignPage extends BasePage {
 		return status;
 	}
 
-	public boolean verifycolumnsHeaderDisabled() {
+	public boolean verifycolumnsHeaderDisbaled() {
 		boolean status = false;
-		WebElement ele = headersDropdown.get(0);
-		if (ele.isDisplayed()) {
-			try {
-				selectWebElement(ele);
-				Thread.sleep(1000);
-				selectWebElement(headersColumns.get(2));
-				Thread.sleep(1000);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-			for (int i = 3; i < headersColumns.size(); i++) {
-				// System.out.println(headersColumns.get(i).getText());
-				WebElement checkbox = headersColumns.get(i).findElement(By.tagName("input"));
-				if (checkbox.isSelected()) {
-					checkbox.click();
-				} else {
+		try {for(WebElement ele : headersDropdown) {
+			scrollToElement(ele);
+			if (ele.isDisplayed()) {
+				try {
+					selectWebElement(ele);
+					Thread.sleep(1000);
+					selectWebElement(headersColumns.get(2));
+					Thread.sleep(1000);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
 				}
-				for (WebElement ele1 : headersText) {
-					if (ele1.getText().equals(headersColumns.get(i).getText())) {
-						status = true;
+				for (int i = 3; i < headersColumns.size(); i++) {
+					 System.out.println(headersColumns.get(i).getText());
+					WebElement checkbox = headersColumns.get(i).findElement(By.tagName("input"));
+					if (checkbox.isSelected()) {
+						checkbox.click();
+					} else {
+					}
+					for (WebElement ele1 : headersText) {
+						if (ele1.getText().equals(headersColumns.get(i).getText())) {
+							status = true;
+							break;
+						}
+					}
+					if (!status) {
+						checkbox.click();
+					} else {
 						break;
 					}
 				}
-				if (!status) {
-					checkbox.click();
-				} else {
-					break;
-				}
+
 			}
-
-
+			break;
+		}
+		}
+		catch (Exception e) {
+			e.printStackTrace();
 		}
 		return status;
 	}
@@ -1192,8 +1387,10 @@ public class AgentSettingsNewDesignPage extends BasePage {
 		if(!nextPageIcon.get(i).getAttribute("class").contains("k-state-disabled")){
 			int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber.get(i)));
 			selectWebElement(nextPageIcon.get(i));
+			waitForJqueryLoad(driver);
 			int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber.get(i)));
 			selectWebElement(previousPageIcon.get(i));
+			waitForJqueryLoad(driver);
 			int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber.get(i)));
 			if(nextnumber==(pagenumber+1) && pagenumber==previousnumber){status=true;}
 		}else{
@@ -1206,8 +1403,10 @@ public class AgentSettingsNewDesignPage extends BasePage {
 		if(!lastPageIcon.get(i).getAttribute("class").contains("k-state-disabled")){
 			int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber.get(i)));
 			selectWebElement(lastPageIcon.get(i));
+			waitForJqueryLoad(driver);
 			int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber.get(i)));
 			selectWebElement(firstPageIcon.get(i));
+			waitForJqueryLoad(driver);
 			int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber.get(i)));
 			if(nextnumber>pagenumber && pagenumber==previousnumber){status=true;}
 		}else{
@@ -1219,21 +1418,21 @@ public class AgentSettingsNewDesignPage extends BasePage {
 		boolean status = false;
 		try {
 			//  if (norecords.size() <= 0) {
-			int items = Integer.valueOf(pagerInfo.get(z).getText().split("of ")[1].split(" items")[0]);
+			int item = Integer.valueOf(items.get(z).getText().split("of ")[1].split(" items")[0]);
 			selectWebElement(pagerDropdown.get(z));
 			Thread.sleep(1500);
 			for (int i = 0; i < pageSizeListBox.size(); i++) {
-				if(Integer.valueOf(pageSizeListBox.get(i).getText())>items){continue;}
+				if(Integer.valueOf(pageSizeListBox.get(i).getText())>item){continue;}
 				selectDropdownFromVisibleText(pageSizeListBox, pageSizeListBox.get(i).getText());
 				waitForJqueryLoad(driver);
-				int totalItems = Integer.valueOf(pagerInfo.get(z).getText().split("of ")[1].split(" items")[0]);
+				int totalItems = Integer.valueOf(items.get(z).getText().split("of ")[1].split(" items")[0]);
 				int pagersize = Integer.valueOf(pagerSize.get(z).getText());
-				int pages = (totalItems % pagersize == 0) ? items / pagersize : items / pagersize+1;
+				int pages = (totalItems % pagersize == 0) ? item / pagersize : item / pagersize+1;
 				int totalRows=(gridContent.findElements(By.tagName("tr")).size());
 				selectWebElement(lastPageIcon.get(z));
 				waitForJqueryLoad(driver);
 				int lastPageNumber = Integer.valueOf(pageNumber.get(z).getText());
-				if (items == totalItems && pages == lastPageNumber&&totalRows==pagersize) {
+				if (item == totalItems && pages == lastPageNumber&&totalRows==pagersize) {
 					status = true;
 				} else {System.out.println(items+":"+totalItems+"\t"+pages+":"+lastPageNumber+"\t"+totalRows+":"+pagersize);
 				status = false;
@@ -1245,10 +1444,12 @@ public class AgentSettingsNewDesignPage extends BasePage {
 			e.printStackTrace();
 		} return status;
 	}
+	
 	public boolean verifyTotalNumberOfItemsPerPageDetails(int z){
-		String items = pagerInfo.get(z).getText();
-		return items.matches("(\\d.*) - (\\d.*) of (\\d.*) items");
+		String item = items.get(z).getText();
+		return item.matches("(\\d.*) - (\\d.*) of (\\d.*) items");
 	}
+	
 	public boolean verifyJsonDataForMakerAndChecker(boolean mkrchk){
 		boolean status=false;
 		if(mkrchk){
@@ -1497,8 +1698,8 @@ public class AgentSettingsNewDesignPage extends BasePage {
 
 	public void selectRecord() throws Exception {
 		Map<String,String> map = new HashMap<>();
-		waitUntilWebElementIsVisible(auditGridContent);
-		List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
+		waitUntilWebElementIsVisible(auditGrid);
+		List<WebElement> rows=auditGrid.findElements(By.tagName("tr"));
 		List<WebElement> cols=rows.get(1).findElements(By.tagName("td"));
 		selectWebElement(cols.get(0).findElement(By.id("isEnabled")));	
 	}
@@ -1570,7 +1771,7 @@ public class AgentSettingsNewDesignPage extends BasePage {
 		Map<String,String> popupRowData=getFirstRowDatafromPreviewPopup();
 		if(firstRowData.get("Transaction").equalsIgnoreCase(Transaction)){
 			if(firstRowData.get("Status").equalsIgnoreCase(Status)){
-				if(firstRowData.get("Function").equalsIgnoreCase("Agent Settings")){
+				if(firstRowData.get("Function Name").equalsIgnoreCase("Agent Settings")){
 					if(Transaction.equals("MakerUpdate")){
 						Map<String,String> newvalues=new HashMap<>();
 						String[] d=popupRowData.get("New Values").split("\n");
@@ -1650,11 +1851,12 @@ public class AgentSettingsNewDesignPage extends BasePage {
 	}
 	private Map<String, String> getFirstRowDatafromPreviewPopup() {
 		Map<String,String> map = new HashMap<>();
-		waitUntilWebElementIsVisible(auditGridContent);
-		List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
+		waitUntilWebElementIsVisible(auditGrid);
+		List<WebElement> rows=auditGrid.findElements(By.tagName("tr"));
 		List<WebElement> cols=rows.get(1).findElements(By.tagName("td"));
 		List<WebElement> preview= cols.get(1).findElements(By.tagName("a"));
 		preview.get(0).click();
+		waitForJqueryLoad(driver);
 		waitUntilWebElementIsVisible(tgrid);
 		List<WebElement> gridrows=tgrid.findElements(By.tagName("tr"));
 		List<WebElement> gridheaders = gridrows.get(0).findElements(By.tagName("th"));
@@ -1790,17 +1992,34 @@ public class AgentSettingsNewDesignPage extends BasePage {
 		return errorMsg.get(0).getText();
 }
 	
+	
+	public void verifySearchAgentSettingsRecord(String lanId) throws Exception {
+		Boolean Status=false;
+		Map<String, String> map=new HashMap<String,String>() ;
+		map.put("Lan ID", lanId);
+		selectWebElement(searchBtn);
+		selectWebElement(selectSearchColumn.get(0));
+		Thread.sleep(2000);
+		selectDropdownFromVisibleText(columnNameList,"Lan ID");
+		selectWebElement(selectSearchColumn.get(1));
+		selectDropdownFromVisibleText(searchTypeList,"Is equal to");
+		enterValueToTxtField(searchTextBox,lanId);		
+		selectWebElement(searchSearchBtn);
+		waitForJqueryLoad(driver);
+	}
+	
 	public boolean verifySearchIsNotEqualTo(String firstname) throws Exception {
 		Boolean Status=false;
 		Map<String, String> map=new HashMap<String,String>() ;
 		map.put("First Name", firstname);
 		selectWebElement(searchBtn);
 		selectWebElement(selectSearchColumn.get(0));
+		Thread.sleep(2000);
 		selectDropdownFromVisibleText(columnNameList,"First Name");
 		selectWebElement(selectSearchColumn.get(1));
 		selectDropdownFromVisibleText(searchTypeList,"Is not equal to");
 		enterValueToTxtField(searchTextBox,firstname);		
-		selectWebElement(searchBtn);
+		selectWebElement(searchSearchBtn);
 		waitForJqueryLoad(driver);
 		waitUntilWebElementIsVisible(gridContent);
 		List<Map<String,String>> UI=gettable(); 
@@ -1820,11 +2039,11 @@ public class AgentSettingsNewDesignPage extends BasePage {
 		selectWebElement(searchBtn);
 		selectWebElement(selectSearchColumn.get(0));
 		selectDropdownFromVisibleText(columnNameList,"First Name");
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		selectWebElement(selectSearchColumn.get(1));
 		selectDropdownFromVisibleText(searchTypeList,"Contains");
 		enterValueToTxtField(searchTextBox,firstname);		
-		selectWebElement(searchBtn);
+		selectWebElement(searchSearchBtn);
 		waitForJqueryLoad(driver);
 		waitUntilWebElementIsVisible(gridContent);
 		List<Map<String,String>> UI=gettable(); 
@@ -1842,10 +2061,11 @@ public class AgentSettingsNewDesignPage extends BasePage {
 		selectWebElement(searchBtn);
 		selectWebElement(selectSearchColumn.get(0));
 		selectDropdownFromVisibleText(columnNameList,"First Name");
+		Thread.sleep(2000);
 		selectWebElement(selectSearchColumn.get(1));
 		selectDropdownFromVisibleText(searchTypeList,"Does not contain");
 		enterValueToTxtField(searchTextBox,firstname);		
-		selectWebElement(searchBtn);
+		selectWebElement(searchSearchBtn);
 		waitForJqueryLoad(driver);
 		waitUntilWebElementIsVisible(gridContent);
 		List<Map<String,String>> UI=gettable(); 
@@ -1864,10 +2084,11 @@ public class AgentSettingsNewDesignPage extends BasePage {
 		selectWebElement(searchBtn);
 		selectWebElement(selectSearchColumn.get(0));
 		selectDropdownFromVisibleText(columnNameList,"First Name");
+		Thread.sleep(2000);
 		selectWebElement(selectSearchColumn.get(1));
 		selectDropdownFromVisibleText(searchTypeList,"Starts with");
 		enterValueToTxtField(searchTextBox,firstname);		
-		selectWebElement(searchBtn);
+		selectWebElement(searchSearchBtn);
 		waitForJqueryLoad(driver);
 		waitUntilWebElementIsVisible(gridContent);
 		List<Map<String,String>> UI=gettable(); 
@@ -1886,10 +2107,11 @@ public class AgentSettingsNewDesignPage extends BasePage {
 		selectWebElement(searchBtn);
 		selectWebElement(selectSearchColumn.get(0));
 		selectDropdownFromVisibleText(columnNameList,"First Name");
+		Thread.sleep(2000);
 		selectWebElement(selectSearchColumn.get(1));
 		selectDropdownFromVisibleText(searchTypeList,"Ends with");
 		enterValueToTxtField(searchTextBox,firstname);		
-		selectWebElement(searchBtn);
+		selectWebElement(searchSearchBtn);
 		waitForJqueryLoad(driver);
 		waitUntilWebElementIsVisible(gridContent);
 		List<Map<String,String>> UI=gettable(); 
@@ -1904,13 +2126,12 @@ public class AgentSettingsNewDesignPage extends BasePage {
 	}
 	
 	public List<Map<String, String>> gettable() throws Exception {
-		Thread.sleep(4000);
-		int item=Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
+		waitForJqueryLoad(driver);
+		int item=Integer.valueOf(items.get(2).getText().split("of ")[1].split(" items")[0]);
 		int pagersize=Integer.valueOf(pagerSize.get(2).getText());
 		int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
 		List<Map<String,String>> arr=new ArrayList<Map<String,String>>();
 		for(int k=0;k<=pages;k++){
-
 			waitUntilWebElementIsVisible(auditGridContent);
 			List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
 			List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
@@ -1937,6 +2158,334 @@ public class AgentSettingsNewDesignPage extends BasePage {
 		}
 		return arr;
 	}
+	
+	public String VerifyMessage() {
+		if(successmsg.isDisplayed())
+			return successmsg.getText();
+		else{return errorMsg.get(0).getText();}
+	}
+	
+	public void addNewAgentSettingsRecordWithOutLanID(AgentSettingsDetails details) throws Exception {
+		selectWebElement(agentSettingsTabs.get(1));
+		selectWebElement(makeAgentSettingsChanges);
+		waitForJqueryLoad(driver);
+		try {Thread.sleep(5000);
+		selectWebElement(addNewAgentSettingsRecordBtn);
+		waitUntilWebElementIsVisible(popupContent);
+		Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		navigateToTab("Info");
+		selectWebElement(numericTextbox.get(0));
+		enterValueToTxtFieldWithoutClear(avayaLoginIdTextBox,details.getAvayaLoginID());
+		selectWebElement(firstnameTextBox);
+		enterValueToTxtFieldWithoutClear(firstnameTextBox,details.getFirstname());
+		selectWebElement(lastnameTextBox);
+		enterValueToTxtFieldWithoutClear(lastnameTextBox,details.getLastname());
+		selectWebElement(teamnameDropdown);
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		//selectDropdownFromVisibleText(teamNameListBox,details.getTeamName());
+		ChooseTeamHeirarchy(details.getTeamName());
+		waitForJqueryLoad(driver);
+		selectProfile(details.getProfile(),details.getSupervisor());
+		Thread.sleep(1000);
+		selectWebElement(accessroleDropdown);
+		selectDropdownFromVisibleText(accessroleListBox,details.getAccessRole());
+		//selectWebElement(crmnameDropdown);
+		//selectDropdownFromVisibleText(crmnameListBox,details.getCrmName());
+		//        selectWebElement(texttemplatenameDropdown);
+		//        selectDropdownFromVisibleText(texttemplatenameListBox,details.getTextTemplateName());
+		navigateToTab("Channel Count");
+		selectFeaturesToBeSelected(details.getFeaturestobeSeleted());
+		selectWebElement(numericTextbox.get(1));
+		enterValueToTxtFieldWithoutClear(totalVoiceTabsAllowedTextBox.get(1),String.valueOf(details.getTotalVoiceTabs()));
+		selectWebElement(numericTextbox.get(2));
+		enterValueToTxtFieldWithoutClear(totalChatTabsAllowedTextBox.get(1),String.valueOf(details.getTotalChatTabs()));
+		selectWebElement(numericTextbox.get(3));
+		enterValueToTxtFieldWithoutClear(totalAudioChatTabsAllowedTextBox.get(1),String.valueOf(details.getTotalAudioChatTabs()));
+		selectWebElement(numericTextbox.get(4));
+		enterValueToTxtFieldWithoutClear(totalVideoChatTabsAllowedTextBox.get(1),String.valueOf(details.getTotalVideoChatTabs()));
+		selectWebElement(numericTextbox.get(5));
+		enterValueToTxtFieldWithoutClear(totalFaxTabsAllowedTextBox.get(1),String.valueOf(details.getTotalFaxTabs()));
+		/*selectWebElement(numericTextbox.get(6));
+		enterValueToTxtFieldWithoutClear(totalEmailTabsAllowedTextBox.get(1),String.valueOf(details.getTotalEmailTabs()));
+		selectWebElement(numericTextbox.get(7));
+		enterValueToTxtFieldWithoutClear(totalSMSTabsAllowedTextBox.get(1),String.valueOf(details.getTotalSMSTabs()));	*/																							
+		navigateToTab("Features");
+		//selectDropdownFromVisibleText(featuresListBox,details.getFeatures());
+		selectCheckBox(autoAnswerAllAcdCallsCheckbox,details.isAutoanswerallACDcalls());
+		selectCheckBox(goToAcwAfterEachAcdCallsCheckbox,details.isGotoACWaftereachACDcalls());
+		selectCheckBox(goToAcwAfterAnyCallsCheckbox,details.isGotoACWafteranycalls());
+		//selectCheckBox(crmEnabledCheckbox,details.iscRMEnabled());
+		selectCheckBox(holdVoiceCallOnChatCallCheckbox,details.isHoldVoiceCallOnChatCall());
+		//selectCheckBox(secondTextChatAutoAnswerCheckbox,details.isSecondTextChatAutoAnswer());
+		//selectCheckBox(textChatAutoACWCheckbox,details.isTextChatAutoACWEnabled());
+		//selectCheckBox(textChatAutoAnswerCheckbox,details.isTextChatAutoAnswer());
+		//        selectCheckBox(manualInCheckbox,details.isManualIn());
+		//        selectCheckBox(smsOutCheckbox,details.isSMSOut());
+		selectWebElement(saveBtn);
+	}
+	
+	public void addNewAgentSettingsRecordWithOutAvayaLoginID(AgentSettingsDetails details) throws Exception {
+		selectWebElement(agentSettingsTabs.get(1));
+		selectWebElement(makeAgentSettingsChanges);
+		waitForJqueryLoad(driver);
+		try {Thread.sleep(5000);
+		selectWebElement(addNewAgentSettingsRecordBtn);
+		waitUntilWebElementIsVisible(popupContent);
+		Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		navigateToTab("Info");
+		selectWebElement(usernameTextBox);
+		enterValueToTxtFieldWithoutClear(usernameTextBox,details.getUsername());
+		selectWebElement(firstnameTextBox);
+		enterValueToTxtFieldWithoutClear(firstnameTextBox,details.getFirstname());
+		selectWebElement(lastnameTextBox);
+		enterValueToTxtFieldWithoutClear(lastnameTextBox,details.getLastname());
+		selectWebElement(teamnameDropdown);
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		//selectDropdownFromVisibleText(teamNameListBox,details.getTeamName());
+		ChooseTeamHeirarchy(details.getTeamName());
+		waitForJqueryLoad(driver);
+		selectProfile(details.getProfile(),details.getSupervisor());
+		Thread.sleep(1000);
+		selectWebElement(accessroleDropdown);
+		selectDropdownFromVisibleText(accessroleListBox,details.getAccessRole());
+		//selectWebElement(crmnameDropdown);
+		//selectDropdownFromVisibleText(crmnameListBox,details.getCrmName());
+		//        selectWebElement(texttemplatenameDropdown);
+		//        selectDropdownFromVisibleText(texttemplatenameListBox,details.getTextTemplateName());
+		navigateToTab("Channel Count");
+		selectFeaturesToBeSelected(details.getFeaturestobeSeleted());
+		selectWebElement(numericTextbox.get(1));
+		enterValueToTxtFieldWithoutClear(totalVoiceTabsAllowedTextBox.get(1),String.valueOf(details.getTotalVoiceTabs()));
+		selectWebElement(numericTextbox.get(2));
+		enterValueToTxtFieldWithoutClear(totalChatTabsAllowedTextBox.get(1),String.valueOf(details.getTotalChatTabs()));
+		selectWebElement(numericTextbox.get(3));
+		enterValueToTxtFieldWithoutClear(totalAudioChatTabsAllowedTextBox.get(1),String.valueOf(details.getTotalAudioChatTabs()));
+		selectWebElement(numericTextbox.get(4));
+		enterValueToTxtFieldWithoutClear(totalVideoChatTabsAllowedTextBox.get(1),String.valueOf(details.getTotalVideoChatTabs()));
+		selectWebElement(numericTextbox.get(5));
+		enterValueToTxtFieldWithoutClear(totalFaxTabsAllowedTextBox.get(1),String.valueOf(details.getTotalFaxTabs()));
+		/*selectWebElement(numericTextbox.get(6));
+		enterValueToTxtFieldWithoutClear(totalEmailTabsAllowedTextBox.get(1),String.valueOf(details.getTotalEmailTabs()));
+		selectWebElement(numericTextbox.get(7));
+		enterValueToTxtFieldWithoutClear(totalSMSTabsAllowedTextBox.get(1),String.valueOf(details.getTotalSMSTabs()));	*/																							
+		navigateToTab("Features");
+		//selectDropdownFromVisibleText(featuresListBox,details.getFeatures());
+		selectCheckBox(autoAnswerAllAcdCallsCheckbox,details.isAutoanswerallACDcalls());
+		selectCheckBox(goToAcwAfterEachAcdCallsCheckbox,details.isGotoACWaftereachACDcalls());
+		selectCheckBox(goToAcwAfterAnyCallsCheckbox,details.isGotoACWafteranycalls());
+		//selectCheckBox(crmEnabledCheckbox,details.iscRMEnabled());
+		selectCheckBox(holdVoiceCallOnChatCallCheckbox,details.isHoldVoiceCallOnChatCall());
+		//selectCheckBox(secondTextChatAutoAnswerCheckbox,details.isSecondTextChatAutoAnswer());
+		//selectCheckBox(textChatAutoACWCheckbox,details.isTextChatAutoACWEnabled());
+		//selectCheckBox(textChatAutoAnswerCheckbox,details.isTextChatAutoAnswer());
+		//        selectCheckBox(manualInCheckbox,details.isManualIn());
+		//        selectCheckBox(smsOutCheckbox,details.isSMSOut());
+		selectWebElement(saveBtn);
+	}
+	
+	public void addNewAgentSettingsRecordWithoutFirstName(AgentSettingsDetails details) throws Exception {
+		selectWebElement(agentSettingsTabs.get(1));
+		selectWebElement(makeAgentSettingsChanges);
+		waitForJqueryLoad(driver);
+		try {Thread.sleep(5000);
+		selectWebElement(addNewAgentSettingsRecordBtn);
+		waitUntilWebElementIsVisible(popupContent);
+		Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		navigateToTab("Info");
+		selectWebElement(usernameTextBox);
+		enterValueToTxtFieldWithoutClear(usernameTextBox,details.getUsername());
+		selectWebElement(numericTextbox.get(0));
+		enterValueToTxtFieldWithoutClear(avayaLoginIdTextBox,details.getAvayaLoginID());
+		selectWebElement(lastnameTextBox);
+		enterValueToTxtFieldWithoutClear(lastnameTextBox,details.getLastname());
+		selectWebElement(teamnameDropdown);
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		//selectDropdownFromVisibleText(teamNameListBox,details.getTeamName());
+		ChooseTeamHeirarchy(details.getTeamName());
+		waitForJqueryLoad(driver);
+		selectProfile(details.getProfile(),details.getSupervisor());
+		Thread.sleep(1000);
+		selectWebElement(accessroleDropdown);
+		selectDropdownFromVisibleText(accessroleListBox,details.getAccessRole());
+		//selectWebElement(crmnameDropdown);
+		//selectDropdownFromVisibleText(crmnameListBox,details.getCrmName());
+		//        selectWebElement(texttemplatenameDropdown);
+		//        selectDropdownFromVisibleText(texttemplatenameListBox,details.getTextTemplateName());
+		navigateToTab("Channel Count");
+		selectFeaturesToBeSelected(details.getFeaturestobeSeleted());
+		selectWebElement(numericTextbox.get(1));
+		enterValueToTxtFieldWithoutClear(totalVoiceTabsAllowedTextBox.get(1),String.valueOf(details.getTotalVoiceTabs()));
+		selectWebElement(numericTextbox.get(2));
+		enterValueToTxtFieldWithoutClear(totalChatTabsAllowedTextBox.get(1),String.valueOf(details.getTotalChatTabs()));
+		selectWebElement(numericTextbox.get(3));
+		enterValueToTxtFieldWithoutClear(totalAudioChatTabsAllowedTextBox.get(1),String.valueOf(details.getTotalAudioChatTabs()));
+		selectWebElement(numericTextbox.get(4));
+		enterValueToTxtFieldWithoutClear(totalVideoChatTabsAllowedTextBox.get(1),String.valueOf(details.getTotalVideoChatTabs()));
+		selectWebElement(numericTextbox.get(5));
+		enterValueToTxtFieldWithoutClear(totalFaxTabsAllowedTextBox.get(1),String.valueOf(details.getTotalFaxTabs()));
+		/*selectWebElement(numericTextbox.get(6));
+		enterValueToTxtFieldWithoutClear(totalEmailTabsAllowedTextBox.get(1),String.valueOf(details.getTotalEmailTabs()));
+		selectWebElement(numericTextbox.get(7));
+		enterValueToTxtFieldWithoutClear(totalSMSTabsAllowedTextBox.get(1),String.valueOf(details.getTotalSMSTabs()));	*/																							
+		navigateToTab("Features");
+		//selectDropdownFromVisibleText(featuresListBox,details.getFeatures());
+		selectCheckBox(autoAnswerAllAcdCallsCheckbox,details.isAutoanswerallACDcalls());
+		selectCheckBox(goToAcwAfterEachAcdCallsCheckbox,details.isGotoACWaftereachACDcalls());
+		selectCheckBox(goToAcwAfterAnyCallsCheckbox,details.isGotoACWafteranycalls());
+		//selectCheckBox(crmEnabledCheckbox,details.iscRMEnabled());
+		selectCheckBox(holdVoiceCallOnChatCallCheckbox,details.isHoldVoiceCallOnChatCall());
+		//selectCheckBox(secondTextChatAutoAnswerCheckbox,details.isSecondTextChatAutoAnswer());
+		//selectCheckBox(textChatAutoACWCheckbox,details.isTextChatAutoACWEnabled());
+		//selectCheckBox(textChatAutoAnswerCheckbox,details.isTextChatAutoAnswer());
+		//        selectCheckBox(manualInCheckbox,details.isManualIn());
+		//        selectCheckBox(smsOutCheckbox,details.isSMSOut());
+		selectWebElement(saveBtn);
+	}
+	
+	public void addNewAgentSettingsRecordWithoutLastName(AgentSettingsDetails details) throws Exception {
+		selectWebElement(agentSettingsTabs.get(1));
+		selectWebElement(makeAgentSettingsChanges);
+		waitForJqueryLoad(driver);
+		try {Thread.sleep(5000);
+		selectWebElement(addNewAgentSettingsRecordBtn);
+		waitUntilWebElementIsVisible(popupContent);
+		Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		navigateToTab("Info");
+		selectWebElement(usernameTextBox);
+		enterValueToTxtFieldWithoutClear(usernameTextBox,details.getUsername());
+		selectWebElement(numericTextbox.get(0));
+		enterValueToTxtFieldWithoutClear(avayaLoginIdTextBox,details.getAvayaLoginID());
+		selectWebElement(firstnameTextBox);
+		enterValueToTxtFieldWithoutClear(firstnameTextBox,details.getFirstname());
+		selectWebElement(teamnameDropdown);
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		//selectDropdownFromVisibleText(teamNameListBox,details.getTeamName());
+		ChooseTeamHeirarchy(details.getTeamName());
+		waitForJqueryLoad(driver);
+		selectProfile(details.getProfile(),details.getSupervisor());
+		Thread.sleep(1000);
+		selectWebElement(accessroleDropdown);
+		selectDropdownFromVisibleText(accessroleListBox,details.getAccessRole());
+		//selectWebElement(crmnameDropdown);
+		//selectDropdownFromVisibleText(crmnameListBox,details.getCrmName());
+		//        selectWebElement(texttemplatenameDropdown);
+		//        selectDropdownFromVisibleText(texttemplatenameListBox,details.getTextTemplateName());
+		navigateToTab("Channel Count");
+		selectFeaturesToBeSelected(details.getFeaturestobeSeleted());
+		selectWebElement(numericTextbox.get(1));
+		enterValueToTxtFieldWithoutClear(totalVoiceTabsAllowedTextBox.get(1),String.valueOf(details.getTotalVoiceTabs()));
+		selectWebElement(numericTextbox.get(2));
+		enterValueToTxtFieldWithoutClear(totalChatTabsAllowedTextBox.get(1),String.valueOf(details.getTotalChatTabs()));
+		selectWebElement(numericTextbox.get(3));
+		enterValueToTxtFieldWithoutClear(totalAudioChatTabsAllowedTextBox.get(1),String.valueOf(details.getTotalAudioChatTabs()));
+		selectWebElement(numericTextbox.get(4));
+		enterValueToTxtFieldWithoutClear(totalVideoChatTabsAllowedTextBox.get(1),String.valueOf(details.getTotalVideoChatTabs()));
+		selectWebElement(numericTextbox.get(5));
+		enterValueToTxtFieldWithoutClear(totalFaxTabsAllowedTextBox.get(1),String.valueOf(details.getTotalFaxTabs()));
+		/*selectWebElement(numericTextbox.get(6));
+		enterValueToTxtFieldWithoutClear(totalEmailTabsAllowedTextBox.get(1),String.valueOf(details.getTotalEmailTabs()));
+		selectWebElement(numericTextbox.get(7));
+		enterValueToTxtFieldWithoutClear(totalSMSTabsAllowedTextBox.get(1),String.valueOf(details.getTotalSMSTabs()));	*/																							
+		navigateToTab("Features");
+		//selectDropdownFromVisibleText(featuresListBox,details.getFeatures());
+		selectCheckBox(autoAnswerAllAcdCallsCheckbox,details.isAutoanswerallACDcalls());
+		selectCheckBox(goToAcwAfterEachAcdCallsCheckbox,details.isGotoACWaftereachACDcalls());
+		selectCheckBox(goToAcwAfterAnyCallsCheckbox,details.isGotoACWafteranycalls());
+		//selectCheckBox(crmEnabledCheckbox,details.iscRMEnabled());
+		selectCheckBox(holdVoiceCallOnChatCallCheckbox,details.isHoldVoiceCallOnChatCall());
+		//selectCheckBox(secondTextChatAutoAnswerCheckbox,details.isSecondTextChatAutoAnswer());
+		//selectCheckBox(textChatAutoACWCheckbox,details.isTextChatAutoACWEnabled());
+		//selectCheckBox(textChatAutoAnswerCheckbox,details.isTextChatAutoAnswer());
+		//        selectCheckBox(manualInCheckbox,details.isManualIn());
+		//        selectCheckBox(smsOutCheckbox,details.isSMSOut());
+		selectWebElement(saveBtn);
+	}
+	
+	public void addNewAgentSettingsRecordWithoutOrgUnitProfileAndSupervisor(AgentSettingsDetails details) throws Exception {
+		selectWebElement(agentSettingsTabs.get(1));
+		selectWebElement(makeAgentSettingsChanges);
+		waitForJqueryLoad(driver);
+		try {Thread.sleep(5000);
+		selectWebElement(addNewAgentSettingsRecordBtn);
+		waitUntilWebElementIsVisible(popupContent);
+		Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		navigateToTab("Info");
+		selectWebElement(usernameTextBox);
+		enterValueToTxtFieldWithoutClear(usernameTextBox,details.getUsername());
+		selectWebElement(numericTextbox.get(0));
+		enterValueToTxtFieldWithoutClear(avayaLoginIdTextBox,details.getAvayaLoginID());
+		selectWebElement(firstnameTextBox);
+		enterValueToTxtFieldWithoutClear(firstnameTextBox,details.getFirstname());
+		selectWebElement(lastnameTextBox);
+		enterValueToTxtFieldWithoutClear(lastnameTextBox,details.getLastname());
+		selectWebElement(accessroleDropdown);
+		selectDropdownFromVisibleText(accessroleListBox,details.getAccessRole());
+		//selectWebElement(crmnameDropdown);
+		//selectDropdownFromVisibleText(crmnameListBox,details.getCrmName());
+		//        selectWebElement(texttemplatenameDropdown);
+		//        selectDropdownFromVisibleText(texttemplatenameListBox,details.getTextTemplateName());
+		navigateToTab("Channel Count");
+		selectFeaturesToBeSelected(details.getFeaturestobeSeleted());
+		selectWebElement(numericTextbox.get(1));
+		enterValueToTxtFieldWithoutClear(totalVoiceTabsAllowedTextBox.get(1),String.valueOf(details.getTotalVoiceTabs()));
+		selectWebElement(numericTextbox.get(2));
+		enterValueToTxtFieldWithoutClear(totalChatTabsAllowedTextBox.get(1),String.valueOf(details.getTotalChatTabs()));
+		selectWebElement(numericTextbox.get(3));
+		enterValueToTxtFieldWithoutClear(totalAudioChatTabsAllowedTextBox.get(1),String.valueOf(details.getTotalAudioChatTabs()));
+		selectWebElement(numericTextbox.get(4));
+		enterValueToTxtFieldWithoutClear(totalVideoChatTabsAllowedTextBox.get(1),String.valueOf(details.getTotalVideoChatTabs()));
+		selectWebElement(numericTextbox.get(5));
+		enterValueToTxtFieldWithoutClear(totalFaxTabsAllowedTextBox.get(1),String.valueOf(details.getTotalFaxTabs()));
+		/*selectWebElement(numericTextbox.get(6));
+		enterValueToTxtFieldWithoutClear(totalEmailTabsAllowedTextBox.get(1),String.valueOf(details.getTotalEmailTabs()));
+		selectWebElement(numericTextbox.get(7));
+		enterValueToTxtFieldWithoutClear(totalSMSTabsAllowedTextBox.get(1),String.valueOf(details.getTotalSMSTabs()));	*/																							
+		navigateToTab("Features");
+		//selectDropdownFromVisibleText(featuresListBox,details.getFeatures());
+		selectCheckBox(autoAnswerAllAcdCallsCheckbox,details.isAutoanswerallACDcalls());
+		selectCheckBox(goToAcwAfterEachAcdCallsCheckbox,details.isGotoACWaftereachACDcalls());
+		selectCheckBox(goToAcwAfterAnyCallsCheckbox,details.isGotoACWafteranycalls());
+		//selectCheckBox(crmEnabledCheckbox,details.iscRMEnabled());
+		selectCheckBox(holdVoiceCallOnChatCallCheckbox,details.isHoldVoiceCallOnChatCall());
+		//selectCheckBox(secondTextChatAutoAnswerCheckbox,details.isSecondTextChatAutoAnswer());
+		//selectCheckBox(textChatAutoACWCheckbox,details.isTextChatAutoACWEnabled());
+		//selectCheckBox(textChatAutoAnswerCheckbox,details.isTextChatAutoAnswer());
+		//        selectCheckBox(manualInCheckbox,details.isManualIn());
+		//        selectCheckBox(smsOutCheckbox,details.isSMSOut());
+		selectWebElement(saveBtn);
+	}
+	
 
 
 }

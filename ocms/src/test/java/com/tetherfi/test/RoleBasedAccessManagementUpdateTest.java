@@ -59,6 +59,7 @@ public class RoleBasedAccessManagementUpdateTest {
         ocmHomePage.navigateToRoleBasedAccessManagementPage();
         RoleBasedAccessManagementPage roleBasedAccessManagementPage = PageFactory.createPageInstance(driver, RoleBasedAccessManagementPage.class);
         Assert.assertTrue(roleBasedAccessManagementPage.isRoleBasedAccessManagementPageDisplayed(), "Branch Management page assertion failed");
+        driver.navigate().refresh();
         driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 	}
 	@Test(groups= {"Maker"}, priority=1)

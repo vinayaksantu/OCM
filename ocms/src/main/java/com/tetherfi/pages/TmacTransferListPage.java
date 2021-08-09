@@ -128,7 +128,7 @@ public class TmacTransferListPage extends BasePage {
     @FindBy(css = "#grid .k-grid-CustomDelete")
     private WebElement deleteButton;
 
-    @FindBy(css = "#drillgrid .k-grid-CustomDelete")
+    @FindBy(css = "#tdrillgrid .k-grid-CustomDelete")
     private WebElement deleteButton1;
 
     @FindBy(id = "ModifyReason1")
@@ -181,8 +181,8 @@ public class TmacTransferListPage extends BasePage {
    @FindBy(xpath="//span[@class='k-pager-info k-label']")
 	private WebElement items;
    
-   @FindBy(xpath="//*[@id='createone']/../..//span[@class='k-pager-info k-label']")
-	private WebElement itemsBlindTrans;
+   @FindBy(xpath="//*[@id='tdrillgrid']/../..//span[@class='k-pager-info k-label']")
+	private List<WebElement> itemsBlindTrans;
    
    @FindBy(xpath="//*[@id='myWindow_wnd_title']/../div/a[@aria-label='Close']")
    private WebElement delPopupCloseBtn;
@@ -196,8 +196,8 @@ public class TmacTransferListPage extends BasePage {
    @FindBy(xpath="//span[@class='k-input']")
 	private WebElement pagerSize;
    
-   @FindBy(xpath="//*[@id='createone']/../..//span[@class='k-input']")
-	private WebElement pagerSizeBlindTrans;
+   @FindBy(xpath="//*[@id='tdrillgrid']/../..//span[@class='k-input']")
+	private List<WebElement> pagerSizeBlindTrans;
    
    @FindBy(id="tgrid")
 	private WebElement auditGridContent;
@@ -244,6 +244,8 @@ public class TmacTransferListPage extends BasePage {
 	@FindBy(css="#tdrillgrid .k-grid-content")
 	private WebElement gridContent2;
 	
+	@FindBy(xpath="//a[text()='Skill Name']")
+	private WebElement skillName;
 	
    
     public boolean isTmacTransferListPageDisplayed() {
@@ -363,6 +365,7 @@ public class TmacTransferListPage extends BasePage {
         selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,columnNameListValue);
+        Thread.sleep(1000);
         selectWebElement(selectSearchCol.get(1));
         Thread.sleep(1000);
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is equal to");
@@ -498,8 +501,8 @@ public class TmacTransferListPage extends BasePage {
 		selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Skill Name");
-        selectWebElement(selectSearchCol.get(1));
         Thread.sleep(1000);
+        selectWebElement(selectSearchCol.get(1));
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is not equal to");
         enterValueToTxtField(searchTextBox,skillname);		
         selectWebElement(searchSearchBtn);
@@ -521,8 +524,8 @@ public class TmacTransferListPage extends BasePage {
 		selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Skill Name");
-        selectWebElement(selectSearchCol.get(1));
         Thread.sleep(1000);
+        selectWebElement(selectSearchCol.get(1));
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Contains");
         enterValueToTxtField(searchTextBox,skillname);		
         selectWebElement(searchSearchBtn);
@@ -542,6 +545,7 @@ public class TmacTransferListPage extends BasePage {
 		selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Skill Name");
+        Thread.sleep(1000);
         selectWebElement(selectSearchCol.get(1));
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Does not contain");
         enterValueToTxtField(searchTextBox,skillname);		
@@ -563,6 +567,7 @@ public class TmacTransferListPage extends BasePage {
 		selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Skill Name");
+        Thread.sleep(1000);
         selectWebElement(selectSearchCol.get(1));
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Starts with");
         enterValueToTxtField(searchTextBox,skillname);		
@@ -584,6 +589,7 @@ public class TmacTransferListPage extends BasePage {
 		selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Skill Name");
+        Thread.sleep(1000);
         selectWebElement(selectSearchCol.get(1));
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Ends with");
         enterValueToTxtField(searchTextBox,skillname);		
@@ -620,6 +626,7 @@ public class TmacTransferListPage extends BasePage {
     public void deleteTmacConsultTransferList(TmacTransferListDetails tmacTransferListDetails) throws Exception {
         searchTmacTransferRecord(tmacTransferListDetails.getName(),"Name",0);
         selectWebElement(deleteButton);
+        selectWebElement(deleteReasonTextBox);
         enterValueToTxtFieldWithoutClear(deleteReasonTextBox,tmacTransferListDetails.getDeleteReason());
         selectWebElement(deleteYesBtn);
     }
@@ -768,7 +775,7 @@ public class TmacTransferListPage extends BasePage {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-		String actualitems=itemsBlindTrans.getText();
+		String actualitems=itemsBlindTrans.get(1).getText();
 		selectWebElement(addNewTmacBlindTransferListBtn.get(0));
 		try {
             Thread.sleep(1000);
@@ -784,7 +791,7 @@ public class TmacTransferListPage extends BasePage {
             e.printStackTrace();
         }        
         selectWebElement(CancelButton);
-        if(actualitems.equals(itemsBlindTrans.getText()))
+        if(actualitems.equals(itemsBlindTrans.get(1).getText()))
         	return true;
         else 
         	return false;
@@ -870,8 +877,8 @@ public class TmacTransferListPage extends BasePage {
 	}
 	
 	private List<Map<String,String>> getdataBlindTrans() throws InterruptedException{
-		int item=Integer.valueOf(itemsBlindTrans.getText().split("of ")[1].split(" items")[0]);
-        int pagersize=Integer.valueOf(pagerSizeBlindTrans.getText());
+		int item=Integer.valueOf(itemsBlindTrans.get(1).getText().split("of ")[1].split(" items")[0]);
+        int pagersize=Integer.valueOf(pagerSizeBlindTrans.get(1).getText());
         int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
 		List<Map<String,String>> arr=new ArrayList<Map<String,String>>();
 		for(int k=0;k<=pages;k++){
@@ -913,6 +920,8 @@ public class TmacTransferListPage extends BasePage {
 	
 	public boolean verifyDatabaseBlindTrans(String query) throws Exception {
 		List<Map<String,String>> database=database(query);
+		selectWebElement(skillName);
+		waitForJqueryLoad(driver);
 		System.out.println(database);
 		List<Map<String,String>> UI=gettableBlindTrans(); 
 		System.out.println(UI);
@@ -940,10 +949,10 @@ public class TmacTransferListPage extends BasePage {
 				/*if(headers.get(j).getText().equals("Last Changed On")){
 					col=cols.get(j).getText().substring(10);
 					}
-				else*/
-				if(headers.get(j).getText().equals("Last Changed On"))
-					col=cols.get(j).getText().replaceAll("/", "/");
 				else
+				if(headers.get(j).getText().equals("Last Changed On"))
+					col=cols.get(j).getText().replaceAll("/", "-");
+				else*/
 					col=cols.get(j).getText();
 				map.put(headers.get(j).getText(),col);
 			}
@@ -958,8 +967,8 @@ public class TmacTransferListPage extends BasePage {
 	}
 	private List<Map<String,String>> gettableBlindTrans() throws Exception{
 		Thread.sleep(5000);
-		int item=Integer.valueOf(itemsBlindTrans.getText().split("of ")[1].split(" items")[0]);
-        int pagersize=Integer.valueOf(pagerSizeBlindTrans.getText());
+		int item=Integer.valueOf(itemsBlindTrans.get(1).getText().split("of ")[1].split(" items")[0]);
+        int pagersize=Integer.valueOf(pagerSizeBlindTrans.get(1).getText());
         int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
 		List<Map<String,String>> arr=new ArrayList<Map<String,String>>();
 		for(int k=0;k<=pages;k++){
@@ -974,10 +983,10 @@ public class TmacTransferListPage extends BasePage {
 				/*if(headers.get(j).getText().equals("Last Changed On")){
 					col=cols.get(j).getText().substring(10);
 					}
-				else*/
+				else
 				if(headers.get(j).getText().equals("Last Changed On"))
 					col=cols.get(j).getText().replaceAll("/", "-");
-				else
+				else*/
 					col=cols.get(j).getText();
 				map.put(headers.get(j).getText(),col);
 			}

@@ -303,7 +303,6 @@ public class ChatIntentSkillMappingTest extends BaseTest {
         String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\IntentSkillMappingData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
         ChatIntentSkillMappingDetails intentSkillMappingDetails=new ChatIntentSkillMappingDetails(map);
-
         ChatIntentSkillMappingPage intentSkillMappingPage = PageFactory.createPageInstance(driver,ChatIntentSkillMappingPage.class);
         intentSkillMappingPage.deleteIntentSkillMappingRecord(intentSkillMappingDetails.getSegment(),intentSkillMappingDetails.getDeleteReason());
         Assert.assertEquals(intentSkillMappingPage.getMessage(),"Record Deleted Successfully","Delete record assertion failed");

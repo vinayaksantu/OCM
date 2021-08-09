@@ -215,6 +215,9 @@ public class TmacBroadCastMsgPage extends BasePage {
     
     @FindBy(xpath="//a[text()='Message']")
     private WebElement MessageColumn;
+    
+    @FindBy(xpath="//a[text()='Org. Unit']")
+    private List<WebElement> orgUnit;
 
     public boolean isTmacBroadcastMsgPageDisplayed() {
         waitForLoad(driver);
@@ -398,6 +401,8 @@ public class TmacBroadCastMsgPage extends BasePage {
         selectWebElement(messageTextbox);
         enterValueToTxtField(messageTextbox,tmacBroadCastMsgDetails.getUpdatedMessage());
         selectWebElement(statusDropdown);
+        waitForJqueryLoad(driver);
+        System.out.println(tmacBroadCastMsgDetails.getUpdatedStatus());
         selectDropdownFromVisibleText(statusListBox,tmacBroadCastMsgDetails.getUpdatedStatus());
         enterValueToTxtFieldWithoutClear(ModifyReasonTextBox,tmacBroadCastMsgDetails.getModifyReason());
         selectWebElement(SaveButton);
@@ -689,8 +694,8 @@ public class TmacBroadCastMsgPage extends BasePage {
 	}
 
 	public boolean verifyDatabase(String query) throws Exception {
-		selectWebElement(MessageColumn);
 		List<Map<String,String>> database=database(query);
+		selectWebElement(orgUnit.get(1));
 		System.out.println(database);
 		Thread.sleep(5000);
 		List<Map<String,String>> UI=gettable(); 
@@ -786,6 +791,8 @@ public class TmacBroadCastMsgPage extends BasePage {
 		
 	public boolean verifyexportToExcelSheet(List<Map<String, String>> maplist) {
 		List<Map<String,String>> UI=getdata(); 
+		System.out.println(UI);
+		System.out.println(maplist);
 		if(UI.equals(maplist))
 		return true;
 		else
@@ -1002,8 +1009,10 @@ public class TmacBroadCastMsgPage extends BasePage {
 	}
 
 	public void SortByDescending() {
-		selectWebElement(message);
-		selectWebElement(message);
+		selectWebElement(orgUnit.get(1));
+		waitForJqueryLoad(driver);
+		selectWebElement(orgUnit.get(1));
+		waitForJqueryLoad(driver);
 		selectWebElement(exporttoexcel);
 		try {
 			Thread.sleep(2000);

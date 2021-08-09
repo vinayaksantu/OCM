@@ -44,19 +44,19 @@ public class ChatTemplatesPage extends BasePage {
     @FindBy(id="tgrid")
     private WebElement grid2;
 
-    @FindBy(css="#tdrillgrid .k-grid-content")
+    @FindBy(css="#tgridChatDepartment .k-grid-content")
     private WebElement departmentsGridContent;
 
-    @FindBy(css="#tdrillgrid2 .k-grid-content")
+    @FindBy(css="#tgridChatGroup .k-grid-content")
     private WebElement groupsGridContent;
 
-    @FindBy(id="createtwo")
+    @FindBy(xpath="//button[normalize-space()='Add New Text Templates Record']")
     private WebElement addNewChatTemplatesRecordBtn;
 
-    @FindBy(css="#tdrillgrid #create")
+    @FindBy(xpath="//button[normalize-space()='Add New Department Record']")
     private WebElement addNewDepartmentRecordBtn;
 
-    @FindBy(css="#tdrillgrid2 #createone")
+    @FindBy(xpath="//button[normalize-space()='Add New Group Record']")
     private WebElement addNewGroupRecordBtn;
 
     @FindBy(css=".k-edit-form-container")

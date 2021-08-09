@@ -147,7 +147,6 @@ public class WaitTimeColorConfigTest extends BaseTest {
 		Assert.assertTrue(waitTimeColorConfigPage.verifySearchEndsWith(waitTimeColorConfigDetails.getColorcode()));
 	}
 
-
 	@Test(priority=12)
 	public void EditWaitTimeColorConfigCancelRecord() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\WaitTimeColorConfigData.xlsx";
@@ -212,7 +211,7 @@ public class WaitTimeColorConfigTest extends BaseTest {
 		Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
 		WaitTimeColorConfigDetails waitTimeColorConfigDetails = new WaitTimeColorConfigDetails(map);
 		WaitTimeColorConfigPage waitTimeColorConfigPage=PageFactory.createPageInstance(driver,WaitTimeColorConfigPage.class);
-		Assert.assertTrue(waitTimeColorConfigPage.deleteNo(waitTimeColorConfigDetails.getStartTime(),waitTimeColorConfigDetails.getDeleteReason()));
+		Assert.assertTrue(waitTimeColorConfigPage.deleteNo(waitTimeColorConfigDetails.getUpdatedColorCode(),waitTimeColorConfigDetails.getDeleteReason()));
 	}
 
 	@Test(priority=19)
@@ -221,7 +220,7 @@ public class WaitTimeColorConfigTest extends BaseTest {
 		Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
 		WaitTimeColorConfigDetails waitTimeColorConfigDetails = new WaitTimeColorConfigDetails(map);
 		WaitTimeColorConfigPage waitTimeColorConfigPage=PageFactory.createPageInstance(driver,WaitTimeColorConfigPage.class);
-		waitTimeColorConfigPage.deleteWaitTimeColorConfigRecord(waitTimeColorConfigDetails.getStartTime(),waitTimeColorConfigDetails.getDeleteReason());
+		waitTimeColorConfigPage.deleteWaitTimeColorConfigRecord(waitTimeColorConfigDetails.getUpdatedColorCode(),waitTimeColorConfigDetails.getDeleteReason());
 		Assert.assertEquals(waitTimeColorConfigPage.getSuccessMessage(),"Record deleted successfully","Delete record assertion failed");
 	}
 

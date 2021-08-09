@@ -287,12 +287,11 @@ public class ChatMenuDescriptionTest extends BaseTest {
     }
     @Test(priority=27)
     public void VerifyCancelBtnAtDeleteChatMenuDescriptionRecord() throws Exception{
-        ChatMenuDescriptionPage ChatMenuDescriptionPage = PageFactory.createPageInstance(driver, ChatMenuDescriptionPage.class);
-        ChatMenuDescriptionPage.searchChatMenuDescriptionRecord("24");
-        Thread.sleep(1000);
-        ChatMenuDescriptionPage.clickOnDeleteButton();
-        ChatMenuDescriptionPage.clickOnDeleteCancelBtn();
-        Assert.assertFalse(ChatMenuDescriptionPage.verifyDeleteContainer(), "Cancel Btn at Delete record assertion failed");
+    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatMenuDescriptionData.xlsx";
+        Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
+        ChatMenuDescriptionDetails chatMenuDescriptionDetails=new ChatMenuDescriptionDetails(map);
+        ChatMenuDescriptionPage chatMenuDescriptionPage = PageFactory.createPageInstance(driver,ChatMenuDescriptionPage.class);
+        Assert.assertTrue(chatMenuDescriptionPage.deleteNo(chatMenuDescriptionDetails.getMenuId(),chatMenuDescriptionDetails.getDeleteReason()));
     }
     
     @Test(priority=28)//,dependsOnMethods = "EditChatMenuDescriptionRecord")
@@ -302,7 +301,6 @@ public class ChatMenuDescriptionTest extends BaseTest {
         ChatMenuDescriptionDetails chatMenuDescriptionDetails=new ChatMenuDescriptionDetails(map);
         ChatMenuDescriptionPage chatMenuDescriptionPage = PageFactory.createPageInstance(driver,ChatMenuDescriptionPage.class);
         chatMenuDescriptionPage.deletechatMenuDescriptionRecord(chatMenuDescriptionDetails);
-		Thread.sleep(1000);
         Assert.assertEquals(chatMenuDescriptionPage.getSuccessMessage(),"Record Deleted Successfully","Delete record assertion failed");
     }
     

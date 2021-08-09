@@ -34,7 +34,7 @@ public class TmacTransferListTest extends BaseTest {
 		Assert.assertTrue(tmacTransferListPage.isTmacTransferListPageDisplayed(),"Agent Team  management assertion failed");
 	}
 
-	/*@Test (priority=0)
+	@Test (priority=0)
 	public void VerifyTmacTransferListModuleDisplay() {
 		TmacTransferListPage tmacTransferListPage=PageFactory.createPageInstance(driver,TmacTransferListPage.class);
 		Assert.assertEquals(tmacTransferListPage.getHeaderText(), "Skill Transfer List", "Tmac Transfer List Module text assertion failed");
@@ -144,7 +144,7 @@ public class TmacTransferListTest extends BaseTest {
 		Assert.assertTrue(ocmReportsPage.verifyTmacConsultTransferCreate(tmacTransferListDetails,"Create"));       
 	}
 
-	@Test (priority=10,enabled=true)
+	@Test (priority=10,enabled=false)
 	public void VerifyErrMsgDuplicateName() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\TmacTransferListData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath, "ConsulCreate").getTestData().get(4);
@@ -159,7 +159,7 @@ public class TmacTransferListTest extends BaseTest {
 		Assert.assertEquals(tmacTransferListPage.verifyMessage(),tmacTransferListDetails.getExpErrMsg());
 	}
 
-	@Test (priority=11,enabled=true)
+	@Test (priority=11,enabled=false)
 	public void VerifyErrMsgDuplicateValue() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\TmacTransferListData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath, "ConsulCreate").getTestData().get(5);
@@ -185,7 +185,7 @@ public class TmacTransferListTest extends BaseTest {
 		Assert.assertEquals(tmacTransferListPage.VerifySuccessMsg(),"Record Created Successfully","Add New record assertion failed");
 	}
 
-	@Test (priority=13,enabled=true)//, dependsOnMethods = ("AddNewTmacConsultTransferRecord2"))
+	@Test (priority=13,enabled=false)//, dependsOnMethods = ("AddNewTmacConsultTransferRecord2"))
 	public void VerifyDupNameErrMsgOnEditConsulRecd() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\TmacTransferListData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath, "ConsulEdit").getTestData().get(0);
@@ -197,7 +197,7 @@ public class TmacTransferListTest extends BaseTest {
 		Assert.assertEquals(tmacTransferListPage.verifyMessage(),tmacTransferListDetails.getExpErrMsg());
 	}
 
-	@Test (priority=14,enabled=true)//, dependsOnMethods = ("AddNewTmacConsultTransferRecord2"))
+	@Test (priority=14,enabled=false)//, dependsOnMethods = ("AddNewTmacConsultTransferRecord2"))
 	public void VerifyDupValueErrMsgOnEditConsulRecd() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\TmacTransferListData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath, "ConsulEdit").getTestData().get(1);
@@ -417,7 +417,7 @@ public class TmacTransferListTest extends BaseTest {
 		tmacTransferListPage.navigateToTab("TMAC Consult Transfer");
 		tmacTransferListPage.deleteTmacConsultTransferList(tmacTransferListDetails);
 		Assert.assertEquals(tmacTransferListPage.VerifySuccessMsg(),"Record Deleted Successfully","Delete record assertion failed");
-	}
+	}	
 
 	@Test (priority=35)
 	public void fullScreenAndRestore() throws InterruptedException
@@ -427,7 +427,7 @@ public class TmacTransferListTest extends BaseTest {
 		Assert.assertTrue(tmacTransferListPage.ocmHeaderNotDisplayed(), "OCM Header not displayed assertion failed");
 		tmacTransferListPage.selectFullScreen();
 		Assert.assertTrue(tmacTransferListPage.ocmHeaderDisplayed(), "OCM Header displayed assertion failed");
-	}*/
+	}
 
 	@Test (priority=36)
 	public void VerifyTmacBlindTransferTableHeaders() throws Exception {
@@ -539,7 +539,7 @@ public class TmacTransferListTest extends BaseTest {
 		Assert.assertTrue(ocmReportsPage.verifyTmacBlindTransferCreate(tmacTransferListDetails,"Create"));       
 	}
 
-	@Test (priority=46,enabled=true)//, dependsOnMethods = ("AddNewTmacBlindTransferRecord"))
+	@Test (priority=46,enabled=false)//, dependsOnMethods = ("AddNewTmacBlindTransferRecord"))
 	public void VerifyErrMsgDupSkillIdNameVdn() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\TmacTransferListData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath, "BlindCreate").getTestData().get(4);
@@ -552,7 +552,7 @@ public class TmacTransferListTest extends BaseTest {
 		//    	Assert.assertEquals(tmacTransferListPage.verifyMessage2(),tmacTransferListDetails.getExpErrMsg2());
 	}
 
-	@Test (priority=47,enabled=true)//, dependsOnMethods = ("AddNewTmacBlindTransferRecord"))
+	@Test (priority=47,enabled=false)//, dependsOnMethods = ("AddNewTmacBlindTransferRecord"))
 	public void VerifyErrMsgDupSkillIdName() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\TmacTransferListData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath, "BlindCreate").getTestData().get(5);

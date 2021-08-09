@@ -223,7 +223,7 @@ public class AttributesTest extends BaseTest {
 	@Test(priority=19,description="To Verify Export Excel without Data")
 	public void verifyExportToExcelWithoutData() throws Exception {
 		String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AttributesData.xlsx";
-		Map<String,String>map=new ExcelReader(filePath,"Invalid").getTestData().get(0);
+		Map<String,String>map=new ExcelReader(filePath,"Search").getTestData().get(0);
 		AttributesDetails attributesDetails=new AttributesDetails(map);
 		AttributesPage attributePage=PageFactory.createPageInstance(driver, AttributesPage.class);
 		Assert.assertTrue(attributePage.VerifyExportToExcelWithoutData(attributesDetails), "Export to Excel Without Data assertion failed");
@@ -349,7 +349,7 @@ public class AttributesTest extends BaseTest {
 	@Test(priority=33,description=" To Verify Search Clear Search Button")
 	public void SearchClearSearch() throws Exception{
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AttributesData.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"Invalid").getTestData().get(0);
+		Map<String, String> map = new ExcelReader(filePath,"Search").getTestData().get(0);
 		AttributesDetails attributesDetails=new AttributesDetails(map);
 		AttributesPage attributePage=PageFactory.createPageInstance(driver, AttributesPage.class);;
 		Assert.assertTrue(attributePage.verifyinvalidsearchwithwrongdata(attributesDetails),"invalidsearchwithwrongdata");
@@ -360,7 +360,7 @@ public class AttributesTest extends BaseTest {
 	@Test(priority=34,description="To Verify Search Data Is Not Equal to ")
 	public void SearchIsNotEqualTo() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AttributesData.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"Invalid").getTestData().get(1);
+		Map<String, String> map = new ExcelReader(filePath,"Search").getTestData().get(1);
 		AttributesDetails attributesDetails=new AttributesDetails(map);
 		AttributesPage attributePage=PageFactory.createPageInstance(driver, AttributesPage.class);;
 		Assert.assertTrue(attributePage.verifySearchIsnotEqualTo(attributesDetails.getName()), "Search assertion Failed");
@@ -369,7 +369,7 @@ public class AttributesTest extends BaseTest {
 	@Test(priority=35,description="To Verify Search Data Contains ")
 	public void SearchContains() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AttributesData.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"Invalid").getTestData().get(2);
+		Map<String, String> map = new ExcelReader(filePath,"Search").getTestData().get(2);
 		AttributesDetails attributesDetails=new AttributesDetails(map);
 		AttributesPage attributePage=PageFactory.createPageInstance(driver, AttributesPage.class);;
 		Assert.assertTrue(attributePage.verifySearchContains(attributesDetails.getName()), "Search assertion Failed");
@@ -378,7 +378,7 @@ public class AttributesTest extends BaseTest {
 	@Test(priority=36,description="To Verify Search Data Doesnot Contain ")
 	public void SearchDoesNotContains() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AttributesData.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"Invalid").getTestData().get(2);
+		Map<String, String> map = new ExcelReader(filePath,"Search").getTestData().get(2);
 		AttributesDetails attributesDetails=new AttributesDetails(map);
 		AttributesPage attributePage=PageFactory.createPageInstance(driver, AttributesPage.class);;
 		Assert.assertTrue(attributePage.verifySearchDoesNotContains(attributesDetails.getName()), "Search assertion Failed");
@@ -387,7 +387,7 @@ public class AttributesTest extends BaseTest {
 	@Test(priority=37,description="To Verify Search Data Starts with ")
 	public void SearchStartsWith() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AttributesData.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"Invalid").getTestData().get(3);
+		Map<String, String> map = new ExcelReader(filePath,"Search").getTestData().get(3);
 		AttributesDetails attributesDetails=new AttributesDetails(map);
 		AttributesPage attributePage=PageFactory.createPageInstance(driver, AttributesPage.class);;
 		Assert.assertTrue(attributePage.verifySearchStartsWith(attributesDetails.getName()), "Search assertion Failed");
@@ -396,7 +396,7 @@ public class AttributesTest extends BaseTest {
 	@Test(priority=38,description="To Verify search Data Ens with ")
 	public void SearchEndsWith() throws Exception {
 		String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\AttributesData.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"Invalid").getTestData().get(4);
+		Map<String, String> map = new ExcelReader(filePath,"Search").getTestData().get(4);
 		AttributesDetails attributesDetails=new AttributesDetails(map);
 		AttributesPage attributePage=PageFactory.createPageInstance(driver, AttributesPage.class);
 		Assert.assertTrue(attributePage.verifySearchEndsWith(attributesDetails.getName()), "Search assertion Failed");

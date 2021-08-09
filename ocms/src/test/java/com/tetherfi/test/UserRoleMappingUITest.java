@@ -164,7 +164,7 @@ Screenshot screenshot=new Screenshot(driver);
     }
     
     @Test(priority=16)
-    public void SortingByDescending() throws IOException {
+    public void SortingByDescending() throws Exception {
     	NewUserRoleMappingPage NewUserRoleMappingPage = PageFactory.createPageInstance(driver, NewUserRoleMappingPage.class);
         NewUserRoleMappingPage.selectUserRoleMappingAuditTrailTab();
         NewUserRoleMappingPage.selectMakeUserRoleMappingChanges();

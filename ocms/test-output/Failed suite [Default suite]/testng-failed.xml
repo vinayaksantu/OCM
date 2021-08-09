@@ -1,35 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Failed suite [Default suite]]" guice-stage="DEVELOPMENT">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Failed suite [Default suite]]">
   <test thread-count="5" name="Default test(failed)(failed)">
     <classes>
-      <class name="com.tetherfi.test.reports.OCMChatbotInteractionreportTest">
+      <class name="com.tetherfi.test.tmac.TmacTransferListTest">
         <methods>
-          <include name="NavigateToOcmReportsPage"/>
-          <include name="ViewDownloadedChatbotInteractionReportInReportsDownloadPageinChatbotInteractionPg"/>
-          <include name="afterEachMethod"/>
-          <include name="VerifyViewDownloadedOcmChatbotInteractionReportInReportsDownloadPage"/>
-          <include name="DeleteWithoutDeleteReasonRecordinReportsDownload"/>
-          <include name="VerifySearchEqualsFeatureForChatbotInteractionReport"/>
-          <include name="endTestCase"/>
-          <include name="VerifyExportedPage"/>
-          <include name="ViewDownloadedChatbotInteractionReportInReportsDownloadPageDateRange"/>
-          <include name="tearDown"/>
-          <include name="VerifySearchByFeatureForChatbotInteractionReport"/>
-          <include name="VerifySearchEndsWith"/>
-          <include name="VerifyViewDownloadedOcmChatbotInteractionReportInReportsDownloadDateRangePage"/>
-          <include name="ExportToExcelForChatbotInteractionReport"/>
+          <include name="DeleteTmacBlindTransferRecord3"/>
           <include name="startTestCase"/>
           <include name="openApplication"/>
-          <include name="ExportPage"/>
-          <include name="VerifySorting"/>
-          <include name="VerifyViewDownloadedOcmChatbotInteractionReportInReportsDownload"/>
-          <include name="verifyAdvancedSearchinreportpage"/>
-          <include name="ExportChatbotInteractionReportDateRange"/>
-          <include name="DeleteRecord"/>
-          <include name="VerifySearchIsNotEqualTo"/>
+          <include name="afterEachMethod"/>
+          <include name="NavigatetoTmacTransferListPage"/>
+          <include name="endTestCase"/>
+          <include name="tearDown"/>
+          <include name="VerifyAuditTrialReportForTmacBlindTransferDelete"/>
+          <include name="DeleteTmacBlindTransferRecord2"/>
         </methods>
-      </class> <!-- com.tetherfi.test.reports.OCMChatbotInteractionreportTest -->
+      </class> <!-- com.tetherfi.test.tmac.TmacTransferListTest -->
     </classes>
   </test> <!-- Default test(failed)(failed) -->
 </suite> <!-- Failed suite [Failed suite [Default suite]] -->

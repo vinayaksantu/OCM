@@ -182,7 +182,7 @@ public class WaitTimeColorConfigPage extends BasePage {
     @FindBy(id="tGrid")
     private WebElement auditGridContent;
     
-    @FindBy(xpath="//tbody/tr/td[2]")
+    @FindBy(xpath="//tbody/tr/td[5]")
     private WebElement rowdata;
     
     @FindBy(xpath="//p[@class='k-reset']")
@@ -387,20 +387,20 @@ public class WaitTimeColorConfigPage extends BasePage {
 	}
         return Status;
 	}
-    public void searchWaitTimeColorConfigRecord(String StartTime) throws Exception  {
+    public void searchWaitTimeColorConfigRecord(String colorcode) throws Exception  {
         selectWebElement(searchLink);
         selectWebElement(selectSearchColumn.get(0));
-        selectDropdownFromVisibleText(columnNameList,"Start Duration");
+        selectDropdownFromVisibleText(columnNameList,"Color Code");
         Thread.sleep(1000);
         selectWebElement(selectSearchColumn.get(1));
         selectDropdownFromVisibleText(searchTypeList,"Is equal to");
-        enterValueToTxtBox1(searchText.get(0),StartTime);
+        enterValueToTxtField(searchTextBox,colorcode);
         selectWebElement(searchBtn);
         waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(gridContent);
     }
     public void editWaitTimeColorConfigRecord(WaitTimeColorConfigDetails details) throws Exception {
-        searchWaitTimeColorConfigRecord(details.getStartTime());
+        searchWaitTimeColorConfigRecord(details.getColorcode());
         try {
 			Thread.sleep(500);
 		} catch (InterruptedException e) {
@@ -439,14 +439,14 @@ public class WaitTimeColorConfigPage extends BasePage {
         selectWebElement(yesBtn);
     }
     
-    public boolean deleteNo(String Starttime, String reason) throws Exception {
-		searchWaitTimeColorConfigRecord(Starttime);
+    public boolean deleteNo(String ColorCode, String reason) throws Exception {
+		searchWaitTimeColorConfigRecord(ColorCode);
 		Thread.sleep(1000);
         btnClick(deleteBtn);
         selectWebElement(deleteReasonTextBox);
         enterValueToTxtFieldWithoutClear(deleteReasonTextBox,reason);
         selectWebElement(noBtn);
-        if(rowdata.getText().equals(Starttime))
+        if(rowdata.getText().equals(ColorCode))
         {return true;}
         else
         	return false;
@@ -570,7 +570,7 @@ public class WaitTimeColorConfigPage extends BasePage {
 	}
 	
 	public boolean editcancel(WaitTimeColorConfigDetails details) throws Exception {
-		searchWaitTimeColorConfigRecord(details.getStartTime());
+		searchWaitTimeColorConfigRecord(details.getColorcode());
         selectWebElement(editBtn);
         waitForJqueryLoad(driver);
         selectWebElement(startTime);
@@ -610,7 +610,7 @@ public class WaitTimeColorConfigPage extends BasePage {
 			return false;
 	}
 	public boolean verifyinvalidsearch(WaitTimeColorConfigDetails details) throws Exception {
-		searchWaitTimeColorConfigRecord(details.getStartTime());
+		searchWaitTimeColorConfigRecord(details.getColorcode());
 		if(norecords.isDisplayed())
 			return true; 
 		else
@@ -719,6 +719,8 @@ public class WaitTimeColorConfigPage extends BasePage {
 	}
 	public boolean verifyDatabase(String query) throws Exception {
 		List<Map<String,String>> database=database(query);
+		selectWebElement(color);
+		waitForJqueryLoad(driver);
 		System.out.println(database);
 		List<Map<String,String>> UI=gettable(); 
 		System.out.println(UI);

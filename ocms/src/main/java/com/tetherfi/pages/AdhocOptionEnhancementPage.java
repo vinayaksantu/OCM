@@ -337,6 +337,7 @@ public class AdhocOptionEnhancementPage extends BasePage {
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is not equal to");
         enterValueToTxtField(searchTextBox,promotiondescription);		
         selectWebElement(searchSearchBtn);
+        waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(gridContent);
         List<Map<String,String>> UI=gettable(); 
         for (Map<String,String> map1: UI)
@@ -358,6 +359,7 @@ public class AdhocOptionEnhancementPage extends BasePage {
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Contains");
         enterValueToTxtField(searchTextBox,promotiondescription);		
         selectWebElement(searchSearchBtn);
+        waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(gridContent);
         List<Map<String,String>> UI=gettable(); 
         for (Map<String,String> map1: UI)
@@ -378,6 +380,7 @@ public class AdhocOptionEnhancementPage extends BasePage {
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Does not contain");
         enterValueToTxtField(searchTextBox,promotiondescription);		
         selectWebElement(searchSearchBtn);
+        waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(gridContent);
         List<Map<String,String>> UI=gettable(); 
         for (Map<String,String> map1: UI)
@@ -398,6 +401,7 @@ public class AdhocOptionEnhancementPage extends BasePage {
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Starts with");
         enterValueToTxtField(searchTextBox,promotiondescription);		
         selectWebElement(searchSearchBtn);
+        waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(gridContent);
         List<Map<String,String>> UI=gettable(); 
         for (Map<String,String> map1: UI)
@@ -418,6 +422,7 @@ public class AdhocOptionEnhancementPage extends BasePage {
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Ends with");
         enterValueToTxtField(searchTextBox,promotiondescription);		
         selectWebElement(searchSearchBtn);
+        waitForJqueryLoad(driver);
         waitUntilWebElementIsVisible(gridContent);
         List<Map<String,String>> UI=gettable(); 
         for (Map<String,String> map1: UI)
@@ -434,6 +439,7 @@ public class AdhocOptionEnhancementPage extends BasePage {
         selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,column);
+        Thread.sleep(2000);
         selectWebElement(selectSearchCol.get(1));
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is equal to");
         enterValueToTxtField(searchTextBox,value);
@@ -442,10 +448,11 @@ public class AdhocOptionEnhancementPage extends BasePage {
         waitUntilWebElementIsVisible(gridContent);
     }
     
-    public void searchwithoutextsearch(AdhocOptionEnhancementDetails details) {
+    public void searchwithoutextsearch(AdhocOptionEnhancementDetails details) throws Exception {
     	selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Promotion Number");
+        Thread.sleep(2000);
         selectWebElement(selectSearchCol.get(1));
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is equal to");
         selectWebElement(searchSearchBtn);
@@ -456,6 +463,7 @@ public class AdhocOptionEnhancementPage extends BasePage {
     	selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Promotion Number");
+        Thread.sleep(2000);
         selectWebElement(selectSearchCol.get(1));
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is equal to");
         enterValueToTxtField(searchTextBox,details.getPromotionalNumber());
@@ -469,6 +477,7 @@ public class AdhocOptionEnhancementPage extends BasePage {
 		}
         selectWebElement(selectSearchCol.get(2));
         selectDropdownFromVisibleTextContains(columnNameListtwo,"Language");
+        Thread.sleep(2000);
         selectWebElement(selectSearchCol.get(3));
         selectDropdownFromVisibleText(searchCriteriaDropDwntwo,"Is equal to");
         enterValueToTxtField(searchTextBoxtwo,details.getLanguage());
@@ -487,6 +496,7 @@ public class AdhocOptionEnhancementPage extends BasePage {
     	selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Promotion Number");
+        Thread.sleep(2000);
         selectWebElement(selectSearchCol.get(1));
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is equal to");
         enterValueToTxtField(searchTextBox,details.getPromotionalNumber());
@@ -500,6 +510,7 @@ public class AdhocOptionEnhancementPage extends BasePage {
 		}
         selectWebElement(selectSearchCol.get(2));
         selectDropdownFromVisibleTextContains(columnNameListtwo,"Language");
+        Thread.sleep(2000);
         selectWebElement(selectSearchCol.get(3));
         selectDropdownFromVisibleText(searchCriteriaDropDwntwo,"Is equal to");
         enterValueToTxtField(searchTextBoxtwo,details.getLanguage());
@@ -540,25 +551,24 @@ public class AdhocOptionEnhancementPage extends BasePage {
         selectWebElement(ModifyReasonTextBox);
         enterValueToTxtFieldWithoutClear(ModifyReasonTextBox,details.getModifyReason());
         selectWebElement(saveButton);
-        try {
-        	selectWebElement(cancelBtn);
-        }
-        catch(Exception e) {
-        	e.printStackTrace();
-        }
     }
+    
+    public void deleteAdhocOptionEnhancementRecordWithoutDeleteReason(AdhocOptionEnhancementDetails details) throws Exception {
+        searchAdhocOptionEnhancementRecord(details.getSearchColumn(),details.getSearchValue());
+        waitUntilWebElementIsClickable(deleteButton);
+        selectWebElement(deleteButton);
+        selectWebElement(deleteYesBtn);
+        waitForJqueryLoad(driver);
+    }
+    
     public void deleteAdhocOptionEnhancementRecord(AdhocOptionEnhancementDetails details) throws Exception {
         searchAdhocOptionEnhancementRecord(details.getSearchColumn(),details.getSearchValue());
         waitUntilWebElementIsClickable(deleteButton);
         selectWebElement(deleteButton);
+        Thread.sleep(1000);
         enterValueToTxtFieldWithoutClear(deleteReasonTextBox,details.getDeleteReason());
         selectWebElement(deleteYesBtn);
-        /*try {
-        	selectWebElement(deleteNoBtn);
-        }
-        catch(Exception e){
-        	e.printStackTrace();
-        }*/
+        waitForJqueryLoad(driver);
     }
     public String verifySuccessMessage(){
         waitUntilWebElementIsVisible(successmsg);return successmsg.getText();
@@ -714,6 +724,8 @@ public class AdhocOptionEnhancementPage extends BasePage {
 	}
 	public boolean verifyDatabase(String query) throws Exception {
 		List<Map<String,String>> database=database(query);
+		selectWebElement(PromotionDescription);
+		waitForJqueryLoad(driver);
 		System.out.println(database);
 		List<Map<String,String>> UI=gettable(); 
 		System.out.println(UI);
@@ -771,6 +783,7 @@ public class AdhocOptionEnhancementPage extends BasePage {
 
 	public void SortByAscending() {
 		selectWebElement(PromotionDescription);
+		waitForJqueryLoad(driver);
 		selectWebElement(exporttoexcel);
 		try {
 			Thread.sleep(2000);
@@ -781,6 +794,7 @@ public class AdhocOptionEnhancementPage extends BasePage {
 
 	public void SortByDescending() {
 		selectWebElement(Intent);
+		waitForJqueryLoad(driver);
 		selectWebElement(Intent);
 		selectWebElement(exporttoexcel);
 		try {

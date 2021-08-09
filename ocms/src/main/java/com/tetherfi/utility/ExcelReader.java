@@ -1,8 +1,6 @@
-
 package com.tetherfi.utility;
 
 import org.apache.poi.ss.usermodel.CellType;
-import org.apache.poi.ss.usermodel.DataFormat;
 import org.apache.poi.ss.usermodel.DateUtil;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
@@ -12,6 +10,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.List;
@@ -58,6 +57,7 @@ public class ExcelReader {
     }
 
     public String readCellData(int rowNum, int colNum) {
+
         String value = null;
         row = xssfSheet.getRow(rowNum);
         cell = row.getCell(colNum);
@@ -70,7 +70,7 @@ public class ExcelReader {
             } 
             else if (type == CellType.NUMERIC) {
             	if(DateUtil.isCellDateFormatted(cell)){
-                   SimpleDateFormat dateFormat=new SimpleDateFormat("dd/MM/yyyy");
+                   DateFormat dateFormat=new SimpleDateFormat("dd/MM/yyyy");
                   Date date=cell.getDateCellValue();
                   value=dateFormat.format(date);
             	}
@@ -79,7 +79,7 @@ public class ExcelReader {
 				}
             } else if(type == CellType.BOOLEAN){value = String.valueOf(cell.getBooleanCellValue());}
 		}else{
-            value=" ";
+            value="";
         }
         return value;
         }
@@ -109,14 +109,18 @@ public class ExcelReader {
             	{
             		str=str.trim();
             	}
-                map.put(readCellData(i, j).trim(), str);
+            	if(str==null) {
+            		str="";
+            	}
+                map.put(readCellData(i, j), str);
+                map.remove(null);
             }
             mapList.add(map);
         }
 
         return mapList;
+
     }
-    
     public List<Map<String, String>> getExcelData() {
         List<Map<String, String>> mapList = new ArrayList<Map<String, String>>();
         int rowCount = xssfSheet.getLastRowNum();
