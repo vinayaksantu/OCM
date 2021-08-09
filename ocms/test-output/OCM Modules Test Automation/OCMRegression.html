@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>OCMRegression</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>30/2/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>96/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Mon Aug 09 16:02:59 IST 2021</td>
+<td>Started on:</td><td>Mon Aug 09 18:06:59 IST 2021</td>
 </tr>
-<tr><td>Total time:</td><td>1021 seconds (1021398 ms)</td>
+<tr><td>Total time:</td><td>1400 seconds (1400870 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -75,16 +75,16 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.tetherfi.test.tmac.TmacBroadCastMsgTest.AddDuplicateRecord()'><b>AddDuplicateRecord</b><br>Test class: com.tetherfi.test.tmac.TmacBroadCastMsgTest</td>
-<td><div><pre>java.lang.AssertionError: Duplicate Assertion failed did not expect to find [true] but found [false]
-	at com.tetherfi.test.tmac.TmacBroadCastMsgTest.AddDuplicateRecord(TmacBroadCastMsgTest.java:105)
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.verifyGroupBy()'><b>verifyGroupBy</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method: To Verify Group By Coloumns </td>
+<td><div><pre>java.lang.AssertionError: Group By Assertion failed did not expect to find [true] but found [false]
+	at com.tetherfi.test.tmac.AgentTemplateTest.verifyGroupBy(AgentTemplateTest.java:113)
 	at java.util.ArrayList.forEach(Unknown Source)
-... Removed 30 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1460783334", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1460783334'><pre>java.lang.AssertionError: Duplicate Assertion failed did not expect to find [true] but found [false]
+... Removed 30 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1522691414", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1522691414'><pre>java.lang.AssertionError: Group By Assertion failed did not expect to find [true] but found [false]
 	at org.testng.Assert.fail(Assert.java:97)
 	at org.testng.Assert.failNotEquals(Assert.java:969)
 	at org.testng.Assert.assertTrue(Assert.java:43)
-	at com.tetherfi.test.tmac.TmacBroadCastMsgTest.AddDuplicateRecord(TmacBroadCastMsgTest.java:105)
+	at com.tetherfi.test.tmac.AgentTemplateTest.verifyGroupBy(AgentTemplateTest.java:113)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -114,95 +114,8 @@ function toggleAllBoxes() {
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
-<td>116</td>
-<td>com.tetherfi.test.tmac.TmacBroadCastMsgTest@45292ec1</td></tr>
-<tr>
-<td title='com.tetherfi.test.tmac.TmacBroadCastMsgTest.SearchClearSearch()'><b>SearchClearSearch</b><br>Test class: com.tetherfi.test.tmac.TmacBroadCastMsgTest</td>
-<td><div><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//div[text()=&apos;No records to display&apos;]&quot;}
-  (Session info: chrome=92.0.4515.131)
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
-Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
-System info: host: &apos;TTF-BLR-SANTOSH&apos;, ip: &apos;192.168.50.12&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_181&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 92.0.4515.131, chrome: {chromedriverVersion: 91.0.4472.19 (1bf021f248676..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:51048}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 78924a1c1430667eab0c204955f666de
-*** Element info: {Using=xpath, value=//div[text()=&apos;No records to display&apos;]}
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)
-	at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
-	at com.sun.proxy.$Proxy11.isDisplayed(Unknown Source)
-	at com.tetherfi.pages.TmacBroadCastMsgPage.verifyinvalidsearch(TmacBroadCastMsgPage.java:579)
-	at com.tetherfi.test.tmac.TmacBroadCastMsgTest.SearchClearSearch(TmacBroadCastMsgTest.java:233)
-	at java.util.ArrayList.forEach(Unknown Source)
-... Removed 31 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace179406543", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace179406543'><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//div[text()=&apos;No records to display&apos;]&quot;}
-  (Session info: chrome=92.0.4515.131)
-For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
-Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
-System info: host: &apos;TTF-BLR-SANTOSH&apos;, ip: &apos;192.168.50.12&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_181&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 92.0.4515.131, chrome: {chromedriverVersion: 91.0.4472.19 (1bf021f248676..., userDataDir: C:\Users\admin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:51048}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 78924a1c1430667eab0c204955f666de
-*** Element info: {Using=xpath, value=//div[text()=&apos;No records to display&apos;]}
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
-	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-	at java.lang.reflect.Constructor.newInstance(Unknown Source)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
-	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)
-	at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
-	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
-	at com.sun.proxy.$Proxy11.isDisplayed(Unknown Source)
-	at com.tetherfi.pages.TmacBroadCastMsgPage.verifyinvalidsearch(TmacBroadCastMsgPage.java:579)
-	at com.tetherfi.test.tmac.TmacBroadCastMsgTest.SearchClearSearch(TmacBroadCastMsgTest.java:233)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.util.ArrayList.forEach(Unknown Source)
-	at org.testng.TestRunner.privateRun(TestRunner.java:770)
-	at org.testng.TestRunner.run(TestRunner.java:591)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-	at org.testng.TestNG.runSuites(TestNG.java:1032)
-	at org.testng.TestNG.run(TestNG.java:1000)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div></td>
-<td>25</td>
-<td>com.tetherfi.test.tmac.TmacBroadCastMsgTest@45292ec1</td></tr>
+<td>2</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
 </table><p>
 <table width='100%' border='1' class='invocation-passed'>
 <tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
@@ -212,155 +125,485 @@ Session ID: 78924a1c1430667eab0c204955f666de
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.tetherfi.test.tmac.TmacBroadCastMsgTest.AddNewTmacBroadCastMsg()'><b>AddNewTmacBroadCastMsg</b><br>Test class: com.tetherfi.test.tmac.TmacBroadCastMsgTest</td>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.ExportToExcelButton()'><b>ExportToExcelButton</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method: To Verify Export Excel Button</td>
 <td></td>
-<td>38</td>
-<td>com.tetherfi.test.tmac.TmacBroadCastMsgTest@45292ec1</td></tr>
+<td>4</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
 <tr>
-<td title='com.tetherfi.test.tmac.TmacBroadCastMsgTest.AddNewTmacBroadCastMsgCancel()'><b>AddNewTmacBroadCastMsgCancel</b><br>Test class: com.tetherfi.test.tmac.TmacBroadCastMsgTest</td>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.ExportToExcelButtonInTemplateAuxCodesTab()'><b>ExportToExcelButtonInTemplateAuxCodesTab</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method: To Verify Export Excel Button</td>
 <td></td>
-<td>37</td>
-<td>com.tetherfi.test.tmac.TmacBroadCastMsgTest@45292ec1</td></tr>
+<td>3</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
 <tr>
-<td title='com.tetherfi.test.tmac.TmacBroadCastMsgTest.AddRecordWithoutMesage()'><b>AddRecordWithoutMesage</b><br>Test class: com.tetherfi.test.tmac.TmacBroadCastMsgTest</td>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.ExportToExcelButtonInTemplateFeaturesTab()'><b>ExportToExcelButtonInTemplateFeaturesTab</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method: To Verify Export Excel Button</td>
 <td></td>
-<td>32</td>
-<td>com.tetherfi.test.tmac.TmacBroadCastMsgTest@45292ec1</td></tr>
+<td>3</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
 <tr>
-<td title='com.tetherfi.test.tmac.TmacBroadCastMsgTest.AddRecordWithoutTeamName()'><b>AddRecordWithoutTeamName</b><br>Test class: com.tetherfi.test.tmac.TmacBroadCastMsgTest</td>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.ExportToExcelButtonInTemplateOpHoursTab()'><b>ExportToExcelButtonInTemplateOpHoursTab</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method: To Verify Export Excel Button</td>
 <td></td>
-<td>2</td>
-<td>com.tetherfi.test.tmac.TmacBroadCastMsgTest@45292ec1</td></tr>
+<td>3</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
 <tr>
-<td title='com.tetherfi.test.tmac.TmacBroadCastMsgTest.AddRecordwithoutStatus()'><b>AddRecordwithoutStatus</b><br>Test class: com.tetherfi.test.tmac.TmacBroadCastMsgTest</td>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.ExportToExcelButtonInTemplateScreenTab()'><b>ExportToExcelButtonInTemplateScreenTab</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method: To Verify Export Excel Button</td>
 <td></td>
-<td>32</td>
-<td>com.tetherfi.test.tmac.TmacBroadCastMsgTest@45292ec1</td></tr>
+<td>3</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
 <tr>
-<td title='com.tetherfi.test.tmac.TmacBroadCastMsgTest.EditTmacBroadCastMsg()'><b>EditTmacBroadCastMsg</b><br>Test class: com.tetherfi.test.tmac.TmacBroadCastMsgTest</td>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.ExportToExcelButtonInTemplateScreenWidgetsTab()'><b>ExportToExcelButtonInTemplateScreenWidgetsTab</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method: To Verify Export Excel Button</td>
 <td></td>
-<td>9</td>
-<td>com.tetherfi.test.tmac.TmacBroadCastMsgTest@45292ec1</td></tr>
+<td>3</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
 <tr>
-<td title='com.tetherfi.test.tmac.TmacBroadCastMsgTest.EditTmacBroadCastMsgCancel()'><b>EditTmacBroadCastMsgCancel</b><br>Test class: com.tetherfi.test.tmac.TmacBroadCastMsgTest</td>
-<td></td>
-<td>9</td>
-<td>com.tetherfi.test.tmac.TmacBroadCastMsgTest@45292ec1</td></tr>
-<tr>
-<td title='com.tetherfi.test.tmac.TmacBroadCastMsgTest.ExportToExcel()'><b>ExportToExcel</b><br>Test class: com.tetherfi.test.tmac.TmacBroadCastMsgTest</td>
-<td></td>
-<td>1</td>
-<td>com.tetherfi.test.tmac.TmacBroadCastMsgTest@45292ec1</td></tr>
-<tr>
-<td title='com.tetherfi.test.tmac.TmacBroadCastMsgTest.ExportToExcelData()'><b>ExportToExcelData</b><br>Test class: com.tetherfi.test.tmac.TmacBroadCastMsgTest</td>
-<td></td>
-<td>8</td>
-<td>com.tetherfi.test.tmac.TmacBroadCastMsgTest@45292ec1</td></tr>
-<tr>
-<td title='com.tetherfi.test.tmac.TmacBroadCastMsgTest.ExporttoExcelWithoutData()'><b>ExporttoExcelWithoutData</b><br>Test class: com.tetherfi.test.tmac.TmacBroadCastMsgTest</td>
-<td></td>
-<td>9</td>
-<td>com.tetherfi.test.tmac.TmacBroadCastMsgTest@45292ec1</td></tr>
-<tr>
-<td title='com.tetherfi.test.tmac.TmacBroadCastMsgTest.GroupBy()'><b>GroupBy</b><br>Test class: com.tetherfi.test.tmac.TmacBroadCastMsgTest</td>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.SearchClearSearch()'><b>SearchClearSearch</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method:  To Verify Search Clear Search Button</td>
 <td></td>
 <td>5</td>
-<td>com.tetherfi.test.tmac.TmacBroadCastMsgTest@45292ec1</td></tr>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
 <tr>
-<td title='com.tetherfi.test.tmac.TmacBroadCastMsgTest.SortingByAscending()'><b>SortingByAscending</b><br>Test class: com.tetherfi.test.tmac.TmacBroadCastMsgTest</td>
-<td></td>
-<td>17</td>
-<td>com.tetherfi.test.tmac.TmacBroadCastMsgTest@45292ec1</td></tr>
-<tr>
-<td title='com.tetherfi.test.tmac.TmacBroadCastMsgTest.SortingByDescending()'><b>SortingByDescending</b><br>Test class: com.tetherfi.test.tmac.TmacBroadCastMsgTest</td>
-<td></td>
-<td>17</td>
-<td>com.tetherfi.test.tmac.TmacBroadCastMsgTest@45292ec1</td></tr>
-<tr>
-<td title='com.tetherfi.test.tmac.TmacBroadCastMsgTest.TmacBroadCastMsgPage()'><b>TmacBroadCastMsgPage</b><br>Test class: com.tetherfi.test.tmac.TmacBroadCastMsgTest</td>
-<td></td>
-<td>0</td>
-<td>com.tetherfi.test.tmac.TmacBroadCastMsgTest@45292ec1</td></tr>
-<tr>
-<td title='com.tetherfi.test.tmac.TmacBroadCastMsgTest.VerifyArrowMoveForFirstAndLastPage()'><b>VerifyArrowMoveForFirstAndLastPage</b><br>Test class: com.tetherfi.test.tmac.TmacBroadCastMsgTest</td>
-<td></td>
-<td>6</td>
-<td>com.tetherfi.test.tmac.TmacBroadCastMsgTest@45292ec1</td></tr>
-<tr>
-<td title='com.tetherfi.test.tmac.TmacBroadCastMsgTest.VerifyArrowMoveForPreviousAndNextPage()'><b>VerifyArrowMoveForPreviousAndNextPage</b><br>Test class: com.tetherfi.test.tmac.TmacBroadCastMsgTest</td>
-<td></td>
-<td>6</td>
-<td>com.tetherfi.test.tmac.TmacBroadCastMsgTest@45292ec1</td></tr>
-<tr>
-<td title='com.tetherfi.test.tmac.TmacBroadCastMsgTest.VerifyAuditTrailReportForUpdate()'><b>VerifyAuditTrailReportForUpdate</b><br>Test class: com.tetherfi.test.tmac.TmacBroadCastMsgTest</td>
-<td></td>
-<td>32</td>
-<td>com.tetherfi.test.tmac.TmacBroadCastMsgTest@45292ec1</td></tr>
-<tr>
-<td title='com.tetherfi.test.tmac.TmacBroadCastMsgTest.VerifyAuditTrialReportForCreate()'><b>VerifyAuditTrialReportForCreate</b><br>Test class: com.tetherfi.test.tmac.TmacBroadCastMsgTest</td>
-<td></td>
-<td>32</td>
-<td>com.tetherfi.test.tmac.TmacBroadCastMsgTest@45292ec1</td></tr>
-<tr>
-<td title='com.tetherfi.test.tmac.TmacBroadCastMsgTest.VerifyColumnsHeaderDisable()'><b>VerifyColumnsHeaderDisable</b><br>Test class: com.tetherfi.test.tmac.TmacBroadCastMsgTest</td>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.SearchClearSearchTemplateAuxCodesTab()'><b>SearchClearSearchTemplateAuxCodesTab</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method:  To Verify Search Clear Search Button</td>
 <td></td>
 <td>5</td>
-<td>com.tetherfi.test.tmac.TmacBroadCastMsgTest@45292ec1</td></tr>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
 <tr>
-<td title='com.tetherfi.test.tmac.TmacBroadCastMsgTest.VerifyColumnsHeaderEnable()'><b>VerifyColumnsHeaderEnable</b><br>Test class: com.tetherfi.test.tmac.TmacBroadCastMsgTest</td>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.SearchClearSearchTemplateFeaturesTab()'><b>SearchClearSearchTemplateFeaturesTab</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method:  To Verify Search Clear Search Button</td>
 <td></td>
-<td>8</td>
-<td>com.tetherfi.test.tmac.TmacBroadCastMsgTest@45292ec1</td></tr>
+<td>6</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
 <tr>
-<td title='com.tetherfi.test.tmac.TmacBroadCastMsgTest.VerifyDropdownForAllTheColumns()'><b>VerifyDropdownForAllTheColumns</b><br>Test class: com.tetherfi.test.tmac.TmacBroadCastMsgTest</td>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.SearchClearSearchTemplateOpHoursTab()'><b>SearchClearSearchTemplateOpHoursTab</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method:  To Verify Search Clear Search Button</td>
 <td></td>
-<td>9</td>
-<td>com.tetherfi.test.tmac.TmacBroadCastMsgTest@45292ec1</td></tr>
+<td>5</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
 <tr>
-<td title='com.tetherfi.test.tmac.TmacBroadCastMsgTest.VerifyNumberOfItemsPerPageSelection()'><b>VerifyNumberOfItemsPerPageSelection</b><br>Test class: com.tetherfi.test.tmac.TmacBroadCastMsgTest</td>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.SearchClearSearchTemplateScreenTab()'><b>SearchClearSearchTemplateScreenTab</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method:  To Verify Search Clear Search Button</td>
 <td></td>
-<td>18</td>
-<td>com.tetherfi.test.tmac.TmacBroadCastMsgTest@45292ec1</td></tr>
+<td>6</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
 <tr>
-<td title='com.tetherfi.test.tmac.TmacBroadCastMsgTest.VerifySearchContains()'><b>VerifySearchContains</b><br>Test class: com.tetherfi.test.tmac.TmacBroadCastMsgTest</td>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.SearchClearSearchTemplateScreenWidgetsTab()'><b>SearchClearSearchTemplateScreenWidgetsTab</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method:  To Verify Search Clear Search Button</td>
 <td></td>
-<td>14</td>
-<td>com.tetherfi.test.tmac.TmacBroadCastMsgTest@45292ec1</td></tr>
+<td>6</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
 <tr>
-<td title='com.tetherfi.test.tmac.TmacBroadCastMsgTest.VerifySearchDoesNotContains()'><b>VerifySearchDoesNotContains</b><br>Test class: com.tetherfi.test.tmac.TmacBroadCastMsgTest</td>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.SearchContains()'><b>SearchContains</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method: To Verify Search Data Contains </td>
 <td></td>
-<td>16</td>
-<td>com.tetherfi.test.tmac.TmacBroadCastMsgTest@45292ec1</td></tr>
+<td>7</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
 <tr>
-<td title='com.tetherfi.test.tmac.TmacBroadCastMsgTest.VerifySearchEndsWith()'><b>VerifySearchEndsWith</b><br>Test class: com.tetherfi.test.tmac.TmacBroadCastMsgTest</td>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.SearchContainsInTemplateScreenWidgetsTab()'><b>SearchContainsInTemplateScreenWidgetsTab</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method: To Verify Search Data Contains </td>
 <td></td>
-<td>14</td>
-<td>com.tetherfi.test.tmac.TmacBroadCastMsgTest@45292ec1</td></tr>
+<td>7</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
 <tr>
-<td title='com.tetherfi.test.tmac.TmacBroadCastMsgTest.VerifySearchIsNotEqualTo()'><b>VerifySearchIsNotEqualTo</b><br>Test class: com.tetherfi.test.tmac.TmacBroadCastMsgTest</td>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.SearchContainsTemplateAuxCodesab()'><b>SearchContainsTemplateAuxCodesab</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method: To Verify Search Data Contains </td>
 <td></td>
-<td>22</td>
-<td>com.tetherfi.test.tmac.TmacBroadCastMsgTest@45292ec1</td></tr>
+<td>5</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
 <tr>
-<td title='com.tetherfi.test.tmac.TmacBroadCastMsgTest.VerifySearchStartsWith()'><b>VerifySearchStartsWith</b><br>Test class: com.tetherfi.test.tmac.TmacBroadCastMsgTest</td>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.SearchContainsTemplateFeaturesTab()'><b>SearchContainsTemplateFeaturesTab</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method: To Verify Search Data Contains </td>
+<td></td>
+<td>6</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.SearchContainsTemplateOpHoursTab()'><b>SearchContainsTemplateOpHoursTab</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method: To Verify Search Data Contains </td>
+<td></td>
+<td>6</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.SearchContainsTemplateScreenTab()'><b>SearchContainsTemplateScreenTab</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method: To Verify Search Data Contains </td>
+<td></td>
+<td>6</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.SearchDoesNotContains()'><b>SearchDoesNotContains</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method: To Verify Search Data Doesnot Contain </td>
 <td></td>
 <td>12</td>
-<td>com.tetherfi.test.tmac.TmacBroadCastMsgTest@45292ec1</td></tr>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
 <tr>
-<td title='com.tetherfi.test.tmac.TmacBroadCastMsgTest.VerifyTotalNumberOfItemsPerPageDetails()'><b>VerifyTotalNumberOfItemsPerPageDetails</b><br>Test class: com.tetherfi.test.tmac.TmacBroadCastMsgTest</td>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.SearchDoesNotContainsInTemplateScreenWidgetsTab()'><b>SearchDoesNotContainsInTemplateScreenWidgetsTab</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method: To Verify Search Data Doesnot Contain </td>
 <td></td>
-<td>0</td>
-<td>com.tetherfi.test.tmac.TmacBroadCastMsgTest@45292ec1</td></tr>
+<td>9</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
 <tr>
-<td title='com.tetherfi.test.tmac.TmacBroadCastMsgTest.database()'><b>database</b><br>Test class: com.tetherfi.test.tmac.TmacBroadCastMsgTest</td>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.SearchDoesNotContainsTemplateAuxCodesTab()'><b>SearchDoesNotContainsTemplateAuxCodesTab</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method: To Verify Search Data Doesnot Contain </td>
 <td></td>
-<td>43</td>
-<td>com.tetherfi.test.tmac.TmacBroadCastMsgTest@45292ec1</td></tr>
+<td>6</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
 <tr>
-<td title='com.tetherfi.test.tmac.TmacBroadCastMsgTest.searchPage()'><b>searchPage</b><br>Test class: com.tetherfi.test.tmac.TmacBroadCastMsgTest</td>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.SearchDoesNotContainsTemplateFeaturesTab()'><b>SearchDoesNotContainsTemplateFeaturesTab</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method: To Verify Search Data Doesnot Contain </td>
+<td></td>
+<td>7</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.SearchDoesNotContainsTemplateOpHoursTab()'><b>SearchDoesNotContainsTemplateOpHoursTab</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method: To Verify Search Data Doesnot Contain </td>
+<td></td>
+<td>8</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.SearchDoesNotContainsTemplateScreenTab()'><b>SearchDoesNotContainsTemplateScreenTab</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method: To Verify Search Data Doesnot Contain </td>
+<td></td>
+<td>7</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.SearchEndsWith()'><b>SearchEndsWith</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method: To Verify search Data Ens with </td>
+<td></td>
+<td>6</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.SearchEndsWithInTemplateScreenWidgetsTab()'><b>SearchEndsWithInTemplateScreenWidgetsTab</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method: To Verify search Data Ens with </td>
+<td></td>
+<td>6</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.SearchEndsWithTemplateAuxCodesTab()'><b>SearchEndsWithTemplateAuxCodesTab</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method: To Verify search Data Ens with </td>
 <td></td>
 <td>5</td>
-<td>com.tetherfi.test.tmac.TmacBroadCastMsgTest@45292ec1</td></tr>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.SearchEndsWithTemplateFeaturesTab()'><b>SearchEndsWithTemplateFeaturesTab</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method: To Verify search Data Ens with </td>
+<td></td>
+<td>6</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.SearchEndsWithTemplateOpHoursTab()'><b>SearchEndsWithTemplateOpHoursTab</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method: To Verify search Data Ens with </td>
+<td></td>
+<td>6</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.SearchEndsWithTemplateScreenTab()'><b>SearchEndsWithTemplateScreenTab</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method: To Verify search Data Ens with </td>
+<td></td>
+<td>6</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.SearchIsNotEqualTo()'><b>SearchIsNotEqualTo</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method: To Verify Search Data Is Not Equal to </td>
+<td></td>
+<td>14</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.SearchIsNotEqualToInTemplateScreenWidgetsTab()'><b>SearchIsNotEqualToInTemplateScreenWidgetsTab</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method: To Verify Search Data Is Not Equal to </td>
+<td></td>
+<td>9</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.SearchIsNotEqualToTemplateAuxCodesTab()'><b>SearchIsNotEqualToTemplateAuxCodesTab</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method: To Verify Search Data Is Not Equal to </td>
+<td></td>
+<td>6</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.SearchIsNotEqualToTemplateFeaturesTab()'><b>SearchIsNotEqualToTemplateFeaturesTab</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method: To Verify Search Data Is Not Equal to </td>
+<td></td>
+<td>7</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.SearchIsNotEqualToTemplateOpHoursTab()'><b>SearchIsNotEqualToTemplateOpHoursTab</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method: To Verify Search Data Is Not Equal to </td>
+<td></td>
+<td>10</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.SearchIsNotEqualToTemplateScreenTab()'><b>SearchIsNotEqualToTemplateScreenTab</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method: To Verify Search Data Is Not Equal to </td>
+<td></td>
+<td>8</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.SearchStartsWith()'><b>SearchStartsWith</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method: To Verify Search Data Starts with </td>
+<td></td>
+<td>6</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.SearchStartsWithInTemplateScreenWidgetsTab()'><b>SearchStartsWithInTemplateScreenWidgetsTab</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method: To Verify Search Data Starts with </td>
+<td></td>
+<td>7</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.SearchStartsWithTemplateAuxCodesTab()'><b>SearchStartsWithTemplateAuxCodesTab</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method: To Verify Search Data Starts with </td>
+<td></td>
+<td>5</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.SearchStartsWithTemplateFeaturesTab()'><b>SearchStartsWithTemplateFeaturesTab</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method: To Verify Search Data Starts with </td>
+<td></td>
+<td>6</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.SearchStartsWithTemplateOpHoursTab()'><b>SearchStartsWithTemplateOpHoursTab</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method: To Verify Search Data Starts with </td>
+<td></td>
+<td>6</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.SearchStartsWithTemplateScreenTab()'><b>SearchStartsWithTemplateScreenTab</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method: To Verify Search Data Starts with </td>
+<td></td>
+<td>6</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.VerifyAgentTemplatePageTemplateTab()'><b>VerifyAgentTemplatePageTemplateTab</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method: To Verify Agent Template Page</td>
+<td></td>
+<td>3</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.searchPage()'><b>searchPage</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method: To Verify Search Page </td>
+<td></td>
+<td>7</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.searchPageTemplateAuxCodesTab()'><b>searchPageTemplateAuxCodesTab</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method: To Verify Search Page </td>
+<td></td>
+<td>7</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.searchPageTemplateFeaturesTab()'><b>searchPageTemplateFeaturesTab</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method: To Verify Search Page </td>
+<td></td>
+<td>7</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.searchPageTemplateOpHoursTab()'><b>searchPageTemplateOpHoursTab</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method: To Verify Search Page </td>
+<td></td>
+<td>7</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.searchPageTemplateScreenTab()'><b>searchPageTemplateScreenTab</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method: To Verify Search Page </td>
+<td></td>
+<td>7</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.searchPageTemplateWidgetsScreenTab()'><b>searchPageTemplateWidgetsScreenTab</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method: To Verify Search Page </td>
+<td></td>
+<td>7</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.searchwithoutSearchTextbox()'><b>searchwithoutSearchTextbox</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method: To Verify Search without Search Textbox Data </td>
+<td></td>
+<td>4</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.searchwithoutSearchTextboxTemplateAuxCodesTab()'><b>searchwithoutSearchTextboxTemplateAuxCodesTab</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method: To Verify Search without Search Textbox Data </td>
+<td></td>
+<td>5</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.searchwithoutSearchTextboxTemplateFeaturesTab()'><b>searchwithoutSearchTextboxTemplateFeaturesTab</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method: To Verify Search without Search Textbox Data </td>
+<td></td>
+<td>5</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.searchwithoutSearchTextboxTemplateOpHoursTab()'><b>searchwithoutSearchTextboxTemplateOpHoursTab</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method: To Verify Search without Search Textbox Data </td>
+<td></td>
+<td>5</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.searchwithoutSearchTextboxTemplateScreenTab()'><b>searchwithoutSearchTextboxTemplateScreenTab</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method: To Verify Search without Search Textbox Data </td>
+<td></td>
+<td>5</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.searchwithoutSearchTextboxTemplateScreenWidgetsTab()'><b>searchwithoutSearchTextboxTemplateScreenWidgetsTab</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method: To Verify Search without Search Textbox Data </td>
+<td></td>
+<td>5</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.verifyArrowMoveForFirstAndLastPage()'><b>verifyArrowMoveForFirstAndLastPage</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method:  To Verify Arrow Move for First and Last Page</td>
+<td></td>
+<td>2</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.verifyArrowMoveForFirstAndLastPageInTemplateAuxCodesTab()'><b>verifyArrowMoveForFirstAndLastPageInTemplateAuxCodesTab</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method:  To Verify Arrow Move for First and Last Page</td>
+<td></td>
+<td>1</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.verifyArrowMoveForFirstAndLastPageInTemplateFeaturesTab()'><b>verifyArrowMoveForFirstAndLastPageInTemplateFeaturesTab</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method:  To Verify Arrow Move for First and Last Page</td>
+<td></td>
+<td>0</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.verifyArrowMoveForFirstAndLastPageInTemplateOpHoursTab()'><b>verifyArrowMoveForFirstAndLastPageInTemplateOpHoursTab</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method:  To Verify Arrow Move for First and Last Page</td>
+<td></td>
+<td>3</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.verifyArrowMoveForFirstAndLastPageInTemplateScreenTab()'><b>verifyArrowMoveForFirstAndLastPageInTemplateScreenTab</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method:  To Verify Arrow Move for First and Last Page</td>
+<td></td>
+<td>3</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.verifyArrowMoveForFirstAndLastPageInTemplateWidgetsScreenTTab()'><b>verifyArrowMoveForFirstAndLastPageInTemplateWidgetsScreenTTab</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method:  To Verify Arrow Move for First and Last Page</td>
+<td></td>
+<td>3</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.verifyArrowMoveForPreviousAndNextPage()'><b>verifyArrowMoveForPreviousAndNextPage</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method: To Verify arrow Move previous and Next Page </td>
+<td></td>
+<td>2</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.verifyArrowMoveForPreviousAndNextPageInTemplateAuxCodesTab()'><b>verifyArrowMoveForPreviousAndNextPageInTemplateAuxCodesTab</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method: To Verify arrow Move previous and Next Page </td>
+<td></td>
+<td>0</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.verifyArrowMoveForPreviousAndNextPageInTemplateFeaturesTab()'><b>verifyArrowMoveForPreviousAndNextPageInTemplateFeaturesTab</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method: To Verify arrow Move previous and Next Page </td>
+<td></td>
+<td>0</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.verifyArrowMoveForPreviousAndNextPageInTemplateOpHoursTab()'><b>verifyArrowMoveForPreviousAndNextPageInTemplateOpHoursTab</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method: To Verify arrow Move previous and Next Page </td>
+<td></td>
+<td>4</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.verifyArrowMoveForPreviousAndNextPageInTemplateScreenTab()'><b>verifyArrowMoveForPreviousAndNextPageInTemplateScreenTab</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method: To Verify arrow Move previous and Next Page </td>
+<td></td>
+<td>3</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.verifyArrowMoveForPreviousAndNextPageInTemplateWidgetsScreenTTab()'><b>verifyArrowMoveForPreviousAndNextPageInTemplateWidgetsScreenTTab</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method: To Verify arrow Move previous and Next Page </td>
+<td></td>
+<td>3</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.verifyExportToExcelWithoutData()'><b>verifyExportToExcelWithoutData</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method: To Verify Export Excel without Data</td>
+<td></td>
+<td>6</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.verifyExportToExcelWithoutDataInTemplateAuxCodesTab()'><b>verifyExportToExcelWithoutDataInTemplateAuxCodesTab</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method: To Verify Export Excel without Data</td>
+<td></td>
+<td>6</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.verifyExportToExcelWithoutDataInTemplateFeaturesTab()'><b>verifyExportToExcelWithoutDataInTemplateFeaturesTab</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method: To Verify Export Excel without Data</td>
+<td></td>
+<td>6</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.verifyExportToExcelWithoutDataInTemplateOpHoursTab()'><b>verifyExportToExcelWithoutDataInTemplateOpHoursTab</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method: To Verify Export Excel without Data</td>
+<td></td>
+<td>5</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.verifyExportToExcelWithoutDataInTemplateScreenTab()'><b>verifyExportToExcelWithoutDataInTemplateScreenTab</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method: To Verify Export Excel without Data</td>
+<td></td>
+<td>6</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.verifyExportToExcelWithoutDataInTemplateScreenWidgetsTab()'><b>verifyExportToExcelWithoutDataInTemplateScreenWidgetsTab</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method: To Verify Export Excel without Data</td>
+<td></td>
+<td>6</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.verifyExportedDataInTemplateScreenTab()'><b>verifyExportedDataInTemplateScreenTab</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method: To Verify Exported Data</td>
+<td></td>
+<td>3</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.verifyExportedDataInTemplateScreenWidgetsTab()'><b>verifyExportedDataInTemplateScreenWidgetsTab</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method: To Verify Exported Data</td>
+<td></td>
+<td>4</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.verifyGroupByInTemplateAuxCodesTab()'><b>verifyGroupByInTemplateAuxCodesTab</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method: To Verify Group By Coloumns </td>
+<td></td>
+<td>4</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.verifyGroupByInTemplateFeaturesTab()'><b>verifyGroupByInTemplateFeaturesTab</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method: To Verify Group By Coloumns </td>
+<td></td>
+<td>3</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.verifyGroupByInTemplateOpHoursTab()'><b>verifyGroupByInTemplateOpHoursTab</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method: To Verify Group By Coloumns </td>
+<td></td>
+<td>3</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.verifyGroupByInTemplateScreenTab()'><b>verifyGroupByInTemplateScreenTab</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method: To Verify Group By Coloumns </td>
+<td></td>
+<td>4</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.verifyGroupByInTemplateWidgetsScreenTab()'><b>verifyGroupByInTemplateWidgetsScreenTab</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method: To Verify Group By Coloumns </td>
+<td></td>
+<td>4</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.verifyNumberOfItemsPerPageSelection()'><b>verifyNumberOfItemsPerPageSelection</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method: To Verify Number of Items PerPage Selection </td>
+<td></td>
+<td>13</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.verifyNumberOfItemsPerPageSelectionInTemplateAuxCodesTab()'><b>verifyNumberOfItemsPerPageSelectionInTemplateAuxCodesTab</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method: To Verify Number of Items PerPage Selection </td>
+<td></td>
+<td>9</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.verifyNumberOfItemsPerPageSelectionInTemplateFeaturesTab()'><b>verifyNumberOfItemsPerPageSelectionInTemplateFeaturesTab</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method: To Verify Number of Items PerPage Selection </td>
+<td></td>
+<td>7</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.verifyNumberOfItemsPerPageSelectionInTemplateOpHoursTab()'><b>verifyNumberOfItemsPerPageSelectionInTemplateOpHoursTab</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method: To Verify Number of Items PerPage Selection </td>
+<td></td>
+<td>12</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.verifyNumberOfItemsPerPageSelectionInTemplateScreenTab()'><b>verifyNumberOfItemsPerPageSelectionInTemplateScreenTab</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method: To Verify Number of Items PerPage Selection </td>
+<td></td>
+<td>10</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.verifyNumberOfItemsPerPageSelectionInTemplateWidgetsScreenTab()'><b>verifyNumberOfItemsPerPageSelectionInTemplateWidgetsScreenTab</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method: To Verify Number of Items PerPage Selection </td>
+<td></td>
+<td>10</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.verifySortByAscendingInTemplateScreenTab()'><b>verifySortByAscendingInTemplateScreenTab</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method: To Verify Coloumns Sort By Ascending </td>
+<td></td>
+<td>7</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.verifySortByAscendingInTemplateWidgetsScreenTab()'><b>verifySortByAscendingInTemplateWidgetsScreenTab</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method: To Verify Coloumns Sort By Ascending </td>
+<td></td>
+<td>9</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.verifySortByDescendingInTemplateScreenTab()'><b>verifySortByDescendingInTemplateScreenTab</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method: To Verify Coloumns Sort By Descending </td>
+<td></td>
+<td>8</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.verifySortByDescendingInTemplateWidgetsScreenTab()'><b>verifySortByDescendingInTemplateWidgetsScreenTab</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method: To Verify Coloumns Sort By Descending </td>
+<td></td>
+<td>9</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.verifyTotalNumberOfItemsPerPageDetails()'><b>verifyTotalNumberOfItemsPerPageDetails</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method: To Verify Total Number of Items Per Page Deatials </td>
+<td></td>
+<td>0</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.verifyTotalNumberOfItemsPerPageDetailsInTemplateAuxCodesTab()'><b>verifyTotalNumberOfItemsPerPageDetailsInTemplateAuxCodesTab</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method: To Verify Total Number of Items Per Page Deatials </td>
+<td></td>
+<td>1</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.verifyTotalNumberOfItemsPerPageDetailsInTemplateFeaturesTab()'><b>verifyTotalNumberOfItemsPerPageDetailsInTemplateFeaturesTab</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method: To Verify Total Number of Items Per Page Deatials </td>
+<td></td>
+<td>1</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.verifyTotalNumberOfItemsPerPageDetailsInTemplateOpHoursTab()'><b>verifyTotalNumberOfItemsPerPageDetailsInTemplateOpHoursTab</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method: To Verify Total Number of Items Per Page Deatials </td>
+<td></td>
+<td>1</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.verifyTotalNumberOfItemsPerPageDetailsInTemplateScreenTab()'><b>verifyTotalNumberOfItemsPerPageDetailsInTemplateScreenTab</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method: To Verify Total Number of Items Per Page Deatials </td>
+<td></td>
+<td>1</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
+<tr>
+<td title='com.tetherfi.test.tmac.AgentTemplateTest.verifyTotalNumberOfItemsPerPageDetailsInTemplateWidgetsScreenTTab()'><b>verifyTotalNumberOfItemsPerPageDetailsInTemplateWidgetsScreenTTab</b><br>Test class: com.tetherfi.test.tmac.AgentTemplateTest<br>Test method: To Verify Total Number of Items Per Page Deatials </td>
+<td></td>
+<td>1</td>
+<td>com.tetherfi.test.tmac.AgentTemplateTest@79afa369</td></tr>
 </table><p>
 </body>
 </html>

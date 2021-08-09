@@ -7,19 +7,17 @@
   </listeners>
   <test thread-count="5" name="OCMRegression(failed)">
     <classes>
-      <class name="com.tetherfi.test.tmac.TmacBroadCastMsgTest">
+      <class name="com.tetherfi.test.tmac.AgentTemplateTest">
         <methods>
           <include name="startTestCase"/>
           <include name="openApplication"/>
-          <include name="SearchClearSearch"/>
-          <include name="AddNewAgentTeamManagementRecord"/>
+          <include name="verifyGroupBy"/>
           <include name="afterEachMethod"/>
           <include name="endTestCase"/>
           <include name="tearDown"/>
-          <include name="AddDuplicateRecord"/>
-          <include name="NavigateToTmacBroadcastMsgPage"/>
+          <include name="NavigateToAgentTemplatePage"/>
         </methods>
-      </class> <!-- com.tetherfi.test.tmac.TmacBroadCastMsgTest -->
+      </class> <!-- com.tetherfi.test.tmac.AgentTemplateTest -->
     </classes>
   </test> <!-- OCMRegression(failed) -->
 </suite> <!-- Failed suite [OCM Modules Test Automation] -->
