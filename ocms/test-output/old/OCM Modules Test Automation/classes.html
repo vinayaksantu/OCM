@@ -4,22 +4,14 @@
 <th>Method name</th>
 <th>Groups</th>
 </tr><tr>
-<td>com.tetherfi.test.fax.FaxTemplateUITest</td>
+<td>com.tetherfi.test.tmac.TmacBroadCastMsgTest</td>
 <td>&nbsp;</td><td>&nbsp;</td></tr>
 <tr>
 <td align='center' colspan='3'>@Test</td>
 </tr>
 <tr>
 <td>&nbsp;</td>
-<td>SearchPage</td>
-<td>&nbsp;</td></tr>
-<tr>
-<td>&nbsp;</td>
-<td>dataBase</td>
-<td>&nbsp;</td></tr>
-<tr>
-<td>&nbsp;</td>
-<td>VerifyFaxTemplateAuditTrailDataPage</td>
+<td>AddRecordwithoutStatus</td>
 <td>&nbsp;</td></tr>
 <tr>
 <td>&nbsp;</td>
@@ -27,23 +19,31 @@
 <td>&nbsp;</td></tr>
 <tr>
 <td>&nbsp;</td>
-<td>ExportToExcelWithoutData</td>
-<td>&nbsp;</td></tr>
-<tr>
-<td>&nbsp;</td>
-<td>VerifyDragAndDrop</td>
-<td>&nbsp;</td></tr>
-<tr>
-<td>&nbsp;</td>
 <td>SearchClearSearch</td>
 <td>&nbsp;</td></tr>
 <tr>
 <td>&nbsp;</td>
-<td>VerifyDropDownForAllTheColumns</td>
+<td>EditTmacBroadCastMsg</td>
 <td>&nbsp;</td></tr>
 <tr>
 <td>&nbsp;</td>
-<td>FaxTemplatePage</td>
+<td>TmacBroadCastMsgPage</td>
+<td>&nbsp;</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td>AddDuplicateRecord</td>
+<td>&nbsp;</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td>AddRecordWithoutTeamName</td>
+<td>&nbsp;</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td>AddNewTmacBroadCastMsg</td>
+<td>&nbsp;</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td>database</td>
 <td>&nbsp;</td></tr>
 <tr>
 <td>&nbsp;</td>
@@ -51,11 +51,15 @@
 <td>&nbsp;</td></tr>
 <tr>
 <td>&nbsp;</td>
-<td>SortByAscending</td>
+<td>EditTmacBroadCastMsgCancel</td>
 <td>&nbsp;</td></tr>
 <tr>
 <td>&nbsp;</td>
-<td>VerifyFaxTemplateApprovedDataPage</td>
+<td>SortingByAscending</td>
+<td>&nbsp;</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td>AddRecordWithoutMesage</td>
 <td>&nbsp;</td></tr>
 <tr>
 <td>&nbsp;</td>
@@ -63,7 +67,15 @@
 <td>&nbsp;</td></tr>
 <tr>
 <td>&nbsp;</td>
-<td>VerifyColumnsHeaderdisable</td>
+<td>SortingByDescending</td>
+<td>&nbsp;</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td>GroupBy</td>
+<td>&nbsp;</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td>ExporttoExcelWithoutData</td>
 <td>&nbsp;</td></tr>
 <tr>
 <td>&nbsp;</td>
@@ -75,7 +87,7 @@
 <td>&nbsp;</td></tr>
 <tr>
 <td>&nbsp;</td>
-<td>VerifyToatalNumberOfItemsPerPageDetails</td>
+<td>AddNewTmacBroadCastMsgCancel</td>
 <td>&nbsp;</td></tr>
 <tr>
 <td>&nbsp;</td>
@@ -83,11 +95,15 @@
 <td>&nbsp;</td></tr>
 <tr>
 <td>&nbsp;</td>
+<td>VerifySearchIsNotEqualTo</td>
+<td>&nbsp;</td></tr>
+<tr>
+<td>&nbsp;</td>
 <td>VerifyNumberOfItemsPerPageSelection</td>
 <td>&nbsp;</td></tr>
 <tr>
 <td>&nbsp;</td>
-<td>VerifySearchIsNotEqualTo</td>
+<td>VerifyDropdownForAllTheColumns</td>
 <td>&nbsp;</td></tr>
 <tr>
 <td>&nbsp;</td>
@@ -99,11 +115,19 @@
 <td>&nbsp;</td></tr>
 <tr>
 <td>&nbsp;</td>
-<td>SortByDescending</td>
+<td>searchPage</td>
 <td>&nbsp;</td></tr>
 <tr>
 <td>&nbsp;</td>
-<td>SearchWithoutSearchTextBox</td>
+<td>VerifyAuditTrialReportForCreate</td>
+<td>&nbsp;</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td>VerifyColumnsHeaderDisable</td>
+<td>&nbsp;</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td>VerifyTotalNumberOfItemsPerPageDetails</td>
 <td>&nbsp;</td></tr>
 <tr>
 <td>&nbsp;</td>
@@ -111,11 +135,7 @@
 <td>&nbsp;</td></tr>
 <tr>
 <td>&nbsp;</td>
-<td>verifyDragAndDropAlreadyGroupedHeader</td>
-<td>&nbsp;</td></tr>
-<tr>
-<td>&nbsp;</td>
-<td>VerifyMakeFaxTemplateChangeButton</td>
+<td>VerifyAuditTrailReportForUpdate</td>
 <td>&nbsp;</td></tr>
 <tr>
 <td align='center' colspan='3'>@BeforeClass</td>
@@ -123,6 +143,10 @@
 <tr>
 <td>&nbsp;</td>
 <td>openApplication</td>
+<td>&nbsp;</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td>AddNewAgentTeamManagementRecord</td>
 <td>&nbsp;</td></tr>
 <tr>
 <td align='center' colspan='3'>@BeforeMethod</td>
@@ -133,7 +157,7 @@
 <td>&nbsp;</td></tr>
 <tr>
 <td>&nbsp;</td>
-<td>NavigateToFaxTemplatePage</td>
+<td>NavigateToTmacBroadcastMsgPage</td>
 <td>&nbsp;</td></tr>
 <tr>
 <td align='center' colspan='3'>@AfterMethod</td>
@@ -153,327 +177,4 @@
 <td>&nbsp;</td>
 <td>tearDown</td>
 <td>&nbsp;</td></tr>
-<tr>
-<td>com.tetherfi.test.fax.FaxTemplateAutoACKTypeUpdateTest</td>
-<td>&nbsp;</td><td>&nbsp;</td></tr>
-<tr>
-<td align='center' colspan='3'>@Test</td>
-</tr>
-<tr>
-<td>&nbsp;</td>
-<td>RejectforEditFaxTemplateRecord</td>
-<td>Checker </td>
-</tr>
-<tr>
-<td>&nbsp;</td>
-<td>VerifyAuditTrailReportForRejectRecord</td>
-<td>Checker </td>
-</tr>
-<tr>
-<td>&nbsp;</td>
-<td>ApproveForUpdatedFaxTemplateRecord</td>
-<td>Checker </td>
-</tr>
-<tr>
-<td>&nbsp;</td>
-<td>EditApproveAutoACKFaxTemplateRecord</td>
-<td>Maker </td>
-</tr>
-<tr>
-<td>&nbsp;</td>
-<td>VerifyAuditTrailReportForEditRevertRecord</td>
-<td>Maker </td>
-</tr>
-<tr>
-<td>&nbsp;</td>
-<td>EditRejectAutoACKFaxTemplateRecord</td>
-<td>Maker </td>
-</tr>
-<tr>
-<td>&nbsp;</td>
-<td>VerifySendForApprovalForEditRejectRecord</td>
-<td>Maker </td>
-</tr>
-<tr>
-<td>&nbsp;</td>
-<td>VerifySendForApprovalForEditApproveRecord</td>
-<td>Maker </td>
-</tr>
-<tr>
-<td>&nbsp;</td>
-<td>VerifyAuditTrailReportForApprove</td>
-<td>Checker </td>
-</tr>
-<tr>
-<td>&nbsp;</td>
-<td>VerifyAuditTrailDataForApproveRecord</td>
-<td>Maker </td>
-</tr>
-<tr>
-<td>&nbsp;</td>
-<td>EditApproveFaxTemplateRecordWithOutModifyReson</td>
-<td>Maker </td>
-</tr>
-<tr>
-<td>&nbsp;</td>
-<td>VerifyAuditTrailReportForSendForApproval</td>
-<td>Maker </td>
-</tr>
-<tr>
-<td>&nbsp;</td>
-<td>EditRevertAutoACKFaxTemplateRecord</td>
-<td>Maker </td>
-</tr>
-<tr>
-<td>&nbsp;</td>
-<td>VerifyRevertforEditRecord</td>
-<td>Maker </td>
-</tr>
-<tr>
-<td>&nbsp;</td>
-<td>VerifyAuditTrailReportForUpdate</td>
-<td>Maker </td>
-</tr>
-<tr>
-<td align='center' colspan='3'>@BeforeClass</td>
-</tr>
-<tr>
-<td align='center' colspan='3'>@BeforeMethod</td>
-</tr>
-<tr>
-<td>&nbsp;</td>
-<td>NavigateToFaxTemplatePage</td>
-<td>&nbsp;</td></tr>
-<tr>
-<td align='center' colspan='3'>@AfterMethod</td>
-</tr>
-<tr>
-<td>&nbsp;</td>
-<td>afterEachMethod</td>
-<td>&nbsp;</td></tr>
-<tr>
-<td align='center' colspan='3'>@AfterClass</td>
-</tr>
-<tr>
-<td>com.tetherfi.test.fax.FaxTemplateAutoACKTypeCreateTest</td>
-<td>&nbsp;</td><td>&nbsp;</td></tr>
-<tr>
-<td align='center' colspan='3'>@Test</td>
-</tr>
-<tr>
-<td>&nbsp;</td>
-<td>VerifySendForApprovalAddNewRecord</td>
-<td>Maker </td>
-</tr>
-<tr>
-<td>&nbsp;</td>
-<td>VerifyAuditTrailReportForRejectRecord</td>
-<td>Checker </td>
-</tr>
-<tr>
-<td>&nbsp;</td>
-<td>VerifyAuditTrailReportForRevertRecord</td>
-<td>Maker </td>
-</tr>
-<tr>
-<td>&nbsp;</td>
-<td>VerifyApprovedDataSectionAfterApproval</td>
-<td>Checker </td>
-</tr>
-<tr>
-<td>&nbsp;</td>
-<td>VerifyApprovedDataSectionWithOutApproval</td>
-<td>Maker </td>
-</tr>
-<tr>
-<td>&nbsp;</td>
-<td>addApproveRecord</td>
-<td>Maker </td>
-</tr>
-<tr>
-<td>&nbsp;</td>
-<td>VerifyRevertforAddNewRecord</td>
-<td>Maker </td>
-</tr>
-<tr>
-<td>&nbsp;</td>
-<td>addDuplicateRecord</td>
-<td>Maker </td>
-</tr>
-<tr>
-<td>&nbsp;</td>
-<td>ApproveForAddNewFaxTemplateRecord</td>
-<td>Checker </td>
-</tr>
-<tr>
-<td>&nbsp;</td>
-<td>VerifyAuditTrailReportForApproveRecord</td>
-<td>Maker </td>
-</tr>
-<tr>
-<td>&nbsp;</td>
-<td>AddAutoACKTemplateTypetoRevertRecord</td>
-<td>Maker </td>
-</tr>
-<tr>
-<td>&nbsp;</td>
-<td>AddRejectRecord</td>
-<td>Maker </td>
-</tr>
-<tr>
-<td>&nbsp;</td>
-<td>VerifyRecordAfterRejection</td>
-<td>Maker </td>
-</tr>
-<tr>
-<td>&nbsp;</td>
-<td>VerifySendForApprovalAddNewApproveRecord</td>
-<td>Maker </td>
-</tr>
-<tr>
-<td>&nbsp;</td>
-<td>RejectForAddNewFaxTemplateRecord</td>
-<td>Checker </td>
-</tr>
-<tr>
-<td>&nbsp;</td>
-<td>VerifyAuditTrailReportForApprove</td>
-<td>Checker </td>
-</tr>
-<tr>
-<td>&nbsp;</td>
-<td>VerifyAuditTrailDataForApproveRecord</td>
-<td>Maker </td>
-</tr>
-<tr>
-<td>&nbsp;</td>
-<td>VerifyAuditTrailReportForSendForApproval</td>
-<td>Maker </td>
-</tr>
-<tr>
-<td align='center' colspan='3'>@BeforeClass</td>
-</tr>
-<tr>
-<td align='center' colspan='3'>@BeforeMethod</td>
-</tr>
-<tr>
-<td>&nbsp;</td>
-<td>NavigateToFaxTemplatePage</td>
-<td>&nbsp;</td></tr>
-<tr>
-<td align='center' colspan='3'>@AfterMethod</td>
-</tr>
-<tr>
-<td>&nbsp;</td>
-<td>afterEachMethod</td>
-<td>&nbsp;</td></tr>
-<tr>
-<td align='center' colspan='3'>@AfterClass</td>
-</tr>
-<tr>
-<td>com.tetherfi.test.fax.FaxTemplateAutoACKTypeDeleteTest</td>
-<td>&nbsp;</td><td>&nbsp;</td></tr>
-<tr>
-<td align='center' colspan='3'>@Test</td>
-</tr>
-<tr>
-<td>&nbsp;</td>
-<td>VerifyAuditTrailReportForRejectRecord</td>
-<td>Checker </td>
-</tr>
-<tr>
-<td>&nbsp;</td>
-<td>RejectForDeleteFaxTemplateRecord</td>
-<td>Checker </td>
-</tr>
-<tr>
-<td>&nbsp;</td>
-<td>ApproveForDeleteFaxTemplateRecord</td>
-<td>Checker </td>
-</tr>
-<tr>
-<td>&nbsp;</td>
-<td>VerifySendForApprovalDeleteRejectRecord</td>
-<td>Maker </td>
-</tr>
-<tr>
-<td>&nbsp;</td>
-<td>VerifyDeleteAutoACKTypeFaxTemplateApproveRecord</td>
-<td>Maker </td>
-</tr>
-<tr>
-<td>&nbsp;</td>
-<td>VerifyDeleteAutoACKFaxTemplateRevertRecord</td>
-<td>Maker </td>
-</tr>
-<tr>
-<td>&nbsp;</td>
-<td>VerifyRevertforDeleteRecord</td>
-<td>Maker </td>
-</tr>
-<tr>
-<td>&nbsp;</td>
-<td>VerifyDeleteCancelAutoACKTypeFaxTemplateRecord</td>
-<td>Maker </td>
-</tr>
-<tr>
-<td>&nbsp;</td>
-<td>VerifyAuditTrailReportForDeleteApproveRecord</td>
-<td>Maker </td>
-</tr>
-<tr>
-<td>&nbsp;</td>
-<td>VerifyDeleteAutoACKTypeFaxTemplateRejectRecord</td>
-<td>Maker </td>
-</tr>
-<tr>
-<td>&nbsp;</td>
-<td>VerifySendForApprovalDeleteApproveRecord</td>
-<td>Maker </td>
-</tr>
-<tr>
-<td>&nbsp;</td>
-<td>VerifyAuditTrailReportForDeleteRevertRecord</td>
-<td>Maker </td>
-</tr>
-<tr>
-<td>&nbsp;</td>
-<td>VerifyAuditTrailReportForApprove</td>
-<td>Checker </td>
-</tr>
-<tr>
-<td>&nbsp;</td>
-<td>VerifyAuditTrailDataForApproveRecord</td>
-<td>Maker </td>
-</tr>
-<tr>
-<td>&nbsp;</td>
-<td>VerifyDeleteAutoACKTypeFaxTemplateRecordWithOutDeleteReason</td>
-<td>Maker </td>
-</tr>
-<tr>
-<td>&nbsp;</td>
-<td>VerifyAuditTrailReportForSendForApproval</td>
-<td>Maker </td>
-</tr>
-<tr>
-<td align='center' colspan='3'>@BeforeClass</td>
-</tr>
-<tr>
-<td align='center' colspan='3'>@BeforeMethod</td>
-</tr>
-<tr>
-<td>&nbsp;</td>
-<td>NavigateToFaxTemplatePage</td>
-<td>&nbsp;</td></tr>
-<tr>
-<td align='center' colspan='3'>@AfterMethod</td>
-</tr>
-<tr>
-<td>&nbsp;</td>
-<td>afterEachMethod</td>
-<td>&nbsp;</td></tr>
-<tr>
-<td align='center' colspan='3'>@AfterClass</td>
-</tr>
 </table>

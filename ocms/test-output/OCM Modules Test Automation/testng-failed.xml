@@ -7,34 +7,19 @@
   </listeners>
   <test thread-count="5" name="OCMRegression(failed)">
     <classes>
-      <class name="com.tetherfi.test.fax.FaxTemplateAutoACKTypeCreateTest">
-        <methods>
-          <include name="VerifyRevertforAddNewRecord"/>
-          <include name="NavigateToFaxTemplatePage"/>
-          <include name="VerifyAuditTrailReportForRevertRecord"/>
-          <include name="AddAutoACKTemplateTypetoRevertRecord"/>
-          <include name="afterEachMethod"/>
-        </methods>
-      </class> <!-- com.tetherfi.test.fax.FaxTemplateAutoACKTypeCreateTest -->
-      <class name="com.tetherfi.test.fax.FaxTemplateAutoACKTypeUpdateTest">
-        <methods>
-          <include name="afterEachMethod"/>
-          <include name="NavigateToFaxTemplatePage"/>
-          <include name="EditRevertAutoACKFaxTemplateRecord"/>
-        </methods>
-      </class> <!-- com.tetherfi.test.fax.FaxTemplateAutoACKTypeUpdateTest -->
-      <class name="com.tetherfi.test.fax.FaxTemplateUITest">
+      <class name="com.tetherfi.test.tmac.TmacBroadCastMsgTest">
         <methods>
           <include name="startTestCase"/>
           <include name="openApplication"/>
-          <include name="VerifyFaxTemplateAuditTrailDataPage"/>
+          <include name="SearchClearSearch"/>
+          <include name="AddNewAgentTeamManagementRecord"/>
           <include name="afterEachMethod"/>
-          <include name="dataBase"/>
           <include name="endTestCase"/>
           <include name="tearDown"/>
-          <include name="NavigateToFaxTemplatePage"/>
+          <include name="AddDuplicateRecord"/>
+          <include name="NavigateToTmacBroadcastMsgPage"/>
         </methods>
-      </class> <!-- com.tetherfi.test.fax.FaxTemplateUITest -->
+      </class> <!-- com.tetherfi.test.tmac.TmacBroadCastMsgTest -->
     </classes>
   </test> <!-- OCMRegression(failed) -->
 </suite> <!-- Failed suite [OCM Modules Test Automation] -->
