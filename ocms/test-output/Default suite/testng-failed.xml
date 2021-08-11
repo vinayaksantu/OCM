@@ -3,91 +3,17 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.tetherfi.test.AgentSkillAssignmentNewTest">
+      <class name="com.tetherfi.test.ivr.IntentMappingTest">
         <methods>
-          <include name="AgentSkillAssignmentPage"/>
-          <include name="SearchTextChatSkillsToEditForMultiAgentSkillTab"/>
-          <include name="GroupBy"/>
-          <include name="VerifyArrowDropDownData"/>
-          <include name="verifyAssignMultiSkillFromSMSChannelWithDragAndDrop"/>
-          <include name="SearchSMSSkillsToEditForMultiAgentSkillTab"/>
-          <include name="NavigateToAgentSkillAssignmentPage"/>
-          <include name="VerifyArrowMoveForFirstAndLastPage"/>
-          <include name="SearchAgentSkillsToEditAgentSkillForSMSSkillsChannel"/>
-          <include name="SearchAssignedAgentSkillButtonWithoutSkill"/>
-          <include name="EditAgentListRecordwithVoiceSkillsByDragAndDrop"/>
-          <include name="verifyAssignMultiSkillFromVoiceChannelWithDragAndDrop"/>
-          <include name="SearchVideoChatSkillsToEditForMultiAgentSkillTab"/>
-          <include name="EditAgentListRecordwithTextChatSkillsByDragAndDrop"/>
-          <include name="verifyAssignMultiSkillFromTextChatChannel"/>
           <include name="startTestCase"/>
-          <include name="EditAgentListRecordwithSMSSkills"/>
-          <include name="SearchAgentSkillsToEditAgentSkillForVoiceSkillsChannel"/>
-          <include name="verifyAssignMultiSkillFromFaxChannelWithDragAndDrop"/>
-          <include name="EditAgentListRecordwithEmailSkills"/>
-          <include name="verifyMultiSkillSaveButtonWithOutAssigningSkills"/>
-          <include name="verifyAssignMultiSkillFromVideoChatChannel"/>
-          <include name="EditAgentListRecordResetButton"/>
-          <include name="SearchAssignedSkillsRecords"/>
-          <include name="afterEachMethod"/>
-          <include name="SearchContains"/>
-          <include name="verifyAssignMultiSkillFromVideoChatChannelWithDragAndDrop"/>
-          <include name="verifyAssignMultiSkillFromEmailChannel"/>
-          <include name="EditAgentListRecordwithEmailSkillsByDragAndDrop"/>
-          <include name="EditAgentListRecordwithVoiceSkills"/>
-          <include name="verifyAuditTrailReportForMultiSkillUpdate"/>
-          <include name="tearDown"/>
-          <include name="VerifyColumnsHeaderDisable"/>
-          <include name="EditAgentListRecordwithAudioChatSkillsByDragAndDrop"/>
-          <include name="ExportToExcel"/>
-          <include name="SearchAgentSkillsToEditAgentSkillForEmailSkillsChannel"/>
-          <include name="SearchClearforAssignedSkillRecord"/>
-          <include name="EditAgentListRecordwithFaxSkillsByDragAndDrop"/>
-          <include name="SearchStartsWith"/>
-          <include name="SearchEndsWith"/>
-          <include name="verifyAssignMultiSkillFromEmailChannelWithDragAndDrop"/>
-          <include name="verifyTransferAllToButtonToAssignSkills"/>
-          <include name="verifyAssignMultiSkillFromTextChatChannelWithDragAndDrop"/>
-          <include name="VerifyDropdownForAllTheColumns"/>
-          <include name="verifyAssignMultiSkillFromAudioChatChannel"/>
-          <include name="SearchAgentSkillsToEditAgentSkillForFaxSkillsChannel"/>
-          <include name="SearchAgentSkillsToEditAgentSkillForAudioChatSkillsChannel"/>
-          <include name="SearchEmailSkillsToEditForMultiAgentSkillTab"/>
-          <include name="SearchDoesNotContains"/>
-          <include name="verifyAssignMultiSkillFromAudioChatChannelWithDragAndDrop"/>
-          <include name="EditAgentListRecordwithAudioChatSkills"/>
-          <include name="EditAgentListRecordwithVideoChatSkills"/>
-          <include name="SearchVoiceSkillsToEditForMultiAgentSkillTab"/>
-          <include name="EditAgentListRecordWithoutAssigningSkills"/>
-          <include name="SearchFaxSkillsToEditForMultiAgentSkillTab"/>
           <include name="openApplication"/>
-          <include name="SearchWithOutSearchText"/>
-          <include name="EditAgentListRecordwithSMSSkillsByDragAndDrop"/>
-          <include name="SearchClearSearch"/>
-          <include name="VerifyColumnsHeaderEnable"/>
-          <include name="SearchAudioChatSkillsToEditForMultiAgentSkillTab"/>
-          <include name="SearchPage"/>
-          <include name="verifyAssignMultiSkillFromFaxChannel"/>
-          <include name="verifyAuditTrailReportForUpdate"/>
-          <include name="EditAgentListRecordwithTextChatSkills"/>
-          <include name="verifyAssignMultiSkillFromVoiceChannel"/>
-          <include name="VerifyTotalNumberOfItemsPerPageDetails"/>
+          <include name="DeleteIntentMappingRecord"/>
           <include name="endTestCase"/>
-          <include name="SearchAgentSkillsToEditAgentSkillForVideoChatSkillsChannel"/>
-          <include name="VerifyAddNewRecordInAgentSettings"/>
-          <include name="verifyAssignMultiSkillFromSMSChannel"/>
-          <include name="VerifyNumberOfItemsPerPageSelection"/>
-          <include name="VerifySearchIsNotEqualTo"/>
-          <include name="EditAgentListRecordwithVideoChatSkillsByDragAndDrop"/>
-          <include name="VerifyDeleteNewRecordInAgentSettings"/>
-          <include name="EditAgentListRecordwithFaxSkills"/>
-          <include name="ExporttoExcelWithoutData"/>
-          <include name="VerifyArrowMoveForPreviousAndNextPage"/>
-          <include name="verifyMultiSkillClearButton"/>
-          <include name="SearchAgentSkillsToEditAgentSkillForTextChatSkillsChannel"/>
-          <include name="verifyEditAgentSkillButton"/>
+          <include name="afterEachMethod"/>
+          <include name="tearDown"/>
+          <include name="NavigateToIntentMappingPage"/>
         </methods>
-      </class> <!-- com.tetherfi.test.AgentSkillAssignmentNewTest -->
+      </class> <!-- com.tetherfi.test.ivr.IntentMappingTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

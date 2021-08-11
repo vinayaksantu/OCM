@@ -7,17 +7,14 @@
   </listeners>
   <test thread-count="5" name="OCMRegression(failed)">
     <classes>
-      <class name="com.tetherfi.test.tmac.AgentTemplateTest">
+      <class name="com.tetherfi.test.UserOnBoardingTeamLevelUserCreateTest">
         <methods>
-          <include name="startTestCase"/>
-          <include name="openApplication"/>
-          <include name="verifyGroupBy"/>
+          <include name="AddRecordwithDuplicateLanID"/>
+          <include name="AddRecordwithDuplicateAvayaLoginID"/>
+          <include name="NavigateToUserOnBoardingPage"/>
           <include name="afterEachMethod"/>
-          <include name="endTestCase"/>
-          <include name="tearDown"/>
-          <include name="NavigateToAgentTemplatePage"/>
         </methods>
-      </class> <!-- com.tetherfi.test.tmac.AgentTemplateTest -->
+      </class> <!-- com.tetherfi.test.UserOnBoardingTeamLevelUserCreateTest -->
     </classes>
   </test> <!-- OCMRegression(failed) -->
 </suite> <!-- Failed suite [OCM Modules Test Automation] -->
