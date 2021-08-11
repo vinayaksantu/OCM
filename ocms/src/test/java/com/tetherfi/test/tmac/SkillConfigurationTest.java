@@ -97,7 +97,7 @@ public class SkillConfigurationTest extends BaseTest{
 		Assert.assertTrue(agentSkillAssignmentPage.VerifySkill(skillConfigurationDetails.getSkillName(),skillConfigurationDetails.getSkillTab()));  
 	}
 
-	//@Test(priority=7)
+	@Test(priority=7)
 	public void DuplicateRecord() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\SkillConfigurationData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(1);

@@ -41,8 +41,8 @@ public class ChatMenuDescriptionPage extends BasePage{
 	@FindBy(css=".k-edit-form-container .k-grid-update")
     private WebElement saveBtn;
 
-    @FindBy(css="#toast-container .toast-success .toast-message")
-    private WebElement successmsg;
+	@FindBy(css=".toast-message")
+	private WebElement successmsg;
 
     @FindBy(css="#toast-container .toast-error .toast-message")
     private List<WebElement> errorMsg;
@@ -338,6 +338,8 @@ public class ChatMenuDescriptionPage extends BasePage{
 	}
 	public boolean verifyDatabase(String query) throws Exception {
 		List<Map<String,String>> database=database(query);
+		selectWebElement(MenuName);
+		waitForJqueryLoad(driver);
 		System.out.println(database);
 		List<Map<String,String>> UI=gettable(); 
 		System.out.println(UI);
@@ -642,6 +644,7 @@ public class ChatMenuDescriptionPage extends BasePage{
 	}
 
 	public void addNewChatMenuDescriptionRecord(ChatMenuDescriptionDetails details) throws Exception {
+		waitForJqueryLoad(driver);
 		selectWebElement(addNewChatMenuDescriptionBtn);
 		waitForJqueryLoad(driver);
 		enterValueToTxtFieldWithoutClear(MenuIdTextbox,details.getMenuId());
@@ -895,6 +898,8 @@ public class ChatMenuDescriptionPage extends BasePage{
 	}
 
 	public String getSuccessMessage() {
-		return successmsg.getText();
+		if(successmsg.isDisplayed())
+			return successmsg.getText();
+		else{return errorMsg.get(0).getText();}
 	}
 }

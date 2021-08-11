@@ -34,7 +34,7 @@ public class TmacTransferListTest extends BaseTest {
 		Assert.assertTrue(tmacTransferListPage.isTmacTransferListPageDisplayed(),"Agent Team  management assertion failed");
 	}
 
-	@Test (priority=0)
+	/*@Test (priority=0)
 	public void VerifyTmacTransferListModuleDisplay() {
 		TmacTransferListPage tmacTransferListPage=PageFactory.createPageInstance(driver,TmacTransferListPage.class);
 		Assert.assertEquals(tmacTransferListPage.getHeaderText(), "Skill Transfer List", "Tmac Transfer List Module text assertion failed");
@@ -771,7 +771,7 @@ public class TmacTransferListTest extends BaseTest {
 		ReportDetails reportDetails= new ReportDetails(map1);
 		ocmReportsPage.showReport(reportDetails);
 		Assert.assertTrue(ocmReportsPage.verifyTmacBlindTransferdelete(tmacTransferListDetails,"Delete"));
-	}
+	}*/
 
 	@Test (priority=67)//, dependsOnMethods = {"EditTmacBlindTransferRecord"})
 	public void DeleteTmacBlindTransferRecord2() throws Exception {

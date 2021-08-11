@@ -333,6 +333,7 @@ public class AdhocOptionEnhancementPage extends BasePage {
 		selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Promotion Description");
+        Thread.sleep(2000);
         selectWebElement(selectSearchCol.get(1));
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Is not equal to");
         enterValueToTxtField(searchTextBox,promotiondescription);		
@@ -355,6 +356,7 @@ public class AdhocOptionEnhancementPage extends BasePage {
 		selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Promotion Description");
+        Thread.sleep(2000);
         selectWebElement(selectSearchCol.get(1));
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Contains");
         enterValueToTxtField(searchTextBox,promotiondescription);		
@@ -376,6 +378,7 @@ public class AdhocOptionEnhancementPage extends BasePage {
 		selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Promotion Description");
+        Thread.sleep(2000);
         selectWebElement(selectSearchCol.get(1));
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Does not contain");
         enterValueToTxtField(searchTextBox,promotiondescription);		
@@ -397,6 +400,7 @@ public class AdhocOptionEnhancementPage extends BasePage {
 		selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Promotion Description");
+        Thread.sleep(2000);
         selectWebElement(selectSearchCol.get(1));
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Starts with");
         enterValueToTxtField(searchTextBox,promotiondescription);		
@@ -418,6 +422,7 @@ public class AdhocOptionEnhancementPage extends BasePage {
 		selectWebElement(searchBtn);
         selectWebElement(selectSearchCol.get(0));
         selectDropdownFromVisibleText(columnNameList,"Promotion Description");
+        Thread.sleep(2000);
         selectWebElement(selectSearchCol.get(1));
         selectDropdownFromVisibleText(searchCriteriaDropDwn,"Ends with");
         enterValueToTxtField(searchTextBox,promotiondescription);		

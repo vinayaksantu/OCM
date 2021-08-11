@@ -680,6 +680,7 @@ public class TmacTransferListPage extends BasePage {
         searchTmacTransferRecord(tmacTransferListDetails.getSkillName(),"Skill Name",1);
     	waitUntilWebElementIsVisible(deleteButton1);
         selectWebElement(deleteButton1);
+        selectWebElement(deleteReasonTextBox);
         enterValueToTxtFieldWithoutClear(deleteReasonTextBox,tmacTransferListDetails.getDeleteReason());
         selectWebElement(deleteYesBtn);
     }

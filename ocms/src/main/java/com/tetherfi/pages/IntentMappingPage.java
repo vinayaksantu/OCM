@@ -813,14 +813,14 @@ public class IntentMappingPage extends BasePage{
 	
 	public void editIntentMappingRecord(IntentMappingDetails details) throws Exception {
 		searchIntentMappingRecord(details.getVDN());
-		Thread.sleep(3000);
+		Thread.sleep(1000);
 		selectWebElement(editButton);
 		waitForLoad(driver);
-//		selectWebElement(VDNText);
-//		VDNTextbox.clear();
-//		selectWebElement(VDNTextbox);
-//		enterValueToTxtField(VDNTextbox,details.getUpdatedVDN());
-//		enterValueToDropdownText(VDNTextbox, details.getUpdatedVDN());
+		selectWebElement(VDNText);
+		VDNTextbox.clear();
+		//enterValueToTxtField(VDNTextbox,details.getUpdatedVDN());
+		selectWebElement(VDNText);
+		enterValueToDropdownText(VDNTextbox, details.getUpdatedVDN());
 		selectWebElement(ModifyReasonTextBox);
 		enterValueToTxtFieldWithoutClear(ModifyReasonTextBox,details.getModifyReason());
 		selectWebElement(saveButton);
@@ -872,6 +872,7 @@ public class IntentMappingPage extends BasePage{
 		Thread.sleep(3000);
         selectWebElement(deleteButton);
         waitForJqueryLoad(driver);
+        selectWebElement(deleteReasonTextBox);
         enterValueToTxtFieldWithoutClear(deleteReasonTextBox,details.getDeleteReason());
         selectWebElement(deleteYesBtn);	
 	}

@@ -10,10 +10,11 @@
 
 	<test name="OCMRegression">
 		<classes>
-			<class name="com.tetherfi.test.tmac.AgentTemplateTest" />
-			<!--<class name="com.tetherfi.test.fax.FaxTemplateAutoACKTypeCreateTest" />
-			<class name="com.tetherfi.test.fax.FaxTemplateAutoACKTypeUpdateTest" />
-			<class name="com.tetherfi.test.fax.FaxTemplateAutoACKTypeDeleteTest" />-->
+			<class name="com.tetherfi.test.UserOnBoardingCountryLevelUserCreateTest" />
+			<class name="com.tetherfi.test.UserOnBoardingDivisionLevelUserCreateTest" />
+			<class name="com.tetherfi.test.UserOnBoardingDepartmentLevelUserCreateTest" />
+			<class name="com.tetherfi.test.UserOnBoardingTeamLevelUserCreateTest" />
+			<class name="com.tetherfi.test.UserOnBoardingAgentCreateTest" />
 		</classes>
 	
 	</test>
