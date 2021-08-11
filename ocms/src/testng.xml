@@ -10,11 +10,11 @@
 
 	<test name="OCMRegression">
 		<classes>
-			<class name="com.tetherfi.test.UserOnBoardingCountryLevelUserCreateTest" />
-			<class name="com.tetherfi.test.UserOnBoardingDivisionLevelUserCreateTest" />
+			<class name="com.tetherfi.test.tmac.TemplatesOpHoursTabTest" />
+			<!--<class name="com.tetherfi.test.UserOnBoardingDivisionLevelUserCreateTest" />
 			<class name="com.tetherfi.test.UserOnBoardingDepartmentLevelUserCreateTest" />
 			<class name="com.tetherfi.test.UserOnBoardingTeamLevelUserCreateTest" />
-			<class name="com.tetherfi.test.UserOnBoardingAgentCreateTest" />
+			<class name="com.tetherfi.test.UserOnBoardingAgentCreateTest" />-->
 		</classes>
 	
 	</test>
