@@ -1,62 +1,2074 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+<testng-results skipped="0" failed="4" ignored="0" total="46" passed="42">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="45018" started-at="2021-09-03T12:23:11 IST" finished-at="2021-09-03T12:23:56 IST">
+  <suite name="OCM Modules Test Automation" duration-ms="1561673" started-at="2021-09-03T14:10:55 IST" finished-at="2021-09-03T14:36:57 IST">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="45018" started-at="2021-09-03T12:23:11 IST" finished-at="2021-09-03T12:23:56 IST">
-      <class name="com.tetherfi.test.reports.OCMTimelineReportTest">
-        <test-method status="PASS" signature="openApplication()[pri:0, instance:com.tetherfi.test.reports.OCMTimelineReportTest@7add323c]" name="openApplication" is-config="true" duration-ms="23536" started-at="2021-09-03T12:23:11 IST" finished-at="2021-09-03T12:23:34 IST">
+    <test name="OCMRegression" duration-ms="1561673" started-at="2021-09-03T14:10:55 IST" finished-at="2021-09-03T14:36:57 IST">
+      <class name="com.tetherfi.test.reports.OCMInteractionActionsReportTest">
+        <test-method status="PASS" signature="openApplication()[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="openApplication" is-config="true" duration-ms="23107" started-at="2021-09-03T14:10:55 IST" finished-at="2021-09-03T14:11:18 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- openApplication -->
-        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMTimelineReportTest@7add323c]" name="startTestCase" is-config="true" duration-ms="3" started-at="2021-09-03T12:23:34 IST" finished-at="2021-09-03T12:23:34 IST">
+        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="startTestCase" is-config="true" duration-ms="3" started-at="2021-09-03T14:11:18 IST" finished-at="2021-09-03T14:11:18 IST">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.reports.OCMTimelineReportTest.ExportOcmTimelineReport() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.ShowReport() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startTestCase -->
-        <test-method status="PASS" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.OCMTimelineReportTest@7add323c]" name="NavigateToOcmReportsPage" is-config="true" duration-ms="2057" started-at="2021-09-03T12:23:34 IST" finished-at="2021-09-03T12:23:36 IST">
+        <test-method status="PASS" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="NavigateToOcmReportsPage" is-config="true" duration-ms="2196" started-at="2021-09-03T14:11:18 IST" finished-at="2021-09-03T14:11:21 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- NavigateToOcmReportsPage -->
-        <test-method status="PASS" signature="ExportOcmTimelineReport()[pri:3, instance:com.tetherfi.test.reports.OCMTimelineReportTest@7add323c]" name="ExportOcmTimelineReport" duration-ms="13900" started-at="2021-09-03T12:23:36 IST" description="To verify Export Report on OCM Reports Page" finished-at="2021-09-03T12:23:50 IST">
+        <test-method status="PASS" signature="ShowReport()[pri:1, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="ShowReport" duration-ms="16433" started-at="2021-09-03T14:11:21 IST" description="To verify Show Report for Single Date" finished-at="2021-09-03T14:11:37 IST">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- ExportOcmTimelineReport -->
-        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMTimelineReportTest@7add323c]" name="afterEachMethod" is-config="true" duration-ms="1652" started-at="2021-09-03T12:23:50 IST" finished-at="2021-09-03T12:23:52 IST">
+        </test-method> <!-- ShowReport -->
+        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="afterEachMethod" is-config="true" duration-ms="4294" started-at="2021-09-03T14:11:37 IST" finished-at="2021-09-03T14:11:41 IST">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.reports.OCMTimelineReportTest.ExportOcmTimelineReport() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.ShowReport() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterEachMethod -->
-        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMTimelineReportTest@7add323c]" name="endTestCase" is-config="true" duration-ms="1" started-at="2021-09-03T12:23:52 IST" finished-at="2021-09-03T12:23:52 IST">
+        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="endTestCase" is-config="true" duration-ms="0" started-at="2021-09-03T14:11:41 IST" finished-at="2021-09-03T14:11:41 IST">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tetherfi.test.reports.OCMTimelineReportTest.ExportOcmTimelineReport() throws java.lang.Exception]]>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.ShowReport() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- endTestCase -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.tetherfi.test.reports.OCMTimelineReportTest@7add323c]" name="tearDown" is-config="true" duration-ms="3688" started-at="2021-09-03T12:23:52 IST" finished-at="2021-09-03T12:23:56 IST">
+        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="startTestCase" is-config="true" duration-ms="0" started-at="2021-09-03T14:11:41 IST" finished-at="2021-09-03T14:11:41 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.ShowReportInNewPage() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method status="PASS" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="NavigateToOcmReportsPage" is-config="true" duration-ms="3980" started-at="2021-09-03T14:11:41 IST" finished-at="2021-09-03T14:11:45 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToOcmReportsPage -->
+        <test-method status="PASS" signature="ShowReportInNewPage()[pri:2, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="ShowReportInNewPage" duration-ms="16233" started-at="2021-09-03T14:11:45 IST" description="To verify Show Report in New page for Single Date" finished-at="2021-09-03T14:12:02 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ShowReportInNewPage -->
+        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="afterEachMethod" is-config="true" duration-ms="1471" started-at="2021-09-03T14:12:02 IST" finished-at="2021-09-03T14:12:03 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.ShowReportInNewPage() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="endTestCase" is-config="true" duration-ms="0" started-at="2021-09-03T14:12:03 IST" finished-at="2021-09-03T14:12:03 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.ShowReportInNewPage() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method status="PASS" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="NavigateToOcmReportsPage" is-config="true" duration-ms="2463" started-at="2021-09-03T14:12:03 IST" finished-at="2021-09-03T14:12:06 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToOcmReportsPage -->
+        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="startTestCase" is-config="true" duration-ms="0" started-at="2021-09-03T14:12:03 IST" finished-at="2021-09-03T14:12:03 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.database() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method status="FAIL" signature="database()[pri:3, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="database" duration-ms="258690" started-at="2021-09-03T14:12:06 IST" description="To verify Interaction Actions Report report UI data against DB" finished-at="2021-09-03T14:16:24 IST">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Main report data mismatch did not expect to find [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Main report data mismatch did not expect to find [true] but found [false]
+at org.testng.Assert.fail(Assert.java:97)
+at org.testng.Assert.failNotEquals(Assert.java:969)
+at org.testng.Assert.assertTrue(Assert.java:43)
+at com.tetherfi.test.reports.OCMInteractionActionsReportTest.database(OCMInteractionActionsReportTest.java:63)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- database -->
+        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="afterEachMethod" is-config="true" duration-ms="1945" started-at="2021-09-03T14:16:24 IST" finished-at="2021-09-03T14:16:26 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.database() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="endTestCase" is-config="true" duration-ms="1" started-at="2021-09-03T14:16:26 IST" finished-at="2021-09-03T14:16:26 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.database() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="startTestCase" is-config="true" duration-ms="0" started-at="2021-09-03T14:16:26 IST" finished-at="2021-09-03T14:16:26 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.VerifyDropdownForAllTheColumns() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method status="PASS" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="NavigateToOcmReportsPage" is-config="true" duration-ms="2117" started-at="2021-09-03T14:16:26 IST" finished-at="2021-09-03T14:16:28 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToOcmReportsPage -->
+        <test-method status="PASS" signature="VerifyDropdownForAllTheColumns()[pri:4, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="VerifyDropdownForAllTheColumns" duration-ms="32109" started-at="2021-09-03T14:16:28 IST" description="Verify dropdown of all the coulmn headers" finished-at="2021-09-03T14:17:00 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyDropdownForAllTheColumns -->
+        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="afterEachMethod" is-config="true" duration-ms="636" started-at="2021-09-03T14:17:00 IST" finished-at="2021-09-03T14:17:01 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.VerifyDropdownForAllTheColumns() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="endTestCase" is-config="true" duration-ms="3" started-at="2021-09-03T14:17:01 IST" finished-at="2021-09-03T14:17:01 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.VerifyDropdownForAllTheColumns() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="startTestCase" is-config="true" duration-ms="1" started-at="2021-09-03T14:17:01 IST" finished-at="2021-09-03T14:17:01 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.VerifyColumnsHeaderEnable() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method status="PASS" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="NavigateToOcmReportsPage" is-config="true" duration-ms="3720" started-at="2021-09-03T14:17:01 IST" finished-at="2021-09-03T14:17:05 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToOcmReportsPage -->
+        <test-method status="PASS" signature="VerifyColumnsHeaderEnable()[pri:5, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="VerifyColumnsHeaderEnable" duration-ms="24747" started-at="2021-09-03T14:17:05 IST" description="Verify column header Enable" finished-at="2021-09-03T14:17:30 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyColumnsHeaderEnable -->
+        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="afterEachMethod" is-config="true" duration-ms="1820" started-at="2021-09-03T14:17:30 IST" finished-at="2021-09-03T14:17:31 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.VerifyColumnsHeaderEnable() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="endTestCase" is-config="true" duration-ms="1" started-at="2021-09-03T14:17:31 IST" finished-at="2021-09-03T14:17:31 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.VerifyColumnsHeaderEnable() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method status="PASS" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="NavigateToOcmReportsPage" is-config="true" duration-ms="2162" started-at="2021-09-03T14:17:31 IST" finished-at="2021-09-03T14:17:34 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToOcmReportsPage -->
+        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="startTestCase" is-config="true" duration-ms="0" started-at="2021-09-03T14:17:31 IST" finished-at="2021-09-03T14:17:31 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.VerifyColumnsHeaderDisable() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method status="PASS" signature="VerifyColumnsHeaderDisable()[pri:6, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="VerifyColumnsHeaderDisable" duration-ms="32308" started-at="2021-09-03T14:17:34 IST" description="Verify column header disable" finished-at="2021-09-03T14:18:06 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyColumnsHeaderDisable -->
+        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="afterEachMethod" is-config="true" duration-ms="419" started-at="2021-09-03T14:18:06 IST" finished-at="2021-09-03T14:18:06 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.VerifyColumnsHeaderDisable() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="endTestCase" is-config="true" duration-ms="0" started-at="2021-09-03T14:18:06 IST" finished-at="2021-09-03T14:18:06 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.VerifyColumnsHeaderDisable() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="startTestCase" is-config="true" duration-ms="1" started-at="2021-09-03T14:18:06 IST" finished-at="2021-09-03T14:18:06 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.VerifyArrowMoveForPreviousAndNextPage() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method status="PASS" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="NavigateToOcmReportsPage" is-config="true" duration-ms="3621" started-at="2021-09-03T14:18:06 IST" finished-at="2021-09-03T14:18:10 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToOcmReportsPage -->
+        <test-method status="PASS" signature="VerifyArrowMoveForPreviousAndNextPage()[pri:7, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="VerifyArrowMoveForPreviousAndNextPage" duration-ms="25504" started-at="2021-09-03T14:18:10 IST" description="Verify Pagination, Move to previous and next page" finished-at="2021-09-03T14:18:35 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyArrowMoveForPreviousAndNextPage -->
+        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="afterEachMethod" is-config="true" duration-ms="1834" started-at="2021-09-03T14:18:35 IST" finished-at="2021-09-03T14:18:37 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.VerifyArrowMoveForPreviousAndNextPage() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="endTestCase" is-config="true" duration-ms="1" started-at="2021-09-03T14:18:37 IST" finished-at="2021-09-03T14:18:37 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.VerifyArrowMoveForPreviousAndNextPage() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method status="PASS" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="NavigateToOcmReportsPage" is-config="true" duration-ms="2224" started-at="2021-09-03T14:18:37 IST" finished-at="2021-09-03T14:18:39 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToOcmReportsPage -->
+        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="startTestCase" is-config="true" duration-ms="0" started-at="2021-09-03T14:18:37 IST" finished-at="2021-09-03T14:18:37 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.VerifyArrowMoveForFirstAndLastPage() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method status="PASS" signature="VerifyArrowMoveForFirstAndLastPage()[pri:8, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="VerifyArrowMoveForFirstAndLastPage" duration-ms="25402" started-at="2021-09-03T14:18:39 IST" description="Verify Pagination, Move to First and Last Page" finished-at="2021-09-03T14:19:05 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyArrowMoveForFirstAndLastPage -->
+        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="afterEachMethod" is-config="true" duration-ms="1824" started-at="2021-09-03T14:19:05 IST" finished-at="2021-09-03T14:19:07 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.VerifyArrowMoveForFirstAndLastPage() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="endTestCase" is-config="true" duration-ms="0" started-at="2021-09-03T14:19:07 IST" finished-at="2021-09-03T14:19:07 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.VerifyArrowMoveForFirstAndLastPage() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="startTestCase" is-config="true" duration-ms="1" started-at="2021-09-03T14:19:07 IST" finished-at="2021-09-03T14:19:07 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.VerifyTotalNumberOfItemsPerPageDetails() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method status="PASS" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="NavigateToOcmReportsPage" is-config="true" duration-ms="2128" started-at="2021-09-03T14:19:07 IST" finished-at="2021-09-03T14:19:09 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToOcmReportsPage -->
+        <test-method status="PASS" signature="VerifyTotalNumberOfItemsPerPageDetails()[pri:9, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="VerifyTotalNumberOfItemsPerPageDetails" duration-ms="13728" started-at="2021-09-03T14:19:09 IST" description="Verify total number of items per page" finished-at="2021-09-03T14:19:23 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyTotalNumberOfItemsPerPageDetails -->
+        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="afterEachMethod" is-config="true" duration-ms="1980" started-at="2021-09-03T14:19:23 IST" finished-at="2021-09-03T14:19:25 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.VerifyTotalNumberOfItemsPerPageDetails() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="endTestCase" is-config="true" duration-ms="1" started-at="2021-09-03T14:19:25 IST" finished-at="2021-09-03T14:19:25 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.VerifyTotalNumberOfItemsPerPageDetails() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="startTestCase" is-config="true" duration-ms="1" started-at="2021-09-03T14:19:25 IST" finished-at="2021-09-03T14:19:25 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.VerifyNumberOfItemsPerPageSelection() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method status="PASS" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="NavigateToOcmReportsPage" is-config="true" duration-ms="2084" started-at="2021-09-03T14:19:25 IST" finished-at="2021-09-03T14:19:27 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToOcmReportsPage -->
+        <test-method status="PASS" signature="VerifyNumberOfItemsPerPageSelection()[pri:10, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="VerifyNumberOfItemsPerPageSelection" duration-ms="58376" started-at="2021-09-03T14:19:27 IST" description="Verify number of items selected per page" finished-at="2021-09-03T14:20:25 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyNumberOfItemsPerPageSelection -->
+        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="afterEachMethod" is-config="true" duration-ms="2027" started-at="2021-09-03T14:20:25 IST" finished-at="2021-09-03T14:20:27 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.VerifyNumberOfItemsPerPageSelection() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="endTestCase" is-config="true" duration-ms="1" started-at="2021-09-03T14:20:27 IST" finished-at="2021-09-03T14:20:27 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.VerifyNumberOfItemsPerPageSelection() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="startTestCase" is-config="true" duration-ms="6" started-at="2021-09-03T14:20:27 IST" finished-at="2021-09-03T14:20:27 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.VerifySearchByFeature() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method status="PASS" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="NavigateToOcmReportsPage" is-config="true" duration-ms="2152" started-at="2021-09-03T14:20:27 IST" finished-at="2021-09-03T14:20:29 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToOcmReportsPage -->
+        <test-method status="PASS" signature="VerifySearchByFeature()[pri:11, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="VerifySearchByFeature" duration-ms="34478" started-at="2021-09-03T14:20:29 IST" description="Search by feature" finished-at="2021-09-03T14:21:04 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifySearchByFeature -->
+        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="afterEachMethod" is-config="true" duration-ms="2772" started-at="2021-09-03T14:21:04 IST" finished-at="2021-09-03T14:21:06 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.VerifySearchByFeature() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="endTestCase" is-config="true" duration-ms="0" started-at="2021-09-03T14:21:06 IST" finished-at="2021-09-03T14:21:06 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.VerifySearchByFeature() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="startTestCase" is-config="true" duration-ms="5" started-at="2021-09-03T14:21:06 IST" finished-at="2021-09-03T14:21:06 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.verifySearchIsEqualTo() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method status="PASS" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="NavigateToOcmReportsPage" is-config="true" duration-ms="2307" started-at="2021-09-03T14:21:06 IST" finished-at="2021-09-03T14:21:09 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToOcmReportsPage -->
+        <test-method status="PASS" signature="verifySearchIsEqualTo()[pri:12, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="verifySearchIsEqualTo" duration-ms="29651" started-at="2021-09-03T14:21:09 IST" description="To Verify the search functionality using Is equal to criteria" finished-at="2021-09-03T14:21:38 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifySearchIsEqualTo -->
+        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="afterEachMethod" is-config="true" duration-ms="2333" started-at="2021-09-03T14:21:38 IST" finished-at="2021-09-03T14:21:41 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.verifySearchIsEqualTo() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="endTestCase" is-config="true" duration-ms="1" started-at="2021-09-03T14:21:41 IST" finished-at="2021-09-03T14:21:41 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.verifySearchIsEqualTo() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="startTestCase" is-config="true" duration-ms="3" started-at="2021-09-03T14:21:41 IST" finished-at="2021-09-03T14:21:41 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.VerifySearchIsNotEqualTo() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method status="PASS" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="NavigateToOcmReportsPage" is-config="true" duration-ms="2149" started-at="2021-09-03T14:21:41 IST" finished-at="2021-09-03T14:21:43 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToOcmReportsPage -->
+        <test-method status="PASS" signature="VerifySearchIsNotEqualTo()[pri:13, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="VerifySearchIsNotEqualTo" duration-ms="30508" started-at="2021-09-03T14:21:43 IST" description="Verify the search Is not equal to criteria" finished-at="2021-09-03T14:22:13 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifySearchIsNotEqualTo -->
+        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="afterEachMethod" is-config="true" duration-ms="1658" started-at="2021-09-03T14:22:13 IST" finished-at="2021-09-03T14:22:15 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.VerifySearchIsNotEqualTo() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="endTestCase" is-config="true" duration-ms="1" started-at="2021-09-03T14:22:15 IST" finished-at="2021-09-03T14:22:15 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.VerifySearchIsNotEqualTo() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="startTestCase" is-config="true" duration-ms="0" started-at="2021-09-03T14:22:15 IST" finished-at="2021-09-03T14:22:15 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.VerifySearchContains() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method status="PASS" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="NavigateToOcmReportsPage" is-config="true" duration-ms="4193" started-at="2021-09-03T14:22:15 IST" finished-at="2021-09-03T14:22:19 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToOcmReportsPage -->
+        <test-method status="PASS" signature="VerifySearchContains()[pri:14, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="VerifySearchContains" duration-ms="29433" started-at="2021-09-03T14:22:19 IST" description="Verify the search contains criteria" finished-at="2021-09-03T14:22:49 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifySearchContains -->
+        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="afterEachMethod" is-config="true" duration-ms="2503" started-at="2021-09-03T14:22:49 IST" finished-at="2021-09-03T14:22:51 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.VerifySearchContains() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="endTestCase" is-config="true" duration-ms="1" started-at="2021-09-03T14:22:51 IST" finished-at="2021-09-03T14:22:51 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.VerifySearchContains() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method status="PASS" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="NavigateToOcmReportsPage" is-config="true" duration-ms="2093" started-at="2021-09-03T14:22:51 IST" finished-at="2021-09-03T14:22:53 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToOcmReportsPage -->
+        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="startTestCase" is-config="true" duration-ms="0" started-at="2021-09-03T14:22:51 IST" finished-at="2021-09-03T14:22:51 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.VerifySearchDoesNotContains() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method status="PASS" signature="VerifySearchDoesNotContains()[pri:15, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="VerifySearchDoesNotContains" duration-ms="31169" started-at="2021-09-03T14:22:53 IST" description="Verify the Does not contain criteria" finished-at="2021-09-03T14:23:24 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifySearchDoesNotContains -->
+        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="afterEachMethod" is-config="true" duration-ms="2548" started-at="2021-09-03T14:23:24 IST" finished-at="2021-09-03T14:23:27 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.VerifySearchDoesNotContains() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="endTestCase" is-config="true" duration-ms="0" started-at="2021-09-03T14:23:27 IST" finished-at="2021-09-03T14:23:27 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.VerifySearchDoesNotContains() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="startTestCase" is-config="true" duration-ms="1" started-at="2021-09-03T14:23:27 IST" finished-at="2021-09-03T14:23:27 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.VerifySearchStartsWith() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method status="PASS" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="NavigateToOcmReportsPage" is-config="true" duration-ms="2145" started-at="2021-09-03T14:23:27 IST" finished-at="2021-09-03T14:23:29 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToOcmReportsPage -->
+        <test-method status="PASS" signature="VerifySearchStartsWith()[pri:16, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="VerifySearchStartsWith" duration-ms="30702" started-at="2021-09-03T14:23:29 IST" description="Verify the search starts with criteria" finished-at="2021-09-03T14:24:00 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifySearchStartsWith -->
+        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="afterEachMethod" is-config="true" duration-ms="2854" started-at="2021-09-03T14:24:00 IST" finished-at="2021-09-03T14:24:03 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.VerifySearchStartsWith() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="endTestCase" is-config="true" duration-ms="5" started-at="2021-09-03T14:24:03 IST" finished-at="2021-09-03T14:24:03 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.VerifySearchStartsWith() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="startTestCase" is-config="true" duration-ms="2" started-at="2021-09-03T14:24:03 IST" finished-at="2021-09-03T14:24:03 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.VerifySearchEndsWith() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method status="PASS" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="NavigateToOcmReportsPage" is-config="true" duration-ms="2127" started-at="2021-09-03T14:24:03 IST" finished-at="2021-09-03T14:24:05 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToOcmReportsPage -->
+        <test-method status="PASS" signature="VerifySearchEndsWith()[pri:17, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="VerifySearchEndsWith" duration-ms="30691" started-at="2021-09-03T14:24:05 IST" description="Verify the search Ends with criteria" finished-at="2021-09-03T14:24:36 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifySearchEndsWith -->
+        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="afterEachMethod" is-config="true" duration-ms="2294" started-at="2021-09-03T14:24:36 IST" finished-at="2021-09-03T14:24:38 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.VerifySearchEndsWith() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="endTestCase" is-config="true" duration-ms="0" started-at="2021-09-03T14:24:38 IST" finished-at="2021-09-03T14:24:38 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.VerifySearchEndsWith() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="startTestCase" is-config="true" duration-ms="1" started-at="2021-09-03T14:24:38 IST" finished-at="2021-09-03T14:24:38 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.searchwithoutSearchTextbox() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method status="PASS" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="NavigateToOcmReportsPage" is-config="true" duration-ms="2359" started-at="2021-09-03T14:24:38 IST" finished-at="2021-09-03T14:24:40 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToOcmReportsPage -->
+        <test-method status="PASS" signature="searchwithoutSearchTextbox()[pri:18, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="searchwithoutSearchTextbox" duration-ms="20899" started-at="2021-09-03T14:24:40 IST" description="Search without search text" finished-at="2021-09-03T14:25:01 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- searchwithoutSearchTextbox -->
+        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="afterEachMethod" is-config="true" duration-ms="1697" started-at="2021-09-03T14:25:01 IST" finished-at="2021-09-03T14:25:03 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.searchwithoutSearchTextbox() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="endTestCase" is-config="true" duration-ms="0" started-at="2021-09-03T14:25:03 IST" finished-at="2021-09-03T14:25:03 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.searchwithoutSearchTextbox() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="startTestCase" is-config="true" duration-ms="1" started-at="2021-09-03T14:25:03 IST" finished-at="2021-09-03T14:25:03 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.SearchClear() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method status="PASS" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="NavigateToOcmReportsPage" is-config="true" duration-ms="2102" started-at="2021-09-03T14:25:03 IST" finished-at="2021-09-03T14:25:05 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToOcmReportsPage -->
+        <test-method status="PASS" signature="SearchClear()[pri:19, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="SearchClear" duration-ms="22126" started-at="2021-09-03T14:25:05 IST" description="Clear search functionality" finished-at="2021-09-03T14:25:27 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SearchClear -->
+        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="afterEachMethod" is-config="true" duration-ms="1848" started-at="2021-09-03T14:25:27 IST" finished-at="2021-09-03T14:25:29 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.SearchClear() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="endTestCase" is-config="true" duration-ms="3" started-at="2021-09-03T14:25:29 IST" finished-at="2021-09-03T14:25:29 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.SearchClear() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="startTestCase" is-config="true" duration-ms="1" started-at="2021-09-03T14:25:29 IST" finished-at="2021-09-03T14:25:29 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.verifyAdvancedSearchinreportpageSearchEqualTo() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method status="PASS" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="NavigateToOcmReportsPage" is-config="true" duration-ms="2043" started-at="2021-09-03T14:25:29 IST" finished-at="2021-09-03T14:25:31 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToOcmReportsPage -->
+        <test-method status="PASS" signature="verifyAdvancedSearchinreportpageSearchEqualTo()[pri:20, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="verifyAdvancedSearchinreportpageSearchEqualTo" duration-ms="62409" started-at="2021-09-03T14:25:31 IST" description="Advance search on reports page for Is equal to Criteria" finished-at="2021-09-03T14:26:33 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyAdvancedSearchinreportpageSearchEqualTo -->
+        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="afterEachMethod" is-config="true" duration-ms="2431" started-at="2021-09-03T14:26:33 IST" finished-at="2021-09-03T14:26:36 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.verifyAdvancedSearchinreportpageSearchEqualTo() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="endTestCase" is-config="true" duration-ms="0" started-at="2021-09-03T14:26:36 IST" finished-at="2021-09-03T14:26:36 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.verifyAdvancedSearchinreportpageSearchEqualTo() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="startTestCase" is-config="true" duration-ms="0" started-at="2021-09-03T14:26:36 IST" finished-at="2021-09-03T14:26:36 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.verifyAdvancedSearchORCriteria() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method status="PASS" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="NavigateToOcmReportsPage" is-config="true" duration-ms="2512" started-at="2021-09-03T14:26:36 IST" finished-at="2021-09-03T14:26:38 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToOcmReportsPage -->
+        <test-method status="PASS" signature="verifyAdvancedSearchORCriteria()[pri:21, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="verifyAdvancedSearchORCriteria" duration-ms="47988" started-at="2021-09-03T14:26:38 IST" description="Advance search with OR Condition" finished-at="2021-09-03T14:27:26 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyAdvancedSearchORCriteria -->
+        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="afterEachMethod" is-config="true" duration-ms="2414" started-at="2021-09-03T14:27:26 IST" finished-at="2021-09-03T14:27:29 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.verifyAdvancedSearchORCriteria() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="endTestCase" is-config="true" duration-ms="2" started-at="2021-09-03T14:27:29 IST" finished-at="2021-09-03T14:27:29 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.verifyAdvancedSearchORCriteria() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method status="PASS" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="NavigateToOcmReportsPage" is-config="true" duration-ms="2039" started-at="2021-09-03T14:27:29 IST" finished-at="2021-09-03T14:27:31 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToOcmReportsPage -->
+        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="startTestCase" is-config="true" duration-ms="0" started-at="2021-09-03T14:27:29 IST" finished-at="2021-09-03T14:27:29 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.ClearfiltersAdvSrch() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method status="PASS" signature="ClearfiltersAdvSrch()[pri:22, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="ClearfiltersAdvSrch" duration-ms="20860" started-at="2021-09-03T14:27:31 IST" description="Clear filters for Advance search" finished-at="2021-09-03T14:27:52 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ClearfiltersAdvSrch -->
+        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="afterEachMethod" is-config="true" duration-ms="1616" started-at="2021-09-03T14:27:52 IST" finished-at="2021-09-03T14:27:53 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.ClearfiltersAdvSrch() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="endTestCase" is-config="true" duration-ms="3" started-at="2021-09-03T14:27:53 IST" finished-at="2021-09-03T14:27:53 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.ClearfiltersAdvSrch() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="startTestCase" is-config="true" duration-ms="1" started-at="2021-09-03T14:27:53 IST" finished-at="2021-09-03T14:27:53 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.ExportSchedulerinReportPageforSingleDate() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method status="PASS" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="NavigateToOcmReportsPage" is-config="true" duration-ms="2176" started-at="2021-09-03T14:27:53 IST" finished-at="2021-09-03T14:27:55 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToOcmReportsPage -->
+        <test-method status="PASS" signature="ExportSchedulerinReportPageforSingleDate()[pri:23, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="ExportSchedulerinReportPageforSingleDate" duration-ms="13920" started-at="2021-09-03T14:27:55 IST" description="To verify Export Scheduler on OCM Reports Page" finished-at="2021-09-03T14:28:09 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ExportSchedulerinReportPageforSingleDate -->
+        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="afterEachMethod" is-config="true" duration-ms="1740" started-at="2021-09-03T14:28:09 IST" finished-at="2021-09-03T14:28:11 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.ExportSchedulerinReportPageforSingleDate() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="endTestCase" is-config="true" duration-ms="1" started-at="2021-09-03T14:28:11 IST" finished-at="2021-09-03T14:28:11 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.ExportSchedulerinReportPageforSingleDate() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="startTestCase" is-config="true" duration-ms="2" started-at="2021-09-03T14:28:11 IST" finished-at="2021-09-03T14:28:11 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.ExportReportforSingleDate() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method status="PASS" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="NavigateToOcmReportsPage" is-config="true" duration-ms="2564" started-at="2021-09-03T14:28:11 IST" finished-at="2021-09-03T14:28:14 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToOcmReportsPage -->
+        <test-method status="PASS" signature="ExportReportforSingleDate()[pri:24, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="ExportReportforSingleDate" duration-ms="11877" started-at="2021-09-03T14:28:14 IST" description="To verify Export Report on OCM Reports Page" finished-at="2021-09-03T14:28:26 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ExportReportforSingleDate -->
+        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="afterEachMethod" is-config="true" duration-ms="1506" started-at="2021-09-03T14:28:26 IST" finished-at="2021-09-03T14:28:27 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.ExportReportforSingleDate() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="endTestCase" is-config="true" duration-ms="0" started-at="2021-09-03T14:28:27 IST" finished-at="2021-09-03T14:28:27 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.ExportReportforSingleDate() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="startTestCase" is-config="true" duration-ms="1" started-at="2021-09-03T14:28:27 IST" finished-at="2021-09-03T14:28:27 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.ViewDownloadedReportforSingleDate() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method status="PASS" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="NavigateToOcmReportsPage" is-config="true" duration-ms="2058" started-at="2021-09-03T14:28:27 IST" finished-at="2021-09-03T14:28:29 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToOcmReportsPage -->
+        <test-method status="PASS" signature="ViewDownloadedReportforSingleDate()[pri:25, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="ViewDownloadedReportforSingleDate" duration-ms="19180" started-at="2021-09-03T14:28:29 IST" depends-on-methods="com.tetherfi.test.reports.OCMInteractionActionsReportTest.ExportReportforSingleDate" finished-at="2021-09-03T14:28:48 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ViewDownloadedReportforSingleDate -->
+        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="afterEachMethod" is-config="true" duration-ms="1873" started-at="2021-09-03T14:28:48 IST" finished-at="2021-09-03T14:28:50 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.ViewDownloadedReportforSingleDate() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="endTestCase" is-config="true" duration-ms="1" started-at="2021-09-03T14:28:50 IST" finished-at="2021-09-03T14:28:50 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.ViewDownloadedReportforSingleDate() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="startTestCase" is-config="true" duration-ms="1" started-at="2021-09-03T14:28:50 IST" finished-at="2021-09-03T14:28:50 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.VerifyViewDownloadedOcmInteractionActionReportInReportsDownloadPage() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method status="PASS" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="NavigateToOcmReportsPage" is-config="true" duration-ms="1953" started-at="2021-09-03T14:28:50 IST" finished-at="2021-09-03T14:28:52 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToOcmReportsPage -->
+        <test-method status="FAIL" signature="VerifyViewDownloadedOcmInteractionActionReportInReportsDownloadPage()[pri:26, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="VerifyViewDownloadedOcmInteractionActionReportInReportsDownloadPage" duration-ms="17667" started-at="2021-09-03T14:28:52 IST" description="To verification of exported excel in Report downloads" depends-on-methods="com.tetherfi.test.reports.OCMInteractionActionsReportTest.ViewDownloadedReportforSingleDate" finished-at="2021-09-03T14:29:10 IST">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[did not expect to find [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: did not expect to find [true] but found [false]
+at org.testng.Assert.fail(Assert.java:97)
+at org.testng.Assert.failNotEquals(Assert.java:969)
+at org.testng.Assert.assertTrue(Assert.java:43)
+at org.testng.Assert.assertTrue(Assert.java:53)
+at com.tetherfi.test.reports.OCMInteractionActionsReportTest.VerifyViewDownloadedOcmInteractionActionReportInReportsDownloadPage(OCMInteractionActionsReportTest.java:315)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyViewDownloadedOcmInteractionActionReportInReportsDownloadPage -->
+        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="afterEachMethod" is-config="true" duration-ms="1583" started-at="2021-09-03T14:29:10 IST" finished-at="2021-09-03T14:29:11 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.VerifyViewDownloadedOcmInteractionActionReportInReportsDownloadPage() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="endTestCase" is-config="true" duration-ms="1" started-at="2021-09-03T14:29:11 IST" finished-at="2021-09-03T14:29:11 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.VerifyViewDownloadedOcmInteractionActionReportInReportsDownloadPage() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="startTestCase" is-config="true" duration-ms="2" started-at="2021-09-03T14:29:11 IST" finished-at="2021-09-03T14:29:11 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.ShowOCMInteractionActionReportForDateRange() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method status="PASS" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="NavigateToOcmReportsPage" is-config="true" duration-ms="2291" started-at="2021-09-03T14:29:11 IST" finished-at="2021-09-03T14:29:14 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToOcmReportsPage -->
+        <test-method status="PASS" signature="ShowOCMInteractionActionReportForDateRange()[pri:27, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="ShowOCMInteractionActionReportForDateRange" duration-ms="12543" started-at="2021-09-03T14:29:14 IST" description="To verify Show Report for Date Range" finished-at="2021-09-03T14:29:26 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ShowOCMInteractionActionReportForDateRange -->
+        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="afterEachMethod" is-config="true" duration-ms="1602" started-at="2021-09-03T14:29:26 IST" finished-at="2021-09-03T14:29:28 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.ShowOCMInteractionActionReportForDateRange() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="endTestCase" is-config="true" duration-ms="1" started-at="2021-09-03T14:29:28 IST" finished-at="2021-09-03T14:29:28 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.ShowOCMInteractionActionReportForDateRange() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="startTestCase" is-config="true" duration-ms="0" started-at="2021-09-03T14:29:28 IST" finished-at="2021-09-03T14:29:28 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.ShowOCMInteractionActionReportInNewTabDateRange() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method status="PASS" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="NavigateToOcmReportsPage" is-config="true" duration-ms="2147" started-at="2021-09-03T14:29:28 IST" finished-at="2021-09-03T14:29:30 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToOcmReportsPage -->
+        <test-method status="PASS" signature="ShowOCMInteractionActionReportInNewTabDateRange()[pri:28, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="ShowOCMInteractionActionReportInNewTabDateRange" duration-ms="15200" started-at="2021-09-03T14:29:30 IST" description="To verify Show Report for Date Range in New Tab" depends-on-methods="com.tetherfi.test.reports.OCMInteractionActionsReportTest.ShowOCMInteractionActionReportForDateRange" finished-at="2021-09-03T14:29:45 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ShowOCMInteractionActionReportInNewTabDateRange -->
+        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="afterEachMethod" is-config="true" duration-ms="1195" started-at="2021-09-03T14:29:45 IST" finished-at="2021-09-03T14:29:46 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.ShowOCMInteractionActionReportInNewTabDateRange() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="endTestCase" is-config="true" duration-ms="0" started-at="2021-09-03T14:29:46 IST" finished-at="2021-09-03T14:29:46 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.ShowOCMInteractionActionReportInNewTabDateRange() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="startTestCase" is-config="true" duration-ms="0" started-at="2021-09-03T14:29:46 IST" finished-at="2021-09-03T14:29:46 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.ScheduleOCMInteractionActionReportforDateRange() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method status="PASS" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="NavigateToOcmReportsPage" is-config="true" duration-ms="2085" started-at="2021-09-03T14:29:46 IST" finished-at="2021-09-03T14:29:48 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToOcmReportsPage -->
+        <test-method status="PASS" signature="ScheduleOCMInteractionActionReportforDateRange()[pri:29, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="ScheduleOCMInteractionActionReportforDateRange" duration-ms="13720" started-at="2021-09-03T14:29:48 IST" description="Export scheduler in reports page for Date range" finished-at="2021-09-03T14:30:02 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ScheduleOCMInteractionActionReportforDateRange -->
+        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="afterEachMethod" is-config="true" duration-ms="1669" started-at="2021-09-03T14:30:02 IST" finished-at="2021-09-03T14:30:04 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.ScheduleOCMInteractionActionReportforDateRange() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="endTestCase" is-config="true" duration-ms="0" started-at="2021-09-03T14:30:04 IST" finished-at="2021-09-03T14:30:04 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.ScheduleOCMInteractionActionReportforDateRange() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method status="PASS" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="NavigateToOcmReportsPage" is-config="true" duration-ms="1867" started-at="2021-09-03T14:30:04 IST" finished-at="2021-09-03T14:30:06 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToOcmReportsPage -->
+        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="startTestCase" is-config="true" duration-ms="0" started-at="2021-09-03T14:30:04 IST" finished-at="2021-09-03T14:30:04 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.ExportOCMInteractionActionReportDateRange() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method status="PASS" signature="ExportOCMInteractionActionReportDateRange()[pri:30, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="ExportOCMInteractionActionReportDateRange" duration-ms="12779" started-at="2021-09-03T14:30:06 IST" description="To verify Export Report on OCM Reports Page for Date Range" finished-at="2021-09-03T14:30:19 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ExportOCMInteractionActionReportDateRange -->
+        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="afterEachMethod" is-config="true" duration-ms="1447" started-at="2021-09-03T14:30:19 IST" finished-at="2021-09-03T14:30:20 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.ExportOCMInteractionActionReportDateRange() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="endTestCase" is-config="true" duration-ms="1" started-at="2021-09-03T14:30:20 IST" finished-at="2021-09-03T14:30:20 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.ExportOCMInteractionActionReportDateRange() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="startTestCase" is-config="true" duration-ms="0" started-at="2021-09-03T14:30:20 IST" finished-at="2021-09-03T14:30:20 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.ViewDownloadedReportforDateRange() throws java.io.IOException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method status="PASS" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="NavigateToOcmReportsPage" is-config="true" duration-ms="1932" started-at="2021-09-03T14:30:20 IST" finished-at="2021-09-03T14:30:22 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToOcmReportsPage -->
+        <test-method status="PASS" signature="ViewDownloadedReportforDateRange()[pri:31, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="ViewDownloadedReportforDateRange" duration-ms="7284" started-at="2021-09-03T14:30:22 IST" description="To verification of exported excel in Report downloads for Date Range" depends-on-methods="com.tetherfi.test.reports.OCMInteractionActionsReportTest.ExportOCMInteractionActionReportDateRange" finished-at="2021-09-03T14:30:29 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ViewDownloadedReportforDateRange -->
+        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="afterEachMethod" is-config="true" duration-ms="1757" started-at="2021-09-03T14:30:29 IST" finished-at="2021-09-03T14:30:31 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.ViewDownloadedReportforDateRange() throws java.io.IOException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="endTestCase" is-config="true" duration-ms="1" started-at="2021-09-03T14:30:31 IST" finished-at="2021-09-03T14:30:31 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.ViewDownloadedReportforDateRange() throws java.io.IOException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="startTestCase" is-config="true" duration-ms="3" started-at="2021-09-03T14:30:31 IST" finished-at="2021-09-03T14:30:31 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.VerifyViewDownloadedOcmInteractionActionReportInReportsDownloadDateRangePage() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method status="PASS" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="NavigateToOcmReportsPage" is-config="true" duration-ms="2055" started-at="2021-09-03T14:30:31 IST" finished-at="2021-09-03T14:30:33 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToOcmReportsPage -->
+        <test-method status="FAIL" signature="VerifyViewDownloadedOcmInteractionActionReportInReportsDownloadDateRangePage()[pri:32, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="VerifyViewDownloadedOcmInteractionActionReportInReportsDownloadDateRangePage" duration-ms="39635" started-at="2021-09-03T14:30:33 IST" description="To verification of exported excel in Report downloads" depends-on-methods="com.tetherfi.test.reports.OCMInteractionActionsReportTest.ViewDownloadedReportforDateRange" finished-at="2021-09-03T14:31:13 IST">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[did not expect to find [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: did not expect to find [true] but found [false]
+at org.testng.Assert.fail(Assert.java:97)
+at org.testng.Assert.failNotEquals(Assert.java:969)
+at org.testng.Assert.assertTrue(Assert.java:43)
+at org.testng.Assert.assertTrue(Assert.java:53)
+at com.tetherfi.test.reports.OCMInteractionActionsReportTest.VerifyViewDownloadedOcmInteractionActionReportInReportsDownloadDateRangePage(OCMInteractionActionsReportTest.java:376)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyViewDownloadedOcmInteractionActionReportInReportsDownloadDateRangePage -->
+        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="afterEachMethod" is-config="true" duration-ms="1970" started-at="2021-09-03T14:31:13 IST" finished-at="2021-09-03T14:31:15 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.VerifyViewDownloadedOcmInteractionActionReportInReportsDownloadDateRangePage() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="endTestCase" is-config="true" duration-ms="0" started-at="2021-09-03T14:31:15 IST" finished-at="2021-09-03T14:31:15 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.VerifyViewDownloadedOcmInteractionActionReportInReportsDownloadDateRangePage() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="startTestCase" is-config="true" duration-ms="0" started-at="2021-09-03T14:31:15 IST" finished-at="2021-09-03T14:31:15 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.DeleteWithoutDeleteReasonRecordinReportsDownloadforDateRange() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method status="PASS" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="NavigateToOcmReportsPage" is-config="true" duration-ms="1932" started-at="2021-09-03T14:31:15 IST" finished-at="2021-09-03T14:31:17 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToOcmReportsPage -->
+        <test-method status="PASS" signature="DeleteWithoutDeleteReasonRecordinReportsDownloadforDateRange()[pri:33, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="DeleteWithoutDeleteReasonRecordinReportsDownloadforDateRange" duration-ms="6428" started-at="2021-09-03T14:31:17 IST" description="Delete record in Reports Download without entering Delete reason" finished-at="2021-09-03T14:31:23 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- DeleteWithoutDeleteReasonRecordinReportsDownloadforDateRange -->
+        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="afterEachMethod" is-config="true" duration-ms="445" started-at="2021-09-03T14:31:23 IST" finished-at="2021-09-03T14:31:23 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.DeleteWithoutDeleteReasonRecordinReportsDownloadforDateRange() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="endTestCase" is-config="true" duration-ms="0" started-at="2021-09-03T14:31:23 IST" finished-at="2021-09-03T14:31:23 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.DeleteWithoutDeleteReasonRecordinReportsDownloadforDateRange() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="startTestCase" is-config="true" duration-ms="0" started-at="2021-09-03T14:31:23 IST" finished-at="2021-09-03T14:31:23 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.VerifyCancelBtnAtReportsDownloadDeleteBtnForDateRange() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method status="PASS" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="NavigateToOcmReportsPage" is-config="true" duration-ms="3389" started-at="2021-09-03T14:31:23 IST" finished-at="2021-09-03T14:31:27 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToOcmReportsPage -->
+        <test-method status="PASS" signature="VerifyCancelBtnAtReportsDownloadDeleteBtnForDateRange()[pri:34, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="VerifyCancelBtnAtReportsDownloadDeleteBtnForDateRange" duration-ms="28973" started-at="2021-09-03T14:31:27 IST" description="Cancel Button in Reports Download Delete Button" finished-at="2021-09-03T14:31:56 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyCancelBtnAtReportsDownloadDeleteBtnForDateRange -->
+        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="afterEachMethod" is-config="true" duration-ms="1968" started-at="2021-09-03T14:31:56 IST" finished-at="2021-09-03T14:31:58 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.VerifyCancelBtnAtReportsDownloadDeleteBtnForDateRange() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="endTestCase" is-config="true" duration-ms="0" started-at="2021-09-03T14:31:58 IST" finished-at="2021-09-03T14:31:58 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.VerifyCancelBtnAtReportsDownloadDeleteBtnForDateRange() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="startTestCase" is-config="true" duration-ms="0" started-at="2021-09-03T14:31:58 IST" finished-at="2021-09-03T14:31:58 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.DeleteRecordAtReportsDownload() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method status="PASS" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="NavigateToOcmReportsPage" is-config="true" duration-ms="1925" started-at="2021-09-03T14:31:58 IST" finished-at="2021-09-03T14:32:00 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToOcmReportsPage -->
+        <test-method status="PASS" signature="DeleteRecordAtReportsDownload()[pri:35, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="DeleteRecordAtReportsDownload" duration-ms="7344" started-at="2021-09-03T14:32:00 IST" description="Delete Record at Reports download Button" finished-at="2021-09-03T14:32:07 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- DeleteRecordAtReportsDownload -->
+        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="afterEachMethod" is-config="true" duration-ms="1634" started-at="2021-09-03T14:32:07 IST" finished-at="2021-09-03T14:32:09 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.DeleteRecordAtReportsDownload() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="endTestCase" is-config="true" duration-ms="0" started-at="2021-09-03T14:32:09 IST" finished-at="2021-09-03T14:32:09 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.DeleteRecordAtReportsDownload() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="startTestCase" is-config="true" duration-ms="0" started-at="2021-09-03T14:32:09 IST" finished-at="2021-09-03T14:32:09 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.ClearAll() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method status="PASS" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="NavigateToOcmReportsPage" is-config="true" duration-ms="1876" started-at="2021-09-03T14:32:09 IST" finished-at="2021-09-03T14:32:11 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToOcmReportsPage -->
+        <test-method status="PASS" signature="ClearAll()[pri:36, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="ClearAll" duration-ms="12111" started-at="2021-09-03T14:32:11 IST" description="Report page clear All button " finished-at="2021-09-03T14:32:23 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ClearAll -->
+        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="afterEachMethod" is-config="true" duration-ms="1457" started-at="2021-09-03T14:32:23 IST" finished-at="2021-09-03T14:32:24 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.ClearAll() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="endTestCase" is-config="true" duration-ms="0" started-at="2021-09-03T14:32:24 IST" finished-at="2021-09-03T14:32:24 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.ClearAll() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="startTestCase" is-config="true" duration-ms="1" started-at="2021-09-03T14:32:24 IST" finished-at="2021-09-03T14:32:24 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.OCMWindow() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method status="PASS" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="NavigateToOcmReportsPage" is-config="true" duration-ms="1937" started-at="2021-09-03T14:32:24 IST" finished-at="2021-09-03T14:32:26 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToOcmReportsPage -->
+        <test-method status="PASS" signature="OCMWindow()[pri:37, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="OCMWindow" duration-ms="16272" started-at="2021-09-03T14:32:26 IST" description="Maximize, minimize" finished-at="2021-09-03T14:32:42 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- OCMWindow -->
+        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="afterEachMethod" is-config="true" duration-ms="2188" started-at="2021-09-03T14:32:42 IST" finished-at="2021-09-03T14:32:45 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.OCMWindow() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="endTestCase" is-config="true" duration-ms="1" started-at="2021-09-03T14:32:45 IST" finished-at="2021-09-03T14:32:45 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.OCMWindow() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="startTestCase" is-config="true" duration-ms="1" started-at="2021-09-03T14:32:45 IST" finished-at="2021-09-03T14:32:45 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.ExportPage() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method status="PASS" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="NavigateToOcmReportsPage" is-config="true" duration-ms="2441" started-at="2021-09-03T14:32:45 IST" finished-at="2021-09-03T14:32:47 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToOcmReportsPage -->
+        <test-method status="PASS" signature="ExportPage()[pri:38, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="ExportPage" duration-ms="18304" started-at="2021-09-03T14:32:47 IST" description="To Verify Export Page Button" finished-at="2021-09-03T14:33:05 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ExportPage -->
+        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="afterEachMethod" is-config="true" duration-ms="1809" started-at="2021-09-03T14:33:05 IST" finished-at="2021-09-03T14:33:07 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.ExportPage() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="endTestCase" is-config="true" duration-ms="0" started-at="2021-09-03T14:33:07 IST" finished-at="2021-09-03T14:33:07 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.ExportPage() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="startTestCase" is-config="true" duration-ms="1" started-at="2021-09-03T14:33:07 IST" finished-at="2021-09-03T14:33:07 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.VerifyExportedPage() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method status="PASS" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="NavigateToOcmReportsPage" is-config="true" duration-ms="2333" started-at="2021-09-03T14:33:07 IST" finished-at="2021-09-03T14:33:09 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToOcmReportsPage -->
+        <test-method status="PASS" signature="VerifyExportedPage()[pri:39, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="VerifyExportedPage" duration-ms="23077" started-at="2021-09-03T14:33:09 IST" description="To Verify Exported Page Against UI" depends-on-methods="com.tetherfi.test.reports.OCMInteractionActionsReportTest.ExportPage" finished-at="2021-09-03T14:33:32 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyExportedPage -->
+        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="afterEachMethod" is-config="true" duration-ms="2018" started-at="2021-09-03T14:33:32 IST" finished-at="2021-09-03T14:33:35 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.VerifyExportedPage() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="endTestCase" is-config="true" duration-ms="0" started-at="2021-09-03T14:33:35 IST" finished-at="2021-09-03T14:33:35 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.VerifyExportedPage() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="startTestCase" is-config="true" duration-ms="1" started-at="2021-09-03T14:33:35 IST" finished-at="2021-09-03T14:33:35 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.SortingByAscending() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method status="PASS" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="NavigateToOcmReportsPage" is-config="true" duration-ms="2322" started-at="2021-09-03T14:33:35 IST" finished-at="2021-09-03T14:33:37 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToOcmReportsPage -->
+        <test-method status="PASS" signature="SortingByAscending()[pri:40, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="SortingByAscending" duration-ms="24304" started-at="2021-09-03T14:33:37 IST" description="To Verify Sort By Ascending" depends-on-methods="com.tetherfi.test.reports.OCMInteractionActionsReportTest.VerifyExportedPage" finished-at="2021-09-03T14:34:01 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SortingByAscending -->
+        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="afterEachMethod" is-config="true" duration-ms="1673" started-at="2021-09-03T14:34:01 IST" finished-at="2021-09-03T14:34:03 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.SortingByAscending() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="endTestCase" is-config="true" duration-ms="0" started-at="2021-09-03T14:34:03 IST" finished-at="2021-09-03T14:34:03 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.SortingByAscending() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="startTestCase" is-config="true" duration-ms="3" started-at="2021-09-03T14:34:03 IST" finished-at="2021-09-03T14:34:03 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.SortingByDescending() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method status="PASS" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="NavigateToOcmReportsPage" is-config="true" duration-ms="2099" started-at="2021-09-03T14:34:03 IST" finished-at="2021-09-03T14:34:05 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToOcmReportsPage -->
+        <test-method status="PASS" signature="SortingByDescending()[pri:41, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="SortingByDescending" duration-ms="25142" started-at="2021-09-03T14:34:05 IST" description="To Verify Sort By Descending" depends-on-methods="com.tetherfi.test.reports.OCMInteractionActionsReportTest.VerifyExportedPage" finished-at="2021-09-03T14:34:30 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SortingByDescending -->
+        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="afterEachMethod" is-config="true" duration-ms="1820" started-at="2021-09-03T14:34:30 IST" finished-at="2021-09-03T14:34:32 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.SortingByDescending() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="endTestCase" is-config="true" duration-ms="0" started-at="2021-09-03T14:34:32 IST" finished-at="2021-09-03T14:34:32 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.SortingByDescending() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="startTestCase" is-config="true" duration-ms="0" started-at="2021-09-03T14:34:32 IST" finished-at="2021-09-03T14:34:32 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.ScheduledReportinOCMInteractionActionReportPage() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method status="PASS" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="NavigateToOcmReportsPage" is-config="true" duration-ms="1966" started-at="2021-09-03T14:34:32 IST" finished-at="2021-09-03T14:34:34 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToOcmReportsPage -->
+        <test-method status="PASS" signature="ScheduledReportinOCMInteractionActionReportPage()[pri:42, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="ScheduledReportinOCMInteractionActionReportPage" duration-ms="16692" started-at="2021-09-03T14:34:34 IST" description="Scheduled report button in OCMInteractionAction report page" finished-at="2021-09-03T14:34:51 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ScheduledReportinOCMInteractionActionReportPage -->
+        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="afterEachMethod" is-config="true" duration-ms="1452" started-at="2021-09-03T14:34:51 IST" finished-at="2021-09-03T14:34:52 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.ScheduledReportinOCMInteractionActionReportPage() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="endTestCase" is-config="true" duration-ms="0" started-at="2021-09-03T14:34:52 IST" finished-at="2021-09-03T14:34:52 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.ScheduledReportinOCMInteractionActionReportPage() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="startTestCase" is-config="true" duration-ms="0" started-at="2021-09-03T14:34:52 IST" finished-at="2021-09-03T14:34:52 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.ExportToExcelForInteractionActionReport() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method status="PASS" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="NavigateToOcmReportsPage" is-config="true" duration-ms="2146" started-at="2021-09-03T14:34:52 IST" finished-at="2021-09-03T14:34:54 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToOcmReportsPage -->
+        <test-method status="PASS" signature="ExportToExcelForInteractionActionReport()[pri:43, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="ExportToExcelForInteractionActionReport" duration-ms="14189" started-at="2021-09-03T14:34:54 IST" description="Export to excel button in OCMInteractionAction Report page" finished-at="2021-09-03T14:35:08 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ExportToExcelForInteractionActionReport -->
+        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="afterEachMethod" is-config="true" duration-ms="1495" started-at="2021-09-03T14:35:08 IST" finished-at="2021-09-03T14:35:10 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.ExportToExcelForInteractionActionReport() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="endTestCase" is-config="true" duration-ms="6" started-at="2021-09-03T14:35:10 IST" finished-at="2021-09-03T14:35:10 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.ExportToExcelForInteractionActionReport() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method status="PASS" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="NavigateToOcmReportsPage" is-config="true" duration-ms="2211" started-at="2021-09-03T14:35:10 IST" finished-at="2021-09-03T14:35:12 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToOcmReportsPage -->
+        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="startTestCase" is-config="true" duration-ms="0" started-at="2021-09-03T14:35:10 IST" finished-at="2021-09-03T14:35:10 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.ViewDownloadedReportInReportDownloadsPage() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method status="PASS" signature="ViewDownloadedReportInReportDownloadsPage()[pri:44, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="ViewDownloadedReportInReportDownloadsPage" duration-ms="20086" started-at="2021-09-03T14:35:12 IST" description="Verify the view Downloaded report in OCMInteractionActions report page" depends-on-methods="com.tetherfi.test.reports.OCMInteractionActionsReportTest.ExportToExcelForInteractionActionReport" finished-at="2021-09-03T14:35:32 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ViewDownloadedReportInReportDownloadsPage -->
+        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="afterEachMethod" is-config="true" duration-ms="1761" started-at="2021-09-03T14:35:32 IST" finished-at="2021-09-03T14:35:34 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.ViewDownloadedReportInReportDownloadsPage() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="endTestCase" is-config="true" duration-ms="1" started-at="2021-09-03T14:35:34 IST" finished-at="2021-09-03T14:35:34 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.ViewDownloadedReportInReportDownloadsPage() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="startTestCase" is-config="true" duration-ms="0" started-at="2021-09-03T14:35:34 IST" finished-at="2021-09-03T14:35:34 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.VerifyExporedExcelData() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method status="PASS" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="NavigateToOcmReportsPage" is-config="true" duration-ms="1851" started-at="2021-09-03T14:35:34 IST" finished-at="2021-09-03T14:35:36 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToOcmReportsPage -->
+        <test-method status="FAIL" signature="VerifyExporedExcelData()[pri:45, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="VerifyExporedExcelData" duration-ms="41464" started-at="2021-09-03T14:35:36 IST" description="To verification of exported excel in Report downloads" depends-on-methods="com.tetherfi.test.reports.OCMInteractionActionsReportTest.ViewDownloadedReportInReportDownloadsPage" finished-at="2021-09-03T14:36:17 IST">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[did not expect to find [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: did not expect to find [true] but found [false]
+at org.testng.Assert.fail(Assert.java:97)
+at org.testng.Assert.failNotEquals(Assert.java:969)
+at org.testng.Assert.assertTrue(Assert.java:43)
+at org.testng.Assert.assertTrue(Assert.java:53)
+at com.tetherfi.test.reports.OCMInteractionActionsReportTest.VerifyExporedExcelData(OCMInteractionActionsReportTest.java:535)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.util.ArrayList.forEach(Unknown Source)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyExporedExcelData -->
+        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="afterEachMethod" is-config="true" duration-ms="1573" started-at="2021-09-03T14:36:17 IST" finished-at="2021-09-03T14:36:19 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.VerifyExporedExcelData() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="endTestCase" is-config="true" duration-ms="1" started-at="2021-09-03T14:36:19 IST" finished-at="2021-09-03T14:36:19 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.VerifyExporedExcelData() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method status="PASS" signature="startTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="startTestCase" is-config="true" duration-ms="0" started-at="2021-09-03T14:36:19 IST" finished-at="2021-09-03T14:36:19 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.GroupBy() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTestCase -->
+        <test-method status="PASS" signature="NavigateToOcmReportsPage()[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="NavigateToOcmReportsPage" is-config="true" duration-ms="2037" started-at="2021-09-03T14:36:19 IST" finished-at="2021-09-03T14:36:21 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- NavigateToOcmReportsPage -->
+        <test-method status="PASS" signature="GroupBy()[pri:46, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="GroupBy" duration-ms="31921" started-at="2021-09-03T14:36:21 IST" description="Group By functionality" finished-at="2021-09-03T14:36:53 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- GroupBy -->
+        <test-method status="PASS" signature="afterEachMethod(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="afterEachMethod" is-config="true" duration-ms="1684" started-at="2021-09-03T14:36:53 IST" finished-at="2021-09-03T14:36:54 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.GroupBy() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachMethod -->
+        <test-method status="PASS" signature="endTestCase(java.lang.reflect.Method)[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="endTestCase" is-config="true" duration-ms="1" started-at="2021-09-03T14:36:54 IST" finished-at="2021-09-03T14:36:54 IST">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tetherfi.test.reports.OCMInteractionActionsReportTest.GroupBy() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endTestCase -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.tetherfi.test.reports.OCMInteractionActionsReportTest@22825e1e]" name="tearDown" is-config="true" duration-ms="2415" started-at="2021-09-03T14:36:54 IST" finished-at="2021-09-03T14:36:57 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.tetherfi.test.reports.OCMTimelineReportTest -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+      </class> <!-- com.tetherfi.test.reports.OCMInteractionActionsReportTest -->
+    </test> <!-- OCMRegression -->
+  </suite> <!-- OCM Modules Test Automation -->
 </testng-results>

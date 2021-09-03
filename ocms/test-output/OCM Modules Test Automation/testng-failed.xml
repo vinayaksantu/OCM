@@ -9,16 +9,22 @@
     <classes>
       <class name="com.tetherfi.test.reports.OCMInteractionActionsReportTest">
         <methods>
-          <include name="VerifySearchDoesNotContains"/>
-          <include name="startTestCase"/>
-          <include name="openApplication"/>
-          <include name="VerifySearchContains"/>
-          <include name="VerifySearchStartsWith"/>
+          <include name="ViewDownloadedReportforDateRange"/>
+          <include name="ExportToExcelForInteractionActionReport"/>
+          <include name="ViewDownloadedReportInReportDownloadsPage"/>
           <include name="endTestCase"/>
           <include name="tearDown"/>
+          <include name="VerifyViewDownloadedOcmInteractionActionReportInReportsDownloadDateRangePage"/>
+          <include name="ViewDownloadedReportforSingleDate"/>
           <include name="NavigateToOcmReportsPage"/>
           <include name="database"/>
           <include name="afterEachMethod"/>
+          <include name="ExportReportforSingleDate"/>
+          <include name="startTestCase"/>
+          <include name="openApplication"/>
+          <include name="ExportOCMInteractionActionReportDateRange"/>
+          <include name="VerifyExporedExcelData"/>
+          <include name="VerifyViewDownloadedOcmInteractionActionReportInReportsDownloadPage"/>
         </methods>
       </class> <!-- com.tetherfi.test.reports.OCMInteractionActionsReportTest -->
     </classes>
