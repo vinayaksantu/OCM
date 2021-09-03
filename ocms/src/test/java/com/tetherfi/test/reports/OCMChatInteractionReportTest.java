@@ -29,7 +29,7 @@ public class OCMChatInteractionReportTest extends BaseTest {
 		Assert.assertTrue(ocmReportsPage.isOCMReportPageIsDisplayed());       
 	}
 
-	/*@Test(priority=1,description="To verify Show Report for Single Date")
+	@Test(priority=1,description="To verify Show Report for Single Date")
 	public void ShowChatInteractionReport() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMChatInteractionReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
@@ -48,7 +48,7 @@ public class OCMChatInteractionReportTest extends BaseTest {
 		ocmReportsPage.showReportInNewPage(reportDetails);
 		Assert.assertTrue(ocmReportsPage.verifyReportDisplayed(reportDetails),"show report in new tab assertion failed");
 		ocmReportsPage.switchBackToParentWindow();
-	}*/
+	}
 	
 	@Test(priority=3,description="Verify Pagination, Move to previous and next page")
 	public void VerifyArrowMoveForPreviousAndNextPage() throws Exception {  
@@ -190,8 +190,7 @@ public class OCMChatInteractionReportTest extends BaseTest {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMChatInteractionReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(1);
 		ReportDetails reportDetails= new ReportDetails(map);
-		OCMReportsPage OCMReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);     	
-		OCMReportsPage.chooseAdvancedSearchNew(reportDetails);  
+		OCMReportsPage OCMReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);     	 
 		OCMReportsPage.showReport(reportDetails);
 		OCMChatInteractionReportPage ChatInteractionPage=PageFactory.createPageInstance(driver,OCMChatInteractionReportPage.class);
 		Assert.assertTrue(ChatInteractionPage.verifyAdvanceSearchIsNotEqualTo(reportDetails));   	
@@ -203,8 +202,7 @@ public class OCMChatInteractionReportTest extends BaseTest {
 		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(2);
 		ReportDetails reportDetails= new ReportDetails(map);
 		OCMReportsPage OCMReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class); 
-		OCMChatInteractionReportPage ChatInteractionPage=PageFactory.createPageInstance(driver,OCMChatInteractionReportPage.class);
-		OCMReportsPage.chooseAdvancedSearchNew(reportDetails);  
+		OCMChatInteractionReportPage ChatInteractionPage=PageFactory.createPageInstance(driver,OCMChatInteractionReportPage.class);  
 		OCMReportsPage.showReport(reportDetails);
 		Assert.assertTrue(ChatInteractionPage.verifyAdvanceSearchContains(reportDetails));    	
 	}
@@ -228,7 +226,6 @@ public class OCMChatInteractionReportTest extends BaseTest {
 		ReportDetails reportDetails= new ReportDetails(map);
 		OCMReportsPage OCMReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class); 
 		OCMChatInteractionReportPage ChatInteractionPage=PageFactory.createPageInstance(driver,OCMChatInteractionReportPage.class);
-		OCMReportsPage.chooseAdvancedSearchNew(reportDetails);  
 		OCMReportsPage.showReport(reportDetails);
 		Assert.assertTrue(ChatInteractionPage.verifyAdvanceSearchStartsWith(reportDetails)); 	
 	}
@@ -240,7 +237,6 @@ public class OCMChatInteractionReportTest extends BaseTest {
 		ReportDetails reportDetails= new ReportDetails(map);
 		OCMReportsPage OCMReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);  
 		OCMChatInteractionReportPage ChatInteractionPage=PageFactory.createPageInstance(driver,OCMChatInteractionReportPage.class);
-		OCMReportsPage.chooseAdvancedSearchNew(reportDetails);  
 		OCMReportsPage.showReport(reportDetails);
 		Assert.assertTrue(ChatInteractionPage.verifyAdvanceSearchEndsWith(reportDetails));
 	}
@@ -290,7 +286,7 @@ public class OCMChatInteractionReportTest extends BaseTest {
 		screenshot.captureScreen("ChatInterationReportComplete", "AlreadyGroupBy");
 	}
 
-	/*@Test(priority=24,description="To Verify Ascending and Descending order")
+	@Test(priority=24,description="To Verify Ascending and Descending order")
 	public void VerifySorting() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMChatInteractionReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
@@ -322,7 +318,7 @@ public class OCMChatInteractionReportTest extends BaseTest {
 		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
 		ocmReportsPage.scheduleReport(reportDetails);
 		Assert.assertTrue(ocmReportsPage.verifyScheduleReport(),"Schedule report assertion failed");
-	}*/
+	}
 	
 	@Test(priority=27,description="To verify Export Report on OCM Reports Page")
 	public void ExportOcmChatInteractionReport() throws Exception {
@@ -376,7 +372,7 @@ public class OCMChatInteractionReportTest extends BaseTest {
 		Assert.assertEquals(ocmReportsPage.getSuccessMessage(),"Report Deleted","Delete record assertion failed");
 	}
 
-	/*@Test(priority=32,description="To verify Show Report for Date Range")
+	@Test(priority=32,description="To verify Show Report for Date Range")
 	public void ShowOcmChatInteractionReportForDateRange() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMChatInteractionReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -405,7 +401,7 @@ public class OCMChatInteractionReportTest extends BaseTest {
 		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
 		ocmReportsPage.scheduleReport(reportDetails);
 		Assert.assertTrue(ocmReportsPage.verifyScheduleReport(),"Schedule report assertion failed");
-	}*/
+	}
 	
 	@Test(priority=35,description="To verify Export Report on OCM Reports Page for Date Range")
 	public void ExportOcmChatInteractionReportDateRange() throws Exception {
@@ -427,7 +423,7 @@ public class OCMChatInteractionReportTest extends BaseTest {
 		Assert.assertTrue(ocmReportsPage.verifyDownloadedReportNameAndTimeInReportsDownloadPage(reportDetails.getReportName()),"Report not found in Reporter download page");
 	}
 		
-	/*@Test(priority=37,description="Report page clear All button ")
+	@Test(priority=37,description="Report page clear All button ")
 	public void ClearAll() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMChatInteractionReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
@@ -482,7 +478,7 @@ public class OCMChatInteractionReportTest extends BaseTest {
 		ocmReportsPage.showReport(reportDetails);
 		OCMChatInteractionReportPage ChatInteractionPage=PageFactory.createPageInstance(driver,OCMChatInteractionReportPage.class);
 		Assert.assertFalse(ChatInteractionPage.verifycolumnsHeaderDisabled(),"columns disabled assertion failed");
-	}*/ 	
+	}	
 	
 	@Test(priority=42,description="Verify total number of items per page")
 	public void VerifyTotalNumberOfItemsPerPageDetails() throws Exception {
@@ -504,7 +500,7 @@ public class OCMChatInteractionReportTest extends BaseTest {
 		ocmReportsPage.showReport(reportDetails);
 		OCMChatInteractionReportPage ChatInteractionPage=PageFactory.createPageInstance(driver,OCMChatInteractionReportPage.class);
 		Assert.assertTrue(ChatInteractionPage.verifyNumberOfItemsPerPage(),"item per page assertion failed");
-	}  
+	}
 	
 	@Test(priority=44,description="To Verify Export Page Button")
 	public void ExportPage() throws Exception{
@@ -531,7 +527,7 @@ public class OCMChatInteractionReportTest extends BaseTest {
 		Assert.assertTrue(ChatInteractionPage.verifyexportToExcelSheet(maplist));
 	}
 
-	/*@Test(priority=46,description="Scheduled report button in Chat Interaction report page")
+	@Test(priority=46,description="Scheduled report button in Chat Interaction report page")
 	public void SchedulereportinChatInteractionReportPage() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMChatInteractionReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ExportReport").getTestData().get(0);
@@ -566,7 +562,7 @@ public class OCMChatInteractionReportTest extends BaseTest {
 		OCMChatInteractionReportPage ChatInteractionPage=PageFactory.createPageInstance(driver,OCMChatInteractionReportPage.class);
 		ChatInteractionPage.viewDownloadedReportInReportsDownloadsPage();
 		Assert.assertTrue(ocmReportsPage.verifyDownloadedReportNameAndTimeInReportsDownloadPage(reportDetails.getReportName()),"Report not found in Reporter download page");   
-	}*/
+	}
 		
 	@AfterMethod
 	public void afterEachMethod(Method method) {

@@ -1,0 +1,3814 @@
+
+<!DOCTYPE html>
+<html>
+
+
+<head>
+	<meta charset='utf-8' /> 
+	<meta name='description' content='' />
+	<meta name='robots' content='noodp, noydir' />
+	<meta name='viewport' content='width=device-width, initial-scale=1' />
+	<meta id="timeStampFormat" name="timeStampFormat" content='MMM d, yyyy hh:mm:ss a'/>
+	
+	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css' />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+		<link href='https://cdn.rawgit.com/anshooarora/extentreports-java/b4a58fcfd1e137bd9287244035a7c80d3d73b3af/dist/css/extent.css' type='text/css' rel='stylesheet' />
+	
+	<title>Automation Test Results</title>
+
+	<style type='text/css'>
+	</style>
+</head>
+
+	<body class='extent standard default hide-overflow '>
+		<div id='theme-selector' alt='Click to toggle theme. To enable by default, use theme configuration.' title='Click to toggle theme. To enable by default, use theme configuration.'>
+			<span><i class='material-icons'>desktop_windows</i></span>
+		</div>
+
+<nav>
+	<div class="nav-wrapper">
+		<a href="#!" class="brand-logo blue darken-3">Extent</a>
+
+		<!-- slideout menu -->
+		<ul id='slide-out' class='side-nav fixed hide-on-med-and-down'>
+			<li class='waves-effect active'><a href='#!' view='test-view' onclick="configureView(0);chartsView('test');"><i class='material-icons'>dashboard</i></a></li>
+						<li class='waves-effect'><a href='#!' view='category-view' onclick="configureView(1)"><i class='material-icons'>label_outline</i></a></li>
+			<li class='waves-effect'><a href='#!' view='exception-view' onclick="configureView(2)"><i class='material-icons'>bug_report</i></a></li>
+			<li class='waves-effect'><a href='#!' onclick="configureView(-1);chartsView('dashboard');" view='dashboard-view'><i class='material-icons'>track_changes</i></i></a></li>
+		</ul>
+
+		<!-- report name -->
+		<span class='report-name'>Automation Test Results</span>
+		
+		<!-- report headline -->
+		<span class='report-headline'></span>
+
+		<!-- nav-right -->
+		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
+			<li>
+                <a href='#!'>
+                    <span class='label suite-start-time blue darken-3'>Aug 31, 2021 11:20:43 PM</span>
+				</a>
+			</li>
+			<li>
+                <a href='#!'>
+                    <span class='label blue darken-3'>3.1.5</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+</nav>
+
+		<!-- container -->
+		<div class='container'>
+
+<div id='test-view' class='view'>
+				
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- test toggle -->
+			<div class='chip transparent'>
+				<a class='dropdown-button tests-toggle' data-activates='tests-toggle' data-constrainwidth='true' data-beloworigin='true' data-hover='true' href='#'>
+					<i class='material-icons'>warning</i> Status
+				</a>
+				<ul id='tests-toggle' class='dropdown-content'>
+											<li status='pass'><a href='#!'>Pass <i class='material-icons green-text'>check_circle</i></a></li>
+						<li status='fail'><a href='#!'>Fail <i class='material-icons red-text'>cancel</i></a></li>
+					<li class='divider'></li>
+					<li status='clear' clear='true'><a href='#!'>Clear Filters <i class='material-icons'>clear</i></a></li>
+				</ul>
+			</div>
+			<!-- test toggle -->
+
+			<!-- category toggle -->
+			<div class='chip transparent'>
+				<a class='dropdown-button category-toggle' data-activates='category-toggle' data-constrainwidth='false' data-beloworigin='true' data-hover='true' href='#'>
+					<i class='material-icons'>local_offer</i> Category
+				</a>
+				<ul id='category-toggle' class='dropdown-content'>
+					<li><a href='#'>OCMModulesTestAutomation</a></li>
+					<li><a href='#'>OCMAgentLoginLogoutReportTest</a></li>
+					<li class='divider'></li>
+					<li class='clear'><a href='#!' clear='true'>Clear Filters</a></li>
+				</ul>
+			</div>
+			<!-- category toggle -->
+
+			<!-- clear filters -->
+			<div class='chip transparent hide'>
+				<a class='' id='clear-filters' alt='Clear Filters' title='Clear Filters'>
+					<i class='material-icons'>close</i> Clear
+				</a>
+			</div>
+			<!-- clear filters -->
+
+			<!-- enable dashboard -->
+			<div id='toggle-test-view-charts' class='chip transparent'>
+				<a class='pink-text' id='enable-dashboard' alt='Enable Dashboard' title='Enable Dashboard'>
+					<i class='material-icons'>track_changes</i> Dashboard
+				</a>
+			</div>
+			<!-- enable dashboard -->
+
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+					<i class='material-icons'>search</i> Search
+				</a>
+
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+				
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+
+
+<div id='test-view-charts' class='subview-full'>
+	<div id='charts-row' class='row nm-v nm-h'>
+		<div class='col s12 m6 l6 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Tests</div>
+				<div class='chart-box'>
+					<canvas id='parent-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='96.825%'><span class='strong'>61</span> test(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='3.175%'>2</span> test(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+				</div>
+			</div>
+		</div>
+		
+		
+	</div>
+</div>
+
+	<div class='subview-left left'>
+		
+		<div class='view-summary'>
+			<h5>Tests</h5>
+			<ul id='test-collection' class='test-collection'>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='1'>
+					<div class='test-heading'>
+						<span class='test-name'>ShowReport</span>
+						<span class='test-time'>Aug 31, 2021 11:21:05 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Aug 31, 2021 11:21:05 PM</span>
+	<span class='label end-time'>Aug 31, 2021 11:21:19 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 14s+136ms</span>
+</div>
+	<div class='test-desc'>To verify Show Report for Single Date </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>OCMModulesTestAutomation</span>
+				<span class='category label white-text'>OCMAgentLoginLogoutReportTest</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>11:21:19 PM</td>
+					<td class='step-details'>Test passed</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='2'>
+					<div class='test-heading'>
+						<span class='test-name'>ShowReportInNewPage</span>
+						<span class='test-time'>Aug 31, 2021 11:21:24 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Aug 31, 2021 11:21:24 PM</span>
+	<span class='label end-time'>Aug 31, 2021 11:21:38 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 13s+659ms</span>
+</div>
+	<div class='test-desc'>To verify Show Report in New Tab for Single Date </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>OCMModulesTestAutomation</span>
+				<span class='category label white-text'>OCMAgentLoginLogoutReportTest</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>11:21:38 PM</td>
+					<td class='step-details'>Test passed</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  fail' status='fail' bdd='false' test-id='3'>
+					<div class='test-heading'>
+						<span class='test-name'>database</span>
+						<span class='test-time'>Aug 31, 2021 11:21:42 PM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Aug 31, 2021 11:21:42 PM</span>
+	<span class='label end-time'>Aug 31, 2021 11:23:02 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 1m 19s+752ms</span>
+</div>
+	<div class='test-desc'>To verify Agent Login logout report UI data against DB </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>OCMModulesTestAutomation</span>
+				<span class='category label white-text'>OCMAgentLoginLogoutReportTest</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>11:23:02 PM</td>
+					<td class='step-details'>Test Failed</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>11:23:02 PM</td>
+					<td class='step-details'><pre>java.lang.AssertionError: did not expect to find [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:97)
+	at org.testng.Assert.failNotEquals(Assert.java:969)
+	at org.testng.Assert.assertTrue(Assert.java:43)
+	at org.testng.Assert.assertTrue(Assert.java:53)
+	at com.tetherfi.test.reports.OCMAgentLoginLogoutReportTest.database(OCMAgentLoginLogoutReportTest.java:67)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.util.ArrayList.forEach(Unknown Source)
+	at org.testng.TestRunner.privateRun(TestRunner.java:770)
+	at org.testng.TestRunner.run(TestRunner.java:591)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+	at org.testng.TestNG.runSuites(TestNG.java:1032)
+	at org.testng.TestNG.run(TestNG.java:1000)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='4'>
+					<div class='test-heading'>
+						<span class='test-name'>VerifySearchByFeature</span>
+						<span class='test-time'>Aug 31, 2021 11:23:06 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Aug 31, 2021 11:23:06 PM</span>
+	<span class='label end-time'>Aug 31, 2021 11:23:24 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 17s+973ms</span>
+</div>
+	<div class='test-desc'>Search by feature </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>OCMModulesTestAutomation</span>
+				<span class='category label white-text'>OCMAgentLoginLogoutReportTest</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>11:23:24 PM</td>
+					<td class='step-details'>Test passed</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='5'>
+					<div class='test-heading'>
+						<span class='test-name'>VerifySearchIsEqualTo</span>
+						<span class='test-time'>Aug 31, 2021 11:23:29 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Aug 31, 2021 11:23:29 PM</span>
+	<span class='label end-time'>Aug 31, 2021 11:23:49 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 19s+787ms</span>
+</div>
+	<div class='test-desc'>To Verify the search using Is equal to criteria </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>OCMModulesTestAutomation</span>
+				<span class='category label white-text'>OCMAgentLoginLogoutReportTest</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>11:23:49 PM</td>
+					<td class='step-details'>Test passed</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='6'>
+					<div class='test-heading'>
+						<span class='test-name'>VerifySearchIsNotEqualTo</span>
+						<span class='test-time'>Aug 31, 2021 11:23:55 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Aug 31, 2021 11:23:55 PM</span>
+	<span class='label end-time'>Aug 31, 2021 11:24:27 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 32s+363ms</span>
+</div>
+	<div class='test-desc'>To Verify the search using Is not equal to criteria </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>OCMModulesTestAutomation</span>
+				<span class='category label white-text'>OCMAgentLoginLogoutReportTest</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>11:24:27 PM</td>
+					<td class='step-details'>Test passed</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='7'>
+					<div class='test-heading'>
+						<span class='test-name'>VerifySearchContains</span>
+						<span class='test-time'>Aug 31, 2021 11:24:32 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Aug 31, 2021 11:24:32 PM</span>
+	<span class='label end-time'>Aug 31, 2021 11:24:53 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 20s+733ms</span>
+</div>
+	<div class='test-desc'>To Verify the search using contains criteria </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>OCMModulesTestAutomation</span>
+				<span class='category label white-text'>OCMAgentLoginLogoutReportTest</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>11:24:53 PM</td>
+					<td class='step-details'>Test passed</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='8'>
+					<div class='test-heading'>
+						<span class='test-name'>VerifySearchDoesNotContains</span>
+						<span class='test-time'>Aug 31, 2021 11:24:58 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Aug 31, 2021 11:24:58 PM</span>
+	<span class='label end-time'>Aug 31, 2021 11:25:30 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 32s+209ms</span>
+</div>
+	<div class='test-desc'>To Verify the search using Does not contain criteria </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>OCMModulesTestAutomation</span>
+				<span class='category label white-text'>OCMAgentLoginLogoutReportTest</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>11:25:30 PM</td>
+					<td class='step-details'>Test passed</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='9'>
+					<div class='test-heading'>
+						<span class='test-name'>VerifySearchStartsWith</span>
+						<span class='test-time'>Aug 31, 2021 11:25:36 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Aug 31, 2021 11:25:36 PM</span>
+	<span class='label end-time'>Aug 31, 2021 11:25:56 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 19s+779ms</span>
+</div>
+	<div class='test-desc'>Verify the search starts with criteria </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>OCMModulesTestAutomation</span>
+				<span class='category label white-text'>OCMAgentLoginLogoutReportTest</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>11:25:56 PM</td>
+					<td class='step-details'>Test passed</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='10'>
+					<div class='test-heading'>
+						<span class='test-name'>VerifySearchEndsWith</span>
+						<span class='test-time'>Aug 31, 2021 11:26:01 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Aug 31, 2021 11:26:01 PM</span>
+	<span class='label end-time'>Aug 31, 2021 11:26:20 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 19s+44ms</span>
+</div>
+	<div class='test-desc'>Verify the search Ends with criteria </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>OCMModulesTestAutomation</span>
+				<span class='category label white-text'>OCMAgentLoginLogoutReportTest</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>11:26:20 PM</td>
+					<td class='step-details'>Test passed</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='11'>
+					<div class='test-heading'>
+						<span class='test-name'>searchwithoutSearchTextbox</span>
+						<span class='test-time'>Aug 31, 2021 11:26:25 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Aug 31, 2021 11:26:25 PM</span>
+	<span class='label end-time'>Aug 31, 2021 11:26:42 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 17s+132ms</span>
+</div>
+	<div class='test-desc'>Search without search text </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>OCMModulesTestAutomation</span>
+				<span class='category label white-text'>OCMAgentLoginLogoutReportTest</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>11:26:42 PM</td>
+					<td class='step-details'>Test passed</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='12'>
+					<div class='test-heading'>
+						<span class='test-name'>ClearSearch</span>
+						<span class='test-time'>Aug 31, 2021 11:26:47 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Aug 31, 2021 11:26:47 PM</span>
+	<span class='label end-time'>Aug 31, 2021 11:27:03 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 16s+320ms</span>
+</div>
+	<div class='test-desc'>Clear search functionality </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>OCMModulesTestAutomation</span>
+				<span class='category label white-text'>OCMAgentLoginLogoutReportTest</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>11:27:03 PM</td>
+					<td class='step-details'>Test passed</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='13'>
+					<div class='test-heading'>
+						<span class='test-name'>verifyAdvancedSearchIsEqualTo</span>
+						<span class='test-time'>Aug 31, 2021 11:27:08 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Aug 31, 2021 11:27:08 PM</span>
+	<span class='label end-time'>Aug 31, 2021 11:27:29 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 21s+100ms</span>
+</div>
+	<div class='test-desc'>Advance search on reports page for Is equal to Criteria </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>OCMModulesTestAutomation</span>
+				<span class='category label white-text'>OCMAgentLoginLogoutReportTest</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>11:27:29 PM</td>
+					<td class='step-details'>Test passed</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='14'>
+					<div class='test-heading'>
+						<span class='test-name'>verifyAdvancedIsNotEqualTo</span>
+						<span class='test-time'>Aug 31, 2021 11:27:34 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Aug 31, 2021 11:27:34 PM</span>
+	<span class='label end-time'>Aug 31, 2021 11:28:16 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 41s+388ms</span>
+</div>
+	<div class='test-desc'>Advance search on reports page for Is not equal to Criteria </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>OCMModulesTestAutomation</span>
+				<span class='category label white-text'>OCMAgentLoginLogoutReportTest</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>11:28:16 PM</td>
+					<td class='step-details'>Test passed</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='15'>
+					<div class='test-heading'>
+						<span class='test-name'>verifyAdvancedSearchcontains</span>
+						<span class='test-time'>Aug 31, 2021 11:28:21 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Aug 31, 2021 11:28:21 PM</span>
+	<span class='label end-time'>Aug 31, 2021 11:28:43 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 21s+610ms</span>
+</div>
+	<div class='test-desc'>Advance search on reports page for Contains Criteria </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>OCMModulesTestAutomation</span>
+				<span class='category label white-text'>OCMAgentLoginLogoutReportTest</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>11:28:43 PM</td>
+					<td class='step-details'>Test passed</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='16'>
+					<div class='test-heading'>
+						<span class='test-name'>verifyAdvancedSearchDoesnotcontains</span>
+						<span class='test-time'>Aug 31, 2021 11:28:48 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Aug 31, 2021 11:28:48 PM</span>
+	<span class='label end-time'>Aug 31, 2021 11:29:30 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 41s+992ms</span>
+</div>
+	<div class='test-desc'>Advance search on reports page for Does not Contain Criteria </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>OCMModulesTestAutomation</span>
+				<span class='category label white-text'>OCMAgentLoginLogoutReportTest</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>11:29:30 PM</td>
+					<td class='step-details'>Test passed</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='17'>
+					<div class='test-heading'>
+						<span class='test-name'>verifyAdvancedSearchStartswith</span>
+						<span class='test-time'>Aug 31, 2021 11:29:35 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Aug 31, 2021 11:29:35 PM</span>
+	<span class='label end-time'>Aug 31, 2021 11:29:56 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 21s+325ms</span>
+</div>
+	<div class='test-desc'>Advance search on reports page for Starts with Criteria </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>OCMModulesTestAutomation</span>
+				<span class='category label white-text'>OCMAgentLoginLogoutReportTest</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>11:29:56 PM</td>
+					<td class='step-details'>Test passed</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='18'>
+					<div class='test-heading'>
+						<span class='test-name'>verifyAdvancedSearchSearchEndswith</span>
+						<span class='test-time'>Aug 31, 2021 11:30:01 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Aug 31, 2021 11:30:01 PM</span>
+	<span class='label end-time'>Aug 31, 2021 11:30:22 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 21s+92ms</span>
+</div>
+	<div class='test-desc'>Advance search on reports page for Ends with Criteria </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>OCMModulesTestAutomation</span>
+				<span class='category label white-text'>OCMAgentLoginLogoutReportTest</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>11:30:22 PM</td>
+					<td class='step-details'>Test passed</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='19'>
+					<div class='test-heading'>
+						<span class='test-name'>verifyAdvancedSearchANDCriteria</span>
+						<span class='test-time'>Aug 31, 2021 11:30:28 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Aug 31, 2021 11:30:28 PM</span>
+	<span class='label end-time'>Aug 31, 2021 11:31:04 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 36s+56ms</span>
+</div>
+	<div class='test-desc'>Advance search with And Condition </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>OCMModulesTestAutomation</span>
+				<span class='category label white-text'>OCMAgentLoginLogoutReportTest</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>11:31:04 PM</td>
+					<td class='step-details'>Test passed</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='20'>
+					<div class='test-heading'>
+						<span class='test-name'>verifyAdvancedSearchORCriteria</span>
+						<span class='test-time'>Aug 31, 2021 11:31:09 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Aug 31, 2021 11:31:09 PM</span>
+	<span class='label end-time'>Aug 31, 2021 11:31:44 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 35s+292ms</span>
+</div>
+	<div class='test-desc'>Advance search with OR Condition </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>OCMModulesTestAutomation</span>
+				<span class='category label white-text'>OCMAgentLoginLogoutReportTest</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>11:31:44 PM</td>
+					<td class='step-details'>Test passed</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='21'>
+					<div class='test-heading'>
+						<span class='test-name'>ClearfiltersAdvSrch</span>
+						<span class='test-time'>Aug 31, 2021 11:31:50 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Aug 31, 2021 11:31:50 PM</span>
+	<span class='label end-time'>Aug 31, 2021 11:32:06 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 16s+341ms</span>
+</div>
+	<div class='test-desc'>To clear advanced search filters </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>OCMModulesTestAutomation</span>
+				<span class='category label white-text'>OCMAgentLoginLogoutReportTest</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>11:32:06 PM</td>
+					<td class='step-details'>Test passed</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  fail' status='fail' bdd='false' test-id='22'>
+					<div class='test-heading'>
+						<span class='test-name'>VerifySorting</span>
+						<span class='test-time'>Aug 31, 2021 11:32:11 PM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Aug 31, 2021 11:32:11 PM</span>
+	<span class='label end-time'>Aug 31, 2021 11:32:25 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 14s+514ms</span>
+</div>
+	<div class='test-desc'>To Verify Ascending and Descending order </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>OCMModulesTestAutomation</span>
+				<span class='category label white-text'>OCMAgentLoginLogoutReportTest</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>11:32:25 PM</td>
+					<td class='step-details'>Test Failed</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>11:32:25 PM</td>
+					<td class='step-details'><pre>java.lang.AssertionError: Sorting assertion failed did not expect to find [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:97)
+	at org.testng.Assert.failNotEquals(Assert.java:969)
+	at org.testng.Assert.assertTrue(Assert.java:43)
+	at com.tetherfi.test.reports.OCMAgentLoginLogoutReportTest.VerifySorting(OCMAgentLoginLogoutReportTest.java:278)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.util.ArrayList.forEach(Unknown Source)
+	at org.testng.TestRunner.privateRun(TestRunner.java:770)
+	at org.testng.TestRunner.run(TestRunner.java:591)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+	at org.testng.TestNG.runSuites(TestNG.java:1032)
+	at org.testng.TestNG.run(TestNG.java:1000)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='23'>
+					<div class='test-heading'>
+						<span class='test-name'>GroupBy</span>
+						<span class='test-time'>Aug 31, 2021 11:32:30 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Aug 31, 2021 11:32:30 PM</span>
+	<span class='label end-time'>Aug 31, 2021 11:32:52 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 22s+543ms</span>
+</div>
+	<div class='test-desc'>Group By functionality </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>OCMModulesTestAutomation</span>
+				<span class='category label white-text'>OCMAgentLoginLogoutReportTest</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>11:32:52 PM</td>
+					<td class='step-details'>Test passed</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='24'>
+					<div class='test-heading'>
+						<span class='test-name'>VerifyArrowMoveForPreviousAndNextPage</span>
+						<span class='test-time'>Aug 31, 2021 11:32:57 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Aug 31, 2021 11:32:57 PM</span>
+	<span class='label end-time'>Aug 31, 2021 11:33:22 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 25s+115ms</span>
+</div>
+	<div class='test-desc'>Verify Pagination, Move to previous and next page </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>OCMModulesTestAutomation</span>
+				<span class='category label white-text'>OCMAgentLoginLogoutReportTest</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>11:33:22 PM</td>
+					<td class='step-details'>Test passed</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='25'>
+					<div class='test-heading'>
+						<span class='test-name'>VerifyArrowMoveForFirstAndLastPage</span>
+						<span class='test-time'>Aug 31, 2021 11:33:27 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Aug 31, 2021 11:33:27 PM</span>
+	<span class='label end-time'>Aug 31, 2021 11:33:49 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 22s+521ms</span>
+</div>
+	<div class='test-desc'>Verify Pagination, Move to First and Last Page </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>OCMModulesTestAutomation</span>
+				<span class='category label white-text'>OCMAgentLoginLogoutReportTest</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>11:33:49 PM</td>
+					<td class='step-details'>Test passed</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='26'>
+					<div class='test-heading'>
+						<span class='test-name'>VerifyTotalNumberOfItemsPerPageDetails</span>
+						<span class='test-time'>Aug 31, 2021 11:33:54 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Aug 31, 2021 11:33:54 PM</span>
+	<span class='label end-time'>Aug 31, 2021 11:34:06 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 11s+734ms</span>
+</div>
+	<div class='test-desc'>Verify total number of items per page </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>OCMModulesTestAutomation</span>
+				<span class='category label white-text'>OCMAgentLoginLogoutReportTest</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>11:34:06 PM</td>
+					<td class='step-details'>Test passed</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='27'>
+					<div class='test-heading'>
+						<span class='test-name'>VerifyNumberOfItemsPerPageSelection</span>
+						<span class='test-time'>Aug 31, 2021 11:34:10 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Aug 31, 2021 11:34:10 PM</span>
+	<span class='label end-time'>Aug 31, 2021 11:35:05 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 54s+985ms</span>
+</div>
+	<div class='test-desc'>Verfiy number of items selected per page </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>OCMModulesTestAutomation</span>
+				<span class='category label white-text'>OCMAgentLoginLogoutReportTest</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>11:35:05 PM</td>
+					<td class='step-details'>Test passed</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='28'>
+					<div class='test-heading'>
+						<span class='test-name'>ClearAll</span>
+						<span class='test-time'>Aug 31, 2021 11:35:10 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Aug 31, 2021 11:35:10 PM</span>
+	<span class='label end-time'>Aug 31, 2021 11:35:19 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 8s+811ms</span>
+</div>
+	<div class='test-desc'>To verify clear All filters functionality </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>OCMModulesTestAutomation</span>
+				<span class='category label white-text'>OCMAgentLoginLogoutReportTest</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>11:35:19 PM</td>
+					<td class='step-details'>Test passed</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='29'>
+					<div class='test-heading'>
+						<span class='test-name'>OCMWindow</span>
+						<span class='test-time'>Aug 31, 2021 11:35:24 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Aug 31, 2021 11:35:24 PM</span>
+	<span class='label end-time'>Aug 31, 2021 11:35:36 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 12s+447ms</span>
+</div>
+	<div class='test-desc'>Maximize, minimize </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>OCMModulesTestAutomation</span>
+				<span class='category label white-text'>OCMAgentLoginLogoutReportTest</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>11:35:36 PM</td>
+					<td class='step-details'>Test passed</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='30'>
+					<div class='test-heading'>
+						<span class='test-name'>VerifyDropdownForAllTheColumns</span>
+						<span class='test-time'>Aug 31, 2021 11:35:41 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Aug 31, 2021 11:35:41 PM</span>
+	<span class='label end-time'>Aug 31, 2021 11:36:07 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 26s+487ms</span>
+</div>
+	<div class='test-desc'>Verify dropdown of all the coulnm headers </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>OCMModulesTestAutomation</span>
+				<span class='category label white-text'>OCMAgentLoginLogoutReportTest</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>11:36:07 PM</td>
+					<td class='step-details'>Test passed</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='31'>
+					<div class='test-heading'>
+						<span class='test-name'>VerifyColumnsHeaderEnable</span>
+						<span class='test-time'>Aug 31, 2021 11:36:12 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Aug 31, 2021 11:36:12 PM</span>
+	<span class='label end-time'>Aug 31, 2021 11:36:32 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 20s+86ms</span>
+</div>
+	<div class='test-desc'>Verify column header Enable </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>OCMModulesTestAutomation</span>
+				<span class='category label white-text'>OCMAgentLoginLogoutReportTest</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>11:36:32 PM</td>
+					<td class='step-details'>Test passed</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='32'>
+					<div class='test-heading'>
+						<span class='test-name'>VerifyColumnsHeaderDisable</span>
+						<span class='test-time'>Aug 31, 2021 11:36:37 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Aug 31, 2021 11:36:37 PM</span>
+	<span class='label end-time'>Aug 31, 2021 11:36:59 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 22s+43ms</span>
+</div>
+	<div class='test-desc'>Verify column header disable </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>OCMModulesTestAutomation</span>
+				<span class='category label white-text'>OCMAgentLoginLogoutReportTest</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>11:36:59 PM</td>
+					<td class='step-details'>Test passed</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='33'>
+					<div class='test-heading'>
+						<span class='test-name'>ScheduleAgentLoginLogoutReport</span>
+						<span class='test-time'>Aug 31, 2021 11:37:03 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Aug 31, 2021 11:37:03 PM</span>
+	<span class='label end-time'>Aug 31, 2021 11:37:15 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 11s+25ms</span>
+</div>
+	<div class='test-desc'>To verify Export Scheduler on OCM Reports Page </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>OCMModulesTestAutomation</span>
+				<span class='category label white-text'>OCMAgentLoginLogoutReportTest</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>11:37:15 PM</td>
+					<td class='step-details'>Test passed</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='34'>
+					<div class='test-heading'>
+						<span class='test-name'>ExportReport</span>
+						<span class='test-time'>Aug 31, 2021 11:37:19 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Aug 31, 2021 11:37:19 PM</span>
+	<span class='label end-time'>Aug 31, 2021 11:37:29 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 10s+293ms</span>
+</div>
+	<div class='test-desc'>To verify Export Report on OCM Reports Page </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>OCMModulesTestAutomation</span>
+				<span class='category label white-text'>OCMAgentLoginLogoutReportTest</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>11:37:29 PM</td>
+					<td class='step-details'>Test passed</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='35'>
+					<div class='test-heading'>
+						<span class='test-name'>ViewDownloadedReportInReportsDownloadPage</span>
+						<span class='test-time'>Aug 31, 2021 11:37:34 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Aug 31, 2021 11:37:34 PM</span>
+	<span class='label end-time'>Aug 31, 2021 11:37:41 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 7s+273ms</span>
+</div>
+	<div class='test-desc'>To verify view download in Report downloads </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>OCMModulesTestAutomation</span>
+				<span class='category label white-text'>OCMAgentLoginLogoutReportTest</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>11:37:41 PM</td>
+					<td class='step-details'>Test passed</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='36'>
+					<div class='test-heading'>
+						<span class='test-name'>VerifyDownloadedReportData</span>
+						<span class='test-time'>Aug 31, 2021 11:37:46 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Aug 31, 2021 11:37:46 PM</span>
+	<span class='label end-time'>Aug 31, 2021 11:38:29 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 43s+41ms</span>
+</div>
+	<div class='test-desc'>To verification of exported excel in Report downloads </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>OCMModulesTestAutomation</span>
+				<span class='category label white-text'>OCMAgentLoginLogoutReportTest</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>11:38:29 PM</td>
+					<td class='step-details'>Test passed</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='37'>
+					<div class='test-heading'>
+						<span class='test-name'>DeleteRecordWithoutDeleteReasonInReportsDownloadforSingleDate</span>
+						<span class='test-time'>Aug 31, 2021 11:38:33 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Aug 31, 2021 11:38:33 PM</span>
+	<span class='label end-time'>Aug 31, 2021 11:38:40 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 6s+345ms</span>
+</div>
+	<div class='test-desc'>Delete record in Reports Download without Delete reason </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>OCMModulesTestAutomation</span>
+				<span class='category label white-text'>OCMAgentLoginLogoutReportTest</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>11:38:40 PM</td>
+					<td class='step-details'>Test passed</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='38'>
+					<div class='test-heading'>
+						<span class='test-name'>VerifyCancelBtnAtReportsDownloadforSingleDate</span>
+						<span class='test-time'>Aug 31, 2021 11:38:44 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Aug 31, 2021 11:38:44 PM</span>
+	<span class='label end-time'>Aug 31, 2021 11:39:13 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 28s+645ms</span>
+</div>
+	<div class='test-desc'>Cancel Button in Reports Download Delete Button </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>OCMModulesTestAutomation</span>
+				<span class='category label white-text'>OCMAgentLoginLogoutReportTest</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>11:39:13 PM</td>
+					<td class='step-details'>Test passed</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='39'>
+					<div class='test-heading'>
+						<span class='test-name'>DeleteRecordforSingleDate</span>
+						<span class='test-time'>Aug 31, 2021 11:39:17 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Aug 31, 2021 11:39:17 PM</span>
+	<span class='label end-time'>Aug 31, 2021 11:39:25 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 7s+624ms</span>
+</div>
+	<div class='test-desc'>Delete Record at Reports download Button </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>OCMModulesTestAutomation</span>
+				<span class='category label white-text'>OCMAgentLoginLogoutReportTest</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>11:39:25 PM</td>
+					<td class='step-details'>Test passed</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='40'>
+					<div class='test-heading'>
+						<span class='test-name'>ShowReportForDateRange</span>
+						<span class='test-time'>Aug 31, 2021 11:39:30 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Aug 31, 2021 11:39:30 PM</span>
+	<span class='label end-time'>Aug 31, 2021 11:39:42 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 12s+120ms</span>
+</div>
+	<div class='test-desc'>To verify Show Report for Date Range </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>OCMModulesTestAutomation</span>
+				<span class='category label white-text'>OCMAgentLoginLogoutReportTest</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>11:39:42 PM</td>
+					<td class='step-details'>Test passed</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='41'>
+					<div class='test-heading'>
+						<span class='test-name'>ShowReportInNewPageForDateRange</span>
+						<span class='test-time'>Aug 31, 2021 11:39:46 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Aug 31, 2021 11:39:46 PM</span>
+	<span class='label end-time'>Aug 31, 2021 11:39:58 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 11s+875ms</span>
+</div>
+	<div class='test-desc'>To verify Show Report for Date Range in New Tab </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>OCMModulesTestAutomation</span>
+				<span class='category label white-text'>OCMAgentLoginLogoutReportTest</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>11:39:58 PM</td>
+					<td class='step-details'>Test passed</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='42'>
+					<div class='test-heading'>
+						<span class='test-name'>ScheduleReportforDateRange</span>
+						<span class='test-time'>Aug 31, 2021 11:40:02 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Aug 31, 2021 11:40:02 PM</span>
+	<span class='label end-time'>Aug 31, 2021 11:40:13 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 11s+7ms</span>
+</div>
+	<div class='test-desc'>To verify Export Scheduler on OCM Reports Page for Date Range </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>OCMModulesTestAutomation</span>
+				<span class='category label white-text'>OCMAgentLoginLogoutReportTest</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>11:40:13 PM</td>
+					<td class='step-details'>Test passed</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='43'>
+					<div class='test-heading'>
+						<span class='test-name'>ExportReportForDateRange</span>
+						<span class='test-time'>Aug 31, 2021 11:40:18 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Aug 31, 2021 11:40:18 PM</span>
+	<span class='label end-time'>Aug 31, 2021 11:40:28 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 10s+759ms</span>
+</div>
+	<div class='test-desc'>To verify Export Report on OCM Reports Page for Date Range </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>OCMModulesTestAutomation</span>
+				<span class='category label white-text'>OCMAgentLoginLogoutReportTest</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>11:40:28 PM</td>
+					<td class='step-details'>Test passed</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='44'>
+					<div class='test-heading'>
+						<span class='test-name'>ViewDownloadedReportInReportDownloadsPageForDateRange</span>
+						<span class='test-time'>Aug 31, 2021 11:40:33 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Aug 31, 2021 11:40:33 PM</span>
+	<span class='label end-time'>Aug 31, 2021 11:40:39 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 6s+776ms</span>
+</div>
+	<div class='test-desc'>To verification of exported excel in Report downloads for Date Range </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>OCMModulesTestAutomation</span>
+				<span class='category label white-text'>OCMAgentLoginLogoutReportTest</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>11:40:39 PM</td>
+					<td class='step-details'>Test passed</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='45'>
+					<div class='test-heading'>
+						<span class='test-name'>VerifyDownloadedReportDataForDateRange</span>
+						<span class='test-time'>Aug 31, 2021 11:40:44 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Aug 31, 2021 11:40:44 PM</span>
+	<span class='label end-time'>Aug 31, 2021 11:45:02 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 4m 18s+207ms</span>
+</div>
+	<div class='test-desc'>To verification of exported excel in Report downloads </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>OCMModulesTestAutomation</span>
+				<span class='category label white-text'>OCMAgentLoginLogoutReportTest</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>11:45:02 PM</td>
+					<td class='step-details'>Test passed</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='46'>
+					<div class='test-heading'>
+						<span class='test-name'>DeleteRecordWithoutDeleteReasonInReportsDownloadforDateRange</span>
+						<span class='test-time'>Aug 31, 2021 11:45:07 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Aug 31, 2021 11:45:07 PM</span>
+	<span class='label end-time'>Aug 31, 2021 11:45:14 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 6s+953ms</span>
+</div>
+	<div class='test-desc'>Delete record in Reports Download without Delete reason for date range </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>OCMModulesTestAutomation</span>
+				<span class='category label white-text'>OCMAgentLoginLogoutReportTest</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>11:45:14 PM</td>
+					<td class='step-details'>Test passed</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='47'>
+					<div class='test-heading'>
+						<span class='test-name'>VerifyDeleteCancelBtnInReportDownloads</span>
+						<span class='test-time'>Aug 31, 2021 11:45:18 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Aug 31, 2021 11:45:18 PM</span>
+	<span class='label end-time'>Aug 31, 2021 11:45:47 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 28s+876ms</span>
+</div>
+	<div class='test-desc'>Cancel Button in Reports Download Delete Button </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>OCMModulesTestAutomation</span>
+				<span class='category label white-text'>OCMAgentLoginLogoutReportTest</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>11:45:47 PM</td>
+					<td class='step-details'>Test passed</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='48'>
+					<div class='test-heading'>
+						<span class='test-name'>DeleteRecord</span>
+						<span class='test-time'>Aug 31, 2021 11:45:52 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Aug 31, 2021 11:45:52 PM</span>
+	<span class='label end-time'>Aug 31, 2021 11:46:03 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 10s+543ms</span>
+</div>
+	<div class='test-desc'>To Delete report downloaded Record in Reports download page </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>OCMModulesTestAutomation</span>
+				<span class='category label white-text'>OCMAgentLoginLogoutReportTest</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>11:46:03 PM</td>
+					<td class='step-details'>Test passed</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='49'>
+					<div class='test-heading'>
+						<span class='test-name'>ExportPage</span>
+						<span class='test-time'>Aug 31, 2021 11:46:07 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Aug 31, 2021 11:46:07 PM</span>
+	<span class='label end-time'>Aug 31, 2021 11:46:23 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 16s+143ms</span>
+</div>
+	<div class='test-desc'>To Verify Export Page Button </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>OCMModulesTestAutomation</span>
+				<span class='category label white-text'>OCMAgentLoginLogoutReportTest</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>11:46:23 PM</td>
+					<td class='step-details'>Test passed</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='50'>
+					<div class='test-heading'>
+						<span class='test-name'>VerifyExportedPage</span>
+						<span class='test-time'>Aug 31, 2021 11:46:28 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Aug 31, 2021 11:46:28 PM</span>
+	<span class='label end-time'>Aug 31, 2021 11:46:45 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 16s+575ms</span>
+</div>
+	<div class='test-desc'>To Verify Exported Page data Against UI </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>OCMModulesTestAutomation</span>
+				<span class='category label white-text'>OCMAgentLoginLogoutReportTest</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>11:46:45 PM</td>
+					<td class='step-details'>Test passed</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='51'>
+					<div class='test-heading'>
+						<span class='test-name'>SchedulereportinAgentLoginLogoutReportPage</span>
+						<span class='test-time'>Aug 31, 2021 11:46:49 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Aug 31, 2021 11:46:49 PM</span>
+	<span class='label end-time'>Aug 31, 2021 11:47:02 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 13s+328ms</span>
+</div>
+	<div class='test-desc'>Scheduled report button in Login Logout report page </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>OCMModulesTestAutomation</span>
+				<span class='category label white-text'>OCMAgentLoginLogoutReportTest</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>11:47:02 PM</td>
+					<td class='step-details'>Test passed</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='52'>
+					<div class='test-heading'>
+						<span class='test-name'>ExportToExcel</span>
+						<span class='test-time'>Aug 31, 2021 11:47:07 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Aug 31, 2021 11:47:07 PM</span>
+	<span class='label end-time'>Aug 31, 2021 11:47:19 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 12s+291ms</span>
+</div>
+	<div class='test-desc'>To verify export to excel functionality </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>OCMModulesTestAutomation</span>
+				<span class='category label white-text'>OCMAgentLoginLogoutReportTest</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>11:47:19 PM</td>
+					<td class='step-details'>Test passed</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='53'>
+					<div class='test-heading'>
+						<span class='test-name'>ViewExportedExcelData</span>
+						<span class='test-time'>Aug 31, 2021 11:47:24 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Aug 31, 2021 11:47:24 PM</span>
+	<span class='label end-time'>Aug 31, 2021 11:47:41 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 17s+505ms</span>
+</div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>OCMModulesTestAutomation</span>
+				<span class='category label white-text'>OCMAgentLoginLogoutReportTest</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>11:47:41 PM</td>
+					<td class='step-details'>Test passed</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='54'>
+					<div class='test-heading'>
+						<span class='test-name'>VerifyExportedExcelData</span>
+						<span class='test-time'>Aug 31, 2021 11:47:46 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Aug 31, 2021 11:47:46 PM</span>
+	<span class='label end-time'>Aug 31, 2021 11:52:05 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 4m 19s+302ms</span>
+</div>
+	<div class='test-desc'>To verification of exported excel in Report downloads </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>OCMModulesTestAutomation</span>
+				<span class='category label white-text'>OCMAgentLoginLogoutReportTest</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>11:52:05 PM</td>
+					<td class='step-details'>Test passed</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='55'>
+					<div class='test-heading'>
+						<span class='test-name'>quickinputforSeconds</span>
+						<span class='test-time'>Aug 31, 2021 11:52:10 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Aug 31, 2021 11:52:10 PM</span>
+	<span class='label end-time'>Aug 31, 2021 11:52:26 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 15s+973ms</span>
+</div>
+	<div class='test-desc'>Quick Input Functionality for seconds </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>OCMModulesTestAutomation</span>
+				<span class='category label white-text'>OCMAgentLoginLogoutReportTest</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>11:52:26 PM</td>
+					<td class='step-details'>Test passed</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='56'>
+					<div class='test-heading'>
+						<span class='test-name'>quickinputwithoutNumber</span>
+						<span class='test-time'>Aug 31, 2021 11:52:31 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Aug 31, 2021 11:52:31 PM</span>
+	<span class='label end-time'>Aug 31, 2021 11:52:43 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 12s+659ms</span>
+</div>
+	<div class='test-desc'>Quick Input Functionality without number field </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>OCMModulesTestAutomation</span>
+				<span class='category label white-text'>OCMAgentLoginLogoutReportTest</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>11:52:43 PM</td>
+					<td class='step-details'>Test passed</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='57'>
+					<div class='test-heading'>
+						<span class='test-name'>quickInputforMinutes</span>
+						<span class='test-time'>Aug 31, 2021 11:52:47 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Aug 31, 2021 11:52:47 PM</span>
+	<span class='label end-time'>Aug 31, 2021 11:53:04 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 16s+348ms</span>
+</div>
+	<div class='test-desc'>Quick Input Functionality for Minutes </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>OCMModulesTestAutomation</span>
+				<span class='category label white-text'>OCMAgentLoginLogoutReportTest</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>11:53:04 PM</td>
+					<td class='step-details'>Test passed</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='58'>
+					<div class='test-heading'>
+						<span class='test-name'>quickInputforhour</span>
+						<span class='test-time'>Aug 31, 2021 11:53:08 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Aug 31, 2021 11:53:08 PM</span>
+	<span class='label end-time'>Aug 31, 2021 11:53:25 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 16s+835ms</span>
+</div>
+	<div class='test-desc'>Quick Input Functionality for Hours </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>OCMModulesTestAutomation</span>
+				<span class='category label white-text'>OCMAgentLoginLogoutReportTest</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>11:53:25 PM</td>
+					<td class='step-details'>Test passed</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='59'>
+					<div class='test-heading'>
+						<span class='test-name'>quickInputforDay</span>
+						<span class='test-time'>Aug 31, 2021 11:53:30 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Aug 31, 2021 11:53:30 PM</span>
+	<span class='label end-time'>Aug 31, 2021 11:53:47 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 17s+103ms</span>
+</div>
+	<div class='test-desc'>Quick Input Functionality for Days </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>OCMModulesTestAutomation</span>
+				<span class='category label white-text'>OCMAgentLoginLogoutReportTest</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>11:53:47 PM</td>
+					<td class='step-details'>Test passed</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='60'>
+					<div class='test-heading'>
+						<span class='test-name'>quickInputforWeek</span>
+						<span class='test-time'>Aug 31, 2021 11:53:51 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Aug 31, 2021 11:53:51 PM</span>
+	<span class='label end-time'>Aug 31, 2021 11:54:08 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 17s+4ms</span>
+</div>
+	<div class='test-desc'>Quick Input Functionality for Week </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>OCMModulesTestAutomation</span>
+				<span class='category label white-text'>OCMAgentLoginLogoutReportTest</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>11:54:08 PM</td>
+					<td class='step-details'>Test passed</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='61'>
+					<div class='test-heading'>
+						<span class='test-name'>quickInputMonth</span>
+						<span class='test-time'>Aug 31, 2021 11:54:13 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Aug 31, 2021 11:54:13 PM</span>
+	<span class='label end-time'>Aug 31, 2021 11:54:30 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 16s+934ms</span>
+</div>
+	<div class='test-desc'>Quick Input Functionality for Month </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>OCMModulesTestAutomation</span>
+				<span class='category label white-text'>OCMAgentLoginLogoutReportTest</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>11:54:30 PM</td>
+					<td class='step-details'>Test passed</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='62'>
+					<div class='test-heading'>
+						<span class='test-name'>quickInputforYear</span>
+						<span class='test-time'>Aug 31, 2021 11:54:35 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Aug 31, 2021 11:54:35 PM</span>
+	<span class='label end-time'>Aug 31, 2021 11:54:52 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 16s+876ms</span>
+</div>
+	<div class='test-desc'>Quick Input Functionality for Year </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>OCMModulesTestAutomation</span>
+				<span class='category label white-text'>OCMAgentLoginLogoutReportTest</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>11:54:52 PM</td>
+					<td class='step-details'>Test passed</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='63'>
+					<div class='test-heading'>
+						<span class='test-name'>VerifyJsonDataForColumnNames</span>
+						<span class='test-time'>Aug 31, 2021 11:54:56 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Aug 31, 2021 11:54:56 PM</span>
+	<span class='label end-time'>Aug 31, 2021 11:55:18 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 21s+640ms</span>
+</div>
+	<div class='test-desc'>Verify the column headers against the Json File </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>OCMModulesTestAutomation</span>
+				<span class='category label white-text'>OCMAgentLoginLogoutReportTest</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>11:55:18 PM</td>
+					<td class='step-details'>Test passed</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- subview left -->
+
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<h5 class='test-name'></h5>
+
+			<div id='step-filters' class="right">
+				<span class="blue-text" status="info" alt="info" title="info"><i class="material-icons">info_outline</i></span>
+				<span class="green-text" status="pass" alt="pass" title="pass"><i class="material-icons">check_circle</i></span>
+				<span class="red-text" status="fail" alt="fail" title="fail"><i class="material-icons">cancel</i></span>
+				<span class="red-text text-darken-4" status="fatal" alt="fatal" title="fatal"><i class="material-icons">cancel</i></span>
+				<span class="pink-text text-lighten-1" status="error" alt="error" title="error"><i class="material-icons">error</i></span>
+				<span class="orange-text" alt="warning" status="warning" title="warning"><i class="material-icons">warning</i></span>
+				<span class="teal-text" status="skip" alt="skip" title="skip"><i class="material-icons">redo</i></span>
+				<span status="clear" alt="Clear filters" title="Clear filters"><i class="material-icons">clear</i></span>
+			</div>
+		</div>
+	</div>
+	<!-- subview right -->
+
+</div>
+<!-- test view -->
+<div id='category-view' class='view hide'>
+
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+					<i class='material-icons'>search</i> Search
+				</a>
+				
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+				
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+
+	<div class='subview-left left'>
+		
+		<div class='view-summary'>
+			<h5>Categories</h3>
+			<ul id='category-collection' class='category-collection'>
+				
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>OCMModulesTestAutomation</span>
+						<span class='category-status right'>
+							<span class='label pass'>61</span>
+							<span class='label fail'>2</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 61</span>
+							<span class='label red lighten-1 white-text'>Failed: 2</span>
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Aug 31, 2021 11:21:05 PM</td>
+										<td class='linked' test-id='1'>ShowReport</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:21:24 PM</td>
+										<td class='linked' test-id='2'>ShowReportInNewPage</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:21:42 PM</td>
+										<td class='linked' test-id='3'>database</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:23:06 PM</td>
+										<td class='linked' test-id='4'>VerifySearchByFeature</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:23:29 PM</td>
+										<td class='linked' test-id='5'>VerifySearchIsEqualTo</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:23:55 PM</td>
+										<td class='linked' test-id='6'>VerifySearchIsNotEqualTo</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:24:32 PM</td>
+										<td class='linked' test-id='7'>VerifySearchContains</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:24:58 PM</td>
+										<td class='linked' test-id='8'>VerifySearchDoesNotContains</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:25:36 PM</td>
+										<td class='linked' test-id='9'>VerifySearchStartsWith</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:26:01 PM</td>
+										<td class='linked' test-id='10'>VerifySearchEndsWith</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:26:25 PM</td>
+										<td class='linked' test-id='11'>searchwithoutSearchTextbox</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:26:47 PM</td>
+										<td class='linked' test-id='12'>ClearSearch</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:27:08 PM</td>
+										<td class='linked' test-id='13'>verifyAdvancedSearchIsEqualTo</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:27:34 PM</td>
+										<td class='linked' test-id='14'>verifyAdvancedIsNotEqualTo</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:28:21 PM</td>
+										<td class='linked' test-id='15'>verifyAdvancedSearchcontains</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:28:48 PM</td>
+										<td class='linked' test-id='16'>verifyAdvancedSearchDoesnotcontains</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:29:35 PM</td>
+										<td class='linked' test-id='17'>verifyAdvancedSearchStartswith</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:30:01 PM</td>
+										<td class='linked' test-id='18'>verifyAdvancedSearchSearchEndswith</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:30:28 PM</td>
+										<td class='linked' test-id='19'>verifyAdvancedSearchANDCriteria</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:31:09 PM</td>
+										<td class='linked' test-id='20'>verifyAdvancedSearchORCriteria</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:31:50 PM</td>
+										<td class='linked' test-id='21'>ClearfiltersAdvSrch</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:32:11 PM</td>
+										<td class='linked' test-id='22'>VerifySorting</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:32:30 PM</td>
+										<td class='linked' test-id='23'>GroupBy</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:32:57 PM</td>
+										<td class='linked' test-id='24'>VerifyArrowMoveForPreviousAndNextPage</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:33:27 PM</td>
+										<td class='linked' test-id='25'>VerifyArrowMoveForFirstAndLastPage</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:33:54 PM</td>
+										<td class='linked' test-id='26'>VerifyTotalNumberOfItemsPerPageDetails</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:34:10 PM</td>
+										<td class='linked' test-id='27'>VerifyNumberOfItemsPerPageSelection</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:35:10 PM</td>
+										<td class='linked' test-id='28'>ClearAll</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:35:24 PM</td>
+										<td class='linked' test-id='29'>OCMWindow</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:35:41 PM</td>
+										<td class='linked' test-id='30'>VerifyDropdownForAllTheColumns</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:36:12 PM</td>
+										<td class='linked' test-id='31'>VerifyColumnsHeaderEnable</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:36:37 PM</td>
+										<td class='linked' test-id='32'>VerifyColumnsHeaderDisable</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:37:03 PM</td>
+										<td class='linked' test-id='33'>ScheduleAgentLoginLogoutReport</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:37:19 PM</td>
+										<td class='linked' test-id='34'>ExportReport</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:37:34 PM</td>
+										<td class='linked' test-id='35'>ViewDownloadedReportInReportsDownloadPage</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:37:46 PM</td>
+										<td class='linked' test-id='36'>VerifyDownloadedReportData</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:38:33 PM</td>
+										<td class='linked' test-id='37'>DeleteRecordWithoutDeleteReasonInReportsDownloadforSingleDate</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:38:44 PM</td>
+										<td class='linked' test-id='38'>VerifyCancelBtnAtReportsDownloadforSingleDate</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:39:17 PM</td>
+										<td class='linked' test-id='39'>DeleteRecordforSingleDate</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:39:30 PM</td>
+										<td class='linked' test-id='40'>ShowReportForDateRange</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:39:46 PM</td>
+										<td class='linked' test-id='41'>ShowReportInNewPageForDateRange</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:40:02 PM</td>
+										<td class='linked' test-id='42'>ScheduleReportforDateRange</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:40:18 PM</td>
+										<td class='linked' test-id='43'>ExportReportForDateRange</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:40:33 PM</td>
+										<td class='linked' test-id='44'>ViewDownloadedReportInReportDownloadsPageForDateRange</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:40:44 PM</td>
+										<td class='linked' test-id='45'>VerifyDownloadedReportDataForDateRange</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:45:07 PM</td>
+										<td class='linked' test-id='46'>DeleteRecordWithoutDeleteReasonInReportsDownloadforDateRange</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:45:18 PM</td>
+										<td class='linked' test-id='47'>VerifyDeleteCancelBtnInReportDownloads</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:45:52 PM</td>
+										<td class='linked' test-id='48'>DeleteRecord</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:46:07 PM</td>
+										<td class='linked' test-id='49'>ExportPage</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:46:28 PM</td>
+										<td class='linked' test-id='50'>VerifyExportedPage</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:46:49 PM</td>
+										<td class='linked' test-id='51'>SchedulereportinAgentLoginLogoutReportPage</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:47:07 PM</td>
+										<td class='linked' test-id='52'>ExportToExcel</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:47:24 PM</td>
+										<td class='linked' test-id='53'>ViewExportedExcelData</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:47:46 PM</td>
+										<td class='linked' test-id='54'>VerifyExportedExcelData</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:52:10 PM</td>
+										<td class='linked' test-id='55'>quickinputforSeconds</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:52:31 PM</td>
+										<td class='linked' test-id='56'>quickinputwithoutNumber</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:52:47 PM</td>
+										<td class='linked' test-id='57'>quickInputforMinutes</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:53:08 PM</td>
+										<td class='linked' test-id='58'>quickInputforhour</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:53:30 PM</td>
+										<td class='linked' test-id='59'>quickInputforDay</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:53:51 PM</td>
+										<td class='linked' test-id='60'>quickInputforWeek</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:54:13 PM</td>
+										<td class='linked' test-id='61'>quickInputMonth</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:54:35 PM</td>
+										<td class='linked' test-id='62'>quickInputforYear</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:54:56 PM</td>
+										<td class='linked' test-id='63'>VerifyJsonDataForColumnNames</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>OCMAgentLoginLogoutReportTest</span>
+						<span class='category-status right'>
+							<span class='label pass'>61</span>
+							<span class='label fail'>2</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 61</span>
+							<span class='label red lighten-1 white-text'>Failed: 2</span>
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Aug 31, 2021 11:21:05 PM</td>
+										<td class='linked' test-id='1'>ShowReport</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:21:24 PM</td>
+										<td class='linked' test-id='2'>ShowReportInNewPage</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:21:42 PM</td>
+										<td class='linked' test-id='3'>database</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:23:06 PM</td>
+										<td class='linked' test-id='4'>VerifySearchByFeature</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:23:29 PM</td>
+										<td class='linked' test-id='5'>VerifySearchIsEqualTo</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:23:55 PM</td>
+										<td class='linked' test-id='6'>VerifySearchIsNotEqualTo</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:24:32 PM</td>
+										<td class='linked' test-id='7'>VerifySearchContains</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:24:58 PM</td>
+										<td class='linked' test-id='8'>VerifySearchDoesNotContains</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:25:36 PM</td>
+										<td class='linked' test-id='9'>VerifySearchStartsWith</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:26:01 PM</td>
+										<td class='linked' test-id='10'>VerifySearchEndsWith</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:26:25 PM</td>
+										<td class='linked' test-id='11'>searchwithoutSearchTextbox</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:26:47 PM</td>
+										<td class='linked' test-id='12'>ClearSearch</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:27:08 PM</td>
+										<td class='linked' test-id='13'>verifyAdvancedSearchIsEqualTo</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:27:34 PM</td>
+										<td class='linked' test-id='14'>verifyAdvancedIsNotEqualTo</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:28:21 PM</td>
+										<td class='linked' test-id='15'>verifyAdvancedSearchcontains</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:28:48 PM</td>
+										<td class='linked' test-id='16'>verifyAdvancedSearchDoesnotcontains</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:29:35 PM</td>
+										<td class='linked' test-id='17'>verifyAdvancedSearchStartswith</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:30:01 PM</td>
+										<td class='linked' test-id='18'>verifyAdvancedSearchSearchEndswith</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:30:28 PM</td>
+										<td class='linked' test-id='19'>verifyAdvancedSearchANDCriteria</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:31:09 PM</td>
+										<td class='linked' test-id='20'>verifyAdvancedSearchORCriteria</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:31:50 PM</td>
+										<td class='linked' test-id='21'>ClearfiltersAdvSrch</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:32:11 PM</td>
+										<td class='linked' test-id='22'>VerifySorting</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:32:30 PM</td>
+										<td class='linked' test-id='23'>GroupBy</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:32:57 PM</td>
+										<td class='linked' test-id='24'>VerifyArrowMoveForPreviousAndNextPage</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:33:27 PM</td>
+										<td class='linked' test-id='25'>VerifyArrowMoveForFirstAndLastPage</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:33:54 PM</td>
+										<td class='linked' test-id='26'>VerifyTotalNumberOfItemsPerPageDetails</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:34:10 PM</td>
+										<td class='linked' test-id='27'>VerifyNumberOfItemsPerPageSelection</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:35:10 PM</td>
+										<td class='linked' test-id='28'>ClearAll</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:35:24 PM</td>
+										<td class='linked' test-id='29'>OCMWindow</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:35:41 PM</td>
+										<td class='linked' test-id='30'>VerifyDropdownForAllTheColumns</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:36:12 PM</td>
+										<td class='linked' test-id='31'>VerifyColumnsHeaderEnable</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:36:37 PM</td>
+										<td class='linked' test-id='32'>VerifyColumnsHeaderDisable</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:37:03 PM</td>
+										<td class='linked' test-id='33'>ScheduleAgentLoginLogoutReport</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:37:19 PM</td>
+										<td class='linked' test-id='34'>ExportReport</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:37:34 PM</td>
+										<td class='linked' test-id='35'>ViewDownloadedReportInReportsDownloadPage</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:37:46 PM</td>
+										<td class='linked' test-id='36'>VerifyDownloadedReportData</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:38:33 PM</td>
+										<td class='linked' test-id='37'>DeleteRecordWithoutDeleteReasonInReportsDownloadforSingleDate</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:38:44 PM</td>
+										<td class='linked' test-id='38'>VerifyCancelBtnAtReportsDownloadforSingleDate</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:39:17 PM</td>
+										<td class='linked' test-id='39'>DeleteRecordforSingleDate</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:39:30 PM</td>
+										<td class='linked' test-id='40'>ShowReportForDateRange</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:39:46 PM</td>
+										<td class='linked' test-id='41'>ShowReportInNewPageForDateRange</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:40:02 PM</td>
+										<td class='linked' test-id='42'>ScheduleReportforDateRange</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:40:18 PM</td>
+										<td class='linked' test-id='43'>ExportReportForDateRange</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:40:33 PM</td>
+										<td class='linked' test-id='44'>ViewDownloadedReportInReportDownloadsPageForDateRange</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:40:44 PM</td>
+										<td class='linked' test-id='45'>VerifyDownloadedReportDataForDateRange</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:45:07 PM</td>
+										<td class='linked' test-id='46'>DeleteRecordWithoutDeleteReasonInReportsDownloadforDateRange</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:45:18 PM</td>
+										<td class='linked' test-id='47'>VerifyDeleteCancelBtnInReportDownloads</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:45:52 PM</td>
+										<td class='linked' test-id='48'>DeleteRecord</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:46:07 PM</td>
+										<td class='linked' test-id='49'>ExportPage</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:46:28 PM</td>
+										<td class='linked' test-id='50'>VerifyExportedPage</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:46:49 PM</td>
+										<td class='linked' test-id='51'>SchedulereportinAgentLoginLogoutReportPage</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:47:07 PM</td>
+										<td class='linked' test-id='52'>ExportToExcel</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:47:24 PM</td>
+										<td class='linked' test-id='53'>ViewExportedExcelData</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:47:46 PM</td>
+										<td class='linked' test-id='54'>VerifyExportedExcelData</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:52:10 PM</td>
+										<td class='linked' test-id='55'>quickinputforSeconds</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:52:31 PM</td>
+										<td class='linked' test-id='56'>quickinputwithoutNumber</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:52:47 PM</td>
+										<td class='linked' test-id='57'>quickInputforMinutes</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:53:08 PM</td>
+										<td class='linked' test-id='58'>quickInputforhour</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:53:30 PM</td>
+										<td class='linked' test-id='59'>quickInputforDay</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:53:51 PM</td>
+										<td class='linked' test-id='60'>quickInputforWeek</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:54:13 PM</td>
+										<td class='linked' test-id='61'>quickInputMonth</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:54:35 PM</td>
+										<td class='linked' test-id='62'>quickInputforYear</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Aug 31, 2021 11:54:56 PM</td>
+										<td class='linked' test-id='63'>VerifyJsonDataForColumnNames</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+
+			</ul>
+		</div>
+	</div>
+
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<h5 class='category-name'></h5>
+		</div>
+	</div>
+</div>
+<!-- category view -->
+<div id='exception-view' class='view hide'>
+
+    <section id='controls'>
+        <div class='controls grey lighten-4'>
+            <!-- search -->
+            <div class='chip transparent' alt='Search Tests' title='Search Tests'>
+                <a href="#" class='search-div'>
+                    <i class='material-icons'>search</i> Search
+                </a>
+
+                <div class='input-field left hide'>
+                    <input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+                </div>
+
+            </div>
+            <!-- search -->
+        </div>
+    </section>
+
+    <div class='subview-left left'>
+
+        <div class='view-summary'>
+            <h5>Exceptions</h3>
+                <ul id='exception-collection' class='exception-collection'>
+
+                        <li class='exception displayed active'>
+                            <div class='exception-heading'>
+                                <span class='exception-name'>java.lang.AssertionError</span>
+                                <span class='exception-count right'><span class='label red lighten-1 white-text'>2</span></span>
+                            </div>
+                            <div class='exception-content hide'>
+                                <div class='exception-tests'>
+                                    <table class='bordered table-results'>
+                                        <thead>
+                                        <tr>
+                                            <th>Timestamp</th>
+                                            <th>TestName</th>
+                                            <th>Status</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                                    <tr>
+                                                        <td>Aug 31, 2021 11:21:42 PM</td>
+                                                        <td class='linked' test-id='3'>database</td>
+                                                        <td><pre><pre>java.lang.AssertionError: did not expect to find [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:97)
+	at org.testng.Assert.failNotEquals(Assert.java:969)
+	at org.testng.Assert.assertTrue(Assert.java:43)
+	at org.testng.Assert.assertTrue(Assert.java:53)
+	at com.tetherfi.test.reports.OCMAgentLoginLogoutReportTest.database(OCMAgentLoginLogoutReportTest.java:67)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.util.ArrayList.forEach(Unknown Source)
+	at org.testng.TestRunner.privateRun(TestRunner.java:770)
+	at org.testng.TestRunner.run(TestRunner.java:591)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+	at org.testng.TestNG.runSuites(TestNG.java:1032)
+	at org.testng.TestNG.run(TestNG.java:1000)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></pre></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Aug 31, 2021 11:32:11 PM</td>
+                                                        <td class='linked' test-id='22'>VerifySorting</td>
+                                                        <td><pre><pre>java.lang.AssertionError: Sorting assertion failed did not expect to find [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:97)
+	at org.testng.Assert.failNotEquals(Assert.java:969)
+	at org.testng.Assert.assertTrue(Assert.java:43)
+	at com.tetherfi.test.reports.OCMAgentLoginLogoutReportTest.VerifySorting(OCMAgentLoginLogoutReportTest.java:278)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.util.ArrayList.forEach(Unknown Source)
+	at org.testng.TestRunner.privateRun(TestRunner.java:770)
+	at org.testng.TestRunner.run(TestRunner.java:591)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+	at org.testng.TestNG.runSuites(TestNG.java:1032)
+	at org.testng.TestNG.run(TestNG.java:1000)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></pre></td>
+                                                    </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </li>
+                </ul>
+        </div>
+    </div>
+
+    <div class='subview-right left'>
+        <div class='view-summary'>
+            <h5 class='exception-name'></h5>
+        </div>
+    </div>
+</div>
+<!-- exception view -->
+<div id='dashboard-view' class='view hide'>
+	<div class='card-panel transparent np-v'>
+		<h5>Dashboard</h5>
+
+		<div class='row'>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Tests
+					<div class='panel-lead'>63</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Steps
+					<div class='panel-lead'>0</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Start
+					<div class='panel-lead'>Aug 31, 2021 11:20:43 PM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+			 		End
+			 		<div class='panel-lead'>Aug 31, 2021 11:55:23 PM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Time Taken
+					<div class='panel-lead'>0h 34m 39s+683ms</div>
+				</div>
+			</div>
+			<div class='col s6'>
+				<div class='card-panel dashboard-categories'>
+					<span class='right label cyan white-text'>Categories</span><p>&nbsp;</p>
+					
+					<table>
+						<tr>
+							<th>Name</th>
+							<th>Passed</th>
+							<th>Failed</th>
+							<th>Others</th>
+							<th>Passed %</th>
+						</tr>
+						<tr>
+							<td>OCMModulesTestAutomation</td>
+							<td>61</td>
+							<td>2</td>
+							<td>0</td>
+							<td>
+									96.825%
+							</td>
+						</tr>
+						<tr>
+							<td>OCMAgentLoginLogoutReportTest</td>
+							<td>61</td>
+							<td>2</td>
+							<td>0</td>
+							<td>
+									96.825%
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- dashboard view -->
+<!-- testrunner-logs view -->
+		</div>
+		<!-- container -->
+
+		<script>
+			var statusGroup = {
+				passParent: 61,
+				failParent: 2,
+				fatalParent: 0,
+				errorParent: 0,
+				warningParent: 0,
+				skipParent: 0,
+				exceptionsParent: 2,
+				
+				passChild: 0,
+				failChild: 0,
+				fatalChild: 0,
+				errorChild: 0,
+				warningChild: 0,
+				skipChild: 0,
+				infoChild: 0,
+				exceptionsChild: 0,
+				
+				passGrandChild: 0,
+				failGrandChild: 0,
+				fatalGrandChild: 0,
+				errorGrandChild: 0,
+				warningGrandChild: 0,
+				skipGrandChild: 0,
+				infoGrandChild: 0,
+				exceptionsGrandChild: 0,
+			};
+		</script>
+		
+			<script src='https://cdn.rawgit.com/anshooarora/extentreports-java/fca20fb7653aade98810546ab96a2a4360e3e712/dist/js/extent.js' type='text/javascript'></script>
+		
+		
+ 		<script type='text/javascript'>
+ 		</script>
+	</body>
+	
+</html>

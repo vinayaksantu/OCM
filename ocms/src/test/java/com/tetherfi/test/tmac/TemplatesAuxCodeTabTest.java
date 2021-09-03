@@ -1,4 +1,3 @@
-
 package com.tetherfi.test.tmac;
 
 import java.lang.reflect.Method;
@@ -10,11 +9,9 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.tetherfi.model.tmac.AgentTemplateDetails;
-import com.tetherfi.model.tmac.SkillTemplateDetails;
 import com.tetherfi.pages.AgentTemplatePage;
 import com.tetherfi.pages.HomePage;
 import com.tetherfi.pages.OCMHomePage;
-import com.tetherfi.pages.SkillTemplatePage;
 import com.tetherfi.pages.TmacPage;
 import com.tetherfi.test.BaseTest;
 import com.tetherfi.utility.ExcelReader;
@@ -85,7 +82,7 @@ public class TemplatesAuxCodeTabTest extends BaseTest {
 	}
 
 	//has defect PRDOCM-62997
-	@Test(priority= 6,description="To Verify 'Transfer from' Selected Aux List")
+	@Test(priority=6,description="To Verify 'Transfer from' Selected Aux List")
 	public void VerifyTransferFromBtn() throws Exception {
 		String filePath=System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\AgentTemplateData.xlsx";
 		Map<String,String>map=new ExcelReader(filePath,"AuxTab").getTestData().get(0);

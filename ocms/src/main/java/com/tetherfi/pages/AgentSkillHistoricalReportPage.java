@@ -38,10 +38,10 @@ public class AgentSkillHistoricalReportPage extends BasePage  {
 	@FindBy(css=".k-grid-excel")
 	private WebElement exportPage;
 
-	@FindBy(xpath="//button[text()=' Scheduled Reports']")
+	@FindBy(xpath="//button[normalize-space()='Scheduled Reports']")
 	private WebElement schRptsinAgent;
 
-	@FindBy(xpath="//button[text()=' View Downloaded Reports']")
+	@FindBy(xpath="//button[normalize-space()='View Downloaded Reports']")
 	private WebElement viewDwnRptinAgntpg;
 
 	@FindBy(css="button[onclick='onSelectExportAll()']")
@@ -284,7 +284,7 @@ public class AgentSkillHistoricalReportPage extends BasePage  {
 	@FindBy(css="span[aria-controls='interval_listbox']")
 	private WebElement intervalInput;
 	
-	@FindBy(id="filterdate")
+	@FindBy(xpath="//input[@id='filterdate']")
 	private WebElement filterDate;
 	
 	@FindBy(xpath="//table/tbody/tr/td")
@@ -663,7 +663,6 @@ public class AgentSkillHistoricalReportPage extends BasePage  {
 		int pagersize=Integer.valueOf(pagerSize.getText());
 		int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
 		List<Map<String,String>> arr=new ArrayList<Map<String,String>>();
-		for(int k=0;k<=pages;k++){
 			waitUntilWebElementIsVisible(auditGridContent);
 			List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
 			List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
@@ -679,8 +678,7 @@ public class AgentSkillHistoricalReportPage extends BasePage  {
 				}
 				map.remove("");
 				arr.add(map);
-			}
-		}
+			}		
 		return arr;
 	}
 
@@ -691,8 +689,10 @@ public class AgentSkillHistoricalReportPage extends BasePage  {
 		if(!nextPageIcon.getAttribute("class").contains("k-state-disabled")){
 			int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 			selectWebElement(nextPageIcon);
+			waitForJqueryLoad(driver);
 			int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 			selectWebElement(previousPageIcon);
+			waitForJqueryLoad(driver);
 			int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 			if(nextnumber==(pagenumber+1) && pagenumber==previousnumber){status=true;}
 		}else{
@@ -707,8 +707,10 @@ public class AgentSkillHistoricalReportPage extends BasePage  {
 		if(!lastPageIcon.getAttribute("class").contains("k-state-disabled")){
 			int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 			selectWebElement(lastPageIcon);
+			waitForJqueryLoad(driver);
 			int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 			selectWebElement(firstPageIcon);
+			waitForJqueryLoad(driver);
 			int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 			if(nextnumber>pagenumber && pagenumber==previousnumber){status=true;}
 		}else{
@@ -821,7 +823,7 @@ public class AgentSkillHistoricalReportPage extends BasePage  {
 		Map<String, String> map=new HashMap<String,String>() ;
 		selectWebElement(searchBtn);	
 		selectWebElement(searchColDropdown);  
-		selectDropdownFromVisibleText(searchColListBox,"Skill ID");  
+		selectDropdownFromVisibleText(searchColListBox,"Skill Name");  
 		waitForJqueryLoad(driver);
 		selectWebElement(searchCriteriaDropdown);
 		selectDropdownFromVisibleText(searchCriteriaListbox,"Is equal to");		   
@@ -832,7 +834,7 @@ public class AgentSkillHistoricalReportPage extends BasePage  {
 		List<Map<String,String>> UI=getDataTable(); 
 		for (Map<String,String> map1: UI)
 		{   	
-			if(map1.get("Skill ID").equals(details))
+			if(map1.get("Skill Name").equals(details))
 				Status= true;
 			else 
 				Status= false;
@@ -840,12 +842,10 @@ public class AgentSkillHistoricalReportPage extends BasePage  {
 		return Status;	
 	}
 	public boolean verifySearchIsNotEqualTo(String details) throws Exception {
-		Boolean Status=false;
-		Map<String, String> map=new HashMap<String,String>() ;
-		map.put("Agent ID", details);
-		selectWebElement(searchBtn);	
+		Boolean Status=false;		
+		selectWebElement(searchBtn);
 		selectWebElement(searchColDropdown);  
-		selectDropdownFromVisibleText(searchColListBox,"Skill ID");  
+		selectDropdownFromVisibleText(searchColListBox,"Skill Name");  
 		waitForJqueryLoad(driver);
 		selectWebElement(searchCriteriaDropdown);
 		selectDropdownFromVisibleText(searchCriteriaListbox,"Is not equal to");		   
@@ -856,7 +856,7 @@ public class AgentSkillHistoricalReportPage extends BasePage  {
 		List<Map<String,String>> UI=getDataTable(); 
 		for (Map<String,String> map1: UI)
 		{   	
-			if(map1.equals(map))
+			if(map1.get("Skill Name").toUpperCase().equalsIgnoreCase(details.toUpperCase()))
 				Status= false;
 			else 
 				Status= true;
@@ -1003,7 +1003,7 @@ public class AgentSkillHistoricalReportPage extends BasePage  {
 		Boolean Status=false;		
 		selectWebElement(searchBtn);
 		selectWebElement(searchColDropdown);  
-		selectDropdownFromVisibleText(searchColListBox,"Skill ID");  
+		selectDropdownFromVisibleText(searchColListBox,"Skill Name");  
 		waitForJqueryLoad(driver);
 		selectWebElement(searchCriteriaDropdown);
 		selectDropdownFromVisibleText(searchCriteriaListbox,"Contains");		   
@@ -1014,7 +1014,7 @@ public class AgentSkillHistoricalReportPage extends BasePage  {
 		List<Map<String,String>> UI=getDataTable(); 
 		for (Map<String,String> map1: UI)
 		{   	
-			if(map1.get("Skill ID").toUpperCase().contains(description.toUpperCase()))
+			if(map1.get("Skill Name").toUpperCase().contains(description.toUpperCase()))
 				Status= true;
 			else 
 				Status= false;
@@ -1026,7 +1026,7 @@ public class AgentSkillHistoricalReportPage extends BasePage  {
 		Boolean Status=false;
 		selectWebElement(searchBtn);
 		selectWebElement(searchColDropdown);  
-		selectDropdownFromVisibleText(searchColListBox,"Skill ID");  
+		selectDropdownFromVisibleText(searchColListBox,"Skill Name");  
 		waitForJqueryLoad(driver);
 		selectWebElement(searchCriteriaDropdown);
 		selectDropdownFromVisibleText(searchCriteriaListbox,"Does not contain");		   
@@ -1037,7 +1037,7 @@ public class AgentSkillHistoricalReportPage extends BasePage  {
 		List<Map<String,String>> UI=getDataTable(); 
 		for (Map<String,String> map1: UI)
 		{   	
-			if(!map1.get("Skill ID").toLowerCase().contains(description.toLowerCase()))
+			if(!map1.get("Skill Name").toLowerCase().contains(description.toLowerCase()))
 				Status= true;
 			else 
 				Status= false;
@@ -1049,7 +1049,7 @@ public class AgentSkillHistoricalReportPage extends BasePage  {
 		Boolean Status=false;
 		selectWebElement(searchBtn);
 		selectWebElement(searchColDropdown); 
-		selectDropdownFromVisibleText(searchColListBox,"Skill ID");  
+		selectDropdownFromVisibleText(searchColListBox,"Skill Name");  
 		waitForJqueryLoad(driver);
 		selectWebElement(searchCriteriaDropdown);
 		selectDropdownFromVisibleText(searchCriteriaListbox,"Starts with");		   
@@ -1061,7 +1061,7 @@ public class AgentSkillHistoricalReportPage extends BasePage  {
 		List<Map<String,String>> UI=getDataTable(); 
 		for (Map<String,String> map1: UI)
 		{   	
-			if(map1.get("Skill ID").toLowerCase().startsWith(description.toLowerCase()))
+			if(map1.get("Skill Name").toLowerCase().startsWith(description.toLowerCase()))
 				Status= true;
 			else 
 				Status= false;
@@ -1072,7 +1072,7 @@ public class AgentSkillHistoricalReportPage extends BasePage  {
 		Boolean Status=false;
 		selectWebElement(searchBtn);
 		selectWebElement(searchColDropdown); 
-		selectDropdownFromVisibleText(searchColListBox,"Skill ID");  
+		selectDropdownFromVisibleText(searchColListBox,"Skill Name");  
 		waitForJqueryLoad(driver);
 		selectWebElement(searchCriteriaDropdown);
 		selectDropdownFromVisibleText(searchCriteriaListbox,"Ends with");		   
@@ -1084,7 +1084,7 @@ public class AgentSkillHistoricalReportPage extends BasePage  {
 		List<Map<String,String>> UI=getDataTable(); 
 		for (Map<String,String> map1: UI)
 		{   	
-			if(map1.get("Skill ID").toUpperCase().endsWith(description.toUpperCase()))
+			if(map1.get("Skill Name").toUpperCase().endsWith(description.toUpperCase()))
 				Status= true;
 			else 
 				Status= false;
@@ -1095,10 +1095,10 @@ public class AgentSkillHistoricalReportPage extends BasePage  {
 		Boolean Status=false;
 		selectWebElement(searchBtn);		
 		selectWebElement(searchColDropdown);  
-		selectDropdownFromVisibleText(searchColListBox,details.getColname());  
+		selectDropdownFromVisibleText(searchColListBox,"Skill ID");  
 		waitForJqueryLoad(driver);
 		selectWebElement(searchCriteriaDropdown);
-		selectDropdownFromVisibleText(searchCriteriaListbox,details.getColtype());		   
+		selectDropdownFromVisibleText(searchCriteriaListbox,"Contains");		   
 		waitForJqueryLoad(driver);    
 		selectWebElement(searchClearAllBtn);	
 		selectWebElement(searchCloseBtn);	
@@ -1334,7 +1334,7 @@ public class AgentSkillHistoricalReportPage extends BasePage  {
 		waitUntilWebElementIsVisible(DrillGridOneTable);
 	}
 	
-	public Boolean advancedSearchAddCriteria(ReportDetails details) throws Exception {
+	public Boolean advancedSearchAndCriteria(ReportDetails details) throws Exception {
 		Boolean Status=false;	
 		selectWebElement(advancedsearchBtn);
 		selectWebElement(searchColDropdownAdvSrchReportPage);
@@ -1354,7 +1354,7 @@ public class AgentSkillHistoricalReportPage extends BasePage  {
 		}
         selectWebElement(searchColDropdownAdvSrchReportPage1);
 		Thread.sleep(2000);
-		selectDropdownFromVisibleText(searchColListBoxAdvSrchReportPage1,"Skill ID");
+		selectDropdownFromVisibleText(searchColListBoxAdvSrchReportPage1,"Skill Name");
 		Thread.sleep(2000);
 		selectWebElement(searchCriteriaDropdownAdvSrch1);
 		selectDropdownFromVisibleText(searchCriteriaListboxAdvSrch1,"Contains");
@@ -1367,8 +1367,7 @@ public class AgentSkillHistoricalReportPage extends BasePage  {
 		List<Map<String,String>>UI=getDataTable();
 		for(Map<String,String> map1:UI)
 		{
-			System.out.println(map1.get("Agent Name"));
-			if(map1.get("Skill ID").toLowerCase().equals(details.getSearchStr().toLowerCase()) &&map1.get("Skill ID").toLowerCase().contains(details.getSearchStr1().toLowerCase()))
+			if(map1.get("Skill ID").toLowerCase().equals(details.getSearchStr().toLowerCase()) &&map1.get("Skill Name").toLowerCase().contains(details.getSearchStr1().toLowerCase()))
 				Status= true;
 			else 
 				Status =false;

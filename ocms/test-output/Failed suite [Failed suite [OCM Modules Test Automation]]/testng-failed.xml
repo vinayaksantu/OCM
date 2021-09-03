@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Failed suite [Failed suite [OCM Modules Test Automation]]]">
+  <listeners>
+    <listener class-name="com.tetherfi.listeners.ResultsListener"/>
+    <listener class-name="com.tetherfi.ExtentReportListener.ExtentReportListener"/>
+  </listeners>
+  <test thread-count="5" name="OCMRegression(failed)(failed)(failed)">
+    <classes>
+      <class name="com.tetherfi.test.reports.OCMChatTransferReportTest">
+        <methods>
+          <include name="startTestCase"/>
+          <include name="openApplication"/>
+          <include name="endTestCase"/>
+          <include name="tearDown"/>
+          <include name="NavigateToOcmReportsPage"/>
+          <include name="database"/>
+          <include name="afterEachMethod"/>
+        </methods>
+      </class> <!-- com.tetherfi.test.reports.OCMChatTransferReportTest -->
+    </classes>
+  </test> <!-- OCMRegression(failed)(failed)(failed) -->
+</suite> <!-- Failed suite [Failed suite [Failed suite [OCM Modules Test Automation]]] -->

@@ -39,10 +39,10 @@ public class OCMAgentLoginLogoutReportPage extends BasePage  {
 	@FindBy(css=".k-grid-excel")
 	private WebElement exportPage;
 
-	@FindBy(xpath="//button[text()=' Scheduled Reports']")
+	@FindBy(xpath="//button[normalize-space()='Scheduled Reports']")
 	private WebElement schRptsinAgent;
 
-	@FindBy(xpath="//button[text()=' View Downloaded Reports']")
+	@FindBy(xpath="//button[normalize-space()='View Downloaded Reports']")
 	private WebElement viewDwnRptinAgntpg;
 
 	@FindBy(css="button[onclick='onSelectExportAll()']")
@@ -90,7 +90,7 @@ public class OCMAgentLoginLogoutReportPage extends BasePage  {
 	@FindBy(css="div[style*='overflow: visible'] span[class^='k-link']")
 	private List<WebElement> headersColumns;
 
-	@FindBy(css="th a[class='k-link']")
+	@FindBy(css="#grid th a[class='k-link']")
 	private List<WebElement> headersText;
 
 	@FindBy(css=".k-grid-pdf")
@@ -248,14 +248,14 @@ public class OCMAgentLoginLogoutReportPage extends BasePage  {
 	@FindBy(xpath="//div[@data-role='droptarget']")
 	private WebElement droptarget;
 
-	@FindBy(xpath="//a[text()='Team Name']")
-	private WebElement teamname;
+	@FindBy(xpath="//a[text()='Agent ID']")
+	private WebElement agentId;
 
 	@FindBy(xpath="//p[@class='k-reset']")
 	private WebElement groupby;
 
-	@FindBy(xpath="//tbody/tr/td/p[@class='k-reset']/../../following-sibling::tr/td[4]")
-	private WebElement groupbyTeamname;
+	@FindBy(xpath="//tbody/tr/td/p[@class='k-reset']/../../following-sibling::tr/td[2]")
+	private WebElement groupbyAgentID;
 
 	public void exportPage(){
 		emptyDownloadsDirectory(System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles");
@@ -998,10 +998,11 @@ public class OCMAgentLoginLogoutReportPage extends BasePage  {
 
 
 	public boolean verifyJsonDataForgridColumnHidden(Map<String,String> jsonmap){
-		System.out.println(jsonmap);
+		System.out.println(jsonmap+"******");
 		boolean status=false;
 		for(WebElement e: headersText){
-			scrollToElement(e);
+			scrollToElement(e);	
+			//System.out.println(jsonmap.get(e.getText()));
 			if(jsonmap.get(e.getText()).equalsIgnoreCase("false")){status=true;}else{
 				System.out.println("Header "+e.getText()+"is hidden in JSON configuration file");status=false;break;}
 		}
@@ -1051,6 +1052,7 @@ public class OCMAgentLoginLogoutReportPage extends BasePage  {
 				}
 				map.remove("");
 				arr.add(map);
+				Thread.sleep(1000);
 			}
 			if(k!=pages)
 			{
@@ -1219,7 +1221,7 @@ public class OCMAgentLoginLogoutReportPage extends BasePage  {
 		for(Map<String,String> map1:UI)
 		{
 			System.out.println(map1.get("Team Name"));
-			if(map1.get("Team Name").toUpperCase().contains(reportDetails.getSearchStr()))				
+			if(map1.get("Team Name").toLowerCase().contains(reportDetails.getSearchStr()))				
 				Status= true;
 			else 
 				Status =false;
@@ -1234,7 +1236,7 @@ public class OCMAgentLoginLogoutReportPage extends BasePage  {
 		for(Map<String,String> map1:UI)
 		{
 			System.out.println(map1.get("Agent Name"));
-			if(!map1.get("Agent Name").toUpperCase().contains(reportDetails.getSearchStr()))				
+			if(!map1.get("Agent Name").toLowerCase().contains(reportDetails.getSearchStr()))				
 				Status= true;
 			else 
 				Status =false;
@@ -1273,13 +1275,13 @@ public class OCMAgentLoginLogoutReportPage extends BasePage  {
 	}
 
 	public boolean groupby() {
-		DragandDrop(teamname,droptarget);
+		DragandDrop(agentId,droptarget);
 		try {
 			Thread.sleep(5000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		if(groupby.getText().split(": ")[1].equals(groupbyTeamname.getText()))
+		if(groupby.getText().split(": ")[1].equals(groupbyAgentID.getText()))
 		{return true;}
 		else
 			return false;		

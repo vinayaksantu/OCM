@@ -221,14 +221,14 @@ public class OCMRoleAccessReportPage extends BasePage  {
 					status = true;}
 				if(status){}else{System.out.println("Descending sorting failed for column name:"+headers.get(j).getText()+"\n"+l3);break;}
 			}
-			/*if(status) {
+			if(status) {
 			if(i!=pages) {
 				nextPageIcon.click();
 				waitForJqueryLoad(driver);
 			}
 			}
 			else
-				break;*/
+				break;
 		}
 		return status;	
 	}
@@ -542,10 +542,10 @@ public class OCMRoleAccessReportPage extends BasePage  {
 			Thread.sleep(3000);
 			int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 			selectWebElement(nextPageIcon);
-			Thread.sleep(3000);
+			waitForJqueryLoad(driver);
 			int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 			selectWebElement(previousPageIcon);
-			Thread.sleep(3000);
+			waitForJqueryLoad(driver);
 			int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 			if(nextnumber==(pagenumber+1) && pagenumber==previousnumber)
 			{status=true;}
@@ -561,10 +561,10 @@ public class OCMRoleAccessReportPage extends BasePage  {
 			Thread.sleep(3000);
 			int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 			selectWebElement(lastPageIcon);
-			Thread.sleep(3000);
+			waitForJqueryLoad(driver);
 			int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 			selectWebElement(firstPageIcon);
-			Thread.sleep(3000);
+			waitForJqueryLoad(driver);
 			int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 			if(nextnumber>pagenumber && pagenumber==previousnumber){status=true;}
 		}else{

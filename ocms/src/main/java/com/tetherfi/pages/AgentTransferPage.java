@@ -368,8 +368,10 @@ public class AgentTransferPage extends BasePage{
 	        if(!nextPageIcon.getAttribute("class").contains("k-state-disabled")){
 	        int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 	        selectWebElement(nextPageIcon);
+	        waitForJqueryLoad(driver);
 	        int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 	        selectWebElement(previousPageIcon);
+	        waitForJqueryLoad(driver);
 	        int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 	        if(nextnumber==(pagenumber+1) && pagenumber==previousnumber){status=true;}
 	        }else{
@@ -382,8 +384,10 @@ public class AgentTransferPage extends BasePage{
 	        if(!lastPageIcon.getAttribute("class").contains("k-state-disabled")){
 	            int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 	            selectWebElement(lastPageIcon);
+	            waitForJqueryLoad(driver);
 	            int nextnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 	            selectWebElement(firstPageIcon);
+	            waitForJqueryLoad(driver);
 	            int previousnumber=Integer.valueOf(getTextFromWebElement(pageNumber));
 	            if(nextnumber>pagenumber && pagenumber==previousnumber){status=true;}
 	        }else{
@@ -430,7 +434,8 @@ public class AgentTransferPage extends BasePage{
 			String actualitems=items.getText();
 			Thread.sleep(1000);
 			selectWebElement(addNewAgentTransferBtn);
-			enterValueToTxtField(menuIdTextbox,details.getMenuId());
+			selectWebElement(menuIdTextbox);
+			enterValueToTxtFieldWithoutClear(menuIdTextboxdata,details.getMenuId());
 			enterValueToTxtField(vdnTextbox,details.getVdn());
 			enterValueToTxtField(vipVdnTextbox,details.getVipVdn());
 			enterValueToTxtField(optionTextbox,details.getOption());
@@ -486,7 +491,8 @@ public class AgentTransferPage extends BasePage{
 
 		public void addRecordWithoutVDN(AgentTransferDetails details) throws Exception {
 			selectWebElement(addNewAgentTransferBtn);
-			enterValueToTxtField(menuIdTextbox,details.getMenuId());
+			selectWebElement(menuIdTextbox);
+			enterValueToTxtFieldWithoutClear(menuIdTextboxdata,details.getMenuId());
 			enterValueToTxtField(vipVdnTextbox,details.getVipVdn());
 			enterValueToTxtField(optionTextbox,details.getOption());
 			enterValueToTxtField(DNISTextbox,details.getDNIS());
@@ -497,7 +503,8 @@ public class AgentTransferPage extends BasePage{
 
 		public void addRecordWithoutOption(AgentTransferDetails details) throws Exception {
 			selectWebElement(addNewAgentTransferBtn);
-			enterValueToTxtField(menuIdTextbox,details.getMenuId());
+			selectWebElement(menuIdTextbox);
+			enterValueToTxtFieldWithoutClear(menuIdTextboxdata,details.getMenuId());
 			enterValueToTxtField(vdnTextbox,details.getVdn());
 			enterValueToTxtField(vipVdnTextbox,details.getVipVdn());
 			enterValueToTxtField(DNISTextbox,details.getDNIS());
@@ -508,7 +515,8 @@ public class AgentTransferPage extends BasePage{
 
 		public void addRecordWithoutVDNDescription(AgentTransferDetails details) throws Exception {
 			selectWebElement(addNewAgentTransferBtn);
-			enterValueToTxtField(menuIdTextbox,details.getMenuId());
+			selectWebElement(menuIdTextbox);
+			enterValueToTxtFieldWithoutClear(menuIdTextboxdata,details.getMenuId());
 			enterValueToTxtField(vdnTextbox,details.getVdn());
 			enterValueToTxtField(vipVdnTextbox,details.getVipVdn());
 			enterValueToTxtField(optionTextbox,details.getOption());
@@ -717,7 +725,7 @@ public class AgentTransferPage extends BasePage{
 		
 		public void SortByAscending() {
 			selectWebElement(VdnDescription);
-			
+			waitForJqueryLoad(driver);
 			selectWebElement(exporttoexcel);
 			try {
 				Thread.sleep(2000);
@@ -728,6 +736,7 @@ public class AgentTransferPage extends BasePage{
 
 		public void SortByDescending() {
 			selectWebElement(VdnDescription);
+			waitForJqueryLoad(driver);
 			selectWebElement(VdnDescription);
 			selectWebElement(exporttoexcel);
 			try {
@@ -818,6 +827,8 @@ public class AgentTransferPage extends BasePage{
 		
 		public boolean verifyDatabase(String  query) throws Exception {
 			List<Map<String,String>> database=database(query);
+			selectWebElement(VdnDescription);
+			waitForJqueryLoad(driver);
 			System.out.println(database);
 			List<Map<String,String>> UI=gettable(); 
 			System.out.println(UI);

@@ -366,8 +366,8 @@ public class OCMFrequentlyHitThresholdReport extends BaseTest {
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
 		ReportDetails reportDetails= new ReportDetails(map);
 		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
-		ocmReportsPage.viewDownloadedReportInReportDownloadsPage();    	
-		Assert.assertTrue(ocmReportsPage.deleteWithoutDeleteReason(reportDetails),"empty delete reason record assertion failed");
+		ocmReportsPage.deleteWithoutDeleteReason(reportDetails);
+		Assert.assertEquals(ocmReportsPage.getSuccessMessage(),"Please enter the delete reason","empty delete reason record assertion failed");
 	}
 
 	@Test(priority=30,description="Cancel Button in Reports Download Delete Button")

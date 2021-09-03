@@ -234,15 +234,15 @@ public class OCMUserListingReportPage extends BasePage  {
 	@FindBy(id = "grid")
 	private WebElement gridBoxContent;
 
-	@FindBy(xpath="//a[text()='Team Name']")
-	private WebElement teamName;
+	@FindBy(xpath="//a[text()='Role']")
+	private WebElement Role;
 
 	@FindBy(xpath="//p[@class='k-reset']")
 	//@FindBy(xpath="//div[text()='Drag a column header and drop it here to group by that column']")
 	private WebElement groupby;
 
-	@FindBy(xpath="//tbody/tr/td/p[@class='k-reset']/../../following-sibling::tr/td[5]")
-	private WebElement groupbyteamName;
+	@FindBy(xpath="//tbody/tr/td/p[@class='k-reset']/../../following-sibling::tr/td[6]")
+	private WebElement groupbyRole;
 
 	@FindBy(xpath="//div[@data-role='droptarget']")
 	private WebElement droptarget;
@@ -283,6 +283,7 @@ public class OCMUserListingReportPage extends BasePage  {
 	}
 	
 	public boolean verifySorting() {
+		waitForJqueryLoad(driver);
 		boolean status=false;
 		int items = Integer.valueOf(pagerInfo.getText().split("of ")[1].split(" items")[0]);
 		int pagersize = Integer.valueOf(pagerSize.getText());
@@ -339,6 +340,7 @@ public class OCMUserListingReportPage extends BasePage  {
 	}
 
 	public boolean verifyNumberOfItemsPerPage() {
+		waitForJqueryLoad(driver);
 		boolean status = false;
 		try {
 			if (norecords.size() <= 0) {
@@ -348,12 +350,14 @@ public class OCMUserListingReportPage extends BasePage  {
 				for (int i = 0; i < pageSizeListBox.size(); i++) {
 					if(Integer.valueOf(pageSizeListBox.get(i).getText())>items){continue;}
 					selectDropdownFromVisibleText(pageSizeListBox, pageSizeListBox.get(i).getText());
+					Thread.sleep(8000);
 					waitForJqueryLoad(driver);
 					int totalItems = Integer.valueOf(pagerInfo.getText().split("of ")[1].split(" items")[0]);
 					int pagersize = Integer.valueOf(pagerSize.getText());
 					int pages = (totalItems % pagersize == 0) ? items / pagersize : items / pagersize+1;
 					int totalRows=(gridContent.findElements(By.tagName("tr")).size())-1;
 					selectWebElement(goToLastPage);
+					Thread.sleep(8000);
 					waitForJqueryLoad(driver);
 					int lastPageNumber = Integer.valueOf(pageNumber.getText());
 					if (items == totalItems && pages == lastPageNumber&&totalRows==pagersize) {
@@ -673,6 +677,7 @@ public class OCMUserListingReportPage extends BasePage  {
 	}
 
 	public boolean verifyTotalNumberOfItemsPerPageDetails(){
+		waitForJqueryLoad(driver);
 		String item = items.getText();
 		return item.matches("(\\d.*) - (\\d.*) of (\\d.*) items");
 	}
@@ -848,6 +853,7 @@ public class OCMUserListingReportPage extends BasePage  {
 		waitForJqueryLoad(driver);    
 		enterValueToTxtField(searchTextBox,details);
 		selectWebElement(searchSearchBtn);
+		Thread.sleep(5000);
 		waitForJqueryLoad(driver);
 		//waitUntilWebElementIsVisible(gridContent);
 		List<Map<String,String>> UI=getDataTable(); 
@@ -882,6 +888,7 @@ public class OCMUserListingReportPage extends BasePage  {
 		waitForJqueryLoad(driver);    
 		enterValueToTxtField(searchTextBox,description);
 		selectWebElement(searchSearchBtn);
+		Thread.sleep(5000);
 		waitForJqueryLoad(driver);
 		//waitUntilWebElementIsVisible(gridContent);
 		List<Map<String,String>> UI=getDataTable(); 
@@ -906,6 +913,7 @@ public class OCMUserListingReportPage extends BasePage  {
 		waitForJqueryLoad(driver);    
 		enterValueToTxtField(searchTextBox,description);
 		selectWebElement(searchSearchBtn);
+		Thread.sleep(5000);
 		waitForJqueryLoad(driver);
 		//waitUntilWebElementIsVisible(gridContent);
 		List<Map<String,String>> UI=getDataTable(); 
@@ -930,6 +938,7 @@ public class OCMUserListingReportPage extends BasePage  {
 		waitForJqueryLoad(driver);    
 		enterValueToTxtField(searchTextBox,description);        
 		selectWebElement(searchSearchBtn);
+		Thread.sleep(5000);
 		waitForJqueryLoad(driver);
 		//waitUntilWebElementIsVisible(gridContent);
 		List<Map<String,String>> UI=getDataTable(); 
@@ -953,6 +962,7 @@ public class OCMUserListingReportPage extends BasePage  {
 		waitForJqueryLoad(driver);    
 		enterValueToTxtField(searchTextBox,description);        
 		selectWebElement(searchSearchBtn);
+		Thread.sleep(5000);
 		waitForJqueryLoad(driver);
 		// waitUntilWebElementIsVisible(gridContent);
 		List<Map<String,String>> UI=getDataTable(); 
@@ -1184,6 +1194,7 @@ public class OCMUserListingReportPage extends BasePage  {
 		enterValueToTxtField(searchTextBox,details);
 		selectWebElement(searchSearchBtn);
 		waitForJqueryLoad(driver);
+		Thread.sleep(5000);
 		//waitUntilWebElementIsVisible(gridContent);
 		List<Map<String,String>> UI=getDataTable(); 
 		for (Map<String,String> map1: UI)
@@ -1198,14 +1209,14 @@ public class OCMUserListingReportPage extends BasePage  {
 	public boolean groupby() throws Exception {
 		waitForJqueryLoad(driver); 
 		Thread.sleep(2000);
-		DragandDrop(teamName,droptarget);
+		DragandDrop(Role,droptarget);
 		try {
 			Thread.sleep(8000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		Thread.sleep(5000);
-		if(groupby.getText().split(": ")[1].equals(groupbyteamName.getText()))
+		waitForJqueryLoad(driver); 
+		if(groupby.getText().split(": ")[1].equals(groupbyRole.getText()))
 		{return true;}
 		else
 			return false;		

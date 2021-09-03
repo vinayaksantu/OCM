@@ -37,10 +37,10 @@ public class OCMChatbotInteractionReportPage extends BasePage  {
 	@FindBy(css=".k-grid-excel")
 	private WebElement exportPage;
 
-	@FindBy(xpath="//button[text()=' Scheduled Reports']")
+	@FindBy(xpath="//button[normalize-space()='Scheduled Reports']")
 	private WebElement schRptsinAgent;
 
-	@FindBy(xpath="//button[text()=' View Downloaded Reports']")
+	@FindBy(xpath="//button[normalize-space()='View Downloaded Reports']")
 	private WebElement viewDwnRptinAgntpg;
 
 	@FindBy(css="button[onclick='onSelectExportAll()']")
@@ -593,7 +593,7 @@ private WebElement groupbycolor;*/
 		int pagersize=Integer.valueOf(pagerSize.getText());
 		int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
 		List<Map<String,String>> arr=new ArrayList<Map<String,String>>();
-		for(int k=0;k<=pages;k++){
+		//for(int k=0;k<=pages;k++){
 			waitUntilWebElementIsVisible(auditGridContent);
 			List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
 			List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
@@ -614,11 +614,11 @@ private WebElement groupbycolor;*/
 				map.remove("");
 				arr.add(map);
 			}
-			if(k!=pages)
+			/*if(k!=pages)
 			{
 				nextPageIcon.click();
 				waitForJqueryLoad(driver);}
-		}
+		}*/
 		return arr;
 	}
 
@@ -762,7 +762,7 @@ private WebElement groupbycolor;*/
 		//map.put("Agent Name", details);
 		selectWebElement(searchBtn);	
 		selectWebElement(searchColDropdown);  
-		selectDropdownFromVisibleText(searchColListBox,"Identification");  
+		selectDropdownFromVisibleText(searchColListBox,"Agent Name");  
 		waitForJqueryLoad(driver);
 		selectWebElement(searchCriteriaDropdown);
 		selectDropdownFromVisibleText(searchCriteriaListbox,"Is equal to");		   
@@ -774,7 +774,7 @@ private WebElement groupbycolor;*/
 		List<Map<String,String>> UI=getDataTable(); 
 		for (Map<String,String> map1: UI)
 		{   	
-			if(map1.get("Identification").equals(details))
+			if(map1.get("Agent Name").equals(details))
 				Status= true;
 			else 
 				Status= false;

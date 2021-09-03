@@ -427,8 +427,9 @@ public class OCMAgentAuxReportTest extends BaseTest {
 		Map<String, String> map = new ExcelReader(filePath,"ExportReport").getTestData().get(0);
 		ReportDetails reportDetails= new ReportDetails(map);
 		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
-		ocmReportsPage.viewDownloadedReportInReportDownloadsPage();   	
-		Assert.assertTrue(ocmReportsPage.deleteWithoutDeleteReason(reportDetails), "Record deletion without delete reason failed");		
+		ocmReportsPage.viewDownloadedReportInReportDownloadsPage();
+		ocmReportsPage.deleteWithoutDeleteReason(reportDetails);
+		Assert.assertEquals(ocmReportsPage.getSuccessMessage(),"Please enter the delete reason","empty delete reason record assertion failed");	
 	}
 
 	@Test(priority=37,description="Cancel Button in Reports Download Delete Button")
@@ -450,7 +451,7 @@ public class OCMAgentAuxReportTest extends BaseTest {
 		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
 		ocmReportsPage.viewDownloadedReportInReportDownloadsPage();
 		ocmReportsPage.deleteRecordAtReportsDownloadsPage(reportDetails);
-		Assert.assertTrue(ocmReportsPage.deleteWithoutDeleteReason(reportDetails),"Record deletion failed");
+		Assert.assertEquals(ocmReportsPage.getSuccessMessage(),"Report Deleted","Delete record assertion failed");
 	}
 
 	@Test(priority=39,description="To verify Show Report for Date Range")
@@ -521,7 +522,8 @@ public class OCMAgentAuxReportTest extends BaseTest {
 		ReportDetails reportDetails= new ReportDetails(map);
 		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
 		ocmReportsPage.viewDownloadedReportInReportDownloadsPage();    	
-		Assert.assertTrue(ocmReportsPage.deleteWithoutDeleteReason(reportDetails),"empty delete reason record assertion failed");
+		ocmReportsPage.deleteWithoutDeleteReason(reportDetails);
+		Assert.assertEquals(ocmReportsPage.getSuccessMessage(),"Please enter the delete reason","empty delete reason record assertion failed");
 	}
 
 	@Test(priority=46,description="Cancel Button in Reports Download Delete Button")
@@ -617,7 +619,7 @@ public class OCMAgentAuxReportTest extends BaseTest {
 		Assert.assertTrue(ocmReportsPage.verifyExportedSheet("OCMReportDownload","OCM Agent Aux Report"));		
 	}
 
-	@Test(priority=54,enabled=false,description="Verify the column headers against the Json File ")
+	@Test(priority=54,enabled=true,description="Verify the column headers against the Json File ")
 	public void VerifyJsonDataForColumnNames() throws Exception{
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentAuxReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);

@@ -385,7 +385,8 @@ public class OCMSMSHostTransactionReportTest extends BaseTest {
 		ReportDetails reportDetails= new ReportDetails(map);
 		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
 		ocmReportsPage.viewDownloadedReportInReportDownloadsPage();    	
-		Assert.assertTrue(ocmReportsPage.deleteWithoutDeleteReason(reportDetails),"empty delete reason record assertion failed");
+		ocmReportsPage.deleteWithoutDeleteReason(reportDetails);
+		Assert.assertEquals(ocmReportsPage.getSuccessMessage(),"Please enter the delete reason","empty delete reason record assertion failed");
 	}
 
 	@Test(priority=34,description="To verify Delete Cancel Button in Reports Download Page ")

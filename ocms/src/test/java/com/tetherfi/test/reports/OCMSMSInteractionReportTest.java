@@ -327,7 +327,8 @@ public class OCMSMSInteractionReportTest extends BaseTest {
 		ReportDetails reportDetails= new ReportDetails(map);
 		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
 		ocmReportsPage.viewDownloadedReportInReportDownloadsPage();    	
-		Assert.assertTrue(ocmReportsPage.deleteWithoutDeleteReason(reportDetails),"empty delete reason record assertion failed");		
+		ocmReportsPage.deleteWithoutDeleteReason(reportDetails);
+		Assert.assertEquals(ocmReportsPage.getSuccessMessage(),"Please enter the delete reason","empty delete reason record assertion failed");	
 	}
 
 	@Test(priority=29,description="Cancel Button in Reports Download Delete Button")
@@ -348,7 +349,8 @@ public class OCMSMSInteractionReportTest extends BaseTest {
 		ReportDetails reportDetails= new ReportDetails(map);
 		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
 		ocmReportsPage.viewDownloadedReportInReportDownloadsPage();
-		Assert.assertTrue(ocmReportsPage.deleteRecordAtReportsDownloadsPage(reportDetails),"Delete record assertion failed");
+		ocmReportsPage.deleteRecordAtReportsDownloadsPage(reportDetails);
+		Assert.assertEquals(ocmReportsPage.getSuccessMessage(),"Report Deleted","Delete record assertion failed");
 	}
 
 	@Test(priority=31,description="Report page clear All button ")

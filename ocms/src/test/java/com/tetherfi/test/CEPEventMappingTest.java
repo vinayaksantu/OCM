@@ -33,7 +33,7 @@ public class CEPEventMappingTest extends BaseTest {
          Assert.assertTrue(CepEventMappingPage.isCepEventMappingPageDisplayed(),"Cep Event Mapping assertion failed");
     }
     
-    @Test(priority=1)
+    @Test(priority=1,enabled=false)
     public void CepEventMappingPage() {
         CepEventMappingPage CepEventMappingPage=PageFactory.createPageInstance(driver,CepEventMappingPage.class);
     	Assert.assertTrue(CepEventMappingPage.VerifyLogo(),"Cep Event Mapping logo assertion failed");

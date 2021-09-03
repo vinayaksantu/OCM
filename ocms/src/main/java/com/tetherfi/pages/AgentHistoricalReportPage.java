@@ -36,10 +36,10 @@ public class AgentHistoricalReportPage extends BasePage  {
 	@FindBy(css=".k-grid-excel")
 	private WebElement exportPage;
 
-	@FindBy(xpath="//button[text()=' Scheduled Reports']")
+	@FindBy(xpath="//button[normalize-space()='Scheduled Reports']")
 	private WebElement schRptsinAgent;
 
-	@FindBy(xpath="//button[text()=' View Downloaded Reports']")
+	@FindBy(xpath="//button[normalize-space()='View Downloaded Reports']")
 	private WebElement viewDwnRptinAgntpg;
 
 	@FindBy(css="button[onclick='onSelectExportAll()']")
@@ -254,7 +254,7 @@ public class AgentHistoricalReportPage extends BasePage  {
 	@FindBy(css = ".modal-footer .button-theme")
 	private WebElement searchSearchBtn;
 
-	@FindBy(id="autoCompleteTextbox")
+	@FindBy(xpath="//input[@id='autoCompleteTextbox']")
 	private WebElement searchbyfeatureTextBox;
 
 	@FindBy(css = "ul[id='autoCompleteTextbox_listbox'] li")
@@ -272,7 +272,7 @@ public class AgentHistoricalReportPage extends BasePage  {
 	@FindBy(xpath="//div[@data-role='droptarget']")
 	private WebElement droptarget;
 	
-	@FindBy(id="filterdate")
+	@FindBy(xpath="//input[@id='filterdate']")
 	private WebElement filterDate;
 	
 	@FindBy(xpath="//table/tbody/tr/td")

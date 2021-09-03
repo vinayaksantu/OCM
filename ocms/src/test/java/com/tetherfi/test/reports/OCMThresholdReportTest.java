@@ -49,7 +49,7 @@ public class OCMThresholdReportTest extends BaseTest {
 		ocmReportsPage.showReportInNewPage(reportDetails);
 		Assert.assertTrue(ocmReportsPage.verifyReportDisplayed(reportDetails),"show report in new tab assertion failed");
 		ocmReportsPage.switchBackToParentWindow();
-	}  
+	} 
 
 	@Test(priority=3, description="To verify OCM Threshold report UI data against DB")
 	public void database() throws Exception {
@@ -72,7 +72,7 @@ public class OCMThresholdReportTest extends BaseTest {
 		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
 		ocmReportsPage.scheduleReport(reportDetails);
 		Assert.assertTrue(ocmReportsPage.verifyScheduleReport(),"Schedule report assertion failed");
-	}   
+	}  
 
 	@Test(priority=5,description="To verify Export Report on OCM Report Manager Page")
 	public void ExportOcmThresholdReport() throws Exception {
@@ -123,7 +123,7 @@ public class OCMThresholdReportTest extends BaseTest {
 		ocmReportsPage.showReportInNewPage(reportDetails);
 		Assert.assertTrue(ocmReportsPage.verifyDateRangeReportDisplayed(reportDetails),"show report in new tab assertion failed");
 		ocmReportsPage.switchBackToParentWindow();
-	}   
+	}  
 
 	@Test(priority=10,description="To verify Show Report for Date Range in New Tab")
 	public void ExportOcmThresholdReportForDateRange() throws Exception {
@@ -162,7 +162,8 @@ public class OCMThresholdReportTest extends BaseTest {
 		ReportDetails reportDetails= new ReportDetails(map);
 		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
 		ocmReportsPage.viewDownloadedReportInReportDownloadsPage();    	
-		Assert.assertTrue(ocmReportsPage.deleteWithoutDeleteReason(reportDetails),"empty delete reason record assertion failed");		
+		ocmReportsPage.deleteWithoutDeleteReason(reportDetails);
+		Assert.assertEquals(ocmReportsPage.getSuccessMessage(),"Please enter the delete reason","empty delete reason record assertion failed");		
 	}
 
 	@Test(priority=14,description="Cancel Button in Reports Download Delete Button")

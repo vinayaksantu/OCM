@@ -47,7 +47,7 @@ public class OCMSuccessfulRegistrationDeregistrationReportTest extends BaseTest 
 		ocmReportsPage.showReportInNewPage(reportDetails);
 		Assert.assertTrue(ocmReportsPage.verifyReportDisplayedforSocialMedia(reportDetails),"show report in new tab assertion failed");
 		ocmReportsPage.switchBackToParentWindow();
-	}  
+	} 
 	
 	@Test(priority=3, description="To verify Registration/Deregistration UI data against DB")
 	public void database() throws Exception {
@@ -369,7 +369,8 @@ public class OCMSuccessfulRegistrationDeregistrationReportTest extends BaseTest 
 		ReportDetails reportDetails= new ReportDetails(map);
 		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
 		ocmReportsPage.viewDownloadedReportInReportDownloadsPage();    	
-		Assert.assertTrue(ocmReportsPage.deleteWithoutDeleteReason(reportDetails),"empty delete reason record assertion failed");	
+		ocmReportsPage.deleteWithoutDeleteReason(reportDetails);
+		Assert.assertEquals(ocmReportsPage.getSuccessMessage(),"Please enter the delete reason","empty delete reason record assertion failed");	
 	}
 	
 	@Test(priority=33,description="Cancel Button in Reports Download Delete Button")

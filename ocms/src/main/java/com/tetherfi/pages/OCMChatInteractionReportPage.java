@@ -36,10 +36,10 @@ public class OCMChatInteractionReportPage extends BasePage  {
 	@FindBy(css=".k-grid-excel")
 	private WebElement exportPage;
 
-	@FindBy(xpath="//button[text()=' Scheduled Reports']")
+	@FindBy(xpath="//button[normalize-space()='Scheduled Reports']")
 	private WebElement schRptsinAgent;
 
-	@FindBy(xpath="//button[text()=' View Downloaded Reports']")
+	@FindBy(xpath="//button[normalize-space()='View Downloaded Reports']")
 	private WebElement viewDwnRptinAgntpg;
 
 	@FindBy(css="button[onclick='onSelectExportAll()']")
@@ -577,15 +577,16 @@ public class OCMChatInteractionReportPage extends BasePage  {
 	}
 	public boolean verifyexportToExcelSheet(List<Map<String, String>> maplist) throws Exception {
 		List<Map<String,String>> UI=getData(); 
-		System.out.println("Ui is"+UI);
 		System.out.println("Maplist is"+maplist);
+		Thread.sleep(2000);
+		System.out.println("Ui is"+UI);
 		if(UI.equals(maplist))
 			return true;
 		else
 			return false;
 	}
 
-	private List<Map<String,String>> getData(){
+	private List<Map<String,String>> getData() throws Exception{
 		int item=Integer.valueOf(items.getText().split("of ")[1].split(" items")[0]);
 		int pagersize=Integer.valueOf(pagerSize.getText());
 		int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
@@ -596,12 +597,13 @@ public class OCMChatInteractionReportPage extends BasePage  {
 			List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
 			String col=null;
 			for(int i=1;i<rows.size();i++) {
+				scrollToElement(rows.get(i));
 				Map<String,String> map = new HashMap<String,String>();
 				List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
 				for(int j=1;j<headers.size();j++) {
 					scrollToElement(headers.get(j));
 					col=cols.get(j).getText();
-					map.put(headers.get(j).getText().trim(),col);
+					map.put(headers.get(j).getText(),col);
 				}
 				map.remove("");
 				arr.add(map);
@@ -1110,7 +1112,7 @@ public class OCMChatInteractionReportPage extends BasePage  {
 		List<Map<String,String>>UI=getDataTable();
 		for(Map<String,String> map1:UI)
 		{
-			if(map1.get("Chat End Reason").toLowerCase().equals(details.getSearchStr().toLowerCase()) ||map1.get("Agent ID").toLowerCase().startsWith(details.getSearchStr1().toLowerCase()))
+			if(map1.get("Chat End Reason").toLowerCase().equals(details.getSearchStr().toLowerCase()) ||map1.get("Agent ID").toLowerCase().startsWith(details.getSearchStr2().toLowerCase()))
 				Status= true;
 			else 
 				Status =false;

@@ -44,10 +44,10 @@ public class OCMAgentSummaryReportPage extends BasePage  {
 	@FindBy(css=".k-grid-excel")
 	private WebElement exportPage;
 
-	@FindBy(xpath="//button[text()=' Scheduled Reports']")
+	@FindBy(xpath="//button[normalize-space()='Scheduled Reports']")
 	private WebElement schRptsinAgent;
 
-	@FindBy(xpath="//button[text()=' View Downloaded Reports']")
+	@FindBy(xpath="//button[normalize-space()='View Downloaded Reports']")
 	private WebElement viewDwnRptinAgntpg;
 
 	@FindBy(css="button[onclick='onSelectExportAll()']")
@@ -89,7 +89,7 @@ public class OCMAgentSummaryReportPage extends BasePage  {
 	@FindBy(xpath="//div[@id='gridDrillTwo']//span[@class='k-pager-info k-label']")
 	private WebElement drillGridTwoItems;
 	
-	@FindBy(xpath="//div[@id='gridDrillOne']//span[@class='k-icon k-i-arrow-60-right']")
+	@FindBy(css="#gridDrillOne a[aria-label='Go to the next page']")
 	private WebElement nextPageIconDrillOne;
 	
 	@FindBy(xpath="//div[@id='gridDrillOne']//span[@class='k-icon k-i-arrow-end-left']")
@@ -119,7 +119,7 @@ public class OCMAgentSummaryReportPage extends BasePage  {
 	@FindBy(css="div[style*='overflow: visible'] span[class^='k-link']")
 	private List<WebElement> headersColumns;
 
-	@FindBy(css="th a[class='k-link']")
+	@FindBy(css="#grid th a[class='k-link']")
 	private List<WebElement> headersText;
 
 	@FindBy(css=".k-grid-pdf")
@@ -203,14 +203,14 @@ public class OCMAgentSummaryReportPage extends BasePage  {
 	@FindBy(css = "ul[id='autoCompleteTextbox_listbox'] li")
 	private List<WebElement> searchbyfeaturelistBox;
 
-	@FindBy(xpath="//a[text()='Team Name']")
-	private WebElement teamname;
+	@FindBy(xpath="//a[text()='Agent ID']")
+	private WebElement agentID;
 
 	@FindBy(xpath="//p[@class='k-reset']")
 	private WebElement groupby;
 
-	@FindBy(xpath="//tbody/tr/td/p[@class='k-reset']/../../following-sibling::tr/td[4]")
-	private WebElement groupbyTeamname;
+	@FindBy(xpath="//tbody/tr/td/p[@class='k-reset']/../../following-sibling::tr/td[2]")
+	private WebElement groupbyAgentID;
 
 	@FindBy(xpath="//div[@data-role='droptarget']")
 	private WebElement droptarget;
@@ -315,10 +315,10 @@ public class OCMAgentSummaryReportPage extends BasePage  {
 	@FindBy(xpath="//table/tbody/tr/td")
 	private List<WebElement> rows;
 	
-	@FindBy(xpath="//div[@id='gridDrillOne']//span[@class='k-state-selected']")
+	@FindBy(xpath="//div[@id='gridDrillOne']//span[@class='k-link k-state-selected']")
 	private WebElement pageNumberDrillOne;
 	
-	@FindBy(xpath="//div[@id='gridDrillTwo']//span[@class='k-state-selected']")
+	@FindBy(xpath="//div[@id='gridDrillTwo']//span[@class='k-link k-state-selected']")
 	private WebElement pageNumberDrilltwo;
 	
 	@FindBy(xpath="//div[@id='gridDrillTwo']//span[@class='k-icon k-i-arrow-end-left']")
@@ -333,7 +333,7 @@ public class OCMAgentSummaryReportPage extends BasePage  {
 	@FindBy(xpath="//div[@id='gridDrillOne']//span[@class='k-icon k-i-arrow-end-left']")
 	private WebElement firstPageIconDrillOne;
 	
-	@FindBy(xpath="//div[@id='gridDrillOne']//span[@class='k-icon k-i-arrow-end-right']")
+	@FindBy(css="#gridDrillOne a[aria-label='Go to the last page']")
 	private WebElement lastPageIconDrillOne;
 	
 	@FindBy(xpath="//div[@id='gridDrillOne']//a[@aria-label='Go to the previous page']")
@@ -1257,13 +1257,13 @@ public class OCMAgentSummaryReportPage extends BasePage  {
 			return false;
 	}
 	public boolean groupby() {
-		DragandDrop(teamname,droptarget);
+		DragandDrop(agentID,droptarget);
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		if(groupby.getText().split(": ")[1].equals(groupbyTeamname.getText()))
+		if(groupby.getText().split(": ")[1].equals(groupbyAgentID.getText()))
 		{return true;}
 		else
 			return false;		
@@ -1307,6 +1307,7 @@ public class OCMAgentSummaryReportPage extends BasePage  {
 		boolean status=false;
 		for(WebElement e: headersText){
 			scrollToElement(e);
+			System.out.println(e.getText());
 			if(jsonmap.get(e.getText()).equalsIgnoreCase("false")){status=true;}else{
 				System.out.println("Header "+e.getText()+"is hidden in JSON configuration file");status=false;break;}
 		}
@@ -1314,7 +1315,7 @@ public class OCMAgentSummaryReportPage extends BasePage  {
 	}
 	
 		public void sortAscAgentID() {
-			 selectWebElement(headersDropdown.get(0));
+			 selectWebElement(headersDropdown.get(1));
 		        waitForJqueryLoad(driver);
 		        selectWebElement(sortAscending.get(0));
 		        waitForJqueryLoad(driver);
@@ -1596,7 +1597,7 @@ public class OCMAgentSummaryReportPage extends BasePage  {
 			Thread.sleep(2000);
 			boolean status=false;
 			Thread.sleep(2000);
-			if(nextPageIconDrillOne.isEnabled()){
+			if(!nextPageIconDrillOne.getAttribute("class").contains("k-state-disabled")){
 				int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumberDrillOne));
 				System.out.println(pagenumber);
 				selectWebElement(nextPageIconDrillOne);
@@ -1618,7 +1619,7 @@ public class OCMAgentSummaryReportPage extends BasePage  {
 			selectWebElement(rows.get(0));
 			Thread.sleep(2000);
 			boolean status=false;
-			if(lastPageIconDrillOne.isEnabled()){
+			if(!lastPageIconDrillOne.getAttribute("class").contains("k-state-disabled")){
 				int pagenumber=Integer.valueOf(getTextFromWebElement(pageNumberDrillOne));
 				selectWebElement(lastPageIconDrillOne);
 				Thread.sleep(2000);

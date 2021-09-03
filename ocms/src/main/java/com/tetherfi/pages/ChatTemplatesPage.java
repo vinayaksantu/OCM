@@ -82,6 +82,9 @@ public class ChatTemplatesPage extends BasePage {
 
     @FindBy(css="ul[id='Enabled_listbox'] li")
     private List<WebElement> enableListbox;
+    
+    @FindBy(css="span[class^='k-widget k-dropdowntree k-dropdowntree-clearable']")
+	private WebElement teamnameDropdown;
 
     @FindBy(id="Text")
     private WebElement textTextbox;
@@ -244,6 +247,30 @@ public class ChatTemplatesPage extends BasePage {
     
     @FindBy(css="ul[id='Channel_listbox'] li")
     private List<WebElement> channelListbox;
+    
+	@FindBy(css=".k-treeview-lines li div")
+	private List<WebElement> teamList;
+	
+	@FindBy(xpath="//span[@id='switchMatrics']")
+	private WebElement switchMatricsbutton;
+	
+	@FindBy(xpath="//span[@aria-owns='CallFlowURL_listbox']")
+	private WebElement callflowURLDropdown;
+	
+	@FindBy(css="ul[id='CallFlowURL_listbox'] li")
+	private List<WebElement> callFlowURLList;
+	
+	@FindBy(xpath="//span[@aria-owns='Intent_listbox']")
+	private WebElement IntentDropdown;
+	
+	@FindBy(css="ul[id='Intent_listbox'] li")
+	private List<WebElement> intentListBox;
+	
+	@FindBy(xpath="//span[@aria-owns='TemplateTypetext_listbox']")
+	private WebElement TemplateTypedropdown;
+	
+	@FindBy(css="ul[id='TemplateTypetext_listbox'] li")
+	private List<WebElement> templateType;
     
    
 
@@ -420,6 +447,13 @@ public class ChatTemplatesPage extends BasePage {
         selectDropdownFromVisibleText(departmentNameListbox,details.getDepartmentName());
         selectWebElement(groupNameDropdown);
         selectDropdownFromVisibleText(groupNameListbox,details.getGroupName());
+        selectWebElement(switchMatricsbutton);
+        selectWebElement(callflowURLDropdown);
+        selectDropdownFromVisibleText(callFlowURLList,details.getCallFlowURL());
+        selectWebElement(IntentDropdown);
+        selectDropdownFromVisibleText(intentListBox,details.getIntent());
+        selectWebElement(TemplateTypedropdown);
+        selectDropdownFromVisibleText(templateType,details.getTemplateType());
         selectWebElement(nameTextbox);
         enterValueToTxtField(nameTextbox,details.getName());
         selectWebElement(enableDropdown);
@@ -431,12 +465,6 @@ public class ChatTemplatesPage extends BasePage {
         selectWebElement(endTimeTextbox);
         enterValueToTxtField(endTimeTextbox,details.getEndTime());
         selectWebElement(saveBtn);
-        try {
-        	selectWebElement(cancelBtn);
-        }
-        catch(Exception e){
-        	e.printStackTrace();
-        }
     }
     public void searchChatTemplatesRecord(String name) throws Exception  {
         selectWebElement(searchLink);
@@ -508,15 +536,29 @@ public class ChatTemplatesPage extends BasePage {
         enterValueToTxtField(nameTextbox,details.getDepartmentName());
         selectWebElement(enableDropdown);
         selectDropdownFromVisibleText(enableListbox,details.getDeptEnabled());
+        selectWebElement(teamnameDropdown);
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		System.out.println(details.getOrgUnit());
+		ChooseHeirarchy(details.getOrgUnit());
         selectWebElement(saveBtn);
-        try {
-        	selectWebElement(cancelBtn);
-        }
-        catch(Exception e)
-        {
-        	e.printStackTrace();
-        }
     }
+    
+    private void ChooseHeirarchy(String team){
+		String[] hrcy=team.split(">");
+		for(int i=0;i<hrcy.length;i++){
+			for(WebElement e: teamList){
+				if(e.getText().equals(hrcy[i])) {
+					if(e.getText().equals(hrcy[hrcy.length-1]))
+					{selectWebElement(e.findElement(By.className("k-in")));break;}
+					else if(e.findElements(By.className("k-icon")).size()>0)
+					{selectWebElement(e.findElement(By.className("k-icon")));break;}
+				}}}
+
+	}
     public void searchDepartmentRecord(String name) throws Exception  {
         selectWebElement(searchLink);
         selectWebElement(selectSearchColumn.get(0));
@@ -672,8 +714,15 @@ public class ChatTemplatesPage extends BasePage {
         selectDropdownFromVisibleText(channelListbox,details.getChannel());
         selectWebElement(nameTextbox);
         enterValueToTxtField(nameTextbox,details.getDepartmentName());
-        selectWebElement(saveBtn);		
-        selectWebElement(cancelBtn);
+        selectWebElement(teamnameDropdown);
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		System.out.println(details.getOrgUnit());
+		ChooseHeirarchy(details.getOrgUnit());
+        selectWebElement(saveBtn);
 	}
 	public void addRecordWithoutDepartment(ChatTemplateDetails details) throws Exception {
 		selectWebElement(addNewDepartmentRecordBtn);
@@ -683,8 +732,15 @@ public class ChatTemplatesPage extends BasePage {
         selectDropdownFromVisibleText(channelListbox,details.getChannel());
         selectWebElement(enableDropdown);
         selectDropdownFromVisibleText(enableListbox,details.getDeptEnabled());
-        selectWebElement(saveBtn);	
-        selectWebElement(cancelBtn);
+        selectWebElement(teamnameDropdown);
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		System.out.println(details.getOrgUnit());
+		ChooseHeirarchy(details.getOrgUnit());
+        selectWebElement(saveBtn);
 	}
 	public void addNewEmptyRecord(ChatTemplateDetails details) {
 		selectWebElement(addNewDepartmentRecordBtn);
@@ -700,9 +756,15 @@ public class ChatTemplatesPage extends BasePage {
         enterValueToTxtField(nameTextbox,details.getDepartmentName());
         selectWebElement(enableDropdown);
         selectDropdownFromVisibleText(enableListbox,details.getDeptEnabled());
-        selectWebElement(saveBtn);	
-        selectWebElement(saveBtn);		
-        selectWebElement(cancelBtn);
+        selectWebElement(teamnameDropdown);
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		System.out.println(details.getOrgUnit());
+		ChooseHeirarchy(details.getOrgUnit());
+        selectWebElement(saveBtn);
 	}		
 	
 	public void addRecordWithoutDepartmentName(ChatTemplateDetails details) throws Exception {

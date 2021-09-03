@@ -20,6 +20,7 @@ import com.tetherfi.utility.PageFactory;
 import com.tetherfi.utility.Screenshot;
 
 public class Templates_WidgetTabTest extends BaseTest{
+	
 	Screenshot screenshot=new Screenshot(driver);
 
 	@BeforeMethod

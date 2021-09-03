@@ -1,6 +1,7 @@
 package com.tetherfi.pages;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -35,10 +36,10 @@ public class OCMTimelineReportPage extends BasePage  {
 	@FindBy(css=".k-grid-excel")
 	private WebElement exportPage;
 
-	@FindBy(xpath="//button[text()=' Scheduled Reports']")
+	@FindBy(xpath="//button[normalize-space()='Scheduled Reports']")
 	private WebElement schRptsinAgent;
 
-	@FindBy(xpath="//button[text()=' View Downloaded Reports']")
+	@FindBy(xpath="//button[normalize-space()='View Downloaded Reports']")
 	private WebElement viewDwnRptinAgntpg;
 
 	@FindBy(css="button[onclick='onSelectExportAll()']")
@@ -305,6 +306,12 @@ public class OCMTimelineReportPage extends BasePage  {
 
 	@FindBy(xpath="//div[@id='gridDrillTwo']//span[@class='k-pager-info k-label']")
 	private WebElement drillGridTwoItems;
+	
+	@FindBy(xpath="//div[@id='gridDrillOne']//th[@data-field='TimeStamp']")
+	private WebElement timeStamp;
+	
+	@FindBy(xpath="//div[@id='gridDrillOne']//th[@data-field='TimeStamp'] //span[@class='k-icon k-i-sort-asc-sm']")
+	private WebElement timestampAscIcon;
 
 
 
@@ -331,7 +338,7 @@ public class OCMTimelineReportPage extends BasePage  {
 		List<String> list = new ArrayList<>();
 		List<WebElement> rows=gridContent.findElements(By.tagName("tr"));
 		List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
-		int colindex=0;
+		int colindex=1;
 		for(WebElement e:headers){if(e.getText().equals(columnname)){break;}else{colindex++;}}
 		for(int j=1;j<=rows.size()-1;j++){
 			List<WebElement> cols=rows.get(j).findElements(By.tagName("td"));
@@ -347,17 +354,17 @@ public class OCMTimelineReportPage extends BasePage  {
 		for (int i = 0; i <= pages; i++) {
 			List<WebElement> rows=gridContent.findElements(By.tagName("tr"));
 			List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
-			int k=0;
+			int k=1;
 			for(int j=0;j<2;j++){
 				if(headers.get(j).getText().equals("")||headers.get(j).getText().equals(" ")){continue;}
 				List<String> l1 = getColumnDatafromTable(headers.get(j).getText());
 				//System.out.println(l1);
 				List<String> temp = l1;
-				Collections.sort(temp);
-				//System.out.println(temp);
+				Collections.sort(l1);
+				System.out.println(temp+"oooooooooooooooooooooooo");
 				selectWebElement(headersDropdown.get(k));
 				waitForJqueryLoad(driver);
-				selectWebElement(sortAscending.get(k));
+				selectWebElement(sortAscending.get(k-1));
 				waitForJqueryLoad(driver);
 				List<String> l2 = getColumnDatafromTable(headers.get(j).getText());
 				//System.out.println(l2);
@@ -365,12 +372,11 @@ public class OCMTimelineReportPage extends BasePage  {
 				if(status){}else{System.out.println("Ascending sorting failed for column name:"+headers.get(j).getText()+"\n"+l2);break;}
 				/*descending sort code*/
 				status=false;
-				temp = l1;
 				Collections.sort(temp,Collections.reverseOrder());
-				//System.out.println(temp);
+				System.out.println(temp);
 				selectWebElement(headersDropdown.get(k));
 				waitForJqueryLoad(driver);
-				selectWebElement(sortDescending.get(k));
+				selectWebElement(sortDescending.get(k-1));
 				waitForJqueryLoad(driver);
 				k++;
 				List<String> l3 = getColumnDatafromTable(headers.get(j).getText());
@@ -666,7 +672,7 @@ public class OCMTimelineReportPage extends BasePage  {
 		for(int i=1;i<rows.size();i++) {
 			Map<String,String> map = new HashMap<String,String>();
 			List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
-			for(int j=1;j<headers.size();j++) {
+			for(int j=0;j<headers.size();j++) {
 				scrollToElement(headers.get(j));
 				/*System.out.println(headers.get(j).getText());
 						if(headers.get(j).getText().equals("Last Changed On")){
@@ -957,6 +963,7 @@ public class OCMTimelineReportPage extends BasePage  {
 		selectDropdownFromVisibleText(searchbyfeaturelistBox,details.getSearchStr());	
 		Thread.sleep(2000);
 		waitUntilWebElementIsVisible(gridContent);
+		waitForJqueryLoad(driver);
 		List<Map<String,String>> UI=getDataTable(); 
 		for (Map<String,String> map1: UI)
 		{   	
@@ -1109,7 +1116,7 @@ public class OCMTimelineReportPage extends BasePage  {
 		}
 		selectWebElement(searchColDropdownAdvSrchReportPage1);
 		Thread.sleep(2000);
-		selectDropdownFromVisibleText(searchColListBoxAdvSrchReportPage1,"Agent ID");
+		selectDropdownFromVisibleText(searchColListBoxAdvSrchReportPage1,"Agent Name");
 		Thread.sleep(2000);
 		selectWebElement(searchCriteriaDropdownAdvSrch1);
 		selectDropdownFromVisibleText(searchCriteriaListboxAdvSrch1,"Contains");
@@ -1123,7 +1130,7 @@ public class OCMTimelineReportPage extends BasePage  {
 		for(Map<String,String> map1:UI)
 		{
 			System.out.println(map1.get("Agent Name"));
-			if(map1.get("Agent ID").toLowerCase().equals(details.getSearchStr().toLowerCase()) &&map1.get("Agent ID").toLowerCase().contains(details.getSearchStr1().toLowerCase()))
+			if(map1.get("Agent ID").toLowerCase().equals(details.getSearchStr().toLowerCase()) &&map1.get("Agent Name").toLowerCase().contains(details.getSearchStr1().toLowerCase()))
 				Status= true;
 			else 
 				Status =false;
@@ -1437,6 +1444,13 @@ public class OCMTimelineReportPage extends BasePage  {
 		waitForLoad(driver);
 		waitForJqueryLoad(driver);
 		waitUntilWebElementIsVisible(DrillGridOneTable);
+		if(rowNo==0)
+		{
+			selectWebElement(timeStamp);
+			waitForJqueryLoad(driver);
+		}
+		else
+			System.out.println("timestampinAsc");
 	}
 	
 	private List<Map<String, String>> getDataTableDrillGridOne() throws Exception {
@@ -1494,7 +1508,8 @@ public class OCMTimelineReportPage extends BasePage  {
 		List<Map<String,String>> database=database(queryDrillGridOne);
 		System.out.println("Printing Query" +" "+queryDrillGridOne);		
 		System.out.println("Printing DB results" +" "+database);
-		Thread.sleep(5000);
+		//Thread.sleep(5000);
+		waitForJqueryLoad(driver);
 		List<Map<String,String>> UI=getDataTableDrillGridOne(); 
 		System.out.println("Printing UI Results"+" "+UI);	
 		if(UI.equals(database))

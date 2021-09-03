@@ -212,8 +212,9 @@ public class OCMUnauthorizedaccessReportTest extends BaseTest {
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
 		ReportDetails reportDetails= new ReportDetails(map);
 		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
-		ocmReportsPage.viewDownloadedReportInReportDownloadsPage();    	
-		Assert.assertTrue(ocmReportsPage.deleteWithoutDeleteReason(reportDetails),"empty delete reason record assertion failed");	
+		ocmReportsPage.viewDownloadedReportInReportDownloadsPage();
+		ocmReportsPage.deleteWithoutDeleteReason(reportDetails);
+		Assert.assertEquals(ocmReportsPage.getSuccessMessage(),"Please enter the delete reason","empty delete reason record assertion failed");
 	}
 
 	@Test(priority=19,description="Cancel Button in Reports Download Delete Button")

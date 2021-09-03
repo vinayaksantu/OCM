@@ -29,7 +29,7 @@ public class OCMInteractionActionsReportTest extends BaseTest {
 		Assert.assertTrue(ocmReportsPage.isOCMReportPageIsDisplayed());	
 	}
 
-	/*@Test(priority=1,description="To verify Show Report for Single Date")
+	@Test(priority=1,description="To verify Show Report for Single Date")
 	public void ShowReport() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMInteractionActionReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
@@ -252,7 +252,7 @@ public class OCMInteractionActionsReportTest extends BaseTest {
 		OCMReportsPage.chooseAdvancedSearchNew(reportDetails);  
 		OCMReportsPage.showReport(reportDetails);
 		Assert.assertTrue(InteractionActionReportPage.verifyAdvanceSearchIsEqualTo(reportDetails));
-	}*/
+	}
 	
 	@Test(priority=21,description="Advance search with OR Condition")
 	public void verifyAdvancedSearchORCriteria() throws Exception {
@@ -265,7 +265,7 @@ public class OCMInteractionActionsReportTest extends BaseTest {
 		Assert.assertTrue(InteractionActionReportPage.advancedSearchORCriteria(reportDetails));
 	}
 	
-	/*@Test(priority=22,description="Clear filters for Advance search")
+	@Test(priority=22,description="Clear filters for Advance search")
 	public void ClearfiltersAdvSrch() throws Exception{ 	
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMInteractionActionReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(0);
@@ -383,7 +383,8 @@ public class OCMInteractionActionsReportTest extends BaseTest {
 		ReportDetails reportDetails= new ReportDetails(map);
 		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
 		ocmReportsPage.viewDownloadedReportInReportDownloadsPage();    	
-		Assert.assertTrue(ocmReportsPage.deleteWithoutDeleteReason(reportDetails),"empty delete reason record assertion failed");		
+		ocmReportsPage.deleteWithoutDeleteReason(reportDetails);
+		Assert.assertEquals(ocmReportsPage.getSuccessMessage(),"Please enter the delete reason","empty delete reason record assertion failed");		
 	}
 
 	@Test(priority=34,description="Cancel Button in Reports Download Delete Button")
@@ -404,7 +405,8 @@ public class OCMInteractionActionsReportTest extends BaseTest {
 		ReportDetails reportDetails= new ReportDetails(map);
 		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
 		ocmReportsPage.viewDownloadedReportInReportDownloadsPage();
-		Assert.assertTrue(ocmReportsPage.deleteRecordAtReportsDownloadsPage(reportDetails),"Delete record assertion failed");		
+		ocmReportsPage.deleteRecordAtReportsDownloadsPage(reportDetails);
+		Assert.assertEquals(ocmReportsPage.getSuccessMessage(),"Report Deleted","Delete record assertion failed");		
 	}
 
 	@Test(priority=36,description="Report page clear All button ")
@@ -457,7 +459,7 @@ public class OCMInteractionActionsReportTest extends BaseTest {
 	}
 	
 	//Has known issue in sorting alpha numeric values
-	/*@Test(priority=40,dependsOnMethods="VerifyExportedPage",description="To Verify Sort By Ascending")
+	@Test(priority=40,dependsOnMethods="VerifyExportedPage",description="To Verify Sort By Ascending")
 	public void SortingByAscending() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMInteractionActionReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -545,7 +547,7 @@ public class OCMInteractionActionsReportTest extends BaseTest {
 		screenshot.captureScreen("OCMInteractionActionReport", "GroupBy");
 		Assert.assertTrue(InteractionActionReportPage.groupby());
 		screenshot.captureScreen("OCMInteractionActionReport", "AlreadyGroupBy");
-	}*/
+	}
 
 
 

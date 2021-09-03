@@ -36,10 +36,10 @@ public class OCMFrequentlyHitThresholdReportPage extends BasePage  {
 	@FindBy(css=".k-grid-excel")
 	private WebElement exportPage;
 
-	@FindBy(xpath="//button[text()=' Scheduled Reports']")
+	@FindBy(xpath="//button[normalize-space()='Scheduled Reports']")
 	private WebElement schRptsinAgent;
 
-	@FindBy(xpath="//button[text()=' View Downloaded Reports']")
+	@FindBy(xpath="//button[normalize-space()='View Downloaded Reports']")
 	private WebElement viewDwnRptinAgntpg;
 
 	@FindBy(css="button[onclick='onSelectExportAll()']")
@@ -1287,10 +1287,10 @@ public class OCMFrequentlyHitThresholdReportPage extends BasePage  {
 		queryDrillGridOne=queryDrillGridOne.replaceAll("ReportAfterDate",reportafterdate );
 		queryDrillGridOne=queryDrillGridOne.replaceAll("AgentNameCapturedFromUI", AgentName);
 		List<Map<String,String>> database=database(queryDrillGridOne);
-//		System.out.println("Printing Query" +" "+queryDrillGridOne);		
-//		System.out.println("Printing DB results" +" "+database);
+		System.out.println("Printing Query" +" "+queryDrillGridOne);		
+		System.out.println("Printing DB results" +" "+database);
 		List<Map<String,String>> UI=getDataTableDrillGridOne1(); 
-//		System.out.println("Printing UI Results"+" "+UI);	
+		System.out.println("Printing UI Results"+" "+UI);	
 		if(UI.equals(database))
 			return true;
 		else

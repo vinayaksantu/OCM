@@ -27,7 +27,7 @@ public class OCMChatAgentPerformanceReportTest extends BaseTest {
         Assert.assertTrue(ocmReportsPage.isOCMReportPageIsDisplayed());
     }  
      
-    /*@Test(priority=1,description="To verify Show Report for Single Date")
+    @Test(priority=1,description="To verify Show Report for Single Date")
 	public void ShowReport() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMChatAgentPerformanceReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
@@ -46,7 +46,7 @@ public class OCMChatAgentPerformanceReportTest extends BaseTest {
 		OCMReportsPage.showReportInNewPage(reportDetails);
 		Assert.assertTrue(OCMReportsPage.verifyReportDisplayed(reportDetails),"show report in new tab assertion failed");
 		OCMReportsPage.switchBackToParentWindow();
-	}*/ 
+	}
 	
 	@Test(priority=3, description="To verify Chat Agent performance report UI data against DB")
     public void database() throws Exception {
@@ -60,7 +60,7 @@ public class OCMChatAgentPerformanceReportTest extends BaseTest {
    		System.out.println("Database validation completed Successfully"+ " : "+"UI and Database Data is matched"); 
     }
 	
-	/*@Test(priority=4,description="Verify number of items selected per page")
+	@Test(priority=4,description="Verify number of items selected per page")
 	public void VerifyNumberOfItemsPerPageSelection() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMChatAgentPerformanceReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -181,7 +181,8 @@ public class OCMChatAgentPerformanceReportTest extends BaseTest {
 		ReportDetails reportDetails= new ReportDetails(map);
 		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
 		ocmReportsPage.viewDownloadedReportInReportDownloadsPage();    	
-		Assert.assertTrue(ocmReportsPage.deleteWithoutDeleteReason(reportDetails),"empty delete reason record assertion failed");
+		ocmReportsPage.deleteWithoutDeleteReason(reportDetails);
+		Assert.assertEquals(ocmReportsPage.getSuccessMessage(),"Please enter the delete reason","empty delete reason record assertion failed");
 	}
 
 	@Test(priority=16,description="Cancel Button in Reports Download Delete Button")
@@ -571,7 +572,7 @@ public class OCMChatAgentPerformanceReportTest extends BaseTest {
 		screenshot.captureScreen("OCMChatAgentPerformanceReport", "GroupBy");
 		Assert.assertTrue(OCMChatAgentPerformanceReportPage.groupby());
 		screenshot.captureScreen("OCMChatAgentPerformanceReport", "AlreadyGroupBy");
-	}*/
+	}
     
         
     @AfterMethod

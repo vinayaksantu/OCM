@@ -151,7 +151,10 @@ public class OCMReportsPage extends BasePage {
 	@FindBy(id="clearAllSearch")
 	private WebElement clearAll;
 
-	@FindBy(css="#toast-container .toast-success .toast-message")
+	/*@FindBy(css="#toast-container .toast-success .toast-message")
+	private WebElement successmsg;*/
+	
+	@FindBy(css=".toast-message")
 	private WebElement successmsg;
 
 	@FindBy(css="#toast-container .toast toast-success .toast-message")
@@ -160,7 +163,10 @@ public class OCMReportsPage extends BasePage {
 	@FindBy(css="# .toast-success")
 	private WebElement alertSuccesmsg;
 
-	@FindBy(css="#toast-container .toast-error")
+	/*@FindBy(css="#toast-container .toast-error")
+	private List<WebElement> errorMsg;*/
+	
+	@FindBy(css="#toast-container .toast-error .toast-message")
 	private List<WebElement> errorMsg;
 
 	@FindBy(css="#toast-container .toast-message")
@@ -346,7 +352,7 @@ public class OCMReportsPage extends BasePage {
 
 	//@FindBy(xpath="//input[@class='k-formatted-value k-input']")
 	@FindBy(css=".k-widget .k-state-default .k-formatted-value")
-	private List<WebElement> getNumberTxtbox;
+	private WebElement getNumberTxtbox;
 
 	@FindBy(css="#number")
 	private WebElement getNumberTxtbox1;
@@ -748,6 +754,7 @@ public class OCMReportsPage extends BasePage {
 	}
 
 	public boolean verifyDateRangeReportDisplayed(ReportDetails details) {
+		waitForJqueryLoad(driver);
 		System.out.println(reportnameLbl.getText());
 		System.out.println("OCM Reports > " + details.getReportChannel() + " > " + details.getReportName() + " from " + details.getStartDate()+" to "+details.getEndDate());
 		if (reportnameLbl.getText().contains("OCM Reports > " + details.getReportChannel() + " > " + details.getReportName() + " from " + details.getStartDate()+" to "+details.getEndDate())){
@@ -809,7 +816,7 @@ public class OCMReportsPage extends BasePage {
 	public void chooseReport(ReportDetails details) throws Exception{
 		waitUntilWebElementIsVisible(formContents);
 		try {
-			Thread.sleep(8000);
+			Thread.sleep(2000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
@@ -6694,7 +6701,7 @@ public class OCMReportsPage extends BasePage {
 					scrollToElement(headers.get(j));
 					col=cols.get(j).getText();
 					map.put(headers.get(j).getText(),col);
-					Thread.sleep(1000);
+					//Thread.sleep(1000);
 				}
 				map.remove("");
 				arr.add(map);
@@ -6702,8 +6709,8 @@ public class OCMReportsPage extends BasePage {
 			if(k!=pages)
 			{
 				nextPageIcon.click();
-				Thread.sleep(5000);
-				//waitForJqueryLoad(driver);
+				//Thread.sleep(5000);
+				waitForJqueryLoad(driver);
 			}
 		}
 		return arr;
@@ -6749,6 +6756,7 @@ public class OCMReportsPage extends BasePage {
 		waitUntilWebElementIsVisible(deleteReportinInReportDownloadpage.get(0));
 		selectWebElement(deleteReportinInReportDownloadpage.get(0));
 		waitForJqueryLoad(driver);
+		selectWebElement(deleteReasonTextBox);
 		enterValueToTxtFieldWithoutClear(deleteReasonTextBox,details.getDeleteReason());
 		selectWebElement(deleteYesBtn);
 		waitForJqueryLoad(driver);
@@ -6809,7 +6817,7 @@ public class OCMReportsPage extends BasePage {
 		waitForJqueryLoad(driver);
 		selectWebElement(quickInputBtn);
 		Thread.sleep(1000);
-		selectWebElement(getNumberTxtbox.get(1));
+		selectWebElement(getNumberTxtbox);
 		enterValueToTxtFieldWithoutClear(getNumberTxtbox1, details.getNumber());
 		waitUntilWebElementIsVisible(numberDropdown);
 		selectWebElement(numberDropdown);
@@ -6863,7 +6871,7 @@ public class OCMReportsPage extends BasePage {
 		waitForJqueryLoad(driver);
 		selectWebElement(quickInputBtn);
 		Thread.sleep(1000);
-		selectWebElement(getNumberTxtbox.get(1));
+		selectWebElement(getNumberTxtbox);
 		enterValueToTxtFieldWithoutClear(getNumberTxtbox1, details.getNumber());
 		waitUntilWebElementIsVisible(numberDropdown);
 		selectWebElement(numberDropdown);
@@ -6913,7 +6921,7 @@ public class OCMReportsPage extends BasePage {
 		selectWebElement(reportTypeDropdown);
 		selectWebElement(quickInputBtn);
 		Thread.sleep(1000);
-		selectWebElement(getNumberTxtbox.get(1));
+		selectWebElement(getNumberTxtbox);
 		enterValueToTxtFieldWithoutClear(getNumberTxtbox1, details.getNumber());
 		waitUntilWebElementIsVisible(numberDropdown);
 		selectWebElement(numberDropdown);
@@ -6961,7 +6969,7 @@ public class OCMReportsPage extends BasePage {
 		selectWebElement(reportTypeDropdown);
 		selectWebElement(quickInputBtn);
 		Thread.sleep(1000);
-		selectWebElement(getNumberTxtbox.get(1));
+		selectWebElement(getNumberTxtbox);
 		enterValueToTxtFieldWithoutClear(getNumberTxtbox1, details.getNumber());
 		waitUntilWebElementIsVisible(numberDropdown);
 		selectWebElement(numberDropdown);
@@ -7008,7 +7016,7 @@ public class OCMReportsPage extends BasePage {
 		selectWebElement(reportTypeDropdown);        
 		selectWebElement(quickInputBtn);
 		Thread.sleep(1000);
-		selectWebElement(getNumberTxtbox.get(1));
+		selectWebElement(getNumberTxtbox);
 		enterValueToTxtFieldWithoutClear(getNumberTxtbox1, details.getNumber());
 		waitUntilWebElementIsVisible(numberDropdown);
 		selectWebElement(numberDropdown);
@@ -7075,7 +7083,7 @@ public class OCMReportsPage extends BasePage {
 		selectWebElement(reportTypeDropdown);
 		selectWebElement(quickInputBtn);
 		Thread.sleep(1000);
-		selectWebElement(getNumberTxtbox.get(1));
+		selectWebElement(getNumberTxtbox);
 		enterValueToTxtFieldWithoutClear(getNumberTxtbox1, details.getNumber());
 		waitUntilWebElementIsVisible(numberDropdown);
 		selectWebElement(numberDropdown);
@@ -7124,7 +7132,7 @@ public class OCMReportsPage extends BasePage {
 		selectWebElement(reportTypeDropdown);        
 		selectWebElement(quickInputBtn);
 		Thread.sleep(1000);
-		selectWebElement(getNumberTxtbox.get(1));
+		selectWebElement(getNumberTxtbox);
 		enterValueToTxtFieldWithoutClear(getNumberTxtbox1, details.getNumber());
 		waitUntilWebElementIsVisible(numberDropdown);
 		selectWebElement(numberDropdown);
@@ -7172,7 +7180,7 @@ public class OCMReportsPage extends BasePage {
 		selectWebElement(reportTypeDropdown);
 		selectWebElement(quickInputBtn);
 		Thread.sleep(1000);
-		selectWebElement(getNumberTxtbox.get(1));
+		selectWebElement(getNumberTxtbox);
 		enterValueToTxtFieldWithoutClear(getNumberTxtbox1, details.getNumber());
 		waitUntilWebElementIsVisible(numberDropdown);
 		selectWebElement(numberDropdown);

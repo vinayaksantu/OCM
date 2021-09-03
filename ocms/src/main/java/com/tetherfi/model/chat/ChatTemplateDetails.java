@@ -27,8 +27,14 @@ public class ChatTemplateDetails {
     private String UpdatedGroupEnabled;
     private String Query;
     private String Channel;
+    private String teamName;
+    private String callFlowURL;
+    private String templateType;
 
     public ChatTemplateDetails(Map<String,String> map){
+    	templateType=readTemplateType(map);
+    	callFlowURL=readCallFlowURL(map);
+    	teamName=readTeamname(map);
     	Channel=readChannel(map);
         departmentName=readDepartmentName(map);
         deptEnabled=readDeptEnabled(map);
@@ -48,9 +54,25 @@ public class ChatTemplateDetails {
         Query=readQuery(map);
         
         
+        
     }
 
-    private String readChannel(Map<String, String> map) {
+    private String readTemplateType(Map<String, String> map) {
+    	String value=map.get("TemplateType");
+		return value;
+	}
+
+	private String readCallFlowURL(Map<String, String> map) {
+    	String value=map.get("CallFlowURL");
+		return value;
+	}
+
+	private String readTeamname(Map<String, String> map) {
+    	String value=map.get("OrgUnit");
+		return value;
+	}
+
+	private String readChannel(Map<String, String> map) {
     	String value=map.get("Channel");
 		return value;
 	}
@@ -261,6 +283,18 @@ public class ChatTemplateDetails {
 
 	public String getChannel() {
 		return Channel;
+	}
+	
+	public String getOrgUnit() {
+		return teamName;
+	}
+	
+	public String getCallFlowURL() {
+		return callFlowURL;
+	}
+	
+	public String getTemplateType() {
+		return templateType;
 	}
 	
 	

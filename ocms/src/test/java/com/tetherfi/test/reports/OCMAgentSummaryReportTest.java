@@ -37,7 +37,7 @@ public class OCMAgentSummaryReportTest extends BaseTest {
 		ftp.transferFileFromRemote(remoteFilePath,destinationFilePath);
 	}
 
-	/*@Test(priority=1,description="To verify Show Report for Single Date")
+	@Test(priority=1,description="To verify Show Report for Single Date")
 	public void ShowOCMAgentSummaryReport() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
@@ -89,6 +89,7 @@ public class OCMAgentSummaryReportTest extends BaseTest {
 		Assert.assertTrue(OCMReportsPage.verifyDownloadedReportNameAndTimeInReportsDownloadPage(reportDetails.getReportName()),"Report not found in Reporter download page");
 	}  
 
+	//drill down data is also exporting so data mismatch with UI
 	@Test(priority=6,dependsOnMethods ="ViewDownloadedOcmAgentSummaryReportInReportsDownloadPage",description="To verification of exported excel in Report downloads")
 	public void VerifyViewDownloadedOcmAgentSummaryReportInReportsDownloadPage() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
@@ -161,6 +162,7 @@ public class OCMAgentSummaryReportTest extends BaseTest {
 		OCMReportsPage.scheduleReport(reportDetails);
 		Assert.assertTrue(OCMReportsPage.verifyScheduleReport(),"Schedule report assertion failed");
 	}
+	
 	@Test(priority=13,description="To verify Export Report on OCM Reports Page for Date Range")
 	public void ExportOCMAgentSummaryReportDateRange() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
@@ -491,18 +493,17 @@ public class OCMAgentSummaryReportTest extends BaseTest {
 		ReportDetails reportDetails= new ReportDetails(map);
 		OCMReportsPage OCMReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
 		OCMAgentSummaryReportPage OCMAgentSummaryReportPage=PageFactory.createPageInstance(driver,OCMAgentSummaryReportPage.class);
-		OCMReportsPage.chooseAdvancedSearchNew(reportDetails);  
 		OCMReportsPage.showReport(reportDetails);
 		Assert.assertTrue(OCMAgentSummaryReportPage.verifyAdvanceSearchIsEqualTo(reportDetails));
 	}
+	
 	@Test(priority=43,description="Advance search on reports page for Is not equal to Criteria")
 	public void verifyAdvancedSearchinreportpageSearchNotEqualTo() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(1);
 		ReportDetails reportDetails= new ReportDetails(map);
 		OCMReportsPage OCMReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);  
-		OCMAgentSummaryReportPage OCMAgentSummaryReportPage=PageFactory.createPageInstance(driver,OCMAgentSummaryReportPage.class);
-		OCMReportsPage.chooseAdvancedSearchNew(reportDetails);  
+		OCMAgentSummaryReportPage OCMAgentSummaryReportPage=PageFactory.createPageInstance(driver,OCMAgentSummaryReportPage.class);  
 		OCMReportsPage.showReport(reportDetails);
 		Assert.assertTrue(OCMAgentSummaryReportPage.verifyAdvanceSearchIsNotEqualTo(reportDetails));
 
@@ -514,8 +515,7 @@ public class OCMAgentSummaryReportTest extends BaseTest {
 		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(2);
 		ReportDetails reportDetails= new ReportDetails(map);
 		OCMReportsPage OCMReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class); 
-		OCMAgentSummaryReportPage OCMAgentSummaryReportPage=PageFactory.createPageInstance(driver,OCMAgentSummaryReportPage.class);
-		OCMReportsPage.chooseAdvancedSearchNew(reportDetails);  
+		OCMAgentSummaryReportPage OCMAgentSummaryReportPage=PageFactory.createPageInstance(driver,OCMAgentSummaryReportPage.class); 
 		OCMReportsPage.showReport(reportDetails);
 		Assert.assertTrue(OCMAgentSummaryReportPage.verifyAdvanceSearchContains(reportDetails));    	
 	}
@@ -526,8 +526,7 @@ public class OCMAgentSummaryReportTest extends BaseTest {
 		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(3);
 		ReportDetails reportDetails= new ReportDetails(map);
 		OCMReportsPage OCMReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);  
-		OCMAgentSummaryReportPage OCMAgentSummaryReportPage=PageFactory.createPageInstance(driver,OCMAgentSummaryReportPage.class);
-		OCMReportsPage.chooseAdvancedSearchNew(reportDetails);  
+		OCMAgentSummaryReportPage OCMAgentSummaryReportPage=PageFactory.createPageInstance(driver,OCMAgentSummaryReportPage.class); 
 		OCMReportsPage.showReport(reportDetails);
 		Assert.assertTrue(OCMAgentSummaryReportPage.verifyAdvanceSearchDoesNotContains(reportDetails));   
 	}
@@ -538,8 +537,7 @@ public class OCMAgentSummaryReportTest extends BaseTest {
 		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(4);
 		ReportDetails reportDetails= new ReportDetails(map);
 		OCMReportsPage OCMReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class); 
-		OCMAgentSummaryReportPage OCMAgentSummaryReportPage=PageFactory.createPageInstance(driver,OCMAgentSummaryReportPage.class);
-		OCMReportsPage.chooseAdvancedSearchNew(reportDetails);  
+		OCMAgentSummaryReportPage OCMAgentSummaryReportPage=PageFactory.createPageInstance(driver,OCMAgentSummaryReportPage.class);  
 		OCMReportsPage.showReport(reportDetails);
 		Assert.assertTrue(OCMAgentSummaryReportPage.verifyAdvanceSearchStartsWith(reportDetails)); 	
 	}
@@ -550,8 +548,7 @@ public class OCMAgentSummaryReportTest extends BaseTest {
 		Map<String, String> map = new ExcelReader(filePath,"AdvanceSearch").getTestData().get(5);
 		ReportDetails reportDetails= new ReportDetails(map);
 		OCMReportsPage OCMReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);  
-		OCMAgentSummaryReportPage OCMAgentSummaryReportPage=PageFactory.createPageInstance(driver,OCMAgentSummaryReportPage.class);
-		OCMReportsPage.chooseAdvancedSearchNew(reportDetails);  
+		OCMAgentSummaryReportPage OCMAgentSummaryReportPage=PageFactory.createPageInstance(driver,OCMAgentSummaryReportPage.class);  
 		OCMReportsPage.showReport(reportDetails);
 		Assert.assertTrue(OCMAgentSummaryReportPage.verifyAdvanceSearchEndsWith(reportDetails));
 
@@ -581,6 +578,7 @@ public class OCMAgentSummaryReportTest extends BaseTest {
 		Assert.assertTrue(OCMAgentSummaryReportPage.advancedSearchORCriteria(reportDetails));
 
 	}
+	
 	@Test(priority=50,description="Clear filters for Advance search")
 	public void ClearfiltersAdvSrch() throws Exception{ 	
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentSummaryReportData.xlsx";
@@ -612,7 +610,7 @@ public class OCMAgentSummaryReportTest extends BaseTest {
 		OCMReportsPage ocmReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
 		ocmReportsPage.showReport(reportDetails);  
 		OCMAgentSummaryReportPage OCMAgentSummaryReportPage=PageFactory.createPageInstance(driver,OCMAgentSummaryReportPage.class);
-		OCMAgentSummaryReportPage.verifycolumnsHeaderEnabled();
+		//OCMAgentSummaryReportPage.verifycolumnsHeaderEnabled();
 		JSONReader json= new JSONReader(destinationFilePath);
 		Assert.assertTrue(OCMAgentSummaryReportPage.verifyJsonDataForgridColumnHidden(json.getJsonGridColumnTitleKeyDataForReports("Hidden")),"JSON data grid column hidden assertion failed");  	
 	}
@@ -668,7 +666,7 @@ public class OCMAgentSummaryReportTest extends BaseTest {
 		ocmReportsPage.showReport(reportDetails);
 		OCMAgentSummaryReportPage OCMAgentSummaryReportPage=PageFactory.createPageInstance(driver,OCMAgentSummaryReportPage.class);
 		Assert.assertTrue(OCMAgentSummaryReportPage.verifyTotalNumberOfItemsPerPageDetailsForDrillDownOne(),"item per page assertion failed");
-	}*/  
+	}
 
 
 //#58476, #58469 to track grid report issue

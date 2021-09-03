@@ -43,10 +43,10 @@ public class OCMInteractionActionReportPage extends BasePage  {
 	@FindBy(css=".k-grid-excel")
 	private WebElement exportPage;
 
-	@FindBy(xpath="//button[text()=' Scheduled Reports']")
+	@FindBy(xpath="//button[normalize-space()='Scheduled Reports']")
 	private WebElement schRptsinAgent;
 
-	@FindBy(xpath="//button[text()=' View Downloaded Reports']")
+	@FindBy(xpath="//button[normalize-space()='View Downloaded Reports']")
 	private WebElement viewDwnRptinAgntpg;
 
 	@FindBy(css="button[onclick='onSelectExportAll()']")
@@ -673,7 +673,7 @@ public class OCMInteractionActionReportPage extends BasePage  {
 		int pagersize=Integer.valueOf(pagerSize.getText());
 		int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
 		List<Map<String,String>> arr=new ArrayList<Map<String,String>>();
-		for(int k=0;k<=pages;k++){
+		//for(int k=0;k<=pages;k++){
 			waitUntilWebElementIsVisible(auditGridContent);
 			List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
 			List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
@@ -695,7 +695,7 @@ public class OCMInteractionActionReportPage extends BasePage  {
 				map.remove("");
 				arr.add(map);
 			}
-		}
+		//}
 		return arr;
 	}		
 

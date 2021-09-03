@@ -29,40 +29,6 @@ public class ChatTemplatesTest extends BaseTest {
 
 	@BeforeClass
 	public void NavigateToChatTemplatesPage() throws  Exception {
-		/*try {
-    		PageFactory.reset();
-    		BrowserFactory browserFactory = new BrowserFactory();
-	        driver = browserFactory.createBrowserInstance(BrowserFactory.BrowserType.CHROME, System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles");
-	    }
-    	catch (Exception e){
-    		PageFactory.reset();
-	        driver.close();
-	        e.printStackTrace();
-    	}
-    	System.out.println("Started Executing : "+method.getName());
-	    Test t = method.getAnnotation(Test.class);
-	    Map<String, String> map;
-	    if(t.groups()[0].equalsIgnoreCase("OCM")){	
-	    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\LoginData.xlsx";
-	        map= new ExcelReader(filePath,"Login").getTestData().get(0);
-	        try{
-	        	driver.get("https://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
-	        }
-	        catch (TimeoutException e){
-	        	e.printStackTrace();
-	            driver.get("https://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);
-	            }
-	        LoginPage loginPage=PageFactory.createPageInstance(driver,LoginPage.class);
-            loginPage.overrideSecurityConcern();
-	        if(map.get("LoginType").equals("Custom")){
-	        Assert.assertTrue(loginPage.isLoginPageDisplayed(),"Login page not loaded");
-	        loginPage.login(map.get("Username"),map.get("Password"));
-	        try {
-	        	Thread.sleep(5000);
-	        } catch (InterruptedException e) {
-	        	e.printStackTrace();
-				}
-	        }*/
 		HomePage homePage= PageFactory.createPageInstance(driver,HomePage.class);
         homePage.navigateToOCMPage();
         OCMHomePage ocmHomePage = PageFactory.createPageInstance(driver,OCMHomePage.class);
@@ -72,26 +38,10 @@ public class ChatTemplatesTest extends BaseTest {
 		Assert.assertTrue(chatPage.isChatPageDisplayed(),"chat page assertion failed");
 		chatPage.navigateToChatTemplatesPage();
 		ChatTemplatesPage chatTemplatesPage = PageFactory.createPageInstance(driver,ChatTemplatesPage.class);
-		Assert.assertTrue(chatTemplatesPage.isChatTemplatePageDisplayed(),"Chat Template page assertion failed");
-		/*  else {
-	    	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\LoginData.xlsx";
-	        map=new ExcelReader(filePath,"Login").getTestData().get(3);
-	        try{driver.get("https://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);}
-	        catch (TimeoutException e)
-	        {e.printStackTrace();
-	        driver.get("https://"+map.get("Username")+":"+map.get("Password")+"@"+map.get("Application URL").split("//")[1]);}
-	        TmacLoginPage tmacloginPage = PageFactory.createPageInstance(driver,TmacLoginPage.class);
-	        Assert.assertTrue(tmacloginPage.checkPageLoadStatus(), "login page successful status");
-	        map = new ExcelReader(filePath, "TMAC").getTestData().get(0);
-	        TmacUserDetails tmacUserDetails=new TmacUserDetails(map);
-	        tmacloginPage.logintotmac(tmacUserDetails.getLanID(),tmacUserDetails.getStation());
-	        Assert.assertTrue(tmacloginPage.verifyUserLogged(),"Tmac login failed");
-	        tmacloginPage.switchToNewWindow();
-	        Assert.assertTrue(tmacloginPage.isTmacPopUpDisplayed(),"TMAC popup not displayed");
-	    }*/
+		Assert.assertTrue(chatTemplatesPage.isChatTemplatePageDisplayed(),"Chat Template page assertion failed");		
 	}
 
-	/*@Test(priority=1,groups= {"OCM"})
+	@Test(priority=1,groups= {"OCM"})
 	public void ChatTemplatePage() {
 		ChatTemplatesPage ChatTemplatePage = PageFactory.createPageInstance(driver, ChatTemplatesPage.class);
 		Assert.assertTrue(ChatTemplatePage.VerifyLogo(),"Logo assertion failed");
@@ -165,7 +115,7 @@ public class ChatTemplatesTest extends BaseTest {
 	public void VerifyMainsColumnsHeaderDisable() throws Exception {
 		ChatTemplatesPage chatTemplatesPage = PageFactory.createPageInstance(driver, ChatTemplatesPage.class);
 		Assert.assertFalse(chatTemplatesPage.verifycolumnsHeaderDisabled(),"columns disabled assertion failed");
-	}*/
+	}
 
 	@Test(priority=11,groups= {"OCM"})
 	public void AddNewDepartmentRecord() throws Exception {
@@ -187,7 +137,7 @@ public class ChatTemplatesTest extends BaseTest {
 		ChatTemplatesPage ChatTemplatesPage = PageFactory.createPageInstance(driver, ChatTemplatesPage.class);
 		ChatTemplatesPage.navigateToTab("Departments");
 		ChatTemplatesPage.addNewDepartmentRecord(ChatTemplatesDetails);
-		Assert.assertEquals(ChatTemplatesPage.getMessage(),"Duplicate Name");
+		Assert.assertEquals(ChatTemplatesPage.getMessage(),"Record Creation Failed, Already Exist");
 	}
 
 	@Test(priority=13,groups= {"OCM"},enabled=false)//,dependsOnMethods ="AddNewDepartmentRecord")
@@ -213,7 +163,7 @@ public class ChatTemplatesTest extends BaseTest {
 		ChatTemplatesPage ChatTemplatesPage = PageFactory.createPageInstance(driver, ChatTemplatesPage.class);
 		ChatTemplatesPage.navigateToTab("Departments");
 		ChatTemplatesPage.addNewEmptyRecord(ChatTemplatesDetails);
-		Assert.assertEquals(ChatTemplatesPage.getMessage(),"Please Provide Name, Enabled, Channel", "Add invalid record assertion failed");
+		Assert.assertEquals(ChatTemplatesPage.getMessage(),"Please Provide Name, Enabled, Channel, OrgUnit", "Add invalid record assertion failed");
 	}
 
 	@Test(priority=15,groups= {"OCM"})
@@ -257,7 +207,7 @@ public class ChatTemplatesTest extends BaseTest {
 		Assert.assertFalse(ChatTemplatesPage.verifyEditFormContainer(), "Cancel Btn at Add record assertion failed");
 	}
 
-	/*@Test(priority=19,groups= {"OCM"})//,dependsOnMethods = "AddNewDepartmentRecord")
+	@Test(priority=19,groups= {"OCM"})//,dependsOnMethods = "AddNewDepartmentRecord")
 	public void AddNewGroupsRecord() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"CreateGroup").getTestData().get(0);
@@ -347,7 +297,7 @@ public class ChatTemplatesTest extends BaseTest {
 		Assert.assertFalse(ChatTemplatesPage.verifyEditFormContainer(), "Cancel Btn at Add record assertion failed");
 	}
 
-	@Test(priority=27,groups= {"OCM"})//,dependsOnMethods = "AddNewGroupsRecord")
+	/*@Test(priority=27,groups= {"OCM"})//,dependsOnMethods = "AddNewGroupsRecord")
 	public void AddNewChatTemplatesRecord() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -380,7 +330,7 @@ public class ChatTemplatesTest extends BaseTest {
 		ReportDetails reportDetails= new ReportDetails(map2);
 		ocmReportsPage.showReport(reportDetails);
 		Assert.assertTrue(ocmReportsPage.verifyChatTemplatesCreate(ChatTemplatesDetails,"Create"));
-	}
+	}*/
 
 	@Test(priority=30,groups= {"OCM"})
 	public void AddEmptyChatTemplateRecord() throws Exception {
@@ -470,7 +420,7 @@ public class ChatTemplatesTest extends BaseTest {
 		Assert.assertFalse(ChatTemplatesPage.verifyEditFormContainer(), "Cancel Btn at Add record assertion failed");
 	}
 
-	/*@Test(priority=39,groups= {"OCM"})
+	@Test(priority=39,groups= {"OCM"})
 	public void DepartmentExportToExcel() throws Exception
 	{
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles";
@@ -710,7 +660,7 @@ public class ChatTemplatesTest extends BaseTest {
 		chatTemplatesPage.dragColumntoGroup("Enabled");
 		chatTemplatesPage.dragColumntoGroup("Enabled");
 		Assert.assertTrue(chatTemplatesPage.verifyDragColumntoGroup("Enabled",2),"drag and drop assertion failed");
-	}*/
+	}
 
 	/*//@Test(groups= {"TMAC"},priority=69)
     public void VerifyChatTemplateInTMAC() throws Exception {
@@ -727,10 +677,10 @@ public class ChatTemplatesTest extends BaseTest {
         tmacPopupPage.clickOnChatTemplate();
         Assert.assertTrue(tmacPopupPage.ChatTemplate(ChatTemplatesDetails));
         tmacPopupPage.disconnectchat();
-	}
+	}*/
 
 
-	@Test(priority=70,groups= {"OCM"})//,dependsOnMethods = "AddNewChatTemplatesRecord")
+	/*@Test(priority=70,groups= {"OCM"})//,dependsOnMethods = "AddNewChatTemplatesRecord")
 	public void EditChatTemplatesRecord() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Edit").getTestData().get(0);
@@ -773,7 +723,7 @@ public class ChatTemplatesTest extends BaseTest {
 		chatTemplatePage .clickOnEditButton();
 		chatTemplatePage .clickOnCancelBtn();
 		Assert.assertFalse(chatTemplatePage .verifyEditFormContainer(), "Cancel Btn at Edit record assertion failed");
-	}
+	}*/
 
 	@Test(priority=74,groups= {"OCM"})//,dependsOnMethods = "AddNewChatTemplatesRecord")
 	public void EditGroupRecord() throws Exception {
@@ -962,7 +912,7 @@ public class ChatTemplatesTest extends BaseTest {
 		Assert.assertEquals(chatTemplatesPage.getMessage(),"Please enter the text to search or remove the filter", "Add invalid record assertion failed");
 	}
 
-	@Test(priority=92,groups= {"OCM"})
+	/*@Test(priority=92,groups= {"OCM"})
 	public void DeleteWithoutDeleteReasonRecord() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\ChatTemplatesData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Delete").getTestData().get(0);
@@ -1004,7 +954,7 @@ public class ChatTemplatesTest extends BaseTest {
 		ReportDetails reportDetails= new ReportDetails(map1);
 		ocmReportsPage.showReport(reportDetails);
 		Assert.assertTrue(ocmReportsPage.verifyChatTemplatedelete(chatTemplateDetails,"Delete"));
-	}
+	}*/
 
 	@Test(priority=96,groups= {"OCM"})
 	public void DeleteGroupWithoutDeleteReasonRecord() throws Exception {
@@ -1223,4 +1173,5 @@ public class ChatTemplatesTest extends BaseTest {
 	               e.printStackTrace();
 	               }*/
 	}
+}
 

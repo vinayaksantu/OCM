@@ -30,7 +30,7 @@ public class OCMChatbotInteractionreportTest extends BaseTest {
 		Assert.assertTrue(ocmReportsPage.isOCMReportPageIsDisplayed());
 	}
 
-	/*@Test(priority=1,description="To verify Show Report")
+	@Test(priority=1,description="To verify Show Report")
 	public void ShowReport() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMChatbotInteractionReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
@@ -51,7 +51,7 @@ public class OCMChatbotInteractionreportTest extends BaseTest {
 		ocmReportsPage.switchBackToParentWindow();
 	}
 
-	@Test(priority=3, description="To verify chatbot interaction report data against DB")
+	@Test(priority=3,enabled=false, description="To verify chatbot interaction report data against DB")
 	public void database() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMChatbotInteractionReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(0);
@@ -61,12 +61,12 @@ public class OCMChatbotInteractionreportTest extends BaseTest {
 		OCMChatbotInteractionReportPage ChatbotInteractionReportPage=PageFactory.createPageInstance(driver,OCMChatbotInteractionReportPage.class);
 		Assert.assertTrue(ChatbotInteractionReportPage.verifyDatabase(reportDetails.getQuery(),reportDetails),"UI and Database data mismatch");
 		System.out.println("Database Validation Completed Succesfully" +" : "+"UI and Database data is matched");    
-	}*/
+	}
 
 	@Test(priority=4,description="To verify search by feature")
 	public void VerifySearchByFeature() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMChatbotInteractionReport.xlsx";
-		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
+		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(5);
 		ReportDetails reportDetails= new ReportDetails(map);
 		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
 		ocmReportsPage.showReport(reportDetails);
@@ -74,7 +74,7 @@ public class OCMChatbotInteractionreportTest extends BaseTest {
 		Assert.assertTrue(ChatbotInteractionPage.verifySearchByTextbox(reportDetails));
 	}
 
-	/*@Test(priority=5,description="To verify search equals")
+	@Test(priority=5,description="To verify search equals")
 	public void VerifySearchIsEqualTo() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMChatbotInteractionReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -129,7 +129,7 @@ public class OCMChatbotInteractionreportTest extends BaseTest {
 		ocmReportsPage.showReport(reportDetails);  
 		OCMChatbotInteractionReportPage ChatbotInteractionPage=PageFactory.createPageInstance(driver,OCMChatbotInteractionReportPage.class);
 		Assert.assertTrue(ChatbotInteractionPage.verifySearchDoesNotContains(reportDetails.getSearchStr())); 
-	}    
+	}   
 
 	@Test(priority=10,description="To verify search StartsWith")
 	public void  VerifySearchStartsWith() throws Exception {
@@ -377,6 +377,7 @@ public class OCMChatbotInteractionreportTest extends BaseTest {
 		Assert.assertTrue(ocmReportsPage.verifyDownloadedReportNameAndTimeInReportsDownloadPage(reportDetails.getReportName()),"Report not found in Reporter download page");
 	}
 
+	//Drill down data is downloading
 	@Test(priority=33,dependsOnMethods ="ViewDownloadedReportInReportsDownloadPageForDateRange",description="To verification of exported excel in Report downloads")
 	public void VerifyDownloadedReportDataForDateRange() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMChatbotInteractionReport.xlsx";
@@ -474,7 +475,7 @@ public class OCMChatbotInteractionreportTest extends BaseTest {
 		ocmReportsPage.showReport(reportDetails);
 		OCMChatbotInteractionReportPage ChatbotInteractionPage=PageFactory.createPageInstance(driver,OCMChatbotInteractionReportPage.class);
 		Assert.assertFalse(ChatbotInteractionPage.verifycolumnsHeaderDisabled(),"columns disabled assertion failed");
-	}*/
+	}
 
 	@Test(priority=42,description="To Verify Arrow move for Previous and Next page")
 	public void VerifyArrowMoveForPreviousAndNextPage() throws Exception {
@@ -498,7 +499,7 @@ public class OCMChatbotInteractionreportTest extends BaseTest {
 		Assert.assertTrue(ChatbotInteractionPage.verifyArrowMoveForFirstAndLastPage(),"arrow move for first and last page assertion failed");
 	}
 
-	/*@Test(priority=44,description="To Verify Total Number of Items Per Page Details")
+	@Test(priority=44,description="To Verify Total Number of Items Per Page Details")
 	public void VerifyTotalNumberOfItemsPerPageDetails() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMChatbotInteractionReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -592,7 +593,7 @@ public class OCMChatbotInteractionreportTest extends BaseTest {
 		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
 		ocmReportsPage.showReport(reportDetails);
 		Assert.assertTrue(ocmReportsPage.verifyExportedSheet("OCMReportDownload","OCM Chatbot Interaction Re"));	
-	}*/
+	}
 
 
 

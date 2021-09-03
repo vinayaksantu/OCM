@@ -3,17 +3,17 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.tetherfi.test.ivr.IntentMappingTest">
+      <class name="com.tetherfi.test.reports.OCMChatbotInteractionreportTest">
         <methods>
+          <include name="NavigateToOcmReportsPage"/>
           <include name="startTestCase"/>
           <include name="openApplication"/>
-          <include name="DeleteIntentMappingRecord"/>
-          <include name="endTestCase"/>
           <include name="afterEachMethod"/>
+          <include name="endTestCase"/>
           <include name="tearDown"/>
-          <include name="NavigateToIntentMappingPage"/>
+          <include name="VerifyDownloadedReportDataForDateRange"/>
         </methods>
-      </class> <!-- com.tetherfi.test.ivr.IntentMappingTest -->
+      </class> <!-- com.tetherfi.test.reports.OCMChatbotInteractionreportTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

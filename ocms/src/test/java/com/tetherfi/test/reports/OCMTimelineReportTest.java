@@ -28,7 +28,7 @@ public class OCMTimelineReportTest extends BaseTest {
 		Assert.assertTrue(ocmReportsPage.isOCMReportPageIsDisplayed());
 	}
 
-	@Test(priority=1,description="To verify Show Report for Single Date")
+	@Test(priority=0,description="To verify Show Report for Single Date")
 	public void ShowOCMTimelineReport() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMTimelineReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);
@@ -37,8 +37,8 @@ public class OCMTimelineReportTest extends BaseTest {
 		ocmReportsPage.showReport(reportDetails);
 		Assert.assertTrue(ocmReportsPage.verifyReportDisplayed(reportDetails),"Show report assertion failed");      
 	}  
-	
-	@Test(priority=2,description="To verify Show Report in New Tab for Single Date")
+
+	@Test(priority=1,description="To verify Show Report in New Tab for Single Date")
 	public void ShowOcmTimelineReportInNewPage() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMTimelineReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowInNewPage").getTestData().get(0);
@@ -49,7 +49,7 @@ public class OCMTimelineReportTest extends BaseTest {
 		ocmReportsPage.switchBackToParentWindow();
 	}
 
-	@Test(priority=3,description="To verify OCM TimeLine report UI data against DB")
+	@Test(priority=2,description="To verify OCM TimeLine report UI data against DB")
 	public void database() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMTimelineReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Queries").getTestData().get(0);
@@ -85,7 +85,7 @@ public class OCMTimelineReportTest extends BaseTest {
 		ocmReportsPage.exportReport(reportDetails);
 		Assert.assertTrue(ocmReportsPage.verifyReportExported(),"export report assertion failed");
 	} 
-	
+
 	@Test(priority=4,description="To verify Export Scheduler on OCM Reports Page")
 	public void ScheduleOCMTimelineReport() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMTimelineReport.xlsx";
@@ -125,7 +125,7 @@ public class OCMTimelineReportTest extends BaseTest {
 		ocmReportsPage.showReportInNewPage(reportDetails);
 		Assert.assertTrue(ocmReportsPage.verifyDateRangeReportDisplayed(reportDetails),"show report in new tab assertion failed");
 		ocmReportsPage.switchBackToParentWindow();
-	}   
+	}  
 
 	@Test(priority=9,description="To verify Export Report on OCM Reports Page for Date Range")
 	public void ExportOcmTimelineReportDateRange() throws Exception {
