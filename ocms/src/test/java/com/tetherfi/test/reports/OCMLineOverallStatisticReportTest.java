@@ -323,7 +323,8 @@ public class OCMLineOverallStatisticReportTest extends BaseTest {
 		ReportDetails reportDetails= new ReportDetails(map);
 		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
 		ocmReportsPage.viewDownloadedReportInReportDownloadsPage();    	
-		Assert.assertTrue(ocmReportsPage.deleteWithoutDeleteReason(reportDetails),"empty delete reason record assertion failed");
+		ocmReportsPage.deleteWithoutDeleteReason(reportDetails);
+		Assert.assertEquals(ocmReportsPage.getSuccessMessage(),"Please enter the delete reason","empty delete reason record assertion failed");
 	}
 
 	@Test(priority=29,description="Cancel Button in Reports Download Delete Button")
@@ -437,7 +438,6 @@ public class OCMLineOverallStatisticReportTest extends BaseTest {
 		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
 		ocmReportsPage.showReport(reportDetails);            
 		OCMLineOverallStatisticReportPage lineOverStatPage=PageFactory.createPageInstance(driver,OCMLineOverallStatisticReportPage.class);
-		lineOverStatPage.navigateToExportSchedulerPage();    
 		Assert.assertTrue(lineOverStatPage.isExportSchedulerPageDisplayed(), "ExportScheduler page assertion failed");
 		screenshot.captureScreen("LineOverallStatisticReportTest","ExportSchedulerPage");
 	}

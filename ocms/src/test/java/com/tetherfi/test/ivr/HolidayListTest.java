@@ -224,7 +224,7 @@ public class HolidayListTest extends BaseTest {
     Assert.assertTrue(holidaylistPage.verifyexportToExcelSheet(maplist));	
     }	 
 	
-    @Test(priority=20)
+   /* @Test(priority=20)
     public void GroupBy(){
         HolidayListPage holidaylistPage = PageFactory.createPageInstance(driver, HolidayListPage.class);
     	Assert.assertTrue(holidaylistPage.groupby());
@@ -291,7 +291,7 @@ public class HolidayListTest extends BaseTest {
     	String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles\\Holiday List (2).xlsx";
         List<Map<String, String>> maplist = new ExcelReader(filePath,"Sheet1").getTestData();
         Assert.assertTrue(holidaylistPage.verifyexportToExcelSheet(maplist));
-    }
+    }*/
   
     @Test(priority=30)//,dependsOnMethods = ("addNewHolidayListRecord"))
   	public void editHolidayListRecord() throws Exception {
@@ -346,7 +346,7 @@ public class HolidayListTest extends BaseTest {
    
     }
 	
-    @Test(priority=35)
+    /*@Test(priority=35)
     public void searchPage() throws Exception {
     	HolidayListPage holidaylistPage = PageFactory.createPageInstance(driver, HolidayListPage.class);
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\HolidayListData.xlsx";
@@ -367,7 +367,7 @@ public class HolidayListTest extends BaseTest {
         Assert.assertTrue(holidaylistPage.verifyinvalidsearchwithwrongdata(holidayListDetails),"invalidsearchwithwrongdata");
         screenshot.captureScreen("HolidayListTest","Invalid Search with wrong data");
         Assert.assertTrue(holidaylistPage.verifyclearsearch(), "Clear All Assertion Failed");
-    }
+    }*/
 	
 	@AfterMethod
     public void afterEachMethod(Method method){

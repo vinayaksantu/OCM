@@ -37,10 +37,10 @@ public class OCMAudioVideoPlaybackReportPage extends BasePage  {
 	@FindBy(css=".k-grid-excel")
 	private WebElement exportPage;
 
-	@FindBy(xpath="//button[text()=' Scheduled Reports']")
+	@FindBy(xpath="//button[normalize-space()='Scheduled Reports']")
 	private WebElement schRptsinAgent;
 
-	@FindBy(xpath="//button[text()=' View Downloaded Reports']")
+	@FindBy(xpath="//button[normalize-space()='View Downloaded Reports']")
 	private WebElement viewDwnRptinAgntpg;
 
 	@FindBy(css="button[onclick='onSelectExportAll()']")
@@ -1171,7 +1171,7 @@ public class OCMAudioVideoPlaybackReportPage extends BasePage  {
 		for(Map<String,String> map1:UI)
 		{
 			System.out.println(map1.get("Agent Name"));
-			if(map1.get("Agent Name").toLowerCase().equals(details.getSearchStr().toLowerCase()) &&map1.get("Agent ID").toLowerCase().startsWith(details.getSearchStr1().toLowerCase()))
+			if(map1.get("Agent Name").toLowerCase().equals(details.getSearchStr().toLowerCase()) &&map1.get("Agent ID").toLowerCase().startsWith(details.getSearchStr2().toLowerCase()))
 				Status= true;
 			else 
 				Status =false;

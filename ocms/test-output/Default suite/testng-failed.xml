@@ -3,17 +3,53 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.tetherfi.test.reports.OCMChatbotInteractionreportTest">
+      <class name="com.tetherfi.test.tmac.AgentTeamMgmtTest">
         <methods>
-          <include name="NavigateToOcmReportsPage"/>
+          <include name="AddNewCountryRecord"/>
+          <include name="AddDuplicateRecord"/>
+          <include name="DeleteAgentTeamManagementCancelRecord"/>
+          <include name="AddNewDivisionRecord"/>
+          <include name="VerifyColumnsHeaderEnable"/>
+          <include name="AddRecordDepartmentBlank"/>
+          <include name="SortingByAscending"/>
+          <include name="AddRecordDivisionBlank"/>
           <include name="startTestCase"/>
           <include name="openApplication"/>
-          <include name="afterEachMethod"/>
+          <include name="AddNewDepartmentRecord"/>
+          <include name="SortingByDescending"/>
+          <include name="VerifySearchEndsWith"/>
+          <include name="database"/>
+          <include name="VerifyArrowMoveForFirstAndLastPage"/>
+          <include name="VerifySearchContains"/>
+          <include name="VerifyAuditTrialReportForCreate"/>
+          <include name="NavigateToAgentTeamManagementPage"/>
+          <include name="ExportToExcelData"/>
+          <include name="EditAgentTeamManagementCancelRecord"/>
+          <include name="VerifyNumberOfItemsPerPageSelection"/>
+          <include name="VerifySearchIsNotEqualTo"/>
+          <include name="VerifyAuditTrialReportForUpdate"/>
+          <include name="VerifyDropdownForAllTheColumns"/>
+          <include name="VerifySearchStartsWith"/>
           <include name="endTestCase"/>
+          <include name="VerifyAuditTrialReportForDelete"/>
           <include name="tearDown"/>
-          <include name="VerifyDownloadedReportDataForDateRange"/>
+          <include name="GroupBy"/>
+          <include name="AddRecordTeamNameBlank"/>
+          <include name="AddRecordCountryBlank"/>
+          <include name="ExporttoExcelWithoutData"/>
+          <include name="VerifyArrowMoveForPreviousAndNextPage"/>
+          <include name="DeleteAgentTeamManagementRecord"/>
+          <include name="SearchClearSearch"/>
+          <include name="VerifySearchDoesNotContains"/>
+          <include name="VerifyTotalNumberOfItemsPerPageDetails"/>
+          <include name="AddNewAgentTeamManagementRecord"/>
+          <include name="afterEachMethod"/>
+          <include name="ExportToExcel"/>
+          <include name="searchPage"/>
+          <include name="EditAgentTeamManagementRecord"/>
+          <include name="VerifyColumnsHeaderDisable"/>
         </methods>
-      </class> <!-- com.tetherfi.test.reports.OCMChatbotInteractionreportTest -->
+      </class> <!-- com.tetherfi.test.tmac.AgentTeamMgmtTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

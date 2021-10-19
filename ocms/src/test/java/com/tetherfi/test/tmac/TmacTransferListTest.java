@@ -116,7 +116,7 @@ public class TmacTransferListTest extends BaseTest {
 		TmacTransferListDetails tmacTransferListDetails=new TmacTransferListDetails(map);
 		TmacTransferListPage tmacTransferListPage=PageFactory.createPageInstance(driver,TmacTransferListPage.class);
 		Assert.assertTrue(tmacTransferListPage.addNewCancel(tmacTransferListDetails), "Add New cancel assertion failed");
-	}
+	}*/
 
 	@Test (priority=8)
 	public void AddNewTmacConsultTransferRecord() throws Exception {
@@ -771,7 +771,7 @@ public class TmacTransferListTest extends BaseTest {
 		ReportDetails reportDetails= new ReportDetails(map1);
 		ocmReportsPage.showReport(reportDetails);
 		Assert.assertTrue(ocmReportsPage.verifyTmacBlindTransferdelete(tmacTransferListDetails,"Delete"));
-	}*/
+	}
 
 	@Test (priority=67)//, dependsOnMethods = {"EditTmacBlindTransferRecord"})
 	public void DeleteTmacBlindTransferRecord2() throws Exception {

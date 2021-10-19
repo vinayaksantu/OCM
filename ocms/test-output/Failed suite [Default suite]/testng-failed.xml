@@ -3,19 +3,18 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Failed suite [Default suite]]">
   <test thread-count="5" name="Default test(failed)(failed)">
     <classes>
-      <class name="com.tetherfi.test.tmac.TmacTransferListTest">
+      <class name="com.tetherfi.test.reports.OCMAgentInteractionReportTest">
         <methods>
-          <include name="DeleteTmacBlindTransferRecord3"/>
+          <include name="afterEachMethod"/>
           <include name="startTestCase"/>
           <include name="openApplication"/>
-          <include name="afterEachMethod"/>
-          <include name="NavigatetoTmacTransferListPage"/>
+          <include name="verifyAdvancedSearchStartswith"/>
+          <include name="verifyAdvancedSearchcontains"/>
+          <include name="NavigateToOcmReportsPage"/>
           <include name="endTestCase"/>
           <include name="tearDown"/>
-          <include name="VerifyAuditTrialReportForTmacBlindTransferDelete"/>
-          <include name="DeleteTmacBlindTransferRecord2"/>
         </methods>
-      </class> <!-- com.tetherfi.test.tmac.TmacTransferListTest -->
+      </class> <!-- com.tetherfi.test.reports.OCMAgentInteractionReportTest -->
     </classes>
   </test> <!-- Default test(failed)(failed) -->
 </suite> <!-- Failed suite [Failed suite [Default suite]] -->

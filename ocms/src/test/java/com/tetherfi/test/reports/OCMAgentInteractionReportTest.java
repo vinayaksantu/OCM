@@ -145,9 +145,9 @@ public class OCMAgentInteractionReportTest extends BaseTest {
 		ocmReportsPage.showReport(reportDetails);
 		OCMAgentInteractionReportPage agentInteractionPage=PageFactory.createPageInstance(driver,OCMAgentInteractionReportPage.class);
 		Assert.assertTrue(agentInteractionPage.verifyTotalNumberOfItemsPerPageDetails(),"item per page assertion failed");
-	}   
+	} 
 	
-	@Test(priority=11,enabled=false,description="Verify number of items selected per page")
+	@Test(priority=11,enabled=true,description="Verify number of items selected per page")
 	public void VerifyNumberOfItemsPerPageSelection() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentInteractionReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -387,6 +387,7 @@ public class OCMAgentInteractionReportTest extends BaseTest {
 		Assert.assertTrue(ocmReportsPage.verifyDownloadedReportNameAndTimeInReportsDownloadPage(reportDetails.getReportName()),"Report not found in Reporter download page");
 	}  
 
+	//other data column is disabled still able to see the column in exported sheet
 	@Test(priority=33,dependsOnMethods ="ViewDownloadedReportInReportsDownloadPage",description="To verification of exported excel in Report downloads")
 	public void VerifyDownloadedReportData() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentInteractionReportData.xlsx";
@@ -404,7 +405,8 @@ public class OCMAgentInteractionReportTest extends BaseTest {
 		ReportDetails reportDetails= new ReportDetails(map);
 		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
 		ocmReportsPage.viewDownloadedReportInReportDownloadsPage();   	
-		Assert.assertTrue(ocmReportsPage.deleteWithoutDeleteReason(reportDetails),"Record deletion failed");
+		ocmReportsPage.deleteWithoutDeleteReason(reportDetails);
+		Assert.assertEquals(ocmReportsPage.getSuccessMessage(),"Please enter the delete reason","empty delete reason record assertion failed");	
 	}
 
 	@Test(priority=35,description="Cancel Button in Reports Download Delete Button")
@@ -479,6 +481,7 @@ public class OCMAgentInteractionReportTest extends BaseTest {
 		Assert.assertTrue(ocmReportsPage.verifyDownloadedReportNameAndTimeInReportsDownloadPage(reportDetails.getReportName()),"Report not found in Reporter download page");
 	}
 
+	//other data column is disabled still able to see the column in exported sheet
 	@Test(priority=42,dependsOnMethods ="ExportReportForDateRange",description="To verification of exported excel in Report downloads")
 	public void VerifyDownloadedReportDataInReportDownloads() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentInteractionReportData.xlsx";
@@ -496,7 +499,8 @@ public class OCMAgentInteractionReportTest extends BaseTest {
 		ReportDetails reportDetails= new ReportDetails(map);
 		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
 		ocmReportsPage.viewDownloadedReportInReportDownloadsPage();    	
-		Assert.assertTrue(ocmReportsPage.deleteWithoutDeleteReason(reportDetails),"empty delete reason record assertion failed");		
+		ocmReportsPage.deleteWithoutDeleteReason(reportDetails);
+		Assert.assertEquals(ocmReportsPage.getSuccessMessage(),"Please enter the delete reason","empty delete reason record assertion failed");			
 	}
 
 	@Test(priority=44,description="Cancel Button in Reports Download Delete Button")
@@ -543,7 +547,7 @@ public class OCMAgentInteractionReportTest extends BaseTest {
 		Assert.assertTrue(agentInteractionPage.verifyExportToExcel(filePath1));
 	}
 
-	//Fix null values issue.
+	
 	@Test(priority=48,dependsOnMethods="ExportPage",description="To Verify Exported Page Against UI")
 	public void VerifyExportedPage() throws Exception{
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentInteractionReportData.xlsx";
@@ -594,7 +598,7 @@ public class OCMAgentInteractionReportTest extends BaseTest {
 		Assert.assertTrue(ocmReportsPage.verifyDownloadedReportNameAndTimeInReportsDownloadPage(reportDetails.getReportName()),"Report not found in Reporter download page");   
 	}           
 	
-	@Test(priority=33,dependsOnMethods ="viewExportedExcelDataInReportDownloadsPage",description="To verification of exported excel in Report downloads")
+	@Test(priority=52,dependsOnMethods ="viewExportedExcelDataInReportDownloadsPage",description="To verification of exported excel in Report downloads")
 	public void VerifyExportedExcelData() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentInteractionReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -604,7 +608,7 @@ public class OCMAgentInteractionReportTest extends BaseTest {
 		Assert.assertTrue(ocmReportsPage.verifyExportedSheet("OCMReportDownload","OCM Agent Interaction Repo"));	
 	}
 	
-	@Test(priority=52,description="Group by functionality")
+	@Test(priority=53,description="Group by functionality")
 	public void GroupBy() throws Exception{
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentInteractionReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -618,7 +622,7 @@ public class OCMAgentInteractionReportTest extends BaseTest {
 		screenshot.captureScreen("OCMAgentInteractionReportTest", "AlreadyGroupBy");
 	}
 
-	@Test(priority=53,enabled=false,description="Verify the column headers against the Json File ")
+	@Test(priority=54,enabled=false,description="Verify the column headers against the Json File ")
 	public void VerifyJsonDataForColumnNames() throws Exception{
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentInteractionReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);
@@ -626,12 +630,11 @@ public class OCMAgentInteractionReportTest extends BaseTest {
 		OCMReportsPage ocmReportsPage = PageFactory.createPageInstance(driver, OCMReportsPage.class);
 		ocmReportsPage.showReport(reportDetails);  
 		OCMAgentInteractionReportPage agentInteractionPage=PageFactory.createPageInstance(driver,OCMAgentInteractionReportPage.class);
-		agentInteractionPage.verifycolumnsHeaderEnabled();
 		JSONReader json= new JSONReader(destinationFilePath);
 		Assert.assertTrue(agentInteractionPage.verifyJsonDataForgridColumnHidden(json.getJsonGridColumnTitleKeyDataForReports("Hidden")),"JSON data grid column hidden assertion failed");  	
 	}
 
-	@Test(priority=54,description="To Verify Ascending and Descending order")
+	@Test(priority=55,description="To Verify Ascending and Descending order")
 	public void VerifySorting() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAgentInteractionReportData.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"Show").getTestData().get(0);

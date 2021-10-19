@@ -37,10 +37,10 @@ public class OCMAgentInteractionReportPage extends BasePage  {
 	@FindBy(css=".k-grid-excel")
 	private WebElement exportPage;
 
-	@FindBy(xpath="//button[text()=' Scheduled Reports']")
+	@FindBy(xpath="//button[normalize-space()='Scheduled Reports']")
 	private WebElement schRptsinAgent;
 
-	@FindBy(xpath="//button[text()=' View Downloaded Reports']")
+	@FindBy(xpath="//button[normalize-space()='View Downloaded Reports']")
 	private WebElement viewDwnRptinAgntpg;
 
 	@FindBy(css="button[onclick='onSelectExportAll()']")
@@ -88,7 +88,7 @@ public class OCMAgentInteractionReportPage extends BasePage  {
 	@FindBy(css="div[style*='overflow: visible'] span[class^='k-link']")
 	private List<WebElement> headersColumns;
 
-	@FindBy(css="th a[class='k-link']")
+	@FindBy(css="#grid th a[class='k-link']")
 	private List<WebElement> headersText;
 
 	@FindBy(css=".k-grid-pdf")
@@ -232,10 +232,10 @@ public class OCMAgentInteractionReportPage extends BasePage  {
 
 	@FindBy(xpath="//tbody/tr/td[2]")
 	private WebElement rowdata;
- 
+
 	@FindBy(xpath="//tbody/tr/td[4]")
 	private WebElement rowdata1;							  
-							 
+
 
 	@FindBy(xpath="//tbody/tr[2]/td[1]")
 	private WebElement rowdatatwo;
@@ -599,32 +599,32 @@ public class OCMAgentInteractionReportPage extends BasePage  {
 		int pagersize=Integer.valueOf(pagerSize.getText());
 		int pages=(item%pagersize==0)?item/pagersize-1:item/pagersize;
 		List<Map<String,String>> arr=new ArrayList<Map<String,String>>();
-		for(int k=0;k<=pages;k++){
-			waitUntilWebElementIsVisible(auditGridContent);
-			List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
-			List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
-			String col=null;
-			for(int i=1;i<rows.size();i++) {
-				Map<String,String> map = new HashMap<String,String>();
-				List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
-				for(int j=1;j<headers.size();j++) {
-					scrollToElement(headers.get(j));
-					System.out.println(headers.get(j).getText());
-					if(headers.get(j).getText().equals("Last Changed On")){
-						col=cols.get(j).getText().substring(0,10);
-					}
-					else
-						col=cols.get(j).getText();
-					map.put(headers.get(j).getText(),col);
+		//for(int k=0;k<=pages;k++){
+		waitUntilWebElementIsVisible(auditGridContent);
+		List<WebElement> rows=auditGridContent.findElements(By.tagName("tr"));
+		List<WebElement> headers = rows.get(0).findElements(By.tagName("th"));
+		String col=null;
+		for(int i=1;i<rows.size();i++) {
+			Map<String,String> map = new HashMap<String,String>();
+			List<WebElement> cols=rows.get(i).findElements(By.tagName("td"));
+			for(int j=0;j<headers.size();j++) {
+				scrollToElement(headers.get(j));
+				System.out.println(headers.get(j).getText());
+				if(headers.get(j).getText().equals("Last Changed On")){
+					col=cols.get(j).getText().substring(0,10);
 				}
-				map.remove("");
-				arr.add(map);
+				else
+					col=cols.get(j).getText();
+				map.put(headers.get(j).getText(),col);
 			}
-			/*if(k!=pages)
+			map.remove("");
+			arr.add(map);
+		}
+		/*if(k!=pages)
 			{
 				nextPageIcon.click();
-				waitForJqueryLoad(driver);}*/
-		}
+				waitForJqueryLoad(driver);}
+		}*/
 		return arr;
 	}
 
@@ -706,7 +706,7 @@ public class OCMAgentInteractionReportPage extends BasePage  {
 		Boolean Status=verifyExportPageFileDownload(filePath, "OCMAgentInteractionReport");
 		return Status;
 	}
-	
+
 	public boolean verifyExportPageFileDownloaded(String reportname){
 		return verifyExportPageFileDownload(System.getProperty("user.dir")+"\\src\\test\\resources\\DownloadedFiles",reportname);
 	}
@@ -979,7 +979,7 @@ public class OCMAgentInteractionReportPage extends BasePage  {
 			Status=false;
 		return Status;	
 	}
-	
+
 	public boolean verifyAdvanceSearchIsEqualTo(ReportDetails reportDetails) throws Exception {
 		Boolean Status=false;
 		waitForJqueryLoad(driver);
@@ -994,7 +994,7 @@ public class OCMAgentInteractionReportPage extends BasePage  {
 		}
 		return Status;
 	}
-	
+
 	public boolean verifyAdvanceSearchIsNotEqualTo(ReportDetails reportDetails) throws Exception {
 		Boolean Status=false;
 		waitForJqueryLoad(driver);
@@ -1016,14 +1016,14 @@ public class OCMAgentInteractionReportPage extends BasePage  {
 		for(Map<String,String> map1:UI)
 		{
 			System.out.println(map1.get("Supervisor Name"));
-			if(map1.get("Supervisor Name").toLowerCase().contains(reportDetails.getSearchStr()))				
+			if(map1.get("Supervisor Name").contains(reportDetails.getSearchStr()))				
 				Status= true;
 			else 
 				Status =false;
 		}
 		return Status;
 	}
-	
+
 	public boolean verifyAdvanceSearchDoesNotContains(ReportDetails reportDetails) throws Exception {
 		Boolean Status=false;
 		waitForJqueryLoad(driver);
@@ -1031,7 +1031,7 @@ public class OCMAgentInteractionReportPage extends BasePage  {
 		for(Map<String,String> map1:UI)
 		{
 			System.out.println(map1.get("Agent Name"));
-			if(!map1.get("Agent Name").toUpperCase().contains(reportDetails.getSearchStr()))				
+			if(!map1.get("Agent Name").contains(reportDetails.getSearchStr()))				
 				Status= true;
 			else 
 				Status =false;
@@ -1045,14 +1045,14 @@ public class OCMAgentInteractionReportPage extends BasePage  {
 		for(Map<String,String> map1:UI)
 		{
 			System.out.println(map1.get("Channel"));
-			if(map1.get("Channel").toLowerCase().startsWith(reportDetails.getSearchStr()))				
+			if(map1.get("Channel").startsWith(reportDetails.getSearchStr()))				
 				Status= true;
 			else 
 				Status =false;
 		}
 		return Status;
 	}
-	
+
 	public boolean verifyAdvancedSearchEndsWith(ReportDetails reportDetails) throws Exception {
 		Boolean Status=false;
 		waitForJqueryLoad(driver);
@@ -1067,7 +1067,7 @@ public class OCMAgentInteractionReportPage extends BasePage  {
 		}
 		return Status;
 	}
-	
+
 	public Boolean advancedSearchANDCriteria(ReportDetails details) throws Exception {
 		Boolean Status=false;	
 		selectWebElement(advancedsearchBtn);
@@ -1170,7 +1170,7 @@ public class OCMAgentInteractionReportPage extends BasePage  {
 		else
 			return false;
 	}
-	
+
 	public boolean groupby() throws Exception {
 		Thread.sleep(3000);
 		waitForJqueryLoad(driver);					
@@ -1185,21 +1185,24 @@ public class OCMAgentInteractionReportPage extends BasePage  {
 		else
 			return false;		
 	} 
-	
+
 	public boolean verifyJsonDataForgridColumnHidden(Map<String,String> jsonmap){
-		System.out.println(jsonmap);
 		boolean status=false;
-		for(WebElement e: headersText){
-			scrollToElement(e);
-			if(jsonmap.get(e.getText()).equalsIgnoreCase("false")){status=true;}else{
-				System.out.println("Header "+e.getText()+"is hidden in JSON configuration file");status=false;break;}
+		for(int j=0;j<headersText.size();j++) {
+			scrollToElement(headersText.get(j));
+			for(WebElement e: headersText){
+				System.out.println(e.getText());
+				scrollToElement(e);
+				if(jsonmap.get(e.getText()).equalsIgnoreCase("false")){status=true;}else{
+					System.out.println("Header "+e.getText()+"is hidden in JSON configuration file");status=false;break;}
+			}
 		}
 		return status;
 	}
 
 
-	
-	
+
+
 	public boolean verifyDatabase(String query,ReportDetails details) throws InterruptedException {
 		//get dates from xl - step 2
 		String reportbeforedate = details.getStartDate();
@@ -1252,7 +1255,7 @@ public class OCMAgentInteractionReportPage extends BasePage  {
 		return arr;
 	}	 
 
-	
+
 
 
 }

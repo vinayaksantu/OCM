@@ -2,7 +2,7 @@
   "JsonVersioningDetails": {
     "FileName": "OCMAgentInteractionReport.json",
     "Location": "Reports",
-    "Version": "3.3.11.6",
+    "Version": "4.0.8.6",
     "LastModifiedDateTime": "06-11-2020 08:30:00 AM",
     "LastModifiedBy": "Shruthi",
     "Description": "Pagination, Search and Sort by using ORM"
@@ -62,7 +62,7 @@
           "PropertyName": "TeamName", // property name as in database/query
           "IncludeInReport": false, // IncludeInReport = false, if column to be included in report/export else false
           "IncludeInMenu": false, //Includeinmenu = false, if column should be include in kendo grid menu else false
-          "Hidden": false, // hidden = true, if column need to be hidden in UI else false
+          "Hidden": true, // hidden = true, if column need to be hidden in UI else false
           "ClientTemplate": "", //any Jquery function for formatting column value
           "DataFormatType": "varchar" // data format type of the column value
         },
@@ -321,7 +321,7 @@
         {
           "Title": "Other Data",
           "PropertyName": "OtherData",
-          "IncludeInReport": false,
+          "IncludeInReport": true,
           "IncludeInMenu": true,
           "Hidden": true,
           "ClientTemplate": "",
@@ -366,6 +366,15 @@
         {
           "Title": "Registered Mobile No",
           "PropertyName": "RegisteredMobileNo",
+          "IncludeInReport": true,
+          "IncludeInMenu": true,
+          "Hidden": false,
+          "ClientTemplate": "",
+          "DataFormatType": ""
+        },
+        {
+          "Title": "Agent Comment",
+          "PropertyName": "AgentComment",
           "IncludeInReport": true,
           "IncludeInMenu": true,
           "Hidden": false,

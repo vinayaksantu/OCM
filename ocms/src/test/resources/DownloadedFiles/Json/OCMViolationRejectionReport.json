@@ -1,0 +1,337 @@
+{
+  "JsonVersioningDetails": {
+    "FileName": "OCMViolationRejectionReport.json",
+    "Location": "Reports",
+    "Version": "4.0.8.6",
+    "LastModifiedDateTime": "06-11-2020 08:30:00 AM",
+    "LastModifiedBy": "Shruthi",
+    "Description": "Pagination, Search and Sort by using ORM"
+  },
+  "ReportName": "OCM Violation Rejection Report",
+  "Grid": [
+    {
+      "Name": "OCMViolationRejectionReport",
+      "ClientDetailTemplateId": "",
+      "ClientDetailTemplateColumn": "",
+      "DetailReportName": "",
+      "DetailReportColumnNameOne": "",
+      "DetailReportColumnNameTwo": "",
+      "DetailReportColumnNameThree": "",
+      "IsdetailReport": false,
+      "SummaryDataButton": false,
+      "Selectable": "none", /* cell/row/none*/
+      "Change": "empty",
+      "DataBound": "onDataBound",
+      "ColumnHide": "onDataBound",
+      "ColumnShow": "onDataBound",
+      "ExcelExport": "validateExportExcel",
+      "DetailExpand": "onGridDetailExpand",
+      "Action": "GetGridData",
+      "Controller": "OCMReport",
+      "DataParameter": "",
+      "ServerOperation": "",
+      "GridAutoResize": "0",
+      "PageSize": "10",
+      "Identity": [],
+      "ReportAutoCompleteSearch": {
+        "Title": "Event Name",
+        "PropertyName": "EventName"
+      },
+      "Columns": [
+        {
+          "ColumnType": "Command",
+          "Title": "",
+          "PropertyName": "CustomAudio",
+          "Hidden": false,
+          "Action": "previewViolation",
+          "Icon": "k-icon k-i-preview",
+          "width": "50"
+        },
+        {
+          "Title": "Event ID",
+          "PropertyName": "EventID",
+          "IncludeInReport": true,
+          "IncludeInMenu": true,
+          "Hidden": false,
+          "ClientTemplate": "",
+          "DataFormatType": "number"
+        },
+        {
+          "Title": "Event Name",
+          "PropertyName": "EventName",
+          "IncludeInReport": true,
+          "IncludeInMenu": true,
+          "Hidden": false,
+          "ClientTemplate": "",
+          "DataFormatType": ""
+        },
+        {
+          "Title": "Event Type",
+          "PropertyName": "EventType",
+          "IncludeInReport": true,
+          "IncludeInMenu": true,
+          "Hidden": false,
+          "ClientTemplate": "",
+          "DataFormatType": ""
+        },
+        {
+          "Title": "Annotated Name",
+          "PropertyName": "AnnotatedName",
+          "IncludeInReport": true,
+          "IncludeInMenu": true,
+          "Hidden": false,
+          "ClientTemplate": "",
+          "DataFormatType": "number"
+        },
+        {
+          "Title": "Rejection Comment",
+          "PropertyName": "RejectionComment",
+          "IncludeInReport": true,
+          "IncludeInMenu": true,
+          "Hidden": false,
+          "ClientTemplate": "",
+          "DataFormatType": ""
+        },
+        {
+          "Title": "Rejected By",
+          "PropertyName": "RejectedBy",
+          "IncludeInReport": true,
+          "IncludeInMenu": true,
+          "Hidden": false,
+          "ClientTemplate": "",
+          "DataFormatType": ""
+        },
+        {
+          "Title": "Rejected DateTime",
+          "PropertyName": "RejectedDateTime",
+          "IncludeInReport": true,
+          "IncludeInMenu": true,
+          "Hidden": false,
+          "ClientTemplate": "#= checkGridDateTime(RejectedDateTime)#",
+          "DataFormatType": ""
+        },
+        {
+          "Title": "Agent Name",
+          "PropertyName": "AgentName",
+          "IncludeInReport": true,
+          "IncludeInMenu": true,
+          "Hidden": false,
+          "ClientTemplate": "",
+          "DataFormatType": ""
+        },
+        {
+          "Title": "Supervisor Name",
+          "PropertyName": "SupervisorName",
+          "IncludeInReport": true,
+          "IncludeInMenu": true,
+          "Hidden": false,
+          "ClientTemplate": "",
+          "DataFormatType": ""
+        },
+        {
+          "Title": "Org. Unit",
+          "PropertyName": "TeamName",
+          "IncludeInReport": true,
+          "IncludeInMenu": true,
+          "Hidden": false,
+          "ClientTemplate": "",
+          "DataFormatType": ""
+        },
+        {
+          "Title": "AgentStatus",
+          "PropertyName": "AgentStatus",
+          "IncludeInReport": true,
+          "IncludeInMenu": true,
+          "Hidden": false,
+          "ClientTemplate": "",
+          "DataFormatType": ""
+        },
+        {
+          "Title": "Threshold",
+          "PropertyName": "Threshold",
+          "IncludeInReport": true,
+          "IncludeInMenu": true,
+          "Hidden": false,
+          "ClientTemplate": "",
+          "DataFormatType": "number"
+        },
+        {
+          "Title": "Model Version",
+          "PropertyName": "modelversion",
+          "IncludeInReport": true,
+          "IncludeInMenu": true,
+          "Hidden": false,
+          "ClientTemplate": "",
+          "DataFormatType": "number"
+        },
+        {
+          "Title": "Action Summary",
+          "PropertyName": "ActionSummary",
+          "IncludeInReport": true,
+          "IncludeInMenu": true,
+          "Hidden": false,
+          "ClientTemplate": "",
+          "DataFormatType": ""
+        },
+        {
+          "Title": "Cam Pic",
+          "PropertyName": "CamPic",
+          "IncludeInReport": true,
+          "IncludeInMenu": true,
+          "Hidden": true,
+          "ClientTemplate": "",
+          "DataFormatType": ""
+        },
+        {
+          "Title": "ScreenShot",
+          "PropertyName": "ScreenShot",
+          "IncludeInReport": true,
+          "IncludeInMenu": true,
+          "Hidden": true,
+          "ClientTemplate": "",
+          "DataFormatType": ""
+        },
+        {
+          "Title": "ScreenVideo",
+          "PropertyName": "ScreenVideo",
+          "IncludeInReport": true,
+          "IncludeInMenu": true,
+          "Hidden": true,
+          "ClientTemplate": "",
+          "DataFormatType": ""
+        },
+        {
+          "Title": "Created Date Time",
+          "PropertyName": "CreatedDateTime",
+          "IncludeInReport": true,
+          "IncludeInMenu": true,
+          "Hidden": false,
+          "ClientTemplate": "#= checkGridDateTime(CreatedDateTime)#",
+          "DataFormatType": "datetime"
+        },
+        {
+          "Title": "QRVideoURL",
+          "PropertyName": "QRVideoURL",
+          "IncludeInReport": true,
+          "IncludeInMenu": true,
+          "Hidden": true,
+          "ClientTemplate": "",
+          "DataFormatType": ""
+        }
+      ]
+    },
+    {
+      /*Main grid drill first*/
+      "Name": "",
+      "ClientDetailTemplateId": "",
+      "ClientDetailTemplateColumn": "",
+      "DetailReportName": "",
+      "DetailReportColumnNameOne": "",
+      "DetailReportColumnNameTwo": "",
+      "DetailReportColumnNameThree": "",
+      "IsdetailReport": false,
+      "SummaryDataButton": false,
+      "Selectable": "", /* cell/row/none*/
+      "Change": "",
+      "DataBound": "",
+      "ColumnHide": "",
+      "ColumnShow": "",
+      "ExcelExport": "",
+      "DetailExpand": "",
+      "Action": "",
+      "Controller": "",
+      "DataParameter": "",
+      "ServerOperation": "",
+      "GridAutoResize": "1",
+      "PageSize": "10",
+      "Identity": [
+      ],
+      "ReportAutoCompleteSearch": {},
+      "Columns": []
+    },
+    {
+      /*Main grid drill second*/
+      "Name": "",
+      "ClientDetailTemplateId": "",
+      "ClientDetailTemplateColumn": "",
+      "DetailReportName": "",
+      "DetailReportColumnNameOne": "",
+      "DetailReportColumnNameTwo": "",
+      "DetailReportColumnNameThree": "",
+      "IsdetailReport": false,
+      "SummaryDataButton": false,
+      "Selectable": "", /* cell/row/none*/
+      "Change": "",
+      "DataBound": "",
+      "ColumnHide": "",
+      "ColumnShow": "",
+      "ExcelExport": "",
+      "DetailExpand": "",
+      "Action": "",
+      "Controller": "",
+      "DataParameter": "",
+      "ServerOperation": "",
+      "GridAutoResize": "1",
+      "PageSize": "10",
+      "Identity": [],
+      "ReportAutoCompleteSearch": {},
+      "Columns": []
+    },
+    {
+      /*Main grid drill third*/
+      "Name": "",
+      "ClientDetailTemplateId": "",
+      "ClientDetailTemplateColumn": "",
+      "DetailReportName": "",
+      "DetailReportColumnNameOne": "",
+      "DetailReportColumnNameTwo": "",
+      "DetailReportColumnNameThree": "",
+      "IsdetailReport": false,
+      "SummaryDataButton": false,
+      "Selectable": "", /* cell/row/none*/
+      "Change": "",
+      "DataBound": "",
+      "ColumnHide": "",
+      "ColumnShow": "",
+      "ExcelExport": "",
+      "DetailExpand": "",
+      "Action": "",
+      "Controller": "",
+      "DataParameter": "",
+      "ServerOperation": "",
+      "GridAutoResize": "1",
+      "PageSize": "10",
+      "Identity": [],
+      "ReportAutoCompleteSearch": {},
+      "Columns": []
+    },
+    {
+      /*Main grid drill third*/
+      "Name": "",
+      "ClientDetailTemplateId": "",
+      "ClientDetailTemplateColumn": "",
+      "DetailReportName": "",
+      "DetailReportColumnNameOne": "",
+      "DetailReportColumnNameTwo": "",
+      "DetailReportColumnNameThree": "",
+      "IsdetailReport": false,
+      "SummaryDataButton": false,
+      "Selectable": "", /* cell/row/none*/
+      "Change": "",
+      "DataBound": "",
+      "ColumnHide": "",
+      "ColumnShow": "",
+      "ExcelExport": "",
+      "DetailExpand": "",
+      "Action": "",
+      "Controller": "",
+      "DataParameter": "",
+      "ServerOperation": "",
+      "GridAutoResize": "1",
+      "PageSize": "10",
+      "Identity": [],
+      "ReportAutoCompleteSearch": {},
+      "Columns": []
+    }
+  ]
+}

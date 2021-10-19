@@ -40,7 +40,7 @@ public class CallBackAnnouncementTest extends BaseTest {
         Assert.assertTrue(callbackAnnouncementPage.isCallbackAnnouncementPageDisplayed(), "CallBack Announcement page assertion failed");
     }
   
-    @Test(priority=1)
+   /* @Test(priority=1)
     public void CallbackAnnouncementPage() {
         CallbackAnnouncementPage callbackAnnouncementPage = PageFactory.createPageInstance(driver, CallbackAnnouncementPage.class);
     	Assert.assertTrue(callbackAnnouncementPage.verifylogo(),"CallBackAnnouncement logo assertion failed");
@@ -75,7 +75,7 @@ public class CallBackAnnouncementTest extends BaseTest {
         CallbackAnnouncementDetails callbackAnnouncementDetails = new CallbackAnnouncementDetails(map);
         CallbackAnnouncementPage callbackAnnouncementPage = PageFactory.createPageInstance(driver, CallbackAnnouncementPage.class);
         Assert.assertTrue(callbackAnnouncementPage.addnewCancel(callbackAnnouncementDetails), "Add new record cancel assertion failed");
-    }
+    }*/
     
     @Test(priority=6)
     public void AddNewCallbackAnnouncementRecord() throws Exception {
@@ -137,7 +137,7 @@ public class CallBackAnnouncementTest extends BaseTest {
         Assert.assertTrue(callbackAnnouncementPage.verifyErrorMessage(), "Add New record assertion failed");
     }
     
-    @Test(priority=12)
+   /* @Test(priority=12)
     public void VerifySearchIsNotEqualTo() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\CallbackAnnouncementData.xlsx";
         Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -179,7 +179,7 @@ public class CallBackAnnouncementTest extends BaseTest {
         CallbackAnnouncementDetails callbackAnnouncementDetails = new CallbackAnnouncementDetails(map);
         CallbackAnnouncementPage callbackAnnouncementPage = PageFactory.createPageInstance(driver, CallbackAnnouncementPage.class);
         Assert.assertTrue(callbackAnnouncementPage.verifySearchEndsWith(callbackAnnouncementDetails.getLanguage()));
-    }
+    }*/
     
     @Test(priority=17)//,dependsOnMethods = "AddDuplicateCallBackAnnouncementRecord")
     public void EditCallBackAnnouncementRecord() throws Exception {
@@ -210,7 +210,7 @@ public class CallBackAnnouncementTest extends BaseTest {
         Assert.assertTrue(callbackAnnouncementPage.editcancel(callbackAnnouncementDetails));
     }
     
-    @Test(priority=20)
+    /*@Test(priority=20)
     public void searchPage() throws Exception {
         String filePath = System.getProperty("user.dir") + "\\src\\test\\resources\\TestData\\CallbackAnnouncementData.xlsx";
     	Map<String, String> map = new ExcelReader(filePath,"Create").getTestData().get(0);
@@ -229,7 +229,7 @@ public class CallBackAnnouncementTest extends BaseTest {
         CallbackAnnouncementPage callbackAnnouncementPage = PageFactory.createPageInstance(driver, CallbackAnnouncementPage.class);
         callbackAnnouncementPage.searchwithoutextsearch(callbackAnnouncementDetails);
     	Assert.assertTrue(callbackAnnouncementPage.verifyErrorMessage());
-    }
+    }*/
     
     @Test(priority=22)
     public void DeleteWithoutDeleteReasonRecord() throws Exception {
@@ -298,7 +298,7 @@ public class CallBackAnnouncementTest extends BaseTest {
         Assert.assertTrue(callbackAnnouncementPage.ExporttoExcelWithoutData(callbackAnnouncementDetails));
     }
   
-    @Test(priority=29)
+    /*@Test(priority=29)
     public void SortingByAscending() throws IOException {
         CallbackAnnouncementPage callbackAnnouncementPage = PageFactory.createPageInstance(driver, CallbackAnnouncementPage.class);
         callbackAnnouncementPage.SortByAscending();
@@ -348,7 +348,7 @@ public class CallBackAnnouncementTest extends BaseTest {
     public void VerifyNumberOfItemsPerPageSelection() {
         CallbackAnnouncementPage callbackAnnouncementPage = PageFactory.createPageInstance(driver, CallbackAnnouncementPage.class);
         Assert.assertTrue(callbackAnnouncementPage.verifyNumberOfItemsPerPage(),"item per page assertion failed");
-    }
+    }*/
     
    
     @Test(priority=36)

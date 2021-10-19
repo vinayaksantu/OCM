@@ -149,7 +149,8 @@ public class OCMAudioVideoPlaybackReportTest extends BaseTest {
 		ReportDetails reportDetails= new ReportDetails(map);
 		OCMReportsPage ocmReportsPage=PageFactory.createPageInstance(driver,OCMReportsPage.class);
 		ocmReportsPage.viewDownloadedReportInReportDownloadsPage();    	
-		Assert.assertTrue(ocmReportsPage.deleteWithoutDeleteReason(reportDetails),"empty delete reason record assertion failed");
+		ocmReportsPage.deleteWithoutDeleteReason(reportDetails);
+		Assert.assertEquals(ocmReportsPage.getSuccessMessage(),"Please enter the delete reason","empty delete reason record assertion failed");
 	}
 
 	@Test(priority=13,description="Cancel Button in Reports Download Delete Button")
@@ -264,7 +265,7 @@ public class OCMAudioVideoPlaybackReportTest extends BaseTest {
 		Assert.assertTrue(AudioVideoPlaybackReportPage.verifyTotalNumberOfItemsPerPageDetails(),"item per page assertion failed");
 	}
 
-	@Test(priority=23,enabled=false,description="Verify number of items selected per page")
+	@Test(priority=23,enabled=true,description="Verify number of items selected per page")
 	public void VerifyNumberOfItemsPerPageSelection() throws Exception {
 		String filePath = System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\OCMAudioVideoPlaybackReport.xlsx";
 		Map<String, String> map = new ExcelReader(filePath,"ShowDateRange").getTestData().get(0);

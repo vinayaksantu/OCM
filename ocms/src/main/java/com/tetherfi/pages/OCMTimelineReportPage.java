@@ -172,7 +172,7 @@ public class OCMTimelineReportPage extends BasePage  {
 	/*@FindBy(css = ".modal-footer .k-button")
 			private WebElement searchCloseBtn;*/
 
-	@FindBy(xpath="//*[@id=\"searchModel\"]/div/div/div[3]/button[1]")
+	@FindBy(xpath="//button[@onclick='closeSearch()']")
 	private WebElement searchCloseBtn;
 
 	@FindBy(css = ".modal-footer .button-danger-theme")

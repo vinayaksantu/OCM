@@ -7,26 +7,21 @@
   </listeners>
   <test thread-count="5" name="OCMRegression(failed)">
     <classes>
-      <class name="com.tetherfi.test.reports.OCMInteractionActionsReportTest">
+      <class name="com.tetherfi.test.ivr.CallBackAnnouncementTest">
         <methods>
-          <include name="ViewDownloadedReportforDateRange"/>
-          <include name="ExportToExcelForInteractionActionReport"/>
-          <include name="ViewDownloadedReportInReportDownloadsPage"/>
-          <include name="endTestCase"/>
-          <include name="tearDown"/>
-          <include name="VerifyViewDownloadedOcmInteractionActionReportInReportsDownloadDateRangePage"/>
-          <include name="ViewDownloadedReportforSingleDate"/>
-          <include name="NavigateToOcmReportsPage"/>
-          <include name="database"/>
-          <include name="afterEachMethod"/>
-          <include name="ExportReportforSingleDate"/>
+          <include name="EditCallBackAnnouncementRecord"/>
+          <include name="DeleteWithoutDeleteReasonRecord"/>
           <include name="startTestCase"/>
           <include name="openApplication"/>
-          <include name="ExportOCMInteractionActionReportDateRange"/>
-          <include name="VerifyExporedExcelData"/>
-          <include name="VerifyViewDownloadedOcmInteractionActionReportInReportsDownloadPage"/>
+          <include name="NavigateToCallBackAnnouncementPage"/>
+          <include name="EditWithoutModifyReasonCallbackannouncementRecord"/>
+          <include name="endTestCase"/>
+          <include name="tearDown"/>
+          <include name="DeleteCallbackAnnouncementRecord"/>
+          <include name="VerifyCancelButtonAtEditCallbackAnnouncementRecord"/>
+          <include name="afterEachMethod"/>
         </methods>
-      </class> <!-- com.tetherfi.test.reports.OCMInteractionActionsReportTest -->
+      </class> <!-- com.tetherfi.test.ivr.CallBackAnnouncementTest -->
     </classes>
   </test> <!-- OCMRegression(failed) -->
 </suite> <!-- Failed suite [OCM Modules Test Automation] -->

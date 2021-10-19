@@ -165,7 +165,7 @@ public class OCMAgentAuxReportPage extends BasePage  {
 	@FindBy(id = "1001sTextToSearch")
 	private WebElement searchTextBox;
 
-	@FindBy(css = ".modal-footer .k-button")
+	@FindBy(xpath = "//button[@onclick='closeSearch()']")
 	private WebElement searchCloseBtn;
 
 	@FindBy(css = ".modal-footer .button-danger-theme")
